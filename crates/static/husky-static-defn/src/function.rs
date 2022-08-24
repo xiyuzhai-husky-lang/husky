@@ -4,7 +4,7 @@ use husky_vm::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct StaticParameter {
     pub name: &'static str,
-    pub liason: ParameterModifier,
+    pub modifier: ParameterModifier,
     pub ty: &'static str,
 }
 

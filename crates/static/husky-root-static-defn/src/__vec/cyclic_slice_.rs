@@ -6,16 +6,16 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
     name: "cyclic_slice",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::EvalRef,
+        this_modifier: ParameterModifier::EvalRef,
         parameters: &[
             StaticParameter {
                 name: "start",
-                liason: ParameterModifier::None,
+                modifier: ParameterModifier::None,
                 ty: "i32",
             },
             StaticParameter {
                 name: "end",
-                liason: ParameterModifier::None,
+                modifier: ParameterModifier::None,
                 ty: "i32",
             },
         ],
@@ -23,8 +23,8 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(virtual_vec_cyclic_slice, none)),
-        output_liason: OutputLiason::Transfer,
-        // bug if output_liason is OutputLiason::MemberAccess
+        output_liason: OutputModifier::Transfer,
+        // bug if output_liason is OutputModifier::MemberAccess
     },
     dev_src: static_dev_src!(),
 };

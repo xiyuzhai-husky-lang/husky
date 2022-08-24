@@ -203,7 +203,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 if trai.variant == self.db.entity_route_menu().std_ops_index_trai.variant {
                     let this_ty_decl = self.db.ty_decl(ty).unwrap();
                     let trai_impl = this_ty_decl.trait_impl(trai).unwrap();
-                    let elem_ty = match trai_impl.member_impls[0] {
+                    let elem_ty = match trai_impl.member_impls()[0] {
                         TraitMemberImplDecl::AssociatedType { ty, .. } => ty,
                         _ => panic!(),
                     };

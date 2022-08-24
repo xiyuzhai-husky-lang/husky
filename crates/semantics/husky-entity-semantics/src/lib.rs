@@ -91,6 +91,7 @@ impl EntityDefn {
     ) -> Arc<Self> {
         let variant = EntityDefnVariant::from_static(db, symbol_context, static_entity_defn);
         EntityDefn::new(
+            db,
             symbol_context
                 .entity_syntax_db()
                 .intern_word(static_entity_defn.name)
@@ -105,16 +106,18 @@ impl EntityDefn {
     }
 
     pub fn from_generic(
+        db: &dyn EntityDefnQueryGroup,
         ident: CustomIdentifier,
         route: EntityRoutePtr,
         file: FilePtr,
         range: TextRange,
     ) -> Arc<Self> {
-        Self::new(ident.into(), EntityDefnVariant::Any, route, file, range)
+        Self::new(db, ident.into(), EntityDefnVariant::Any, route, file, range)
     }
 
     pub fn this_type(db: &dyn EntityDefnQueryGroup, file: FilePtr, range: TextRange) -> Arc<Self> {
         Self::new(
+            db,
             Identifier::Contextual(ContextualIdentifier::ThisType),
             EntityDefnVariant::Any,
             db.intern_entity_route(EntityRoute {
@@ -128,20 +131,23 @@ impl EntityDefn {
     }
 
     pub(crate) fn new(
+        db: &dyn EntityDefnQueryGroup,
         ident: Identifier,
         variant: EntityDefnVariant,
         base_route: EntityRoutePtr,
         file: FilePtr,
         range: TextRange,
     ) -> Arc<EntityDefn> {
-        Arc::new(Self {
+        let entity_defn = Self {
             ident,
             subentities: variant.subentities(),
             variant,
             base_route,
             file,
             range,
-        })
+        };
+        todo!();
+        Arc::new(entity_defn)
     }
 
     pub fn is_builtin(&self) -> bool {
@@ -231,7 +237,7 @@ pub enum EntityDefnVariant {
         this_liason: ParameterModifier,
         parameters: Arc<Vec<Parameter>>,
         output_ty: RangedEntityRoute,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
         method_defn_kind: MethodDefnKind,
         opt_source: Option<CallFormSource>,
     },
@@ -397,7 +403,7 @@ impl EntityDefnVariant {
             }
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Method {
-                this_liason,
+                this_modifier: this_liason,
                 parameters,
                 output_ty,
                 output_liason,
@@ -569,6 +575,7 @@ pub(crate) fn entity_defn(
                 AstVariant::Visual => todo!(),
             };
             Ok(EntityDefn::new(
+                db,
                 ident.ident.into(),
                 husky_entity_kind,
                 entity_route,
@@ -633,7 +640,7 @@ pub(crate) fn entity_defn(
             ident,
             file,
             range,
-        } => Ok(EntityDefn::from_generic(ident, route, file, range)),
+        } => Ok(EntityDefn::from_generic(db, ident, route, file, range)),
         EntitySource::StaticEnumVariant(_) => todo!(),
         EntitySource::ThisType { file, range } => Ok(EntityDefn::this_type(db, file, range)),
     }

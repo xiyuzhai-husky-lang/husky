@@ -75,13 +75,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         &[],
                         children,
                         self.db.target_output_ty().ok(),
-                        OutputLiason::Transfer,
+                        OutputModifier::Transfer,
                     ),
                     AstVariant::DatasetConfigDefnHead => self.infer_eager_call_form(
                         &[],
                         children,
                         Some(EntityRoutePtr::Root(RootIdentifier::DatasetType)),
-                        OutputLiason::Transfer,
+                        OutputModifier::Transfer,
                     ),
                     AstVariant::CallFormDefnHead {
                         ref parameters,
@@ -95,7 +95,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         output_liason,
                     ),
                     AstVariant::Visual => {
-                        self.infer_lazy_call_form(&[], children, None, OutputLiason::Transfer)
+                        self.infer_lazy_call_form(&[], children, None, OutputModifier::Transfer)
                     }
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
@@ -111,7 +111,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             &[],
                             children,
                             Some(ty.route),
-                            OutputLiason::Transfer,
+                            OutputModifier::Transfer,
                         ),
                         FieldAstKind::StructDerivedLazy {
                             paradigm: Paradigm::LazyFunctional,
@@ -120,7 +120,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             &[],
                             children,
                             Some(ty.route),
-                            OutputLiason::Transfer,
+                            OutputModifier::Transfer,
                         ),
                         _ => todo!(),
                     },
@@ -134,14 +134,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             &[],
                             children,
                             Some(ty.route),
-                            OutputLiason::Transfer,
+                            OutputModifier::Transfer,
                         ),
                         Paradigm::EagerFunctional | Paradigm::EagerProcedural => self
                             .infer_eager_call_form(
                                 &[],
                                 children,
                                 Some(ty.route),
-                                OutputLiason::Transfer,
+                                OutputModifier::Transfer,
                             ),
                     },
                     AstVariant::Submodule { ident, source_file } => (),

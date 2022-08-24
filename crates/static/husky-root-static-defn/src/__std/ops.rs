@@ -33,10 +33,10 @@ pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
                 name: "index",
                 items: &[],
                 variant: EntityStaticDefnVariant::Method {
-                    this_liason: ParameterModifier::MemberAccess,
+                    this_modifier: ParameterModifier::MemberAccess,
                     parameters: &[],
                     output_ty: "This::Output",
-                    output_liason: OutputLiason::MemberAccess {
+                    output_liason: OutputModifier::MemberAccess {
                         member_liason: MemberLiason::Mutable,
                     },
                     spatial_parameters: &[],

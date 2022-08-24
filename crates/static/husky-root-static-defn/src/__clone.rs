@@ -9,7 +9,7 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
             name: "clone",
             items: &[],
             variant: EntityStaticDefnVariant::Method {
-                this_liason: ParameterModifier::None,
+                this_modifier: ParameterModifier::None,
                 parameters: &[],
                 output_ty: "This",
                 spatial_parameters: &[],
@@ -18,7 +18,7 @@ pub static CLONE_TRAIT_DEFN: EntityStaticDefn = EntityStaticDefn {
                     |values, _| unsafe { values[0].intrinsic_clone() },
                     none
                 )),
-                output_liason: OutputLiason::Transfer,
+                output_liason: OutputModifier::Transfer,
             },
             dev_src: static_dev_src!(),
         }],

@@ -5,7 +5,7 @@ pub use function::*;
 
 use husky_dev_utils::__StaticDevSource;
 use husky_entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
-use husky_liason_semantics::{MemberLiason, OutputLiason, ParameterModifier};
+use husky_liason_semantics::{MemberLiason, OutputModifier, ParameterModifier};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer};
 use husky_vm::__ResolvedLinkage;
 use husky_vm_interface::__Linkage;
@@ -46,7 +46,7 @@ pub enum EntityStaticDefnVariant {
         parameters: &'static [StaticParameter],
         variadic_template: StaticVariadicTemplate,
         output_ty: &'static str,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
         linkage: __Linkage,
     },
     Ty {
@@ -72,10 +72,10 @@ pub enum EntityStaticDefnVariant {
         linkage: __Linkage,
     },
     Method {
-        this_liason: ParameterModifier,
+        this_modifier: ParameterModifier,
         parameters: &'static [StaticParameter],
         output_ty: &'static str,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
         spatial_parameters: &'static [StaticSpatialParameter],
         method_static_defn_kind: MethodStaticDefnKind,
         opt_linkage: Option<__Linkage>,
@@ -123,14 +123,37 @@ pub struct StaticTraitImplDefn {
 
 #[macro_export]
 macro_rules! associated_type_impl {
-    ($name: expr, $ty: expr) => {
+    ($name: expr, $ty: expr) => {{
         EntityStaticDefn {
             dev_src: husky_dev_utils::static_dev_src!(),
             name: $name,
             items: &[],
             variant: EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: $ty },
         }
-    };
+    }};
+}
+#[macro_export]
+macro_rules! clone_method_impl {
+    ($this_ty_route: expr) => {{
+        StaticTraitImplDefn {
+            dev_src: static_dev_src!(),
+            trai: "Clone",
+            member_impls: &[EntityStaticDefn {
+                dev_src: husky_dev_utils::static_dev_src!(),
+                name: "clone",
+                items: &[],
+                variant: EntityStaticDefnVariant::Method {
+                    this_modifier: ParameterModifier::None,
+                    parameters: &[],
+                    output_ty: $this_ty_route,
+                    output_liason: OutputModifier::Transfer,
+                    spatial_parameters: &[],
+                    method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
+                    opt_linkage: None,
+                },
+            }],
+        }
+    }};
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

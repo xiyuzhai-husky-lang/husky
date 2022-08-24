@@ -22,7 +22,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         inputs: &[Parameter],
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
     ) {
         self.add_eager_inputs(inputs);
         self.infer_eager_stmts(ast_iter, opt_output_ty, output_liason)
@@ -44,7 +44,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
     ) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
@@ -65,7 +65,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         stmt: &RawStmt,
         opt_output_ty: Option<EntityRoutePtr>,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
     ) {
         match stmt.variant {
             RawStmtVariant::Loop(loop_kind) => match loop_kind {
@@ -465,7 +465,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             }
         }
         match call_decl.output.liason() {
-            OutputLiason::Transfer => {
+            OutputModifier::Transfer => {
                 msg_once!("handle ref");
                 Ok(EagerExprQualifiedTy::new(
                     if self.db.is_copyable(call_decl.output.ty())? {
@@ -476,7 +476,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     call_decl.output.ty(),
                 ))
             }
-            OutputLiason::MemberAccess { .. } => todo!(),
+            OutputModifier::MemberAccess { .. } => todo!(),
         }
     }
 
@@ -519,14 +519,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         let is_element_copyable = self.db.is_copyable(call_form_decl.output.ty())?;
         let output_contract = self.eager_expr_contract(idx)?;
         let qual = match call_form_decl.output.liason() {
-            OutputLiason::Transfer => {
+            OutputModifier::Transfer => {
                 if is_element_copyable {
                     EagerExprQualifier::Copyable
                 } else {
                     EagerExprQualifier::Transient
                 }
             }
-            OutputLiason::MemberAccess { member_liason } => EagerExprQualifier::member(
+            OutputModifier::MemberAccess { member_liason } => EagerExprQualifier::member(
                 this_qt.qual,
                 member_liason,
                 output_contract,

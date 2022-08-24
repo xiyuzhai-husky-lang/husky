@@ -104,20 +104,20 @@ impl LazyExprQualifiedTy {
     pub(crate) fn is_implicitly_convertible_to_output(
         self,
         db: &dyn InferQualifiedTyQueryGroup,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
         output_ty: EntityRoutePtr,
     ) -> bool {
         if !db.is_implicitly_castable(self.ty, output_ty) {
             return false;
         }
         match output_liason {
-            OutputLiason::Transfer => match self.qual {
+            OutputModifier::Transfer => match self.qual {
                 LazyExprQualifier::Copyable => true,
                 LazyExprQualifier::PureRef => false,
                 LazyExprQualifier::EvalRef => true,
                 LazyExprQualifier::Transient => true,
             },
-            OutputLiason::MemberAccess { .. } => todo!(),
+            OutputModifier::MemberAccess { .. } => todo!(),
         }
     }
 }

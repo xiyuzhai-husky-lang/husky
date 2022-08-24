@@ -16,7 +16,7 @@ use dev::*;
 use husky_dev_utils::static_dev_src;
 use husky_entity_kind::{RoutineKind, TyKind};
 use husky_entity_route::EntityRoutePtr;
-use husky_liason_semantics::OutputLiason;
+use husky_liason_semantics::OutputModifier;
 use husky_vm::*;
 use load::*;
 use test::*;
@@ -43,7 +43,7 @@ pub static NEW_BINARY_DATASET_SCOPE_DATA: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         variadic_template: StaticVariadicTemplate::None,
         output_ty: "Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>",
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
         linkage: transfer_linkage!(
             |_, _|  unsafe {__Register::new_box(new_binary_dataset(), &__DATASET_VTABLE)} ,
             some base new_binary_dataset as fn () -> Dataset<'static>

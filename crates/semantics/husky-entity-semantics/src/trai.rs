@@ -18,6 +18,7 @@ pub struct TraitImplDefn {
 
 impl TraitImplDefn {
     pub fn from_static(
+        db: &dyn EntityDefnQueryGroup,
         symbol_context: &mut dyn AtomContext,
         static_trait_impl: &StaticTraitImplDefn,
     ) -> Arc<Self> {
@@ -27,11 +28,12 @@ impl TraitImplDefn {
         Arc::new(Self {
             trai,
             member_impls: static_trait_impl.member_impls.map(|static_trait_impl| {
-                EntityDefn::trait_member_impl_from_static(symbol_context, trai, static_trait_impl)
-                // match static_trait_impl {
-                //     StaticTraitMemberImplDecl::Type { name, route } => {
-                //     }
-                // }
+                EntityDefn::trait_member_impl_from_static(
+                    db,
+                    symbol_context,
+                    trai,
+                    static_trait_impl,
+                )
             }),
             dev_src: static_trait_impl.dev_src.into(),
         })
@@ -47,6 +49,7 @@ impl TraitImplDefn {
 
 impl EntityDefn {
     pub fn trait_member_impl_from_static(
+        db: &dyn EntityDefnQueryGroup,
         context: &mut dyn AtomContext,
         trai: EntityRoutePtr,
         static_trait_impl: &EntityStaticDefn,
@@ -58,7 +61,9 @@ impl EntityDefn {
             .intern_word(static_trait_impl.name)
             .ident();
         let ty = context.opt_this_ty().unwrap();
+        assert!(!matches!(ty.variant, EntityRouteVariant::ThisType { .. }));
         Self::new(
+            db,
             ident,
             variant,
             context.entity_syntax_db().ty_as_trai_subroute(
@@ -89,7 +94,7 @@ impl EntityDefnVariant {
                 }
             }
             EntityStaticDefnVariant::Method {
-                this_liason,
+                this_modifier: this_liason,
                 parameters,
                 output_ty,
                 output_liason,

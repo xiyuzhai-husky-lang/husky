@@ -11,12 +11,24 @@ use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitImplDecl {
-    pub trait_route: EntityRoutePtr,
-    pub this_ty: EntityRoutePtr,
-    pub member_impls: Vec<TraitMemberImplDecl>,
+    trait_route: EntityRoutePtr,
+    this_ty: EntityRoutePtr,
+    member_impls: Vec<TraitMemberImplDecl>,
 }
 
 impl TraitImplDecl {
+    pub(crate) fn new(
+        trait_route: EntityRoutePtr,
+        this_ty: EntityRoutePtr,
+        member_impls: Vec<TraitMemberImplDecl>,
+    ) -> Self {
+        Self {
+            trait_route,
+            this_ty,
+            member_impls,
+        }
+    }
+
     pub(crate) fn from_static(
         db: &dyn DeclQueryGroup,
         static_trait_impl: &StaticTraitImplDefn,
@@ -32,11 +44,23 @@ impl TraitImplDecl {
             &trait_decl,
             static_trait_impl.member_impls,
         );
-        Arc::new(Self {
+        Arc::new(Self::new(
             trait_route,
-            this_ty: symbol_context.opt_this_ty().unwrap(),
+            symbol_context.opt_this_ty().unwrap(),
             member_impls,
-        })
+        ))
+    }
+
+    pub fn trai(&self) -> EntityRoutePtr {
+        self.trait_route
+    }
+
+    pub fn this_ty(&self) -> EntityRoutePtr {
+        self.this_ty
+    }
+
+    pub fn member_impls(&self) -> &[TraitMemberImplDecl] {
+        &self.member_impls
     }
 
     pub(crate) fn instantiate(&self, ctx: &InstantiationContext) -> Arc<Self> {
@@ -85,7 +109,7 @@ impl TraitImplDecl {
                     )),
                     opt_this_liason: Some(ParameterModifier::None),
                     primary_parameters: Default::default(),
-                    output: OutputDecl::new(db, OutputLiason::Transfer, this_ty)?,
+                    output: OutputDecl::new(db, OutputModifier::Transfer, this_ty)?,
                     spatial_parameters: Default::default(),
                     is_lazy: false,
                     variadic_template: VariadicTemplate::None,
@@ -162,13 +186,6 @@ fn derive_is_clonable(
                     TyMemberDecl::Field(field) => {
                         if field.field_kind == FieldKind::StructOriginal {
                             if !db.is_copyable(field.ty)? && !db.is_clonable(field.ty)? {
-                                p!(field.ty, db.is_copyable(field.ty), db.is_clonable(field.ty));
-                                let ty_decl = db.ty_decl(field.ty).unwrap();
-                                let clone_trait = db.entity_route_menu().clone_trait;
-                                for trait_impl in &ty_decl.trait_impls {
-                                    p!(trait_impl.trait_route, clone_trait);
-                                }
-                                // p!(ty_decl.trait_impl());
                                 return Ok(false);
                             }
                         }

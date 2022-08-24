@@ -7,8 +7,9 @@ use std::iter::Peekable;
 
 use husky_check_utils::{should, should_eq};
 use husky_entity_kind::{EnumVariantKind, FieldKind};
-use husky_liason_semantics::OutputLiason;
+use husky_liason_semantics::OutputModifier;
 use husky_print_utils::{msg_once, p};
+use itertools::Itertools;
 pub use trait_impl::*;
 pub use vec::*;
 
@@ -100,12 +101,12 @@ impl TyDecl {
                 let variants: IdentDict<_> = variants.map(|static_decl| {
                     EnumVariantDecl::from_static(db, static_decl, &mut symbol_context)
                 });
-                let mut trait_impls =
-                    TraitImplDecl::implicit_trait_impls(db, this_ty, kind, &ty_members, &variants)
-                        .unwrap();
-                trait_impls.extend(static_trait_impls.iter().map(|trait_impl| {
-                    TraitImplDecl::from_static(db, trait_impl, &mut symbol_context)
-                }));
+                let mut trait_impls = static_trait_impls
+                    .iter()
+                    .map(|trait_impl| {
+                        TraitImplDecl::from_static(db, trait_impl, &mut symbol_context)
+                    })
+                    .collect_vec();
                 Self::new(
                     db,
                     this_ty,
@@ -177,7 +178,7 @@ impl TyDecl {
                     primary_parameters,
                     variadic_template: VariadicTemplate::None,
                     keyword_parameters,
-                    output: OutputDecl::new(db, OutputLiason::Transfer, ty)?,
+                    output: OutputDecl::new(db, OutputModifier::Transfer, ty)?,
                     opt_this_liason: None,
                     is_lazy: match kind {
                         TyKind::Record => true,
@@ -533,10 +534,10 @@ impl TyDecl {
         }
     }
 
-    pub fn trait_impl(&self, trai_route: EntityRoutePtr) -> Option<&Arc<TraitImplDecl>> {
+    pub fn trait_impl(&self, trai: EntityRoutePtr) -> Option<&Arc<TraitImplDecl>> {
         self.trait_impls
             .iter()
-            .find(|trai_impl| trai_impl.trait_route == trai_route)
+            .find(|trai_impl| trai_impl.trai() == trai)
     }
 
     pub fn trai_member_impl(
@@ -654,7 +655,7 @@ pub(crate) fn call_form_decl_from_static(
 ) -> InferResultArc<CallFormDecl> {
     match static_defn.variant {
         EntityStaticDefnVariant::Method {
-            this_liason,
+            this_modifier: this_liason,
             parameters,
             output_ty,
             output_liason,

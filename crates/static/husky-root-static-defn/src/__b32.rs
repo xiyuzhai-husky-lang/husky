@@ -27,10 +27,10 @@ pub static B32_LEADING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     name: "leading_zeros",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::None,
+        this_modifier: ParameterModifier::None,
         parameters: &[],
         output_ty: "i32",
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(
@@ -45,10 +45,10 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
     name: "ctz",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::None,
+        this_modifier: ParameterModifier::None,
         parameters: &[],
         output_ty: "i32",
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(
@@ -63,14 +63,14 @@ pub static B32_LAST_BITS: EntityStaticDefn = EntityStaticDefn {
     name: "last_bits",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::None,
+        this_modifier: ParameterModifier::None,
         parameters: &[StaticParameter {
             name: "k",
-            liason: ParameterModifier::None,
+            modifier: ParameterModifier::None,
             ty: "i32",
         }],
         output_ty: "b32",
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(

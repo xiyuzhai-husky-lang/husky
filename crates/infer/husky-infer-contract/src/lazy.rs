@@ -27,11 +27,11 @@ impl LazyContract {
     pub(crate) fn parameter_lazy_contract(
         parameter_liason: ParameterModifier,
         parameter_ty: EntityRoutePtr,
-        output: OutputLiason,
+        output: OutputModifier,
         range: TextRange,
     ) -> InferResult<LazyContract> {
         match output {
-            OutputLiason::Transfer => Ok(match parameter_liason {
+            OutputModifier::Transfer => Ok(match parameter_liason {
                 ParameterModifier::None => match parameter_ty.canonicalize().kind() {
                     CanonicalEntityRoutePtrKind::Intrinsic => LazyContract::Pure,
                     CanonicalEntityRoutePtrKind::Optional => LazyContract::Pure,
@@ -45,7 +45,7 @@ impl LazyContract {
                 ParameterModifier::EvalRef => LazyContract::EvalRef,
                 ParameterModifier::TempRef => todo!(),
             }),
-            OutputLiason::MemberAccess { .. } => todo!(),
+            OutputModifier::MemberAccess { .. } => todo!(),
         }
     }
 

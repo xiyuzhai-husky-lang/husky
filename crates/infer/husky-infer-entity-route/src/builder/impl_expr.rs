@@ -597,7 +597,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             ),
             total_range
         )?;
-        Ok(match trai_impl.member_impls[0] {
+        Ok(match trai_impl.member_impls()[0] {
             TraitMemberImplDecl::AssociatedType { ty, .. } => ty,
             _ => panic!(),
         })

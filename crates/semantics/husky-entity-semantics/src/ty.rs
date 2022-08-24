@@ -218,8 +218,9 @@ impl EntityDefnVariant {
                     EntityDefn::from_static(db, &mut symbol_context, route, variant)
                 });
                 let kind = kind;
-                let trait_impls = trait_impls
-                    .map(|trait_impl| TraitImplDefn::from_static(&mut symbol_context, trait_impl));
+                let trait_impls = trait_impls.map(|trait_impl| {
+                    TraitImplDefn::from_static(db, &mut symbol_context, trait_impl)
+                });
                 let visualizer = Visualizer::from_static(db, this_ty, visualizer);
                 Self::new_ty(
                     spatial_parameters,
@@ -251,6 +252,7 @@ impl EntityDefnVariant {
                     variant_class: raw_variant_kind,
                 } => {
                     variants.insert_new(EntityDefn::new(
+                        db,
                         ident.ident.into(),
                         EntityDefnVariant::EnumVariant {
                             enum_variant_defn_variant: match raw_variant_kind {
