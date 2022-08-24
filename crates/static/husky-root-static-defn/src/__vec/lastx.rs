@@ -4,7 +4,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
     name: "lastx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::MemberAccess,
+        this_modifier: ParameterModifier::MemberAccess,
         parameters: &[],
         output_ty: "E",
         spatial_parameters: &[],
@@ -16,7 +16,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
             temp_mut_resolved_linkage: resolved_linkage!(virtual_vec_lastx_temp_mut),
             move_resolved_linkage: resolved_linkage!(virtual_vec_lastx_move),
         })),
-        output_liason: OutputLiason::MemberAccess {
+        output_liason: OutputModifier::MemberAccess {
             member_liason: MemberLiason::Mutable,
         },
     },

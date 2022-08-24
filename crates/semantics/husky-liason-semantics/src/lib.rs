@@ -98,7 +98,7 @@ impl ParameterModifier {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum OutputLiason {
+pub enum OutputModifier {
     Transfer,
     MemberAccess { member_liason: MemberLiason },
 }

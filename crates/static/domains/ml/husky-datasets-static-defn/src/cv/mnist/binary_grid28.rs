@@ -25,14 +25,14 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     name: "index",
                     items: &[],
                     variant: EntityStaticDefnVariant::Method {
-                        this_liason: ParameterModifier::MemberAccess,
+                        this_modifier: ParameterModifier::MemberAccess,
                         parameters: &[StaticParameter {
-                            liason: ParameterModifier::None,
+                            modifier: ParameterModifier::None,
                             ty: "i32",
                             name: "todo!()",
                         }],
                         output_ty: "b32",
-                        output_liason: OutputLiason::MemberAccess {
+                        output_liason: OutputModifier::MemberAccess {
                             member_liason: MemberLiason::Mutable,
                         },
                         spatial_parameters: &[],
@@ -70,7 +70,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         variadic_template: StaticVariadicTemplate::None,
         output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
         linkage: transfer_linkage!(
             |_, _values|unsafe  {
                 (__Register::new_box(BinaryGrid28::default(), &__BINARY_GRID_28_VTABLE))

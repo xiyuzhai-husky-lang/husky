@@ -4,13 +4,13 @@ pub static VEC_COLLECT_REFS: EntityStaticDefn = EntityStaticDefn {
     name: "collect_refs",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::EvalRef,
+        this_modifier: ParameterModifier::EvalRef,
         parameters: &[],
         output_ty: "[]&E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(virtual_vec_collect_refs, none)),
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
     },
     dev_src: static_dev_src!(),
 };

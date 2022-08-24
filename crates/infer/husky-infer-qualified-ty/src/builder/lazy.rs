@@ -19,7 +19,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         inputs: &[Parameter],
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
     ) {
         self.add_lazy_inputs(inputs);
         self.infer_lazy_stmts(ast_iter, opt_output_ty, output_liason)
@@ -49,7 +49,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         ast_iter: AstIter,
         opt_output_ty: Option<EntityRoutePtr>,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
     ) {
         for item in ast_iter.clone() {
             if let Ok(ref value) = item.value {
@@ -70,7 +70,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         &mut self,
         stmt: &RawStmt,
         opt_output_ty: Option<EntityRoutePtr>,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
     ) {
         match stmt.variant {
             RawStmtVariant::Loop(_) => (),
@@ -393,7 +393,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             .map(|opd_idx| self.infer_lazy_expr(opd_idx))
             .collect();
         match call_decl.output.liason() {
-            OutputLiason::Transfer => {
+            OutputModifier::Transfer => {
                 msg_once!("handle ref");
                 Ok(LazyExprQualifiedTy::new(
                     if self.db.is_copyable(call_decl.output.ty())? {
@@ -404,7 +404,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     call_decl.output.ty(),
                 ))
             }
-            OutputLiason::MemberAccess { .. } => todo!(),
+            OutputModifier::MemberAccess { .. } => todo!(),
         }
     }
 
@@ -441,14 +441,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             self.infer_lazy_expr(input);
         }
         let qual = match call_form_decl.output.liason() {
-            OutputLiason::Transfer => {
+            OutputModifier::Transfer => {
                 if self.db.is_copyable(call_form_decl.output.ty())? {
                     LazyExprQualifier::Copyable
                 } else {
                     LazyExprQualifier::Transient
                 }
             }
-            OutputLiason::MemberAccess { .. } => todo!(),
+            OutputModifier::MemberAccess { .. } => todo!(),
         };
         Ok(LazyExprQualifiedTy::new(qual, call_form_decl.output.ty()))
     }

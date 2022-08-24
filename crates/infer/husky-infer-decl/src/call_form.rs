@@ -75,7 +75,7 @@ impl CallFormDecl {
     ) -> InferResultArc<Self> {
         Ok(match defn.variant {
             EntityStaticDefnVariant::Method {
-                this_liason,
+                this_modifier: this_liason,
                 parameters,
                 output_ty,
                 output_liason,
@@ -287,7 +287,7 @@ pub(crate) fn value_call_form_decl(
                 keyword_parameters: Default::default(),
                 output: OutputDecl::new(
                     db,
-                    OutputLiason::Transfer,
+                    OutputModifier::Transfer,
                     ty.spatial_arguments.last().unwrap().take_entity_route(),
                 )?,
                 is_lazy: false,

@@ -3,7 +3,7 @@ mod spatial;
 use husky_check_utils::should;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_liason_semantics::{
-    MemberLiason, OutputLiason, ParameterModifier, RangedParameterLiason,
+    MemberLiason, OutputModifier, ParameterModifier, RangedParameterLiason,
 };
 use husky_print_utils::p;
 pub use spatial::*;

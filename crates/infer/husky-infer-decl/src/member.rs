@@ -159,9 +159,9 @@ impl MemberDecl {
     ) -> Vec<MemberDecl> {
         let mut members: Vec<MemberDecl> = type_members.map(|decl| decl.into());
         for trait_impl in trait_impls {
-            for member in trait_impl.member_impls.iter() {
+            for member in trait_impl.member_impls() {
                 members.push(MemberDecl::from_trait_member_impl(
-                    trait_impl.trait_route,
+                    trait_impl.trai(),
                     member,
                 ))
             }

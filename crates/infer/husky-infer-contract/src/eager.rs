@@ -20,7 +20,7 @@ impl EagerContract {
     pub(crate) fn argument_eager_contract(
         parameter_liason: ParameterModifier,
         parameter_ty: EntityRoutePtr,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
         range: TextRange,
     ) -> EagerContract {
         match parameter_ty.variant {
@@ -28,7 +28,7 @@ impl EagerContract {
                 ident: RootIdentifier::Ref,
             } => EagerContract::EvalRef,
             _ => match output_liason {
-                OutputLiason::Transfer => match parameter_liason {
+                OutputModifier::Transfer => match parameter_liason {
                     ParameterModifier::None => match parameter_ty.canonicalize().kind() {
                         CanonicalEntityRoutePtrKind::Intrinsic => EagerContract::Pure,
                         CanonicalEntityRoutePtrKind::Optional => EagerContract::Pure,
@@ -42,18 +42,18 @@ impl EagerContract {
                     ParameterModifier::EvalRef => EagerContract::EvalRef,
                     ParameterModifier::TempRef => todo!(),
                 },
-                OutputLiason::MemberAccess { .. } => EagerContract::Pure,
+                OutputModifier::MemberAccess { .. } => EagerContract::Pure,
             },
         }
     }
 
     pub(crate) fn method_call_this_eager_contract(
         parameter_liason: ParameterModifier,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
         output_contract: EagerContract,
     ) -> EagerContract {
         match output_liason {
-            OutputLiason::Transfer => match parameter_liason {
+            OutputModifier::Transfer => match parameter_liason {
                 ParameterModifier::None => EagerContract::Pure,
                 ParameterModifier::Move | ParameterModifier::MoveMut => EagerContract::Move,
                 ParameterModifier::TempRefMut => EagerContract::TempRefMut,
@@ -61,7 +61,7 @@ impl EagerContract {
                 ParameterModifier::EvalRef => EagerContract::EvalRef,
                 ParameterModifier::TempRef => todo!(),
             },
-            OutputLiason::MemberAccess { .. } => output_contract,
+            OutputModifier::MemberAccess { .. } => output_contract,
         }
     }
 

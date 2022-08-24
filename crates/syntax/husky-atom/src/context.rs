@@ -234,7 +234,7 @@ pub trait AtomContext<'a> {
                     .custom(),
                 range: Default::default(),
             },
-            static_parameter.liason.into(),
+            static_parameter.modifier.into(),
             RangedEntityRoute {
                 route: self.parse_entity_route(static_parameter.ty).unwrap(),
                 range: Default::default(),

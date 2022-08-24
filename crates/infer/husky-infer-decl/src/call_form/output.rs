@@ -6,21 +6,21 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct OutputDecl {
-    liason: OutputLiason,
+    liason: OutputModifier,
     ty: EntityRoutePtr,
 }
 
 impl OutputDecl {
     pub(crate) fn new(
         db: &dyn DeclQueryGroup,
-        liason: OutputLiason,
+        liason: OutputModifier,
         ty: EntityRoutePtr,
     ) -> InferResult<Self> {
         let ty = implement_target(db, ty)?;
         Ok(Self { liason, ty })
     }
 
-    pub fn liason(&self) -> OutputLiason {
+    pub fn liason(&self) -> OutputModifier {
         self.liason
     }
 

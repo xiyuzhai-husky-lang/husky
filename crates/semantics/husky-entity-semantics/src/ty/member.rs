@@ -80,7 +80,7 @@ impl EntityDefnVariant {
                                 parameters: parameters.clone(),
                                 output_ty,
                                 this_liason: this_contract,
-                                output_liason: OutputLiason::Transfer,
+                                output_liason: OutputModifier::Transfer,
                                 spatial_parameters: spatial_parameters.clone(),
                                 method_defn_kind: MethodDefnKind::TypeMethod { ty: ty_route },
                                 opt_source: Some(method_source),
@@ -123,6 +123,7 @@ impl EntityDefnVariant {
             children.next();
             members
                 .insert_new(EntityDefn::new(
+                    db,
                     ident.into(),
                     variant,
                     db.subroute(ty_route, ident, thin_vec![]),

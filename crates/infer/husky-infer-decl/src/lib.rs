@@ -45,10 +45,7 @@ pub trait DeclQueryGroup: EntitySyntaxQueryGroup + husky_ast::AstQueryGroup {
     fn target_input_ty(&self) -> InferResult<EntityRoutePtr>;
     fn target_output_ty(&self) -> InferResult<EntityRoutePtr>;
     fn implement_target(&self, ty: EntityRoutePtr) -> InferResult<EntityRoutePtr>;
-    // fn vec_decl(&self) -> Arc<TyDecl>;
-    // fn trait_decl_menu(&self) -> Arc<TraitDeclMenu>;
     fn member_idx(&self, member_route: EntityRoutePtr) -> MemberIdx;
-
     fn is_copyable(&self, ty: EntityRoutePtr) -> InferResult<bool>;
     fn is_clonable(&self, ty: EntityRoutePtr) -> InferResult<bool>;
 }

@@ -113,6 +113,7 @@ impl EntityDefnVariant {
                         _ => break,
                     }
                     members.insert_new(EntityDefn::new(
+                        db,
                         ranged_ident.ident.into(),
                         EntityDefnVariant::ty_field_from_ast(
                             db,

@@ -4,7 +4,7 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
     name: "firstx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::MemberAccess,
+        this_modifier: ParameterModifier::MemberAccess,
         parameters: &[],
         output_ty: "E",
         spatial_parameters: &[],
@@ -16,7 +16,7 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
             temp_mut_resolved_linkage: resolved_linkage!(virtual_vec_firstx_temp_mut),
             move_resolved_linkage: resolved_linkage!(virtual_vec_firstx_move),
         })),
-        output_liason: OutputLiason::MemberAccess {
+        output_liason: OutputModifier::MemberAccess {
             member_liason: MemberLiason::Mutable,
         },
     },

@@ -11,6 +11,7 @@ pub fn module_defn(
         None
     };
     Ok(EntityDefn::new(
+        db,
         entity_route.ident(),
         EntityDefnVariant::Module {
             module_items: module_items(db, entity_route).unwrap(),

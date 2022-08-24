@@ -30,7 +30,7 @@ impl ParameterDecl {
     pub fn from_static(symbol_context: &mut dyn AtomContext, input: &StaticParameter) -> Self {
         // opt_this_ty,
         Self::new(
-            input.liason,
+            input.modifier,
             symbol_context.parse_entity_route(input.ty).unwrap(),
             symbol_context.entity_syntax_db().custom_ident(input.name),
         )

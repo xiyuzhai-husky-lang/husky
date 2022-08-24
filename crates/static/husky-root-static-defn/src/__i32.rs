@@ -29,14 +29,14 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
     name: "min",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::None,
+        this_modifier: ParameterModifier::None,
         parameters: &[StaticParameter {
             name: "other",
-            liason: ParameterModifier::None,
+            modifier: ParameterModifier::None,
             ty: "i32",
         }],
         output_ty: "i32",
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(
@@ -50,14 +50,14 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
     name: "max",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::None,
+        this_modifier: ParameterModifier::None,
         parameters: &[StaticParameter {
             name: "other",
-            liason: ParameterModifier::None,
+            modifier: ParameterModifier::None,
             ty: "i32",
         }],
         output_ty: "i32",
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(
@@ -71,10 +71,10 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
     name: "sgn",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::None,
+        this_modifier: ParameterModifier::None,
         parameters: &[],
         output_ty: "i32",
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|values, _|
@@ -88,10 +88,10 @@ pub static I32_ABS: EntityStaticDefn = EntityStaticDefn {
     name: "abs",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::None,
+        this_modifier: ParameterModifier::None,
         parameters: &[],
         output_ty: "i32",
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|values, _| {

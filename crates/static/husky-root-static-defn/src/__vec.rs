@@ -35,10 +35,10 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                     name: "index",
                     items: &[],
                     variant: EntityStaticDefnVariant::Method {
-                        this_liason: ParameterModifier::MemberAccess,
+                        this_modifier: ParameterModifier::MemberAccess,
                         parameters: &[],
                         output_ty: "E",
-                        output_liason: OutputLiason::MemberAccess {
+                        output_liason: OutputModifier::MemberAccess {
                             member_liason: MemberLiason::Mutable,
                         },
                         spatial_parameters: &[],
@@ -90,7 +90,7 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         parameters: &[],
         variadic_template: StaticVariadicTemplate::SingleTyped { ty: "E" },
         output_ty: "Vec<E>",
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
         linkage: transfer_linkage!(virtual_vec_type_call, none),
     },
     dev_src: static_dev_src!(),
@@ -191,13 +191,13 @@ pub static VEC_LEN: EntityStaticDefn = EntityStaticDefn {
     name: "ilen",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::None,
+        this_modifier: ParameterModifier::None,
         parameters: &[],
         output_ty: "i32",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(virtual_vec_len, none)),
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
     },
     dev_src: static_dev_src!(),
 };
@@ -215,9 +215,9 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
     name: "push",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::TempRefMut,
+        this_modifier: ParameterModifier::TempRefMut,
         parameters: &[StaticParameter {
-            liason: ParameterModifier::Move,
+            modifier: ParameterModifier::Move,
             ty: "E",
             name: "element",
         }],
@@ -225,7 +225,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(virtual_vec_push, none)),
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
     },
     dev_src: static_dev_src!(),
 };
@@ -234,13 +234,13 @@ pub static VEC_POPX: EntityStaticDefn = EntityStaticDefn {
     name: "popx",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_liason: ParameterModifier::TempRefMut,
+        this_modifier: ParameterModifier::TempRefMut,
         parameters: &[],
         output_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(virtual_vec_pop, none)),
-        output_liason: OutputLiason::Transfer,
+        output_liason: OutputModifier::Transfer,
     },
     dev_src: static_dev_src!(),
 };

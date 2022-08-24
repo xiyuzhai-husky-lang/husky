@@ -51,7 +51,7 @@ pub enum AstVariant {
         spatial_parameters: IdentDict<SpatialParameter>,
         parameters: Arc<Vec<Parameter>>,
         output_ty: RangedEntityRoute,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
         opt_this_liason: Option<ParameterModifier>,
     },
     FeatureDefnHead {

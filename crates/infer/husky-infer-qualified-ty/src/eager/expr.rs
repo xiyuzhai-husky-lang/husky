@@ -124,10 +124,10 @@ impl EagerExprQualifier {
         .variable_use_eager_expr_qualifier(contract, range)
     }
 
-    pub fn from_output(output_liason: OutputLiason, is_copyable: bool) -> Self {
+    pub fn from_output(output_liason: OutputModifier, is_copyable: bool) -> Self {
         match output_liason {
-            OutputLiason::Transfer => Self::transitive(is_copyable),
-            OutputLiason::MemberAccess { .. } => todo!(),
+            OutputModifier::Transfer => Self::transitive(is_copyable),
+            OutputModifier::MemberAccess { .. } => todo!(),
         }
     }
 
@@ -365,20 +365,20 @@ impl EagerExprQualifiedTy {
     pub fn is_implicitly_castable_to_output(
         self,
         db: &dyn InferQualifiedTyQueryGroup,
-        output_liason: OutputLiason,
+        output_liason: OutputModifier,
         output_ty: EntityRoutePtr,
     ) -> bool {
         if !db.is_implicitly_castable(self.ty, output_ty) {
             return false;
         }
         match output_liason {
-            OutputLiason::Transfer => match self.qual {
+            OutputModifier::Transfer => match self.qual {
                 EagerExprQualifier::PureRef | EagerExprQualifier::TempRef => false,
                 EagerExprQualifier::Transient | EagerExprQualifier::Copyable => true,
                 EagerExprQualifier::EvalRef => true,
                 EagerExprQualifier::TempRefMut => todo!(),
             },
-            OutputLiason::MemberAccess { .. } => todo!(),
+            OutputModifier::MemberAccess { .. } => todo!(),
         }
     }
 

@@ -92,7 +92,7 @@ impl<'a> AstTransformer<'a> {
             spatial_parameters: generic_parameters,
             parameters,
             output_ty,
-            output_liason: OutputLiason::Transfer,
+            output_liason: OutputModifier::Transfer,
             opt_this_liason,
         })
     }
