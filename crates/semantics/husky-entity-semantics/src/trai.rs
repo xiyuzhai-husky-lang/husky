@@ -83,7 +83,7 @@ impl EntityDefnVariant {
     ) -> Self {
         match static_defn.variant {
             EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => {
-                Self::TraitAssociatedTypeImpl {
+                EntityDefnVariant::TraitAssociatedTypeImpl {
                     trai,
                     ty: context.parse_entity_route(ty).unwrap(),
                 }

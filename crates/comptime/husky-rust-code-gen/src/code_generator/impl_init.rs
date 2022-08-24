@@ -133,7 +133,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
             EntityDefnVariant::TyField { .. } => (), // this is handled in ty defn
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {}
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
-            EntityDefnVariant::Input { .. } => todo!(),
+            EntityDefnVariant::TargetInput { .. } => todo!(),
             EntityDefnVariant::Any => todo!(),
         }
     }

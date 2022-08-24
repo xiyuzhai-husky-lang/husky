@@ -241,6 +241,9 @@ impl<'a> FeatureExprBuilder<'a> {
         let this_ty_defn = self.db.comptime().entity_defn(this_expr.ty()).unwrap();
         let member_idx = self.db.comptime().member_idx(method_route);
         let method_defn = this_ty_defn.method(member_idx);
+        this_ty_defn.check_consistency_with_ty_decl(
+            &self.db.comptime().ty_decl(method_route.parent()).unwrap(),
+        );
         let kind = match method_defn.variant {
             EntityDefnVariant::Method { .. } => FeatureLazyExprVariant::RoutineCall {
                 opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
@@ -249,7 +252,10 @@ impl<'a> FeatureExprBuilder<'a> {
                 has_this: true,
                 routine_defn: method_defn.clone(),
             },
-            _ => panic!(),
+            _ => panic!(
+                "unexpected entity variant {:?} for method `{method_route}`",
+                method_defn.variant
+            ),
         };
         (kind, feature)
     }

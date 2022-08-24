@@ -24,7 +24,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct CallFormDecl {
-    pub opt_base_route: Option<EntityRoutePtr>,
+    pub opt_route: Option<EntityRoutePtr>,
     pub opt_this_liason: Option<ParameterModifier>,
     pub spatial_parameters: IdentDict<SpatialParameter>,
     pub primary_parameters: IdentDict<ParameterDecl>,
@@ -51,7 +51,7 @@ impl CallFormDecl {
                 output_liason,
                 opt_this_liason,
             } => Arc::new(CallFormDecl {
-                opt_base_route: Some(route),
+                opt_route: Some(route),
                 opt_this_liason,
                 spatial_parameters: spatial_parameters.clone(),
                 primary_parameters: parameters
@@ -85,7 +85,7 @@ impl CallFormDecl {
             } => {
                 let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
                 Arc::new(Self {
-                    opt_base_route: Some(base_route),
+                    opt_route: Some(base_route),
                     opt_this_liason: Some(this_liason),
                     primary_parameters: parameters
                         .map(|input| ParameterDecl::from_static(symbol_context, input)),
@@ -106,7 +106,7 @@ impl CallFormDecl {
     }
 
     pub fn ident(&self) -> CustomIdentifier {
-        self.opt_base_route.unwrap().ident().custom()
+        self.opt_route.unwrap().ident().custom()
     }
 
     pub fn nargs(&self) -> u8 {
@@ -124,7 +124,7 @@ impl CallFormDecl {
 
     pub fn opt_this_ty(&self) -> Option<EntityRoutePtr> {
         self.opt_this_liason
-            .map(|_| self.opt_base_route.unwrap().parent())
+            .map(|_| self.opt_route.unwrap().parent())
     }
 }
 
@@ -133,8 +133,8 @@ impl Instantiable for CallFormDecl {
 
     fn instantiate(&self, ctx: &InstantiationContext) -> Self::Target {
         Arc::new(Self {
-            opt_base_route: self
-                .opt_base_route
+            opt_route: self
+                .opt_route
                 .map(|route| route.instantiate(ctx).take_entity_route()),
             opt_this_liason: self.opt_this_liason,
             spatial_parameters: self
@@ -160,8 +160,8 @@ impl Implementable for CallFormDecl {
 
     fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
         Arc::new(Self {
-            opt_base_route: self
-                .opt_base_route
+            opt_route: self
+                .opt_route
                 .map(|route| route.implement(ctx).take_entity_route()),
             opt_this_liason: self.opt_this_liason,
             primary_parameters: self
@@ -269,7 +269,7 @@ pub(crate) fn value_call_form_decl(
             msg_once!("much more todo");
             let nargs = ty.spatial_arguments.len() - 1;
             return Ok(Arc::new(CallFormDecl {
-                opt_base_route: None,
+                opt_route: None,
                 opt_this_liason: None,
                 spatial_parameters: Default::default(),
                 primary_parameters: ty.spatial_arguments[0..nargs]
@@ -338,7 +338,7 @@ pub(crate) fn routine_decl_from_static(
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             msg_once!("todo: keyword parameters");
             Ok(Arc::new(CallFormDecl {
-                opt_base_route: Some(route),
+                opt_route: Some(route),
                 spatial_parameters,
                 primary_parameters: parameters,
                 output: OutputDecl::new(db, output_liason, output_ty)?,

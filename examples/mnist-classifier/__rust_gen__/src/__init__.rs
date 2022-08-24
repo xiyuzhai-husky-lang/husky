@@ -1750,6 +1750,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::one::one_fermi_match_others"
+        },
+        feature_linkage!(one::one_fermi_match_others, Vec<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>, __registration__::__VEC_REF_CONCAVE_COMPONENT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
             route: "mnist_classifier::one::one_fermi_match"
         },
         feature_linkage!(one::one_fermi_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
@@ -1770,6 +1776,24 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some ctx one::downmost as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::one::upmost",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    one::upmost(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx one::upmost as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
         ),
     ),
     (

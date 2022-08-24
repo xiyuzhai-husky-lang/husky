@@ -559,7 +559,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         self.entity_route_sheet.method_call_routes.insert_new(
             this,
             Ok(self.db.route_call(
-                call_form_decl.opt_base_route.unwrap(),
+                call_form_decl.opt_route.unwrap(),
                 thin_vec![], // spatial_arguments
             )),
         );
