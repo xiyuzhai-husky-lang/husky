@@ -156,7 +156,7 @@ impl EntityRoutePtr {
     }
 
     pub fn is_option(self) -> bool {
-        match self.deref_route().variant {
+        match self.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Option,
             } => true,

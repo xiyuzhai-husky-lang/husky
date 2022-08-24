@@ -1731,6 +1731,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         feature_linkage!(major::connected_components, Vec<connected_component::ConnectedComponent>, __registration__::__VEC_CONNECTED_COMPONENT_VTABLE),
     ),
     (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::one::one_fermi_match"
+        },
+        feature_linkage!(one::one_fermi_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::one::downmost",
         },
