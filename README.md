@@ -28,6 +28,26 @@ TODO
 
 TODO
 
+What will probably work is,
+
+```sh
+   git clone https://github.com/ancient-software/husky
+   cd husky
+```
+
+then in one terminal do
+```sh
+  cd gui/gui/husky-tracer-gui-sycamore
+  trunk serve
+```
+
+in another terminal do
+```sh
+  make mnist-compiled
+```
+
+then in browser open `localhost:8080`.
+
 ## Motivation
 
 ### A Bright Future of AI
