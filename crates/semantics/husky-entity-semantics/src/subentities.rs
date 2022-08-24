@@ -13,7 +13,7 @@ impl EntityDefnVariant {
             | EntityDefnVariant::Proc { .. }
             | EntityDefnVariant::Method { .. }
             | EntityDefnVariant::Function { .. }
-            | EntityDefnVariant::Input { .. } => Default::default(),
+            | EntityDefnVariant::TargetInput { .. } => Default::default(),
             EntityDefnVariant::Ty { members, .. } => members.clone(),
             EntityDefnVariant::EnumVariant {
                 enum_variant_defn_variant: ref variant,

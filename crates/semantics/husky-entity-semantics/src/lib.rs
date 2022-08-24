@@ -2,6 +2,7 @@ mod call_form;
 mod dependence;
 mod feature;
 mod function;
+mod impl_consistency;
 mod module;
 mod query;
 mod repr;
@@ -204,7 +205,7 @@ impl EntityDefn {
             EntityDefnVariant::TyField { .. } => todo!(),
             EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
-            EntityDefnVariant::Input { .. } => todo!(),
+            EntityDefnVariant::TargetInput { .. } => todo!(),
             EntityDefnVariant::Any => todo!(),
         }
     }
@@ -277,7 +278,7 @@ pub enum EntityDefnVariant {
     TraitAssociatedConstSizeImpl {
         value: usize,
     },
-    Input,
+    TargetInput,
     Any,
 }
 
@@ -301,7 +302,7 @@ impl std::fmt::Debug for EntityDefnVariant {
             EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => {
                 f.write_str("TraitAssociatedConstSizeImpl { ... }")
             }
-            EntityDefnVariant::Input { .. } => f.write_str("Input"),
+            EntityDefnVariant::TargetInput { .. } => f.write_str("Input"),
             EntityDefnVariant::Any => f.write_str("Generic"),
         }
     }
@@ -580,7 +581,7 @@ pub(crate) fn entity_defn(
             msg_once!("use task config for input defn");
             Ok(Arc::new(EntityDefn {
                 ident: entity_route.ident(),
-                variant: EntityDefnVariant::Input,
+                variant: EntityDefnVariant::TargetInput,
                 subentities: Default::default(),
                 base_route: entity_route,
                 file: db.opt_target_entrance().unwrap(),

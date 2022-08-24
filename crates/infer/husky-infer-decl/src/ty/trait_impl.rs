@@ -77,7 +77,7 @@ impl TraitImplDecl {
                 trait_route: clone_trait,
                 this_ty,
                 member_impls: vec![TraitMemberImplDecl::Method(Arc::new(CallFormDecl {
-                    opt_base_route: Some(db.ty_as_trai_subroute(
+                    opt_route: Some(db.ty_as_trai_subroute(
                         this_ty,
                         clone_trait,
                         db.intern_word("clone").custom(),

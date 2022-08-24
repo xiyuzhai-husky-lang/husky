@@ -3,15 +3,21 @@ use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 
+func one_fermi_match_others -> []&ConcaveComponent:
+    one_fermi_match.others
+
 def is_one -> ?MnistLabel:
     require connected_components.ilen() == 1
     require major_connected_component.raw_contours.ilen() == 1
     require major_concave_components.ilen() == 0
-    others = one_fermi_match.others
+    a = input.clone()
     MnistLabel::One
 
 func one_fermi_match -> FermiMatchResult:
-    fermi_match(major_concave_components, [downmost])
+    fermi_match(major_concave_components, [downmost, upmost])
+
+func upmost(cc: &ConcaveComponent) -> ?f32:
+    cc.displacement.y
 
 func downmost(cc: &ConcaveComponent) -> ?f32:
-    cc.displacement.y
+    -cc.displacement.y

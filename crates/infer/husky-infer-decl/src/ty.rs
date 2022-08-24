@@ -172,7 +172,7 @@ impl TyDecl {
                 }
                 msg_once!("variadics");
                 Some(Arc::new(CallFormDecl {
-                    opt_base_route: Some(ty),
+                    opt_route: Some(ty),
                     spatial_parameters: generic_parameters.clone(),
                     primary_parameters,
                     variadic_template: VariadicTemplate::None,
@@ -517,7 +517,17 @@ impl TyDecl {
             }
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
                 should_eq!(self.this_ty, ty);
-                todo!()
+                self.members
+                    .iter()
+                    .position(|member| match member {
+                        MemberDecl::TraitMethodImpl {
+                            trait_route,
+                            method,
+                        } => *trait_route == trai && method.ident() == ident,
+                        _ => false,
+                    })
+                    .unwrap()
+                    .into()
             }
             _ => panic!(),
         }
@@ -672,7 +682,7 @@ pub(crate) fn call_form_decl_from_static(
                 output: OutputDecl::new(db, output_liason, output_ty)?,
                 opt_this_liason: Some(this_liason),
                 is_lazy: false,
-                opt_base_route: todo!(),
+                opt_route: todo!(),
                 variadic_template: todo!(),
                 keyword_parameters: todo!(),
             }))
