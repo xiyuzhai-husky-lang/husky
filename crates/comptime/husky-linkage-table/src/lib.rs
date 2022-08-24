@@ -93,6 +93,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         field_ident: CustomIdentifier,
         field_binding: Binding,
     ) -> Option<__ResolvedLinkage> {
+        let this_ty = this_ty.intrinsic();
         if let Some(__Linkage) = self.linkage_table().field_linkage_source(
             self.upcast(),
             self.entity_uid(this_ty),

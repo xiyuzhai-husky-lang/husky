@@ -261,7 +261,7 @@ impl<'a> FeatureExprBuilder<'a> {
         field_binding: Binding,
     ) -> (FeatureLazyExprVariant, FeaturePtr) {
         let this_ty = this.ty();
-        let this_ty_decl = self.db.comptime().ty_decl(this_ty).unwrap();
+        let this_ty_decl = self.db.comptime().ty_decl(this_ty.intrinsic()).unwrap();
         let field_kind = this_ty_decl.field_kind(field_ident.ident);
         match field_kind {
             FieldKind::StructOriginal
