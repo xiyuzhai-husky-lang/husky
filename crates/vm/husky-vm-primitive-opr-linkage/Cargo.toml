@@ -19,5 +19,6 @@ husky-rust-code-repr = { path = "../../comptime/husky-rust-code-repr", features 
     "registration"
 ] }
 husky-write-utils = { path = "../../utils/husky-write-utils" }
+husky-io-utils = { path = "../../utils/husky-io-utils" }
 husky-word = { path = "../../syntax/husky-word" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }

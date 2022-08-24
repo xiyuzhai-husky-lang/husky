@@ -2,19 +2,20 @@ use husky_opn_syntax::*;
 use husky_rust_code_repr::{registration::NonPrimitiveTypeRegistration, BuildCodeGenStart};
 use husky_word::RootIdentifier;
 use husky_write_utils::w;
-use std::io::Write;
+use std::env;
+use std::fmt::Write;
 use std::path::PathBuf;
-use std::{env, fs::File};
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
-    gen_binary_primitive_opr_linkage("src/binary.rs").unwrap();
+    let path: PathBuf = "src/__rust_code_gen__.rs".into();
+    husky_io_utils::diff_write(&path, &gen_rust_code().unwrap());
 }
 
-fn gen_binary_primitive_opr_linkage(binary_mod_path: &str) -> std::io::Result<()> {
-    let mut f = File::create(binary_mod_path).unwrap();
+pub fn gen_rust_code() -> Result<String, std::fmt::Error> {
+    let mut code = String::new();
     write!(
-        f,
+        code,
         r#"use super::*;
 use husky_print_utils::p;
 use husky_word::RootIdentifier;
@@ -77,7 +78,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         let opr_code = opr.code();
         // let rust_trait_method_name = opr.rust_trait_method_name();
         write!(
-            f,
+            code,
             r#"
         ({lopd_ty_ident:?}, {opr:?}, {ropd_ty_ident:?}) => transfer_linkage!(
             |arguments, _| unsafe {{
@@ -89,7 +90,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         // some {lopd_ty_husky_name}::{rust_trait_method_name}
     }
     write!(
-        f,
+        code,
         r#"
         (I32, Power, I32) => transfer_linkage!(
             |arguments, _| unsafe {{
@@ -132,7 +133,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         (F32, None, F32),
     ];
     write!(
-        f,
+        code,
         r#"
 
 pub fn resolve_primitive_assign_binary_opr_linkage(
@@ -155,7 +156,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             let opr_code = opr.code();
             // let rust_trait_method_name = opr.rust_trait_method_name();
             write!(
-                f,
+                code,
                 r#"
             ({lopd_ty_ident:?}, Some({opr:?}), {ropd_ty_ident:?}) => transfer_linkage!(
                 |arguments, _| unsafe {{
@@ -168,7 +169,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             )?
         } else {
             write!(
-                f,
+                code,
                 r#"
             ({lopd_ty_ident:?}, None, {ropd_ty_ident:?}) => transfer_linkage!(
                 |arguments, _| unsafe {{
@@ -182,7 +183,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
         // some {lopd_ty_husky_name}::{rust_trait_method_name}
     }
     write!(
-        f,
+        code,
         r#"
         _ => {{
             panic!("Assign operation {{:?}} is not supported in Husky", (lopd_ty, opt_opr, ropd_ty))
@@ -190,5 +191,6 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
     }}
 }}
 "#
-    )
+    );
+    Ok(code)
 }
