@@ -1,6 +1,6 @@
 use std::path::{Path, PathBuf};
 
-use husky_path_utils::collect_all_package_dirs;
+use husky_path_utils::collect_package_dirs;
 use husky_print_utils::p;
 mod flags;
 mod mode;
@@ -40,7 +40,7 @@ pub fn print_all_packages_in_dir(dir: &Path, f: impl Fn(&Path)) {
     if !dir.is_dir() {
         panic!("{:?} is not a directory", dir)
     }
-    let package_paths = collect_all_package_dirs(dir);
+    let package_paths = collect_package_dirs(dir);
     println!(
         "\n{}Printing{} analysis on {} packages:",
         husky_print_utils::CYAN,

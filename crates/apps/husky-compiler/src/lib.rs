@@ -12,7 +12,7 @@ use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
 use husky_file::FilePtr;
 use husky_io_utils::diff_write;
 use husky_linkage_table::LinkageTableConfig;
-use husky_path_utils::collect_all_package_dirs;
+use husky_path_utils::collect_package_dirs;
 use husky_print_utils::*;
 use husky_root_static_defn::__resolve_root_defn;
 use husky_word::snake_to_dash;
@@ -34,7 +34,7 @@ impl CompilerInstance {
 
     pub fn compile_all(&self) {
         use husky_print_utils::*;
-        let package_dirs = collect_all_package_dirs(&self.dir.to_path(""));
+        let package_dirs = collect_package_dirs(&self.dir.to_path(""));
         println!(
             "{GREEN}\x1B[1mCompiling{RESET} {} 🐺 packages:",
             package_dirs.len()
