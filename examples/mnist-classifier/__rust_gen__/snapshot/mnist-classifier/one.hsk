@@ -9,7 +9,7 @@ func one_fermi_match_others -> []&ConcaveComponent:
 def is_one -> ?MnistLabel:
     require connected_components.ilen() == 1
     require major_connected_component.raw_contours.ilen() == 1
-    require major_concave_components.ilen() == 0
+    require one_fermi_match.others.ilen() == 0
     a = input.clone()
     MnistLabel::One
 
@@ -17,7 +17,9 @@ func one_fermi_match -> FermiMatchResult:
     fermi_match(major_concave_components, [downmost, upmost])
 
 func upmost(cc: &ConcaveComponent) -> ?f32:
+    require cc.displacement.y > 0.0
     cc.displacement.y
 
 func downmost(cc: &ConcaveComponent) -> ?f32:
+    require cc.displacement.y <= 0.0
     -cc.displacement.y

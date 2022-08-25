@@ -44,11 +44,13 @@ pub(crate) fn upmost<'eval>(
     cc: &'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>,
     __ctx: &dyn __EvalContext<'eval>,
 ) -> Option<f32> {
+    normal_require!(cc.displacement(__ctx).y > 0f32);
     return Some(cc.displacement(__ctx).y);
 }
 pub(crate) fn downmost<'eval>(
     cc: &'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>,
     __ctx: &dyn __EvalContext<'eval>,
 ) -> Option<f32> {
+    normal_require!(cc.displacement(__ctx).y <= 0f32);
     return Some(-cc.displacement(__ctx).y);
 }
