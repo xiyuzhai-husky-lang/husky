@@ -1,13 +1,8 @@
-mod diagnostics;
-mod folding_ranges;
-mod semantic_tokens;
-
-use diagnostics::*;
-use folding_ranges::*;
-use semantic_tokens::*;
-use std::path::{Path, PathBuf};
+mod test_class;
 
 use clap::{Parser, Subcommand};
+use std::path::{Path, PathBuf};
+use test_class::*;
 
 #[derive(Parser)]
 #[clap(author, version, about, long_about = None)]

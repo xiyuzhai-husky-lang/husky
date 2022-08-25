@@ -8,3 +8,4 @@ edition = "2021"
 clap = { version = "3.2.16", features = ["derive"] }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-control-flow-utils = { path = "../../utils/husky-control-flow-utils" }

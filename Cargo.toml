@@ -6,6 +6,8 @@ members = [
     "crates/comptime/*",
     "crates/runtime/*",
     "crates/vm/*",
+    "crates/abstraction/*",
+    "crates/utils/*",
     "crates/tracetime/*",
     "crates/apps/*",
     "crates/gadgets/*",
