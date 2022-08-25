@@ -10,10 +10,10 @@ update-python-requirements:
 vscode: cargo-test test-analyzer
 	scripts/vscode_prepublish.sh
 	rsync -a extensions/husky-analyzer ~/.vscode/extensions/
-	cargo install --path crates/toolchain/husky-analyzer --bin husky-analyzer-server
+	cargo install --path crates/usertools/husky-analyzer --bin husky-analyzer-server
 
 install-compiler:
-	cargo install --path crates/toolchain/husky-compiler --bin husky-compiler
+	cargo install --path crates/usertools/husky-compiler --bin husky-compiler
 
 count-todo:
 	scripts/pattern_statistics.py "todo!()" crates 1 10

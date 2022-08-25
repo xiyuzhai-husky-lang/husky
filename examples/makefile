@@ -14,7 +14,7 @@ mnist-with-backtrace-filtered:
 
 mnist-release:
 	cargo check
-	cargo install --path crates/toolchain/husky-debugger --bin husky-debugger
+	cargo install --path crates/usertools/husky-debugger --bin husky-debugger
 	husky-debugger --package-dir $(examples_dir)/mnist-classifier --sample-id 23 --mode run
 
 mnist-compiled:
