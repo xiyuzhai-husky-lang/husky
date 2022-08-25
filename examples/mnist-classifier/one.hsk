@@ -8,9 +8,8 @@ func one_fermi_match_others -> []&ConcaveComponent:
 
 def is_one -> ?MnistLabel:
     require connected_components.ilen() == 1
-    require major_connected_component.raw_contours
+    require major_connected_component.raw_contours.ilen() == 1
     require one_fermi_match.others.ilen() == 0
-    a = input.clone()
     MnistLabel::One
 
 func one_fermi_match -> FermiMatchResult:
