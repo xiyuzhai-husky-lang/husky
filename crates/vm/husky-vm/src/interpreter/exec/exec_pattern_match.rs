@@ -18,7 +18,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             match indexed_branch_iter.next() {
                 Some((i, b)) => {
                     let enter: bool = if let Some(ref pattern) = b.opt_pattern {
-                        pattern.matches(&match_expr)
+                        pattern.contains(&match_expr)
                     } else {
                         true
                     };

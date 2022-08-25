@@ -28,6 +28,8 @@ test-analyzer-with-backtrace-filtered:
 	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-semantic-tokens $(tests_dir)/semantic-tokens 2>&1 | python scripts/filter_rust_backtrace.py
 	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-qualified-tys $(tests_dir)/qualified-tys 2>&1 | python scripts/filter_rust_backtrace.py
 
+add-mnist-classifier-to-diagnostics-tests:
+	cargo run -q --bin husky-test-add examples/mnist-classifier diagnostics misc
 # debugger
 
 test-debugger:

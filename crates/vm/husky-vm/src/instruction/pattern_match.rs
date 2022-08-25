@@ -10,17 +10,17 @@ pub struct VMPatternBranch {
 #[derive(Debug, PartialEq)]
 pub enum VMPattern {
     Primitive(__Register<'static>),
-    OneOf(Vec<VMPattern>),
     EnumKind { kind_idx: i32 },
+    Or(Vec<VMPattern>),
 }
 
 impl VMPattern {
-    pub fn matches<'temp, 'eval>(&self, value: &__Register<'eval>) -> bool {
+    pub fn contains<'temp, 'eval>(&self, value: &__Register<'eval>) -> bool {
         match self {
             VMPattern::Primitive(primitive) => value == primitive,
-            VMPattern::OneOf(subpatterns) => {
+            VMPattern::Or(subpatterns) => {
                 for subpattern in subpatterns {
-                    if subpattern.matches(value) {
+                    if subpattern.contains(value) {
                         return true;
                     }
                 }

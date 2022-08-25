@@ -119,8 +119,8 @@ fn notify_change(new_data_text: &str, old_data_text: &str, save_path: &Path) -> 
     print_diff(old_data_text, new_data_text, "\n");
     let accept: bool = loop {
         print!("Do you want to accept change in saved data (y/n)? ");
-        let mut s = String::new();
         let _ = stdout().flush();
+        let mut s = String::new();
         stdin()
             .read_line(&mut s)
             .expect("Did not enter a correct string");

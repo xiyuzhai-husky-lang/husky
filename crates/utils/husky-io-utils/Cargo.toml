@@ -8,3 +8,4 @@ doctest = false
 
 [dependencies]
 husky-print-utils = { path = "../husky-print-utils" }
+composite-pattern = { path = "../../abstraction/composite-pattern" }
