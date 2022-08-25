@@ -17,6 +17,7 @@ use futures::executor::ThreadPool;
 use gui::handle_query;
 use husky_comptime::HuskyComptime;
 use husky_file::FilePtr;
+use husky_path_utils::collect_all_package_dirs;
 use husky_print_utils::*;
 use husky_root_static_defn::__StaticLinkageKey;
 use husky_test_utils::TestResult;
@@ -27,7 +28,6 @@ use instance::*;
 use internal::HuskyDebuggerInternal;
 use json_result::JsonResult;
 use notif::handle_notif;
-use path_utils::collect_all_package_dirs;
 use std::{
     collections::HashMap,
     convert::Infallible,

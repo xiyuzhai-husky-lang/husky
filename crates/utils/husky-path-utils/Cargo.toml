@@ -1,5 +1,5 @@
 [package]
-name = "path-utils"
+name = "husky-path-utils"
 version = "0.0.0"
 edition = "2021"
 

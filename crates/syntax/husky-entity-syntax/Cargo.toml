@@ -10,7 +10,7 @@ description = "Generic LSP server scaffold."
 salsa = "0.17.0-pre.2"
 husky-test-utils = { path = "../../utils/husky-test-utils" }
 husky-display-utils = { path = "../../utils/husky-display-utils" }
-path-utils = { path = "../../utils/husky-path-utils" }
+husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
