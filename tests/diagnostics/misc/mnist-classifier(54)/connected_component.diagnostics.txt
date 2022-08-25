@@ -1,1 +1,0 @@
-8:9..8:26	Infer Error: expect `[]mnist_classifier054::raw_contour::RawContour` but get `ThickFp<&mnist_classifier054::connected_component::ConnectedComponent, []mnist_classifier054::raw_contour::RawContour>` instead
