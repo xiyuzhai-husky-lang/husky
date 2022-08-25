@@ -1,7 +1,7 @@
 use std::path::{Path, PathBuf};
 
+use husky_path_utils::collect_all_package_dirs;
 use husky_print_utils::p;
-use path_utils::collect_all_package_dirs;
 mod flags;
 mod mode;
 mod print_diagnostics;

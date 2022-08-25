@@ -11,7 +11,7 @@ indexmap = "1.8.1"
 colored = "2.0.0"
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-path-utils = { path = "../../utils/husky-path-utils" }
+husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 vec-like = { path = "../../abstraction/vec-like" }

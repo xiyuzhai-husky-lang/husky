@@ -9,7 +9,7 @@ description = "Generic LSP server scaffold."
 [dependencies]
 salsa = "0.17.0-pre.2"
 thin-vec = { path = "../../../forks/thin-vec" }
-path-utils = { path = "../../utils/husky-path-utils" }
+husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 interner = { path = "../../abstraction/interner" }

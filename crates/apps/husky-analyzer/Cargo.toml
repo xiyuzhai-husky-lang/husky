@@ -30,7 +30,7 @@ lsp-server = "0.5.2"
 salsa = "0.17.0-pre.2"
 error-utils = { path = "../../utils/husky-error-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-path-utils = { path = "../../utils/husky-path-utils" }
+husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
 husky-display-utils = { path = "../../utils/husky-display-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }

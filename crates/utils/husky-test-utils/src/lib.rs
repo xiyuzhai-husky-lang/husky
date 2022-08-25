@@ -1,6 +1,6 @@
 use std::path::{Path, PathBuf};
 
-use path_utils::collect_all_package_dirs;
+use husky_path_utils::collect_all_package_dirs;
 
 #[derive(Debug)]
 pub enum TestResult {
