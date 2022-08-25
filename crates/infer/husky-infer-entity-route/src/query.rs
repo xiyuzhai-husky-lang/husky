@@ -58,7 +58,7 @@ fn is_implicitly_castable(
                     | RootIdentifier::TypeType => false,
                     _ => panic!(),
                 },
-                EntityRoutePtr::Custom(_) => todo!(),
+                EntityRoutePtr::Custom(_) => false,
             },
             RootIdentifier::Vec => false,
             RootIdentifier::Tuple => false,
