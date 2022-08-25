@@ -17,7 +17,7 @@ use futures::executor::ThreadPool;
 use gui::handle_query;
 use husky_comptime::HuskyComptime;
 use husky_file::FilePtr;
-use husky_path_utils::collect_all_package_dirs;
+use husky_path_utils::collect_package_dirs;
 use husky_print_utils::*;
 use husky_root_static_defn::__StaticLinkageKey;
 use husky_test_utils::TestResult;
@@ -65,7 +65,7 @@ pub async fn debugger_run(package_dir: PathBuf, verbose: bool) -> DebuggerResult
 pub async fn debugger_test(packages_dir: PathBuf, verbose: bool) {
     p!(packages_dir);
     assert!(packages_dir.is_dir());
-    let package_dirs = collect_all_package_dirs(&packages_dir);
+    let package_dirs = collect_package_dirs(&packages_dir);
     println!(
         "\n{}Running{} tests on {} example packages:",
         husky_print_utils::CYAN,

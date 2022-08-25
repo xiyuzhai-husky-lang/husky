@@ -1,5 +1,5 @@
 use crate::*;
-use husky_path_utils::collect_all_package_dirs;
+use husky_path_utils::collect_package_dirs;
 use husky_root_static_defn::__resolve_root_defn;
 use std::path::{Path, PathBuf};
 

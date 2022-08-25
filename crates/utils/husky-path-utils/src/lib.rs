@@ -5,8 +5,7 @@ use husky_check_utils::should_satisfy;
 use husky_print_utils::p;
 pub use module_tree::*;
 pub use rel::*;
-
-use std::path::{Path, PathBuf};
+pub use std::path::{Path, PathBuf};
 
 pub fn path_has_file_name(path: &Path, name: &str) -> bool {
     path.file_name().map(|s| s.to_string_lossy()) == Some(name.into())
@@ -28,7 +27,7 @@ pub fn path_has_extension(path: &Path, extension: &str) -> bool {
     path.extension().map(|s| s.to_string_lossy()) == Some(extension.into())
 }
 
-pub fn collect_all_package_dirs(dir: &Path) -> Vec<PathBuf> {
+pub fn collect_package_dirs(dir: &Path) -> Vec<PathBuf> {
     should_satisfy!(dir, |dir: &Path| dir.is_dir());
     let main_path = dir.join("main.hsk");
     if main_path.exists() {
@@ -39,7 +38,7 @@ pub fn collect_all_package_dirs(dir: &Path) -> Vec<PathBuf> {
             let entry = entry.unwrap();
             let subpath = entry.path();
             if subpath.is_dir() {
-                pack_paths.extend(collect_all_package_dirs(&subpath))
+                pack_paths.extend(collect_package_dirs(&subpath))
             }
         }
         pack_paths
