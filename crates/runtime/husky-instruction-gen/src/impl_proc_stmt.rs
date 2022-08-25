@@ -297,7 +297,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             ProcStmtPatternVariant::PrimitiveLiteral(data) => {
                 VMPattern::Primitive(convert_primitive_literal_to_register(data, pattern.ty))
             }
-            ProcStmtPatternVariant::OneOf { ref subpatterns } => VMPattern::OneOf(
+            ProcStmtPatternVariant::OneOf { ref subpatterns } => VMPattern::Or(
                 subpatterns
                     .iter()
                     .map(|subpattern| self.gen_proc_case_pattern(subpattern))

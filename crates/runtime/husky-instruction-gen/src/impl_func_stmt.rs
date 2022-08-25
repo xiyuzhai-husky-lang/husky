@@ -174,7 +174,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             FuncStmtPatternVariant::PrimitiveLiteral(data) => {
                 VMPattern::Primitive(convert_primitive_literal_to_register(data, pattern.ty))
             }
-            FuncStmtPatternVariant::OneOf { ref subpatterns } => VMPattern::OneOf(
+            FuncStmtPatternVariant::OneOf { ref subpatterns } => VMPattern::Or(
                 subpatterns
                     .iter()
                     .map(|subpattern| self.gen_func_case_pattern(subpattern))
