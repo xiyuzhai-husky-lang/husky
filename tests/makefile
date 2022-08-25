@@ -9,24 +9,24 @@ cargo-test-backtraced:
 # analyzer
 
 test-analyzer:
-	cargo run --bin husky-analyzer-tester test-diagnostics $(tests_dir)/analyzer/diagnostics \
-	&& cargo run --bin husky-analyzer-tester test-folding-ranges $(tests_dir)/analyzer/folding-ranges \
-	&& cargo run --bin husky-analyzer-tester test-semantic-tokens $(tests_dir)/analyzer/semantic-tokens\
-	&& cargo run --bin husky-analyzer-tester test-qualified-tys $(tests_dir)/analyzer/qualified-tys
+	cargo run --bin husky-analyzer-tester test-diagnostics $(tests_dir)/diagnostics \
+	&& cargo run --bin husky-analyzer-tester test-folding-ranges $(tests_dir)/folding-ranges \
+	&& cargo run --bin husky-analyzer-tester test-semantic-tokens $(tests_dir)/semantic-tokens\
+	&& cargo run --bin husky-analyzer-tester test-qualified-tys $(tests_dir)/qualified-tys
 
 test-analyzer-with-backtrace:
 	set -e
-	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-diagnostics $(tests_dir)/analyzer/diagnostics
-	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-folding-ranges $(tests_dir)/analyzer/folding-ranges
-	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-semantic-tokens $(tests_dir)/analyzer/semantic-tokens
-	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-qualified-tys $(tests_dir)/analyzer/qualified-tys
+	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-diagnostics $(tests_dir)/diagnostics
+	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-folding-ranges $(tests_dir)/folding-ranges
+	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-semantic-tokens $(tests_dir)/semantic-tokens
+	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-qualified-tys $(tests_dir)/qualified-tys
 
 test-analyzer-with-backtrace-filtered:
 	set -e
-	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-diagnostics $(tests_dir)/analyzer/diagnostics 2>&1 | python scripts/filter_rust_backtrace.py
-	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-folding-ranges $(tests_dir)/analyzer/folding-ranges 2>&1 | python scripts/filter_rust_backtrace.py
-	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-semantic-tokens $(tests_dir)/analyzer/semantic-tokens 2>&1 | python scripts/filter_rust_backtrace.py
-	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-qualified-tys $(tests_dir)/analyzer/qualified-tys 2>&1 | python scripts/filter_rust_backtrace.py
+	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-diagnostics $(tests_dir)/diagnostics 2>&1 | python scripts/filter_rust_backtrace.py
+	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-folding-ranges $(tests_dir)/folding-ranges 2>&1 | python scripts/filter_rust_backtrace.py
+	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-semantic-tokens $(tests_dir)/semantic-tokens 2>&1 | python scripts/filter_rust_backtrace.py
+	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-qualified-tys $(tests_dir)/qualified-tys 2>&1 | python scripts/filter_rust_backtrace.py
 
 # debugger
 
