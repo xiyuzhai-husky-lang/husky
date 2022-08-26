@@ -425,7 +425,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         let opd_ty = derived_not_none!(self.infer_expr(opd, None))?;
-        derived_unwrap!(self.db.ty_decl(opd_ty.deref_route())).field_ty_result(field_ident)
+        derived_unwrap!(self.db.ty_decl(opd_ty.intrinsic())).field_ty_result(field_ident)
     }
 
     fn list_opn_ty_result(
