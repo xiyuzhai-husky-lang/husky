@@ -27,4 +27,3 @@ func upmost(cc: &ConcaveComponent) -> ?f32:
 func downmost(cc: &ConcaveComponent) -> ?f32:
     require cc.displacement.y <= 0.0
     -cc.displacement.y
-    
