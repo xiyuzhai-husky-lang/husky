@@ -7,6 +7,7 @@ impl HuskyTraceTime {
     pub(crate) fn feature_repr_figure(
         &self,
         repr: &FeatureRepr,
+        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         if let Some(sample_id) = self.restriction.opt_sample_id() {
             let value = self
@@ -19,13 +20,14 @@ impl HuskyTraceTime {
                     .unwrap(),
             ))
         } else {
-            self.feature_repr_generic_figure(repr)
+            self.feature_repr_generic_figure(repr, opt_arrival_indicator)
         }
     }
 
     fn feature_repr_generic_figure(
         &self,
         repr: &FeatureRepr,
+        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         // const COLUMN_HEIGHT: u32 = 5;
         let ty = repr.ty();
@@ -40,6 +42,7 @@ impl HuskyTraceTime {
                 Ok(FigureCanvasData::GenericI32 {
                     partitioned_samples: this.feature_repr_partitioned_samples(
                         repr,
+                        opt_arrival_indicator,
                         |visual_data| match visual_data {
                             VisualData::Primitive {
                                 value: PrimitiveValueData::I32(i),
@@ -55,6 +58,7 @@ impl HuskyTraceTime {
             VisualTy::Float => Ok(FigureCanvasData::GenericF32 {
                 partitioned_samples: self.feature_repr_partitioned_samples(
                     repr,
+                    opt_arrival_indicator,
                     |visual_data| match visual_data {
                         VisualData::Primitive {
                             value: PrimitiveValueData::F32(f),
@@ -66,10 +70,11 @@ impl HuskyTraceTime {
             VisualTy::Point2d => todo!(),
             VisualTy::Shape2d | VisualTy::Region2d | VisualTy::Image2d | VisualTy::Graphics2d => {
                 Ok(FigureCanvasData::GenericGraphics2d {
-                    partitioned_samples: self
-                        .feature_repr_partitioned_samples(repr, |visual_data| {
-                            Graphics2dCanvasData::from_visual_data(visual_data)
-                        })?,
+                    partitioned_samples: self.feature_repr_partitioned_samples(
+                        repr,
+                        opt_arrival_indicator,
+                        |visual_data| Graphics2dCanvasData::from_visual_data(visual_data),
+                    )?,
                 })
             }
             VisualTy::Dataset => todo!(),
@@ -83,7 +88,8 @@ impl HuskyTraceTime {
     fn feature_repr_partitioned_samples<T>(
         &self,
         repr: &FeatureRepr,
-        map: impl Fn(VisualData) -> T,
+        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        transform_visual_data: impl Fn(VisualData) -> T,
     ) -> Result<Vec<(PartitionDefnData, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
         let session = self.runtime().session();
         let dev_division = session.dev();
@@ -93,7 +99,17 @@ impl HuskyTraceTime {
             let label = labeled_data.label;
             let sample_id = labeled_data.sample_id;
             let f = |e| (sample_id, e);
-            if !self.all_arrived(restriction, sample_id).map_err(f)? {
+            if !self
+                .runtime()
+                .eval_opt_arrival_indicator(opt_arrival_indicator, sample_id)
+                .map_err(f)?
+            {
+                continue;
+            }
+            if !self
+                .all_arrived_in_restriction(restriction, sample_id)
+                .map_err(f)?
+            {
                 continue;
             }
             for trace_id in restriction.enters().iter() {
@@ -102,7 +118,7 @@ impl HuskyTraceTime {
             if sampler
                 .process(label, || {
                     let visual_data = self.runtime().visualize_feature(repr.clone(), sample_id)?;
-                    Ok((labeled_data.sample_id, map(visual_data)))
+                    Ok((labeled_data.sample_id, transform_visual_data(visual_data)))
                 })
                 .map_err(f)?
             {
@@ -112,7 +128,11 @@ impl HuskyTraceTime {
         Ok(sampler.finish())
     }
 
-    fn all_arrived(&self, restriction: &Restriction, sample_id: SampleId) -> __VMResult<bool> {
+    fn all_arrived_in_restriction(
+        &self,
+        restriction: &Restriction,
+        sample_id: SampleId,
+    ) -> __VMResult<bool> {
         let mut all_arrived = true;
         for (trace_id, arrival_refined_control) in restriction.arrivals().iter() {
             if !self.is_trace_arrived(*trace_id, sample_id)? {
