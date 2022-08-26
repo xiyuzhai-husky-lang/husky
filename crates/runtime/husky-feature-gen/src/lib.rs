@@ -154,7 +154,7 @@ impl Feature {
             PurePatternVariant::OneOf { ref subpatterns } => todo!(),
             PurePatternVariant::EnumLiteral(_) => todo!(),
             PurePatternVariant::Some => interner.intern(Feature::PurePatternSome),
-            PurePatternVariant::None => todo!(),
+            PurePatternVariant::None => interner.intern(Feature::PurePatternNone),
         }
     }
 }

@@ -10,6 +10,8 @@ def is_one -> ?MnistLabel:
     require connected_components.ilen() == 1
     require major_connected_component.raw_contours.ilen() == 1
     require one_fermi_match.others.ilen() == 0
+    if one_fermi_match.matches[0] be none:
+        MnistLabel::One
     MnistLabel::One
 
 func one_fermi_match -> FermiMatchResult:

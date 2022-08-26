@@ -96,7 +96,7 @@ impl<'a> LinkageCollector<'a> {
                 field_binding,
             } => todo!(),
             LazyExprVariant::EntityFeature { entity_route } => self.insert(entity_route),
-            LazyExprVariant::BePattern { .. } => todo!(),
+            LazyExprVariant::BePattern { .. } => (),
         }
     }
 }
