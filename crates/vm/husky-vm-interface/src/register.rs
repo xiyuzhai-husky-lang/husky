@@ -328,7 +328,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn new_unreturned() -> __Register<'eval> {
+    pub fn unreturned() -> __Register<'eval> {
         unsafe {
             __Register {
                 data_kind: __RegisterDataKind::Unreturned,

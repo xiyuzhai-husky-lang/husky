@@ -20,7 +20,7 @@ pub struct FeatureLazyStmt {
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     pub stmt: Arc<LazyStmt>,
-    pub output_ty: EntityRoutePtr,
+    pub return_ty: EntityRoutePtr,
 }
 
 impl std::hash::Hash for FeatureLazyStmt {
@@ -143,7 +143,7 @@ impl FeatureLazyStmt {
             eval_id: Default::default(),
             opt_arrival_indicator: opt_arrival_indicator.map(|s| s.clone()),
             stmt: lazy_stmt.clone(),
-            output_ty: lazy_stmt.output_ty.route, // needs to instantiate this
+            return_ty: lazy_stmt.output_ty.route, // needs to instantiate this
         })
     }
 

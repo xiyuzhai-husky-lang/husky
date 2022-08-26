@@ -88,7 +88,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
             VisualizerVariant::Custom { .. } => {
                 let visual_feature_lazy_block = self.db.visual_feature_lazy_block(this)?;
                 Ok(self
-                    .eval_feature_lazy_block(&visual_feature_lazy_block)?
+                    .eval_lazy_block(&visual_feature_lazy_block)?
                     .downcast_eval_ref::<VisualData>(&__VISUAL_DATA_VTABLE)
                     .clone())
             }

@@ -53,7 +53,7 @@ impl FeatureRepr {
         match self {
             FeatureRepr::Value { ty, .. } => *ty,
             FeatureRepr::LazyExpr(expr) => expr.expr.ty(),
-            FeatureRepr::LazyBlock(block) => block.ty.route,
+            FeatureRepr::LazyBlock(block) => block.return_ty.route,
             FeatureRepr::FuncBlock(block) => block.ty.route,
             FeatureRepr::ProcBlock(block) => block.ty.route,
             FeatureRepr::TargetInput { ty, .. } => *ty,

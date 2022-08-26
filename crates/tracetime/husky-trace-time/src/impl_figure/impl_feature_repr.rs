@@ -175,9 +175,12 @@ impl HuskyTraceTime {
                 }
                 TraceVariant::FeatureStmt(ref stmt) => (
                     self.runtime.eval_feature_stmt(stmt, sample_id)?,
-                    stmt.output_ty,
+                    stmt.return_ty,
                 ),
-                TraceVariant::FeatureBranch(_) => todo!(),
+                TraceVariant::FeatureBranch(ref branch) => (
+                    self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
+                    branch.block.return_ty.route,
+                ),
                 TraceVariant::FeatureExpr(_) => todo!(),
                 TraceVariant::FeatureCallArgument { name, ref argument } => todo!(),
                 TraceVariant::FuncStmt {

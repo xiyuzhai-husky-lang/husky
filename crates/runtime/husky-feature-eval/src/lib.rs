@@ -69,7 +69,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         block: &FeatureLazyBlock,
         sample_id: SampleId,
     ) -> __VMResult<__Register<'eval>> {
-        self.evaluator(sample_id).eval_feature_lazy_block(block)
+        self.evaluator(sample_id).eval_lazy_block(block)
     }
 
     fn eval_feature_stmt(
@@ -78,6 +78,14 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         sample_id: SampleId,
     ) -> __VMResult<__Register<'eval>> {
         self.evaluator(sample_id).eval_stmt(stmt)
+    }
+
+    fn eval_feature_lazy_branch(
+        &self,
+        branch: &FeatureLazyBranch,
+        sample_id: SampleId,
+    ) -> __VMResult<__Register<'eval>> {
+        self.evaluator(sample_id).eval_lazy_branch(branch)
     }
 
     fn eval_feature_expr(
