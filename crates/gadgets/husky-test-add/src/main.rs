@@ -2,6 +2,7 @@ mod test_class;
 
 use clap::{Parser, Subcommand};
 use composite_pattern::CompositePattern;
+use husky_check_utils::should;
 use husky_cli_utils::ask::ask_user_for_permission;
 use husky_io_utils::{file_sync::diff_file_sync, path_pattern::PathPattern, FileVisitConfig};
 use husky_print_utils::*;
@@ -61,7 +62,10 @@ fn main() {
     check_is_package(&src_package_dir);
     let src_package_name = src_package_dir.file_name().unwrap().to_str().unwrap();
     let dst_parent_dir: PathBuf = cli.test_class.relative_path_str().into();
-    assert!(dst_parent_dir.exists());
+    should!(
+        dst_parent_dir.exists(),
+        "dst_parent_dir = {dst_parent_dir:?}"
+    );
     let dst_package_dir = gen_dst_package_dir(&dst_parent_dir, src_package_name);
     attempt_to_save_husky_code(&src_package_dir, &dst_package_dir)
 }
