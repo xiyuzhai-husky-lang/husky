@@ -804,6 +804,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, geom2d::Vector2d, __registration__::__VECTOR_2_D_VTABLE, displacement)
     ),
     (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::hausdorff_width",
+        },
+        lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, hausdorff_width)
+    ),
+    (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::LineSegment"
         },

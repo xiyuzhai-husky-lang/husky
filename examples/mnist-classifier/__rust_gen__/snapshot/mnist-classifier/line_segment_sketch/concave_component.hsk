@@ -13,6 +13,10 @@ struct ConcaveComponent:
     func displacement -> Vector2d:
         line_segments.firstx().start.to(line_segments.lastx().end)
 
+    func hausdorff_width -> f32:
+        // temp
+        1.0
+
     visual:
         line_segments
 
