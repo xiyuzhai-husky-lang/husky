@@ -30,7 +30,9 @@ test-analyzer-backtraced-filtered:
 
 add-mnist-classifier-to-diagnostics-tests:
 	cargo run -q --bin husky-test-add examples/mnist-classifier diagnostics misc
-# debugger
+
+add-mnist-classifier-to-folding-ranges-tests:
+	cargo run -q --bin husky-test-add examples/mnist-classifier folding-ranges misc
 
 test-debugger:
 	@cargo check -q

@@ -8,7 +8,7 @@ pub(crate) enum FoldingRangesTestOrder {
 impl FoldingRangesTestOrder {
     pub(crate) fn relative_path_str(&self) -> &'static str {
         match self {
-            FoldingRangesTestOrder::Misc => "tests/folding_ranges/misc",
+            FoldingRangesTestOrder::Misc => "tests/folding-ranges/misc",
         }
     }
 }
