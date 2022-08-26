@@ -14,14 +14,14 @@ test-analyzer:
 	&& cargo run --bin husky-analyzer-tester test-semantic-tokens $(tests_dir)/semantic-tokens\
 	&& cargo run --bin husky-analyzer-tester test-qualified-tys $(tests_dir)/qualified-tys
 
-test-analyzer-with-backtrace:
+test-analyzer-backtraced:
 	set -e
 	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-diagnostics $(tests_dir)/diagnostics
 	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-folding-ranges $(tests_dir)/folding-ranges
 	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-semantic-tokens $(tests_dir)/semantic-tokens
 	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-qualified-tys $(tests_dir)/qualified-tys
 
-test-analyzer-with-backtrace-filtered:
+test-analyzer-backtraced-filtered:
 	set -e
 	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-diagnostics $(tests_dir)/diagnostics 2>&1 | python scripts/filter_rust_backtrace.py
 	RUST_BACKTRACE=1 cargo run --bin husky-analyzer-tester test-folding-ranges $(tests_dir)/folding-ranges 2>&1 | python scripts/filter_rust_backtrace.py
