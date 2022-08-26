@@ -13,7 +13,7 @@ def is_one -> ?MnistLabel:
     if one_fermi_match.matches[0] be none:
         if one_fermi_match.matches[1] be none:
             MnistLabel::One
-        a = one_fermi_match.matches[1].ha
+        a = one_fermi_match.matches[1].hausdorff_width
         MnistLabel::One
     MnistLabel::One
 
