@@ -1,0 +1,1 @@
+16:40..16:42	Infer Error: No such field `ha` in type `mnist_classifier__65::line_segment_sketch::concave_component::ConcaveComponent`
