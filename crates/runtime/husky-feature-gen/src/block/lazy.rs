@@ -12,7 +12,7 @@ pub struct FeatureLazyBlock {
     pub file: FilePtr,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
-    pub ty: RangedEntityRoute,
+    pub return_ty: RangedEntityRoute,
     pub stmts: Vec<Arc<FeatureLazyStmt>>,
 }
 
@@ -78,7 +78,7 @@ impl<'eval> FeatureLazyBlock {
             file,
             range,
             eval_id: Default::default(),
-            ty,
+            return_ty: ty,
         })
     }
 

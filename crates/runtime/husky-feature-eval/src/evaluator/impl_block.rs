@@ -4,7 +4,7 @@ use husky_print_utils::{epin, msg_once, p};
 use husky_vm::{__RegisterDataKind, eval_fast};
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn eval_feature_lazy_block(
+    pub(crate) fn eval_lazy_block(
         &self,
         block: &FeatureLazyBlock,
     ) -> __VMResult<__Register<'eval>> {
@@ -20,7 +20,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         })
     }
 
-    pub(crate) fn eval_feature_func_block(
+    pub(crate) fn eval_func_block(
         &self,
         block: &FeatureFuncBlock,
     ) -> __VMResult<__Register<'eval>> {
