@@ -252,7 +252,12 @@ impl<'eval> __Register<'eval> {
             },
             __RegisterDataKind::Box => (),
             __RegisterDataKind::EvalRef => (),
-            __RegisterDataKind::TempRef => panic!(),
+            __RegisterDataKind::TempRef => {
+                panic!(
+                    "can't cache temp ref of type `{}`",
+                    self.vtable.typename_str
+                )
+            }
             __RegisterDataKind::TempMut => panic!(),
             __RegisterDataKind::Moved => panic!(),
             __RegisterDataKind::None => {

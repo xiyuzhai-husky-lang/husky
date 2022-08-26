@@ -406,7 +406,10 @@ impl<'eval> __Register<'eval> {
 
     pub fn downcast_eval_ref<T: 'eval>(&self, target_ty_vtable: &__RegisterTyVTable) -> &'eval T {
         if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
-            panic!()
+            panic!(
+                "self is `{:?}` of type `{}`, but target is of type `{}`",
+                self.data_kind, self.vtable.typename_str, target_ty_vtable.typename_str
+            )
         }
         unsafe {
             match self.data_kind {

@@ -8,6 +8,6 @@ impl HuskyTraceTime {
         &self,
         expr: &Arc<FeatureLazyExpr>,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
-        self.feature_repr_figure(&expr.clone().into())
+        self.feature_repr_figure(&expr.clone().into(), expr.opt_arrival_indicator.as_ref())
     }
 }
