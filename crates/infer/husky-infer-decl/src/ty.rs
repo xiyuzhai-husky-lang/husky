@@ -404,8 +404,9 @@ impl TyDecl {
             None => {
                 throw!(
                     format!(
-                        "No such field `{}` in type `{:?}`",
-                        &ranged_ident.ident, self.this_ty
+                        "no field `{}` in type `{}`",
+                        &ranged_ident.ident,
+                        self.this_ty.ident()
                     ),
                     ranged_ident.range
                 )
