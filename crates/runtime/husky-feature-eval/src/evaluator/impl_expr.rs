@@ -273,16 +273,25 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             PurePatternVariant::OneOf { ref subpatterns } => todo!(),
             PurePatternVariant::EnumLiteral(_) => todo!(),
             PurePatternVariant::Some => match this_value.data_kind() {
-                __RegisterDataKind::PrimitiveValue => true.to_register(),
-                __RegisterDataKind::Box => todo!(),
-                __RegisterDataKind::EvalRef => todo!(),
-                __RegisterDataKind::TempRef => todo!(),
-                __RegisterDataKind::TempMut => todo!(),
-                __RegisterDataKind::Moved => todo!(),
-                __RegisterDataKind::None => todo!(),
-                __RegisterDataKind::Unreturned => todo!(),
+                __RegisterDataKind::PrimitiveValue
+                | __RegisterDataKind::Box
+                | __RegisterDataKind::EvalRef
+                | __RegisterDataKind::TempRef
+                | __RegisterDataKind::TempMut => true.to_register(),
+                __RegisterDataKind::None => false.to_register(),
+                __RegisterDataKind::Moved => panic!(),
+                __RegisterDataKind::Unreturned => panic!(),
             },
-            PurePatternVariant::None => todo!(),
+            PurePatternVariant::None => match this_value.data_kind() {
+                __RegisterDataKind::PrimitiveValue
+                | __RegisterDataKind::Box
+                | __RegisterDataKind::EvalRef
+                | __RegisterDataKind::TempRef
+                | __RegisterDataKind::TempMut => false.to_register(),
+                __RegisterDataKind::None => true.to_register(),
+                __RegisterDataKind::Moved => panic!(),
+                __RegisterDataKind::Unreturned => panic!(),
+            },
         })
     }
 }

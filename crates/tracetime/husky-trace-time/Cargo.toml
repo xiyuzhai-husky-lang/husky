@@ -42,3 +42,4 @@ husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+husky-pattern-semantics = { path = "../../semantics/husky-pattern-semantics" }

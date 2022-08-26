@@ -3,6 +3,7 @@ use crate::*;
 use husky_entity_route::RangedEntityRoute;
 use husky_feature_eval::EvalFeature;
 use husky_lazy_semantics::{LazyExprVariant, LazyOpnKind};
+use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_print_utils::epin;
 use husky_text::RangedCustomIdentifier;
 use husky_vm::InterpreterQueryGroup;
@@ -146,10 +147,9 @@ impl<'a> TraceTokenBuilder<'a> {
             FeatureLazyExprVariant::NewVecFromList { ref elements, .. } => {
                 self.gen_new_vec_from_list_tokens(elements, opt_assoc_id, config)
             }
-            FeatureLazyExprVariant::BePattern {
-                ref this,
-                patt: ref pure_pattern,
-            } => todo!(),
+            FeatureLazyExprVariant::BePattern { ref this, ref patt } => {
+                self.gen_be_pattern(this, patt, config)
+            }
         }
     }
 
@@ -223,5 +223,26 @@ impl<'a> TraceTokenBuilder<'a> {
             self.gen_feature_expr_tokens(input, config.subexpr());
         }
         self.push(special!(")"))
+    }
+
+    fn gen_be_pattern(
+        &mut self,
+        this: &Arc<FeatureLazyExpr>,
+        patt: &PurePattern,
+        config: ExprTokenConfig,
+    ) {
+        self.gen_feature_expr_tokens(this, config.subexpr());
+        self.push(special!(" be "));
+        self.gen_pattern(patt)
+    }
+
+    fn gen_pattern(&mut self, patt: &PurePattern) {
+        match patt.variant {
+            PurePatternVariant::PrimitiveLiteral(_) => todo!(),
+            PurePatternVariant::OneOf { ref subpatterns } => todo!(),
+            PurePatternVariant::EnumLiteral(_) => todo!(),
+            PurePatternVariant::Some => self.push(keyword!("some")),
+            PurePatternVariant::None => self.push(keyword!("none")),
+        }
     }
 }
