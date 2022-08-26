@@ -2,7 +2,10 @@ use crate::*;
 use husky_comptime::{utils::__RegisterDowncastResult, *};
 use husky_print_utils::msg_once;
 use husky_trace_protocol::TraceStats;
-use husky_vm::{__Register, __RegisterDataKind, __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
+use husky_vm::{
+    __Register, __RegisterDataKind, __VMError, __VMErrorVariant, __VMResult, __VirtualEnum,
+    __VIRTUAL_ENUM_VTABLE,
+};
 use husky_word::RootIdentifier;
 
 impl<'eval> TraceVariant<'eval> {
@@ -173,9 +176,11 @@ fn feature_opt_stats<'eval>(
             continue;
         }
         dev_arrivals += 1;
-        let value = compute_value(sample_id).map_err(|e| {
-            p!(e);
-            todo!()
+        let value = compute_value(sample_id).map_err(|e| __VMError {
+            message: e.message,
+            variant: __VMErrorVariant::FromBatch {
+                sample_id: labeled_data.sample_id.0,
+            },
         })?;
         match convert_register_to_label(&value) {
             __RegisterDowncastResult::Value(prediction) => match prediction == labeled_data.label {
