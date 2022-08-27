@@ -70,7 +70,7 @@ impl CanonicalTy {
             (false, CanonicalQualifier::Intrinsic) => CanonicalTyKind::Intrinsic,
             (false, CanonicalQualifier::EvalRef) => CanonicalTyKind::EvalRef,
             (false, CanonicalQualifier::TempRef) => todo!(),
-            (false, CanonicalQualifier::TempRefMut) => todo!(),
+            (false, CanonicalQualifier::TempRefMut) => CanonicalTyKind::TempRefMut,
         }
     }
 

@@ -17,7 +17,7 @@ pub enum EagerContract {
 }
 
 impl EagerContract {
-    pub(crate) fn argument_eager_contract(
+    pub(crate) fn parameter_eager_contract(
         db: &dyn InferContractSalsaQueryGroup,
         parameter_liason: ParameterModifier,
         parameter_ty: EntityRoutePtr,
@@ -78,61 +78,29 @@ impl EagerContract {
         }
     }
 
-    pub fn field_access_this_eager_contract(
-        field_liason: MemberLiason,
+    pub fn field_self_eager_contract(
+        member_modifier: MemberModifier,
         member_contract: EagerContract,
         is_member_copyable: bool,
         range: TextRange,
     ) -> InferResult<EagerContract> {
-        // infer this contract
-        if is_member_copyable {
-            Ok(match member_contract {
-                EagerContract::Pure => EagerContract::Pure,
-                EagerContract::Move => panic!(),
-                EagerContract::EvalRef => EagerContract::EvalRef,
-                EagerContract::TempRef | EagerContract::TempRefMut => match field_liason {
-                    MemberLiason::Immutable => {
-                        throw!(
-                            format!("can't turn a copyable immutable member into temp ref (mut)"),
-                            range
-                        )
-                    }
-                    MemberLiason::Mutable => EagerContract::TempRefMut,
-                    MemberLiason::DerivedLazy => {
-                        throw!(
-                            format!("can't turn a copyable derived member into temp ref (mut)"),
-                            range
-                        )
-                    }
-                },
-                EagerContract::Pass => panic!(),
-            })
-        } else {
-            match field_liason {
-                MemberLiason::Immutable => match member_contract {
-                    EagerContract::TempRefMut => throw!(
-                        format!("can't bind mutable reference to an immutable field"),
-                        range
-                    ),
-                    _ => Ok(member_contract),
-                },
-                MemberLiason::Mutable => match member_contract {
-                    EagerContract::Pure => Ok(EagerContract::Pure),
-                    EagerContract::Move => Ok(EagerContract::Move),
-                    EagerContract::TempRefMut => Ok(EagerContract::TempRefMut),
-                    EagerContract::EvalRef => Ok(EagerContract::EvalRef),
-                    EagerContract::TempRef => todo!(),
-                    EagerContract::Pass => todo!(),
-                },
-                MemberLiason::DerivedLazy => match member_contract {
-                    EagerContract::Pure => Ok(EagerContract::Pure),
-                    EagerContract::Move => todo!(),
-                    EagerContract::Pass => Ok(EagerContract::EvalRef),
-                    EagerContract::EvalRef => todo!(),
-                    EagerContract::TempRef => todo!(),
-                    EagerContract::TempRefMut => todo!(),
-                },
-            }
+        if !member_modifier.allow_mutable() && member_contract.require_mutable() {
+            todo!()
+        }
+        Ok(match member_modifier {
+            MemberModifier::Immutable | MemberModifier::Mutable => member_contract,
+            MemberModifier::Property => EagerContract::EvalRef,
+        })
+    }
+
+    pub fn require_mutable(self) -> bool {
+        match self {
+            EagerContract::TempRefMut => true,
+            EagerContract::Pure
+            | EagerContract::Move
+            | EagerContract::Pass
+            | EagerContract::EvalRef
+            | EagerContract::TempRef => false,
         }
     }
 

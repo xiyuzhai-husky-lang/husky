@@ -43,9 +43,9 @@ impl<'a> AstTransformer<'a> {
             msg_once!("field contract");
             Ok(AstVariant::FieldDefnHead {
                 ranged_ident: ident,
-                liason: MemberLiason::Immutable,
+                liason: MemberModifier::Immutable,
                 field_ty: ty,
-                field_ast_kind: FieldAstKind::RecordOriginal,
+                field_ast_kind: AstFieldKind::RecordOriginal,
             })
         } else {
             p!(token_group);
@@ -73,8 +73,8 @@ impl<'a> AstTransformer<'a> {
         Ok(AstVariant::FieldDefnHead {
             ranged_ident: ident,
             field_ty,
-            field_ast_kind: FieldAstKind::RecordDerived,
-            liason: MemberLiason::Immutable,
+            field_ast_kind: AstFieldKind::RecordDerived,
+            liason: MemberModifier::Immutable,
         })
     }
 }

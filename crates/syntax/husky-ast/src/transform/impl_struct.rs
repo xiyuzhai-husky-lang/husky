@@ -29,7 +29,7 @@ impl<'a> AstTransformer<'a> {
                                 self.parse_struct_method(token_group,  enter_block)
                             },
                             HuskyTokenKind::Special(SpecialToken::LightArrow) =>{
-                                self.parse_struct_derived_lazy_field(token_group,  enter_block)
+                                self.parse_struct_property(token_group,  enter_block)
                             },
                             _=> todo!(),
                         }

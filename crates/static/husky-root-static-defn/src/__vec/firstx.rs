@@ -17,7 +17,7 @@ pub static VEC_FIRST: EntityStaticDefn = EntityStaticDefn {
             move_resolved_linkage: resolved_linkage!(virtual_vec_firstx_move),
         })),
         output_liason: OutputModifier::MemberAccess {
-            member_liason: MemberLiason::Mutable,
+            member_liason: MemberModifier::Mutable,
         },
     },
     dev_src: static_dev_src!(),

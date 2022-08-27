@@ -71,26 +71,26 @@ impl From<ParameterModifier> for RangedParameterLiason {
 
 impl ParameterModifier {
     pub fn from_member(
-        member_liason: MemberLiason,
+        member_liason: MemberModifier,
         member_ty: EntityRoutePtr,
         is_copyable: bool,
     ) -> ParameterModifier {
         match member_liason {
-            MemberLiason::Immutable => {
+            MemberModifier::Immutable => {
                 if is_copyable {
                     ParameterModifier::None
                 } else {
                     ParameterModifier::Owned
                 }
             }
-            MemberLiason::Mutable => {
+            MemberModifier::Mutable => {
                 if is_copyable {
                     ParameterModifier::None
                 } else {
                     ParameterModifier::OwnedMut
                 }
             }
-            MemberLiason::DerivedLazy => panic!(),
+            MemberModifier::Property => panic!(),
         }
     }
 }
@@ -98,41 +98,41 @@ impl ParameterModifier {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum OutputModifier {
     Transfer,
-    MemberAccess { member_liason: MemberLiason },
+    MemberAccess { member_liason: MemberModifier },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum MemberLiason {
+pub enum MemberModifier {
     Immutable,
     Mutable,
-    DerivedLazy,
+    Property,
 }
 
-impl std::fmt::Display for MemberLiason {
+impl std::fmt::Display for MemberModifier {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            MemberLiason::Immutable => "immutable",
-            MemberLiason::Mutable => "mutable",
-            MemberLiason::DerivedLazy => "derived",
+            MemberModifier::Immutable => "immutable",
+            MemberModifier::Mutable => "mutable",
+            MemberModifier::Property => "property",
         }
         .fmt(f)
     }
 }
 
-impl MemberLiason {
-    pub fn from_opt_keyword(opt_keyword: Option<LiasonKeyword>) -> MemberLiason {
+impl MemberModifier {
+    pub fn from_opt_keyword(opt_keyword: Option<LiasonKeyword>) -> MemberModifier {
         match opt_keyword {
             Some(liason_keyword) => match liason_keyword {
-                LiasonKeyword::Mut => MemberLiason::Mutable,
+                LiasonKeyword::Mut => MemberModifier::Mutable,
             },
-            None => MemberLiason::Immutable,
+            None => MemberModifier::Immutable,
         }
     }
 
-    pub fn mutable(self) -> bool {
+    pub fn allow_mutable(self) -> bool {
         match self {
-            MemberLiason::Immutable | MemberLiason::DerivedLazy => false,
-            MemberLiason::Mutable => true,
+            MemberModifier::Immutable | MemberModifier::Property => false,
+            MemberModifier::Mutable => true,
         }
     }
 }

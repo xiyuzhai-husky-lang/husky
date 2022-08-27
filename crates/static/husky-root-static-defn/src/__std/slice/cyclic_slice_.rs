@@ -40,7 +40,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         parameters: &[],
                         output_ty: "E",
                         output_liason: OutputModifier::MemberAccess {
-                            member_liason: MemberLiason::Mutable,
+                            member_liason: MemberModifier::Mutable,
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
@@ -94,7 +94,7 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
             move_resolved_linkage: resolved_linkage!(virtual_cyclic_slice_first_move),
         })),
         output_liason: OutputModifier::MemberAccess {
-            member_liason: MemberLiason::Mutable,
+            member_liason: MemberModifier::Mutable,
         },
     },
     dev_src: static_dev_src!(),
@@ -156,7 +156,7 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
             move_resolved_linkage: resolved_linkage!(virtual_cyclic_slice_last_move),
         })),
         output_liason: OutputModifier::MemberAccess {
-            member_liason: MemberLiason::Mutable,
+            member_liason: MemberModifier::Mutable,
         },
     },
     dev_src: static_dev_src!(),

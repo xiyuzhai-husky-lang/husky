@@ -9,7 +9,7 @@ use vec_like::VecMapEntry;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FieldDecl {
     pub ident: CustomIdentifier,
-    pub liason: MemberLiason,
+    pub liason: MemberModifier,
     pub ty: EntityRoutePtr,
     pub field_kind: FieldKind,
 }

@@ -80,9 +80,6 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if opds.len() > 2 {
                     todo!()
                 }
-                if expr.expr.range.start.i() == 15 && self.sample_id.0 == 17 {
-                    p!(expr.expr.qualified_ty);
-                }
                 let values = vec![self.eval_expr(&opds[0])?, self.eval_expr(&opds[1])?];
                 linkage.call_catch_unwind(unsafe { self.some_ctx() }, values)
             }

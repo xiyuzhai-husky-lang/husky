@@ -1,3 +1,5 @@
+use husky_trace_protocol::VisualData;
+
 use super::*;
 
 pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
@@ -15,7 +17,11 @@ pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Primitive,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Float,
-            fp: StaticVisualizerFp(|_| todo!()),
+            fp: StaticVisualizerFp(|value| {
+                Ok(VisualData::Primitive {
+                    value: value.downcast_f32().into(),
+                })
+            }),
         },
         opt_type_call: None,
     },

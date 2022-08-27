@@ -119,12 +119,12 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(".");
                     self.write(&field_ident.ident);
                     match field_kind {
-                        FieldKind::StructOriginal
+                        FieldKind::StructRegular
                         | FieldKind::StructDefault
-                        | FieldKind::StructDerivedEager => (),
-                        FieldKind::StructDerivedLazy => self.write("(__ctx)"),
-                        FieldKind::RecordOriginal => todo!(),
-                        FieldKind::RecordDerived => todo!(),
+                        | FieldKind::StructDerived => (),
+                        FieldKind::StructProperty => self.write("(__ctx)"),
+                        FieldKind::RecordRegular => todo!(),
+                        FieldKind::RecordProperty => todo!(),
                     }
                 }
                 EagerOpnVariant::MethodCall {

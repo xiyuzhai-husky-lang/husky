@@ -178,7 +178,7 @@ impl EagerExprQualifiedTy {
             EagerExprQualifier::EvalRef => match canonical_ty.kind() {
                 CanonicalTyKind::Intrinsic => EagerExprQualifier::EvalRef,
                 CanonicalTyKind::Optional => todo!(),
-                CanonicalTyKind::EvalRef => todo!(),
+                CanonicalTyKind::EvalRef => EagerExprQualifier::EvalRef,
                 CanonicalTyKind::OptionalEvalRef => todo!(),
                 CanonicalTyKind::TempRefMut => todo!(),
             },
@@ -205,7 +205,7 @@ impl EagerExprQualifiedTy {
         this_qual: EagerExprQualifier,
         field_kind: FieldKind,
         field_ty: EntityRoutePtr,
-        member_liason: MemberLiason,
+        member_liason: MemberModifier,
         member_contract: EagerContract,
         is_member_copyable: bool,
     ) -> InferResult<Self> {
@@ -226,7 +226,7 @@ impl EagerExprQualifiedTy {
         db: &dyn InferQualifiedTyQueryGroup,
         this_qual: EagerExprQualifier,
         member_ty: EntityRoutePtr,
-        member_liason: MemberLiason,
+        member_liason: MemberModifier,
         member_contract: EagerContract,
         is_member_copyable: bool,
     ) -> InferResult<Self> {
@@ -400,7 +400,7 @@ impl EagerExprQualifier {
     pub fn field(
         this_qual: Self,
         field_kind: FieldKind,
-        member_liason: MemberLiason,
+        member_liason: MemberModifier,
         member_contract: EagerContract,
         is_member_copyable: bool,
     ) -> Self {
@@ -409,23 +409,23 @@ impl EagerExprQualifier {
         // no need for field_kind
         // just use member_liason
         match field_kind {
-            FieldKind::StructOriginal
-            | FieldKind::StructDefault
-            | FieldKind::StructDerivedEager => Self::member(
-                this_qual,
-                member_liason,
-                member_contract,
-                is_member_copyable,
-            ),
-            FieldKind::StructDerivedLazy => EagerExprQualifier::EvalRef,
-            FieldKind::RecordOriginal => todo!(),
-            FieldKind::RecordDerived => todo!(),
+            FieldKind::StructRegular | FieldKind::StructDefault | FieldKind::StructDerived => {
+                Self::member(
+                    this_qual,
+                    member_liason,
+                    member_contract,
+                    is_member_copyable,
+                )
+            }
+            FieldKind::StructProperty => EagerExprQualifier::EvalRef,
+            FieldKind::RecordRegular => todo!(),
+            FieldKind::RecordProperty => todo!(),
         }
     }
 
     pub fn member(
         this_qual: Self,
-        member_liason: MemberLiason,
+        member_liason: MemberModifier,
         member_contract: EagerContract,
         is_member_copyable: bool,
     ) -> Self {

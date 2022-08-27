@@ -4,8 +4,8 @@ pub static STD_SLICE_CYCLIC_SLICE_START_DEFN: EntityStaticDefn = EntityStaticDef
     name: "start",
     items: &[],
     variant: EntityStaticDefnVariant::TyField {
-        field_kind: FieldKind::StructOriginal,
-        liason: MemberLiason::Mutable,
+        field_kind: FieldKind::StructRegular,
+        liason: MemberModifier::Mutable,
         field_ty: "i32",
         linkage: eager_field_linkage!(
             mutable,

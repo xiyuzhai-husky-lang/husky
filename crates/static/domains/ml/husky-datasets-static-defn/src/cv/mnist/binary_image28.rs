@@ -30,7 +30,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             }],
                             output_ty: "b32",
                             output_liason: OutputModifier::MemberAccess {
-                                member_liason: MemberLiason::Mutable,
+                                member_liason: MemberModifier::Mutable,
                             },
                             spatial_parameters: &[],
                             method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,

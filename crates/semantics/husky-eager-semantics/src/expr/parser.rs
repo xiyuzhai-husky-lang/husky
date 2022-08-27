@@ -122,7 +122,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     .decl_db()
                     .is_copyable(opt_field_ty.unwrap().route)
                     .unwrap();
-                let this_contract = EagerContract::field_access_this_eager_contract(
+                let this_contract = EagerContract::field_self_eager_contract(
                     field_liason,
                     field_contract,
                     is_field_copyable,

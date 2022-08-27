@@ -30,16 +30,16 @@ impl<'a> LinkageCollector<'a> {
                         field_ident,
                         ..
                     } => match field_kind {
-                        FieldKind::StructOriginal
+                        FieldKind::StructRegular
                         | FieldKind::StructDefault
-                        | FieldKind::StructDerivedEager => (),
-                        FieldKind::StructDerivedLazy => self.insert(self.db.subroute(
+                        | FieldKind::StructDerived => (),
+                        FieldKind::StructProperty => self.insert(self.db.subroute(
                             opds[0].intrinsic_ty(),
                             field_ident.ident,
                             Default::default(),
                         )),
-                        FieldKind::RecordOriginal => todo!(),
-                        FieldKind::RecordDerived => todo!(),
+                        FieldKind::RecordRegular => todo!(),
+                        FieldKind::RecordProperty => todo!(),
                     },
                     EagerOpnVariant::MethodCall { method_route, .. } => {
                         match method_route.variant {

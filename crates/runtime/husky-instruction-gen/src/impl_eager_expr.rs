@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::FieldAstKind;
+use husky_ast::AstFieldKind;
 use husky_entity_kind::TyKind;
 use husky_linkage_table::ResolveLinkage;
 use husky_opn_semantics::EagerSuffixOpr;

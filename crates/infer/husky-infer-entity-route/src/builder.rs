@@ -62,10 +62,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     field_ty: ty,
                     field_ast_kind: field_kind,
                 } => match field_kind {
-                    FieldAstKind::StructDefault { default } => {
+                    AstFieldKind::StructDefault { default } => {
                         self.infer_expr(default, Some(ty.route));
                     }
-                    FieldAstKind::StructDerivedEager { derivation } => {
+                    AstFieldKind::StructDerivedEager { derivation } => {
                         self.infer_expr(derivation, Some(ty.route));
                     }
                     _ => (),
@@ -96,13 +96,13 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         field_ty: ty,
                         ..
                     } => match field_kind {
-                        FieldAstKind::StructOriginal => (),
-                        FieldAstKind::RecordOriginal => (),
-                        FieldAstKind::StructDerivedLazy { .. } | FieldAstKind::RecordDerived => {
+                        AstFieldKind::StructOriginal => (),
+                        AstFieldKind::RecordOriginal => (),
+                        AstFieldKind::StructProperty { .. } | AstFieldKind::RecordDerived => {
                             self.infer_function(&[], Some(ty.route), children)
                         }
-                        FieldAstKind::StructDefault { .. } => todo!(),
-                        FieldAstKind::StructDerivedEager { .. } => todo!(),
+                        AstFieldKind::StructDefault { .. } => todo!(),
+                        AstFieldKind::StructDerivedEager { .. } => todo!(),
                     },
                     AstVariant::Stmt(_) => todo!(),
                     AstVariant::FeatureDefnHead { output_ty: ty, .. } => {

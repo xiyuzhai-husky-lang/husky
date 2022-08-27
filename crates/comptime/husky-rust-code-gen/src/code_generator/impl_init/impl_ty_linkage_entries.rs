@@ -80,7 +80,7 @@ impl<'a> RustCodeGenerator<'a> {
         &mut self,
         field_variant: &FieldDefnVariant,
         member: &Arc<EntityDefn>,
-        liason: MemberLiason,
+        liason: MemberModifier,
         ty: EntityRoutePtr,
         field_ty: EntityRoutePtr,
     ) {

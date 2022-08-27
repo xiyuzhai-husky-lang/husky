@@ -1,4 +1,4 @@
-use husky_entity_route::CanonicalTyKind;
+use husky_entity_route::{CanonicalQualifier, CanonicalTyKind};
 use husky_print_utils::msg_once;
 use infer_decl::DeclQueryGroup;
 
@@ -160,19 +160,17 @@ impl LazyExprQualifiedTy {
                     CanonicalTyKind::TempRefMut => todo!(),
                 }
             }
-            LazyExprQualifier::PureRef => match canonical_ty.kind() {
-                CanonicalTyKind::Intrinsic => LazyExprQualifier::PureRef,
-                CanonicalTyKind::Optional => todo!(),
-                CanonicalTyKind::EvalRef => todo!(),
-                CanonicalTyKind::OptionalEvalRef => todo!(),
-                CanonicalTyKind::TempRefMut => todo!(),
+            LazyExprQualifier::PureRef => match canonical_ty.qual() {
+                CanonicalQualifier::Intrinsic => LazyExprQualifier::PureRef,
+                CanonicalQualifier::EvalRef => todo!(),
+                CanonicalQualifier::TempRef => todo!(),
+                CanonicalQualifier::TempRefMut => todo!(),
             },
-            LazyExprQualifier::EvalRef => match canonical_ty.kind() {
-                CanonicalTyKind::Intrinsic => LazyExprQualifier::EvalRef,
-                CanonicalTyKind::Optional => todo!(),
-                CanonicalTyKind::EvalRef => todo!(),
-                CanonicalTyKind::OptionalEvalRef => todo!(),
-                CanonicalTyKind::TempRefMut => todo!(),
+            LazyExprQualifier::EvalRef => match canonical_ty.qual() {
+                CanonicalQualifier::Intrinsic => LazyExprQualifier::EvalRef,
+                CanonicalQualifier::EvalRef => LazyExprQualifier::EvalRef,
+                CanonicalQualifier::TempRef => todo!(),
+                CanonicalQualifier::TempRefMut => todo!(),
             },
         };
         Self {

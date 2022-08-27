@@ -40,16 +40,16 @@ pub(super) fn entity_route_variant_contains_eval_ref(
             for ty_member in ty_decl.ty_members.iter() {
                 match ty_member {
                     TyMemberDecl::Field(field_decl) => match field_decl.field_kind {
-                        FieldKind::StructOriginal
+                        FieldKind::StructRegular
                         | FieldKind::StructDefault
-                        | FieldKind::StructDerivedEager => {
+                        | FieldKind::StructDerived => {
                             if db.entity_route_contains_eval_ref(field_decl.ty) {
                                 return true;
                             }
                         }
-                        FieldKind::StructDerivedLazy => (),
-                        FieldKind::RecordOriginal => panic!(),
-                        FieldKind::RecordDerived => panic!(),
+                        FieldKind::StructProperty => (),
+                        FieldKind::RecordRegular => panic!(),
+                        FieldKind::RecordProperty => panic!(),
                     },
                     TyMemberDecl::Method(_) => (),
                     TyMemberDecl::Call(_) => (),

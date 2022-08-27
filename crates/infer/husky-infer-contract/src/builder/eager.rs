@@ -276,7 +276,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let this_ty_decl = self.expr_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let this_contract = EagerContract::field_access_this_eager_contract(
+        let this_contract = EagerContract::field_self_eager_contract(
             field_decl.liason,
             contract,
             self.db.is_copyable(field_decl.ty)?,
@@ -344,7 +344,7 @@ impl<'a> ContractSheetBuilder<'a> {
             ((all_opds.start + 1)..all_opds.end).into_iter(),
             call_decl.primary_parameters.iter(),
         ) {
-            let argument_contract = EagerContract::argument_eager_contract(
+            let argument_contract = EagerContract::parameter_eager_contract(
                 self.db,
                 parameter.liason,
                 parameter.ty(),
@@ -374,7 +374,7 @@ impl<'a> ContractSheetBuilder<'a> {
             parameters.into_iter(),
             call_form_decl.primary_parameters.iter(),
         ) {
-            let argument_contract = EagerContract::argument_eager_contract(
+            let argument_contract = EagerContract::parameter_eager_contract(
                 self.db,
                 parameter.liason,
                 parameter.ty(),

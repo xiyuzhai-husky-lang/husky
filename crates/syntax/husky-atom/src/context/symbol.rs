@@ -35,6 +35,6 @@ pub enum SymbolKind {
     ThisField {
         opt_this_ty: Option<EntityRoutePtr>,
         opt_field_ty: Option<RangedEntityRoute>,
-        field_liason: MemberLiason,
+        field_liason: MemberModifier,
     },
 }
