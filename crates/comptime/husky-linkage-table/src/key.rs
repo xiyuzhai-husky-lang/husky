@@ -18,7 +18,7 @@ pub enum LinkageKey {
     Routine {
         routine_uid: EntityUid,
     },
-    ElementAccess {
+    Index {
         opd_uids: SmallVec<[EntityUid; 2]>,
     },
     StructFieldAccess {
@@ -39,7 +39,7 @@ impl LinkageKey {
             __StaticLinkageKey::Routine { route } => LinkageKey::Routine {
                 routine_uid: entity_uid(db, route),
             },
-            __StaticLinkageKey::Index { opd_tys: opd_uids } => LinkageKey::ElementAccess {
+            __StaticLinkageKey::Index { opd_tys: opd_uids } => LinkageKey::Index {
                 opd_uids: opd_uids
                     .iter()
                     .map(|opd_uid| entity_uid(db, opd_uid))
@@ -70,7 +70,7 @@ impl LinkageKey {
             LinkageKey::Routine { routine_uid } => LinkageForm::Routine {
                 routine: db.entity_route_by_uid(*routine_uid),
             },
-            LinkageKey::ElementAccess { opd_uids } => LinkageForm::ElementAccess {
+            LinkageKey::Index { opd_uids } => LinkageForm::Index {
                 opd_tys: opd_uids
                     .iter()
                     .map(|uid| db.entity_route_by_uid(*uid))

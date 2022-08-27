@@ -423,7 +423,11 @@ impl TyDecl {
                 }
                 TyMemberDecl::Call(_) => todo!(),
             },
-            None => Err(derived!(format!("no such field"))),
+            None => Err(derived!(format!(
+                "no field `{}` in type `{}`",
+                &ranged_ident.ident,
+                self.this_ty.ident()
+            ))),
         }
     }
 
@@ -490,18 +494,15 @@ impl TyDecl {
         if matched_methods.len() == 1 {
             return Ok(matched_methods[0]);
         } else if matched_methods.len() == 0 {
-            // p!(self.this_ty);
-            // p!(self.trait_impls);
-            // p!(self.members);
-            // println!(
-            //     "no method named `{}` for type `{}`",
-            //     &ranged_ident.ident, self.this_ty
-            // );
-            // panic!();
             throw!(
                 format!(
-                    "no method named `{}` for type `{}`",
-                    &ranged_ident.ident, self.this_ty
+                    "no method named `{}` for type `{}`, available members are `{:?}`",
+                    &ranged_ident.ident,
+                    self.this_ty,
+                    self.members
+                        .iter()
+                        .map(|member| member.ident())
+                        .collect::<Vec<_>>()
                 ),
                 ranged_ident.range
             )
@@ -550,24 +551,22 @@ impl TyDecl {
     }
 }
 
-pub(crate) fn ty_decl(
-    db: &dyn DeclQueryGroup,
-    ty_route: EntityRoutePtr,
-) -> InferQueryResultArc<TyDecl> {
-    let source = db.entity_source(ty_route)?;
+pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferQueryResultArc<TyDecl> {
+    assert!(ty.is_intrinsic());
+    let source = db.entity_source(ty)?;
     match source {
         EntitySource::StaticModuleItem(static_defn) => Ok(match static_defn.variant {
             EntityStaticDefnVariant::Function { .. } => todo!(),
             EntityStaticDefnVariant::Module => todo!(),
             EntityStaticDefnVariant::Ty { .. } => {
                 let base_decl = TyDecl::from_static(db, static_defn)?;
-                if ty_route.spatial_arguments.len() > 0 {
+                if ty.spatial_arguments.len() > 0 {
                     // p!(ty_route);
                     // assert_eq!(
                     //     ty_route.spatial_arguments.len(),
                     //     base_decl.spatial_parameters.len()
                     // );
-                    base_decl.instantiate(db, &ty_route.spatial_arguments)
+                    base_decl.instantiate(db, &ty.spatial_arguments)
                 } else {
                     base_decl
                 }
@@ -598,13 +597,13 @@ pub(crate) fn ty_decl(
                     spatial_parameters: ref generic_parameters,
                     ..
                 } => {
-                    if ty_route.spatial_arguments.len() > 0 {
+                    if ty.spatial_arguments.len() > 0 {
                         todo!()
                     } else {
                         TyDecl::from_ast(
                             db,
                             &ast_text.arena,
-                            ty_route,
+                            ty,
                             kind,
                             generic_parameters.clone(),
                             query_derived_not_none!(item.opt_children)?,

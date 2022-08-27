@@ -52,7 +52,7 @@ impl FeatureRepr {
     pub fn ty(&self) -> EntityRoutePtr {
         match self {
             FeatureRepr::Value { ty, .. } => *ty,
-            FeatureRepr::LazyExpr(expr) => expr.expr.ty(),
+            FeatureRepr::LazyExpr(expr) => expr.expr.intrinsic_ty(),
             FeatureRepr::LazyBlock(block) => block.return_ty.route,
             FeatureRepr::FuncBlock(block) => block.ty.route,
             FeatureRepr::ProcBlock(block) => block.ty.route,

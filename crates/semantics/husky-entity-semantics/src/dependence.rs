@@ -448,9 +448,9 @@ impl EntityDefn {
                     }
                 }
                 EagerExprVariant::Lambda(_, _) => todo!(),
-                EagerExprVariant::ThisValue { .. } => builder.push(expr.ty()),
+                EagerExprVariant::ThisValue { .. } => builder.push(expr.intrinsic_ty()),
                 EagerExprVariant::ThisField { this_ty, .. } => builder.push(this_ty),
-                EagerExprVariant::EnumKindLiteral(_) => builder.push(expr.ty()),
+                EagerExprVariant::EnumKindLiteral(_) => builder.push(expr.intrinsic_ty()),
                 EagerExprVariant::EntityFeature { route } => builder.push(route),
                 EagerExprVariant::EntityThickFp { route } => builder.push(route),
             }

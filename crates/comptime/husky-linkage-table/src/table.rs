@@ -81,7 +81,7 @@ impl LinkageTable {
         db: &dyn EntityDefnQueryGroup,
         opd_uids: SmallVec<[EntityUid; 2]>,
     ) -> Option<__Linkage> {
-        self.get_linkage(db, LinkageKey::ElementAccess { opd_uids })
+        self.get_linkage(db, LinkageKey::Index { opd_uids })
     }
 
     fn get_linkage(&self, db: &dyn EntityDefnQueryGroup, key: LinkageKey) -> Option<__Linkage> {

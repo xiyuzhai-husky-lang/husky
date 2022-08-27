@@ -183,7 +183,7 @@ impl VisualTy {
         match stmts.last().unwrap().variant {
             LazyStmtVariant::Return { ref result } => todo!(),
             LazyStmtVariant::ReturnXml { ref xml_expr } => match xml_expr.variant {
-                XmlExprVariant::Value(ref expr) => db.visual_ty(expr.ty()),
+                XmlExprVariant::Value(ref expr) => db.visual_ty(expr.intrinsic_ty()),
                 XmlExprVariant::Tag { tag_kind, .. } => match tag_kind {
                     XmlTagKind::Point2d => VisualTy::Point2d,
                     XmlTagKind::Contour | XmlTagKind::Arrow2d | XmlTagKind::LineSegment => {

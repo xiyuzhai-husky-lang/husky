@@ -1722,7 +1722,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &mut Vec<Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE);
-                    let element: Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    let element: Option<&'eval line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[1].downcast_opt_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
                     __this.push(element).to_register()
                 }
                 __wrapper

@@ -1,52 +1,120 @@
+use husky_entity_route::CanonicalTyKind;
 use husky_print_utils::msg_once;
+use infer_decl::DeclQueryGroup;
 
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LazyExprQualifiedTy {
-    pub qual: LazyExprQualifier,
-    pub ty: EntityRoutePtr,
+    qual: LazyExprQualifier,
+    is_optional: bool,
+    intrinsic_ty: EntityRoutePtr,
 }
 
 impl HuskyDisplay for LazyExprQualifiedTy {
     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
-        write!(result, "{: <12?} {:?}", self.qual, self.ty).unwrap()
+        write!(result, "{}", self).unwrap()
+    }
+}
+
+impl std::fmt::Display for LazyExprQualifiedTy {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        if self.is_optional {
+            "Option ".fmt(f)?
+        }
+        self.qual.fmt(f)?;
+        " ".fmt(f);
+        self.intrinsic_ty.fmt(f)
+    }
+}
+
+impl std::fmt::Display for LazyExprQualifier {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            LazyExprQualifier::Copyable => "Copyable",
+            LazyExprQualifier::PureRef => "PureRef",
+            LazyExprQualifier::EvalRef => "EvalRef",
+            LazyExprQualifier::Transient => "Transient",
+        }
+        .fmt(f)
     }
 }
 
 impl LazyExprQualifiedTy {
+    pub fn binding(self, db: &dyn DeclQueryGroup, contract: LazyContract) -> Binding {
+        match self.qual {
+            LazyExprQualifier::PureRef => match contract {
+                LazyContract::Pure | LazyContract::Pass => Binding::TempRef,
+                _ => panic!(),
+            },
+            LazyExprQualifier::Transient => match contract {
+                LazyContract::Pure => Binding::TempRef,
+                LazyContract::Pass | LazyContract::Move => Binding::Move,
+                LazyContract::EvalRef => panic!(),
+            },
+            LazyExprQualifier::Copyable => Binding::Copy,
+            LazyExprQualifier::EvalRef => match contract {
+                LazyContract::Pure => {
+                    let is_intrinsic_ty_copyable = db.is_copyable(self.intrinsic_ty).unwrap();
+                    if is_intrinsic_ty_copyable {
+                        Binding::DerefCopy
+                    } else {
+                        Binding::TempRef
+                    }
+                }
+                LazyContract::EvalRef | LazyContract::Pass => Binding::EvalRef,
+                LazyContract::Move => panic!(),
+            },
+        }
+    }
+
+    #[inline(always)]
+    pub fn qual(self) -> LazyExprQualifier {
+        self.qual
+    }
+
+    #[inline(always)]
+    pub fn intrinsic_ty(self) -> EntityRoutePtr {
+        self.intrinsic_ty
+    }
+
     pub(crate) fn entity_ty(
         db: &dyn InferQualifiedTyQueryGroup,
         ty: EntityRoutePtr,
     ) -> InferResult<Self> {
+        assert!(ty.is_intrinsic());
         Ok(Self {
             qual: if db.is_copyable(ty)? {
                 LazyExprQualifier::Copyable
             } else {
                 LazyExprQualifier::EvalRef
             },
-            ty,
+            intrinsic_ty: ty,
+            is_optional: false,
         })
     }
 
     pub(crate) fn ty_lazy_qualified_ty() -> Self {
         Self {
             qual: LazyExprQualifier::EvalRef,
-            ty: EntityRoutePtr::Root(RootIdentifier::TypeType),
+            is_optional: false,
+            intrinsic_ty: EntityRoutePtr::Root(RootIdentifier::TypeType),
         }
     }
 
     pub(crate) fn module_lazy_qualified_ty() -> Self {
         Self {
             qual: LazyExprQualifier::EvalRef,
-            ty: EntityRoutePtr::Root(RootIdentifier::ModuleType),
+            is_optional: false,
+            intrinsic_ty: EntityRoutePtr::Root(RootIdentifier::ModuleType),
         }
     }
 
     pub(crate) fn trait_lazy_qualified_ty() -> Self {
         Self {
             qual: LazyExprQualifier::EvalRef,
-            ty: EntityRoutePtr::Root(RootIdentifier::TraitType),
+            is_optional: false,
+            intrinsic_ty: EntityRoutePtr::Root(RootIdentifier::TraitType),
         }
     }
 
@@ -80,9 +148,38 @@ impl LazyExprQualifiedTy {
         ))
     }
 
-    pub fn new(qual: LazyExprQualifier, ty: EntityRoutePtr) -> Self {
-        msg_once!("handle ref");
-        Self { qual, ty }
+    pub fn new(qual: LazyExprQualifier, raw_ty: EntityRoutePtr) -> Self {
+        let canonical_ty = raw_ty.canonicalize();
+        let qual = match qual {
+            LazyExprQualifier::Copyable | LazyExprQualifier::Transient => {
+                match canonical_ty.kind() {
+                    CanonicalTyKind::Intrinsic | CanonicalTyKind::Optional => qual,
+                    CanonicalTyKind::EvalRef | CanonicalTyKind::OptionalEvalRef => {
+                        LazyExprQualifier::EvalRef
+                    }
+                    CanonicalTyKind::TempRefMut => todo!(),
+                }
+            }
+            LazyExprQualifier::PureRef => match canonical_ty.kind() {
+                CanonicalTyKind::Intrinsic => LazyExprQualifier::PureRef,
+                CanonicalTyKind::Optional => todo!(),
+                CanonicalTyKind::EvalRef => todo!(),
+                CanonicalTyKind::OptionalEvalRef => todo!(),
+                CanonicalTyKind::TempRefMut => todo!(),
+            },
+            LazyExprQualifier::EvalRef => match canonical_ty.kind() {
+                CanonicalTyKind::Intrinsic => LazyExprQualifier::EvalRef,
+                CanonicalTyKind::Optional => todo!(),
+                CanonicalTyKind::EvalRef => todo!(),
+                CanonicalTyKind::OptionalEvalRef => todo!(),
+                CanonicalTyKind::TempRefMut => todo!(),
+            },
+        };
+        Self {
+            qual,
+            is_optional: canonical_ty.is_option(),
+            intrinsic_ty: canonical_ty.intrinsic_ty(),
+        }
     }
 
     pub(crate) fn use_for_init(self, init_kind: InitKind) -> InferResult<LazyVariableQualifiedTy> {
@@ -98,7 +195,10 @@ impl LazyExprQualifiedTy {
                 }
             },
         };
-        Ok(LazyVariableQualifiedTy { qual, ty: self.ty })
+        Ok(LazyVariableQualifiedTy {
+            qual,
+            ty: self.intrinsic_ty,
+        })
     }
 
     pub(crate) fn is_implicitly_convertible_to_output(
@@ -107,7 +207,7 @@ impl LazyExprQualifiedTy {
         output_liason: OutputModifier,
         output_ty: EntityRoutePtr,
     ) -> bool {
-        if !db.is_implicitly_castable(self.ty, output_ty) {
+        if !db.is_implicitly_castable(self.intrinsic_ty, output_ty) {
             return false;
         }
         match output_liason {
@@ -136,22 +236,6 @@ impl LazyExprQualifier {
             LazyExprQualifier::Copyable
         } else {
             LazyExprQualifier::EvalRef
-        }
-    }
-
-    pub fn binding(self, contract: LazyContract) -> Binding {
-        match self {
-            LazyExprQualifier::PureRef => match contract {
-                LazyContract::Pure | LazyContract::Pass => Binding::TempRef,
-                _ => panic!(),
-            },
-            LazyExprQualifier::Transient => match contract {
-                LazyContract::Pure => Binding::TempRef,
-                LazyContract::Pass | LazyContract::Move => Binding::Move,
-                LazyContract::EvalRef => panic!(),
-            },
-            LazyExprQualifier::Copyable => Binding::Copy,
-            LazyExprQualifier::EvalRef => Binding::EvalRef,
         }
     }
 

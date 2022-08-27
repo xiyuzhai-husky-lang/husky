@@ -42,8 +42,8 @@ impl std::fmt::Debug for EagerExpr {
 }
 
 impl EagerExpr {
-    pub fn ty(&self) -> EntityRoutePtr {
-        self.qualified_ty.ty
+    pub fn intrinsic_ty(&self) -> EntityRoutePtr {
+        self.qualified_ty.intrinsic_ty()
     }
 }
 

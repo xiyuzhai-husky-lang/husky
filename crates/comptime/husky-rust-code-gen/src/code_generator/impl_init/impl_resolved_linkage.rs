@@ -35,8 +35,8 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write(&format!(" = __arguments[0].downcast_temp_ref(&__registration__::{mangled_this_ty_vtable});"))
                     }
                 }
-                ParameterModifier::Move => todo!(),
-                ParameterModifier::MoveMut => todo!(),
+                ParameterModifier::Owned => todo!(),
+                ParameterModifier::OwnedMut => todo!(),
                 ParameterModifier::MemberAccess => panic!(),
                 ParameterModifier::EvalRef => {
                     self.write(&format!(
@@ -89,7 +89,7 @@ impl<'a> RustCodeGenerator<'a> {
         let output_ty_reg_memory_kind = self.db.reg_memory_kind(output_ty);
         let is_intrinsic_output_ty_primitive = canonical_output_ty.is_intrinsic_route_primitive();
         match canonical_output_ty.kind() {
-            CanonicalEntityRoutePtrKind::Intrinsic => match output_ty_reg_memory_kind {
+            CanonicalTyKind::Intrinsic => match output_ty_reg_memory_kind {
                 RegMemoryKind::Direct => {
                     if is_intrinsic_output_ty_primitive {
                         // pass
@@ -101,13 +101,13 @@ impl<'a> RustCodeGenerator<'a> {
                 RegMemoryKind::BoxCopyable | RegMemoryKind::BoxNonCopyable => {
                     self.write("__Register::new_box::<");
                     self.gen_entity_route(
-                        canonical_output_ty.intrinsic_route(),
+                        canonical_output_ty.intrinsic_ty(),
                         EntityRouteRole::Decl,
                     );
                     self.write(">(");
                 }
             },
-            CanonicalEntityRoutePtrKind::Optional => match output_ty_reg_memory_kind {
+            CanonicalTyKind::Optional => match output_ty_reg_memory_kind {
                 RegMemoryKind::Direct => {
                     if is_intrinsic_output_ty_primitive {
                         // pass
@@ -119,13 +119,13 @@ impl<'a> RustCodeGenerator<'a> {
                 RegMemoryKind::BoxCopyable => todo!(),
                 RegMemoryKind::BoxNonCopyable => todo!(),
             },
-            CanonicalEntityRoutePtrKind::EvalRef => todo!(),
-            CanonicalEntityRoutePtrKind::OptionalEvalRef => {
+            CanonicalTyKind::EvalRef => todo!(),
+            CanonicalTyKind::OptionalEvalRef => {
                 self.write("__Register::new_opt_eval_ref::<");
-                self.gen_entity_route(canonical_output_ty.intrinsic_route(), EntityRouteRole::Decl);
+                self.gen_entity_route(canonical_output_ty.intrinsic_ty(), EntityRouteRole::Decl);
                 self.write(">(");
             }
-            CanonicalEntityRoutePtrKind::TempRefMut => todo!(),
+            CanonicalTyKind::TempRefMut => todo!(),
         }
         gen_caller(self);
         self.write("(");
@@ -291,8 +291,8 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write("&'static ")
                     }
                 }
-                ParameterModifier::Move => todo!(),
-                ParameterModifier::MoveMut => todo!(),
+                ParameterModifier::Owned => todo!(),
+                ParameterModifier::OwnedMut => todo!(),
                 ParameterModifier::MemberAccess => todo!(),
                 ParameterModifier::EvalRef => self.write("&'static "),
                 ParameterModifier::TempRef => todo!(),
@@ -313,8 +313,8 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write("&'static ")
                     }
                 }
-                ParameterModifier::Move => (),
-                ParameterModifier::MoveMut => todo!(),
+                ParameterModifier::Owned => (),
+                ParameterModifier::OwnedMut => todo!(),
                 ParameterModifier::MemberAccess => todo!(),
                 ParameterModifier::EvalRef => {
                     assert!(!parameter.ty().is_eval_ref());
@@ -337,8 +337,8 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write("&'static ")
                     }
                 }
-                ParameterModifier::Move => (),
-                ParameterModifier::MoveMut => todo!(),
+                ParameterModifier::Owned => (),
+                ParameterModifier::OwnedMut => todo!(),
                 ParameterModifier::MemberAccess => todo!(),
                 ParameterModifier::EvalRef => self.write("&'static "),
                 ParameterModifier::TempRef => todo!(),

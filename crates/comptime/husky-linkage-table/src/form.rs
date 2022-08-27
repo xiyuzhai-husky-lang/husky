@@ -13,7 +13,7 @@ pub enum LinkageForm {
     Routine {
         routine: EntityRoutePtr,
     },
-    ElementAccess {
+    Index {
         opd_tys: SmallVec<[EntityRoutePtr; 2]>,
     },
     StructFieldAccess {
@@ -30,7 +30,7 @@ impl Instantiable for LinkageForm {
             LinkageForm::VecConstructor { element_ty } => todo!(),
             LinkageForm::TypeCall { ty } => todo!(),
             LinkageForm::Routine { routine } => todo!(),
-            LinkageForm::ElementAccess { opd_tys } => todo!(),
+            LinkageForm::Index { opd_tys } => todo!(),
             LinkageForm::StructFieldAccess {
                 this_ty,
                 field_ident,

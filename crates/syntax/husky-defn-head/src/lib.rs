@@ -48,8 +48,8 @@ impl Parameter {
     ) -> EntityRoutePtr {
         match liason {
             ParameterModifier::None => raw_ty,
-            ParameterModifier::Move => raw_ty,
-            ParameterModifier::MoveMut => raw_ty,
+            ParameterModifier::Owned => raw_ty,
+            ParameterModifier::OwnedMut => raw_ty,
             ParameterModifier::MemberAccess => todo!(),
             ParameterModifier::EvalRef => todo!(),
             ParameterModifier::TempRef => todo!(),

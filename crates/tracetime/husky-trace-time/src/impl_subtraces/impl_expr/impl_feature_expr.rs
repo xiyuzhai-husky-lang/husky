@@ -52,7 +52,7 @@ impl HuskyTraceTime {
             FeatureLazyExprVariant::RecordDerivedField { .. } => todo!(),
             FeatureLazyExprVariant::StructOriginalField { .. } => panic!(),
             FeatureLazyExprVariant::EvalInput => panic!(),
-            FeatureLazyExprVariant::ElementAccess { ref opds, .. } => panic!(),
+            FeatureLazyExprVariant::Index { ref opds, .. } => panic!(),
             FeatureLazyExprVariant::StructDerivedLazyField { ref repr, .. } => {
                 self.feature_repr_subtraces(parent, repr)
             }

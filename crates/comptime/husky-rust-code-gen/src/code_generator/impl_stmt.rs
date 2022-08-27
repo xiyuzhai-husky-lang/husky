@@ -103,7 +103,7 @@ impl<'a> RustCodeGenerator<'a> {
                             self.gen_binding(result);
                             // ad hoc
                             if return_context.return_ty.route.is_option()
-                                && !result.ty().is_option()
+                                && !result.intrinsic_ty().is_option()
                             {
                                 self.write("Some(");
                                 self.gen_expr(stmt.indent, result);
@@ -263,7 +263,7 @@ impl<'a> RustCodeGenerator<'a> {
     }
 
     fn gen_condition(&mut self, indent: Indent, condition: &EagerExpr) {
-        match condition.ty() {
+        match condition.intrinsic_ty() {
             EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
                 RootIdentifier::Void => todo!(),
                 RootIdentifier::I32

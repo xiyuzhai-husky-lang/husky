@@ -45,14 +45,14 @@ impl<'a> ContractSheetBuilder<'a> {
             },
             RawStmtVariant::Exec { .. } => panic!(),
             RawStmtVariant::Init { initial_value, .. } => {
-                if let Ok(ty) = self.raw_expr_ty(initial_value) {
+                if let Ok(ty) = self.expr_raw_ty(initial_value) {
                     LazyContract::pure_or_pass(self.db, ty)
                         .ok()
                         .map(|contract| self.infer_lazy_expr(initial_value, contract));
                 }
             }
             RawStmtVariant::Return { result, .. } => {
-                if let Ok(ty) = self.raw_expr_ty(result) {
+                if let Ok(ty) = self.expr_raw_ty(result) {
                     LazyContract::pure_or_pass(self.db, ty)
                         .ok()
                         .map(|contract| self.infer_lazy_expr(result, contract));
@@ -208,7 +208,7 @@ impl<'a> ContractSheetBuilder<'a> {
         opd: RawExprIdx,
         contract: LazyContract,
     ) -> InferResult<()> {
-        let this_ty_decl = self.raw_expr_deref_ty_decl(opd)?;
+        let this_ty_decl = self.expr_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
         let this_contract = LazyContract::field_access_lazy_contract(
             field_decl.liason,
@@ -251,7 +251,7 @@ impl<'a> ContractSheetBuilder<'a> {
         elements: RawExprRange,
         contract: LazyContract,
     ) -> InferResult<()> {
-        let element_ty = self.raw_expr_ty(elements.start)?;
+        let element_ty = self.expr_raw_ty(elements.start)?;
         let element_contract = match self.db.is_copyable(element_ty)? {
             true => LazyContract::Pure,
             false => LazyContract::Move,

@@ -98,7 +98,7 @@ pub enum FeatureLazyExprVariant {
         field_uid: EntityUid,
         repr: FeatureRepr,
     },
-    ElementAccess {
+    Index {
         opds: Vec<Arc<FeatureLazyExpr>>,
         linkage: __ResolvedLinkage,
     },
@@ -178,7 +178,7 @@ impl std::fmt::Debug for FeatureLazyExprVariant {
                 field_uid,
                 repr,
             } => f.debug_struct("RecordDerivedField").finish(),
-            Self::ElementAccess { opds, linkage } => f.debug_struct("ElementAccess").finish(),
+            Self::Index { opds, linkage } => f.debug_struct("Index").finish(),
             Self::ModelCall {
                 opds,
                 has_this,
@@ -215,7 +215,7 @@ impl FeatureLazyExprVariant {
             FeatureLazyExprVariant::RecordOriginalField { .. } => "RecordOriginalFieldAccess",
             FeatureLazyExprVariant::StructDerivedLazyField { .. } => "StructDerivedFieldAccess",
             FeatureLazyExprVariant::RecordDerivedField { .. } => "RecordDerivedFieldAccess",
-            FeatureLazyExprVariant::ElementAccess { .. } => "ElementAccess",
+            FeatureLazyExprVariant::Index { .. } => "Index",
             FeatureLazyExprVariant::ModelCall { .. } => "ModelCall",
             FeatureLazyExprVariant::RoutineCall { .. } => "RoutineCall",
             FeatureLazyExprVariant::EntityFeature { .. } => "EntityFeature",
@@ -283,10 +283,10 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyExprVariant::PrimitiveLiteral(data) => (
                 FeatureLazyExprVariant::Literal(convert_primitive_literal_to_register(
                     data,
-                    expr.ty(),
+                    expr.intrinsic_ty(),
                 )),
                 self.feature_interner.intern(Feature::PrimitiveLiteral(
-                    convert_primitive_literal_to_value(data, expr.ty()),
+                    convert_primitive_literal_to_value(data, expr.intrinsic_ty()),
                 )),
             ),
             LazyExprVariant::Bracketed(ref bracketed_expr) => {

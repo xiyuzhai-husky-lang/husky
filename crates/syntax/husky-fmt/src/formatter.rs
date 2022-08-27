@@ -217,9 +217,9 @@ impl<'a> Formatter<'a> {
         match parameter.liason() {
             ParameterModifier::None => (),
             ParameterModifier::EvalRef => self.write("&"),
-            ParameterModifier::Move => self.write("!!"),
+            ParameterModifier::Owned => self.write("!!"),
             ParameterModifier::TempRefMut => self.write("mut"),
-            ParameterModifier::MoveMut => self.write("mut !!"),
+            ParameterModifier::OwnedMut => self.write("mut !!"),
             ParameterModifier::MemberAccess => todo!(),
             ParameterModifier::TempRef => todo!(),
         }

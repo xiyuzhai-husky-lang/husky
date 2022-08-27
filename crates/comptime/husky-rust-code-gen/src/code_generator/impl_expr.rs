@@ -71,7 +71,7 @@ impl<'a> RustCodeGenerator<'a> {
                     }
                 }
                 EagerOpnVariant::Prefix { opr, .. } => match opr {
-                    PrefixOpr::Not => match opds[0].ty() {
+                    PrefixOpr::Not => match opds[0].intrinsic_ty() {
                         EntityRoutePtr::Root(RootIdentifier::Bool) => {
                             self.write("!");
                             self.gen_expr(indent, &opds[0]);
@@ -235,7 +235,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write("(__ctx)")
             }
             EagerExprVariant::EntityThickFp { route } => {
-                let ty = expr.ty();
+                let ty = expr.intrinsic_ty();
                 self.write("ThickFp::");
                 // is self.db.needs_eval_context(ty) necessary?
                 let needs_eval_context =
@@ -415,8 +415,9 @@ impl<'a> RustCodeGenerator<'a> {
         result: &EagerExpr,
         output_ty: EntityRoutePtr,
     ) {
-        let mangled_intrinsic_ty_vtable = self.db.mangled_intrinsic_ty_vtable(result.ty());
-        match result.qualified_ty.qual {
+        let mangled_intrinsic_ty_vtable =
+            self.db.mangled_intrinsic_ty_vtable(result.intrinsic_ty());
+        match result.qualified_ty.qual() {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
                 self.write(
                     r#"__ctx
@@ -470,8 +471,9 @@ impl<'a> RustCodeGenerator<'a> {
         result: &EagerExpr,
         output_ty: EntityRoutePtr,
     ) {
-        let mangled_intrinsic_ty_vtable = self.db.mangled_intrinsic_ty_vtable(result.ty());
-        match result.qualified_ty.qual {
+        let mangled_intrinsic_ty_vtable =
+            self.db.mangled_intrinsic_ty_vtable(result.intrinsic_ty());
+        match result.qualified_ty.qual() {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
                 self.write(
                     r#"__ctx.cache_lazy_field(

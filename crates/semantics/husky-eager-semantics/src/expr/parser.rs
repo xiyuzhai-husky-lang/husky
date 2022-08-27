@@ -2,7 +2,9 @@ use husky_ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
 use husky_entity_route::{EntityKind, EntityRoutePtr, EntityRouteVariant};
 use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRoute;
-use husky_infer_qualified_ty::{EagerExprQualifier, EagerVariableQualifier, InferQualifiedTy};
+use husky_infer_qualified_ty::{
+    EagerExprQualifiedTy, EagerExprQualifier, EagerVariableQualifier, InferQualifiedTy,
+};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
 use husky_vm::*;
@@ -103,7 +105,8 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                         raw_expr.range,
                     )
                     .unwrap();
-                    this_qual.binding(self.decl_db(), opt_this_ty.unwrap(), this_contract)
+                    let this_qt = EagerExprQualifiedTy::new(this_qual, opt_this_ty.unwrap());
+                    this_qt.binding(self.decl_db(), this_contract)
                 },
             },
             RawExprVariant::ThisField {
@@ -133,44 +136,26 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                     raw_expr.range,
                 )
                 .unwrap();
+                let this_qt = EagerExprQualifiedTy::new(this_qual, opt_this_ty.unwrap());
                 let ty_decl = self.decl_db().ty_decl(opt_this_ty.unwrap()).unwrap();
                 EagerExprVariant::ThisField {
                     field_ident,
                     field_idx: ty_decl.field_idx(field_ident.ident).try_into().unwrap(),
                     this_ty: opt_this_ty.unwrap(),
-                    this_binding: this_qual.binding(
-                        self.decl_db(),
-                        opt_this_ty.unwrap(),
-                        this_contract,
-                    ),
-                    field_binding: {
-                        field_qt
-                            .qual
-                            .binding(self.decl_db(), opt_this_ty.unwrap(), field_contract)
-                    },
+                    this_binding: this_qt.binding(self.decl_db(), this_contract),
+                    field_binding: { field_qt.binding(self.decl_db(), field_contract) },
                 }
             }
         };
-        if let Err(e) = self.raw_expr_intrinsic_ty(idx) {
-            p!(self.contract_sheet());
-            p!(self.file(), raw_expr, idx);
-            panic!()
-        }
-        let qualified_ty = match self.eager_expr_qualified_ty(idx) {
-            Ok(qualified_ty) => qualified_ty,
-            Err(e) => {
-                p!(raw_expr, e);
-                todo!()
-            }
-        };
+        let qualified_ty = self.eager_expr_qualified_ty(idx).unwrap();
         Ok(Arc::new(EagerExpr {
-            range: raw_expr.range().clone(),
+            range: raw_expr.range(),
             variant,
             file: self.file(),
             instruction_id: Default::default(),
             implicit_conversion: ImplicitConversion::from_opt_expectation(
                 opt_expectation,
-                qualified_ty.ty,
+                &qualified_ty,
             ),
             qualified_ty,
             contract: self.eager_expr_contract(idx).unwrap(),
@@ -211,8 +196,8 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         idx: RawExprIdx,
         opds: RawExprRange,
     ) -> SemanticResult<EagerExprVariant> {
-        let ty = self.eager_expr_qualified_ty(idx).unwrap().ty;
-        let elem_ty = ty.entity_route_argument(0);
+        let intrinsic_ty = self.eager_expr_qualified_ty(idx).unwrap().intrinsic_ty();
+        let elem_ty = intrinsic_ty.entity_route_argument(0);
 
         let elements: Vec<_> = opds
             .map(|opd| self.parse_eager_expr(opd, Some(elem_ty)))
@@ -231,8 +216,8 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
     ) -> SemanticResult<EagerExprVariant> {
         let (lopd_opt_expectation, ropd_opt_expectation) = match opr {
             BinaryOpr::Pure(PureBinaryOpr::Eq) => {
-                let lopd_raw_ty = self.raw_expr_ty(raw_opds.start).unwrap();
-                let ropd_raw_ty = self.raw_expr_ty(raw_opds.start + 1).unwrap();
+                let lopd_raw_ty = self.expr_raw_ty(raw_opds.start).unwrap();
+                let ropd_raw_ty = self.expr_raw_ty(raw_opds.start + 1).unwrap();
                 if lopd_raw_ty == ropd_raw_ty {
                     (None, None)
                 } else {
@@ -253,7 +238,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::Binary {
                 opr,
-                this_ty: lopd.ty(),
+                this_ty: lopd.intrinsic_ty(),
             },
             opds: vec![lopd, ropd],
         })
@@ -269,7 +254,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::Prefix {
                 opr,
-                this_ty: opd.ty(),
+                this_ty: opd.intrinsic_ty(),
             },
             opds: vec![opd],
         })
@@ -292,7 +277,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::Suffix {
                 opr,
-                this_ty: opd.ty(),
+                this_ty: opd.intrinsic_ty(),
             },
             opds: vec![opd],
         })
@@ -306,7 +291,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
     ) -> SemanticResult<EagerExprVariant> {
         let this_idx = raw_opds.start;
         let this = self.parse_eager_expr(this_idx, None)?;
-        let this_ty_decl = self.decl_db().ty_decl(this.ty()).unwrap();
+        let this_ty_decl = self.decl_db().ty_decl(this.intrinsic_ty()).unwrap();
         let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
         let field_liason = field_decl.liason;
         let field_contract = self.eager_expr_contract(raw_expr_idx).unwrap();
@@ -314,11 +299,9 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::Field {
                 field_ident,
-                this_ty: this.ty(),
+                this_ty: this.intrinsic_ty(),
                 field_liason,
-                field_binding: field_qt
-                    .qual
-                    .binding(self.decl_db(), field_qt.ty, field_contract),
+                field_binding: field_qt.binding(self.decl_db(), field_contract),
                 field_kind: field_decl.field_kind,
             },
             opds: vec![this],
@@ -397,7 +380,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
         let this = self.parse_eager_expr(this_idx, None)?;
-        let this_ty_decl = self.decl_db().ty_decl(this.ty()).unwrap();
+        let this_ty_decl = self.decl_db().ty_decl(this.intrinsic_ty()).unwrap();
         let output_binding = {
             let output_contract = self.eager_expr_contract(idx).unwrap();
             let output_qt = self.eager_expr_qualified_ty(idx).unwrap();
@@ -434,14 +417,14 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
     fn parse_element_access(
         &mut self,
         opds: RawExprRange,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
-        let element_ty = self.raw_expr_intrinsic_ty(raw_expr_idx).unwrap();
+        let element_ty = self.expr_raw_ty(idx).unwrap();
         Ok(EagerExprVariant::Opn {
             opn_variant: EagerOpnVariant::Index {
                 element_binding: {
-                    let element_qt = self.eager_expr_qualified_ty(raw_expr_idx).unwrap();
-                    let contract = self.eager_expr_contract(raw_expr_idx).unwrap();
+                    let element_qt = self.eager_expr_qualified_ty(idx).unwrap();
+                    let contract = self.eager_expr_contract(idx).unwrap();
                     element_qt.binding(self.decl_db(), contract)
                 },
             },

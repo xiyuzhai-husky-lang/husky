@@ -57,7 +57,7 @@ impl<'a> ContractSheetBuilder<'a> {
             },
             RawStmtVariant::Exec { expr, .. } => self.infer_eager_expr(expr, EagerContract::Pure),
             RawStmtVariant::Init { initial_value, .. } => {
-                if let Ok(ty) = self.raw_expr_ty(initial_value) {
+                if let Ok(ty) = self.expr_raw_ty(initial_value) {
                     if let Ok(contract) = EagerContract::init_contract(self.db.upcast(), ty) {
                         self.infer_eager_expr(initial_value, contract);
                     }
@@ -67,7 +67,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 result,
                 return_context,
             } => {
-                if let Ok(expr_ty) = self.raw_expr_ty(result) {
+                if let Ok(expr_ty) = self.expr_raw_ty(result) {
                     if let Ok(contract) = EagerContract::ret_contract(
                         self.db.upcast(),
                         output_ty,
@@ -174,8 +174,8 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let lopd = opds.start;
         let ropd = opds.start + 1;
-        let lopd_ty = self.raw_expr_intrinsic_ty(opds.start)?;
-        let is_lopd_copyable = self.db.is_copyable(lopd_ty)?;
+        let intrinsic_lopd_ty = self.expr_raw_ty(opds.start)?.intrinsic();
+        let is_lopd_copyable = self.db.is_copyable(intrinsic_lopd_ty)?;
         match opr {
             BinaryOpr::Pure(pure_binary_opr) => {
                 match contract {
@@ -274,7 +274,7 @@ impl<'a> ContractSheetBuilder<'a> {
         opd: RawExprIdx,
         contract: EagerContract,
     ) -> InferResult<()> {
-        let this_ty_decl = self.raw_expr_deref_ty_decl(opd)?;
+        let this_ty_decl = self.expr_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
         let this_contract = EagerContract::field_access_this_eager_contract(
             field_decl.liason,
@@ -319,7 +319,7 @@ impl<'a> ContractSheetBuilder<'a> {
         elements: RawExprRange,
         contract: EagerContract,
     ) -> Result<(), husky_infer_error::InferError> {
-        let element_ty = self.raw_expr_ty(elements.start)?;
+        let element_ty = self.expr_raw_ty(elements.start)?;
         let element_contract = match self.db.is_copyable(element_ty)? {
             true => EagerContract::Pure,
             false => EagerContract::Move,
@@ -345,11 +345,12 @@ impl<'a> ContractSheetBuilder<'a> {
             call_decl.primary_parameters.iter(),
         ) {
             let argument_contract = EagerContract::argument_eager_contract(
+                self.db,
                 parameter.liason,
                 parameter.ty(),
                 call_decl.output.liason(),
                 self.arena[argument].range,
-            );
+            )?;
             self.infer_eager_expr(argument, argument_contract)
         }
         Ok(())
@@ -374,11 +375,12 @@ impl<'a> ContractSheetBuilder<'a> {
             call_form_decl.primary_parameters.iter(),
         ) {
             let argument_contract = EagerContract::argument_eager_contract(
+                self.db,
                 parameter.liason,
                 parameter.ty(),
                 call_form_decl.output.liason(),
                 self.arena[argument].range,
-            );
+            )?;
             self.infer_eager_expr(argument, argument_contract)
         }
         Ok(())

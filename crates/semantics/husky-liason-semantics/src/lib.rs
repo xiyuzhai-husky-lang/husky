@@ -1,14 +1,12 @@
-use husky_entity_route::{
-    CanonicalEntityRoutePtrKind, EntityRoutePtr, EntityRouteVariant, TemporalArgument,
-};
+use husky_entity_route::{CanonicalTyKind, EntityRoutePtr, EntityRouteVariant, TemporalArgument};
 use husky_text::TextRange;
 use husky_word::{LiasonKeyword, RootIdentifier};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ParameterModifier {
     None,
-    Move,
-    MoveMut,
+    Owned,
+    OwnedMut,
     MemberAccess,
     EvalRef,
     TempRef,
@@ -19,37 +17,37 @@ impl ParameterModifier {
     pub fn is_compatible(self, ty: EntityRoutePtr) -> bool {
         match self {
             ParameterModifier::None => true,
-            ParameterModifier::Move => true,
-            ParameterModifier::MoveMut => {
+            ParameterModifier::Owned => true,
+            ParameterModifier::OwnedMut => {
                 let canonical_ty = ty.canonicalize();
                 match canonical_ty.kind() {
-                    CanonicalEntityRoutePtrKind::Intrinsic => true,
-                    CanonicalEntityRoutePtrKind::Optional => todo!(),
-                    CanonicalEntityRoutePtrKind::EvalRef => todo!(),
-                    CanonicalEntityRoutePtrKind::OptionalEvalRef => todo!(),
-                    CanonicalEntityRoutePtrKind::TempRefMut => todo!(),
+                    CanonicalTyKind::Intrinsic => true,
+                    CanonicalTyKind::Optional => todo!(),
+                    CanonicalTyKind::EvalRef => todo!(),
+                    CanonicalTyKind::OptionalEvalRef => todo!(),
+                    CanonicalTyKind::TempRefMut => todo!(),
                 }
             }
             ParameterModifier::MemberAccess => todo!(),
             ParameterModifier::EvalRef => {
                 let canonical_ty = ty.canonicalize();
                 match canonical_ty.kind() {
-                    CanonicalEntityRoutePtrKind::Intrinsic => false,
-                    CanonicalEntityRoutePtrKind::Optional => todo!(),
-                    CanonicalEntityRoutePtrKind::EvalRef => todo!(),
-                    CanonicalEntityRoutePtrKind::OptionalEvalRef => todo!(),
-                    CanonicalEntityRoutePtrKind::TempRefMut => todo!(),
+                    CanonicalTyKind::Intrinsic => false,
+                    CanonicalTyKind::Optional => todo!(),
+                    CanonicalTyKind::EvalRef => todo!(),
+                    CanonicalTyKind::OptionalEvalRef => todo!(),
+                    CanonicalTyKind::TempRefMut => todo!(),
                 }
             }
             ParameterModifier::TempRef => todo!(),
             ParameterModifier::TempRefMut => {
                 let canonical_ty = ty.canonicalize();
                 match canonical_ty.kind() {
-                    CanonicalEntityRoutePtrKind::Intrinsic => false,
-                    CanonicalEntityRoutePtrKind::Optional => todo!(),
-                    CanonicalEntityRoutePtrKind::EvalRef => todo!(),
-                    CanonicalEntityRoutePtrKind::OptionalEvalRef => todo!(),
-                    CanonicalEntityRoutePtrKind::TempRefMut => true,
+                    CanonicalTyKind::Intrinsic => false,
+                    CanonicalTyKind::Optional => todo!(),
+                    CanonicalTyKind::EvalRef => todo!(),
+                    CanonicalTyKind::OptionalEvalRef => todo!(),
+                    CanonicalTyKind::TempRefMut => true,
                 }
             }
         }
@@ -82,14 +80,14 @@ impl ParameterModifier {
                 if is_copyable {
                     ParameterModifier::None
                 } else {
-                    ParameterModifier::Move
+                    ParameterModifier::Owned
                 }
             }
             MemberLiason::Mutable => {
                 if is_copyable {
                     ParameterModifier::None
                 } else {
-                    ParameterModifier::MoveMut
+                    ParameterModifier::OwnedMut
                 }
             }
             MemberLiason::DerivedLazy => panic!(),

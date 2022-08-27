@@ -72,10 +72,10 @@ impl<'a> AstTransformer<'a> {
                 for parameter in parameters.iter() {
                     match parameter.liason() {
                         ParameterModifier::None
-                        | ParameterModifier::Move
+                        | ParameterModifier::Owned
                         | ParameterModifier::EvalRef
                         | ParameterModifier::TempRef => (),
-                        ParameterModifier::TempRefMut | ParameterModifier::MoveMut => {
+                        ParameterModifier::TempRefMut | ParameterModifier::OwnedMut => {
                             return err!(
                                 "invalid parameter liason in this paradigm",
                                 parameter.liason_range()

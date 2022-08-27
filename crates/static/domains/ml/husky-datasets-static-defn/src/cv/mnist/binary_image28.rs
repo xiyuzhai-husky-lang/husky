@@ -11,7 +11,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         base_route: BINARY_IMAGE_28_ROUTE,
         spatial_parameters: &[],
         trait_impls: &[
-            clone_method_impl!(BINARY_IMAGE_28_ROUTE),
+            clone_trait_impl!(BINARY_IMAGE_28_ROUTE),
             StaticTraitImplDefn {
                 dev_src: static_dev_src!(),
                 trai: "std::ops::Index<i32>",

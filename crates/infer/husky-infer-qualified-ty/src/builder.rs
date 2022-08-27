@@ -57,10 +57,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     field_ast_kind: field_kind,
                 } => match field_kind {
                     FieldAstKind::StructDefault { default } => {
-                        self.infer_eager_expr(default);
+                        self.insert_eager_expr_inference(default);
                     }
                     FieldAstKind::StructDerivedEager { derivation } => {
-                        self.infer_eager_expr(derivation);
+                        self.insert_eager_expr_inference(derivation);
                     }
                     _ => (),
                 },

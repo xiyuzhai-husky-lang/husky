@@ -78,10 +78,10 @@ impl<'a> EagerParser<'a> {
                 discard: silent,
             } => {
                 let expr = self.parse_eager_expr(expr, None)?;
-                if !silent && expr.ty() != EntityRoutePtr::Root(RootIdentifier::Void) {
+                if !silent && expr.intrinsic_ty() != EntityRoutePtr::Root(RootIdentifier::Void) {
                     err!(format!(
                         "expect non-silent executed expression to be of type void, but got {:?} instead",
-                        expr.ty()
+                        expr.intrinsic_ty()
                     ))
                 }
                 Ok(ProcStmtVariant::Execute { expr })
@@ -234,7 +234,7 @@ impl<'a> EagerParser<'a> {
             }
             RawLoopKind::While { condition } => {
                 let condition = self.parse_eager_expr(condition, None)?;
-                match condition.ty() {
+                match condition.intrinsic_ty() {
                     EntityRoutePtr::Root(RootIdentifier::Bool)
                     | EntityRoutePtr::Root(RootIdentifier::I32)
                     | EntityRoutePtr::Root(RootIdentifier::F32)
@@ -249,7 +249,7 @@ impl<'a> EagerParser<'a> {
             }
             RawLoopKind::DoWhile { condition } => {
                 let condition = self.parse_eager_expr(condition, None)?;
-                match condition.ty() {
+                match condition.intrinsic_ty() {
                     EntityRoutePtr::Root(RootIdentifier::Bool)
                     | EntityRoutePtr::Root(RootIdentifier::I32)
                     | EntityRoutePtr::Root(RootIdentifier::F32)
@@ -287,7 +287,8 @@ impl<'a> EagerParser<'a> {
                         }) => Ok(Arc::new(match pattern_branch_variant {
                             RawPatternBranchVariant::Case { pattern } => ProcStmtPatternBranch {
                                 variant: ProcStmtPatternBranchVariant::Case {
-                                    pattern: self.parse_proc_pattern(pattern, match_expr.ty())?,
+                                    pattern: self
+                                        .parse_proc_pattern(pattern, match_expr.intrinsic_ty())?,
                                 },
                                 stmts: self.parse_proc_stmts(item.opt_children.clone().unwrap())?,
                                 range,

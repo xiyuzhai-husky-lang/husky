@@ -20,17 +20,13 @@ use infer_decl::{CallFormDecl, DeclQueryGroup, TyDecl};
 pub trait InferEntityRoute {
     fn decl_db(&self) -> &dyn DeclQueryGroup;
     fn entity_route_sheet(&self) -> &EntityRouteSheet;
-    fn raw_expr_ty(&self, idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
+    fn expr_raw_ty(&self, idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
         self.entity_route_sheet().expr_ty_result(idx)
     }
-    fn raw_expr_intrinsic_ty(&self, idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-        self.entity_route_sheet()
-            .expr_ty_result(idx)
-            .map(|ty| ty.intrinsic())
-    }
-    fn raw_expr_deref_ty_decl(&self, idx: RawExprIdx) -> InferResultArc<TyDecl> {
-        let ty = self.raw_expr_intrinsic_ty(idx)?;
-        Ok(derived_unwrap!(self.decl_db().ty_decl(ty)))
+    fn expr_ty_decl(&self, idx: RawExprIdx) -> InferResultArc<TyDecl> {
+        Ok(derived_unwrap!(self
+            .decl_db()
+            .ty_decl(self.expr_raw_ty(idx)?.intrinsic())))
     }
 
     // fn call_route_result(&self, idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
@@ -48,7 +44,7 @@ pub trait InferEntityRoute {
         } else {
             Ok(derived_unwrap!(self
                 .decl_db()
-                .value_call_form_decl(self.raw_expr_ty(function_idx)?)))
+                .value_call_form_decl(self.expr_raw_ty(function_idx)?)))
         }
     }
 
