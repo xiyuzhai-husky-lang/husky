@@ -25,7 +25,7 @@ use husky_file::FilePtr;
 use husky_text::TextRanged;
 use husky_token::*;
 
-pub type AstIter<'a> = FoldableIter<'a, AstResult<Ast>, FoldableList<AstResult<Ast>>>;
+pub type AstIter<'a> = FoldableIter<'a, FoldableList<AstResult<Ast>>>;
 
 pub struct AstTransformer<'a> {
     db: &'a dyn AstSalsaQueryGroup,
