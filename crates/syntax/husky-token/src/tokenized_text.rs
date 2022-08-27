@@ -78,7 +78,9 @@ impl TokenizedText {
 
 pub type TokenGroupIter<'a> = fold::FoldableIter<'a, [HuskyToken], TokenizedText>;
 
-impl fold::FoldableStorage<[HuskyToken]> for TokenizedText {
+impl fold::FoldableStorage for TokenizedText {
+    type Value = [HuskyToken];
+
     fn len(&self) -> usize {
         self.token_groups.len()
     }

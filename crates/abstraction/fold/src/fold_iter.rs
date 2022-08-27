@@ -6,7 +6,7 @@ use std::marker::PhantomData;
 pub struct FoldableIter<'a, Value, Storage>
 where
     Value: ?Sized,
-    Storage: FoldableStorage<Value>,
+    Storage: FoldableStorage<Value = Value>,
 {
     pub(crate) storage: &'a Storage,
     pub next: Option<usize>,
@@ -16,7 +16,7 @@ where
 impl<'a, Value, Storage> std::fmt::Debug for FoldableIter<'a, Value, Storage>
 where
     Value: ?Sized,
-    Storage: FoldableStorage<Value>,
+    Storage: FoldableStorage<Value = Value>,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("FoldIter{{ next: {:?} }}", &self.next))
@@ -26,7 +26,7 @@ where
 impl<'a, Value, Storage> FoldableIter<'a, Value, Storage>
 where
     Value: ?Sized,
-    Storage: FoldableStorage<Value>,
+    Storage: FoldableStorage<Value = Value>,
 {
     pub(crate) fn new(storage: &'a Storage, next: Option<usize>) -> Self {
         if let Some(idx) = next {
@@ -43,7 +43,7 @@ where
 impl<'a, Value, Storage> FoldableIter<'a, Value, Storage>
 where
     Value: ?Sized,
-    Storage: FoldableStorage<Value>,
+    Storage: FoldableStorage<Value = Value>,
 {
     pub fn next_level_iter(&self, next: Option<usize>) -> Self {
         Self {
@@ -58,7 +58,7 @@ where
 pub struct FoldIterItem<'a, Value: 'a, Storage>
 where
     Value: ?Sized,
-    Storage: FoldableStorage<Value>,
+    Storage: FoldableStorage<Value = Value>,
 {
     pub idx: usize,
     pub indent: Indent,
@@ -70,7 +70,7 @@ where
 impl<'a, Value: 'a, Storage> Iterator for FoldableIter<'a, Value, Storage>
 where
     Value: ?Sized + 'a,
-    Storage: FoldableStorage<Value>,
+    Storage: FoldableStorage<Value = Value>,
 {
     type Item = FoldIterItem<'a, Value, Storage>;
 

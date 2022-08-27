@@ -15,17 +15,15 @@ pub use local_stack::LocalStack;
 pub use local_value::LocalValue;
 pub use transformer::Transformer;
 
-pub trait FoldableStorage<Value>
-where
-    Value: ?Sized,
-{
+pub trait FoldableStorage {
+    type Value: ?Sized;
     fn len(&self) -> usize;
     fn indent(&self, index: usize) -> Indent;
     fn folding_end(&self, index: usize) -> FoldingEnd;
-    fn value(&self, index: usize) -> &Value;
+    fn value(&self, index: usize) -> &Self::Value;
     fn this(&self) -> &Self;
 
-    fn iter_from(&self, start: usize) -> FoldableIter<Value, Self>
+    fn iter_from(&self, start: usize) -> FoldableIter<Self::Value, Self>
     where
         Self: Sized,
     {
@@ -33,7 +31,7 @@ where
         FoldableIter::new(self.this(), Some(start))
     }
 
-    fn iter(&self) -> FoldableIter<Value, Self>
+    fn iter(&self) -> FoldableIter<Self::Value, Self>
     where
         Self: Sized,
     {

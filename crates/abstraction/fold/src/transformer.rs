@@ -2,7 +2,7 @@ use crate::*;
 
 pub trait Transformer<Input, InputContainer, Output>
 where
-    InputContainer: FoldableStorage<Input>,
+    InputContainer: FoldableStorage<Value = Input>,
     Input: ?Sized,
 {
     fn _enter_block(&mut self);

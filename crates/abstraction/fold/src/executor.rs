@@ -2,7 +2,7 @@ use crate::*;
 
 pub trait Executor<Input, InputContainer>
 where
-    InputContainer: FoldableStorage<Input>,
+    InputContainer: FoldableStorage<Value = Input>,
     Input: ?Sized,
 {
     fn _enter_block(&mut self);
