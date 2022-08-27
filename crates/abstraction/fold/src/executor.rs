@@ -8,7 +8,7 @@ pub trait Executor {
     fn _exit_block(&mut self);
     fn execute(&mut self, indent: Indent, input: &Self::Input, enter_block: impl FnOnce(&mut Self));
 
-    fn execute_all<'a>(&mut self, mut iter: FoldableIter<'a, Self::Input, Self::InputStorage>)
+    fn execute_all<'a>(&mut self, mut iter: FoldableIter<'a, Self::InputStorage>)
     where
         Self::Input: 'a,
     {

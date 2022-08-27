@@ -16,10 +16,8 @@ pub trait Transformer {
     fn foldable_outputs_mut(&mut self) -> &mut FoldableList<Self::Output>;
     fn misplaced(&self) -> Self::Output;
 
-    fn transform_all_recr<'a>(
-        &mut self,
-        mut iter: FoldableIter<'a, Self::Input, Self::InputStorage>,
-    ) where
+    fn transform_all_recr<'a>(&mut self, mut iter: FoldableIter<'a, Self::InputStorage>)
+    where
         Self::Input: 'a,
     {
         while let Some(item) = iter.next() {

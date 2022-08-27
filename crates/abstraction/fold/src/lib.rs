@@ -23,7 +23,7 @@ pub trait FoldableStorage {
     fn value(&self, index: usize) -> &Self::Value;
     fn this(&self) -> &Self;
 
-    fn iter_from(&self, start: usize) -> FoldableIter<Self::Value, Self>
+    fn iter_from(&self, start: usize) -> FoldableIter<Self>
     where
         Self: Sized,
     {
@@ -31,7 +31,7 @@ pub trait FoldableStorage {
         FoldableIter::new(self.this(), Some(start))
     }
 
-    fn iter(&self) -> FoldableIter<Self::Value, Self>
+    fn iter(&self) -> FoldableIter<Self>
     where
         Self: Sized,
     {

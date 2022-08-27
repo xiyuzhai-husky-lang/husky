@@ -3,17 +3,16 @@ use husky_check_utils::*;
 use std::marker::PhantomData;
 
 #[derive(Clone)]
-pub struct FoldableIter<'a, Value, Storage>
+pub struct FoldableIter<'a, Storage>
 where
-    Value: ?Sized,
-    Storage: FoldableStorage<Value = Value>,
+    Storage: FoldableStorage,
 {
     pub(crate) storage: &'a Storage,
     pub next: Option<usize>,
-    phantom: PhantomData<Value>,
+    phantom: PhantomData<Storage::Value>,
 }
 
-impl<'a, Value, Storage> std::fmt::Debug for FoldableIter<'a, Value, Storage>
+impl<'a, Value, Storage> std::fmt::Debug for FoldableIter<'a, Storage>
 where
     Value: ?Sized,
     Storage: FoldableStorage<Value = Value>,
@@ -23,7 +22,7 @@ where
     }
 }
 
-impl<'a, Value, Storage> FoldableIter<'a, Value, Storage>
+impl<'a, Value, Storage> FoldableIter<'a, Storage>
 where
     Value: ?Sized,
     Storage: FoldableStorage<Value = Value>,
@@ -40,7 +39,7 @@ where
     }
 }
 
-impl<'a, Value, Storage> FoldableIter<'a, Value, Storage>
+impl<'a, Value, Storage> FoldableIter<'a, Storage>
 where
     Value: ?Sized,
     Storage: FoldableStorage<Value = Value>,
@@ -64,10 +63,10 @@ where
     pub indent: Indent,
     pub value: &'a Value,
     pub folding_end: FoldingEnd,
-    pub opt_children: Option<FoldableIter<'a, Value, Storage>>,
+    pub opt_children: Option<FoldableIter<'a, Storage>>,
 }
 
-impl<'a, Value: 'a, Storage> Iterator for FoldableIter<'a, Value, Storage>
+impl<'a, Value: 'a, Storage> Iterator for FoldableIter<'a, Storage>
 where
     Value: ?Sized + 'a,
     Storage: FoldableStorage<Value = Value>,

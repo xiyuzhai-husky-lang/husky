@@ -76,7 +76,7 @@ impl TokenizedText {
     }
 }
 
-pub type TokenGroupIter<'a> = fold::FoldableIter<'a, [HuskyToken], TokenizedText>;
+pub type TokenGroupIter<'a> = fold::FoldableIter<'a, TokenizedText>;
 
 impl fold::FoldableStorage for TokenizedText {
     type Value = [HuskyToken];
