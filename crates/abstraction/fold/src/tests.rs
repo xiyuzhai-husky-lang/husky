@@ -39,7 +39,11 @@ pub struct TrivialTransformer {
     fold_outputs: FoldableList<()>,
 }
 
-impl<'a> Transformer<(), FoldableList<()>, ()> for TrivialTransformer {
+impl<'a> Transformer for TrivialTransformer {
+    type Input = ();
+    type InputStorage = FoldableList<()>;
+    type Output = ();
+
     fn _enter_block(&mut self) {}
 
     fn _exit_block(&mut self) {}

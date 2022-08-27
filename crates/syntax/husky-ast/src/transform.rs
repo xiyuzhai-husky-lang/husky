@@ -102,7 +102,11 @@ impl<'a> AstTransformer<'a> {
     }
 }
 
-impl<'a> fold::Transformer<[HuskyToken], TokenizedText, AstResult<Ast>> for AstTransformer<'a> {
+impl<'a> fold::Transformer for AstTransformer<'a> {
+    type Input = [HuskyToken];
+    type InputStorage = TokenizedText;
+    type Output = AstResult<Ast>;
+
     fn _enter_block(&mut self) {
         self.context.enter();
         self.symbols.enter();

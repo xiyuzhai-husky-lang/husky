@@ -1,25 +1,26 @@
 use crate::*;
 
-pub trait Transformer<Input, InputContainer, Output>
-where
-    InputContainer: FoldableStorage<Value = Input>,
-    Input: ?Sized,
-{
+pub trait Transformer {
+    type Input: ?Sized;
+    type InputStorage: FoldableStorage<Value = Self::Input>;
+    type Output;
     fn _enter_block(&mut self);
     fn _exit_block(&mut self);
     fn transform(
         &mut self,
         indent: Indent,
-        input: &Input,
+        input: &Self::Input,
         enter_block: impl FnOnce(&mut Self),
-    ) -> Output;
-    fn foldable_inputs(&self) -> &InputContainer;
-    fn foldable_outputs_mut(&mut self) -> &mut FoldableList<Output>;
-    fn misplaced(&self) -> Output;
+    ) -> Self::Output;
+    fn foldable_inputs(&self) -> &Self::InputStorage;
+    fn foldable_outputs_mut(&mut self) -> &mut FoldableList<Self::Output>;
+    fn misplaced(&self) -> Self::Output;
 
-    fn transform_all_recr<'a>(&mut self, mut iter: FoldableIter<'a, Input, InputContainer>)
-    where
-        Input: 'a,
+    fn transform_all_recr<'a>(
+        &mut self,
+        mut iter: FoldableIter<'a, Self::Input, Self::InputStorage>,
+    ) where
+        Self::Input: 'a,
     {
         while let Some(item) = iter.next() {
             use husky_check_utils::*;
