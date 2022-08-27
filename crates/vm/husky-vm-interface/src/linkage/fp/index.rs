@@ -73,7 +73,7 @@ macro_rules! index_eval_ref_fp {
             values: &mut [__Register<'eval>],
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
-            let this_value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
+            let this_value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             let index_value: usize = values[1].downcast_i32() as usize;
             __Register::new_eval_ref::<$INTRINSIC_ELEMENT_TY>(
                 this_value[index_value],
@@ -91,7 +91,7 @@ macro_rules! index_eval_ref_fp {
             values: &mut [__Register<'eval>],
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
-            let this_value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
+            let this_value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             let index_value: usize = values[1].downcast_i32() as usize;
             __Register::new_opt_eval_ref::<$INTRINSIC_ELEMENT_TY>(
                 this_value[index_value],
