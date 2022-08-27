@@ -1,17 +1,16 @@
 use crate::*;
 
-pub trait Executor<Input, InputContainer>
-where
-    InputContainer: FoldableStorage<Value = Input>,
-    Input: ?Sized,
-{
+pub trait Executor {
+    type Input: ?Sized;
+    type InputStorage: FoldableStorage<Value = Self::Input>;
+
     fn _enter_block(&mut self);
     fn _exit_block(&mut self);
-    fn execute(&mut self, indent: Indent, input: &Input, enter_block: impl FnOnce(&mut Self));
+    fn execute(&mut self, indent: Indent, input: &Self::Input, enter_block: impl FnOnce(&mut Self));
 
-    fn execute_all<'a>(&mut self, mut iter: FoldableIter<'a, Input, InputContainer>)
+    fn execute_all<'a>(&mut self, mut iter: FoldableIter<'a, Self::Input, Self::InputStorage>)
     where
-        Input: 'a,
+        Self::Input: 'a,
     {
         while let Some(item) = iter.next() {
             let mut block_entered = false;
