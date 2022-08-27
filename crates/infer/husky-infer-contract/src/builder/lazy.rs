@@ -210,10 +210,10 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let this_ty_decl = self.expr_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let this_contract = LazyContract::field_self_lazy_contract(
+        let this_contract = LazyContract::member_self_lazy_contract(
             field_decl.liason,
             contract,
-            self.db.is_copyable(field_decl.ty)?,
+            field_decl.ty,
             self.arena[opd].range,
         )?;
         self.infer_lazy_expr(opd, this_contract);
@@ -321,12 +321,20 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_lazy_index(
         &mut self,
-
         total_opds: &RawExprRange,
         contract: LazyContract,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
     ) -> InferResult<()> {
-        self.infer_lazy_expr(total_opds.start, contract);
+        let elem_ty = self.expr_raw_ty(idx)?;
+        self.infer_lazy_expr(
+            total_opds.start,
+            LazyContract::member_self_lazy_contract(
+                MemberModifier::Mutable, // ad hoc
+                contract,
+                elem_ty,
+                self.arena[idx].range,
+            )?,
+        );
         for opd in (total_opds.start + 1)..total_opds.end {
             self.infer_lazy_expr(opd, LazyContract::Pure)
         }

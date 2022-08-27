@@ -416,7 +416,7 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => todo!(),
                 __RegisterDataKind::Box => todo!(),
                 __RegisterDataKind::EvalRef => &*(self.data.as_ptr as *const T),
-                __RegisterDataKind::TempRef => todo!(),
+                __RegisterDataKind::TempRef => panic!(),
                 __RegisterDataKind::TempMut => todo!(),
                 __RegisterDataKind::Moved => todo!(),
                 __RegisterDataKind::None => todo!(),

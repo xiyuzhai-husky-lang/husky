@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::{MatchLiason, RawReturnContext, RawReturnContextKind};
-use husky_entity_route::{CanonicalTyKind, EntityRoutePtr, EntityRouteVariant};
-use husky_infer_error::throw;
+use husky_entity_route::{CanonicalQualifier, CanonicalTyKind, EntityRoutePtr, EntityRouteVariant};
+use husky_infer_error::{error, throw};
 use husky_text::TextRange;
 use husky_word::RootIdentifier;
 use infer_decl::DeclQueryGroup;
@@ -78,17 +78,25 @@ impl EagerContract {
         }
     }
 
-    pub fn field_self_eager_contract(
+    pub fn member_self_eager_contract(
         member_modifier: MemberModifier,
         member_contract: EagerContract,
-        is_member_copyable: bool,
+        member_ty: EntityRoutePtr,
         range: TextRange,
     ) -> InferResult<EagerContract> {
         if !member_modifier.allow_mutable() && member_contract.require_mutable() {
-            todo!()
+            return Err(error!("field can't be mutated", range));
         }
         Ok(match member_modifier {
-            MemberModifier::Immutable | MemberModifier::Mutable => member_contract,
+            MemberModifier::Immutable | MemberModifier::Mutable => {
+                let canonical_member_ty = member_ty.canonicalize();
+                match canonical_member_ty.qual() {
+                    CanonicalQualifier::Intrinsic => member_contract,
+                    CanonicalQualifier::EvalRef => EagerContract::Pure,
+                    CanonicalQualifier::TempRef => todo!(),
+                    CanonicalQualifier::TempRefMut => todo!(),
+                }
+            }
             MemberModifier::Property => EagerContract::EvalRef,
         })
     }

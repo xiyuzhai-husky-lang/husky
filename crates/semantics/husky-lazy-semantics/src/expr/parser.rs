@@ -103,12 +103,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             } => {
                 let field_contract = self.lazy_expr_contract(idx).unwrap();
                 let field_qt = self.lazy_expr_qualified_ty(idx).unwrap();
-                let this_contract = LazyContract::field_self_lazy_contract(
+                let this_contract = LazyContract::member_self_lazy_contract(
                     field_liason,
                     field_contract,
-                    self.decl_db()
-                        .is_copyable(opt_field_ty.unwrap().route)
-                        .unwrap(),
+                    opt_field_ty.unwrap().route,
                     self.arena()[idx].range,
                 )?;
                 let this_qual = LazyExprQualifier::parameter_use_lazy_qualifier(

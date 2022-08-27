@@ -43,7 +43,10 @@ impl LazyContract {
                 ParameterModifier::Owned | ParameterModifier::OwnedMut => {
                     let canonical_parameter_ty = parameter_ty.canonicalize();
                     match canonical_parameter_ty.qual() {
-                        CanonicalQualifier::Intrinsic => todo!(),
+                        CanonicalQualifier::Intrinsic => match db.is_copyable(parameter_ty)? {
+                            true => LazyContract::Pure,
+                            false => LazyContract::Move,
+                        },
                         CanonicalQualifier::EvalRef => todo!(),
                         CanonicalQualifier::TempRef => todo!(),
                         CanonicalQualifier::TempRefMut => todo!(),
@@ -68,14 +71,22 @@ impl LazyContract {
         }
     }
 
-    pub fn field_self_lazy_contract(
+    pub fn member_self_lazy_contract(
         member_modifier: MemberModifier,
         member_contract: LazyContract,
-        is_member_copyable: bool,
+        member_ty: EntityRoutePtr,
         range: TextRange,
     ) -> InferResult<LazyContract> {
         Ok(match member_modifier {
-            MemberModifier::Immutable | MemberModifier::Mutable => member_contract,
+            MemberModifier::Immutable | MemberModifier::Mutable => {
+                let canonical_member_ty = member_ty.canonicalize();
+                match canonical_member_ty.qual() {
+                    CanonicalQualifier::Intrinsic => member_contract,
+                    CanonicalQualifier::EvalRef => LazyContract::Pure,
+                    CanonicalQualifier::TempRef => todo!(),
+                    CanonicalQualifier::TempRefMut => todo!(),
+                }
+            }
             MemberModifier::Property => LazyContract::EvalRef,
         })
     }
