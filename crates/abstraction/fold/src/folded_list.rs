@@ -132,10 +132,11 @@ pub trait ItemToFold<Key> {
     fn indent(&self) -> Indent;
 }
 
-impl<T> FoldableStorage<T> for FoldableList<T>
+impl<T> FoldableStorage for FoldableList<T>
 where
     T: Debug,
 {
+    type Value = T;
     fn len(&self) -> usize {
         self.nodes.len()
     }
