@@ -30,7 +30,7 @@ pub use std::sync::Arc as __Arc;
 
 use husky_dev_utils::*;
 use husky_entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
-use husky_liason_semantics::{MemberLiason, OutputModifier, ParameterModifier};
+use husky_liason_semantics::{MemberModifier, OutputModifier, ParameterModifier};
 use husky_static_defn::StaticParameter;
 use husky_static_defn::*;
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};

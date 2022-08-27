@@ -158,15 +158,15 @@ impl TyDecl {
                 for ty_member in ty_members.iter() {
                     match ty_member {
                         TyMemberDecl::Field(ref field_decl) => match field_decl.field_kind {
-                            FieldKind::StructOriginal | FieldKind::RecordOriginal => {
+                            FieldKind::StructRegular | FieldKind::RecordRegular => {
                                 primary_parameters
                                     .insert(ParameterDecl::from_field(db, field_decl)?)
                             }
                             FieldKind::StructDefault => keyword_parameters
                                 .insert(ParameterDecl::from_field(db, field_decl)?),
-                            FieldKind::StructDerivedEager => break,
-                            FieldKind::StructDerivedLazy => break,
-                            FieldKind::RecordDerived => break,
+                            FieldKind::StructDerived => break,
+                            FieldKind::StructProperty => break,
+                            FieldKind::RecordProperty => break,
                         },
                         TyMemberDecl::Method(_) | TyMemberDecl::Call(_) => break,
                     }
@@ -252,7 +252,7 @@ impl TyDecl {
                     ..
                 } => {
                     match field_kind {
-                        FieldAstKind::StructOriginal | FieldAstKind::RecordOriginal => (),
+                        AstFieldKind::StructOriginal | AstFieldKind::RecordOriginal => (),
                         _ => break,
                     }
                     children.next();
@@ -305,8 +305,8 @@ impl TyDecl {
                     field_ast_kind: field_kind,
                     ..
                 } => match field_kind {
-                    FieldAstKind::StructOriginal => todo!("no original at this point"),
-                    FieldAstKind::RecordOriginal => todo!("no original at this point"),
+                    AstFieldKind::StructOriginal => todo!("no original at this point"),
+                    AstFieldKind::RecordOriginal => todo!("no original at this point"),
                     _ => throw_query_derived!(
                         members.insert_new(TyMemberDecl::Field(FieldDecl::from_ast(ast)))
                     ),
@@ -368,12 +368,12 @@ impl TyDecl {
     pub fn eager_fields(&self) -> impl Iterator<Item = &FieldDecl> {
         self.ty_members.iter().filter_map(|member| match member {
             TyMemberDecl::Field(field_decl) => match field_decl.field_kind {
-                FieldKind::StructOriginal
-                | FieldKind::StructDefault
-                | FieldKind::StructDerivedEager => Some(field_decl as &FieldDecl),
-                FieldKind::StructDerivedLazy => None,
-                FieldKind::RecordOriginal => todo!(),
-                FieldKind::RecordDerived => todo!(),
+                FieldKind::StructRegular | FieldKind::StructDefault | FieldKind::StructDerived => {
+                    Some(field_decl as &FieldDecl)
+                }
+                FieldKind::StructProperty => None,
+                FieldKind::RecordRegular => todo!(),
+                FieldKind::RecordProperty => todo!(),
             },
             _ => None,
         })

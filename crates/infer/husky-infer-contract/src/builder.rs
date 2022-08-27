@@ -1,7 +1,7 @@
 mod eager;
 mod lazy;
 
-use husky_ast::{AstIter, AstVariant, FieldAstKind, RawExpr, RawExprArena};
+use husky_ast::{AstFieldKind, AstIter, AstVariant, RawExpr, RawExprArena};
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_syntax::EntitySyntaxResult;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
@@ -52,22 +52,22 @@ impl<'a> ContractSheetBuilder<'a> {
                     field_ast_kind,
                     ..
                 } => match field_ast_kind {
-                    FieldAstKind::StructDefault { default } => {
+                    AstFieldKind::StructDefault { default } => {
                         msg_once!("todo: handle ref");
                         if let Ok(is_field_copyable) = self.db.is_copyable(ty.route) {
                             let contract = match is_field_copyable {
                                 true => EagerContract::Pure,
                                 false => match liason {
-                                    MemberLiason::Immutable | MemberLiason::Mutable => {
+                                    MemberModifier::Immutable | MemberModifier::Mutable => {
                                         EagerContract::Move
                                     }
-                                    MemberLiason::DerivedLazy => panic!(),
+                                    MemberModifier::Property => panic!(),
                                 },
                             };
                             self.infer_eager_expr(default, contract)
                         }
                     }
-                    FieldAstKind::StructDerivedEager { derivation } => {
+                    AstFieldKind::StructDerivedEager { derivation } => {
                         msg_once!("todo: handle ref");
                         if let Ok(is_field_copyable) = self.db.is_copyable(ty.route) {
                             let contract = match is_field_copyable {
@@ -100,13 +100,13 @@ impl<'a> ContractSheetBuilder<'a> {
                         field_ty: ty,
                         ..
                     } => match field_ast_kind {
-                        FieldAstKind::StructDerivedLazy {
+                        AstFieldKind::StructProperty {
                             paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
                         } => self.infer_eager_stmts(children, ty.route),
-                        FieldAstKind::StructDerivedLazy {
+                        AstFieldKind::StructProperty {
                             paradigm: Paradigm::LazyFunctional,
                         }
-                        | FieldAstKind::RecordDerived => self.infer_lazy_stmts(children),
+                        | AstFieldKind::RecordDerived => self.infer_lazy_stmts(children),
                         _ => (),
                     },
                     AstVariant::FeatureDefnHead {

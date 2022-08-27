@@ -11,7 +11,7 @@ impl<'a> AstTransformer<'a> {
         let mut token_stream: TokenStream = token_group.into();
         let opt_this_ty = self.opt_this_ty();
         let mut parser = AtomParser::new(self, &mut token_stream);
-        let field_liason = MemberLiason::from_opt_keyword(deprecated_try_get!(parser, liason));
+        let field_liason = MemberModifier::from_opt_keyword(deprecated_try_get!(parser, liason));
         let ident = deprecated_get!(parser, sema_custom_ident, SemanticTokenKind::Field);
         eat_special!(parser, ":");
         let opt_field_ty = deprecated_try_get!(parser, ranged_ty?);
@@ -69,7 +69,7 @@ impl<'a> AstTransformer<'a> {
             }
             let mut parser = AtomParser::new(self, &mut token_stream);
             let atoms = parser.parse_all_remaining_atoms()?;
-            FieldAstKind::StructDefault {
+            AstFieldKind::StructDefault {
                 default: self.parse_expr_from_atoms(atoms)?,
             }
         } else if deprecated_try_eat!(
@@ -95,13 +95,13 @@ impl<'a> AstTransformer<'a> {
             }
             let mut parser = AtomParser::new(self, &mut token_stream);
             let atoms = parser.parse_all_remaining_atoms()?;
-            FieldAstKind::StructDerivedEager {
+            AstFieldKind::StructDerivedEager {
                 derivation: self.parse_expr_from_atoms(atoms)?,
             }
         } else {
             end!(parser);
             self.update_struct_item_context(StructItemContext::OriginalField, token_group)?;
-            FieldAstKind::StructOriginal
+            AstFieldKind::StructOriginal
         };
         Ok(AstVariant::FieldDefnHead {
             liason: field_liason,
@@ -111,7 +111,7 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    pub(super) fn parse_struct_derived_lazy_field(
+    pub(super) fn parse_struct_property(
         &mut self,
         token_group: &[HuskyToken],
         enter_block: impl FnOnce(&mut Self),
@@ -135,7 +135,7 @@ impl<'a> AstTransformer<'a> {
             kind: SymbolKind::ThisField {
                 opt_this_ty: self.opt_this_ty(),
                 opt_field_ty: field_ty_result.clone().ok(),
-                field_liason: MemberLiason::DerivedLazy,
+                field_liason: MemberModifier::Property,
             },
         });
         let field_ty = field_ty_result?;
@@ -148,10 +148,10 @@ impl<'a> AstTransformer<'a> {
             }),
         });
         Ok(AstVariant::FieldDefnHead {
-            liason: MemberLiason::DerivedLazy,
+            liason: MemberModifier::Property,
             ranged_ident: ident,
             field_ty,
-            field_ast_kind: FieldAstKind::StructDerivedLazy { paradigm },
+            field_ast_kind: AstFieldKind::StructProperty { paradigm },
         })
     }
 }

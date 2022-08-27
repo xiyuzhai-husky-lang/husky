@@ -5,7 +5,7 @@ pub use function::*;
 
 use husky_dev_utils::__StaticDevSource;
 use husky_entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
-use husky_liason_semantics::{MemberLiason, OutputModifier, ParameterModifier};
+use husky_liason_semantics::{MemberModifier, OutputModifier, ParameterModifier};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer};
 use husky_vm::__ResolvedLinkage;
 use husky_vm_interface::__Linkage;
@@ -67,7 +67,7 @@ pub enum EntityStaticDefnVariant {
     Module,
     TyField {
         field_kind: FieldKind,
-        liason: MemberLiason,
+        liason: MemberModifier,
         field_ty: &'static str,
         linkage: __Linkage,
     },

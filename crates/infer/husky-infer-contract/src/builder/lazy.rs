@@ -210,7 +210,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let this_ty_decl = self.expr_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let this_contract = LazyContract::field_access_lazy_contract(
+        let this_contract = LazyContract::field_self_lazy_contract(
             field_decl.liason,
             contract,
             self.db.is_copyable(field_decl.ty)?,
@@ -276,6 +276,7 @@ impl<'a> ContractSheetBuilder<'a> {
             call_form_decl.primary_parameters.iter(),
         ) {
             let argument_contract = LazyContract::parameter_lazy_contract(
+                self.db,
                 parameter.liason,
                 parameter.ty(),
                 call_form_decl.output.liason(),
@@ -296,6 +297,7 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let call_form_decl = self.method_call_form_decl(this)?;
         let this_contract = LazyContract::parameter_lazy_contract(
+            self.db,
             call_form_decl.this_liason(),
             call_form_decl.opt_route.unwrap().parent(),
             call_form_decl.output.liason(),
@@ -306,6 +308,7 @@ impl<'a> ContractSheetBuilder<'a> {
             zip(inputs.into_iter(), call_form_decl.primary_parameters.iter())
         {
             let argument_contract = LazyContract::parameter_lazy_contract(
+                self.db,
                 parameter.liason,
                 parameter.ty(),
                 call_form_decl.output.liason(),

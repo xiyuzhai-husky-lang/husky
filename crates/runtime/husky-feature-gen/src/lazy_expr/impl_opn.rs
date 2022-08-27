@@ -1,5 +1,5 @@
 use super::*;
-use husky_ast::FieldAstKind;
+use husky_ast::AstFieldKind;
 use husky_entity_kind::{FieldKind, TyKind};
 use husky_entity_route::{EntityRoute, InternEntityRoute};
 use husky_entity_semantics::EntityDefnVariant;
@@ -271,9 +271,7 @@ impl<'a> FeatureExprBuilder<'a> {
         let this_ty_decl = self.db.comptime().ty_decl(this_ty.intrinsic()).unwrap();
         let field_kind = this_ty_decl.field_kind(field_ident.ident);
         match field_kind {
-            FieldKind::StructOriginal
-            | FieldKind::StructDefault
-            | FieldKind::StructDerivedEager => {
+            FieldKind::StructRegular | FieldKind::StructDefault | FieldKind::StructDerived => {
                 let feature = self.feature_interner.intern(Feature::FieldAccess {
                     this: this.feature(),
                     field_ident: field_ident.ident,
@@ -296,7 +294,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     feature,
                 )
             }
-            FieldKind::StructDerivedLazy { .. } => {
+            FieldKind::StructProperty { .. } => {
                 let this_ty = this.ty();
                 let this_ty_defn = self.db.comptime().entity_defn(this_ty).unwrap();
                 let lazy_field_route =
@@ -337,7 +335,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     _ => panic!(),
                 }
             }
-            FieldKind::RecordOriginal => {
+            FieldKind::RecordRegular => {
                 let repr = self
                     .db
                     .record_field_repr(this.clone().into(), field_ident.ident);
@@ -351,7 +349,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     feature,
                 )
             }
-            FieldKind::RecordDerived => {
+            FieldKind::RecordProperty => {
                 let this_ty_defn = self.db.comptime().entity_defn(this.ty()).unwrap();
                 let field_uid =
                     self.db

@@ -32,7 +32,7 @@ pub enum HuskyAtomVariant {
         opt_this_ty: Option<EntityRoutePtr>,
         opt_this_liason: Option<ParameterModifier>,
         opt_field_ty: Option<RangedEntityRoute>,
-        field_liason: MemberLiason,
+        field_liason: MemberModifier,
     },
     Unrecognized(CustomIdentifier),
     PrimitiveLiteral(PrimitiveLiteralData),

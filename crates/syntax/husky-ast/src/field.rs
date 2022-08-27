@@ -2,24 +2,24 @@ use crate::*;
 use husky_word::Paradigm;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FieldAstKind {
+pub enum AstFieldKind {
     StructOriginal,
     StructDefault { default: RawExprIdx },
     StructDerivedEager { derivation: RawExprIdx },
-    StructDerivedLazy { paradigm: Paradigm },
+    StructProperty { paradigm: Paradigm },
     RecordOriginal,
     RecordDerived,
 }
 
-impl Into<FieldKind> for FieldAstKind {
+impl Into<FieldKind> for AstFieldKind {
     fn into(self) -> FieldKind {
         match self {
-            FieldAstKind::StructOriginal => FieldKind::StructOriginal,
-            FieldAstKind::StructDefault { .. } => FieldKind::StructDefault,
-            FieldAstKind::StructDerivedEager { .. } => FieldKind::StructDerivedEager,
-            FieldAstKind::StructDerivedLazy { .. } => FieldKind::StructDerivedLazy,
-            FieldAstKind::RecordOriginal => FieldKind::RecordOriginal,
-            FieldAstKind::RecordDerived => FieldKind::RecordDerived,
+            AstFieldKind::StructOriginal => FieldKind::StructRegular,
+            AstFieldKind::StructDefault { .. } => FieldKind::StructDefault,
+            AstFieldKind::StructDerivedEager { .. } => FieldKind::StructDerived,
+            AstFieldKind::StructProperty { .. } => FieldKind::StructProperty,
+            AstFieldKind::RecordOriginal => FieldKind::RecordRegular,
+            AstFieldKind::RecordDerived => FieldKind::RecordProperty,
         }
     }
 }

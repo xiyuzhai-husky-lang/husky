@@ -23,7 +23,7 @@ pub enum RawExprVariant {
         opt_this_ty: Option<EntityRoutePtr>,
         opt_this_liason: Option<ParameterModifier>,
         field_ident: RangedCustomIdentifier,
-        field_liason: MemberLiason,
+        field_liason: MemberModifier,
         opt_field_ty: Option<RangedEntityRoute>,
     },
     Unrecognized(CustomIdentifier),

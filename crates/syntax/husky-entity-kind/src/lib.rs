@@ -78,10 +78,10 @@ pub enum MemberKind {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FieldKind {
-    StructOriginal,
+    StructRegular,
     StructDefault,
-    StructDerivedEager,
-    StructDerivedLazy,
-    RecordOriginal,
-    RecordDerived,
+    StructDerived,
+    StructProperty, // property is not store along with struct
+    RecordRegular,
+    RecordProperty,
 }

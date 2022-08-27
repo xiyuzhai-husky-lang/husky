@@ -4,6 +4,7 @@ mod xml;
 
 use husky_pattern_semantics::PurePattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use infer_contract::LazyContract;
 pub use xml::*;
 
 use std::sync::Arc;
@@ -23,6 +24,7 @@ pub struct LazyExpr {
     pub file: FilePtr,
     pub range: TextRange,
     pub qualified_ty: LazyExprQualifiedTy,
+    pub contract: LazyContract,
     pub variant: LazyExprVariant,
     pub instruction_id: InstructionId,
 }

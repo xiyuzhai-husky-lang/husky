@@ -1,6 +1,6 @@
 use super::*;
 use husky_datasets_interface::mnist::BinaryGrid28;
-use husky_liason_semantics::{MemberLiason, ParameterModifier};
+use husky_liason_semantics::{MemberModifier, ParameterModifier};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
 use husky_trace_protocol::*;
 use husky_vm::*;
@@ -33,7 +33,7 @@ pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         }],
                         output_ty: "b32",
                         output_liason: OutputModifier::MemberAccess {
-                            member_liason: MemberLiason::Mutable,
+                            member_liason: MemberModifier::Mutable,
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,

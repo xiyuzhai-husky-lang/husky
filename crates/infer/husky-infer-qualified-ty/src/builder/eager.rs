@@ -261,7 +261,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let field_contract = self.eager_expr_contract(idx)?;
                 let field_ty = derived_not_none!(opt_field_ty)?;
                 let is_field_copyable = self.db.is_copyable(field_ty.route)?;
-                let this_contract = EagerContract::field_access_this_eager_contract(
+                let this_contract = EagerContract::field_self_eager_contract(
                     field_liason,
                     field_contract,
                     is_field_copyable,
@@ -504,7 +504,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             self.db,
             this_qt.qual(),
             element_ty,
-            MemberLiason::Mutable,
+            MemberModifier::Mutable,
             element_contract,
             self.db.is_copyable(element_ty)?,
         )

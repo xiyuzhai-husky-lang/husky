@@ -41,7 +41,7 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
                             parameters: &[],
                             output_ty: "E",
                             output_liason: OutputModifier::MemberAccess {
-                                member_liason: MemberLiason::Mutable,
+                                member_liason: MemberModifier::Mutable,
                             },
                             spatial_parameters: &[],
                             method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,

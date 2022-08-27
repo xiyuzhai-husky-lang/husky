@@ -15,12 +15,12 @@ impl EntityDefnVariant {
                 field_ty: symbol_context.parse_entity_route(field_ty).unwrap(),
                 liason,
                 field_variant: match field_kind {
-                    FieldKind::StructOriginal => FieldDefnVariant::StructOriginal,
+                    FieldKind::StructRegular => FieldDefnVariant::StructOriginal,
                     FieldKind::StructDefault => todo!(),
-                    FieldKind::StructDerivedEager => todo!(),
-                    FieldKind::StructDerivedLazy => todo!(),
-                    FieldKind::RecordOriginal => todo!(),
-                    FieldKind::RecordDerived => todo!(),
+                    FieldKind::StructDerived => todo!(),
+                    FieldKind::StructProperty => todo!(),
+                    FieldKind::RecordRegular => todo!(),
+                    FieldKind::RecordProperty => todo!(),
                 },
                 opt_linkage: Some(__Linkage),
             },
@@ -44,8 +44,8 @@ impl EntityDefnVariant {
                 field_ast_kind: field_kind,
             } => {
                 let field_variant = match field_kind {
-                    FieldAstKind::StructOriginal => FieldDefnVariant::StructOriginal,
-                    FieldAstKind::StructDerivedLazy { paradigm } => {
+                    AstFieldKind::StructOriginal => FieldDefnVariant::StructOriginal,
+                    AstFieldKind::StructProperty { paradigm } => {
                         FieldDefnVariant::StructDerivedLazy {
                             defn_repr: parse_definition_repr(
                                 db,
@@ -58,8 +58,8 @@ impl EntityDefnVariant {
                             )?,
                         }
                     }
-                    FieldAstKind::RecordOriginal => FieldDefnVariant::RecordOriginal,
-                    FieldAstKind::RecordDerived => FieldDefnVariant::RecordDerived {
+                    AstFieldKind::RecordOriginal => FieldDefnVariant::RecordOriginal,
+                    AstFieldKind::RecordDerived => FieldDefnVariant::RecordDerived {
                         defn_repr: Arc::new(DefinitionRepr::LazyBlock {
                             stmts: husky_lazy_semantics::parse_lazy_stmts(
                                 db.upcast(),
@@ -71,10 +71,10 @@ impl EntityDefnVariant {
                             ty: field_ty,
                         }),
                     },
-                    FieldAstKind::StructDefault { default } => FieldDefnVariant::StructDefault {
+                    AstFieldKind::StructDefault { default } => FieldDefnVariant::StructDefault {
                         default: parse_eager_expr(db.upcast(), arena, file, default)?,
                     },
-                    FieldAstKind::StructDerivedEager { derivation } => {
+                    AstFieldKind::StructDerivedEager { derivation } => {
                         FieldDefnVariant::StructDerivedEager {
                             derivation: parse_eager_expr(db.upcast(), arena, file, derivation)?,
                         }
@@ -108,8 +108,8 @@ impl EntityDefnVariant {
                     ..
                 } => {
                     match field_kind {
-                        FieldAstKind::StructOriginal => (),
-                        FieldAstKind::RecordOriginal => (),
+                        AstFieldKind::StructOriginal => (),
+                        AstFieldKind::RecordOriginal => (),
                         _ => break,
                     }
                     members.insert_new(EntityDefn::new(

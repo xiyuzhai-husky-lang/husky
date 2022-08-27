@@ -37,7 +37,7 @@ pub static STD_OPS_INDEX_DEFN: EntityStaticDefn = EntityStaticDefn {
                     parameters: &[],
                     output_ty: "This::Output",
                     output_liason: OutputModifier::MemberAccess {
-                        member_liason: MemberLiason::Mutable,
+                        member_liason: MemberModifier::Mutable,
                     },
                     spatial_parameters: &[],
                     method_static_defn_kind: MethodStaticDefnKind::TraitMethod,

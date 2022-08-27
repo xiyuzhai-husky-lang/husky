@@ -3,7 +3,7 @@ mod spatial;
 use husky_check_utils::should;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_liason_semantics::{
-    MemberLiason, OutputModifier, ParameterModifier, RangedParameterLiason,
+    MemberModifier, OutputModifier, ParameterModifier, RangedParameterLiason,
 };
 use husky_print_utils::p;
 pub use spatial::*;
@@ -20,7 +20,7 @@ use husky_word::{CustomIdentifier, IdentDict, Paradigm, RootIdentifier};
 pub struct Parameter {
     ranged_ident: RangedCustomIdentifier,
     ranged_liason: RangedParameterLiason,
-    ranged_raw_ty: RangedEntityRoute,
+    ranged_book_ty: RangedEntityRoute,
     ty: EntityRoutePtr,
 }
 
@@ -37,7 +37,7 @@ impl Parameter {
             ty,
             ranged_ident,
             ranged_liason,
-            ranged_raw_ty,
+            ranged_book_ty: ranged_raw_ty,
         }
     }
 
@@ -75,11 +75,11 @@ impl Parameter {
     }
 
     pub fn raw_ty(&self) -> EntityRoutePtr {
-        self.ranged_raw_ty.route
+        self.ranged_book_ty.route
     }
 
     pub fn raw_ty_range(&self) -> TextRange {
-        self.ranged_raw_ty.range
+        self.ranged_book_ty.range
     }
 
     pub fn ty(&self) -> EntityRoutePtr {
@@ -89,7 +89,7 @@ impl Parameter {
     pub fn from_member(
         db: &dyn EntitySyntaxQueryGroup,
         ranged_ident: RangedCustomIdentifier,
-        liason: MemberLiason,
+        liason: MemberModifier,
         member_ty: EntityRoutePtr,
         is_member_ty_copyable: bool,
     ) -> Self {

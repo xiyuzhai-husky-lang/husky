@@ -247,7 +247,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let field_contract = self.lazy_expr_contract(idx)?;
                 let field_ty = derived_not_none!(opt_field_ty)?;
                 let is_field_copyable = self.db.is_copyable(field_ty.route)?;
-                let this_contract = LazyContract::field_access_lazy_contract(
+                let this_contract = LazyContract::field_self_lazy_contract(
                     field_liason,
                     field_contract,
                     is_field_copyable,

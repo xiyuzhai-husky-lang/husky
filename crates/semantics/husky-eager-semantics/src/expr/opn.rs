@@ -30,7 +30,7 @@ pub enum EagerOpnVariant {
     Field {
         this_ty: EntityRoutePtr,
         field_ident: RangedCustomIdentifier,
-        field_liason: MemberLiason,
+        field_liason: MemberModifier,
         field_binding: Binding,
         field_kind: FieldKind,
     },

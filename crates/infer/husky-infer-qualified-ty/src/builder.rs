@@ -56,10 +56,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     field_ty: ty,
                     field_ast_kind: field_kind,
                 } => match field_kind {
-                    FieldAstKind::StructDefault { default } => {
+                    AstFieldKind::StructDefault { default } => {
                         self.insert_eager_expr_inference(default);
                     }
-                    FieldAstKind::StructDerivedEager { derivation } => {
+                    AstFieldKind::StructDerivedEager { derivation } => {
                         self.insert_eager_expr_inference(derivation);
                     }
                     _ => (),
@@ -103,9 +103,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         field_ty: ty,
                         ..
                     } => match field_kind {
-                        FieldAstKind::StructOriginal => (),
-                        FieldAstKind::RecordOriginal => (),
-                        FieldAstKind::StructDerivedLazy {
+                        AstFieldKind::StructOriginal => (),
+                        AstFieldKind::RecordOriginal => (),
+                        AstFieldKind::StructProperty {
                             paradigm: Paradigm::EagerProcedural | Paradigm::EagerFunctional,
                         } => self.infer_eager_call_form(
                             &[],
@@ -113,10 +113,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             Some(ty.route),
                             OutputModifier::Transfer,
                         ),
-                        FieldAstKind::StructDerivedLazy {
+                        AstFieldKind::StructProperty {
                             paradigm: Paradigm::LazyFunctional,
                         }
-                        | FieldAstKind::RecordDerived => self.infer_lazy_call_form(
+                        | AstFieldKind::RecordDerived => self.infer_lazy_call_form(
                             &[],
                             children,
                             Some(ty.route),

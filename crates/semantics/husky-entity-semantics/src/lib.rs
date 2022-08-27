@@ -274,7 +274,7 @@ pub enum EntityDefnVariant {
     TyField {
         field_ty: EntityRoutePtr,
         field_variant: FieldDefnVariant,
-        liason: MemberLiason,
+        liason: MemberModifier,
         opt_linkage: Option<__Linkage>,
     },
     TraitAssociatedTypeImpl {

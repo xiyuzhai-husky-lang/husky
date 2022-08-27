@@ -10,7 +10,7 @@ use husky_entity_kind::TyKind;
 use husky_entity_route::{EntityRoute, EntityRoutePtr, EntityRouteVariant, RangedEntityRoute};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_init_syntax::InitKind;
-use husky_liason_semantics::{MemberLiason, ParameterModifier};
+use husky_liason_semantics::{MemberModifier, ParameterModifier};
 use husky_opn_syntax::{ListOpr, RawOpnVariant};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_print_utils::msg_once;
@@ -187,9 +187,9 @@ impl<'a> Formatter<'a> {
                 field_ast_kind: field_kind,
             } => {
                 match liason {
-                    MemberLiason::Immutable => (),
-                    MemberLiason::Mutable => todo!(),
-                    MemberLiason::DerivedLazy => todo!(),
+                    MemberModifier::Immutable => (),
+                    MemberModifier::Mutable => todo!(),
+                    MemberModifier::Property => todo!(),
                 }
                 self.fmt_ident(ranged_ident.ident.into());
                 self.write(": ");
