@@ -169,7 +169,8 @@ impl<'a> EagerParser<'a> {
                         }) => Ok(Arc::new(match pattern_branch_variant {
                             RawPatternBranchVariant::Case { pattern } => FuncStmtPatternBranch {
                                 variant: FuncStmtPatternBranchVariant::Case {
-                                    pattern: self.parse_func_pattern(pattern, match_expr.ty())?,
+                                    pattern: self
+                                        .parse_func_pattern(pattern, match_expr.intrinsic_ty())?,
                                 },
                                 stmts: self.parse_func_stmts(item.opt_children.clone().unwrap())?,
                             },

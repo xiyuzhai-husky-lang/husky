@@ -141,8 +141,8 @@ impl HuskyTraceTime {
                 let parameter = &parameters[i];
                 match parameter.liason() {
                     ParameterModifier::None => (),
-                    ParameterModifier::Move => todo!(),
-                    ParameterModifier::MoveMut => todo!(),
+                    ParameterModifier::Owned => todo!(),
+                    ParameterModifier::OwnedMut => todo!(),
                     ParameterModifier::MemberAccess => todo!(),
                     ParameterModifier::EvalRef => todo!(),
                     ParameterModifier::TempRef => todo!(),

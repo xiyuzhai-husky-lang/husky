@@ -38,7 +38,10 @@ enum TestClass {
         #[clap(subcommand)]
         subclass: DiagnosticsTestOrder,
     },
-    QualifiedTys,
+    QualifiedTys {
+        #[clap(subcommand)]
+        subclass: QualifiedTysTestOrder,
+    },
     Comptime,
     Runtime,
 }
@@ -49,7 +52,7 @@ impl TestClass {
             TestClass::FoldingRanges { subclass } => subclass.relative_path_str(),
             TestClass::SemanticTokens { subclass } => subclass.relative_path_str(),
             TestClass::Diagnostics { subclass } => subclass.relative_path_str(),
-            TestClass::QualifiedTys => todo!(),
+            TestClass::QualifiedTys { subclass } => subclass.relative_path_str(),
             TestClass::Comptime => todo!(),
             TestClass::Runtime => todo!(),
         }

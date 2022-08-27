@@ -26,41 +26,44 @@ pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
             variant: StaticGenericPlaceholderVariant::Type { traits: &[] },
             dev_src: static_dev_src!(),
         }],
-        trait_impls: &[StaticTraitImplDefn {
-            trai: "std::ops::Index<i32>",
-            member_impls: &[
-                associated_type_impl!("Output", "E"),
-                EntityStaticDefn {
-                    dev_src: static_dev_src!(),
-                    name: "index",
-                    items: &[],
-                    variant: EntityStaticDefnVariant::Method {
-                        this_modifier: ParameterModifier::MemberAccess,
-                        parameters: &[],
-                        output_ty: "E",
-                        output_liason: OutputModifier::MemberAccess {
-                            member_liason: MemberLiason::Mutable,
+        trait_impls: &[
+            clone_trait_impl!("Vec"),
+            StaticTraitImplDefn {
+                trai: "std::ops::Index<i32>",
+                member_impls: &[
+                    associated_type_impl!("Output", "E"),
+                    EntityStaticDefn {
+                        dev_src: static_dev_src!(),
+                        name: "index",
+                        items: &[],
+                        variant: EntityStaticDefnVariant::Method {
+                            this_modifier: ParameterModifier::MemberAccess,
+                            parameters: &[],
+                            output_ty: "E",
+                            output_liason: OutputModifier::MemberAccess {
+                                member_liason: MemberLiason::Mutable,
+                            },
+                            spatial_parameters: &[],
+                            method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
+                            opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+                                copy_resolved_linkage: resolved_linkage!(virtual_vec_index_copy),
+                                eval_ref_resolved_linkage: resolved_linkage!(
+                                    virtual_vec_index_eval_ref
+                                ),
+                                temp_ref_resolved_linkage: resolved_linkage!(
+                                    virtual_vec_index_temp_ref
+                                ),
+                                temp_mut_resolved_linkage: resolved_linkage!(
+                                    virtual_vec_index_temp_mut
+                                ),
+                                move_resolved_linkage: resolved_linkage!(virtual_vec_index_move),
+                            })),
                         },
-                        spatial_parameters: &[],
-                        method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
-                        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
-                            copy_resolved_linkage: resolved_linkage!(virtual_vec_index_copy),
-                            eval_ref_resolved_linkage: resolved_linkage!(
-                                virtual_vec_index_eval_ref
-                            ),
-                            temp_ref_resolved_linkage: resolved_linkage!(
-                                virtual_vec_index_temp_ref
-                            ),
-                            temp_mut_resolved_linkage: resolved_linkage!(
-                                virtual_vec_index_temp_mut
-                            ),
-                            move_resolved_linkage: resolved_linkage!(virtual_vec_index_move),
-                        })),
                     },
-                },
-            ],
-            dev_src: static_dev_src!(),
-        }],
+                ],
+                dev_src: static_dev_src!(),
+            },
+        ],
         ty_members: &[
             &VEC_LEN,
             &VEC_PUSH,
@@ -217,7 +220,7 @@ pub static VEC_PUSH: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Method {
         this_modifier: ParameterModifier::TempRefMut,
         parameters: &[StaticParameter {
-            modifier: ParameterModifier::Move,
+            modifier: ParameterModifier::Owned,
             ty: "E",
             name: "element",
         }],

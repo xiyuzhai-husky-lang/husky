@@ -42,7 +42,7 @@ impl<'eval> TraceVariant<'eval> {
                     ref routine_defn, ..
                 } => !routine_defn.is_builtin(),
                 FeatureLazyExprVariant::RecordDerivedField { .. } => todo!(),
-                FeatureLazyExprVariant::ElementAccess { ref opds, .. } => false,
+                FeatureLazyExprVariant::Index { ref opds, .. } => false,
                 FeatureLazyExprVariant::StructDerivedLazyField {
                     ref this,
                     field_ident,
@@ -87,7 +87,7 @@ impl<'eval> TraceVariant<'eval> {
                     EagerOpnVariant::Binary { .. }
                     | EagerOpnVariant::Prefix { .. }
                     | EagerOpnVariant::Suffix { .. }
-                    | EagerOpnVariant::MethodCall { .. } => !opds[0].ty().is_builtin(),
+                    | EagerOpnVariant::MethodCall { .. } => !opds[0].intrinsic_ty().is_builtin(),
                     EagerOpnVariant::Index { .. } => false,
                     EagerOpnVariant::NewVecFromList => todo!(),
                     EagerOpnVariant::ValueCall => todo!(),

@@ -1,7 +1,7 @@
 mod impl_resolved_linkage;
 mod impl_ty_linkage_entries;
 
-use husky_entity_route::CanonicalEntityRoutePtrKind;
+use husky_entity_route::{CanonicalQualifier, CanonicalTyKind};
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant, MethodDefnKind};
 use husky_layout::RegMemoryKind;
 use husky_word::RootIdentifier;
@@ -327,8 +327,32 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     }
                 }
             }
-            ParameterModifier::Move => self.gen_parameter_downcast_move(i, parameter),
-            ParameterModifier::MoveMut => todo!(),
+            ParameterModifier::Owned => {
+                if self.db.is_copyable(parameter_ty).unwrap() {
+                    let canonical_parameter_ty = parameter_ty.canonicalize();
+                    match canonical_parameter_ty.qual() {
+                        CanonicalQualifier::Intrinsic => {
+                            if canonical_parameter_ty.is_option() {
+                                todo!()
+                            } else {
+                                self.gen_parameter_downcast_copy(i, parameter)
+                            }
+                        }
+                        CanonicalQualifier::EvalRef => {
+                            if canonical_parameter_ty.is_option() {
+                                self.gen_parameter_downcast_opt_eval_ref(i, parameter)
+                            } else {
+                                self.gen_parameter_downcast_eval_ref(i, parameter)
+                            }
+                        }
+                        CanonicalQualifier::TempRef => todo!(),
+                        CanonicalQualifier::TempRefMut => todo!(),
+                    }
+                } else {
+                    self.gen_parameter_downcast_move(i, parameter)
+                }
+            }
+            ParameterModifier::OwnedMut => todo!(),
             ParameterModifier::MemberAccess => todo!(),
             ParameterModifier::EvalRef => self.gen_parameter_downcast_eval_ref(i, parameter),
             ParameterModifier::TempRef => todo!(),
@@ -456,5 +480,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let mangled_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(parameter_ty);
         self.gen_entity_route(parameter_ty.intrinsic(), EntityRouteRole::Decl);
         self.write(&format!(" = __arguments[{i}].downcast_eval_ref(&__registration__::{mangled_parameter_ty_vtable});"))
+    }
+    fn gen_parameter_downcast_opt_eval_ref(&mut self, i: usize, parameter: &ParameterDecl) {
+        let parameter_name = parameter.ident;
+        let parameter_ty = parameter.ty();
+        self.write(&format!(
+            r#"
+                    let {parameter_name}: Option<&'eval "#
+        ));
+        let mangled_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(parameter_ty);
+        self.gen_entity_route(parameter_ty.intrinsic(), EntityRouteRole::Decl);
+        self.write(&format!("> = __arguments[{i}].downcast_opt_eval_ref(&__registration__::{mangled_parameter_ty_vtable});"))
     }
 }

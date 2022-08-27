@@ -13,11 +13,11 @@ lazy expr:
 
 eager expr:
     7:5..7:30      find_connected_components   InferError: failed to infer expr ty
-    7:31..7:36     input                  EvalRef      domains::ml::datasets::cv::mnist::BinaryImage28
-    7:5..7:37      find_connected_components(input)   Transient    []mnist_classifier__9::connected_component::ConnectedComponent
-    10:5..10:25    connected_components   EvalRef      []mnist_classifier__9::connected_component::ConnectedComponent
-    10:26..10:27   0                      Copyable     i32
-    10:5..10:28    connected_components[0]   EvalRef      mnist_classifier__9::connected_component::ConnectedComponent
+    7:31..7:36     input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
+    7:5..7:37      find_connected_components(input)   Transient []mnist_classifier__9::connected_component::ConnectedComponent
+    10:5..10:25    connected_components   EvalRef []mnist_classifier__9::connected_component::ConnectedComponent
+    10:26..10:27   0                      Copyable i32
+    10:5..10:28    connected_components[0]   EvalRef mnist_classifier__9::connected_component::ConnectedComponent
 
 lazy expr:
     14:5..14:30    major_connected_component   EvalRef mnist_classifier__9::connected_component::ConnectedComponent

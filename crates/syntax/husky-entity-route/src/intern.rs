@@ -81,7 +81,7 @@ impl EntityRoutePtr {
     }
 
     // todo: needs testing
-    pub fn canonicalize(self) -> CanonicalEntityRoutePtr {
+    pub fn canonicalize(self) -> CanonicalTy {
         if self.is_option() {
             assert_eq!(self.spatial_arguments.len(), 1);
             let this1 = self.entity_route_argument(0);
@@ -90,23 +90,23 @@ impl EntityRoutePtr {
                 assert_eq!(this1.spatial_arguments.len(), 1);
                 let this2 = this1.entity_route_argument(0);
                 assert!(this2.is_intrinsic());
-                CanonicalEntityRoutePtr::new(this2, CanonicalEntityRoutePtrKind::OptionalEvalRef)
+                CanonicalTy::new(true, CanonicalQualifier::EvalRef, this2)
             } else {
                 assert!(this1.is_intrinsic());
-                CanonicalEntityRoutePtr::new(this1, CanonicalEntityRoutePtrKind::Optional)
+                CanonicalTy::new(true, CanonicalQualifier::Intrinsic, this1)
             }
         } else if self.is_eval_ref() {
             assert_eq!(self.spatial_arguments.len(), 1);
             let this1 = self.entity_route_argument(0);
             assert!(this1.is_intrinsic());
-            CanonicalEntityRoutePtr::new(this1, CanonicalEntityRoutePtrKind::EvalRef)
+            CanonicalTy::new(false, CanonicalQualifier::EvalRef, this1)
         } else if self.is_temp_ref_mut() {
             assert_eq!(self.spatial_arguments.len(), 1);
             let this1 = self.entity_route_argument(0);
             assert!(this1.is_intrinsic());
-            CanonicalEntityRoutePtr::new(this1, CanonicalEntityRoutePtrKind::TempRefMut)
+            CanonicalTy::new(false, CanonicalQualifier::TempRefMut, this1)
         } else {
-            CanonicalEntityRoutePtr::new(self, CanonicalEntityRoutePtrKind::Intrinsic)
+            CanonicalTy::new(false, CanonicalQualifier::Intrinsic, self)
         }
     }
 

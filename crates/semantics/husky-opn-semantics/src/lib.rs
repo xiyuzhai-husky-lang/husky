@@ -1,6 +1,7 @@
-use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{CanonicalTy, CanonicalTyKind, EntityRoutePtr, RangedEntityRoute};
 use husky_pattern_semantics::PurePattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_print_utils::p;
 use std::borrow::Cow;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -38,20 +39,49 @@ impl Default for ImplicitConversion {
 }
 
 impl ImplicitConversion {
-    pub fn from_opt_expectation(
-        opt_expectation: Option<EntityRoutePtr>,
-        ty: EntityRoutePtr,
-    ) -> Self {
+    pub fn from_opt_expectation(opt_expectation: Option<EntityRoutePtr>, ty: &CanonicalTy) -> Self {
         if let Some(expectation) = opt_expectation {
-            if expectation == ty {
-                return Default::default();
+            let expectation = expectation.canonicalize();
+            if expectation.intrinsic_ty() != ty.intrinsic_ty() {
+                p!(expectation.intrinsic_ty(), ty.intrinsic_ty());
+                todo!()
             }
-
-            if expectation.is_option() && expectation.entity_route_argument(0) == ty {
-                return ImplicitConversion::WrapInSome;
+            if expectation.qual() != ty.qual() {
+                todo!()
             }
+            if expectation.is_option() != ty.is_option() {
+                todo!()
+            }
+            Self::None
+            // match canonical_expectation.kind() {
+            //     CanonicalEntityRouteKind::Intrinsic => {
+            //         if expectation == ty {
+            //             return Default::default();
+            //         }
+            //         todo!()
+            //     }
+            //     CanonicalEntityRouteKind::Optional => todo!(),
+            //     CanonicalEntityRouteKind::EvalRef => todo!(),
+            //     CanonicalEntityRouteKind::OptionalEvalRef => match canonical_ty.kind() {
+            //         CanonicalEntityRouteKind::Intrinsic => {
+            //             todo!()
+            //         }
+            //         CanonicalEntityRouteKind::Optional => todo!(),
+            //         CanonicalEntityRouteKind::EvalRef => todo!(),
+            //         CanonicalEntityRouteKind::OptionalEvalRef => todo!(),
+            //         CanonicalEntityRouteKind::TempRefMut => todo!(),
+            //     },
+            //     CanonicalEntityRouteKind::TempRefMut => todo!(),
+            // }
+            // if expectation == ty {
+            //     return Default::default();
+            // }
 
-            todo!()
+            // if canonical_expectation.is_option() && expectation.entity_route_argument(0) == ty {
+            //     return ImplicitConversion::WrapInSome;
+            // }
+
+            // p!(expectation, ty);
         } else {
             Default::default()
         }

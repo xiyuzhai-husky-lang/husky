@@ -35,7 +35,7 @@ impl EntityRouteRole {
             EntityRouteRole::ForAnyLifetimeOther => EntityRouteRole::ForAnyLifetimeOther,
             EntityRouteRole::StaticDecl => EntityRouteRole::StaticDecl,
             EntityRouteRole::StaticThinFpTyDecl { .. } => panic!(),
-            EntityRouteRole::FpValue => todo!(),
+            EntityRouteRole::FpValue => EntityRouteRole::Other,
         }
     }
 

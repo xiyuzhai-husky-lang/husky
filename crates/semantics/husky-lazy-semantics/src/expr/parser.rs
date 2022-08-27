@@ -90,7 +90,8 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                         this_contract,
                     )
                     .unwrap();
-                    this_qual.binding(this_contract)
+                    let this_qt = LazyExprQualifiedTy::new(this_qual, opt_this_ty.unwrap());
+                    this_qt.binding(self.decl_db(), this_contract)
                 },
             },
             RawExprVariant::ThisField {
@@ -117,12 +118,13 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     // raw_expr.range,
                 )
                 .unwrap();
+                let this_qt = LazyExprQualifiedTy::new(this_qual, opt_this_ty.unwrap());
                 let ty_decl = self.decl_db().ty_decl(opt_this_ty.unwrap()).unwrap();
                 LazyExprVariant::ThisField {
                     field_ident,
                     this_ty: opt_this_ty.unwrap(),
-                    this_binding: this_qual.binding(this_contract),
-                    field_binding: { field_qt.qual.binding(field_contract) },
+                    this_binding: this_qt.binding(self.decl_db(), this_contract),
+                    field_binding: { field_qt.binding(self.decl_db(), field_contract) },
                 }
             }
             RawExprVariant::FrameVariable {
@@ -154,7 +156,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 ListOpr::NewVec => self.parse_new_vec_from_list(idx, opds.clone()),
                 ListOpr::NewDict => todo!(),
                 ListOpr::FunctionCall => self.parse_function_call(idx, opds),
-                ListOpr::Index => self.parse_element_access(idx, opds.clone()),
+                ListOpr::Index => self.parse_index(idx, opds.clone()),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
                 ListOpr::MethodCall { ranged_ident, .. } => self.parse_method_call(
@@ -179,13 +181,19 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         let lopd = self.parse_lazy_expr(opds.start)?;
         let ropd = self.parse_lazy_expr(opds.start + 1)?;
         let output_type = match opr {
-            BinaryOpr::Pure(pure_binary_opr) => {
-                self.infer_pure_binary_opr_type(pure_binary_opr, lopd.ty(), ropd.ty())?
-            }
+            BinaryOpr::Pure(pure_binary_opr) => self.infer_pure_binary_opr_type(
+                pure_binary_opr,
+                lopd.intrinsic_ty(),
+                ropd.intrinsic_ty(),
+            )?,
             BinaryOpr::Assign(opt_binary) => {
                 if let Some(pure_binary_opr) = opt_binary {
-                    if lopd.ty()
-                        != self.infer_pure_binary_opr_type(pure_binary_opr, lopd.ty(), ropd.ty())?
+                    if lopd.intrinsic_ty()
+                        != self.infer_pure_binary_opr_type(
+                            pure_binary_opr,
+                            lopd.intrinsic_ty(),
+                            ropd.intrinsic_ty(),
+                        )?
                     {
                         todo!()
                     }
@@ -200,7 +208,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::Binary {
                 opr,
-                this: lopd.ty(),
+                this: lopd.intrinsic_ty(),
             },
             opds: vec![lopd, ropd],
         })
@@ -324,7 +332,11 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             RawSuffixOpr::Decr => panic!(),
             RawSuffixOpr::AsTy(_) => todo!(),
             RawSuffixOpr::BePattern(raw_patt) => LazyExprVariant::BePattern {
-                patt: Arc::new(PurePattern::from_raw(self.db(), raw_patt, this.ty())),
+                patt: Arc::new(PurePattern::from_raw(
+                    self.db(),
+                    raw_patt,
+                    this.intrinsic_ty(),
+                )),
                 this,
             },
             RawSuffixOpr::Unveil => todo!(),
@@ -338,8 +350,8 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
         let this = self.parse_lazy_expr(this_idx)?;
-        let ty_decl = self.raw_expr_deref_ty_decl(this_idx).unwrap();
-        let this_ty_decl = self.decl_db().ty_decl(this.ty()).unwrap();
+        let ty_decl = self.expr_ty_decl(this_idx).unwrap();
+        let this_ty_decl = self.decl_db().ty_decl(this.intrinsic_ty()).unwrap();
         let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
         let field_liason = field_decl.liason;
         let field_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
@@ -347,7 +359,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::Field {
                 field_ident,
-                field_binding: field_qt.qual.binding(field_contract),
+                field_binding: field_qt.binding(self.decl_db(), field_contract),
             },
             opds: vec![this],
         })
@@ -461,7 +473,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         let output_binding = {
             let output_contract = self.lazy_expr_contract(idx).unwrap();
             let output_qt = self.lazy_expr_qualified_ty(idx).unwrap();
-            output_qt.qual.binding(output_contract)
+            output_qt.binding(self.decl_db(), output_contract)
         };
         let inputs = inputs
             .map(|idx| self.parse_lazy_expr(idx))
@@ -482,18 +494,17 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         })
     }
 
-    fn parse_element_access(
+    fn parse_index(
         &mut self,
         idx: RawExprIdx,
         opds: RawExprRange,
     ) -> SemanticResult<LazyExprVariant> {
-        let element_ty = self.raw_expr_intrinsic_ty(idx).unwrap();
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::Index {
                 element_binding: {
                     let element_contract = self.lazy_expr_contract(idx).unwrap();
                     let element_qt = self.lazy_expr_qualified_ty(idx).unwrap();
-                    element_qt.qual.binding(element_contract)
+                    element_qt.binding(self.decl_db(), element_contract)
                 },
             },
             opds: opds

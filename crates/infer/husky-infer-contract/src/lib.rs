@@ -23,11 +23,11 @@ use husky_print_utils::*;
 pub trait InferContract {
     fn contract_sheet(&self) -> &ContractSheet;
 
-    fn lazy_expr_contract(&self, raw_expr_idx: RawExprIdx) -> InferResult<LazyContract> {
-        self.contract_sheet().lazy_expr_contract(raw_expr_idx)
+    fn lazy_expr_contract(&self, idx: RawExprIdx) -> InferResult<LazyContract> {
+        self.contract_sheet().lazy_expr_contract(idx)
     }
 
-    fn eager_expr_contract(&self, raw_expr_idx: RawExprIdx) -> InferResult<EagerContract> {
-        self.contract_sheet().eager_expr_contract(raw_expr_idx)
+    fn eager_expr_contract(&self, idx: RawExprIdx) -> InferResult<EagerContract> {
+        self.contract_sheet().eager_expr_contract(idx)
     }
 }

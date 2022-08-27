@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ast::{MatchLiason, RawReturnContext, RawReturnContextKind};
-use husky_entity_route::{CanonicalEntityRoutePtrKind, EntityRoutePtr, EntityRouteVariant};
+use husky_entity_route::{CanonicalTyKind, EntityRoutePtr, EntityRouteVariant};
 use husky_infer_error::throw;
 use husky_text::TextRange;
 use husky_word::RootIdentifier;
@@ -18,25 +18,38 @@ pub enum EagerContract {
 
 impl EagerContract {
     pub(crate) fn argument_eager_contract(
+        db: &dyn InferContractSalsaQueryGroup,
         parameter_liason: ParameterModifier,
         parameter_ty: EntityRoutePtr,
         output_liason: OutputModifier,
         range: TextRange,
-    ) -> EagerContract {
-        match parameter_ty.variant {
+    ) -> InferResult<EagerContract> {
+        Ok(match parameter_ty.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,
             } => EagerContract::EvalRef,
             _ => match output_liason {
                 OutputModifier::Transfer => match parameter_liason {
                     ParameterModifier::None => match parameter_ty.canonicalize().kind() {
-                        CanonicalEntityRoutePtrKind::Intrinsic => EagerContract::Pure,
-                        CanonicalEntityRoutePtrKind::Optional => EagerContract::Pure,
-                        CanonicalEntityRoutePtrKind::EvalRef => EagerContract::EvalRef,
-                        CanonicalEntityRoutePtrKind::OptionalEvalRef => todo!(),
-                        CanonicalEntityRoutePtrKind::TempRefMut => todo!(),
+                        CanonicalTyKind::Intrinsic => EagerContract::Pure,
+                        CanonicalTyKind::Optional => EagerContract::Pure,
+                        CanonicalTyKind::EvalRef => EagerContract::EvalRef,
+                        CanonicalTyKind::OptionalEvalRef => todo!(),
+                        CanonicalTyKind::TempRefMut => todo!(),
                     },
-                    ParameterModifier::Move | ParameterModifier::MoveMut => EagerContract::Move,
+                    ParameterModifier::Owned | ParameterModifier::OwnedMut => {
+                        let canonical_parameter_ty = parameter_ty.canonicalize();
+                        match canonical_parameter_ty.kind() {
+                            CanonicalTyKind::Intrinsic => match db.is_copyable(parameter_ty)? {
+                                true => EagerContract::Pure,
+                                false => EagerContract::Move,
+                            },
+                            CanonicalTyKind::Optional => todo!(),
+                            CanonicalTyKind::EvalRef => todo!(),
+                            CanonicalTyKind::OptionalEvalRef => EagerContract::EvalRef,
+                            CanonicalTyKind::TempRefMut => todo!(),
+                        }
+                    }
                     ParameterModifier::TempRefMut => EagerContract::TempRefMut,
                     ParameterModifier::MemberAccess => panic!(),
                     ParameterModifier::EvalRef => EagerContract::EvalRef,
@@ -44,7 +57,7 @@ impl EagerContract {
                 },
                 OutputModifier::MemberAccess { .. } => EagerContract::Pure,
             },
-        }
+        })
     }
 
     pub(crate) fn method_call_this_eager_contract(
@@ -55,7 +68,7 @@ impl EagerContract {
         match output_liason {
             OutputModifier::Transfer => match parameter_liason {
                 ParameterModifier::None => EagerContract::Pure,
-                ParameterModifier::Move | ParameterModifier::MoveMut => EagerContract::Move,
+                ParameterModifier::Owned | ParameterModifier::OwnedMut => EagerContract::Move,
                 ParameterModifier::TempRefMut => EagerContract::TempRefMut,
                 ParameterModifier::MemberAccess => panic!(),
                 ParameterModifier::EvalRef => EagerContract::EvalRef,

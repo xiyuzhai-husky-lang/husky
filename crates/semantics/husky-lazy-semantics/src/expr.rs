@@ -28,8 +28,8 @@ pub struct LazyExpr {
 }
 
 impl LazyExpr {
-    pub fn ty(&self) -> EntityRoutePtr {
-        self.qualified_ty.ty
+    pub fn intrinsic_ty(&self) -> EntityRoutePtr {
+        self.qualified_ty.intrinsic_ty()
     }
 }
 
@@ -122,21 +122,23 @@ impl std::fmt::Debug for LazyExprVariant {
                 .debug_struct("EntityFeature")
                 .field("entity_route", entity_route)
                 .finish(),
-            LazyExprVariant::Variable { varname, binding } => todo!(),
-            LazyExprVariant::PrimitiveLiteral(_) => todo!(),
-            LazyExprVariant::EnumLiteral { entity_route } => todo!(),
-            LazyExprVariant::Bracketed(_) => todo!(),
-            LazyExprVariant::Opn { opn_kind, opds } => todo!(),
-            LazyExprVariant::Lambda(_, _) => todo!(),
-            LazyExprVariant::ThisValue { binding } => todo!(),
+            LazyExprVariant::Variable { varname, binding } => f.debug_struct("Variable").finish(),
+            LazyExprVariant::PrimitiveLiteral(_) => f.debug_struct("PrimitiveLiteral").finish(),
+            LazyExprVariant::EnumLiteral { entity_route } => f.debug_struct("EnumLiteral").finish(),
+            LazyExprVariant::Bracketed(_) => f.debug_struct("Bracketed").finish(),
+            LazyExprVariant::Opn { opn_kind, opds } => f.debug_struct("Opn").finish(),
+            LazyExprVariant::Lambda(_, _) => f.debug_struct("Lambda").finish(),
+            LazyExprVariant::ThisValue { binding } => f.debug_struct("ThisValue").finish(),
             LazyExprVariant::ThisField {
                 field_ident,
                 this_ty,
                 this_binding,
                 field_binding,
-            } => todo!(),
-            LazyExprVariant::EntityFeature { entity_route } => todo!(),
-            LazyExprVariant::BePattern { .. } => todo!(),
+            } => f.debug_struct("ThisField").finish(),
+            LazyExprVariant::EntityFeature { entity_route } => {
+                f.debug_struct("EntityFeature").finish()
+            }
+            LazyExprVariant::BePattern { .. } => f.debug_struct("BePattern").finish(),
         }
     }
 }

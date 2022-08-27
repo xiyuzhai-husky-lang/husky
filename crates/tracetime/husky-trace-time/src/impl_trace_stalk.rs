@@ -108,7 +108,7 @@ impl HuskyTraceTime {
     fn trace_stalk_from_expr(&self, expr: &FeatureLazyExpr, sample_id: SampleId) -> TraceStalkData {
         self.trace_stalk_from_result(
             self.runtime().eval_feature_expr(expr, sample_id),
-            expr.expr.ty(),
+            expr.expr.intrinsic_ty(),
         )
     }
 

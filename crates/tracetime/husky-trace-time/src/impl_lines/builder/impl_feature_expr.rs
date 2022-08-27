@@ -115,7 +115,7 @@ impl<'a> TraceTokenBuilder<'a> {
             FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
             FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
             FeatureLazyExprVariant::EvalInput => self.push(keyword!("input")),
-            FeatureLazyExprVariant::ElementAccess { ref opds, .. } => {
+            FeatureLazyExprVariant::Index { ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
                 self.push(special!("[", opt_assoc_id.clone()));
                 for i in 1..opds.len() {

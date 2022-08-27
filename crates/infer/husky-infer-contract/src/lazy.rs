@@ -1,5 +1,5 @@
 use husky_ast::MatchLiason;
-use husky_entity_route::{CanonicalEntityRoutePtrKind, EntityRoutePtr};
+use husky_entity_route::{CanonicalTyKind, EntityRoutePtr};
 use husky_text::TextRange;
 
 use crate::*;
@@ -33,13 +33,13 @@ impl LazyContract {
         match output {
             OutputModifier::Transfer => Ok(match parameter_liason {
                 ParameterModifier::None => match parameter_ty.canonicalize().kind() {
-                    CanonicalEntityRoutePtrKind::Intrinsic => LazyContract::Pure,
-                    CanonicalEntityRoutePtrKind::Optional => LazyContract::Pure,
-                    CanonicalEntityRoutePtrKind::EvalRef => LazyContract::EvalRef,
-                    CanonicalEntityRoutePtrKind::OptionalEvalRef => todo!(),
-                    CanonicalEntityRoutePtrKind::TempRefMut => todo!(),
+                    CanonicalTyKind::Intrinsic => LazyContract::Pure,
+                    CanonicalTyKind::Optional => LazyContract::Pure,
+                    CanonicalTyKind::EvalRef => LazyContract::EvalRef,
+                    CanonicalTyKind::OptionalEvalRef => todo!(),
+                    CanonicalTyKind::TempRefMut => todo!(),
                 },
-                ParameterModifier::Move | ParameterModifier::MoveMut => LazyContract::Move,
+                ParameterModifier::Owned | ParameterModifier::OwnedMut => todo!(),
                 ParameterModifier::TempRefMut => panic!(),
                 ParameterModifier::MemberAccess => todo!(),
                 ParameterModifier::EvalRef => LazyContract::EvalRef,

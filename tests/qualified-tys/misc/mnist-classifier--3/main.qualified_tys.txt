@@ -19,7 +19,7 @@ Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but 
 
 eager expr:
     9:5..9:48      ml::datasets::cv::mnist::new_binary_dataset   InferError: failed to infer expr ty
-    9:5..9:50      ml::datasets::cv::mnist::new_binary_dataset()   Transient    Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>
+    9:5..9:50      ml::datasets::cv::mnist::new_binary_dataset()   Transient Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>
 
 lazy expr:
     12:9..12:14    input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28

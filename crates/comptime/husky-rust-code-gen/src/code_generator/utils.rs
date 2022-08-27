@@ -16,9 +16,9 @@ impl<'a> RustCodeGenerator<'a> {
                 }
             }
             ParameterModifier::EvalRef => self.write("&'eval "),
-            ParameterModifier::Move => (),
+            ParameterModifier::Owned => (),
             ParameterModifier::TempRefMut => self.write("&mut "),
-            ParameterModifier::MoveMut => todo!(),
+            ParameterModifier::OwnedMut => todo!(),
             ParameterModifier::MemberAccess => todo!(),
             ParameterModifier::TempRef => todo!(),
         }

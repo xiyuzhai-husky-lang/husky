@@ -267,9 +267,9 @@ impl From<i32> for {tyname} {{
                 match this_contract {
                     ParameterModifier::None => self.write("&self"),
                     ParameterModifier::EvalRef => todo!(),
-                    ParameterModifier::Move => todo!(),
+                    ParameterModifier::Owned => todo!(),
                     ParameterModifier::TempRefMut => todo!(),
-                    ParameterModifier::MoveMut => todo!(),
+                    ParameterModifier::OwnedMut => todo!(),
                     ParameterModifier::MemberAccess => todo!(),
                     ParameterModifier::TempRef => todo!(),
                 }

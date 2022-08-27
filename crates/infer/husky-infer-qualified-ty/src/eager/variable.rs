@@ -93,8 +93,8 @@ impl EagerVariableQualifier {
                         }
                     }
                     ParameterModifier::EvalRef => EagerVariableQualifier::EvalRef,
-                    ParameterModifier::Move => EagerVariableQualifier::Owned,
-                    ParameterModifier::MoveMut => EagerVariableQualifier::OwnedMut,
+                    ParameterModifier::Owned => EagerVariableQualifier::Owned,
+                    ParameterModifier::OwnedMut => EagerVariableQualifier::OwnedMut,
                     ParameterModifier::TempRefMut => EagerVariableQualifier::TempRefMut,
                     ParameterModifier::TempRef => EagerVariableQualifier::TempRef,
                     ParameterModifier::MemberAccess => todo!(),
@@ -203,6 +203,7 @@ impl EagerVariableQualifiedTy {
     }
 
     pub(crate) fn new(qual: EagerVariableQualifier, ty: EntityRoutePtr) -> Self {
+        msg_once!("ad hoc");
         match ty.variant {
             EntityRouteVariant::Root {
                 ident: RootIdentifier::Ref,

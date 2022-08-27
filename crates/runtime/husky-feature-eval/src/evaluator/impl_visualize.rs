@@ -142,7 +142,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
 //                     range: this.text_range(),
 //                     ty: elem_ty,
 //                     feature: self.db.feature_interner().intern(
-//                         Feature::CyclicElementAccessConstIndex {
+//                         Feature::CyclicIndexConstIndex {
 //                             this: this.feature(),
 //                             index,
 //                         },

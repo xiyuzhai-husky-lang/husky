@@ -20,7 +20,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureLazyExprVariant::Literal(ref value) => Ok(value.clone()),
             FeatureLazyExprVariant::PrimitiveBinaryOpr {
                 linkage, ref opds, ..
-            } => self.eval_routine_call(&None, Some(linkage), expr.expr.ty(), opds),
+            } => self.eval_routine_call(&None, Some(linkage), expr.expr.intrinsic_ty(), opds),
             FeatureLazyExprVariant::StructOriginalField {
                 ref this,
                 field_idx,
@@ -42,7 +42,12 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 opt_linkage,
                 has_this,
                 ..
-            } => self.eval_routine_call(opt_instruction_sheet, opt_linkage, expr.expr.ty(), opds),
+            } => self.eval_routine_call(
+                opt_instruction_sheet,
+                opt_linkage,
+                expr.expr.intrinsic_ty(),
+                opds,
+            ),
             FeatureLazyExprVariant::EntityFeature { ref repr } => {
                 self.eval_feature_repr_cached(repr)
             }
@@ -69,11 +74,14 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureLazyExprVariant::RecordDerivedField { ref repr, .. } => {
                 self.eval_feature_repr(repr)
             }
-            FeatureLazyExprVariant::ElementAccess {
+            FeatureLazyExprVariant::Index {
                 ref opds, linkage, ..
             } => {
                 if opds.len() > 2 {
                     todo!()
+                }
+                if expr.expr.range.start.i() == 15 && self.sample_id.0 == 17 {
+                    p!(expr.expr.qualified_ty);
                 }
                 let values = vec![self.eval_expr(&opds[0])?, self.eval_expr(&opds[1])?];
                 linkage.call_catch_unwind(unsafe { self.some_ctx() }, values)
@@ -120,13 +128,18 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureLazyExprVariant::NewVecFromList {
                 ref elements,
                 linkage,
-            } => self.eval_routine_call(&None, Some(linkage), expr.expr.ty(), elements),
+            } => self.eval_routine_call(&None, Some(linkage), expr.expr.intrinsic_ty(), elements),
             FeatureLazyExprVariant::CustomBinaryOpr {
                 opr,
                 ref opds,
                 ref opt_instruction_sheet,
                 opt_linkage,
-            } => self.eval_routine_call(opt_instruction_sheet, opt_linkage, expr.expr.ty(), opds),
+            } => self.eval_routine_call(
+                opt_instruction_sheet,
+                opt_linkage,
+                expr.expr.intrinsic_ty(),
+                opds,
+            ),
             FeatureLazyExprVariant::BePattern { ref this, ref patt } => {
                 self.eval_be_pattern(this, patt)
             }
@@ -187,7 +200,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         field_idx,
                         field_ident,
                         this.ty(),
-                        expr.expr.ty(),
+                        expr.expr.intrinsic_ty(),
                         expr.expr.file,
                         expr.expr.range
                     );
@@ -218,7 +231,11 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                                 self.eval_expr(argument).map(|v| {
                                     (
                                         *ident,
-                                        self.serialize(self.db.comptime(), &v, argument.expr.ty()),
+                                        self.serialize(
+                                            self.db.comptime(),
+                                            &v,
+                                            argument.expr.intrinsic_ty(),
+                                        ),
                                     )
                                 })
                             },

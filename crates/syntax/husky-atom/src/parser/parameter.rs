@@ -56,12 +56,12 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
             todo!()
         } else if deprecated_try_eat!(self, "mut") {
             if deprecated_try_eat!(self, "!!") {
-                ParameterModifier::MoveMut
+                ParameterModifier::OwnedMut
             } else {
                 ParameterModifier::TempRefMut
             }
         } else if deprecated_try_eat!(self, "!!") {
-            ParameterModifier::Move
+            ParameterModifier::Owned
         } else {
             return ParameterModifier::None.into();
         };

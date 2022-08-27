@@ -10,7 +10,7 @@ impl<'a> LinkageCollector<'a> {
             EagerExprVariant::ThisValue { .. } => (),
             EagerExprVariant::ThisField { .. } => (),
             EagerExprVariant::PrimitiveLiteral(_) => (),
-            EagerExprVariant::EnumKindLiteral(_) => self.insert(expr.ty()),
+            EagerExprVariant::EnumKindLiteral(_) => self.insert(expr.intrinsic_ty()),
             EagerExprVariant::Bracketed(ref expr) => self.collect_from_eager_expr(expr),
             EagerExprVariant::Opn {
                 ref opn_variant,
@@ -34,7 +34,7 @@ impl<'a> LinkageCollector<'a> {
                         | FieldKind::StructDefault
                         | FieldKind::StructDerivedEager => (),
                         FieldKind::StructDerivedLazy => self.insert(self.db.subroute(
-                            opds[0].ty(),
+                            opds[0].intrinsic_ty(),
                             field_ident.ident,
                             Default::default(),
                         )),
@@ -50,8 +50,8 @@ impl<'a> LinkageCollector<'a> {
                         }
                     }
                     EagerOpnVariant::Index { .. } => (),
-                    EagerOpnVariant::NewVecFromList => self.insert(expr.ty()),
-                    EagerOpnVariant::ValueCall => self.insert(opds[0].ty()),
+                    EagerOpnVariant::NewVecFromList => self.insert(expr.intrinsic_ty()),
+                    EagerOpnVariant::ValueCall => self.insert(opds[0].intrinsic_ty()),
                 }
             }
             EagerExprVariant::Lambda(_, _) => todo!(),
@@ -80,7 +80,7 @@ impl<'a> LinkageCollector<'a> {
                         self.insert(ranged_route.route)
                     }
                     LazyOpnKind::StructCall(_) => todo!(),
-                    LazyOpnKind::NewVecFromList => self.insert(expr.ty()),
+                    LazyOpnKind::NewVecFromList => self.insert(expr.intrinsic_ty()),
                     LazyOpnKind::RecordCall(ranged_route) => self.insert(ranged_route.route),
                     LazyOpnKind::Field { .. } => (),
                     LazyOpnKind::MethodCall { method_route, .. } => self.insert(method_route),

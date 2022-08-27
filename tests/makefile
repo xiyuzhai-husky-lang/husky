@@ -34,6 +34,9 @@ add-mnist-classifier-to-diagnostics-tests:
 add-mnist-classifier-to-folding-ranges-tests:
 	cargo run -q --bin husky-test-add examples/mnist-classifier folding-ranges misc
 
+add-mnist-classifier-to-qualified-tys-tests:
+	cargo run -q --bin husky-test-add examples/mnist-classifier qualified-tys misc
+
 test-debugger:
 	@cargo check -q
 	cargo run --bin husky-debugger test tests/debugger

@@ -124,7 +124,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 (kind, feature)
             }
             LazyOpnKind::NewVecFromList => {
-                let ty = expr.ty();
+                let ty = expr.intrinsic_ty();
                 let uid = self.db.comptime().entity_uid(ty);
                 let elements = opds
                     .iter()
@@ -165,9 +165,9 @@ impl<'a> FeatureExprBuilder<'a> {
                     FeatureLazyExprVariant::PrimitiveBinaryOpr {
                         opr,
                         linkage: resolve_primitive_pure_binary_opr_linkage(
-                            lopd.expr.ty().root(),
+                            lopd.expr.intrinsic_ty().root(),
                             opr,
-                            ropd.expr.ty().root(),
+                            ropd.expr.intrinsic_ty().root(),
                         ),
                         opds: vec![lopd, ropd],
                     },
@@ -238,7 +238,11 @@ impl<'a> FeatureExprBuilder<'a> {
             opds: opds.iter().map(|opd| opd.feature).collect(),
         });
         let this_expr = &opds[0].expr;
-        let this_ty_defn = self.db.comptime().entity_defn(this_expr.ty()).unwrap();
+        let this_ty_defn = self
+            .db
+            .comptime()
+            .entity_defn(this_expr.intrinsic_ty())
+            .unwrap();
         let member_idx = self.db.comptime().member_idx(method_route);
         let method_defn = this_ty_defn.method(member_idx);
         let kind = match method_defn.variant {
@@ -411,11 +415,11 @@ impl<'a> FeatureExprBuilder<'a> {
         let feature = self.feature_interner.intern(Feature::Index {
             opds: opds.map(|opd| opd.feature),
         });
-        let feature_expr_kind = FeatureLazyExprVariant::ElementAccess {
+        let feature_expr_kind = FeatureLazyExprVariant::Index {
             linkage: self
                 .db
                 .comptime()
-                .index_linkage(opds.map(|opd| opd.expr.ty()))
+                .index_linkage(opds.map(|opd| opd.expr.intrinsic_ty()))
                 .bind(element_binding),
             opds,
         };
@@ -454,7 +458,7 @@ impl<'a> FeatureExprBuilder<'a> {
             FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
             FeatureLazyExprVariant::EvalInput => todo!(),
             FeatureLazyExprVariant::RecordDerivedField { .. } => todo!(),
-            FeatureLazyExprVariant::ElementAccess { ref opds, .. } => todo!(),
+            FeatureLazyExprVariant::Index { ref opds, .. } => todo!(),
             FeatureLazyExprVariant::StructDerivedLazyField {
                 ref this,
                 field_ident,

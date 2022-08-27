@@ -88,12 +88,12 @@ impl LazyVariableQualifier {
                 }
             }
             ParameterModifier::EvalRef => LazyVariableQualifier::EvalRef,
-            ParameterModifier::Move
+            ParameterModifier::Owned
             | ParameterModifier::MemberAccess
             | ParameterModifier::TempRef
             | ParameterModifier::TempRefMut
-            | ParameterModifier::MoveMut => {
-                panic!()
+            | ParameterModifier::OwnedMut => {
+                panic!("not allowed in lazy paradigm")
             }
         }
     }

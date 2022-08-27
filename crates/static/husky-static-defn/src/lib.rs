@@ -133,7 +133,7 @@ macro_rules! associated_type_impl {
     }};
 }
 #[macro_export]
-macro_rules! clone_method_impl {
+macro_rules! clone_trait_impl {
     ($this_ty_route: expr) => {{
         StaticTraitImplDefn {
             dev_src: static_dev_src!(),

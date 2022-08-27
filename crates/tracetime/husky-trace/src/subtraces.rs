@@ -40,7 +40,7 @@ impl<'eval> Trace {
                     EagerOpnVariant::Binary { .. }
                     | EagerOpnVariant::Prefix { .. }
                     | EagerOpnVariant::Suffix { .. } => {
-                        if opds[0].ty().is_builtin() {
+                        if opds[0].intrinsic_ty().is_builtin() {
                             None
                         } else {
                             Some(SubtracesContainerClass::Call)
