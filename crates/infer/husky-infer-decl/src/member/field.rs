@@ -32,7 +32,7 @@ impl FieldDecl {
             EntityStaticDefnVariant::TyField {
                 field_kind,
                 liason,
-                field_ty: ty,
+                field_ty,
                 ..
             } => Arc::new(Self {
                 ident: symbol_context
@@ -40,7 +40,7 @@ impl FieldDecl {
                     .intern_word(static_decl.name)
                     .custom(),
                 liason,
-                ty: symbol_context.parse_entity_route(ty).unwrap(),
+                ty: symbol_context.parse_entity_route(field_ty).unwrap(),
                 field_kind,
             }),
             _ => panic!(""),

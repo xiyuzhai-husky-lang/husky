@@ -276,10 +276,10 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let this_ty_decl = self.expr_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let this_contract = EagerContract::field_self_eager_contract(
+        let this_contract = EagerContract::member_self_eager_contract(
             field_decl.liason,
             contract,
-            self.db.is_copyable(field_decl.ty)?,
+            field_decl.ty,
             self.arena[raw_expr_idx].range,
         )?;
         self.infer_eager_expr(opd, this_contract);
@@ -388,11 +388,20 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn eager_index(
         &mut self,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
         total_opds: &RawExprRange,
         contract: EagerContract,
     ) -> InferResult<()> {
-        self.infer_eager_expr(total_opds.start, contract);
+        let elem_ty = self.expr_raw_ty(idx)?;
+        self.infer_eager_expr(
+            total_opds.start,
+            EagerContract::member_self_eager_contract(
+                MemberModifier::Mutable, // ad hoc
+                contract,
+                elem_ty,
+                self.arena[idx].range,
+            )?,
+        );
         for opd in (total_opds.start + 1)..total_opds.end {
             self.infer_eager_expr(opd, EagerContract::Pure)
         }

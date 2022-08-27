@@ -261,10 +261,10 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 let field_contract = self.eager_expr_contract(idx)?;
                 let field_ty = derived_not_none!(opt_field_ty)?;
                 let is_field_copyable = self.db.is_copyable(field_ty.route)?;
-                let this_contract = EagerContract::field_self_eager_contract(
+                let this_contract = EagerContract::member_self_eager_contract(
                     field_liason,
                     field_contract,
-                    is_field_copyable,
+                    field_ty.route,
                     self.arena[idx].range,
                 )?;
                 let this_qual = EagerExprQualifier::parameter_use_eager_qualifier(

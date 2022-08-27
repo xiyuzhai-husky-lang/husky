@@ -46,20 +46,20 @@ eager expr:
     21:17..21:41   major_concave_components   EvalRef []mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     21:43..21:61   [downmost, upmost]     Transient []ThickFp<&mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent, ?f32>
     21:5..21:62    fermi_match(major_concave_components, [downmost, upmost])   Transient mnist_classifier__10::fermi::FermiMatchResult
-    24:13..24:15   cc                     PureRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
+    24:13..24:15   cc                     EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     24:13..24:28   cc.displacement        EvalRef mnist_classifier__10::geom2d::Vector2d
     24:13..24:30   cc.displacement.y      Copyable f32
     24:33..24:36   0.0                    Copyable f32
     24:13..24:36   cc.displacement.y > 0.0   Copyable bool
-    25:5..25:7     cc                     PureRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
+    25:5..25:7     cc                     EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     25:5..25:20    cc.displacement        EvalRef mnist_classifier__10::geom2d::Vector2d
     25:5..25:22    cc.displacement.y      Copyable f32
-    28:13..28:15   cc                     PureRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
+    28:13..28:15   cc                     EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     28:13..28:28   cc.displacement        EvalRef mnist_classifier__10::geom2d::Vector2d
     28:13..28:30   cc.displacement.y      Copyable f32
     28:34..28:37   0.0                    Copyable f32
     28:13..28:37   cc.displacement.y <= 0.0   Copyable bool
-    29:6..29:8     cc                     PureRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
+    29:6..29:8     cc                     EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     29:6..29:21    cc.displacement        EvalRef mnist_classifier__10::geom2d::Vector2d
     29:6..29:23    cc.displacement.y      Copyable f32
     29:5..29:23    -cc.displacement.y     Copyable f32

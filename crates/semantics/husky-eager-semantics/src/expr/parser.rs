@@ -118,14 +118,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             } => {
                 let field_contract = self.eager_expr_contract(idx).unwrap();
                 let field_qt = self.eager_expr_qualified_ty(idx).unwrap();
-                let is_field_copyable = self
-                    .decl_db()
-                    .is_copyable(opt_field_ty.unwrap().route)
-                    .unwrap();
-                let this_contract = EagerContract::field_self_eager_contract(
+                let this_contract = EagerContract::member_self_eager_contract(
                     field_liason,
                     field_contract,
-                    is_field_copyable,
+                    opt_field_ty.unwrap().route,
                     self.arena()[idx].range,
                 )?;
                 let this_qual = EagerExprQualifier::parameter_use_eager_qualifier(
