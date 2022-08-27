@@ -4,6 +4,7 @@ pub trait Transformer {
     type Input: ?Sized;
     type InputStorage: FoldableStorage<Value = Self::Input>;
     type Output;
+
     fn _enter_block(&mut self);
     fn _exit_block(&mut self);
     fn transform(

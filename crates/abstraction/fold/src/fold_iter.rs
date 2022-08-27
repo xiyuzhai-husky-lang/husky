@@ -12,20 +12,18 @@ where
     phantom: PhantomData<Storage::Value>,
 }
 
-impl<'a, Value, Storage> std::fmt::Debug for FoldableIter<'a, Storage>
+impl<'a, Storage> std::fmt::Debug for FoldableIter<'a, Storage>
 where
-    Value: ?Sized,
-    Storage: FoldableStorage<Value = Value>,
+    Storage: FoldableStorage,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("FoldIter{{ next: {:?} }}", &self.next))
     }
 }
 
-impl<'a, Value, Storage> FoldableIter<'a, Storage>
+impl<'a, Storage> FoldableIter<'a, Storage>
 where
-    Value: ?Sized,
-    Storage: FoldableStorage<Value = Value>,
+    Storage: FoldableStorage,
 {
     pub(crate) fn new(storage: &'a Storage, next: Option<usize>) -> Self {
         if let Some(idx) = next {
@@ -39,10 +37,9 @@ where
     }
 }
 
-impl<'a, Value, Storage> FoldableIter<'a, Storage>
+impl<'a, Storage> FoldableIter<'a, Storage>
 where
-    Value: ?Sized,
-    Storage: FoldableStorage<Value = Value>,
+    Storage: FoldableStorage,
 {
     pub fn next_level_iter(&self, next: Option<usize>) -> Self {
         Self {
@@ -54,24 +51,22 @@ where
 }
 
 #[derive(Debug)]
-pub struct FoldIterItem<'a, Value: 'a, Storage>
+pub struct FoldIterItem<'a, Storage>
 where
-    Value: ?Sized,
-    Storage: FoldableStorage<Value = Value>,
+    Storage: FoldableStorage,
 {
     pub idx: usize,
     pub indent: Indent,
-    pub value: &'a Value,
+    pub value: &'a Storage::Value,
     pub folding_end: FoldingEnd,
     pub opt_children: Option<FoldableIter<'a, Storage>>,
 }
 
-impl<'a, Value: 'a, Storage> Iterator for FoldableIter<'a, Storage>
+impl<'a, Storage> Iterator for FoldableIter<'a, Storage>
 where
-    Value: ?Sized + 'a,
-    Storage: FoldableStorage<Value = Value>,
+    Storage: FoldableStorage,
 {
-    type Item = FoldIterItem<'a, Value, Storage>;
+    type Item = FoldIterItem<'a, Storage>;
 
     fn next(&mut self) -> Option<Self::Item> {
         if let Some(idx) = self.next {
