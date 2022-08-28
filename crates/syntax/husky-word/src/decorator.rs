@@ -9,6 +9,12 @@ pub enum Decorator {
     Static,
 }
 
+impl std::fmt::Display for Decorator {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.as_str().fmt(f)
+    }
+}
+
 impl Deref for Decorator {
     type Target = str;
 
