@@ -17,7 +17,6 @@ use husky_print_utils::p;
 use husky_semantics_error::{SemanticError, SemanticErrorVariant};
 use husky_text::TextRange;
 use husky_token::LexError;
-use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 use std::sync::Arc;
 
@@ -32,7 +31,7 @@ pub struct Diagnostic {
 }
 
 impl HuskyDisplay for Diagnostic {
-    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
+    fn write_inherent(&self, _config: HuskyDisplayConfig, result: &mut String) {
         write!(result, "{:?}\t{}", self.range, self.message).unwrap()
     }
 }

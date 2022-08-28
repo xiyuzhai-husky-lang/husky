@@ -1,18 +1,15 @@
-use std::iter::zip;
-
 use husky_ast::*;
-use husky_check_utils::should;
 use husky_defn_head::Parameter;
 use husky_entity_kind::EntityKind;
-use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
+use husky_entity_route::EntityRoutePtr;
 use husky_infer_error::{
-    derived, derived_not_none, derived_unwrap, throw, throw_derived, InferError, InferErrorVariant,
+    derived, derived_not_none, derived_unwrap, throw, InferError, InferErrorVariant,
 };
 use husky_opn_syntax::RawOpnVariant;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
-use husky_print_utils::{epin, msg_once, p};
-use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
-use husky_text::{TextRange, TextRanged};
+use husky_print_utils::msg_once;
+use husky_text::RangedCustomIdentifier;
+use husky_text::TextRange;
 
 use super::*;
 
@@ -36,7 +33,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 .insert_new((
                     (parameter.ident().into(), parameter.ranged_ident().range),
                     EagerVariableQualifiedTy::from_parameter(self.db, ty, parameter.liason()),
-                ));
+                ))
+                .unwrap();
         }
     }
 
@@ -83,7 +81,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                                 qual: EagerVariableQualifier::Copyable,
                                 ty: EntityRoutePtr::Root(RootIdentifier::I32),
                             }),
-                        ));
+                        ))
+                        .unwrap();
                     if let Some(bound) = initial_boundary.opt_bound {
                         self.insert_eager_expr_inference(bound);
                     }
@@ -176,16 +175,14 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawStmtVariant::Match { match_expr, .. } => {
                 self.insert_eager_expr_inference(match_expr);
             }
-            RawStmtVariant::ReturnXml(ref xml_expr) => panic!(),
+            RawStmtVariant::ReturnXml(_) => panic!(),
         }
     }
 
     fn infer_eager_case_pattern(&mut self, pattern: &RawPattern) {
         match pattern.variant {
             RawPatternVariant::PrimitiveLiteral(_) => (),
-            RawPatternVariant::OneOf {
-                subpatterns: ref patterns,
-            } => (),
+            RawPatternVariant::OneOf { .. } => (),
             RawPatternVariant::EnumLiteral(_) => (),
             RawPatternVariant::Some => todo!(),
             RawPatternVariant::None => todo!(),
@@ -287,7 +284,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 )?)
             }
             RawExprVariant::Unrecognized(_) => Err(derived!("unrecognized")),
-            RawExprVariant::Entity { route, kind } => match kind {
+            RawExprVariant::Entity { kind, .. } => match kind {
                 EntityKind::Module => Ok(EagerExprQualifiedTy::module_eager_qualified_ty()),
                 EntityKind::Type(_) => Ok(EagerExprQualifiedTy::ty_eager_qualified_ty()),
                 EntityKind::Trait => Ok(EagerExprQualifiedTy::trait_eager_qualified_ty()),

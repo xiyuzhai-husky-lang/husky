@@ -48,8 +48,6 @@ pub fn print_all_packages_in_dir(dir: &Path, f: impl Fn(&Path)) {
         package_paths.len()
     );
 
-    let mut packages_failed: Vec<PathBuf> = vec![];
-
     for package_path in package_paths {
         println!(
             "\n{}analyze{} {}:\n",

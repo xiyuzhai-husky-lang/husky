@@ -1,6 +1,5 @@
-use husky_entity_route::{CanonicalTy, CanonicalTyKind, EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{CanonicalTy, EntityRoutePtr, RangedEntityRoute};
 use husky_pattern_semantics::PurePattern;
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_print_utils::p;
 use std::borrow::Cow;
 

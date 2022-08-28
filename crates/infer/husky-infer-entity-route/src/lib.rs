@@ -9,7 +9,7 @@ use husky_ast::*;
 use husky_check_utils::*;
 use husky_defn_head::*;
 use husky_entity_route::*;
-use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
+use husky_entity_syntax::EntitySyntaxResultArc;
 use husky_file::FilePtr;
 use husky_infer_error::*;
 use husky_opn_syntax::*;

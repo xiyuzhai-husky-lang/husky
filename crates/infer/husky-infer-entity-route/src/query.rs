@@ -18,7 +18,7 @@ pub trait InferEntityRouteQueryGroup: DeclQueryGroup + Upcast<dyn DeclQueryGroup
 }
 
 fn is_implicitly_castable(
-    db: &dyn InferEntityRouteQueryGroup,
+    _db: &dyn InferEntityRouteQueryGroup,
     src_ty: EntityRoutePtr,
     dst_ty: EntityRoutePtr,
 ) -> bool {

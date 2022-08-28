@@ -20,7 +20,7 @@ lazy expr:
     23:19..23:44   concave_components.ilen()   Copyable i32
     23:9..23:45    naive_i32(concave_components.ilen())   Option Transient domains::ml::datasets::cv::mnist::MnistLabel
     25:9..25:10    1                      InferError: InferError:
-src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:72
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
 Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead", range: 25:9..25:10 }
 
@@ -47,6 +47,6 @@ lazy expr:
     23:19..23:44   concave_components.ilen()   Copyable i32
     23:9..23:45    naive_i32(concave_components.ilen())   Option Transient domains::ml::datasets::cv::mnist::MnistLabel
     25:9..25:10    1                      InferError: InferError:
-src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:72
+src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
 Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead", range: 25:9..25:10 }

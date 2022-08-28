@@ -8,9 +8,8 @@ use builder::EntityRouteSheetBuilder;
 use fold::FoldableStorage;
 use husky_ast::{AstText, RawExpr};
 use husky_dev_utils::dev_src;
-use husky_text::{Row, TextRange};
+use husky_text::TextRange;
 use husky_word::CustomIdentifier;
-use infer_decl::MemberIdx;
 
 use super::*;
 

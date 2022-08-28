@@ -41,7 +41,7 @@ impl EntityDefnVariant {
                 liason,
                 ranged_ident,
                 field_ty,
-                field_ast_kind: field_kind,
+                ast_field_kind: field_kind,
             } => {
                 let field_variant = match field_kind {
                     AstFieldKind::StructOriginal => FieldDefnVariant::StructOriginal,
@@ -103,7 +103,7 @@ impl EntityDefnVariant {
             let ast = child.value.as_ref().unwrap();
             match ast.variant {
                 AstVariant::FieldDefnHead {
-                    field_ast_kind: field_kind,
+                    ast_field_kind: field_kind,
                     ranged_ident,
                     ..
                 } => {

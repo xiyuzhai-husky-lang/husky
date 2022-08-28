@@ -10,7 +10,9 @@ impl Instantiable for EntityRoutePtr {
             _ => {
                 let (variant, mut generics) = match self.variant {
                     EntityRouteVariant::Package { .. } => panic!(),
-                    EntityRouteVariant::Root { ident } => (self.variant.clone(), thin_vec![]),
+                    EntityRouteVariant::Root { ident } => {
+                        (EntityRouteVariant::Root { ident }, thin_vec![])
+                    }
                     EntityRouteVariant::Child { parent, ident } => (
                         EntityRouteVariant::Child {
                             parent: parent.instantiate(ctx).take_entity_route(),

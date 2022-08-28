@@ -12,7 +12,7 @@ pub(crate) fn module_contains_features(
                     return true;
                 }
             }
-            EntityDefnVariant::Feature { ref defn_repr } => return true,
+            EntityDefnVariant::Feature { .. } => return true,
             _ => (),
         }
     }

@@ -43,37 +43,25 @@ impl<'eval> TraceVariant<'eval> {
                 } => !routine_defn.is_builtin(),
                 FeatureLazyExprVariant::RecordDerivedField { .. } => todo!(),
                 FeatureLazyExprVariant::Index { ref opds, .. } => false,
-                FeatureLazyExprVariant::StructDerivedLazyField {
-                    ref this,
-                    field_ident,
-                    field_uid,
-                    ref repr,
-                } => true,
-                FeatureLazyExprVariant::ModelCall {
-                    ref opds,
-                    has_this,
-                    ref model_defn,
-                    ref internal,
-                    ..
-                } => match model_defn.variant {
-                    EntityDefnVariant::Function { ref source, .. } => match source {
-                        CallFormSource::Lazy { stmts } => true,
-                        CallFormSource::Static(_) => false,
-                        _ => panic!(),
-                    },
-                    _ => todo!(),
-                },
+                FeatureLazyExprVariant::StructDerivedLazyField { .. } => true,
+                FeatureLazyExprVariant::ModelCall { ref model_defn, .. } => {
+                    match model_defn.variant {
+                        EntityDefnVariant::Function { ref source, .. } => match source {
+                            CallFormSource::Lazy { stmts } => true,
+                            CallFormSource::Static(_) => false,
+                            _ => panic!(),
+                        },
+                        _ => todo!(),
+                    }
+                }
                 FeatureLazyExprVariant::NewVecFromList { .. } => false,
                 FeatureLazyExprVariant::CustomBinaryOpr {
                     ref opt_instruction_sheet,
                     ..
                 } => opt_instruction_sheet.is_some(),
-                FeatureLazyExprVariant::BePattern { ref this, ref patt } => false,
+                FeatureLazyExprVariant::BePattern { .. } => false,
             },
-            TraceVariant::EagerExpr {
-                ref expr,
-                ref history,
-            } => match expr.variant {
+            TraceVariant::EagerExpr { ref expr, .. } => match expr.variant {
                 EagerExprVariant::Variable { .. } | EagerExprVariant::PrimitiveLiteral(_) => false,
                 EagerExprVariant::Bracketed(_) => todo!(),
                 EagerExprVariant::Opn {

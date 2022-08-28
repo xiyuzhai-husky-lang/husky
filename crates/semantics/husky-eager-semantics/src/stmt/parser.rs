@@ -1,7 +1,5 @@
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
-use husky_text::RangedCustomIdentifier;
-use husky_vm::{VMStackIdx, __VMResult};
 use infer_contract::{ContractSheet, InferContract};
 use infer_total::InferQueryGroup;
 

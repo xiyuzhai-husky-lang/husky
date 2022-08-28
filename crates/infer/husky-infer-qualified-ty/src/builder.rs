@@ -50,12 +50,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 Err(_) => continue,
             };
             match ast.variant {
-                AstVariant::FieldDefnHead {
-                    liason,
-                    ranged_ident,
-                    field_ty: ty,
-                    field_ast_kind: field_kind,
-                } => match field_kind {
+                AstVariant::FieldDefnHead { ast_field_kind, .. } => match ast_field_kind {
                     AstFieldKind::StructDefault { default } => {
                         self.insert_eager_expr_inference(default);
                     }
@@ -99,7 +94,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     }
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
-                        field_ast_kind: field_kind,
+                        ast_field_kind: field_kind,
                         field_ty: ty,
                         ..
                     } => match field_kind {
@@ -144,7 +139,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                                 OutputModifier::Transfer,
                             ),
                     },
-                    AstVariant::Submodule { ident, source_file } => (),
+                    AstVariant::Submodule { .. } => (),
                 }
             }
         }
@@ -152,10 +147,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
 
     pub(super) fn finish(self) -> Arc<QualifiedTySheet> {
         Arc::new(self.qualified_ty_sheet)
-    }
-
-    fn file(&self) -> FilePtr {
-        self.entity_route_sheet.ast_text.file
     }
 }
 

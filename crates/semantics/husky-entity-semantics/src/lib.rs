@@ -38,9 +38,9 @@ use husky_file::FilePtr;
 use husky_lazy_semantics::parse_lazy_stmts;
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
 use husky_liason_semantics::*;
-use husky_print_utils::{epin, msg_once, p};
+use husky_print_utils::{msg_once, p};
 use husky_semantics_error::*;
-use husky_static_defn::{EntityStaticDefn, EntityStaticDefnVariant, FunctionStaticDefnVariant};
+use husky_static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use husky_static_visualizer::StaticVisualTy;
 use husky_text::*;
 use husky_vm::*;
@@ -49,7 +49,7 @@ use map_collect::MapCollect;
 use module::module_defn;
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
-use thin_vec::{thin_vec, ThinVec};
+use thin_vec::thin_vec;
 use vec_like::VecMapEntry;
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy, Hash)]
@@ -182,11 +182,11 @@ impl EntityDefn {
             EntityDefnVariant::Function {
                 ref spatial_parameters,
                 ..
-            } => todo!(),
+            } => spatial_parameters,
             EntityDefnVariant::Method {
                 ref spatial_parameters,
                 ..
-            } => todo!(),
+            } => spatial_parameters,
             EntityDefnVariant::Func {
                 ref spatial_parameters,
                 ..

@@ -53,7 +53,7 @@ impl FieldDecl {
                 liason,
                 ranged_ident,
                 field_ty: ty,
-                field_ast_kind,
+                ast_field_kind: field_ast_kind,
             } => Arc::new(Self {
                 ident: ranged_ident.ident,
                 liason,

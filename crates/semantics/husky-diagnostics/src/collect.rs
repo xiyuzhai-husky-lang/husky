@@ -1,8 +1,6 @@
-use husky_ast::AstText;
-use husky_entity_route::{EntityKind, EntityRoutePtr};
-use husky_entity_syntax::SubrouteTable;
+use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
-use husky_print_utils::{msg_once, p};
+use husky_print_utils::msg_once;
 use husky_semantics_error::SemanticErrorVariant;
 
 use crate::*;
