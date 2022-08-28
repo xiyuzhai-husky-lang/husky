@@ -29,7 +29,7 @@ impl<'a> AstTransformer<'a> {
                                 self.parse_struct_method(token_group,  enter_block)
                             },
                             HuskyTokenKind::Special(SpecialToken::LightArrow) =>{
-                                self.parse_struct_property(token_group,  enter_block)
+                                self.parse_struct_memo(token_group,  enter_block)
                             },
                             _=> todo!(),
                         }
@@ -41,7 +41,7 @@ impl<'a> AstTransformer<'a> {
                     | Keyword::Use
                     | Keyword::Mod
                     | Keyword::Main => {
-                        p!(self.context, keyword);
+                        p!(self.context, keyword, self.file, token_group[0].range);
                         todo!()
                     },
                     Keyword::Liason(_) =>  self.parse_struct_eager_field(token_group,   enter_block),

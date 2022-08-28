@@ -80,7 +80,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     ),
                     AstVariant::CallFormDefnHead {
                         ref parameters,
-                        output_ty,
+                        return_ty: output_ty,
                         output_liason,
                         ..
                     } => self.infer_eager_call_form(
@@ -122,7 +122,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     AstVariant::Stmt(_) => (),
                     AstVariant::FeatureDefnHead {
                         paradigm,
-                        output_ty: ty,
+                        return_ty: ty,
                         ..
                     } => match paradigm {
                         Paradigm::LazyFunctional => self.infer_lazy_call_form(

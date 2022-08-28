@@ -10,15 +10,21 @@ use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct RawReturnContext {
-    pub return_ty: RangedEntityRoute,
+    pub opt_return_ty: Option<RangedEntityRoute>,
     pub kind: RawReturnContextKind,
+}
+
+impl RawReturnContext {
+    pub fn return_ty(&self) -> EntityRoutePtr {
+        self.opt_return_ty.unwrap().route
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum RawReturnContextKind {
     Normal,
     Feature,
-    LazyField,
+    MemoField,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

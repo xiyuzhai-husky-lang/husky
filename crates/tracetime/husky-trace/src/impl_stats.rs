@@ -61,7 +61,7 @@ fn feature_stmt_opt_stats<'eval>(
         FeatureLazyStmtVariant::Require { return_context, .. } => feature_opt_stats(
             db,
             partitions,
-            return_context.return_ty.route,
+            return_context.return_ty(),
             |sample_id| db.eval_feature_stmt(stmt, sample_id),
             stmt.opt_arrival_indicator.as_ref(),
         ),

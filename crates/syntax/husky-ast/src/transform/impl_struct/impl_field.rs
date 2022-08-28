@@ -54,7 +54,7 @@ impl<'a> AstTransformer<'a> {
             self.context.set(AstContext::Stmt {
                 paradigm: Paradigm::EagerFunctional,
                 return_context: Some(RawReturnContext {
-                    return_ty: field_ty,
+                    opt_return_ty: Some(field_ty),
                     kind: RawReturnContextKind::Normal,
                 }),
             });
@@ -80,7 +80,7 @@ impl<'a> AstTransformer<'a> {
             self.context.set(AstContext::Stmt {
                 paradigm: Paradigm::EagerFunctional,
                 return_context: Some(RawReturnContext {
-                    return_ty: field_ty,
+                    opt_return_ty: Some(field_ty),
                     kind: RawReturnContextKind::Normal,
                 }),
             });
@@ -109,7 +109,7 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    pub(super) fn parse_struct_property(
+    pub(super) fn parse_struct_memo(
         &mut self,
         token_group: &[HuskyToken],
         enter_block: impl FnOnce(&mut Self),
@@ -121,6 +121,13 @@ impl<'a> AstTransformer<'a> {
             HuskyTokenKind::Keyword(Keyword::Paradigm(paradigm)) => paradigm,
             _ => todo!(),
         };
+        self.context.set(AstContext::Stmt {
+            paradigm,
+            return_context: Some(RawReturnContext {
+                opt_return_ty: None,
+                kind: RawReturnContextKind::MemoField,
+            }),
+        });
         self.opt_this_liason.set(Some(ParameterModifier::EvalRef));
         let ident = identify_token!(self, token_group[1], SemanticTokenKind::Field);
         match token_group[2].kind {
@@ -141,8 +148,8 @@ impl<'a> AstTransformer<'a> {
         self.context.set(AstContext::Stmt {
             paradigm,
             return_context: Some(RawReturnContext {
-                return_ty: field_ty,
-                kind: RawReturnContextKind::LazyField,
+                opt_return_ty: Some(field_ty),
+                kind: RawReturnContextKind::MemoField,
             }),
         });
         Ok(AstVariant::FieldDefnHead {

@@ -45,7 +45,7 @@ impl CallFormDecl {
                 paradigm,
                 ref spatial_parameters,
                 ref parameters,
-                output_ty,
+                return_ty: output_ty,
                 output_liason,
                 opt_this_liason,
                 ..

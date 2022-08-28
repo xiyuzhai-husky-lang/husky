@@ -27,7 +27,7 @@ pub(crate) fn feature_decl(
             match ast.variant {
                 AstVariant::FeatureDefnHead {
                     ident,
-                    output_ty: ty,
+                    return_ty: ty,
                     ..
                 } => Ok(Arc::new(FeatureDecl { ty: ty.route })),
                 _ => todo!(),

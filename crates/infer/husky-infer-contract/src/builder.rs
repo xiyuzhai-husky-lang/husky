@@ -90,9 +90,10 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstVariant::DatasetConfigDefnHead => {
                         self.infer_eager_stmts(children, RootIdentifier::DatasetType.into())
                     }
-                    AstVariant::CallFormDefnHead { output_ty, .. } => {
-                        self.infer_eager_stmts(children, output_ty.route)
-                    }
+                    AstVariant::CallFormDefnHead {
+                        return_ty: output_ty,
+                        ..
+                    } => self.infer_eager_stmts(children, output_ty.route),
                     AstVariant::Visual => self.infer_lazy_stmts(children),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
@@ -111,7 +112,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     },
                     AstVariant::FeatureDefnHead {
                         paradigm,
-                        output_ty: ty,
+                        return_ty: ty,
                         ..
                     } => match paradigm {
                         Paradigm::LazyFunctional => self.infer_lazy_stmts(children),

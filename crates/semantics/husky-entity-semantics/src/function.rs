@@ -16,7 +16,7 @@ impl EntityDefnVariant {
                 paradigm,
                 ref spatial_parameters,
                 ref parameters,
-                output_ty,
+                return_ty: output_ty,
                 ..
             } => Ok(match paradigm {
                 Paradigm::EagerProcedural => {

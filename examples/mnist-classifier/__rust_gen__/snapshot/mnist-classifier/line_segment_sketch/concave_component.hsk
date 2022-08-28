@@ -4,7 +4,7 @@ use crate::geom2d::*
 
 struct ConcaveComponent:
     line_segment_sketch: &LineSegmentSketch
-    line_segments: [%]LineSegment
+    line_segments: [%]LineSegmentStroke
 
     func norm -> f32:
         // temp

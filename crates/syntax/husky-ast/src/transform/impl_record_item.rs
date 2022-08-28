@@ -66,8 +66,8 @@ impl<'a> AstTransformer<'a> {
         self.context.set(AstContext::Stmt {
             paradigm: Paradigm::LazyFunctional,
             return_context: Some(RawReturnContext {
-                return_ty: field_ty,
-                kind: RawReturnContextKind::LazyField,
+                opt_return_ty: Some(field_ty),
+                kind: RawReturnContextKind::MemoField,
             }),
         });
         Ok(AstVariant::FieldDefnHead {

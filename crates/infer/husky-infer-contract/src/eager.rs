@@ -156,7 +156,7 @@ impl EagerContract {
             } else {
                 todo!()
             }),
-            RawReturnContextKind::Feature | RawReturnContextKind::LazyField => {
+            RawReturnContextKind::Feature | RawReturnContextKind::MemoField => {
                 if output_ty.is_eval_ref() {
                     todo!("warn: output ty should be dereferenced")
                 } else if output_ty == expr_ty {
