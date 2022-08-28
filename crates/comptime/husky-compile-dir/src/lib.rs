@@ -1,10 +1,4 @@
-use husky_package_semantics::Package;
-use husky_print_utils::p;
-use husky_word::snake_to_dash;
-use std::{
-    env,
-    path::{Path, PathBuf},
-};
+use std::path::{Path, PathBuf};
 
 pub fn getx_child_dir(parent_dir: &Path, dirname: &str) -> PathBuf {
     let child_dir = parent_dir.join(dirname);

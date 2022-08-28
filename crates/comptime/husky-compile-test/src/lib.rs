@@ -9,23 +9,22 @@ mod test_salsa;
 mod token;
 mod utils;
 
-pub use utils::*;
-
+#[cfg(test)]
 use husky_check_utils::*;
+#[cfg(test)]
 use husky_comptime::HuskyComptime;
+#[cfg(test)]
 use husky_comptime::*;
-use husky_display_utils::{compare_saved_data, HuskyDisplay};
+#[cfg(test)]
 use husky_entity_route::EntityRoute;
+#[cfg(test)]
 use husky_entity_route::EntityRoutePtr;
-use husky_entity_semantics::EntityRouteStore;
+#[cfg(test)]
 use husky_entity_syntax::EntitySource;
-use husky_file::FilePtr;
-use husky_linkage_table::LinkageTable;
+#[cfg(test)]
 use husky_print_utils::*;
+#[cfg(test)]
 use husky_root_static_defn::__resolve_root_defn;
-use husky_test_utils::TestResult;
-use husky_word::RootIdentifier;
-use std::path::Path;
-use std::{fmt, sync::Arc};
-use sync_utils::ASafeRwLock;
-use thin_vec::{thin_vec, ThinVec};
+#[cfg(test)]
+use thin_vec::thin_vec;
+pub use utils::*;

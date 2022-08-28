@@ -1,16 +1,17 @@
+#[cfg(test)]
 use crate::*;
-
+#[cfg(test)]
 use husky_atom::{
     context::{AtomContextKind, Symbol},
     *,
 };
-
+#[cfg(test)]
 pub(super) fn check_atom_kind(db: &mut HuskyComptime, line: &'static str, kind: HuskyAtomVariant) {
     let atoms = get_atoms_in_line(db, line);
     let atom = &atoms[0];
     should_eq!(atom.variant, kind);
 }
-
+#[cfg(test)]
 pub(super) fn get_atoms_in_line(db: &mut HuskyComptime, line: &'static str) -> Vec<HuskyAtom> {
     db.set_live_file_text("haha/main.hsk".into(), line.into());
     let tokens = db.tokenize(line);

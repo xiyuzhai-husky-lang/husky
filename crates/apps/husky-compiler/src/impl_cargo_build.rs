@@ -5,9 +5,9 @@ impl CompilerInstance {
     pub(crate) fn cargo_build(&self, package_dir: &Path) {
         let output = Command::new("cargo")
             .current_dir(
-                (std::fs::canonicalize(package_dir)
+                std::fs::canonicalize(package_dir)
                     .unwrap()
-                    .join("__rust_gen__")),
+                    .join("__rust_gen__"),
             )
             .args(["build", "--release"])
             .output()

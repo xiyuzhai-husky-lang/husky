@@ -1,9 +1,9 @@
 mod func;
 mod lambda;
 mod utils;
-
+#[cfg(test)]
 use crate::*;
-
+#[cfg(test)]
 #[test]
 fn no_error_single_file() {
     let mut db = HuskyComptime::new_default(__resolve_root_defn);

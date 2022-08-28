@@ -5,9 +5,9 @@ impl CompilerInstance {
     pub(crate) fn cargo_fmt(&self, package_dir: &Path) {
         let output = Command::new("cargo")
             .current_dir(
-                (std::fs::canonicalize(package_dir)
+                std::fs::canonicalize(package_dir)
                     .unwrap()
-                    .join("__rust_gen_cache__")),
+                    .join("__rust_gen_cache__"),
             )
             .arg("fmt")
             .output()

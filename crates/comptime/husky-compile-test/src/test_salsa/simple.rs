@@ -1,3 +1,4 @@
+#[cfg(test)]
 use crate::*;
 
 #[salsa::query_group(SimpleQueryStorage)]
