@@ -1,5 +1,4 @@
 use super::*;
-use husky_print_utils::p;
 use husky_word::RootIdentifier;
 use husky_vm_interface::*;
 use husky_opn_syntax::*;
@@ -120,13 +119,13 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             none
         ),
         (I32, Power, I32) => transfer_linkage!(
-            |arguments, _| unsafe {
+            |arguments, _| {
                 num::pow(arguments[0].downcast_i32(), arguments[1].downcast_i32() as usize).to_register()
             },
             none
         ),
         (I32, RemEuclid, I32) => transfer_linkage!(
-            |arguments, _| unsafe {
+            |arguments, _| {
                 let dividend = arguments[0].downcast_i32();
                 let divisor = arguments[1].downcast_i32();
                 dividend.rem_euclid(divisor).to_register()
@@ -167,7 +166,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             ),
             (I32, Some(Add), I32) => transfer_linkage!(
                 |arguments, _| unsafe {
-                    let new_value: i32 = (arguments[0].downcast_i32() + arguments[1].downcast_i32());
+                    let new_value: i32 = arguments[0].downcast_i32() + arguments[1].downcast_i32();
                     *arguments[0].downcast_temp_mut::<i32>(&__I32_VTABLE) = new_value;
                     __Register::new_void()
                 },
@@ -175,7 +174,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             ),
             (I32, Some(Sub), I32) => transfer_linkage!(
                 |arguments, _| unsafe {
-                    let new_value: i32 = (arguments[0].downcast_i32() - arguments[1].downcast_i32());
+                    let new_value: i32 = arguments[0].downcast_i32() - arguments[1].downcast_i32();
                     *arguments[0].downcast_temp_mut::<i32>(&__I32_VTABLE) = new_value;
                     __Register::new_void()
                 },
@@ -190,7 +189,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             ),
             (B32, Some(BitAnd), B32) => transfer_linkage!(
                 |arguments, _| unsafe {
-                    let new_value: b32 = (arguments[0].downcast_b32() & arguments[1].downcast_b32());
+                    let new_value: b32 = arguments[0].downcast_b32() & arguments[1].downcast_b32();
                     *arguments[0].downcast_temp_mut::<b32>(&__B32_VTABLE) = new_value;
                     __Register::new_void()
                 },
@@ -198,7 +197,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
             ),
             (B32, Some(BitOr), B32) => transfer_linkage!(
                 |arguments, _| unsafe {
-                    let new_value: b32 = (arguments[0].downcast_b32() | arguments[1].downcast_b32());
+                    let new_value: b32 = arguments[0].downcast_b32() | arguments[1].downcast_b32();
                     *arguments[0].downcast_temp_mut::<b32>(&__B32_VTABLE) = new_value;
                     __Register::new_void()
                 },
