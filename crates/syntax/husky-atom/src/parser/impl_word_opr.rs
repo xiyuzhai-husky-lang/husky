@@ -1,6 +1,4 @@
-use husky_entity_route::RangedEntityRoute;
 use husky_opn_syntax::RawSuffixOpr;
-use husky_print_utils::epin;
 use husky_text::TextPosition;
 use husky_word::WordOpr;
 
@@ -37,7 +35,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                 self.stack.push(HuskyAtom::new(
                     self.token_stream.text_range(text_start),
                     HuskyAtomVariant::BePattern(pattern),
-                ));
+                ))?;
                 for atom in other_atoms {
                     todo!()
                 }

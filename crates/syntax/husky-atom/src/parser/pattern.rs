@@ -1,6 +1,3 @@
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
-use husky_word::{Keyword, Paradigm};
-
 use super::*;
 
 pub trait AtomParserPattern: std::fmt::Display {

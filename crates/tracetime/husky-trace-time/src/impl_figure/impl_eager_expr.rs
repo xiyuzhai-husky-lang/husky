@@ -18,7 +18,7 @@ impl HuskyTraceTime {
                         )
                         .unwrap(),
                     ),
-                    Err(e) => FigureCanvasData::void(),
+                    Err(_) => FigureCanvasData::void(),
                 },
                 HistoryEntry::Exec { .. } => todo!(),
                 HistoryEntry::Loop { .. } => panic!(),

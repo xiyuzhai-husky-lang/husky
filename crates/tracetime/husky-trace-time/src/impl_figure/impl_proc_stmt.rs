@@ -47,7 +47,6 @@ impl HuskyTraceTime {
         &self,
         loop_trace_id: TraceId,
         frame_mutations: &[MutationData],
-        frame_stack_snapshot: &StackSnapshot,
     ) -> FigureCanvasData {
         let loop_trace = self.trace(loop_trace_id);
         let mutations = match loop_trace.variant {
@@ -63,10 +62,12 @@ impl HuskyTraceTime {
                     .iter()
                     .enumerate()
                     .map(|(idx, mutation_data)| {
-                        if let Some(frame_mutation) =
-                            frame_mutations.iter().find(|frame_mutation| {
+                        if frame_mutations
+                            .iter()
+                            .find(|frame_mutation| {
                                 frame_mutation.varidx() == mutation_data.varidx()
                             })
+                            .is_some()
                         {
                             self.mutation_figure(idx, mutation_data)
                         } else {
@@ -114,7 +115,6 @@ impl HuskyTraceTime {
         idx: usize,
         mutation_data: &MutationData<'static>,
     ) -> MutationFigureData {
-        let sample_id = self.restriction.opt_sample_id().unwrap();
         MutationFigureData {
             name: match mutation_data.kind {
                 MutationDataVariant::Exec => {

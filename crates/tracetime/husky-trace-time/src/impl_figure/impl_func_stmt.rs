@@ -1,5 +1,4 @@
-use husky_text::HuskyText;
-use husky_vm::{History, VMControl};
+use husky_vm::History;
 
 use super::*;
 use crate::*;
@@ -12,18 +11,14 @@ impl HuskyTraceTime {
     ) -> FigureCanvasData {
         match stmt.variant {
             FuncStmtVariant::Init {
-                varname,
-                ref initial_value,
+                ref initial_value, ..
             } => self.eager_expr_figure(initial_value, history),
             FuncStmtVariant::Require { .. } | FuncStmtVariant::Assert { .. } => {
                 FigureCanvasData::void()
             }
             FuncStmtVariant::Return { ref result, .. } => self.eager_expr_figure(result, history),
-            FuncStmtVariant::ConditionFlow { ref branches } => todo!(),
-            FuncStmtVariant::Match {
-                ref match_expr,
-                ref branches,
-            } => todo!(),
+            FuncStmtVariant::ConditionFlow { .. } => todo!(),
+            FuncStmtVariant::Match { .. } => todo!(),
         }
     }
 }

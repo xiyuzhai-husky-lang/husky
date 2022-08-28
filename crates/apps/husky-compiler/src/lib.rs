@@ -23,12 +23,11 @@ use std::{
 
 pub struct CompilerInstance {
     dir: RelativePathBuf,
-    verbose: bool,
 }
 
 impl CompilerInstance {
-    pub fn new(verbose: bool, dir: RelativePathBuf) -> Self {
-        Self { dir, verbose }
+    pub fn new(dir: RelativePathBuf) -> Self {
+        Self { dir }
     }
 
     pub fn compile_all(&self) {

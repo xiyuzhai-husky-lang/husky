@@ -6,12 +6,12 @@ impl HuskyTraceTime {
         stmt: &FeatureLazyStmt,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         match stmt.variant {
-            FeatureLazyStmtVariant::Init { varname, ref value } => self.feature_expr_figure(value),
+            FeatureLazyStmtVariant::Init { ref value, .. } => self.feature_expr_figure(value),
             FeatureLazyStmtVariant::Assert { .. } => Ok(FigureCanvasData::void()),
             FeatureLazyStmtVariant::Return { ref result } => self.feature_expr_figure(result),
-            FeatureLazyStmtVariant::ConditionFlow { ref branches } => todo!(),
-            FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
-            FeatureLazyStmtVariant::Require { ref condition, .. } => Ok(FigureCanvasData::void()),
+            FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
+            FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
+            FeatureLazyStmtVariant::Require { .. } => Ok(FigureCanvasData::void()),
         }
     }
 }

@@ -8,7 +8,6 @@ struct LineSegment:
         start.to(end)
     
     func dist_to_point(pt: Point2d) -> f32:
-        // ad hoc
         ab = this.displacement()
         ap = start.to(pt)
         if ab.dot(ap) < 0.0:

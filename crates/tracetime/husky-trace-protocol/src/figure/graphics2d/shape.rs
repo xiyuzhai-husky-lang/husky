@@ -43,7 +43,7 @@ impl From<VisualData> for Shape2dData {
     fn from(visual_data: VisualData) -> Self {
         match visual_data {
             VisualData::BinaryImage28 { .. } => panic!(),
-            VisualData::Primitive { value } => todo!(),
+            VisualData::Primitive { .. } => todo!(),
             VisualData::BinaryGrid28 { ref padded_rows } => Shape2dData::laser_grid28(padded_rows),
             VisualData::Contour { points } => Shape2dData::Contour { points },
             VisualData::Group(group) => Shape2dData::Group {

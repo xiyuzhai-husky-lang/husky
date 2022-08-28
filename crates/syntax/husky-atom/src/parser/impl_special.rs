@@ -94,7 +94,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                             self.stack.push(HuskyAtom::new(
                                 self.token_stream.text_range(text_start),
                                 BinaryOpr::Pure(PureBinaryOpr::Shr).into(),
-                            ));
+                            ))?;
                             return Ok(())
                         }
                     }

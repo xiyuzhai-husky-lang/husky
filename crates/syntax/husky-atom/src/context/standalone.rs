@@ -1,5 +1,3 @@
-use husky_check_utils::should;
-
 use super::*;
 
 pub struct AtomContextStandalone<'a> {
@@ -32,14 +30,7 @@ impl<'a> AtomContext<'a> for AtomContextStandalone<'a> {
         self.kind
     }
 
-    fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken) {}
-
-    // fn opt_abs_semantic_tokens(&mut self) -> Option<&&mut Vec<AbsSemanticToken>> {
-    //     match self.opt_abs_semantic_tokens.as_ref() {
-    //         Some(ref abs_semantic_tokens) => Some(abs_semantic_tokens),
-    //         None => todo!(),
-    //     }
-    // }
+    fn push_abs_semantic_token(&mut self, _new_token: AbsSemanticToken) {}
 
     fn as_dyn_mut(&mut self) -> &mut dyn AtomContext<'a> {
         self
@@ -49,7 +40,7 @@ impl<'a> AtomContext<'a> for AtomContextStandalone<'a> {
         Default::default()
     }
 
-    fn rollback(&mut self, state: AtomContextState) {}
+    fn rollback(&mut self, _state: AtomContextState) {}
 
     fn push_symbol(&mut self, new_symbol: Symbol) {
         todo!()

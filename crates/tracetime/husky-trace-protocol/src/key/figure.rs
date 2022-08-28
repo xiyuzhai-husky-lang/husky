@@ -9,7 +9,6 @@ pub enum FigureCanvasKey {
         trace_id: TraceId,
         partitions: Partitions,
         arrivals: Arrivals,
-        enters: VecSet<TraceId>,
     },
     Specific {
         trace_id: TraceId,
@@ -41,7 +40,6 @@ impl FigureCanvasKey {
                     FigureCanvasKey::Generic {
                         trace_id,
                         partitions: restriction.partitions().clone(),
-                        enters: restriction.enters().clone(),
                         arrivals: restriction.arrivals().clone(),
                     }
                 }

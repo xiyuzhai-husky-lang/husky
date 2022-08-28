@@ -193,7 +193,7 @@ pub trait AtomContext<'a> {
                 },
                 _ => self.entity_syntax_db().husky_entity_kind(route),
             },
-            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => todo!(),
+            EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
             _ => self.entity_syntax_db().husky_entity_kind(route),
         };
         match kind_result {
