@@ -32,7 +32,7 @@ pub unsafe extern "C" fn __void_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __void_drop(data: *mut ()) {
-    Box::from_raw(data as *mut void);
+    drop(Box::from_raw(data as *mut void))
 }
 
 #[rustfmt::skip]
@@ -122,7 +122,7 @@ pub unsafe extern "C" fn __bool_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __bool_drop(data: *mut ()) {
-    Box::from_raw(data as *mut bool);
+    drop(Box::from_raw(data as *mut bool))
 }
 
 #[rustfmt::skip]
@@ -212,7 +212,7 @@ pub unsafe extern "C" fn __i32_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __i32_drop(data: *mut ()) {
-    Box::from_raw(data as *mut i32);
+    drop(Box::from_raw(data as *mut i32))
 }
 
 #[rustfmt::skip]
@@ -302,7 +302,7 @@ pub unsafe extern "C" fn __i64_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __i64_drop(data: *mut ()) {
-    Box::from_raw(data as *mut i64);
+    drop(Box::from_raw(data as *mut i64))
 }
 
 #[rustfmt::skip]
@@ -392,7 +392,7 @@ pub unsafe extern "C" fn __b32_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __b32_drop(data: *mut ()) {
-    Box::from_raw(data as *mut b32);
+    drop(Box::from_raw(data as *mut b32))
 }
 
 #[rustfmt::skip]
@@ -482,7 +482,7 @@ pub unsafe extern "C" fn __b64_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __b64_drop(data: *mut ()) {
-    Box::from_raw(data as *mut b64);
+    drop(Box::from_raw(data as *mut b64))
 }
 
 #[rustfmt::skip]
@@ -572,7 +572,7 @@ pub unsafe extern "C" fn __f32_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __f32_drop(data: *mut ()) {
-    Box::from_raw(data as *mut f32);
+    drop(Box::from_raw(data as *mut f32))
 }
 
 #[rustfmt::skip]
@@ -662,7 +662,7 @@ pub unsafe extern "C" fn __f64_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __f64_drop(data: *mut ()) {
-    Box::from_raw(data as *mut f64);
+    drop(Box::from_raw(data as *mut f64))
 }
 
 #[rustfmt::skip]
@@ -736,7 +736,7 @@ pub unsafe extern "C" fn __virtual_function_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_function_drop(data: *mut ()) {
-    Box::from_raw(data as *mut __VirtualFunction);
+    drop(Box::from_raw(data as *mut __VirtualFunction))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -771,7 +771,7 @@ pub unsafe extern "C" fn __virtual_enum_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_enum_drop(data: *mut ()) {
-    Box::from_raw(data as *mut __VirtualEnum);
+    drop(Box::from_raw(data as *mut __VirtualEnum))
 }
 #[rustfmt::skip]
 #[no_mangle]

@@ -8,8 +8,7 @@ use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRoute;
 use husky_infer_qualified_ty::{InferQualifiedTy, LazyExprQualifier};
 use husky_text::RangedCustomIdentifier;
-use husky_vm::*;
-use husky_word::{CustomIdentifier, RootIdentifier};
+use husky_word::RootIdentifier;
 use infer_contract::{InferContract, LazyContract};
 
 use super::*;
@@ -117,7 +116,6 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                 )
                 .unwrap();
                 let this_qt = LazyExprQualifiedTy::new(this_qual, opt_this_ty.unwrap());
-                let ty_decl = self.decl_db().ty_decl(opt_this_ty.unwrap()).unwrap();
                 LazyExprVariant::ThisField {
                     field_ident,
                     this_ty: opt_this_ty.unwrap(),
@@ -349,10 +347,6 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
         let this = self.parse_lazy_expr(this_idx)?;
-        let ty_decl = self.expr_ty_decl(this_idx).unwrap();
-        let this_ty_decl = self.decl_db().ty_decl(this.intrinsic_ty()).unwrap();
-        let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
-        let field_liason = field_decl.liason;
         let field_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
         let field_qt = self.lazy_expr_qualified_ty(raw_expr_idx).unwrap();
         Ok(LazyExprVariant::Opn {

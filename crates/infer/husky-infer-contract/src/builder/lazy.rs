@@ -29,7 +29,7 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_lazy_stmt(&mut self, stmt: &RawStmt) {
         match stmt.variant {
-            RawStmtVariant::Loop(raw_loop_kind) => panic!(),
+            RawStmtVariant::Loop(_) => panic!(),
             RawStmtVariant::ConditionBranch {
                 condition_branch_kind,
             } => match condition_branch_kind {
@@ -211,7 +211,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let this_ty_decl = self.expr_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
         let this_contract = LazyContract::member_self_lazy_contract(
-            field_decl.liason,
+            field_decl.modifier,
             contract,
             field_decl.ty,
             self.arena[opd].range,

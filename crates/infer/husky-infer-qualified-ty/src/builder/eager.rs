@@ -411,7 +411,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             this_qt.qual(),
             field_decl.field_kind,
             field_decl.ty,
-            field_decl.liason,
+            field_decl.modifier,
             field_contract,
             self.db.is_copyable(field_decl.ty)?,
         )?)

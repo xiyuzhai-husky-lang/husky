@@ -1,5 +1,5 @@
 use crate::*;
-use husky_atom::{context::SymbolKind, HuskyAtomVariant};
+use husky_atom::HuskyAtomVariant;
 use husky_opn_syntax::RawSuffixOpr;
 use husky_text::TextRanged;
 use husky_token::HuskyToken;
@@ -24,7 +24,7 @@ impl<'a> AstTransformer<'a> {
                 | HuskyAtomVariant::PrimitiveLiteral(_)
                 | HuskyAtomVariant::EntityRoute { .. }
                 | HuskyAtomVariant::FrameVariable { .. } => stack.accept_atom_expr(atom.into()),
-                HuskyAtomVariant::Unrecognized(ident) => stack.accept_atom_expr(atom.into()),
+                HuskyAtomVariant::Unrecognized(_) => stack.accept_atom_expr(atom.into()),
                 HuskyAtomVariant::Binary(opr) => stack.accept_binary(opr)?,
                 HuskyAtomVariant::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_start()),
                 HuskyAtomVariant::Suffix(suffix) => stack.accept_suffix(suffix, end),

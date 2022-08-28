@@ -5,7 +5,7 @@ mod vec;
 
 use std::iter::Peekable;
 
-use husky_check_utils::{should, should_eq};
+use husky_check_utils::should_eq;
 use husky_entity_kind::{EnumVariantKind, FieldKind};
 use husky_liason_semantics::OutputModifier;
 use husky_print_utils::{msg_once, p};
@@ -15,19 +15,17 @@ pub use vec::*;
 
 use crate::*;
 pub use enum_variant::*;
-use fold::LocalStack;
 use husky_ast::AstIter;
 use husky_atom::{
-    context::{AtomContextKind, Symbol, SymbolKind},
+    context::{AtomContextKind, Symbol},
     AtomContext, AtomContextStandalone,
 };
 use husky_defn_head::*;
 use husky_entity_route::*;
 use husky_text::*;
-use husky_vm::TySignature;
-use husky_word::{IdentArcDict, IdentDict, Paradigm};
+use husky_word::{IdentDict, Paradigm};
 use map_collect::MapCollect;
-use thin_vec::{thin_vec, ThinVec};
+use thin_vec::thin_vec;
 use vec_like::VecMap;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -226,12 +224,14 @@ impl TyDecl {
                     ident,
                     variant_class: ref raw_variant_kind,
                 } => {
-                    variants.insert_new(EnumVariantDecl {
-                        ident: ident.ident,
-                        variant: match raw_variant_kind {
-                            EnumVariantKind::Constant => EnumVariantDeclVariant::Constant,
-                        },
-                    });
+                    variants
+                        .insert_new(EnumVariantDecl {
+                            ident: ident.ident,
+                            variant: match raw_variant_kind {
+                                EnumVariantKind::Constant => EnumVariantDeclVariant::Constant,
+                            },
+                        })
+                        .unwrap();
                     children.next();
                 }
                 _ => panic!(),

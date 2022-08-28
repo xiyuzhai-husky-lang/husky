@@ -20,7 +20,7 @@ pub unsafe extern "C" fn __naive_i_32_internal_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __naive_i_32_internal_drop(data: *mut ()) {
-    Box::from_raw(data as *mut NaiveI32Internal);
+    drop(Box::from_raw(data as *mut NaiveI32Internal))
 }
 #[rustfmt::skip]
 #[no_mangle]

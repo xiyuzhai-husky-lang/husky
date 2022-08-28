@@ -9,7 +9,7 @@ use vec_like::VecMapEntry;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FieldDecl {
     pub ident: CustomIdentifier,
-    pub liason: MemberModifier,
+    pub modifier: MemberModifier,
     pub ty: EntityRoutePtr,
     pub field_kind: FieldKind,
 }
@@ -18,7 +18,7 @@ impl FieldDecl {
     pub fn instantiate(&self, ctx: &InstantiationContext) -> Arc<Self> {
         Arc::new(Self {
             ident: self.ident,
-            liason: self.liason,
+            modifier: self.modifier,
             ty: self.ty.instantiate(ctx).take_entity_route(),
             field_kind: self.field_kind,
         })
@@ -39,7 +39,7 @@ impl FieldDecl {
                     .entity_syntax_db()
                     .intern_word(static_decl.name)
                     .custom(),
-                liason,
+                modifier: liason,
                 ty: symbol_context.parse_entity_route(field_ty).unwrap(),
                 field_kind,
             }),
@@ -56,7 +56,7 @@ impl FieldDecl {
                 ast_field_kind: field_ast_kind,
             } => Arc::new(Self {
                 ident: ranged_ident.ident,
-                liason,
+                modifier: liason,
                 ty: ty.route,
                 field_kind: field_ast_kind.into(),
             }),

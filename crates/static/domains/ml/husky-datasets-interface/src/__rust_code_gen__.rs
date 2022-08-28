@@ -18,7 +18,7 @@ pub unsafe extern "C" fn __mnist_label_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __mnist_label_drop(data: *mut ()) {
-    Box::from_raw(data as *mut MnistLabel);
+    drop(Box::from_raw(data as *mut MnistLabel))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -53,7 +53,7 @@ pub unsafe extern "C" fn __binary_image_28_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __binary_image_28_drop(data: *mut ()) {
-    Box::from_raw(data as *mut BinaryImage28);
+    drop(Box::from_raw(data as *mut BinaryImage28))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -88,7 +88,7 @@ pub unsafe extern "C" fn __binary_grid_28_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __binary_grid_28_drop(data: *mut ()) {
-    Box::from_raw(data as *mut BinaryGrid28);
+    drop(Box::from_raw(data as *mut BinaryGrid28))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -123,7 +123,7 @@ pub unsafe extern "C" fn __dataset_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __dataset_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Dataset);
+    drop(Box::from_raw(data as *mut Dataset))
 }
 #[rustfmt::skip]
 #[no_mangle]

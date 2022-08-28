@@ -15,11 +15,11 @@ impl EntityRoute {
                 }
                 RootIdentifier::Array => todo!(),
                 RootIdentifier::Option => {
-                    f.write_str("?");
+                    f.write_str("?")?;
                     return self.entity_route_argument(0).root_fmt(f);
                 }
                 RootIdentifier::Tuple => {
-                    f.write_str("(");
+                    f.write_str("(")?;
                     for (i, spatial_argument) in self.spatial_arguments.iter().enumerate() {
                         if i > 0 {
                             f.write_str(", ")?
@@ -29,7 +29,7 @@ impl EntityRoute {
                     return f.write_str(")");
                 }
                 RootIdentifier::Ref => {
-                    f.write_str("&");
+                    f.write_str("&")?;
                     return self.entity_route_argument(0).root_fmt(f);
                 }
                 _ => f.write_str(&ident)?,
@@ -72,7 +72,7 @@ impl EntityRoute {
         match self.variant {
             EntityRouteVariant::Root { ident } => match ident {
                 RootIdentifier::Tuple => {
-                    f.write_str("(");
+                    f.write_str("(")?;
                     for (i, spatial_argument) in self.spatial_arguments.iter().enumerate() {
                         if i > 0 {
                             f.write_str(", ")?

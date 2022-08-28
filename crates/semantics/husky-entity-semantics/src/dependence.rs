@@ -483,7 +483,7 @@ impl EntityDefn {
                 EntityDefnVariant::TyField {
                     field_ty: ty,
                     field_variant: ref field_variant,
-                    liason: contract,
+                    liason,
                     ..
                 } => todo!(),
                 EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),

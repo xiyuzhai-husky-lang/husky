@@ -3,7 +3,6 @@ mod __rust_code_gen__;
 mod context;
 mod error;
 mod extra;
-mod layout;
 mod linkage;
 mod register;
 #[cfg(test)]
@@ -19,7 +18,6 @@ mod virtual_thick_fp;
 pub use __rust_code_gen__::*;
 pub use context::*;
 pub use error::*;
-pub use layout::*;
 pub use linkage::*;
 pub use register::*;
 #[cfg(feature = "thick_fp")]

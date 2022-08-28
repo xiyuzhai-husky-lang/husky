@@ -1,11 +1,10 @@
 use crate::*;
 use husky_ast::*;
-use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::RangedEntityRoute;
 use husky_file::FilePtr;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
 use husky_semantics_error::*;
-use husky_vm::{VMCompileResult, VMStackIdx, __VMResult};
 use husky_word::{CustomIdentifier, IdentPairDict};
 use husky_xml_syntax::XmlTagKind;
 use infer_contract::{ContractSheet, InferContract};

@@ -229,7 +229,7 @@ impl<'a> AstTransformer<'a> {
             InitKind::Let | InitKind::Var => match self.context() {
                 AstContext::Stmt {
                     paradigm: Paradigm::EagerProcedural,
-                    return_context,
+                    ..
                 } => (),
                 _ => err!(
                     format!(

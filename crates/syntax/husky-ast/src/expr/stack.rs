@@ -2,13 +2,12 @@ use crate::*;
 use husky_check_utils::should;
 use husky_entity_route::{RangedEntityRoute, SpatialArgument};
 use husky_opn_syntax::{RawOpnVariant, RawSuffixOpr};
-use husky_pattern_syntax::RawPattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::RangedCustomIdentifier;
 use husky_text::{TextPosition, TextRange};
 use thin_vec::ThinVec;
 
-use crate::{expr::precedence::Precedence, *};
+use crate::expr::precedence::Precedence;
 
 pub(crate) struct ExprStack<'a> {
     arena: &'a mut RawExprArena,

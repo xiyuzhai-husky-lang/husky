@@ -10,8 +10,8 @@ impl EntityRoutePtr {
             ),
         }
         match self.variant {
-            EntityRouteVariant::Root { ident } => assert_eq!(self.ident(), base_route.ident()),
-            EntityRouteVariant::Package { main, ident } => (),
+            EntityRouteVariant::Root { .. } => assert_eq!(self.ident(), base_route.ident()),
+            EntityRouteVariant::Package { .. } => (),
             EntityRouteVariant::Child { parent, ident } => match base_route.variant {
                 EntityRouteVariant::Child {
                     parent: other_parent,

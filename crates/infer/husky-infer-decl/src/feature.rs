@@ -1,5 +1,3 @@
-use husky_word::ContextualIdentifier;
-
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

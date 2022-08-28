@@ -2,19 +2,13 @@ mod spatial;
 
 use husky_check_utils::should;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
-use husky_liason_semantics::{
-    MemberModifier, OutputModifier, ParameterModifier, RangedParameterLiason,
-};
-use husky_print_utils::p;
+use husky_liason_semantics::{MemberModifier, ParameterModifier, RangedParameterLiason};
 pub use spatial::*;
-use std::sync::Arc;
 use thin_vec::thin_vec;
 
-use husky_entity_route::{
-    EntityRoutePtr, EntityRouteVariant, InternEntityRoute, RangedEntityRoute,
-};
+use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_text::{RangedCustomIdentifier, TextRange};
-use husky_word::{CustomIdentifier, IdentDict, Paradigm, RootIdentifier};
+use husky_word::{CustomIdentifier, RootIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Parameter {
@@ -89,9 +83,8 @@ impl Parameter {
     pub fn from_member(
         db: &dyn EntitySyntaxQueryGroup,
         ranged_ident: RangedCustomIdentifier,
-        liason: MemberModifier,
+        modifier: MemberModifier,
         member_ty: EntityRoutePtr,
-        is_member_ty_copyable: bool,
     ) -> Self {
         should!(ranged_ident
             .ident
@@ -104,7 +97,7 @@ impl Parameter {
             db,
             ranged_ident,
             RangedParameterLiason {
-                liason: ParameterModifier::from_member(liason, member_ty, is_member_ty_copyable),
+                liason: ParameterModifier::from_member(modifier),
                 opt_range: None,
             },
             RangedEntityRoute {

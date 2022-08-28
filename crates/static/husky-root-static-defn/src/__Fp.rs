@@ -1,5 +1,3 @@
-use husky_trace_protocol::VisualData;
-
 use super::*;
 
 pub static FP_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {

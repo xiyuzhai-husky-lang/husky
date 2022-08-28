@@ -2,10 +2,6 @@ use crate::*;
 #[cfg(feature = "binding")]
 use husky_vm_binding::Binding;
 use husky_vm_primitive_value::PrimitiveValueData;
-use std::ffi::CStr;
-
-#[cfg(feature = "extra")]
-use crate::*;
 
 #[cfg(feature = "extra")]
 impl<'eval> __Register<'eval> {

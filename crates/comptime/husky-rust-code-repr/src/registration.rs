@@ -53,7 +53,7 @@ pub unsafe extern "C" fn __{ty}_clone(data: *mut ()) -> *mut () {{
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __{ty}_drop(data: *mut ()) {{
-    Box::from_raw(data as *mut {ty});
+    drop(Box::from_raw(data as *mut {ty}))
 }}
 
 #[rustfmt::skip]
@@ -144,7 +144,7 @@ pub unsafe extern "C" fn __{snake_ty}_clone(data: *mut ()) -> *mut () {{
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __{snake_ty}_drop(data: *mut ()) {{
-    Box::from_raw(data as *mut {ty});
+    drop(Box::from_raw(data as *mut {ty}))
 }}
 #[rustfmt::skip]
 #[no_mangle]

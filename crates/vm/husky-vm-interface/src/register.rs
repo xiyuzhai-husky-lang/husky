@@ -11,10 +11,7 @@ pub use vtable::*;
 use wild_utils::wild_arb_ref;
 
 use crate::*;
-use std::{
-    marker::PhantomData,
-    panic::{RefUnwindSafe, UnwindSafe},
-};
+use std::panic::{RefUnwindSafe, UnwindSafe};
 
 #[repr(C)]
 pub struct __Register<'eval> {
@@ -319,32 +316,26 @@ impl<'eval> __Register<'eval> {
     }
 
     pub fn new_void() -> __Register<'eval> {
-        unsafe {
-            __Register {
-                data_kind: __RegisterDataKind::PrimitiveValue,
-                data: __RegisterData { as_void: () },
-                vtable: &__VOID_VTABLE,
-            }
+        __Register {
+            data_kind: __RegisterDataKind::PrimitiveValue,
+            data: __RegisterData { as_void: () },
+            vtable: &__VOID_VTABLE,
         }
     }
 
     pub fn unreturned() -> __Register<'eval> {
-        unsafe {
-            __Register {
-                data_kind: __RegisterDataKind::Unreturned,
-                data: __RegisterData { as_void: () },
-                vtable: &__VOID_VTABLE,
-            }
+        __Register {
+            data_kind: __RegisterDataKind::Unreturned,
+            data: __RegisterData { as_void: () },
+            vtable: &__VOID_VTABLE,
         }
     }
 
     pub fn new_moved(vtable: &'eval __RegisterTyVTable) -> __Register<'eval> {
-        unsafe {
-            __Register {
-                data_kind: __RegisterDataKind::Moved,
-                data: __RegisterData { as_void: () },
-                vtable,
-            }
+        __Register {
+            data_kind: __RegisterDataKind::Moved,
+            data: __RegisterData { as_void: () },
+            vtable,
         }
     }
 

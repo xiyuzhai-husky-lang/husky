@@ -69,7 +69,6 @@ impl EntityDefnVariant {
                             },
                             liason,
                             field_ty,
-                            db.is_copyable(field_ty).unwrap(),
                         ),
                         _ => {
                             p!(field_variant);
@@ -100,7 +99,6 @@ impl EntityDefnVariant {
                             },
                             liason,
                             ty,
-                            db.is_copyable(ty).unwrap(),
                         ),
                         _ => panic!(),
                     },

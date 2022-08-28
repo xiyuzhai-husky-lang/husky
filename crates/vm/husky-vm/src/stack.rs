@@ -1,10 +1,7 @@
 use crate::*;
 use arrayvec::ArrayVec;
-use husky_check_utils::should_eq;
-use husky_print_utils::{msg_once, p};
 use husky_word::CustomIdentifier;
-use map_collect::MapCollect;
-use std::{fmt::Write, ops::Add};
+use std::fmt::Write;
 
 pub const STACK_SIZE: usize = 255;
 
@@ -86,9 +83,7 @@ impl<'eval> VMStack<'eval> {
     }
 
     pub(crate) fn push(&mut self, value: __Register<'eval>) {
-        assert_ne!(value.vtable as *const _, unsafe {
-            &__VOID_VTABLE as *const _
-        });
+        assert_ne!(value.vtable as *const _, &__VOID_VTABLE as *const _);
         self.values.push(value);
     }
     pub(crate) fn pop(&mut self) -> __Register<'eval> {
@@ -163,16 +158,17 @@ impl VariableStack {
 
     pub fn compare_with_vm_stack(&self, vm_stack: &VMStack) -> String {
         let mut result = String::new();
-        write!(result, "VariableStack:\n");
-        write!(result, "    has_this: {}\n", self.has_this);
+        write!(result, "VariableStack:\n").unwrap();
+        write!(result, "    has_this: {}\n", self.has_this).unwrap();
         if self.has_this {
             write!(
                 result,
                 "        this: {}\n",
                 vm_stack.values[0].print_short()
-            );
+            )
+            .unwrap();
         }
-        write!(result, "    variables:\n");
+        write!(result, "    variables:\n").unwrap();
         let shift = if self.has_this { 1 } else { 0 };
         for (i, ident) in self.non_this_variables.iter().enumerate() {
             write!(
@@ -182,7 +178,8 @@ impl VariableStack {
                 husky_print_utils::CYAN,
                 ident.as_str(),
                 husky_print_utils::RESET,
-            );
+            )
+            .unwrap();
             if i + shift < vm_stack.values.len() {
                 write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()
             } else {
