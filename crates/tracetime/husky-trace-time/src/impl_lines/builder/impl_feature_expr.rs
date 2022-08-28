@@ -1,13 +1,9 @@
 use super::*;
 use crate::*;
 use husky_entity_route::RangedEntityRoute;
-use husky_feature_eval::EvalFeature;
 use husky_lazy_semantics::{LazyExprVariant, LazyOpnKind};
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
-use husky_print_utils::epin;
 use husky_text::RangedCustomIdentifier;
-use husky_vm::InterpreterQueryGroup;
-use husky_word::CustomIdentifier;
 
 impl<'a> TraceTokenBuilder<'a> {
     pub(crate) fn gen_feature_expr_tokens(
@@ -23,7 +19,7 @@ impl<'a> TraceTokenBuilder<'a> {
         match expr.variant {
             FeatureLazyExprVariant::Literal(_) => match expr.expr.variant {
                 LazyExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
-                LazyExprVariant::EnumLiteral { entity_route } => {
+                LazyExprVariant::EnumLiteral { .. } => {
                     let text = self.runtime().comptime().text(expr.expr.file).unwrap();
                     self.push(route!(text.ranged(expr.expr.range), opt_assoc_id))
                 }

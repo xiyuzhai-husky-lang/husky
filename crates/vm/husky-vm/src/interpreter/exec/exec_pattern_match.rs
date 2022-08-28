@@ -4,7 +4,6 @@ use avec::Avec;
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn exec_pattern_matching(
         &mut self,
-        sheet: &InstructionSheet,
         ins: &Instruction,
         branches: &Avec<VMPatternBranch>,
         mode: Mode,

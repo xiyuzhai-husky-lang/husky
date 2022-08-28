@@ -27,7 +27,7 @@ impl HuskyTraceTime {
                 .iter()
                 .map(|branch| self.feature_branch_trace(parent, stmt.indent, branch.clone()))
                 .collect(),
-            FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
+            FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
         }
     }
 
@@ -70,34 +70,16 @@ impl HuskyTraceTime {
                 entity.ident,
                 parameters,
             ),
-            EntityDefnVariant::Proc {
-                parameters: ref parameters,
-                ..
-            } => routine_call_head_tokens(
+            EntityDefnVariant::Proc { ref parameters, .. } => routine_call_head_tokens(
                 &self.runtime.comptime().text(entity.file).unwrap(),
                 "proc ",
                 entity.ident,
                 parameters,
             ),
-            EntityDefnVariant::Module {
-                ref module_items,
-                ref opt_main_defn,
-            } => todo!(),
-            EntityDefnVariant::Feature { ref defn_repr } => todo!(),
-            EntityDefnVariant::Function {
-                ref spatial_parameters,
-                ref parameters,
-                output,
-                ref source,
-            } => todo!(),
-            EntityDefnVariant::Method {
-                spatial_parameters: ref generic_parameters,
-                this_modifier: this_contract,
-                ref parameters,
-                output_ty,
-                output_modifier: output_liason,
-                ..
-            } => routine_call_head_tokens(
+            EntityDefnVariant::Module { .. } => todo!(),
+            EntityDefnVariant::Feature { .. } => todo!(),
+            EntityDefnVariant::Function { .. } => todo!(),
+            EntityDefnVariant::Method { ref parameters, .. } => routine_call_head_tokens(
                 &self.runtime.comptime().text(entity.file).unwrap(),
                 "func ",
                 entity.ident,
@@ -105,18 +87,11 @@ impl HuskyTraceTime {
             ),
             EntityDefnVariant::Ty { .. } => todo!(),
             EntityDefnVariant::Trait { .. } => todo!(),
-            EntityDefnVariant::EnumVariant {
-                ref enum_variant_defn_variant,
-            } => todo!(),
+            EntityDefnVariant::EnumVariant { .. } => todo!(),
             EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::TyField {
-                field_ty: ty,
-                ref field_variant,
-                liason,
-                opt_linkage,
-            } => todo!(),
-            EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
-            EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+            EntityDefnVariant::TyField { .. } => todo!(),
+            EntityDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
             EntityDefnVariant::TargetInput { .. } => todo!(),
             EntityDefnVariant::Any => todo!(),
         };

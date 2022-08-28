@@ -1,8 +1,4 @@
 use crate::*;
-use husky_entity_route::EntityRoutePtr;
-use husky_text::HuskyText;
-use husky_vm::{ControlSnapshot, History, VMControl};
-use husky_word::RootIdentifier;
 
 impl HuskyTraceTime {
     pub(crate) fn collect_new_trace_statss(&mut self) -> Vec<(TraceStatsKey, Option<TraceStats>)> {

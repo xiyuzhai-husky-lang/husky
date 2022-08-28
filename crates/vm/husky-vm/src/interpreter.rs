@@ -45,7 +45,6 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         db: &'temp dyn InterpreterQueryGroup,
         opt_ctx: Option<&'temp dyn __EvalContext<'eval>>,
         argument_iter: impl Iterator<Item = __Register<'eval>>,
-        has_this: bool,
         vm_config: &'temp VMConfig,
     ) -> Interpreter<'temp, 'eval> {
         Self {

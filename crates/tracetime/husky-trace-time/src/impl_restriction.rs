@@ -1,8 +1,4 @@
-use std::time::Instant;
-
 use crate::*;
-use husky_text::HuskyText;
-use husky_vm::{History, VMControl};
 
 impl HuskyTraceTime {
     pub fn restriction(&self) -> &Restriction {
@@ -27,7 +23,7 @@ impl HuskyTraceTime {
                 Ok(_) => (),
                 Err(e) => {
                     match e.variant {
-                        __VMErrorVariant::FromBatch { sample_id, .. } => {
+                        __VMErrorVariant::FromBatch { .. } => {
                             todo!()
                             // self.set_restriction_raw(Restriction::Specific { sample_id })
                         }
@@ -40,9 +36,5 @@ impl HuskyTraceTime {
             vec![]
         };
         (new_trace_stalks, self.collect_new_trace_statss())
-    }
-
-    fn set_restriction_raw(&mut self, restriction: Restriction) {
-        self.restriction = restriction;
     }
 }

@@ -1,9 +1,7 @@
 use husky_eager_semantics::ProcStmtVariant;
-use husky_feature_gen::FeatureLazyStmtVariant;
 use husky_print_utils::msg_once;
 use husky_trace::*;
-use husky_vm::{HistoryEntry, LoopFrameData, MutationData};
-use serde::{Deserialize, Serialize};
+use husky_vm::HistoryEntry;
 
 use super::*;
 
@@ -66,11 +64,9 @@ impl HuskyTraceTime {
                 ..
             } => match history.get(stmt)? {
                 HistoryEntry::ControlFlow {
-                    opt_branch_entered: branch_entered,
-                    control,
-                    ..
+                    opt_branch_entered, ..
                 } => {
-                    if Some(branch_idx) == *branch_entered {
+                    if Some(branch_idx) == *opt_branch_entered {
                         msg_once!("todo");
                         FigureControlData::default()
                     } else {

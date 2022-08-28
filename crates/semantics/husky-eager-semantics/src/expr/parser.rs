@@ -230,10 +230,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         let lopd = self.parse_eager_expr(raw_opds.start, lopd_opt_expectation)?;
         let ropd = self.parse_eager_expr(raw_opds.start + 1, ropd_opt_expectation)?;
         Ok(EagerExprVariant::Opn {
-            opn_variant: EagerOpnVariant::Binary {
-                opr,
-                this_ty: lopd.intrinsic_ty(),
-            },
+            opn_variant: EagerOpnVariant::Binary { opr },
             opds: vec![lopd, ropd],
         })
     }
@@ -246,10 +243,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
         let opd_idx = raw_opds.start;
         let opd = self.parse_eager_expr(opd_idx, None)?;
         Ok(EagerExprVariant::Opn {
-            opn_variant: EagerOpnVariant::Prefix {
-                opr,
-                this_ty: opd.intrinsic_ty(),
-            },
+            opn_variant: EagerOpnVariant::Prefix { opr },
             opds: vec![opd],
         })
     }
@@ -269,10 +263,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             RawSuffixOpr::Unveil => EagerSuffixOpr::Unveil,
         };
         Ok(EagerExprVariant::Opn {
-            opn_variant: EagerOpnVariant::Suffix {
-                opr,
-                this_ty: opd.intrinsic_ty(),
-            },
+            opn_variant: EagerOpnVariant::Suffix { opr },
             opds: vec![opd],
         })
     }
