@@ -1,5 +1,5 @@
 use super::*;
-use std::{any::TypeId, borrow::Cow, sync::Arc};
+use std::borrow::Cow;
 
 #[derive(Default, Clone, PartialEq, Eq)]
 pub struct BinaryImage28 {
@@ -47,14 +47,6 @@ impl BinaryImage28 {
             padded_rows[i + 1] = row;
         }
         Self { padded_rows }
-    }
-
-    pub(crate) fn get(&self, index: usize) -> Option<u32> {
-        self.padded_rows.get(index).map(|x| *x)
-    }
-
-    pub(crate) fn get_mut(&mut self, index: usize) -> Option<&mut u32> {
-        self.padded_rows.get_mut(index)
     }
 }
 

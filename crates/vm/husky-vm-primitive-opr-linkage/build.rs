@@ -1,8 +1,5 @@
 use husky_opn_syntax::*;
-use husky_rust_code_repr::{registration::NonPrimitiveTypeRegistration, BuildCodeGenStart};
 use husky_word::RootIdentifier;
-use husky_write_utils::w;
-use std::env;
 use std::fmt::Write;
 use std::path::PathBuf;
 
@@ -36,7 +33,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
     )?;
     use PureBinaryOpr::*;
     use RootIdentifier::*;
-    static supported_pure_binary_opns: &'static [(
+    static SUPPORTED_PURE_BINARY_OPNS: &'static [(
         RootIdentifier,
         PureBinaryOpr,
         RootIdentifier,
@@ -72,7 +69,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         (F32, Mul, F32),
         (F32, Sub, F32),
     ];
-    for (lopd_ty_ident, opr, ropd_ty_ident) in supported_pure_binary_opns {
+    for (lopd_ty_ident, opr, ropd_ty_ident) in SUPPORTED_PURE_BINARY_OPNS {
         let lopd_ty_husky_name = lopd_ty_ident.as_str();
         let ropd_ty_husky_name = ropd_ty_ident.as_str();
         let opr_code = opr.code();
@@ -191,6 +188,6 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
     }}
 }}
 "#
-    );
+    )?;
     Ok(code)
 }

@@ -54,8 +54,7 @@ pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Image2d,
             fp: StaticVisualizerFp(|value| {
-                let value: &BinaryImage28 =
-                    unsafe { value.downcast_temp_ref(&__BINARY_IMAGE_28_VTABLE) };
+                let value: &BinaryImage28 = value.downcast_temp_ref(&__BINARY_IMAGE_28_VTABLE);
                 Ok(VisualData::BinaryImage28 {
                     padded_rows: value.padded_rows.clone(),
                 })
@@ -75,9 +74,10 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         variadic_template: StaticVariadicTemplate::None,
         output_ty: BINARY_IMAGE_28_ROUTE,
         output_liason: OutputModifier::Transfer,
-        linkage: transfer_linkage!(|_, _values| unsafe {
-            (__Register::new_box(BinaryImage28::default(), &__BINARY_IMAGE_28_VTABLE))
-        }, some base BinaryImage28::__call__ as fn() -> BinaryImage28)
+        linkage: transfer_linkage!(
+            |_, _values| __Register::new_box(BinaryImage28::default(), &__BINARY_IMAGE_28_VTABLE),
+            some base BinaryImage28::__call__ as fn() -> BinaryImage28
+        )
         .into(),
     },
     dev_src: static_dev_src!(),

@@ -1,4 +1,3 @@
-mod cache;
 mod canonical;
 mod fmt;
 mod intern;
@@ -6,7 +5,6 @@ mod menu;
 mod utils;
 mod verifiy;
 
-pub use cache::*;
 pub use canonical::*;
 pub use husky_entity_kind::EntityKind;
 pub use intern::{

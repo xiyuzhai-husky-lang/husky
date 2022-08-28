@@ -19,10 +19,7 @@ impl<'eval> TraceVariant<'eval> {
                 FuncStmtVariant::Assert { ref condition } => history.contains(condition),
                 FuncStmtVariant::Return { ref result, .. } => history.contains(result),
                 FuncStmtVariant::ConditionFlow { .. } => panic!("FuncBranch"),
-                FuncStmtVariant::Match {
-                    ref match_expr,
-                    ref branches,
-                } => history.contains(match_expr),
+                FuncStmtVariant::Match { ref match_expr, .. } => history.contains(match_expr),
                 FuncStmtVariant::Require { ref condition, .. } => history.contains(condition),
             },
             TraceVariant::ProcStmt { stmt, history } => match stmt.variant {
@@ -34,19 +31,11 @@ impl<'eval> TraceVariant<'eval> {
                 ProcStmtVariant::ConditionFlow { .. } => panic!("ProcBranch"),
                 ProcStmtVariant::Loop { .. } | ProcStmtVariant::Break => history.contains(stmt),
                 ProcStmtVariant::Return { ref result, .. } => history.contains(result),
-                ProcStmtVariant::Match {
-                    ref match_expr,
-                    ref branches,
-                } => todo!(),
+                ProcStmtVariant::Match { .. } => todo!(),
             },
-            TraceVariant::LoopFrame {
-                loop_stmt,
-                body_instruction_sheet,
-                body_stmts,
-                loop_frame_data,
-            } => true,
+            TraceVariant::LoopFrame { .. } => true,
             TraceVariant::EagerExpr { expr, history } => history.contains(expr),
-            TraceVariant::CallHead { entity, tokens } => true,
+            TraceVariant::CallHead { .. } => true,
             TraceVariant::ProcBranch {
                 stmt,
                 branch_idx,

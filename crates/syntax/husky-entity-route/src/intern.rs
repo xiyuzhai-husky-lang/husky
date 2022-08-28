@@ -1,10 +1,9 @@
 use crate::*;
 use core::hash::Hash;
 use husky_print_utils::msg_once;
-use husky_text::RangedCustomIdentifier;
 use interner::{Intern, Interner};
 use paste::paste;
-use std::{any::TypeId, borrow::Borrow, ops::Deref, sync::Arc};
+use std::{borrow::Borrow, ops::Deref};
 
 pub type EntityRouteInterner = Interner<EntityRoute, EntityRoute, EntityRoutePtr>;
 
@@ -166,12 +165,12 @@ impl EntityRoutePtr {
 
     pub fn contains_any(&self) -> bool {
         match self.variant {
-            EntityRouteVariant::Child { parent, ident } => {
+            EntityRouteVariant::Child { parent, .. } => {
                 if parent.contains_any() {
                     return true;
                 }
             }
-            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
+            EntityRouteVariant::TypeAsTraitMember { ty, trai, .. } => {
                 if ty.contains_any() {
                     return true;
                 }
@@ -200,14 +199,12 @@ impl EntityRoutePtr {
 
 impl std::fmt::Display for EntityRoutePtr {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        use std::fmt::Debug;
         (**self).root_fmt(f)
     }
 }
 
 impl std::fmt::Debug for EntityRoutePtr {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        use std::fmt::Debug;
         (**self).root_fmt(f)
     }
 }

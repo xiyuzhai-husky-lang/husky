@@ -5,7 +5,6 @@ pub use expr_config::*;
 
 use super::*;
 use builder::*;
-use utils::*;
 
 impl HuskyTraceTime {
     pub(crate) fn trace_lines(

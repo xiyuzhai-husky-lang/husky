@@ -59,13 +59,9 @@ impl<'eval> Trace {
                 EagerExprVariant::ThisField { .. } => todo!(),
                 EagerExprVariant::EnumKindLiteral(_) => todo!(),
                 EagerExprVariant::EntityFeature { .. } => todo!(),
-                EagerExprVariant::EntityThickFp { route } => todo!(),
+                EagerExprVariant::EntityThickFp { .. } => todo!(),
             },
-            TraceVariant::EagerCallArgument {
-                name: ident,
-                ref argument,
-                ref history,
-            } => todo!(),
+            TraceVariant::EagerCallArgument { .. } => todo!(),
         }
     }
 }

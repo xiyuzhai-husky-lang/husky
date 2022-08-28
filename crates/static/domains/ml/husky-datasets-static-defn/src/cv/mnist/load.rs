@@ -1,5 +1,4 @@
 use super::*;
-use husky_print_utils::*;
 
 pub(super) fn load_mnist() -> (Arc<Vec<Arc<BinaryImage28>>>, Arc<Vec<Label>>) {
     let mut images: Vec<Arc<BinaryImage28>> = Vec::new();

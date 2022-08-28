@@ -24,7 +24,6 @@ impl salsa::ParallelDatabase for HuskyComptime {
             linkage_table: self.linkage_table.clone(),
             entity_route_store: self.entity_route_store.clone(),
             config: self.config.clone(),
-            ty_cache: self.ty_cache.clone(),
         })
     }
 }

@@ -54,15 +54,6 @@ impl std::fmt::Display for ImplFp {
             .into_iter()
             .map(|i| -> String { format!(r#"A{i}, "#) })
             .join("");
-        let arg_types_with_eval_lifetime = (0..self.nargs)
-            .into_iter()
-            .map(|i| -> String {
-                format!(
-                    r#"
-        <A{i} as __WithEvalLifetime<'eval>>::__SelfWithEvalLifetime,"#
-                )
-            })
-            .join("");
         let static_arg_types_with_comma = (0..self.nargs)
             .into_iter()
             .map(|i| -> String {
@@ -72,7 +63,6 @@ impl std::fmt::Display for ImplFp {
                 )
             })
             .join("");
-        let opt_comma = if self.nargs > 0 { ", " } else { "" };
         f.write_fmt(format_args!(
             r#"
 // base

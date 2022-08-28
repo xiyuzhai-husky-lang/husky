@@ -5,7 +5,6 @@ mod labeled_data;
 mod loader;
 pub mod synthetic;
 
-use __rust_code_gen__::*;
 pub use cv::*;
 pub use husky_datasets_protocol::*;
 pub use iter::*;

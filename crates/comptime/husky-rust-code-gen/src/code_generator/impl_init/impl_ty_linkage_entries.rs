@@ -3,7 +3,6 @@ use super::*;
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_ty_linkages(
         &mut self,
-        ty_kind: TyKind,
         opt_type_call: &Option<Arc<husky_entity_semantics::TypeCallDefn>>,
         ty: EntityRoutePtr,
         members: &Arc<Vec<Arc<EntityDefn>>>,
