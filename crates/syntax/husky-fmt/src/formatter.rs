@@ -97,7 +97,6 @@ impl<'a> Formatter<'a> {
                 match kind {
                     TyKind::Enum => todo!(),
                     TyKind::Struct => {
-                        let opt_base_ty = self.context.value().opt_subroute(self.db, ident.ident);
                         self.context.set(AstContext::Struct {
                             item_context: StructItemContext::OriginalField,
                             opt_base_ty: None,
@@ -185,8 +184,8 @@ impl<'a> Formatter<'a> {
             AstVariant::FieldDefnHead {
                 liason,
                 ranged_ident,
-                field_ty: ty,
-                ast_field_kind: field_kind,
+                field_ty,
+                ..
             } => {
                 match liason {
                     MemberModifier::Immutable => (),
@@ -195,17 +194,14 @@ impl<'a> Formatter<'a> {
                 }
                 self.fmt_ident(ranged_ident.ident.into());
                 self.write(": ");
-                self.fmt_ty(ty.route)
+                self.fmt_ty(field_ty.route)
             }
             AstVariant::Stmt(ref stmt) => self.fmt_stmt(stmt),
             AstVariant::DatasetConfigDefnHead => todo!(),
-            AstVariant::EnumVariantDefnHead {
-                ident,
-                variant_class: ref variant_kind,
-            } => todo!(),
+            AstVariant::EnumVariantDefnHead { .. } => todo!(),
             AstVariant::FeatureDefnHead { .. } => todo!(),
-            AstVariant::Use { ref use_variant } => todo!(),
-            AstVariant::Submodule { ident, source_file } => todo!(),
+            AstVariant::Use { .. } => todo!(),
+            AstVariant::Submodule { .. } => todo!(),
             AstVariant::Visual => todo!(),
         }
     }
@@ -289,7 +285,7 @@ impl<'a> Formatter<'a> {
             RawStmtVariant::Break => todo!(),
             RawStmtVariant::Match { .. } => todo!(),
             RawStmtVariant::ReturnXml(_) => todo!(),
-            RawStmtVariant::Require { condition, .. } => todo!(),
+            RawStmtVariant::Require { .. } => todo!(),
         }
     }
 
@@ -325,7 +321,7 @@ impl<'a> Formatter<'a> {
                     self.write(opr.spaced_code());
                     self.fmt_expr(&opds[1]);
                 }
-                RawOpnVariant::Prefix(opr) => todo!(),
+                RawOpnVariant::Prefix(_) => todo!(),
                 RawOpnVariant::Suffix(_) => todo!(),
                 RawOpnVariant::List(opr) => match opr {
                     ListOpr::TupleInit => todo!(),
@@ -357,10 +353,7 @@ impl<'a> Formatter<'a> {
                 self.fmt_expr(&self.arena[expr])
             }
             RawExprVariant::ThisValue { .. } => todo!(),
-            RawExprVariant::FrameVariable {
-                varname,
-                init_range: init_row,
-            } => todo!(),
+            RawExprVariant::FrameVariable { .. } => todo!(),
             RawExprVariant::ThisField { .. } => todo!(),
         }
     }

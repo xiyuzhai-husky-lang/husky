@@ -15,6 +15,24 @@ pub enum PrimitiveLiteralData {
     Bool(bool),
 }
 
+impl std::fmt::Display for PrimitiveLiteralData {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            PrimitiveLiteralData::Void => "void".fmt(formatter),
+            PrimitiveLiteralData::Integer(i) => i.fmt(formatter),
+            PrimitiveLiteralData::I32(i) => i.fmt(formatter),
+            PrimitiveLiteralData::I64(i) => i.fmt(formatter),
+            PrimitiveLiteralData::Float(f) => f.fmt(formatter),
+            PrimitiveLiteralData::F32(f) => f.fmt(formatter),
+            PrimitiveLiteralData::F64(f) => f.fmt(formatter),
+            PrimitiveLiteralData::Bits(b) => b.fmt(formatter),
+            PrimitiveLiteralData::B32(b) => b.fmt(formatter),
+            PrimitiveLiteralData::B64(b) => b.fmt(formatter),
+            PrimitiveLiteralData::Bool(b) => b.fmt(formatter),
+        }
+    }
+}
+
 impl Into<String> for PrimitiveLiteralData {
     fn into(self) -> String {
         match self {

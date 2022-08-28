@@ -17,13 +17,13 @@ pub enum HuskyTokenKind {
 impl std::fmt::Display for HuskyTokenKind {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            HuskyTokenKind::Decorator(_) => todo!(),
-            HuskyTokenKind::Keyword(_) => todo!(),
-            HuskyTokenKind::Identifier(_) => todo!(),
+            HuskyTokenKind::Decorator(decorator) => write!(f, "`{}`", decorator.as_str()),
+            HuskyTokenKind::Keyword(keyword) => write!(f, "`{}`", keyword.as_str()),
+            HuskyTokenKind::Identifier(ident) => write!(f, "`{}`", ident.as_str()),
             HuskyTokenKind::Special(special_token) => write!(f, "`{}`", special_token.code()),
-            HuskyTokenKind::WordOpr(_) => todo!(),
-            HuskyTokenKind::WordPattern(_) => todo!(),
-            HuskyTokenKind::PrimitiveLiteral(_) => todo!(),
+            HuskyTokenKind::WordOpr(opr) => write!(f, "`{}`", opr.as_str()),
+            HuskyTokenKind::WordPattern(patt) => write!(f, "`{}`", patt.as_str()),
+            HuskyTokenKind::PrimitiveLiteral(lit) => write!(f, "`{}`", lit),
             HuskyTokenKind::Unrecognized(_) => todo!(),
             HuskyTokenKind::IllFormedLiteral(_) => todo!(),
         }
