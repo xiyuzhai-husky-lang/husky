@@ -96,7 +96,8 @@ impl AstText {
                     .collect::<String>()),
                 folded_result.folding_end,
                 folded_result.value.as_ref().map(|ast| ast.range)
-            );
+            )
+            .unwrap();
         }
         summary
     }

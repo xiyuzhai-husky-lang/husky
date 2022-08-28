@@ -14,7 +14,6 @@ pub enum Precedence {
     BitOr = 9,
     And = 8,
     Or = 7,
-    As = 6,
     LambdaHead = 2,
     ListItem = 1,
     None = 0,

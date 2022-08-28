@@ -69,7 +69,7 @@ impl<'a> RustCodeGenerator<'a> {
             self.gen_parameter_downcast(i + argidx_base, parameter)
         }
         msg_once!("keyword parameter overrides");
-        for (i, parameter) in decl.keyword_parameters.iter().enumerate() {
+        for (_i, parameter) in decl.keyword_parameters.iter().enumerate() {
             let parameter_name = parameter.ident;
             let parameter_ty = parameter.ty();
             self.write(&format!(

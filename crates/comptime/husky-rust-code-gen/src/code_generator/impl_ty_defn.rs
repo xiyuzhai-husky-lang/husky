@@ -2,7 +2,6 @@ use husky_entity_semantics::{
     CallFormSource, DefinitionRepr, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn,
 };
 use husky_word::{CustomIdentifier, RootIdentifier};
-use infer_decl::FieldDecl;
 
 use super::*;
 
@@ -86,7 +85,6 @@ impl From<i32> for {tyname} {{
                 EntityDefnVariant::TyField {
                     field_ty: ty,
                     ref field_variant,
-                    liason: contract,
                     ..
                 } => {
                     match field_variant {
@@ -154,10 +152,9 @@ impl From<i32> for {tyname} {{
         for (i, ty_member) in ty_members.iter().enumerate() {
             match ty_member.variant {
                 EntityDefnVariant::TyField {
-                    field_ty: ty,
+                    field_ty,
                     ref field_variant,
-                    liason,
-                    opt_linkage,
+                    ..
                 } => match field_variant {
                     FieldDefnVariant::StructOriginal | FieldDefnVariant::StructDefault { .. } => {
                         if i > 0 {
@@ -165,7 +162,7 @@ impl From<i32> for {tyname} {{
                         }
                         self.write(&ty_member.ident);
                         self.write(": ");
-                        self.gen_entity_route(ty, EntityRouteRole::Decl)
+                        self.gen_entity_route(field_ty, EntityRouteRole::Decl)
                     }
                     FieldDefnVariant::StructDerivedEager { .. }
                     | FieldDefnVariant::StructDerivedLazy { .. } => break,
@@ -180,10 +177,7 @@ impl From<i32> for {tyname} {{
         for (i, ty_member) in ty_members.iter().enumerate() {
             match ty_member.variant {
                 EntityDefnVariant::TyField {
-                    field_ty: ty,
-                    ref field_variant,
-                    liason,
-                    opt_linkage,
+                    ref field_variant, ..
                 } => match field_variant {
                     FieldDefnVariant::StructOriginal | FieldDefnVariant::StructDefault { .. } => (),
                     FieldDefnVariant::StructDerivedEager { ref derivation, .. } => {
@@ -210,10 +204,7 @@ impl From<i32> for {tyname} {{
         for (i, ty_member) in ty_members.iter().enumerate() {
             match ty_member.variant {
                 EntityDefnVariant::TyField {
-                    field_ty: ty,
-                    ref field_variant,
-                    liason,
-                    opt_linkage,
+                    ref field_variant, ..
                 } => match field_variant {
                     FieldDefnVariant::StructOriginal
                     | FieldDefnVariant::StructDefault { .. }
@@ -243,11 +234,9 @@ impl From<i32> for {tyname} {{
     ) {
         match ty_member.variant {
             EntityDefnVariant::Method {
-                ref spatial_parameters,
                 this_modifier: this_contract,
                 ref parameters,
                 output_ty,
-                output_modifier: output_liason,
                 opt_source: Some(ref source),
                 ..
             } => {
@@ -284,36 +273,31 @@ impl From<i32> for {tyname} {{
                 self.write("    }\n");
             }
             EntityDefnVariant::Func {
-                ref spatial_parameters,
                 ref parameters,
                 output,
                 ref stmts,
+                ..
             } => self.gen_func_defn(4, ty_member.base_route, parameters, output.route, stmts),
             EntityDefnVariant::Proc {
-                ref spatial_parameters,
                 ref parameters,
                 output,
                 ref stmts,
+                ..
             } => self.gen_proc_defn(4, ty_member.base_route, parameters, output.route, stmts),
             EntityDefnVariant::Function { .. } => todo!(),
             EntityDefnVariant::TyField {
-                field_ty: ty,
-                ref field_variant,
-                liason,
-                opt_linkage,
+                ref field_variant, ..
             } => match field_variant {
                 FieldDefnVariant::StructOriginal
                 | FieldDefnVariant::StructDefault { .. }
                 | FieldDefnVariant::StructDerivedEager { .. } => (),
                 FieldDefnVariant::StructDerivedLazy { defn_repr } => match **defn_repr {
-                    DefinitionRepr::LazyExpr { ref expr } => todo!(),
-                    DefinitionRepr::LazyBlock { ref stmts, ty } => (),
+                    DefinitionRepr::LazyExpr { .. } => todo!(),
+                    DefinitionRepr::LazyBlock { .. } => (),
                     DefinitionRepr::FuncBlock {
-                        route,
-                        file,
-                        range,
                         ref stmts,
                         return_ty,
+                        ..
                     } => {
                         self.write("pub(crate) fn ");
                         let ident = ty_member.ident;
@@ -350,11 +334,9 @@ impl From<i32> for {tyname} {{
                         self.write("    }\n");
                     }
                     DefinitionRepr::ProcBlock {
-                        route,
-                        file,
-                        range,
                         ref stmts,
                         return_ty,
+                        ..
                     } => {
                         self.write("pub(crate) fn ");
                         let ident = ty_member.ident;
@@ -392,7 +374,7 @@ impl From<i32> for {tyname} {{
                     }
                 },
                 FieldDefnVariant::RecordOriginal => (),
-                FieldDefnVariant::RecordDerived { defn_repr } => (),
+                FieldDefnVariant::RecordDerived { .. } => (),
             },
             _ => (),
         }

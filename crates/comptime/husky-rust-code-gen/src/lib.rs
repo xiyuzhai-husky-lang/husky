@@ -31,11 +31,7 @@ use lib_rs_content::*;
 use linkage_collector::*;
 use mangle::*;
 use mod_rs_content::*;
-use std::{
-    collections::HashSet,
-    path::{Path, PathBuf},
-    sync::Arc,
-};
+use std::sync::Arc;
 use utils::*;
 use vec_like::VecSet;
 

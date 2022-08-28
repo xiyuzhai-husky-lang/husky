@@ -1,10 +1,8 @@
 use super::*;
 use husky_eager_semantics::{
-    Boundary, FuncConditionFlowBranchVariant, FuncStmt, FuncStmtPatternBranchVariant,
-    FuncStmtVariant, LoopVariant, ProcConditionFlowBranchVariant, ProcStmt,
-    ProcStmtPatternBranchVariant, ProcStmtVariant,
+    Boundary, FuncConditionFlowBranchVariant, FuncStmt, FuncStmtVariant, LoopVariant,
+    ProcConditionFlowBranchVariant, ProcStmt, ProcStmtVariant,
 };
-use husky_entity_semantics::{EntityDefn, EntityDefnVariant, FieldDefnVariant};
 use husky_lazy_semantics::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
 
 impl<'a> LinkageCollector<'a> {
@@ -17,8 +15,8 @@ impl<'a> LinkageCollector<'a> {
                     self.collect_from_lazy_expr(condition)
                 }
                 LazyStmtVariant::Return { ref result } => self.collect_from_lazy_expr(result),
-                LazyStmtVariant::ReturnXml { ref xml_expr } => (),
-                LazyStmtVariant::ConditionFlow { ref branches, ty } => {
+                LazyStmtVariant::ReturnXml { .. } => (),
+                LazyStmtVariant::ConditionFlow { ref branches, .. } => {
                     for branch in branches {
                         match branch.variant {
                             LazyConditionBranchVariant::If { ref condition } => {
@@ -32,10 +30,7 @@ impl<'a> LinkageCollector<'a> {
                         self.collect_from_lazy_stmts(&branch.stmts)
                     }
                 }
-                LazyStmtVariant::Match {
-                    ref match_expr,
-                    ref branches,
-                } => todo!(),
+                LazyStmtVariant::Match { .. } => todo!(),
             }
         }
     }
@@ -110,19 +105,16 @@ impl<'a> LinkageCollector<'a> {
                 } => {
                     match loop_variant {
                         LoopVariant::For {
-                            frame_var,
                             initial_boundary,
                             final_boundary,
-                            step,
+                            ..
                         } => {
                             self.collect_from_boundary(initial_boundary);
                             self.collect_from_boundary(final_boundary)
                         }
-                        LoopVariant::ForExt {
-                            frame_var,
-                            final_boundary,
-                            step,
-                        } => self.collect_from_boundary(final_boundary),
+                        LoopVariant::ForExt { final_boundary, .. } => {
+                            self.collect_from_boundary(final_boundary)
+                        }
                         LoopVariant::While { condition } => self.collect_from_eager_expr(condition),
                         LoopVariant::DoWhile { condition } => {
                             self.collect_from_eager_expr(condition)

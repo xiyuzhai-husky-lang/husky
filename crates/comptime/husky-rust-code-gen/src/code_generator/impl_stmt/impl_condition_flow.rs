@@ -2,7 +2,7 @@ use super::*;
 use fold::Indent;
 use husky_eager_semantics::{
     FuncConditionFlowBranch, FuncConditionFlowBranchVariant, ProcConditionFlowBranch,
-    ProcConditionFlowBranchVariant, ProcStmt,
+    ProcConditionFlowBranchVariant,
 };
 use std::sync::Arc;
 

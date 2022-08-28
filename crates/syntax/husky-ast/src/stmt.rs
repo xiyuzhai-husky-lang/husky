@@ -8,7 +8,6 @@ pub use match_stmt::*;
 
 use crate::{expr::RawExprIdx, *};
 use husky_text::{TextRange, TextRanged};
-use husky_word::CustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawStmt {

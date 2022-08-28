@@ -181,9 +181,6 @@ impl<'a> ExprStack<'a> {
 }
 
 impl<'a> ExprStack<'a> {
-    fn top(&self, i: usize) -> &ExprStackOpr {
-        &self.oprs[self.oprs.len() - 1 - i]
-    }
     fn synthesize_list(
         &mut self,
         ket: Bracket,

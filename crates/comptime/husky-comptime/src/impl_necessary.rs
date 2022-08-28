@@ -1,11 +1,7 @@
-use std::{collections::HashMap, sync::Mutex};
-
 use crate::*;
 use husky_entity_semantics::{EntityRouteStore, StoreEntityRoute};
 use husky_linkage_table::{LinkageTable, ResolveLinkage};
 use husky_static_defn::ResolveStaticRootDefn;
-use husky_trace_protocol::*;
-use husky_vm::InterpreterQueryGroup;
 use infer_total::InferQueryGroup;
 use upcast::Upcast;
 

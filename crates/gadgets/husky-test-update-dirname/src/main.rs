@@ -1,6 +1,5 @@
 use husky_control_flow_utils::loop_require;
 use husky_path_utils::*;
-use husky_print_utils::p;
 
 fn main() {
     let tests_dir: PathBuf = "tests".into();

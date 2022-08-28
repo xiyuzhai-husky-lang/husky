@@ -2,7 +2,6 @@ use fold::Indent;
 use husky_eager_semantics::{FuncStmt, ProcStmt};
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::DefinitionRepr;
-use husky_word::CustomIdentifier;
 
 use super::*;
 
@@ -13,15 +12,11 @@ impl<'a> RustCodeGenerator<'a> {
         defn_repr: &DefinitionRepr,
     ) {
         match defn_repr {
-            DefinitionRepr::LazyExpr { expr } => (),
-            DefinitionRepr::LazyBlock { stmts, ty } => (),
+            DefinitionRepr::LazyExpr { .. } => (),
+            DefinitionRepr::LazyBlock { .. } => (),
             DefinitionRepr::FuncBlock {
-                route,
-                file,
-                range,
-                stmts,
-                return_ty: output_ty,
-            } => self.gen_feature_func_block_defn(feature_route, output_ty.route, stmts),
+                stmts, return_ty, ..
+            } => self.gen_feature_func_block_defn(feature_route, return_ty.route, stmts),
             DefinitionRepr::ProcBlock { .. } => todo!(),
         }
     }

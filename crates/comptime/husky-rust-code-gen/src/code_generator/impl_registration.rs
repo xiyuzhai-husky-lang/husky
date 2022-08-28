@@ -46,7 +46,6 @@ pub(crate) use __husky::registration::*;
     }
 
     fn gen_ty_registration(&mut self, entity_route: EntityRoutePtr) {
-        let ty_decl = self.db.ty_decl(entity_route);
         let mangled_intrinsic_ty = self.db.mangled_intrinsic_ty(entity_route);
         let needs_eval_ref = self.db.entity_route_contains_eval_ref(entity_route);
         write!(
@@ -57,7 +56,8 @@ pub(crate) use __husky::registration::*;
                 true => "<'eval>",
                 false => "",
             }
-        );
+        )
+        .unwrap();
         self.gen_entity_route(entity_route, EntityRouteRole::Decl);
         self.write(";\n");
         w!(self.result; (NonPrimitiveTypeRegistration { ty: &mangled_intrinsic_ty }))

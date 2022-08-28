@@ -32,17 +32,10 @@ use husky_entity_semantics::EntityRouteStore;
 use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
 use husky_print_utils::*;
-use husky_vm::{
-    __Register, __RegisterDataKind, __RegisterTyVTable, __VirtualEnum, __I32_VTABLE,
-    __VIRTUAL_ENUM_VTABLE,
-};
+use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 use husky_word::RootIdentifier;
 use indexmap::IndexMap;
-use std::{
-    collections::HashMap,
-    fmt,
-    sync::{Arc, Mutex},
-};
+use std::{fmt, sync::Arc};
 use sync_utils::ASafeRwLock;
 
 #[salsa::database(
@@ -77,7 +70,6 @@ pub struct HuskyComptime {
 impl HuskyComptime {
     pub fn new(config: HuskyComptimeConfig) -> Self {
         let live_docs = Default::default();
-        let entity_route_interner = husky_entity_route::new_entity_route_interner();
         let entity_route_store = Default::default();
         let linkage_table = LinkageTable::new(config.linkage_table.clone());
         let mut comptime = Self {
@@ -165,8 +157,7 @@ impl HuskyComptime {
                 let ty_decl: Arc<TyDecl> = self.ty_decl(intrinsic_ty).unwrap();
                 match ty_decl.ty_kind {
                     TyKind::Enum => {
-                        let value: &__VirtualEnum =
-                            unsafe { value.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE) };
+                        let value: &__VirtualEnum = value.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
                         let enum_variant_decl = &ty_decl.variants.data()[value.kind_idx as usize];
                         format!("{}::{}", intrinsic_ty.ident(), enum_variant_decl.ident)
                     }

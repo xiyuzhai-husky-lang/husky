@@ -45,7 +45,7 @@ impl<'a> RustCodeGenerator<'a> {
                     match opr {
                         BinaryOpr::Pure(_) => (),
                         BinaryOpr::Assign(_) => match opds[0].variant {
-                            EagerExprVariant::Variable { varname, binding } => (),
+                            EagerExprVariant::Variable { .. } => (),
                             EagerExprVariant::Opn {
                                 ref opn_variant, ..
                             } => match opn_variant {
@@ -288,20 +288,6 @@ impl<'a> RustCodeGenerator<'a> {
         opds: &Vec<Arc<EagerExpr>>,
         type_call: &CallFormDecl,
     ) {
-        let ty_defn = self.db.entity_defn(ty).unwrap();
-        let ty_members = match ty_defn.variant {
-            EntityDefnVariant::Ty {
-                ref spatial_parameters,
-                ref ty_members,
-                ref variants,
-                ty_kind,
-                ref trait_impls,
-                ref members,
-                ref opt_type_call,
-                ..
-            } => ty_members,
-            _ => panic!(),
-        };
         self.gen_entity_route(ty, EntityRouteRole::Caller);
         self.write("::");
         self.write("__call__(");
@@ -309,7 +295,7 @@ impl<'a> RustCodeGenerator<'a> {
         msg_once!("variadics");
         match type_call.variadic_template {
             VariadicTemplate::None => (),
-            VariadicTemplate::SingleTyped { variadic_ty: ty } => {
+            VariadicTemplate::SingleTyped { .. } => {
                 if type_call.primary_parameters.len() + type_call.keyword_parameters.len() > 0 {
                     self.write(", ")
                 }
@@ -330,19 +316,10 @@ impl<'a> RustCodeGenerator<'a> {
         self.indent(indent + 8);
         let ty_defn = self.db.entity_defn(ty).unwrap();
         let ty_members = match ty_defn.variant {
-            EntityDefnVariant::Ty {
-                ref spatial_parameters,
-                ref ty_members,
-                ref variants,
-                ty_kind,
-                ref trait_impls,
-                ref members,
-                ref opt_type_call,
-                ..
-            } => ty_members,
+            EntityDefnVariant::Ty { ref ty_members, .. } => ty_members,
             _ => panic!(),
         };
-        for (i, (parameter, expr)) in
+        for (_i, (parameter, expr)) in
             std::iter::zip(type_call.primary_parameters.iter(), opds.iter()).enumerate()
         {
             self.write("let __this_");
@@ -360,9 +337,7 @@ impl<'a> RustCodeGenerator<'a> {
             self.write(&parameter.ident);
             match ty_members.data()[type_call.primary_parameters.len() + i].variant {
                 EntityDefnVariant::TyField {
-                    field_ty: ty,
-                    ref field_variant,
-                    ..
+                    ref field_variant, ..
                 } => match field_variant {
                     FieldDefnVariant::StructDefault { default } => {
                         self.write(": ");
@@ -397,7 +372,7 @@ impl<'a> RustCodeGenerator<'a> {
         msg_once!("keyword arguments and more on variadics");
         match type_call.variadic_template {
             VariadicTemplate::None => (),
-            VariadicTemplate::SingleTyped { variadic_ty: ty } => {
+            VariadicTemplate::SingleTyped { .. } => {
                 if type_call.primary_parameters.len() + type_call.keyword_parameters.len() > 0 {
                     self.write(", ")
                 }

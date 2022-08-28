@@ -1,9 +1,7 @@
+use crate::*;
 use __husky::init::__StaticLinkageKey;
 use husky_vm::__Linkage;
 use smallvec::SmallVec;
-use upcast::Upcast;
-
-use crate::*;
 
 #[derive(Debug, Clone)]
 pub struct LinkageTable {
@@ -37,54 +35,34 @@ impl LinkageTable {
         })
     }
 
-    pub(crate) fn type_call_linkage(
-        &self,
-        db: &dyn EntityDefnQueryGroup,
-        ty_uid: EntityUid,
-    ) -> Option<__Linkage> {
-        self.get_linkage(db, LinkageKey::TypeCall { ty_uid })
+    pub(crate) fn type_call_linkage(&self, ty_uid: EntityUid) -> Option<__Linkage> {
+        self.get_linkage(LinkageKey::TypeCall { ty_uid })
     }
 
-    pub(crate) fn feature_eager_block_linkage(
-        &self,
-        db: &dyn EntityDefnQueryGroup,
-        feature_uid: EntityUid,
-    ) -> Option<__Linkage> {
-        self.get_linkage(db, LinkageKey::FeatureEagerBlock { uid: feature_uid })
+    pub(crate) fn feature_eager_block_linkage(&self, feature_uid: EntityUid) -> Option<__Linkage> {
+        self.get_linkage(LinkageKey::FeatureEagerBlock { uid: feature_uid })
     }
 
-    pub(crate) fn routine_linkage(
-        &self,
-        db: &dyn EntityDefnQueryGroup,
-        routine_uid: EntityUid,
-    ) -> Option<__Linkage> {
-        self.get_linkage(db, LinkageKey::Routine { routine_uid })
+    pub(crate) fn routine_linkage(&self, routine_uid: EntityUid) -> Option<__Linkage> {
+        self.get_linkage(LinkageKey::Routine { routine_uid })
     }
 
     pub(crate) fn field_linkage_source(
         &self,
-        db: &dyn EntityDefnQueryGroup,
         this_ty_uid: EntityUid,
         field_ident: CustomIdentifier,
     ) -> Option<__Linkage> {
-        self.get_linkage(
-            db,
-            LinkageKey::StructFieldAccess {
-                this_ty_uid,
-                field_ident,
-            },
-        )
+        self.get_linkage(LinkageKey::StructFieldAccess {
+            this_ty_uid,
+            field_ident,
+        })
     }
 
-    pub(crate) fn element_access(
-        &self,
-        db: &dyn EntityDefnQueryGroup,
-        opd_uids: SmallVec<[EntityUid; 2]>,
-    ) -> Option<__Linkage> {
-        self.get_linkage(db, LinkageKey::Index { opd_uids })
+    pub(crate) fn element_access(&self, opd_uids: SmallVec<[EntityUid; 2]>) -> Option<__Linkage> {
+        self.get_linkage(LinkageKey::Index { opd_uids })
     }
 
-    fn get_linkage(&self, db: &dyn EntityDefnQueryGroup, key: LinkageKey) -> Option<__Linkage> {
+    fn get_linkage(&self, key: LinkageKey) -> Option<__Linkage> {
         self.linkages
             .read(|entries| entries.get(&key).map(|linkage_source| *linkage_source))
     }

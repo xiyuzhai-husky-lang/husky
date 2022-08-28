@@ -101,16 +101,12 @@ impl<'a> RustCodeGenerator<'a> {
                     }
                 }
                 EntityRouteVariant::TargetInputValue => self.write("__input"),
-                EntityRouteVariant::Any { ident, .. } => {
+                EntityRouteVariant::Any { .. } => {
                     p!(entity_route);
                     todo!()
                 }
                 EntityRouteVariant::ThisType { .. } => todo!(),
-                EntityRouteVariant::TypeAsTraitMember {
-                    ty: parent,
-                    trai,
-                    ident,
-                } => todo!(),
+                EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
                 EntityRouteVariant::TargetOutputType => todo!(),
             }
         }
