@@ -78,13 +78,10 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             code,
             r#"
         ({lopd_ty_ident:?}, {opr:?}, {ropd_ty_ident:?}) => transfer_linkage!(
-            |arguments, _| unsafe {{
-                (arguments[0].downcast_{lopd_ty_husky_name}() {opr_code} arguments[1].downcast_{ropd_ty_husky_name}()).to_register()
-            }},
+            |arguments, _| (arguments[0].downcast_{lopd_ty_husky_name}() {opr_code} arguments[1].downcast_{ropd_ty_husky_name}()).to_register(),
             none
         ),"#
         )?
-        // some {lopd_ty_husky_name}::{rust_trait_method_name}
     }
     write!(
         code,
@@ -111,7 +108,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
 "#
     )?;
 
-    static supported_assign_binary_opns: &'static [(
+    static SUPPORTED_ASSIGN_BINARY_OPNS: &'static [(
         RootIdentifier,
         std::option::Option<PureBinaryOpr>,
         RootIdentifier,
@@ -145,7 +142,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
 
     match (lopd_ty, opt_opr, ropd_ty) {{"#
     )?;
-    for (lopd_ty_ident, opt_opr, ropd_ty_ident) in supported_assign_binary_opns {
+    for (lopd_ty_ident, opt_opr, ropd_ty_ident) in SUPPORTED_ASSIGN_BINARY_OPNS {
         let lopd_ty_husky_name = lopd_ty_ident.as_str();
         let ropd_ty_husky_name = ropd_ty_ident.as_str();
         let upper_lopd_ty_husky_name = lopd_ty_husky_name.to_uppercase();

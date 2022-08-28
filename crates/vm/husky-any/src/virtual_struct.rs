@@ -1,7 +1,7 @@
 use super::*;
 use husky_word::{CustomIdentifier, IdentPairDict};
 use serde::Serialize;
-use std::{borrow::Cow, fmt::Write};
+use std::borrow::Cow;
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct VirtualStruct<'eval> {
@@ -12,12 +12,12 @@ pub struct VirtualStruct<'eval> {
 impl<'eval> VirtualStruct<'eval> {
     pub fn new_struct(
         ty: EntityRoutePtr,
-        mut arguments: impl Iterator<Item = __Register<'eval>>,
+        arguments: impl Iterator<Item = __Register<'eval>>,
         field_liasons: &[CustomIdentifier],
     ) -> Self {
         let mut fields = IdentPairDict::<__Register<'eval>>::default();
-        for (ident, mut argument) in std::iter::zip(field_liasons.iter(), arguments) {
-            fields.insert_new((*ident, argument));
+        for (ident, argument) in std::iter::zip(field_liasons.iter(), arguments) {
+            fields.insert_new((*ident, argument)).unwrap();
         }
         VirtualStruct { ty, fields }
     }
