@@ -34,7 +34,7 @@ impl PathPattern {
     pub fn extension_is_among(
         extensions: impl IntoIterator<Item = &'static str>,
     ) -> CompositePattern<Self> {
-        CompositePattern::Any {
+        CompositePattern::Or {
             subpatterns: extensions
                 .into_iter()
                 .map(|extension| PathPattern::OfExtension { extension }.into())
@@ -46,7 +46,7 @@ impl PathPattern {
         root: &Path,
         rel_paths: impl IntoIterator<Item = &'static str>,
     ) -> CompositePattern<Self> {
-        CompositePattern::NotAny {
+        CompositePattern::NotOr {
             subpatterns: rel_paths
                 .into_iter()
                 .map(|rel_path| {

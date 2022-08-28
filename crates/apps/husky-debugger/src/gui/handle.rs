@@ -1,10 +1,8 @@
 use super::*;
 use colored::Colorize;
 use husky_check_utils::should_eq;
-use std::panic::{catch_unwind, panic_any};
-use std::{collections::hash_map::DefaultHasher, hash::Hasher};
-use std::{hash::Hash, path::PathBuf};
-use wild_utils::ref_to_mut_ref;
+use std::panic::catch_unwind;
+use std::path::PathBuf;
 use xxhash_rust::xxh3::xxh3_64;
 
 pub(crate) fn handle_message(
@@ -22,12 +20,11 @@ pub(crate) fn handle_message(
             Err(_) => todo!(),
         },
         Ok(None) => (),
-        Err(e) => save_server_history(
+        Err(_) => save_server_history(
             &(DebuggerServerHistory {
                 config: config.clone(),
                 gui_messages: gui_messages.to_vec(),
             }),
-            e,
         ),
     }
 }
@@ -37,10 +34,7 @@ struct DebuggerServerHistory {
     gui_messages: Vec<HuskyTracerGuiMessage>,
 }
 
-fn save_server_history(
-    server_history: &DebuggerServerHistory,
-    e: Box<dyn std::any::Any + std::marker::Send>,
-) {
+fn save_server_history(server_history: &DebuggerServerHistory) {
     let value = serde_json::to_string_pretty(server_history).unwrap();
     let filename = format!("history-{}.json", xxh3_64(value.as_bytes()));
     let filename: &str = &filename;
@@ -293,7 +287,7 @@ impl HuskyDebuggerInternal {
     ) -> Option<HuskyTracerServerMessageVariant> {
         let (new_trace_stalks, new_trace_stats) =
             self.trace_time.set_restriction(restriction.clone());
-        if needs_figure_canvas_data || needs_figure_control_data || needs_stalk {
+        if needs_figure_canvas_data || needs_figure_control_data || needs_stalk || needs_stats {
             let (opt_figure_canvas_data, opt_figure_control_data) = if let Some(active_trace_id) =
                 self.trace_time.opt_active_trace_id()
             {

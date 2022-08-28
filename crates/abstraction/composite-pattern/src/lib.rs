@@ -9,11 +9,11 @@ where
 {
     Trivial { value: bool },
     Atom { atom: P },
-    All { subpatterns: Vec<Self> },
-    Any { subpatterns: Vec<Self> },
+    And { subpatterns: Vec<Self> },
+    Or { subpatterns: Vec<Self> },
     NotAtom { atom: P },
-    NotAll { subpatterns: Vec<Self> },
-    NotAny { subpatterns: Vec<Self> },
+    NotAnd { subpatterns: Vec<Self> },
+    NotOr { subpatterns: Vec<Self> },
 }
 
 impl<P> From<P> for CompositePattern<P>
@@ -33,17 +33,17 @@ where
         match self {
             CompositePattern::Trivial { value } => *value,
             CompositePattern::Atom { atom } => atom.contains(input),
-            CompositePattern::All { subpatterns } => subpatterns
+            CompositePattern::And { subpatterns } => subpatterns
                 .iter()
                 .all(|subpattern| subpattern.contains(input)),
-            CompositePattern::Any { subpatterns } => subpatterns
+            CompositePattern::Or { subpatterns } => subpatterns
                 .iter()
                 .any(|subpattern| subpattern.contains(input)),
             CompositePattern::NotAtom { atom } => !atom.contains(input),
-            CompositePattern::NotAll { subpatterns } => !subpatterns
+            CompositePattern::NotAnd { subpatterns } => !subpatterns
                 .iter()
                 .all(|subpattern| subpattern.contains(input)),
-            CompositePattern::NotAny { subpatterns } => !subpatterns
+            CompositePattern::NotOr { subpatterns } => !subpatterns
                 .iter()
                 .any(|subpattern| subpattern.contains(input)),
         }
@@ -67,12 +67,19 @@ where
                     rhs
                 }
             }
-            CompositePattern::Atom { atom } => todo!(),
-            CompositePattern::All { subpatterns } => todo!(),
-            CompositePattern::Any { subpatterns } => todo!(),
-            CompositePattern::NotAtom { atom } => todo!(),
-            CompositePattern::NotAny { subpatterns } => todo!(),
-            CompositePattern::NotAll { subpatterns } => todo!(),
+            CompositePattern::Or { mut subpatterns } => {
+                subpatterns.push(rhs);
+                CompositePattern::Or { subpatterns }
+            }
+            _ => match rhs {
+                CompositePattern::Or { mut subpatterns } => {
+                    subpatterns.push(self);
+                    CompositePattern::Or { subpatterns }
+                }
+                _ => CompositePattern::Or {
+                    subpatterns: vec![self, rhs],
+                },
+            },
         }
     }
 }
@@ -94,12 +101,28 @@ where
                     self
                 }
             }
-            CompositePattern::Atom { atom } => todo!(),
-            CompositePattern::All { subpatterns } => todo!(),
-            CompositePattern::Any { subpatterns } => todo!(),
-            CompositePattern::NotAtom { atom } => todo!(),
-            CompositePattern::NotAny { subpatterns } => todo!(),
-            CompositePattern::NotAll { subpatterns } => todo!(),
+            CompositePattern::And { mut subpatterns } => {
+                subpatterns.push(rhs);
+                CompositePattern::And { subpatterns }
+            }
+            _ => match rhs {
+                CompositePattern::Trivial { value } => {
+                    if value {
+                        // always true
+                        self
+                    } else {
+                        // always false
+                        rhs
+                    }
+                }
+                CompositePattern::And { mut subpatterns } => {
+                    subpatterns.push(self);
+                    CompositePattern::And { subpatterns }
+                }
+                _ => CompositePattern::And {
+                    subpatterns: vec![self, rhs],
+                },
+            },
         }
     }
 }
@@ -112,13 +135,13 @@ where
 
     fn not(self) -> Self::Output {
         match self {
-            CompositePattern::Trivial { value } => todo!(),
+            CompositePattern::Trivial { value } => CompositePattern::Trivial { value: !value },
             CompositePattern::Atom { atom } => CompositePattern::NotAtom { atom },
-            CompositePattern::Any { subpatterns } => CompositePattern::NotAny { subpatterns },
-            CompositePattern::All { subpatterns } => CompositePattern::NotAll { subpatterns },
+            CompositePattern::Or { subpatterns } => CompositePattern::NotOr { subpatterns },
+            CompositePattern::And { subpatterns } => CompositePattern::NotAnd { subpatterns },
             CompositePattern::NotAtom { atom } => CompositePattern::Atom { atom },
-            CompositePattern::NotAll { subpatterns } => CompositePattern::All { subpatterns },
-            CompositePattern::NotAny { subpatterns } => CompositePattern::Any { subpatterns },
+            CompositePattern::NotAnd { subpatterns } => CompositePattern::And { subpatterns },
+            CompositePattern::NotOr { subpatterns } => CompositePattern::Or { subpatterns },
         }
     }
 }

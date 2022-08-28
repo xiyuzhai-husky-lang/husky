@@ -59,8 +59,13 @@ impl Implementable for EntityRoutePtr {
 
     fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
         let (variant, mut spatial_arguments) = match self.variant {
-            EntityRouteVariant::Root { ident } => todo!(),
-            EntityRouteVariant::Package { main, ident } => todo!(),
+            EntityRouteVariant::Root { ident } => {
+                (EntityRouteVariant::Root { ident }, Default::default())
+            }
+            EntityRouteVariant::Package { main, ident } => (
+                EntityRouteVariant::Package { main, ident },
+                Default::default(),
+            ),
             EntityRouteVariant::Child { parent, ident } => match parent.variant {
                 EntityRouteVariant::ThisType { .. } => {
                     let route = ctx.spatial_argument(ident).take_entity_route();
