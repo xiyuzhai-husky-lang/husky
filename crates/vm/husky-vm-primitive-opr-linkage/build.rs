@@ -14,7 +14,6 @@ pub fn gen_rust_code() -> Result<String, std::fmt::Error> {
     write!(
         code,
         r#"use super::*;
-use husky_print_utils::p;
 use husky_word::RootIdentifier;
 use husky_vm_interface::*;
 use husky_opn_syntax::*;
@@ -87,13 +86,13 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         code,
         r#"
         (I32, Power, I32) => transfer_linkage!(
-            |arguments, _| unsafe {{
+            |arguments, _| {{
                 num::pow(arguments[0].downcast_i32(), arguments[1].downcast_i32() as usize).to_register()
             }},
             none
         ),
         (I32, RemEuclid, I32) => transfer_linkage!(
-            |arguments, _| unsafe {{
+            |arguments, _| {{
                 let dividend = arguments[0].downcast_i32();
                 let divisor = arguments[1].downcast_i32();
                 dividend.rem_euclid(divisor).to_register()
@@ -154,7 +153,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
                 r#"
             ({lopd_ty_ident:?}, Some({opr:?}), {ropd_ty_ident:?}) => transfer_linkage!(
                 |arguments, _| unsafe {{
-                    let new_value: {lopd_ty_husky_name} = (arguments[0].downcast_{lopd_ty_husky_name}() {opr_code} arguments[1].downcast_{ropd_ty_husky_name}());
+                    let new_value: {lopd_ty_husky_name} = arguments[0].downcast_{lopd_ty_husky_name}() {opr_code} arguments[1].downcast_{ropd_ty_husky_name}();
                     *arguments[0].downcast_temp_mut::<{lopd_ty_husky_name}>(&__{upper_lopd_ty_husky_name}_VTABLE) = new_value;
                     __Register::new_void()
                 }},
