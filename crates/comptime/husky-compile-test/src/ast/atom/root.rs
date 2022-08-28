@@ -1,8 +1,14 @@
+#[cfg(test)]
 use super::utils;
+#[cfg(test)]
 use crate::*;
+#[cfg(test)]
 use husky_atom::*;
+#[cfg(test)]
 use husky_entity_kind::TyKind;
+#[cfg(test)]
 use husky_entity_route::EntityKind;
+#[cfg(test)]
 use husky_word::RootIdentifier;
 
 #[test]

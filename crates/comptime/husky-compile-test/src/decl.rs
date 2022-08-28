@@ -1,8 +1,11 @@
-use husky_entity_route::SpatialArgument;
-use husky_word::RootIdentifier;
-use thin_vec::{thin_vec, ThinVec};
-
+#[cfg(test)]
 use crate::*;
+#[cfg(test)]
+use husky_entity_route::SpatialArgument;
+#[cfg(test)]
+use husky_word::RootIdentifier;
+#[cfg(test)]
+use thin_vec::thin_vec;
 
 #[test]
 fn test_vec_ty_decl() {

@@ -1,5 +1,8 @@
+#[cfg(test)]
 use super::utils;
+#[cfg(test)]
 use crate::*;
+#[cfg(test)]
 use husky_atom::HuskyAtomVariant;
 
 #[test]

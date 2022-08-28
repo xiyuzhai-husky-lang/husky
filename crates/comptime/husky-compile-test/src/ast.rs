@@ -1,5 +1,5 @@
 mod atom;
-
+#[cfg(test)]
 use crate::*;
 
 #[test]

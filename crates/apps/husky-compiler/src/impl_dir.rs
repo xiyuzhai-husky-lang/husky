@@ -3,7 +3,6 @@ use husky_package_semantics::Package;
 
 impl CompilerInstance {
     pub fn getx_rust_gen_cache_dir(&self, package: &Package) -> PathBuf {
-        let dashed_name = snake_to_dash(&package.ident);
         getx_child_dir(&package.dir(), "__rust_gen_cache__")
     }
 

@@ -2,7 +2,7 @@ mod generics;
 mod lambda;
 mod root;
 mod utils;
-
+#[cfg(test)]
 use crate::*;
 
 #[test]
