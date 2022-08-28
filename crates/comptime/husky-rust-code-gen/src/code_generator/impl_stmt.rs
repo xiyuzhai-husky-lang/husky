@@ -3,13 +3,12 @@ mod impl_loop;
 mod impl_match_pattern;
 
 use fold::Indent;
-use husky_ast::{RawReturnContext, RawReturnContextKind};
+use husky_ast::RawReturnContextKind;
 use husky_eager_semantics::{
     Boundary, EagerExpr, EagerExprVariant, EagerOpnVariant, FuncStmt, FuncStmtVariant, LoopVariant,
     ProcStmt, ProcStmtVariant,
 };
 use husky_entity_route::EntityRoutePtr;
-use husky_infer_qualified_ty::EagerExprQualifier;
 use husky_opn_semantics::EagerSuffixOpr;
 use husky_word::RootIdentifier;
 
@@ -57,9 +56,6 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(");");
                 }
                 RawReturnContextKind::Feature => {
-                    let mangled_output_ty_vtable = self
-                        .db
-                        .mangled_intrinsic_ty_vtable(return_context.return_ty.route);
                     self.write(format!(r#"feature_require!(__ctx, __feature, "#));
                     self.gen_expr(stmt.indent, condition);
                     self.write(");");

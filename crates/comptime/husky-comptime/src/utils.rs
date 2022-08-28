@@ -2,18 +2,6 @@ use husky_trace_protocol::Label;
 
 use crate::*;
 
-// impl HuskyComptime {
-//     pub fn ty_route_from_static(&self, type_id: std::any::TypeId, text: &str) -> EntityRoutePtr {
-//         todo!()
-//         // if let Some(ty) = try_get_ty_route(type_id) {
-//         //     ty
-//         // } else {
-//         //     let ty = self.parse_route_from_text(text);
-//         //     insert_new_ty_route(type_id, ty);
-//         //     ty
-//         // }
-//     }
-// }
 impl HuskyComptime {
     pub fn register_to_label_converter(
         &self,
@@ -25,7 +13,6 @@ impl HuskyComptime {
             convert_i32_register_to_label
         } else {
             let target_output_ty_intrinsic_decl = self.ty_decl(target_output_ty_intrinsic).unwrap();
-            use husky_entity_kind::TyKind;
             match target_output_ty_intrinsic_decl.ty_kind {
                 TyKind::Enum => convert_enum_register_to_label,
                 TyKind::Record => todo!(),

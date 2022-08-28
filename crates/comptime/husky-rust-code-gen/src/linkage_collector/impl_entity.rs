@@ -21,20 +21,14 @@ impl<'a> LinkageCollector<'a> {
             EntityDefnVariant::Feature { ref defn_repr } => {
                 self.collect_from_feature_repr(Some(defn.base_route), defn_repr)
             }
-            EntityDefnVariant::Function {
-                ref spatial_parameters,
-                ref parameters,
-                output,
-                ref source,
-            } => self.collect_from_call_form_source(source),
+            EntityDefnVariant::Function { ref source, .. } => {
+                self.collect_from_call_form_source(source)
+            }
             EntityDefnVariant::Method {
-                ref spatial_parameters,
-                this_modifier: this_liason,
                 ref parameters,
                 output_ty,
-                output_modifier: output_liason,
-                method_defn_kind,
                 ref opt_source,
+                ..
             } => {
                 self.insert(defn.base_route);
                 self.insert(defn.base_route.parent());
@@ -45,10 +39,10 @@ impl<'a> LinkageCollector<'a> {
                 }
             }
             EntityDefnVariant::Func {
-                ref spatial_parameters,
                 ref parameters,
                 output,
                 ref stmts,
+                ..
             } => {
                 self.insert(defn.base_route);
                 self.collect_from_parameters(parameters);
@@ -56,10 +50,10 @@ impl<'a> LinkageCollector<'a> {
                 self.collect_from_func_stmts(stmts)
             }
             EntityDefnVariant::Proc {
-                ref spatial_parameters,
                 ref parameters,
                 output,
                 ref stmts,
+                ..
             } => {
                 self.insert(defn.base_route);
                 self.collect_from_parameters(parameters);
@@ -67,11 +61,6 @@ impl<'a> LinkageCollector<'a> {
                 self.collect_from_proc_stmts(stmts)
             }
             EntityDefnVariant::Ty {
-                ref spatial_parameters,
-                ref ty_members,
-                ref variants,
-                ty_kind: kind,
-                ref trait_impls,
                 ref members,
                 ref opt_type_call,
                 ..
@@ -82,13 +71,8 @@ impl<'a> LinkageCollector<'a> {
                 let entity_route_menu = self.db.entity_route_menu();
                 for member in members.iter() {
                     match member.variant {
-                        EntityDefnVariant::TyField {
-                            field_ty,
-                            ref field_variant,
-                            liason,
-                            opt_linkage,
-                        } => self.insert(field_ty),
-                        EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {
+                        EntityDefnVariant::TyField { field_ty, .. } => self.insert(field_ty),
+                        EntityDefnVariant::TraitAssociatedTypeImpl { .. } => {
                             if defn.base_route == entity_route_menu.clone_trait {
                                 ()
                             } else {
@@ -99,19 +83,14 @@ impl<'a> LinkageCollector<'a> {
                             method_defn_kind, ..
                         } => match method_defn_kind {
                             MethodDefnKind::TypeMethod { .. } => self.insert(defn.base_route),
-                            MethodDefnKind::TraitMethod { trai } => self.insert(defn.base_route),
-                            MethodDefnKind::TraitMethodImpl { trai } => {
-                                self.insert(defn.base_route)
-                            }
+                            MethodDefnKind::TraitMethod { .. } => self.insert(defn.base_route),
+                            MethodDefnKind::TraitMethodImpl { .. } => self.insert(defn.base_route),
                         },
                         _ => self.insert(member.base_route),
                     }
                 }
             }
-            EntityDefnVariant::Trait {
-                ref spatial_parameters,
-                ref members,
-            } => {
+            EntityDefnVariant::Trait { .. } => {
                 msg_once!("ad hoc ignore")
             }
             EntityDefnVariant::EnumVariant {
@@ -124,18 +103,18 @@ impl<'a> LinkageCollector<'a> {
                 ref field_variant, ..
             } => match field_variant {
                 FieldDefnVariant::StructOriginal => todo!(),
-                FieldDefnVariant::StructDefault { default } => todo!(),
-                FieldDefnVariant::StructDerivedEager { derivation } => todo!(),
+                FieldDefnVariant::StructDefault { .. } => todo!(),
+                FieldDefnVariant::StructDerivedEager { .. } => todo!(),
                 FieldDefnVariant::StructDerivedLazy { defn_repr } => {
                     self.collect_from_feature_repr(None, defn_repr)
                 }
                 FieldDefnVariant::RecordOriginal => todo!(),
-                FieldDefnVariant::RecordDerived { defn_repr } => todo!(),
+                FieldDefnVariant::RecordDerived { .. } => todo!(),
             },
-            EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {
+            EntityDefnVariant::TraitAssociatedTypeImpl { .. } => {
                 todo!()
             }
-            EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => {
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => {
                 todo!()
             }
             EntityDefnVariant::TargetInput { .. } => todo!(),
@@ -155,29 +134,21 @@ impl<'a> LinkageCollector<'a> {
         feature_repr: &DefinitionRepr,
     ) {
         match feature_repr {
-            DefinitionRepr::LazyExpr { expr } => todo!(),
+            DefinitionRepr::LazyExpr { .. } => todo!(),
             DefinitionRepr::LazyBlock { stmts, ty } => {
                 opt_feature_route.map(|feature_route| self.insert(feature_route));
                 self.insert(ty.route);
                 self.collect_from_lazy_stmts(stmts)
             }
             DefinitionRepr::FuncBlock {
-                route,
-                file,
-                range,
-                stmts,
-                return_ty: output_ty,
+                stmts, return_ty, ..
             } => {
                 opt_feature_route.map(|feature_route| self.insert(feature_route));
-                self.insert(output_ty.route);
+                self.insert(return_ty.route);
                 self.collect_from_func_stmts(stmts)
             }
             DefinitionRepr::ProcBlock {
-                file,
-                range,
-                stmts,
-                return_ty,
-                ..
+                stmts, return_ty, ..
             } => {
                 opt_feature_route.map(|feature_route| self.insert(feature_route));
                 self.insert(return_ty.route);
@@ -190,7 +161,7 @@ impl<'a> LinkageCollector<'a> {
         match source {
             CallFormSource::Func { stmts } => self.collect_from_func_stmts(stmts),
             CallFormSource::Proc { stmts } => self.collect_from_proc_stmts(stmts),
-            CallFormSource::Lazy { stmts } => todo!(),
+            CallFormSource::Lazy { .. } => todo!(),
             CallFormSource::Static(_) => (),
         }
     }

@@ -72,6 +72,6 @@ impl<'a> RustCodeGenerator<'a> {
     fn exec_within_context(&mut self, new_context: RustCodeGenContext, f: impl FnOnce(&mut Self)) {
         let old_context = std::mem::replace(&mut self.context, new_context);
         f(self);
-        std::mem::replace(&mut self.context, old_context);
+        self.context = old_context;
     }
 }

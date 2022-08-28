@@ -43,7 +43,7 @@ impl<'a> LinkageCollector<'a> {
                     },
                     EagerOpnVariant::MethodCall { method_route, .. } => {
                         match method_route.variant {
-                            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
+                            EntityRouteVariant::TypeAsTraitMember { .. } => {
                                 self.insert(*method_route)
                             }
                             _ => self.insert(*method_route),
@@ -62,7 +62,7 @@ impl<'a> LinkageCollector<'a> {
 
     pub(crate) fn collect_from_lazy_expr(&mut self, expr: &LazyExpr) {
         match expr.variant {
-            LazyExprVariant::Variable { varname, binding } => (),
+            LazyExprVariant::Variable { .. } => (),
             LazyExprVariant::PrimitiveLiteral(_) => (),
             LazyExprVariant::EnumLiteral { entity_route } => self.insert(entity_route.parent()),
             LazyExprVariant::Bracketed(ref bracketed_expr) => {
@@ -73,7 +73,7 @@ impl<'a> LinkageCollector<'a> {
                     self.collect_from_lazy_expr(opd);
                 }
                 match opn_kind {
-                    LazyOpnKind::Binary { opr, this } => (),
+                    LazyOpnKind::Binary { .. } => (),
                     LazyOpnKind::Prefix(_) => todo!(),
                     LazyOpnKind::FunctionModelCall(ranged_route) => self.insert(ranged_route.route),
                     LazyOpnKind::FunctionRoutineCall(ranged_route) => {
@@ -88,13 +88,8 @@ impl<'a> LinkageCollector<'a> {
                 }
             }
             LazyExprVariant::Lambda(_, _) => todo!(),
-            LazyExprVariant::ThisValue { binding } => todo!(),
-            LazyExprVariant::ThisField {
-                field_ident,
-                this_ty,
-                this_binding,
-                field_binding,
-            } => todo!(),
+            LazyExprVariant::ThisValue { .. } => todo!(),
+            LazyExprVariant::ThisField { .. } => todo!(),
             LazyExprVariant::EntityFeature { entity_route } => self.insert(entity_route),
             LazyExprVariant::BePattern { .. } => (),
         }

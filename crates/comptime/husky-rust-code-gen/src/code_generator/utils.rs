@@ -1,7 +1,4 @@
-use husky_eager_semantics::{FuncStmt, ProcStmt};
-use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::CallFormSource;
-use husky_word::CustomIdentifier;
 
 use super::*;
 
@@ -29,7 +26,7 @@ impl<'a> RustCodeGenerator<'a> {
         match source {
             CallFormSource::Func { stmts } => self.gen_func_stmts(stmts),
             CallFormSource::Proc { stmts } => self.gen_proc_stmts(stmts),
-            CallFormSource::Lazy { stmts } => todo!(),
+            CallFormSource::Lazy { .. } => todo!(),
             CallFormSource::Static(_) => todo!(),
         }
     }

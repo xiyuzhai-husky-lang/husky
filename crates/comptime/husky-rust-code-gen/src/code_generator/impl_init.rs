@@ -2,12 +2,10 @@ mod impl_resolved_linkage;
 mod impl_ty_linkage_entries;
 
 use husky_entity_route::{CanonicalQualifier, CanonicalTyKind};
-use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant, MethodDefnKind};
+use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant};
 use husky_layout::RegMemoryKind;
 use husky_word::RootIdentifier;
-use infer_decl::{
-    CallFormDecl, OutputDecl, ParameterDecl, TraitMemberImplDecl, TyDecl, VariadicTemplate,
-};
+use infer_decl::{CallFormDecl, ParameterDecl, TraitMemberImplDecl, TyDecl, VariadicTemplate};
 
 use super::*;
 
@@ -48,8 +46,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         match entity_defn.variant {
             EntityDefnVariant::Module { .. } => (),
             EntityDefnVariant::Feature { ref defn_repr } => match **defn_repr {
-                DefinitionRepr::LazyExpr { ref expr } => (),
-                DefinitionRepr::LazyBlock { ref stmts, ty } => (),
+                DefinitionRepr::LazyExpr { .. } => (),
+                DefinitionRepr::LazyBlock { .. } => (),
                 DefinitionRepr::FuncBlock {
                     route,
                     return_ty: output_ty,
@@ -57,21 +55,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 } => self.gen_eager_feature_linkage_entry(route, output_ty.route),
                 DefinitionRepr::ProcBlock { .. } => todo!(),
             },
-            EntityDefnVariant::Function {
-                ref spatial_parameters,
-                ref parameters,
-                output,
-                ref source,
-            } => todo!(),
+            EntityDefnVariant::Function { .. } => todo!(),
             EntityDefnVariant::Method { .. } => {
                 self.gen_method_linkage_entry(entity_route);
             }
-            EntityDefnVariant::Func {
-                ref spatial_parameters,
-                ref parameters,
-                output,
-                ref stmts,
-            } => {
+            EntityDefnVariant::Func { .. } => {
                 self.write(&format!(
                     r#"
     (
@@ -124,15 +112,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 TyKind::Record => (),
                 _ => self.gen_ty_linkages(ty_kind, opt_type_call, entity_route, members),
             },
-            EntityDefnVariant::Trait {
-                ref spatial_parameters,
-                ref members,
-            } => todo!(),
+            EntityDefnVariant::Trait { .. } => todo!(),
             EntityDefnVariant::EnumVariant { .. } => todo!(),
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::TyField { .. } => (), // this is handled in ty defn
-            EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => {}
-            EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+            EntityDefnVariant::TraitAssociatedTypeImpl { .. } => {}
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
             EntityDefnVariant::TargetInput { .. } => todo!(),
             EntityDefnVariant::Any => todo!(),
         }
@@ -144,7 +129,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     ("#,
         );
         match entity_route.variant {
-            EntityRouteVariant::Child { parent, ident } => {
+            EntityRouteVariant::Child { parent, .. } => {
                 self.write(&format!(
                     r#"
         __StaticLinkageKey::Routine {{ route: "{entity_route}" }},"#,
@@ -199,7 +184,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     }
                 }
             }
-            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
+            EntityRouteVariant::TypeAsTraitMember { ty, trai, .. } => {
                 if trai.variant == self.db.entity_route_menu().std_ops_index_trai.variant {
                     let this_ty_decl = self.db.ty_decl(ty).unwrap();
                     let trai_impl = this_ty_decl.trait_impl(trai).unwrap();
@@ -212,14 +197,10 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     todo!()
                 }
             }
-            EntityRouteVariant::Root { ident } => todo!(),
-            EntityRouteVariant::Package { main, ident } => todo!(),
+            EntityRouteVariant::Root { .. } => todo!(),
+            EntityRouteVariant::Package { .. } => todo!(),
             EntityRouteVariant::TargetInputValue => todo!(),
-            EntityRouteVariant::Any {
-                ident,
-                husky_entity_kind,
-                ..
-            } => todo!(),
+            EntityRouteVariant::Any { .. } => todo!(),
             EntityRouteVariant::ThisType { .. } => todo!(),
             EntityRouteVariant::TargetOutputType => todo!(),
         }
@@ -250,7 +231,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         self.write(", ");
         self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
         self.write(", __registration__::");
-        let entity_defn = self.db.entity_defn(route).unwrap();
         self.write(&self.db.mangled_intrinsic_ty_vtable(output_ty));
         self.write(
             r#"),
@@ -313,7 +293,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     }
 
     fn gen_parameter_downcast(&mut self, i: usize, parameter: &ParameterDecl) {
-        let parameter_name = parameter.ident;
         let parameter_ty = parameter.ty();
         match parameter.liason {
             ParameterModifier::None => {

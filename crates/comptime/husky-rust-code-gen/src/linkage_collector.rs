@@ -1,26 +1,20 @@
 use crate::*;
-use husky_check_utils::should;
 use husky_entity_route::SpatialArgument;
 use husky_instantiate::InstantiationContext;
-use husky_linkage_table::LinkageKey;
 use husky_word::RootIdentifier;
-use std::collections::{HashMap, HashSet};
-mod context;
 mod impl_entity;
 mod impl_expr;
 mod impl_stmt;
-pub use context::*;
 
 pub(crate) struct LinkageCollector<'a> {
     db: &'a dyn RustCodeGenQueryGroup,
     linkages: VecSet<EntityRoutePtr>,
-    context: LinkageCollectorContext,
 }
 
 impl<'a> LinkageCollector<'a> {
     pub(crate) fn insert(&mut self, entity_route: EntityRoutePtr) {
         match entity_route.variant {
-            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => {
+            EntityRouteVariant::TypeAsTraitMember { trai, .. } => {
                 if trai == self.db.entity_route_menu().clone_trait {
                     return;
                 }
@@ -93,7 +87,6 @@ pub(crate) fn entity_immediate_link_dependees(
         LinkageCollector {
             db,
             linkages: Default::default(),
-            context: LinkageCollectorContext::Base,
         }
         .produce_from_entity_defn(entity_route)
     }
@@ -113,7 +106,7 @@ pub(crate) fn entity_link_dependees(
         start: usize,
     ) {
         let len0 = dependees.len();
-        for subroute in dependees
+        for subroute in dependees[start..]
             .iter()
             .map(|subroute| *subroute)
             .collect::<Vec<_>>()

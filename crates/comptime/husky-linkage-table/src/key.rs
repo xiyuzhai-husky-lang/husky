@@ -1,8 +1,6 @@
 use crate::*;
 use __husky::init::__StaticLinkageKey;
-use husky_entity_syntax::EntitySyntaxQueryGroup;
 use smallvec::SmallVec;
-use upcast::Upcast;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageKey {
@@ -83,7 +81,7 @@ impl LinkageKey {
                 this_ty: db.entity_route_by_uid(*this_ty_uid),
                 field_ident: *field_ident,
             },
-            LinkageKey::FeatureEagerBlock { uid: feature_uid } => todo!(),
+            LinkageKey::FeatureEagerBlock { .. } => todo!(),
         }
     }
 }

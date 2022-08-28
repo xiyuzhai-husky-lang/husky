@@ -29,7 +29,6 @@ impl<'a> RustCodeGenerator<'a> {
                     ref variants,
                     ty_kind: kind,
                     ref trait_impls,
-                    ref members,
                     ..
                 } => match kind {
                     TyKind::Enum => {
@@ -53,12 +52,7 @@ impl<'a> RustCodeGenerator<'a> {
                 | EntityDefnVariant::TyField { .. } => {
                     panic!()
                 }
-                EntityDefnVariant::Function {
-                    ref spatial_parameters,
-                    ref parameters,
-                    output,
-                    ref source,
-                } => todo!(),
+                EntityDefnVariant::Function { .. } => todo!(),
                 EntityDefnVariant::TargetInput { .. } => todo!(),
                 EntityDefnVariant::Any => todo!(),
             }

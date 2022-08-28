@@ -48,13 +48,12 @@ impl<'a> RustCodeGenerator<'a> {
     ) {
         // todo: use decl rather than defn
         for member in members.iter() {
-            let is_defn_static = self.db.is_defn_static(ty);
             match member.variant {
                 EntityDefnVariant::TyField {
                     field_ty,
                     ref field_variant,
                     liason,
-                    opt_linkage,
+                    ..
                 } => self.gen_struct_field_linkages(field_variant, member, liason, ty, field_ty),
                 _ => {
                     let member_entity_route = match member.base_route.variant {
@@ -125,11 +124,7 @@ impl<'a> RustCodeGenerator<'a> {
                 DefinitionRepr::LazyExpr { .. } => (),
                 DefinitionRepr::LazyBlock { .. } => (),
                 DefinitionRepr::FuncBlock {
-                    route,
-                    file,
-                    range,
-                    ref stmts,
-                    return_ty,
+                    route, return_ty, ..
                 } => {
                     let field_ident = member.ident.as_str();
                     self.write(&format!(
@@ -158,11 +153,7 @@ impl<'a> RustCodeGenerator<'a> {
                     );
                 }
                 DefinitionRepr::ProcBlock {
-                    route,
-                    file,
-                    range,
-                    ref stmts,
-                    return_ty,
+                    route, return_ty, ..
                 } => {
                     let field_ident = member.ident.as_str();
                     self.write(&format!(

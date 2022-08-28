@@ -71,7 +71,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
                 return true;
             }
         }
-        EntityKind::Function { requires_lazy } => {
+        EntityKind::Function { .. } => {
             let call_form_decl = db.entity_call_form_decl(base_route).unwrap();
             for parameter in call_form_decl.primary_parameters.iter() {
                 if parameter_contains_eval_ref(db, parameter) {

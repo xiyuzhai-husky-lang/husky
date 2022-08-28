@@ -5,35 +5,33 @@ mod table;
 
 pub use config::*;
 pub use form::*;
+use husky_entity_syntax::EntitySource;
 pub use key::*;
 pub use table::*;
 
-use colored::Colorize;
 use husky_check_utils::*;
-use husky_entity_route::{EntityRoute, EntityRoutePtr, EntityRouteVariant, SpatialArgument};
+use husky_entity_route::{EntityRoutePtr, SpatialArgument};
 use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
-use husky_entity_syntax::EntitySource;
-use husky_file::FilePtr;
 use husky_print_utils::p;
-use husky_static_defn::{EntityStaticDefnVariant, FunctionStaticDefnVariant};
+use husky_static_defn::EntityStaticDefnVariant;
+use husky_vm::__ResolvedLinkage;
 use husky_vm::{Binding, EntityUid, __Linkage};
-use husky_vm::{__ResolvedLinkage, __VMResult};
-use husky_word::{CustomIdentifier, RootIdentifier};
+use husky_word::CustomIdentifier;
 use map_collect::MapCollect;
 use std::collections::HashMap;
 use sync_utils::ASafeRwLock;
-use thin_vec::{thin_vec, ThinVec};
+use thin_vec::thin_vec;
 use upcast::Upcast;
 
 pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup> {
     fn linkage_table(&self) -> &LinkageTable;
 
     fn index_linkage(&self, opd_tys: Vec<EntityRoutePtr>) -> __Linkage {
-        if let Some(__Linkage) = self
+        if let Some(linkage) = self
             .linkage_table()
-            .element_access(self.upcast(), opd_tys.map(|ty| self.entity_uid(*ty)))
+            .element_access(opd_tys.map(|ty| self.entity_uid(*ty)))
         {
-            __Linkage
+            linkage
         } else {
             let this_ty_defn = self.entity_defn(opd_tys[0]).unwrap();
             let std_ops_index_trai = self.route_call(
@@ -45,10 +43,8 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
                 EntityDefnVariant::Method { ref opt_source, .. } => {
                     if let Some(source) = opt_source {
                         match source {
-                            CallFormSource::Func { stmts } => todo!(),
-                            CallFormSource::Proc { stmts } => todo!(),
-                            CallFormSource::Lazy { stmts } => todo!(),
-                            CallFormSource::Static(__Linkage) => *__Linkage,
+                            CallFormSource::Static(linkage) => *linkage,
+                            _ => todo!(),
                         }
                     } else {
                         todo!()
@@ -67,22 +63,16 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         this_ty: EntityRoutePtr,
         field_ident: CustomIdentifier,
     ) -> Option<__Linkage> {
-        if let Some(__Linkage) = self.linkage_table().field_linkage_source(
-            self.upcast(),
-            self.entity_uid(this_ty),
-            field_ident,
-        ) {
-            return Some(__Linkage);
+        if let Some(linkage) = self
+            .linkage_table()
+            .field_linkage_source(self.entity_uid(this_ty), field_ident)
+        {
+            return Some(linkage);
         }
         let this_ty_defn = self.entity_defn(this_ty).unwrap();
         let ty_field_defn = this_ty_defn.field(field_ident);
         match ty_field_defn.variant {
-            EntityDefnVariant::TyField {
-                field_ty: ty,
-                ref field_variant,
-                liason,
-                opt_linkage,
-            } => opt_linkage,
+            EntityDefnVariant::TyField { opt_linkage, .. } => opt_linkage,
             _ => panic!(""),
         }
     }
@@ -94,22 +84,18 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         field_binding: Binding,
     ) -> Option<__ResolvedLinkage> {
         let this_ty = this_ty.intrinsic();
-        if let Some(__Linkage) = self.linkage_table().field_linkage_source(
-            self.upcast(),
-            self.entity_uid(this_ty),
-            field_ident,
-        ) {
-            return Some(__Linkage.bind(field_binding));
+        if let Some(linkage) = self
+            .linkage_table()
+            .field_linkage_source(self.entity_uid(this_ty), field_ident)
+        {
+            return Some(linkage.bind(field_binding));
         }
         let this_ty_defn = self.entity_defn(this_ty).unwrap();
         let ty_field_defn = this_ty_defn.field(field_ident);
         match ty_field_defn.variant {
-            EntityDefnVariant::TyField {
-                field_ty: ty,
-                ref field_variant,
-                liason,
-                opt_linkage,
-            } => opt_linkage.map(|__Linkage| __Linkage.bind(field_binding)),
+            EntityDefnVariant::TyField { opt_linkage, .. } => {
+                opt_linkage.map(|linkage| linkage.bind(field_binding))
+            }
             _ => panic!(""),
         }
     }
@@ -118,11 +104,11 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         opt_linkage_wrapper(
             &self.linkage_table().config,
             || {
-                if let Some(__Linkage) = self
+                if let Some(linkage) = self
                     .linkage_table()
-                    .routine_linkage(self.upcast(), self.entity_uid(method_route))
+                    .routine_linkage(self.entity_uid(method_route))
                 {
-                    Some(__Linkage)
+                    Some(linkage)
                 } else {
                     let method_defn = self.entity_defn(method_route).unwrap();
                     match method_defn.variant {
@@ -219,8 +205,8 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
                 EntitySource::WithinBuiltinModule => todo!(),
                 EntitySource::WithinModule { .. } => self
                     .linkage_table()
-                    .routine_linkage(self.upcast(), self.entity_uid(routine)),
-                EntitySource::Module { file } => todo!(),
+                    .routine_linkage(self.entity_uid(routine)),
+                EntitySource::Module { .. } => todo!(),
                 EntitySource::TargetInput => todo!(),
                 EntitySource::Any { .. } => todo!(),
                 EntitySource::StaticEnumVariant(_) => todo!(),
@@ -234,10 +220,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         opt_linkage_wrapper(
             &self.linkage_table().config,
             || {
-                if let Some(linkage) = self
-                    .linkage_table()
-                    .type_call_linkage(self.upcast(), self.entity_uid(ty))
-                {
+                if let Some(linkage) = self.linkage_table().type_call_linkage(self.entity_uid(ty)) {
                     return Some(linkage);
                 }
                 let type_defn = self.entity_defn(ty).unwrap();
@@ -260,7 +243,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
             &self.linkage_table().config,
             || {
                 self.linkage_table()
-                    .feature_eager_block_linkage(self.upcast(), self.entity_uid(route))
+                    .feature_eager_block_linkage(self.entity_uid(route))
             },
             || format!("eager block for feature `{route}`"),
         )
