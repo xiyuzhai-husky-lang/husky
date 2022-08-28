@@ -1,12 +1,8 @@
-use std::{
-    collections::HashMap,
-    path::{self, Path, PathBuf},
-};
+use std::path::{self, Path, PathBuf};
 
 use crate::*;
-use husky_check_utils::should_eq;
 use husky_path_utils::{parent_module_path, submodule_path};
-use husky_print_utils::{msg_once, p};
+use husky_print_utils::msg_once;
 use husky_word::CustomIdentifier;
 use indexmap::IndexMap;
 use itertools::Itertools;

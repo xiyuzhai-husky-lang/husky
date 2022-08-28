@@ -6,7 +6,6 @@ mod pattern;
 mod style;
 
 pub use decorator::*;
-use husky_print_utils::p;
 pub use ident::*;
 pub use intern::{new_word_interner, InternWord, WordInterner};
 pub use keyword::*;

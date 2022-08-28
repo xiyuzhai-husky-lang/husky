@@ -1,6 +1,5 @@
-use husky_rust_code_repr::{registration::*, *};
+use husky_rust_code_repr::registration::*;
 use husky_write_utils::w;
-use std::env;
 use std::fmt::Write;
 use std::path::PathBuf;
 

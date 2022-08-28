@@ -1,5 +1,4 @@
 use super::*;
-use std::ffi::c_char;
 
 // order matters!
 #[repr(C)]

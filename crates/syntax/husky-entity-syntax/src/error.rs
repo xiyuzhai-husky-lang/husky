@@ -1,4 +1,4 @@
-use husky_dev_utils::{dev_src, DevSource};
+use husky_dev_utils::DevSource;
 use husky_file::FileError;
 use husky_text::TextRange;
 use std::fmt::Write;

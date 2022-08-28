@@ -1,5 +1,4 @@
 use crate::*;
-use husky_print_utils::{epin, p};
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn exec_loop_fast(

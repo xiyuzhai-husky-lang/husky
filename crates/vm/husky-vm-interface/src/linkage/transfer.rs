@@ -1,5 +1,3 @@
-use super::*;
-
 #[cfg(feature = "linkage_macro")]
 #[macro_export]
 macro_rules! transfer_linkage {

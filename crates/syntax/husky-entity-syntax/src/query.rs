@@ -1,20 +1,19 @@
 use crate::*;
-use husky_check_utils::{should, should_eq};
+use husky_check_utils::should;
 use husky_dev_utils::dev_src;
 use husky_entity_kind::{MemberKind, TyKind};
 use husky_entity_route::*;
-use husky_file::{FileError, FileErrorKind, FilePtr};
+use husky_file::FilePtr;
 use husky_path_utils::*;
-use husky_print_utils::{epin, msg_once, p};
+use husky_print_utils::msg_once;
 use husky_static_defn::*;
-use husky_text::TextRange;
 use husky_word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
 use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;
 
 use fold::FoldableStorage;
 
-use std::{ops::Deref, path::PathBuf, sync::Arc};
+use std::{path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
 pub trait EntitySyntaxSalsaQueryGroup:
     husky_token::TokenQueryGroup + InternEntityRoute + ResolveStaticRootDefn

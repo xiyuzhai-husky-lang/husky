@@ -379,7 +379,6 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         opds: &RawExprRange,
     ) -> SemanticResult<LazyExprVariant> {
         let call = &self.arena()[opds.start];
-        let input_opd_idx_range = (opds.start + 1)..opds.end;
         match call.variant {
             RawExprVariant::Entity { route, kind, .. } => {
                 let arguments: Vec<_> = ((opds.start + 1)..opds.end)

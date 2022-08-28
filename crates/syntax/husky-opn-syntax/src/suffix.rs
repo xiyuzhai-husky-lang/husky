@@ -2,7 +2,6 @@ use std::borrow::Cow;
 
 use husky_entity_route::RangedEntityRoute;
 use husky_pattern_syntax::RawPattern;
-use husky_word::RootIdentifier;
 
 use super::*;
 

@@ -1,14 +1,12 @@
 use husky_ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
-use husky_entity_route::{EntityKind, EntityRoutePtr, EntityRouteVariant};
+use husky_entity_route::{EntityKind, EntityRoutePtr};
 use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRoute;
-use husky_infer_qualified_ty::{
-    EagerExprQualifiedTy, EagerExprQualifier, EagerVariableQualifier, InferQualifiedTy,
-};
+use husky_infer_qualified_ty::{EagerExprQualifiedTy, EagerExprQualifier, InferQualifiedTy};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
-use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
+use husky_text::RangedCustomIdentifier;
 use husky_vm::*;
-use husky_word::{ContextualIdentifier, Identifier, RootIdentifier};
+use husky_word::RootIdentifier;
 use infer_contract::{EagerContract, InferContract};
 
 use crate::*;
