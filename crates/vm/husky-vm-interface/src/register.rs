@@ -190,7 +190,7 @@ impl<'eval> __Register<'eval> {
                 vtable: proto,
             }
         } else {
-            __Register::new_none()
+            __Register::none()
         }
     }
 
@@ -226,7 +226,7 @@ impl<'eval> __Register<'eval> {
         if let Some(value) = opt_value {
             Self::new_eval_ref(value, proto)
         } else {
-            Self::new_none()
+            Self::none()
         }
     }
 
@@ -258,7 +258,7 @@ impl<'eval> __Register<'eval> {
                 vtable: proto,
             }
         } else {
-            __Register::new_none()
+            __Register::none()
         }
     }
 
@@ -290,7 +290,7 @@ impl<'eval> __Register<'eval> {
                 vtable: proto,
             }
         } else {
-            __Register::new_none()
+            __Register::none()
         }
     }
 
@@ -303,7 +303,7 @@ impl<'eval> __Register<'eval> {
         std::mem::replace(self, moved)
     }
 
-    pub fn new_none() -> __Register<'eval> {
+    pub fn none() -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::None,
             data: __RegisterData {

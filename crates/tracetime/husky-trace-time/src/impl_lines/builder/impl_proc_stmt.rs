@@ -29,7 +29,7 @@ impl<'a> TraceTokenBuilder<'a> {
                     EagerExprVariant::Opn {
                         ref opn_variant, ..
                     } => match opn_variant {
-                        EagerOpnVariant::Binary { opr, this_ty: this } => match opr {
+                        EagerOpnVariant::Binary { opr } => match opr {
                             BinaryOpr::Assign(_) => {
                                 self.push(fade!(" = "));
                                 if let Some(register_result) = history.register_result(expr) {

@@ -10,14 +10,11 @@ use std::sync::Arc;
 pub enum EagerOpnVariant {
     Binary {
         opr: BinaryOpr,
-        this_ty: EntityRoutePtr,
     },
     Prefix {
         opr: PrefixOpr,
-        this_ty: EntityRoutePtr,
     },
     Suffix {
-        this_ty: EntityRoutePtr,
         opr: EagerSuffixOpr,
     },
     RoutineCall(RangedEntityRoute),

@@ -55,7 +55,6 @@ impl<'eval> Session<'eval> {
                 None,
                 Some(&db.dataset_config_instruction_sheet(package.main_defn.file)),
                 None,
-                RootIdentifier::DatasetType.into(),
                 [].into_iter(),
                 [].into_iter(),
                 0,

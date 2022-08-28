@@ -29,7 +29,7 @@ where
     unsafe fn __to_register(self) -> __Register<'eval> {
         match self {
             Some(v) => v.__to_register(),
-            None => __Register::new_none(),
+            None => __Register::none(),
         }
     }
 }

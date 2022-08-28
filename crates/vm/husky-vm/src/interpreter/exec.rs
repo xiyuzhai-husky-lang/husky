@@ -109,12 +109,13 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 } => {
                     // p!(ins.src.file(), ins.src.text_range());
                     if self.stack.len() > 0 {
-                        assert_ne!(self.stack.eval_top().vtable as *const _, unsafe {
+                        assert_ne!(
+                            self.stack.eval_top().vtable as *const _,
                             &__VOID_VTABLE as *const _
-                        });
+                        );
                     }
                     let control = self
-                        .call_specific_routine(resolved_linkage, nargs, output_ty, discard)
+                        .call_specific_routine(resolved_linkage, nargs, discard)
                         .into();
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
@@ -134,18 +135,12 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::CallInterpreted {
                     routine_uid,
                     nargs, // including this
-                    has_this,
                     output_ty,
                     discard,
                 } => {
                     let instruction_sheet =
                         self.db.entity_opt_instruction_sheet_by_uid(routine_uid);
-                    let result = self.call_interpreted(
-                        &instruction_sheet.unwrap(),
-                        nargs,
-                        has_this,
-                        discard,
-                    );
+                    let result = self.call_interpreted(&instruction_sheet.unwrap(), nargs, discard);
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => {
@@ -181,7 +176,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     }
                     VMControl::None
                 }
-                InstructionVariant::Return { output_ty } => {
+                InstructionVariant::Return { .. } => {
                     let return_value = self.stack.pop();
                     VMControl::Return(return_value)
                 }
@@ -253,7 +248,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::Require => {
                     let is_condition_satisfied = self.stack.pop().to_bool();
                     if !is_condition_satisfied {
-                        VMControl::Return(todo!())
+                        VMControl::Return(__Register::none())
                     } else {
                         VMControl::None
                     }
@@ -265,10 +260,10 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     VMControl::Break
                 }
                 InstructionVariant::ConditionFlow { ref branches } => {
-                    self.exec_condition_flow(sheet, ins, branches, mode)
+                    self.exec_condition_flow(ins, branches, mode)
                 }
                 InstructionVariant::PatternMatch { ref branches } => {
-                    self.exec_pattern_matching(sheet, ins, branches, mode)
+                    self.exec_pattern_matching(ins, branches, mode)
                 }
                 InstructionVariant::EntityFeature { feature_uid, ty } => {
                     self.exec_feature_eval(feature_uid, mode, ins, ty).into()
@@ -286,7 +281,6 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         linkage: __Linkage,
         nargs: u8,
-        output_ty: EntityRoutePtr,
     ) -> __VMResult<__Register<'eval>> {
         match linkage {
             __Linkage::Member { .. } => todo!(),

@@ -37,7 +37,6 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             unsafe { self.some_ctx() },
             Some(&block.instruction_sheet),
             block.opt_linkage,
-            block.ty.route,
             arguments.into_iter(),
             [].into_iter(),
             nargs,

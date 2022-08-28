@@ -10,7 +10,6 @@ mod impl_trace_stalk;
 mod impl_trace_stats;
 mod trace_node;
 
-use avec::Avec;
 use husky_comptime::*;
 use husky_defn_head::Parameter;
 use husky_eager_semantics::*;
@@ -22,21 +21,16 @@ use husky_init_syntax::*;
 use husky_loop_syntax::*;
 use husky_opn_syntax::*;
 use husky_print_utils::p;
-use husky_root_static_defn::__resolve_root_defn;
 use husky_runtime::*;
 use husky_text::{HuskyText, TextQueryGroup};
 use husky_trace::*;
 use husky_trace_protocol::*;
 use husky_vm::*;
-use impl_lines::*;
-use serde::Deserialize;
 use std::collections::HashMap;
 use std::sync::Arc;
-use sync_utils::ASafeRwLock;
 use trace_node::*;
 use upcast::Upcast;
 use vec_like::VecSet;
-use wild_utils::{arb_ref, ref_to_mut_ref};
 
 pub struct HuskyTraceTime {
     runtime: HuskyRuntime,
@@ -168,9 +162,6 @@ impl HuskyTraceTime {
                 }
                 _ => true,
             },
-            arrival: false,
-            pin: false,
-            enter: false,
             trace,
         });
         trace_id

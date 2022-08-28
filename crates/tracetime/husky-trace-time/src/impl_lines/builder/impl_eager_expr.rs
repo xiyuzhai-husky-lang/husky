@@ -28,7 +28,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 ref opn_variant,
                 ref opds,
             } => match opn_variant {
-                EagerOpnVariant::Binary { opr, this_ty: this } => {
+                EagerOpnVariant::Binary { opr } => {
                     self.eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.push(special!(opr.spaced_code(), associated_trace_id));
                     self.eager_expr_tokens(&opds[1], history, config.subexpr());

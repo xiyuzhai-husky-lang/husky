@@ -169,28 +169,26 @@ impl<'a> InstructionSheetBuilder<'a> {
             self.compile_eager_expr(opd, output_stack_idx + i, false);
         }
         match opn_variant {
-            EagerOpnVariant::Binary { opr, this_ty } => {
-                self.compile_binary_opn(*opr, this_ty, opds, expr, discard)
-            }
-            EagerOpnVariant::Prefix { opr, this_ty } => {
-                self.compile_prefix_opn(*opr, opds, expr, discard)
-            }
-            EagerOpnVariant::Suffix { ref opr, this_ty } => {
+            EagerOpnVariant::Binary { opr } => self.compile_binary_opn(*opr, opds, expr, discard),
+            EagerOpnVariant::Prefix { opr } => self.compile_prefix_opn(*opr, opds, expr, discard),
+            EagerOpnVariant::Suffix { ref opr, .. } => {
                 self.compile_suffix(opr, opds, expr, discard)
             }
             EagerOpnVariant::RoutineCall(routine) => {
-                if let Some(__Linkage) = self.db.comptime().routine_linkage(routine.route) {
-                    match __Linkage {
+                if let Some(linkage) = self.db.comptime().routine_linkage(routine.route) {
+                    match linkage {
                         __Linkage::Member { .. } => todo!(),
-                        __Linkage::Transfer(linkage) => self.push_instruction(Instruction::new(
-                            InstructionVariant::CallRoutine {
-                                output_ty: expr.intrinsic_ty(),
-                                nargs: opds.len().try_into().unwrap(),
-                                resolved_linkage: linkage,
-                                discard,
-                            },
-                            expr.clone(),
-                        )),
+                        __Linkage::Transfer(resolved_linkage) => {
+                            self.push_instruction(Instruction::new(
+                                InstructionVariant::CallRoutine {
+                                    output_ty: expr.intrinsic_ty(),
+                                    nargs: opds.len().try_into().unwrap(),
+                                    resolved_linkage,
+                                    discard,
+                                },
+                                expr.clone(),
+                            ))
+                        }
                         __Linkage::Model(_) => todo!(),
                     }
                 } else {
@@ -198,7 +196,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                         InstructionVariant::CallInterpreted {
                             routine_uid: self.db.comptime().entity_uid(routine.route),
                             nargs: opds.len().try_into().unwrap(),
-                            has_this: false,
                             output_ty: expr.intrinsic_ty(),
                             discard,
                         },
@@ -209,7 +206,6 @@ impl<'a> InstructionSheetBuilder<'a> {
             EagerOpnVariant::Field {
                 this_ty,
                 field_ident,
-                field_liason,
                 field_binding,
                 ..
             } => {
@@ -286,10 +282,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         for (i, ty_member) in ty_members.iter().enumerate() {
                             match ty_member.variant {
                                 EntityDefnVariant::TyField {
-                                    field_ty: ty,
-                                    ref field_variant,
-                                    liason,
-                                    ..
+                                    ref field_variant, ..
                                 } => match field_variant {
                                     FieldDefnVariant::StructOriginal => (),
                                     FieldDefnVariant::StructDefault { default } => {
@@ -314,10 +307,9 @@ impl<'a> InstructionSheetBuilder<'a> {
                             }
                         }
                         self.context.exit();
-                        if let Some(__Linkage) =
-                            self.db.comptime().type_call_linkage(ranged_ty.route)
+                        if let Some(linkage) = self.db.comptime().type_call_linkage(ranged_ty.route)
                         {
-                            match __Linkage {
+                            match linkage {
                                 __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
                                     output_ty: expr.intrinsic_ty(),
                                     nargs: opds.len().try_into().unwrap(),
@@ -416,11 +408,10 @@ impl<'a> InstructionSheetBuilder<'a> {
                                                 RootIdentifier::Void => todo!(),
                                                 RootIdentifier::I32 => transfer_linkage!(
                                                     |args, _| {
-                                                        let enum_value: &__VirtualEnum = unsafe {
-                                                            args[0].downcast_temp_ref(
+                                                        let enum_value: &__VirtualEnum = args[0]
+                                                            .downcast_temp_ref(
                                                                 &__VIRTUAL_ENUM_VTABLE,
-                                                            )
-                                                        };
+                                                            );
                                                         enum_value.kind_idx.to_register()
                                                     },
                                                     none
@@ -501,7 +492,6 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn compile_binary_opn(
         &mut self,
         opr: BinaryOpr,
-        this_ty: &EntityRoutePtr,
         opds: &[Arc<EagerExpr>],
         expr: &Arc<EagerExpr>,
         discard: bool,
@@ -677,7 +667,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                 nargs: (call_form_decl.primary_parameters.len() + 1)
                     .try_into()
                     .unwrap(),
-                has_this: true,
                 output_ty,
                 discard,
             }

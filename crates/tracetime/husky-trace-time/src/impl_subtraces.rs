@@ -37,7 +37,6 @@ impl HuskyTraceTime {
                     {
                         HistoryEntry::PureExpr { .. } | HistoryEntry::Exec { .. } => None,
                         HistoryEntry::Loop {
-                            control,
                             ref stack_snapshot,
                             body_instruction_sheet: ref body,
                             loop_kind,
@@ -50,19 +49,13 @@ impl HuskyTraceTime {
                             stack_snapshot,
                             body,
                         )),
-                        HistoryEntry::ControlFlow {
-                            opt_branch_entered: enter,
-                            ..
-                        } => todo!(),
+                        HistoryEntry::ControlFlow { .. } => todo!(),
                         HistoryEntry::Break => todo!(),
                         HistoryEntry::PatternMatching { .. } => todo!(),
                     }
                 }
                 ProcStmtVariant::Break => None,
-                ProcStmtVariant::Match {
-                    ref match_expr,
-                    ref branches,
-                } => todo!(),
+                ProcStmtVariant::Match { .. } => todo!(),
             },
             TraceVariant::FeatureExpr(ref expr) => self.feature_expr_subtraces(trace, expr),
             TraceVariant::FeatureBranch(ref branch) => {
@@ -130,11 +123,7 @@ impl HuskyTraceTime {
                 }
                 _ => panic!(),
             },
-            TraceVariant::EagerCallArgument {
-                name: ident,
-                ref argument,
-                ref history,
-            } => todo!(),
+            TraceVariant::EagerCallArgument { .. } => todo!(),
         }
     }
 }

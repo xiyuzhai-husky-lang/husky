@@ -1,8 +1,5 @@
 use crate::*;
 use husky_entity_route::EntityRoutePtr;
-use husky_text::HuskyText;
-use husky_vm::{ControlSnapshot, History, VMControl};
-use husky_word::RootIdentifier;
 
 impl HuskyTraceTime {
     pub fn keyed_trace_stalk(&mut self, trace_id: TraceId) -> (TraceStalkKey, TraceStalkData) {
@@ -28,7 +25,7 @@ impl HuskyTraceTime {
                 repr.ty(),
             ),
             TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
-                FeatureLazyStmtVariant::Init { varname, ref value } => {
+                FeatureLazyStmtVariant::Init { ref value, .. } => {
                     self.trace_stalk_from_expr(value, sample_id)
                 }
                 FeatureLazyStmtVariant::Assert { ref condition } => {
@@ -40,17 +37,16 @@ impl HuskyTraceTime {
                 FeatureLazyStmtVariant::Return { ref result } => {
                     self.trace_stalk_from_expr(result, sample_id)
                 }
-                FeatureLazyStmtVariant::ConditionFlow { ref branches } => panic!(),
-                FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
+                FeatureLazyStmtVariant::ConditionFlow { .. } => panic!(),
+                FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
             },
             TraceVariant::FeatureBranch(_) => TraceStalkData {
                 extra_tokens: vec![],
             },
             TraceVariant::FeatureExpr(ref expr) => self.trace_stalk_from_expr(expr, sample_id),
-            TraceVariant::FeatureCallArgument {
-                name: ident,
-                ref argument,
-            } => self.trace_stalk_from_expr(argument, sample_id),
+            TraceVariant::FeatureCallArgument { ref argument, .. } => {
+                self.trace_stalk_from_expr(argument, sample_id)
+            }
             TraceVariant::Module { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::ProcStmt { .. }
@@ -129,7 +125,7 @@ impl HuskyTraceTime {
     ) -> TraceTokenData {
         match result {
             Ok(value) => self.trace_token_from_value(value, ty),
-            Err(e) => {
+            Err(_) => {
                 todo!()
                 // e.into()
             }

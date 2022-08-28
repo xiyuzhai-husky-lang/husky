@@ -5,9 +5,6 @@ pub struct TraceNode {
     pub(crate) trace: Trace,
     pub(crate) expansion: bool,
     pub(crate) shown: bool,
-    pub(crate) pin: bool,
-    pub(crate) arrival: bool,
-    pub(crate) enter: bool,
 }
 
 impl TraceNode {

@@ -39,9 +39,9 @@ impl HuskyTraceTime {
         opds: &[Arc<EagerExpr>],
     ) -> Vec<TraceId> {
         match opn_variant {
-            EagerOpnVariant::Binary { opr, this_ty } => todo!(),
-            EagerOpnVariant::Prefix { opr, this_ty } => todo!(),
-            EagerOpnVariant::Suffix { this_ty, opr } => todo!(),
+            EagerOpnVariant::Binary { opr } => todo!(),
+            EagerOpnVariant::Prefix { opr } => todo!(),
+            EagerOpnVariant::Suffix { opr } => todo!(),
             EagerOpnVariant::RoutineCall(route) => {
                 let routine_defn = self.runtime().comptime().entity_defn(route.route).unwrap();
                 let instruction_sheet = self

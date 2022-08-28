@@ -2,8 +2,6 @@ use std::time::Instant;
 
 use crate::*;
 use husky_entity_kind::EntityKind;
-use husky_text::HuskyText;
-use husky_vm::{History, VMControl};
 
 impl HuskyTraceTime {
     pub(crate) fn update(&mut self) {

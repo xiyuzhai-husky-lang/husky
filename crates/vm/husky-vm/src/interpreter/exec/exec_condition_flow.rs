@@ -4,7 +4,6 @@ use avec::Avec;
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn exec_condition_flow(
         &mut self,
-        sheet: &InstructionSheet,
         ins: &Instruction,
         branches: &Avec<VMConditionBranch>,
         mode: Mode,

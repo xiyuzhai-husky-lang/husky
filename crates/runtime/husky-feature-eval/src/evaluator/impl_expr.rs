@@ -268,7 +268,6 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             Some(self),
             opt_instrns.as_ref().map(|v| &**v),
             opt_linkage,
-            output_ty,
             values.into_iter(),
             [].into_iter(),
             arguments.len().try_into().unwrap(),

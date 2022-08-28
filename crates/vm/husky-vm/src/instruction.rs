@@ -104,7 +104,6 @@ pub enum InstructionVariant {
     CallInterpreted {
         routine_uid: EntityUid,
         nargs: u8,
-        has_this: bool,
         output_ty: EntityRoutePtr,
         discard: bool,
     },

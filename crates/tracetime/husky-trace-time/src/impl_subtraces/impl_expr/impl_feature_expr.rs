@@ -1,5 +1,3 @@
-use husky_entity_semantics::EntityDefnVariant;
-
 use super::*;
 
 impl HuskyTraceTime {
@@ -42,33 +40,20 @@ impl HuskyTraceTime {
             FeatureLazyExprVariant::EntityFeature { ref repr, .. } => {
                 self.feature_repr_subtraces(parent, repr)
             }
-            FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-            FeatureLazyExprVariant::RecordOriginalField {
-                ref this,
-                field_ident,
-                ..
-            } => todo!(),
-            FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
+            FeatureLazyExprVariant::NewRecord { .. } => todo!(),
+            FeatureLazyExprVariant::RecordOriginalField { .. } => todo!(),
+            FeatureLazyExprVariant::ThisValue { .. } => todo!(),
             FeatureLazyExprVariant::RecordDerivedField { .. } => todo!(),
             FeatureLazyExprVariant::StructOriginalField { .. } => panic!(),
             FeatureLazyExprVariant::EvalInput => panic!(),
-            FeatureLazyExprVariant::Index { ref opds, .. } => panic!(),
+            FeatureLazyExprVariant::Index { .. } => panic!(),
             FeatureLazyExprVariant::StructDerivedLazyField { ref repr, .. } => {
                 self.feature_repr_subtraces(parent, repr)
             }
-            FeatureLazyExprVariant::ModelCall {
-                ref opds,
-                has_this,
-                ref model_defn,
-                ref internal,
-                ..
-            } => todo!(),
+            FeatureLazyExprVariant::ModelCall { .. } => todo!(),
             FeatureLazyExprVariant::NewVecFromList { .. } => todo!(),
             FeatureLazyExprVariant::CustomBinaryOpr { .. } => todo!(),
-            FeatureLazyExprVariant::BePattern {
-                ref this,
-                patt: ref pure_pattern,
-            } => todo!(),
+            FeatureLazyExprVariant::BePattern { .. } => todo!(),
         }
     }
 }
