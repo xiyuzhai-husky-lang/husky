@@ -21,9 +21,11 @@ func one_fermi_match -> FermiMatchResult:
     fermi_match(major_concave_components, [downmost, upmost])
 
 func upmost(cc: &ConcaveComponent) -> ?f32:
-    require cc.displacement.y > 0.0
-    cc.displacement.y
+    dp = cc.displacement()
+    require dp.y > 0.0
+    dp.y
 
 func downmost(cc: &ConcaveComponent) -> ?f32:
-    require cc.displacement.y <= 0.0
-    -cc.displacement.y
+    dp = cc.displacement()
+    require dp.y <= 0.0
+    -dp.y
