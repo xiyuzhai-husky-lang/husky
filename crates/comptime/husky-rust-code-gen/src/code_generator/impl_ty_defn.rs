@@ -174,7 +174,7 @@ impl From<i32> for {tyname} {{
             }
         }
         self.write(") -> Self {\n");
-        for (i, ty_member) in ty_members.iter().enumerate() {
+        for ty_member in ty_members.iter() {
             match ty_member.variant {
                 EntityDefnVariant::TyField {
                     ref field_variant, ..

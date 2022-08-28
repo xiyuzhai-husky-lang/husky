@@ -142,7 +142,7 @@ impl FigureCanvasData {
         }
     }
 
-    pub fn new_specific_primitive_group(visuals: Vec<VisualData>) -> Self {
+    pub fn new_specific_primitive_group(_visuals: Vec<VisualData>) -> Self {
         Self::void()
     }
 

@@ -49,7 +49,6 @@ impl HuskyTraceTime {
             } => self.loop_frame_mutations_figure(
                 trace.raw_data.opt_parent_id.unwrap(),
                 &loop_frame_data.mutations,
-                &loop_frame_data.stack_snapshot,
             ),
             TraceVariant::FuncBranch {
                 ref stmt,
@@ -92,9 +91,9 @@ impl HuskyTraceTime {
                 _ => panic!(),
             },
             TraceVariant::EagerCallArgument {
-                name: ident,
                 ref argument,
                 ref history,
+                ..
             } => self.eager_expr_figure(argument, history),
         })
     }

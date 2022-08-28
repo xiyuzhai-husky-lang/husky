@@ -108,9 +108,6 @@ impl HuskyTraceTime {
             {
                 continue;
             }
-            for trace_id in restriction.enters().iter() {
-                todo!()
-            }
             if sampler
                 .process(label, || {
                     let visual_data = self.runtime().visualize_feature(repr.clone(), sample_id)?;

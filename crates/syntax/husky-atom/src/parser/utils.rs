@@ -145,7 +145,7 @@ macro_rules! deprecated_try_eat {
 #[macro_export]
 macro_rules! deprecated_get{
     ($parser: expr, $patt:ident) => {{
-        let mut saved_state = $parser.save_state();
+        let saved_state = $parser.save_state();
         if let Some(pattern) = $parser.$patt() {
             pattern
         } else {
@@ -166,7 +166,7 @@ macro_rules! deprecated_get{
     }};
 
     ($parser:expr, $patt:ident?) => {{
-        let mut saved_state = $parser.save_state();
+        let saved_state = $parser.save_state();
         if let Some(pattern) = $parser.$patt()? {
             pattern
         } else {

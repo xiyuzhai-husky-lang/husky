@@ -1,8 +1,6 @@
 use super::*;
 use crate::*;
-use husky_entity_route::RangedEntityRoute;
 use husky_text::RangedCustomIdentifier;
-use husky_word::{CustomIdentifier, IdentPairDict};
 
 // inner ops
 impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {

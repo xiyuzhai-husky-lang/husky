@@ -2,7 +2,7 @@ mod partition;
 
 use husky_signal::Signalable;
 pub use partition::*;
-use vec_like::{VecPairMap, VecSet};
+use vec_like::VecPairMap;
 
 use super::*;
 use serde::{Deserialize, Serialize};
@@ -15,7 +15,6 @@ pub struct Restriction {
     specific_sample_id: SampleId,
     partitions: Partitions,
     arrivals: Arrivals,
-    enters: VecSet<TraceId>,
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
@@ -51,10 +50,6 @@ impl Restriction {
         &self.arrivals
     }
 
-    pub fn enters(&self) -> &VecSet<TraceId> {
-        &self.enters
-    }
-
     pub fn opt_sample_id(&self) -> Option<SampleId> {
         if self.is_specific {
             Some(self.specific_sample_id)
@@ -69,7 +64,6 @@ impl Restriction {
             specific_sample_id,
             partitions: Default::default(),
             arrivals: Default::default(),
-            enters: Default::default(),
         }
     }
 
@@ -87,10 +81,6 @@ impl Restriction {
 
     pub fn toggle_arrival_refined_strike_evil(&mut self, trace_id: TraceId) {
         self.arrivals[trace_id].1.toggle_strike_evil()
-    }
-
-    pub fn toggle_enter(&mut self, trace_id: TraceId) {
-        self.enters.toggle(trace_id)
     }
 
     pub fn toggle_is_specific(&mut self) {
@@ -111,7 +101,6 @@ impl Default for Restriction {
             specific_sample_id: SampleId(0),
             partitions: Default::default(),
             arrivals: Default::default(),
-            enters: Default::default(),
         }
     }
 }

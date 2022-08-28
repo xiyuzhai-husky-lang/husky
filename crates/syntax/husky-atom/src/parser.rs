@@ -14,7 +14,6 @@ pub use basic::*;
 pub use parameter::*;
 
 use super::{stack::AtomStack, *};
-use husky_check_utils::should;
 use husky_entity_route::{
     EntityKind, EntityRoute, EntityRouteVariant, RangedEntityRoute, SpatialArgument,
 };
@@ -27,7 +26,6 @@ use husky_token::{
     TokenStream,
 };
 use pattern::AtomParserPattern;
-use std::iter::Peekable;
 use utils::*;
 
 pub struct AtomParser<'a, 'b, 'c> {
@@ -73,7 +71,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
             let text_start = self.token_stream.text_start();
             if let Some(token) = self.token_stream.next() {
                 match token.kind {
-                    HuskyTokenKind::Keyword(keyword) => err!(
+                    HuskyTokenKind::Keyword(_) => err!(
                         "keyword should be put at start",
                         self.token_stream.text_range(text_start)
                     )?,
