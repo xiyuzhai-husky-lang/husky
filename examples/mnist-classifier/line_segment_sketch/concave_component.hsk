@@ -10,21 +10,12 @@ struct ConcaveComponent:
     func norm -> f32:
         // temp
         1.0
-    
-    func line_segment -> LineSegment:
-        LineSegment(
-            strokes.firstx().start.clone(),
-            strokes.lastx().end.clone()
-        )
-
-    func displacement() -> Vector2d:
-        this.line_segment.displacement()
 
     proc hausdorff_width -> f32:
         // temp
         var hausdorff_width = 0.0
         let curve_start = strokes.firstx().start
-        let dp = this.displacement
+        let dp = this.displacement()
         let dp_norm = dp.norm()
         for strokes.start <= i < strokes.end:
             let point = strokes[i].end
@@ -32,6 +23,15 @@ struct ConcaveComponent:
             // let d
             // todo
         return 1.0
+    
+    func line_segment() -> LineSegment:
+        LineSegment(
+            strokes.firstx().start.clone(),
+            strokes.lastx().end.clone()
+        )
+
+    func displacement() -> Vector2d:
+        this.line_segment().displacement()
 // pub func LineSegmentSketch => []float hausdorff_deviations
 // def get_concave_hausdorff_deviations(lsg_sk) 
 //   var hausdorff_deviations = []float()
