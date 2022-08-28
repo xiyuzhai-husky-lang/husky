@@ -131,14 +131,14 @@ impl<'a> Formatter<'a> {
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
                     return_context: Some(RawReturnContext {
-                        return_ty: RangedEntityRoute {
+                        opt_return_ty: Some(RangedEntityRoute {
                             route: self.db.intern_entity_route(EntityRoute {
                                 variant: EntityRouteVariant::TargetOutputType,
                                 temporal_arguments: Default::default(),
                                 spatial_arguments: Default::default(),
                             }),
                             range: Default::default(),
-                        },
+                        }),
                         kind: RawReturnContextKind::Feature,
                     }),
                 });
@@ -148,14 +148,14 @@ impl<'a> Formatter<'a> {
                 paradigm,
                 ident,
                 ref parameters,
-                output_ty,
+                return_ty,
                 ..
             } => {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm,
                     return_context: Some(RawReturnContext {
-                        return_ty: output_ty,
+                        opt_return_ty: Some(return_ty),
                         kind: RawReturnContextKind::Normal,
                     }),
                 });
@@ -175,9 +175,9 @@ impl<'a> Formatter<'a> {
                     self.fmt_parameter(parameter);
                 }
                 self.write(")");
-                if output_ty.route != EntityRoutePtr::Root(RootIdentifier::Void) {
+                if return_ty.route != EntityRoutePtr::Root(RootIdentifier::Void) {
                     self.write(" -> ");
-                    self.fmt_ty(output_ty.route);
+                    self.fmt_ty(return_ty.route);
                 }
                 self.write(":");
             }

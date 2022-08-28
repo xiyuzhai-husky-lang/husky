@@ -50,14 +50,14 @@ pub enum AstVariant {
         paradigm: Paradigm,
         spatial_parameters: IdentDict<SpatialParameter>,
         parameters: Arc<Vec<Parameter>>,
-        output_ty: RangedEntityRoute,
+        return_ty: RangedEntityRoute,
         output_liason: OutputModifier,
         opt_this_liason: Option<ParameterModifier>,
     },
     FeatureDefnHead {
         paradigm: Paradigm,
         ident: RangedCustomIdentifier,
-        output_ty: RangedEntityRoute,
+        return_ty: RangedEntityRoute,
     },
     FieldDefnHead {
         liason: MemberModifier,

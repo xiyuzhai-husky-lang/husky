@@ -60,7 +60,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.gen_expr(stmt.indent, condition);
                     self.write(");");
                 }
-                RawReturnContextKind::LazyField => todo!(),
+                RawReturnContextKind::MemoField => todo!(),
             },
             FuncStmtVariant::Return {
                 ref result,
@@ -80,14 +80,14 @@ impl<'a> RustCodeGenerator<'a> {
                     self.newline_indented(stmt.indent + 4);
                     match return_context.kind {
                         RawReturnContextKind::Normal => {
-                            if return_context.return_ty.route.is_option() {
+                            if return_context.return_ty().is_option() {
                                 self.write("return Some(result);");
                             } else {
                                 self.write("return result;");
                             }
                         }
                         RawReturnContextKind::Feature => todo!(),
-                        RawReturnContextKind::LazyField => todo!(),
+                        RawReturnContextKind::MemoField => todo!(),
                     }
                     self.newline_indented(stmt.indent);
                     self.write("}")
@@ -98,7 +98,7 @@ impl<'a> RustCodeGenerator<'a> {
                         RawReturnContextKind::Normal => {
                             self.gen_binding(result);
                             // ad hoc
-                            if return_context.return_ty.route.is_option()
+                            if return_context.return_ty().is_option()
                                 && !result.intrinsic_ty().is_option()
                             {
                                 self.write("Some(");
@@ -108,15 +108,13 @@ impl<'a> RustCodeGenerator<'a> {
                                 self.gen_expr(stmt.indent, result)
                             }
                         }
-                        RawReturnContextKind::Feature => self.gen_feature_return(
+                        RawReturnContextKind::Feature => {
+                            self.gen_feature_return(stmt.indent, result, return_context.return_ty())
+                        }
+                        RawReturnContextKind::MemoField => self.gen_lazy_field_return(
                             stmt.indent,
                             result,
-                            return_context.return_ty.route,
-                        ),
-                        RawReturnContextKind::LazyField => self.gen_lazy_field_return(
-                            stmt.indent,
-                            result,
-                            return_context.return_ty.route,
+                            return_context.return_ty(),
                         ),
                     }
                     self.write(";")
@@ -189,10 +187,10 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write(";")
                     }
                     RawReturnContextKind::Feature => todo!(),
-                    RawReturnContextKind::LazyField => self.gen_lazy_field_return(
+                    RawReturnContextKind::MemoField => self.gen_lazy_field_return(
                         stmt.indent,
                         result,
-                        return_context.return_ty.route,
+                        return_context.opt_return_ty.unwrap().route,
                     ),
                 },
             },

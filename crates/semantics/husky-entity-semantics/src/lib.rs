@@ -550,7 +550,7 @@ pub(crate) fn entity_defn(
                 AstVariant::FeatureDefnHead {
                     paradigm,
                     ident,
-                    output_ty,
+                    return_ty: output_ty,
                 } => (
                     ident,
                     EntityDefnVariant::feature(

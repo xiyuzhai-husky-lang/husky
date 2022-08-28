@@ -57,7 +57,7 @@ impl EntityDefnVariant {
                     ident,
                     ref spatial_parameters,
                     ref parameters,
-                    output_ty,
+                    return_ty: output_ty,
                     ..
                 } => match opt_this_liason {
                     Some(this_contract) => {
