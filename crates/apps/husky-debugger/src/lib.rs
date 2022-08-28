@@ -3,20 +3,15 @@ mod error;
 mod gui;
 mod instance;
 mod internal;
-mod mode;
 mod notif;
 
 pub use config::HuskyDebuggerConfig;
 use convert_case::{Case, Casing};
 pub use error::{DebuggerError, DebuggerResult};
 use libloading::Library;
-pub use mode::Mode;
 
-use avec::Avec;
 use futures::executor::ThreadPool;
 use gui::handle_query;
-use husky_comptime::HuskyComptime;
-use husky_file::FilePtr;
 use husky_path_utils::collect_package_dirs;
 use husky_print_utils::*;
 use husky_root_static_defn::__StaticLinkageKey;
@@ -26,10 +21,8 @@ use husky_trace_time::HuskyTraceTime;
 use husky_vm::__Linkage;
 use instance::*;
 use internal::HuskyDebuggerInternal;
-use json_result::JsonResult;
 use notif::handle_notif;
 use std::{
-    collections::HashMap,
     convert::Infallible,
     net::ToSocketAddrs,
     path::{Path, PathBuf},
@@ -40,7 +33,7 @@ use warp::Filter;
 
 type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];
 
-pub async fn debugger_run(package_dir: PathBuf, verbose: bool) -> DebuggerResult<()> {
+pub async fn debugger_run(package_dir: PathBuf) -> DebuggerResult<()> {
     let opt_library = get_library(&package_dir);
     let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = opt_library
         .as_ref()
@@ -62,7 +55,7 @@ pub async fn debugger_run(package_dir: PathBuf, verbose: bool) -> DebuggerResult
     husky_debugger.serve("localhost:51617").await
 }
 
-pub async fn debugger_test(packages_dir: PathBuf, verbose: bool) {
+pub async fn debugger_test(packages_dir: PathBuf) {
     p!(packages_dir);
     assert!(packages_dir.is_dir());
     let package_dirs = collect_package_dirs(&packages_dir);

@@ -16,7 +16,7 @@ impl HuskyDisplay for InferError {
     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         let message = match self.variant {
             InferErrorVariant::Derived { ref message } => message,
-            InferErrorVariant::Original { ref message, range } => message,
+            InferErrorVariant::Original { ref message, .. } => message,
         };
         match config.colored {
             true => write!(

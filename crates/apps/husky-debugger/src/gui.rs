@@ -1,10 +1,8 @@
 mod handle;
 mod tests;
 
-use std::panic::catch_unwind;
-
 use crate::*;
-use futures::{task::SpawnExt, FutureExt, StreamExt};
+use futures::{FutureExt, StreamExt};
 use handle::handle_message;
 use serde::{Deserialize, Serialize};
 use tokio::sync::mpsc::{self, UnboundedSender};
@@ -23,7 +21,7 @@ pub(crate) async fn handle_query_upgraded(
     debugger: Arc<HuskyDebuggerInstance>,
 ) {
     let (tx, mut rx) = websocket.split();
-    let (client_sender, mut client_rcv) = mpsc::unbounded_channel::<Result<Message, warp::Error>>();
+    let (client_sender, client_rcv) = mpsc::unbounded_channel::<Result<Message, warp::Error>>();
     let client_rcv = UnboundedReceiverStream::new(client_rcv);
     tokio::task::spawn(
         client_rcv.forward(tx).map(|result| {

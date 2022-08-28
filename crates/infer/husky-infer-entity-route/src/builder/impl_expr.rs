@@ -5,7 +5,6 @@ use husky_ast::RawExprRange;
 use husky_dev_utils::dev_src;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::*;
-use husky_vm::*;
 use infer_decl::TraitMemberImplDecl;
 use thin_vec::{thin_vec, ThinVec};
 
@@ -86,23 +85,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         Ok(match husky_entity_kind {
             EntityKind::Module => EntityRoutePtr::Root(RootIdentifier::ModuleType),
             EntityKind::EnumVariant => match entity_route {
-                EntityRoutePtr::Root(RootIdentifier::True)
-                | EntityRoutePtr::Root(RootIdentifier::False) => RootIdentifier::Bool.into(),
-                EntityRoutePtr::Custom(route) => match route.variant {
-                    EntityRouteVariant::Root { ident } => todo!(),
-                    EntityRouteVariant::Package { main, ident } => todo!(),
-                    EntityRouteVariant::Child { parent, ident } => parent,
-                    EntityRouteVariant::TargetInputValue => todo!(),
-                    EntityRouteVariant::Any { ident, .. } => todo!(),
-                    EntityRouteVariant::ThisType { .. } => todo!(),
-                    EntityRouteVariant::TypeAsTraitMember {
-                        ty: parent,
-                        trai,
-                        ident,
-                    } => todo!(),
-                    EntityRouteVariant::TargetOutputType => todo!(),
+                EntityRoutePtr::Root(ident) => match ident {
+                    RootIdentifier::True | RootIdentifier::False => RootIdentifier::Bool.into(),
+                    _ => panic!(),
                 },
-                _ => todo!(),
+                EntityRoutePtr::Custom(route) => route.parent(),
             },
             EntityKind::Type(_) => RootIdentifier::TypeType.into(),
             EntityKind::Trait => RootIdentifier::TraitType.into(),
@@ -121,7 +108,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     .iter()
                     .map(|parameter| parameter.ty().into())
                     .collect();
-                if let Some(this) = decl.opt_this_liason {
+                if decl.opt_this_liason.is_some() {
                     spatial_arguments
                         .insert(0, SpatialArgument::EntityRoute(entity_route.parent()));
                 }
