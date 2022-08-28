@@ -2,9 +2,9 @@ mod opn;
 mod parser;
 
 use crate::*;
-use husky_ast::{AstIter, RawExprArena, RawExprIdx};
+use husky_ast::{RawExprArena, RawExprIdx};
 use husky_file::FilePtr;
-use husky_infer_qualified_ty::{EagerExprQualifiedTy, EagerVariableQualifier};
+use husky_infer_qualified_ty::EagerExprQualifiedTy;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use infer_contract::EagerContract;
 use infer_total::InferQueryGroup;
@@ -15,7 +15,7 @@ use std::sync::Arc;
 use husky_entity_route::EntityRoutePtr;
 use husky_semantics_error::SemanticResultArc;
 use husky_text::{RangedCustomIdentifier, TextRange};
-use husky_vm::{Binding, InstructionId, InstructionSource, __ResolvedLinkage};
+use husky_vm::{Binding, InstructionId, InstructionSource};
 use husky_word::CustomIdentifier;
 
 #[derive(Clone, PartialEq, Eq)]

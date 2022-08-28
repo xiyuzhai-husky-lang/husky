@@ -2,8 +2,6 @@ mod member;
 mod trait_impl;
 mod type_call;
 
-use husky_check_utils::should;
-use husky_dev_utils::DevSource;
 pub use member::*;
 pub use type_call::*;
 
@@ -13,16 +11,13 @@ use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext,
 };
-use husky_eager_semantics::{FuncStmt, ProcStmt};
 use husky_entity_route::{EntityRoute, EntityRoutePtr, EntityRouteVariant};
 use husky_file::FilePtr;
-use husky_lazy_semantics::{LazyStmt, XmlExprVariant};
 use husky_print_utils::{msg_once, p};
 use husky_semantics_error::SemanticResult;
 use husky_text::*;
 use husky_word::{CustomIdentifier, IdentDict};
-use infer_decl::{DeclQueryGroup, MemberIdx};
-use infer_total::InferQueryGroup;
+use infer_decl::MemberIdx;
 use std::{iter::Peekable, sync::Arc};
 use vec_like::VecMap;
 
@@ -35,18 +30,18 @@ impl EntityDefnVariant {
         arena: &RawExprArena,
         file: FilePtr,
     ) -> SemanticResult<EntityDefnVariant> {
-        let (ident, kind, generic_parameters) = match head.variant {
+        let (kind, generic_parameters) = match head.variant {
             AstVariant::TypeDefnHead {
-                ident,
                 kind,
-                spatial_parameters: ref generic_parameters,
-            } => (ident, kind, generic_parameters.clone()),
+                ref spatial_parameters,
+                ..
+            } => (kind, spatial_parameters.clone()),
             _ => panic!(),
         };
         let mut children = children.peekable();
         let mut ty_members = IdentDict::default();
         msg_once!("should pass this_ty for collect_trait_impls");
-        let mut trait_impls = Self::collect_trait_impls(db, ty, file, head.range);
+        let trait_impls = Self::collect_trait_impls(db, ty, file, head.range);
         msg_once!("todo");
 
         let variants = match kind {
@@ -254,18 +249,20 @@ impl EntityDefnVariant {
                     ident,
                     variant_class: raw_variant_kind,
                 } => {
-                    variants.insert_new(EntityDefn::new(
-                        db,
-                        ident.ident.into(),
-                        EntityDefnVariant::EnumVariant {
-                            enum_variant_defn_variant: match raw_variant_kind {
-                                EnumVariantKind::Constant => EnumVariantDefnVariant::Constant,
+                    variants
+                        .insert_new(EntityDefn::new(
+                            db,
+                            ident.ident.into(),
+                            EntityDefnVariant::EnumVariant {
+                                enum_variant_defn_variant: match raw_variant_kind {
+                                    EnumVariantKind::Constant => EnumVariantDefnVariant::Constant,
+                                },
                             },
-                        },
-                        db.subroute(ty_route, ident.ident, thin_vec![]),
-                        file,
-                        ast.range,
-                    ));
+                            db.subroute(ty_route, ident.ident, thin_vec![]),
+                            file,
+                            ast.range,
+                        ))
+                        .unwrap();
                     children.next();
                 }
                 _ => break,
@@ -274,38 +271,38 @@ impl EntityDefnVariant {
         Ok(variants)
     }
 
-    fn record_from_ast(
-        db: &dyn EntityDefnQueryGroup,
-        children: AstIter,
-        arena: &RawExprArena,
-        file: FilePtr,
-    ) -> SemanticResult<EntityDefnVariant> {
-        todo!()
-        // let mut fields = VecMap::default();
-        // for subitem in children {
-        //     match subitem.value.as_ref()?.kind {
-        //         AstKind::Use { .. } => (),
-        //         AstKind::RoutineDefnHead(_) => todo!(),
-        //         AstKind::FieldDefn(ref field_defn) => fields.insert_new(field_defn.clone()),
-        //         AstKind::MembFeatureDefnHead { ident, ty } => {
-        //             let stmts = husky_lazy_semantics::parse_lazy_stmts(
-        //                 &[],
-        //                 db,
-        //                 arena,
-        //                 subitem.children.unwrap(),
-        //                 file,
-        //             )?;
-        //             fields.insert_new(FieldDefn {
-        //                 ident,
-        //                 output_ty: ty,
-        //                 stmts,
-        //             });
-        //         }
-        //         _ => panic!(),
-        //     }
-        // }
-        // Ok(TyKind::Record { fields })
-    }
+    // fn record_from_ast(
+    //     db: &dyn EntityDefnQueryGroup,
+    //     children: AstIter,
+    //     arena: &RawExprArena,
+    //     file: FilePtr,
+    // ) -> SemanticResult<EntityDefnVariant> {
+    //     todo!()
+    //     // let mut fields = VecMap::default();
+    //     // for subitem in children {
+    //     //     match subitem.value.as_ref()?.kind {
+    //     //         AstKind::Use { .. } => (),
+    //     //         AstKind::RoutineDefnHead(_) => todo!(),
+    //     //         AstKind::FieldDefn(ref field_defn) => fields.insert_new(field_defn.clone()),
+    //     //         AstKind::MembFeatureDefnHead { ident, ty } => {
+    //     //             let stmts = husky_lazy_semantics::parse_lazy_stmts(
+    //     //                 &[],
+    //     //                 db,
+    //     //                 arena,
+    //     //                 subitem.children.unwrap(),
+    //     //                 file,
+    //     //             )?;
+    //     //             fields.insert_new(FieldDefn {
+    //     //                 ident,
+    //     //                 output_ty: ty,
+    //     //                 stmts,
+    //     //             });
+    //     //         }
+    //     //         _ => panic!(),
+    //     //     }
+    //     // }
+    //     // Ok(TyKind::Record { fields })
+    // }
 
     pub fn method(&self, member_idx: usize) -> &Arc<EntityDefn> {
         todo!()

@@ -34,26 +34,19 @@ impl<'a> DependeeMapBuilder<'a> {
             }
             EntityRouteVariant::TargetInputValue => return,
             EntityRouteVariant::Package { main, ident } => todo!(),
-            EntityRouteVariant::Child { parent, ident } => {
+            EntityRouteVariant::Child { .. } => {
                 msg_once!("dependences on entity from external packs should be merged");
                 ()
             }
-            EntityRouteVariant::Any {
-                ident,
-                husky_entity_kind,
-                ..
-            } => todo!(),
+            EntityRouteVariant::Any { .. } => todo!(),
             EntityRouteVariant::ThisType { .. } => todo!(),
-            EntityRouteVariant::TypeAsTraitMember {
-                ty: parent,
-                trai,
-                ident,
-            } => todo!(),
+            EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
             EntityRouteVariant::TargetOutputType => todo!(),
         }
         if !self.map.has(entity_route) {
             self.map
-                .insert_new((entity_route, self.db.entity_defn_uid(entity_route)));
+                .insert_new((entity_route, self.db.entity_defn_uid(entity_route)))
+                .unwrap();
         }
     }
 

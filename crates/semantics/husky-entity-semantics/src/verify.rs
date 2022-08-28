@@ -74,12 +74,7 @@ impl EntityDefn {
                 TyMemberDecl::Call(_) => panic!(),
             },
             EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::TyField {
-                field_ty,
-                ref field_variant,
-                liason,
-                opt_linkage,
-            } => match ty_decl {
+            EntityDefnVariant::TyField { field_ty, .. } => match ty_decl {
                 TyMemberDecl::Field(field_decl) => {
                     field_decl.ty.verify_consistency_with_base_route(field_ty);
                     assert_eq!(self.ident, field_decl.ident.into())
@@ -108,7 +103,7 @@ impl EntityDefn {
                 },
                 MethodDefnKind::TraitMethod { trai } => todo!(),
                 MethodDefnKind::TraitMethodImpl { trai } => match member_decl {
-                    MemberDecl::TraitMethodImpl { trai, method } => method
+                    MemberDecl::TraitMethodImpl { method, .. } => method
                         .opt_route
                         .unwrap()
                         .verify_consistency_with_base_route(self.base_route),
@@ -116,20 +111,15 @@ impl EntityDefn {
                 },
             },
             EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::TyField {
-                field_ty,
-                ref field_variant,
-                liason,
-                opt_linkage,
-            } => match member_decl {
+            EntityDefnVariant::TyField { field_ty, .. } => match member_decl {
                 MemberDecl::TypeField(field_decl) => {
                     field_decl.ty.verify_consistency_with_base_route(field_ty);
                     assert_eq!(self.ident, field_decl.ident.into())
                 }
                 _ => panic!(),
             },
-            EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => match member_decl {
-                MemberDecl::TraitAssociatedTypeImpl { ident, ty: decl_ty } => {
+            EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => match member_decl {
+                MemberDecl::TraitAssociatedTypeImpl { ty: decl_ty, .. } => {
                     decl_ty.verify_consistency_with_base_route(ty)
                 }
                 _ => panic!(),

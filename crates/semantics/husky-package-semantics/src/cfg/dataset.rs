@@ -1,7 +1,5 @@
 use std::sync::Arc;
 
-use husky_vm::{Instruction, InstructionSheet, InstructionVariant};
-
 use husky_eager_semantics::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

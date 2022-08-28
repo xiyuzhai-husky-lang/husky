@@ -3,7 +3,7 @@ mod parser;
 mod proc;
 
 pub use func::*;
-pub use parser::*;
+pub(crate) use parser::*;
 pub use proc::*;
 
 use crate::expr::EagerExprParser;
@@ -14,4 +14,4 @@ use husky_file::FilePtr;
 use husky_print_utils::*;
 use husky_semantics_error::{err, not_none};
 use husky_text::TextRange;
-use husky_word::{CustomIdentifier, RootIdentifier};
+use husky_word::RootIdentifier;

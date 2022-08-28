@@ -248,7 +248,7 @@ impl TyDecl {
             let ast = child.value.as_ref()?;
             match ast.variant {
                 AstVariant::FieldDefnHead {
-                    field_ast_kind: field_kind,
+                    ast_field_kind: field_kind,
                     ..
                 } => {
                     match field_kind {
@@ -302,7 +302,7 @@ impl TyDecl {
                 },
                 AstVariant::Use { .. } => todo!(),
                 AstVariant::FieldDefnHead {
-                    field_ast_kind: field_kind,
+                    ast_field_kind: field_kind,
                     ..
                 } => match field_kind {
                     AstFieldKind::StructOriginal => todo!("no original at this point"),

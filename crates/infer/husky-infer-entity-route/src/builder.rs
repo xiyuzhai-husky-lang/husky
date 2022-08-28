@@ -6,7 +6,6 @@ mod impl_stmt;
 use super::*;
 use fold::LocalStack;
 use husky_ast::{AstIter, AstText};
-use husky_text::TextRanged;
 use std::sync::Arc;
 
 pub struct EntityRouteSheetBuilder<'a> {
@@ -17,10 +16,6 @@ pub struct EntityRouteSheetBuilder<'a> {
 }
 
 impl<'a> EntityRouteSheetBuilder<'a> {
-    fn file(&self) -> FilePtr {
-        self.entity_route_sheet.ast_text.file
-    }
-
     pub(super) fn new(
         db: &'a dyn InferEntityRouteQueryGroup,
         arena: &'a RawExprArena,
@@ -49,7 +44,6 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     pub(super) fn infer_all(&mut self, ast_iter: AstIter) {
         self.enter_block();
-        let arena = self.entity_route_sheet.ast_text.arena.clone();
         for item in ast_iter {
             let ast = match item.value.as_ref() {
                 Ok(ast) => ast,
@@ -57,16 +51,15 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             };
             match ast.variant {
                 AstVariant::FieldDefnHead {
-                    liason,
-                    ranged_ident,
-                    field_ty: ty,
-                    field_ast_kind: field_kind,
-                } => match field_kind {
+                    field_ty,
+                    ast_field_kind,
+                    ..
+                } => match ast_field_kind {
                     AstFieldKind::StructDefault { default } => {
-                        self.infer_expr(default, Some(ty.route));
+                        self.infer_expr(default, Some(field_ty.route));
                     }
                     AstFieldKind::StructDerivedEager { derivation } => {
-                        self.infer_expr(derivation, Some(ty.route));
+                        self.infer_expr(derivation, Some(field_ty.route));
                     }
                     _ => (),
                 },
@@ -92,7 +85,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     AstVariant::Visual => self.infer_function(&[], None, children),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
-                        field_ast_kind: field_kind,
+                        ast_field_kind: field_kind,
                         field_ty: ty,
                         ..
                     } => match field_kind {
@@ -108,7 +101,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     AstVariant::FeatureDefnHead { output_ty: ty, .. } => {
                         self.infer_function(&[], Some(ty.route), children)
                     }
-                    AstVariant::Submodule { ident, source_file } => (),
+                    AstVariant::Submodule { .. } => (),
                 }
             }
         }

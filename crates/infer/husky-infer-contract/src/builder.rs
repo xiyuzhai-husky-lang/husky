@@ -49,7 +49,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 AstVariant::FieldDefnHead {
                     liason,
                     field_ty: ty,
-                    field_ast_kind,
+                    ast_field_kind: field_ast_kind,
                     ..
                 } => match field_ast_kind {
                     AstFieldKind::StructDefault { default } => {
@@ -96,7 +96,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     AstVariant::Visual => self.infer_lazy_stmts(children),
                     AstVariant::Use { .. } => (),
                     AstVariant::FieldDefnHead {
-                        field_ast_kind,
+                        ast_field_kind: field_ast_kind,
                         field_ty: ty,
                         ..
                     } => match field_ast_kind {

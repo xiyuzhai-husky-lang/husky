@@ -2,11 +2,7 @@ use crate::*;
 use husky_comptime::{utils::__RegisterDowncastResult, *};
 use husky_print_utils::msg_once;
 use husky_trace_protocol::TraceStats;
-use husky_vm::{
-    __Register, __RegisterDataKind, __VMError, __VMErrorVariant, __VMResult, __VirtualEnum,
-    __VIRTUAL_ENUM_VTABLE,
-};
-use husky_word::RootIdentifier;
+use husky_vm::{__Register, __VMError, __VMErrorVariant, __VMResult};
 
 impl<'eval> TraceVariant<'eval> {
     pub fn opt_stats(
@@ -25,9 +21,9 @@ impl<'eval> TraceVariant<'eval> {
                 feature_branch_opt_stats(runtime, partitions, branch)
             }
             TraceVariant::FeatureExpr(expr) => feature_expr_opt_stats(runtime, partitions, expr),
-            TraceVariant::FeatureCallArgument { name, argument } => todo!(),
-            TraceVariant::FuncStmt { stmt, history } => todo!(),
-            TraceVariant::ProcStmt { stmt, history } => todo!(),
+            TraceVariant::FeatureCallArgument { .. } => Ok(None),
+            TraceVariant::FuncStmt { .. } => todo!(),
+            TraceVariant::ProcStmt { .. } => Ok(None),
             TraceVariant::ProcBranch {
                 stmt,
                 branch,

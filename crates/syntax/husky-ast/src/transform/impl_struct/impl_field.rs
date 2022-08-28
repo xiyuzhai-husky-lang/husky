@@ -107,7 +107,7 @@ impl<'a> AstTransformer<'a> {
             liason: field_liason,
             ranged_ident: ident,
             field_ty,
-            field_ast_kind: field_kind,
+            ast_field_kind: field_kind,
         })
     }
 
@@ -151,7 +151,7 @@ impl<'a> AstTransformer<'a> {
             liason: MemberModifier::Property,
             ranged_ident: ident,
             field_ty,
-            field_ast_kind: AstFieldKind::StructProperty { paradigm },
+            ast_field_kind: AstFieldKind::StructProperty { paradigm },
         })
     }
 }

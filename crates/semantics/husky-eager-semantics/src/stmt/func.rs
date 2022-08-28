@@ -31,11 +31,6 @@ impl TextRanged for FuncStmt {
 }
 
 impl FuncStmt {
-    // pub fn stmts_text_range(stmts: &[Arc<FuncStmt>]) -> TextRange {
-    //     let text_start = stmts[0].range.start;
-    //     (text_start..(Self::text_end(stmts.last().as_ref().unwrap()))).into()
-    // }
-
     fn text_end(stmt: &FuncStmt) -> TextPosition {
         match stmt.variant {
             FuncStmtVariant::Init { .. }

@@ -1,15 +1,12 @@
 use husky_ast::{RawBoundary, RawLoopKind};
-use husky_dev_utils::dev_src;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
-use husky_text::TextRanged;
 
 use super::*;
 
 impl<'a> EntityRouteSheetBuilder<'a> {
     pub(super) fn infer_stmts(&mut self, ast_iter: AstIter, opt_output_ty: Option<EntityRoutePtr>) {
         self.enter_block();
-        let file = self.entity_route_sheet.ast_text.file;
         for item in ast_iter {
             if let Ok(ref value) = item.value {
                 match value.variant {
@@ -118,12 +115,12 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             }
             RawStmtVariant::Assert(condition) => self.infer_condition(condition),
             RawStmtVariant::Break => msg_once!("ensure break is inside a loop"),
-            RawStmtVariant::Match { match_expr, .. } => panic!("shouldn't be here"),
+            RawStmtVariant::Match { .. } => panic!("shouldn't be here"),
             RawStmtVariant::ReturnXml(ref xml_expr) => match xml_expr.variant {
                 RawXmlExprVariant::Value(raw_expr_idx) => {
                     self.infer_expr(raw_expr_idx, None);
                 }
-                RawXmlExprVariant::Tag { ident, ref props } => {
+                RawXmlExprVariant::Tag { ref props, .. } => {
                     props.iter().for_each(|(_, argument)| {
                         self.infer_expr(*argument, None);
                     })
