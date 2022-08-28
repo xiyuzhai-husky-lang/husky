@@ -18,10 +18,7 @@ impl<'eval> TraceVariant<'eval> {
                 ProcStmtVariant::Loop { .. } => true,
                 ProcStmtVariant::ConditionFlow { .. } => panic!(),
                 ProcStmtVariant::Break => false,
-                ProcStmtVariant::Match {
-                    ref match_expr,
-                    ref branches,
-                } => todo!(),
+                ProcStmtVariant::Match { .. } => todo!(),
             },
             TraceVariant::LoopFrame { .. }
             | TraceVariant::Main(_)
@@ -34,7 +31,7 @@ impl<'eval> TraceVariant<'eval> {
                 | FeatureLazyExprVariant::Variable { .. } => false,
                 FeatureLazyExprVariant::StructOriginalField { .. } => false,
                 FeatureLazyExprVariant::EntityFeature { .. } => true,
-                FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
+                FeatureLazyExprVariant::NewRecord { .. } => todo!(),
                 FeatureLazyExprVariant::RecordOriginalField { .. } => false,
                 FeatureLazyExprVariant::ThisValue { .. } => false,
                 FeatureLazyExprVariant::EvalInput => false,
@@ -42,12 +39,12 @@ impl<'eval> TraceVariant<'eval> {
                     ref routine_defn, ..
                 } => !routine_defn.is_builtin(),
                 FeatureLazyExprVariant::RecordDerivedField { .. } => todo!(),
-                FeatureLazyExprVariant::Index { ref opds, .. } => false,
+                FeatureLazyExprVariant::Index { .. } => false,
                 FeatureLazyExprVariant::StructDerivedLazyField { .. } => true,
                 FeatureLazyExprVariant::ModelCall { ref model_defn, .. } => {
                     match model_defn.variant {
                         EntityDefnVariant::Function { ref source, .. } => match source {
-                            CallFormSource::Lazy { stmts } => true,
+                            CallFormSource::Lazy { .. } => true,
                             CallFormSource::Static(_) => false,
                             _ => panic!(),
                         },
@@ -85,7 +82,7 @@ impl<'eval> TraceVariant<'eval> {
                 | EagerExprVariant::ThisField { .. }
                 | EagerExprVariant::EnumKindLiteral(_) => false,
                 EagerExprVariant::EntityFeature { .. } => true,
-                EagerExprVariant::EntityThickFp { route } => todo!(),
+                EagerExprVariant::EntityThickFp { .. } => todo!(),
             },
             TraceVariant::CallHead { .. } => false,
             TraceVariant::ProcBranch {

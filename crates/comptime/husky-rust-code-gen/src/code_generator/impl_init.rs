@@ -110,7 +110,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 ..
             } => match ty_kind {
                 TyKind::Record => (),
-                _ => self.gen_ty_linkages(ty_kind, opt_type_call, entity_route, members),
+                _ => self.gen_ty_linkages(opt_type_call, entity_route, members),
             },
             EntityDefnVariant::Trait { .. } => todo!(),
             EntityDefnVariant::EnumVariant { .. } => todo!(),

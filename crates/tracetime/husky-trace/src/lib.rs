@@ -8,7 +8,6 @@ mod subtraces;
 #[cfg(test)]
 mod tests;
 
-use fold::Indent;
 use husky_comptime::EntityRoute;
 use husky_comptime::*;
 use husky_eager_semantics::*;
@@ -16,17 +15,12 @@ use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
 use husky_entity_semantics::*;
 use husky_feature_eval::EvalFeature;
 use husky_feature_gen::*;
-use husky_feature_gen::*;
 use husky_file::FilePtr;
-use husky_print_utils::p;
-use husky_text::{HuskyText, TextRange};
+use husky_text::TextRange;
 use husky_trace_protocol::*;
-use husky_vm::{
-    History, HistoryEntry, InstructionSheet, LoopFrameData, VMConditionBranch, VMControl,
-};
-use husky_word::CustomIdentifier;
-use serde::{ser::SerializeStruct, Serialize};
-use std::{borrow::Cow, sync::Arc};
+use husky_vm::{History, HistoryEntry, InstructionSheet, LoopFrameData, VMConditionBranch};
+use serde::Serialize;
+use std::sync::Arc;
 
 // ts: { idx: number; parent: number | null; tokens: Token[] }
 #[derive(Debug)]

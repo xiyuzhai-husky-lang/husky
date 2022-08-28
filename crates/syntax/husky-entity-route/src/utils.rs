@@ -17,19 +17,14 @@ impl EntityRoute {
             }
         }
         match self.variant {
-            EntityRouteVariant::Root { ident } => true,
-            EntityRouteVariant::Package { main, ident } => todo!(),
-            EntityRouteVariant::Child { parent, ident } => parent.is_implemented(),
-            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => ty.is_implemented(),
+            EntityRouteVariant::Root { .. } => true,
+            EntityRouteVariant::Package { .. } => todo!(),
+            EntityRouteVariant::Child { parent, .. } => parent.is_implemented(),
+            EntityRouteVariant::TypeAsTraitMember { ty, .. } => ty.is_implemented(),
             EntityRouteVariant::TargetInputValue => todo!(),
             EntityRouteVariant::TargetOutputType => todo!(),
-            EntityRouteVariant::Any {
-                ident,
-                husky_entity_kind,
-                file,
-                range,
-            } => true,
-            EntityRouteVariant::ThisType { file, range } => false,
+            EntityRouteVariant::Any { .. } => true,
+            EntityRouteVariant::ThisType { .. } => false,
         }
     }
 }

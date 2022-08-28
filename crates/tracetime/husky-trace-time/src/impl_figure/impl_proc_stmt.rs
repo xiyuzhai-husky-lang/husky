@@ -8,11 +8,9 @@ impl HuskyTraceTime {
     ) -> FigureCanvasData {
         match stmt.variant {
             ProcStmtVariant::Init {
-                varname,
-                ref initial_value,
-                init_kind,
+                ref initial_value, ..
             } => self.eager_expr_figure(initial_value, history),
-            ProcStmtVariant::Assert { ref condition } => todo!(),
+            ProcStmtVariant::Assert { .. } => todo!(),
             ProcStmtVariant::Execute { ref expr } => {
                 if let Some(entry) = history.get(expr) {
                     match entry {
@@ -27,11 +25,8 @@ impl HuskyTraceTime {
                 }
             }
             ProcStmtVariant::Return { ref result, .. } => self.eager_expr_figure(result, history),
-            ProcStmtVariant::ConditionFlow { ref branches } => todo!(),
-            ProcStmtVariant::Loop {
-                ref loop_variant,
-                ref stmts,
-            } => {
+            ProcStmtVariant::ConditionFlow { .. } => todo!(),
+            ProcStmtVariant::Loop { .. } => {
                 if let Some(entry) = history.get(stmt) {
                     match entry {
                         HistoryEntry::Loop { ref mutations, .. } => {
@@ -44,10 +39,7 @@ impl HuskyTraceTime {
                 }
             }
             ProcStmtVariant::Break => FigureCanvasData::void(),
-            ProcStmtVariant::Match {
-                ref match_expr,
-                ref branches,
-            } => todo!(),
+            ProcStmtVariant::Match { .. } => todo!(),
         }
     }
 
@@ -64,11 +56,9 @@ impl HuskyTraceTime {
                 ref history,
             } => match history.get(stmt).unwrap() {
                 HistoryEntry::Loop {
-                    loop_kind,
-                    control,
                     stack_snapshot,
-                    body_instruction_sheet: body,
                     mutations,
+                    ..
                 } => mutations
                     .iter()
                     .enumerate()
@@ -83,7 +73,7 @@ impl HuskyTraceTime {
                             MutationFigureData {
                                 name: match mutation_data.kind {
                                     MutationDataVariant::Exec => panic!(),
-                                    MutationDataVariant::Block { stack_idx, varname } => {
+                                    MutationDataVariant::Block { varname, .. } => {
                                         varname.as_str().to_string()
                                     }
                                 },

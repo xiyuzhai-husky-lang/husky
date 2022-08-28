@@ -36,7 +36,7 @@ unsafe fn virtual_vec_cyclic_slice<'temp, 'eval>(
     let this: &'eval VirtualVec = values[0].downcast_eval_ref(&__VIRTUAL_VEC_VTABLE);
     let start = values[1].downcast_i32();
     let end = values[2].downcast_i32();
-    (__Register::new_box(
+    __Register::new_box(
         VirtualCyclicSlice {
             data: CyclicSlice::<'eval, __Register<'eval>> {
                 start,
@@ -45,5 +45,5 @@ unsafe fn virtual_vec_cyclic_slice<'temp, 'eval>(
             },
         },
         &__VIRTUAL_CYCLIC_SLICE_VTABLE,
-    ))
+    )
 }

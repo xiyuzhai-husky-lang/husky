@@ -132,7 +132,6 @@ impl HuskyTraceTime {
         let trace_id = self.next_id();
         let trace = {
             let (file, range) = variant.file_and_range();
-            let text = self.runtime().comptime().text(file).unwrap();
             let reachable = variant.reachable();
             let can_have_subtraces = variant.can_have_subtraces(reachable);
             let lines = self.trace_lines(trace_id, indent, &variant, opt_parent_id.is_some());

@@ -58,7 +58,6 @@ use sync_utils::ASafeRwLock;
 pub struct HuskyComptime {
     storage: salsa::Storage<HuskyComptime>,
     file_interner: Arc<husky_file::FileInterner>,
-    ty_cache: Arc<husky_entity_route::TyRouteCache>,
     word_interner: Arc<husky_word::WordInterner>,
     entity_route_interner: Arc<husky_entity_route::EntityRouteInterner>,
     live_docs: ASafeRwLock<IndexMap<FilePtr, ASafeRwLock<String>>>,
@@ -80,7 +79,6 @@ impl HuskyComptime {
             linkage_table,
             entity_route_store,
             config,
-            ty_cache: Default::default(),
             entity_route_interner: Arc::new(husky_entity_route::new_entity_route_interner()),
         };
         let target_entrance = comptime.intern_file(comptime.config.package_dir.join("main.hsk"));

@@ -2,9 +2,7 @@ use super::*;
 use husky_datasets_interface::mnist::BinaryGrid28;
 use husky_liason_semantics::{MemberModifier, ParameterModifier};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
-use husky_trace_protocol::*;
 use husky_vm::*;
-use std::any::TypeId;
 
 pub static BINARY_GRID_28_BASE_ROUTE: &'static str =
     "domains::ml::datasets::cv::mnist::BinaryGrid28";
@@ -72,9 +70,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
         output_liason: OutputModifier::Transfer,
         linkage: transfer_linkage!(
-            |_, _values|unsafe  {
-                (__Register::new_box(BinaryGrid28::default(), &__BINARY_GRID_28_VTABLE))
-            },
+            |_, _values| __Register::new_box(BinaryGrid28::default(), &__BINARY_GRID_28_VTABLE),
             some base BinaryGrid28::__call__ as fn() -> BinaryGrid28
         )
         .into(),

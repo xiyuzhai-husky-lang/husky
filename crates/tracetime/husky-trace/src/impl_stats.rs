@@ -12,7 +12,7 @@ impl<'eval> TraceVariant<'eval> {
     ) -> __VMResult<Option<TraceStats>> {
         match self {
             TraceVariant::Main(repr) => feature_repr_opt_stats(runtime, partitions, repr, None),
-            TraceVariant::Module { route, file, range } => Ok(None),
+            TraceVariant::Module { .. } => Ok(None),
             TraceVariant::EntityFeature { repr, .. } => {
                 feature_repr_opt_stats(runtime, partitions, repr, None)
             }
@@ -24,33 +24,12 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::FeatureCallArgument { .. } => Ok(None),
             TraceVariant::FuncStmt { .. } => todo!(),
             TraceVariant::ProcStmt { .. } => Ok(None),
-            TraceVariant::ProcBranch {
-                stmt,
-                branch,
-                opt_vm_branch,
-                branch_idx,
-                history,
-            } => todo!(),
-            TraceVariant::FuncBranch {
-                stmt,
-                branch,
-                opt_vm_branch,
-                branch_idx,
-                history,
-            } => todo!(),
-            TraceVariant::LoopFrame {
-                loop_stmt,
-                body_instruction_sheet,
-                body_stmts,
-                loop_frame_data,
-            } => todo!(),
-            TraceVariant::EagerExpr { expr, history } => todo!(),
-            TraceVariant::EagerCallArgument {
-                name,
-                argument,
-                history,
-            } => todo!(),
-            TraceVariant::CallHead { entity, tokens } => todo!(),
+            TraceVariant::ProcBranch { .. } => todo!(),
+            TraceVariant::FuncBranch { .. } => todo!(),
+            TraceVariant::LoopFrame { .. } => todo!(),
+            TraceVariant::EagerExpr { .. } => todo!(),
+            TraceVariant::EagerCallArgument { .. } => todo!(),
+            TraceVariant::CallHead { .. } => todo!(),
         }
     }
 }
@@ -89,8 +68,8 @@ fn feature_stmt_opt_stats<'eval>(
         FeatureLazyStmtVariant::Return { ref result } => {
             feature_expr_opt_stats(db, partitions, result)
         }
-        FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
-        FeatureLazyStmtVariant::ConditionFlow { ref branches } => todo!(),
+        FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
+        FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
     }
 }
 

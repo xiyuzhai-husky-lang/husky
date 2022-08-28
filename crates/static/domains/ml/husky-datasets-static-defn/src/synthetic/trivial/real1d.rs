@@ -1,9 +1,7 @@
 use crate::*;
-use husky_entity_kind::RoutineKind;
 use husky_liason_semantics::OutputModifier;
 use husky_trace_protocol::SampleId;
 use husky_vm::{__Linkage, __ResolvedLinkage, transfer_linkage};
-use std::sync::Arc;
 use xrng::XRng;
 
 pub const REAL_1D_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
@@ -23,7 +21,7 @@ pub const DATASET1_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputModifier::Transfer,
         linkage: transfer_linkage!(
-            |_, _| unsafe{(__Register::new_box(dataset1(), &__DATASET_VTABLE))},
+            |_, _| __Register::new_box(dataset1(), &__DATASET_VTABLE),
             some base dataset1 as fn() -> Dataset<'static>
         )
         .into(),
@@ -41,9 +39,9 @@ pub const DATASET2_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
         output_ty: "Dataset<f32, i32>",
         output_liason: OutputModifier::Transfer,
         linkage: transfer_linkage!(
-            |_, _| unsafe {(__Register::new_box(
+            |_, _| __Register::new_box(
                 dataset2(), &__DATASET_VTABLE
-            ))},
+            ),
             some base dataset2 as fn() -> Dataset<'static>
         )
         .into(),

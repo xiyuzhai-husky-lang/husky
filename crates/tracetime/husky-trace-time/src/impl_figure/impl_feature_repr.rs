@@ -1,4 +1,4 @@
-use husky_comptime::utils::{self, __RegisterDowncastResult};
+use husky_comptime::utils::__RegisterDowncastResult;
 use husky_vm_primitive_value::PrimitiveValueData;
 
 use super::*;
@@ -10,10 +10,6 @@ impl HuskyTraceTime {
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         if let Some(sample_id) = self.restriction.opt_sample_id() {
-            let value = self
-                .runtime
-                .eval_feature_repr(repr, sample_id)
-                .map_err(|e| (sample_id, e))?;
             Ok(FigureCanvasData::new_specific(
                 self.runtime()
                     .visualize_feature(repr.clone(), sample_id)
@@ -190,7 +186,7 @@ impl HuskyTraceTime {
                 TraceVariant::Main(ref repr) => {
                     (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
                 }
-                TraceVariant::EntityFeature { route, ref repr } => {
+                TraceVariant::EntityFeature { ref repr, .. } => {
                     (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
                 }
                 TraceVariant::FeatureStmt(ref stmt) => (
@@ -202,15 +198,9 @@ impl HuskyTraceTime {
                     branch.block.return_ty.route,
                 ),
                 TraceVariant::FeatureExpr(_) => todo!(),
-                TraceVariant::FeatureCallArgument { name, ref argument } => todo!(),
-                TraceVariant::FuncStmt {
-                    ref stmt,
-                    ref history,
-                } => todo!(),
-                TraceVariant::ProcStmt {
-                    ref stmt,
-                    ref history,
-                } => todo!(),
+                TraceVariant::FeatureCallArgument { .. } => todo!(),
+                TraceVariant::FuncStmt { .. } => todo!(),
+                TraceVariant::ProcStmt { .. } => todo!(),
                 TraceVariant::ProcBranch { .. } => todo!(),
                 TraceVariant::FuncBranch { .. } => todo!(),
                 TraceVariant::LoopFrame { .. } => todo!(),

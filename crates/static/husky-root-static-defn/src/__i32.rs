@@ -39,9 +39,10 @@ pub static I32_MIN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(
-            transfer_linkage!(|values, _| todo!(), some base i32::min as fn (i32, i32)-> i32),
-        ),
+        opt_linkage: Some(transfer_linkage!(
+            |values, _| values[0].downcast_i32().min(values[1].downcast_i32()).to_register(),
+            some base i32::min as fn (i32, i32)-> i32
+        )),
     },
     dev_src: static_dev_src!(),
 };
@@ -60,9 +61,9 @@ pub static I32_MAX: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(
-            transfer_linkage!(|values, _| todo!(), some base i32::max as fn (i32, i32)-> i32),
-        ),
+        opt_linkage: Some(transfer_linkage!(
+                |values, _| values[0].downcast_i32().max(values[1].downcast_i32()).to_register(),
+                some base i32::max as fn (i32, i32)-> i32)),
     },
     dev_src: static_dev_src!(),
 };
@@ -77,8 +78,9 @@ pub static I32_SGN: EntityStaticDefn = EntityStaticDefn {
         output_liason: OutputModifier::Transfer,
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(transfer_linkage!(|values, _|
-            values[0].downcast_i32().sgn().to_register(), some base i32::sgn as fn (i32)-> i32
+        opt_linkage: Some(transfer_linkage!(
+            |values, _| values[0].downcast_i32().sgn().to_register(),
+            some base i32::sgn as fn (i32)-> i32
         )),
     },
     dev_src: static_dev_src!(),

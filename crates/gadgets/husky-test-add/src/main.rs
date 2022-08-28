@@ -1,16 +1,11 @@
 mod test_class;
 
 use clap::{Parser, Subcommand};
-use composite_pattern::CompositePattern;
 use husky_check_utils::should;
 use husky_cli_utils::ask::ask_user_for_permission;
 use husky_io_utils::{file_sync::diff_file_sync, path_pattern::PathPattern, FileVisitConfig};
 use husky_print_utils::*;
-use std::{io::Write, process::abort};
-use std::{
-    path::{Path, PathBuf},
-    process::exit,
-};
+use std::path::{Path, PathBuf};
 use test_class::*;
 
 #[derive(Parser)]

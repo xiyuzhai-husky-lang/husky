@@ -23,9 +23,9 @@ impl EntityRoutePtr {
                 _ => panic!(),
             },
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match base_route.variant {
-                EntityRouteVariant::Root { ident } => todo!(),
-                EntityRouteVariant::Package { main, ident } => todo!(),
-                EntityRouteVariant::Child { parent, ident } => todo!(),
+                EntityRouteVariant::Root { .. } => todo!(),
+                EntityRouteVariant::Package { .. } => todo!(),
+                EntityRouteVariant::Child { .. } => todo!(),
                 EntityRouteVariant::TypeAsTraitMember {
                     ty: other_ty,
                     trai: other_trai,
@@ -37,23 +37,13 @@ impl EntityRoutePtr {
                 }
                 EntityRouteVariant::TargetInputValue => todo!(),
                 EntityRouteVariant::TargetOutputType => todo!(),
-                EntityRouteVariant::Any {
-                    ident,
-                    husky_entity_kind,
-                    file,
-                    range,
-                } => todo!(),
-                EntityRouteVariant::ThisType { file, range } => todo!(),
+                EntityRouteVariant::Any { .. } => todo!(),
+                EntityRouteVariant::ThisType { .. } => todo!(),
             },
             EntityRouteVariant::TargetInputValue => todo!(),
             EntityRouteVariant::TargetOutputType => todo!(),
-            EntityRouteVariant::Any {
-                ident,
-                husky_entity_kind,
-                file,
-                range,
-            } => todo!(),
-            EntityRouteVariant::ThisType { file, range } => todo!(),
+            EntityRouteVariant::Any { .. } => todo!(),
+            EntityRouteVariant::ThisType { .. } => todo!(),
         }
     }
 }

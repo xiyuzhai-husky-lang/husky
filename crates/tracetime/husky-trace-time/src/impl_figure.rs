@@ -8,17 +8,11 @@ mod utils;
 
 use crate::*;
 use husky_comptime::*;
-use husky_eager_semantics::{
-    EagerExpr, EagerExprVariant, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant,
-};
+use husky_eager_semantics::{EagerExpr, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant};
 use husky_feature_eval::EvalFeature;
-use husky_feature_gen::{
-    FeatureLazyExpr, FeatureLazyExprVariant, FeatureLazyStmt, FeatureLazyStmtVariant,
-};
-use husky_print_utils::epin;
+use husky_feature_gen::{FeatureLazyExpr, FeatureLazyStmt, FeatureLazyStmtVariant};
 use husky_text::TextQueryGroup;
 use husky_vm::{History, HistoryEntry, MutationData, MutationDataVariant, StackSnapshot};
-use map_collect::MapCollect;
 
 impl HuskyTraceTime {
     pub fn figure_canvas(
@@ -48,10 +42,7 @@ impl HuskyTraceTime {
                 ref expr,
                 ref history,
             } => self.eager_expr_figure(expr, history),
-            TraceVariant::CallHead {
-                ref entity,
-                ref tokens,
-            } => FigureCanvasData::void(),
+            TraceVariant::CallHead { .. } => FigureCanvasData::void(),
             TraceVariant::LoopFrame {
                 ref loop_frame_data,
                 ..

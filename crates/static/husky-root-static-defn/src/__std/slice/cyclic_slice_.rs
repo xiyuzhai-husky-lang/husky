@@ -2,13 +2,11 @@ mod end;
 mod index;
 mod start;
 
-use ::cyclic_slice::CyclicSlice;
 use end::*;
 use husky_static_visualizer::StaticVisualTy;
 use husky_vm::*;
 use index::*;
 use start::*;
-use std::any::TypeId;
 
 use super::*;
 pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {

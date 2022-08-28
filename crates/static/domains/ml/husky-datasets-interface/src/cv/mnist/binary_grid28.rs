@@ -1,7 +1,6 @@
 use super::*;
 #[cfg(feature = "serde_support")]
 use serde::Serialize;
-use std::any::TypeId;
 
 #[derive(Default, Clone, PartialEq, Eq)]
 pub struct BinaryGrid28 {
@@ -36,14 +35,6 @@ impl BinaryGrid28 {
         Self {
             padded_rows: Default::default(),
         }
-    }
-
-    pub(crate) fn get(&self, index: usize) -> Option<u32> {
-        self.padded_rows.get(index).map(|x| *x)
-    }
-
-    pub(crate) fn get_mut(&mut self, index: usize) -> Option<&mut u32> {
-        self.padded_rows.get_mut(index)
     }
 }
 
