@@ -2,8 +2,8 @@ use std::ops::AddAssign;
 
 use fold::LocalValue;
 use husky_ast::{
-    Ast, AstContext, AstQueryGroup, AstResult, AstVariant, RawExpr, RawExprVariant,
-    RawReturnContext, RawReturnContextKind, RawStmtVariant, StructItemContext,
+    Ast, AstContext, AstResult, AstVariant, RawExpr, RawExprVariant, RawReturnContext,
+    RawReturnContextKind, RawStmtVariant, StructItemContext,
 };
 use husky_defn_head::Parameter;
 use husky_entity_kind::TyKind;
@@ -14,8 +14,7 @@ use husky_liason_semantics::{MemberModifier, ParameterModifier};
 use husky_opn_syntax::{ListOpr, RawOpnVariant};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_print_utils::msg_once;
-use husky_vm::*;
-use husky_word::{Paradigm, RootIdentifier, WordInterner};
+use husky_word::{Paradigm, RootIdentifier};
 
 pub struct Formatter<'a> {
     db: &'a dyn EntitySyntaxQueryGroup,
@@ -207,7 +206,6 @@ impl<'a> Formatter<'a> {
             AstVariant::FeatureDefnHead { .. } => todo!(),
             AstVariant::Use { ref use_variant } => todo!(),
             AstVariant::Submodule { ident, source_file } => todo!(),
-            AstVariant::CallFormDefnHead { .. } => todo!(),
             AstVariant::Visual => todo!(),
         }
     }
@@ -270,15 +268,11 @@ impl<'a> Formatter<'a> {
                 match self.context.value() {
                     AstContext::Stmt {
                         paradigm: Paradigm::EagerFunctional,
-                        return_context,
+                        ..
                     }
                     | AstContext::Stmt {
                         paradigm: Paradigm::LazyFunctional,
-                        return_context,
-                    }
-                    | AstContext::Stmt {
-                        paradigm: Paradigm::LazyFunctional,
-                        return_context,
+                        ..
                     } => (),
                     AstContext::Stmt {
                         paradigm: Paradigm::EagerProcedural,

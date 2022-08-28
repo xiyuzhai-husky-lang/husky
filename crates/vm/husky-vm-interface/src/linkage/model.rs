@@ -64,7 +64,7 @@ impl<T: Model> ModelDyn for T {
         internal: &__Register<'eval>,
         arguments: &[__Register<'eval>],
     ) -> __VMResult<__Register<'eval>> {
-        let internal: &T::Internal = unsafe { internal.downcast_temp_ref(T::internal_ty_vtable()) };
+        let internal: &T::Internal = internal.downcast_temp_ref(T::internal_ty_vtable());
         self.eval(internal, arguments)
     }
 }

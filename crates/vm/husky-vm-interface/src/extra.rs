@@ -111,10 +111,8 @@ impl<'eval> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => __Register {
                 data_kind: __RegisterDataKind::TempRef,
-                data: unsafe {
-                    __RegisterData {
-                        as_ptr: &self.data as *const _ as *mut (),
-                    }
+                data: __RegisterData {
+                    as_ptr: &self.data as *const _ as *mut (),
                 },
                 vtable: self.vtable,
             },

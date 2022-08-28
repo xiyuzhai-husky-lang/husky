@@ -1,4 +1,3 @@
-use husky_log_utils::log_once;
 use husky_signal::Signalable;
 
 use super::*;

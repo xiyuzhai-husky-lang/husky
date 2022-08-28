@@ -20,7 +20,7 @@ pub static __ASSIGN_LINKAGE: __Linkage = transfer_linkage!(
 );
 
 pub static __VALUE_CALL_LINKAGE: __Linkage = transfer_linkage!(
-    |values, opt_ctx| unsafe {
+    |values, opt_ctx| {
         let call_form_value: &__VirtualFunction =
             values[0].downcast_temp_ref(&__VIRTUAL_FUNCTION_VTABLE);
         match call_form_value {

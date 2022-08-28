@@ -1,9 +1,7 @@
 use crate::*;
 use husky_ast::{AstIter, RawExprArena};
-use husky_lazy_semantics::LazyStmt;
 use husky_semantics_error::SemanticResult;
 use husky_word::Paradigm;
-use std::sync::Arc;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct MainDefn {

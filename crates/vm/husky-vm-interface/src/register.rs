@@ -1,11 +1,9 @@
 mod registrable;
-mod registrable_dyn;
 mod registrable_safe;
 mod vtable;
 
 use husky_vm_primitive_value::PrimitiveValueData;
 pub use registrable::*;
-pub use registrable_dyn::*;
 pub use registrable_safe::*;
 pub use vtable::*;
 use wild_utils::wild_arb_ref;

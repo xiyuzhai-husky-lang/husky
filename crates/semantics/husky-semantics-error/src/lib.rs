@@ -1,7 +1,5 @@
-use husky_dev_utils::{dev_src, DevSource};
-use husky_entity_syntax::EntitySyntaxError;
+use husky_dev_utils::DevSource;
 use husky_infer_error::InferError;
-use husky_vm::VMCompileError;
 use std::sync::Arc;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

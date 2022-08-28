@@ -1,10 +1,8 @@
-mod label;
 mod partition;
 
 use husky_signal::Signalable;
-pub use label::*;
 pub use partition::*;
-use vec_like::{VecMap, VecPairMap, VecSet};
+use vec_like::{VecPairMap, VecSet};
 
 use super::*;
 use serde::{Deserialize, Serialize};

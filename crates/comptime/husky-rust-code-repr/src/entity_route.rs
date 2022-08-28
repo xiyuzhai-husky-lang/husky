@@ -1,18 +1,3 @@
-use super::*;
-use husky_entity_route::EntityRoutePtr;
-
-pub struct EntityRouteRepr<'a> {
-    route: EntityRoutePtr,
-    role: EntityRouteRole,
-    entity_route_uses: &'a [EntityRoutePtr],
-}
-
-impl<'a> std::fmt::Display for EntityRouteRepr<'a> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
-    }
-}
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EntityRouteRole {
     Caller,

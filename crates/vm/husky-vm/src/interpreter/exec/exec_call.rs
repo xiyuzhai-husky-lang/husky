@@ -10,7 +10,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         output_ty: EntityRoutePtr,
         discard: bool,
     ) -> __VMResult<()> {
-        let mut arguments = self.stack.drain(nargs).collect::<Vec<_>>();
+        let arguments = self.stack.drain(nargs).collect::<Vec<_>>();
         for argument in arguments.iter() {
             if self.stack.len() > 0 {
                 assert_ne!(argument.vtable as *const _, unsafe {

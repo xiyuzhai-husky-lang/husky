@@ -1,9 +1,5 @@
-use std::{
-    path::{Path, PathBuf},
-    sync::Arc,
-};
+use std::path::{Path, PathBuf};
 
-use husky_word::CustomIdentifier;
 use interner::Interner;
 
 pub type FileInterner = Interner<Path, PathBuf>;

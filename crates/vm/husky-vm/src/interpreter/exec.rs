@@ -7,12 +7,8 @@ mod exec_pattern_match;
 
 use crate::{history::HistoryEntry, *};
 use colored::Colorize;
-use husky_check_utils::{should, should_eq};
-use husky_entity_route::EntityRouteVariant;
+use husky_check_utils::should_eq;
 use husky_path_utils::get_relative_path;
-use husky_print_utils::{msg_once, p, ps};
-use husky_word::RootIdentifier;
-use std::iter::zip;
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
