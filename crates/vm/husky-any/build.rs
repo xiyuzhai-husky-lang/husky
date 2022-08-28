@@ -1,10 +1,7 @@
 use husky_rust_code_repr::{registration::NonPrimitiveTypeRegistration, BuildCodeGenStart};
 use husky_write_utils::w;
-use std::env;
 use std::fmt::Write;
 use std::path::PathBuf;
-
-static FILENAME: &str = &"husky_any";
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");

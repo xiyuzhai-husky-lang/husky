@@ -1,4 +1,4 @@
-use std::path::{Path, PathBuf};
+use std::path::Path;
 
 use husky_path_utils::collect_package_dirs;
 use husky_print_utils::p;

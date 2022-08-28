@@ -6,7 +6,6 @@ pub use output::*;
 pub use parameter::*;
 pub use variadic::*;
 
-use fold::LocalStack;
 use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext, AtomContextStandalone,
@@ -14,7 +13,7 @@ use husky_atom::{
 use husky_defn_head::*;
 use husky_implement::{Implementable, ImplementationContext};
 use husky_instantiate::InstantiationContext;
-use husky_print_utils::{msg_once, p};
+use husky_print_utils::msg_once;
 use husky_static_defn::{EntityStaticDefnVariant, StaticParameter};
 use husky_word::IdentDict;
 use map_collect::MapCollect;
@@ -43,13 +42,13 @@ impl CallFormDecl {
         msg_once!("variadics");
         Ok(match ast.variant {
             AstVariant::CallFormDefnHead {
-                ident,
                 paradigm,
                 ref spatial_parameters,
                 ref parameters,
                 output_ty,
                 output_liason,
                 opt_this_liason,
+                ..
             } => Arc::new(CallFormDecl {
                 opt_route: Some(route),
                 opt_this_liason,

@@ -1,5 +1,5 @@
 use husky_compile_test::test_all_source_files;
-use husky_comptime::{utils::*, *};
+use husky_comptime::*;
 use husky_display_utils::HuskyDisplay;
 use husky_test_utils::*;
 use std::path::Path;

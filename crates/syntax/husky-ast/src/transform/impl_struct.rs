@@ -22,7 +22,7 @@ impl<'a> AstTransformer<'a> {
                     token_group[0].range,
                 ));
                 match keyword {
-                    Keyword::Paradigm(routine_keyword) => {
+                    Keyword::Paradigm(_) => {
                         expect_at_least!(token_group, token_group.text_range(), 4);
                         match token_group[2].kind {
                             HuskyTokenKind::Special(SpecialToken::LPar) => {
@@ -73,7 +73,7 @@ impl<'a> AstTransformer<'a> {
             _ => panic!(),
         };
         if old_struct_item_context < new_struct_item_context {
-            let opt_base_ty = self.context.set(AstContext::Struct {
+            self.context.set(AstContext::Struct {
                 opt_base_ty,
                 item_context: new_struct_item_context,
             });

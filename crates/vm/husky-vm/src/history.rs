@@ -5,7 +5,6 @@ use std::collections::HashMap;
 use crate::*;
 
 pub use entry::HistoryEntry;
-use husky_check_utils::should;
 use husky_print_utils::p;
 
 #[derive(Debug, Default)]

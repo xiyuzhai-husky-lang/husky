@@ -1,11 +1,9 @@
 mod exec;
 mod query;
 
-use std::collections::HashMap;
-
 use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
-use husky_print_utils::{p, ps};
+use husky_print_utils::ps;
 use husky_text::TextRange;
 use husky_word::{CustomIdentifier, Identifier};
 use indexmap::IndexMap;

@@ -1,5 +1,3 @@
-use std::sync::Arc;
-
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[repr(C)]
 pub struct __VMError {

@@ -7,9 +7,8 @@ use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use husky_file::FilePtr;
 use husky_text::{HuskyText, TextQueryGroup};
 use husky_token::AbsSemanticToken;
-use lsp_types::FoldingRange;
-use std::{collections::HashMap, sync::Arc};
-use std::{fmt::Write, sync::Mutex};
+use std::fmt::Write;
+use std::sync::Arc;
 use upcast::Upcast;
 
 #[salsa::query_group(AstQueryGroupStorage)]

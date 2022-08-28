@@ -325,9 +325,8 @@ impl EntityDefnVariant {
                 spatial_parameters,
                 parameters,
                 output_ty,
-                output_liason,
                 linkage,
-                ref variadic_template,
+                ..
             } => EntityDefnVariant::Function {
                 spatial_parameters: spatial_parameters.map(|spatial_parameter| {
                     SpatialParameter::from_static(
@@ -512,24 +511,17 @@ pub(crate) fn entity_defn(
             let ast = value.as_ref().unwrap();
 
             let (ident, husky_entity_kind) = match ast.variant {
-                AstVariant::TypeDefnHead {
+                AstVariant::TypeDefnHead { ident, .. } => (
                     ident,
-                    kind,
-                    ref spatial_parameters,
-                } => {
-                    let signature = derived_unwrap!(db.ty_decl(entity_route));
-                    (
-                        ident,
-                        EntityDefnVariant::ty_from_ast(
-                            db,
-                            entity_route,
-                            ast,
-                            not_none!(opt_children),
-                            arena,
-                            file,
-                        )?,
-                    )
-                }
+                    EntityDefnVariant::ty_from_ast(
+                        db,
+                        entity_route,
+                        ast,
+                        not_none!(opt_children),
+                        arena,
+                        file,
+                    )?,
+                ),
                 AstVariant::CallFormDefnHead {
                     opt_this_liason,
                     ident,

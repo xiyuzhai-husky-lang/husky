@@ -1,6 +1,3 @@
-use husky_pattern_syntax::RawPattern;
-use wild_utils::ref_to_mut_ref;
-
 use super::*;
 use crate::*;
 

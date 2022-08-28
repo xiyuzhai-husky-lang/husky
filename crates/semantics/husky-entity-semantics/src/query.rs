@@ -4,7 +4,7 @@ use husky_entity_route::EntityRoutePtr;
 use husky_semantics_error::*;
 use husky_vm::EntityUid;
 use infer_total::InferQueryGroup;
-use std::sync::{Arc, Mutex};
+use std::sync::Arc;
 use sync_utils::ASafeRwLock;
 use upcast::Upcast;
 use utils::module_contains_features;

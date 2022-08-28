@@ -1,9 +1,5 @@
 use crate::*;
-use fold::LocalStack;
-use husky_atom::{
-    context::{AtomContextKind, Symbol, SymbolKind},
-    *,
-};
+use husky_atom::context::{Symbol, SymbolKind};
 use husky_entity_route::*;
 use husky_text::{RangedCustomIdentifier, TextRange};
 use husky_word::IdentDict;
@@ -11,14 +7,6 @@ use map_collect::MapCollect;
 use thin_vec::{thin_vec, ThinVec};
 
 impl<'a> dyn DeclQueryGroup + 'a {
-    // pub fn parse_entity(
-    //     &self,
-    //     text: &str,
-    //     symbol_context: &mut SymbolContext,
-    // ) -> AtomResult<EntityRoutePtr> {
-    //     parse_entity(symbol_context, &self.tokenize(text))
-    // }
-
     pub fn spatial_parameters_from_static(
         &self,
         static_generic_parameters: &[StaticSpatialParameter],

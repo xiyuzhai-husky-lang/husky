@@ -277,7 +277,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let this_ty_decl = self.expr_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
         let this_contract = EagerContract::member_self_eager_contract(
-            field_decl.liason,
+            field_decl.modifier,
             contract,
             field_decl.ty,
             self.arena[raw_expr_idx].range,

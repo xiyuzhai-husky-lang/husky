@@ -1,6 +1,6 @@
-use husky_entity_route::{CanonicalTyKind, EntityRoutePtr, EntityRouteVariant, TemporalArgument};
+use husky_entity_route::{CanonicalTyKind, EntityRoutePtr};
 use husky_text::TextRange;
-use husky_word::{LiasonKeyword, RootIdentifier};
+use husky_word::LiasonKeyword;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ParameterModifier {
@@ -70,26 +70,10 @@ impl From<ParameterModifier> for RangedParameterLiason {
 }
 
 impl ParameterModifier {
-    pub fn from_member(
-        member_liason: MemberModifier,
-        member_ty: EntityRoutePtr,
-        is_copyable: bool,
-    ) -> ParameterModifier {
+    pub fn from_member(member_liason: MemberModifier) -> ParameterModifier {
         match member_liason {
-            MemberModifier::Immutable => {
-                if is_copyable {
-                    ParameterModifier::None
-                } else {
-                    ParameterModifier::Owned
-                }
-            }
-            MemberModifier::Mutable => {
-                if is_copyable {
-                    ParameterModifier::None
-                } else {
-                    ParameterModifier::OwnedMut
-                }
-            }
+            MemberModifier::Immutable => ParameterModifier::Owned,
+            MemberModifier::Mutable => ParameterModifier::OwnedMut,
             MemberModifier::Property => panic!(),
         }
     }

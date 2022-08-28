@@ -18,7 +18,7 @@ pub unsafe extern "C" fn __virtual_struct_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_drop(data: *mut ()) {
-    Box::from_raw(data as *mut VirtualStruct);
+    drop(Box::from_raw(data as *mut VirtualStruct))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -53,7 +53,7 @@ pub unsafe extern "C" fn __virtual_vec_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_vec_drop(data: *mut ()) {
-    Box::from_raw(data as *mut VirtualVec);
+    drop(Box::from_raw(data as *mut VirtualVec))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -88,7 +88,7 @@ pub unsafe extern "C" fn __virtual_cyclic_slice_clone(data: *mut ()) -> *mut () 
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_cyclic_slice_drop(data: *mut ()) {
-    Box::from_raw(data as *mut VirtualCyclicSlice);
+    drop(Box::from_raw(data as *mut VirtualCyclicSlice))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -123,7 +123,7 @@ pub unsafe extern "C" fn __visual_data_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __visual_data_drop(data: *mut ()) {
-    Box::from_raw(data as *mut VisualData);
+    drop(Box::from_raw(data as *mut VisualData))
 }
 #[rustfmt::skip]
 #[no_mangle]

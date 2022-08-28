@@ -5,9 +5,6 @@ mod pattern_match;
 mod sheet;
 
 pub use condition_flow::*;
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
-use husky_print_utils::p;
-use husky_vm_primitive_value::PrimitiveValueData;
 pub use id::{InstructionId, InstructionSource};
 pub use opn::*;
 pub use pattern_match::*;
@@ -18,7 +15,7 @@ use avec::Avec;
 use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
 use husky_text::TextRange;
-use husky_word::{CustomIdentifier, IdentPairDict, Identifier};
+use husky_word::{CustomIdentifier, Identifier};
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
 #[derive(Debug)]

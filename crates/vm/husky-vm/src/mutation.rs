@@ -1,5 +1,3 @@
-use std::sync::atomic::AtomicUsize;
-
 use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
 use husky_text::TextRange;
@@ -30,7 +28,7 @@ impl<'eval> MutationData<'eval> {
     pub fn varidx(&self) -> VMStackIdx {
         match self.kind {
             MutationDataVariant::Exec => panic!(),
-            MutationDataVariant::Block { stack_idx, varname } => stack_idx,
+            MutationDataVariant::Block { stack_idx, .. } => stack_idx,
         }
     }
 }

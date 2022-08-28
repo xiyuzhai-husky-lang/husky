@@ -44,7 +44,7 @@ impl<'a> AstTransformer<'a> {
                     None => SymbolKind::EntityRoute(route),
                 },
             }) {
-                Some(old) => {
+                Some(_) => {
                     return err!(
                         format!("a symbol with the same name already exists"),
                         ranged_ident.range

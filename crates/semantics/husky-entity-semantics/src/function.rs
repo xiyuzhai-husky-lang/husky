@@ -2,7 +2,6 @@ use crate::*;
 use husky_ast::{Ast, AstIter, RawExprArena};
 use husky_semantics_error::*;
 use husky_word::Paradigm;
-use infer_total::InferQueryGroup;
 
 impl EntityDefnVariant {
     pub(crate) fn function(
@@ -14,13 +13,11 @@ impl EntityDefnVariant {
     ) -> SemanticResult<EntityDefnVariant> {
         match ast.variant {
             AstVariant::CallFormDefnHead {
-                ident,
                 paradigm,
                 ref spatial_parameters,
                 ref parameters,
                 output_ty,
-                output_liason,
-                opt_this_liason,
+                ..
             } => Ok(match paradigm {
                 Paradigm::EagerProcedural => {
                     let stmts = parse_proc_stmts(db.upcast(), arena, children, file)?;

@@ -5,18 +5,15 @@ use std::sync::Arc;
 
 pub use branch::*;
 use husky_ast::*;
-use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::RangedEntityRoute;
 use husky_semantics_error::SemanticResultArc;
 use husky_vm::{InstructionId, InstructionSource};
 
 use parse::LazyStmtParser;
 
+use super::*;
 use husky_file::FilePtr;
 use husky_text::*;
-use husky_word::CustomIdentifier;
-
-use super::*;
-use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LazyStmt {

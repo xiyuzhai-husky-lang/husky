@@ -1,15 +1,12 @@
 use crate::*;
-use husky_atom::{
-    context::{AtomContextKind, Symbol},
-    AtomContext, AtomContextStandalone,
-};
+use husky_atom::{context::AtomContextKind, AtomContext, AtomContextStandalone};
 use husky_check_utils::should_eq;
 use husky_entity_kind::MemberKind;
 use husky_implement::{Implementable, ImplementationContext};
 use husky_instantiate::{Instantiable, InstantiationContext};
 use husky_word::IdentDict;
 use map_collect::MapCollect;
-use thin_vec::{thin_vec, ThinVec};
+use thin_vec::thin_vec;
 use vec_like::VecMapEntry;
 
 #[derive(Debug, PartialEq, Eq)]
