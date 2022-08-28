@@ -8,22 +8,22 @@ struct ConcaveComponent:
     strokes: [%]LineSegmentStroke
 
     func norm -> f32:
-        // temp
-        1.0
+        // needs improvement
+        this.hausdorff_norm
 
-    proc hausdorff_width -> f32:
-        // temp
-        var hausdorff_width = 0.0
+    proc hausdorff_norm -> f32:
+        var hausdorff_norm = 0.0
         let curve_start = strokes.firstx().start
-        let dp = this.displacement()
-        let dp_norm = dp.norm()
+        let curve_ls = this.line_segment()
+        let dp_norm = curve_ls.displacement().norm()
+        // todo: change this to iter().max()
         for strokes.start <= i < strokes.end:
             let point = strokes[i].end
-            let point_dp = curve_start.to(point)
-            // let d
-            // todo
-        return 1.0
-    
+            let point_dist = curve_ls.dist_to_point(point)
+            if point_dist > hausdorff_norm:
+                hausdorff_norm = point_dist
+        return hausdorff_norm
+
     func line_segment() -> LineSegment:
         LineSegment(
             strokes.firstx().start.clone(),
@@ -32,23 +32,6 @@ struct ConcaveComponent:
 
     func displacement() -> Vector2d:
         this.line_segment().displacement()
-// pub func LineSegmentSketch => []float hausdorff_deviations
-// def get_concave_hausdorff_deviations(lsg_sk) 
-//   var hausdorff_deviations = []float()
-//   let L = lsg_sk.line_segments.size()
-//   for i < lsg_sk.concave_components.size()
-//     let interval = lsg_sk.concave_components[i]
-//     var absolute_hausdorff_deviation = 0.0
-//     let curve_start = lsg_sk.line_segments[interval.start%L].start
-//     let curve_end = lsg_sk.line_segments[(interval.end-1)%L].end
-//     let curve_displacement = geom2d::get_displacement(curve_start, curve_end)
-//     let curve_displacement_norm = get_norm(curve_displacement)
-//     for interval.start <= j < interval.end
-//       let point = lsg_sk.line_segments[j%L].end
-//       let displacement = geom2d::get_displacement(curve_start, point)
-//       absolute_hausdorff_deviation = max(absolute_hausdorff_deviation, get_line_point_distance(curve_displacement, displacement))
-//     hausdorff_deviations.append(absolute_hausdorff_deviation/curve_displacement_norm)
-//   return hausdorff_deviations
 
     visual:
         strokes
