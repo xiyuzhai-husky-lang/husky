@@ -49,11 +49,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     }
 
     fn satisfies(&self, condition: &FeatureLazyExpr) -> __VMResult<bool> {
-        let value = self.eval_expr(condition)?;
-        let value_str = self
-            .db
-            .comptime()
-            .print_short(&value, RootIdentifier::Bool.into());
+        let value = self.eval_expr_cached(condition)?;
         Ok(value.to_bool())
     }
 }
