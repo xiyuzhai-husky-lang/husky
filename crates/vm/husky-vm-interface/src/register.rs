@@ -342,7 +342,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn new_undefined_with_message(
+    pub unsafe fn none_with_message(
         proto: &'eval __RegisterTyVTable,
         message: String,
     ) -> __Register<'eval> {
@@ -461,6 +461,30 @@ impl<'eval> __Register<'eval> {
         }
     }
 
+    pub fn downcast_opt_temp_ref<T>(&self, target_ty_vtable: &__RegisterTyVTable) -> Option<&T> {
+        if self.data_kind == __RegisterDataKind::None {
+            return None;
+        }
+        if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
+            panic!(
+                "expect vtable to be {}, got {} instead",
+                target_ty_vtable.typename_str, self.vtable.typename_str
+            )
+        }
+        Some(unsafe {
+            match self.data_kind {
+                __RegisterDataKind::PrimitiveValue => todo!(),
+                __RegisterDataKind::Box
+                | __RegisterDataKind::EvalRef
+                | __RegisterDataKind::TempRef
+                | __RegisterDataKind::TempMut => &*(self.data.as_ptr as *const T),
+                __RegisterDataKind::Moved => todo!(),
+                __RegisterDataKind::None => todo!(),
+                __RegisterDataKind::Unreturned => todo!(),
+            }
+        })
+    }
+
     pub unsafe fn downcast_temp_mut<T>(&mut self, target_ty_vtable: &__RegisterTyVTable) -> &mut T {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => &mut *(&mut self.data as *mut _ as *mut T),
@@ -498,7 +522,7 @@ impl<'eval> Drop for __Register<'eval> {
                 // .__drop_dyn__()
             },
             __RegisterDataKind::None => {
-                // when undefined, opt_data might hold a message
+                // when none, opt_data might hold a message
                 if !unsafe { self.data.as_ptr }.is_null() {
                     todo!()
                 }

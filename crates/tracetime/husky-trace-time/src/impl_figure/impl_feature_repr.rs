@@ -12,7 +12,7 @@ impl HuskyTraceTime {
         if let Some(sample_id) = self.restriction.opt_sample_id() {
             Ok(FigureCanvasData::new_specific(
                 self.runtime()
-                    .visualize_feature(repr.clone(), sample_id)
+                    .visualize_feature(repr.clone(), opt_arrival_indicator, sample_id)
                     .unwrap(),
             ))
         } else {
@@ -110,7 +110,9 @@ impl HuskyTraceTime {
             }
             if sampler
                 .process(label, || {
-                    let visual_data = self.runtime().visualize_feature(repr.clone(), sample_id)?;
+                    let visual_data =
+                        self.runtime()
+                            .visualize_feature(repr.clone(), None, sample_id)?;
                     Ok((labeled_data.sample_id, transform_visual_data(visual_data)))
                 })
                 .map_err(f)?

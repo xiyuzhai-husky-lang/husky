@@ -103,6 +103,9 @@ impl HuskyComptime {
     }
     // ad hoc loc
     pub fn print_short<'eval>(&self, value: &__Register<'eval>, ty: EntityRoutePtr) -> String {
+        if value.data_kind() == __RegisterDataKind::None {
+            return "none".to_owned();
+        }
         let intrinsic_ty = ty.intrinsic();
         match intrinsic_ty {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
