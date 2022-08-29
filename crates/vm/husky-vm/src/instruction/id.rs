@@ -1,10 +1,6 @@
 use std::{
-    ops::Deref,
     panic::RefUnwindSafe,
-    sync::{
-        atomic::{AtomicUsize, Ordering},
-        Arc,
-    },
+    sync::atomic::{AtomicUsize, Ordering},
 };
 
 use husky_file::FilePtr;

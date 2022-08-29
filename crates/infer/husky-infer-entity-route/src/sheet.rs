@@ -1,5 +1,4 @@
 mod expr;
-mod var;
 
 use std::{collections::HashMap, sync::Arc};
 
@@ -34,10 +33,6 @@ pub struct EntityRouteSheet {
 }
 
 impl EntityRouteSheet {
-    fn expr(&self, idx: RawExprIdx) -> &RawExpr {
-        &self.ast_text.arena[idx]
-    }
-
     pub(crate) fn new(ast_text: Arc<AstText>, extra_errors: Vec<InferError>) -> Self {
         Self {
             expr_tys: ArenaMap::new(&ast_text.arena),

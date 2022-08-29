@@ -10,38 +10,31 @@ impl HuskyTraceTime {
         match expr.variant {
             EagerExprVariant::Variable { .. } => todo!(),
             EagerExprVariant::ThisValue { .. } => todo!(),
-            EagerExprVariant::ThisField {
-                field_ident,
-                field_idx,
-                this_ty,
-                this_binding,
-                field_binding,
-            } => todo!(),
+            EagerExprVariant::ThisField { .. } => todo!(),
             EagerExprVariant::PrimitiveLiteral(_) => todo!(),
             EagerExprVariant::Bracketed(_) => todo!(),
             EagerExprVariant::Opn {
                 ref opn_variant,
                 ref opds,
-            } => self.eager_opn_subtraces(parent, expr, history, opn_variant, opds),
+            } => self.eager_opn_subtraces(parent, history, opn_variant, opds),
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
             EagerExprVariant::EntityFeature { .. } => todo!(),
-            EagerExprVariant::EntityThickFp { route } => panic!(),
+            EagerExprVariant::EntityThickFp { .. } => panic!(),
         }
     }
 
     pub(crate) fn eager_opn_subtraces(
         &mut self,
         parent: &Trace,
-        expr: &EagerExpr,
         history: &Arc<History<'static>>,
         opn_variant: &EagerOpnVariant,
         opds: &[Arc<EagerExpr>],
     ) -> Vec<TraceId> {
         match opn_variant {
-            EagerOpnVariant::Binary { opr } => todo!(),
-            EagerOpnVariant::Prefix { opr } => todo!(),
-            EagerOpnVariant::Suffix { opr } => todo!(),
+            EagerOpnVariant::Binary { .. } => todo!(),
+            EagerOpnVariant::Prefix { .. } => todo!(),
+            EagerOpnVariant::Suffix { .. } => todo!(),
             EagerOpnVariant::RoutineCall(route) => {
                 let routine_defn = self.runtime().comptime().entity_defn(route.route).unwrap();
                 let instruction_sheet = self
@@ -69,20 +62,9 @@ impl HuskyTraceTime {
                     },
                 )
             }
-            EagerOpnVariant::TypeCall { ranged_ty, ty_decl } => todo!(),
-            EagerOpnVariant::Field {
-                this_ty,
-                field_ident,
-                field_liason,
-                field_binding,
-                ..
-            } => todo!(),
-            EagerOpnVariant::MethodCall {
-                method_ident,
-                this_ty_decl,
-                method_route,
-                output_binding,
-            } => {
+            EagerOpnVariant::TypeCall { .. } => todo!(),
+            EagerOpnVariant::Field { .. } => todo!(),
+            EagerOpnVariant::MethodCall { method_route, .. } => {
                 let routine_defn = self
                     .runtime()
                     .comptime()
@@ -113,7 +95,7 @@ impl HuskyTraceTime {
                     },
                 )
             }
-            EagerOpnVariant::Index { element_binding } => todo!(),
+            EagerOpnVariant::Index { .. } => todo!(),
             EagerOpnVariant::NewVecFromList => todo!(),
             EagerOpnVariant::ValueCall => todo!(),
         }

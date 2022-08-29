@@ -1,5 +1,4 @@
 use crate::*;
-use husky_entity_route::EntityRoutePtr;
 
 #[derive(Debug, PartialEq)]
 pub struct VMPatternBranch {
@@ -27,8 +26,7 @@ impl VMPattern {
                 false
             }
             VMPattern::EnumKind { kind_idx } => {
-                let value: &__VirtualEnum =
-                    unsafe { value.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE) };
+                let value: &__VirtualEnum = value.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
                 value.kind_idx == *kind_idx
             }
         }

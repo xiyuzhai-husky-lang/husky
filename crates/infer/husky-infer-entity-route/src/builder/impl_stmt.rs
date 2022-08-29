@@ -74,7 +74,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawStmtVariant::PatternBranch {
                 ref pattern_branch_variant,
             } => match pattern_branch_variant {
-                RawPatternBranchVariant::Case { pattern } => todo!(),
+                RawPatternBranchVariant::Case { .. } => todo!(),
                 RawPatternBranchVariant::Default => todo!(),
             },
             RawStmtVariant::Exec { expr, discard } => {

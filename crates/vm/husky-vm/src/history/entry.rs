@@ -38,7 +38,7 @@ pub enum HistoryEntry<'eval> {
 impl<'eval> HistoryEntry<'eval> {
     pub fn result(&self) -> __VMResult<__Register<'eval>> {
         match self {
-            HistoryEntry::PureExpr { ref result, ty } => result.clone(),
+            HistoryEntry::PureExpr { ref result, .. } => result.clone(),
             HistoryEntry::Exec { mutations } => {
                 if mutations.len() != 1 {
                     todo!()
@@ -46,10 +46,7 @@ impl<'eval> HistoryEntry<'eval> {
                 Ok(mutations[0].after.clone())
             }
             HistoryEntry::Loop { .. } => todo!(),
-            HistoryEntry::ControlFlow {
-                opt_branch_entered: enter,
-                ..
-            } => todo!(),
+            HistoryEntry::ControlFlow { .. } => todo!(),
             HistoryEntry::Break => todo!(),
             HistoryEntry::PatternMatching { .. } => todo!(),
         }
