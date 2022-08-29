@@ -1,4 +1,3 @@
-use husky_print_utils::p;
 use husky_vm::{__Register, __VMError, __VMResult};
 use husky_word::RootIdentifier;
 

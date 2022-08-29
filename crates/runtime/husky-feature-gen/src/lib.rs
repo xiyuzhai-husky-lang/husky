@@ -26,8 +26,6 @@ pub use repr::*;
 use husky_comptime::DeclQueryGroup;
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityDefnQueryGroup;
-use husky_init_syntax::*;
-use husky_loop_syntax::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
 use husky_text::*;
@@ -151,7 +149,7 @@ impl Feature {
     pub fn intern_expr_pattern(interner: &FeatureInterner, patt: &PurePattern) -> FeaturePtr {
         match patt.variant {
             PurePatternVariant::PrimitiveLiteral(_) => todo!(),
-            PurePatternVariant::OneOf { ref subpatterns } => todo!(),
+            PurePatternVariant::OneOf { .. } => todo!(),
             PurePatternVariant::EnumLiteral(_) => todo!(),
             PurePatternVariant::Some => interner.intern(Feature::PurePatternSome),
             PurePatternVariant::None => interner.intern(Feature::PurePatternNone),

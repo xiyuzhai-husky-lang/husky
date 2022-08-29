@@ -18,7 +18,6 @@ impl<'a> InstructionSheetBuilder<'a> {
             ProcStmtVariant::Init {
                 varname,
                 ref initial_value,
-                init_kind,
                 ..
             } => {
                 self.compile_eager_expr(

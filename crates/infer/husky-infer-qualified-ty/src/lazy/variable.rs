@@ -13,17 +13,6 @@ impl HuskyDisplay for LazyVariableQualifiedTy {
 }
 
 impl LazyVariableQualifiedTy {
-    pub(crate) fn parameter_lazy_qualified_ty(
-        db: &dyn InferQualifiedTyQueryGroup,
-        parameter_liason: ParameterModifier,
-        ty: EntityRoutePtr,
-    ) -> InferResult<Self> {
-        Ok(LazyVariableQualifiedTy::new(
-            LazyVariableQualifier::parameter(parameter_liason, db.is_copyable(ty)?),
-            ty,
-        ))
-    }
-
     pub fn new(qual: LazyVariableQualifier, ty: EntityRoutePtr) -> Self {
         msg_once!("handle ref");
         Self { qual, ty }

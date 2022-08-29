@@ -1,14 +1,13 @@
 use super::*;
-use husky_ast::AstFieldKind;
-use husky_entity_kind::{FieldKind, TyKind};
+use husky_entity_kind::FieldKind;
 use husky_entity_route::{EntityRoute, InternEntityRoute};
 use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
-use husky_vm::{Binding, __ModelLinkage, __VMResult, __root::__NEQ_LINKAGE};
+use husky_vm::{Binding, __root::__NEQ_LINKAGE};
 use husky_vm::{__Linkage, __root::__EQ_LINKAGE};
 use husky_vm_primitive_opr_linkage::resolve_primitive_pure_binary_opr_linkage;
 use map_collect::MapCollect;
-use thin_vec::{thin_vec, ThinVec};
+use thin_vec::thin_vec;
 
 impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn compile_opn(
@@ -102,7 +101,7 @@ impl<'a> FeatureExprBuilder<'a> {
                 output_binding,
             } => self.compile_method_call(method_ident, method_route, opds, output_binding),
             LazyOpnKind::Index { element_binding } => {
-                self.compile_element_access(opds, expr, element_binding)
+                self.compile_element_access(opds, element_binding)
             }
             LazyOpnKind::StructCall(_) => todo!(),
             LazyOpnKind::RecordCall(ty) => {
@@ -406,7 +405,6 @@ impl<'a> FeatureExprBuilder<'a> {
     fn compile_element_access(
         &self,
         opds: &[Arc<LazyExpr>],
-        expr: &Arc<LazyExpr>,
         element_binding: Binding,
     ) -> (FeatureLazyExprVariant, FeaturePtr) {
         let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
@@ -422,72 +420,5 @@ impl<'a> FeatureExprBuilder<'a> {
             opds,
         };
         (feature_expr_kind, feature)
-    }
-
-    fn record_field_value(
-        &self,
-        this: &FeatureLazyExpr,
-        field_ident: CustomIdentifier,
-    ) -> Arc<FeatureLazyExpr> {
-        match this.variant {
-            FeatureLazyExprVariant::Variable { .. } => todo!(),
-            FeatureLazyExprVariant::RecordOriginalField { .. } => todo!(),
-            FeatureLazyExprVariant::EntityFeature {
-                repr: ref block, ..
-            } => todo!(),
-            // self.derive_record_field_value_from_block(block, field_ident),
-            FeatureLazyExprVariant::NewRecord {
-                ref entity,
-                ref opds,
-                ..
-            } => match entity.variant {
-                EntityDefnVariant::Ty { ty_kind: kind, .. } => todo!(),
-                // p!(field_ident, ty.fields);
-                // let idx = ty.fields.position(field_ident).unwrap();
-                // opds[idx].clone()
-                _ => panic!(),
-            },
-            FeatureLazyExprVariant::RoutineCall { .. }
-            | FeatureLazyExprVariant::PrimitiveBinaryOpr { .. }
-            | FeatureLazyExprVariant::StructOriginalField { .. }
-            | FeatureLazyExprVariant::Literal(_) => {
-                panic!()
-            }
-            FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
-            FeatureLazyExprVariant::EvalInput => todo!(),
-            FeatureLazyExprVariant::RecordDerivedField { .. } => todo!(),
-            FeatureLazyExprVariant::Index { ref opds, .. } => todo!(),
-            FeatureLazyExprVariant::StructDerivedLazyField {
-                ref this,
-                field_ident,
-                field_uid,
-                ref repr,
-            } => todo!(),
-            _ => todo!(),
-        }
-    }
-
-    // RecordMembExpr {
-    //     feature: result.feature,
-    //     kind: RecordMembExprKind::Expr(result.clone()),
-    // },
-    fn derive_record_field_value_from_block(
-        &self,
-        block: &FeatureLazyBlock,
-        field_ident: CustomIdentifier,
-    ) -> Arc<FeatureLazyExpr> {
-        todo!()
-        // let stmt_features = block.stmt_features();
-        // if stmt_features.len() == 1 {
-        //     match block.stmts.last().unwrap().variant {
-        //         FeatureStmtVariant::Return { ref result } => {
-        //             self.record_field_value(result, field_ident)
-        //         }
-        //         FeatureStmtVariant::ConditionFlow { ref branches } => todo!(),
-        //         _ => panic!(),
-        //     }
-        // } else {
-        //     todo!()
-        // }
     }
 }

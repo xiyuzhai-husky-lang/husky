@@ -1,5 +1,4 @@
 use crate::*;
-use husky_ast::AstFieldKind;
 use husky_entity_kind::TyKind;
 use husky_linkage_table::ResolveLinkage;
 use husky_opn_semantics::EagerSuffixOpr;
@@ -238,26 +237,19 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ));
             }
             EagerOpnVariant::MethodCall {
-                method_ident,
-                this_ty_decl,
                 method_route,
-                output_binding: opt_output_binding,
-            } => {
-                let this = &opds[0];
-                self.push_instruction(Instruction::new(
-                    self.method_call_instruction_variant(
-                        this.intrinsic_ty(),
-                        this_ty_decl,
-                        *method_route,
-                        method_ident.ident,
-                        expr.intrinsic_ty(),
-                        *opt_output_binding,
-                        opds.len().try_into().unwrap(),
-                        discard,
-                    ),
-                    expr.clone(),
-                ))
-            }
+                output_binding,
+                ..
+            } => self.push_instruction(Instruction::new(
+                self.method_call_instruction_variant(
+                    *method_route,
+                    expr.intrinsic_ty(),
+                    *output_binding,
+                    opds.len().try_into().unwrap(),
+                    discard,
+                ),
+                expr.clone(),
+            )),
             EagerOpnVariant::Index { element_binding } => {
                 // no discard
                 assert!(!discard);
@@ -586,7 +578,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         let this = &opds[0];
         let this_ty = this.intrinsic_ty();
         match this_ty {
-            EntityRoutePtr::Root(root_identifier) => {
+            EntityRoutePtr::Root(_) => {
                 let instruction = Instruction::new(
                     InstructionVariant::CallRoutine {
                         resolved_linkage: resolve_primitive_prefix_opr_linkage(
@@ -629,10 +621,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn method_call_instruction_variant(
         &self,
-        this_ty: EntityRoutePtr,
-        this_ty_decl: &TyDecl,
         method_route: EntityRoutePtr,
-        method_ident: CustomIdentifier,
         output_ty: EntityRoutePtr,
         output_binding: Binding,
         nargs: u8,

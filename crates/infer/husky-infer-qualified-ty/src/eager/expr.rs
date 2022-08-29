@@ -23,7 +23,7 @@ impl std::fmt::Display for EagerExprQualifiedTy {
             "Option ".fmt(f)?
         }
         self.qual.fmt(f)?;
-        " ".fmt(f);
+        " ".fmt(f)?;
         self.intrinsic_ty().fmt(f)
     }
 }
@@ -436,14 +436,6 @@ impl EagerExprQualifier {
                 EagerContract::TempRefMut => EagerExprQualifier::TempRefMut,
                 EagerContract::Pass | EagerContract::TempRef | EagerContract::Move => panic!(),
             }
-            // match this_qual {
-            //     EagerExprQualifier::Copyable
-            //     | EagerExprQualifier::PureRef
-            //     | EagerExprQualifier::EvalRef
-            //     | EagerExprQualifier::TempRef
-            //     | EagerExprQualifier::Transient => EagerExprQualifier::Copyable,
-            //     EagerExprQualifier::TempRefMut => EagerExprQualifier::TempRefMut,
-            // }
         } else {
             match this_qual {
                 EagerExprQualifier::Copyable => panic!(),

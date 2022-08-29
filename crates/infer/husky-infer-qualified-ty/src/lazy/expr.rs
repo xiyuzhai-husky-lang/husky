@@ -23,7 +23,7 @@ impl std::fmt::Display for LazyExprQualifiedTy {
             "Option ".fmt(f)?
         }
         self.qual.fmt(f)?;
-        " ".fmt(f);
+        " ".fmt(f)?;
         self.intrinsic_ty.fmt(f)
     }
 }

@@ -1,5 +1,3 @@
-use husky_vm::__VMResult;
-
 use super::*;
 
 pub(super) fn entity_feature_repr(

@@ -1,9 +1,6 @@
-use std::time::Instant;
-
 use husky_data_viewer::HuskyDataViewerQueryGroup;
 use husky_entity_semantics::StoreEntityRoute;
-use husky_feature_gen::{FeatureArrivalIndicator, FeatureLazyExpr, TrainModel};
-use husky_vm::{InterpreterQueryGroup, VMConfig};
+use husky_vm::InterpreterQueryGroup;
 use upcast::Upcast;
 
 use crate::*;
@@ -16,11 +13,6 @@ impl AskCompileTime for HuskyRuntime {
     }
 }
 
-// impl ProduceTrace  for HuskyRuntime {
-//     fn trace_factory(&self) -> &trace::TraceFactory<'static> {
-//         &self.trace_factory
-//     }
-// }
 impl InternFeature for HuskyRuntime {
     fn feature_interner(&self) -> &husky_feature_gen::FeatureInterner {
         &self.feature_interner

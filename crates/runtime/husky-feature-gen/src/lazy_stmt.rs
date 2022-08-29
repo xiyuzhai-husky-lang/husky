@@ -6,7 +6,6 @@ pub use variant::*;
 use husky_file::FilePtr;
 use husky_lazy_semantics::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
 use husky_text::TextRange;
-use husky_vm::__VMResult;
 
 use crate::{eval_id::FeatureEvalId, *};
 
@@ -129,10 +128,7 @@ impl FeatureLazyStmt {
                 opt_arrival_indicator.clone(),
                 feature_interner,
             ),
-            LazyStmtVariant::Match {
-                ref match_expr,
-                ref branches,
-            } => todo!(),
+            LazyStmtVariant::Match { .. } => todo!(),
         };
         Arc::new(FeatureLazyStmt {
             file: lazy_stmt.file,

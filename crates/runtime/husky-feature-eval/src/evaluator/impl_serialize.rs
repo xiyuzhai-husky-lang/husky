@@ -1,12 +1,10 @@
 use super::*;
 use husky_comptime::*;
 use husky_data_viewer::HuskyDataViewer;
-use husky_entity_kind::TyKind;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(super) fn serialize(
         &self,
-        comptime: &HuskyComptime,
         value: &__Register<'eval>,
         ty: EntityRoutePtr,
     ) -> serde_json::Value {
