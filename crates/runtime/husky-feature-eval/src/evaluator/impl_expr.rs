@@ -1,5 +1,4 @@
 use crate::*;
-use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
@@ -19,7 +18,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureLazyExprVariant::Literal(ref value) => Ok(value.clone()),
             FeatureLazyExprVariant::PrimitiveBinaryOpr {
                 linkage, ref opds, ..
-            } => self.eval_routine_call(&None, Some(linkage), expr.expr.intrinsic_ty(), opds),
+            } => self.eval_routine_call(&None, Some(linkage), opds),
             FeatureLazyExprVariant::StructOriginalField {
                 ref this,
                 field_idx,
@@ -40,12 +39,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref opt_instruction_sheet,
                 opt_linkage,
                 ..
-            } => self.eval_routine_call(
-                opt_instruction_sheet,
-                opt_linkage,
-                expr.expr.intrinsic_ty(),
-                opds,
-            ),
+            } => self.eval_routine_call(opt_instruction_sheet, opt_linkage, opds),
             FeatureLazyExprVariant::EntityFeature { ref repr } => {
                 self.eval_feature_repr_cached(repr)
             }
@@ -111,18 +105,13 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureLazyExprVariant::NewVecFromList {
                 ref elements,
                 linkage,
-            } => self.eval_routine_call(&None, Some(linkage), expr.expr.intrinsic_ty(), elements),
+            } => self.eval_routine_call(&None, Some(linkage), elements),
             FeatureLazyExprVariant::CustomBinaryOpr {
                 ref opds,
                 ref opt_instruction_sheet,
                 opt_linkage,
                 ..
-            } => self.eval_routine_call(
-                opt_instruction_sheet,
-                opt_linkage,
-                expr.expr.intrinsic_ty(),
-                opds,
-            ),
+            } => self.eval_routine_call(opt_instruction_sheet, opt_linkage, opds),
             FeatureLazyExprVariant::BePattern { ref this, ref patt } => {
                 self.eval_be_pattern(this, patt)
             }
@@ -130,16 +119,13 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     }
 
     pub(crate) fn eval_expr_cached(&self, expr: &FeatureLazyExpr) -> __VMResult<__Register<'eval>> {
-        let eval_key = EvalKey::Feature(expr.feature);
-        if let Some(result) = self.sheet.cached_value(eval_key) {
-            result
-        } else {
-            let result = self.eval_expr(expr);
-            match expr.variant {
-                FeatureLazyExprVariant::EntityFeature {
-                    repr: FeatureRepr::TargetInput { .. },
-                } => result, // ad hoc
-                _ => self.sheet.try_cache(eval_key, result),
+        match expr.variant {
+            FeatureLazyExprVariant::EntityFeature {
+                repr: FeatureRepr::TargetInput { .. },
+            } => self.eval_expr(expr), // ad hoc
+            _ => {
+                let eval_key = EvalKey::Feature(expr.feature);
+                self.eval_cached(eval_key, |this| this.eval_expr(expr))
             }
         }
     }
@@ -232,7 +218,6 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         &self,
         opt_instrns: &Option<Arc<InstructionSheet>>,
         opt_linkage: Option<__Linkage>,
-        output_ty: EntityRoutePtr,
         arguments: &[Arc<FeatureLazyExpr>],
     ) -> __VMResult<__Register<'eval>> {
         let db = self.db;
@@ -262,7 +247,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         let this_value = self.eval_expr(this)?;
         Ok(match patt.variant {
             PurePatternVariant::PrimitiveLiteral(_) => todo!(),
-            PurePatternVariant::OneOf { ref subpatterns } => todo!(),
+            PurePatternVariant::OneOf { .. } => todo!(),
             PurePatternVariant::EnumLiteral(_) => todo!(),
             PurePatternVariant::Some => match this_value.data_kind() {
                 __RegisterDataKind::PrimitiveValue

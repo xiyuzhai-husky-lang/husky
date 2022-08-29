@@ -98,8 +98,8 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyOpnKind::MethodCall {
                 method_ident,
                 method_route,
-                output_binding,
-            } => self.compile_method_call(method_ident, method_route, opds, output_binding),
+                ..
+            } => self.compile_method_call(method_ident, method_route, opds),
             LazyOpnKind::Index { element_binding } => {
                 self.compile_element_access(opds, element_binding)
             }
@@ -124,7 +124,6 @@ impl<'a> FeatureExprBuilder<'a> {
             }
             LazyOpnKind::NewVecFromList => {
                 let ty = expr.intrinsic_ty();
-                let uid = self.db.comptime().entity_uid(ty);
                 let elements = opds
                     .iter()
                     .map(|opd| self.new_expr(opd.clone()))
@@ -173,13 +172,12 @@ impl<'a> FeatureExprBuilder<'a> {
                     feature,
                 )
             }
-            _ => self.compile_custom_binary_opn(this, lopd, opr, ropd),
+            _ => self.compile_custom_binary_opn(lopd, opr, ropd),
         }
     }
 
     fn compile_custom_binary_opn(
         &self,
-        this: EntityRoutePtr,
         lopd: Arc<FeatureLazyExpr>,
         opr: PureBinaryOpr,
         ropd: Arc<FeatureLazyExpr>,
@@ -226,7 +224,6 @@ impl<'a> FeatureExprBuilder<'a> {
         method_ident: RangedCustomIdentifier,
         method_route: EntityRoutePtr,
         opds: &[Arc<LazyExpr>],
-        output_binding: Binding,
     ) -> (FeatureLazyExprVariant, FeaturePtr) {
         let opds = opds
             .iter()

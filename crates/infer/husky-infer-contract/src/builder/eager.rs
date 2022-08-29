@@ -1,15 +1,12 @@
 use std::iter::zip;
 
+use super::*;
 use crate::*;
 use husky_ast::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_infer_error::*;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
-use husky_text::TextRange;
-use husky_text::{RangedCustomIdentifier, TextPosition};
-
-use super::*;
-use crate::*;
+use husky_text::RangedCustomIdentifier;
 
 impl<'a> ContractSheetBuilder<'a> {
     pub(super) fn infer_eager_stmts(&mut self, ast_iter: AstIter, output_ty: EntityRoutePtr) {
@@ -141,26 +138,20 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_eager_opn(
         &mut self,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
         opn_variant: &RawOpnVariant,
         opds: &RawExprRange,
         contract: EagerContract,
     ) -> InferResult<()> {
         match opn_variant {
-            RawOpnVariant::Binary(opr) => {
-                self.infer_eager_binary_opn(raw_expr_idx, *opr, opds, contract)
-            }
+            RawOpnVariant::Binary(opr) => self.infer_eager_binary_opn(idx, *opr, opds, contract),
             RawOpnVariant::Prefix(opr) => {
-                self.infer_eager_prefix_opn(raw_expr_idx, *opr, opds.start, contract)
+                self.infer_eager_prefix_opn(idx, *opr, opds.start, contract)
             }
-            RawOpnVariant::Suffix(opr) => {
-                self.infer_eager_suffix(raw_expr_idx, opr, opds.start, contract)
-            }
-            RawOpnVariant::List(opr) => {
-                self.infer_eager_list_opn(raw_expr_idx, opr, opds, contract)
-            }
+            RawOpnVariant::Suffix(opr) => self.infer_eager_suffix(opr, opds.start, contract),
+            RawOpnVariant::List(opr) => self.infer_eager_list_opn(idx, opr, opds, contract),
             RawOpnVariant::Field(field_ident) => {
-                self.infer_eager_field_access(raw_expr_idx, *field_ident, opds.start, contract)
+                self.infer_eager_field_access(idx, *field_ident, opds.start, contract)
             }
         }
     }
@@ -177,7 +168,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let intrinsic_lopd_ty = self.expr_raw_ty(opds.start)?.intrinsic();
         let is_lopd_copyable = self.db.is_copyable(intrinsic_lopd_ty)?;
         match opr {
-            BinaryOpr::Pure(pure_binary_opr) => {
+            BinaryOpr::Pure(_) => {
                 match contract {
                     EagerContract::Pure | EagerContract::Move => (),
                     EagerContract::Pass => panic!(),
@@ -242,7 +233,6 @@ impl<'a> ContractSheetBuilder<'a> {
 
     fn infer_eager_suffix(
         &mut self,
-        raw_expr_idx: RawExprIdx,
         suffix: &RawSuffixOpr,
         opd: RawExprIdx,
         contract: EagerContract,
@@ -298,26 +288,21 @@ impl<'a> ContractSheetBuilder<'a> {
                 p!(self.arena[idx].range);
                 todo!()
             }
-            ListOpr::NewVec => self.infer_eager_new_vec_from_list(idx, opds.clone(), contract),
+            ListOpr::NewVec => self.infer_eager_new_vec_from_list(opds.clone()),
             ListOpr::NewDict => todo!(),
-            ListOpr::FunctionCall => self.infer_eager_function_call(idx, opds, contract),
+            ListOpr::FunctionCall => self.infer_eager_function_call(opds),
             ListOpr::Index => self.eager_index(idx, opds, contract),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
-            ListOpr::MethodCall { .. } => self.infer_eager_method_call(
-                opds.start,
-                (opds.start + 1)..(opds.end),
-                contract,
-                idx,
-            ),
+            ListOpr::MethodCall { .. } => {
+                self.infer_eager_method_call(opds.start, (opds.start + 1)..(opds.end), contract)
+            }
         }
     }
 
     fn infer_eager_new_vec_from_list(
         &mut self,
-        idx: arena::ArenaIdx<RawExpr>,
         elements: RawExprRange,
-        contract: EagerContract,
     ) -> Result<(), husky_infer_error::InferError> {
         let element_ty = self.expr_raw_ty(elements.start)?;
         let element_contract = match self.db.is_copyable(element_ty)? {
@@ -330,13 +315,7 @@ impl<'a> ContractSheetBuilder<'a> {
         Ok(())
     }
 
-    fn infer_eager_function_call(
-        &mut self,
-        idx: RawExprIdx,
-        all_opds: &RawExprRange,
-        contract: EagerContract,
-    ) -> InferResult<()> {
-        let call_expr = &self.arena[all_opds.start];
+    fn infer_eager_function_call(&mut self, all_opds: &RawExprRange) -> InferResult<()> {
         let call_decl = derived_unwrap!(self.function_call_form_decl(all_opds.start));
         msg_once!("other contracts on call form");
         self.infer_eager_expr(all_opds.start, EagerContract::Pure);
@@ -361,7 +340,6 @@ impl<'a> ContractSheetBuilder<'a> {
         this: RawExprIdx,
         parameters: RawExprRange,
         contract: EagerContract,
-        idx: RawExprIdx,
     ) -> InferResult<()> {
         let call_form_decl = self.method_call_form_decl(this)?;
         let this_contract = EagerContract::method_call_this_eager_contract(

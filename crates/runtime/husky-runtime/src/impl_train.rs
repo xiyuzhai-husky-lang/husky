@@ -18,7 +18,7 @@ impl TrainModel for HuskyRuntime {
         let mut training_data: Vec<(Vec<__Register>, __Register)> = Vec::new();
         for labeled_data in dev_division.each_labeled_data() {
             let sample_id = labeled_data.sample_id;
-            if !self.eval_opt_arrival_indicator(opt_arrival_indicator, sample_id)? {
+            if !self.eval_opt_arrival_indicator_cached(opt_arrival_indicator, sample_id)? {
                 continue;
             }
             if training_data.len() >= MAX_SAMPLE_LEN {

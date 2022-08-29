@@ -1,9 +1,3 @@
-use std::path::{Path, PathBuf};
-
-use husky_check_utils::should_eq;
-use husky_print_utils::p;
-use husky_word::CustomIdentifier;
-
 use crate::line_map::LineMap;
 
 pub(crate) fn apply_document_changes(

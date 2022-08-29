@@ -2,11 +2,8 @@ mod field;
 // mod method;
 
 pub use field::*;
-// pub use method::*;
 
-use fold::LocalStack;
-use husky_atom::{context::Symbol, AtomContext};
-use husky_print_utils::{epin, p};
+use husky_atom::AtomContext;
 use map_collect::MapCollect;
 use vec_like::VecMapEntry;
 
@@ -54,11 +51,11 @@ impl MemberDecl {
             MemberDecl::TypeField(field_decl) => ("TypeField", field_decl.ty),
             MemberDecl::TypeMethod(ty_method) => ("TypeMethod", ty_method.opt_route.unwrap()),
             MemberDecl::TypeAssociatedCall(_) => todo!(),
-            MemberDecl::TraitMethodImpl { trai, method } => {
+            MemberDecl::TraitMethodImpl { method, .. } => {
                 ("TypeMethodImpl", method.opt_route.unwrap())
             }
-            MemberDecl::TraitAssociatedTypeImpl { ident, ty } => ("TraitAssociatedTypeImpl", *ty),
-            MemberDecl::TraitAssociatedConstSizeImpl { ident, value } => todo!(),
+            MemberDecl::TraitAssociatedTypeImpl { ty, .. } => ("TraitAssociatedTypeImpl", *ty),
+            MemberDecl::TraitAssociatedConstSizeImpl { .. } => todo!(),
         }
     }
 

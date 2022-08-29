@@ -1,11 +1,8 @@
 use crate::*;
-use husky_atom::{
-    context::{AtomContextKind, Symbol},
-    AtomContext,
-};
+use husky_atom::AtomContext;
 use husky_entity_kind::{FieldKind, MemberKind};
-use husky_implement::ImplementationContext;
-use husky_print_utils::{msg_once, p};
+use husky_implement::{Implementable, ImplementationContext};
+use husky_print_utils::msg_once;
 use map_collect::MapCollect;
 use thin_vec::thin_vec;
 
@@ -269,7 +266,7 @@ impl TraitMemberImplDecl {
             .iter()
             .filter_map(|static_member_impl| match static_member_impl.variant {
                 EntityStaticDefnVariant::Method { .. } => None,
-                EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => todo!(),
+                EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
                 EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => Some((
                     db.intern_word(static_member_impl.name).custom(),
                     SpatialArgument::EntityRoute(symbol_context.parse_entity_route(ty).unwrap()),
@@ -283,7 +280,7 @@ impl TraitMemberImplDecl {
 
         trait_decl
             .members
-            .map(|trait_member_decl| trait_member_decl.implement(db, &implementor))
+            .map(|trait_member_decl| trait_member_decl.implement(&implementor))
     }
 
     pub fn instantiate(&self, ctx: &InstantiationContext) -> Self {

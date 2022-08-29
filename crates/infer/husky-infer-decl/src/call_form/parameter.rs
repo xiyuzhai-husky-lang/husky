@@ -1,5 +1,4 @@
 use husky_atom::AtomContext;
-use husky_text::TextRange;
 use vec_like::VecMapEntry;
 
 use super::*;

@@ -81,7 +81,6 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     }
 
     fn feature_ptr(&self, feature_route_text: &str) -> *const () {
-        use husky_entity_semantics::EntityDefnQueryGroup;
         let route = self.db.comptime().parse_route_from_text(feature_route_text);
         let uid = self.db.comptime().entity_uid(route);
         unsafe {

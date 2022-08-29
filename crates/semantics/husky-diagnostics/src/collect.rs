@@ -20,6 +20,7 @@ pub(crate) fn collect_diagnostics(
     collect_infer_ty_errors(db, file, &mut diagnostics);
     collect_infer_contract_errors(db, file, &mut diagnostics);
     collect_infer_qualified_ty_errors(db, file, &mut diagnostics);
+    collect_semantic_errors(db, file, &mut diagnostics);
     msg_once!("todo: collect semantic errors");
     // collect_semantic_errors(db, file, &mut diagnostics);
     diagnostics

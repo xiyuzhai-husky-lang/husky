@@ -1,8 +1,7 @@
 mod eager;
 mod lazy;
 
-use husky_ast::{AstFieldKind, AstIter, AstVariant, RawExpr, RawExprArena};
-use husky_entity_route::EntityRoutePtr;
+use husky_ast::{AstFieldKind, AstIter, AstVariant, RawExprArena};
 use husky_entity_syntax::EntitySyntaxResult;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use husky_word::{Paradigm, RootIdentifier};

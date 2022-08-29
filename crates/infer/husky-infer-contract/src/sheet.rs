@@ -1,11 +1,9 @@
+use crate::*;
 use arena::map::ArenaMap;
-use fold::FoldableStorage;
-use husky_ast::{RawExprArena, RawExprMap};
+use husky_ast::RawExprMap;
 use husky_infer_entity_route::EntityRouteSheet;
 use husky_infer_error::*;
-use std::{collections::HashMap, sync::Arc};
-
-use crate::{builder::ContractSheetBuilder, *};
+use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ContractSheet {
@@ -15,10 +13,6 @@ pub struct ContractSheet {
 }
 
 impl ContractSheet {
-    fn arena(&self) -> &RawExprArena {
-        &self.entity_route_sheet.ast_text.arena
-    }
-
     pub(crate) fn new(entity_route_sheet: Arc<EntityRouteSheet>) -> Self {
         Self {
             lazy_expr_contract_results: ArenaMap::new(&entity_route_sheet.ast_text.arena),

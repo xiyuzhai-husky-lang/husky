@@ -1,8 +1,7 @@
 use std::collections::HashMap;
 
 use husky_check_utils::should;
-use husky_vm::{EntityUid, __Register, __RegisterDataKind, __VMResult};
-use husky_word::CustomIdentifier;
+use husky_vm::{EntityUid, __Register, __VMResult};
 
 use super::*;
 
@@ -71,7 +70,7 @@ unsafe fn cache_raw_eval_value<'eval>(
 ) -> __VMResult<__Register<'eval>> {
     match raw {
         Ok(ref mut value) => value.cache_eval(),
-        Err(error) => (),
+        Err(_) => (),
     }
     share_cached(raw)
 }
