@@ -1,6 +1,5 @@
 mod query;
 
-use husky_comptime::HuskyComptime;
 use husky_entity_route::EntityRoutePtr;
 use husky_vm_binding::Binding;
 use husky_word::{IdentPairDict, RootIdentifier};
@@ -39,7 +38,6 @@ impl HuskyDataViewer {
         db: &dyn HuskyDataViewerQueryGroup,
         value: &__Register<'eval>,
     ) -> serde_json::Value {
-        use serde::ser::Serialize;
         match self {
             HuskyDataViewer::Primitive { ty } => match ty {
                 RootIdentifier::Void => todo!(),
@@ -89,8 +87,8 @@ impl HuskyDataViewer {
         value: &'a __Register<'eval>,
     ) -> impl Iterator<Item = (i32, __Register<'eval>)> + 'a {
         let (start, end, index) = match self {
-            HuskyDataViewer::Primitive { ty } => todo!(),
-            HuskyDataViewer::Struct { fields } => todo!(),
+            HuskyDataViewer::Primitive { .. } => todo!(),
+            HuskyDataViewer::Struct { .. } => todo!(),
             HuskyDataViewer::Vec { ilen, index, .. } => {
                 let ilen = ilen
                     .call(None, &mut vec![value.temp_bind_eval_ref()])
@@ -124,8 +122,8 @@ impl HuskyDataViewer {
         value: &'a __Register<'eval>,
     ) -> impl Iterator<Item = __Register<'eval>> + 'a {
         let (start, end, index) = match self {
-            HuskyDataViewer::Primitive { ty } => todo!(),
-            HuskyDataViewer::Struct { fields } => todo!(),
+            HuskyDataViewer::Primitive { .. } => todo!(),
+            HuskyDataViewer::Struct { .. } => todo!(),
             HuskyDataViewer::Vec { ilen, index, .. } => {
                 let ilen = ilen
                     .call(None, &mut vec![value.bind_temp_ref()])

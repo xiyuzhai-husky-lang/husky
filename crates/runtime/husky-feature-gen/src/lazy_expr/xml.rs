@@ -1,7 +1,6 @@
 use crate::*;
 use husky_lazy_semantics::{XmlExpr, XmlExprVariant};
-use husky_vm::__VMResult;
-use husky_word::{IdentDict, IdentPairDict};
+use husky_word::IdentPairDict;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureXmlExpr {

@@ -1,7 +1,6 @@
 mod impl_opn;
 mod xml;
 
-use husky_file::FilePtr;
 use husky_primitive_literal_semantics::{
     convert_primitive_literal_to_register, convert_primitive_literal_to_value,
 };
@@ -139,67 +138,30 @@ impl std::fmt::Debug for FeatureLazyExprVariant {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::Literal(arg0) => f.debug_tuple("Literal").field(arg0).finish(),
-            Self::PrimitiveBinaryOpr { opr, opds, linkage } => {
-                f.debug_struct("PrimitiveBinaryOpr").finish()
-            }
-            Self::CustomBinaryOpr {
-                opr,
-                opds,
-                opt_linkage,
-                opt_instruction_sheet,
-            } => f.debug_struct("CustomBinaryOpr").finish(),
+            Self::PrimitiveBinaryOpr { .. } => f.debug_struct("PrimitiveBinaryOpr").finish(),
+            Self::CustomBinaryOpr { .. } => f.debug_struct("CustomBinaryOpr").finish(),
             Self::Variable { varname, value } => f
                 .debug_struct("Variable")
                 .field("varname", varname)
                 .field("value", value)
                 .finish(),
-            Self::ThisValue { repr } => f.debug_struct("ThisValue").finish(),
-            Self::StructOriginalField {
-                this,
-                field_ident,
-                field_idx,
-                field_binding,
-                opt_linkage,
-            } => f.debug_struct("StructOriginalField").finish(),
-            Self::RecordOriginalField {
-                this,
-                field_ident,
-                repr,
-            } => f.debug_struct("RecordOriginalField").finish(),
-            Self::StructDerivedLazyField {
-                this,
-                field_ident,
-                field_uid,
-                repr,
-            } => f.debug_struct("StructDerivedLazyField").finish(),
-            Self::RecordDerivedField {
-                this,
-                field_ident,
-                field_uid,
-                repr,
-            } => f.debug_struct("RecordDerivedField").finish(),
-            Self::Index { opds, linkage } => f.debug_struct("Index").finish(),
-            Self::ModelCall {
-                opds,
-                has_this,
-                model_defn,
-                opt_arrival_indicator,
-                internal,
-            } => f.debug_struct("ModelCall").finish(),
-            Self::RoutineCall {
-                opds,
-                has_this,
-                opt_instruction_sheet,
-                opt_linkage,
-                routine_defn,
-            } => f.debug_struct("RoutineCall").finish(),
+            Self::ThisValue { .. } => f.debug_struct("ThisValue").finish(),
+            Self::StructOriginalField { .. } => f.debug_struct("StructOriginalField").finish(),
+            Self::RecordOriginalField { .. } => f.debug_struct("RecordOriginalField").finish(),
+            Self::StructDerivedLazyField { .. } => {
+                f.debug_struct("StructDerivedLazyField").finish()
+            }
+            Self::RecordDerivedField { .. } => f.debug_struct("RecordDerivedField").finish(),
+            Self::Index { .. } => f.debug_struct("Index").finish(),
+            Self::ModelCall { .. } => f.debug_struct("ModelCall").finish(),
+            Self::RoutineCall { .. } => f.debug_struct("RoutineCall").finish(),
             Self::EntityFeature { repr } => {
                 f.debug_struct("EntityFeature").field("repr", repr).finish()
             }
             Self::EvalInput => write!(f, "EvalInput"),
-            Self::NewRecord { ty, entity, opds } => f.debug_struct("NewRecord").finish(),
-            Self::NewVecFromList { elements, linkage } => f.debug_struct("NewVecFromList").finish(),
-            Self::BePattern { this, patt } => f.debug_struct("BePattern").finish(),
+            Self::NewRecord { .. } => f.debug_struct("NewRecord").finish(),
+            Self::NewVecFromList { .. } => f.debug_struct("NewVecFromList").finish(),
+            Self::BePattern { .. } => f.debug_struct("BePattern").finish(),
         }
     }
 }
@@ -223,10 +185,7 @@ impl FeatureLazyExprVariant {
             FeatureLazyExprVariant::NewRecord { .. } => "NewRecord",
             FeatureLazyExprVariant::NewVecFromList { .. } => "NewVecFromList",
             FeatureLazyExprVariant::CustomBinaryOpr { .. } => "CustomBinaryOpr",
-            FeatureLazyExprVariant::BePattern {
-                this,
-                patt: pure_pattern,
-            } => "BePattern",
+            FeatureLazyExprVariant::BePattern { .. } => "BePattern",
         }
     }
 }
@@ -312,9 +271,8 @@ impl<'a> FeatureExprBuilder<'a> {
             ),
             LazyExprVariant::ThisField {
                 field_ident,
-                this_ty,
-                this_binding,
                 field_binding,
+                ..
             } => {
                 let this_repr = self.opt_this.clone().unwrap();
                 self.compile_field_access(field_ident, this_repr, field_binding)
@@ -337,7 +295,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     let variant = FeatureLazyExprVariant::EvalInput;
                     (variant, feature)
                 }
-                EntityRouteVariant::Any { ident, .. } => todo!(),
+                EntityRouteVariant::Any { .. } => todo!(),
                 EntityRouteVariant::ThisType { .. } => todo!(),
                 EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
                 EntityRouteVariant::TargetOutputType => todo!(),

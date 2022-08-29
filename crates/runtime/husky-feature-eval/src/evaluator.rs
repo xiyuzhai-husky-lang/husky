@@ -14,13 +14,11 @@ mod sheet;
 
 pub use config::*;
 use husky_ast::AstQueryGroup;
-use husky_print_utils::epin;
 pub use indicator::FeatureEvalIndicator;
 pub use sheet::*;
 
 use crate::*;
 use husky_entity_semantics::*;
-use husky_feature_gen::FeatureEvalId;
 use husky_trace_protocol::SampleId;
 use husky_vm::__VMResult;
 use husky_vm::{EntityUid, VMConfig, __EvalContext, __Register};
@@ -36,7 +34,6 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
 
 impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     fn entity_uid(&self, entity_route_text: &str) -> u64 {
-        use husky_entity_semantics::EntityDefnQueryGroup;
         let route = self.db.comptime().parse_route_from_text(entity_route_text);
         self.db.comptime().entity_uid(route).raw()
     }

@@ -180,13 +180,6 @@ impl EagerVariableQualifier {
 }
 
 impl EagerVariableQualifiedTy {
-    pub(crate) fn ty_qualified_ty() -> Self {
-        Self {
-            qual: EagerVariableQualifier::EvalRef,
-            ty: EntityRoutePtr::Root(RootIdentifier::TypeType),
-        }
-    }
-
     pub(crate) fn from_parameter(
         db: &dyn InferQualifiedTyQueryGroup,
         ty: EntityRoutePtr,

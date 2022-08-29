@@ -1,14 +1,7 @@
 use crate::*;
-use husky_entity_route::EntityRoutePtr;
-use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
-use husky_lazy_semantics::LazyStmt;
-use husky_print_utils::{epin, msg_once, p};
-use husky_trace_protocol::VisualData;
-use husky_vm::__Linkage;
 use husky_vm::*;
-use husky_word::IdentPairDict;
-use std::{iter::zip, panic::catch_unwind, sync::Arc};
+use std::sync::Arc;
 
 use super::FeatureEvaluator;
 

@@ -1,33 +1,19 @@
 mod impl_necessary;
 mod impl_train;
 mod query;
-mod utils;
 mod variant;
 
 pub use husky_comptime::*;
 pub use husky_feature_gen::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, InternFeature};
 pub use husky_instruction_gen::InstructionGenQueryGroup;
 pub use query::*;
-pub use utils::*;
 
 use husky_check_utils::*;
-use husky_comptime::*;
-use husky_datasets_interface::LabeledData;
 use husky_feature_eval::*;
 use husky_feature_eval::{EvalFeature, Session};
-use husky_file::{FilePtr, FileQueryGroup};
+use husky_file::FileQueryGroup;
 use husky_print_utils::*;
-use husky_text::TextQueryGroupStorage;
-use husky_trace_protocol::*;
-use husky_vm::{Instruction, VMConfig};
-use indexmap::IndexMap;
-use json_map::JsonListMap;
-use json_result::JsonResult;
-use std::{
-    borrow::Cow,
-    collections::HashMap,
-    sync::{Arc, Mutex},
-};
+use std::sync::Arc;
 use variant::*;
 
 #[salsa::database(
@@ -38,7 +24,6 @@ use variant::*;
 pub struct HuskyRuntime {
     storage: salsa::Storage<HuskyRuntime>,
     comptime: HuskyComptime,
-    compile_time_version: usize,
     feature_interner: husky_feature_gen::FeatureInterner,
     variant: HuskyRuntimeVariant,
     config: HuskyRuntimeConfig,
@@ -59,13 +44,11 @@ impl HuskyRuntime {
         init_comptime(&mut comptime);
         let all_main_files = comptime.all_target_entrances();
         should_eq!(all_main_files.len(), 1, "config = {config:?}");
-        let target_entrance = all_main_files[0];
         let feature_interner = husky_feature_gen::new_feature_interner();
         let mut eval_time = Self {
             storage: Default::default(),
             variant: HuskyRuntimeVariant::None,
-            comptime: comptime,
-            compile_time_version: 0,
+            comptime,
             config,
             feature_interner,
         };

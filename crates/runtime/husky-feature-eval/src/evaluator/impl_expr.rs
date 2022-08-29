@@ -2,15 +2,14 @@ use crate::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
-use husky_lazy_semantics::LazyStmt;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
-use husky_print_utils::{epin, msg_once, p};
+use husky_print_utils::{msg_once, p};
 use husky_trace_protocol::VisualData;
 use husky_vm::__Linkage;
 use husky_vm::*;
 use husky_word::IdentPairDict;
 use husky_xml_syntax::XmlValue;
-use std::{iter::zip, panic::catch_unwind, sync::Arc};
+use std::{panic::catch_unwind, sync::Arc};
 
 use super::FeatureEvaluator;
 
@@ -40,7 +39,6 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref opds,
                 ref opt_instruction_sheet,
                 opt_linkage,
-                has_this,
                 ..
             } => self.eval_routine_call(
                 opt_instruction_sheet,
@@ -51,11 +49,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureLazyExprVariant::EntityFeature { ref repr } => {
                 self.eval_feature_repr_cached(repr)
             }
-            FeatureLazyExprVariant::NewRecord {
-                ty,
-                ref entity,
-                ref opds,
-            } => todo!(),
+            FeatureLazyExprVariant::NewRecord { .. } => todo!(),
             // Ok(self
             //     .sheet
             //     .resolve_record_call(self.db, expr.eval_id, entity, opds)
@@ -64,11 +58,9 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 .cache(EvalKey::Feature(expr.feature), |evaluator: &Self| {
                     evaluator.eval_expr(&value)
                 }),
-            FeatureLazyExprVariant::RecordOriginalField {
-                ref this,
-                field_ident,
-                ref repr,
-            } => self.eval_feature_repr(repr),
+            FeatureLazyExprVariant::RecordOriginalField { ref repr, .. } => {
+                self.eval_feature_repr(repr)
+            }
             FeatureLazyExprVariant::ThisValue { ref repr } => self.eval_feature_repr(repr),
             FeatureLazyExprVariant::EvalInput => Ok(self.target_input.clone()),
             FeatureLazyExprVariant::RecordDerivedField { ref repr, .. } => {
@@ -85,9 +77,9 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             }
             FeatureLazyExprVariant::StructDerivedLazyField {
                 ref this,
-                field_ident,
                 field_uid,
                 ref repr,
+                ..
             } => {
                 let parent = unsafe { self.eval_feature_repr_cached(this)?.data().as_ptr };
                 let eval_key = EvalKey::StructDerivedField {
@@ -99,18 +91,12 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             }
             FeatureLazyExprVariant::ModelCall {
                 ref opds,
-                has_this,
                 ref model_defn,
                 ref internal,
                 ..
             } => match model_defn.variant {
-                EntityDefnVariant::Function {
-                    ref spatial_parameters,
-                    ref parameters,
-                    output,
-                    ref source,
-                } => match source {
-                    CallFormSource::Lazy { stmts } => todo!(),
+                EntityDefnVariant::Function { ref source, .. } => match source {
+                    CallFormSource::Lazy { .. } => todo!(),
                     CallFormSource::Static(__Linkage::Model(model)) => {
                         let values: Vec<_> = opds
                             .iter()
@@ -127,10 +113,10 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 linkage,
             } => self.eval_routine_call(&None, Some(linkage), expr.expr.intrinsic_ty(), elements),
             FeatureLazyExprVariant::CustomBinaryOpr {
-                opr,
                 ref opds,
                 ref opt_instruction_sheet,
                 opt_linkage,
+                ..
             } => self.eval_routine_call(
                 opt_instruction_sheet,
                 opt_linkage,
@@ -226,14 +212,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         .map(
                             |(ident, argument)| {
                                 self.eval_expr(argument).map(|v| {
-                                    (
-                                        *ident,
-                                        self.serialize(
-                                            self.db.comptime(),
-                                            &v,
-                                            argument.expr.intrinsic_ty(),
-                                        ),
-                                    )
+                                    (*ident, self.serialize(&v, argument.expr.intrinsic_ty()))
                                 })
                             },
                             // argument.any_ref().to_json_value_dyn()

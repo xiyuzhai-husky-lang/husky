@@ -281,11 +281,7 @@ impl SubrouteTable {
                     })
                 }
             }
-            EntityStaticDefnVariant::Trait {
-                base_route,
-                spatial_parameters,
-                ref members,
-            } => {
+            EntityStaticDefnVariant::Trait { ref members, .. } => {
                 for member in members.iter() {
                     entries.push(SubrouteEntry {
                         ident: Some(RangedCustomIdentifier {
@@ -296,7 +292,7 @@ impl SubrouteTable {
                             EntityStaticDefnVariant::Method { .. } => {
                                 MemberKind::Method { is_lazy: false }
                             }
-                            EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => {
+                            EntityStaticDefnVariant::TraitAssociatedType { .. } => {
                                 MemberKind::TraitAssociatedType
                             }
                             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
@@ -310,7 +306,7 @@ impl SubrouteTable {
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TyField { .. } => todo!(),
-            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: route } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
             EntityStaticDefnVariant::EnumVariant => todo!(),
         }
         Self {

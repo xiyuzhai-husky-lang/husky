@@ -8,12 +8,7 @@ pub use session::*;
 
 use husky_feature_gen::*;
 use husky_vm::{VMConfig, __Register, __RegisterDataKind, __VMResult};
-use husky_vm_register_method::VMRegisterMethodX;
-use std::{
-    borrow::Cow,
-    collections::HashMap,
-    sync::{Arc, Mutex},
-};
+use std::sync::{Arc, Mutex};
 use upcast::Upcast;
 
 pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryGroup> {

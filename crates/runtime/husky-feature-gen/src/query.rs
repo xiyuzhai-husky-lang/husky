@@ -1,24 +1,16 @@
 mod entity_feature_repr;
 mod main_feature_repr;
 
-pub use entity_feature_repr::*;
-use husky_data_viewer::HuskyDataViewerQueryGroup;
-use husky_trace_protocol::Restriction;
-use husky_vm::{InterpreterQueryGroup, __ModelLinkage, __Register, __VMResult};
-pub use main_feature_repr::*;
-
 use crate::{intern::InternFeature, record::*, visual::*, *};
-use husky_comptime::AskCompileTime;
+use entity_feature_repr::entity_feature_repr;
+use husky_data_viewer::HuskyDataViewerQueryGroup;
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::{EntityDefnQueryGroup, EntityDefnVariant};
 use husky_instruction_gen::InstructionGenQueryGroup;
-use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::*;
-use husky_semantics_error::SemanticResult;
-use std::{
-    marker::PhantomData,
-    panic::{RefUnwindSafe, UnwindSafe},
-};
+use husky_vm::{InterpreterQueryGroup, __ModelLinkage, __Register, __VMResult};
+use main_feature_repr::*;
+use std::panic::{RefUnwindSafe, UnwindSafe};
 use upcast::Upcast;
 
 #[salsa::query_group(FeatureGenQueryGroupStorage)]

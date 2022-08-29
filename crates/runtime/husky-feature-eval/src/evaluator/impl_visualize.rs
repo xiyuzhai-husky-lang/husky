@@ -1,24 +1,18 @@
 use super::FeatureEvaluator;
-use crate::*;
-use cyclic_slice::CyclicSlice;
 use husky_check_utils::should_eq;
 use husky_entity_semantics::{EntityDefnQueryGroup, VisualTy, Visualizer, VisualizerVariant};
 use husky_feature_gen::*;
-use husky_lazy_semantics::LazyStmt;
-use husky_print_utils::{epin, msg_once, p};
 use husky_trace_protocol::VisualData;
 use husky_vm::*;
-use husky_word::IdentPairDict;
-use std::{iter::zip, sync::Arc};
+use std::sync::Arc;
 
 impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
     pub fn visualize_feature(&self, this: FeatureRepr) -> __VMResult<VisualData> {
         self.as_static().visualize_static(this)
     }
-    pub fn visualize_static(&self, this: FeatureRepr) -> __VMResult<VisualData>
-    where
-        'eval: 'static,
-    {
+}
+impl<'temp> FeatureEvaluator<'temp, 'static> {
+    pub fn visualize_static(&self, this: FeatureRepr) -> __VMResult<VisualData> {
         let ty = this.ty();
         let visualizer: Arc<Visualizer> = self.db.comptime().visualizer(ty);
         match visualizer.variant {
@@ -42,29 +36,13 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
             }
             _ => self.visualize_intrinsic(this, &visualizer),
         }
-        // let visualizer = self.db.comptime().visualizer(this.ty());
-        // let this_value = self.eval_feature_repr_cached(&this).unwrap();
-        // todo!()
-        // if let Some(visual_data) =
-        //     this_value
-        //         .eval_ref()
-        //         .0
-        //         .__opt_visualize_dyn(&mut |index, elem| {
-
-        //         })?
-        // {
-        //     return Ok(visual_data);
-        // }
     }
 
     pub fn visualize_intrinsic(
         &self,
         this: FeatureRepr,
         visualizer: &Visualizer,
-    ) -> __VMResult<VisualData>
-    where
-        'eval: 'static,
-    {
+    ) -> __VMResult<VisualData> {
         let ty = this.ty().intrinsic();
         match visualizer.variant {
             VisualizerVariant::Group { element_ty } => {
@@ -109,6 +87,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
             VisualizerVariant::Option { .. } => panic!(),
         }
     }
+
     fn visualize_cyclic_slice(&self) -> __VMResult<VisualData> {
         todo!()
     }

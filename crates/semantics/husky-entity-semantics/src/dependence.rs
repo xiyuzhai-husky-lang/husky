@@ -33,7 +33,7 @@ impl<'a> DependeeMapBuilder<'a> {
                 }
             }
             EntityRouteVariant::TargetInputValue => return,
-            EntityRouteVariant::Package { main, ident } => todo!(),
+            EntityRouteVariant::Package { .. } => todo!(),
             EntityRouteVariant::Child { .. } => {
                 msg_once!("dependences on entity from external packs should be merged");
                 ()
@@ -117,7 +117,7 @@ impl EntityDefn {
                 extract_func_stmts_dependees(stmts, &mut builder);
             }
             EntityDefnVariant::Proc {
-                parameters: ref parameters,
+                ref parameters,
                 output,
                 ref stmts,
                 ..
@@ -128,9 +128,6 @@ impl EntityDefn {
             EntityDefnVariant::Ty {
                 ref ty_members,
                 ref variants,
-                ty_kind: kind,
-                ref trait_impls,
-                ref members,
                 ..
             } => {
                 ty_members.iter().for_each(|member| match member.variant {
@@ -163,12 +160,12 @@ impl EntityDefn {
                     FieldDefnVariant::RecordDerived { defn_repr } => {
                         extract_defn_repr_dependees(defn_repr, &mut builder)
                     }
-                    FieldDefnVariant::StructDefault { default } => todo!(),
-                    FieldDefnVariant::StructDerivedEager { derivation: value } => todo!(),
+                    FieldDefnVariant::StructDefault { .. } => todo!(),
+                    FieldDefnVariant::StructDerivedEager { .. } => todo!(),
                 }
             }
             EntityDefnVariant::Method {
-                parameters: ref parameters,
+                ref parameters,
                 output_ty,
                 // ref method_variant,
                 ref opt_source,
@@ -201,18 +198,10 @@ impl EntityDefn {
                     }
                 }
             }
-            EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
-            EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
-            EntityDefnVariant::Trait {
-                spatial_parameters: ref generic_parameters,
-                ref members,
-            } => todo!(),
-            EntityDefnVariant::Function {
-                ref spatial_parameters,
-                ref parameters,
-                output,
-                ref source,
-            } => todo!(),
+            EntityDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
+            EntityDefnVariant::Trait { .. } => todo!(),
+            EntityDefnVariant::Function { .. } => todo!(),
             EntityDefnVariant::TargetInput { .. } => todo!(),
             EntityDefnVariant::Any => (),
         };
@@ -238,26 +227,20 @@ impl EntityDefn {
                 DefinitionRepr::LazyBlock { stmts, ty } => {
                     extract_lazy_stmts_dependees(stmts, builder)
                 }
-                DefinitionRepr::FuncBlock {
-                    stmts,
-                    file,
-                    range,
-                    route,
-                    ..
-                } => {
+                DefinitionRepr::FuncBlock { stmts, route, .. } => {
                     builder.push(*route);
                     extract_func_stmts_dependees(stmts, builder)
                 }
-                DefinitionRepr::ProcBlock {
-                    stmts, file, range, ..
-                } => extract_proc_stmts_dependees(stmts, builder),
+                DefinitionRepr::ProcBlock { stmts, .. } => {
+                    extract_proc_stmts_dependees(stmts, builder)
+                }
             }
         }
 
         fn extract_lazy_stmts_dependees(stmts: &[Arc<LazyStmt>], builder: &mut DependeeMapBuilder) {
             for stmt in stmts {
                 match stmt.variant {
-                    LazyStmtVariant::Init { varname, ref value } => {
+                    LazyStmtVariant::Init { ref value, .. } => {
                         extract_lazy_expr_dependees(value, builder)
                     }
                     LazyStmtVariant::Assert { ref condition } => {
@@ -271,7 +254,7 @@ impl EntityDefn {
                     }
                     LazyStmtVariant::ConditionFlow { .. } => todo!(),
                     LazyStmtVariant::Match { .. } => todo!(),
-                    LazyStmtVariant::ReturnXml { ref xml_expr } => todo!(),
+                    LazyStmtVariant::ReturnXml { .. } => todo!(),
                 }
             }
         }
@@ -280,9 +263,8 @@ impl EntityDefn {
             for stmt in stmts {
                 match stmt.variant {
                     FuncStmtVariant::Init {
-                        varname,
-                        initial_value: ref value,
-                    } => extract_eager_expr_dependees(value, builder),
+                        ref initial_value, ..
+                    } => extract_eager_expr_dependees(initial_value, builder),
                     FuncStmtVariant::Assert { ref condition } => {
                         extract_eager_expr_dependees(condition, builder)
                     }
@@ -314,9 +296,7 @@ impl EntityDefn {
             for stmt in stmts {
                 match stmt.variant {
                     ProcStmtVariant::Init {
-                        varname,
-                        ref initial_value,
-                        ..
+                        ref initial_value, ..
                     } => extract_eager_expr_dependees(initial_value, builder),
                     ProcStmtVariant::Assert { ref condition } => {
                         extract_eager_expr_dependees(condition, builder)
@@ -400,12 +380,7 @@ impl EntityDefn {
                 LazyExprVariant::EntityFeature {
                     entity_route: route,
                 } => builder.push(route),
-                LazyExprVariant::ThisField {
-                    field_ident,
-                    this_ty,
-                    this_binding,
-                    field_binding,
-                } => todo!(),
+                LazyExprVariant::ThisField { .. } => todo!(),
                 LazyExprVariant::BePattern { ref patt, .. } => todo!(),
             }
         }
@@ -474,31 +449,18 @@ impl EntityDefn {
         fn extract_member_dependees(member_defn: &EntityDefn, builder: &mut DependeeMapBuilder) {
             match member_defn.variant {
                 EntityDefnVariant::Module { .. } => panic!("shouldn't be here"),
-                EntityDefnVariant::Feature { ref defn_repr } => todo!(),
+                EntityDefnVariant::Feature { .. } => todo!(),
                 EntityDefnVariant::Func { .. } => todo!(),
                 EntityDefnVariant::Proc { .. } => todo!(),
                 EntityDefnVariant::Ty { .. } => todo!(),
                 EntityDefnVariant::EnumVariant { .. } => todo!(),
                 EntityDefnVariant::Builtin => todo!(),
-                EntityDefnVariant::TyField {
-                    field_ty: ty,
-                    field_variant: ref field_variant,
-                    liason,
-                    ..
-                } => todo!(),
-                EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
+                EntityDefnVariant::TyField { .. } => todo!(),
+                EntityDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
                 EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
                 EntityDefnVariant::Method { .. } => todo!(),
-                EntityDefnVariant::Trait {
-                    spatial_parameters: ref generic_parameters,
-                    ref members,
-                } => todo!(),
-                EntityDefnVariant::Function {
-                    ref spatial_parameters,
-                    ref parameters,
-                    output,
-                    ref source,
-                } => todo!(),
+                EntityDefnVariant::Trait { .. } => todo!(),
+                EntityDefnVariant::Function { .. } => todo!(),
                 EntityDefnVariant::TargetInput { .. } => todo!(),
                 EntityDefnVariant::Any => (),
             }

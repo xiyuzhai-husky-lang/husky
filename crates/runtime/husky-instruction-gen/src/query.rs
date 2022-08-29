@@ -1,11 +1,7 @@
 use crate::*;
-use husky_check_utils::should_eq;
 use husky_comptime::AskCompileTime;
-use husky_entity_kind::TyKind;
 use husky_file::FilePtr;
-use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::PackageQueryGroup;
-use husky_vm::{__ResolvedLinkage, __VMResult};
 use infer_decl::DeclQueryGroup;
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
@@ -56,8 +52,8 @@ fn entity_instruction_sheet(
         }
         EntityDefnVariant::EnumVariant { .. } => todo!(),
         EntityDefnVariant::TyField { .. } => todo!(),
-        EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => todo!(),
-        EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+        EntityDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
+        EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
         EntityDefnVariant::Method {
             ref parameters,
             ref opt_source,
@@ -71,18 +67,13 @@ fn entity_instruction_sheet(
                     stmts,
                     true, // has_this
                 )),
-                CallFormSource::Proc { stmts } => todo!(),
-                CallFormSource::Lazy { stmts } => todo!(),
+                CallFormSource::Proc { .. } => todo!(),
+                CallFormSource::Lazy { .. } => todo!(),
                 CallFormSource::Static(_) => None,
             }
         }
         EntityDefnVariant::Trait { .. } => todo!(),
-        EntityDefnVariant::Function {
-            ref spatial_parameters,
-            ref parameters,
-            output,
-            ref source,
-        } => todo!(),
+        EntityDefnVariant::Function { .. } => todo!(),
         EntityDefnVariant::TargetInput { .. } => todo!(),
         EntityDefnVariant::Any => todo!(),
     }
@@ -95,14 +86,7 @@ fn method_opt_instruction_sheet(
     let ty = member_route.parent();
     let entity_defn = db.comptime().entity_defn(ty).unwrap();
     match entity_defn.variant {
-        EntityDefnVariant::Ty {
-            ty_members: ref type_members,
-            ref variants,
-            ty_kind: kind,
-            ref trait_impls,
-            ref members,
-            ..
-        } => {
+        EntityDefnVariant::Ty { .. } => {
             let method_defn = db.comptime().member_defn(member_route);
             match method_defn.variant {
                 EntityDefnVariant::Method {
@@ -117,8 +101,8 @@ fn method_opt_instruction_sheet(
                         CallFormSource::Func { stmts } => {
                             Some(new_func_instruction_sheet(db, inputs, stmts, true))
                         }
-                        CallFormSource::Proc { stmts } => todo!(),
-                        CallFormSource::Lazy { stmts } => todo!(),
+                        CallFormSource::Proc { .. } => todo!(),
+                        CallFormSource::Lazy { .. } => todo!(),
                         CallFormSource::Static(_) => None,
                     }
                 }

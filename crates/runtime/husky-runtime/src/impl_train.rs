@@ -1,10 +1,8 @@
 use crate::*;
-use husky_entity_semantics::StoreEntityRoute;
 use husky_feature_gen::{FeatureArrivalIndicator, FeatureLazyExpr, TrainModel};
-use husky_vm::{InterpreterQueryGroup, VMConfig, __Register, __VMResult};
+use husky_vm::{__Register, __VMResult};
 use husky_vm::{__RegistrableSafe, __VirtualEnum};
 use std::time::Instant;
-use upcast::Upcast;
 
 impl TrainModel for HuskyRuntime {
     fn train(
@@ -16,7 +14,6 @@ impl TrainModel for HuskyRuntime {
         const MAX_SAMPLE_LEN: usize = 1000;
         let session = self.session();
         let dev_division = session.dev();
-        let mut label_statics_map: HashMap<i32, HashMap<Label, usize>> = Default::default();
         let now = Instant::now();
         let mut training_data: Vec<(Vec<__Register>, __Register)> = Vec::new();
         for labeled_data in dev_division.each_labeled_data() {

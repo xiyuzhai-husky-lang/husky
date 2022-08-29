@@ -2,7 +2,7 @@ use husky_entity_semantics::DefinitionRepr;
 use husky_file::FilePtr;
 use husky_instruction_gen::new_func_instruction_sheet;
 use husky_linkage_table::ResolveLinkage;
-use husky_vm::{__Register, __ResolvedLinkage, __VMResult};
+use husky_vm::__Register;
 
 use crate::*;
 
@@ -122,7 +122,6 @@ impl FeatureRepr {
                 eval_id: Default::default(),
                 stmts: stmts.clone(),
                 instruction_sheet: {
-                    let target_entrance = db.comptime().target_entrance();
                     new_func_instruction_sheet(
                         db.upcast(),
                         [].into_iter(),

@@ -5,7 +5,6 @@ mod impl_func_stmt;
 mod impl_proc_stmt;
 mod query;
 
-use husky_file::FilePtr;
 pub use query::*;
 
 use context::*;
@@ -14,18 +13,15 @@ use husky_dev_utils::*;
 use husky_eager_semantics::*;
 use husky_entity_route::*;
 use husky_entity_semantics::*;
-use husky_init_syntax::*;
-use husky_loop_syntax::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
-use husky_vm::{Instruction, InstructionSheet};
+use husky_vm::InstructionSheet;
 use husky_word::*;
 use infer_decl::DeclQueryGroup;
 use std::sync::Arc;
 
 pub fn new_visual_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
-    target_entrance: FilePtr,
     stmts: &[Arc<FuncStmt>],
 ) -> Arc<InstructionSheet> {
     let mut builder = InstructionSheetBuilder::new(db, [].into_iter(), true);
@@ -80,10 +76,6 @@ impl<'a> InstructionSheetBuilder<'a> {
             sheet: self.sheet.init_subsheet(),
             context: LocalValue::new(InstructionGenContext::Normal),
         }
-    }
-
-    fn eject_instructions(&mut self) -> Vec<Instruction> {
-        std::mem::take(&mut self.sheet.instructions)
     }
 
     fn finalize(self) -> Arc<InstructionSheet> {

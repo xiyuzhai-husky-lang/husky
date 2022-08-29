@@ -1,4 +1,3 @@
-use husky_entity_kind::TyKind;
 use husky_entity_semantics::{EntityDefnVariant, FieldDefnVariant};
 
 use crate::*;
@@ -37,32 +36,22 @@ pub(crate) fn expr_record_field<'eval>(
             ref opds,
             ..
         } => match entity.variant {
-            EntityDefnVariant::Ty {
-                ty_kind: kind,
-                ty_members: ref type_members,
-                ref variants,
-                ref trait_impls,
-                ref members,
-                ..
-            } => {
-                if let Some((idx, type_member)) = type_members.iget_entry(field_ident) {
+            EntityDefnVariant::Ty { ref ty_members, .. } => {
+                if let Some((idx, type_member)) = ty_members.iget_entry(field_ident) {
                     match type_member.variant {
                         EntityDefnVariant::TyField {
-                            field_ty: ty,
-                            ref field_variant,
-                            liason: contract,
-                            ..
+                            ref field_variant, ..
                         } => match field_variant {
                             FieldDefnVariant::StructOriginal => panic!(),
                             FieldDefnVariant::RecordOriginal => opds[idx].clone().into(),
-                            FieldDefnVariant::StructDerivedLazy { defn_repr: block } => {
+                            FieldDefnVariant::StructDerivedLazy { .. } => {
                                 todo!()
                             }
-                            FieldDefnVariant::RecordDerived { ref defn_repr } => {
+                            FieldDefnVariant::RecordDerived { .. } => {
                                 todo!()
                             }
-                            FieldDefnVariant::StructDefault { default } => todo!(),
-                            FieldDefnVariant::StructDerivedEager { derivation: value } => {
+                            FieldDefnVariant::StructDefault { .. } => todo!(),
+                            FieldDefnVariant::StructDerivedEager { .. } => {
                                 todo!()
                             }
                         },
@@ -86,13 +75,8 @@ pub(crate) fn expr_record_field<'eval>(
         FeatureLazyExprVariant::EvalInput => todo!(),
         FeatureLazyExprVariant::RoutineCall { .. } => todo!(),
         FeatureLazyExprVariant::RecordDerivedField { .. } => todo!(),
-        FeatureLazyExprVariant::Index { ref opds, .. } => todo!(),
-        FeatureLazyExprVariant::StructDerivedLazyField {
-            ref this,
-            field_ident,
-            field_uid,
-            ref repr,
-        } => todo!(),
+        FeatureLazyExprVariant::Index { .. } => todo!(),
+        FeatureLazyExprVariant::StructDerivedLazyField { .. } => todo!(),
         _ => todo!(),
     }
 }
@@ -108,7 +92,7 @@ pub(crate) fn block_record_field(
             FeatureLazyStmtVariant::Return { ref result } => {
                 db.record_field_repr(result.clone().into(), field_ident)
             }
-            FeatureLazyStmtVariant::ConditionFlow { ref branches } => todo!(),
+            FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
             _ => panic!(),
         }
     } else {

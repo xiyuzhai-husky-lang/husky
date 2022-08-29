@@ -143,7 +143,7 @@ impl From<i32> for {tyname} {{
         self.gen_has_static_type_info_impl(base_route, tyname, ty_contains_eval_ref);
 
         for trait_impl in trait_impls {
-            self.gen_trait_impl(tyname, trait_impl)
+            self.gen_trait_impl(trait_impl)
         }
     }
 
@@ -416,14 +416,13 @@ impl From<i32> for {tyname} {{
         ));
     }
 
-    fn gen_trait_impl(&mut self, tyname: CustomIdentifier, trait_impl: &TraitImplDefn) {
+    fn gen_trait_impl(&mut self, trait_impl: &TraitImplDefn) {
         if trait_impl.trai == RootIdentifier::CopyTrait.into() {
             return;
         }
         if trait_impl.trai == RootIdentifier::CloneTrait.into() {
             return;
         }
-        p!(trait_impl.trai);
         todo!()
     }
 }
