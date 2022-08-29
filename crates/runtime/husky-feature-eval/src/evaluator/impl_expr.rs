@@ -158,7 +158,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             linkage.call_catch_unwind(unsafe { self.some_ctx() }, vec![this_value])
         } else {
             let this_value = self.eval_feature_repr(this)?;
-            match catch_unwind(move || unsafe {
+            match catch_unwind(move || {
                 assert_eq!(
                     this_value.vtable as *const _,
                     &__VIRTUAL_STRUCT_VTABLE as *const _
