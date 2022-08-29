@@ -64,10 +64,6 @@ fn test_alignment() {
     unsafe {
         assert_eq!(
             &a as *const _ as *const c_void,
-            &a.as_void as *const _ as *const c_void,
-        );
-        assert_eq!(
-            &a as *const _ as *const c_void,
             &a.as_bool as *const _ as *const c_void
         );
         assert_eq!(

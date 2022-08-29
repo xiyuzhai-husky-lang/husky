@@ -157,7 +157,9 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
             __RegisterDataKind::None => todo!(),
-            __RegisterDataKind::Unreturned => todo!(),
+            __RegisterDataKind::Unreturned => unsafe {
+                &*(&self.data.as_void as *const _ as *const c_void)
+            },
         }
     }
 
