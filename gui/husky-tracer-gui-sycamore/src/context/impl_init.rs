@@ -1,11 +1,43 @@
 use futures::channel::mpsc::Receiver;
+use web_sys::KeyboardEvent;
+
+use super::impl_status_change::StatusChange;
 
 use super::*;
 
 impl DebuggerContext {
     pub(super) fn init<'a>(&'static self, read: Receiver<HuskyTracerServerMessage>) {
+        self.add_event_listeners_to_dialogues();
         self.send_init_request();
         self.spawn_listening(read)
+    }
+
+    fn add_event_listeners_to_dialogues(&'static self) {
+        let dialog = restriction_dialog();
+        add_event_listener!(dialog, "keydown", move |event: web_sys::UiEvent| {
+            let event: KeyboardEvent = event.unchecked_into();
+            match event.key().as_str() {
+                "Enter" => {
+                    let sample_id_value = sample_id_input().value();
+                    match sample_id_value.parse::<usize>() {
+                        Ok(raw) => {
+                            restriction_dialog().close();
+                            log::info!(
+                                "restriction_dialog().open() = {}",
+                                restriction_dialog().open()
+                            );
+                            log::info!("set sample id to {raw}");
+                            self.handle_status_change(StatusChange::update_restriction(
+                                self,
+                                |res| res.set_sample_id(SampleId(raw)),
+                            ))
+                        }
+                        Err(_) => alert!("`{}` is not a valid sample id", sample_id_value),
+                    }
+                }
+                _ => (),
+            }
+        });
     }
 
     fn send_init_request(&'static self) {

@@ -1,12 +1,27 @@
 use crate::*;
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum TraceStalkKey {
     Null,
     Lazy {
         sample_id: SampleId,
         trace_id: TraceId,
     },
+}
+
+impl std::fmt::Debug for TraceStalkKey {
+    fn fmt(&self, f: &mut __private::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Null => write!(f, "Null"),
+            Self::Lazy {
+                sample_id,
+                trace_id,
+            } => f.write_fmt(format_args!(
+                "Lazy {{ sample_id: {}, trace_id: {} }}",
+                sample_id.0, trace_id.0
+            )),
+        }
+    }
 }
 
 impl TraceStalkKey {

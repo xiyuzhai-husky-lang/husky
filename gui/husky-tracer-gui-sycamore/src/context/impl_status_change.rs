@@ -8,7 +8,7 @@ mod utils;
 use super::*;
 use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
 
-enum StatusChange {
+pub(super) enum StatusChange {
     ToggleExpansion { trace_id: TraceId },
     TogglePin { trace_id: TraceId },
     ToggleShown { trace_id: TraceId },
@@ -17,7 +17,7 @@ enum StatusChange {
 }
 
 impl StatusChange {
-    fn update_restriction(
+    pub(super) fn update_restriction(
         ctx: &'static DebuggerContext,
         update: impl FnOnce(&mut Restriction),
     ) -> Self {
@@ -68,7 +68,7 @@ impl StatusChange {
 }
 
 impl DebuggerContext {
-    fn handle_status_change(&'static self, event: StatusChange) {
+    pub(super) fn handle_status_change(&'static self, event: StatusChange) {
         // todo: record user events
         match event {
             StatusChange::ToggleExpansion { trace_id } => self.toggle_expansion(trace_id),
@@ -122,25 +122,6 @@ impl DebuggerContext {
         move |_| {
             let dialog = restriction_dialog();
             sample_id_input().set_value("");
-            add_event_listener!(dialog, "keydown", move |event: web_sys::UiEvent| {
-                let event: KeyboardEvent = event.unchecked_into();
-                match event.key().as_str() {
-                    "Enter" => {
-                        let sample_id_value = sample_id_input().value();
-                        match sample_id_value.parse::<usize>() {
-                            Ok(raw) => {
-                                restriction_dialog().close();
-                                self.handle_status_change(StatusChange::update_restriction(
-                                    self,
-                                    |res| res.set_sample_id(SampleId(raw)),
-                                ))
-                            }
-                            Err(_) => alert!("`{}` is not a valid sample id", sample_id_value),
-                        }
-                    }
-                    _ => (),
-                }
-            });
             dialog.show_modal();
         }
     }

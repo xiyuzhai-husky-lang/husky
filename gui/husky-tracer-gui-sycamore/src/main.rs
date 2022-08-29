@@ -10,7 +10,7 @@ use cell::RefCell;
 use components::*;
 use context::*;
 use husky_trace_protocol::*;
-use init::init_debugging_env;
+use init::init;
 use services::*;
 use std::{any::TypeId, rc::Rc};
 use sycamore::prelude::*;
@@ -20,7 +20,7 @@ use wasm_bindgen::JsCast;
 use web_sys::Element;
 
 fn main() {
-    init_debugging_env();
+    init();
     let gui: Element = get_gui();
     sycamore::render_to_static(
         |scope| {

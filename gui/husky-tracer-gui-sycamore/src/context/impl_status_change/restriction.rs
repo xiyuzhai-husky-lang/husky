@@ -14,8 +14,11 @@ impl DebuggerContext {
             self.needs_figure_canvas_data(opt_active_trace_id, &new_restriction);
         let needs_figure_control_data =
             self.needs_figure_control_data(opt_active_trace_id, &new_restriction);
-        let needs_stalk = self.needs_stalk(&new_restriction);
-        let needs_stats = self.needs_stats(&new_restriction);
+        let new_stalk_keys = self.new_stalk_keys(&new_restriction);
+        let new_stats_keys = self.new_stats_keys(&new_restriction);
+        // todo: make this into an optional feature named "check"
+        let needs_stalk = new_stalk_keys.len() > 0;
+        let needs_stats = new_stats_keys.len() > 0;
         let needs_response =
             needs_figure_canvas_data || needs_figure_control_data || needs_stalk || needs_stats;
         self.ws.send_message(
@@ -23,8 +26,8 @@ impl DebuggerContext {
                 restriction: new_restriction.clone(),
                 needs_figure_canvas_data,
                 needs_figure_control_data,
-                needs_stalk,
-                needs_stats,
+                new_stalk_keys,
+                new_stats_keys,
             },
             if needs_response {
                 Some(Box::new(move |message| match message.variant {

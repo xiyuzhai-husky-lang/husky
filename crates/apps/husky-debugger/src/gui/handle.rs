@@ -151,14 +151,14 @@ impl HuskyDebuggerInternal {
                 ref restriction,
                 needs_figure_canvas_data,
                 needs_figure_control_data,
-                needs_stalk,
-                needs_stats,
+                ref new_stalk_keys,
+                ref new_stats_keys,
             } => self.handle_set_restriction(
                 restriction,
                 needs_figure_canvas_data,
                 needs_figure_control_data,
-                needs_stalk,
-                needs_stats,
+                new_stalk_keys,
+                new_stats_keys,
             ),
             HuskyTracerGuiMessageVariant::UpdateFigureControlData {
                 trace_id,
@@ -282,12 +282,16 @@ impl HuskyDebuggerInternal {
         restriction: &Restriction,
         needs_figure_canvas_data: bool,
         needs_figure_control_data: bool,
-        needs_stalk: bool,
-        needs_stats: bool,
+        new_stalk_keys: &[TraceStalkKey],
+        new_stats_keys: &[TraceStatsKey],
     ) -> Option<HuskyTracerServerMessageVariant> {
         let (new_trace_stalks, new_trace_stats) =
             self.trace_time.set_restriction(restriction.clone());
-        if needs_figure_canvas_data || needs_figure_control_data || needs_stalk || needs_stats {
+        if needs_figure_canvas_data
+            || needs_figure_control_data
+            || new_stalk_keys.len() > 0
+            || new_stats_keys.len() > 0
+        {
             let (opt_figure_canvas_data, opt_figure_control_data) = if let Some(active_trace_id) =
                 self.trace_time.opt_active_trace_id()
             {
@@ -313,7 +317,7 @@ impl HuskyDebuggerInternal {
             } else {
                 (None, None)
             };
-            if needs_stalk {
+            if new_stalk_keys.len() > 0 {
                 assert!(new_trace_stalks.len() > 0);
             }
             Some(HuskyTracerServerMessageVariant::SetRestriction {
