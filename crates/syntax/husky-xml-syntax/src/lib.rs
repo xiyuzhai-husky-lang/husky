@@ -44,7 +44,7 @@ impl XmlTagKind {
             "Contour" => XmlTagKind::Contour,
             "Arrow2d" => XmlTagKind::Arrow2d,
             "LineSegment" => XmlTagKind::LineSegment,
-            _ => todo!(),
+            _ => todo!("{}", ident),
         }
     }
 }

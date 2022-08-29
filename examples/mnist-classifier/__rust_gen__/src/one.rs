@@ -35,22 +35,22 @@ pub(crate) fn one_fermi_match<'eval>(
     return __ctx
         .cache_feature(
             __feature,
-            Ok(__Register::new_box::<crate::fermi::FermiMatchResult<'eval>>(crate::fermi::fermi_match(crate::major::major_concave_components(__ctx), &vec![ThickFp::__new_ctx(downmost as fn(&'static crate::line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>)->Option<f32>), ThickFp::__new_ctx(upmost as fn(&'static crate::line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>)->Option<f32>)], __ctx), &__registration__::__FERMI_MATCH_RESULT_VTABLE)),
+            Ok(__Register::new_box::<crate::fermi::FermiMatchResult<'eval>>(crate::fermi::fermi_match(&crate::major::major_concave_components(__ctx), &vec![ThickFp::__new_base(downmost as fn(&'static crate::line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>), ThickFp::__new_base(upmost as fn(&'static crate::line_segment_sketch::concave_component::ConcaveComponent<'static>)->Option<f32>)], __ctx), &__registration__::__FERMI_MATCH_RESULT_VTABLE)),
         )
         .unwrap()
         .downcast_eval_ref(&__registration__::__FERMI_MATCH_RESULT_VTABLE);
 }
 pub(crate) fn upmost<'eval>(
     cc: &'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>,
-    __ctx: &dyn __EvalContext<'eval>,
 ) -> Option<f32> {
-    normal_require!(cc.displacement(__ctx).y > 0f32);
-    return Some(cc.displacement(__ctx).y);
+    let dp = cc.displacement();
+    normal_require!(dp.y > 0f32);
+    return Some(dp.y);
 }
 pub(crate) fn downmost<'eval>(
     cc: &'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>,
-    __ctx: &dyn __EvalContext<'eval>,
 ) -> Option<f32> {
-    normal_require!(cc.displacement(__ctx).y <= 0f32);
-    return Some(-cc.displacement(__ctx).y);
+    let dp = cc.displacement();
+    normal_require!(dp.y <= 0f32);
+    return Some(-dp.y);
 }

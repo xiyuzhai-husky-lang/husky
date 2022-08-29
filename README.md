@@ -142,9 +142,11 @@ It was created as a language to implement certain ideas for efficient image clas
 
 Interesting new languages
 
+Zig <https://github.com/ziglang/zig.git/>
+
 Lean 4 <https://github.com/leanprover/lean4/>
 
-Zig <https://github.com/ziglang/zig.git/>
+Metamath Zero <https://github.com/digama0/mm0#metamath-zero/>
 
 Roc <https://github.com/roc-lang/roc/>
 

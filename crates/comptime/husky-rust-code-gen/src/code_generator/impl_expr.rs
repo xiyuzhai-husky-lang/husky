@@ -270,7 +270,7 @@ impl<'a> RustCodeGenerator<'a> {
     ) {
         let type_call = ty_decl.opt_type_call.as_ref().unwrap();
         self.exec_within_context(
-            RustCodeGenContext::ThisFieldWithPrefix { prefix: "__this_" },
+            RustCodeGenContext::ThisFieldWithPrefix { prefix: "self." },
             |this| {
                 if type_call.keyword_parameters.len() > 0 {
                     this.gen_type_call_opn_with_keyword_parameters(indent, ty, opds, type_call)
@@ -343,7 +343,10 @@ impl<'a> RustCodeGenerator<'a> {
                         self.write(": ");
                         self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
                         self.write(" = ");
-                        self.gen_expr(indent + 4, default);
+                        self.exec_within_context(
+                            RustCodeGenContext::ThisFieldWithPrefix { prefix: "__this_" },
+                            |this| this.gen_expr(indent + 4, default),
+                        );
                         self.write(";");
                     }
                     _ => panic!(),
@@ -459,7 +462,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
                 self.write(r#">("#);
                 self.gen_expr(indent, result);
-                self.write(&format!(
+                self.write(format!(
                     r#", &__registration__::{mangled_intrinsic_ty_vtable}))
     ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
                     match output_ty.is_option() {
@@ -469,19 +472,27 @@ impl<'a> RustCodeGenerator<'a> {
                 ));
             }
             EagerExprQualifier::EvalRef => {
-                self.write(
+                self.write(format!(
                     r#"__ctx.cache_lazy_field(
-        self,
+        self as *const _ as *const (),
         __uid,
-        Ok(__Register::new_eval_ref"#,
-                );
+        Ok(__Register::new_{}eval_ref::<"#,
+                    match output_ty.is_option() {
+                        true => "opt_",
+                        false => "",
+                    }
+                ));
                 self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
-                self.write(r#"(&("#);
+                self.write(r#">(&("#);
                 self.gen_expr(indent, result);
-                self.write(
-                    r#")).into())
-    ).unwrap()"#,
-                );
+                self.write(format!(
+                    r#"), &__registration__::{mangled_intrinsic_ty_vtable})).into()
+    ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
+                    match output_ty.is_option() {
+                        true => "opt_",
+                        false => "",
+                    }
+                ));
             }
             EagerExprQualifier::PureRef
             | EagerExprQualifier::TempRef
@@ -501,8 +512,11 @@ impl<'a> RustCodeGenerator<'a> {
 
     pub(super) fn gen_binding(&mut self, expr: &EagerExpr) {
         match expr.qualified_ty.binding(self.db.upcast(), expr.contract) {
-            Binding::EvalRef => (),
-            Binding::TempRef => self.write("&"),
+            Binding::EvalRef | Binding::TempRef => {
+                if !expr.qualified_ty.is_option() {
+                    self.write("&")
+                }
+            }
             Binding::TempMut => self.write("&mut "),
             Binding::Move => (),
             Binding::Copy => (),

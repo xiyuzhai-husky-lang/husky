@@ -387,12 +387,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let contour: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__RAW_CONTOUR_VTABLE);
-                    let line_segments: Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__VEC_LINE_SEGMENT_VTABLE);
-                    __Register::new_box::<line_segment_sketch::LineSegmentSketch<'eval>>(line_segment_sketch::LineSegmentSketch::__call__(contour, line_segments), &__registration__::__LINE_SEGMENT_SKETCH_VTABLE)
+                    let strokes: Vec<line_segment_sketch::LineSegmentStroke<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__VEC_LINE_SEGMENT_STROKE_VTABLE);
+                    __Register::new_box::<line_segment_sketch::LineSegmentSketch<'eval>>(line_segment_sketch::LineSegmentSketch::__call__(contour, strokes), &__registration__::__LINE_SEGMENT_SKETCH_VTABLE)
                 }
                 __wrapper
             },
-            some base line_segment_sketch::LineSegmentSketch::__call__ as fn(&'static raw_contour::RawContour<'static>, Vec<line_segment_sketch::LineSegment<'static>>) -> line_segment_sketch::LineSegmentSketch<'static>
+            some base line_segment_sketch::LineSegmentSketch::__call__ as fn(&'static raw_contour::RawContour<'static>, Vec<line_segment_sketch::LineSegmentStroke<'static>>) -> line_segment_sketch::LineSegmentSketch<'static>
         ),
     ),
     (
@@ -411,14 +411,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     (
         __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegmentSketch",
-            field_ident: "line_segments",
+            field_ident: "strokes",
         },
         eager_field_linkage!(
             immutable,
             Intrinsic,
             BoxNonCopyable,
-            line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE, Vec<line_segment_sketch::LineSegment<'eval>>, __registration__::__VEC_LINE_SEGMENT_VTABLE,
-            line_segments
+            line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE, Vec<line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__VEC_LINE_SEGMENT_STROKE_VTABLE,
+            strokes
         )
     ),
     (
@@ -757,12 +757,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__LINE_SEGMENT_SKETCH_VTABLE);
-                    let line_segments: __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE);
-                    __Register::new_box::<line_segment_sketch::concave_component::ConcaveComponent<'eval>>(line_segment_sketch::concave_component::ConcaveComponent::__call__(line_segment_sketch, line_segments), &__registration__::__CONCAVE_COMPONENT_VTABLE)
+                    let strokes: __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE);
+                    __Register::new_box::<line_segment_sketch::concave_component::ConcaveComponent<'eval>>(line_segment_sketch::concave_component::ConcaveComponent::__call__(line_segment_sketch, strokes), &__registration__::__CONCAVE_COMPONENT_VTABLE)
                 }
                 __wrapper
             },
-            some base line_segment_sketch::concave_component::ConcaveComponent::__call__ as fn(&'static line_segment_sketch::LineSegmentSketch<'static>, __std::slice::CyclicSlice<'static, line_segment_sketch::LineSegment<'static>>) -> line_segment_sketch::concave_component::ConcaveComponent<'static>
+            some base line_segment_sketch::concave_component::ConcaveComponent::__call__ as fn(&'static line_segment_sketch::LineSegmentSketch<'static>, __std::slice::CyclicSlice<'static, line_segment_sketch::LineSegmentStroke<'static>>) -> line_segment_sketch::concave_component::ConcaveComponent<'static>
         ),
     ),
     (
@@ -781,14 +781,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     (
         __StaticLinkageKey::StructEagerField {
             this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
-            field_ident: "line_segments",
+            field_ident: "strokes",
         },
         eager_field_linkage!(
             immutable,
             Intrinsic,
             BoxNonCopyable,
-            line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE,
-            line_segments
+            line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE,
+            strokes
         )
     ),
     (
@@ -799,19 +799,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::displacement",
+            route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::hausdorff_norm",
         },
-        lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, geom2d::Vector2d, __registration__::__VECTOR_2_D_VTABLE, displacement)
-    ),
-    (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::hausdorff_width",
-        },
-        lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, hausdorff_width)
+        lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, hausdorff_norm)
     ),
     (
         __StaticLinkageKey::TypeCall {
-            ty: "mnist_classifier::line_segment_sketch::LineSegment"
+            ty: "mnist_classifier::line_segment_sketch::LineSegmentStroke"
         },
 
         transfer_linkage!(
@@ -821,89 +815,89 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let points: __std::slice::CyclicSlice<'eval, geom2d::Point2d> = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__CYCLIC_SLICE_POINT_2_D_VTABLE);
-                    __Register::new_box::<line_segment_sketch::LineSegment<'eval>>(line_segment_sketch::LineSegment::__call__(points), &__registration__::__LINE_SEGMENT_VTABLE)
+                    __Register::new_box::<line_segment_sketch::LineSegmentStroke<'eval>>(line_segment_sketch::LineSegmentStroke::__call__(points), &__registration__::__LINE_SEGMENT_STROKE_VTABLE)
                 }
                 __wrapper
             },
-            some base line_segment_sketch::LineSegment::__call__ as fn(__std::slice::CyclicSlice<'static, geom2d::Point2d>) -> line_segment_sketch::LineSegment<'static>
+            some base line_segment_sketch::LineSegmentStroke::__call__ as fn(__std::slice::CyclicSlice<'static, geom2d::Point2d>) -> line_segment_sketch::LineSegmentStroke<'static>
         ),
     ),
     (
         __StaticLinkageKey::StructEagerField {
-            this_ty: "mnist_classifier::line_segment_sketch::LineSegment",
+            this_ty: "mnist_classifier::line_segment_sketch::LineSegmentStroke",
             field_ident: "points",
         },
         eager_field_linkage!(
             immutable,
             Intrinsic,
             BoxNonCopyable,
-            line_segment_sketch::LineSegment<'eval>, __registration__::__LINE_SEGMENT_VTABLE, __std::slice::CyclicSlice<'eval, geom2d::Point2d>, __registration__::__CYCLIC_SLICE_POINT_2_D_VTABLE,
+            line_segment_sketch::LineSegmentStroke<'eval>, __registration__::__LINE_SEGMENT_STROKE_VTABLE, __std::slice::CyclicSlice<'eval, geom2d::Point2d>, __registration__::__CYCLIC_SLICE_POINT_2_D_VTABLE,
             points
         )
     ),
     (
         __StaticLinkageKey::StructEagerField {
-            this_ty: "mnist_classifier::line_segment_sketch::LineSegment",
+            this_ty: "mnist_classifier::line_segment_sketch::LineSegmentStroke",
             field_ident: "start",
         },
         eager_field_linkage!(
             immutable,
             Intrinsic,
             BoxNonCopyable,
-            line_segment_sketch::LineSegment<'eval>, __registration__::__LINE_SEGMENT_VTABLE, geom2d::Point2d, __registration__::__POINT_2_D_VTABLE,
+            line_segment_sketch::LineSegmentStroke<'eval>, __registration__::__LINE_SEGMENT_STROKE_VTABLE, geom2d::Point2d, __registration__::__POINT_2_D_VTABLE,
             start
         )
     ),
     (
         __StaticLinkageKey::StructEagerField {
-            this_ty: "mnist_classifier::line_segment_sketch::LineSegment",
+            this_ty: "mnist_classifier::line_segment_sketch::LineSegmentStroke",
             field_ident: "end",
         },
         eager_field_linkage!(
             immutable,
             Intrinsic,
             BoxNonCopyable,
-            line_segment_sketch::LineSegment<'eval>, __registration__::__LINE_SEGMENT_VTABLE, geom2d::Point2d, __registration__::__POINT_2_D_VTABLE,
+            line_segment_sketch::LineSegmentStroke<'eval>, __registration__::__LINE_SEGMENT_STROKE_VTABLE, geom2d::Point2d, __registration__::__POINT_2_D_VTABLE,
             end
         )
     ),
     (
         __StaticLinkageKey::StructEagerField {
-            this_ty: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>",
+            this_ty: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegmentStroke>",
             field_ident: "start",
         },
         eager_field_linkage!(
             mutable,
             Intrinsic,
             Direct,
-            __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE, i32, __registration__::__I32_VTABLE,
+            __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE, i32, __registration__::__I32_VTABLE,
             start
         )
     ),
     (
         __StaticLinkageKey::StructEagerField {
-            this_ty: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>",
+            this_ty: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegmentStroke>",
             field_ident: "end",
         },
         eager_field_linkage!(
             mutable,
             Intrinsic,
             Direct,
-            __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE, i32, __registration__::__I32_VTABLE,
+            __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE, i32, __registration__::__I32_VTABLE,
             end
         )
     ),
     (
         __StaticLinkageKey::Index {
-            opd_tys: &["std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>", "i32"],
+            opd_tys: &["std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegmentStroke>", "i32"],
         },
         index_linkage!(
             immutable,
             Intrinsic,
-            BoxNonCopyable,__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>,
-            __registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE,
-            line_segment_sketch::LineSegment<'eval>,
-            __registration__::__LINE_SEGMENT_VTABLE
+            BoxNonCopyable,__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>,
+            __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE,
+            line_segment_sketch::LineSegmentStroke<'eval>,
+            __registration__::__LINE_SEGMENT_STROKE_VTABLE
 )
     ),
     (
@@ -961,19 +955,19 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
 )
     ),
     (
-        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::ilen" },
+        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegmentStroke>::ilen" },
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
                     __arguments: &mut [__Register<'eval>],
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
-                    let __this: &Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_LINE_SEGMENT_VTABLE);
+                    let __this: &Vec<line_segment_sketch::LineSegmentStroke<'eval>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_LINE_SEGMENT_STROKE_VTABLE);
                     __this.ilen().to_register()
                 }
                 __wrapper
             },
-            some base Vec::<line_segment_sketch::LineSegment>::ilen as fn(&'static Vec<line_segment_sketch::LineSegment<'static>>) -> i32
+            some base Vec::<line_segment_sketch::LineSegmentStroke>::ilen as fn(&'static Vec<line_segment_sketch::LineSegmentStroke<'static>>) -> i32
         ),
     ),
     (
@@ -996,21 +990,21 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::cyclic_slice" },
+        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegmentStroke>::cyclic_slice" },
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
                     __arguments: &mut [__Register<'eval>],
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
-                    let __this: &'eval Vec<line_segment_sketch::LineSegment<'eval>> = __arguments[0].downcast_eval_ref(&__registration__::__VEC_LINE_SEGMENT_VTABLE);
+                    let __this: &'eval Vec<line_segment_sketch::LineSegmentStroke<'eval>> = __arguments[0].downcast_eval_ref(&__registration__::__VEC_LINE_SEGMENT_STROKE_VTABLE);
                     let start: i32 = __arguments[1].downcast_i32();
                     let end: i32 = __arguments[2].downcast_i32();
-                    __Register::new_box::<__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>>(__this.cyclic_slice(start, end), &__registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE)
+                    __Register::new_box::<__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>>(__this.cyclic_slice(start, end), &__registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE)
                 }
                 __wrapper
             },
-            some base Vec::<line_segment_sketch::LineSegment>::cyclic_slice as fn(&'static Vec<line_segment_sketch::LineSegment<'static>>, i32, i32) -> __std::slice::CyclicSlice<'static, line_segment_sketch::LineSegment<'static>>
+            some base Vec::<line_segment_sketch::LineSegmentStroke>::cyclic_slice as fn(&'static Vec<line_segment_sketch::LineSegmentStroke<'static>>, i32, i32) -> __std::slice::CyclicSlice<'static, line_segment_sketch::LineSegmentStroke<'static>>
         ),
     ),
     (
@@ -1042,12 +1036,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let line_segment_sketch: &'eval line_segment_sketch::LineSegmentSketch<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__LINE_SEGMENT_SKETCH_VTABLE);
-                    let line_segments: __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE);
+                    let line_segments: __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE);
                     __Register::new_box::<line_segment_sketch::convex_component::ConvexCompoent<'eval>>(line_segment_sketch::convex_component::ConvexCompoent::__call__(line_segment_sketch, line_segments), &__registration__::__CONVEX_COMPOENT_VTABLE)
                 }
                 __wrapper
             },
-            some base line_segment_sketch::convex_component::ConvexCompoent::__call__ as fn(&'static line_segment_sketch::LineSegmentSketch<'static>, __std::slice::CyclicSlice<'static, line_segment_sketch::LineSegment<'static>>) -> line_segment_sketch::convex_component::ConvexCompoent<'static>
+            some base line_segment_sketch::convex_component::ConvexCompoent::__call__ as fn(&'static line_segment_sketch::LineSegmentSketch<'static>, __std::slice::CyclicSlice<'static, line_segment_sketch::LineSegmentStroke<'static>>) -> line_segment_sketch::convex_component::ConvexCompoent<'static>
         ),
     ),
     (
@@ -1072,24 +1066,24 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             immutable,
             Intrinsic,
             BoxNonCopyable,
-            line_segment_sketch::convex_component::ConvexCompoent<'eval>, __registration__::__CONVEX_COMPOENT_VTABLE, __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE,
+            line_segment_sketch::convex_component::ConvexCompoent<'eval>, __registration__::__CONVEX_COMPOENT_VTABLE, __std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE,
             line_segments
         )
     ),
     (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::LineSegment::displacement" },
+        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::LineSegmentStroke::displacement" },
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
                     __arguments: &mut [__Register<'eval>],
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
-                    let __this: &line_segment_sketch::LineSegment<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__LINE_SEGMENT_VTABLE);
+                    let __this: &line_segment_sketch::LineSegmentStroke<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__LINE_SEGMENT_STROKE_VTABLE);
                     __Register::new_box::<geom2d::Vector2d>(__this.displacement(), &__registration__::__VECTOR_2_D_VTABLE)
                 }
                 __wrapper
             },
-            some base line_segment_sketch::LineSegment::displacement as fn(&'static line_segment_sketch::LineSegment<'static>) -> geom2d::Vector2d
+            some base line_segment_sketch::LineSegmentStroke::displacement as fn(&'static line_segment_sketch::LineSegmentStroke<'static>) -> geom2d::Vector2d
         ),
     ),
     (
@@ -1145,6 +1139,52 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
+        __StaticLinkageKey::TypeCall {
+            ty: "mnist_classifier::line_segment_sketch::line_segment::LineSegment"
+        },
+
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let start: geom2d::Point2d = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__POINT_2_D_VTABLE);
+                    let end: geom2d::Point2d = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__POINT_2_D_VTABLE);
+                    __Register::new_box::<line_segment_sketch::line_segment::LineSegment>(line_segment_sketch::line_segment::LineSegment::__call__(start, end), &__registration__::__LINE_SEGMENT_VTABLE)
+                }
+                __wrapper
+            },
+            some base line_segment_sketch::line_segment::LineSegment::__call__ as fn(geom2d::Point2d, geom2d::Point2d) -> line_segment_sketch::line_segment::LineSegment
+        ),
+    ),
+    (
+        __StaticLinkageKey::StructEagerField {
+            this_ty: "mnist_classifier::line_segment_sketch::line_segment::LineSegment",
+            field_ident: "start",
+        },
+        eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            BoxNonCopyable,
+            line_segment_sketch::line_segment::LineSegment, __registration__::__LINE_SEGMENT_VTABLE, geom2d::Point2d, __registration__::__POINT_2_D_VTABLE,
+            start
+        )
+    ),
+    (
+        __StaticLinkageKey::StructEagerField {
+            this_ty: "mnist_classifier::line_segment_sketch::line_segment::LineSegment",
+            field_ident: "end",
+        },
+        eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            BoxNonCopyable,
+            line_segment_sketch::line_segment::LineSegment, __registration__::__LINE_SEGMENT_VTABLE, geom2d::Point2d, __registration__::__POINT_2_D_VTABLE,
+            end
+        )
+    ),
+    (
         __StaticLinkageKey::StructEagerField {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::geom2d::Point2d>",
             field_ident: "start",
@@ -1185,7 +1225,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::Routine {
-            route: "mnist_classifier::line_segment_sketch::LineSegment::new",
+            route: "mnist_classifier::line_segment_sketch::LineSegmentStroke::new",
         },
         transfer_linkage!(
             {
@@ -1196,16 +1236,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__RAW_CONTOUR_VTABLE);
                     let from: i32 = __arguments[1].downcast_i32();
                     let to: i32 = __arguments[2].downcast_i32();
-                    __Register::new_box::<line_segment_sketch::LineSegment<'eval>>(line_segment_sketch::LineSegment::new(ct, from, to), &__registration__::__LINE_SEGMENT_VTABLE)
+                    __Register::new_box::<line_segment_sketch::LineSegmentStroke<'eval>>(line_segment_sketch::LineSegmentStroke::new(ct, from, to), &__registration__::__LINE_SEGMENT_STROKE_VTABLE)
                 }
                 __wrapper
             },
-            some base line_segment_sketch::LineSegment::new as fn(&'static raw_contour::RawContour<'static>, i32, i32) -> line_segment_sketch::LineSegment<'static>
+            some base line_segment_sketch::LineSegmentStroke::new as fn(&'static raw_contour::RawContour<'static>, i32, i32) -> line_segment_sketch::LineSegmentStroke<'static>
         ),
     ),
     (
         __StaticLinkageKey::TypeCall {
-            ty: "[]mnist_classifier::line_segment_sketch::LineSegment"
+            ty: "[]mnist_classifier::line_segment_sketch::LineSegmentStroke"
         },
 
         transfer_linkage!(
@@ -1217,26 +1257,26 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     let __variadics =
                         __arguments[0..]
                             .iter_mut()
-                            .map(|v|v.downcast_move(&__registration__::__LINE_SEGMENT_VTABLE))
+                            .map(|v|v.downcast_move(&__registration__::__LINE_SEGMENT_STROKE_VTABLE))
                             .collect();
-                    __Register::new_box::<Vec<line_segment_sketch::LineSegment<'eval>>>(Vec::<line_segment_sketch::LineSegment>::__call__(__variadics), &__registration__::__VEC_LINE_SEGMENT_VTABLE)
+                    __Register::new_box::<Vec<line_segment_sketch::LineSegmentStroke<'eval>>>(Vec::<line_segment_sketch::LineSegmentStroke>::__call__(__variadics), &__registration__::__VEC_LINE_SEGMENT_STROKE_VTABLE)
                 }
                 __wrapper
             },
-            some base Vec::<line_segment_sketch::LineSegment>::__call__ as fn(Vec<line_segment_sketch::LineSegment<'static>>) -> Vec<line_segment_sketch::LineSegment<'static>>
+            some base Vec::<line_segment_sketch::LineSegmentStroke>::__call__ as fn(Vec<line_segment_sketch::LineSegmentStroke<'static>>) -> Vec<line_segment_sketch::LineSegmentStroke<'static>>
         ),
     ),
     (
         __StaticLinkageKey::Index {
-            opd_tys: &["[]mnist_classifier::line_segment_sketch::LineSegment", "i32"],
+            opd_tys: &["[]mnist_classifier::line_segment_sketch::LineSegmentStroke", "i32"],
         },
         index_linkage!(
             mutable,
             Intrinsic,
-            BoxNonCopyable,Vec<line_segment_sketch::LineSegment<'eval>>,
-            __registration__::__VEC_LINE_SEGMENT_VTABLE,
-            line_segment_sketch::LineSegment<'eval>,
-            __registration__::__LINE_SEGMENT_VTABLE
+            BoxNonCopyable,Vec<line_segment_sketch::LineSegmentStroke<'eval>>,
+            __registration__::__VEC_LINE_SEGMENT_STROKE_VTABLE,
+            line_segment_sketch::LineSegmentStroke<'eval>,
+            __registration__::__LINE_SEGMENT_STROKE_VTABLE
 )
     ),
     (
@@ -1365,16 +1405,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 ) -> __Register<'eval> {
                     let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__RAW_CONTOUR_VTABLE);
                     let r: f32 = __arguments[1].downcast_f32();
-                    __Register::new_box::<Vec<line_segment_sketch::LineSegment<'eval>>>(line_segment_sketch::find_line_segments(ct, r), &__registration__::__VEC_LINE_SEGMENT_VTABLE)
+                    __Register::new_box::<Vec<line_segment_sketch::LineSegmentStroke<'eval>>>(line_segment_sketch::find_line_segments(ct, r), &__registration__::__VEC_LINE_SEGMENT_STROKE_VTABLE)
                 }
                 __wrapper
             },
-            some base line_segment_sketch::find_line_segments as fn(&'static raw_contour::RawContour<'static>, f32) -> Vec<line_segment_sketch::LineSegment<'static>>
+            some base line_segment_sketch::find_line_segments as fn(&'static raw_contour::RawContour<'static>, f32) -> Vec<line_segment_sketch::LineSegmentStroke<'static>>
         ),
     ),
     (
-        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::lastx" },
-        method_elem_linkage!(Vec<line_segment_sketch::LineSegment<'eval>>, __registration__::__VEC_LINE_SEGMENT_VTABLE, __registration__::__LINE_SEGMENT_VTABLE, lastx)
+        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegmentStroke>::lastx" },
+        method_elem_linkage!(Vec<line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__VEC_LINE_SEGMENT_STROKE_VTABLE, __registration__::__LINE_SEGMENT_STROKE_VTABLE, lastx)
     ),
     (
         __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Vector2d::dot" },
@@ -1411,41 +1451,41 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::popx" },
+        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegmentStroke>::popx" },
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
                     __arguments: &mut [__Register<'eval>],
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
-                    let __this: &mut Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_LINE_SEGMENT_VTABLE);
-                    __Register::new_box::<line_segment_sketch::LineSegment<'eval>>(__this.popx(), &__registration__::__LINE_SEGMENT_VTABLE)
+                    let __this: &mut Vec<line_segment_sketch::LineSegmentStroke<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_LINE_SEGMENT_STROKE_VTABLE);
+                    __Register::new_box::<line_segment_sketch::LineSegmentStroke<'eval>>(__this.popx(), &__registration__::__LINE_SEGMENT_STROKE_VTABLE)
                 }
                 __wrapper
             },
-            some base Vec::<line_segment_sketch::LineSegment>::popx as fn(&'static mut Vec<line_segment_sketch::LineSegment<'static>>) -> line_segment_sketch::LineSegment<'static>
+            some base Vec::<line_segment_sketch::LineSegmentStroke>::popx as fn(&'static mut Vec<line_segment_sketch::LineSegmentStroke<'static>>) -> line_segment_sketch::LineSegmentStroke<'static>
         ),
     ),
     (
-        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::push" },
+        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegmentStroke>::push" },
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
                     __arguments: &mut [__Register<'eval>],
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
-                    let __this: &mut Vec<line_segment_sketch::LineSegment<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_LINE_SEGMENT_VTABLE);
-                    let element: line_segment_sketch::LineSegment<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__LINE_SEGMENT_VTABLE);
+                    let __this: &mut Vec<line_segment_sketch::LineSegmentStroke<'eval>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_LINE_SEGMENT_STROKE_VTABLE);
+                    let element: line_segment_sketch::LineSegmentStroke<'eval> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__LINE_SEGMENT_STROKE_VTABLE);
                     __this.push(element).to_register()
                 }
                 __wrapper
             },
-            some base Vec::<line_segment_sketch::LineSegment>::push as fn(&'static mut Vec<line_segment_sketch::LineSegment<'static>>, line_segment_sketch::LineSegment<'static>) -> ()
+            some base Vec::<line_segment_sketch::LineSegmentStroke>::push as fn(&'static mut Vec<line_segment_sketch::LineSegmentStroke<'static>>, line_segment_sketch::LineSegmentStroke<'static>) -> ()
         ),
     ),
     (
-        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegment>::firstx" },
-        method_elem_linkage!(Vec<line_segment_sketch::LineSegment<'eval>>, __registration__::__VEC_LINE_SEGMENT_VTABLE, __registration__::__LINE_SEGMENT_VTABLE, firstx)
+        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::LineSegmentStroke>::firstx" },
+        method_elem_linkage!(Vec<line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__VEC_LINE_SEGMENT_STROKE_VTABLE, __registration__::__LINE_SEGMENT_STROKE_VTABLE, firstx)
     ),
     (
         __StaticLinkageKey::TypeCall {
@@ -1777,11 +1817,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    one::downmost(cc, __opt_ctx.unwrap()).to_register()
+                    one::downmost(cc).to_register()
                 }
                 __wrapper
             },
-            some ctx one::downmost as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+            some base one::downmost as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> Option<f32>
         ),
     ),
     (
@@ -1795,11 +1835,27 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    one::upmost(cc, __opt_ctx.unwrap()).to_register()
+                    one::upmost(cc).to_register()
                 }
                 __wrapper
             },
-            some ctx one::upmost as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+            some base one::upmost as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::displacement" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    __Register::new_box::<geom2d::Vector2d>(__this.displacement(), &__registration__::__VECTOR_2_D_VTABLE)
+                }
+                __wrapper
+            },
+            some base line_segment_sketch::concave_component::ConcaveComponent::displacement as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> geom2d::Vector2d
         ),
     ),
     (
@@ -1821,11 +1877,43 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::Routine { route: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>::firstx" },
-        method_elem_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE, __registration__::__LINE_SEGMENT_VTABLE, firstx)
+        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::line_segment" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    __Register::new_box::<line_segment_sketch::line_segment::LineSegment>(__this.line_segment(), &__registration__::__LINE_SEGMENT_VTABLE)
+                }
+                __wrapper
+            },
+            some base line_segment_sketch::concave_component::ConcaveComponent::line_segment as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> line_segment_sketch::line_segment::LineSegment
+        ),
     ),
     (
-        __StaticLinkageKey::Routine { route: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegment>::lastx" },
-        method_elem_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegment<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_VTABLE, __registration__::__LINE_SEGMENT_VTABLE, lastx)
+        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::line_segment::LineSegment::displacement" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &line_segment_sketch::line_segment::LineSegment = __arguments[0].downcast_temp_ref(&__registration__::__LINE_SEGMENT_VTABLE);
+                    __Register::new_box::<geom2d::Vector2d>(__this.displacement(), &__registration__::__VECTOR_2_D_VTABLE)
+                }
+                __wrapper
+            },
+            some base line_segment_sketch::line_segment::LineSegment::displacement as fn(&'static line_segment_sketch::line_segment::LineSegment) -> geom2d::Vector2d
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegmentStroke>::firstx" },
+        method_elem_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE, __registration__::__LINE_SEGMENT_STROKE_VTABLE, firstx)
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegmentStroke>::lastx" },
+        method_elem_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE, __registration__::__LINE_SEGMENT_STROKE_VTABLE, lastx)
     ),
 ];

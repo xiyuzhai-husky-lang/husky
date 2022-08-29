@@ -3,14 +3,15 @@ use crate::*;
 pub(crate) mod concave_component;
 pub(crate) mod convex_component;
 pub(crate) mod convexity;
+pub(crate) mod line_segment;
 #[derive(Debug, Clone, PartialEq)]
-pub(crate) struct LineSegment<'eval> {
+pub(crate) struct LineSegmentStroke<'eval> {
     pub(crate) points: __std::slice::CyclicSlice<'eval, crate::geom2d::Point2d>,
     pub(crate) start: crate::geom2d::Point2d,
     pub(crate) end: crate::geom2d::Point2d,
 }
 
-impl<'eval> LineSegment<'eval> {
+impl<'eval> LineSegmentStroke<'eval> {
     pub(crate) fn __call__(
         points: __std::slice::CyclicSlice<'eval, crate::geom2d::Point2d>,
     ) -> Self {
@@ -22,20 +23,20 @@ impl<'eval> LineSegment<'eval> {
         ct: &'eval crate::raw_contour::RawContour<'eval>,
         from: i32,
         to: i32,
-    ) -> LineSegment<'eval> {
+    ) -> LineSegmentStroke<'eval> {
         assert!(from <= to);
-        return LineSegment::__call__(ct.points.cyclic_slice(from, to + 1));
+        return LineSegmentStroke::__call__(ct.points.cyclic_slice(from, to + 1));
     }
     pub(crate) fn displacement(&self) -> crate::geom2d::Vector2d {
         return self.start.to(&self.end);
     }
 }
 
-impl<'eval> __StaticInfo for LineSegment<'eval> {
-    type __StaticSelf = LineSegment<'static>;
+impl<'eval> __StaticInfo for LineSegmentStroke<'eval> {
+    type __StaticSelf = LineSegmentStroke<'static>;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
-        "mnist_classifier::line_segment_sketch::LineSegment".into()
+        "mnist_classifier::line_segment_sketch::LineSegmentStroke".into()
     }
 
     unsafe fn __transmute_static(self) -> Self::__StaticSelf {
@@ -45,18 +46,15 @@ impl<'eval> __StaticInfo for LineSegment<'eval> {
 #[derive(Debug, Clone, PartialEq)]
 pub(crate) struct LineSegmentSketch<'eval> {
     pub(crate) contour: &'eval crate::raw_contour::RawContour<'eval>,
-    pub(crate) line_segments: Vec<LineSegment<'eval>>,
+    pub(crate) strokes: Vec<LineSegmentStroke<'eval>>,
 }
 
 impl<'eval> LineSegmentSketch<'eval> {
     pub(crate) fn __call__(
         contour: &'eval crate::raw_contour::RawContour<'eval>,
-        line_segments: Vec<LineSegment<'eval>>,
+        strokes: Vec<LineSegmentStroke<'eval>>,
     ) -> Self {
-        Self {
-            contour,
-            line_segments,
-        }
+        Self { contour, strokes }
     }
     pub(crate) fn concave_components(
         &'eval self,
@@ -78,7 +76,7 @@ impl<'eval> LineSegmentSketch<'eval> {
                 Ok(__Register::new_box::<
                     Vec<concave_component::ConcaveComponent<'eval>>,
                 >(
-                    concave_component::find_concave_components(self),
+                    concave_component::find_concave_components(&self),
                     &__registration__::__VEC_CONCAVE_COMPONENT_VTABLE,
                 )),
             )
@@ -89,7 +87,7 @@ impl<'eval> LineSegmentSketch<'eval> {
         ct: &'eval crate::raw_contour::RawContour<'eval>,
         r: f32,
     ) -> LineSegmentSketch<'eval> {
-        return LineSegmentSketch::__call__(ct, find_line_segments(ct, r));
+        return LineSegmentSketch::__call__(&ct, find_line_segments(&ct, r));
     }
 }
 
@@ -226,14 +224,14 @@ pub(crate) fn extend_start<'eval>(
 pub(crate) fn find_line_segments<'eval>(
     ct: &'eval crate::raw_contour::RawContour<'eval>,
     r: f32,
-) -> Vec<LineSegment<'eval>> {
-    let mut line_segments = Vec::<LineSegment>::__call__(vec![]);
+) -> Vec<LineSegmentStroke<'eval>> {
+    let mut line_segments = Vec::<LineSegmentStroke>::__call__(vec![]);
     let mut start = 0;
     let mut end = 1;
     let mut max_end = ct.points.ilen();
     while end <= max_end {
-        end = extend_end(ct, start, r);
-        let ls_extend_end = LineSegment::new(ct, start, end);
+        end = extend_end(&ct, start, r);
+        let ls_extend_end = LineSegmentStroke::new(&ct, start, end);
         let mut extend_start_flag = true;
         if line_segments.ilen() > 0 {
             let dp_extend_end = ls_extend_end.displacement();
@@ -243,13 +241,13 @@ pub(crate) fn find_line_segments<'eval>(
             {
                 let N = ct.points.ilen();
                 *line_segments.lastx_mut() =
-                    LineSegment::new(ct, line_segments.lastx().points.start, end);
+                    LineSegmentStroke::new(&ct, line_segments.lastx().points.start, end);
                 extend_start_flag = false;
             }
         }
         if extend_start_flag {
-            start = extend_start(ct, start, end, r);
-            let mut ls = LineSegment::new(ct, start, end);
+            start = extend_start(&ct, start, end, r);
+            let mut ls = LineSegmentStroke::new(&ct, start, end);
             if line_segments.ilen() > 0 {
                 let ls_last = &line_segments.lastx();
                 let dp_last = ls_last.displacement();
@@ -261,7 +259,7 @@ pub(crate) fn find_line_segments<'eval>(
                     && dp.dot(&dp1) > 0f32
                 {
                     let ls_last = line_segments.popx();
-                    ls = LineSegment::new(ct, ls_last.points.start, ls.points.end);
+                    ls = LineSegmentStroke::new(&ct, ls_last.points.start, ls.points.end);
                 }
             } else {
                 max_end = start + ct.points.ilen();
@@ -276,8 +274,8 @@ pub(crate) fn find_line_segments<'eval>(
     let last_line_segment = &line_segments.lastx();
     if last_line_segment.points.end >= first_line_segment_points_end + N {
         let last_line_segment = line_segments.popx();
-        *line_segments.firstx_mut() = LineSegment::new(
-            ct,
+        *line_segments.firstx_mut() = LineSegmentStroke::new(
+            &ct,
             last_line_segment.points.start - N,
             line_segments.firstx().points.end - 1,
         );

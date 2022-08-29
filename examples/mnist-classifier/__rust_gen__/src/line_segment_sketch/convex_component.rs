@@ -4,7 +4,7 @@ use crate::*;
 pub(crate) struct ConvexCompoent<'eval> {
     pub(crate) line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>,
     pub(crate) line_segments:
-        __std::slice::CyclicSlice<'eval, crate::line_segment_sketch::LineSegment<'eval>>,
+        __std::slice::CyclicSlice<'eval, crate::line_segment_sketch::LineSegmentStroke<'eval>>,
 }
 
 impl<'eval> ConvexCompoent<'eval> {
@@ -12,7 +12,7 @@ impl<'eval> ConvexCompoent<'eval> {
         line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>,
         line_segments: __std::slice::CyclicSlice<
             'eval,
-            crate::line_segment_sketch::LineSegment<'eval>,
+            crate::line_segment_sketch::LineSegmentStroke<'eval>,
         >,
     ) -> Self {
         Self {

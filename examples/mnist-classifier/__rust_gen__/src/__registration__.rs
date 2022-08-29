@@ -12,7 +12,7 @@ pub unsafe extern "C" fn __connected_component_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __connected_component_drop(data: *mut ()) {
-    Box::from_raw(data as *mut ConnectedComponent);
+    drop(Box::from_raw(data as *mut ConnectedComponent))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -48,7 +48,7 @@ pub unsafe extern "C" fn __raw_contour_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __raw_contour_drop(data: *mut ()) {
-    Box::from_raw(data as *mut RawContour);
+    drop(Box::from_raw(data as *mut RawContour))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -84,7 +84,7 @@ pub unsafe extern "C" fn __vec_raw_contour_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_raw_contour_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vec__RawContour);
+    drop(Box::from_raw(data as *mut Vec__RawContour))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -120,7 +120,7 @@ pub unsafe extern "C" fn __vec_connected_component_clone(data: *mut ()) -> *mut 
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_connected_component_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vec__ConnectedComponent);
+    drop(Box::from_raw(data as *mut Vec__ConnectedComponent))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -156,7 +156,7 @@ pub unsafe extern "C" fn __point_2_d_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __point_2_d_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Point2d);
+    drop(Box::from_raw(data as *mut Point2d))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -192,7 +192,7 @@ pub unsafe extern "C" fn __vec_point_2_d_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_point_2_d_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vec__Point2d);
+    drop(Box::from_raw(data as *mut Vec__Point2d))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -228,7 +228,7 @@ pub unsafe extern "C" fn __line_segment_sketch_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __line_segment_sketch_drop(data: *mut ()) {
-    Box::from_raw(data as *mut LineSegmentSketch);
+    drop(Box::from_raw(data as *mut LineSegmentSketch))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -264,7 +264,7 @@ pub unsafe extern "C" fn __direction_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __direction_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Direction);
+    drop(Box::from_raw(data as *mut Direction))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -300,7 +300,7 @@ pub unsafe extern "C" fn __streak_cache_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __streak_cache_drop(data: *mut ()) {
-    Box::from_raw(data as *mut StreakCache);
+    drop(Box::from_raw(data as *mut StreakCache))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -336,7 +336,7 @@ pub unsafe extern "C" fn __vector_2_d_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vector_2_d_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vector2d);
+    drop(Box::from_raw(data as *mut Vector2d))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -373,7 +373,7 @@ pub unsafe extern "C" fn __concave_component_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __concave_component_drop(data: *mut ()) {
-    Box::from_raw(data as *mut ConcaveComponent);
+    drop(Box::from_raw(data as *mut ConcaveComponent))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -398,78 +398,78 @@ pub static __CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     typename_str_hash_u64: 4043962232733124493,
     typename_str: "ConcaveComponent",
 };
-type LineSegment<'eval> = crate::line_segment_sketch::LineSegment<'eval>;
+type LineSegmentStroke<'eval> = crate::line_segment_sketch::LineSegmentStroke<'eval>;
 
-// LineSegment
+// LineSegmentStroke
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_clone(data: *mut ()) -> *mut () {
-    Box::<LineSegment>::into_raw(Box::new((*(data as *mut LineSegment)).clone())) as *mut ()
+pub unsafe extern "C" fn __line_segment_stroke_clone(data: *mut ()) -> *mut () {
+    Box::<LineSegmentStroke>::into_raw(Box::new((*(data as *mut LineSegmentStroke)).clone())) as *mut ()
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_drop(data: *mut ()) {
-    Box::from_raw(data as *mut LineSegment);
+pub unsafe extern "C" fn __line_segment_stroke_drop(data: *mut ()) {
+    drop(Box::from_raw(data as *mut LineSegmentStroke))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const LineSegment) == *(other as *const () as *const LineSegment)
+pub unsafe extern "C" fn __line_segment_stroke_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const LineSegmentStroke) == *(other as *const () as *const LineSegmentStroke)
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __line_segment_stroke_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<LineSegment>(&__LINE_SEGMENT_VTABLE) = registers[1].downcast_move(&__LINE_SEGMENT_VTABLE)
+    *registers[0].downcast_temp_mut::<LineSegmentStroke>(&__LINE_SEGMENT_STROKE_VTABLE) = registers[1].downcast_move(&__LINE_SEGMENT_STROKE_VTABLE)
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub static __LINE_SEGMENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+pub static __LINE_SEGMENT_STROKE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
     primitive_value_to_box: None,
-    clone: __line_segment_clone,
-    drop: __line_segment_drop,
-    eq: __line_segment_eq,
-    assign: __line_segment_assign,
-    typename_str_hash_u64: 2513494300754753971,
-    typename_str: "LineSegment",
+    clone: __line_segment_stroke_clone,
+    drop: __line_segment_stroke_drop,
+    eq: __line_segment_stroke_eq,
+    assign: __line_segment_stroke_assign,
+    typename_str_hash_u64: 6281179995675231489,
+    typename_str: "LineSegmentStroke",
 };
-type CyclicSlice__LineSegment<'eval> =
-    __std::slice::CyclicSlice<'eval, crate::line_segment_sketch::LineSegment<'eval>>;
+type CyclicSlice__LineSegmentStroke<'eval> =
+    __std::slice::CyclicSlice<'eval, crate::line_segment_sketch::LineSegmentStroke<'eval>>;
 
-// CyclicSlice__LineSegment
+// CyclicSlice__LineSegmentStroke
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __cyclic_slice_line_segment_clone(data: *mut ()) -> *mut () {
-    Box::<CyclicSlice__LineSegment>::into_raw(Box::new((*(data as *mut CyclicSlice__LineSegment)).clone())) as *mut ()
+pub unsafe extern "C" fn __cyclic_slice_line_segment_stroke_clone(data: *mut ()) -> *mut () {
+    Box::<CyclicSlice__LineSegmentStroke>::into_raw(Box::new((*(data as *mut CyclicSlice__LineSegmentStroke)).clone())) as *mut ()
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __cyclic_slice_line_segment_drop(data: *mut ()) {
-    Box::from_raw(data as *mut CyclicSlice__LineSegment);
+pub unsafe extern "C" fn __cyclic_slice_line_segment_stroke_drop(data: *mut ()) {
+    drop(Box::from_raw(data as *mut CyclicSlice__LineSegmentStroke))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __cyclic_slice_line_segment_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const CyclicSlice__LineSegment) == *(other as *const () as *const CyclicSlice__LineSegment)
+pub unsafe extern "C" fn __cyclic_slice_line_segment_stroke_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const CyclicSlice__LineSegmentStroke) == *(other as *const () as *const CyclicSlice__LineSegmentStroke)
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __cyclic_slice_line_segment_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __cyclic_slice_line_segment_stroke_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<CyclicSlice__LineSegment>(&__CYCLIC_SLICE_LINE_SEGMENT_VTABLE) = registers[1].downcast_move(&__CYCLIC_SLICE_LINE_SEGMENT_VTABLE)
+    *registers[0].downcast_temp_mut::<CyclicSlice__LineSegmentStroke>(&__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE) = registers[1].downcast_move(&__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE)
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub static __CYCLIC_SLICE_LINE_SEGMENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+pub static __CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
     primitive_value_to_box: None,
-    clone: __cyclic_slice_line_segment_clone,
-    drop: __cyclic_slice_line_segment_drop,
-    eq: __cyclic_slice_line_segment_eq,
-    assign: __cyclic_slice_line_segment_assign,
-    typename_str_hash_u64: 4096895197300063883,
-    typename_str: "CyclicSlice__LineSegment",
+    clone: __cyclic_slice_line_segment_stroke_clone,
+    drop: __cyclic_slice_line_segment_stroke_drop,
+    eq: __cyclic_slice_line_segment_stroke_eq,
+    assign: __cyclic_slice_line_segment_stroke_assign,
+    typename_str_hash_u64: 1827233183231989048,
+    typename_str: "CyclicSlice__LineSegmentStroke",
 };
 type Vec__ConcaveComponent<'eval> =
     Vec<crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>>;
@@ -483,7 +483,7 @@ pub unsafe extern "C" fn __vec_concave_component_clone(data: *mut ()) -> *mut ()
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_concave_component_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vec__ConcaveComponent);
+    drop(Box::from_raw(data as *mut Vec__ConcaveComponent))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -519,7 +519,7 @@ pub unsafe extern "C" fn __convex_compoent_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __convex_compoent_drop(data: *mut ()) {
-    Box::from_raw(data as *mut ConvexCompoent);
+    drop(Box::from_raw(data as *mut ConvexCompoent))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -544,6 +544,42 @@ pub static __CONVEX_COMPOENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     typename_str_hash_u64: 13420018735853642728,
     typename_str: "ConvexCompoent",
 };
+type LineSegment = crate::line_segment_sketch::line_segment::LineSegment;
+
+// LineSegment
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __line_segment_clone(data: *mut ()) -> *mut () {
+    Box::<LineSegment>::into_raw(Box::new((*(data as *mut LineSegment)).clone())) as *mut ()
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __line_segment_drop(data: *mut ()) {
+    drop(Box::from_raw(data as *mut LineSegment))
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __line_segment_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const LineSegment) == *(other as *const () as *const LineSegment)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __line_segment_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<LineSegment>(&__LINE_SEGMENT_VTABLE) = registers[1].downcast_move(&__LINE_SEGMENT_VTABLE)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub static __LINE_SEGMENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+    primitive_value_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __line_segment_clone,
+    drop: __line_segment_drop,
+    eq: __line_segment_eq,
+    assign: __line_segment_assign,
+    typename_str_hash_u64: 2513494300754753971,
+    typename_str: "LineSegment",
+};
 type CyclicSlice__Point2d<'eval> = __std::slice::CyclicSlice<'eval, crate::geom2d::Point2d>;
 
 // CyclicSlice__Point2d
@@ -555,7 +591,7 @@ pub unsafe extern "C" fn __cyclic_slice_point_2_d_clone(data: *mut ()) -> *mut (
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __cyclic_slice_point_2_d_drop(data: *mut ()) {
-    Box::from_raw(data as *mut CyclicSlice__Point2d);
+    drop(Box::from_raw(data as *mut CyclicSlice__Point2d))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -580,41 +616,41 @@ pub static __CYCLIC_SLICE_POINT_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTa
     typename_str_hash_u64: 17025899022928918821,
     typename_str: "CyclicSlice__Point2d",
 };
-type Vec__LineSegment<'eval> = Vec<crate::line_segment_sketch::LineSegment<'eval>>;
+type Vec__LineSegmentStroke<'eval> = Vec<crate::line_segment_sketch::LineSegmentStroke<'eval>>;
 
-// Vec__LineSegment
+// Vec__LineSegmentStroke
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_line_segment_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__LineSegment>::into_raw(Box::new((*(data as *mut Vec__LineSegment)).clone())) as *mut ()
+pub unsafe extern "C" fn __vec_line_segment_stroke_clone(data: *mut ()) -> *mut () {
+    Box::<Vec__LineSegmentStroke>::into_raw(Box::new((*(data as *mut Vec__LineSegmentStroke)).clone())) as *mut ()
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_line_segment_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vec__LineSegment);
+pub unsafe extern "C" fn __vec_line_segment_stroke_drop(data: *mut ()) {
+    drop(Box::from_raw(data as *mut Vec__LineSegmentStroke))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_line_segment_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__LineSegment) == *(other as *const () as *const Vec__LineSegment)
+pub unsafe extern "C" fn __vec_line_segment_stroke_eq(this: &(), other: &()) -> bool {
+    *(this as *const () as *const Vec__LineSegmentStroke) == *(other as *const () as *const Vec__LineSegmentStroke)
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_line_segment_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __vec_line_segment_stroke_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<Vec__LineSegment>(&__VEC_LINE_SEGMENT_VTABLE) = registers[1].downcast_move(&__VEC_LINE_SEGMENT_VTABLE)
+    *registers[0].downcast_temp_mut::<Vec__LineSegmentStroke>(&__VEC_LINE_SEGMENT_STROKE_VTABLE) = registers[1].downcast_move(&__VEC_LINE_SEGMENT_STROKE_VTABLE)
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub static __VEC_LINE_SEGMENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+pub static __VEC_LINE_SEGMENT_STROKE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
     primitive_value_to_box: None,
-    clone: __vec_line_segment_clone,
-    drop: __vec_line_segment_drop,
-    eq: __vec_line_segment_eq,
-    assign: __vec_line_segment_assign,
-    typename_str_hash_u64: 16993615424187302000,
-    typename_str: "Vec__LineSegment",
+    clone: __vec_line_segment_stroke_clone,
+    drop: __vec_line_segment_stroke_drop,
+    eq: __vec_line_segment_stroke_eq,
+    assign: __vec_line_segment_stroke_assign,
+    typename_str_hash_u64: 6123776351078547476,
+    typename_str: "Vec__LineSegmentStroke",
 };
 type FermiMatchResult<'eval> = crate::fermi::FermiMatchResult<'eval>;
 
@@ -627,7 +663,7 @@ pub unsafe extern "C" fn __fermi_match_result_clone(data: *mut ()) -> *mut () {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __fermi_match_result_drop(data: *mut ()) {
-    Box::from_raw(data as *mut FermiMatchResult);
+    drop(Box::from_raw(data as *mut FermiMatchResult))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -664,7 +700,7 @@ pub unsafe extern "C" fn __vec_option_ref_concave_component_clone(data: *mut ())
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_option_ref_concave_component_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vec__Option__Ref__ConcaveComponent);
+    drop(Box::from_raw(data as *mut Vec__Option__Ref__ConcaveComponent))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -701,7 +737,7 @@ pub unsafe extern "C" fn __vec_ref_concave_component_clone(data: *mut ()) -> *mu
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_ref_concave_component_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vec__Ref__ConcaveComponent);
+    drop(Box::from_raw(data as *mut Vec__Ref__ConcaveComponent))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -741,7 +777,7 @@ pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_clone(data
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_drop(data: *mut ()) {
-    Box::from_raw(data as *mut ThickFp__Ref__ConcaveComponent_Option__f32);
+    drop(Box::from_raw(data as *mut ThickFp__Ref__ConcaveComponent_Option__f32))
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -783,7 +819,7 @@ pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_clone(
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_drop(data: *mut ()) {
-    Box::from_raw(data as *mut Vec__ThickFp__Ref__ConcaveComponent_Option__f32);
+    drop(Box::from_raw(data as *mut Vec__ThickFp__Ref__ConcaveComponent_Option__f32))
 }
 #[rustfmt::skip]
 #[no_mangle]
