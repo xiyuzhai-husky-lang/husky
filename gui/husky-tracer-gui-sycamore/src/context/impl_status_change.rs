@@ -110,14 +110,6 @@ impl DebuggerContext {
         move || self.handle_status_change(StatusChange::TogglePin { trace_id })
     }
 
-    pub fn toggle_enter_handler(&'static self, trace_id: TraceId) -> impl Fn() {
-        move || {
-            self.handle_status_change(StatusChange::update_restriction(self, |res| {
-                res.toggle_enter(trace_id)
-            }))
-        }
-    }
-
     pub fn activate_handler(&'static self, trace_id: TraceId) -> impl Fn(Event) {
         move |_| self.handle_status_change(StatusChange::Activate { trace_id })
     }
