@@ -3,21 +3,21 @@ use crate::*;
 #[derive(Debug, Clone, PartialEq)]
 pub(crate) struct ConcaveComponent<'eval> {
     pub(crate) line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>,
-    pub(crate) line_segments:
-        __std::slice::CyclicSlice<'eval, crate::line_segment_sketch::LineSegment<'eval>>,
+    pub(crate) strokes:
+        __std::slice::CyclicSlice<'eval, crate::line_segment_sketch::LineSegmentStroke<'eval>>,
 }
 
 impl<'eval> ConcaveComponent<'eval> {
     pub(crate) fn __call__(
         line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>,
-        line_segments: __std::slice::CyclicSlice<
+        strokes: __std::slice::CyclicSlice<
             'eval,
-            crate::line_segment_sketch::LineSegment<'eval>,
+            crate::line_segment_sketch::LineSegmentStroke<'eval>,
         >,
     ) -> Self {
         Self {
             line_segment_sketch,
-            line_segments,
+            strokes,
         }
     }
     pub(crate) fn norm(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
@@ -34,57 +34,54 @@ impl<'eval> ConcaveComponent<'eval> {
             .cache_lazy_field(
                 self as *const _ as *const (),
                 __uid,
-                Ok(__Register::new_box::<f32>(
-                    1f32,
+                Ok(__Register::new_eval_ref::<f32>(
+                    &(self.hausdorff_norm(__ctx)),
                     &__registration__::__F32_VTABLE,
-                )),
+                ))
+                .into(),
             )
             .unwrap()
             .downcast_eval_ref(&__registration__::__F32_VTABLE);
     }
-    pub(crate) fn displacement(
-        &'eval self,
-        __ctx: &dyn __EvalContext<'eval>,
-    ) -> &'eval crate::geom2d::Vector2d {
-        let __uid = entity_uid!(__ctx, "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::displacement");
-        if let Some(__result) = __ctx.opt_cached_lazy_field(self as *const _ as *const (), __uid) {
-            return __result
-                .unwrap()
-                .downcast_eval_ref(&__registration__::__VECTOR_2_D_VTABLE);
-        }
-        return __ctx
-            .cache_lazy_field(
-                self as *const _ as *const (),
-                __uid,
-                Ok(__Register::new_box::<crate::geom2d::Vector2d>(
-                    self.line_segments
-                        .firstx()
-                        .start
-                        .to(&self.line_segments.lastx().end),
-                    &__registration__::__VECTOR_2_D_VTABLE,
-                )),
-            )
-            .unwrap()
-            .downcast_eval_ref(&__registration__::__VECTOR_2_D_VTABLE);
-    }
-    pub(crate) fn hausdorff_width(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
-        let __uid = entity_uid!(__ctx, "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::hausdorff_width");
+    pub(crate) fn hausdorff_norm(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
+        let __uid = entity_uid!(__ctx, "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::hausdorff_norm");
         if let Some(__result) = __ctx.opt_cached_lazy_field(self as *const _ as *const (), __uid) {
             return __result
                 .unwrap()
                 .downcast_eval_ref(&__registration__::__F32_VTABLE);
         }
-        return __ctx
+        let mut hausdorff_norm = 0f32;
+        let curve_start = &self.strokes.firstx().start;
+        let curve_ls = self.line_segment();
+        let dp_norm = curve_ls.displacement().norm();
+        for i in self.strokes.start..self.strokes.end {
+            let point = &self.strokes[(i) as usize].end;
+            let point_dist = curve_ls.dist_to_point(&point);
+            if point_dist > hausdorff_norm {
+                hausdorff_norm = point_dist;
+            }
+        }
+        __ctx
             .cache_lazy_field(
                 self as *const _ as *const (),
                 __uid,
                 Ok(__Register::new_box::<f32>(
-                    1f32,
+                    hausdorff_norm,
                     &__registration__::__F32_VTABLE,
                 )),
             )
             .unwrap()
-            .downcast_eval_ref(&__registration__::__F32_VTABLE);
+            .downcast_eval_ref(&__registration__::__F32_VTABLE)
+    }
+    pub(crate) fn line_segment(&self) -> crate::line_segment_sketch::line_segment::LineSegment {
+        return crate::line_segment_sketch::line_segment::LineSegment::__call__(
+            self.strokes.firstx().start.clone(),
+            self.strokes.lastx().end.clone(),
+        );
+    }
+
+    pub(crate) fn displacement(&self) -> crate::geom2d::Vector2d {
+        return self.line_segment().displacement();
     }
 }
 
@@ -104,7 +101,7 @@ pub(crate) fn find_concave_components<'eval>(
     line_segment_sketch: &'eval crate::line_segment_sketch::LineSegmentSketch<'eval>,
 ) -> Vec<ConcaveComponent<'eval>> {
     let mut concave_components = Vec::<ConcaveComponent>::__call__(vec![]);
-    let L = line_segment_sketch.line_segments.ilen();
+    let L = line_segment_sketch.strokes.ilen();
     let mut start = 0;
     let mut end = 1;
     while start > -L
@@ -121,8 +118,8 @@ pub(crate) fn find_concave_components<'eval>(
         }
         if end > start + 1 {
             concave_components.push(ConcaveComponent::__call__(
-                line_segment_sketch,
-                line_segment_sketch.line_segments.cyclic_slice(start, end),
+                &line_segment_sketch,
+                line_segment_sketch.strokes.cyclic_slice(start, end),
             ));
         }
         start = end;

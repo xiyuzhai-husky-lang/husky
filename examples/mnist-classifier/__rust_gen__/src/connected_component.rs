@@ -29,7 +29,7 @@ impl ConnectedComponent {
                 Ok(__Register::new_box::<
                     Vec<crate::raw_contour::RawContour<'eval>>,
                 >(
-                    crate::raw_contour::find_raw_contours(self),
+                    crate::raw_contour::find_raw_contours(&self),
                     &__registration__::__VEC_RAW_CONTOUR_VTABLE,
                 )),
             )

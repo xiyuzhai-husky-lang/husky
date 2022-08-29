@@ -1,11 +1,13 @@
 mod concave_component
 mod convex_component
 mod convexity
+mod line_segment
 
 use crate::geom2d::*
 use crate::raw_contour::RawContour
 use concave_component::*
 use convex_component::*
+use line_segment::*
 
 struct LineSegmentStroke:
     points: [%]Point2d
@@ -20,11 +22,11 @@ struct LineSegmentStroke:
         start.to(end)
 
     visual:
-        <LineSegmentStroke start={this.start} end={this.end} />
+        <LineSegment start={this.start} end={this.end} />
 
 struct LineSegmentSketch:
     contour: &RawContour
-    line_segments: []LineSegmentStroke
+    strokes: []LineSegmentStroke
 
     func concave_components -> []ConcaveComponent:
         find_concave_components(this)
@@ -33,7 +35,7 @@ struct LineSegmentSketch:
         LineSegmentSketch(ct, find_line_segments(ct, r))
 
     visual:
-        this.line_segments
+        this.strokes
 
 func go_right(u: Vector2d, r: f32) -> Vector2d:
     L = (u.x*u.x+u.y*u.y).sqrt()

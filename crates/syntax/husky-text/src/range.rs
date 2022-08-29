@@ -99,6 +99,10 @@ pub trait TextRanged {
     fn row(&self) -> Row {
         self.text_range().start.row
     }
+
+    fn line(&self) -> u32 {
+        self.text_range().start.line()
+    }
 }
 
 impl TextRanged for TextRange {

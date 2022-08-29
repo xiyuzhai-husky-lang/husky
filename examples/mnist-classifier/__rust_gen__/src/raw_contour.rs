@@ -33,7 +33,7 @@ impl<'eval> RawContour<'eval> {
                 Ok(__Register::new_box::<
                     crate::line_segment_sketch::LineSegmentSketch<'eval>,
                 >(
-                    crate::line_segment_sketch::LineSegmentSketch::new(self, 1.2f32),
+                    crate::line_segment_sketch::LineSegmentSketch::new(&self, 1.2f32),
                     &__registration__::__LINE_SEGMENT_SKETCH_VTABLE,
                 )),
             )
@@ -349,7 +349,7 @@ pub(crate) fn find_raw_contours<'eval>(
             if prev_angle_change1 == -1 && current_streak == 1 && prev_streak1 > 0 {
                 contour.popx();
             }
-            result.push(RawContour::__call__(cc, contour));
+            result.push(RawContour::__call__(&cc, contour));
         }
     }
     return result;
