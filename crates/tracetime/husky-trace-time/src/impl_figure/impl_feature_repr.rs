@@ -97,7 +97,7 @@ impl HuskyTraceTime {
             let f = |e| (sample_id, e);
             if !self
                 .runtime()
-                .eval_opt_arrival_indicator(opt_arrival_indicator, sample_id)
+                .eval_opt_arrival_indicator_cached(opt_arrival_indicator, sample_id)
                 .map_err(f)?
             {
                 continue;
@@ -153,10 +153,13 @@ impl HuskyTraceTime {
             TraceVariant::EntityFeature { .. } => Ok(true),
             TraceVariant::FeatureStmt(ref stmt) => self
                 .runtime()
-                .eval_opt_arrival_indicator(stmt.opt_arrival_indicator.as_ref(), sample_id),
-            TraceVariant::FeatureBranch(ref branch) => self
-                .runtime()
-                .eval_opt_arrival_indicator(branch.opt_arrival_indicator.as_ref(), sample_id),
+                .eval_opt_arrival_indicator_cached(stmt.opt_arrival_indicator.as_ref(), sample_id),
+            TraceVariant::FeatureBranch(ref branch) => {
+                self.runtime().eval_opt_arrival_indicator_cached(
+                    branch.opt_arrival_indicator.as_ref(),
+                    sample_id,
+                )
+            }
             TraceVariant::FeatureExpr(_) => todo!(),
             TraceVariant::FeatureCallArgument { .. } => todo!(),
             TraceVariant::FuncStmt { .. } => todo!(),

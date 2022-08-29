@@ -1,5 +1,4 @@
 use super::*;
-use husky_comptime::*;
 use husky_data_viewer::HuskyDataViewer;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {

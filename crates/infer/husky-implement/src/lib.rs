@@ -51,7 +51,7 @@ impl<'a> std::fmt::Debug for ImplementationContext<'a> {
 pub trait Implementable {
     type Target;
 
-    fn implement(&self, implementor: &ImplementationContext) -> Self::Target;
+    fn implement(&self, ctx: &ImplementationContext) -> Self::Target;
 }
 
 impl Implementable for EntityRoutePtr {

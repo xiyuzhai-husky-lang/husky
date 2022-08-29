@@ -38,28 +38,26 @@ impl TraitMemberDecl {
             EntityStaticDefnVariant::Method { .. } => TraitMemberDecl::Method(
                 CallFormDecl::from_static(db, route, symbol_context, static_member_defn)?,
             ),
-            EntityStaticDefnVariant::TraitAssociatedType { trai, traits } => {
-                TraitMemberDecl::Type {
-                    ident: symbol_context
-                        .entity_syntax_db()
-                        .intern_word(static_member_defn.name)
-                        .custom(),
-                    traits: traits.map(|trai| symbol_context.parse_entity_route(trai).unwrap()),
-                }
-            }
+            EntityStaticDefnVariant::TraitAssociatedType { traits, .. } => TraitMemberDecl::Type {
+                ident: symbol_context
+                    .entity_syntax_db()
+                    .intern_word(static_member_defn.name)
+                    .custom(),
+                traits: traits.map(|trai| symbol_context.parse_entity_route(trai).unwrap()),
+            },
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             _ => panic!(),
         })
     }
+}
 
-    pub fn implement(
-        &self,
-        db: &dyn DeclQueryGroup,
-        implementor: &ImplementationContext,
-    ) -> TraitMemberImplDecl {
+impl Implementable for TraitMemberDecl {
+    type Target = TraitMemberImplDecl;
+
+    fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
         match self {
             TraitMemberDecl::Method(call_form_decl) => {
-                let call_form_decl_implementation = call_form_decl.implement(&implementor);
+                let call_form_decl_implementation = call_form_decl.implement(&ctx);
                 assert!(!call_form_decl_implementation
                     .opt_route
                     .unwrap()
@@ -71,7 +69,7 @@ impl TraitMemberDecl {
                 if traits.len() > 0 {
                     todo!("verify traits are satisfied")
                 }
-                let ty = implementor.spatial_argument(*ident).take_entity_route();
+                let ty = ctx.spatial_argument(*ident).take_entity_route();
                 TraitMemberImplDecl::AssociatedType { ident: *ident, ty }
             }
             TraitMemberDecl::ConstSize(_) => todo!(),
@@ -234,15 +232,12 @@ pub(crate) fn trait_decl(
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TyField { .. } => todo!(),
-            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: route } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
             EntityStaticDefnVariant::EnumVariant => todo!(),
         },
         EntitySource::WithinBuiltinModule => todo!(),
-        EntitySource::WithinModule {
-            file,
-            token_group_index,
-        } => todo!(),
-        EntitySource::Module { file } => todo!(),
+        EntitySource::WithinModule { .. } => todo!(),
+        EntitySource::Module { .. } => todo!(),
         EntitySource::TargetInput => todo!(),
         EntitySource::StaticTypeMember(_) => todo!(),
         EntitySource::StaticTraitMember(_) => todo!(),

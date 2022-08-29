@@ -7,7 +7,7 @@ use husky_trace_protocol::{SampleId, VisualData};
 pub use session::*;
 
 use husky_feature_gen::*;
-use husky_vm::{VMConfig, __Register, __RegisterDataKind, __VMResult};
+use husky_vm::{VMConfig, __Register, __VMResult};
 use std::sync::{Arc, Mutex};
 use upcast::Upcast;
 
@@ -36,10 +36,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
     // Some(self) otherwise
     fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature<'static>>;
 
-    fn visualize_feature(&self, this: FeatureRepr, sample_id: SampleId) -> __VMResult<VisualData>
-    where
-        'eval: 'static,
-    {
+    fn visualize_feature(&self, this: FeatureRepr, sample_id: SampleId) -> __VMResult<VisualData> {
         self.evaluator(sample_id).visualize_feature(this)
     }
 
@@ -91,47 +88,12 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         self.evaluator(sample_id).eval_expr(expr)
     }
 
-    fn eval_opt_arrival_indicator(
+    fn eval_opt_arrival_indicator_cached(
         &self,
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         sample_id: SampleId,
     ) -> __VMResult<bool> {
-        Ok(if let Some(ref arrival_indicator) = opt_arrival_indicator {
-            match arrival_indicator.variant {
-                FeatureBranchIndicatorVariant::AfterStmtNotReturn { ref stmt } => {
-                    if !self.eval_opt_arrival_indicator(
-                        stmt.opt_arrival_indicator.as_ref(),
-                        sample_id,
-                    )? {
-                        return Ok(false);
-                    }
-                    self.eval_feature_stmt(stmt, sample_id)?.data_kind()
-                        == __RegisterDataKind::Unreturned
-                }
-                FeatureBranchIndicatorVariant::AfterConditionNotMet {
-                    ref opt_parent,
-                    ref condition,
-                } => {
-                    if !self.eval_opt_arrival_indicator(opt_parent.as_ref(), sample_id)? {
-                        return Ok(false);
-                    }
-                    !self
-                        .eval_feature_expr(condition, sample_id)?
-                        .downcast_bool()
-                }
-                FeatureBranchIndicatorVariant::IfConditionMet {
-                    ref opt_parent,
-                    ref condition,
-                } => {
-                    if !self.eval_opt_arrival_indicator(opt_parent.as_ref(), sample_id)? {
-                        return Ok(false);
-                    }
-                    self.eval_feature_expr(condition, sample_id)?
-                        .downcast_bool()
-                }
-            }
-        } else {
-            true
-        })
+        self.evaluator(sample_id)
+            .eval_opt_arrival_indicator_cached(opt_arrival_indicator)
     }
 }

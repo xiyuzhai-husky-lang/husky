@@ -381,7 +381,7 @@ impl EntityDefn {
                     entity_route: route,
                 } => builder.push(route),
                 LazyExprVariant::ThisField { .. } => todo!(),
-                LazyExprVariant::BePattern { ref patt, .. } => todo!(),
+                LazyExprVariant::BePattern { .. } => todo!(),
             }
         }
 

@@ -1,8 +1,6 @@
-use husky_file::FilePtr;
 use husky_text::{BindTextRangeInto, TextRange};
-use husky_vm::*;
 use husky_word::RootIdentifier;
-use thin_vec::{thin_vec, ThinVec};
+use thin_vec::ThinVec;
 
 use crate::*;
 
@@ -151,7 +149,7 @@ pub(crate) fn implement_target(
             parent: db.implement_target(parent)?,
             ident,
         },
-        EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => todo!(),
+        EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
         EntityRouteVariant::TargetInputValue => todo!(),
         EntityRouteVariant::TargetOutputType => {
             let target_output_ty = db.target_output_ty()?;

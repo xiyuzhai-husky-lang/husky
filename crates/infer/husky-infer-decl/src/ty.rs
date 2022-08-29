@@ -122,7 +122,6 @@ impl TyDecl {
 
     fn from_ast(
         db: &dyn DeclQueryGroup,
-        arena: &RawExprArena,
         ty: EntityRoutePtr,
         kind: TyKind,
         generic_parameters: IdentDict<SpatialParameter>,
@@ -142,11 +141,11 @@ impl TyDecl {
         };
         Self::collect_original_fields(&mut children, &mut ty_members)?;
         Self::collect_other_ty_members(db, this_ty, &mut children, &mut ty_members)?;
-        Self::collect_visual(&mut children);
+        Self::collect_visual(&mut children)?;
         if children.peek().is_some() {
             throw_derived!("expect no children after collecting_visual")
         }
-        let mut trai_impls =
+        let trai_impls =
             TraitImplDecl::implicit_trait_impls(db, this_ty, kind, &ty_members, &variants)?;
         let opt_type_call = match kind {
             TyKind::Enum => None,
@@ -314,7 +313,6 @@ impl TyDecl {
                 AstVariant::Visual => break,
                 AstVariant::TypeDefnHead { .. }
                 | AstVariant::MainDefnHead
-                | AstVariant::CallFormDefnHead { .. }
                 | AstVariant::FeatureDefnHead { .. }
                 | AstVariant::DatasetConfigDefnHead
                 | AstVariant::Stmt(_)
@@ -464,8 +462,7 @@ impl TyDecl {
         let matched_methods: Vec<&Arc<CallFormDecl>> = self
             .members
             .iter()
-            .enumerate()
-            .filter_map(|(member_idx, member)| {
+            .filter_map(|member| {
                 if member.ident() == ranged_ident.ident {
                     match member {
                         MemberDecl::AssociatedType => todo!(),
@@ -602,7 +599,6 @@ pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferQuery
                     } else {
                         TyDecl::from_ast(
                             db,
-                            &ast_text.arena,
                             ty,
                             kind,
                             generic_parameters.clone(),
@@ -629,21 +625,13 @@ pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferQuery
 
 fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVariant]) -> bool {
     match trait_route.variant {
-        EntityRouteVariant::Root { ident } => true,
-        EntityRouteVariant::Package { main, ident } => todo!(),
-        EntityRouteVariant::Child { parent, ident } => todo!(),
+        EntityRouteVariant::Root { .. } => true,
+        EntityRouteVariant::Package { .. } => todo!(),
+        EntityRouteVariant::Child { .. } => todo!(),
         EntityRouteVariant::TargetInputValue => todo!(),
-        EntityRouteVariant::Any {
-            ident,
-            husky_entity_kind,
-            ..
-        } => todo!(),
+        EntityRouteVariant::Any { .. } => todo!(),
         EntityRouteVariant::ThisType { .. } => todo!(),
-        EntityRouteVariant::TypeAsTraitMember {
-            ty: parent,
-            trai,
-            ident,
-        } => todo!(),
+        EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
         EntityRouteVariant::TargetOutputType => todo!(),
     }
 }

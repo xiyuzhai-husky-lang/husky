@@ -221,11 +221,11 @@ pub(crate) fn entity_call_form_decl(
                 _ => Err(query_error!(format!("this entity can not be called"))),
             }
         }
-        EntitySource::Module { file: file_id } => todo!(),
+        EntitySource::Module { .. } => todo!(),
         EntitySource::TargetInput { .. } => todo!(),
         EntitySource::StaticTypeMember(_) => match route.variant {
-            EntityRouteVariant::Root { ident } => todo!(),
-            EntityRouteVariant::Package { main, ident } => todo!(),
+            EntityRouteVariant::Root { .. } => todo!(),
+            EntityRouteVariant::Package { .. } => todo!(),
             EntityRouteVariant::Child { parent, ident } => {
                 let ty_decl = derived_unwrap!(db.ty_decl(parent));
                 match derived_not_none!(ty_decl

@@ -87,47 +87,4 @@ impl<'temp> FeatureEvaluator<'temp, 'static> {
             VisualizerVariant::Option { .. } => panic!(),
         }
     }
-
-    fn visualize_cyclic_slice(&self) -> __VMResult<VisualData> {
-        todo!()
-    }
 }
-
-// VisualizerVariant::Vec { ty } => {
-//     let elem_ty = ty.entity_route_argument(0);
-//     let elem_visualizer = self.db.visualizer(elem_ty);
-//     let any_value_dyn: &'static dyn AnyValueDyn<'static> = this_value.eval_ref().0;
-//     let virtual_vec: &VirtualVec<'static> = any_value_dyn.downcast_ref();
-//     VisualData::Group(
-//         virtual_vec
-//             .iter()
-//             .enumerate()
-//             .map(
-
-//     )
-// }
-// VisualizerVariant::CyclicSlice { ty } => {
-//     let elem_ty = ty.entity_route_argument(0);
-//     let elem_visualizer = self.db.visualizer(elem_ty);
-//     let any_value_dyn: &'static dyn AnyValueDyn<'static> = this_value.eval_ref().0;
-//     let virtual_cyclic_slice: &VirtualCyclicSlice<'eval> = any_value_dyn.downcast_ref();
-//     VisualData::Group(
-//         virtual_cyclic_slice
-//             .enum_iter()
-//             .map(|(index, elem)| {
-//                 self.visualize_feature(FeatureRepr::Value {
-//                     value: __EvalRef(elem.any_ref()),
-//                     file: this.file(),
-//                     range: this.text_range(),
-//                     ty: elem_ty,
-//                     feature: self.db.feature_interner().intern(
-//                         Feature::CyclicIndexConstIndex {
-//                             this: this.feature(),
-//                             index,
-//                         },
-//                     ),
-//                 })
-//             })
-//             .collect::<__VMResult<_>>()?,
-//     )
-// }

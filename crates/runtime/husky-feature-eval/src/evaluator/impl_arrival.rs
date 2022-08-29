@@ -6,8 +6,9 @@ use std::sync::Arc;
 use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
+    #[inline(always)]
     pub(crate) fn eval_opt_arrival_indicator_cached(
-        &mut self,
+        &self,
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
     ) -> __VMResult<bool> {
         if let Some(arrival_indicator) = opt_arrival_indicator {
@@ -23,7 +24,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     }
 
     fn eval_arrival_indicator(
-        &mut self,
+        &self,
         arrival_indicator: &Arc<FeatureArrivalIndicator>,
     ) -> __VMResult<bool> {
         Ok(match arrival_indicator.variant {

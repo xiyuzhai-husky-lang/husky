@@ -1,16 +1,13 @@
-use std::{iter::zip, sync::Arc};
+use std::iter::zip;
 
 use husky_ast::*;
 
-use husky_infer_error::*;
-use husky_pattern_syntax::{RawPattern, RawPatternVariant};
-use husky_text::TextRange;
-use husky_text::{BindTextRangeInto, RangedCustomIdentifier};
-use husky_vm::*;
-use infer_decl::CallFormDecl;
-
 use super::*;
 use crate::*;
+use husky_infer_error::*;
+use husky_pattern_syntax::{RawPattern, RawPatternVariant};
+use husky_text::RangedCustomIdentifier;
+use husky_text::TextRange;
 
 impl<'a> ContractSheetBuilder<'a> {
     pub(super) fn infer_lazy_stmts(&mut self, ast_iter: AstIter) {
@@ -149,7 +146,7 @@ impl<'a> ContractSheetBuilder<'a> {
         let lopd = opds.start;
         let ropd = opds.start + 1;
         match opr {
-            BinaryOpr::Pure(pure_binary_opr) => {
+            BinaryOpr::Pure(_) => {
                 match contract {
                     LazyContract::EvalRef => todo!(),
                     LazyContract::Pure => (),
@@ -159,7 +156,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_lazy_expr(lopd, LazyContract::Pure);
                 self.infer_lazy_expr(ropd, LazyContract::Pure);
             }
-            BinaryOpr::Assign(opr) => {
+            BinaryOpr::Assign(_) => {
                 throw!(
                     format!("mutation not allowed in lazy functional context"),
                     self.arena[idx].range
@@ -229,28 +226,19 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         match opr {
             ListOpr::TupleInit => todo!(),
-            ListOpr::NewVec => self.infer_lazy_new_vec_from_list(idx, opds.clone(), contract),
+            ListOpr::NewVec => self.infer_lazy_new_vec_from_list(opds.clone()),
             ListOpr::NewDict => todo!(),
             ListOpr::Index => self.infer_lazy_index(opds, contract, idx),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
-            ListOpr::FunctionCall => self.infer_lazy_function_call(idx, opds, contract),
-            ListOpr::MethodCall { ranged_ident, .. } => self.lazy_method_call(
-                idx,
-                opds.start,
-                *ranged_ident,
-                (opds.start + 1)..(opds.end),
-                contract,
-            ),
+            ListOpr::FunctionCall => self.infer_lazy_function_call(opds),
+            ListOpr::MethodCall { .. } => {
+                self.lazy_method_call(opds.start, (opds.start + 1)..(opds.end))
+            }
         }
     }
 
-    fn infer_lazy_new_vec_from_list(
-        &mut self,
-        idx: RawExprIdx,
-        elements: RawExprRange,
-        contract: LazyContract,
-    ) -> InferResult<()> {
+    fn infer_lazy_new_vec_from_list(&mut self, elements: RawExprRange) -> InferResult<()> {
         let element_ty = self.expr_raw_ty(elements.start)?;
         let element_contract = match self.db.is_copyable(element_ty)? {
             true => LazyContract::Pure,
@@ -262,13 +250,7 @@ impl<'a> ContractSheetBuilder<'a> {
         Ok(())
     }
 
-    fn infer_lazy_function_call(
-        &mut self,
-        idx: RawExprIdx,
-        all_opds: &RawExprRange,
-        contract: LazyContract,
-    ) -> InferResult<()> {
-        let call_expr = &self.arena[all_opds.start];
+    fn infer_lazy_function_call(&mut self, all_opds: &RawExprRange) -> InferResult<()> {
         let call_form_decl = self.function_call_form_decl(all_opds.start)?;
         self.infer_lazy_expr(all_opds.start, LazyContract::Pure);
         for (argument, parameter) in zip(
@@ -287,14 +269,7 @@ impl<'a> ContractSheetBuilder<'a> {
         Ok(())
     }
 
-    fn lazy_method_call(
-        &mut self,
-        idx: RawExprIdx,
-        this: RawExprIdx,
-        ranged_ident: RangedCustomIdentifier,
-        inputs: RawExprRange,
-        contract: LazyContract,
-    ) -> InferResult<()> {
+    fn lazy_method_call(&mut self, this: RawExprIdx, inputs: RawExprRange) -> InferResult<()> {
         let call_form_decl = self.method_call_form_decl(this)?;
         let this_contract = LazyContract::parameter_lazy_contract(
             self.db,
