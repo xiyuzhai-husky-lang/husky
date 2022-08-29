@@ -34,8 +34,8 @@ pub enum HuskyTracerGuiMessageVariant {
         restriction: Restriction,
         needs_figure_canvas_data: bool,
         needs_figure_control_data: bool,
-        needs_stalk: bool,
-        needs_stats: bool,
+        new_stalk_keys: Vec<TraceStalkKey>,
+        new_stats_keys: Vec<TraceStatsKey>,
     },
     TraceStalk {
         trace_id: TraceId,

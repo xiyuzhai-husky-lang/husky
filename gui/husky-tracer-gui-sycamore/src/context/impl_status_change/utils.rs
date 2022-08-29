@@ -43,40 +43,44 @@ impl DebuggerContext {
             .contains_key(&key)
     }
 
-    pub(super) fn needs_stalk(&self, restriction: &Restriction) -> bool {
-        // let active_trace_id = if let Some(active_trace_id) = opt_active_trace_id {
-        //     active_trace_id
-        // } else {
-        //     return false;
-        // };
-        // let trace = self.trace_context.trace(active_trace_id);
+    pub(super) fn new_stalk_keys(&self, restriction: &Restriction) -> Vec<TraceStalkKey> {
         let sample_id = match restriction.opt_sample_id() {
             Some(sample_id) => sample_id,
-            None => return false,
+            None => return vec![],
         };
-        !self
-            .trace_context
-            .for_all_expanded_traces(Some(sample_id), |trace_data| {
+        self.trace_context
+            .filter_immediate_traces(Some(sample_id), |trace_data| {
                 let key = TraceStalkKey::from_trace_data(sample_id, trace_data);
-                self.trace_context
+                if !self
+                    .trace_context
                     .trace_stalks
                     .borrow(file!(), line!())
                     .contains_key(&key)
+                {
+                    Some(key)
+                } else {
+                    None
+                }
             })
     }
 
-    pub(super) fn needs_stats(&self, new_restriction: &Restriction) -> bool {
-        !self
-            .trace_context
-            .for_all_expanded_traces(new_restriction.opt_sample_id(), |trace_data| {
+    pub(super) fn new_stats_keys(&self, new_restriction: &Restriction) -> Vec<TraceStatsKey> {
+        self.trace_context
+            .filter_immediate_traces(new_restriction.opt_sample_id(), |trace_data| {
                 let key = TraceStatsKey {
                     trace_id: trace_data.id,
                     partitions: new_restriction.partitions().clone(),
                 };
-                self.trace_context
+                if !self
+                    .trace_context
                     .trace_statss
                     .borrow(file!(), line!())
                     .contains_key(&key)
+                {
+                    Some(key)
+                } else {
+                    None
+                }
             })
     }
 }
