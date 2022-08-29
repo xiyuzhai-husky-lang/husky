@@ -29,6 +29,7 @@ impl HuskyTraceTime {
                 range,
                 feature,
             },
+            None,
             sample_id,
         )
     }

@@ -9,7 +9,7 @@ use impl_storage::*;
 pub struct TraceContext {
     pub trace_nodes: RefCell<Vec<TraceNodeState>>,
     pub subtrace_ids_map: RefCell<HashMap<SubtracesKey, &'static [TraceId]>>,
-    pub trace_stalks: RefCell<HashMap<TraceStalkKey, &'static TraceStalkData>>,
+    pub trace_stalks: RefCell<HashMap<TraceStalkKey, &'static TraceStalk>>,
     pub trace_statss: RefCell<HashMap<TraceStatsKey, Option<&'static TraceStats>>>,
     pub root_trace_ids: &'static Signal<Vec<TraceId>>,
     pub opt_active_trace_id: &'static Signal<Option<TraceId>>,
@@ -49,7 +49,7 @@ impl TraceContext {
     pub(super) fn init<'a>(
         &'static self,
         trace_nodes: Vec<TraceNodeState>,
-        trace_stalks: HashMap<TraceStalkKey, &'static TraceStalkData>,
+        trace_stalks: HashMap<TraceStalkKey, &'static TraceStalk>,
         trace_statss: HashMap<TraceStatsKey, Option<&'static TraceStats>>,
         subtrace_ids_map: HashMap<SubtracesKey, &'static [TraceId]>,
         root_trace_ids: Vec<TraceId>,

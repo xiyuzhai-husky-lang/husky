@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_route::EntityRoutePtr;
 
 impl HuskyTraceTime {
-    pub fn keyed_trace_stalk(&mut self, trace_id: TraceId) -> (TraceStalkKey, TraceStalkData) {
+    pub fn keyed_trace_stalk(&mut self, trace_id: TraceId) -> (TraceStalkKey, TraceStalk) {
         let sample_id = self.restriction.opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);
         if !self.trace_stalks.contains_key(&key) {
@@ -13,15 +13,15 @@ impl HuskyTraceTime {
         (key, trace_stalk_raw_data)
     }
 
-    fn produce_trace_stalk(&self, trace_id: TraceId, sample_id: SampleId) -> TraceStalkData {
+    fn produce_trace_stalk(&self, trace_id: TraceId, sample_id: SampleId) -> TraceStalk {
         let trace: &Trace = self.trace(trace_id);
         match trace.variant {
             TraceVariant::Main(ref repr) => self.trace_stalk_from_result(
-                self.runtime().eval_feature_repr(repr, sample_id),
+                self.runtime().eval_feature_repr_cached(repr, sample_id),
                 repr.ty(),
             ),
             TraceVariant::EntityFeature { ref repr, .. } => self.trace_stalk_from_result(
-                self.runtime().eval_feature_repr(repr, sample_id),
+                self.runtime().eval_feature_repr_cached(repr, sample_id),
                 repr.ty(),
             ),
             TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
@@ -40,9 +40,7 @@ impl HuskyTraceTime {
                 FeatureLazyStmtVariant::ConditionFlow { .. } => panic!(),
                 FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
             },
-            TraceVariant::FeatureBranch(_) => TraceStalkData {
-                extra_tokens: vec![],
-            },
+            TraceVariant::FeatureBranch(_) => Default::default(),
             TraceVariant::FeatureExpr(ref expr) => self.trace_stalk_from_expr(expr, sample_id),
             TraceVariant::FeatureCallArgument { ref argument, .. } => {
                 self.trace_stalk_from_expr(argument, sample_id)
@@ -55,11 +53,11 @@ impl HuskyTraceTime {
             | TraceVariant::FuncBranch { .. }
             | TraceVariant::ProcBranch { .. }
             | TraceVariant::LoopFrame { .. }
-            | TraceVariant::EagerCallArgument { .. } => TraceStalkData::default(),
+            | TraceVariant::EagerCallArgument { .. } => TraceStalk::default(),
         }
     }
 
-    pub(crate) fn collect_new_trace_stalks(&mut self) -> Vec<(TraceStalkKey, TraceStalkData)> {
+    pub(crate) fn collect_new_trace_stalks(&mut self) -> Vec<(TraceStalkKey, TraceStalk)> {
         if let Some(sample_id) = self.restriction.opt_sample_id() {
             let mut trace_stalks = Vec::new();
             for root_trace_id in self.root_trace_ids.clone() {
@@ -79,7 +77,7 @@ impl HuskyTraceTime {
         &mut self,
         sample_id: SampleId,
         trace_id: TraceId,
-        trace_stalks: &mut Vec<(TraceStalkKey, TraceStalkData)>,
+        trace_stalks: &mut Vec<(TraceStalkKey, TraceStalk)>,
     ) {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
@@ -101,20 +99,32 @@ impl HuskyTraceTime {
         }
     }
 
-    fn trace_stalk_from_expr(&self, expr: &FeatureLazyExpr, sample_id: SampleId) -> TraceStalkData {
-        self.trace_stalk_from_result(
-            self.runtime().eval_feature_expr(expr, sample_id),
-            expr.expr.intrinsic_ty(),
-        )
+    fn trace_stalk_from_expr(&self, expr: &FeatureLazyExpr, sample_id: SampleId) -> TraceStalk {
+        let arrived = match self
+            .runtime
+            .eval_opt_arrival_indicator_cached(expr.opt_arrival_indicator.as_ref(), sample_id)
+        {
+            Ok(arrived) => arrived,
+            Err(_) => todo!(),
+        };
+        if arrived {
+            self.trace_stalk_from_result(
+                self.runtime().eval_feature_expr(expr, sample_id),
+                expr.expr.intrinsic_ty(),
+            )
+        } else {
+            TraceStalk::unarrived()
+        }
     }
 
     fn trace_stalk_from_result(
         &self,
         result: __VMResult<__Register<'static>>,
         ty: EntityRoutePtr,
-    ) -> TraceStalkData {
-        TraceStalkData {
+    ) -> TraceStalk {
+        TraceStalk {
             extra_tokens: vec![fade!(" = "), self.trace_token_from_result(result, ty)],
+            kind: TraceStalkKind::Value,
         }
     }
 

@@ -9,7 +9,7 @@ impl HuskyTraceTime {
         &mut self,
         restriction: Restriction,
     ) -> (
-        Vec<(TraceStalkKey, TraceStalkData)>,
+        Vec<(TraceStalkKey, TraceStalk)>,
         Vec<(TraceStatsKey, Option<TraceStats>)>,
     ) {
         self.restriction = restriction;

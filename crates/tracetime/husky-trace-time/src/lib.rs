@@ -38,7 +38,7 @@ pub struct HuskyTraceTime {
     pins: VecSet<TraceId>,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
-    pub trace_stalks: HashMap<TraceStalkKey, TraceStalkData>,
+    pub trace_stalks: HashMap<TraceStalkKey, TraceStalk>,
     pub trace_statss: HashMap<TraceStatsKey, Option<TraceStats>>,
     root_trace_ids: Vec<TraceId>,
     subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
@@ -172,7 +172,7 @@ impl HuskyTraceTime {
     ) -> Option<(
         Vec<TraceNodeData>,
         Vec<TraceId>,
-        Vec<(TraceStalkKey, TraceStalkData)>,
+        Vec<(TraceStalkKey, TraceStalk)>,
         Vec<(TraceStatsKey, Option<TraceStats>)>,
     )> {
         let old_len = self.trace_nodes.len();

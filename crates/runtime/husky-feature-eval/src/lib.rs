@@ -36,8 +36,14 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
     // Some(self) otherwise
     fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature<'static>>;
 
-    fn visualize_feature(&self, this: FeatureRepr, sample_id: SampleId) -> __VMResult<VisualData> {
-        self.evaluator(sample_id).visualize_feature(this)
+    fn visualize_feature(
+        &self,
+        this: FeatureRepr,
+        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        sample_id: SampleId,
+    ) -> __VMResult<VisualData> {
+        self.evaluator(sample_id)
+            .visualize_feature(this, opt_arrival_indicator)
     }
 
     fn eval_feature_repr(

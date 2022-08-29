@@ -32,7 +32,7 @@ pub use normal_require;
 macro_rules! feature_require {
     ($ctx: expr, $feature: expr, $condition: expr) => {
         if !$condition {
-            $ctx.cache_feature($feature, Ok(__Register::new_undefined()));
+            $ctx.cache_feature($feature, Ok(__Register::none()));
             return None;
         }
     };

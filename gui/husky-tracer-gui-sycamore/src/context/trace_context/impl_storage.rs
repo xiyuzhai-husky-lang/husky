@@ -17,7 +17,7 @@ impl TraceContext {
         &self,
         sample_id: SampleId,
         trace_id: TraceId,
-    ) -> &'static TraceStalkData {
+    ) -> &'static TraceStalk {
         let key = TraceStalkKey::from_trace_data(
             sample_id,
             &self.trace_nodes.borrow(file!(), line!())[trace_id.0].data,
@@ -116,7 +116,7 @@ impl TraceContext {
 
     pub(crate) fn receive_trace_stalks(
         &self,
-        new_trace_stalks: impl Iterator<Item = (TraceStalkKey, &'static TraceStalkData)>,
+        new_trace_stalks: impl Iterator<Item = (TraceStalkKey, &'static TraceStalk)>,
     ) {
         let mut trace_stalks = self.trace_stalks.borrow_mut(file!(), line!());
         for (key, data) in new_trace_stalks {
@@ -134,7 +134,7 @@ impl TraceContext {
         }
     }
 
-    fn set_trace_stalk(&self, trace_id: TraceId, input_id: usize, stalk: &'static TraceStalkData) {
+    fn set_trace_stalk(&self, trace_id: TraceId, input_id: usize, stalk: &'static TraceStalk) {
         assert!(self
             .trace_stalks
             .borrow_mut(file!(), line!())
