@@ -21,8 +21,13 @@ pub enum PurePatternVariant {
 impl PurePattern {
     pub fn from_raw(db: &dyn InferQueryGroup, raw_patt: &RawPattern, ty: EntityRoutePtr) -> Self {
         let variant = match raw_patt.variant {
-            RawPatternVariant::PrimitiveLiteral(_) => todo!(),
-            RawPatternVariant::OneOf { ref subpatterns } => todo!(),
+            RawPatternVariant::PrimitiveLiteral(data) => PurePatternVariant::PrimitiveLiteral(data),
+            RawPatternVariant::OneOf { ref subpatterns } => PurePatternVariant::OneOf {
+                subpatterns: subpatterns
+                    .iter()
+                    .map(|subpattern| PurePattern::from_raw(db, subpattern, ty))
+                    .collect(),
+            },
             RawPatternVariant::EnumLiteral(_) => todo!(),
             RawPatternVariant::Some => PurePatternVariant::Some,
             RawPatternVariant::None => PurePatternVariant::None,

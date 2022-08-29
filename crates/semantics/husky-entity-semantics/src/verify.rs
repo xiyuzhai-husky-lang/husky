@@ -81,8 +81,8 @@ impl EntityDefn {
                 }
                 _ => panic!(),
             },
-            EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
-            EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+            EntityDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
             EntityDefnVariant::Func { .. } => msg_once!("todo"),
             EntityDefnVariant::Proc { .. } => msg_once!("todo"),
             _ => panic!("unexpected EntityDefnVariant {:?}", self.variant),
@@ -94,15 +94,15 @@ impl EntityDefn {
             EntityDefnVariant::Method {
                 method_defn_kind, ..
             } => match method_defn_kind {
-                MethodDefnKind::TypeMethod { ty } => match member_decl {
+                MethodDefnKind::TypeMethod { .. } => match member_decl {
                     MemberDecl::TypeMethod(decl) => decl
                         .opt_route
                         .unwrap()
                         .verify_consistency_with_base_route(self.base_route),
                     _ => panic!(),
                 },
-                MethodDefnKind::TraitMethod { trai } => todo!(),
-                MethodDefnKind::TraitMethodImpl { trai } => match member_decl {
+                MethodDefnKind::TraitMethod { .. } => todo!(),
+                MethodDefnKind::TraitMethodImpl { .. } => match member_decl {
                     MemberDecl::TraitMethodImpl { method, .. } => method
                         .opt_route
                         .unwrap()
@@ -124,7 +124,7 @@ impl EntityDefn {
                 }
                 _ => panic!(),
             },
-            EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
             EntityDefnVariant::Func { .. } => msg_once!("todo"),
             EntityDefnVariant::Proc { .. } => msg_once!("todo"),
             _ => panic!(),

@@ -209,8 +209,8 @@ impl EntityDefn {
             }
             EntityDefnVariant::Builtin => todo!(),
             EntityDefnVariant::TyField { .. } => todo!(),
-            EntityDefnVariant::TraitAssociatedTypeImpl { trai, ty } => todo!(),
-            EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+            EntityDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
+            EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
             EntityDefnVariant::TargetInput { .. } => todo!(),
             EntityDefnVariant::Any => todo!(),
         }

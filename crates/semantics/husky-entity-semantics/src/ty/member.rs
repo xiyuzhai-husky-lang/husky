@@ -45,11 +45,7 @@ impl EntityDefnVariant {
         while let Some(child) = children.peek() {
             let ast = child.value.as_ref().unwrap();
             let (ident, variant): (CustomIdentifier, _) = match ast.variant {
-                AstVariant::TypeDefnHead {
-                    ident,
-                    kind,
-                    ref spatial_parameters,
-                } => todo!(),
+                AstVariant::TypeDefnHead { .. } => todo!(),
                 AstVariant::MainDefnHead => todo!(),
                 AstVariant::CallFormDefnHead {
                     opt_this_liason,
@@ -113,11 +109,8 @@ impl EntityDefnVariant {
                 ),
                 AstVariant::DatasetConfigDefnHead => todo!(),
                 AstVariant::Stmt(_) => todo!(),
-                AstVariant::EnumVariantDefnHead {
-                    ident,
-                    variant_class,
-                } => todo!(),
-                AstVariant::Submodule { ident, source_file } => todo!(),
+                AstVariant::EnumVariantDefnHead { .. } => todo!(),
+                AstVariant::Submodule { .. } => todo!(),
                 AstVariant::Visual => break,
             };
             children.next();

@@ -1,6 +1,5 @@
 use crate::*;
 use husky_dev_utils::DevSource;
-use infer_decl::TraitImplDecl;
 
 impl EntityDefnVariant {
     pub(super) fn collect_trait_impls(

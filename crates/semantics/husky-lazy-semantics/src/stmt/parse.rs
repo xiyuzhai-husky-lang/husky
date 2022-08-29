@@ -47,7 +47,6 @@ impl<'a> LazyStmtParser<'a> {
                         RawStmtVariant::ConditionBranch {
                             condition_branch_kind,
                         } => self.parse_condition_flow(
-                            stmt,
                             not_none!(item.opt_children),
                             &mut iter,
                             condition_branch_kind,
@@ -130,7 +129,6 @@ impl<'a> LazyStmtParser<'a> {
 
     fn parse_condition_flow(
         &mut self,
-        stmt: &RawStmt,
         children: AstIter,
         iter: &mut Peekable<AstIter>,
         condition_branch_kind: RawConditionBranchKind,

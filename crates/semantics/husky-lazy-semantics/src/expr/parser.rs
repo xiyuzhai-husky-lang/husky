@@ -55,9 +55,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     EntityRoutePtr::Root(RootIdentifier::False) => {
                         LazyExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Bool(false))
                     }
-                    EntityRoutePtr::Custom(scope_ref) => {
-                        LazyExprVariant::EnumLiteral { entity_route }
-                    }
+                    EntityRoutePtr::Custom(_) => LazyExprVariant::EnumLiteral { entity_route },
                     _ => todo!(),
                 },
                 EntityKind::Type(_) => todo!(),
@@ -123,10 +121,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     field_binding: { field_qt.binding(self.decl_db(), field_contract) },
                 }
             }
-            RawExprVariant::FrameVariable {
-                varname,
-                init_range: init_row,
-            } => todo!(),
+            RawExprVariant::FrameVariable { .. } => todo!(),
         };
         Ok(Arc::new(LazyExpr {
             range: raw_expr.range().clone(),
@@ -150,9 +145,9 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             RawOpnVariant::Suffix(opr) => self.parse_suffix_opr(opr, opds.start),
             RawOpnVariant::List(opr) => match opr {
                 ListOpr::TupleInit => todo!(),
-                ListOpr::NewVec => self.parse_new_vec_from_list(idx, opds.clone()),
+                ListOpr::NewVec => self.parse_new_vec_from_list(opds.clone()),
                 ListOpr::NewDict => todo!(),
-                ListOpr::FunctionCall => self.parse_function_call(idx, opds),
+                ListOpr::FunctionCall => self.parse_function_call(opds),
                 ListOpr::Index => self.parse_index(idx, opds.clone()),
                 ListOpr::ModuloIndex => todo!(),
                 ListOpr::StructInit => todo!(),
@@ -177,27 +172,6 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         // let raw_opds = &self.arena()[raw_opds];
         let lopd = self.parse_lazy_expr(opds.start)?;
         let ropd = self.parse_lazy_expr(opds.start + 1)?;
-        let output_type = match opr {
-            BinaryOpr::Pure(pure_binary_opr) => self.infer_pure_binary_opr_type(
-                pure_binary_opr,
-                lopd.intrinsic_ty(),
-                ropd.intrinsic_ty(),
-            )?,
-            BinaryOpr::Assign(opt_binary) => {
-                if let Some(pure_binary_opr) = opt_binary {
-                    if lopd.intrinsic_ty()
-                        != self.infer_pure_binary_opr_type(
-                            pure_binary_opr,
-                            lopd.intrinsic_ty(),
-                            ropd.intrinsic_ty(),
-                        )?
-                    {
-                        todo!()
-                    }
-                }
-                RootIdentifier::Void.into()
-            }
-        };
         let opr = match opr {
             BinaryOpr::Pure(opr) => opr,
             BinaryOpr::Assign(_) => todo!(),
@@ -358,11 +332,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         })
     }
 
-    fn parse_new_vec_from_list(
-        &mut self,
-        idx: RawExprIdx,
-        opds: RawExprRange,
-    ) -> SemanticResult<LazyExprVariant> {
+    fn parse_new_vec_from_list(&mut self, opds: RawExprRange) -> SemanticResult<LazyExprVariant> {
         let elements: Vec<_> = opds
             .map(|raw| self.parse_lazy_expr(raw))
             .collect::<SemanticResult<_>>()?;
@@ -373,11 +343,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         })
     }
 
-    fn parse_function_call(
-        &mut self,
-        idx: RawExprIdx,
-        opds: &RawExprRange,
-    ) -> SemanticResult<LazyExprVariant> {
+    fn parse_function_call(&mut self, opds: &RawExprRange) -> SemanticResult<LazyExprVariant> {
         let call = &self.arena()[opds.start];
         match call.variant {
             RawExprVariant::Entity { route, kind, .. } => {
@@ -447,10 +413,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::ThisValue { .. } => todo!(),
             RawExprVariant::ThisField { .. } => todo!(),
-            RawExprVariant::FrameVariable {
-                varname,
-                init_range: init_row,
-            } => todo!(),
+            RawExprVariant::FrameVariable { .. } => todo!(),
         }
     }
 

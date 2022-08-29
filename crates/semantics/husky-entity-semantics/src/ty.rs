@@ -269,45 +269,8 @@ impl EntityDefnVariant {
         Ok(variants)
     }
 
-    // fn record_from_ast(
-    //     db: &dyn EntityDefnQueryGroup,
-    //     children: AstIter,
-    //     arena: &RawExprArena,
-    //     file: FilePtr,
-    // ) -> SemanticResult<EntityDefnVariant> {
-    //     todo!()
-    //     // let mut fields = VecMap::default();
-    //     // for subitem in children {
-    //     //     match subitem.value.as_ref()?.kind {
-    //     //         AstKind::Use { .. } => (),
-    //     //         AstKind::RoutineDefnHead(_) => todo!(),
-    //     //         AstKind::FieldDefn(ref field_defn) => fields.insert_new(field_defn.clone()),
-    //     //         AstKind::MembFeatureDefnHead { ident, ty } => {
-    //     //             let stmts = husky_lazy_semantics::parse_lazy_stmts(
-    //     //                 &[],
-    //     //                 db,
-    //     //                 arena,
-    //     //                 subitem.children.unwrap(),
-    //     //                 file,
-    //     //             )?;
-    //     //             fields.insert_new(FieldDefn {
-    //     //                 ident,
-    //     //                 output_ty: ty,
-    //     //                 stmts,
-    //     //             });
-    //     //         }
-    //     //         _ => panic!(),
-    //     //     }
-    //     // }
-    //     // Ok(TyKind::Record { fields })
-    // }
-
     pub fn method(&self, member_idx: usize) -> &Arc<EntityDefn> {
         todo!()
-        // match self.members[member_idx] {
-        //     MemberDefn::TypeField(_) => todo!(),
-        //     MemberDefn::TypeMethod(_) => todo!(),
-        // }
     }
 
     fn visualizer_from_ast(

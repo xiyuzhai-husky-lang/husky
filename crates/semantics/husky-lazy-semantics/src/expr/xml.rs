@@ -2,7 +2,7 @@ use crate::*;
 use husky_file::FilePtr;
 use husky_text::TextRange;
 use husky_vm::{InstructionId, InstructionSource};
-use husky_word::{IdentDict, IdentPairDict};
+use husky_word::IdentPairDict;
 use husky_xml_syntax::XmlTagKind;
 use std::sync::Arc;
 

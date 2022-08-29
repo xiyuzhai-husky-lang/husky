@@ -1,5 +1,3 @@
-use avec::Avec;
-use husky_entity_route::EntityRouteVariant;
 use husky_static_defn::MethodStaticDefnKind;
 
 use super::*;

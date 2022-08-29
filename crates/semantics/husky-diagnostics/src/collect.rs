@@ -1,11 +1,9 @@
 use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
-use husky_print_utils::msg_once;
-use husky_semantics_error::SemanticErrorVariant;
 
 use crate::*;
 
-pub(crate) fn collect_diagnostics(
+pub(crate) fn collect_module_diagnostics(
     db: &dyn DiagnosticQuery,
     module: EntityRoutePtr,
 ) -> Vec<Diagnostic> {
@@ -15,14 +13,11 @@ pub(crate) fn collect_diagnostics(
         Err(e) => return vec![e.into()],
     };
     collect_module_entity_syntax_errors(db, module, &mut diagnostics);
-    collect_lex_errors(db, file, &mut diagnostics);
-    collect_ast_errors(db, file, &mut diagnostics);
-    collect_infer_ty_errors(db, file, &mut diagnostics);
-    collect_infer_contract_errors(db, file, &mut diagnostics);
-    collect_infer_qualified_ty_errors(db, file, &mut diagnostics);
-    collect_semantic_errors(db, file, &mut diagnostics);
-    msg_once!("todo: collect semantic errors");
-    // collect_semantic_errors(db, file, &mut diagnostics);
+    collect_module_lex_errors(db, file, &mut diagnostics);
+    collect_module_ast_errors(db, file, &mut diagnostics);
+    collect_module_infer_ty_errors(db, file, &mut diagnostics);
+    collect_module_infer_contract_errors(db, file, &mut diagnostics);
+    collect_module_infer_qualified_ty_errors(db, file, &mut diagnostics);
     diagnostics
 }
 
@@ -46,12 +41,20 @@ fn collect_entity_syntax_errors(
     }
 }
 
-fn collect_lex_errors(db: &dyn DiagnosticQuery, file: FilePtr, diagnostics: &mut Vec<Diagnostic>) {
+fn collect_module_lex_errors(
+    db: &dyn DiagnosticQuery,
+    file: FilePtr,
+    diagnostics: &mut Vec<Diagnostic>,
+) {
     let tokenized_text = db.tokenized_text(file).unwrap();
     diagnostics.extend(tokenized_text.errors.iter().map(|error| error.into()))
 }
 
-fn collect_ast_errors(db: &dyn DiagnosticQuery, file: FilePtr, diagnostics: &mut Vec<Diagnostic>) {
+fn collect_module_ast_errors(
+    db: &dyn DiagnosticQuery,
+    file: FilePtr,
+    diagnostics: &mut Vec<Diagnostic>,
+) {
     let ast_text = db.ast_text(file).unwrap();
     for node in ast_text.folded_results.nodes() {
         match node.value {
@@ -64,7 +67,7 @@ fn collect_ast_errors(db: &dyn DiagnosticQuery, file: FilePtr, diagnostics: &mut
     }
 }
 
-fn collect_infer_ty_errors(
+fn collect_module_infer_ty_errors(
     db: &dyn DiagnosticQuery,
     file: FilePtr,
     diagnostics: &mut Vec<Diagnostic>,
@@ -75,7 +78,7 @@ fn collect_infer_ty_errors(
     }
 }
 
-fn collect_infer_contract_errors(
+fn collect_module_infer_contract_errors(
     db: &dyn DiagnosticQuery,
     file: FilePtr,
     diagnostics: &mut Vec<Diagnostic>,
@@ -86,7 +89,7 @@ fn collect_infer_contract_errors(
     }
 }
 
-fn collect_infer_qualified_ty_errors(
+fn collect_module_infer_qualified_ty_errors(
     db: &dyn DiagnosticQuery,
     file: FilePtr,
     diagnostics: &mut Vec<Diagnostic>,
@@ -94,20 +97,5 @@ fn collect_infer_qualified_ty_errors(
     let qualified_ty_sheet = db.qualified_ty_sheet(file).unwrap();
     for error in qualified_ty_sheet.original_errors() {
         diagnostics.push(error.into());
-    }
-}
-
-fn collect_semantic_errors(
-    db: &dyn DiagnosticQuery,
-    file: FilePtr,
-    diagnostics: &mut Vec<Diagnostic>,
-) {
-    let module = db.module(file).unwrap();
-    match db.entity_defn(module) {
-        Ok(_) => (),
-        Err(e) => match e.variant {
-            SemanticErrorVariant::Derived { .. } => (),
-            SemanticErrorVariant::Original { .. } => diagnostics.push(e.into()),
-        },
     }
 }
