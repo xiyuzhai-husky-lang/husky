@@ -70,10 +70,10 @@ impl From<ParameterModifier> for RangedParameterLiason {
 }
 
 impl ParameterModifier {
-    pub fn from_member(member_liason: MemberModifier) -> ParameterModifier {
-        match member_liason {
-            MemberModifier::Immutable => ParameterModifier::Owned,
-            MemberModifier::Mutable => ParameterModifier::OwnedMut,
+    pub fn from_field(modifier: MemberModifier) -> ParameterModifier {
+        match modifier {
+            // shouldn't mutated in init by default
+            MemberModifier::Immutable | MemberModifier::Mutable => ParameterModifier::Owned,
             MemberModifier::Property => panic!(),
         }
     }

@@ -87,8 +87,8 @@ impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo for fn({ar
 #[rustfmt::skip]
 impl<'eval, {arg_types_decl}Output: __StaticInfo> const ThinFp
     for fn({arg_types}) -> Output {{
-    fn __to_void_pointer(self) -> *const () {{
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {{
+        self as *const c_void
     }}
 }}
 
@@ -127,8 +127,8 @@ impl<'eval, {arg_types_decl}Output: __StaticInfo> const ThinFp
     for fn(
         {arg_types_with_comma}&dyn __EvalContext<'eval>
     ) -> Output {{
-    fn __to_void_pointer(self) -> *const () {{
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {{
+        self as *const c_void
     }}
 }}
 

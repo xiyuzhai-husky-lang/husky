@@ -24,14 +24,16 @@ impl A {
     }
     pub(crate) fn w<'eval>(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval i32 {
         let __uid = entity_uid!(__ctx, "test_struct_example2::A::w");
-        if let Some(__result) = __ctx.opt_cached_lazy_field(self as *const _ as *const (), __uid) {
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
             return __result
                 .unwrap()
                 .downcast_eval_ref(&__registration__::__I32_VTABLE);
         }
         return __ctx
             .cache_lazy_field(
-                self as *const _ as *const (),
+                self as *const _ as *const std::ffi::c_void,
                 __uid,
                 Ok(__Register::new_box::<i32>(
                     self.x + 1,

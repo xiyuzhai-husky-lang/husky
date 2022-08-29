@@ -6,18 +6,18 @@ type A = crate::A;
 // A
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __a_clone(data: *mut ()) -> *mut () {
-    Box::<A>::into_raw(Box::new((*(data as *mut A)).clone())) as *mut ()
+pub unsafe extern "C" fn __a_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<A>::into_raw(Box::new((*(data as *mut A)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __a_drop(data: *mut ()) {
-    Box::from_raw(data as *mut A);
+pub unsafe extern "C" fn __a_drop(data: *mut std::ffi::c_void) {
+    drop(Box::from_raw(data as *mut A))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __a_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const A) == *(other as *const () as *const A)
+pub unsafe extern "C" fn __a_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const A) == *(other as *const std::ffi::c_void as *const A)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -29,6 +29,7 @@ pub unsafe extern "C" fn __a_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __A_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __a_clone,
     drop: __a_drop,
@@ -42,18 +43,18 @@ type B = crate::B;
 // B
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b_clone(data: *mut ()) -> *mut () {
-    Box::<B>::into_raw(Box::new((*(data as *mut B)).clone())) as *mut ()
+pub unsafe extern "C" fn __b_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<B>::into_raw(Box::new((*(data as *mut B)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b_drop(data: *mut ()) {
-    Box::from_raw(data as *mut B);
+pub unsafe extern "C" fn __b_drop(data: *mut std::ffi::c_void) {
+    drop(Box::from_raw(data as *mut B))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const B) == *(other as *const () as *const B)
+pub unsafe extern "C" fn __b_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const B) == *(other as *const std::ffi::c_void as *const B)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -65,6 +66,7 @@ pub unsafe extern "C" fn __b_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __B_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __b_clone,
     drop: __b_drop,

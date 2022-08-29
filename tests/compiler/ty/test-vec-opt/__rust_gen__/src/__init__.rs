@@ -87,7 +87,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &mut Vec<Option<i32>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_temp_mut(&__registration__::__VEC_OPTION_I_32_VTABLE);
-                    let element: Option<i32> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__I32_VTABLE);
+                    let element: Option<i32> = __arguments[1].downcast_opt_i32();
                     __this.push(element).to_register()
                 }
                 __wrapper

@@ -38,28 +38,35 @@ pub unsafe extern "C" fn __{ty}_primitive_value_to_bool(data: __RegisterData) ->
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __{ty}_primitive_value_to_box(data: __RegisterData) -> *mut () {{
+pub unsafe extern "C" fn __{ty}_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {{
+    let data = unsafe {{ *(data_ptr as *const {ty}) }};
+    {result}
+}}
+
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __{ty}_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {{
     let data = data.as_{ty};
     let ptr: *mut {ty} = Box::<{ty}>::into_raw(Box::new(data));
-    ptr as *mut ()
+    ptr as *mut std::ffi::c_void
 }}
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __{ty}_clone(data: *mut ()) -> *mut () {{
-    Box::<{ty}>::into_raw(Box::new((*(data as *mut {ty})).clone())) as *mut ()
+pub unsafe extern "C" fn __{ty}_clone(data: *mut c_void) -> *mut std::ffi::c_void {{
+    Box::<{ty}>::into_raw(Box::new((*(data as *mut {ty})).clone())) as *mut std::ffi::c_void
 }}
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __{ty}_drop(data: *mut ()) {{
+pub unsafe extern "C" fn __{ty}_drop(data: *mut c_void) {{
     drop(Box::from_raw(data as *mut {ty}))
 }}
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __{ty}_eq(this: &(), other: &()) -> bool {{
-    *(this as *const () as *const {ty}) == *(other as *const () as *const {ty})
+pub unsafe extern "C" fn __{ty}_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {{
+    *(this as *const std::ffi::c_void as *const {ty}) == *(other as *const std::ffi::c_void as *const {ty})
 }}
 
 #[rustfmt::skip]
@@ -73,6 +80,7 @@ pub unsafe extern "C" fn __{ty}_assign(registers: *mut __Register) {{
 #[no_mangle]
 pub static __{uppercase_ty}_VTABLE: __RegisterTyVTable = __RegisterTyVTable {{
     primitive_value_to_bool: Some(__{ty}_primitive_value_to_bool),
+    primitive_ref_to_bool: Some(__{ty}_primitive_ref_to_bool),
     primitive_value_to_box: Some(__{ty}_primitive_value_to_box),
     clone: __{ty}_clone,
     drop: __{ty}_drop,
@@ -138,18 +146,18 @@ impl<'a> Display for NonPrimitiveTypeRegistration<'a> {
 // {ty}
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __{snake_ty}_clone(data: *mut ()) -> *mut () {{
-    Box::<{ty}>::into_raw(Box::new((*(data as *mut {ty})).clone())) as *mut ()
+pub unsafe extern "C" fn __{snake_ty}_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {{
+    Box::<{ty}>::into_raw(Box::new((*(data as *mut {ty})).clone())) as *mut std::ffi::c_void
 }}
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __{snake_ty}_drop(data: *mut ()) {{
+pub unsafe extern "C" fn __{snake_ty}_drop(data: *mut std::ffi::c_void) {{
     drop(Box::from_raw(data as *mut {ty}))
 }}
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __{snake_ty}_eq(this: &(), other: &()) -> bool {{
-    *(this as *const () as *const {ty}) == *(other as *const () as *const {ty})
+pub unsafe extern "C" fn __{snake_ty}_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {{
+    *(this as *const std::ffi::c_void as *const {ty}) == *(other as *const std::ffi::c_void as *const {ty})
 }}
 #[rustfmt::skip]
 #[no_mangle]
@@ -161,6 +169,7 @@ pub unsafe extern "C" fn __{snake_ty}_assign(registers: *mut __Register) {{
 #[no_mangle]
 pub static __{upper_snake_ty}_VTABLE: __RegisterTyVTable = __RegisterTyVTable {{
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __{snake_ty}_clone,
     drop: __{snake_ty}_drop,

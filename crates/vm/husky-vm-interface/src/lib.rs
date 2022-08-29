@@ -20,6 +20,7 @@ pub use context::*;
 pub use error::*;
 pub use linkage::*;
 pub use register::*;
+pub use std::ffi::c_void;
 #[cfg(feature = "thick_fp")]
 pub use thick_fp::*;
 #[cfg(feature = "thin_fp")]

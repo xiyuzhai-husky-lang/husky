@@ -80,7 +80,7 @@ impl Parameter {
         self.ty
     }
 
-    pub fn from_member(
+    pub fn from_field(
         db: &dyn EntitySyntaxQueryGroup,
         ranged_ident: RangedCustomIdentifier,
         modifier: MemberModifier,
@@ -97,7 +97,7 @@ impl Parameter {
             db,
             ranged_ident,
             RangedParameterLiason {
-                liason: ParameterModifier::from_member(modifier),
+                liason: ParameterModifier::from_field(modifier),
                 opt_range: None,
             },
             RangedEntityRoute {

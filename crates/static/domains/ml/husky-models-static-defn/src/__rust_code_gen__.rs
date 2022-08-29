@@ -14,18 +14,18 @@ use husky_vm::*;
 // NaiveI32Internal
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __naive_i_32_internal_clone(data: *mut ()) -> *mut () {
-    Box::<NaiveI32Internal>::into_raw(Box::new((*(data as *mut NaiveI32Internal)).clone())) as *mut ()
+pub unsafe extern "C" fn __naive_i_32_internal_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<NaiveI32Internal>::into_raw(Box::new((*(data as *mut NaiveI32Internal)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __naive_i_32_internal_drop(data: *mut ()) {
+pub unsafe extern "C" fn __naive_i_32_internal_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut NaiveI32Internal))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __naive_i_32_internal_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const NaiveI32Internal) == *(other as *const () as *const NaiveI32Internal)
+pub unsafe extern "C" fn __naive_i_32_internal_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const NaiveI32Internal) == *(other as *const std::ffi::c_void as *const NaiveI32Internal)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -37,6 +37,7 @@ pub unsafe extern "C" fn __naive_i_32_internal_assign(registers: *mut __Register
 #[no_mangle]
 pub static __NAIVE_I_32_INTERNAL_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __naive_i_32_internal_clone,
     drop: __naive_i_32_internal_drop,

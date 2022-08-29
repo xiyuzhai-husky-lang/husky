@@ -25,14 +25,16 @@ impl<'eval> ConcaveComponent<'eval> {
             __ctx,
             "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::norm"
         );
-        if let Some(__result) = __ctx.opt_cached_lazy_field(self as *const _ as *const (), __uid) {
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
             return __result
                 .unwrap()
                 .downcast_eval_ref(&__registration__::__F32_VTABLE);
         }
         return __ctx
             .cache_lazy_field(
-                self as *const _ as *const (),
+                self as *const _ as *const std::ffi::c_void,
                 __uid,
                 Ok(__Register::new_eval_ref::<f32>(
                     &(self.hausdorff_norm(__ctx)),
@@ -45,7 +47,9 @@ impl<'eval> ConcaveComponent<'eval> {
     }
     pub(crate) fn hausdorff_norm(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
         let __uid = entity_uid!(__ctx, "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::hausdorff_norm");
-        if let Some(__result) = __ctx.opt_cached_lazy_field(self as *const _ as *const (), __uid) {
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
             return __result
                 .unwrap()
                 .downcast_eval_ref(&__registration__::__F32_VTABLE);
@@ -63,7 +67,7 @@ impl<'eval> ConcaveComponent<'eval> {
         }
         __ctx
             .cache_lazy_field(
-                self as *const _ as *const (),
+                self as *const _ as *const std::ffi::c_void,
                 __uid,
                 Ok(__Register::new_box::<f32>(
                     hausdorff_norm,

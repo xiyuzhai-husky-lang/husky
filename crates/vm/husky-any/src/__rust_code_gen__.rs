@@ -12,18 +12,18 @@ type b64 = u64;
 // VirtualStruct
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_struct_clone(data: *mut ()) -> *mut () {
-    Box::<VirtualStruct>::into_raw(Box::new((*(data as *mut VirtualStruct)).clone())) as *mut ()
+pub unsafe extern "C" fn __virtual_struct_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<VirtualStruct>::into_raw(Box::new((*(data as *mut VirtualStruct)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_struct_drop(data: *mut ()) {
+pub unsafe extern "C" fn __virtual_struct_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut VirtualStruct))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_struct_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const VirtualStruct) == *(other as *const () as *const VirtualStruct)
+pub unsafe extern "C" fn __virtual_struct_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const VirtualStruct) == *(other as *const std::ffi::c_void as *const VirtualStruct)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -35,6 +35,7 @@ pub unsafe extern "C" fn __virtual_struct_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __VIRTUAL_STRUCT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __virtual_struct_clone,
     drop: __virtual_struct_drop,
@@ -47,18 +48,18 @@ pub static __VIRTUAL_STRUCT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 // VirtualVec
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_vec_clone(data: *mut ()) -> *mut () {
-    Box::<VirtualVec>::into_raw(Box::new((*(data as *mut VirtualVec)).clone())) as *mut ()
+pub unsafe extern "C" fn __virtual_vec_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<VirtualVec>::into_raw(Box::new((*(data as *mut VirtualVec)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_vec_drop(data: *mut ()) {
+pub unsafe extern "C" fn __virtual_vec_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut VirtualVec))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_vec_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const VirtualVec) == *(other as *const () as *const VirtualVec)
+pub unsafe extern "C" fn __virtual_vec_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const VirtualVec) == *(other as *const std::ffi::c_void as *const VirtualVec)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -70,6 +71,7 @@ pub unsafe extern "C" fn __virtual_vec_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __VIRTUAL_VEC_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __virtual_vec_clone,
     drop: __virtual_vec_drop,
@@ -82,18 +84,18 @@ pub static __VIRTUAL_VEC_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 // VirtualCyclicSlice
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_cyclic_slice_clone(data: *mut ()) -> *mut () {
-    Box::<VirtualCyclicSlice>::into_raw(Box::new((*(data as *mut VirtualCyclicSlice)).clone())) as *mut ()
+pub unsafe extern "C" fn __virtual_cyclic_slice_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<VirtualCyclicSlice>::into_raw(Box::new((*(data as *mut VirtualCyclicSlice)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_cyclic_slice_drop(data: *mut ()) {
+pub unsafe extern "C" fn __virtual_cyclic_slice_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut VirtualCyclicSlice))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_cyclic_slice_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const VirtualCyclicSlice) == *(other as *const () as *const VirtualCyclicSlice)
+pub unsafe extern "C" fn __virtual_cyclic_slice_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const VirtualCyclicSlice) == *(other as *const std::ffi::c_void as *const VirtualCyclicSlice)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -105,6 +107,7 @@ pub unsafe extern "C" fn __virtual_cyclic_slice_assign(registers: *mut __Registe
 #[no_mangle]
 pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __virtual_cyclic_slice_clone,
     drop: __virtual_cyclic_slice_drop,
@@ -117,18 +120,18 @@ pub static __VIRTUAL_CYCLIC_SLICE_VTABLE: __RegisterTyVTable = __RegisterTyVTabl
 // VisualData
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __visual_data_clone(data: *mut ()) -> *mut () {
-    Box::<VisualData>::into_raw(Box::new((*(data as *mut VisualData)).clone())) as *mut ()
+pub unsafe extern "C" fn __visual_data_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<VisualData>::into_raw(Box::new((*(data as *mut VisualData)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __visual_data_drop(data: *mut ()) {
+pub unsafe extern "C" fn __visual_data_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut VisualData))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __visual_data_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const VisualData) == *(other as *const () as *const VisualData)
+pub unsafe extern "C" fn __visual_data_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const VisualData) == *(other as *const std::ffi::c_void as *const VisualData)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -140,6 +143,7 @@ pub unsafe extern "C" fn __visual_data_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __VISUAL_DATA_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __visual_data_clone,
     drop: __visual_data_drop,

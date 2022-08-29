@@ -317,7 +317,7 @@ impl From<i32> for {tyname} {{
                             r#" {{
     let __uid = entity_uid!(__ctx, "{route:?}");
     if let Some(__result) = __ctx.opt_cached_lazy_field(
-        self as *const _ as *const (),
+        self as *const _ as *const std::ffi::c_void,
         __uid
     ) {{
         return __result
@@ -356,7 +356,7 @@ impl From<i32> for {tyname} {{
                             r#" {{
     let __uid = entity_uid!(__ctx, "{route:?}");
     if let Some(__result) = __ctx.opt_cached_lazy_field(
-        self as *const _ as *const (),
+        self as *const _ as *const std::ffi::c_void,
         __uid
     ) {{
         return __result

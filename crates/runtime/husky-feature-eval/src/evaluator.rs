@@ -20,8 +20,8 @@ pub use sheet::*;
 use crate::*;
 use husky_entity_semantics::*;
 use husky_trace_protocol::SampleId;
-use husky_vm::__VMResult;
 use husky_vm::{EntityUid, VMConfig, __EvalContext, __Register};
+use husky_vm::{__VMResult, c_void};
 
 pub struct FeatureEvaluator<'a, 'eval: 'a> {
     pub(crate) sample_id: SampleId,
@@ -40,7 +40,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
 
     fn opt_cached_lazy_field(
         &self,
-        this: *const (),
+        this: *const c_void,
         uid: u64,
     ) -> Option<__VMResult<__Register<'eval>>> {
         self.sheet.cached_value(EvalKey::StructDerivedField {
@@ -49,14 +49,14 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         })
     }
 
-    fn opt_cached_feature(&self, feature: *const ()) -> Option<__VMResult<__Register<'eval>>> {
+    fn opt_cached_feature(&self, feature: *const c_void) -> Option<__VMResult<__Register<'eval>>> {
         self.sheet
             .cached_value(EvalKey::Feature(unsafe { FeaturePtr::from_raw(feature) }))
     }
 
     fn cache_feature(
         &self,
-        feature: *const (),
+        feature: *const c_void,
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         self.sheet.cache(
@@ -67,7 +67,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
 
     fn cache_lazy_field(
         &self,
-        this: *const (),
+        this: *const std::ffi::c_void,
         uid: u64,
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
@@ -80,7 +80,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         )
     }
 
-    fn feature_ptr(&self, feature_route_text: &str) -> *const () {
+    fn feature_ptr(&self, feature_route_text: &str) -> *const std::ffi::c_void {
         let route = self.db.comptime().parse_route_from_text(feature_route_text);
         let uid = self.db.comptime().entity_uid(route);
         unsafe {

@@ -12,18 +12,18 @@ use crate::cv::mnist::*;
 // MnistLabel
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __mnist_label_clone(data: *mut ()) -> *mut () {
-    Box::<MnistLabel>::into_raw(Box::new((*(data as *mut MnistLabel)).clone())) as *mut ()
+pub unsafe extern "C" fn __mnist_label_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<MnistLabel>::into_raw(Box::new((*(data as *mut MnistLabel)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __mnist_label_drop(data: *mut ()) {
+pub unsafe extern "C" fn __mnist_label_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut MnistLabel))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __mnist_label_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const MnistLabel) == *(other as *const () as *const MnistLabel)
+pub unsafe extern "C" fn __mnist_label_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const MnistLabel) == *(other as *const std::ffi::c_void as *const MnistLabel)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -35,6 +35,7 @@ pub unsafe extern "C" fn __mnist_label_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __MNIST_LABEL_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __mnist_label_clone,
     drop: __mnist_label_drop,
@@ -47,18 +48,18 @@ pub static __MNIST_LABEL_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 // BinaryImage28
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __binary_image_28_clone(data: *mut ()) -> *mut () {
-    Box::<BinaryImage28>::into_raw(Box::new((*(data as *mut BinaryImage28)).clone())) as *mut ()
+pub unsafe extern "C" fn __binary_image_28_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<BinaryImage28>::into_raw(Box::new((*(data as *mut BinaryImage28)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __binary_image_28_drop(data: *mut ()) {
+pub unsafe extern "C" fn __binary_image_28_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut BinaryImage28))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __binary_image_28_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const BinaryImage28) == *(other as *const () as *const BinaryImage28)
+pub unsafe extern "C" fn __binary_image_28_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const BinaryImage28) == *(other as *const std::ffi::c_void as *const BinaryImage28)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -70,6 +71,7 @@ pub unsafe extern "C" fn __binary_image_28_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __BINARY_IMAGE_28_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __binary_image_28_clone,
     drop: __binary_image_28_drop,
@@ -82,18 +84,18 @@ pub static __BINARY_IMAGE_28_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 // BinaryGrid28
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __binary_grid_28_clone(data: *mut ()) -> *mut () {
-    Box::<BinaryGrid28>::into_raw(Box::new((*(data as *mut BinaryGrid28)).clone())) as *mut ()
+pub unsafe extern "C" fn __binary_grid_28_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<BinaryGrid28>::into_raw(Box::new((*(data as *mut BinaryGrid28)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __binary_grid_28_drop(data: *mut ()) {
+pub unsafe extern "C" fn __binary_grid_28_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut BinaryGrid28))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __binary_grid_28_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const BinaryGrid28) == *(other as *const () as *const BinaryGrid28)
+pub unsafe extern "C" fn __binary_grid_28_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const BinaryGrid28) == *(other as *const std::ffi::c_void as *const BinaryGrid28)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -105,6 +107,7 @@ pub unsafe extern "C" fn __binary_grid_28_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __BINARY_GRID_28_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __binary_grid_28_clone,
     drop: __binary_grid_28_drop,
@@ -117,18 +120,18 @@ pub static __BINARY_GRID_28_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 // Dataset
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __dataset_clone(data: *mut ()) -> *mut () {
-    Box::<Dataset>::into_raw(Box::new((*(data as *mut Dataset)).clone())) as *mut ()
+pub unsafe extern "C" fn __dataset_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Dataset>::into_raw(Box::new((*(data as *mut Dataset)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __dataset_drop(data: *mut ()) {
+pub unsafe extern "C" fn __dataset_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut Dataset))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __dataset_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Dataset) == *(other as *const () as *const Dataset)
+pub unsafe extern "C" fn __dataset_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Dataset) == *(other as *const std::ffi::c_void as *const Dataset)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -140,6 +143,7 @@ pub unsafe extern "C" fn __dataset_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __DATASET_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __dataset_clone,
     drop: __dataset_drop,

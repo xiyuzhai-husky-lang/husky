@@ -1,7 +1,7 @@
 use crate::*;
 
 pub trait ThinFp: Copy {
-    fn __to_void_pointer(self) -> *const ();
+    fn __to_void_pointer(self) -> *const c_void;
 }
 
 pub trait __BaseThinFp: ~const ThinFp + __StaticInfo {

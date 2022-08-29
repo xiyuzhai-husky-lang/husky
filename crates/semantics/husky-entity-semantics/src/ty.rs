@@ -61,7 +61,7 @@ impl EntityDefnVariant {
                         liason,
                         ..
                     } => match field_variant {
-                        FieldDefnVariant::RecordOriginal => Parameter::from_member(
+                        FieldDefnVariant::RecordOriginal => Parameter::from_field(
                             db.upcast(),
                             RangedCustomIdentifier {
                                 ident: ty_member.ident.custom(),
@@ -91,7 +91,7 @@ impl EntityDefnVariant {
                         liason,
                         ..
                     } => match field_variant {
-                        FieldDefnVariant::StructOriginal => Parameter::from_member(
+                        FieldDefnVariant::StructOriginal => Parameter::from_field(
                             db.upcast(),
                             RangedCustomIdentifier {
                                 ident: ty_member.ident.custom(),

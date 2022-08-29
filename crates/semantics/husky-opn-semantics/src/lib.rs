@@ -40,6 +40,7 @@ impl Default for ImplicitConversion {
 impl ImplicitConversion {
     pub fn from_opt_expectation(opt_expectation: Option<EntityRoutePtr>, ty: &CanonicalTy) -> Self {
         if let Some(expectation) = opt_expectation {
+            // todo: improve this
             let expectation = expectation.canonicalize();
             if expectation.intrinsic_ty() != ty.intrinsic_ty() {
                 p!(expectation.intrinsic_ty(), ty.intrinsic_ty());
@@ -49,38 +50,12 @@ impl ImplicitConversion {
                 todo!()
             }
             if expectation.is_option() != ty.is_option() {
-                todo!()
+                match expectation.is_option() {
+                    true => return ImplicitConversion::WrapInSome,
+                    false => todo!(),
+                }
             }
             Self::None
-            // match canonical_expectation.kind() {
-            //     CanonicalEntityRouteKind::Intrinsic => {
-            //         if expectation == ty {
-            //             return Default::default();
-            //         }
-            //         todo!()
-            //     }
-            //     CanonicalEntityRouteKind::Optional => todo!(),
-            //     CanonicalEntityRouteKind::EvalRef => todo!(),
-            //     CanonicalEntityRouteKind::OptionalEvalRef => match canonical_ty.kind() {
-            //         CanonicalEntityRouteKind::Intrinsic => {
-            //             todo!()
-            //         }
-            //         CanonicalEntityRouteKind::Optional => todo!(),
-            //         CanonicalEntityRouteKind::EvalRef => todo!(),
-            //         CanonicalEntityRouteKind::OptionalEvalRef => todo!(),
-            //         CanonicalEntityRouteKind::TempRefMut => todo!(),
-            //     },
-            //     CanonicalEntityRouteKind::TempRefMut => todo!(),
-            // }
-            // if expectation == ty {
-            //     return Default::default();
-            // }
-
-            // if canonical_expectation.is_option() && expectation.entity_route_argument(0) == ty {
-            //     return ImplicitConversion::WrapInSome;
-            // }
-
-            // p!(expectation, ty);
         } else {
             Default::default()
         }
