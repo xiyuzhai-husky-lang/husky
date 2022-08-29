@@ -35,7 +35,11 @@ We define the following features:
 
   - equals `connected_components[0]` when there is only one connected components
 
-  - when there are two very close connected components, say, $A$ and $B$, is the union of $A$ and $B$ together with all paths from $A$ to $B$ of lengths no more than $dist(A, B) + \epsilon$ where $\epsilon$ is very small.
+  - when there are two very close connected components, say, $A$ and $B$, then `major_connected_component` contains points that satisfies one of
+
+    - is a point in $A$
+    - is a point in $B$
+    - is a point in a path from $A$ to $B$ of length no more than $dist(A, B) + \epsilon$, where $dist(A, B)$ is the canonical distance between $A$ and $B$ and $\epsilon$ is a very small positive number.
 
   - otherwise, equals the largest one
 
