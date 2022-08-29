@@ -1,6 +1,5 @@
 use husky_lazy_semantics::XmlExprVariant;
 use husky_static_visualizer::{StaticVisualizer, StaticVisualizerFp};
-use husky_trace_protocol::VisualData;
 use husky_xml_syntax::XmlTagKind;
 
 use crate::*;
@@ -181,7 +180,7 @@ pub(crate) fn visual_ty(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> Vi
 impl VisualTy {
     pub(crate) fn from_stmts(db: &dyn EntityDefnQueryGroup, stmts: &[Arc<LazyStmt>]) -> VisualTy {
         match stmts.last().unwrap().variant {
-            LazyStmtVariant::Return { ref result } => todo!(),
+            LazyStmtVariant::Return { .. } => todo!(),
             LazyStmtVariant::ReturnXml { ref xml_expr } => match xml_expr.variant {
                 XmlExprVariant::Value(ref expr) => db.visual_ty(expr.intrinsic_ty()),
                 XmlExprVariant::Tag { tag_kind, .. } => match tag_kind {
@@ -192,10 +191,7 @@ impl VisualTy {
                 },
             },
             LazyStmtVariant::ConditionFlow { .. } => todo!(),
-            LazyStmtVariant::Match {
-                ref match_expr,
-                ref branches,
-            } => todo!(),
+            LazyStmtVariant::Match { .. } => todo!(),
             _ => panic!(),
         }
     }

@@ -10,7 +10,7 @@ impl EntityDefnVariant {
                 field_kind,
                 liason,
                 field_ty,
-                linkage: __Linkage,
+                linkage,
             } => Self::TyField {
                 field_ty: symbol_context.parse_entity_route(field_ty).unwrap(),
                 liason,
@@ -22,7 +22,7 @@ impl EntityDefnVariant {
                     FieldKind::RecordRegular => todo!(),
                     FieldKind::RecordProperty => todo!(),
                 },
-                opt_linkage: Some(__Linkage),
+                opt_linkage: Some(linkage),
             },
             _ => todo!(),
         }
@@ -112,28 +112,30 @@ impl EntityDefnVariant {
                         AstFieldKind::RecordOriginal => (),
                         _ => break,
                     }
-                    members.insert_new(EntityDefn::new(
-                        db,
-                        ranged_ident.ident.into(),
-                        EntityDefnVariant::ty_field_from_ast(
+                    members
+                        .insert_new(EntityDefn::new(
                             db,
-                            arena,
+                            ranged_ident.ident.into(),
+                            EntityDefnVariant::ty_field_from_ast(
+                                db,
+                                arena,
+                                file,
+                                ty_route,
+                                ast,
+                                child.opt_children.clone(),
+                            )?,
+                            db.intern_entity_route(EntityRoute {
+                                variant: EntityRouteVariant::Child {
+                                    parent: ty_route,
+                                    ident: ranged_ident.ident,
+                                },
+                                temporal_arguments: thin_vec![],
+                                spatial_arguments: thin_vec![],
+                            }),
                             file,
-                            ty_route,
-                            ast,
-                            child.opt_children.clone(),
-                        )?,
-                        db.intern_entity_route(EntityRoute {
-                            variant: EntityRouteVariant::Child {
-                                parent: ty_route,
-                                ident: ranged_ident.ident,
-                            },
-                            temporal_arguments: thin_vec![],
-                            spatial_arguments: thin_vec![],
-                        }),
-                        file,
-                        ast.range,
-                    ));
+                            ast.range,
+                        ))
+                        .unwrap();
                     children.next();
                 }
                 _ => break,

@@ -18,7 +18,9 @@ fn diagnostics_reserve(
     this: &dyn DiagnosticQuery,
     module: EntityRoutePtr,
 ) -> Arc<DiagnosticReserve> {
-    Arc::new(DiagnosticReserve::new(collect_diagnostics(this, module)))
+    Arc::new(DiagnosticReserve::new(collect_module_diagnostics(
+        this, module,
+    )))
 }
 
 pub type DiagnosticReserve = Reserve<Vec<Diagnostic>>;

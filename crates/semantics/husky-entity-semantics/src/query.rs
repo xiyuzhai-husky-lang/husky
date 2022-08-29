@@ -71,11 +71,8 @@ pub(crate) fn entity_uid(db: &dyn EntityDefnQueryGroup, entity_route: EntityRout
         | EntitySource::StaticEnumVariant(_) => (),
         EntitySource::TargetInput { .. } => (), // ad hoc, should consider the task config block
         EntitySource::WithinBuiltinModule => todo!(),
-        EntitySource::Module { file } => todo!(),
-        EntitySource::WithinModule {
-            file,
-            token_group_index,
-        } => {
+        EntitySource::Module { .. } => todo!(),
+        EntitySource::WithinModule { .. } => {
             let _defn = db.entity_defn(entity_route);
             let _dependees = db.entity_dependees(entity_route);
         }

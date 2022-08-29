@@ -20,7 +20,7 @@ use husky_token::LexError;
 use std::fmt::Write;
 use std::sync::Arc;
 
-use collect::collect_diagnostics;
+use collect::collect_module_diagnostics;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Diagnostic {
