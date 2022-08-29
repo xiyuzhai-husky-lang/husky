@@ -7,10 +7,6 @@ pub struct StackSnapshot<'eval> {
 }
 
 impl<'eval> StackSnapshot<'eval> {
-    pub(crate) fn stack(&self) -> VMStack {
-        todo!()
-    }
-
     pub fn len(&self) -> usize {
         self.values.len()
     }

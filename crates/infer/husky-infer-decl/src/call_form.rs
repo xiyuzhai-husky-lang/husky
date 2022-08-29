@@ -79,7 +79,6 @@ impl CallFormDecl {
                 output_ty,
                 output_liason,
                 spatial_parameters,
-                method_static_defn_kind: method_kind,
                 ..
             } => {
                 let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
@@ -103,6 +102,50 @@ impl CallFormDecl {
             _ => panic!(""),
         })
     }
+
+    // pub(crate) fn call_form_decl_from_static(
+    //     db: &dyn DeclQueryGroup,
+    //     mut symbols: Vec<Symbol>,
+    //     static_defn: &EntityStaticDefn,
+    // ) -> InferResultArc<CallFormDecl> {
+    //     match static_defn.variant {
+    //         EntityStaticDefnVariant::Method {
+    //             this_modifier: this_liason,
+    //             parameters,
+    //             output_ty,
+    //             output_liason,
+    //             spatial_parameters: generic_parameters,
+    //             // ref kind,
+    //             ..
+    //         } => {
+    //             let generic_parameters = db.spatial_parameters_from_static(generic_parameters);
+    //             symbols.extend(db.symbols_from_spatial_parameters(&generic_parameters));
+    //             let mut symbol_context = AtomContextStandalone {
+    //                 db: db.upcast(),
+    //                 opt_this_ty: None,
+    //                 opt_this_contract: None,
+    //                 symbols: symbols.into(),
+    //                 kind: AtomContextKind::Normal,
+    //                 opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
+    //             };
+    //             let primary_parameters = parameters
+    //                 .map(|parameter| ParameterDecl::from_static(&mut symbol_context, parameter));
+    //             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
+    //             // assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
+    //             Ok(Arc::new(CallFormDecl {
+    //                 spatial_parameters: generic_parameters,
+    //                 primary_parameters,
+    //                 output: OutputDecl::new(db, output_liason, output_ty)?,
+    //                 opt_this_liason: Some(this_liason),
+    //                 is_lazy: false,
+    //                 opt_route: todo!(),
+    //                 variadic_template: todo!(),
+    //                 keyword_parameters: todo!(),
+    //             }))
+    //         }
+    //         _ => panic!(""),
+    //     }
+    // }
 
     pub fn ident(&self) -> CustomIdentifier {
         self.opt_route.unwrap().ident().custom()
@@ -238,7 +281,7 @@ pub(crate) fn entity_call_form_decl(
                     TyMemberDecl::Call(_) => todo!(),
                 }
             }
-            EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => todo!(),
+            EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
             EntityRouteVariant::TargetInputValue => todo!(),
             EntityRouteVariant::Any { .. } => todo!(),
             EntityRouteVariant::ThisType { .. } => todo!(),
@@ -250,7 +293,7 @@ pub(crate) fn entity_call_form_decl(
                 let ty_decl = derived_unwrap!(db.ty_decl(ty));
                 match derived_not_none!(ty_decl.trai_member_impl(trai, ident))? {
                     TraitMemberImplDecl::Method(method) => Ok(method.clone()),
-                    TraitMemberImplDecl::AssociatedType { ident, ty } => todo!(),
+                    TraitMemberImplDecl::AssociatedType { .. } => todo!(),
                     TraitMemberImplDecl::Call {} => todo!(),
                     TraitMemberImplDecl::AssociatedConstSize {} => todo!(),
                 }
@@ -325,8 +368,8 @@ pub(crate) fn routine_decl_from_static(
             ref parameters,
             output_ty,
             output_liason,
-            ref linkage,
             ref variadic_template,
+            ..
         } => {
             let spatial_parameters = db.spatial_parameters_from_static(spatial_parameters);
             symbols.extend(db.symbols_from_spatial_parameters(&spatial_parameters));

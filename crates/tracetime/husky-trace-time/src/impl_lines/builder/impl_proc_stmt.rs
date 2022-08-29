@@ -182,13 +182,7 @@ impl<'a> TraceTokenBuilder<'a> {
         }
         if let Some(entry) = history.get(stmt) {
             match entry {
-                HistoryEntry::ControlFlow {
-                    opt_branch_entered,
-                    vm_branches,
-                    control,
-                    stack_snapshot,
-                    mutations,
-                } => self.add_control_tokens(control),
+                HistoryEntry::ControlFlow { control, .. } => self.add_control_tokens(control),
                 _ => todo!(),
             }
         }

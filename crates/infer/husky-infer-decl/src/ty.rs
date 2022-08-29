@@ -99,7 +99,7 @@ impl TyDecl {
                 let variants: IdentDict<_> = variants.map(|static_decl| {
                     EnumVariantDecl::from_static(db, static_decl, &mut symbol_context)
                 });
-                let mut trait_impls = static_trait_impls
+                let trait_impls = static_trait_impls
                     .iter()
                     .map(|trait_impl| {
                         TraitImplDecl::from_static(db, trait_impl, &mut symbol_context)
@@ -558,11 +558,6 @@ pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferQuery
             EntityStaticDefnVariant::Ty { .. } => {
                 let base_decl = TyDecl::from_static(db, static_defn)?;
                 if ty.spatial_arguments.len() > 0 {
-                    // p!(ty_route);
-                    // assert_eq!(
-                    //     ty_route.spatial_arguments.len(),
-                    //     base_decl.spatial_parameters.len()
-                    // );
                     base_decl.instantiate(db, &ty.spatial_arguments)
                 } else {
                     base_decl
@@ -573,7 +568,7 @@ pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferQuery
             EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TyField { .. } => todo!(),
-            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
             EntityStaticDefnVariant::EnumVariant => todo!(),
         }),
         EntitySource::WithinBuiltinModule => todo!(),
@@ -612,7 +607,7 @@ pub(crate) fn ty_decl(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferQuery
                 }
             }
         }
-        EntitySource::Module { file } => todo!(),
+        EntitySource::Module { .. } => todo!(),
         EntitySource::TargetInput { .. } => todo!(),
         EntitySource::StaticTypeMember(_) => todo!(),
         EntitySource::StaticTraitMember(_) => todo!(),
@@ -633,49 +628,5 @@ fn is_trait_availabe(trait_route: EntityRoutePtr, trait_uses: &[EntityRouteVaria
         EntityRouteVariant::ThisType { .. } => todo!(),
         EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
         EntityRouteVariant::TargetOutputType => todo!(),
-    }
-}
-
-pub(crate) fn call_form_decl_from_static(
-    db: &dyn DeclQueryGroup,
-    mut symbols: Vec<Symbol>,
-    static_defn: &EntityStaticDefn,
-) -> InferResultArc<CallFormDecl> {
-    match static_defn.variant {
-        EntityStaticDefnVariant::Method {
-            this_modifier: this_liason,
-            parameters,
-            output_ty,
-            output_liason,
-            spatial_parameters: generic_parameters,
-            // ref kind,
-            ..
-        } => {
-            let generic_parameters = db.spatial_parameters_from_static(generic_parameters);
-            symbols.extend(db.symbols_from_spatial_parameters(&generic_parameters));
-            let mut symbol_context = AtomContextStandalone {
-                db: db.upcast(),
-                opt_this_ty: None,
-                opt_this_contract: None,
-                symbols: symbols.into(),
-                kind: AtomContextKind::Normal,
-                opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
-            };
-            let primary_parameters = parameters
-                .map(|parameter| ParameterDecl::from_static(&mut symbol_context, parameter));
-            let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
-            // assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
-            Ok(Arc::new(CallFormDecl {
-                spatial_parameters: generic_parameters,
-                primary_parameters,
-                output: OutputDecl::new(db, output_liason, output_ty)?,
-                opt_this_liason: Some(this_liason),
-                is_lazy: false,
-                opt_route: todo!(),
-                variadic_template: todo!(),
-                keyword_parameters: todo!(),
-            }))
-        }
-        _ => panic!(""),
     }
 }

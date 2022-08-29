@@ -58,8 +58,16 @@ impl ParameterDecl {
             ident: self.ident,
         }
     }
+}
 
-    pub fn implement(&self, implementor: &ImplementationContext) -> Self {
-        todo!()
+impl Implementable for ParameterDecl {
+    type Target = Self;
+
+    fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
+        Self {
+            liason: self.liason,
+            ty: self.ty.implement(ctx).take_entity_route(),
+            ident: self.ident,
+        }
     }
 }

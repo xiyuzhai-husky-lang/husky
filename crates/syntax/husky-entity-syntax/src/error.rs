@@ -99,5 +99,4 @@ macro_rules! query_not_none {
     }};
 }
 use husky_display_utils::HuskyDisplay;
-use husky_token::LexError;
 pub(crate) use query_not_none;

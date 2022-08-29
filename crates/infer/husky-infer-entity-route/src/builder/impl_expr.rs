@@ -540,10 +540,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         msg_once!("spatial_arguments");
         self.entity_route_sheet.method_call_routes.insert_new(
             this,
-            Ok(self.db.route_call(
-                call_form_decl.opt_route.unwrap(),
-                thin_vec![], // spatial_arguments
-            )),
+            Ok(self
+                .db
+                .route_call(call_form_decl.opt_route.unwrap(), spatial_arguments)),
         );
         Ok(call_form_decl.output.ty())
     }

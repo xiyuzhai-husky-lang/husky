@@ -25,15 +25,13 @@ pub(crate) fn feature_decl(
                 .unwrap();
             let ast = item.value.as_ref()?;
             match ast.variant {
-                AstVariant::FeatureDefnHead {
-                    ident,
-                    return_ty: ty,
-                    ..
-                } => Ok(Arc::new(FeatureDecl { ty: ty.route })),
+                AstVariant::FeatureDefnHead { return_ty, .. } => Ok(Arc::new(FeatureDecl {
+                    ty: return_ty.route,
+                })),
                 _ => todo!(),
             }
         }
-        EntitySource::Module { file } => todo!(),
+        EntitySource::Module { .. } => todo!(),
         EntitySource::TargetInput {} => Ok(Arc::new(FeatureDecl {
             ty: db.target_input_ty()?,
         })),
