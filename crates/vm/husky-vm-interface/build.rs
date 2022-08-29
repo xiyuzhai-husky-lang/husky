@@ -6,7 +6,7 @@ use std::path::PathBuf;
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
     let path: PathBuf = "src/__rust_code_gen__.rs".into();
-    husky_io_utils::diff_write(&path, &gen_rust_code().unwrap());
+    husky_io_utils::diff_write(&path, &gen_rust_code().unwrap(), true);
 }
 
 pub fn gen_rust_code() -> Result<String, std::fmt::Error> {

@@ -3,7 +3,10 @@ mod test_class;
 use clap::{Parser, Subcommand};
 use husky_check_utils::should;
 use husky_cli_utils::ask::ask_user_for_permission;
-use husky_io_utils::{file_sync::diff_file_sync, path_pattern::PathPattern, FileVisitConfig};
+use husky_io_utils::{
+    file_sync::diff_file_sync, relative_path_pattern::RelativePathPattern, FileSyncConfig,
+    FileVisitConfig,
+};
 use husky_print_utils::*;
 use std::path::{Path, PathBuf};
 use test_class::*;
@@ -106,12 +109,13 @@ fn attempt_to_save_husky_code(src_package_dir: &Path, dst_package_dir: &Path) {
         diff_file_sync(
             src_package_dir,
             dst_package_dir,
-            &FileVisitConfig {
-                regular_file_filter: PathPattern::extension_is_among(["hsk", "toml"]),
-                dir_filter: PathPattern::ignore_paths(
-                    src_package_dir,
-                    ["__rust_gen__", "__rust_gen_cache__"],
-                ),
+            FileVisitConfig {
+                regular_file_filter: RelativePathPattern::extension_is_among(["hsk", "toml"]),
+                dir_filter: RelativePathPattern::ignore_paths([
+                    "__rust_gen__",
+                    "__rust_gen_cache__",
+                ]),
+                verbose: false,
             },
         )
     } else {

@@ -39,7 +39,7 @@ fn save_server_history(server_history: &DebuggerServerHistory) {
     let filename = format!("history-{}.json", xxh3_64(value.as_bytes()));
     let filename: &str = &filename;
     let filepath: PathBuf = format!("tests/debugger/server-history/{filename}").into();
-    husky_io_utils::diff_write(&filepath, &value);
+    husky_io_utils::diff_write(&filepath, &value, false);
     println!("{}", "server history saved".red())
 }
 

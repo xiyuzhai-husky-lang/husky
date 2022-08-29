@@ -1,10 +1,11 @@
+pub mod config;
 pub mod file_sync;
-pub mod file_visit_config;
-pub mod path_pattern;
+pub mod relative_path_pattern;
 
-pub use file_visit_config::*;
+pub use config::*;
 
 use husky_print_utils::p;
+use relative_path::{RelativePath, RelativePathBuf};
 use std::{
     collections::HashMap,
     fs,
@@ -12,7 +13,7 @@ use std::{
 };
 
 // first read and compare, and then write if different
-pub fn diff_write(path: &Path, content: &str) {
+pub fn diff_write(path: &Path, content: &str, verbose: bool) {
     let different = match fs::read_to_string(path) {
         Ok(content_on_disk) => {
             assert!(content_on_disk.len() > 0);
@@ -21,6 +22,13 @@ pub fn diff_write(path: &Path, content: &str) {
         Err(_) => true,
     };
     if different {
+        if verbose {
+            println!(
+                "content written to path `{}`",
+                path.as_os_str().to_str().unwrap()
+            );
+            todo!();
+        }
         match fs::write(path, content) {
             Ok(_) => (),
             Err(e) => {
@@ -32,7 +40,7 @@ pub fn diff_write(path: &Path, content: &str) {
 }
 
 // first read and compare, and then write if different
-pub fn diff_copy(src: &Path, dst: &Path) {
+pub fn diff_copy(src: &Path, dst: &Path, verbose: bool) {
     let content = fs::read_to_string(src).unwrap();
-    diff_write(dst, &content)
+    diff_write(dst, &content, verbose)
 }
