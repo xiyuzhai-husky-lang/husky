@@ -2,18 +2,19 @@ use super::*;
 use avec::Avec;
 use husky_eager_semantics::ProcStmt;
 use husky_entity_route::RangedEntityRoute;
-use husky_vm::__ResolvedLinkage;
+use husky_vm::{InstructionSheet, __Linkage};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FeatureProcBlock {
-    pub symbols: Vec<FeatureSymbol>,
+    pub opt_this: Option<FeatureRepr>,
     pub feature: FeaturePtr,
     pub file: FilePtr,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
-    pub ty: RangedEntityRoute,
+    pub return_ty: RangedEntityRoute,
     pub stmts: Avec<ProcStmt>,
-    pub opt_linkage: Option<__ResolvedLinkage>,
+    pub instruction_sheet: Arc<InstructionSheet>,
+    pub opt_linkage: Option<__Linkage>,
 }
 
 impl<'eval> std::hash::Hash for FeatureProcBlock {

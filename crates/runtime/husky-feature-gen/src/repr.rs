@@ -1,6 +1,6 @@
 use husky_entity_semantics::DefinitionRepr;
 use husky_file::FilePtr;
-use husky_instruction_gen::new_func_instruction_sheet;
+use husky_instruction_gen::{new_func_instruction_sheet, new_proc_instruction_sheet};
 use husky_linkage_table::ResolveLinkage;
 use husky_vm::__Register;
 
@@ -55,7 +55,7 @@ impl FeatureRepr {
             FeatureRepr::LazyExpr(expr) => expr.expr.intrinsic_ty(),
             FeatureRepr::LazyBlock(block) => block.return_ty.route,
             FeatureRepr::FuncBlock(block) => block.ty.route,
-            FeatureRepr::ProcBlock(block) => block.ty.route,
+            FeatureRepr::ProcBlock(block) => block.return_ty.route,
             FeatureRepr::TargetInput { ty, .. } => *ty,
         }
     }
@@ -115,7 +115,7 @@ impl FeatureRepr {
                 file,
                 range,
                 route,
-                return_ty: output_ty,
+                return_ty,
             } => FeatureRepr::FuncBlock(Arc::new(FeatureFuncBlock {
                 file: *file,
                 range: *range,
@@ -142,12 +142,44 @@ impl FeatureRepr {
                     })
                 },
                 opt_this,
-                ty: *output_ty,
+                ty: *return_ty,
                 opt_linkage: { db.comptime().feature_eager_block_linkage(*route) },
             })),
-            DefinitionRepr::ProcBlock { .. } => {
-                todo!()
-            }
+            DefinitionRepr::ProcBlock {
+                stmts,
+                file,
+                range,
+                route,
+                return_ty,
+            } => FeatureRepr::ProcBlock(Arc::new(FeatureProcBlock {
+                file: *file,
+                range: *range,
+                eval_id: Default::default(),
+                stmts: stmts.clone(),
+                instruction_sheet: {
+                    new_proc_instruction_sheet(
+                        db.upcast(),
+                        [].into_iter(),
+                        stmts,
+                        opt_this.is_some(),
+                    )
+                },
+                feature: {
+                    feature_interner.intern(match opt_this {
+                        Some(ref this) => Feature::FieldAccess {
+                            this: this.feature(),
+                            field_ident: route.ident().custom(),
+                        },
+                        None => Feature::EntityFeature {
+                            route: *route,
+                            uid: db.comptime().entity_uid(*route),
+                        },
+                    })
+                },
+                opt_this,
+                return_ty: *return_ty,
+                opt_linkage: { db.comptime().feature_eager_block_linkage(*route) },
+            })),
         };
         result
     }
