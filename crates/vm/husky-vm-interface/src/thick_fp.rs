@@ -1,11 +1,11 @@
-use std::marker::PhantomData;
+use std::{ffi::c_void, marker::PhantomData};
 
 use crate::*;
 
 #[derive(Clone, Copy)]
 pub struct ThickFp<F: __BaseThinFp> {
     needs_eval_context: bool,
-    fp: *const (),
+    fp: *const c_void,
     phantom: PhantomData<F>,
 }
 
@@ -21,7 +21,7 @@ impl<F> ThickFp<F>
 where
     F: for<'eval> __BaseThinFp,
 {
-    pub(crate) const fn new(needs_eval_context: bool, fp: *const ()) -> Self {
+    pub(crate) const fn new(needs_eval_context: bool, fp: *const c_void) -> Self {
         Self {
             needs_eval_context,
             fp,

@@ -21,14 +21,16 @@ impl<'eval> RawContour<'eval> {
             __ctx,
             "mnist_classifier::raw_contour::RawContour::line_segment_sketch"
         );
-        if let Some(__result) = __ctx.opt_cached_lazy_field(self as *const _ as *const (), __uid) {
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
             return __result
                 .unwrap()
                 .downcast_eval_ref(&__registration__::__LINE_SEGMENT_SKETCH_VTABLE);
         }
         return __ctx
             .cache_lazy_field(
-                self as *const _ as *const (),
+                self as *const _ as *const std::ffi::c_void,
                 __uid,
                 Ok(__Register::new_box::<
                     crate::line_segment_sketch::LineSegmentSketch<'eval>,

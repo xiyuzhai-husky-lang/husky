@@ -1,3 +1,5 @@
+use std::ffi::c_void;
+
 use crate::*;
 #[cfg(feature = "binding")]
 use husky_vm_binding::Binding;
@@ -112,7 +114,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::PrimitiveValue => __Register {
                 data_kind: __RegisterDataKind::TempRef,
                 data: __RegisterData {
-                    as_ptr: &self.data as *const _ as *mut (),
+                    as_ptr: &self.data as *const _ as *mut c_void,
                 },
                 vtable: self.vtable,
             },
@@ -141,7 +143,7 @@ impl<'eval> __Register<'eval> {
                 // and vice versa.
                 // so it's ultimately safe to do this
                 let data = __RegisterData {
-                    as_ptr: &self.data as *const _ as *mut (),
+                    as_ptr: &self.data as *const _ as *mut c_void,
                 };
                 __Register {
                     data_kind: __RegisterDataKind::TempMut,
@@ -205,7 +207,7 @@ impl<'eval> __Register<'eval> {
         "...".to_string()
     }
 
-    pub fn any_ptr(&self) -> *mut () {
+    pub fn any_ptr(&self) -> *mut c_void {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),
             __RegisterDataKind::Box
@@ -226,7 +228,9 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::Box
             | __RegisterDataKind::EvalRef
             | __RegisterDataKind::TempRef
-            | __RegisterDataKind::TempMut => todo!(),
+            | __RegisterDataKind::TempMut => unsafe {
+                (self.vtable.primitive_ref_to_bool).unwrap()(self.data.as_ptr)
+            },
             __RegisterDataKind::Moved
             | __RegisterDataKind::None
             | __RegisterDataKind::Unreturned => panic!(),

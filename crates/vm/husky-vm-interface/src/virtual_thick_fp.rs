@@ -3,13 +3,13 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct VirtualThickFp {
     needs_eval_context: bool,
-    fp: *const (),
+    fp: *const c_void,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct __OptVirtualThickFp {
     needs_eval_context: bool,
-    fp: *const (),
+    fp: *const c_void,
 }
 
 impl __OptVirtualThickFp {

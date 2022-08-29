@@ -455,7 +455,7 @@ impl<'a> RustCodeGenerator<'a> {
             EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
                 self.write(
                     r#"__ctx.cache_lazy_field(
-        self as *const _ as *const (),
+        self as *const _ as *const std::ffi::c_void,
         __uid,
         Ok(__Register::new_box::<"#,
                 );
@@ -474,7 +474,7 @@ impl<'a> RustCodeGenerator<'a> {
             EagerExprQualifier::EvalRef => {
                 self.write(format!(
                     r#"__ctx.cache_lazy_field(
-        self as *const _ as *const (),
+        self as *const _ as *const std::ffi::c_void,
         __uid,
         Ok(__Register::new_{}eval_ref::<"#,
                     match output_ty.is_option() {

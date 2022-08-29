@@ -39,15 +39,14 @@ impl EagerContract {
                     },
                     ParameterModifier::Owned | ParameterModifier::OwnedMut => {
                         let canonical_parameter_ty = parameter_ty.canonicalize();
-                        match canonical_parameter_ty.kind() {
-                            CanonicalTyKind::Intrinsic => match db.is_copyable(parameter_ty)? {
+                        match canonical_parameter_ty.qual() {
+                            CanonicalQualifier::Intrinsic => match db.is_copyable(parameter_ty)? {
                                 true => EagerContract::Pure,
                                 false => EagerContract::Move,
                             },
-                            CanonicalTyKind::Optional => todo!(),
-                            CanonicalTyKind::EvalRef => todo!(),
-                            CanonicalTyKind::OptionalEvalRef => EagerContract::EvalRef,
-                            CanonicalTyKind::TempRefMut => todo!(),
+                            CanonicalQualifier::EvalRef => EagerContract::EvalRef,
+                            CanonicalQualifier::TempRef => todo!(),
+                            CanonicalQualifier::TempRefMut => todo!(),
                         }
                     }
                     ParameterModifier::TempRefMut => EagerContract::TempRefMut,

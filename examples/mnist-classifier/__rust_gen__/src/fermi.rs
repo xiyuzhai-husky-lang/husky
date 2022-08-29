@@ -19,7 +19,9 @@ impl<'eval> FermiMatchResult<'eval> {
     }
     pub(crate) fn norm(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
         let __uid = entity_uid!(__ctx, "mnist_classifier::fermi::FermiMatchResult::norm");
-        if let Some(__result) = __ctx.opt_cached_lazy_field(self as *const _ as *const (), __uid) {
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
             return __result
                 .unwrap()
                 .downcast_eval_ref(&__registration__::__F32_VTABLE);
@@ -30,7 +32,7 @@ impl<'eval> FermiMatchResult<'eval> {
         }
         __ctx
             .cache_lazy_field(
-                self as *const _ as *const (),
+                self as *const _ as *const std::ffi::c_void,
                 __uid,
                 Ok(__Register::new_box::<f32>(
                     norm,

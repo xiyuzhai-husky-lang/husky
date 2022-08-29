@@ -1,4 +1,4 @@
-use std::{borrow::Borrow, fmt::Debug, hash::Hash, ops::Deref};
+use std::{borrow::Borrow, ffi::c_void, fmt::Debug, hash::Hash, ops::Deref};
 
 pub trait Intern:
     'static
@@ -24,13 +24,13 @@ where
 }
 
 impl<T> InternedPtr<T> {
-    pub unsafe fn from_raw(raw: *const ()) -> InternedPtr<T> {
+    pub unsafe fn from_raw(raw: *const c_void) -> InternedPtr<T> {
         let raw = raw as *const T;
         let target: &'static T = &*raw;
         Self { target }
     }
-    pub unsafe fn to_raw(self) -> *const () {
-        self.target as *const T as *const ()
+    pub unsafe fn to_raw(self) -> *const c_void {
+        self.target as *const T as *const c_void
     }
 }
 

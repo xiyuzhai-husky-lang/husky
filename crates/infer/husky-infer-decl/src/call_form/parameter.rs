@@ -37,7 +37,7 @@ impl ParameterDecl {
 
     pub fn from_field(db: &dyn DeclQueryGroup, field_decl: &FieldDecl) -> InferResult<Self> {
         Ok(ParameterDecl::new(
-            ParameterModifier::from_member(field_decl.modifier),
+            ParameterModifier::from_field(field_decl.modifier),
             field_decl.ty,
             field_decl.ident,
         ))

@@ -17,14 +17,16 @@ impl ConnectedComponent {
             __ctx,
             "mnist_classifier::connected_component::ConnectedComponent::raw_contours"
         );
-        if let Some(__result) = __ctx.opt_cached_lazy_field(self as *const _ as *const (), __uid) {
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
             return __result
                 .unwrap()
                 .downcast_eval_ref(&__registration__::__VEC_RAW_CONTOUR_VTABLE);
         }
         return __ctx
             .cache_lazy_field(
-                self as *const _ as *const (),
+                self as *const _ as *const std::ffi::c_void,
                 __uid,
                 Ok(__Register::new_box::<
                     Vec<crate::raw_contour::RawContour<'eval>>,

@@ -9,7 +9,10 @@ pub use vtable::*;
 use wild_utils::wild_arb_ref;
 
 use crate::*;
-use std::panic::{RefUnwindSafe, UnwindSafe};
+use std::{
+    ffi::c_void,
+    panic::{RefUnwindSafe, UnwindSafe},
+};
 
 #[repr(C)]
 pub struct __Register<'eval> {
@@ -42,7 +45,7 @@ pub union __RegisterData {
     pub as_b64: u64,
     pub as_f32: f32,
     pub as_f64: f64,
-    pub as_ptr: *mut (),
+    pub as_ptr: *mut c_void,
 }
 
 unsafe impl<'eval> Send for __Register<'eval> {}
@@ -143,10 +146,10 @@ where
 }
 
 impl<'eval> __Register<'eval> {
-    fn any_ref(&self) -> &() {
+    fn any_ref(&self) -> &c_void {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => unsafe {
-                &*(&self.data as *const _ as *const ())
+                &*(&self.data as *const _ as *const c_void)
             },
             __RegisterDataKind::Box | __RegisterDataKind::EvalRef | __RegisterDataKind::TempRef => unsafe {
                 &*self.data.as_ptr
@@ -185,7 +188,7 @@ impl<'eval> __Register<'eval> {
             __Register {
                 data_kind: __RegisterDataKind::Box,
                 data: __RegisterData {
-                    as_ptr: ptr as *mut (),
+                    as_ptr: ptr as *mut c_void,
                 },
                 vtable: proto,
             }
@@ -199,7 +202,7 @@ impl<'eval> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::Box,
             data: __RegisterData {
-                as_ptr: ptr as *mut (),
+                as_ptr: ptr as *mut c_void,
             },
             vtable: proto,
         }
@@ -213,7 +216,7 @@ impl<'eval> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::EvalRef,
             data: __RegisterData {
-                as_ptr: ptr as *mut (),
+                as_ptr: ptr as *mut c_void,
             },
             vtable: proto,
         }
@@ -238,7 +241,7 @@ impl<'eval> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::TempRef,
             data: __RegisterData {
-                as_ptr: ptr as *mut (),
+                as_ptr: ptr as *mut c_void,
             },
             vtable: proto,
         }
@@ -253,7 +256,7 @@ impl<'eval> __Register<'eval> {
             __Register {
                 data_kind: __RegisterDataKind::TempRef,
                 data: __RegisterData {
-                    as_ptr: ptr as *mut (),
+                    as_ptr: ptr as *mut c_void,
                 },
                 vtable: proto,
             }
@@ -270,7 +273,7 @@ impl<'eval> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::TempMut,
             data: __RegisterData {
-                as_ptr: ptr as *mut (),
+                as_ptr: ptr as *mut c_void,
             },
             vtable: proto,
         }
@@ -285,7 +288,7 @@ impl<'eval> __Register<'eval> {
             __Register {
                 data_kind: __RegisterDataKind::TempMut,
                 data: __RegisterData {
-                    as_ptr: ptr as *mut (),
+                    as_ptr: ptr as *mut c_void,
                 },
                 vtable: proto,
             }

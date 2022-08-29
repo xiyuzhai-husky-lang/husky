@@ -17,28 +17,35 @@ pub unsafe extern "C" fn __void_primitive_value_to_bool(data: __RegisterData) ->
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __void_primitive_value_to_box(data: __RegisterData) -> *mut () {
+pub unsafe extern "C" fn __void_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {
+    let data = unsafe { *(data_ptr as *const void) };
+    false
+}
+
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __void_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {
     let data = data.as_void;
     let ptr: *mut void = Box::<void>::into_raw(Box::new(data));
-    ptr as *mut ()
+    ptr as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __void_clone(data: *mut ()) -> *mut () {
-    Box::<void>::into_raw(Box::new((*(data as *mut void)).clone())) as *mut ()
+pub unsafe extern "C" fn __void_clone(data: *mut c_void) -> *mut std::ffi::c_void {
+    Box::<void>::into_raw(Box::new((*(data as *mut void)).clone())) as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __void_drop(data: *mut ()) {
+pub unsafe extern "C" fn __void_drop(data: *mut c_void) {
     drop(Box::from_raw(data as *mut void))
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __void_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const void) == *(other as *const () as *const void)
+pub unsafe extern "C" fn __void_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const void) == *(other as *const std::ffi::c_void as *const void)
 }
 
 #[rustfmt::skip]
@@ -52,6 +59,7 @@ pub unsafe extern "C" fn __void_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __VOID_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: Some(__void_primitive_value_to_bool),
+    primitive_ref_to_bool: Some(__void_primitive_ref_to_bool),
     primitive_value_to_box: Some(__void_primitive_value_to_box),
     clone: __void_clone,
     drop: __void_drop,
@@ -107,28 +115,35 @@ pub unsafe extern "C" fn __bool_primitive_value_to_bool(data: __RegisterData) ->
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __bool_primitive_value_to_box(data: __RegisterData) -> *mut () {
+pub unsafe extern "C" fn __bool_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {
+    let data = unsafe { *(data_ptr as *const bool) };
+    data
+}
+
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __bool_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {
     let data = data.as_bool;
     let ptr: *mut bool = Box::<bool>::into_raw(Box::new(data));
-    ptr as *mut ()
+    ptr as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __bool_clone(data: *mut ()) -> *mut () {
-    Box::<bool>::into_raw(Box::new((*(data as *mut bool)).clone())) as *mut ()
+pub unsafe extern "C" fn __bool_clone(data: *mut c_void) -> *mut std::ffi::c_void {
+    Box::<bool>::into_raw(Box::new((*(data as *mut bool)).clone())) as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __bool_drop(data: *mut ()) {
+pub unsafe extern "C" fn __bool_drop(data: *mut c_void) {
     drop(Box::from_raw(data as *mut bool))
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __bool_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const bool) == *(other as *const () as *const bool)
+pub unsafe extern "C" fn __bool_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const bool) == *(other as *const std::ffi::c_void as *const bool)
 }
 
 #[rustfmt::skip]
@@ -142,6 +157,7 @@ pub unsafe extern "C" fn __bool_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __BOOL_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: Some(__bool_primitive_value_to_bool),
+    primitive_ref_to_bool: Some(__bool_primitive_ref_to_bool),
     primitive_value_to_box: Some(__bool_primitive_value_to_box),
     clone: __bool_clone,
     drop: __bool_drop,
@@ -197,28 +213,35 @@ pub unsafe extern "C" fn __i32_primitive_value_to_bool(data: __RegisterData) -> 
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __i32_primitive_value_to_box(data: __RegisterData) -> *mut () {
+pub unsafe extern "C" fn __i32_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {
+    let data = unsafe { *(data_ptr as *const i32) };
+    data != 0
+}
+
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __i32_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {
     let data = data.as_i32;
     let ptr: *mut i32 = Box::<i32>::into_raw(Box::new(data));
-    ptr as *mut ()
+    ptr as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __i32_clone(data: *mut ()) -> *mut () {
-    Box::<i32>::into_raw(Box::new((*(data as *mut i32)).clone())) as *mut ()
+pub unsafe extern "C" fn __i32_clone(data: *mut c_void) -> *mut std::ffi::c_void {
+    Box::<i32>::into_raw(Box::new((*(data as *mut i32)).clone())) as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __i32_drop(data: *mut ()) {
+pub unsafe extern "C" fn __i32_drop(data: *mut c_void) {
     drop(Box::from_raw(data as *mut i32))
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __i32_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const i32) == *(other as *const () as *const i32)
+pub unsafe extern "C" fn __i32_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const i32) == *(other as *const std::ffi::c_void as *const i32)
 }
 
 #[rustfmt::skip]
@@ -232,6 +255,7 @@ pub unsafe extern "C" fn __i32_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __I32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: Some(__i32_primitive_value_to_bool),
+    primitive_ref_to_bool: Some(__i32_primitive_ref_to_bool),
     primitive_value_to_box: Some(__i32_primitive_value_to_box),
     clone: __i32_clone,
     drop: __i32_drop,
@@ -287,28 +311,35 @@ pub unsafe extern "C" fn __i64_primitive_value_to_bool(data: __RegisterData) -> 
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __i64_primitive_value_to_box(data: __RegisterData) -> *mut () {
+pub unsafe extern "C" fn __i64_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {
+    let data = unsafe { *(data_ptr as *const i64) };
+    data != 0
+}
+
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __i64_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {
     let data = data.as_i64;
     let ptr: *mut i64 = Box::<i64>::into_raw(Box::new(data));
-    ptr as *mut ()
+    ptr as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __i64_clone(data: *mut ()) -> *mut () {
-    Box::<i64>::into_raw(Box::new((*(data as *mut i64)).clone())) as *mut ()
+pub unsafe extern "C" fn __i64_clone(data: *mut c_void) -> *mut std::ffi::c_void {
+    Box::<i64>::into_raw(Box::new((*(data as *mut i64)).clone())) as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __i64_drop(data: *mut ()) {
+pub unsafe extern "C" fn __i64_drop(data: *mut c_void) {
     drop(Box::from_raw(data as *mut i64))
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __i64_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const i64) == *(other as *const () as *const i64)
+pub unsafe extern "C" fn __i64_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const i64) == *(other as *const std::ffi::c_void as *const i64)
 }
 
 #[rustfmt::skip]
@@ -322,6 +353,7 @@ pub unsafe extern "C" fn __i64_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __I64_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: Some(__i64_primitive_value_to_bool),
+    primitive_ref_to_bool: Some(__i64_primitive_ref_to_bool),
     primitive_value_to_box: Some(__i64_primitive_value_to_box),
     clone: __i64_clone,
     drop: __i64_drop,
@@ -377,28 +409,35 @@ pub unsafe extern "C" fn __b32_primitive_value_to_bool(data: __RegisterData) -> 
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b32_primitive_value_to_box(data: __RegisterData) -> *mut () {
+pub unsafe extern "C" fn __b32_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {
+    let data = unsafe { *(data_ptr as *const b32) };
+    data != 0
+}
+
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __b32_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {
     let data = data.as_b32;
     let ptr: *mut b32 = Box::<b32>::into_raw(Box::new(data));
-    ptr as *mut ()
+    ptr as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b32_clone(data: *mut ()) -> *mut () {
-    Box::<b32>::into_raw(Box::new((*(data as *mut b32)).clone())) as *mut ()
+pub unsafe extern "C" fn __b32_clone(data: *mut c_void) -> *mut std::ffi::c_void {
+    Box::<b32>::into_raw(Box::new((*(data as *mut b32)).clone())) as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b32_drop(data: *mut ()) {
+pub unsafe extern "C" fn __b32_drop(data: *mut c_void) {
     drop(Box::from_raw(data as *mut b32))
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b32_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const b32) == *(other as *const () as *const b32)
+pub unsafe extern "C" fn __b32_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const b32) == *(other as *const std::ffi::c_void as *const b32)
 }
 
 #[rustfmt::skip]
@@ -412,6 +451,7 @@ pub unsafe extern "C" fn __b32_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __B32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: Some(__b32_primitive_value_to_bool),
+    primitive_ref_to_bool: Some(__b32_primitive_ref_to_bool),
     primitive_value_to_box: Some(__b32_primitive_value_to_box),
     clone: __b32_clone,
     drop: __b32_drop,
@@ -467,28 +507,35 @@ pub unsafe extern "C" fn __b64_primitive_value_to_bool(data: __RegisterData) -> 
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b64_primitive_value_to_box(data: __RegisterData) -> *mut () {
+pub unsafe extern "C" fn __b64_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {
+    let data = unsafe { *(data_ptr as *const b64) };
+    data != 0
+}
+
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __b64_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {
     let data = data.as_b64;
     let ptr: *mut b64 = Box::<b64>::into_raw(Box::new(data));
-    ptr as *mut ()
+    ptr as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b64_clone(data: *mut ()) -> *mut () {
-    Box::<b64>::into_raw(Box::new((*(data as *mut b64)).clone())) as *mut ()
+pub unsafe extern "C" fn __b64_clone(data: *mut c_void) -> *mut std::ffi::c_void {
+    Box::<b64>::into_raw(Box::new((*(data as *mut b64)).clone())) as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b64_drop(data: *mut ()) {
+pub unsafe extern "C" fn __b64_drop(data: *mut c_void) {
     drop(Box::from_raw(data as *mut b64))
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b64_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const b64) == *(other as *const () as *const b64)
+pub unsafe extern "C" fn __b64_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const b64) == *(other as *const std::ffi::c_void as *const b64)
 }
 
 #[rustfmt::skip]
@@ -502,6 +549,7 @@ pub unsafe extern "C" fn __b64_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __B64_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: Some(__b64_primitive_value_to_bool),
+    primitive_ref_to_bool: Some(__b64_primitive_ref_to_bool),
     primitive_value_to_box: Some(__b64_primitive_value_to_box),
     clone: __b64_clone,
     drop: __b64_drop,
@@ -557,28 +605,35 @@ pub unsafe extern "C" fn __f32_primitive_value_to_bool(data: __RegisterData) -> 
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __f32_primitive_value_to_box(data: __RegisterData) -> *mut () {
+pub unsafe extern "C" fn __f32_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {
+    let data = unsafe { *(data_ptr as *const f32) };
+    data != 0.0
+}
+
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __f32_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {
     let data = data.as_f32;
     let ptr: *mut f32 = Box::<f32>::into_raw(Box::new(data));
-    ptr as *mut ()
+    ptr as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __f32_clone(data: *mut ()) -> *mut () {
-    Box::<f32>::into_raw(Box::new((*(data as *mut f32)).clone())) as *mut ()
+pub unsafe extern "C" fn __f32_clone(data: *mut c_void) -> *mut std::ffi::c_void {
+    Box::<f32>::into_raw(Box::new((*(data as *mut f32)).clone())) as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __f32_drop(data: *mut ()) {
+pub unsafe extern "C" fn __f32_drop(data: *mut c_void) {
     drop(Box::from_raw(data as *mut f32))
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __f32_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const f32) == *(other as *const () as *const f32)
+pub unsafe extern "C" fn __f32_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const f32) == *(other as *const std::ffi::c_void as *const f32)
 }
 
 #[rustfmt::skip]
@@ -592,6 +647,7 @@ pub unsafe extern "C" fn __f32_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __F32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: Some(__f32_primitive_value_to_bool),
+    primitive_ref_to_bool: Some(__f32_primitive_ref_to_bool),
     primitive_value_to_box: Some(__f32_primitive_value_to_box),
     clone: __f32_clone,
     drop: __f32_drop,
@@ -647,28 +703,35 @@ pub unsafe extern "C" fn __f64_primitive_value_to_bool(data: __RegisterData) -> 
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __f64_primitive_value_to_box(data: __RegisterData) -> *mut () {
+pub unsafe extern "C" fn __f64_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {
+    let data = unsafe { *(data_ptr as *const f64) };
+    data != 0.0
+}
+
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __f64_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {
     let data = data.as_f64;
     let ptr: *mut f64 = Box::<f64>::into_raw(Box::new(data));
-    ptr as *mut ()
+    ptr as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __f64_clone(data: *mut ()) -> *mut () {
-    Box::<f64>::into_raw(Box::new((*(data as *mut f64)).clone())) as *mut ()
+pub unsafe extern "C" fn __f64_clone(data: *mut c_void) -> *mut std::ffi::c_void {
+    Box::<f64>::into_raw(Box::new((*(data as *mut f64)).clone())) as *mut std::ffi::c_void
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __f64_drop(data: *mut ()) {
+pub unsafe extern "C" fn __f64_drop(data: *mut c_void) {
     drop(Box::from_raw(data as *mut f64))
 }
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __f64_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const f64) == *(other as *const () as *const f64)
+pub unsafe extern "C" fn __f64_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const f64) == *(other as *const std::ffi::c_void as *const f64)
 }
 
 #[rustfmt::skip]
@@ -682,6 +745,7 @@ pub unsafe extern "C" fn __f64_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __F64_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: Some(__f64_primitive_value_to_bool),
+    primitive_ref_to_bool: Some(__f64_primitive_ref_to_bool),
     primitive_value_to_box: Some(__f64_primitive_value_to_box),
     clone: __f64_clone,
     drop: __f64_drop,
@@ -730,18 +794,18 @@ impl<'eval> __Register<'eval> {
 // __VirtualFunction
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_function_clone(data: *mut ()) -> *mut () {
-    Box::<__VirtualFunction>::into_raw(Box::new((*(data as *mut __VirtualFunction)).clone())) as *mut ()
+pub unsafe extern "C" fn __virtual_function_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<__VirtualFunction>::into_raw(Box::new((*(data as *mut __VirtualFunction)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_function_drop(data: *mut ()) {
+pub unsafe extern "C" fn __virtual_function_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut __VirtualFunction))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_function_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const __VirtualFunction) == *(other as *const () as *const __VirtualFunction)
+pub unsafe extern "C" fn __virtual_function_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const __VirtualFunction) == *(other as *const std::ffi::c_void as *const __VirtualFunction)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -753,6 +817,7 @@ pub unsafe extern "C" fn __virtual_function_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __virtual_function_clone,
     drop: __virtual_function_drop,
@@ -765,18 +830,18 @@ pub static __VIRTUAL_FUNCTION_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 // __VirtualEnum
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_enum_clone(data: *mut ()) -> *mut () {
-    Box::<__VirtualEnum>::into_raw(Box::new((*(data as *mut __VirtualEnum)).clone())) as *mut ()
+pub unsafe extern "C" fn __virtual_enum_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<__VirtualEnum>::into_raw(Box::new((*(data as *mut __VirtualEnum)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_enum_drop(data: *mut ()) {
+pub unsafe extern "C" fn __virtual_enum_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut __VirtualEnum))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_enum_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const __VirtualEnum) == *(other as *const () as *const __VirtualEnum)
+pub unsafe extern "C" fn __virtual_enum_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const __VirtualEnum) == *(other as *const std::ffi::c_void as *const __VirtualEnum)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -788,6 +853,7 @@ pub unsafe extern "C" fn __virtual_enum_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __VIRTUAL_ENUM_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __virtual_enum_clone,
     drop: __virtual_enum_drop,
@@ -819,8 +885,8 @@ impl<'eval, Output: __StaticInfo> __StaticInfo for fn(
 #[rustfmt::skip]
 impl<'eval, Output: __StaticInfo> const ThinFp
     for fn() -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -859,8 +925,8 @@ impl<'eval, Output: __StaticInfo> const ThinFp
     for fn(
         &dyn __EvalContext<'eval>
     ) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -894,8 +960,8 @@ impl<'eval, A0: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -936,8 +1002,8 @@ impl<'eval, A0: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(
         A0, &dyn __EvalContext<'eval>
     ) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -972,8 +1038,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1016,8 +1082,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const Thin
     for fn(
         A0, A1, &dyn __EvalContext<'eval>
     ) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1053,8 +1119,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __Stat
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1099,8 +1165,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __Stat
     for fn(
         A0, A1, A2, &dyn __EvalContext<'eval>
     ) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1137,8 +1203,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2, A3) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1185,8 +1251,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
     for fn(
         A0, A1, A2, A3, &dyn __EvalContext<'eval>
     ) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1224,8 +1290,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2, A3, A4) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1274,8 +1340,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
     for fn(
         A0, A1, A2, A3, A4, &dyn __EvalContext<'eval>
     ) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1314,8 +1380,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2, A3, A4, A5) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1366,8 +1432,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
     for fn(
         A0, A1, A2, A3, A4, A5, &dyn __EvalContext<'eval>
     ) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1407,8 +1473,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1461,8 +1527,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
     for fn(
         A0, A1, A2, A3, A4, A5, A6, &dyn __EvalContext<'eval>
     ) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1503,8 +1569,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1559,8 +1625,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
     for fn(
         A0, A1, A2, A3, A4, A5, A6, A7, &dyn __EvalContext<'eval>
     ) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1602,8 +1668,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 #[rustfmt::skip]
 impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 
@@ -1660,8 +1726,8 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
     for fn(
         A0, A1, A2, A3, A4, A5, A6, A7, A8, &dyn __EvalContext<'eval>
     ) -> Output {
-    fn __to_void_pointer(self) -> *const () {
-        self as *const ()
+    fn __to_void_pointer(self) -> *const c_void {
+        self as *const c_void
     }
 }
 

@@ -311,11 +311,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     let canonical_parameter_ty = parameter_ty.canonicalize();
                     match canonical_parameter_ty.qual() {
                         CanonicalQualifier::Intrinsic => {
-                            if canonical_parameter_ty.is_option() {
-                                todo!()
-                            } else {
-                                self.gen_parameter_downcast_copy(i, parameter)
-                            }
+                            self.gen_parameter_downcast_copy(i, parameter)
                         }
                         CanonicalQualifier::EvalRef => {
                             if canonical_parameter_ty.is_option() {
@@ -347,7 +343,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     let {parameter_name}: "#
         ));
         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
-        match parameter_ty {
+        let maybe_opt = match parameter_ty.is_option() {
+            true => "opt_",
+            false => "",
+        };
+        match parameter_ty.intrinsic() {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
                 RootIdentifier::Void
                 | RootIdentifier::I32
@@ -355,39 +355,15 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 | RootIdentifier::F32
                 | RootIdentifier::F64
                 | RootIdentifier::B32
-                | RootIdentifier::B64 => self.write(&format!(
-                    " = __arguments[{i}].downcast_{root_identifier}();"
+                | RootIdentifier::B64
+                | RootIdentifier::Bool => self.write(&format!(
+                    " = __arguments[{i}].downcast_{maybe_opt}{root_identifier}();"
                 )),
-                RootIdentifier::Bool => todo!(),
-                RootIdentifier::True => todo!(),
-                RootIdentifier::False => todo!(),
-                RootIdentifier::Vec => todo!(),
-                RootIdentifier::Tuple => todo!(),
-                RootIdentifier::Debug => todo!(),
-                RootIdentifier::Std => todo!(),
-                RootIdentifier::Core => todo!(),
-                RootIdentifier::Mor => todo!(),
-                RootIdentifier::ThickFp => todo!(),
-                RootIdentifier::Fn => todo!(),
-                RootIdentifier::FnMut => todo!(),
-                RootIdentifier::FnOnce => todo!(),
-                RootIdentifier::Array => todo!(),
-                RootIdentifier::Domains => todo!(),
-                RootIdentifier::DatasetType => todo!(),
-                RootIdentifier::VisualType => todo!(),
-                RootIdentifier::TypeType => todo!(),
-                RootIdentifier::TraitType => todo!(),
-                RootIdentifier::ModuleType => todo!(),
-                RootIdentifier::CloneTrait => todo!(),
-                RootIdentifier::CopyTrait => todo!(),
-                RootIdentifier::PartialEqTrait => todo!(),
-                RootIdentifier::EqTrait => todo!(),
-                RootIdentifier::Ref => todo!(),
-                RootIdentifier::RefMut => todo!(),
-                RootIdentifier::Option => todo!(),
+                _ => panic!(),
             },
             EntityRoutePtr::Custom(_) => {
-                let parameter_ty_decl: Arc<TyDecl> = self.db.ty_decl(parameter_ty).unwrap();
+                let parameter_ty_decl: Arc<TyDecl> =
+                    self.db.ty_decl(parameter_ty.intrinsic()).unwrap();
                 match parameter_ty_decl.ty_kind {
                     TyKind::Enum => self.write(&format!(
                         " = __arguments[{i}].downcast_temp_ref::<__VirtualEnum>(&__registration__::__VIRTUAL_ENUM_VTABLE).kind_idx.into();"

@@ -6,18 +6,18 @@ type ConnectedComponent = crate::connected_component::ConnectedComponent;
 // ConnectedComponent
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __connected_component_clone(data: *mut ()) -> *mut () {
-    Box::<ConnectedComponent>::into_raw(Box::new((*(data as *mut ConnectedComponent)).clone())) as *mut ()
+pub unsafe extern "C" fn __connected_component_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<ConnectedComponent>::into_raw(Box::new((*(data as *mut ConnectedComponent)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __connected_component_drop(data: *mut ()) {
+pub unsafe extern "C" fn __connected_component_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut ConnectedComponent))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __connected_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const ConnectedComponent) == *(other as *const () as *const ConnectedComponent)
+pub unsafe extern "C" fn __connected_component_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const ConnectedComponent) == *(other as *const std::ffi::c_void as *const ConnectedComponent)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -29,6 +29,7 @@ pub unsafe extern "C" fn __connected_component_assign(registers: *mut __Register
 #[no_mangle]
 pub static __CONNECTED_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __connected_component_clone,
     drop: __connected_component_drop,
@@ -42,18 +43,18 @@ type RawContour<'eval> = crate::raw_contour::RawContour<'eval>;
 // RawContour
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __raw_contour_clone(data: *mut ()) -> *mut () {
-    Box::<RawContour>::into_raw(Box::new((*(data as *mut RawContour)).clone())) as *mut ()
+pub unsafe extern "C" fn __raw_contour_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<RawContour>::into_raw(Box::new((*(data as *mut RawContour)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __raw_contour_drop(data: *mut ()) {
+pub unsafe extern "C" fn __raw_contour_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut RawContour))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __raw_contour_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const RawContour) == *(other as *const () as *const RawContour)
+pub unsafe extern "C" fn __raw_contour_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const RawContour) == *(other as *const std::ffi::c_void as *const RawContour)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -65,6 +66,7 @@ pub unsafe extern "C" fn __raw_contour_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __RAW_CONTOUR_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __raw_contour_clone,
     drop: __raw_contour_drop,
@@ -78,18 +80,18 @@ type Vec__RawContour<'eval> = Vec<crate::raw_contour::RawContour<'eval>>;
 // Vec__RawContour
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_raw_contour_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__RawContour>::into_raw(Box::new((*(data as *mut Vec__RawContour)).clone())) as *mut ()
+pub unsafe extern "C" fn __vec_raw_contour_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Vec__RawContour>::into_raw(Box::new((*(data as *mut Vec__RawContour)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_raw_contour_drop(data: *mut ()) {
+pub unsafe extern "C" fn __vec_raw_contour_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut Vec__RawContour))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_raw_contour_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__RawContour) == *(other as *const () as *const Vec__RawContour)
+pub unsafe extern "C" fn __vec_raw_contour_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Vec__RawContour) == *(other as *const std::ffi::c_void as *const Vec__RawContour)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -101,6 +103,7 @@ pub unsafe extern "C" fn __vec_raw_contour_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __VEC_RAW_CONTOUR_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __vec_raw_contour_clone,
     drop: __vec_raw_contour_drop,
@@ -114,18 +117,18 @@ type Vec__ConnectedComponent = Vec<crate::connected_component::ConnectedComponen
 // Vec__ConnectedComponent
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_connected_component_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__ConnectedComponent>::into_raw(Box::new((*(data as *mut Vec__ConnectedComponent)).clone())) as *mut ()
+pub unsafe extern "C" fn __vec_connected_component_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Vec__ConnectedComponent>::into_raw(Box::new((*(data as *mut Vec__ConnectedComponent)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_connected_component_drop(data: *mut ()) {
+pub unsafe extern "C" fn __vec_connected_component_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut Vec__ConnectedComponent))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_connected_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__ConnectedComponent) == *(other as *const () as *const Vec__ConnectedComponent)
+pub unsafe extern "C" fn __vec_connected_component_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Vec__ConnectedComponent) == *(other as *const std::ffi::c_void as *const Vec__ConnectedComponent)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -137,6 +140,7 @@ pub unsafe extern "C" fn __vec_connected_component_assign(registers: *mut __Regi
 #[no_mangle]
 pub static __VEC_CONNECTED_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __vec_connected_component_clone,
     drop: __vec_connected_component_drop,
@@ -150,18 +154,18 @@ type Point2d = crate::geom2d::Point2d;
 // Point2d
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __point_2_d_clone(data: *mut ()) -> *mut () {
-    Box::<Point2d>::into_raw(Box::new((*(data as *mut Point2d)).clone())) as *mut ()
+pub unsafe extern "C" fn __point_2_d_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Point2d>::into_raw(Box::new((*(data as *mut Point2d)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __point_2_d_drop(data: *mut ()) {
+pub unsafe extern "C" fn __point_2_d_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut Point2d))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __point_2_d_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Point2d) == *(other as *const () as *const Point2d)
+pub unsafe extern "C" fn __point_2_d_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Point2d) == *(other as *const std::ffi::c_void as *const Point2d)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -173,6 +177,7 @@ pub unsafe extern "C" fn __point_2_d_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __POINT_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __point_2_d_clone,
     drop: __point_2_d_drop,
@@ -186,18 +191,18 @@ type Vec__Point2d = Vec<crate::geom2d::Point2d>;
 // Vec__Point2d
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_point_2_d_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__Point2d>::into_raw(Box::new((*(data as *mut Vec__Point2d)).clone())) as *mut ()
+pub unsafe extern "C" fn __vec_point_2_d_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Vec__Point2d>::into_raw(Box::new((*(data as *mut Vec__Point2d)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_point_2_d_drop(data: *mut ()) {
+pub unsafe extern "C" fn __vec_point_2_d_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut Vec__Point2d))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_point_2_d_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__Point2d) == *(other as *const () as *const Vec__Point2d)
+pub unsafe extern "C" fn __vec_point_2_d_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Vec__Point2d) == *(other as *const std::ffi::c_void as *const Vec__Point2d)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -209,6 +214,7 @@ pub unsafe extern "C" fn __vec_point_2_d_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __VEC_POINT_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __vec_point_2_d_clone,
     drop: __vec_point_2_d_drop,
@@ -222,18 +228,18 @@ type LineSegmentSketch<'eval> = crate::line_segment_sketch::LineSegmentSketch<'e
 // LineSegmentSketch
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_sketch_clone(data: *mut ()) -> *mut () {
-    Box::<LineSegmentSketch>::into_raw(Box::new((*(data as *mut LineSegmentSketch)).clone())) as *mut ()
+pub unsafe extern "C" fn __line_segment_sketch_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<LineSegmentSketch>::into_raw(Box::new((*(data as *mut LineSegmentSketch)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_sketch_drop(data: *mut ()) {
+pub unsafe extern "C" fn __line_segment_sketch_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut LineSegmentSketch))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_sketch_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const LineSegmentSketch) == *(other as *const () as *const LineSegmentSketch)
+pub unsafe extern "C" fn __line_segment_sketch_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const LineSegmentSketch) == *(other as *const std::ffi::c_void as *const LineSegmentSketch)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -245,6 +251,7 @@ pub unsafe extern "C" fn __line_segment_sketch_assign(registers: *mut __Register
 #[no_mangle]
 pub static __LINE_SEGMENT_SKETCH_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __line_segment_sketch_clone,
     drop: __line_segment_sketch_drop,
@@ -258,18 +265,18 @@ type Direction = crate::raw_contour::Direction;
 // Direction
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __direction_clone(data: *mut ()) -> *mut () {
-    Box::<Direction>::into_raw(Box::new((*(data as *mut Direction)).clone())) as *mut ()
+pub unsafe extern "C" fn __direction_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Direction>::into_raw(Box::new((*(data as *mut Direction)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __direction_drop(data: *mut ()) {
+pub unsafe extern "C" fn __direction_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut Direction))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __direction_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Direction) == *(other as *const () as *const Direction)
+pub unsafe extern "C" fn __direction_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Direction) == *(other as *const std::ffi::c_void as *const Direction)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -281,6 +288,7 @@ pub unsafe extern "C" fn __direction_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __DIRECTION_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __direction_clone,
     drop: __direction_drop,
@@ -294,18 +302,18 @@ type StreakCache = crate::raw_contour::StreakCache;
 // StreakCache
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __streak_cache_clone(data: *mut ()) -> *mut () {
-    Box::<StreakCache>::into_raw(Box::new((*(data as *mut StreakCache)).clone())) as *mut ()
+pub unsafe extern "C" fn __streak_cache_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<StreakCache>::into_raw(Box::new((*(data as *mut StreakCache)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __streak_cache_drop(data: *mut ()) {
+pub unsafe extern "C" fn __streak_cache_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut StreakCache))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __streak_cache_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const StreakCache) == *(other as *const () as *const StreakCache)
+pub unsafe extern "C" fn __streak_cache_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const StreakCache) == *(other as *const std::ffi::c_void as *const StreakCache)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -317,6 +325,7 @@ pub unsafe extern "C" fn __streak_cache_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __STREAK_CACHE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __streak_cache_clone,
     drop: __streak_cache_drop,
@@ -330,18 +339,18 @@ type Vector2d = crate::geom2d::Vector2d;
 // Vector2d
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vector_2_d_clone(data: *mut ()) -> *mut () {
-    Box::<Vector2d>::into_raw(Box::new((*(data as *mut Vector2d)).clone())) as *mut ()
+pub unsafe extern "C" fn __vector_2_d_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Vector2d>::into_raw(Box::new((*(data as *mut Vector2d)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vector_2_d_drop(data: *mut ()) {
+pub unsafe extern "C" fn __vector_2_d_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut Vector2d))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vector_2_d_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vector2d) == *(other as *const () as *const Vector2d)
+pub unsafe extern "C" fn __vector_2_d_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Vector2d) == *(other as *const std::ffi::c_void as *const Vector2d)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -353,6 +362,7 @@ pub unsafe extern "C" fn __vector_2_d_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __VECTOR_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __vector_2_d_clone,
     drop: __vector_2_d_drop,
@@ -367,18 +377,18 @@ type ConcaveComponent<'eval> =
 // ConcaveComponent
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __concave_component_clone(data: *mut ()) -> *mut () {
-    Box::<ConcaveComponent>::into_raw(Box::new((*(data as *mut ConcaveComponent)).clone())) as *mut ()
+pub unsafe extern "C" fn __concave_component_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<ConcaveComponent>::into_raw(Box::new((*(data as *mut ConcaveComponent)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __concave_component_drop(data: *mut ()) {
+pub unsafe extern "C" fn __concave_component_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut ConcaveComponent))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __concave_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const ConcaveComponent) == *(other as *const () as *const ConcaveComponent)
+pub unsafe extern "C" fn __concave_component_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const ConcaveComponent) == *(other as *const std::ffi::c_void as *const ConcaveComponent)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -390,6 +400,7 @@ pub unsafe extern "C" fn __concave_component_assign(registers: *mut __Register) 
 #[no_mangle]
 pub static __CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __concave_component_clone,
     drop: __concave_component_drop,
@@ -403,18 +414,18 @@ type LineSegmentStroke<'eval> = crate::line_segment_sketch::LineSegmentStroke<'e
 // LineSegmentStroke
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_stroke_clone(data: *mut ()) -> *mut () {
-    Box::<LineSegmentStroke>::into_raw(Box::new((*(data as *mut LineSegmentStroke)).clone())) as *mut ()
+pub unsafe extern "C" fn __line_segment_stroke_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<LineSegmentStroke>::into_raw(Box::new((*(data as *mut LineSegmentStroke)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_stroke_drop(data: *mut ()) {
+pub unsafe extern "C" fn __line_segment_stroke_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut LineSegmentStroke))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_stroke_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const LineSegmentStroke) == *(other as *const () as *const LineSegmentStroke)
+pub unsafe extern "C" fn __line_segment_stroke_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const LineSegmentStroke) == *(other as *const std::ffi::c_void as *const LineSegmentStroke)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -426,6 +437,7 @@ pub unsafe extern "C" fn __line_segment_stroke_assign(registers: *mut __Register
 #[no_mangle]
 pub static __LINE_SEGMENT_STROKE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __line_segment_stroke_clone,
     drop: __line_segment_stroke_drop,
@@ -440,18 +452,18 @@ type CyclicSlice__LineSegmentStroke<'eval> =
 // CyclicSlice__LineSegmentStroke
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __cyclic_slice_line_segment_stroke_clone(data: *mut ()) -> *mut () {
-    Box::<CyclicSlice__LineSegmentStroke>::into_raw(Box::new((*(data as *mut CyclicSlice__LineSegmentStroke)).clone())) as *mut ()
+pub unsafe extern "C" fn __cyclic_slice_line_segment_stroke_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<CyclicSlice__LineSegmentStroke>::into_raw(Box::new((*(data as *mut CyclicSlice__LineSegmentStroke)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __cyclic_slice_line_segment_stroke_drop(data: *mut ()) {
+pub unsafe extern "C" fn __cyclic_slice_line_segment_stroke_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut CyclicSlice__LineSegmentStroke))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __cyclic_slice_line_segment_stroke_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const CyclicSlice__LineSegmentStroke) == *(other as *const () as *const CyclicSlice__LineSegmentStroke)
+pub unsafe extern "C" fn __cyclic_slice_line_segment_stroke_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const CyclicSlice__LineSegmentStroke) == *(other as *const std::ffi::c_void as *const CyclicSlice__LineSegmentStroke)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -463,6 +475,7 @@ pub unsafe extern "C" fn __cyclic_slice_line_segment_stroke_assign(registers: *m
 #[no_mangle]
 pub static __CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __cyclic_slice_line_segment_stroke_clone,
     drop: __cyclic_slice_line_segment_stroke_drop,
@@ -477,18 +490,18 @@ type Vec__ConcaveComponent<'eval> =
 // Vec__ConcaveComponent
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_concave_component_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__ConcaveComponent>::into_raw(Box::new((*(data as *mut Vec__ConcaveComponent)).clone())) as *mut ()
+pub unsafe extern "C" fn __vec_concave_component_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Vec__ConcaveComponent>::into_raw(Box::new((*(data as *mut Vec__ConcaveComponent)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_concave_component_drop(data: *mut ()) {
+pub unsafe extern "C" fn __vec_concave_component_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut Vec__ConcaveComponent))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_concave_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__ConcaveComponent) == *(other as *const () as *const Vec__ConcaveComponent)
+pub unsafe extern "C" fn __vec_concave_component_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Vec__ConcaveComponent) == *(other as *const std::ffi::c_void as *const Vec__ConcaveComponent)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -500,6 +513,7 @@ pub unsafe extern "C" fn __vec_concave_component_assign(registers: *mut __Regist
 #[no_mangle]
 pub static __VEC_CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __vec_concave_component_clone,
     drop: __vec_concave_component_drop,
@@ -513,18 +527,18 @@ type ConvexCompoent<'eval> = crate::line_segment_sketch::convex_component::Conve
 // ConvexCompoent
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __convex_compoent_clone(data: *mut ()) -> *mut () {
-    Box::<ConvexCompoent>::into_raw(Box::new((*(data as *mut ConvexCompoent)).clone())) as *mut ()
+pub unsafe extern "C" fn __convex_compoent_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<ConvexCompoent>::into_raw(Box::new((*(data as *mut ConvexCompoent)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __convex_compoent_drop(data: *mut ()) {
+pub unsafe extern "C" fn __convex_compoent_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut ConvexCompoent))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __convex_compoent_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const ConvexCompoent) == *(other as *const () as *const ConvexCompoent)
+pub unsafe extern "C" fn __convex_compoent_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const ConvexCompoent) == *(other as *const std::ffi::c_void as *const ConvexCompoent)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -536,6 +550,7 @@ pub unsafe extern "C" fn __convex_compoent_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __CONVEX_COMPOENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __convex_compoent_clone,
     drop: __convex_compoent_drop,
@@ -549,18 +564,18 @@ type LineSegment = crate::line_segment_sketch::line_segment::LineSegment;
 // LineSegment
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_clone(data: *mut ()) -> *mut () {
-    Box::<LineSegment>::into_raw(Box::new((*(data as *mut LineSegment)).clone())) as *mut ()
+pub unsafe extern "C" fn __line_segment_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<LineSegment>::into_raw(Box::new((*(data as *mut LineSegment)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_drop(data: *mut ()) {
+pub unsafe extern "C" fn __line_segment_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut LineSegment))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __line_segment_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const LineSegment) == *(other as *const () as *const LineSegment)
+pub unsafe extern "C" fn __line_segment_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const LineSegment) == *(other as *const std::ffi::c_void as *const LineSegment)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -572,6 +587,7 @@ pub unsafe extern "C" fn __line_segment_assign(registers: *mut __Register) {
 #[no_mangle]
 pub static __LINE_SEGMENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __line_segment_clone,
     drop: __line_segment_drop,
@@ -585,18 +601,18 @@ type CyclicSlice__Point2d<'eval> = __std::slice::CyclicSlice<'eval, crate::geom2
 // CyclicSlice__Point2d
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __cyclic_slice_point_2_d_clone(data: *mut ()) -> *mut () {
-    Box::<CyclicSlice__Point2d>::into_raw(Box::new((*(data as *mut CyclicSlice__Point2d)).clone())) as *mut ()
+pub unsafe extern "C" fn __cyclic_slice_point_2_d_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<CyclicSlice__Point2d>::into_raw(Box::new((*(data as *mut CyclicSlice__Point2d)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __cyclic_slice_point_2_d_drop(data: *mut ()) {
+pub unsafe extern "C" fn __cyclic_slice_point_2_d_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut CyclicSlice__Point2d))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __cyclic_slice_point_2_d_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const CyclicSlice__Point2d) == *(other as *const () as *const CyclicSlice__Point2d)
+pub unsafe extern "C" fn __cyclic_slice_point_2_d_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const CyclicSlice__Point2d) == *(other as *const std::ffi::c_void as *const CyclicSlice__Point2d)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -608,6 +624,7 @@ pub unsafe extern "C" fn __cyclic_slice_point_2_d_assign(registers: *mut __Regis
 #[no_mangle]
 pub static __CYCLIC_SLICE_POINT_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __cyclic_slice_point_2_d_clone,
     drop: __cyclic_slice_point_2_d_drop,
@@ -621,18 +638,18 @@ type Vec__LineSegmentStroke<'eval> = Vec<crate::line_segment_sketch::LineSegment
 // Vec__LineSegmentStroke
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_line_segment_stroke_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__LineSegmentStroke>::into_raw(Box::new((*(data as *mut Vec__LineSegmentStroke)).clone())) as *mut ()
+pub unsafe extern "C" fn __vec_line_segment_stroke_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Vec__LineSegmentStroke>::into_raw(Box::new((*(data as *mut Vec__LineSegmentStroke)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_line_segment_stroke_drop(data: *mut ()) {
+pub unsafe extern "C" fn __vec_line_segment_stroke_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut Vec__LineSegmentStroke))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_line_segment_stroke_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__LineSegmentStroke) == *(other as *const () as *const Vec__LineSegmentStroke)
+pub unsafe extern "C" fn __vec_line_segment_stroke_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Vec__LineSegmentStroke) == *(other as *const std::ffi::c_void as *const Vec__LineSegmentStroke)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -644,6 +661,7 @@ pub unsafe extern "C" fn __vec_line_segment_stroke_assign(registers: *mut __Regi
 #[no_mangle]
 pub static __VEC_LINE_SEGMENT_STROKE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __vec_line_segment_stroke_clone,
     drop: __vec_line_segment_stroke_drop,
@@ -657,18 +675,18 @@ type FermiMatchResult<'eval> = crate::fermi::FermiMatchResult<'eval>;
 // FermiMatchResult
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __fermi_match_result_clone(data: *mut ()) -> *mut () {
-    Box::<FermiMatchResult>::into_raw(Box::new((*(data as *mut FermiMatchResult)).clone())) as *mut ()
+pub unsafe extern "C" fn __fermi_match_result_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<FermiMatchResult>::into_raw(Box::new((*(data as *mut FermiMatchResult)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __fermi_match_result_drop(data: *mut ()) {
+pub unsafe extern "C" fn __fermi_match_result_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut FermiMatchResult))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __fermi_match_result_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const FermiMatchResult) == *(other as *const () as *const FermiMatchResult)
+pub unsafe extern "C" fn __fermi_match_result_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const FermiMatchResult) == *(other as *const std::ffi::c_void as *const FermiMatchResult)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -680,6 +698,7 @@ pub unsafe extern "C" fn __fermi_match_result_assign(registers: *mut __Register)
 #[no_mangle]
 pub static __FERMI_MATCH_RESULT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __fermi_match_result_clone,
     drop: __fermi_match_result_drop,
@@ -694,18 +713,18 @@ type Vec__Option__Ref__ConcaveComponent<'eval> =
 // Vec__Option__Ref__ConcaveComponent
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_option_ref_concave_component_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__Option__Ref__ConcaveComponent>::into_raw(Box::new((*(data as *mut Vec__Option__Ref__ConcaveComponent)).clone())) as *mut ()
+pub unsafe extern "C" fn __vec_option_ref_concave_component_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Vec__Option__Ref__ConcaveComponent>::into_raw(Box::new((*(data as *mut Vec__Option__Ref__ConcaveComponent)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_option_ref_concave_component_drop(data: *mut ()) {
+pub unsafe extern "C" fn __vec_option_ref_concave_component_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut Vec__Option__Ref__ConcaveComponent))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_option_ref_concave_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__Option__Ref__ConcaveComponent) == *(other as *const () as *const Vec__Option__Ref__ConcaveComponent)
+pub unsafe extern "C" fn __vec_option_ref_concave_component_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Vec__Option__Ref__ConcaveComponent) == *(other as *const std::ffi::c_void as *const Vec__Option__Ref__ConcaveComponent)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -717,6 +736,7 @@ pub unsafe extern "C" fn __vec_option_ref_concave_component_assign(registers: *m
 #[no_mangle]
 pub static __VEC_OPTION_REF_CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __vec_option_ref_concave_component_clone,
     drop: __vec_option_ref_concave_component_drop,
@@ -731,18 +751,18 @@ type Vec__Ref__ConcaveComponent<'eval> =
 // Vec__Ref__ConcaveComponent
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_ref_concave_component_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__Ref__ConcaveComponent>::into_raw(Box::new((*(data as *mut Vec__Ref__ConcaveComponent)).clone())) as *mut ()
+pub unsafe extern "C" fn __vec_ref_concave_component_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Vec__Ref__ConcaveComponent>::into_raw(Box::new((*(data as *mut Vec__Ref__ConcaveComponent)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_ref_concave_component_drop(data: *mut ()) {
+pub unsafe extern "C" fn __vec_ref_concave_component_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut Vec__Ref__ConcaveComponent))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_ref_concave_component_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__Ref__ConcaveComponent) == *(other as *const () as *const Vec__Ref__ConcaveComponent)
+pub unsafe extern "C" fn __vec_ref_concave_component_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Vec__Ref__ConcaveComponent) == *(other as *const std::ffi::c_void as *const Vec__Ref__ConcaveComponent)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -754,6 +774,7 @@ pub unsafe extern "C" fn __vec_ref_concave_component_assign(registers: *mut __Re
 #[no_mangle]
 pub static __VEC_REF_CONCAVE_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __vec_ref_concave_component_clone,
     drop: __vec_ref_concave_component_drop,
@@ -771,18 +792,18 @@ type ThickFp__Ref__ConcaveComponent_Option__f32<'eval> = ThickFp<
 // ThickFp__Ref__ConcaveComponent_Option__f32
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_clone(data: *mut ()) -> *mut () {
-    Box::<ThickFp__Ref__ConcaveComponent_Option__f32>::into_raw(Box::new((*(data as *mut ThickFp__Ref__ConcaveComponent_Option__f32)).clone())) as *mut ()
+pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<ThickFp__Ref__ConcaveComponent_Option__f32>::into_raw(Box::new((*(data as *mut ThickFp__Ref__ConcaveComponent_Option__f32)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_drop(data: *mut ()) {
+pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut ThickFp__Ref__ConcaveComponent_Option__f32))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const ThickFp__Ref__ConcaveComponent_Option__f32) == *(other as *const () as *const ThickFp__Ref__ConcaveComponent_Option__f32)
+pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const ThickFp__Ref__ConcaveComponent_Option__f32) == *(other as *const std::ffi::c_void as *const ThickFp__Ref__ConcaveComponent_Option__f32)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -794,6 +815,7 @@ pub unsafe extern "C" fn __thick_fp_ref_concave_component_option_f_32_assign(reg
 #[no_mangle]
 pub static __THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __thick_fp_ref_concave_component_option_f_32_clone,
     drop: __thick_fp_ref_concave_component_option_f_32_drop,
@@ -813,18 +835,18 @@ type Vec__ThickFp__Ref__ConcaveComponent_Option__f32<'eval> = Vec<
 // Vec__ThickFp__Ref__ConcaveComponent_Option__f32
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_clone(data: *mut ()) -> *mut () {
-    Box::<Vec__ThickFp__Ref__ConcaveComponent_Option__f32>::into_raw(Box::new((*(data as *mut Vec__ThickFp__Ref__ConcaveComponent_Option__f32)).clone())) as *mut ()
+pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Vec__ThickFp__Ref__ConcaveComponent_Option__f32>::into_raw(Box::new((*(data as *mut Vec__ThickFp__Ref__ConcaveComponent_Option__f32)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_drop(data: *mut ()) {
+pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_drop(data: *mut std::ffi::c_void) {
     drop(Box::from_raw(data as *mut Vec__ThickFp__Ref__ConcaveComponent_Option__f32))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_eq(this: &(), other: &()) -> bool {
-    *(this as *const () as *const Vec__ThickFp__Ref__ConcaveComponent_Option__f32) == *(other as *const () as *const Vec__ThickFp__Ref__ConcaveComponent_Option__f32)
+pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Vec__ThickFp__Ref__ConcaveComponent_Option__f32) == *(other as *const std::ffi::c_void as *const Vec__ThickFp__Ref__ConcaveComponent_Option__f32)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -836,6 +858,7 @@ pub unsafe extern "C" fn __vec_thick_fp_ref_concave_component_option_f_32_assign
 #[no_mangle]
 pub static __VEC_THICK_FP_REF_CONCAVE_COMPONENT_OPTION_F_32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
     primitive_value_to_box: None,
     clone: __vec_thick_fp_ref_concave_component_option_f_32_clone,
     drop: __vec_thick_fp_ref_concave_component_option_f_32_drop,

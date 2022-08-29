@@ -7,7 +7,7 @@ pub enum __VirtualFunction {
 }
 
 impl __VirtualFunction {
-    // pub fn fp(&self) -> *const () {
+    // pub fn fp(&self) -> *const c_void {
     //     match self {
     //         __VirtualFunction::ThickFp(linkage) => linkage.opt_thick_fp.unwrap(),
     //     }

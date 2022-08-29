@@ -15,8 +15,8 @@ impl std::ops::Deref for __ModelLinkage {
 
 impl PartialEq for __ModelLinkage {
     fn eq(&self, other: &Self) -> bool {
-        self.0 as *const dyn ModelDyn as *const () as usize
-            == other.0 as *const dyn ModelDyn as *const () as usize
+        self.0 as *const dyn ModelDyn as *const c_void as usize
+            == other.0 as *const dyn ModelDyn as *const c_void as usize
     }
 }
 

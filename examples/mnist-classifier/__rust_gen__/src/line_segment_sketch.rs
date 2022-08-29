@@ -64,14 +64,16 @@ impl<'eval> LineSegmentSketch<'eval> {
             __ctx,
             "mnist_classifier::line_segment_sketch::LineSegmentSketch::concave_components"
         );
-        if let Some(__result) = __ctx.opt_cached_lazy_field(self as *const _ as *const (), __uid) {
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
             return __result
                 .unwrap()
                 .downcast_eval_ref(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
         }
         return __ctx
             .cache_lazy_field(
-                self as *const _ as *const (),
+                self as *const _ as *const std::ffi::c_void,
                 __uid,
                 Ok(__Register::new_box::<
                     Vec<concave_component::ConcaveComponent<'eval>>,

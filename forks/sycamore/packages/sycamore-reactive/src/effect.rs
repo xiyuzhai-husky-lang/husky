@@ -359,25 +359,25 @@ mod tests {
     fn effect_preserves_scope_hierarchy() {
         create_scope_immediate(|cx| {
             let trigger = create_signal(cx, ());
-            let parent: &Signal<Option<*const ()>> = create_signal(cx, None);
+            let parent: &Signal<Option<*const c_void>> = create_signal(cx, None);
             create_effect_scoped(
                 cx,
                 |cx| {
                     trigger.track();
                     let p = cx.raw.parent.unwrap();
-                    parent.set(Some(p as *const ()));
+                    parent.set(Some(p as *const c_void));
                 },
                 "haha".into(),
             );
             assert_eq!(
                 parent.get().unwrap(),
-                cx.raw as *const _ as *const (),
+                cx.raw as *const _ as *const c_void,
                 "the parent scope of the effect should be `cx`"
             );
             trigger.set(());
             assert_eq!(
                 parent.get().unwrap(),
-                cx.raw as *const _ as *const (),
+                cx.raw as *const _ as *const c_void,
                 "the parent should still be `cx` after effect is re-executed"
             );
         });

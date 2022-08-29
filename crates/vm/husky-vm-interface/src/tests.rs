@@ -1,3 +1,5 @@
+use std::ffi::c_void;
+
 use crate::*;
 
 #[test]
@@ -40,7 +42,10 @@ fn it() {
 
 #[test]
 fn test_register_data_size() {
-    assert_eq!(std::mem::size_of::<f64>(), std::mem::size_of::<*mut ()>(),);
+    assert_eq!(
+        std::mem::size_of::<f64>(),
+        std::mem::size_of::<*mut c_void>(),
+    );
     assert_eq!(
         std::mem::size_of::<f64>(),
         std::mem::size_of::<__RegisterData>()
@@ -58,40 +63,40 @@ fn test_alignment() {
     let a = __RegisterData { as_void: () };
     unsafe {
         assert_eq!(
-            &a as *const _ as *const (),
-            &a.as_void as *const _ as *const (),
+            &a as *const _ as *const c_void,
+            &a.as_void as *const _ as *const c_void,
         );
         assert_eq!(
-            &a as *const _ as *const (),
-            &a.as_bool as *const _ as *const ()
+            &a as *const _ as *const c_void,
+            &a.as_bool as *const _ as *const c_void
         );
         assert_eq!(
-            &a as *const _ as *const (),
-            &a.as_i32 as *const _ as *const ()
+            &a as *const _ as *const c_void,
+            &a.as_i32 as *const _ as *const c_void
         );
         assert_eq!(
-            &a as *const _ as *const (),
-            &a.as_i64 as *const _ as *const ()
+            &a as *const _ as *const c_void,
+            &a.as_i64 as *const _ as *const c_void
         );
         assert_eq!(
-            &a as *const _ as *const (),
-            &a.as_b32 as *const _ as *const ()
+            &a as *const _ as *const c_void,
+            &a.as_b32 as *const _ as *const c_void
         );
         assert_eq!(
-            &a as *const _ as *const (),
-            &a.as_b64 as *const _ as *const ()
+            &a as *const _ as *const c_void,
+            &a.as_b64 as *const _ as *const c_void
         );
         assert_eq!(
-            &a as *const _ as *const (),
-            &a.as_f32 as *const _ as *const ()
+            &a as *const _ as *const c_void,
+            &a.as_f32 as *const _ as *const c_void
         );
         assert_eq!(
-            &a as *const _ as *const (),
-            &a.as_f64 as *const _ as *const ()
+            &a as *const _ as *const c_void,
+            &a.as_f64 as *const _ as *const c_void
         );
         assert_eq!(
-            &a as *const _ as *const (),
-            &a.as_ptr as *const _ as *const ()
+            &a as *const _ as *const c_void,
+            &a.as_ptr as *const _ as *const c_void
         )
     }
 }

@@ -64,7 +64,7 @@ impl __ResolvedLinkage {
 impl std::fmt::Debug for __ResolvedLinkage {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("__ResolvedLinkage")
-            .field("wrapper", &(self.wrapper as *const ()))
+            .field("wrapper", &(self.wrapper as *const c_void))
             .field("opt_fp", &self.opt_thick_fp)
             .finish()
     }
