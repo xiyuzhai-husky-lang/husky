@@ -1,57 +1,51 @@
-use std::path::{Path, PathBuf};
-
+use crate::*;
 use composite_pattern::{AtomicPattern, CompositePattern};
 
-pub enum PathPattern {
-    BePath { path_tmpl: PathBuf },
+pub enum RelativePathPattern {
+    BePath { tmpl: RelativePathBuf },
     OfExtension { extension: &'static str },
     NotOfExtension { extension: &'static str },
 }
 
-impl AtomicPattern for PathPattern {
-    type Input = Path;
+impl AtomicPattern for RelativePathPattern {
+    type Input = RelativePath;
 
-    fn contains(&self, path: &Path) -> bool {
+    fn contains(&self, path: &RelativePath) -> bool {
         match self {
-            PathPattern::OfExtension { extension } => {
+            RelativePathPattern::OfExtension { extension } => {
                 if let Some(path_extension) = path.extension() {
-                    if let Some(path_extension) = path_extension.to_str() {
-                        path_extension == *extension
-                    } else {
-                        false
-                    }
+                    path_extension == *extension
                 } else {
                     *extension == ""
                 }
             }
-            PathPattern::NotOfExtension { extension } => todo!(),
-            PathPattern::BePath { path_tmpl } => path == (&path_tmpl as &Path),
+            RelativePathPattern::NotOfExtension { extension } => todo!(),
+            RelativePathPattern::BePath { tmpl } => path == tmpl,
         }
     }
 }
 
-impl PathPattern {
+impl RelativePathPattern {
     pub fn extension_is_among(
         extensions: impl IntoIterator<Item = &'static str>,
     ) -> CompositePattern<Self> {
         CompositePattern::Or {
             subpatterns: extensions
                 .into_iter()
-                .map(|extension| PathPattern::OfExtension { extension }.into())
+                .map(|extension| RelativePathPattern::OfExtension { extension }.into())
                 .collect(),
         }
     }
 
     pub fn ignore_paths(
-        root: &Path,
         rel_paths: impl IntoIterator<Item = &'static str>,
     ) -> CompositePattern<Self> {
         CompositePattern::NotOr {
             subpatterns: rel_paths
                 .into_iter()
                 .map(|rel_path| {
-                    PathPattern::BePath {
-                        path_tmpl: root.join(rel_path),
+                    RelativePathPattern::BePath {
+                        tmpl: RelativePathBuf::from(rel_path),
                     }
                     .into()
                 })
@@ -62,11 +56,11 @@ impl PathPattern {
 
 #[test]
 fn test_extension_is_among() {
-    let pattern = PathPattern::extension_is_among(["toml", "hsk", "rs"]);
-    let path0: PathBuf = "haha.toml".into();
-    let path1: PathBuf = "haha.rs".into();
-    let path2: PathBuf = "haha.hs".into();
-    let path3: PathBuf = "haha".into();
+    let pattern = RelativePathPattern::extension_is_among(["toml", "hsk", "rs"]);
+    let path0: RelativePathBuf = "haha.toml".into();
+    let path1: RelativePathBuf = "haha.rs".into();
+    let path2: RelativePathBuf = "haha.hs".into();
+    let path3: RelativePathBuf = "haha".into();
     assert!(pattern.contains(&path0));
     assert!(pattern.contains(&path1));
     assert!(!pattern.contains(&path2));
@@ -75,11 +69,10 @@ fn test_extension_is_among() {
 
 #[test]
 fn test_ignore_paths() {
-    let root: PathBuf = "haha".into();
-    let pattern = PathPattern::ignore_paths(&root, ["target"]);
-    let path0: PathBuf = "haha/target".into();
-    let path1: PathBuf = "haha/data".into();
-    let path2: PathBuf = "target".into();
+    let pattern = RelativePathPattern::ignore_paths(["target"]);
+    let path0: RelativePathBuf = "haha/target".into();
+    let path1: RelativePathBuf = "haha/data".into();
+    let path2: RelativePathBuf = "target".into();
     assert!(!pattern.contains(&path0));
     assert!(pattern.contains(&path1));
     assert!(pattern.contains(&path2));

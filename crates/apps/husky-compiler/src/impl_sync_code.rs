@@ -1,15 +1,18 @@
-use husky_io_utils::{file_sync::diff_file_sync, path_pattern::PathPattern, FileVisitConfig};
+use husky_io_utils::{
+    file_sync::diff_file_sync, relative_path_pattern::RelativePathPattern, FileVisitConfig,
+};
 
 use crate::*;
 
 impl CompilerInstance {
-    pub(crate) fn sync_rust_code(&self, package_dir: &Path) {
+    pub(crate) fn sync_rust_code(&self, package_dir: &Path, verbose: bool) {
         diff_file_sync(
             package_dir.join("__rust_gen_cache__"),
             package_dir.join("__rust_gen__"),
-            &FileVisitConfig {
-                regular_file_filter: PathPattern::extension_is_among(["toml", "hsk", "rs"]),
-                dir_filter: PathPattern::ignore_paths(package_dir, ["target"]),
+            FileVisitConfig {
+                regular_file_filter: RelativePathPattern::extension_is_among(["toml", "hsk", "rs"]),
+                dir_filter: RelativePathPattern::ignore_paths(["target"]),
+                verbose,
             },
         )
     }

@@ -58,6 +58,7 @@ rustflags = ["-Zshare-generics=n"]
 [profile.dev]
 debug = 1
 "#,
+            self.rust_codegen_cache_diff_write_verbose(),
         );
 
         let husky_dir: RelativePathBuf = "./".into();
@@ -69,24 +70,28 @@ debug = 1
         diff_write(
             &rust_dir.join("Cargo.toml"),
             &comptime.cargo_toml_content(target_entrance, &husky_dir.to_path("")),
+            self.rust_codegen_cache_diff_write_verbose(),
         );
 
         // lib.rs
         diff_write(
             &src_dir.join("lib.rs"),
             &comptime.rust_lib_rs_content(target_entrance),
+            self.rust_codegen_cache_diff_write_verbose(),
         );
 
         // __init__.rs
         diff_write(
             &src_dir.join("__init__.rs"),
             &comptime.rust_init_rs_content(target_entrance),
+            self.rust_codegen_cache_diff_write_verbose(),
         );
 
         // __init__.rs
         diff_write(
             &src_dir.join("__registration__.rs"),
             &comptime.rust_registration_rs_content(target_entrance),
+            self.rust_codegen_cache_diff_write_verbose(),
         );
 
         for module in package.subentities.iter() {
@@ -114,6 +119,7 @@ debug = 1
         diff_write(
             &rust_code_path,
             &comptime.rust_mod_rs_content(module.base_route),
+            self.rust_codegen_cache_diff_write_verbose(),
         );
         self.save_husky_code_snapshot(comptime, husky_code_snapshot_path, module.file);
         let module_rust_code_gen_dir = rust_code_path.with_extension("");
@@ -140,6 +146,7 @@ debug = 1
         diff_write(
             husky_code_snapshot_path,
             comptime.file_content(target_entrance).to_str().unwrap(),
+            self.rust_codegen_cache_diff_write_verbose(),
         );
     }
 }

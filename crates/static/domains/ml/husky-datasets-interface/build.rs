@@ -6,7 +6,7 @@ use std::path::PathBuf;
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
     let rust_code_path: PathBuf = "src/__rust_code_gen__.rs".into();
-    husky_io_utils::diff_write(&rust_code_path, &gen_rust_code().unwrap());
+    husky_io_utils::diff_write(&rust_code_path, &gen_rust_code().unwrap(), true);
 }
 
 pub static NONPRIMITIVE_TYPES: &'static [&'static str] =
