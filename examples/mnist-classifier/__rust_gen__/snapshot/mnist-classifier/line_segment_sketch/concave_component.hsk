@@ -30,7 +30,7 @@ struct ConcaveComponent:
         // todo: change this for .. in ..[1..]
         for strokes.start < i < strokes.end:
             let dp = this.strokes[i].displacement()
-            angle_change = angle_change + dp0.angle_to(dp, true)
+            angle_change += dp0.angle_to(dp, true)
             dp0 = dp
         return angle_change
 

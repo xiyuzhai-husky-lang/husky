@@ -23,8 +23,9 @@ pub fn diff_write(path: &Path, content: &str, verbose: bool) {
     };
     if different {
         if verbose {
+            use husky_print_utils::*;
             println!(
-                "content written to path `{}`",
+                "{RED}overwrite{RESET} path `{}`",
                 path.as_os_str().to_str().unwrap()
             );
         }

@@ -19,12 +19,3 @@ check = []
 thin_fp = []
 thick_fp = ["thin_fp"]
 linkage_macro = ["thin_fp", "thin_fp"]
-
-[build-dependencies]
-itertools = "0.10.3"
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-rust-code-repr = { path = "../../comptime/husky-rust-code-repr", features = [
-    "registration"
-] }
-husky-write-utils = { path = "../../utils/husky-write-utils" }
-husky-io-utils = { path = "../../utils/husky-io-utils" }

@@ -90,7 +90,7 @@ impl<'eval> ConcaveComponent<'eval> {
         let mut dp0 = self.strokes[(0) as usize].displacement();
         for i in (self.strokes.start + 1)..self.strokes.end {
             let dp = self.strokes[(i) as usize].displacement();
-            angle_change = angle_change + dp0.angle_to(&dp, true);
+            angle_change += dp0.angle_to(&dp, true);
             dp0 = dp;
         }
         __ctx

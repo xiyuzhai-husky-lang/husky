@@ -9,10 +9,5 @@ serde = { version = "1.0.106", features = ["derive"], optional = true }
 husky-vm-interface = { path = "../../../../vm/husky-vm-interface" }
 husky-datasets-protocol = { path = "../husky-datasets-protocol" }
 
-[build-dependencies]
-husky-rust-code-repr = { path = "../../../../comptime/husky-rust-code-repr" }
-husky-write-utils = { path = "../../../../utils/husky-write-utils" }
-husky-io-utils = { path = "../../../../utils/husky-io-utils" }
-
 [features]
 serde_support = ["dep:serde"]
