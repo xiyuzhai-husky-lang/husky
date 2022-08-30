@@ -96,22 +96,19 @@ impl DebuggerContext {
             if needs_response {
                 Some(Box::new(move |message| match message.variant {
                     HuskyTracerServerMessageVariant::SetRestriction {
-                        opt_figure_canvas_data,
-                        opt_figure_control_data,
+                        new_figure_canvases,
+                        new_figure_controls,
                         new_trace_stalks,
                         new_trace_statss,
                     } => {
-                        opt_active_trace_id.map(|active_trace_id| {
-                            let active_trace = self.trace_context.trace_data(active_trace_id);
-                            self.figure_context.set_opt_figure_data(
-                                self.scope,
-                                &active_trace,
-                                &new_restriction,
-                                opt_figure_canvas_data
-                                    .map(|figure_canvas_data| self.alloc_value(figure_canvas_data)),
-                                opt_figure_control_data,
-                            )
-                        });
+                        self.figure_context.receive_figure_canvases(
+                            self.scope,
+                            new_figure_canvases
+                                .into_iter()
+                                .map(|(k, v)| (k, self.alloc_value(v))),
+                        );
+                        self.figure_context
+                            .receive_figure_controls(self.scope, new_figure_controls.into_iter());
                         self.trace_context.receive_trace_stalks(
                             new_trace_stalks
                                 .into_iter()

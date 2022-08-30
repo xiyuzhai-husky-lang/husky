@@ -15,7 +15,7 @@ use husky_text::TextQueryGroup;
 use husky_vm::{History, HistoryEntry, MutationData, MutationDataVariant, StackSnapshot};
 
 impl HuskyTraceTime {
-    pub fn figure_canvas(
+    pub fn gen_figure_canvas_data(
         &self,
         trace_id: TraceId,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
