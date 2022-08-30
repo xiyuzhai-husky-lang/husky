@@ -123,6 +123,8 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         (B32, Some(BitAnd), B32),
         (B32, Some(BitOr), B32),
         // f32
+        (F32, Some(Add), F32),
+        (F32, Some(Sub), F32),
         (F32, None, F32),
     ];
     write!(

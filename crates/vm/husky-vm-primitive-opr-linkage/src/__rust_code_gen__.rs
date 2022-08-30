@@ -203,6 +203,22 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
                 },
                 none
             ),
+            (F32, Some(Add), F32) => transfer_linkage!(
+                |arguments, _| unsafe {
+                    let new_value: f32 = arguments[0].downcast_f32() + arguments[1].downcast_f32();
+                    *arguments[0].downcast_temp_mut::<f32>(&__F32_VTABLE) = new_value;
+                    __Register::new_void()
+                },
+                none
+            ),
+            (F32, Some(Sub), F32) => transfer_linkage!(
+                |arguments, _| unsafe {
+                    let new_value: f32 = arguments[0].downcast_f32() - arguments[1].downcast_f32();
+                    *arguments[0].downcast_temp_mut::<f32>(&__F32_VTABLE) = new_value;
+                    __Register::new_void()
+                },
+                none
+            ),
             (F32, None, F32) => transfer_linkage!(
                 |arguments, _| unsafe {
                     *arguments[0].downcast_temp_mut::<f32>(&__F32_VTABLE) = arguments[1].downcast_f32();
