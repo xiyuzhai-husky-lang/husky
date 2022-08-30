@@ -142,13 +142,23 @@ It was created as a language to implement certain ideas for efficient image clas
 
 Interesting new languages
 
+##### system-level
+
 Zig <https://github.com/ziglang/zig.git/>
+
+##### theorem proving
 
 Lean 4 <https://github.com/leanprover/lean4/>
 
 Metamath Zero <https://github.com/digama0/mm0#metamath-zero/>
 
+##### gui
+
 Roc <https://github.com/roc-lang/roc/>
+
+##### computer graphics
+
+Taichi <https://github.com/taichi-dev/taichi/>
 
 ### ml frameworks
 
