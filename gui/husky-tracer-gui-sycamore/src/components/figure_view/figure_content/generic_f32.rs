@@ -56,10 +56,25 @@ fn GenericF32Point<'a, G: Html>(scope: Scope<'a>, props: GenericF32PointProps<'a
     view! {
         scope,
         circle (
-            class = format!("ClassIndex{}", props.circle.class_index),
-            cx = {props.circle.cx},
-            cy = {props.circle.cy},
-            r = {props.circle.r}
+            class=format!(
+                "ClassIndex{} {}",
+                props.circle.class_index,
+                if *props.focus.get() == Some(props.sample_id) {
+                    " focused"
+                } else {
+                    ""
+                }
+            ),
+            on:click=move |_| {
+                if *props.focus.get() != Some(props.sample_id) {
+                    props.focus.set(Some(props.sample_id))
+                } else {
+                    props.focus.set(None)
+                }
+            },
+            cx={props.circle.cx},
+            cy={props.circle.cy},
+            r={props.circle.r}
         )
     }
 }
