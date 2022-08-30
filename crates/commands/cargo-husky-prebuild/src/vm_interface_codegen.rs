@@ -1,12 +1,11 @@
-use husky_rust_code_repr::registration::*;
-use husky_write_utils::w;
-use std::fmt::Write;
-use std::path::PathBuf;
+use crate::*;
 
-fn main() {
-    println!("cargo:rerun-if-changed=build.rs");
-    let path: PathBuf = "src/__rust_code_gen__.rs".into();
-    husky_io_utils::diff_write(&path, &gen_rust_code().unwrap(), true);
+pub(crate) fn write_vm_interface_codegen() {
+    diff_write(
+        &PathBuf::from("../../vm/husky-vm-interface/src/__rust_code_gen__.rs"),
+        &gen_rust_code().unwrap(),
+        true,
+    );
 }
 
 pub fn gen_rust_code() -> Result<String, std::fmt::Error> {

@@ -10,7 +10,7 @@ members = [
     "crates/utils/*",
     "crates/tracetime/*",
     "crates/apps/*",
-    "crates/gadgets/*",
+    "crates/commands/*",
     "crates/static/husky-root-static-defn",
     "crates/static/husky-static-defn",
     "crates/static/domains/ml/*",
