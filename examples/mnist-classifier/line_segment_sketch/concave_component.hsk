@@ -26,9 +26,12 @@ struct ConcaveComponent:
 
     proc angle_change -> f32:
         var angle_change = 0.0
+        var dp0 = this.strokes[0].displacement()
         // todo: change this for .. in ..[1..]
         for strokes.start < i < strokes.end:
-            let stroke = this.strokes[i]
+            let dp = this.strokes[i].displacement()
+            angle_change += dp0.angle_to(dp, true)
+            dp0 = dp
         return angle_change
 
     func line_segment() -> LineSegment:

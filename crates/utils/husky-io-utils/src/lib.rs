@@ -27,7 +27,6 @@ pub fn diff_write(path: &Path, content: &str, verbose: bool) {
                 "content written to path `{}`",
                 path.as_os_str().to_str().unwrap()
             );
-            todo!();
         }
         match fs::write(path, content) {
             Ok(_) => (),

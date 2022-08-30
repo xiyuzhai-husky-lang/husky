@@ -24,6 +24,16 @@ struct ConcaveComponent:
                 hausdorff_norm = point_dist
         return hausdorff_norm
 
+    proc angle_change -> f32:
+        var angle_change = 0.0
+        var dp0 = this.strokes[0].displacement()
+        // todo: change this for .. in ..[1..]
+        for strokes.start < i < strokes.end:
+            let dp = this.strokes[i].displacement()
+            angle_change = angle_change + dp0.angle_to(dp, true)
+            dp0 = dp
+        return angle_change
+
     func line_segment() -> LineSegment:
         LineSegment(
             strokes.firstx().start.clone(),
