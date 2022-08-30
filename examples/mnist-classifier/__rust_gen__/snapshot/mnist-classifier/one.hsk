@@ -13,7 +13,8 @@ def is_one -> ?MnistLabel:
     if one_fermi_match.matches[0] be none:
         if one_fermi_match.matches[1] be none:
             MnistLabel::One
-        a = one_fermi_match.matches[1].hausdorff_norm
+        hausdorff_norm = one_fermi_match.matches[1].hausdorff_norm
+        angle_change = one_fermi_match.matches[1].angle_change
         MnistLabel::One
     MnistLabel::One
 

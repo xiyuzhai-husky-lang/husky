@@ -804,6 +804,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, hausdorff_norm)
     ),
     (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::angle_change",
+        },
+        lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, angle_change)
+    ),
+    (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::line_segment_sketch::LineSegmentStroke"
         },

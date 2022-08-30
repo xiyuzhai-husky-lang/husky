@@ -77,6 +77,34 @@ impl<'eval> ConcaveComponent<'eval> {
             .unwrap()
             .downcast_eval_ref(&__registration__::__F32_VTABLE)
     }
+    pub(crate) fn angle_change(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
+        let __uid = entity_uid!(__ctx, "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::angle_change");
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__F32_VTABLE);
+        }
+        let mut angle_change = 0f32;
+        let mut dp0 = self.strokes[(0) as usize].displacement();
+        for i in (self.strokes.start + 1)..self.strokes.end {
+            let dp = self.strokes[(i) as usize].displacement();
+            angle_change = angle_change + dp0.angle_to(&dp, true);
+            dp0 = dp;
+        }
+        __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<f32>(
+                    angle_change,
+                    &__registration__::__F32_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__F32_VTABLE)
+    }
     pub(crate) fn line_segment(&self) -> crate::line_segment_sketch::line_segment::LineSegment {
         return crate::line_segment_sketch::line_segment::LineSegment::__call__(
             self.strokes.firstx().start.clone(),
