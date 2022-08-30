@@ -69,7 +69,7 @@ fn test_extension_is_among() {
 
 #[test]
 fn test_ignore_paths() {
-    let pattern = RelativePathPattern::ignore_paths(["target"]);
+    let pattern = RelativePathPattern::ignore_paths(["haha/target"]);
     let path0: RelativePathBuf = "haha/target".into();
     let path1: RelativePathBuf = "haha/data".into();
     let path2: RelativePathBuf = "target".into();

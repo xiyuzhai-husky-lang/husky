@@ -50,7 +50,7 @@ pub enum HuskyTracerServerMessageVariant {
         opt_figure_canvas_data: Option<FigureCanvasData>,
         opt_figure_control_data: Option<FigureControlData>,
         new_trace_stalks: Vec<(TraceStalkKey, TraceStalk)>,
-        new_trace_stats: Vec<(TraceStatsKey, Option<TraceStats>)>,
+        new_trace_statss: Vec<(TraceStatsKey, Option<TraceStats>)>,
     },
     SetRestrictionWithError {
         sample_id: SampleId,
