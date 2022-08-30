@@ -19,9 +19,64 @@ Biggest problem: doesn't explain well, totally not scientific.
 
 Here we present a new programming-based approach, which can generate models that are truly interpretable and efficient.
 
-Let's first see what the model is like in the case of Mnist.
+### Mathematical Insights
+
+This section is skippable, but for those with enough mathematical maturity, reading through section will greatly help understanding of the big picture.
+
+#### Invariants
+
+In mathematics, we use category theory to formalize the study of abstract objects.
+In a category, two objects are isomorphic iff there is an isomorphism between them, where an isomorphism from $A$ to $B$ is a morphism that has an double inverse.
+So there arises naturally the mathematical problem of telling whether two given objects are isomorphic, such as
+
+- isomorphism of two graphs
+- isomorphism of topological spaces
+- isomorphism of groups
+- isomorphism of schemes
+
+When things can be represented in finite terms, this problem can also be seen as a computational one.
+However, from definition one can only argue that the problem is $NP$ for many cases. For example, isomorphism of graphs are actually NP-hard.
+But the good new is, the problem is not always NP-hard. Mathematicians have used `invariants` to simplify the isomorphism problem.
+
+An invariant is roughly a mathematically defined mapping from a category to a set, such that isomorphic objects are mapped to the same value.
+If we're lucky that this invariant completely determines isomorphic classes, then basically the mathematical problem is solved.
+If furthermore, the invariant is computationally easy to compute (at least in polynomial time), then the computational problem is also solved.
+
+Examples of smart invariants:
+
+- genus of algebraic curve
+- euler characteristics
+
+How is this related to machine learning?
+
+An ideal pattern recognition can be seen as such: given a set of labeled object, for each new object, find the object isomorphic to it, and return the label.
+
+Traditional computer vision uses many template matching, which is inherently inefficient.
+If we can find smart features (corresponding to smart invariants in an ideal world), then things can be much easier.
+
+It's important to model things appropriately. The concept of `shape` is intrinsically a computational one,
+because it's formed from the interaction of brains finite capacity with outer physical world.
+It's somewhere between `Riemannian` and `topological`.
+It's important to design features that characterizes what between `Riemannian` and `topological`, not too coarse, nor too fine-grained.
+
+TODO
+
+#### Global Machine Learning
+
+In mathematics, geometry basically is reinterpreted as the study of global structures that comes from combinations of local structures.
+
+Examples:
+
+- differential manifold is defined by a compatible collection of local charts of eulidean open sets
+- schemes are compatible varieties pieced together
+
+In machine learning, we try to see a real world dataset as a collection of small machine learning problems
+
+TODO
 
 ### The Model for Mnist
+
+Let's first see what the model is like in the case of Mnist.
 
 We define the following features:
 
