@@ -51,3 +51,6 @@ husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
+
+[features]
+verify_consistency = ["husky-trace-protocol/verify_consistency"]

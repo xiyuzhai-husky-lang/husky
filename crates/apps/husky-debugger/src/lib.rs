@@ -56,7 +56,6 @@ pub async fn debugger_run(package_dir: PathBuf) -> DebuggerResult<()> {
 }
 
 pub async fn debugger_test(packages_dir: PathBuf) {
-    p!(packages_dir);
     assert!(packages_dir.is_dir());
     let package_dirs = collect_package_dirs(&packages_dir);
     println!(

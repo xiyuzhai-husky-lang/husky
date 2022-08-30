@@ -8,6 +8,7 @@ impl DebuggerContext {
     //     self.set_restriction(restriction)
     // }
 
+    #[cfg(feature = "verify_consistency")]
     pub(super) fn set_restriction(&'static self, new_restriction: Restriction) {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
         let needs_figure_canvas_data =
@@ -28,6 +29,69 @@ impl DebuggerContext {
                 needs_figure_control_data,
                 new_stalk_keys,
                 new_stats_keys,
+            },
+            if needs_response {
+                Some(Box::new(move |message| match message.variant {
+                    HuskyTracerServerMessageVariant::SetRestriction {
+                        opt_figure_canvas_data,
+                        opt_figure_control_data,
+                        new_trace_stalks,
+                        new_trace_stats,
+                    } => {
+                        opt_active_trace_id.map(|active_trace_id| {
+                            let active_trace = self.trace_context.trace_data(active_trace_id);
+                            self.figure_context.set_opt_figure_data(
+                                self.scope,
+                                &active_trace,
+                                &new_restriction,
+                                opt_figure_canvas_data
+                                    .map(|figure_canvas_data| self.alloc_value(figure_canvas_data)),
+                                opt_figure_control_data,
+                            )
+                        });
+                        self.trace_context.receive_trace_stalks(
+                            new_trace_stalks
+                                .into_iter()
+                                .map(|(k, v)| (k, self.alloc_value(v))),
+                        );
+                        self.trace_context.receive_trace_stats(
+                            new_trace_stats
+                                .into_iter()
+                                .map(|(k, v)| (k, v.map(|v| self.alloc_value(v)))),
+                        );
+                        self.restriction_context
+                            .restriction
+                            .set(new_restriction.clone())
+                    }
+                    _ => panic!(),
+                }))
+            } else {
+                self.restriction_context
+                    .restriction
+                    .set(new_restriction.clone());
+                None
+            },
+        );
+    }
+
+    #[cfg(not(feature = "verify_consistency"))]
+    pub(super) fn set_restriction(&'static self, new_restriction: Restriction) {
+        let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
+        let needs_figure_canvas_data =
+            self.needs_figure_canvas_data(opt_active_trace_id, &new_restriction);
+        let needs_figure_control_data =
+            self.needs_figure_control_data(opt_active_trace_id, &new_restriction);
+        let needs_stalks = self.needs_stalks(&new_restriction);
+        let needs_statss = self.needs_statss(&new_restriction);
+        let needs_response =
+            needs_figure_canvas_data || needs_figure_control_data || needs_stalks || needs_statss;
+        self.ws.send_message(
+            HuskyTracerGuiMessageVariant::SetRestriction {
+                restriction: new_restriction.clone(),
+                needs_figure_canvas_data,
+                needs_figure_control_data,
+                needs_stalks,
+                needs_statss,
             },
             if needs_response {
                 Some(Box::new(move |message| match message.variant {

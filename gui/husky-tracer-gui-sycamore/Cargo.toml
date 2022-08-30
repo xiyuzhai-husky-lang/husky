@@ -44,3 +44,6 @@ features = [
 
 [profile.dev]
 opt-level = 1
+
+[features]
+verify_consistency = []

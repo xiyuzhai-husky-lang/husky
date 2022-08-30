@@ -73,6 +73,7 @@ impl HuskyDebuggerInstance {
 }
 
 impl HuskyDebuggerInternal {
+    #[cfg(feature = "verify_consistency")]
     fn handle_gui_message(
         &mut self,
         request: &HuskyTracerGuiMessage,
@@ -159,6 +160,119 @@ impl HuskyDebuggerInternal {
                 needs_figure_control_data,
                 new_stalk_keys,
                 new_stats_keys,
+            ),
+            HuskyTracerGuiMessageVariant::UpdateFigureControlData {
+                trace_id,
+                ref restriction,
+                ref figure_control_props,
+            } => {
+                self.trace_time.update_figure_control(
+                    trace_id,
+                    restriction,
+                    figure_control_props.clone(),
+                );
+                None
+            }
+            HuskyTracerGuiMessageVariant::TogglePin {
+                trace_id,
+                needs_figure_canvas_data,
+                needs_figure_control_data,
+            } => self.handle_toggle_pin(
+                trace_id,
+                needs_figure_canvas_data,
+                needs_figure_control_data,
+                request,
+            ),
+        }
+    }
+
+    #[cfg(not(feature = "verify_consistency"))]
+    fn handle_gui_message(
+        &mut self,
+        request: &HuskyTracerGuiMessage,
+    ) -> Option<HuskyTracerServerMessageVariant> {
+        if let Some(request_id) = request.opt_request_id {
+            if self.next_request_id != request_id {
+                // make sure all requests are received in order
+                match request.variant {
+                    HuskyTracerGuiMessageVariant::InitDataRequest => {
+                        self.next_request_id = request_id + 1;
+                    }
+                    _ => {
+                        p!(request, self.next_request_id, request_id);
+                        panic!("todo: replace panic with caching or warning")
+                    }
+                }
+            } else {
+                self.next_request_id += 1
+            }
+        }
+        match request.variant {
+            HuskyTracerGuiMessageVariant::InitDataRequest => {
+                Some(HuskyTracerServerMessageVariant::Init {
+                    init_data: self.trace_time.init_data(),
+                })
+            }
+            HuskyTracerGuiMessageVariant::Activate {
+                trace_id,
+                needs_figure_canvas_data,
+                needs_figure_control_data,
+            } => self.handle_activate(
+                trace_id,
+                needs_figure_canvas_data,
+                needs_figure_control_data,
+                request,
+            ),
+            HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
+                if let Some((new_traces, subtrace_ids, trace_stalks, trace_stats)) =
+                    self.trace_time.toggle_expansion(trace_id)
+                {
+                    Some(HuskyTracerServerMessageVariant::ToggleExpansion {
+                        new_traces,
+                        subtrace_ids,
+                        trace_stalks,
+                        trace_stats,
+                    })
+                } else {
+                    // ad hoc; should panic here
+                    if request.opt_request_id.is_some() {
+                        Some(HuskyTracerServerMessageVariant::ToggleExpansion {
+                            new_traces: Default::default(),
+                            subtrace_ids: Default::default(),
+                            trace_stalks: Default::default(),
+                            trace_stats: Default::default(),
+                        })
+                    } else {
+                        None
+                    }
+                }
+            }
+            HuskyTracerGuiMessageVariant::ToggleShow { trace_id } => {
+                self.trace_time.toggle_show(trace_id);
+                None
+            }
+            HuskyTracerGuiMessageVariant::Trace { id } => {
+                let trace = self.trace_time.trace(id);
+                Some(HuskyTracerServerMessageVariant::Trace {
+                    trace_props: trace.raw_data.clone(),
+                })
+            }
+            HuskyTracerGuiMessageVariant::TraceStalk { trace_id } => {
+                let (_, stalk) = self.trace_time.keyed_trace_stalk(trace_id);
+                Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
+            }
+            HuskyTracerGuiMessageVariant::SetRestriction {
+                ref restriction,
+                needs_figure_canvas_data,
+                needs_figure_control_data,
+                needs_stalks,
+                needs_statss,
+            } => self.handle_set_restriction(
+                restriction,
+                needs_figure_canvas_data,
+                needs_figure_control_data,
+                needs_stalks,
+                needs_statss,
             ),
             HuskyTracerGuiMessageVariant::UpdateFigureControlData {
                 trace_id,
@@ -277,6 +391,7 @@ impl HuskyDebuggerInternal {
         }
     }
 
+    #[cfg(feature = "verify_consistency")]
     fn handle_set_restriction(
         &mut self,
         restriction: &Restriction,
@@ -325,6 +440,60 @@ impl HuskyDebuggerInternal {
                 opt_figure_control_data,
                 new_trace_stalks,
                 new_trace_stats,
+            })
+        } else {
+            None
+        }
+    }
+
+    #[cfg(not(feature = "verify_consistency"))]
+    fn handle_set_restriction(
+        &mut self,
+        restriction: &Restriction,
+        needs_figure_canvas_data: bool,
+        needs_figure_control_data: bool,
+        needs_stalks: bool,
+        needs_statss: bool,
+    ) -> Option<HuskyTracerServerMessageVariant> {
+        let (new_trace_stalks, new_trace_statss) =
+            self.trace_time.set_restriction(restriction.clone());
+        if needs_figure_canvas_data || needs_figure_control_data || needs_stalks || needs_statss {
+            let (opt_figure_canvas_data, opt_figure_control_data) = if let Some(active_trace_id) =
+                self.trace_time.opt_active_trace_id()
+            {
+                let opt_figure_canvas_data = if needs_figure_canvas_data {
+                    match self.trace_time.figure_canvas(active_trace_id) {
+                        Ok(figure_canvas) => Some(figure_canvas),
+                        Err((sample_id, error)) => {
+                            return Some(HuskyTracerServerMessageVariant::SetRestrictionWithError {
+                                sample_id,
+                                error: format!("{:?}", error),
+                            })
+                        }
+                    }
+                } else {
+                    None
+                };
+                let opt_figure_control_data = if needs_figure_control_data {
+                    Some(self.trace_time.figure_control(active_trace_id))
+                } else {
+                    None
+                };
+                (opt_figure_canvas_data, opt_figure_control_data)
+            } else {
+                (None, None)
+            };
+            if needs_stalks {
+                assert!(new_trace_stalks.len() > 0);
+            }
+            if needs_statss {
+                assert!(new_trace_statss.len() > 0);
+            }
+            Some(HuskyTracerServerMessageVariant::SetRestriction {
+                opt_figure_canvas_data,
+                opt_figure_control_data,
+                new_trace_stalks,
+                new_trace_statss,
             })
         } else {
             None
