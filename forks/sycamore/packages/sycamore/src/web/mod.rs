@@ -4,7 +4,6 @@ pub mod html;
 pub mod portal;
 
 /* Re-export sycamore-web */
-use husky_signal::Signalable;
 pub use sycamore_web::*;
 
 #[allow(unused_imports)]
