@@ -18,7 +18,6 @@ futures = { version = "0.3.19", features = ["executor", "thread-pool"] }
 tokio = { version = "1.19.2", features = ["rt-multi-thread", "macros"] }
 tokio-stream = { version = "0.1.9" }
 warp = "0.3.2"
-xflags = "0.2.4"
 salsa = "0.17.0-pre.2"
 text-diff = "0.4.0"
 indexmap = "1.8.1"
@@ -35,7 +34,6 @@ husky-test-utils = { path = "../../utils/husky-test-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-io-utils = { path = "../../utils/husky-io-utils" }
 map-collect = { path = "../../abstraction/map-collect" }
-json-result = { path = "../../abstraction/json-result" }
 avec = { path = "../../abstraction/avec" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-file = { path = "../../syntax/husky-file" }

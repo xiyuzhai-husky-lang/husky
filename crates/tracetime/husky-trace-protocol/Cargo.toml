@@ -12,8 +12,6 @@ log = "0.4.6"
 smallvec = { version = "1.9.0", features = ["serde"] }
 vec-like = { path = "../../abstraction/vec-like" }
 husky-signal = { path = "../../abstraction/husky-signal" }
-# husky-vm-interface = { path = "../../vm/husky-vm-interface" }
-husky-log-utils = { path = "../../utils/husky-log-utils" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value", features = [
     "serde_support"
 ] }

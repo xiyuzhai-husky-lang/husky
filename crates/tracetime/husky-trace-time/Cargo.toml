@@ -34,7 +34,6 @@ husky-trace-protocol = { path = "../../tracetime/husky-trace-protocol" }
 husky-runtime = { path = "../../runtime/husky-runtime" }
 husky-trace = { path = "../../tracetime/husky-trace" }
 husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
-husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
 husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
