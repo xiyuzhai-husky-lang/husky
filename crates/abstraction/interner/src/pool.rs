@@ -67,9 +67,8 @@ fn test_pool() {
 
 #[test]
 fn test_pool2() {
-    use husky_print_utils::*;
     let mut pool = Pool::<i32, 10000>::default();
-    p!(std::mem::size_of::<Pool<i32, 10000>>());
+    assert_eq!(std::mem::size_of::<Pool<i32, 10000>>(), 24);
     unsafe {
         let _a = &*pool.alloc(1);
         let _b = &*pool.alloc(1);
