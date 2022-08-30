@@ -30,7 +30,6 @@ husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-vm = { path = "../../vm/husky-vm" }
-trivial-iter = { path = "../../abstraction/trivial-iter" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }

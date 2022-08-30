@@ -25,7 +25,6 @@ pub use history::{History, HistoryEntry};
 pub use husky_any::*;
 pub use husky_vm_binding::Binding;
 pub use husky_vm_interface::*;
-pub use husky_vm_runtime_error::*;
 pub use instruction::*;
 pub use interpreter::{Interpreter, InterpreterQueryGroup};
 pub use loop_kind::VMLoopKind;

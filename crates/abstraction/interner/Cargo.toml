@@ -8,4 +8,3 @@ doctest = false
 
 [dependencies]
 sync-utils = { path = "../../utils/husky-sync-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
