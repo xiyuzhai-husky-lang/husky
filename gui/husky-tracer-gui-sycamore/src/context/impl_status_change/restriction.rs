@@ -99,7 +99,7 @@ impl DebuggerContext {
                         opt_figure_canvas_data,
                         opt_figure_control_data,
                         new_trace_stalks,
-                        new_trace_stats,
+                        new_trace_statss,
                     } => {
                         opt_active_trace_id.map(|active_trace_id| {
                             let active_trace = self.trace_context.trace_data(active_trace_id);
@@ -118,7 +118,7 @@ impl DebuggerContext {
                                 .map(|(k, v)| (k, self.alloc_value(v))),
                         );
                         self.trace_context.receive_trace_stats(
-                            new_trace_stats
+                            new_trace_statss
                                 .into_iter()
                                 .map(|(k, v)| (k, v.map(|v| self.alloc_value(v)))),
                         );
