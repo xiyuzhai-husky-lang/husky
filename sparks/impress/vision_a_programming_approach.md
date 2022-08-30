@@ -74,6 +74,10 @@ In machine learning, we try to see a real world dataset as a collection of small
 
 TODO
 
+#### Singularity
+
+support vector machine, points on the boundary matters, it's like divisor
+
 ### The Model for Mnist
 
 Let's first see what the model is like in the case of Mnist.
