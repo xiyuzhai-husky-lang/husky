@@ -133,17 +133,6 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
         })
     }
 
-    // pub fn get<P: AtomParserPattern>(&mut self, patt: &P) -> AtomResult<P::Output> {
-    //     if let Some(pattern) = self.try_get(patt)? {
-    //         Ok(pattern)
-    //     } else {
-    //         err!(
-    //             format!("expect {}", stringify!($patt)),
-    //             self.token_stream.next_range()
-    //         )
-    //     }
-    // }
-
     pub fn try_eat<P: AtomParserPattern>(&mut self, patt: &P) -> AtomResult<bool> {
         let saved_state = self.save_state();
         Ok(if patt.get_parsed(self)?.is_some() {

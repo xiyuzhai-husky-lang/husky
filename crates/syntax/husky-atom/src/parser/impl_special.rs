@@ -133,23 +133,26 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                 };
                 let ranged_ident = identify_token!(self, field_ident_token, semantic_token_kind);
                 let atom_variant = if is_lpar_or_langle_next {
-                    let generic_arguments = self.angled_generics()?;
-                    match self.token_stream.next() {
-                        Some(token) => match token.kind {
-                            HuskyTokenKind::Special(SpecialToken::LPar) => {
-                                self.token_stream.text_range(text_start);
-                            }
-                            _ => todo!(),
-                        },
-                        None => todo!(),
+                    if let Some(generic_arguments) = deprecated_try_get!(self, angled_generics?) {
+                        match self.token_stream.next() {
+                            Some(token) => match token.kind {
+                                HuskyTokenKind::Special(SpecialToken::LPar) => {
+                                    self.token_stream.text_range(text_start);
+                                }
+                                _ => todo!(),
+                            },
+                            None => todo!(),
+                        }
+                        HuskyAtomVariant::ListStart(
+                            Bracket::Par,
+                            ListStartAttr::MethodAttach {
+                                ranged_ident,
+                                generic_arguments,
+                            },
+                        )
+                    } else {
+                        HuskyAtomVariant::FieldAccess(ranged_ident)
                     }
-                    HuskyAtomVariant::ListStart(
-                        Bracket::Par,
-                        ListStartAttr::MethodAttach {
-                            ranged_ident,
-                            generic_arguments,
-                        },
-                    )
                 } else {
                     HuskyAtomVariant::FieldAccess(ranged_ident)
                 };

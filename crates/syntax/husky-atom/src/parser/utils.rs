@@ -465,7 +465,11 @@ where
     fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
         let mut args = thin_vec::thin_vec![];
         if !parser.try_eat(&self.terminator)? {
-            args.push(get_patt!(parser, self.item));
+            if let Some(item) = parser.try_get(&self.item)? {
+                args.push(item);
+            } else {
+                return Ok(None);
+            }
             loop {
                 if try_eat_special!(parser, ",") {
                     if parser.try_eat(&self.terminator)? {
