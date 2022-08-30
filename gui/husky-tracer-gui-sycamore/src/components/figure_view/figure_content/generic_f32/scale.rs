@@ -12,8 +12,8 @@ pub(super) struct GenericF32Scale {
 
 impl GenericF32Scale {
     pub fn new(partitioned_samples: &[(PartitionDefnData, Vec<(SampleId, f32)>)]) -> Self {
-        let mut value_min = f32::MIN;
-        let mut value_max = f32::MAX;
+        let mut value_min = f32::MAX;
+        let mut value_max = f32::MIN;
         for (_, samples) in partitioned_samples {
             for (sample, value) in samples {
                 if *value < value_min {
@@ -37,19 +37,19 @@ impl GenericF32Scale {
         }
     }
 
-    pub fn normalize_class_index(&self, class_index: usize) -> f32 {
+    pub fn normalized_class_index(&self, class_index: usize) -> f32 {
         let middle = ((self.partitions_len - 1) as f32) / 2.0;
         ((class_index as f32) - middle) / (self.partitions_len as f32)
     }
 
-    pub fn normalize_value(&self, value: f32) -> f32 {
+    pub fn normalized_value(&self, value: f32) -> f32 {
         let middle = (self.value_max + self.value_min) / 2.0;
         (value - middle) / (self.value_max - self.value_min + self.value_padding)
     }
 
     pub fn circle(&self, class_index: usize, value: f32) -> CircleProps {
-        let cx = 150. + 300. * self.normalize_class_index(class_index);
-        let cy = 500. + 1000. * self.normalize_value(value);
+        let cx = 150. + 300. * self.normalized_class_index(class_index);
+        let cy = 500. + 1000. * self.normalized_value(value);
         CircleProps {
             class_index,
             cx,
