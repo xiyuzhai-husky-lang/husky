@@ -1,4 +1,4 @@
-mod impl_figure;
+mod impl_figure_canvas;
 mod impl_figure_control;
 mod impl_lines;
 mod impl_ops;
@@ -38,11 +38,12 @@ pub struct HuskyTraceTime {
     pins: VecSet<TraceId>,
     trace_nodes: Vec<Option<TraceNode>>,
     opt_active_trace_id: Option<TraceId>,
-    pub trace_stalks: HashMap<TraceStalkKey, TraceStalk>,
-    pub trace_statss: HashMap<TraceStatsKey, Option<TraceStats>>,
+    figure_canvases: VecSet<FigureCanvasKey>,
+    figure_controls: HashMap<FigureControlKey, FigureControlData>,
+    trace_stalks: HashMap<TraceStalkKey, TraceStalk>,
+    trace_statss: HashMap<TraceStatsKey, Option<TraceStats>>,
     root_trace_ids: Vec<TraceId>,
     subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
-    figure_controls: HashMap<FigureControlKey, FigureControlData>,
 }
 
 impl HuskyTraceTime {
@@ -53,11 +54,12 @@ impl HuskyTraceTime {
         let mut trace_time = Self {
             runtime: HuskyRuntime::new(init_compile_time, eval_time_config),
             trace_nodes: Default::default(),
+            figure_canvases: Default::default(),
+            figure_controls: Default::default(),
             trace_stalks: Default::default(),
             trace_statss: Default::default(),
             opt_active_trace_id: Default::default(),
             subtrace_ids_map: Default::default(),
-            figure_controls: Default::default(),
             root_trace_ids: Default::default(),
             restriction: Default::default(),
             pins: Default::default(),
@@ -71,8 +73,18 @@ impl HuskyTraceTime {
         self.opt_active_trace_id
     }
 
-    pub fn activate(&mut self, trace_id: TraceId) {
+    pub fn activate(
+        &mut self,
+        trace_id: TraceId,
+    ) -> __VMResult<(
+        Vec<(FigureCanvasKey, FigureCanvasData)>,
+        Vec<(FigureControlKey, FigureControlData)>,
+    )> {
         self.opt_active_trace_id = Some(trace_id);
+        Ok((
+            self.update_figure_canvases()?,
+            self.update_figure_controls()?,
+        ))
     }
 
     pub fn root_traces(&self) -> Vec<TraceId> {
@@ -169,27 +181,29 @@ impl HuskyTraceTime {
     pub fn toggle_expansion(
         &mut self,
         trace_id: TraceId,
-    ) -> Option<(
-        Vec<TraceNodeData>,
-        Vec<TraceId>,
-        Vec<(TraceStalkKey, TraceStalk)>,
-        Vec<(TraceStatsKey, Option<TraceStats>)>,
-    )> {
+    ) -> __VMResult<
+        Option<(
+            Vec<TraceNodeData>,
+            Vec<TraceId>,
+            Vec<(TraceStalkKey, TraceStalk)>,
+            Vec<(TraceStatsKey, Option<TraceStats>)>,
+        )>,
+    > {
         let old_len = self.trace_nodes.len();
         let expansion = &mut self.trace_nodes[trace_id.0].as_mut().unwrap().expansion;
         *expansion = !*expansion;
         let subtrace_ids = self.subtrace_ids(trace_id);
-        if self.trace_nodes.len() > old_len {
+        Ok(if self.trace_nodes.len() > old_len {
             let new_traces: Vec<TraceNodeData> = self.trace_nodes[old_len..]
                 .iter()
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())
                 .collect();
-            let trace_stalks = self.collect_new_trace_stalks();
-            let trace_stats = self.collect_new_trace_statss();
-            Some((new_traces, subtrace_ids, trace_stalks, trace_stats))
+            let trace_stalks = self.update_trace_stalks();
+            let trace_stats = self.update_trace_statss();
+            Some((new_traces, subtrace_ids, trace_stalks?, trace_stats?))
         } else {
             None
-        }
+        })
     }
 
     pub fn is_expanded(&mut self, trace_id: TraceId) -> bool {
@@ -221,7 +235,7 @@ impl HuskyTraceTime {
                 FigureCanvasKey::from_trace_data(&active_trace.raw_data, &self.restriction);
             figure_canvases.push((
                 figure_canvas_key,
-                self.figure_canvas(active_trace_id).unwrap(),
+                self.gen_figure_canvas_data(active_trace_id).unwrap(),
             ));
             figure_controls.push((
                 FigureControlKey::from_trace_data(&active_trace.raw_data, &self.restriction),

@@ -1,15 +1,17 @@
 use crate::*;
 
 impl HuskyTraceTime {
-    pub(crate) fn collect_new_trace_statss(&mut self) -> Vec<(TraceStatsKey, Option<TraceStats>)> {
+    pub(crate) fn update_trace_statss(
+        &mut self,
+    ) -> __VMResult<Vec<(TraceStatsKey, Option<TraceStats>)>> {
         let mut trace_statss = Vec::new();
         for root_trace_id in self.root_trace_ids.clone() {
-            self.collect_new_trace_statss_within_trace(root_trace_id, &mut trace_statss);
+            self.update_trace_statss_within_trace(root_trace_id, &mut trace_statss);
         }
-        trace_statss
+        Ok(trace_statss)
     }
 
-    fn collect_new_trace_statss_within_trace(
+    fn update_trace_statss_within_trace(
         &mut self,
         trace_id: TraceId,
         trace_statss: &mut Vec<(TraceStatsKey, Option<TraceStats>)>,
@@ -29,11 +31,11 @@ impl HuskyTraceTime {
             trace_statss.push((trace_stats_key, self.produce_trace_stats(trace_id)))
         }
         for associated_trace_id in associated_trace_ids {
-            self.collect_new_trace_statss_within_trace(associated_trace_id, trace_statss)
+            self.update_trace_statss_within_trace(associated_trace_id, trace_statss)
         }
         if expanded {
             for subtrace_id in self.subtrace_ids(trace_id) {
-                self.collect_new_trace_statss_within_trace(subtrace_id, trace_statss)
+                self.update_trace_statss_within_trace(subtrace_id, trace_statss)
             }
         }
     }

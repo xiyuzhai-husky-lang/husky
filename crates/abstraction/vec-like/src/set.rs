@@ -35,13 +35,23 @@ impl<K> FromIterator<K> for VecSet<K> {
 
 impl<K> VecSet<K>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: PartialEq + Eq + std::fmt::Debug,
 {
-    pub fn has(&self, key: K) -> bool {
+    pub fn has(&self, key: K) -> bool
+    where
+        K: Copy,
+    {
         self.entries.iter().find(|entry| **entry == key).is_some()
     }
 
-    pub fn insert_new(&mut self, new: K) -> Result<(), EntryRepeatError<K>> {
+    pub fn contains(&self, key: &K) -> bool {
+        self.entries.iter().find(|entry| *entry == key).is_some()
+    }
+
+    pub fn insert_new(&mut self, new: K) -> Result<(), EntryRepeatError<K>>
+    where
+        K: Copy,
+    {
         if self.has(new) {
             let old = loop {
                 let entry = self.entries.pop().unwrap();
@@ -68,11 +78,17 @@ where
         }
     }
 
-    pub fn to_vec(&self) -> Vec<K> {
+    pub fn to_vec(&self) -> Vec<K>
+    where
+        K: Copy,
+    {
         self.entries.clone()
     }
 
-    pub fn insert(&mut self, value: K) {
+    pub fn insert(&mut self, value: K)
+    where
+        K: Copy,
+    {
         if self.has(value) {
             ()
         } else {
@@ -80,7 +96,10 @@ where
         }
     }
 
-    pub fn extend(&mut self, other: &Self) {
+    pub fn extend(&mut self, other: &Self)
+    where
+        K: Copy,
+    {
         for entry in &other.entries {
             self.insert(*entry)
         }

@@ -18,16 +18,17 @@ impl DebuggerContext {
             if needs_response {
                 Some(Box::new(move |response| match response.variant {
                     HuskyTracerServerMessageVariant::Activate {
-                        opt_figure_canvas_data,
-                        opt_figure_control_data,
+                        new_figure_canvases,
+                        new_figure_controls,
                     } => {
-                        self.figure_context.set_opt_figure_data(
+                        self.figure_context.receive_figure_canvases(
                             self.scope,
-                            &trace,
-                            &restriction,
-                            opt_figure_canvas_data.map(|data| self.alloc_value(data)),
-                            opt_figure_control_data,
+                            new_figure_canvases
+                                .into_iter()
+                                .map(|(k, v)| (k, self.alloc_value(v))),
                         );
+                        self.figure_context
+                            .receive_figure_controls(self.scope, new_figure_controls.into_iter());
                         self.trace_context.did_activate(new_active_trace_id);
                     }
                     HuskyTracerServerMessageVariant::ActivateWithError { .. } => todo!(),

@@ -27,7 +27,7 @@ impl HuskyDebuggerInstance {
         }
         Self {
             internal: Mutex::new(HuskyDebuggerInternal {
-                trace_time,
+                tracetime: trace_time,
                 next_request_id: 0,
             }),
             config,
@@ -48,11 +48,11 @@ impl HuskyDebuggerInstance {
         let mut error_flag = false;
         let internal = &mut self.internal.lock().unwrap();
         internal
-            .trace_time
+            .tracetime
             .set_restriction(Restriction::new_specific(specific_sample_id));
-        for root_trace_id in internal.trace_time.root_traces().into_iter() {
+        for root_trace_id in internal.tracetime.root_traces().into_iter() {
             let now = Instant::now();
-            let (_, stalk) = internal.trace_time.keyed_trace_stalk(root_trace_id);
+            let (_, stalk) = internal.tracetime.keyed_trace_stalk(root_trace_id);
             println!(
                 "{} milliseconds elapsed for computing stalk of trace {}",
                 now.elapsed().as_millis(),

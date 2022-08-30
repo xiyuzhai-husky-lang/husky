@@ -134,11 +134,11 @@ impl TraceContext {
         }
     }
 
-    fn set_trace_stalk(&self, trace_id: TraceId, input_id: usize, stalk: &'static TraceStalk) {
-        assert!(self
-            .trace_stalks
-            .borrow_mut(file!(), line!())
-            .insert(todo!(), stalk)
-            .is_none());
-    }
+    // fn set_trace_stalk(&self, trace_id: TraceId, input_id: usize, stalk: &'static TraceStalk) {
+    //     assert!(self
+    //         .trace_stalks
+    //         .borrow_mut(file!(), line!())
+    //         .insert(todo!(), stalk)
+    //         .is_none());
+    // }
 }

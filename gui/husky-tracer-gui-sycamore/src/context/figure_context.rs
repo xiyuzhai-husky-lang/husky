@@ -30,26 +30,26 @@ impl FigureContext {
         self.pins.set(pins)
     }
 
-    pub(super) fn set_opt_figure_data(
+    pub(super) fn receive_figure_canvases(
         &self,
         scope: Scope<'static>,
-        trace: &TraceData,
-        restriction: &Restriction,
-        opt_figure_canvas_data: Option<&'static FigureCanvasData>,
-        figure_control_data: Option<FigureControlData>,
+        new_figure_canvases: impl Iterator<Item = (FigureCanvasKey, &'static FigureCanvasData)>,
     ) {
-        if let Some(figure_canvas_data) = opt_figure_canvas_data {
-            assert!(self
-                .figure_canvases
-                .borrow_mut(file!(), line!())
-                .insert(
-                    self.new_figure_canvas_key(trace, restriction,),
-                    figure_canvas_data
-                )
-                .is_none());
+        let mut figure_canvases = self.figure_canvases.borrow_mut(file!(), line!());
+        for (key, data) in new_figure_canvases {
+            assert!(figure_canvases.insert(key, data).is_none());
         }
-        if let Some(figure_control_data) = figure_control_data {
-            self.set_figure_control_data(scope, trace, restriction, figure_control_data);
+    }
+    pub(super) fn receive_figure_controls(
+        &self,
+        scope: Scope<'static>,
+        new_figure_controls: impl Iterator<Item = (FigureControlKey, FigureControlData)>,
+    ) {
+        let mut figure_controls = self.figure_controls.borrow_mut(file!(), line!());
+        for (key, data) in new_figure_controls {
+            assert!(figure_controls
+                .insert(key, create_signal(scope, data))
+                .is_none());
         }
     }
 
@@ -79,13 +79,11 @@ impl FigureContext {
     fn set_figure_control_data(
         &self,
         scope: Scope<'static>,
-        trace: &TraceData,
-        restriction: &Restriction,
+        key: FigureControlKey,
         figure_control_data: FigureControlData,
     ) {
         let opt_figure_control_signal = {
             let figure_controls = &mut self.figure_controls.borrow_mut(file!(), line!());
-            let key = FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, restriction);
             if let Some(figure_control_signal) = figure_controls.get(&key) {
                 Some(figure_control_signal.clone())
             } else {

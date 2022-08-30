@@ -84,7 +84,6 @@ pub enum HuskyTracerGuiMessageVariant {
     },
     UpdateFigureControlData {
         trace_id: TraceId,
-        restriction: Restriction,
-        figure_control_props: FigureControlData,
+        figure_control_data: FigureControlData,
     },
 }

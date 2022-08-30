@@ -15,20 +15,16 @@ pub enum HuskyTracerServerMessageVariant {
         init_data: InitData,
     },
     Activate {
-        #[serde(skip_serializing_if = "Option::is_none")]
-        opt_figure_canvas_data: Option<FigureCanvasData>,
-        #[serde(skip_serializing_if = "Option::is_none")]
-        opt_figure_control_data: Option<FigureControlData>,
+        new_figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)>,
+        new_figure_controls: Vec<(FigureControlKey, FigureControlData)>,
     },
     ActivateWithError {
         sample_id: SampleId,
         error: String,
     },
     TogglePin {
-        #[serde(skip_serializing_if = "Option::is_none")]
-        opt_figure_canvas_data: Option<FigureCanvasData>,
-        #[serde(skip_serializing_if = "Option::is_none")]
-        opt_figure_control_data: Option<FigureControlData>,
+        new_figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)>,
+        new_figure_controls: Vec<(FigureControlKey, FigureControlData)>,
     },
     TogglePinWithError {
         sample_id: SampleId,
@@ -47,8 +43,8 @@ pub enum HuskyTracerServerMessageVariant {
         trace_props: TraceData,
     },
     SetRestriction {
-        opt_figure_canvas_data: Option<FigureCanvasData>,
-        opt_figure_control_data: Option<FigureControlData>,
+        new_figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)>,
+        new_figure_controls: Vec<(FigureControlKey, FigureControlData)>,
         new_trace_stalks: Vec<(TraceStalkKey, TraceStalk)>,
         new_trace_statss: Vec<(TraceStatsKey, Option<TraceStats>)>,
     },

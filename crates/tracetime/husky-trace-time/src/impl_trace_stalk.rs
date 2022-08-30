@@ -57,8 +57,8 @@ impl HuskyTraceTime {
         }
     }
 
-    pub(crate) fn collect_new_trace_stalks(&mut self) -> Vec<(TraceStalkKey, TraceStalk)> {
-        if let Some(sample_id) = self.restriction.opt_sample_id() {
+    pub(crate) fn update_trace_stalks(&mut self) -> __VMResult<Vec<(TraceStalkKey, TraceStalk)>> {
+        Ok(if let Some(sample_id) = self.restriction.opt_sample_id() {
             let mut trace_stalks = Vec::new();
             for root_trace_id in self.root_trace_ids.clone() {
                 self.collect_new_trace_stalks_within_trace(
@@ -70,7 +70,7 @@ impl HuskyTraceTime {
             trace_stalks
         } else {
             vec![]
-        }
+        })
     }
 
     fn collect_new_trace_stalks_within_trace(

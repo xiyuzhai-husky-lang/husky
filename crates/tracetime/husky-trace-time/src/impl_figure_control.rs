@@ -18,14 +18,14 @@ impl HuskyTraceTime {
         if let Some(control) = self.figure_controls.get(&key) {
             control.clone()
         } else {
-            let control = self.gen_figure_control(trace_id);
+            let control = self.gen_figure_control_data(trace_id);
             self.figure_controls.insert(key, control.clone());
             control
         }
     }
 
     #[inline(always)]
-    pub fn gen_figure_control(&mut self, trace_id: TraceId) -> FigureControlData {
+    pub fn gen_figure_control_data(&mut self, trace_id: TraceId) -> FigureControlData {
         let trace = self.trace(trace_id);
         match trace.variant {
             TraceVariant::Main(_)
@@ -55,7 +55,7 @@ impl HuskyTraceTime {
                 _ => FigureControlData::default(),
             },
             TraceVariant::LoopFrame { .. } => {
-                self.gen_figure_control(trace.raw_data.opt_parent_id.unwrap())
+                self.gen_figure_control_data(trace.raw_data.opt_parent_id.unwrap())
             }
             TraceVariant::FuncBranch {
                 ref stmt,
@@ -97,21 +97,52 @@ impl HuskyTraceTime {
         }
     }
 
+    pub(crate) fn update_figure_controls(
+        &mut self,
+    ) -> __VMResult<Vec<(FigureControlKey, FigureControlData)>> {
+        let mut new_figure_controls: Vec<(FigureControlKey, FigureControlData)> = vec![];
+        if let Some(active_trace_id) = self.opt_active_trace_id {
+            self.update_figure_control(active_trace_id, &mut new_figure_controls);
+        }
+        for pin in self.pins.clone().into_iter() {
+            self.update_figure_control(*pin, &mut new_figure_controls);
+        }
+        Ok(new_figure_controls)
+    }
+
     pub fn update_figure_control(
         &mut self,
         trace_id: TraceId,
-        restriction: &Restriction,
-        new_control: FigureControlData,
+        new_figure_controls: &mut Vec<(FigureControlKey, FigureControlData)>,
     ) {
+        let key = self.gen_figure_control_key(trace_id);
+        if !self.figure_controls.contains_key(&key) {
+            let figure_control_data = self.gen_figure_control_data(trace_id);
+            self.figure_controls
+                .insert(key, figure_control_data.clone());
+            new_figure_controls.push((key, figure_control_data))
+        }
+    }
+
+    pub fn set_figure_control(
+        &mut self,
+        trace_id: TraceId,
+        new_figure_control_data: FigureControlData,
+    ) {
+        let key = self.gen_figure_control_key(trace_id);
+        assert!(self
+            .figure_controls
+            .insert(key, new_figure_control_data)
+            .is_none())
+    }
+
+    fn gen_figure_control_key(&self, trace_id: TraceId) -> FigureControlKey {
         let trace_raw_data = &self.trace(trace_id).raw_data;
-        self.figure_controls.insert(
-            FigureControlKey::new(
-                trace_raw_data.opt_parent_id,
-                trace_raw_data.kind,
-                trace_raw_data.id,
-                restriction,
-            ),
-            new_control,
-        );
+        FigureControlKey::new(
+            trace_raw_data.opt_parent_id,
+            trace_raw_data.kind,
+            trace_raw_data.id,
+            &self.restriction,
+        )
     }
 }
