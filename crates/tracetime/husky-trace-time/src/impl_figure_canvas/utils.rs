@@ -79,6 +79,7 @@ impl HuskyTraceTime {
             }
         };
         if !self.figure_canvases.contains(&key) {
+            self.figure_canvases.insert_move(key.clone());
             new_figure_canvases.push((key, self.gen_figure_canvas_data(trace_id).map_err(f)?))
         }
         Ok(())

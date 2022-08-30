@@ -96,6 +96,14 @@ where
         }
     }
 
+    pub fn insert_move(&mut self, value: K) {
+        if self.contains(&value) {
+            ()
+        } else {
+            self.entries.push(value)
+        }
+    }
+
     pub fn extend(&mut self, other: &Self)
     where
         K: Copy,

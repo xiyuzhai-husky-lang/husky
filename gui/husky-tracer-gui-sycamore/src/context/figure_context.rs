@@ -37,7 +37,7 @@ impl FigureContext {
     ) {
         let mut figure_canvases = self.figure_canvases.borrow_mut(file!(), line!());
         for (key, data) in new_figure_canvases {
-            assert!(figure_canvases.insert(key, data).is_none());
+            insert_new!(figure_canvases, key, data);
         }
     }
     pub(super) fn receive_figure_controls(

@@ -60,6 +60,16 @@ macro_rules! alert {
 }
 pub(crate) use alert;
 
+macro_rules! insert_new {
+    ($dict: expr, $key: expr, $value: expr) => {
+        if $dict.contains_key(&$key) {
+            panic!("key {:?} already exists in {:?}", $key, $dict.keys())
+        }
+        $dict.insert($key, $value).is_none();
+    };
+}
+pub(crate) use insert_new;
+
 use crate::context::DebuggerContext;
 
 pub(crate) fn create_static_ref<'a, T>(scope: Scope<'a>, value: T) -> &'static T {
