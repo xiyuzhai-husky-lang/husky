@@ -275,7 +275,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                 | RootIdentifier::Tuple
                 | RootIdentifier::DatasetType
                 | RootIdentifier::Ref
-                | RootIdentifier::Option => self.angled_generics(),
+                | RootIdentifier::Option => Ok(self.angled_generics()?.expect("todo")),
                 RootIdentifier::VisualType => todo!(),
                 RootIdentifier::RefMut => todo!(),
             },
@@ -290,7 +290,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                     | EntityKind::Feature
                     | EntityKind::Member(_) => Ok(thin_vec![]),
                     EntityKind::Type(_) | EntityKind::Trait | EntityKind::Function { .. } => {
-                        self.angled_generics()
+                        Ok(self.angled_generics()?.expect("todo"))
                     }
                     EntityKind::Main => panic!(),
                 }
@@ -300,7 +300,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
 
     fn func_args(&mut self) -> AtomResult<ThinVec<SpatialArgument>> {
         if !try_eat_special!(self, "(") {
-            return self.angled_generics();
+            return Ok(self.angled_generics()?.expect("todo"));
         }
         let mut args = deprecated_thin_comma_list![self, spatial_argument!, RPar];
         args.push(if deprecated_try_eat!(self, "->") {
@@ -311,15 +311,14 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
         Ok(args)
     }
 
-    pub(crate) fn angled_generics(&mut self) -> AtomResult<ThinVec<SpatialArgument>> {
+    pub(crate) fn angled_generics(&mut self) -> AtomResult<Option<ThinVec<SpatialArgument>>> {
         Ok(if try_eat_special!(self, "<") {
             self.try_get(&ThinCommaListPattern {
                 item: SpatialArgumentPattern,
                 terminator: be_special_token_patt!(">"),
             })?
-            .unwrap()
         } else {
-            thin_vec![]
+            Some(Default::default())
         })
     }
 
@@ -379,7 +378,7 @@ impl AtomParserPattern for SpatialArgumentPattern {
     type Output = SpatialArgument;
 
     fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
-        Ok(Some(if try_eat_special!(parser, "(") {
+        Ok(if try_eat_special!(parser, "(") {
             let mut args = deprecated_thin_comma_list!(parser, spatial_argument!, ")");
             let scope = if try_eat_special!(parser, "->") {
                 args.push(parser.spatial_argument()?);
@@ -387,9 +386,13 @@ impl AtomParserPattern for SpatialArgumentPattern {
             } else {
                 EntityRoute::tuple_or_void(args)
             };
-            parser.intern(scope).into()
+            Some(parser.intern(scope).into())
         } else {
-            deprecated_get!(parser, ty?).into()
-        }))
+            if let Some(ty) = deprecated_try_get!(parser, ty?) {
+                Some(ty.into())
+            } else {
+                None
+            }
+        })
     }
 }

@@ -214,7 +214,7 @@ pub trait AtomContext<'a> {
             err!("too many atoms", result[1..].text_range())?
         } else {
             match result[0].variant {
-                HuskyAtomVariant::EntityRoute { route: scope, .. } => Ok(scope),
+                HuskyAtomVariant::EntityRoute { route, .. } => Ok(route),
                 // AtomKind::ThisType { ty } => Ok(EntityRoutePtr::ThisType),
                 _ => err!(
                     format!("expect type, but get `{:?}` instead", result[0]),
