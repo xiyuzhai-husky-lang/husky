@@ -8,11 +8,16 @@ impl HuskyTraceTime {
         &self,
         repr: &FeatureRepr,
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        is_specific: bool,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
-        if let Some(sample_id) = self.restriction.opt_sample_id() {
+        if is_specific {
             Ok(FigureCanvasData::new_specific(
                 self.runtime()
-                    .visualize_feature(repr.clone(), opt_arrival_indicator, sample_id)
+                    .visualize_feature(
+                        repr.clone(),
+                        opt_arrival_indicator,
+                        self.restriction.sample_id(),
+                    )
                     .unwrap(),
             ))
         } else {

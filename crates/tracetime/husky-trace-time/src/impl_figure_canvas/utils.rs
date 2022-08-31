@@ -52,10 +52,12 @@ impl HuskyTraceTime {
     ) -> __VMResult<Vec<(FigureCanvasKey, FigureCanvasData)>> {
         let mut new_figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)> = vec![];
         if let Some(active_trace_id) = self.opt_active_trace_id {
-            self.update_figure_canvas(active_trace_id, &mut new_figure_canvases);
+            self.update_figure_canvas(active_trace_id, true, &mut new_figure_canvases);
+            self.update_figure_canvas(active_trace_id, false, &mut new_figure_canvases);
         }
         for pin in self.pins.clone().into_iter() {
-            self.update_figure_canvas(*pin, &mut new_figure_canvases);
+            self.update_figure_canvas(*pin, true, &mut new_figure_canvases);
+            self.update_figure_canvas(*pin, false, &mut new_figure_canvases);
         }
         Ok(new_figure_canvases)
     }
@@ -63,9 +65,10 @@ impl HuskyTraceTime {
     fn update_figure_canvas(
         &mut self,
         trace_id: TraceId,
+        is_specific: bool,
         new_figure_canvases: &mut Vec<(FigureCanvasKey, FigureCanvasData)>,
     ) -> __VMResult<()> {
-        let key: FigureCanvasKey = self.gen_figure_canvas_key(trace_id);
+        let key: FigureCanvasKey = self.gen_figure_canvas_key(trace_id, is_specific);
         // todo: clean all this trouble
         let f = |(sample_id, e): (SampleId, __VMError)| -> __VMError {
             match e.variant {
@@ -80,12 +83,20 @@ impl HuskyTraceTime {
         };
         if !self.figure_canvases.contains(&key) {
             self.figure_canvases.insert_move(key.clone());
-            new_figure_canvases.push((key, self.gen_figure_canvas_data(trace_id).map_err(f)?))
+            new_figure_canvases.push((
+                key,
+                self.gen_figure_canvas_data(trace_id, is_specific)
+                    .map_err(f)?,
+            ))
         }
         Ok(())
     }
 
-    fn gen_figure_canvas_key(&self, trace_id: TraceId) -> FigureCanvasKey {
-        FigureCanvasKey::from_trace_data(&self.trace(trace_id).raw_data, &self.restriction)
+    fn gen_figure_canvas_key(&self, trace_id: TraceId, is_specific: bool) -> FigureCanvasKey {
+        FigureCanvasKey::from_trace_data(
+            &self.trace(trace_id).raw_data,
+            &self.restriction,
+            is_specific,
+        )
     }
 }

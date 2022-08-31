@@ -117,10 +117,7 @@ where
         self.set_rc_silent(Rc::new(value));
     }
     pub fn set_rc_silent(&self, value: Rc<T>) {
-        let is_equal = **self.0.value.borrow_mut() == *value;
-        if !is_equal {
-            *self.0.value.borrow_mut() = value;
-        }
+        *self.0.value.borrow_mut() = value;
     }
     pub fn split(&self) -> (impl Fn() -> Rc<T> + Copy + '_, impl Fn(T) + Copy + '_) {
         let getter = move || self.get();

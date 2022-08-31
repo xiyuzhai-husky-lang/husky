@@ -37,7 +37,11 @@ impl StatusChange {
             match c {
                 'T' => {
                     // 't'
-                    log::info!("active trace is {:?}", ctx.trace_context.opt_active_trace())
+                    // log::info!("active trace is {:?}", ctx.trace_context.opt_active_trace());
+                    log::info!(
+                        "restriction is {:?}",
+                        ctx.restriction_context.restriction.get()
+                    )
                 }
                 'C' => {
                     // 't'
@@ -123,6 +127,14 @@ impl DebuggerContext {
             let dialog = restriction_dialog();
             sample_id_input().set_value("");
             dialog.show_modal();
+        }
+    }
+
+    pub(crate) fn set_sample_id_handler(&'static self, sample_id: SampleId) -> impl Fn(Event) {
+        move |_| {
+            self.handle_status_change(StatusChange::update_restriction(self, |res| {
+                res.set_sample_id(sample_id)
+            }))
         }
     }
 

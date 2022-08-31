@@ -31,12 +31,15 @@ impl OriginalImageData {
         }
     }
 
-    pub fn new_composed(image_layers: &[&ImageLayerData]) -> Self {
+    pub fn new_composed(image_layers: &[&ImageLayerData]) -> Option<Self> {
+        if image_layers.len() == 0 {
+            return None;
+        }
         let mut composed_image = Self::new(&image_layers[0]);
         for image_layer in &image_layers[1..] {
             composed_image.join(&Self::new(image_layer))
         }
-        composed_image
+        Some(composed_image)
     }
 
     pub fn join(&mut self, other: &Self) {
@@ -47,6 +50,7 @@ impl OriginalImageData {
     pub fn to_image_data_scaled(&self, dimension: PixelDimension) -> ImageData {
         let mut data = vec![];
         data.reserve((dimension.width * dimension.height) as usize * 4);
+        log::info!("dimension = {dimension:?}");
         for i1 in 0..dimension.height {
             for j1 in 0..dimension.width {
                 let i = i1 * self.dimension.height / dimension.height;

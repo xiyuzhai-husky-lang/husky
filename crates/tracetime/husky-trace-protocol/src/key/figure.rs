@@ -12,18 +12,24 @@ pub enum FigureCanvasKey {
     },
     Specific {
         trace_id: TraceId,
+        sample_id: SampleId,
     },
 }
 
 impl FigureCanvasKey {
-    pub fn from_trace_data(trace_data: &TraceData, restriction: &Restriction) -> FigureCanvasKey {
-        Self::new(trace_data.kind, trace_data.id, restriction)
+    pub fn from_trace_data(
+        trace_data: &TraceData,
+        restriction: &Restriction,
+        is_specific: bool,
+    ) -> FigureCanvasKey {
+        Self::new(trace_data.kind, trace_data.id, restriction, is_specific)
     }
 
     pub fn new(
         trace_kind: TraceKind,
         trace_id: TraceId,
         restriction: &Restriction,
+        is_specific: bool,
     ) -> FigureCanvasKey {
         match trace_kind {
             TraceKind::Main
@@ -34,8 +40,11 @@ impl FigureCanvasKey {
             | TraceKind::FeatureExprLazy
             | TraceKind::FeatureExprEager
             | TraceKind::FeatureCallArgument => {
-                if restriction.is_specific() {
-                    FigureCanvasKey::Specific { trace_id }
+                if is_specific {
+                    FigureCanvasKey::Specific {
+                        trace_id,
+                        sample_id: restriction.sample_id(),
+                    }
                 } else {
                     FigureCanvasKey::Generic {
                         trace_id,
@@ -49,7 +58,10 @@ impl FigureCanvasKey {
             | TraceKind::FuncBranch
             | TraceKind::ProcBranch
             | TraceKind::EagerExpr
-            | TraceKind::LoopFrame => FigureCanvasKey::Specific { trace_id },
+            | TraceKind::LoopFrame => FigureCanvasKey::Specific {
+                trace_id,
+                sample_id: restriction.sample_id(),
+            },
             TraceKind::Module | TraceKind::CallHead | TraceKind::EagerCallArgument => {
                 FigureCanvasKey::Null
             }

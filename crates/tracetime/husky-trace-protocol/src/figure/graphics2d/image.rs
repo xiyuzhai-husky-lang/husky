@@ -9,18 +9,64 @@ pub use original::*;
 use super::*;
 use web_sys::ImageData;
 
-pub trait ContainsImageLayers {
-    fn image_layers(&self) -> &[ImageLayerData];
+pub trait ContainsImageLayers<'a> {
+    fn image_layers(&self) -> Vec<&'a ImageLayerData>;
+}
 
-    fn total_image_layers<'a, P>(&'a self, pins: &[&'a P]) -> Vec<&'a ImageLayerData>
-    where
-        P: ContainsImageLayers,
-    {
-        let mut total_image_layers: Vec<&'a ImageLayerData> = vec![];
-        total_image_layers.extend(self.image_layers().iter());
-        for pinned_canvas_value in pins {
-            total_image_layers.extend(pinned_canvas_value.image_layers().iter())
+impl<'a, T> ContainsImageLayers<'a> for std::rc::Rc<T>
+where
+    T: ContainsImageLayers<'a>,
+{
+    fn image_layers(&self) -> Vec<&'a ImageLayerData> {
+        <T as ContainsImageLayers<'a>>::image_layers(self)
+    }
+}
+
+impl<'a, T> ContainsImageLayers<'a> for std::sync::Arc<T>
+where
+    T: ContainsImageLayers<'a>,
+{
+    fn image_layers(&self) -> Vec<&'a ImageLayerData> {
+        <T as ContainsImageLayers>::image_layers(self)
+    }
+}
+
+impl<'a, T, S> ContainsImageLayers<'a> for (T, S)
+where
+    T: ContainsImageLayers<'a>,
+    S: ContainsImageLayers<'a>,
+{
+    fn image_layers(&self) -> Vec<&'a ImageLayerData> {
+        let mut image_layers = self.0.image_layers();
+        image_layers.extend(self.1.image_layers().into_iter());
+        image_layers
+    }
+}
+
+impl<'a, T> ContainsImageLayers<'a> for [T]
+where
+    T: ContainsImageLayers<'a>,
+{
+    fn image_layers(&self) -> Vec<&'a ImageLayerData> {
+        let mut image_layers = vec![];
+
+        for item in self.iter() {
+            image_layers.extend(item.image_layers().into_iter());
         }
-        total_image_layers
+        image_layers
+    }
+}
+
+impl<'a, T> ContainsImageLayers<'a> for Vec<T>
+where
+    T: ContainsImageLayers<'a>,
+{
+    fn image_layers(&self) -> Vec<&'a ImageLayerData> {
+        let mut image_layers = vec![];
+
+        for item in self.iter() {
+            image_layers.extend(item.image_layers().into_iter());
+        }
+        image_layers
     }
 }
