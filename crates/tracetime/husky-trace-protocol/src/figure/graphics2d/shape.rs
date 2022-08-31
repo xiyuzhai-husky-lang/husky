@@ -1,5 +1,21 @@
 use super::*;
 
+pub trait ContainsShapes {
+    fn shapes(&self) -> &[Shape2dData];
+
+    fn total_shapes<'a, P>(&'a self, pins: &[&'a P]) -> Vec<&'a Shape2dData>
+    where
+        P: ContainsShapes,
+    {
+        let mut total_shapes: Vec<&'a Shape2dData> = vec![];
+        total_shapes.extend(self.shapes().iter());
+        for pinned_canvas_value in pins {
+            total_shapes.extend(pinned_canvas_value.shapes().iter())
+        }
+        total_shapes
+    }
+}
+
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 #[serde(tag = "kind")]
 pub enum Shape2dData {

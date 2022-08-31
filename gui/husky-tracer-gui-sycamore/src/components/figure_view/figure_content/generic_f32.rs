@@ -7,6 +7,7 @@ use scale::*;
 pub struct GenericF32Props<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
     partitioned_samples: &'a [(PartitionDefnData, Vec<(SampleId, f32)>)],
+    pinned_canvas_values: &'a ReadSignal<Vec<&'static FigureCanvasData>>,
 }
 
 #[component]

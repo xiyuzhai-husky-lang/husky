@@ -102,8 +102,8 @@ fn FigureContentSwitch<'a, G: Html>(
                 scope,
                 Graphics2dCanvas {
                     dimension: props.dimension,
-                    image_layers: graphics2d_data.image_layers(&props.pinned_canvas_values.get()),
-                    shapes: graphics2d_data.shapes(&props.pinned_canvas_values.get()),
+                    image_layers: graphics2d_data.total_image_layers(&props.pinned_canvas_values.get()),
+                    shapes: graphics2d_data.total_shapes(&props.pinned_canvas_values.get()),
                     xrange: graphics2d_data.xrange,
                     yrange: graphics2d_data.yrange,
                 }
@@ -153,6 +153,7 @@ fn FigureContentSwitch<'a, G: Html>(
                 scope,
                 GenericF32 {
                     dimension: props.dimension,
+                    pinned_canvas_values: props.pinned_canvas_values,
                     partitioned_samples,
                 }
             }

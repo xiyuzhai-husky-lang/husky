@@ -4,11 +4,11 @@ mod visual;
 
 pub use control::*;
 pub use graphics2d::*;
-use husky_signal::Signalable;
-use husky_vm_primitive_value::PrimitiveValueData;
 pub use visual::*;
 
 use super::*;
+use husky_signal::Signalable;
+use husky_vm_primitive_value::PrimitiveValueData;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 #[serde(tag = "kind")]
@@ -63,6 +63,31 @@ pub struct MutationFigureData {
 //     ) -> Self {
 
 // }
+
+impl ContainsImageLayers for FigureCanvasData {
+    fn image_layers(&self) -> &[ImageLayerData] {
+        match self {
+            FigureCanvasData::Graphics2d { graphics2d_data } => &graphics2d_data.image_layers,
+            FigureCanvasData::Mutations { mutations } => todo!(),
+            FigureCanvasData::GenericGraphics2d {
+                partitioned_samples,
+            } => todo!(),
+            _ => &[],
+        }
+    }
+}
+impl ContainsShapes for FigureCanvasData {
+    fn shapes(&self) -> &[Shape2dData] {
+        match self {
+            FigureCanvasData::Graphics2d { graphics2d_data } => &graphics2d_data.shapes,
+            FigureCanvasData::Mutations { mutations } => todo!(),
+            FigureCanvasData::GenericGraphics2d {
+                partitioned_samples,
+            } => todo!(),
+            _ => &[],
+        }
+    }
+}
 
 impl FigureCanvasData {
     pub fn new_specific(visual_data: VisualData) -> Self {
