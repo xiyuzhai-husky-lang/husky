@@ -6,7 +6,7 @@ use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement, ImageData};
 #[derive(Prop)]
 pub struct ImageProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
-    image_layers: &'a [ImageLayerData],
+    image_layers: Vec<&'a ImageLayerData>,
 }
 
 fn render(

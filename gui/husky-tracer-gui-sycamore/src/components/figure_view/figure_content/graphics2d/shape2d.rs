@@ -10,12 +10,12 @@ use line_segment2d::*;
 use point2d::*;
 
 #[derive(Prop)]
-pub struct Shape2dProps {
-    data: Shape2dData,
+pub struct Shape2dProps<'a> {
+    data: &'a Shape2dData,
 }
 
 #[component]
-pub fn Shape2d<'a, G: Html>(scope: Scope<'a>, props: Shape2dProps) -> View<G> {
+pub fn Shape2d<'a, G: Html>(scope: Scope<'a>, props: Shape2dProps<'a>) -> View<G> {
     match props.data {
         Shape2dData::Arrow2d { from, to } => view! {
             scope,
@@ -39,8 +39,8 @@ pub fn Shape2d<'a, G: Html>(scope: Scope<'a>, props: Shape2dProps) -> View<G> {
         Shape2dData::LineSegment { start, end } => view! {
             scope,
             LineSegment2d {
-                start,
-                end,
+                start: *start,
+                end: *end,
                 line_width: 0.1,
                 fill: "orange".into()
             }
@@ -52,7 +52,7 @@ pub fn Shape2d<'a, G: Html>(scope: Scope<'a>, props: Shape2dProps) -> View<G> {
                     view! {
                         scope,
                         Shape2d {
-                            data: data.clone()
+                            data
                         }
                     }
                 }).collect()))

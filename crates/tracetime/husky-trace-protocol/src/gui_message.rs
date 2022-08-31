@@ -14,8 +14,8 @@ pub enum HuskyTracerGuiMessageVariant {
     InitDataRequest,
     Activate {
         trace_id: TraceId,
-        needs_figure_canvas_data: bool,
-        needs_figure_control_data: bool,
+        needs_figure_canvases: bool,
+        needs_figure_controls: bool,
     },
     ToggleExpansion {
         trace_id: TraceId,
@@ -25,16 +25,16 @@ pub enum HuskyTracerGuiMessageVariant {
     },
     TogglePin {
         trace_id: TraceId,
-        needs_figure_canvas_data: bool,
-        needs_figure_control_data: bool,
+        needs_figure_canvases: bool,
+        needs_figure_controls: bool,
     },
     Trace {
         id: TraceId,
     },
     SetRestriction {
         restriction: Restriction,
-        needs_figure_canvas_data: bool,
-        needs_figure_control_data: bool,
+        needs_figure_canvases: bool,
+        needs_figure_controls: bool,
         new_stalk_keys: Vec<TraceStalkKey>,
         new_stats_keys: Vec<TraceStatsKey>,
     },
@@ -55,8 +55,8 @@ pub enum HuskyTracerGuiMessageVariant {
     InitDataRequest,
     Activate {
         trace_id: TraceId,
-        needs_figure_canvas_data: bool,
-        needs_figure_control_data: bool,
+        needs_figure_canvases: bool,
+        needs_figure_controls: bool,
     },
     ToggleExpansion {
         trace_id: TraceId,
@@ -66,16 +66,16 @@ pub enum HuskyTracerGuiMessageVariant {
     },
     TogglePin {
         trace_id: TraceId,
-        needs_figure_canvas_data: bool,
-        needs_figure_control_data: bool,
+        needs_figure_canvases: bool,
+        needs_figure_controls: bool,
     },
     Trace {
         id: TraceId,
     },
     SetRestriction {
         restriction: Restriction,
-        needs_figure_canvas_data: bool,
-        needs_figure_control_data: bool,
+        needs_figure_canvases: bool,
+        needs_figure_controls: bool,
         needs_stalks: bool,
         needs_statss: bool,
     },

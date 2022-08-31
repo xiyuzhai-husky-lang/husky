@@ -6,17 +6,17 @@ impl DebuggerContext {
         let trace = self.trace_context.trace_data(trace_id);
         let pinned = pins.get().has(trace_id);
         let restriction = self.restriction_context.restriction.get();
-        let needs_figure_canvas_data =
-            !pinned && (self.needs_figure_canvas_data(Some(trace_id), &restriction));
-        let needs_figure_control_data =
-            !pinned && self.needs_figure_control_data(Some(trace_id), &restriction);
-        let needs_response = needs_figure_canvas_data || needs_figure_control_data;
+        let needs_figure_canvases =
+            !pinned && (self.needs_figure_canvases(Some(trace_id), &restriction));
+        let needs_figure_controls =
+            !pinned && self.needs_figure_controls(Some(trace_id), &restriction);
+        let needs_response = needs_figure_canvases || needs_figure_controls;
 
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::TogglePin {
                 trace_id,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
             },
             if needs_response {
                 Some(Box::new(move |response| match response.variant {

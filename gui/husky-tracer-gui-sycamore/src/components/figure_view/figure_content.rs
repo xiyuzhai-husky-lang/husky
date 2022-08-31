@@ -22,28 +22,31 @@ pub struct FigureContentProps<'a> {
 
 #[component]
 pub fn FigureContent<'a, G: Html>(scope: Scope<'a>, props: FigureContentProps<'a>) -> View<G> {
-    let tracer_context = use_context::<DebuggerContext>(scope);
-    let opt_active_trace_id = &tracer_context.trace_context.opt_active_trace_id;
-    let restriction = &tracer_context.restriction_context.restriction;
+    let ctx = use_debugger_context(scope);
+    let opt_active_trace_id = &ctx.trace_context.opt_active_trace_id;
+    let restriction = &ctx.restriction_context.restriction;
     let opt_canvas_and_control_data = memo!(scope, move || opt_active_trace_id.cget().map(
         |active_trace_id| {
-            let active_trace = tracer_context.trace_context.trace_data(active_trace_id);
-            let canvas_data = tracer_context
+            let active_trace = ctx.trace_context.trace_data(active_trace_id);
+            let canvas_value = ctx
                 .figure_context
                 .figure_canvas_data(&active_trace, &restriction.get());
-            let control_data = tracer_context
+            let control_data = ctx
                 .figure_context
                 .figure_control_data(&active_trace, &restriction.get());
-            (canvas_data, control_data)
+            (canvas_value, control_data)
         }
     ));
+    let pinned_canvas_values =
+        create_static_memo(scope, move || ctx.collect_pinned_canvas_values());
     view! {
         scope,
-        (if let Some((canvas_data, control_data)) = opt_canvas_and_control_data.cget() {
+        (if let Some((canvas_value, control_data)) = opt_canvas_and_control_data.cget() {
             view! {
                 scope,
                 FigureContentSwitch {
-                    canvas_data,
+                    canvas_value,
+                    pinned_canvas_values,
                     control_data,
                     dimension: props.dimension
                 }
@@ -59,7 +62,8 @@ pub fn FigureContent<'a, G: Html>(scope: Scope<'a>, props: FigureContentProps<'a
 
 #[derive(Prop)]
 struct FigureContentSwitchProps<'a> {
-    canvas_data: &'a FigureCanvasData,
+    canvas_value: &'static FigureCanvasData,
+    pinned_canvas_values: &'a ReadSignal<Vec<&'static FigureCanvasData>>,
     control_data: &'a Signal<FigureControlData>,
     dimension: &'a ReadSignal<PixelDimension>,
 }
@@ -69,7 +73,7 @@ fn FigureContentSwitch<'a, G: Html>(
     scope: Scope<'a>,
     props: FigureContentSwitchProps<'a>,
 ) -> View<G> {
-    match props.canvas_data {
+    match props.canvas_value {
         FigureCanvasData::Primitive { value } => {
             view! {
                 scope,
@@ -102,8 +106,8 @@ fn FigureContentSwitch<'a, G: Html>(
                 scope,
                 Graphics2dCanvas {
                     dimension: props.dimension,
-                    image_layers: &graphics2d_data.image_layers,
-                    shapes: &graphics2d_data.shapes,
+                    image_layers: graphics2d_data.image_layers(&props.pinned_canvas_values.get()),
+                    shapes: graphics2d_data.shapes(&props.pinned_canvas_values.get()),
                     xrange: graphics2d_data.xrange,
                     yrange: graphics2d_data.yrange,
                 }
@@ -115,6 +119,7 @@ fn FigureContentSwitch<'a, G: Html>(
                     scope,
                     MutationCanvas {
                         dimension: props.dimension,
+                        pinned_canvas_values: props.pinned_canvas_values,
                         control_data: props.control_data,
                         mutation: &mutations[mutation_selection as usize]
                     }

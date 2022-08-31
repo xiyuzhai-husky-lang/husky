@@ -11,22 +11,22 @@ impl DebuggerContext {
     #[cfg(feature = "verify_consistency")]
     pub(super) fn set_restriction(&'static self, new_restriction: Restriction) {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
-        let needs_figure_canvas_data =
-            self.needs_figure_canvas_data(opt_active_trace_id, &new_restriction);
-        let needs_figure_control_data =
-            self.needs_figure_control_data(opt_active_trace_id, &new_restriction);
+        let needs_figure_canvases =
+            self.needs_figure_canvases(opt_active_trace_id, &new_restriction);
+        let needs_figure_controls =
+            self.needs_figure_controls(opt_active_trace_id, &new_restriction);
         let new_stalk_keys = self.new_stalk_keys(&new_restriction);
         let new_stats_keys = self.new_stats_keys(&new_restriction);
         // todo: make this into an optional feature named "check"
         let needs_stalk = new_stalk_keys.len() > 0;
         let needs_stats = new_stats_keys.len() > 0;
         let needs_response =
-            needs_figure_canvas_data || needs_figure_control_data || needs_stalk || needs_stats;
+            needs_figure_canvases || needs_figure_controls || needs_stalk || needs_stats;
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::SetRestriction {
                 restriction: new_restriction.clone(),
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
                 new_stalk_keys,
                 new_stats_keys,
             },
@@ -77,19 +77,19 @@ impl DebuggerContext {
     #[cfg(not(feature = "verify_consistency"))]
     pub(super) fn set_restriction(&'static self, new_restriction: Restriction) {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
-        let needs_figure_canvas_data =
-            self.needs_figure_canvas_data(opt_active_trace_id, &new_restriction);
-        let needs_figure_control_data =
-            self.needs_figure_control_data(opt_active_trace_id, &new_restriction);
+        let needs_figure_canvases =
+            self.needs_figure_canvases(opt_active_trace_id, &new_restriction);
+        let needs_figure_controls =
+            self.needs_figure_controls(opt_active_trace_id, &new_restriction);
         let needs_stalks = self.needs_stalks(&new_restriction);
         let needs_statss = self.needs_statss(&new_restriction);
         let needs_response =
-            needs_figure_canvas_data || needs_figure_control_data || needs_stalks || needs_statss;
+            needs_figure_canvases || needs_figure_controls || needs_stalks || needs_statss;
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::SetRestriction {
                 restriction: new_restriction.clone(),
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
                 needs_stalks,
                 needs_statss,
             },

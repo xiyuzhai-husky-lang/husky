@@ -2,18 +2,26 @@ use super::*;
 use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
 
 impl DebuggerContext {
-    pub(super) fn needs_figure_canvas_data(
-        &'static self,
+    pub(super) fn needs_figure_canvases(
+        &self,
         opt_active_trace_id: Option<TraceId>,
         restriction: &Restriction,
     ) -> bool {
-        let active_trace_id = if let Some(active_trace_id) = opt_active_trace_id {
-            active_trace_id
-        } else {
-            return false;
+        if let Some(active_trace_id) = opt_active_trace_id {
+            if self.needs_figure_canvas(active_trace_id, restriction) {
+                return true;
+            }
         };
-        let trace = self.trace_context.trace_data(active_trace_id);
-        // let restriction = opt_new_restriction.unwrap_or(&self.restriction_context.restriction.get());
+        for pin in self.figure_context.pins.get().iter() {
+            if self.needs_figure_canvas(*pin, restriction) {
+                return true;
+            }
+        }
+        false
+    }
+
+    fn needs_figure_canvas(&self, trace_id: TraceId, restriction: &Restriction) -> bool {
+        let trace = self.trace_context.trace_data(trace_id);
         let key = self
             .figure_context
             .new_figure_canvas_key(trace, restriction);
@@ -24,18 +32,27 @@ impl DebuggerContext {
             .contains_key(&key)
     }
 
-    pub(super) fn needs_figure_control_data(
+    pub(super) fn needs_figure_controls(
         &self,
         opt_active_trace_id: Option<TraceId>,
         restriction: &Restriction,
     ) -> bool {
-        let active_trace_id = if let Some(active_trace_id) = opt_active_trace_id {
-            active_trace_id
-        } else {
-            return false;
-        };
-        let trace = self.trace_context.trace_data(active_trace_id);
-        let key = FigureControlKey::from_trace_data(trace, restriction);
+        if let Some(active_trace_id) = opt_active_trace_id {
+            if self.needs_figure_control(active_trace_id, restriction) {
+                return true;
+            }
+        }
+        for pin in self.figure_context.pins.get().iter() {
+            if self.needs_figure_control(*pin, restriction) {
+                return true;
+            }
+        }
+        false
+    }
+
+    fn needs_figure_control(&self, trace_id: TraceId, restriction: &Restriction) -> bool {
+        let trace_data = self.trace_context.trace_data(trace_id);
+        let key = FigureControlKey::from_trace_data(trace_data, restriction);
         !self
             .figure_context
             .figure_controls

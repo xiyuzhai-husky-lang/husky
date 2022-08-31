@@ -10,25 +10,25 @@ pub struct FigureControlProps<'a> {
 
 #[component]
 pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a>) -> View<G> {
-    let tracer_context = use_context::<DebuggerContext>(scope);
-    let opt_active_trace_id = &tracer_context.trace_context.opt_active_trace_id;
-    let restriction = &tracer_context.restriction_context.restriction;
+    let ctx = use_debugger_context(scope);
+    let opt_active_trace_id = &ctx.trace_context.opt_active_trace_id;
+    let restriction = &ctx.restriction_context.restriction;
     let opt_canvas_and_control_data = memo!(scope, move || opt_active_trace_id.cget().map(
         |active_trace_id| {
-            let active_trace = tracer_context.trace_context.trace_data(active_trace_id);
-            let canvas_data = tracer_context
+            let active_trace = ctx.trace_context.trace_data(active_trace_id);
+            let canvas_value = ctx
                 .figure_context
                 .figure_canvas_data(&active_trace, &restriction.get());
-            let control_data = tracer_context
+            let control_data = ctx
                 .figure_context
                 .figure_control_data(&active_trace, &restriction.get());
-            (canvas_data, control_data)
+            (canvas_value, control_data)
         }
     ));
     view! {
         scope,
-        (if let Some((canvas_data, figure_control_data)) = opt_canvas_and_control_data.cget() {
-            match *canvas_data {
+        (if let Some((canvas_value, figure_control_data)) = opt_canvas_and_control_data.cget() {
+            match *canvas_value {
                 FigureCanvasData::Mutations { ref mutations } => {
                     view! {
                         scope,
