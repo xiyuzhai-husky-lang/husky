@@ -12,7 +12,7 @@ pub struct LayoutProps<'a> {
 
 #[component]
 pub fn Layout<'a, G: Html>(scope: Scope<'a>, props: LayoutProps<'a>) -> View<G> {
-    let context = use_context::<DebuggerContext>(scope);
+    let context = use_debugger_context(scope);
     let root_trace_ids = &context.trace_context.root_trace_ids;
     let dimension = memo!(scope, || PixelDimension {
         width: props.width.cget(),

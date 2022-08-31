@@ -39,8 +39,7 @@ fn save_server_history(server_history: &DebuggerServerHistory) {
     let filename = format!("history-{}.json", xxh3_64(value.as_bytes()));
     let filename: &str = &filename;
     let filepath: PathBuf = format!("tests/debugger/server-history/{filename}").into();
-    husky_io_utils::diff_write(&filepath, &value, false);
-    println!("{}", "server history saved".red())
+    husky_io_utils::diff_write(&filepath, &value, true)
 }
 
 impl HuskyDebuggerInstance {
@@ -102,12 +101,12 @@ impl HuskyDebuggerInternal {
             }
             HuskyTracerGuiMessageVariant::Activate {
                 trace_id,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
             } => self.handle_activate(
                 trace_id,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
                 request,
             ),
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
@@ -150,14 +149,14 @@ impl HuskyDebuggerInternal {
             }
             HuskyTracerGuiMessageVariant::SetRestriction {
                 ref restriction,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
                 ref new_stalk_keys,
                 ref new_stats_keys,
             } => self.handle_set_restriction(
                 restriction,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
                 new_stalk_keys,
                 new_stats_keys,
             ),
@@ -175,12 +174,12 @@ impl HuskyDebuggerInternal {
             }
             HuskyTracerGuiMessageVariant::TogglePin {
                 trace_id,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
             } => self.handle_toggle_pin(
                 trace_id,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
                 request,
             ),
         }
@@ -215,12 +214,12 @@ impl HuskyDebuggerInternal {
             }
             HuskyTracerGuiMessageVariant::Activate {
                 trace_id,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
             } => self.handle_activate(
                 trace_id,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
                 request,
             ),
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
@@ -263,14 +262,14 @@ impl HuskyDebuggerInternal {
             }
             HuskyTracerGuiMessageVariant::SetRestriction {
                 ref restriction,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
                 needs_stalks,
                 needs_statss,
             } => self.handle_set_restriction(
                 restriction,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
                 needs_stalks,
                 needs_statss,
             ),
@@ -284,12 +283,12 @@ impl HuskyDebuggerInternal {
             }
             HuskyTracerGuiMessageVariant::TogglePin {
                 trace_id,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
             } => self.handle_toggle_pin(
                 trace_id,
-                needs_figure_canvas_data,
-                needs_figure_control_data,
+                needs_figure_canvases,
+                needs_figure_controls,
                 request,
             ),
         }
@@ -298,13 +297,13 @@ impl HuskyDebuggerInternal {
     fn handle_activate(
         &mut self,
         trace_id: TraceId,
-        needs_figure_canvas_data: bool,
-        needs_figure_control_data: bool,
+        needs_figure_canvases: bool,
+        needs_figure_controls: bool,
         request: &HuskyTracerGuiMessage,
     ) -> Option<HuskyTracerServerMessageVariant> {
         match self.tracetime.activate(trace_id) {
             Ok((new_figure_canvases, new_figure_controls)) => {
-                let needs_response = needs_figure_canvas_data || needs_figure_control_data;
+                let needs_response = needs_figure_canvases || needs_figure_controls;
                 should_eq!(request.opt_request_id.is_some(), needs_response);
                 if needs_response {
                     Some(HuskyTracerServerMessageVariant::Activate {
@@ -322,13 +321,13 @@ impl HuskyDebuggerInternal {
     fn handle_toggle_pin(
         &mut self,
         trace_id: TraceId,
-        needs_figure_canvas_data: bool,
-        needs_figure_control_data: bool,
+        needs_figure_canvases: bool,
+        needs_figure_controls: bool,
         request: &HuskyTracerGuiMessage,
     ) -> Option<HuskyTracerServerMessageVariant> {
         match self.tracetime.toggle_pin(trace_id) {
             Ok((new_figure_canvases, new_figure_controls)) => {
-                let needs_response = needs_figure_canvas_data || needs_figure_control_data;
+                let needs_response = needs_figure_canvases || needs_figure_controls;
                 should_eq!(request.opt_request_id.is_some(), needs_response);
                 if needs_response {
                     Some(HuskyTracerServerMessageVariant::TogglePin {
@@ -347,22 +346,22 @@ impl HuskyDebuggerInternal {
     fn handle_set_restriction(
         &mut self,
         restriction: &Restriction,
-        needs_figure_canvas_data: bool,
-        needs_figure_control_data: bool,
+        needs_figure_canvases: bool,
+        needs_figure_controls: bool,
         new_stalk_keys: &[TraceStalkKey],
         new_stats_keys: &[TraceStatsKey],
     ) -> Option<HuskyTracerServerMessageVariant> {
         let (new_trace_stalks, new_trace_stats) =
             self.trace_time.set_restriction(restriction.clone());
-        if needs_figure_canvas_data
-            || needs_figure_control_data
+        if needs_figure_canvases
+            || needs_figure_controls
             || new_stalk_keys.len() > 0
             || new_stats_keys.len() > 0
         {
             let (opt_figure_canvas_data, opt_figure_control_data) = if let Some(active_trace_id) =
                 self.trace_time.opt_active_trace_id()
             {
-                let opt_figure_canvas_data = if needs_figure_canvas_data {
+                let opt_figure_canvas_data = if needs_figure_canvases {
                     match self.trace_time.figure_canvas(active_trace_id) {
                         Ok(figure_canvas) => Some(figure_canvas),
                         Err((sample_id, error)) => {
@@ -375,7 +374,7 @@ impl HuskyDebuggerInternal {
                 } else {
                     None
                 };
-                let opt_figure_control_data = if needs_figure_control_data {
+                let opt_figure_control_data = if needs_figure_controls {
                     Some(self.trace_time.figure_control(active_trace_id))
                 } else {
                     None
@@ -409,6 +408,7 @@ impl HuskyDebuggerInternal {
     ) -> Option<HuskyTracerServerMessageVariant> {
         match self.tracetime.set_restriction(restriction.clone()) {
             Ok((new_figure_canvases, new_figure_controls, new_trace_stalks, new_trace_statss)) => {
+                p!(new_figure_canvases[0].0);
                 assert_eq!(needs_figure_canvases, new_figure_canvases.len() > 0);
                 assert_eq!(needs_figure_controls, new_figure_controls.len() > 0);
                 assert_eq!(needs_stalks, new_trace_stalks.len() > 0);

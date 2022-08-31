@@ -8,8 +8,8 @@ pub use shape::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct Graphics2dCanvasData {
-    pub image_layers: Vec<ImageLayerData>,
-    pub shapes: Vec<Shape2dData>,
+    pub(crate) image_layers: Vec<ImageLayerData>,
+    pub(crate) shapes: Vec<Shape2dData>,
     pub xrange: (f32, f32),
     pub yrange: (f32, f32),
 }
@@ -67,5 +67,43 @@ impl Graphics2dCanvasData {
                 panic!()
             }
         }
+    }
+
+    pub fn image_layers<'a>(
+        &'a self,
+        pinned_canvas_values: &[&'a FigureCanvasData],
+    ) -> Vec<&'a ImageLayerData> {
+        let mut image_layers = self.image_layers.iter().collect::<Vec<&_>>();
+        for pinned_canvas_value in pinned_canvas_values {
+            image_layers.extend(match pinned_canvas_value {
+                FigureCanvasData::Graphics2d { graphics2d_data } => {
+                    graphics2d_data.image_layers.iter()
+                }
+                FigureCanvasData::Mutations { mutations } => todo!(),
+                FigureCanvasData::GenericGraphics2d {
+                    partitioned_samples,
+                } => todo!(),
+                _ => continue,
+            })
+        }
+        image_layers
+    }
+
+    pub fn shapes<'a>(
+        &'a self,
+        pinned_canvas_values: &[&'a FigureCanvasData],
+    ) -> Vec<&'a Shape2dData> {
+        let mut shapes = self.shapes.iter().collect::<Vec<&_>>();
+        for pinned_canvas_value in pinned_canvas_values {
+            shapes.extend(match pinned_canvas_value {
+                FigureCanvasData::Graphics2d { graphics2d_data } => graphics2d_data.shapes.iter(),
+                FigureCanvasData::Mutations { mutations } => todo!(),
+                FigureCanvasData::GenericGraphics2d {
+                    partitioned_samples,
+                } => todo!(),
+                _ => continue,
+            })
+        }
+        shapes
     }
 }

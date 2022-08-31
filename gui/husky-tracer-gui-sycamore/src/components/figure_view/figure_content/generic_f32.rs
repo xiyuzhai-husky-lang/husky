@@ -39,7 +39,9 @@ pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> 
                     (points)
                 }
             }
-            div (class="GenericF32VisualRegion") {}
+            div (class="GenericF32VisualRegion") {
+
+            }
         }
     }
 }

@@ -1,11 +1,11 @@
 use super::*;
 
 #[derive(Prop)]
-pub struct Contour2dProps {
-    points: Vec<Point2dData>,
+pub struct Contour2dProps<'a> {
+    points: &'a [Point2dData],
 }
 
-impl Contour2dProps {
+impl<'a> Contour2dProps<'a> {
     fn edges(&self) -> Vec<(Point2dData, Point2dData)> {
         let closed: bool = true;
         let mut edges = vec![];
@@ -20,7 +20,7 @@ impl Contour2dProps {
 }
 
 #[component]
-pub fn Contour2d<'a, G: Html>(scope: Scope<'a>, props: Contour2dProps) -> View<G> {
+pub fn Contour2d<'a, G: Html>(scope: Scope<'a>, props: Contour2dProps<'a>) -> View<G> {
     let edges = props.edges();
     view! {
         scope,
@@ -42,7 +42,7 @@ pub fn Contour2d<'a, G: Html>(scope: Scope<'a>, props: Contour2dProps) -> View<G
                 |point| view!{
                     scope,
                     Point2d {
-                        point:*point
+                        point
                     }
                 }
             ).collect()

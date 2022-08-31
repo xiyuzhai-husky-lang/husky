@@ -3,8 +3,9 @@ use super::*;
 #[derive(Prop)]
 pub struct MutationCanvasProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
+    pinned_canvas_values: &'a ReadSignal<Vec<&'static FigureCanvasData>>,
     control_data: &'a Signal<FigureControlData>,
-    mutation: &'a MutationFigureData,
+    mutation: &'static MutationFigureData,
 }
 
 #[component]
@@ -12,7 +13,8 @@ pub fn MutationCanvas<'a, G: Html>(scope: Scope<'a>, props: MutationCanvasProps<
     view! {
         scope,
         FigureContentSwitch {
-            canvas_data: &props.mutation.after,
+            pinned_canvas_values: props.pinned_canvas_values,
+            canvas_value: &props.mutation.after,
             control_data: props.control_data,
             dimension: props.dimension
         }

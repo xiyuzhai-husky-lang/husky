@@ -112,3 +112,20 @@ impl FigureContext {
         self.pins.set(new_pins);
     }
 }
+
+impl DebuggerContext {
+    pub(crate) fn collect_pinned_canvas_values(&'static self) -> Vec<&'static FigureCanvasData> {
+        self.figure_context
+            .pins
+            .get()
+            .iter()
+            .map(|pin| {
+                let key = FigureCanvasKey::from_trace_data(
+                    self.trace_context.trace_data(*pin),
+                    &self.restriction_context.restriction.get(),
+                );
+                self.figure_context.figure_canvases.borrow(file!(), line!())[&key]
+            })
+            .collect()
+    }
+}

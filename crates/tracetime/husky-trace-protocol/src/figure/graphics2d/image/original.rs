@@ -31,7 +31,7 @@ impl OriginalImageData {
         }
     }
 
-    pub fn new_composed(image_layers: &[ImageLayerData]) -> Self {
+    pub fn new_composed(image_layers: &[&ImageLayerData]) -> Self {
         let mut composed_image = Self::new(&image_layers[0]);
         for image_layer in &image_layers[1..] {
             composed_image.join(&Self::new(image_layer))

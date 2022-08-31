@@ -8,8 +8,8 @@ use shape2d::*;
 #[derive(Prop)]
 pub struct Graphics2dCanvasProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
-    image_layers: &'a [ImageLayerData],
-    shapes: &'a [Shape2dData],
+    image_layers: Vec<&'a ImageLayerData>,
+    shapes: Vec<&'a Shape2dData>,
     xrange: (f32, f32),
     yrange: (f32, f32),
 }
