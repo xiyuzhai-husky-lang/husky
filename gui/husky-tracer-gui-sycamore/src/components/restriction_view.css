@@ -15,8 +15,9 @@
     background: rgb(136, 0, 143);
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
     height: 95%;
+    width: 8ch;
 }
 
 #sample-id-name {

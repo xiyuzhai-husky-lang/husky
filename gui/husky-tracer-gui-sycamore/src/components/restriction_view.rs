@@ -28,26 +28,17 @@ pub fn RestrictionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
             ) {
                 (restriction_kind.get())
             }
-            ({
-                match restriction.get().opt_sample_id() {
-                    Some(sample_id)=> {
-                        view! {
-                            scope,
-                            label (
-                                id="sample-id-name",
-                            ) {
-                                "sample id = "
-                            }
-                            label (
-                                id="sample-id-value",
-                                on:click=debugger_context.set_restriction_from_dialog_handler()
-                            ) {
-                                (sample_id.0)
-                            }
-                        }
-                    },
-                    None=> view!{scope,},
-            }})
+             label (
+                id="sample-id-name",
+            ) {
+                "sample id = "
+            }
+            label (
+                id="sample-id-value",
+                on:click=debugger_context.set_restriction_from_dialog_handler()
+            ) {
+                (restriction.get().sample_id().0)
+            }
         }
     }
 }
