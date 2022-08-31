@@ -41,7 +41,7 @@ impl StatusChange {
                 }
                 'C' => {
                     // 't'
-                    log::info!("figure context is \n:{:?}", ctx.figure_context);
+                    // log::info!("figure context is \n:{:?}", ctx);
                     // log::info!("fcous context is \n:{:?}", self.restriction_context);
                     log::info!(
                         "opt active trace id is \n:{:?}",

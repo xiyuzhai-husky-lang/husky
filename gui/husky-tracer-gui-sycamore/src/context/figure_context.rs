@@ -2,34 +2,7 @@ use vec_like::VecSet;
 
 use super::*;
 
-#[derive(Debug)]
-pub struct FigureContext {
-    pub(crate) figure_canvases: RefCell<HashMap<FigureCanvasKey, &'static FigureCanvasData>>,
-    pub(crate) figure_controls:
-        RefCell<HashMap<FigureControlKey, &'static Signal<FigureControlData>>>,
-    pub(crate) pins: &'static Signal<VecSet<TraceId>>,
-}
-
-impl FigureContext {
-    pub(super) fn new<'a>(scope: Scope<'a>) -> Self {
-        Self {
-            figure_canvases: Default::default(),
-            figure_controls: Default::default(),
-            pins: create_static_signal(scope, Default::default()),
-        }
-    }
-
-    pub(super) fn init(
-        &self,
-        figure_canvases: HashMap<FigureCanvasKey, &'static FigureCanvasData>,
-        figure_controls: HashMap<FigureControlKey, &'static Signal<FigureControlData>>,
-        pins: VecSet<TraceId>,
-    ) {
-        *self.figure_canvases.borrow_mut(file!(), line!()) = figure_canvases;
-        *self.figure_controls.borrow_mut(file!(), line!()) = figure_controls;
-        self.pins.set(pins)
-    }
-
+impl DebuggerContext {
     pub(super) fn receive_figure_canvases(
         &self,
         scope: Scope<'static>,
@@ -115,8 +88,7 @@ impl FigureContext {
 
 impl DebuggerContext {
     pub(crate) fn collect_pinned_canvas_values(&'static self) -> Vec<&'static FigureCanvasData> {
-        self.figure_context
-            .pins
+        self.pins
             .get()
             .iter()
             .map(|pin| {
@@ -124,7 +96,7 @@ impl DebuggerContext {
                     self.trace_context.trace_data(*pin),
                     &self.restriction_context.restriction.get(),
                 );
-                self.figure_context.figure_canvases.borrow(file!(), line!())[&key]
+                self.figure_canvases.borrow(file!(), line!())[&key]
             })
             .collect()
     }

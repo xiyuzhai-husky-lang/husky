@@ -12,7 +12,7 @@ impl DebuggerContext {
                 return true;
             }
         };
-        for pin in self.figure_context.pins.get().iter() {
+        for pin in self.pins.get().iter() {
             if self.needs_figure_canvas(*pin, restriction) {
                 return true;
             }
@@ -22,11 +22,8 @@ impl DebuggerContext {
 
     fn needs_figure_canvas(&self, trace_id: TraceId, restriction: &Restriction) -> bool {
         let trace = self.trace_context.trace_data(trace_id);
-        let key = self
-            .figure_context
-            .new_figure_canvas_key(trace, restriction);
+        let key = self.new_figure_canvas_key(trace, restriction);
         !self
-            .figure_context
             .figure_canvases
             .borrow(file!(), line!())
             .contains_key(&key)
@@ -42,7 +39,7 @@ impl DebuggerContext {
                 return true;
             }
         }
-        for pin in self.figure_context.pins.get().iter() {
+        for pin in self.pins.get().iter() {
             if self.needs_figure_control(*pin, restriction) {
                 return true;
             }
@@ -54,7 +51,6 @@ impl DebuggerContext {
         let trace_data = self.trace_context.trace_data(trace_id);
         let key = FigureControlKey::from_trace_data(trace_data, restriction);
         !self
-            .figure_context
             .figure_controls
             .borrow(file!(), line!())
             .contains_key(&key)

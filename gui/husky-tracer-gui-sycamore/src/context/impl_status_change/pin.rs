@@ -2,7 +2,7 @@ use super::*;
 
 impl DebuggerContext {
     pub(super) fn toggle_pin(&'static self, trace_id: TraceId) {
-        let pins = self.figure_context.pins;
+        let pins = self.pins;
         let trace = self.trace_context.trace_data(trace_id);
         let pinned = pins.get().has(trace_id);
         let restriction = self.restriction_context.restriction.get();
@@ -24,22 +24,21 @@ impl DebuggerContext {
                         new_figure_canvases,
                         new_figure_controls,
                     } => {
-                        self.figure_context.receive_figure_canvases(
+                        self.receive_figure_canvases(
                             self.scope,
                             new_figure_canvases
                                 .into_iter()
                                 .map(|(k, v)| (k, self.alloc_value(v))),
                         );
-                        self.figure_context
-                            .receive_figure_controls(self.scope, new_figure_controls.into_iter());
-                        self.figure_context.did_toggle_pin(trace_id);
+                        self.receive_figure_controls(self.scope, new_figure_controls.into_iter());
+                        self.did_toggle_pin(trace_id);
                     }
                     HuskyTracerServerMessageVariant::TogglePinWithError { .. } => todo!(),
                     _ => panic!("unexpected response {:?}", response),
                 }))
             } else {
                 {
-                    self.figure_context.did_toggle_pin(trace_id);
+                    self.did_toggle_pin(trace_id);
                     None
                 }
             },
