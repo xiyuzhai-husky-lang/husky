@@ -71,8 +71,8 @@ pub fn PartitionContent<'a, G: Html>(
                             ) {
                                 Graphics2dCanvas {
                                     dimension: sample_graphics2d_dimension,
-                                    image_layers: sample_visual.image_layers(&[/* todo */]),
-                                    shapes: sample_visual.shapes(&[/* todo */]),
+                                    image_layers: sample_visual.total_image_layers::<Graphics2dCanvasData>(&[/* todo */]),
+                                    shapes: sample_visual.total_shapes::<Graphics2dCanvasData>(&[/* todo */]),
                                     xrange: sample_visual.xrange,
                                     yrange: sample_visual.yrange,
                                 }

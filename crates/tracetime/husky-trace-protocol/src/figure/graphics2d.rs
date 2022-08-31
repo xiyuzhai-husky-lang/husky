@@ -68,42 +68,16 @@ impl Graphics2dCanvasData {
             }
         }
     }
+}
 
-    pub fn image_layers<'a>(
-        &'a self,
-        pinned_canvas_values: &[&'a FigureCanvasData],
-    ) -> Vec<&'a ImageLayerData> {
-        let mut image_layers = self.image_layers.iter().collect::<Vec<&_>>();
-        for pinned_canvas_value in pinned_canvas_values {
-            image_layers.extend(match pinned_canvas_value {
-                FigureCanvasData::Graphics2d { graphics2d_data } => {
-                    graphics2d_data.image_layers.iter()
-                }
-                FigureCanvasData::Mutations { mutations } => todo!(),
-                FigureCanvasData::GenericGraphics2d {
-                    partitioned_samples,
-                } => todo!(),
-                _ => continue,
-            })
-        }
-        image_layers
+impl ContainsImageLayers for Graphics2dCanvasData {
+    fn image_layers(&self) -> &[ImageLayerData] {
+        &self.image_layers
     }
+}
 
-    pub fn shapes<'a>(
-        &'a self,
-        pinned_canvas_values: &[&'a FigureCanvasData],
-    ) -> Vec<&'a Shape2dData> {
-        let mut shapes = self.shapes.iter().collect::<Vec<&_>>();
-        for pinned_canvas_value in pinned_canvas_values {
-            shapes.extend(match pinned_canvas_value {
-                FigureCanvasData::Graphics2d { graphics2d_data } => graphics2d_data.shapes.iter(),
-                FigureCanvasData::Mutations { mutations } => todo!(),
-                FigureCanvasData::GenericGraphics2d {
-                    partitioned_samples,
-                } => todo!(),
-                _ => continue,
-            })
-        }
-        shapes
+impl ContainsShapes for Graphics2dCanvasData {
+    fn shapes(&self) -> &[Shape2dData] {
+        &self.shapes
     }
 }
