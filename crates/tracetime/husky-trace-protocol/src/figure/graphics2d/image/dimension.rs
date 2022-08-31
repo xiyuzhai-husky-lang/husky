@@ -1,6 +1,6 @@
 use husky_signal::Signalable;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq)]
 pub struct PixelDimension {
     pub width: u32,
     pub height: u32,

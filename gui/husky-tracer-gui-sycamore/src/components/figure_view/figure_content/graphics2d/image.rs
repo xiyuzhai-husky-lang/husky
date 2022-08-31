@@ -14,6 +14,7 @@ fn render(
     composed_image_data: &OriginalImageData,
     dimension: PixelDimension,
 ) {
+    log::info!("render");
     html_canvas.set_width(dimension.width);
     html_canvas.set_height(dimension.height);
     let html_canvas_rendering_context = html_canvas
@@ -48,9 +49,7 @@ pub fn Image<'a, G: Html>(scope: Scope<'a>, props: ImageProps<'a>) -> View<G> {
                     .dyn_into::<HtmlCanvasElement>()
                     .map_err(|_| ())
                     .unwrap();
-                if let Some(composed_image_data) = composed_image_data.get().as_ref() {
-                    render(html_canvas, composed_image_data, dimension)
-                }
+                render(html_canvas, &composed_image_data.get(), dimension)
             }
         }
     });
