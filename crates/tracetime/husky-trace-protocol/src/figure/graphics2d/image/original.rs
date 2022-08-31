@@ -3,7 +3,7 @@ use husky_signal::Signalable;
 use std::iter::zip;
 use wasm_bindgen::Clamped;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Default, Debug, Clone, PartialEq)]
 pub struct OriginalImageData {
     pub dimension: PixelDimension,
     data: Vec<u8>,
@@ -31,15 +31,15 @@ impl OriginalImageData {
         }
     }
 
-    pub fn new_composed(image_layers: &[&ImageLayerData]) -> Option<Self> {
+    pub fn new_composed(image_layers: &[&ImageLayerData]) -> Self {
         if image_layers.len() == 0 {
-            return None;
+            return Default::default();
         }
         let mut composed_image = Self::new(&image_layers[0]);
         for image_layer in &image_layers[1..] {
             composed_image.join(&Self::new(image_layer))
         }
-        Some(composed_image)
+        composed_image
     }
 
     pub fn join(&mut self, other: &Self) {
@@ -51,12 +51,22 @@ impl OriginalImageData {
         let mut data = vec![];
         data.reserve((dimension.width * dimension.height) as usize * 4);
         log::info!("dimension = {dimension:?}");
-        for i1 in 0..dimension.height {
-            for j1 in 0..dimension.width {
-                let i = i1 * self.dimension.height / dimension.height;
-                let j = j1 * self.dimension.width / dimension.width;
-                for c in 0..4 {
-                    data.push(self.data[((i * self.dimension.width + j) * 4 + c) as usize])
+        if self.data.len() > 0 {
+            for i1 in 0..dimension.height {
+                for j1 in 0..dimension.width {
+                    let i = i1 * self.dimension.height / dimension.height;
+                    let j = j1 * self.dimension.width / dimension.width;
+                    for c in 0..4 {
+                        data.push(self.data[((i * self.dimension.width + j) * 4 + c) as usize])
+                    }
+                }
+            }
+        } else {
+            for i1 in 0..dimension.height {
+                for j1 in 0..dimension.width {
+                    for c in 0..4 {
+                        data.push(0)
+                    }
                 }
             }
         }
