@@ -87,7 +87,7 @@ impl<'eval> ConcaveComponent<'eval> {
                 .downcast_eval_ref(&__registration__::__F32_VTABLE);
         }
         let mut angle_change = 0f32;
-        let mut dp0 = self.strokes[(0) as usize].displacement();
+        let mut dp0 = self.strokes[(self.strokes.start) as usize].displacement();
         for i in (self.strokes.start + 1)..self.strokes.end {
             let dp = self.strokes[(i) as usize].displacement();
             angle_change += dp0.angle_to(&dp, true);
