@@ -1,0 +1,613 @@
+{
+  "config": {
+    "package_dir": "examples/mnist-classifier",
+    "opt_sample_id": null,
+    "verbose": false,
+    "compiled": false
+  },
+  "gui_messages": [
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 1,
+      "variant": {
+        "kind": "InitDataRequest"
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 2,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 2,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 3,
+      "variant": {
+        "kind": "ToggleExpansion",
+        "trace_id": 2
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 4,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 5,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 5,
+      "variant": {
+        "kind": "ToggleExpansion",
+        "trace_id": 5
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 6,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 24,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 7,
+      "variant": {
+        "kind": "ToggleExpansion",
+        "trace_id": 24
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 8,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 38,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 9,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 44,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 10,
+      "variant": {
+        "kind": "SetRestriction",
+        "restriction": {
+          "is_specific": false,
+          "sample_id": 826,
+          "partitions": {
+            "nondefaults": [],
+            "default_partition_ncol": 7
+          },
+          "arrivals": {
+            "entries": [],
+            "phantom": null
+          }
+        },
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false,
+        "needs_stalks": false,
+        "needs_statss": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 11,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 0,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 12,
+      "variant": {
+        "kind": "SetRestriction",
+        "restriction": {
+          "is_specific": false,
+          "sample_id": 1003,
+          "partitions": {
+            "nondefaults": [],
+            "default_partition_ncol": 7
+          },
+          "arrivals": {
+            "entries": [],
+            "phantom": null
+          }
+        },
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false,
+        "needs_stalks": false,
+        "needs_statss": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 13,
+      "variant": {
+        "kind": "SetRestriction",
+        "restriction": {
+          "is_specific": false,
+          "sample_id": 513,
+          "partitions": {
+            "nondefaults": [],
+            "default_partition_ncol": 7
+          },
+          "arrivals": {
+            "entries": [],
+            "phantom": null
+          }
+        },
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false,
+        "needs_stalks": false,
+        "needs_statss": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 14,
+      "variant": {
+        "kind": "SetRestriction",
+        "restriction": {
+          "is_specific": false,
+          "sample_id": 791,
+          "partitions": {
+            "nondefaults": [],
+            "default_partition_ncol": 7
+          },
+          "arrivals": {
+            "entries": [],
+            "phantom": null
+          }
+        },
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false,
+        "needs_stalks": false,
+        "needs_statss": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 15,
+      "variant": {
+        "kind": "SetRestriction",
+        "restriction": {
+          "is_specific": false,
+          "sample_id": 1162,
+          "partitions": {
+            "nondefaults": [],
+            "default_partition_ncol": 7
+          },
+          "arrivals": {
+            "entries": [],
+            "phantom": null
+          }
+        },
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false,
+        "needs_stalks": false,
+        "needs_statss": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 0,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 0,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 0,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 0,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 0,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 0,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 16,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 3,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 17,
+      "variant": {
+        "kind": "ToggleExpansion",
+        "trace_id": 3
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 18,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 55,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 19,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 52,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 20,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 38,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 52,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 52,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 52,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 52,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 52,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 52,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 52,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 21,
+      "variant": {
+        "kind": "SetRestriction",
+        "restriction": {
+          "is_specific": false,
+          "sample_id": 223,
+          "partitions": {
+            "nondefaults": [],
+            "default_partition_ncol": 7
+          },
+          "arrivals": {
+            "entries": [],
+            "phantom": null
+          }
+        },
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false,
+        "needs_stalks": false,
+        "needs_statss": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 22,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 52,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 23,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 55,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 55,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 24,
+      "variant": {
+        "kind": "TogglePin",
+        "trace_id": 59,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 0,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 25,
+      "variant": {
+        "kind": "SetRestriction",
+        "restriction": {
+          "is_specific": false,
+          "sample_id": 223,
+          "partitions": {
+            "nondefaults": [
+              {
+                "ncol": 2,
+                "variant": {
+                  "Label": 1
+                }
+              }
+            ],
+            "default_partition_ncol": 5
+          },
+          "arrivals": {
+            "entries": [],
+            "phantom": null
+          }
+        },
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false,
+        "needs_stalks": false,
+        "needs_statss": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 26,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 38,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 27,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 44,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 28,
+      "variant": {
+        "kind": "SetRestriction",
+        "restriction": {
+          "is_specific": false,
+          "sample_id": 26,
+          "partitions": {
+            "nondefaults": [
+              {
+                "ncol": 2,
+                "variant": {
+                  "Label": 1
+                }
+              }
+            ],
+            "default_partition_ncol": 5
+          },
+          "arrivals": {
+            "entries": [],
+            "phantom": null
+          }
+        },
+        "needs_figure_canvases": true,
+        "needs_figure_controls": false,
+        "needs_stalks": false,
+        "needs_statss": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 29,
+      "variant": {
+        "kind": "SetRestriction",
+        "restriction": {
+          "is_specific": true,
+          "sample_id": 26,
+          "partitions": {
+            "nondefaults": [
+              {
+                "ncol": 2,
+                "variant": {
+                  "Label": 1
+                }
+              }
+            ],
+            "default_partition_ncol": 5
+          },
+          "arrivals": {
+            "entries": [],
+            "phantom": null
+          }
+        },
+        "needs_figure_canvases": false,
+        "needs_figure_controls": true,
+        "needs_stalks": true,
+        "needs_statss": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "ToggleShow",
+        "trace_id": 45
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 44,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 30,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 45,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 31,
+      "variant": {
+        "kind": "ToggleExpansion",
+        "trace_id": 45
+      }
+    }
+  ]
+}
