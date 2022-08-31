@@ -408,7 +408,6 @@ impl HuskyDebuggerInternal {
     ) -> Option<HuskyTracerServerMessageVariant> {
         match self.tracetime.set_restriction(restriction.clone()) {
             Ok((new_figure_canvases, new_figure_controls, new_trace_stalks, new_trace_statss)) => {
-                p!(new_figure_canvases[0].0);
                 assert_eq!(needs_figure_canvases, new_figure_canvases.len() > 0);
                 assert_eq!(needs_figure_controls, new_figure_controls.len() > 0);
                 assert_eq!(needs_stalks, new_trace_stalks.len() > 0);
