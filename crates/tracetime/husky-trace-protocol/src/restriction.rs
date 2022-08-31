@@ -12,7 +12,7 @@ pub type Arrivals = VecPairMap<TraceId, ArrivalRefinedControl>;
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub struct Restriction {
     is_specific: bool,
-    specific_sample_id: SampleId,
+    sample_id: SampleId,
     partitions: Partitions,
     arrivals: Arrivals,
 }
@@ -52,16 +52,20 @@ impl Restriction {
 
     pub fn opt_sample_id(&self) -> Option<SampleId> {
         if self.is_specific {
-            Some(self.specific_sample_id)
+            Some(self.sample_id)
         } else {
             None
         }
     }
 
+    pub fn sample_id(&self) -> SampleId {
+        self.sample_id
+    }
+
     pub fn new_specific(specific_sample_id: SampleId) -> Restriction {
         Self {
             is_specific: true,
-            specific_sample_id,
+            sample_id: specific_sample_id,
             partitions: Default::default(),
             arrivals: Default::default(),
         }
@@ -72,7 +76,7 @@ impl Restriction {
     }
 
     pub fn set_sample_id(&mut self, sample_id: SampleId) {
-        self.specific_sample_id = sample_id
+        self.sample_id = sample_id
     }
 
     pub fn toggle_arrival(&mut self, trace_id: TraceId) {
@@ -98,7 +102,7 @@ impl Default for Restriction {
     fn default() -> Self {
         Self {
             is_specific: false,
-            specific_sample_id: SampleId(0),
+            sample_id: SampleId(0),
             partitions: Default::default(),
             arrivals: Default::default(),
         }
