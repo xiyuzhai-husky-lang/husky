@@ -50,6 +50,7 @@ pub fn Graphics2dCanvas<'a, G: Html>(
                 }
                 svg (
                     style=props.dimension.get().to_style(),
+                    preserveAspectRatio="none",
                     viewBox=view_box
                 ) {
                     g (
