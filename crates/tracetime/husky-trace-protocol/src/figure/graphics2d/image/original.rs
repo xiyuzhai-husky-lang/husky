@@ -22,7 +22,7 @@ impl OriginalImageData {
                 for i in 0..28 {
                     for j in 0..28 {
                         let try_into: u8 = ((rows[i] >> (28 - j)) & 1).try_into().unwrap();
-                        let v: u8 = try_into * 255;
+                        let v: u8 = try_into * 100;
                         data.extend([v, v, v, 255].into_iter())
                     }
                 }
