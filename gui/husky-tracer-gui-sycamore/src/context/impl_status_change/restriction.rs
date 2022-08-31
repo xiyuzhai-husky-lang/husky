@@ -40,7 +40,7 @@ impl DebuggerContext {
                     } => {
                         opt_active_trace_id.map(|active_trace_id| {
                             let active_trace = self.trace_context.trace_data(active_trace_id);
-                            self.figure_context.set_opt_figure_data(
+                            self.set_opt_figure_data(
                                 self.scope,
                                 &active_trace,
                                 &new_restriction,
@@ -101,14 +101,13 @@ impl DebuggerContext {
                         new_trace_stalks,
                         new_trace_statss,
                     } => {
-                        self.figure_context.receive_figure_canvases(
+                        self.receive_figure_canvases(
                             self.scope,
                             new_figure_canvases
                                 .into_iter()
                                 .map(|(k, v)| (k, self.alloc_value(v))),
                         );
-                        self.figure_context
-                            .receive_figure_controls(self.scope, new_figure_controls.into_iter());
+                        self.receive_figure_controls(self.scope, new_figure_controls.into_iter());
                         self.trace_context.receive_trace_stalks(
                             new_trace_stalks
                                 .into_iter()

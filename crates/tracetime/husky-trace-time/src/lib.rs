@@ -226,27 +226,16 @@ impl HuskyTraceTime {
 
     pub fn init_data(&mut self) -> InitData {
         let root_trace_ids = self.root_trace_ids.clone();
-        let mut figure_canvases = Vec::default();
-        let mut figure_controls = Vec::default();
-        let opt_active_trace_id = self.opt_active_trace_id;
-        if let Some(active_trace_id) = opt_active_trace_id {
-            let active_trace = self.trace(active_trace_id);
-            let figure_canvas_key =
-                FigureCanvasKey::from_trace_data(&active_trace.raw_data, &self.restriction);
-            figure_canvases.push((
-                figure_canvas_key,
-                self.gen_figure_canvas_data(active_trace_id).unwrap(),
-            ));
-            figure_controls.push((
-                FigureControlKey::from_trace_data(&active_trace.raw_data, &self.restriction),
-                self.figure_control(active_trace_id),
-            ));
-        }
+        // clear figure cache to reduce data transmission
+        self.figure_canvases.clear();
+        self.figure_controls.clear();
+        let figure_canvases = self.update_figure_canvases().expect("todo");
+        let figure_controls = self.update_figure_controls().expect("todo");
         let pins = self.pins.clone();
         let traces = self.all_trace_nodes();
         InitData {
             trace_init_data: TraceInitData {
-                opt_active_trace_id,
+                opt_active_trace_id: self.opt_active_trace_id,
                 trace_nodes: traces,
                 subtrace_ids_map: self
                     .subtrace_ids_map

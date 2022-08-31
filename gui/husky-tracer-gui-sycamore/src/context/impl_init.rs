@@ -60,13 +60,12 @@ impl DebuggerContext {
         }
         // order matters
         self.restriction_context.init(init_data.restriction.clone());
-        self.figure_context.init(
-            self.alloc_key_value_pairs(init_data.figure_canvases)
-                .collect(),
-            self.alloc_key_signal_pairs(init_data.figure_controls)
-                .collect(),
-            init_data.pins,
-        );
+        *self.figure_canvases.borrow_mut(file!(), line!()) = self
+            .alloc_key_value_pairs(init_data.figure_canvases)
+            .collect();
+        *self.figure_controls.borrow_mut(file!(), line!()) = self
+            .alloc_key_signal_pairs(init_data.figure_controls)
+            .collect();
         self.trace_context.init(
             init_data
                 .trace_init_data
@@ -96,6 +95,7 @@ impl DebuggerContext {
             init_data.trace_init_data.opt_active_trace_id,
             init_data.restriction.opt_sample_id(),
         );
+        self.pins.set(init_data.pins);
     }
 
     fn spawn_listening(&'static self, mut read: Receiver<HuskyTracerServerMessage>) {
