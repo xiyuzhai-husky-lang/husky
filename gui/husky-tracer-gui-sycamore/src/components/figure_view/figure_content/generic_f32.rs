@@ -7,7 +7,6 @@ use scale::*;
 pub struct GenericF32Props<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
     partitioned_samples: &'a [(PartitionDefnData, Vec<(SampleId, f32)>)],
-    pinned_canvas_values: &'a ReadSignal<Vec<&'static FigureCanvasData>>,
 }
 
 #[component]
@@ -26,6 +25,13 @@ pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> 
         }
     }
     let points = View::new_fragment(points);
+    let dimension = props.dimension;
+    let generic_f32_visual_region_dimension =
+        memo!(scope, move || dimension.cget() * (7, 1) / (10, 1));
+    let ctx = use_debugger_context(scope);
+    let pinned_canvas_values = memo!(scope, move || ctx.collect_pinned_canvas_values());
+    let image_layers = memo!(scope, move || pinned_canvas_values.get().image_layers());
+    let shapes = memo!(scope, move || pinned_canvas_values.get().shapes());
     view! {
         scope,
         div (
@@ -41,7 +47,13 @@ pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> 
                 }
             }
             div (class="GenericF32VisualRegion") {
-
+                Graphics2dCanvas {
+                    dimension: generic_f32_visual_region_dimension,
+                    image_layers,
+                    shapes,
+                    xrange: (0.0, 28.0), // ad hoc
+                    yrange: (0.0, 28.0), // ad hoc
+                }
             }
         }
     }
@@ -56,6 +68,7 @@ pub struct GenericF32PointProps<'a> {
 
 #[component]
 fn GenericF32Point<'a, G: Html>(scope: Scope<'a>, props: GenericF32PointProps<'a>) -> View<G> {
+    let ctx = use_debugger_context(scope);
     view! {
         scope,
         circle (
@@ -68,13 +81,7 @@ fn GenericF32Point<'a, G: Html>(scope: Scope<'a>, props: GenericF32PointProps<'a
                     ""
                 }
             ),
-            on:click=move |_| {
-                if *props.focus.get() != Some(props.sample_id) {
-                    props.focus.set(Some(props.sample_id))
-                } else {
-                    props.focus.set(None)
-                }
-            },
+            on:click=ctx.set_sample_id_handler(props.sample_id),
             cx={props.circle.cx},
             cy={props.circle.cy},
             r={props.circle.r}

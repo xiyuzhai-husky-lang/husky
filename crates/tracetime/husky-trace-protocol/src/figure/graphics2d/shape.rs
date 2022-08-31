@@ -1,18 +1,64 @@
 use super::*;
 
-pub trait ContainsShapes {
-    fn shapes(&self) -> &[Shape2dData];
+pub trait ContainsShapes<'a> {
+    fn shapes(&self) -> Vec<&'a Shape2dData>;
+}
 
-    fn total_shapes<'a, P>(&'a self, pins: &[&'a P]) -> Vec<&'a Shape2dData>
-    where
-        P: ContainsShapes,
-    {
-        let mut total_shapes: Vec<&'a Shape2dData> = vec![];
-        total_shapes.extend(self.shapes().iter());
-        for pinned_canvas_value in pins {
-            total_shapes.extend(pinned_canvas_value.shapes().iter())
+impl<'a, T> ContainsShapes<'a> for std::rc::Rc<T>
+where
+    T: ContainsShapes<'a>,
+{
+    fn shapes(&self) -> Vec<&'a Shape2dData> {
+        <T as ContainsShapes>::shapes(self)
+    }
+}
+
+impl<'a, T> ContainsShapes<'a> for std::sync::Arc<T>
+where
+    T: ContainsShapes<'a>,
+{
+    fn shapes(&self) -> Vec<&'a Shape2dData> {
+        <T as ContainsShapes>::shapes(self)
+    }
+}
+
+impl<'a, T, S> ContainsShapes<'a> for (T, S)
+where
+    T: ContainsShapes<'a>,
+    S: ContainsShapes<'a>,
+{
+    fn shapes(&self) -> Vec<&'a Shape2dData> {
+        let mut shapes = self.0.shapes();
+        shapes.extend(self.1.shapes().into_iter());
+        shapes
+    }
+}
+
+impl<'a, T> ContainsShapes<'a> for [T]
+where
+    T: ContainsShapes<'a>,
+{
+    fn shapes(&self) -> Vec<&'a Shape2dData> {
+        let mut shapes = vec![];
+
+        for item in self.iter() {
+            shapes.extend(item.shapes().into_iter());
         }
-        total_shapes
+        shapes
+    }
+}
+
+impl<'a, T> ContainsShapes<'a> for Vec<T>
+where
+    T: ContainsShapes<'a>,
+{
+    fn shapes(&self) -> Vec<&'a Shape2dData> {
+        let mut shapes = vec![];
+
+        for item in self.iter() {
+            shapes.extend(item.shapes().into_iter());
+        }
+        shapes
     }
 }
 
@@ -37,6 +83,8 @@ pub enum Shape2dData {
         shapes: Vec<Shape2dData>,
     },
 }
+
+impl Signalable for Shape2dData {}
 
 impl Shape2dData {
     pub fn laser_grid28(padded_rows: &[u32; 31]) -> Self {

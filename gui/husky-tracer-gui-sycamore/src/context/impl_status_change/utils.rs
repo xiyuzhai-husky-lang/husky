@@ -22,11 +22,23 @@ impl DebuggerContext {
 
     fn needs_figure_canvas(&self, trace_id: TraceId, restriction: &Restriction) -> bool {
         let trace = self.trace_context.trace_data(trace_id);
-        let key = self.new_figure_canvas_key(trace, restriction);
-        !self
+        let key = self.new_figure_canvas_key(trace, restriction, true);
+        if !self
             .figure_canvases
             .borrow(file!(), line!())
             .contains_key(&key)
+        {
+            return true;
+        }
+        let key = self.new_figure_canvas_key(trace, restriction, false);
+        if !self
+            .figure_canvases
+            .borrow(file!(), line!())
+            .contains_key(&key)
+        {
+            return true;
+        }
+        false
     }
 
     pub(super) fn needs_figure_controls(

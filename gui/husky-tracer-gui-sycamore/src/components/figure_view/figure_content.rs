@@ -33,8 +33,6 @@ pub fn FigureContent<'a, G: Html>(scope: Scope<'a>, props: FigureContentProps<'a
             (canvas_value, control_data)
         }
     ));
-    let pinned_canvas_values =
-        create_static_memo(scope, move || ctx.collect_pinned_canvas_values());
     view! {
         scope,
         (if let Some((canvas_value, control_data)) = opt_canvas_and_control_data.cget() {
@@ -42,7 +40,6 @@ pub fn FigureContent<'a, G: Html>(scope: Scope<'a>, props: FigureContentProps<'a
                 scope,
                 FigureContentSwitch {
                     canvas_value,
-                    pinned_canvas_values,
                     control_data,
                     dimension: props.dimension
                 }
@@ -59,7 +56,6 @@ pub fn FigureContent<'a, G: Html>(scope: Scope<'a>, props: FigureContentProps<'a
 #[derive(Prop)]
 struct FigureContentSwitchProps<'a> {
     canvas_value: &'static FigureCanvasData,
-    pinned_canvas_values: &'a ReadSignal<Vec<&'static FigureCanvasData>>,
     control_data: &'a Signal<FigureControlData>,
     dimension: &'a ReadSignal<PixelDimension>,
 }
@@ -69,6 +65,8 @@ fn FigureContentSwitch<'a, G: Html>(
     scope: Scope<'a>,
     props: FigureContentSwitchProps<'a>,
 ) -> View<G> {
+    let ctx = use_debugger_context(scope);
+    let pinned_canvas_values = memo!(scope, move || ctx.collect_pinned_canvas_values());
     match props.canvas_value {
         FigureCanvasData::Primitive { value } => {
             view! {
@@ -98,12 +96,16 @@ fn FigureContentSwitch<'a, G: Html>(
         FigureCanvasData::Graphics2d {
             ref graphics2d_data,
         } => {
+            let image_layers = memo!(scope, move || (graphics2d_data, pinned_canvas_values.get())
+                .image_layers());
+            let shapes = memo!(scope, move || (graphics2d_data, pinned_canvas_values.get())
+                .shapes());
             view! {
                 scope,
                 Graphics2dCanvas {
                     dimension: props.dimension,
-                    image_layers: graphics2d_data.total_image_layers(&props.pinned_canvas_values.get()),
-                    shapes: graphics2d_data.total_shapes(&props.pinned_canvas_values.get()),
+                    image_layers,
+                    shapes,
                     xrange: graphics2d_data.xrange,
                     yrange: graphics2d_data.yrange,
                 }
@@ -115,7 +117,6 @@ fn FigureContentSwitch<'a, G: Html>(
                     scope,
                     MutationCanvas {
                         dimension: props.dimension,
-                        pinned_canvas_values: props.pinned_canvas_values,
                         control_data: props.control_data,
                         mutation: &mutations[mutation_selection as usize]
                     }
@@ -153,7 +154,6 @@ fn FigureContentSwitch<'a, G: Html>(
                 scope,
                 GenericF32 {
                     dimension: props.dimension,
-                    pinned_canvas_values: props.pinned_canvas_values,
                     partitioned_samples,
                 }
             }

@@ -22,11 +22,6 @@ impl DebuggerContext {
                     match sample_id_value.parse::<usize>() {
                         Ok(raw) => {
                             restriction_dialog().close();
-                            log::info!(
-                                "restriction_dialog().open() = {}",
-                                restriction_dialog().open()
-                            );
-                            log::info!("set sample id to {raw}");
                             self.handle_status_change(StatusChange::update_restriction(
                                 self,
                                 |res| res.set_sample_id(SampleId(raw)),

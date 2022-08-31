@@ -70,14 +70,14 @@ impl Graphics2dCanvasData {
     }
 }
 
-impl ContainsImageLayers for Graphics2dCanvasData {
-    fn image_layers(&self) -> &[ImageLayerData] {
-        &self.image_layers
+impl<'a> ContainsImageLayers<'a> for &'a Graphics2dCanvasData {
+    fn image_layers(&self) -> Vec<&'a ImageLayerData> {
+        self.image_layers.iter().collect()
     }
 }
 
-impl ContainsShapes for Graphics2dCanvasData {
-    fn shapes(&self) -> &[Shape2dData] {
-        &self.shapes
+impl<'a> ContainsShapes<'a> for &'a Graphics2dCanvasData {
+    fn shapes(&self) -> Vec<&'a Shape2dData> {
+        self.shapes.iter().collect()
     }
 }

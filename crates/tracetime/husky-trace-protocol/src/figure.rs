@@ -52,39 +52,47 @@ pub struct MutationFigureData {
     pub idx: usize,
 }
 
-// impl<'eval> MutationFigureProps {
-//     pub fn new(
-//         db: &dyn RuntimeVisualQueryGroup,
-//          ,
-//         visualizer: &RuntimeVisualizer,
-//         mutation_data: &MutationData<'eval>,
-//         idx: usize,
-//         verbose: bool,
-//     ) -> Self {
+#[derive(Debug, PartialEq)]
+pub struct PinnedFigureCanvasValue {
+    pub generic: &'static FigureCanvasData,
+    pub specific: &'static FigureCanvasData,
+}
 
-// }
+impl Signalable for PinnedFigureCanvasValue {}
 
-impl ContainsImageLayers for FigureCanvasData {
-    fn image_layers(&self) -> &[ImageLayerData] {
+impl<'a> ContainsImageLayers<'a> for PinnedFigureCanvasValue {
+    fn image_layers(&self) -> Vec<&'a ImageLayerData> {
+        self.specific.image_layers()
+    }
+}
+
+impl<'a> ContainsShapes<'a> for PinnedFigureCanvasValue {
+    fn shapes(&self) -> Vec<&'a Shape2dData> {
+        self.specific.shapes()
+    }
+}
+
+impl<'a> ContainsImageLayers<'a> for &'a FigureCanvasData {
+    fn image_layers(&self) -> Vec<&'a ImageLayerData> {
         match self {
-            FigureCanvasData::Graphics2d { graphics2d_data } => &graphics2d_data.image_layers,
+            FigureCanvasData::Graphics2d { graphics2d_data } => graphics2d_data.image_layers(),
             FigureCanvasData::Mutations { mutations } => todo!(),
             FigureCanvasData::GenericGraphics2d {
                 partitioned_samples,
             } => todo!(),
-            _ => &[],
+            _ => vec![],
         }
     }
 }
-impl ContainsShapes for FigureCanvasData {
-    fn shapes(&self) -> &[Shape2dData] {
+impl<'a> ContainsShapes<'a> for &'a FigureCanvasData {
+    fn shapes(&self) -> Vec<&'a Shape2dData> {
         match self {
-            FigureCanvasData::Graphics2d { graphics2d_data } => &graphics2d_data.shapes,
+            FigureCanvasData::Graphics2d { graphics2d_data } => graphics2d_data.shapes(),
             FigureCanvasData::Mutations { mutations } => todo!(),
             FigureCanvasData::GenericGraphics2d {
                 partitioned_samples,
             } => todo!(),
-            _ => &[],
+            _ => vec![],
         }
     }
 }
