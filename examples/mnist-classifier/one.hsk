@@ -18,8 +18,8 @@ def is_one -> ?MnistLabel:
             one_fermi_match.matches[1].hausdorff_norm,
             MnistLabel::One
         )
-        normalized_angle_change = normalize_vmax_f32(
-            one_fermi_match.matches[1].angle_change,
+        normalized_abs_angle_change = normalize_vmax_f32(
+            one_fermi_match.matches[1].angle_change.abs(),
             MnistLabel::One
         )
         MnistLabel::One
