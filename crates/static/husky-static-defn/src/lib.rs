@@ -34,9 +34,9 @@ impl std::fmt::Debug for EntityStaticDefn {
 }
 
 #[derive(PartialEq, Eq)]
-pub enum StaticVariadicTemplate {
+pub enum StaticVariadicParameterDecl {
     None,
-    SingleTyped { ty: &'static str },
+    RepeatSingle(StaticParameter),
 }
 
 #[derive(PartialEq, Eq)]
@@ -44,7 +44,7 @@ pub enum EntityStaticDefnVariant {
     Function {
         spatial_parameters: &'static [StaticSpatialParameter],
         parameters: &'static [StaticParameter],
-        variadic_template: StaticVariadicTemplate,
+        variadic_template: StaticVariadicParameterDecl,
         output_ty: &'static str,
         output_liason: OutputModifier,
         linkage: __Linkage,

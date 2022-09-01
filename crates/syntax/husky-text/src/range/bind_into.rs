@@ -1,36 +1,27 @@
 use crate::*;
 
-pub trait BindTextRangeInto<T>: Sized {
-    fn bind_text_range_into(self, range: TextRange) -> T {
-        self.ref_bind_text_range_into(range)
-    }
+pub trait BindWithTextRange: Sized {
+    type Output;
 
-    fn ref_bind_text_range_into(&self, range: TextRange) -> T;
+    fn bind_with_text_range(self, range: TextRange) -> Self::Output;
 
-    fn bind_into<S>(self, s: &S) -> T
+    fn bind_with_text_ranged<S>(self, s: &S) -> Self::Output
     where
         S: TextRanged,
     {
-        self.bind_text_range_into(s.text_range())
+        self.bind_with_text_range(s.text_range())
     }
 }
 
-impl<T, E1, E2> BindTextRangeInto<Result<T, E2>> for Result<T, E1>
+impl<T, E1, E2> BindWithTextRange for Result<T, E1>
 where
-    E1: BindTextRangeInto<E2>,
-    T: Clone,
+    E1: BindWithTextRange<Output = E2>,
 {
-    fn bind_text_range_into(self, range: TextRange) -> Result<T, E2> {
+    type Output = Result<T, E2>;
+    fn bind_with_text_range(self, range: TextRange) -> Result<T, E2> {
         match self {
             Ok(t) => Ok(t),
-            Err(e) => Err(e.bind_text_range_into(range)),
-        }
-    }
-
-    fn ref_bind_text_range_into(&self, range: TextRange) -> Result<T, E2> {
-        match self {
-            Ok(t) => Ok(t.clone()),
-            Err(e) => Err(e.ref_bind_text_range_into(range)),
+            Err(e) => Err(e.bind_with_text_range(range)),
         }
     }
 }

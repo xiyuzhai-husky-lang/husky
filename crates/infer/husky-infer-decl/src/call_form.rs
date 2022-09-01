@@ -2,6 +2,7 @@ mod output;
 mod parameter;
 mod variadic;
 
+use husky_text::{TextRange, TextRanged};
 pub use output::*;
 pub use parameter::*;
 pub use variadic::*;
@@ -27,7 +28,7 @@ pub struct CallFormDecl {
     pub opt_this_liason: Option<ParameterModifier>,
     pub spatial_parameters: IdentDict<SpatialParameter>,
     pub primary_parameters: IdentDict<ParameterDecl>,
-    pub variadic_template: VariadicTemplate,
+    pub variadic_parameters: VariadicParametersDecl,
     pub keyword_parameters: IdentDict<ParameterDecl>,
     pub output: OutputDecl,
     pub is_lazy: bool,
@@ -59,7 +60,7 @@ impl CallFormDecl {
                     .collect::<InferResult<_>>()?,
                 output: OutputDecl::new(db, output_liason, output_ty.route)?,
                 keyword_parameters: Default::default(),
-                variadic_template: VariadicTemplate::None,
+                variadic_parameters: VariadicParametersDecl::None,
                 is_lazy: paradigm.is_lazy(),
             }),
             _ => todo!(),
@@ -97,7 +98,7 @@ impl CallFormDecl {
                         )
                     }),
                     is_lazy: false,
-                    variadic_template: VariadicTemplate::None,
+                    variadic_parameters: VariadicParametersDecl::None,
                     keyword_parameters: Default::default(),
                 })
             }
@@ -105,49 +106,38 @@ impl CallFormDecl {
         })
     }
 
-    // pub(crate) fn call_form_decl_from_static(
-    //     db: &dyn DeclQueryGroup,
-    //     mut symbols: Vec<Symbol>,
-    //     static_defn: &EntityStaticDefn,
-    // ) -> InferResultArc<CallFormDecl> {
-    //     match static_defn.variant {
-    //         EntityStaticDefnVariant::Method {
-    //             this_modifier: this_liason,
-    //             parameters,
-    //             output_ty,
-    //             output_liason,
-    //             spatial_parameters: generic_parameters,
-    //             // ref kind,
-    //             ..
-    //         } => {
-    //             let generic_parameters = db.spatial_parameters_from_static(generic_parameters);
-    //             symbols.extend(db.symbols_from_spatial_parameters(&generic_parameters));
-    //             let mut symbol_context = AtomContextStandalone {
-    //                 db: db.upcast(),
-    //                 opt_this_ty: None,
-    //                 opt_this_contract: None,
-    //                 symbols: symbols.into(),
-    //                 kind: AtomContextKind::Normal,
-    //                 opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
-    //             };
-    //             let primary_parameters = parameters
-    //                 .map(|parameter| ParameterDecl::from_static(&mut symbol_context, parameter));
-    //             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
-    //             // assert!(matches!(kind, MethodStaticDefnVariant::TypeMethod { .. }));
-    //             Ok(Arc::new(CallFormDecl {
-    //                 spatial_parameters: generic_parameters,
-    //                 primary_parameters,
-    //                 output: OutputDecl::new(db, output_liason, output_ty)?,
-    //                 opt_this_liason: Some(this_liason),
-    //                 is_lazy: false,
-    //                 opt_route: todo!(),
-    //                 variadic_template: todo!(),
-    //                 keyword_parameters: todo!(),
-    //             }))
-    //         }
-    //         _ => panic!(""),
-    //     }
-    // }
+    pub fn match_primary<'a>(
+        &'a self,
+        opds: &RawExprRange,
+    ) -> InferQueryResult<impl Iterator<Item = (RawExprIdx, &'a ParameterDecl)> + 'a> {
+        if opds.end - (opds.start + 1) < self.primary_parameters.len() {
+            return Err(query_error!(format!(
+                "expect at least {} arguments, but get {} arguments",
+                self.primary_parameters.len(),
+                opds.end - opds.start - 1
+            )));
+        }
+        Ok(std::iter::zip(
+            ((opds.start + 1)..opds.end).into_iter(),
+            self.primary_parameters.iter(),
+        ))
+    }
+
+    pub fn match_variadics<'a>(&'a self, opds: &RawExprRange) -> InferQueryResult<RawExprRange> {
+        if opds.start + 1 + self.primary_parameters.len() < opds.end {
+            match self.variadic_parameters {
+                VariadicParametersDecl::None => {
+                    return Err(query_error!(format!(
+                        "expect at most {} arguments, but get {} arguments",
+                        self.primary_parameters.len(),
+                        opds.end - opds.start - 1
+                    )));
+                }
+                _ => (),
+            }
+        }
+        Ok((opds.start + 1 + self.primary_parameters.len())..opds.end)
+    }
 
     pub fn ident(&self) -> CustomIdentifier {
         self.opt_route.unwrap().ident().custom()
@@ -193,7 +183,7 @@ impl Instantiable for CallFormDecl {
             keyword_parameters: self
                 .keyword_parameters
                 .map(|parameter| parameter.instantiate(ctx)),
-            variadic_template: self.variadic_template.instantiate(ctx),
+            variadic_parameters: self.variadic_parameters.instantiate(ctx),
             is_lazy: self.is_lazy,
         })
     }
@@ -223,7 +213,7 @@ impl Implementable for CallFormDecl {
             output: self.output.implement(ctx),
             spatial_parameters: self.spatial_parameters.clone(),
             is_lazy: self.is_lazy,
-            variadic_template: self.variadic_template.implement(ctx),
+            variadic_parameters: self.variadic_parameters.implement(ctx),
         })
     }
 }
@@ -334,7 +324,7 @@ pub(crate) fn value_call_form_decl(
                         )
                     })
                     .collect::<InferResult<IdentDict<_>>>()?,
-                variadic_template: Default::default(),
+                variadic_parameters: Default::default(),
                 keyword_parameters: Default::default(),
                 output: OutputDecl::new(
                     db,
@@ -396,10 +386,11 @@ pub(crate) fn routine_decl_from_static(
                 primary_parameters: parameters,
                 output: OutputDecl::new(db, output_liason, output_ty)?,
                 keyword_parameters: Default::default(),
-                variadic_template: VariadicTemplate::from_static(
+                variadic_parameters: VariadicParametersDecl::from_static(
+                    db,
                     &mut symbol_context,
                     variadic_template,
-                ),
+                )?,
                 opt_this_liason: None,
                 is_lazy: false,
             }))

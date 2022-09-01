@@ -110,7 +110,7 @@ impl TraitImplDecl {
                     output: OutputDecl::new(db, OutputModifier::Transfer, this_ty)?,
                     spatial_parameters: Default::default(),
                     is_lazy: false,
-                    variadic_template: VariadicTemplate::None,
+                    variadic_parameters: VariadicParametersDecl::None,
                     keyword_parameters: Default::default(),
                 }))],
             }))

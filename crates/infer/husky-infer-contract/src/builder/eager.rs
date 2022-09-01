@@ -7,6 +7,7 @@ use husky_entity_route::EntityRoutePtr;
 use husky_infer_error::*;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_text::RangedCustomIdentifier;
+use infer_decl::VariadicParametersDecl;
 
 impl<'a> ContractSheetBuilder<'a> {
     pub(super) fn infer_eager_stmts(&mut self, ast_iter: AstIter, output_ty: EntityRoutePtr) {
@@ -290,13 +291,11 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             ListOpr::NewVec => self.infer_eager_new_vec_from_list(opds.clone()),
             ListOpr::NewDict => todo!(),
-            ListOpr::FunctionCall => self.infer_eager_function_call(opds),
+            ListOpr::FunctionCall => self.infer_eager_function_call(idx, opds),
             ListOpr::Index => self.eager_index(idx, opds, contract),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
-            ListOpr::MethodCall { .. } => {
-                self.infer_eager_method_call(opds.start, (opds.start + 1)..(opds.end), contract)
-            }
+            ListOpr::MethodCall { .. } => self.infer_eager_method_call(idx, opds, contract),
         }
     }
 
@@ -315,51 +314,62 @@ impl<'a> ContractSheetBuilder<'a> {
         Ok(())
     }
 
-    fn infer_eager_function_call(&mut self, all_opds: &RawExprRange) -> InferResult<()> {
-        let call_decl = derived_unwrap!(self.function_call_form_decl(all_opds.start));
+    fn infer_eager_function_call(
+        &mut self,
+        idx: RawExprIdx,
+        opds: &RawExprRange,
+    ) -> InferResult<()> {
+        let decl = derived_unwrap!(self.function_call_form_decl(opds.start));
         msg_once!("other contracts on call form");
-        self.infer_eager_expr(all_opds.start, EagerContract::Pure);
-        for (argument, parameter) in zip(
-            ((all_opds.start + 1)..all_opds.end).into_iter(),
-            call_decl.primary_parameters.iter(),
-        ) {
+        self.infer_eager_expr(opds.start, EagerContract::Pure);
+        for (argument, parameter) in decl.match_primary(opds)? {
             let argument_contract = EagerContract::parameter_eager_contract(
                 self.db,
-                parameter.liason,
+                parameter.modifier,
                 parameter.ty(),
-                call_decl.output.liason(),
+                decl.output.liason(),
                 self.arena[argument].range,
             )?;
             self.infer_eager_expr(argument, argument_contract)
+        }
+        for argument in decl.match_variadics(opds)? {
+            match decl.variadic_parameters {
+                VariadicParametersDecl::None => Err(derived!("unexpected"))?,
+                VariadicParametersDecl::RepeatSingle { ref parameter } => todo!(),
+            }
         }
         Ok(())
     }
 
     fn infer_eager_method_call(
         &mut self,
-        this: RawExprIdx,
-        parameters: RawExprRange,
+        idx: RawExprIdx,
+        opds: &RawExprRange,
         contract: EagerContract,
     ) -> InferResult<()> {
-        let call_form_decl = self.method_call_form_decl(this)?;
+        let this = opds.start;
+        let decl = self.method_call_form_decl(this)?;
         let this_contract = EagerContract::method_call_this_eager_contract(
-            call_form_decl.opt_this_liason.unwrap(),
-            call_form_decl.output.liason(),
+            decl.opt_this_liason.unwrap(),
+            decl.output.liason(),
             contract,
         );
         self.infer_eager_expr(this, this_contract);
-        for (argument, parameter) in zip(
-            parameters.into_iter(),
-            call_form_decl.primary_parameters.iter(),
-        ) {
+        for (argument, parameter) in decl.match_primary(opds)? {
             let argument_contract = EagerContract::parameter_eager_contract(
                 self.db,
-                parameter.liason,
+                parameter.modifier,
                 parameter.ty(),
-                call_form_decl.output.liason(),
+                decl.output.liason(),
                 self.arena[argument].range,
             )?;
             self.infer_eager_expr(argument, argument_contract)
+        }
+        for argument in decl.match_variadics(opds)? {
+            match decl.variadic_parameters {
+                VariadicParametersDecl::None => todo!(),
+                VariadicParametersDecl::RepeatSingle { ref parameter } => todo!(),
+            }
         }
         Ok(())
     }

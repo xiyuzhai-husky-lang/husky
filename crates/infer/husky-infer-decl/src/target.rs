@@ -1,4 +1,4 @@
-use husky_text::{BindTextRangeInto, TextRange};
+use husky_text::{BindWithTextRange, TextRange};
 use husky_word::RootIdentifier;
 use thin_vec::ThinVec;
 
@@ -25,8 +25,9 @@ fn target_input_ty_from_ast(
                         kind: EntityKind::Function { .. },
                         ..
                     } => {
-                        let signature_result: InferResult<_> =
-                            db.entity_call_form_decl(route).bind_into(caller);
+                        let signature_result: InferResult<_> = db
+                            .entity_call_form_decl(route)
+                            .bind_with_text_ranged(caller);
                         let dataset_type = signature_result?.output.ty();
                         match dataset_type.variant {
                             EntityRouteVariant::Root {
@@ -68,9 +69,11 @@ fn target_output_ty_from_ast(
                         kind: EntityKind::Function { .. },
                         ..
                     } => {
-                        let call_decl_result: InferResult<_> =
-                            db.entity_call_form_decl(route).bind_into(caller);
-                        let dataset_type = call_decl_result?.output.ty();
+                        let dataset_type = db
+                            .entity_call_form_decl(route)
+                            .bind_with_text_ranged(caller)?
+                            .output
+                            .ty();
                         match dataset_type.variant {
                             EntityRouteVariant::Root {
                                 ident: RootIdentifier::DatasetType,

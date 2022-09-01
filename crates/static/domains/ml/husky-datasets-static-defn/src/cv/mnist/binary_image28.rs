@@ -71,7 +71,7 @@ pub static BINARY_IMAGE28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Function {
         spatial_parameters: &[],
         parameters: &[],
-        variadic_template: StaticVariadicTemplate::None,
+        variadic_template: StaticVariadicParameterDecl::None,
         output_ty: BINARY_IMAGE_28_ROUTE,
         output_liason: OutputModifier::Transfer,
         linkage: transfer_linkage!(

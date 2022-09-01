@@ -1,6 +1,6 @@
 use crate::*;
 use core::hash::Hash;
-use husky_print_utils::msg_once;
+use husky_print_utils::{msg_once, p};
 use interner::{Intern, Interner};
 use paste::paste;
 use std::{borrow::Borrow, ops::Deref};

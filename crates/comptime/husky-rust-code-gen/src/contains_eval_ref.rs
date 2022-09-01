@@ -98,7 +98,7 @@ fn parameter_contains_eval_ref(
     db: &dyn RustCodeGenQueryGroup,
     parameter: &infer_decl::ParameterDecl,
 ) -> bool {
-    match parameter.liason {
+    match parameter.modifier {
         ParameterModifier::EvalRef => return true,
         _ => (),
     }

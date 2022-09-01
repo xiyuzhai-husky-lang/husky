@@ -1,6 +1,7 @@
 use std::iter::zip;
 
 use husky_ast::*;
+use infer_decl::{CallFormDecl, ParameterDecl, VariadicParametersDecl};
 
 use super::*;
 use crate::*;
@@ -231,10 +232,8 @@ impl<'a> ContractSheetBuilder<'a> {
             ListOpr::Index => self.infer_lazy_index(opds, contract, idx),
             ListOpr::ModuloIndex => todo!(),
             ListOpr::StructInit => todo!(),
-            ListOpr::FunctionCall => self.infer_lazy_function_call(opds),
-            ListOpr::MethodCall { .. } => {
-                self.lazy_method_call(opds.start, (opds.start + 1)..(opds.end))
-            }
+            ListOpr::FunctionCall => self.infer_lazy_function_call(idx, opds),
+            ListOpr::MethodCall { .. } => self.lazy_method_call(idx, opds),
         }
     }
 
@@ -250,48 +249,74 @@ impl<'a> ContractSheetBuilder<'a> {
         Ok(())
     }
 
-    fn infer_lazy_function_call(&mut self, all_opds: &RawExprRange) -> InferResult<()> {
-        let call_form_decl = self.function_call_form_decl(all_opds.start)?;
-        self.infer_lazy_expr(all_opds.start, LazyContract::Pure);
-        for (argument, parameter) in zip(
-            ((all_opds.start + 1)..all_opds.end).into_iter(),
-            call_form_decl.primary_parameters.iter(),
-        ) {
-            let argument_contract = LazyContract::parameter_lazy_contract(
-                self.db,
-                parameter.liason,
-                parameter.ty(),
-                call_form_decl.output.liason(),
-                self.arena[argument].range,
-            )?;
-            self.infer_lazy_expr(argument, argument_contract)
+    fn infer_lazy_function_call(
+        &mut self,
+        idx: RawExprIdx,
+        opds: &RawExprRange,
+    ) -> InferResult<()> {
+        let decl = self.function_call_form_decl(opds.start)?;
+        self.infer_lazy_expr(opds.start, LazyContract::Pure);
+        self.infer_lazy_arguments(&decl, idx, opds)
+    }
+
+    fn infer_lazy_arguments(
+        &mut self,
+        decl: &CallFormDecl,
+        idx: RawExprIdx,
+        opds: &RawExprRange,
+    ) -> InferResult<()> {
+        for (argument, parameter) in decl.match_primary(opds)? {
+            self.infer_lazy_argument(decl, argument, parameter)?
+        }
+        for argument in decl.match_variadics(opds)? {
+            match decl.variadic_parameters {
+                VariadicParametersDecl::None => todo!(),
+                VariadicParametersDecl::RepeatSingle { ref parameter } => {
+                    self.infer_lazy_argument(decl, argument, parameter)?
+                }
+            }
         }
         Ok(())
     }
 
-    fn lazy_method_call(&mut self, this: RawExprIdx, inputs: RawExprRange) -> InferResult<()> {
-        let call_form_decl = self.method_call_form_decl(this)?;
-        let this_contract = LazyContract::parameter_lazy_contract(
+    fn infer_lazy_argument(
+        &mut self,
+        decl: &CallFormDecl,
+        argument: RawExprIdx,
+        parameter: &ParameterDecl,
+    ) -> InferResult<()> {
+        let contract = LazyContract::parameter_lazy_contract(
             self.db,
-            call_form_decl.this_liason(),
-            call_form_decl.opt_route.unwrap().parent(),
-            call_form_decl.output.liason(),
-            self.arena[this].range,
+            parameter.modifier,
+            parameter.ty(),
+            decl.output.liason(),
+            self.arena[argument].range,
         )?;
-        self.infer_lazy_expr(this, this_contract);
-        for (argument, parameter) in
-            zip(inputs.into_iter(), call_form_decl.primary_parameters.iter())
-        {
-            let argument_contract = LazyContract::parameter_lazy_contract(
-                self.db,
-                parameter.liason,
-                parameter.ty(),
-                call_form_decl.output.liason(),
-                self.arena[argument].range,
-            )?;
-            self.infer_lazy_expr(argument, argument_contract)
-        }
+        self.infer_lazy_expr(argument, contract);
         Ok(())
+    }
+
+    fn infer_lazy_this_argument(
+        &mut self,
+        decl: &CallFormDecl,
+        argument: RawExprIdx,
+    ) -> InferResult<()> {
+        let contract = LazyContract::parameter_lazy_contract(
+            self.db,
+            decl.this_liason(),
+            decl.opt_route.unwrap().parent(),
+            decl.output.liason(),
+            self.arena[argument].range,
+        )?;
+        self.infer_lazy_expr(argument, contract);
+        Ok(())
+    }
+
+    fn lazy_method_call(&mut self, idx: RawExprIdx, opds: &RawExprRange) -> InferResult<()> {
+        let this = opds.start;
+        let decl = self.method_call_form_decl(this)?;
+        self.infer_lazy_this_argument(&decl, this)?;
+        self.infer_lazy_arguments(&decl, idx, opds)
     }
 
     fn infer_lazy_index(

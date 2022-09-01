@@ -5,7 +5,7 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ParameterDecl {
-    pub liason: ParameterModifier,
+    pub modifier: ParameterModifier,
     ty: EntityRoutePtr,
     pub ident: CustomIdentifier,
 }
@@ -25,7 +25,11 @@ impl ParameterDecl {
     ) -> InferResult<Self> {
         assert!(liason.is_compatible(ty));
         let ty = implement_target(db, ty)?;
-        Ok(Self { liason, ty, ident })
+        Ok(Self {
+            modifier: liason,
+            ty,
+            ident,
+        })
     }
 
     pub fn ty(&self) -> EntityRoutePtr {
@@ -34,17 +38,15 @@ impl ParameterDecl {
 
     pub fn from_static(
         db: &dyn DeclQueryGroup,
-        symbol_context: &mut dyn AtomContext,
+        ctx: &mut dyn AtomContext,
         parameter: &StaticParameter,
     ) -> InferResult<Self> {
         // opt_this_ty,
         Self::new(
             db,
             parameter.modifier,
-            symbol_context.parse_entity_route(parameter.ty).unwrap(),
-            symbol_context
-                .entity_syntax_db()
-                .custom_ident(parameter.name),
+            ctx.parse_entity_route(parameter.ty).unwrap(),
+            ctx.entity_syntax_db().custom_ident(parameter.name),
         )
     }
 
@@ -64,7 +66,7 @@ impl ParameterDecl {
     pub fn instantiate(&self, ctx: &InstantiationContext) -> Self {
         Self {
             ty: self.ty.instantiate(ctx).take_entity_route(),
-            liason: self.liason,
+            modifier: self.modifier,
             ident: self.ident,
         }
     }
@@ -75,7 +77,7 @@ impl Implementable for ParameterDecl {
 
     fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
         Self {
-            liason: self.liason,
+            modifier: self.modifier,
             ty: self.ty.implement(ctx).take_entity_route(),
             ident: self.ident,
         }
