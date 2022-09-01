@@ -64,6 +64,18 @@ fn convert_i32_register_to_label<'eval>(
 pub fn convert_enum_register_to_label<'eval>(
     value: &__Register<'eval>,
 ) -> __RegisterDowncastResult<Label> {
+    if value.vtable.typename_str_hash_u64 != __VIRTUAL_ENUM_VTABLE.typename_str_hash_u64 {
+        match value.data_kind() {
+            __RegisterDataKind::None | __RegisterDataKind::Unreturned => (),
+            _ => {
+                panic!(
+                    "expect virtual enum, but got {:?} of type`{}` instead",
+                    value.data_kind(),
+                    value.vtable.typename_str
+                )
+            }
+        }
+    }
     match value.data_kind() {
         __RegisterDataKind::PrimitiveValue => todo!(),
         __RegisterDataKind::Box | __RegisterDataKind::EvalRef => {
