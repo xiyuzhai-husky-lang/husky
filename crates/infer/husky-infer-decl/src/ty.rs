@@ -173,7 +173,7 @@ impl TyDecl {
                     opt_route: Some(ty),
                     spatial_parameters: generic_parameters.clone(),
                     primary_parameters,
-                    variadic_template: VariadicTemplate::None,
+                    variadic_parameters: VariadicParametersDecl::None,
                     keyword_parameters,
                     output: OutputDecl::new(db, OutputModifier::Transfer, ty)?,
                     opt_this_liason: None,

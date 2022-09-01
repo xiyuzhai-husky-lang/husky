@@ -1,5 +1,5 @@
 use husky_ast::AstError;
-use husky_text::BindTextRangeInto;
+use husky_text::BindWithTextRange;
 
 use crate::*;
 
@@ -19,23 +19,24 @@ pub enum InferQueryErrorKind {
 pub type InferQueryResultArc<T> = Result<Arc<T>, InferQueryError>;
 pub type InferQueryResult<T> = Result<T, InferQueryError>;
 
-impl BindTextRangeInto<InferError> for InferQueryError {
-    fn ref_bind_text_range_into(&self, range: TextRange) -> InferError {
-        InferError {
-            variant: match self.kind {
-                InferQueryErrorKind::Derived => InferErrorVariant::Derived {
-                    message: self.message.clone(),
-                },
-                InferQueryErrorKind::Original => InferErrorVariant::Original {
-                    message: self.message.clone(),
-                    range,
-                },
-            },
-            dev_src: self.dev_src.clone(),
-        }
-    }
+impl BindWithTextRange for InferQueryError {
+    type Output = InferError;
+    // fn bind_with_text_range(self, range: TextRange) -> InferError {
+    //     InferError {
+    //         variant: match self.kind {
+    //             InferQueryErrorKind::Derived => InferErrorVariant::Derived {
+    //                 message: self.message.clone(),
+    //             },
+    //             InferQueryErrorKind::Original => InferErrorVariant::Original {
+    //                 message: self.message.clone(),
+    //                 range,
+    //             },
+    //         },
+    //         dev_src: self.dev_src.clone(),
+    //     }
+    // }
 
-    fn bind_text_range_into(self, range: TextRange) -> InferError {
+    fn bind_with_text_range(self, range: TextRange) -> InferError {
         InferError {
             variant: match self.kind {
                 InferQueryErrorKind::Derived => InferErrorVariant::Derived {

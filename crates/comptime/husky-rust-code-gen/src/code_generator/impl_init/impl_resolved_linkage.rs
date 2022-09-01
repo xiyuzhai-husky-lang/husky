@@ -141,9 +141,9 @@ impl<'a> RustCodeGenerator<'a> {
             }
             self.write(&parameter.ident)
         }
-        match decl.variadic_template {
-            VariadicTemplate::None => (),
-            VariadicTemplate::SingleTyped { .. } => {
+        match decl.variadic_parameters {
+            VariadicParametersDecl::None => (),
+            VariadicParametersDecl::RepeatSingle { .. } => {
                 if decl.primary_parameters.len() > 0 || decl.keyword_parameters.len() > 0 {
                     self.write(", ")
                 }
@@ -153,7 +153,7 @@ impl<'a> RustCodeGenerator<'a> {
         if needs_eval_context {
             if decl.primary_parameters.len() > 0
                 || decl.keyword_parameters.len() > 0
-                || decl.variadic_template.is_some()
+                || decl.variadic_parameters.is_some()
             {
                 self.write(", ")
             }
@@ -192,10 +192,13 @@ impl<'a> RustCodeGenerator<'a> {
     }
 
     fn gen_variadics_downcast(&mut self, decl: &CallFormDecl) {
-        match decl.variadic_template {
-            VariadicTemplate::None => (),
-            VariadicTemplate::SingleTyped { variadic_ty } => {
+        match decl.variadic_parameters {
+            VariadicParametersDecl::None => (),
+            VariadicParametersDecl::RepeatSingle {
+                parameter: ref parameter_decl,
+            } => {
                 let variadic_start = decl.variadic_start();
+                let variadic_ty = parameter_decl.ty();
                 if variadic_ty.is_primitive() {
                     self.write(&format!(
                         r#"
@@ -304,7 +307,7 @@ impl<'a> RustCodeGenerator<'a> {
             if decl.opt_this_liason.is_some() || i > 0 {
                 self.write(", ")
             }
-            match parameter.liason {
+            match parameter.modifier {
                 ParameterModifier::None => {
                     if self.db.is_copyable(parameter.ty()).unwrap() {
                         ()
@@ -329,7 +332,7 @@ impl<'a> RustCodeGenerator<'a> {
             if decl.opt_this_liason.is_some() || i + decl.primary_parameters.len() > 0 {
                 self.write(", ");
             }
-            match parameter.liason {
+            match parameter.modifier {
                 ParameterModifier::None => {
                     if self.db.is_copyable(parameter.ty()).unwrap() {
                         ()
@@ -346,9 +349,11 @@ impl<'a> RustCodeGenerator<'a> {
             }
             self.gen_entity_route(parameter.ty(), EntityRouteRole::StaticDecl)
         }
-        match decl.variadic_template {
-            VariadicTemplate::None => (),
-            VariadicTemplate::SingleTyped { variadic_ty } => {
+        match decl.variadic_parameters {
+            VariadicParametersDecl::None => (),
+            VariadicParametersDecl::RepeatSingle {
+                parameter: ref parameter_decl,
+            } => {
                 if decl.opt_this_liason.is_some()
                     || decl.primary_parameters.len() > 0
                     || decl.keyword_parameters.len() > 0
@@ -356,7 +361,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(", ")
                 }
                 self.write("Vec<");
-                self.gen_entity_route(variadic_ty, EntityRouteRole::StaticDecl);
+                self.gen_entity_route(parameter_decl.ty(), EntityRouteRole::StaticDecl);
                 self.write(">")
             }
         }
@@ -364,7 +369,7 @@ impl<'a> RustCodeGenerator<'a> {
             if decl.opt_this_liason.is_some()
                 || decl.primary_parameters.len() > 0
                 || decl.keyword_parameters.len() > 0
-                || decl.variadic_template.is_some()
+                || decl.variadic_parameters.is_some()
             {
                 self.write(", ")
             }

@@ -40,7 +40,7 @@ pub static NEW_BINARY_DATASET_SCOPE_DATA: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Function {
         spatial_parameters: &[],
         parameters: &[],
-        variadic_template: StaticVariadicTemplate::None,
+        variadic_template: StaticVariadicParameterDecl::None,
         output_ty: "Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>",
         output_liason: OutputModifier::Transfer,
         linkage: transfer_linkage!(

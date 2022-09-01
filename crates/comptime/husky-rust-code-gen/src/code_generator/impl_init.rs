@@ -5,7 +5,9 @@ use husky_entity_route::{CanonicalQualifier, CanonicalTyKind};
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant};
 use husky_layout::RegMemoryKind;
 use husky_word::RootIdentifier;
-use infer_decl::{CallFormDecl, ParameterDecl, TraitMemberImplDecl, TyDecl, VariadicTemplate};
+use infer_decl::{
+    CallFormDecl, ParameterDecl, TraitMemberImplDecl, TyDecl, VariadicParametersDecl,
+};
 
 use super::*;
 
@@ -294,7 +296,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
 
     fn gen_parameter_downcast(&mut self, i: usize, parameter: &ParameterDecl) {
         let parameter_ty = parameter.ty();
-        match parameter.liason {
+        match parameter.modifier {
             ParameterModifier::None => {
                 if parameter_ty.is_eval_ref() {
                     self.gen_parameter_downcast_eval_ref(i, parameter)

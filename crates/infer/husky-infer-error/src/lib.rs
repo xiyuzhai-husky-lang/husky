@@ -110,26 +110,26 @@ impl From<InferQueryError> for InferError {
     }
 }
 
-impl BindTextRangeFrom<VMCompileError> for InferError {
-    fn bind_text_range_from(e: VMCompileError, range: TextRange) -> Self {
-        Self {
-            variant: InferErrorVariant::Original {
-                message: e.message,
-                range,
-            },
-            dev_src: e.dev_src,
-        }
-    }
-    fn bind_text_range_from_ref(e: &VMCompileError, range: TextRange) -> Self {
-        Self {
-            variant: InferErrorVariant::Original {
-                message: e.message.clone(),
-                range,
-            },
-            dev_src: e.dev_src.clone(),
-        }
-    }
-}
+// impl BindTextRangeFrom<VMCompileError> for InferError {
+//     fn bind_text_range_from(e: VMCompileError, range: TextRange) -> Self {
+//         Self {
+//             variant: InferErrorVariant::Original {
+//                 message: e.message,
+//                 range,
+//             },
+//             dev_src: e.dev_src,
+//         }
+//     }
+//     fn bind_text_range_from_ref(e: &VMCompileError, range: TextRange) -> Self {
+//         Self {
+//             variant: InferErrorVariant::Original {
+//                 message: e.message.clone(),
+//                 range,
+//             },
+//             dev_src: e.dev_src.clone(),
+//         }
+//     }
+// }
 
 #[macro_export]
 macro_rules! error {
@@ -221,4 +221,4 @@ macro_rules! derived_unwrap {
 use husky_dev_utils::*;
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use husky_entity_syntax::EntitySyntaxError;
-use husky_text::{BindTextRangeFrom, TextRange};
+use husky_text::TextRange;

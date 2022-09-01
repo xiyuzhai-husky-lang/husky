@@ -21,7 +21,7 @@ pub static NORMALIZE_VMAX_F32_DEFN: EntityStaticDefn = EntityStaticDefn {
                 ty: "TargetOutput",
             },
         ],
-        variadic_template: StaticVariadicTemplate::None,
+        variadic_template: StaticVariadicParameterDecl::None,
         output_ty: "f32",
         output_liason: OutputModifier::Transfer,
         linkage: __Linkage::Model(__ModelLinkage(&NormalizeVmaxF32)),

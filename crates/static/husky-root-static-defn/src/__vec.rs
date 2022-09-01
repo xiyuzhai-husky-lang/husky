@@ -91,7 +91,11 @@ static VEC_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
     variant: EntityStaticDefnVariant::Function {
         spatial_parameters: &[],
         parameters: &[],
-        variadic_template: StaticVariadicTemplate::SingleTyped { ty: "E" },
+        variadic_template: StaticVariadicParameterDecl::RepeatSingle(StaticParameter {
+            modifier: ParameterModifier::Owned,
+            ty: "E",
+            name: "items",
+        }),
         output_ty: "Vec<E>",
         output_liason: OutputModifier::Transfer,
         linkage: transfer_linkage!(virtual_vec_type_call, none),

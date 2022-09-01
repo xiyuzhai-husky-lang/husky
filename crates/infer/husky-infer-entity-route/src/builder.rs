@@ -16,6 +16,10 @@ pub struct EntityRouteSheetBuilder<'a> {
 }
 
 impl<'a> EntityRouteSheetBuilder<'a> {
+    fn file(&self) -> FilePtr {
+        self.entity_route_sheet.ast_text.file
+    }
+
     pub(super) fn new(
         db: &'a dyn InferEntityRouteQueryGroup,
         arena: &'a RawExprArena,

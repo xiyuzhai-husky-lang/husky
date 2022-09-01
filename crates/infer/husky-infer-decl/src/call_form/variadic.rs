@@ -1,59 +1,66 @@
 pub use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum VariadicTemplate {
+pub enum VariadicParametersDecl {
     None,
-    SingleTyped { variadic_ty: EntityRoutePtr },
+    RepeatSingle { parameter: ParameterDecl },
 }
 
-impl Default for VariadicTemplate {
+impl Default for VariadicParametersDecl {
     fn default() -> Self {
-        VariadicTemplate::None
+        VariadicParametersDecl::None
     }
 }
 
-impl VariadicTemplate {
+impl VariadicParametersDecl {
     pub(crate) fn from_static(
+        db: &dyn DeclQueryGroup,
         ctx: &mut dyn AtomContext,
-        static_defn: &StaticVariadicTemplate,
-    ) -> Self {
-        match static_defn {
-            StaticVariadicTemplate::None => VariadicTemplate::None,
-            StaticVariadicTemplate::SingleTyped { ty } => VariadicTemplate::SingleTyped {
-                variadic_ty: ctx.parse_entity_route(ty).unwrap(),
-            },
-        }
+        static_defn: &StaticVariadicParameterDecl,
+    ) -> InferResult<Self> {
+        Ok(match static_defn {
+            StaticVariadicParameterDecl::None => VariadicParametersDecl::None,
+            StaticVariadicParameterDecl::RepeatSingle(parameter_decl) => {
+                VariadicParametersDecl::RepeatSingle {
+                    parameter: ParameterDecl::from_static(db, ctx, parameter_decl)?,
+                }
+            }
+        })
     }
 
     pub fn is_some(&self) -> bool {
         match self {
-            VariadicTemplate::None => false,
-            VariadicTemplate::SingleTyped { .. } => true,
+            VariadicParametersDecl::None => false,
+            VariadicParametersDecl::RepeatSingle { .. } => true,
         }
     }
 }
 
-impl Instantiable for VariadicTemplate {
+impl Instantiable for VariadicParametersDecl {
     type Target = Self;
 
     fn instantiate(&self, ctx: &InstantiationContext) -> Self::Target {
         match self {
-            VariadicTemplate::None => VariadicTemplate::None,
-            VariadicTemplate::SingleTyped { variadic_ty: ty } => VariadicTemplate::SingleTyped {
-                variadic_ty: ty.instantiate(ctx).take_entity_route(),
+            VariadicParametersDecl::None => VariadicParametersDecl::None,
+            VariadicParametersDecl::RepeatSingle {
+                parameter: parameter_decl,
+            } => VariadicParametersDecl::RepeatSingle {
+                parameter: parameter_decl.instantiate(ctx),
             },
         }
     }
 }
 
-impl Implementable for VariadicTemplate {
+impl Implementable for VariadicParametersDecl {
     type Target = Self;
 
     fn implement(&self, ctx: &ImplementationContext) -> Self::Target {
         match self {
-            VariadicTemplate::None => VariadicTemplate::None,
-            VariadicTemplate::SingleTyped { variadic_ty: ty } => VariadicTemplate::SingleTyped {
-                variadic_ty: ty.implement(ctx).take_entity_route(),
+            VariadicParametersDecl::None => VariadicParametersDecl::None,
+            VariadicParametersDecl::RepeatSingle {
+                parameter: parameter_decl,
+            } => VariadicParametersDecl::RepeatSingle {
+                parameter: parameter_decl.implement(ctx),
             },
         }
     }

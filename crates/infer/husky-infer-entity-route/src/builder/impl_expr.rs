@@ -5,7 +5,7 @@ use husky_ast::RawExprRange;
 use husky_dev_utils::dev_src;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::*;
-use infer_decl::TraitMemberImplDecl;
+use infer_decl::{TraitMemberImplDecl, VariadicParametersDecl};
 use thin_vec::{thin_vec, ThinVec};
 
 impl<'a> EntityRouteSheetBuilder<'a> {
@@ -467,40 +467,37 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     fn infer_function_call(
         &mut self,
         idx: RawExprIdx,
-        all_opds: &RawExprRange,
+        opds: &RawExprRange,
     ) -> InferResult<EntityRoutePtr> {
-        let caller = &self.arena[all_opds.start];
-        let call_decl_result: InferResult<_> = match caller.variant {
+        let caller = &self.arena[opds.start];
+        let call_decl = match caller.variant {
             RawExprVariant::Entity { route, .. } => {
                 self.entity_route_sheet
                     .function_call_routes
-                    .insert_new(all_opds.start, Ok(route));
+                    .insert_new(opds.start, Ok(route));
                 self.db.entity_call_form_decl(route)
             }
             _ => self
                 .db
-                .value_call_form_decl(derived_not_none!(self.infer_expr(all_opds.start, None,))?),
+                .value_call_form_decl(derived_not_none!(self.infer_expr(opds.start, None,))?),
         }
-        .bind_into(caller);
-        let call_decl = call_decl_result?;
-        if call_decl.primary_parameters.len() != all_opds.end - all_opds.start - 1 {
-            self.entity_route_sheet.extra_errors.push(InferError {
-                variant: InferErrorVariant::Original {
-                    message: format!(
-                        "expect {} arguments, but get {} arguments",
-                        call_decl.primary_parameters.len(),
-                        all_opds.end - all_opds.start - 1
-                    ),
-                    range: self.arena[idx].range,
-                },
-                dev_src: dev_src!(),
-            })
-        }
-        for (argument, parameter) in zip(
-            ((all_opds.start + 1)..all_opds.end).into_iter(),
-            call_decl.primary_parameters.iter(),
-        ) {
+        .bind_with_text_ranged(caller)?;
+        for (argument, parameter) in call_decl
+            .match_primary(opds)
+            .bind_with_text_ranged(caller)?
+        {
             self.infer_expr(argument, Some(parameter.ty()));
+        }
+        for argument in call_decl
+            .match_variadics(opds)
+            .bind_with_text_ranged(caller)?
+        {
+            match call_decl.variadic_parameters {
+                VariadicParametersDecl::None => panic!(),
+                VariadicParametersDecl::RepeatSingle { ref parameter } => {
+                    self.infer_expr(argument, Some(parameter.ty()));
+                }
+            }
         }
         Ok(call_decl.output.ty())
     }
@@ -509,24 +506,25 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         &mut self,
         this: RawExprIdx,
         method_ident: RangedCustomIdentifier,
-        parameters: RawExprRange,
+        arguments: RawExprRange,
         idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         let this_deref_ty = derived_not_none!(self.infer_expr(this, None))?.deref_route();
         let this_deref_ty_decl = derived_unwrap!(self.db.ty_decl(this_deref_ty));
         let call_form_decl = this_deref_ty_decl.method(method_ident, &self.trait_uses)?;
-        if call_form_decl.primary_parameters.len() != parameters.end - parameters.start {
+        msg_once!("handle variadics");
+        if call_form_decl.primary_parameters.len() != arguments.end - arguments.start {
             self.entity_route_sheet.extra_errors.push(error!(
                 format!(
                     "expect {} parameters, but got {}",
                     call_form_decl.primary_parameters.len(),
-                    parameters.end - parameters.start
+                    arguments.end - arguments.start
                 ),
                 self.arena[idx].range
             ));
         }
         for (argument, parameter) in zip(
-            parameters.into_iter(),
+            arguments.into_iter(),
             call_form_decl.primary_parameters.iter(),
         ) {
             self.infer_expr(argument, Some(parameter.ty()));

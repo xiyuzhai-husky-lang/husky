@@ -8,7 +8,7 @@ use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_vm_binding::Binding;
 use husky_word::RootIdentifier;
-use infer_decl::{CallFormDecl, VariadicTemplate};
+use infer_decl::{CallFormDecl, VariadicParametersDecl};
 
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_expr(&mut self, indent: Indent, expr: &EagerExpr) {
@@ -293,9 +293,9 @@ impl<'a> RustCodeGenerator<'a> {
         self.write("__call__(");
         self.gen_arguments(indent, opds);
         msg_once!("variadics");
-        match type_call.variadic_template {
-            VariadicTemplate::None => (),
-            VariadicTemplate::SingleTyped { .. } => {
+        match type_call.variadic_parameters {
+            VariadicParametersDecl::None => (),
+            VariadicParametersDecl::RepeatSingle { .. } => {
                 if type_call.primary_parameters.len() + type_call.keyword_parameters.len() > 0 {
                     self.write(", ")
                 }
@@ -373,9 +373,9 @@ impl<'a> RustCodeGenerator<'a> {
             self.write(&parameter.ident)
         }
         msg_once!("keyword arguments and more on variadics");
-        match type_call.variadic_template {
-            VariadicTemplate::None => (),
-            VariadicTemplate::SingleTyped { .. } => {
+        match type_call.variadic_parameters {
+            VariadicParametersDecl::None => (),
+            VariadicParametersDecl::RepeatSingle { .. } => {
                 if type_call.primary_parameters.len() + type_call.keyword_parameters.len() > 0 {
                     self.write(", ")
                 }
