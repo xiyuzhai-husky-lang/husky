@@ -9,8 +9,11 @@ fn main() {
     husky_io_utils::diff_write(&path, &gen_rust_code().unwrap(), true);
 }
 
-pub static NONPRIMITIVE_TYPES: &'static [&'static str] =
-    &["NaiveI32Internal", "NormalizeVmaxF32Internal"];
+pub static NONPRIMITIVE_TYPES: &'static [&'static str] = &[
+    "NaiveI32Internal",
+    "NormalizeVmaxF32Internal",
+    "SvmWithVmaxNormalizedInternal",
+];
 
 pub fn gen_rust_code() -> Result<String, std::fmt::Error> {
     let mut code = String::new();
