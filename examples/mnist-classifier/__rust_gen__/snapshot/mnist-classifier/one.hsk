@@ -1,4 +1,5 @@
 use domains::ml::datasets::cv::mnist::MnistLabel
+use domains::ml::models::normalize::normalize_vmax_f32
 use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*

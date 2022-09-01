@@ -119,7 +119,7 @@ pub trait AtomContext<'a> {
                         spatial_arguments: thin_vec![],
                     }),
                 )),
-                ContextualIdentifier::CrateOutputType => Ok(SymbolKind::EntityRoute(
+                ContextualIdentifier::TargetOutputType => Ok(SymbolKind::EntityRoute(
                     self.entity_syntax_db().intern_entity_route(EntityRoute {
                         variant: EntityRouteVariant::TargetOutputType,
                         temporal_arguments: thin_vec![],

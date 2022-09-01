@@ -17,38 +17,48 @@ impl VecMapEntry<CustomIdentifier> for ParameterDecl {
 }
 
 impl ParameterDecl {
-    pub fn new(liason: ParameterModifier, ty: EntityRoutePtr, ident: CustomIdentifier) -> Self {
+    pub fn new(
+        db: &dyn DeclQueryGroup,
+        liason: ParameterModifier,
+        ty: EntityRoutePtr,
+        ident: CustomIdentifier,
+    ) -> InferResult<Self> {
         assert!(liason.is_compatible(ty));
-        Self { liason, ty, ident }
+        let ty = implement_target(db, ty)?;
+        Ok(Self { liason, ty, ident })
     }
 
     pub fn ty(&self) -> EntityRoutePtr {
         self.ty
     }
 
-    pub fn from_static(symbol_context: &mut dyn AtomContext, input: &StaticParameter) -> Self {
+    pub fn from_static(
+        db: &dyn DeclQueryGroup,
+        symbol_context: &mut dyn AtomContext,
+        parameter: &StaticParameter,
+    ) -> InferResult<Self> {
         // opt_this_ty,
         Self::new(
-            input.modifier,
-            symbol_context.parse_entity_route(input.ty).unwrap(),
-            symbol_context.entity_syntax_db().custom_ident(input.name),
+            db,
+            parameter.modifier,
+            symbol_context.parse_entity_route(parameter.ty).unwrap(),
+            symbol_context
+                .entity_syntax_db()
+                .custom_ident(parameter.name),
         )
     }
 
     pub fn from_field(db: &dyn DeclQueryGroup, field_decl: &FieldDecl) -> InferResult<Self> {
-        Ok(ParameterDecl::new(
+        ParameterDecl::new(
+            db,
             ParameterModifier::from_field(field_decl.modifier),
             field_decl.ty,
             field_decl.ident,
-        ))
+        )
     }
 
     pub fn from_parameter(db: &dyn DeclQueryGroup, parameter: &Parameter) -> InferResult<Self> {
-        Ok(ParameterDecl::new(
-            parameter.liason(),
-            db.implement_target(parameter.ty())?,
-            parameter.ident(),
-        ))
+        ParameterDecl::new(db, parameter.liason(), parameter.ty(), parameter.ident())
     }
 
     pub fn instantiate(&self, ctx: &InstantiationContext) -> Self {

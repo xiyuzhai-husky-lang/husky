@@ -101,7 +101,7 @@ pub fn new_word_interner() -> WordInterner {
         RootIdentifier::Option.into(),
         ContextualIdentifier::Crate.into(),
         ContextualIdentifier::CrateInputValue.into(),
-        ContextualIdentifier::CrateOutputType.into(),
+        ContextualIdentifier::TargetOutputType.into(),
         ContextualIdentifier::ThisValue.into(),
         ContextualIdentifier::ThisType.into(),
         WordOpr::And.into(),
