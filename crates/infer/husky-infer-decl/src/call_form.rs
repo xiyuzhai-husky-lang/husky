@@ -86,7 +86,9 @@ impl CallFormDecl {
                     opt_route: Some(base_route),
                     opt_this_liason: Some(this_liason),
                     primary_parameters: parameters
-                        .map(|input| ParameterDecl::from_static(symbol_context, input)),
+                        .iter()
+                        .map(|input| ParameterDecl::from_static(db, symbol_context, input))
+                        .collect::<InferResult<IdentDict<_>>>()?,
                     output: OutputDecl::new(db, output_liason, output_ty)?,
                     spatial_parameters: spatial_parameters.map(|static_spatial_parameter| {
                         SpatialParameter::from_static(
@@ -325,12 +327,13 @@ pub(crate) fn value_call_form_decl(
                     .enumerate()
                     .map(|(i, spatial_argument)| {
                         ParameterDecl::new(
+                            db,
                             ParameterModifier::None,
                             spatial_argument.take_entity_route(),
                             db.intern_word(&format!("arg{}", i)).custom(),
                         )
                     })
-                    .collect(),
+                    .collect::<InferResult<IdentDict<_>>>()?,
                 variadic_template: Default::default(),
                 keyword_parameters: Default::default(),
                 output: OutputDecl::new(
@@ -382,7 +385,9 @@ pub(crate) fn routine_decl_from_static(
                 opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
             };
             let parameters = parameters
-                .map(|parameter| ParameterDecl::from_static(&mut symbol_context, parameter));
+                .iter()
+                .map(|parameter| ParameterDecl::from_static(db, &mut symbol_context, parameter))
+                .collect::<InferResult<_>>()?;
             let output_ty = symbol_context.parse_entity_route(output_ty).unwrap();
             msg_once!("todo: keyword parameters");
             Ok(Arc::new(CallFormDecl {

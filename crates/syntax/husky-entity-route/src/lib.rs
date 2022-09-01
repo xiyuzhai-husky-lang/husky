@@ -140,7 +140,7 @@ impl EntityRoute {
                 ContextualIdentifier::CrateInputValue.into()
             }
             EntityRouteVariant::TargetOutputType { .. } => {
-                ContextualIdentifier::CrateOutputType.into()
+                ContextualIdentifier::TargetOutputType.into()
             }
             EntityRouteVariant::Any { ident, .. } => ident.into(),
             EntityRouteVariant::ThisType { .. } => todo!(),

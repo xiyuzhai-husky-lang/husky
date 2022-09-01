@@ -1,9 +1,9 @@
 mod __rust_code_gen__;
 mod naive;
-mod scaling;
+mod normalize;
 
 pub use naive::*;
-pub use scaling::*;
+pub use normalize::*;
 
 use husky_dev_utils::static_dev_src;
 use husky_dev_utils::*;
@@ -20,4 +20,4 @@ use husky_vm::{
 use husky_vm_register_method::VMRegisterMethodX;
 use std::{collections::HashMap, sync::Arc, time::Instant};
 
-static_mod! { models = { naive, scaling } }
+static_mod! { models = { naive, normalize } }
