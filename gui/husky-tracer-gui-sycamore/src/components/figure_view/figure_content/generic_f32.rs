@@ -12,13 +12,11 @@ pub struct GenericF32Props<'a> {
 #[component]
 pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> View<G> {
     let scale = GenericF32Scale::new(props.partitioned_samples);
-    let focus = create_signal(scope, None);
     let mut points = vec![];
     for (i, (_partition, samples)) in props.partitioned_samples.iter().enumerate() {
         for (sample_id, value) in samples.iter() {
             let circle = scale.circle(i, *value);
             points.push(view! {scope, GenericF32Point {
-                focus,
                 sample_id: *sample_id,
                 circle
             }})
@@ -60,22 +58,22 @@ pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> 
 }
 
 #[derive(Prop)]
-pub struct GenericF32PointProps<'a> {
-    focus: &'a Signal<Option<SampleId>>,
+pub struct GenericF32PointProps {
     sample_id: SampleId,
     circle: CircleProps,
 }
 
 #[component]
-fn GenericF32Point<'a, G: Html>(scope: Scope<'a>, props: GenericF32PointProps<'a>) -> View<G> {
+fn GenericF32Point<'a, G: Html>(scope: Scope<'a>, props: GenericF32PointProps) -> View<G> {
     let ctx = use_debugger_context(scope);
+    let restriction = ctx.restriction_context.restriction;
     view! {
         scope,
         circle (
             class=format!(
                 "ClassIndex{} {}",
                 props.circle.class_index,
-                if *props.focus.get() == Some(props.sample_id) {
+                if restriction.get().sample_id() == props.sample_id {
                     " focused"
                 } else {
                     ""
