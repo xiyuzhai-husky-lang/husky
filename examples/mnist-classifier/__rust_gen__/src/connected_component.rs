@@ -38,6 +38,41 @@ impl ConnectedComponent {
             .unwrap()
             .downcast_eval_ref(&__registration__::__VEC_RAW_CONTOUR_VTABLE);
     }
+    pub(crate) fn max_hole_ilen<'eval>(
+        &'eval self,
+        __ctx: &dyn __EvalContext<'eval>,
+    ) -> &'eval f32 {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::connected_component::ConnectedComponent::max_hole_ilen"
+        );
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__F32_VTABLE);
+        }
+        let mut max_hole_ilen = 0;
+        let raw_contours = &self.raw_contours(__ctx);
+        for i in (0 + 1)..raw_contours.ilen() {
+            let hole_ilen = raw_contours[(i) as usize].points.ilen();
+            if max_hole_ilen < hole_ilen {
+                max_hole_ilen = hole_ilen;
+            }
+        }
+        __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<f32>(
+                    max_hole_ilen as f32,
+                    &__registration__::__F32_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__F32_VTABLE)
+    }
 }
 
 impl __StaticInfo for ConnectedComponent {

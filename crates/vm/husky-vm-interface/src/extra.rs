@@ -263,7 +263,7 @@ impl<'eval> __Register<'eval> {
                     todo!()
                 }
             }
-            __RegisterDataKind::Unreturned => panic!(),
+            __RegisterDataKind::Unreturned => (),
         }
     }
 

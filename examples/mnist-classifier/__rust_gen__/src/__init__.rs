@@ -68,6 +68,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         lazy_field_linkage!(connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, Vec<raw_contour::RawContour<'eval>>, __registration__::__VEC_RAW_CONTOUR_VTABLE, raw_contours)
     ),
     (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::connected_component::ConnectedComponent::max_hole_ilen",
+        },
+        lazy_field_linkage!(connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, max_hole_ilen)
+    ),
+    (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::raw_contour::RawContour>::ilen" },
         transfer_linkage!(
             {
