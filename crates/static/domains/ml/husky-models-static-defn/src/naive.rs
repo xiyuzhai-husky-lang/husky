@@ -1,3 +1,5 @@
+use husky_vm::GenericArgument;
+
 use crate::__rust_code_gen__::__NAIVE_I_32_INTERNAL_VTABLE;
 
 use super::*;
@@ -56,14 +58,13 @@ impl Model for NaiveI32 {
 
     fn train<'eval>(
         &self,
-        training_data: Vec<(Vec<__Register<'eval>>, __Register<'eval>)>,
+        opds: Vec<GenericArgument>,
+        labels: Vec<i32>,
     ) -> __VMResult<Self::Internal> {
         let mut label_statics_map: HashMap<i32, HashMap<Label, usize>> = Default::default();
-        for (arguments, mut label) in training_data {
-            assert_eq!(arguments.len(), 1);
-            let value = arguments[0].downcast_i32();
-            let label: &__VirtualEnum = label.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
-            let label = Label(label.kind_idx);
+        for (value, label) in std::iter::zip(opds[0].values().iter(), labels.iter()) {
+            let value = value.downcast_i32();
+            let label = Label(*label);
             *label_statics_map
                 .entry(value)
                 .or_default()

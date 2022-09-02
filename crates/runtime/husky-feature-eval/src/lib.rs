@@ -94,6 +94,14 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         self.evaluator(sample_id).eval_expr(expr)
     }
 
+    fn eval_feature_expr_cached(
+        &self,
+        expr: &FeatureLazyExpr,
+        sample_id: SampleId,
+    ) -> __VMResult<__Register<'eval>> {
+        self.evaluator(sample_id).eval_expr_cached(expr)
+    }
+
     fn eval_opt_arrival_indicator_cached(
         &self,
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,

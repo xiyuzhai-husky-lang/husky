@@ -1,6 +1,8 @@
 use crate::*;
-use husky_feature_gen::{FeatureArrivalIndicator, FeatureLazyExpr, TrainModel};
-use husky_vm::{__Register, __VMResult};
+use husky_feature_gen::{
+    FeatureArrivalIndicator, FeatureLazyExpr, FeatureLazyExprVariant, TrainModel,
+};
+use husky_vm::{GenericArgument, __Register, __VMResult};
 use husky_vm::{__RegistrableSafe, __VirtualEnum};
 use std::time::Instant;
 
@@ -11,40 +13,37 @@ impl TrainModel for HuskyRuntime {
         opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         opds: &[Arc<FeatureLazyExpr>],
     ) -> husky_vm::__VMResult<__Register<'static>> {
-        const MAX_SAMPLE_LEN: usize = 1000;
         let session = self.session();
         let dev_division = session.dev();
-        let now = Instant::now();
-        let mut training_data: Vec<(Vec<__Register>, __Register)> = Vec::new();
+        let mut arguments: Vec<GenericArgument> = opds
+            .iter()
+            .map(|opd| match opd.variant {
+                FeatureLazyExprVariant::Literal(ref register) => GenericArgument::Literal {
+                    value: register.clone(),
+                },
+                _ => GenericArgument::NonConstant { values: vec![] },
+            })
+            .collect();
+        let mut labels: Vec<i32> = vec![];
         for labeled_data in dev_division.each_labeled_data() {
             let sample_id = labeled_data.sample_id;
             if !self.eval_opt_arrival_indicator_cached(opt_arrival_indicator, sample_id)? {
                 continue;
             }
-            if training_data.len() >= MAX_SAMPLE_LEN {
-                break;
-            }
-            let values: Vec<__Register> = opds
-                .iter()
-                .map(|opd| self.eval_feature_expr(opd, sample_id))
-                .collect::<__VMResult<Vec<_>>>()
-                .map_err(|e| {
-                    todo!()
-                    // (sample_id, e)
-                })?;
-            training_data.push((
-                values,
-                __VirtualEnum {
-                    kind_idx: labeled_data.label.0,
+            for (opd, argument) in std::iter::zip(opds.iter(), arguments.iter_mut()) {
+                match argument {
+                    GenericArgument::NonConstant { values } => {
+                        values.push(self.eval_feature_expr_cached(opd, sample_id).map_err(|e| {
+                            todo!()
+                            // (sample_id, e)
+                        })?)
+                    }
+                    GenericArgument::Literal { .. } => (),
                 }
-                .to_register(),
-            ))
+            }
+            labels.push(labeled_data.label.0)
         }
-        let train_result = model.train_dyn(training_data);
-        println!(
-            "{} milliseconds elapsed for evaluating first 1000 in naive train",
-            now.elapsed().as_millis(),
-        );
+        let train_result = model.train_dyn(arguments, labels);
         train_result
     }
 }

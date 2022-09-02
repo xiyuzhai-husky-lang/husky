@@ -12,7 +12,7 @@ fn main() {
 pub static NONPRIMITIVE_TYPES: &'static [&'static str] = &[
     "NaiveI32Internal",
     "NormalizeVmaxF32Internal",
-    "SvmWithVmaxNormalizedInternal",
+    "BoostingWithVmaxNormalizedInternal",
 ];
 
 pub fn gen_rust_code() -> Result<String, std::fmt::Error> {

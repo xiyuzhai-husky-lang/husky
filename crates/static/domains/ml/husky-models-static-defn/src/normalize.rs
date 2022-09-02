@@ -1,3 +1,5 @@
+use husky_vm::GenericArgument;
+
 use crate::__rust_code_gen__::__NORMALIZE_VMAX_F_32_INTERNAL_VTABLE;
 
 use super::*;
@@ -63,31 +65,32 @@ impl Model for NormalizeVmaxF32 {
 
     fn train<'eval>(
         &self,
-        training_data: Vec<(Vec<__Register<'eval>>, __Register<'eval>)>,
+        opds: Vec<GenericArgument>,
+        labels: Vec<i32>,
     ) -> __VMResult<Self::Internal> {
-        let label0: &__VirtualEnum =
-            training_data[0].0[1].downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
-        let label0 = Label(label0.kind_idx);
-        let mut values: Vec<ordered_float::NotNan<f32>> = vec![];
-        for (arguments, mut label) in training_data {
-            assert_eq!(arguments.len(), 2);
-            {
-                // verify
-                // todo: delete this and use use advanced expr type checking instead
-                let label1: &__VirtualEnum = arguments[1].downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
-                let label1 = Label(label1.kind_idx);
-                assert_eq!(label0, label1)
-            }
-            let label: &__VirtualEnum = label.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
-            let label = Label(label.kind_idx);
-            if label0 == label {
-                let value = arguments[0].downcast_f32();
-                assert!(value >= 0.0);
-                values.push(ordered_float::NotNan::new(value).unwrap())
-            }
-        }
-        let vmax = *values.iter().max().unwrap();
-        Ok(NormalizeVmaxF32Internal { vmax })
+        todo!()
+        // let label0: &__VirtualEnum = opds[0].0[1].downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
+        // let label0 = Label(label0.kind_idx);
+        // let mut values: Vec<ordered_float::NotNan<f32>> = vec![];
+        // for (arguments, mut label) in opds {
+        //     assert_eq!(arguments.len(), 2);
+        //     {
+        //         // verify
+        //         // todo: delete this and use use advanced expr type checking instead
+        //         let label1: &__VirtualEnum = arguments[1].downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
+        //         let label1 = Label(label1.kind_idx);
+        //         assert_eq!(label0, label1)
+        //     }
+        //     let label: &__VirtualEnum = label.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
+        //     let label = Label(label.kind_idx);
+        //     if label0 == label {
+        //         let value = arguments[0].downcast_f32();
+        //         assert!(value >= 0.0);
+        //         values.push(ordered_float::NotNan::new(value).unwrap())
+        //     }
+        // }
+        // let vmax = *values.iter().max().unwrap();
+        // Ok(NormalizeVmaxF32Internal { vmax })
     }
 
     fn eval<'eval>(

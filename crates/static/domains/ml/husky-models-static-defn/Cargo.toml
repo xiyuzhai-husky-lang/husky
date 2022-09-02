@@ -9,6 +9,7 @@ edition = "2021"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 ordered-float = "3.0.0"
+linfa-svm = "0.6.0"
 husky-word = { path = "../../../../syntax/husky-word" }
 husky-entity-route = { path = "../../../../syntax/husky-entity-route" }
 husky-vm = { path = "../../../../vm/husky-vm" }
