@@ -20,7 +20,4 @@ def does_contract_contains_qualifer (contract: Contract)(qualifier: Qualifier) :
   | Contract.Any => true
 
 example: ∀ qualifier : Qualifier, does_contract_contains_qualifer Contract.Any qualifier = true :=
-  fun qualifier: Qualifier =>
-  match qualifier  with
-  | Qualifier.EvalRef =>  rfl
-  | Qualifier.Copyable => rfl
+  fun qualifier: Qualifier => rfl
