@@ -22,10 +22,32 @@ impl PartialEq for __ModelLinkage {
 
 impl Eq for __ModelLinkage {}
 
+pub enum GenericArgument<'eval> {
+    Literal { value: __Register<'eval> },
+    NonConstant { values: Vec<__Register<'eval>> },
+}
+
+impl<'eval> GenericArgument<'eval> {
+    pub fn values(&self) -> &[__Register<'eval>] {
+        match self {
+            GenericArgument::Literal { .. } => panic!(),
+            GenericArgument::NonConstant { ref values } => values,
+        }
+    }
+
+    pub fn value(&self) -> &__Register<'eval> {
+        match self {
+            GenericArgument::Literal { ref value } => value,
+            GenericArgument::NonConstant { .. } => panic!(),
+        }
+    }
+}
+
 pub trait ModelDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
     fn train_dyn<'eval>(
         &self,
-        opds: Vec<(Vec<__Register<'eval>>, __Register<'eval>)>,
+        arguments: Vec<GenericArgument>,
+        labels: Vec<i32>,
     ) -> __VMResult<__Register<'eval>>;
     fn eval_dyn<'eval>(
         &self,
@@ -42,7 +64,8 @@ pub trait Model:
 
     fn train<'eval>(
         &self,
-        opds: Vec<(Vec<__Register<'eval>>, __Register<'eval>)>,
+        arguments: Vec<GenericArgument>,
+        labels: Vec<i32>,
     ) -> __VMResult<Self::Internal>;
     fn eval<'eval>(
         &self,
@@ -54,9 +77,10 @@ pub trait Model:
 impl<T: Model> ModelDyn for T {
     fn train_dyn<'eval>(
         &self,
-        opds: Vec<(Vec<__Register<'eval>>, __Register<'eval>)>,
+        arguments: Vec<GenericArgument>,
+        labels: Vec<i32>,
     ) -> __VMResult<__Register<'eval>> {
-        Ok(self.train(opds)?.to_register())
+        Ok(self.train(arguments, labels)?.to_register())
     }
 
     fn eval_dyn<'eval>(
