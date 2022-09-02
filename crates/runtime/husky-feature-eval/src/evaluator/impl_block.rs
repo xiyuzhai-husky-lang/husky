@@ -16,7 +16,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     _ => return Ok(value),
                 }
             }
-            panic!()
+            Ok(__Register::unreturned())
         })
     }
 

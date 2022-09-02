@@ -7,6 +7,16 @@ struct ConnectedComponent:
     func raw_contours -> []RawContour:
         find_raw_contours(this)
 
+    proc max_hole_ilen -> f32:
+        // todo: change this to iter
+        var max_hole_ilen = 0
+        let raw_contours = this.raw_contours
+        for 0 < i < raw_contours.ilen():
+            let hole_ilen = raw_contours[i].points.ilen()
+            if max_hole_ilen < hole_ilen:
+                max_hole_ilen = hole_ilen
+        return max_hole_ilen as f32
+
     visual:
         mask
 

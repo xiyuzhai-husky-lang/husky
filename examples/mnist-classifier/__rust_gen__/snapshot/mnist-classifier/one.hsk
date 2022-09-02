@@ -10,8 +10,14 @@ func one_fermi_match_others -> []&ConcaveComponent:
 
 def is_one -> ?MnistLabel:
     require connected_components.ilen() == 1
-    require major_connected_component.raw_contours.ilen() == 1
-    require one_fermi_match.others.ilen() == 0
+    require normalize_vmax_f32(
+        major_connected_component.max_hole_ilen,
+        MnistLabel::One
+    ) < 1.1
+    require normalize_vmax_f32(
+        one_fermi_match.norm,
+        MnistLabel::One
+    ) < 1.1
     if one_fermi_match.matches[0] be none:
         if one_fermi_match.matches[1] be none:
             MnistLabel::One
@@ -20,10 +26,19 @@ def is_one -> ?MnistLabel:
             one_fermi_match.matches[1].hausdorff_norm,
             one_fermi_match.matches[1].angle_change.abs(),
         )
+    downmost_hausdorff_norm = one_fermi_match.matches[0].hausdorff_norm
+    if one_fermi_match.matches[2] be some:
+        a = one_fermi_match.matches[2].hausdorff_norm
+    if downmost_hausdorff_norm < 3.0:
+        boosting_with_vmax_normalized(
+            MnistLabel::One,
+            downmost_hausdorff_norm,
+            one_fermi_match.matches[0].angle_change.abs(),
+        )
     MnistLabel::One
 
 func one_fermi_match -> FermiMatchResult:
-    fermi_match(major_concave_components, [downmost, upmost])
+    fermi_match(major_concave_components, [downmost, upmost, downmost])
 
 func upmost(cc: &ConcaveComponent) -> ?f32:
     dp = cc.displacement()
