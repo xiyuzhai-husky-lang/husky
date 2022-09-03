@@ -98,7 +98,10 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const void)),
-                __RegisterDataKind::None => None,
+                __RegisterDataKind::SomeNone => {
+                    assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
+                    None
+                },
                 _ => panic!(),
             }
         }
@@ -196,7 +199,10 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const bool)),
-                __RegisterDataKind::None => None,
+                __RegisterDataKind::SomeNone => {
+                    assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
+                    None
+                },
                 _ => panic!(),
             }
         }
@@ -294,7 +300,10 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const i32)),
-                __RegisterDataKind::None => None,
+                __RegisterDataKind::SomeNone => {
+                    assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
+                    None
+                },
                 _ => panic!(),
             }
         }
@@ -392,7 +401,10 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const i64)),
-                __RegisterDataKind::None => None,
+                __RegisterDataKind::SomeNone => {
+                    assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
+                    None
+                },
                 _ => panic!(),
             }
         }
@@ -490,7 +502,10 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const b32)),
-                __RegisterDataKind::None => None,
+                __RegisterDataKind::SomeNone => {
+                    assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
+                    None
+                },
                 _ => panic!(),
             }
         }
@@ -588,7 +603,10 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const b64)),
-                __RegisterDataKind::None => None,
+                __RegisterDataKind::SomeNone => {
+                    assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
+                    None
+                },
                 _ => panic!(),
             }
         }
@@ -686,7 +704,10 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const f32)),
-                __RegisterDataKind::None => None,
+                __RegisterDataKind::SomeNone => {
+                    assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
+                    None
+                },
                 _ => panic!(),
             }
         }
@@ -784,7 +805,10 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const f64)),
-                __RegisterDataKind::None => None,
+                __RegisterDataKind::SomeNone => {
+                    assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
+                    None
+                },
                 _ => panic!(),
             }
         }

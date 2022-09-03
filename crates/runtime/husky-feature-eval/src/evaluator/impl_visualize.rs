@@ -39,7 +39,7 @@ impl<'temp> FeatureEvaluator<'temp, 'static> {
                     __RegisterDataKind::TempRef => todo!(),
                     __RegisterDataKind::TempMut => todo!(),
                     __RegisterDataKind::Moved => todo!(),
-                    __RegisterDataKind::None => Ok(VisualData::void()),
+                    __RegisterDataKind::SomeNone => Ok(VisualData::void()),
                     __RegisterDataKind::Unreturned => todo!(),
                 }
             }

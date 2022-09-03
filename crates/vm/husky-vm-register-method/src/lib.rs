@@ -24,7 +24,7 @@ impl<'eval> VMRegisterMethodX<'eval> for __Register<'eval> {
                 __RegisterDataKind::TempRef => todo!(),
                 __RegisterDataKind::TempMut => todo!(),
                 __RegisterDataKind::Moved => todo!(),
-                __RegisterDataKind::None => todo!(),
+                __RegisterDataKind::SomeNone => todo!(),
                 __RegisterDataKind::Unreturned => todo!(),
             },
             Binding::TempRef => {

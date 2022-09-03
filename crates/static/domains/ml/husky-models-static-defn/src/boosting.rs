@@ -160,7 +160,7 @@ impl Model for BoostingWithVmaxNormalized {
         )
         .unwrap();
         Ok(if sum > internal.threshold {
-            __Register::none()
+            __Register::none(0)
         } else {
             __VirtualEnum {
                 kind_idx: internal.label0,

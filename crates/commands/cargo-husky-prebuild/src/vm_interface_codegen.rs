@@ -2,7 +2,7 @@ use crate::*;
 
 pub(crate) fn write_vm_interface_codegen() {
     diff_write(
-        &PathBuf::from("../../vm/husky-vm-interface/src/__rust_code_gen__.rs"),
+        &PathBuf::from("crates/vm/husky-vm-interface/src/__rust_code_gen__.rs"),
         &gen_rust_code().unwrap(),
         true,
     );

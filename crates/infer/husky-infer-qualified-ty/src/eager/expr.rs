@@ -19,7 +19,7 @@ impl std::ops::Deref for EagerExprQualifiedTy {
 
 impl std::fmt::Display for EagerExprQualifiedTy {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        if self.is_option() {
+        for _ in 0..self.option_level() {
             "Option ".fmt(f)?
         }
         self.qual.fmt(f)?;
@@ -78,7 +78,7 @@ impl EagerExprQualifiedTy {
         Self {
             qual: EagerExprQualifier::EvalRef,
             canonical_ty: CanonicalTy::new(
-                false,
+                0,
                 CanonicalQualifier::EvalRef,
                 RootIdentifier::TypeType.into(),
             ),
@@ -89,7 +89,7 @@ impl EagerExprQualifiedTy {
         Self {
             qual: EagerExprQualifier::EvalRef,
             canonical_ty: CanonicalTy::new(
-                false,
+                0,
                 CanonicalQualifier::EvalRef,
                 RootIdentifier::ModuleType.into(),
             ),
@@ -100,7 +100,7 @@ impl EagerExprQualifiedTy {
         Self {
             qual: EagerExprQualifier::EvalRef,
             canonical_ty: CanonicalTy::new(
-                false,
+                0,
                 CanonicalQualifier::EvalRef,
                 RootIdentifier::TraitType.into(),
             ),
@@ -119,7 +119,7 @@ impl EagerExprQualifiedTy {
                 EagerExprQualifier::EvalRef
             },
             canonical_ty: CanonicalTy::new(
-                false,
+                0,
                 if is_copyable {
                     CanonicalQualifier::Intrinsic
                 } else {

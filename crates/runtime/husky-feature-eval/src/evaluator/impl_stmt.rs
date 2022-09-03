@@ -22,7 +22,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 if self.satisfies(condition)? {
                     Ok(__Register::unreturned())
                 } else {
-                    Ok(__Register::none())
+                    Ok(__Register::none(0))
                 }
             }
             FeatureLazyStmtVariant::Return { ref result } => self.eval_expr(result),

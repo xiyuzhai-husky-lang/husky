@@ -42,7 +42,7 @@ impl HuskyComptime {
 #[derive(Debug)]
 pub enum __RegisterDowncastResult<T> {
     Value(T),
-    None,
+    None { number_of_somes: u8 },
     Unreturned,
 }
 
@@ -56,7 +56,8 @@ fn convert_i32_register_to_label<'eval>(
         __RegisterDataKind::TempRef => todo!(),
         __RegisterDataKind::TempMut => todo!(),
         __RegisterDataKind::Moved => todo!(),
-        __RegisterDataKind::None => __RegisterDowncastResult::None,
+        __RegisterDataKind::SomeNone => todo!(),
+        // __RegisterDowncastResult::SomeNone,
         __RegisterDataKind::Unreturned => __RegisterDowncastResult::Unreturned,
     }
 }
@@ -66,7 +67,7 @@ pub fn convert_enum_register_to_label<'eval>(
 ) -> __RegisterDowncastResult<Label> {
     if value.vtable.typename_str_hash_u64 != __VIRTUAL_ENUM_VTABLE.typename_str_hash_u64 {
         match value.data_kind() {
-            __RegisterDataKind::None | __RegisterDataKind::Unreturned => (),
+            __RegisterDataKind::SomeNone | __RegisterDataKind::Unreturned => (),
             _ => {
                 panic!(
                     "expect virtual enum, but got {:?} of type`{}` instead",
@@ -88,7 +89,9 @@ pub fn convert_enum_register_to_label<'eval>(
         __RegisterDataKind::TempRef => todo!(),
         __RegisterDataKind::TempMut => todo!(),
         __RegisterDataKind::Moved => todo!(),
-        __RegisterDataKind::None => __RegisterDowncastResult::None,
+        __RegisterDataKind::SomeNone => __RegisterDowncastResult::None {
+            number_of_somes: unsafe { value.data().as_number_of_somes },
+        },
         __RegisterDataKind::Unreturned => __RegisterDowncastResult::Unreturned,
     }
 }

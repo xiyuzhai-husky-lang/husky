@@ -83,29 +83,18 @@ impl EntityRoutePtr {
     pub fn canonicalize(self) -> CanonicalTy {
         if self.is_option() {
             assert_eq!(self.spatial_arguments.len(), 1);
-            let this1 = self.entity_route_argument(0);
-            assert!(!this1.is_option());
-            if this1.is_eval_ref() {
-                assert_eq!(this1.spatial_arguments.len(), 1);
-                let this2 = this1.entity_route_argument(0);
-                assert!(this2.is_intrinsic());
-                CanonicalTy::new(true, CanonicalQualifier::EvalRef, this2)
-            } else {
-                assert!(this1.is_intrinsic());
-                CanonicalTy::new(true, CanonicalQualifier::Intrinsic, this1)
-            }
+            self.entity_route_argument(0).canonicalize().with_option()
         } else if self.is_eval_ref() {
             assert_eq!(self.spatial_arguments.len(), 1);
-            let this1 = self.entity_route_argument(0);
-            assert!(this1.is_intrinsic());
-            CanonicalTy::new(false, CanonicalQualifier::EvalRef, this1)
+            self.entity_route_argument(0).canonicalize().with_eval_ref()
         } else if self.is_temp_ref_mut() {
+            // ad hoc
             assert_eq!(self.spatial_arguments.len(), 1);
             let this1 = self.entity_route_argument(0);
             assert!(this1.is_intrinsic());
-            CanonicalTy::new(false, CanonicalQualifier::TempRefMut, this1)
+            CanonicalTy::new(0, CanonicalQualifier::TempRefMut, this1)
         } else {
-            CanonicalTy::new(false, CanonicalQualifier::Intrinsic, self)
+            CanonicalTy::new(0, CanonicalQualifier::Intrinsic, self)
         }
     }
 
@@ -372,6 +361,12 @@ pub trait InternEntityRoute {
 
     fn vec(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
         self.route_call(RootIdentifier::Vec.into(), thin_vec![ty.into()])
+    }
+}
+
+impl InternEntityRoute for EntityRouteInterner {
+    fn entity_route_interner(&self) -> &EntityRouteInterner {
+        self
     }
 }
 
