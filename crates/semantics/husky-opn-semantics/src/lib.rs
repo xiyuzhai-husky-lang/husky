@@ -27,7 +27,7 @@ impl EagerSuffixOpr {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ImplicitConversion {
     None,
-    WrapInSome,
+    WrapInSome { number_of_somes: u8 },
     ConvertToBool,
 }
 
@@ -49,9 +49,13 @@ impl ImplicitConversion {
             if expectation.qual() != ty.qual() {
                 todo!()
             }
-            if expectation.is_option() != ty.is_option() {
-                match expectation.is_option() {
-                    true => return ImplicitConversion::WrapInSome,
+            if expectation.option_level() != ty.option_level() {
+                match expectation.option_level() > ty.option_level() {
+                    true => {
+                        return ImplicitConversion::WrapInSome {
+                            number_of_somes: expectation.option_level() - ty.option_level(),
+                        }
+                    }
                     false => todo!(),
                 }
             }

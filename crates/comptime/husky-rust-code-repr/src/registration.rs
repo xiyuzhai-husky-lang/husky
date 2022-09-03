@@ -119,7 +119,10 @@ impl<'eval> __Register<'eval> {{
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const {ty})),
-                __RegisterDataKind::None => None,
+                __RegisterDataKind::SomeNone => {{
+                    assert_eq!(unsafe {{self.data.as_number_of_somes}}, 0);
+                    None
+                }},
                 _ => panic!(),
             }}
         }}

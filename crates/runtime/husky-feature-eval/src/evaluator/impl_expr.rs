@@ -249,26 +249,8 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             PurePatternVariant::PrimitiveLiteral(_) => todo!(),
             PurePatternVariant::OneOf { .. } => todo!(),
             PurePatternVariant::EnumLiteral(_) => todo!(),
-            PurePatternVariant::Some => match this_value.data_kind() {
-                __RegisterDataKind::PrimitiveValue
-                | __RegisterDataKind::Box
-                | __RegisterDataKind::EvalRef
-                | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => true.to_register(),
-                __RegisterDataKind::None => false.to_register(),
-                __RegisterDataKind::Moved => panic!(),
-                __RegisterDataKind::Unreturned => panic!(),
-            },
-            PurePatternVariant::None => match this_value.data_kind() {
-                __RegisterDataKind::PrimitiveValue
-                | __RegisterDataKind::Box
-                | __RegisterDataKind::EvalRef
-                | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut => false.to_register(),
-                __RegisterDataKind::None => true.to_register(),
-                __RegisterDataKind::Moved => panic!(),
-                __RegisterDataKind::Unreturned => panic!(),
-            },
+            PurePatternVariant::Some => this_value.is_some().to_register(),
+            PurePatternVariant::None => this_value.is_none().to_register(),
         })
     }
 }

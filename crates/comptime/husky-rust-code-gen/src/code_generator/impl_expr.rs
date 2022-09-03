@@ -14,7 +14,11 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_expr(&mut self, indent: Indent, expr: &EagerExpr) {
         match expr.implicit_conversion {
             ImplicitConversion::None => (),
-            ImplicitConversion::WrapInSome => self.write("Some("),
+            ImplicitConversion::WrapInSome { number_of_somes } => {
+                for _ in 0..number_of_somes {
+                    self.write("Some(")
+                }
+            }
             ImplicitConversion::ConvertToBool => todo!(),
         }
 
@@ -257,7 +261,11 @@ impl<'a> RustCodeGenerator<'a> {
 
         match expr.implicit_conversion {
             ImplicitConversion::None => (),
-            ImplicitConversion::WrapInSome => self.write(")"),
+            ImplicitConversion::WrapInSome { number_of_somes } => {
+                for _ in 0..number_of_somes {
+                    self.write(")")
+                }
+            }
             ImplicitConversion::ConvertToBool => todo!(),
         }
     }
@@ -513,7 +521,7 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_binding(&mut self, expr: &EagerExpr) {
         match expr.qualified_ty.binding(self.db.upcast(), expr.contract) {
             Binding::EvalRef | Binding::TempRef => {
-                if !expr.qualified_ty.is_option() {
+                if expr.qualified_ty.option_level() == 0 {
                     self.write("&")
                 }
             }

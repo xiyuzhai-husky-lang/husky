@@ -25,7 +25,7 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut => self.clone_ptr_into_box(),
                 __RegisterDataKind::Moved => todo!(),
-                __RegisterDataKind::None => todo!(),
+                __RegisterDataKind::SomeNone => todo!(),
                 __RegisterDataKind::Unreturned => todo!(),
             }
         }
@@ -62,7 +62,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::None => todo!(),
+            __RegisterDataKind::SomeNone => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
     }
@@ -75,7 +75,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::None => todo!(),
+            __RegisterDataKind::SomeNone => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
     }
@@ -91,7 +91,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::None => todo!(),
+            __RegisterDataKind::SomeNone => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
     }
@@ -104,7 +104,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::None => todo!(),
+            __RegisterDataKind::SomeNone => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
     }
@@ -127,7 +127,7 @@ impl<'eval> __Register<'eval> {
             }
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::None => todo!(),
+            __RegisterDataKind::SomeNone => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
     }
@@ -160,7 +160,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempRef => panic!("can't bind to temp mut"),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::None => todo!(),
+            __RegisterDataKind::SomeNone => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
     }
@@ -184,7 +184,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::Box => self.clone_ptr_into_box(),
             __RegisterDataKind::TempMut => panic!("temp mut"),
             __RegisterDataKind::Moved => panic!("moved"),
-            __RegisterDataKind::None => todo!(),
+            __RegisterDataKind::SomeNone => todo!(),
             __RegisterDataKind::Unreturned => panic!("unreturned"),
         }
     }
@@ -197,7 +197,7 @@ impl<'eval> __Register<'eval> {
             | __RegisterDataKind::Box
             | __RegisterDataKind::TempMut => self.clone_ptr_into_box(),
             __RegisterDataKind::Moved => panic!("moved"),
-            __RegisterDataKind::None => todo!(),
+            __RegisterDataKind::SomeNone => todo!(),
             __RegisterDataKind::Unreturned => panic!("unreturned"),
         }
     }
@@ -215,7 +215,7 @@ impl<'eval> __Register<'eval> {
             | __RegisterDataKind::TempRef
             | __RegisterDataKind::TempMut => unsafe { self.data.as_ptr },
             __RegisterDataKind::Moved
-            | __RegisterDataKind::None
+            | __RegisterDataKind::SomeNone
             | __RegisterDataKind::Unreturned => panic!("invalid data kind"),
         }
     }
@@ -232,7 +232,7 @@ impl<'eval> __Register<'eval> {
                 (self.vtable.primitive_ref_to_bool).unwrap()(self.data.as_ptr)
             },
             __RegisterDataKind::Moved
-            | __RegisterDataKind::None
+            | __RegisterDataKind::SomeNone
             | __RegisterDataKind::Unreturned => panic!(),
         }
     }
@@ -258,7 +258,7 @@ impl<'eval> __Register<'eval> {
             }
             __RegisterDataKind::TempMut => panic!(),
             __RegisterDataKind::Moved => panic!(),
-            __RegisterDataKind::None => {
+            __RegisterDataKind::SomeNone => {
                 if unsafe { !self.data.as_ptr.is_null() } {
                     todo!()
                 }
@@ -278,7 +278,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::None | __RegisterDataKind::Unreturned => unsafe {
+            __RegisterDataKind::SomeNone | __RegisterDataKind::Unreturned => unsafe {
                 self.verbatim_copy()
             },
         }

@@ -3,7 +3,9 @@ use crate::EntityRoutePtr;
 // todo: mutable ref
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct CanonicalTy {
-    is_option: bool,
+    // ??f32 option_level = 2
+    // ?[]?f32 option_level = 1
+    option_level: u8,
     qual: CanonicalQualifier,
     intrinsic_ty: EntityRoutePtr,
 }
@@ -34,10 +36,10 @@ impl CanonicalTy {
     pub fn intrinsic_ty(self) -> EntityRoutePtr {
         self.intrinsic_ty
     }
-    pub fn new(is_option: bool, qual: CanonicalQualifier, intrinsic_ty: EntityRoutePtr) -> Self {
+    pub fn new(option_level: u8, qual: CanonicalQualifier, intrinsic_ty: EntityRoutePtr) -> Self {
         assert!(intrinsic_ty.is_intrinsic());
         Self {
-            is_option,
+            option_level,
             qual,
             intrinsic_ty,
         }
@@ -45,7 +47,7 @@ impl CanonicalTy {
 
     pub fn with_eval_ref(self) -> Self {
         Self {
-            is_option: self.is_option,
+            option_level: self.option_level,
             qual: match self.qual {
                 CanonicalQualifier::Intrinsic | CanonicalQualifier::EvalRef => {
                     CanonicalQualifier::EvalRef
@@ -57,20 +59,29 @@ impl CanonicalTy {
         }
     }
 
-    pub fn is_option(&self) -> bool {
-        self.is_option
+    pub fn with_option(self) -> Self {
+        Self {
+            option_level: self.option_level + 1,
+            qual: self.qual,
+            intrinsic_ty: self.intrinsic_ty,
+        }
+    }
+
+    pub fn option_level(&self) -> u8 {
+        self.option_level
     }
 
     pub fn kind(&self) -> CanonicalTyKind {
-        match (self.is_option, self.qual) {
-            (true, CanonicalQualifier::Intrinsic) => CanonicalTyKind::Optional,
-            (true, CanonicalQualifier::EvalRef) => CanonicalTyKind::OptionalEvalRef,
-            (true, CanonicalQualifier::TempRef) => todo!(),
-            (true, CanonicalQualifier::TempRefMut) => todo!(),
-            (false, CanonicalQualifier::Intrinsic) => CanonicalTyKind::Intrinsic,
-            (false, CanonicalQualifier::EvalRef) => CanonicalTyKind::EvalRef,
-            (false, CanonicalQualifier::TempRef) => todo!(),
-            (false, CanonicalQualifier::TempRefMut) => CanonicalTyKind::TempRefMut,
+        match (self.option_level, self.qual) {
+            (1, CanonicalQualifier::Intrinsic) => CanonicalTyKind::Optional,
+            (1, CanonicalQualifier::EvalRef) => CanonicalTyKind::OptionalEvalRef,
+            (1, CanonicalQualifier::TempRef) => todo!(),
+            (1, CanonicalQualifier::TempRefMut) => todo!(),
+            (0, CanonicalQualifier::Intrinsic) => CanonicalTyKind::Intrinsic,
+            (0, CanonicalQualifier::EvalRef) => CanonicalTyKind::EvalRef,
+            (0, CanonicalQualifier::TempRef) => todo!(),
+            (0, CanonicalQualifier::TempRefMut) => CanonicalTyKind::TempRefMut,
+            _ => todo!(),
         }
     }
 

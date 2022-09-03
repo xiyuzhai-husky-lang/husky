@@ -103,8 +103,12 @@ impl HuskyComptime {
     }
     // ad hoc loc
     pub fn print_short<'eval>(&self, value: &__Register<'eval>, ty: EntityRoutePtr) -> String {
-        if value.data_kind() == __RegisterDataKind::None {
-            return "none".to_owned();
+        if value.data_kind() == __RegisterDataKind::SomeNone {
+            if unsafe { value.data().as_number_of_somes } > 0 {
+                todo!()
+            } else {
+                return "none".to_owned();
+            }
         }
         let intrinsic_ty = ty.intrinsic();
         match intrinsic_ty {
@@ -112,14 +116,14 @@ impl HuskyComptime {
                 RootIdentifier::Void => todo!(),
                 RootIdentifier::I32 => match value.data_kind() {
                     __RegisterDataKind::Moved => todo!(),
-                    __RegisterDataKind::None => todo!(),
+                    __RegisterDataKind::SomeNone => todo!(),
                     __RegisterDataKind::Unreturned => "unreturned".to_string(),
                     _ => format!("{}", value.downcast_i32()),
                 },
                 RootIdentifier::I64 => todo!(),
                 RootIdentifier::F32 => match value.data_kind() {
                     __RegisterDataKind::Moved => todo!(),
-                    __RegisterDataKind::None => todo!(),
+                    __RegisterDataKind::SomeNone => todo!(),
                     __RegisterDataKind::Unreturned => "unreturned".to_string(),
                     _ => format!("{}", value.downcast_f32()),
                 },

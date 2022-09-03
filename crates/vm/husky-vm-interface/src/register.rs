@@ -46,6 +46,7 @@ pub union __RegisterData {
     pub as_f32: f32,
     pub as_f64: f64,
     pub as_ptr: *mut c_void,
+    pub as_number_of_somes: u8,
 }
 
 unsafe impl<'eval> Send for __Register<'eval> {}
@@ -156,7 +157,7 @@ impl<'eval> __Register<'eval> {
             },
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::None => todo!(),
+            __RegisterDataKind::SomeNone => todo!(),
             __RegisterDataKind::Unreturned => unsafe {
                 &*(&self.data.as_void as *const _ as *const c_void)
             },
@@ -195,7 +196,7 @@ impl<'eval> __Register<'eval> {
                 vtable: proto,
             }
         } else {
-            __Register::none()
+            __Register::none(0)
         }
     }
 
@@ -231,7 +232,7 @@ impl<'eval> __Register<'eval> {
         if let Some(value) = opt_value {
             Self::new_eval_ref(value, proto)
         } else {
-            Self::none()
+            Self::none(0)
         }
     }
 
@@ -263,7 +264,7 @@ impl<'eval> __Register<'eval> {
                 vtable: proto,
             }
         } else {
-            __Register::none()
+            __Register::none(0)
         }
     }
 
@@ -295,7 +296,7 @@ impl<'eval> __Register<'eval> {
                 vtable: proto,
             }
         } else {
-            __Register::none()
+            __Register::none(0)
         }
     }
 
@@ -308,12 +309,10 @@ impl<'eval> __Register<'eval> {
         std::mem::replace(self, moved)
     }
 
-    pub fn none() -> __Register<'eval> {
+    pub fn none(as_number_of_somes: u8) -> __Register<'eval> {
         __Register {
-            data_kind: __RegisterDataKind::None,
-            data: __RegisterData {
-                as_ptr: std::ptr::null_mut(),
-            },
+            data_kind: __RegisterDataKind::SomeNone,
+            data: __RegisterData { as_number_of_somes },
             vtable: &__VOID_VTABLE,
         }
     }
@@ -339,17 +338,6 @@ impl<'eval> __Register<'eval> {
             data_kind: __RegisterDataKind::Moved,
             data: __RegisterData { as_void: () },
             vtable,
-        }
-    }
-
-    pub unsafe fn none_with_message(
-        proto: &'eval __RegisterTyVTable,
-        message: String,
-    ) -> __Register<'eval> {
-        __Register {
-            data_kind: __RegisterDataKind::None,
-            data: __RegisterData { as_void: () },
-            vtable: proto,
         }
     }
 
@@ -413,7 +401,7 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::TempRef => panic!(),
                 __RegisterDataKind::TempMut => todo!(),
                 __RegisterDataKind::Moved => todo!(),
-                __RegisterDataKind::None => todo!(),
+                __RegisterDataKind::SomeNone => todo!(),
                 __RegisterDataKind::Unreturned => todo!(),
             }
         }
@@ -434,7 +422,10 @@ impl<'eval> __Register<'eval> {
                 __RegisterDataKind::TempRef => todo!(),
                 __RegisterDataKind::TempMut => todo!(),
                 __RegisterDataKind::Moved => todo!(),
-                __RegisterDataKind::None => None,
+                __RegisterDataKind::SomeNone => {
+                    assert_eq!(unsafe { self.data.as_number_of_somes }, 0);
+                    None
+                }
                 __RegisterDataKind::Unreturned => todo!(),
             }
         }
@@ -455,14 +446,15 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut => &*(self.data.as_ptr as *const T),
                 __RegisterDataKind::Moved => todo!(),
-                __RegisterDataKind::None => todo!(),
+                __RegisterDataKind::SomeNone => todo!(),
                 __RegisterDataKind::Unreturned => todo!(),
             }
         }
     }
 
     pub fn downcast_opt_temp_ref<T>(&self, target_ty_vtable: &__RegisterTyVTable) -> Option<&T> {
-        if self.data_kind == __RegisterDataKind::None {
+        if self.data_kind == __RegisterDataKind::SomeNone {
+            assert_eq!(unsafe { self.data.as_number_of_somes }, 0);
             return None;
         }
         if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
@@ -479,7 +471,7 @@ impl<'eval> __Register<'eval> {
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut => &*(self.data.as_ptr as *const T),
                 __RegisterDataKind::Moved => todo!(),
-                __RegisterDataKind::None => todo!(),
+                __RegisterDataKind::SomeNone => todo!(),
                 __RegisterDataKind::Unreturned => todo!(),
             }
         })
@@ -493,9 +485,31 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => &mut *(self.data.as_ptr as *mut T),
             __RegisterDataKind::Moved => todo!(),
-            __RegisterDataKind::None => todo!(),
+            __RegisterDataKind::SomeNone => todo!(),
             __RegisterDataKind::Unreturned => todo!(),
         }
+    }
+
+    pub fn number_of_somes_before_none(&self) -> u8 {
+        assert_eq!(self.data_kind, __RegisterDataKind::SomeNone);
+        unsafe { self.data.as_number_of_somes }
+    }
+
+    pub fn is_some(&self) -> bool {
+        match self.data_kind() {
+            __RegisterDataKind::PrimitiveValue
+            | __RegisterDataKind::Box
+            | __RegisterDataKind::EvalRef
+            | __RegisterDataKind::TempRef
+            | __RegisterDataKind::TempMut => true,
+            __RegisterDataKind::SomeNone => self.number_of_somes_before_none() > 0,
+            __RegisterDataKind::Moved => panic!(),
+            __RegisterDataKind::Unreturned => panic!(),
+        }
+    }
+
+    pub fn is_none(&self) -> bool {
+        !self.is_some()
     }
 }
 
@@ -507,7 +521,7 @@ pub enum __RegisterDataKind {
     TempRef,
     TempMut,
     Moved,
-    None,
+    SomeNone,
     Unreturned,
 }
 
@@ -521,7 +535,7 @@ impl<'eval> Drop for __Register<'eval> {
                 //     .unwrap())
                 // .__drop_dyn__()
             },
-            __RegisterDataKind::None => {
+            __RegisterDataKind::SomeNone => {
                 // when none, opt_data might hold a message
                 if !unsafe { self.data.as_ptr }.is_null() {
                     todo!()

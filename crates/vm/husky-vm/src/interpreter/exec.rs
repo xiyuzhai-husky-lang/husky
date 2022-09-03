@@ -248,7 +248,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::Require => {
                     let is_condition_satisfied = self.stack.pop().to_bool();
                     if !is_condition_satisfied {
-                        VMControl::Return(__Register::none())
+                        VMControl::Return(__Register::none(0))
                     } else {
                         VMControl::None
                     }

@@ -316,10 +316,10 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                             self.gen_parameter_downcast_copy(i, parameter)
                         }
                         CanonicalQualifier::EvalRef => {
-                            if canonical_parameter_ty.is_option() {
-                                self.gen_parameter_downcast_opt_eval_ref(i, parameter)
-                            } else {
-                                self.gen_parameter_downcast_eval_ref(i, parameter)
+                            match canonical_parameter_ty.option_level() {
+                                0 => self.gen_parameter_downcast_eval_ref(i, parameter),
+                                1 => self.gen_parameter_downcast_opt_eval_ref(i, parameter),
+                                _ => todo!(),
                             }
                         }
                         CanonicalQualifier::TempRef => todo!(),

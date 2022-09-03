@@ -2,6 +2,8 @@ mod canonical;
 mod fmt;
 mod intern;
 mod menu;
+#[cfg(test)]
+mod tests;
 mod utils;
 mod verifiy;
 
