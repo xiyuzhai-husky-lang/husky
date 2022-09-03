@@ -1,10 +1,13 @@
 mod __rust_code_gen__;
 mod boosting;
 mod naive;
+mod narrow;
 mod normalize;
+mod utils;
 
 pub use boosting::*;
 pub use naive::*;
+pub use narrow::*;
 pub use normalize::*;
 
 use husky_dev_utils::static_dev_src;
@@ -22,4 +25,4 @@ use husky_vm::{
 use husky_vm_register_method::VMRegisterMethodX;
 use std::{collections::HashMap, sync::Arc, time::Instant};
 
-static_mod! { models = { naive, normalize, boosting } }
+static_mod! { models = { naive, normalize, boosting, narrow } }

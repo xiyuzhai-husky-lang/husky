@@ -118,3 +118,39 @@ pub static __BOOSTING_WITH_VMAX_NORMALIZED_INTERNAL_VTABLE: __RegisterTyVTable =
     typename_str_hash_u64: 7649255471547882478,
     typename_str: "BoostingWithVmaxNormalizedInternal",
 };
+
+// NarrowDownInternal
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __narrow_down_internal_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<NarrowDownInternal>::into_raw(Box::new((*(data as *mut NarrowDownInternal)).clone())) as *mut std::ffi::c_void
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __narrow_down_internal_drop(data: *mut std::ffi::c_void) {
+    drop(Box::from_raw(data as *mut NarrowDownInternal))
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __narrow_down_internal_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const NarrowDownInternal) == *(other as *const std::ffi::c_void as *const NarrowDownInternal)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __narrow_down_internal_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<NarrowDownInternal>(&__NARROW_DOWN_INTERNAL_VTABLE) = registers[1].downcast_move(&__NARROW_DOWN_INTERNAL_VTABLE)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub static __NARROW_DOWN_INTERNAL_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+    primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __narrow_down_internal_clone,
+    drop: __narrow_down_internal_drop,
+    eq: __narrow_down_internal_eq,
+    assign: __narrow_down_internal_assign,
+    typename_str_hash_u64: 6675027034438848780,
+    typename_str: "NarrowDownInternal",
+};
