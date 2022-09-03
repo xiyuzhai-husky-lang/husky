@@ -309,10 +309,12 @@ impl<'eval> __Register<'eval> {
         std::mem::replace(self, moved)
     }
 
-    pub fn none(as_number_of_somes: u8) -> __Register<'eval> {
+    pub fn none(number_of_somes: u8) -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::SomeNone,
-            data: __RegisterData { as_number_of_somes },
+            data: __RegisterData {
+                as_number_of_somes: number_of_somes,
+            },
             vtable: &__VOID_VTABLE,
         }
     }
