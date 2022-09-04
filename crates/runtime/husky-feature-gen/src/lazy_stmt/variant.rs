@@ -3,7 +3,7 @@ use husky_context_impls::ReturnContext;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum FeatureLazyStmtVariant {
     Init {
         varname: CustomIdentifier,
@@ -30,6 +30,27 @@ pub enum FeatureLazyStmtVariant {
     ConditionFlow {
         branches: Vec<Arc<FeatureLazyBranch>>,
     },
+}
+
+impl std::fmt::Debug for FeatureLazyStmtVariant {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Init { varname, value } => f.debug_struct("Init").finish(),
+            Self::Assert { condition } => f.debug_struct("Assert").finish(),
+            Self::Require {
+                condition,
+                return_context,
+            } => f.debug_struct("Require").finish(),
+            Self::Return { result } => f.debug_struct("Return").finish(),
+            Self::ReturnUnveil {
+                return_context,
+                result,
+                implicit_conversion,
+            } => f.debug_struct("ReturnUnveil").finish(),
+            Self::ReturnXml { result } => f.debug_struct("ReturnXml").finish(),
+            Self::ConditionFlow { branches } => f.debug_struct("ConditionFlow").finish(),
+        }
+    }
 }
 
 impl FeatureLazyStmtVariant {

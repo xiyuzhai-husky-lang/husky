@@ -9,7 +9,7 @@ use husky_text::TextRange;
 
 use crate::{eval_id::FeatureEvalId, *};
 
-#[derive(Debug, Clone)]
+#[derive(Clone)]
 pub struct FeatureLazyStmt {
     pub indent: fold::Indent,
     pub variant: FeatureLazyStmtVariant,
@@ -20,6 +20,16 @@ pub struct FeatureLazyStmt {
     pub eval_id: FeatureEvalId,
     pub stmt: Arc<LazyStmt>,
     pub return_ty: EntityRoutePtr,
+}
+
+impl std::fmt::Debug for FeatureLazyStmt {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("FeatureLazyStmt")
+            .field("variant", &self.variant)
+            .field("file", &self.file)
+            .field("range", &self.range)
+            .finish()
+    }
 }
 
 impl std::hash::Hash for FeatureLazyStmt {
