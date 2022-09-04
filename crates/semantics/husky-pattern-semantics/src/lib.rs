@@ -3,13 +3,13 @@ use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use infer_total::InferQueryGroup;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct PurePattern {
     pub ty: EntityRoutePtr,
     pub variant: PurePatternVariant,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum PurePatternVariant {
     PrimitiveLiteral(PrimitiveLiteralData),
     OneOf { subpatterns: Vec<PurePattern> },

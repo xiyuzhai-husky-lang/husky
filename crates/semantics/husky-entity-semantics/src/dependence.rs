@@ -258,7 +258,7 @@ impl EntityDefn {
                     LazyStmtVariant::Return { ref result } => {
                         extract_lazy_expr_dependees(result, builder)
                     }
-                    LazyStmtVariant::ReturnUnveil { ref result } => {
+                    LazyStmtVariant::ReturnUnveil { ref result, .. } => {
                         extract_lazy_expr_dependees(result, builder)
                     }
                     LazyStmtVariant::ConditionFlow { ref branches, ty } => {

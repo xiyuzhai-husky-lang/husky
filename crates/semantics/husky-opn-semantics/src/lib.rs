@@ -3,7 +3,7 @@ use husky_pattern_semantics::PurePattern;
 use husky_print_utils::p;
 use std::borrow::Cow;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum EagerSuffixOpr {
     Incr,                    // ++
     Decr,                    // --
@@ -24,7 +24,7 @@ impl EagerSuffixOpr {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ImplicitConversion {
     None,
     WrapInSome { number_of_somes: u8 },

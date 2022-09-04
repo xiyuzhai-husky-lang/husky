@@ -15,7 +15,9 @@ impl<'a> LinkageCollector<'a> {
                     self.collect_from_lazy_expr(condition)
                 }
                 LazyStmtVariant::Return { ref result } => self.collect_from_lazy_expr(result),
-                LazyStmtVariant::ReturnUnveil { ref result } => self.collect_from_lazy_expr(result),
+                LazyStmtVariant::ReturnUnveil { ref result, .. } => {
+                    self.collect_from_lazy_expr(result)
+                }
                 LazyStmtVariant::ReturnXml { .. } => (),
                 LazyStmtVariant::ConditionFlow { ref branches, .. } => {
                     for branch in branches {

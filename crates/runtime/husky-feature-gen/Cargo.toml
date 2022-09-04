@@ -53,3 +53,5 @@ husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-data-viewer = { path = "../husky-data-viewer" }
 husky-pattern-semantics = { path = "../../semantics/husky-pattern-semantics" }
+husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
+husky-context-impls = { path = "../../impls/husky-context-impls" }

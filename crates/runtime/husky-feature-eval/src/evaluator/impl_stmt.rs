@@ -1,3 +1,5 @@
+use husky_opn_semantics::ImplicitConversion;
+use husky_print_utils::p;
 use husky_vm::{__Register, __VMError, __VMResult};
 
 use crate::*;
@@ -26,9 +28,21 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 }
             }
             FeatureLazyStmtVariant::Return { ref result } => self.eval_expr(result),
-            FeatureLazyStmtVariant::ReturnUnveil { ref result } => self
-                .eval_expr(result)
-                .map(|v| v.unveil().unwrap_or(__Register::unreturned())),
+            FeatureLazyStmtVariant::ReturnUnveil {
+                ref result,
+                implicit_conversion,
+                ..
+            } => self.eval_expr(result).map(|v| {
+                v.unveil()
+                    .map(|v| match implicit_conversion {
+                        ImplicitConversion::None => v,
+                        ImplicitConversion::WrapInSome { number_of_somes } => {
+                            v.wrap_in_some(number_of_somes)
+                        }
+                        ImplicitConversion::ConvertToBool => todo!(),
+                    })
+                    .unwrap_or(__Register::unreturned())
+            }),
             FeatureLazyStmtVariant::ReturnXml { ref result } => self.eval_xml_expr(result),
             FeatureLazyStmtVariant::ConditionFlow { ref branches, .. } => {
                 for branch in branches {

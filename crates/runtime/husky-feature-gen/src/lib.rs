@@ -13,6 +13,7 @@ mod visual;
 
 pub use block::*;
 pub use eval_id::*;
+use husky_opn_semantics::ImplicitConversion;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_vm_primitive_value::PrimitiveValueData;
 use husky_xml_syntax::XmlTagKind;
@@ -54,6 +55,7 @@ pub enum Feature {
     },
     ReturnUnveil {
         result: FeaturePtr,
+        implicit_conversion: ImplicitConversion,
     },
     Cascade(Vec<FeaturePtr>),
     PrimitiveBinaryOpr {

@@ -1,9 +1,11 @@
 use crate::*;
 use husky_ast::*;
+use husky_context_impls::ReturnContext;
 use husky_entity_route::RangedEntityRoute;
 use husky_file::FilePtr;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
+use husky_opn_semantics::ImplicitConversion;
 use husky_semantics_error::*;
 use husky_word::{CustomIdentifier, IdentPairDict, RootIdentifier};
 use husky_xml_syntax::XmlTagKind;
@@ -75,9 +77,9 @@ impl<'a> LazyStmtParser<'a> {
                             RawExprVariant::Opn {
                                 opn_variant: RawOpnVariant::Suffix(RawSuffixOpr::Unveil),
                                 ref opds,
-                            } => LazyStmtVariant::ReturnUnveil {
-                                result: self.parse_lazy_expr(
-                                    opds.start,
+                            } => {
+                                let result = self.parse_lazy_expr(opds.start, None)?;
+                                let implicit_conversion = ImplicitConversion::from_opt_expectation(
                                     Some(
                                         self.db.opt_ty(
                                             self.db
@@ -85,8 +87,17 @@ impl<'a> LazyStmtParser<'a> {
                                                 .unwrap(),
                                         ),
                                     ),
-                                )?,
-                            },
+                                    &result.qualified_ty,
+                                );
+                                LazyStmtVariant::ReturnUnveil {
+                                    result,
+                                    implicit_conversion,
+                                    return_context: ReturnContext::from_raw(
+                                        self.db.upcast(),
+                                        return_context,
+                                    ),
+                                }
+                            }
                             _ => LazyStmtVariant::Return {
                                 result: self.parse_lazy_expr(
                                     result,
@@ -108,7 +119,10 @@ impl<'a> LazyStmtParser<'a> {
                         } => LazyStmtVariant::Require {
                             condition: self
                                 .parse_lazy_expr(condition, Some(RootIdentifier::Bool.into()))?,
-                            return_context,
+                            return_context: ReturnContext::from_raw(
+                                self.db.upcast(),
+                                return_context,
+                            ),
                         },
                         RawStmtVariant::Break => todo!(),
                         RawStmtVariant::Match { .. } => panic!(),

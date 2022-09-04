@@ -19,7 +19,7 @@ impl<'a> TraceTokenBuilder<'a> {
             FeatureLazyStmtVariant::Return { ref result } => {
                 self.gen_feature_expr_tokens(result, ExprTokenConfig::stmt())
             }
-            FeatureLazyStmtVariant::ReturnUnveil { ref result } => {
+            FeatureLazyStmtVariant::ReturnUnveil { ref result, .. } => {
                 self.gen_feature_expr_tokens(result, ExprTokenConfig::stmt());
                 self.push(TraceTokenData {
                     kind: TraceTokenKind::Special,

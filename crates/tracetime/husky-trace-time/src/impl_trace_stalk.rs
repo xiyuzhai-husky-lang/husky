@@ -37,7 +37,12 @@ impl HuskyTraceTime {
                 FeatureLazyStmtVariant::Return { ref result } => {
                     self.trace_stalk_from_expr(result, sample_id)
                 }
-                FeatureLazyStmtVariant::ReturnUnveil { ref result } => {
+                FeatureLazyStmtVariant::ReturnUnveil {
+                    ref result,
+                    implicit_conversion,
+                    ..
+                } => {
+                    todo!("implicit_conversion");
                     self.trace_stalk_from_expr(result, sample_id)
                 }
                 FeatureLazyStmtVariant::ConditionFlow { .. } => panic!(),
