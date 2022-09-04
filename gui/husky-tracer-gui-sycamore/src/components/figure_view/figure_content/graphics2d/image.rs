@@ -14,7 +14,6 @@ fn render(
     composed_image_data: &OriginalImageData,
     dimension: PixelDimension,
 ) {
-    log::info!("render");
     html_canvas.set_width(dimension.width);
     html_canvas.set_height(dimension.height);
     let html_canvas_rendering_context = html_canvas
