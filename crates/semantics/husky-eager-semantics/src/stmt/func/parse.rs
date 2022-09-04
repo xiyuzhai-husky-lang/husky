@@ -110,9 +110,19 @@ impl<'a> EagerParser<'a> {
         while let Some(item) = iter.peek() {
             let item = match item.value.as_ref().unwrap().variant {
                 AstVariant::Stmt(RawStmt {
-                    variant: RawStmtVariant::ConditionBranch { .. },
+                    variant:
+                        RawStmtVariant::ConditionBranch {
+                            condition_branch_kind,
+                            ..
+                        },
                     ..
-                }) => iter.next().unwrap(),
+                }) => {
+                    if matches!(condition_branch_kind, RawConditionBranchKind::If { .. }) {
+                        break;
+                    } else {
+                        iter.next().unwrap()
+                    }
+                }
                 _ => break,
             };
             match item.value.as_ref().unwrap().variant {
@@ -141,7 +151,7 @@ impl<'a> EagerParser<'a> {
                         break;
                     }
                 },
-                _ => break,
+                _ => panic!(),
             }
         }
         Ok(FuncStmtVariant::ConditionFlow { branches })

@@ -193,9 +193,26 @@ impl<'a> LazyStmtParser<'a> {
         while let Some(item) = iter.peek() {
             let item = match item.value.as_ref().unwrap().variant {
                 AstVariant::Stmt(RawStmt {
-                    variant: RawStmtVariant::ConditionBranch { .. },
+                    variant:
+                        RawStmtVariant::ConditionBranch {
+                            condition_branch_kind: RawConditionBranchKind::If { .. },
+                            ..
+                        },
                     ..
-                }) => iter.next().unwrap(),
+                }) => break,
+                AstVariant::Stmt(RawStmt {
+                    variant:
+                        RawStmtVariant::ConditionBranch {
+                            condition_branch_kind,
+                            ..
+                        },
+                    ..
+                }) => {
+                    if matches!(condition_branch_kind, RawConditionBranchKind::If { .. }) {
+                        break;
+                    }
+                    iter.next().unwrap()
+                }
                 _ => break,
             };
             match item.value.as_ref().unwrap().variant {
@@ -206,7 +223,7 @@ impl<'a> LazyStmtParser<'a> {
                         },
                     ..
                 }) => match condition_branch_kind {
-                    RawConditionBranchKind::If { .. } => break,
+                    RawConditionBranchKind::If { .. } => panic!(),
                     RawConditionBranchKind::Elif { condition } => {
                         if branches.len() == 0 {
                             todo!()
@@ -221,7 +238,7 @@ impl<'a> LazyStmtParser<'a> {
                         break;
                     }
                 },
-                _ => break,
+                _ => panic!(),
             }
         }
         Ok(LazyStmtVariant::ConditionFlow { branches, ty })

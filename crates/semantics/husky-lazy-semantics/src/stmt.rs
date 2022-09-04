@@ -17,7 +17,7 @@ use super::*;
 use husky_file::FilePtr;
 use husky_text::*;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct LazyStmt {
     pub file: FilePtr,
     pub range: TextRange,
@@ -25,6 +25,16 @@ pub struct LazyStmt {
     pub variant: LazyStmtVariant,
     pub instruction_id: InstructionId,
     pub output_ty: RangedEntityRoute, // return type of the surrounding block
+}
+
+impl std::fmt::Debug for LazyStmt {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("LazyStmt")
+            .field("file", &self.file)
+            .field("range", &self.range)
+            .field("variant", &self.variant)
+            .finish()
+    }
 }
 
 impl InstructionSource for LazyStmt {
@@ -41,7 +51,7 @@ impl InstructionSource for LazyStmt {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq)]
 pub enum LazyStmtVariant {
     Init {
         varname: RangedCustomIdentifier,
@@ -73,6 +83,31 @@ pub enum LazyStmtVariant {
         match_expr: Arc<LazyExpr>,
         branches: Vec<Arc<LazyPatternBranch>>,
     },
+}
+
+impl std::fmt::Debug for LazyStmtVariant {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Init { varname, value } => f.debug_struct("Init").finish(),
+            Self::Assert { condition } => f.debug_struct("Assert").finish(),
+            Self::Require {
+                condition,
+                return_context,
+            } => f.debug_struct("Require").finish(),
+            Self::ReturnUnveil {
+                result,
+                implicit_conversion,
+                return_context,
+            } => f.debug_struct("ReturnUnveil").finish(),
+            Self::Return { result } => f.debug_struct("Return").finish(),
+            Self::ReturnXml { xml_expr } => f.debug_struct("ReturnXml").finish(),
+            Self::ConditionFlow { branches, ty } => f.debug_struct("ConditionFlow").finish(),
+            Self::Match {
+                match_expr,
+                branches,
+            } => f.debug_struct("Match").finish(),
+        }
+    }
 }
 
 pub fn parse_lazy_stmts(
