@@ -52,6 +52,9 @@ pub enum Feature {
     Require {
         condition: FeaturePtr,
     },
+    ReturnUnveil {
+        result: FeaturePtr,
+    },
     Cascade(Vec<FeaturePtr>),
     PrimitiveBinaryOpr {
         opr: PureBinaryOpr,

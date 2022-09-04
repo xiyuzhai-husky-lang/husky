@@ -109,6 +109,16 @@ impl FeatureLazyStmt {
                     feature_interner,
                 ),
             },
+            LazyStmtVariant::ReturnUnveil { ref result } => FeatureLazyStmtVariant::ReturnUnveil {
+                result: FeatureLazyExpr::new(
+                    db,
+                    opt_this.clone(),
+                    result.clone(),
+                    &symbols,
+                    opt_arrival_indicator.as_ref(),
+                    feature_interner,
+                ),
+            },
             LazyStmtVariant::ReturnXml { ref xml_expr } => FeatureLazyStmtVariant::ReturnXml {
                 result: FeatureXmlExpr::new(
                     db,

@@ -109,6 +109,13 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
             }
             RawStmtVariant::Return { result, .. } => {
+                let result = match self.arena[result].variant {
+                    RawExprVariant::Opn {
+                        opn_variant: RawOpnVariant::Suffix(RawSuffixOpr::Unveil),
+                        ref opds,
+                    } => opds.start,
+                    _ => result,
+                };
                 match (opt_output_ty, self.infer_lazy_expr(result)) {
                     (Some(output_ty), Some(qualified_ty)) => {
                         if !qualified_ty.is_implicitly_convertible_to_output(
@@ -334,7 +341,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 LazyExprQualifier::Copyable,
                 RootIdentifier::Bool.into(),
             )),
-            RawSuffixOpr::Unveil => todo!(),
+            RawSuffixOpr::Unveil => panic!(),
         }
     }
 

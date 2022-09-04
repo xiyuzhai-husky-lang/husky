@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_kind::TyKind;
 use husky_linkage_table::ResolveLinkage;
-use husky_opn_semantics::EagerSuffixOpr;
+use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
 use husky_vm::{
     __root::{__ASSIGN_LINKAGE, __EQ_LINKAGE, __NEQ_LINKAGE, __VALUE_CALL_LINKAGE},
@@ -153,6 +153,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                 },
                 expr.clone(),
             )),
+        }
+        match expr.implicit_conversion {
+            ImplicitConversion::None => (),
+            ImplicitConversion::WrapInSome { number_of_somes } => todo!(),
+            ImplicitConversion::ConvertToBool => todo!(),
         }
     }
 

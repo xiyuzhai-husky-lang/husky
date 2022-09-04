@@ -5,7 +5,7 @@ use husky_file::FilePtr;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
 use husky_semantics_error::*;
-use husky_word::{CustomIdentifier, IdentPairDict};
+use husky_word::{CustomIdentifier, IdentPairDict, RootIdentifier};
 use husky_xml_syntax::XmlTagKind;
 use infer_contract::{ContractSheet, InferContract};
 use std::{iter::Peekable, sync::Arc};
@@ -59,7 +59,7 @@ impl<'a> LazyStmtParser<'a> {
                             initial_value,
                             init_kind: kind,
                         } => {
-                            let initial_value = self.parse_lazy_expr(initial_value)?;
+                            let initial_value = self.parse_lazy_expr(initial_value, None)?;
                             if kind != InitKind::Decl {
                                 todo!()
                             }
@@ -68,17 +68,46 @@ impl<'a> LazyStmtParser<'a> {
                                 value: initial_value,
                             }
                         }
-                        RawStmtVariant::Return { result, .. } => LazyStmtVariant::Return {
-                            result: self.parse_lazy_expr(result)?,
+                        RawStmtVariant::Return {
+                            result,
+                            return_context,
+                        } => match self.arena[result].variant {
+                            RawExprVariant::Opn {
+                                opn_variant: RawOpnVariant::Suffix(RawSuffixOpr::Unveil),
+                                ref opds,
+                            } => LazyStmtVariant::ReturnUnveil {
+                                result: self.parse_lazy_expr(
+                                    opds.start,
+                                    Some(
+                                        self.db.opt_ty(
+                                            self.db
+                                                .implement_target(return_context.return_ty())
+                                                .unwrap(),
+                                        ),
+                                    ),
+                                )?,
+                            },
+                            _ => LazyStmtVariant::Return {
+                                result: self.parse_lazy_expr(
+                                    result,
+                                    Some(
+                                        self.db
+                                            .implement_target(return_context.return_ty())
+                                            .unwrap(),
+                                    ),
+                                )?,
+                            },
                         },
                         RawStmtVariant::Assert(condition) => LazyStmtVariant::Assert {
-                            condition: self.parse_lazy_expr(condition)?,
+                            condition: self
+                                .parse_lazy_expr(condition, Some(RootIdentifier::Bool.into()))?,
                         },
                         RawStmtVariant::Require {
                             condition,
                             return_context,
                         } => LazyStmtVariant::Require {
-                            condition: self.parse_lazy_expr(condition)?,
+                            condition: self
+                                .parse_lazy_expr(condition, Some(RootIdentifier::Bool.into()))?,
                             return_context,
                         },
                         RawStmtVariant::Break => todo!(),
@@ -105,7 +134,7 @@ impl<'a> LazyStmtParser<'a> {
     fn parse_xml_expr(&mut self, raw_xml_expr: &RawXmlExpr) -> SemanticResultArc<XmlExpr> {
         let variant = match raw_xml_expr.variant {
             RawXmlExprVariant::Value(raw_expr_idx) => {
-                XmlExprVariant::Value(self.parse_lazy_expr(raw_expr_idx)?)
+                XmlExprVariant::Value(self.parse_lazy_expr(raw_expr_idx, None)?)
             }
             RawXmlExprVariant::Tag { ident, ref props } => {
                 let tag_kind = XmlTagKind::from_ident(ident);
@@ -113,7 +142,7 @@ impl<'a> LazyStmtParser<'a> {
                     .iter()
                     .map(
                         |(ident, raw_expr_idx)| -> SemanticResult<(CustomIdentifier, Arc<LazyExpr>)> {
-                            Ok((*ident, self.parse_lazy_expr(*raw_expr_idx)?))
+                            Ok((*ident, self.parse_lazy_expr(*raw_expr_idx, None)?))
                         },
                     )
                     .collect::<SemanticResult<IdentPairDict<Arc<LazyExpr>>>>()? }
@@ -139,7 +168,7 @@ impl<'a> LazyStmtParser<'a> {
             RawConditionBranchKind::If { condition } => {
                 branches.push(Arc::new(LazyConditionBranch {
                     variant: LazyConditionBranchVariant::If {
-                        condition: self.parse_lazy_expr(condition)?,
+                        condition: self.parse_lazy_expr(condition, None)?,
                     },
                     stmts: self.parse_lazy_stmts(children, ty)?,
                 }))

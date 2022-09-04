@@ -196,7 +196,10 @@ impl<'a> ContractSheetBuilder<'a> {
                 self.infer_lazy_expr(opd, LazyContract::Pure);
                 Ok(())
             }
-            RawSuffixOpr::Unveil => todo!(),
+            RawSuffixOpr::Unveil => {
+                self.infer_lazy_expr(opd, contract);
+                Ok(())
+            }
         }
     }
 

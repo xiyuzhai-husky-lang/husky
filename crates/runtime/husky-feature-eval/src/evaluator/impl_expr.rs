@@ -1,6 +1,7 @@
 use crate::*;
 use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
+use husky_opn_semantics::ImplicitConversion;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_print_utils::{msg_once, p};
 use husky_trace_protocol::VisualData;
@@ -14,7 +15,7 @@ use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     pub(crate) fn eval_expr(&self, expr: &FeatureLazyExpr) -> __VMResult<__Register<'eval>> {
-        match expr.variant {
+        let result = match expr.variant {
             FeatureLazyExprVariant::Literal(ref value) => Ok(value.clone()),
             FeatureLazyExprVariant::PrimitiveBinaryOpr {
                 linkage, ref opds, ..
@@ -115,6 +116,13 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureLazyExprVariant::BePattern { ref this, ref patt } => {
                 self.eval_be_pattern(this, patt)
             }
+        };
+        match expr.expr.implicit_conversion {
+            ImplicitConversion::None => result,
+            ImplicitConversion::WrapInSome { number_of_somes } => {
+                result.map(|v| v.wrap_in_some(number_of_somes))
+            }
+            ImplicitConversion::ConvertToBool => todo!(),
         }
     }
 

@@ -16,7 +16,8 @@ impl HuskyTraceTime {
             FeatureLazyStmtVariant::Init { .. }
             | FeatureLazyStmtVariant::Assert { .. }
             | FeatureLazyStmtVariant::Require { .. }
-            | FeatureLazyStmtVariant::Return { .. } => {
+            | FeatureLazyStmtVariant::Return { .. }
+            | FeatureLazyStmtVariant::ReturnUnveil { .. } => {
                 vec![self.new_trace(
                     Some(parent.id()),
                     stmt.indent,

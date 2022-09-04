@@ -68,6 +68,9 @@ fn feature_stmt_opt_stats<'eval>(
         FeatureLazyStmtVariant::Return { ref result } => {
             feature_expr_opt_stats(db, partitions, result)
         }
+        FeatureLazyStmtVariant::ReturnUnveil { ref result } => {
+            todo!()
+        }
         FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
         FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
     }
