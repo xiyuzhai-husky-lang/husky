@@ -5,7 +5,9 @@ use std::sync::Arc;
 
 pub use branch::*;
 use husky_ast::*;
+use husky_context_impls::ReturnContext;
 use husky_entity_route::RangedEntityRoute;
+use husky_opn_semantics::ImplicitConversion;
 use husky_semantics_error::SemanticResultArc;
 use husky_vm::{InstructionId, InstructionSource};
 
@@ -50,10 +52,12 @@ pub enum LazyStmtVariant {
     },
     Require {
         condition: Arc<LazyExpr>,
-        return_context: RawReturnContext,
+        return_context: ReturnContext,
     },
     ReturnUnveil {
         result: Arc<LazyExpr>,
+        implicit_conversion: ImplicitConversion, // first unveil, then implicitly convert
+        return_context: ReturnContext,
     },
     Return {
         result: Arc<LazyExpr>,

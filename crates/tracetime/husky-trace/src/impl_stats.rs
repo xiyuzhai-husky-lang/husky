@@ -1,6 +1,6 @@
 use crate::*;
 use husky_comptime::{utils::__RegisterDowncastResult, *};
-use husky_print_utils::msg_once;
+use husky_print_utils::{msg_once, p};
 use husky_trace_protocol::TraceStats;
 use husky_vm::{__Register, __VMError, __VMErrorVariant, __VMResult};
 
@@ -58,7 +58,8 @@ fn feature_stmt_opt_stats<'eval>(
 ) -> __VMResult<Option<TraceStats>> {
     match stmt.variant {
         FeatureLazyStmtVariant::Init { .. } | FeatureLazyStmtVariant::Assert { .. } => Ok(None),
-        FeatureLazyStmtVariant::Require { return_context, .. } => feature_opt_stats(
+        FeatureLazyStmtVariant::Require { return_context, .. }
+        | FeatureLazyStmtVariant::ReturnUnveil { return_context, .. } => feature_opt_stats(
             db,
             partitions,
             return_context.return_ty(),
@@ -67,9 +68,6 @@ fn feature_stmt_opt_stats<'eval>(
         ),
         FeatureLazyStmtVariant::Return { ref result } => {
             feature_expr_opt_stats(db, partitions, result)
-        }
-        FeatureLazyStmtVariant::ReturnUnveil { ref result } => {
-            todo!()
         }
         FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
         FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),

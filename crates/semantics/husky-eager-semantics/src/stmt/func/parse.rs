@@ -44,7 +44,7 @@ impl<'a> EagerParser<'a> {
                             result,
                             return_context,
                         } => FuncStmtVariant::Return {
-                            result: self.parse_eager_expr(result, None)?,
+                            result: self.parse_eager_expr(result, None)?, // todo: unveil
                             return_context,
                         },
                         RawStmtVariant::Assert(condition) => FuncStmtVariant::Assert {

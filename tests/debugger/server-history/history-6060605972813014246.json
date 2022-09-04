@@ -1,0 +1,53 @@
+{
+  "config": {
+    "package_dir": "examples/mnist-classifier",
+    "opt_sample_id": null,
+    "verbose": false,
+    "compiled": false
+  },
+  "gui_messages": [
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 1,
+      "variant": {
+        "kind": "InitDataRequest"
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 2,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 3,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 3,
+      "variant": {
+        "kind": "ToggleExpansion",
+        "trace_id": 3
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": null,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 3,
+        "needs_figure_canvases": false,
+        "needs_figure_controls": false
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 4,
+      "variant": {
+        "kind": "ToggleExpansion",
+        "trace_id": 3
+      }
+    }
+  ]
+}

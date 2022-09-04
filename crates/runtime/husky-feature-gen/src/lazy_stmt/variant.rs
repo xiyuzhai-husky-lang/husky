@@ -1,4 +1,5 @@
 use husky_ast::RawReturnContext;
+use husky_context_impls::ReturnContext;
 
 use super::*;
 
@@ -13,13 +14,15 @@ pub enum FeatureLazyStmtVariant {
     },
     Require {
         condition: Arc<FeatureLazyExpr>,
-        return_context: RawReturnContext,
+        return_context: ReturnContext,
     },
     Return {
         result: Arc<FeatureLazyExpr>,
     },
     ReturnUnveil {
+        return_context: ReturnContext,
         result: Arc<FeatureLazyExpr>,
+        implicit_conversion: ImplicitConversion,
     },
     ReturnXml {
         result: Arc<FeatureXmlExpr>,
@@ -44,11 +47,14 @@ impl FeatureLazyStmtVariant {
                 }))
             }
             FeatureLazyStmtVariant::Return { result } => Some(result.feature),
-            FeatureLazyStmtVariant::ReturnUnveil { result } => {
-                Some(feature_interner.intern(Feature::ReturnUnveil {
-                    result: result.feature,
-                }))
-            }
+            FeatureLazyStmtVariant::ReturnUnveil {
+                result,
+                implicit_conversion,
+                ..
+            } => Some(feature_interner.intern(Feature::ReturnUnveil {
+                result: result.feature,
+                implicit_conversion: *implicit_conversion,
+            })),
             FeatureLazyStmtVariant::ReturnXml { result } => Some(result.feature),
             FeatureLazyStmtVariant::ConditionFlow { branches } => Some(
                 feature_interner.intern(Feature::Branches {
