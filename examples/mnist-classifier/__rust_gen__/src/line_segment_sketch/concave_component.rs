@@ -45,6 +45,30 @@ impl<'eval> ConcaveComponent<'eval> {
             .unwrap()
             .downcast_eval_ref(&__registration__::__F32_VTABLE);
     }
+    pub(crate) fn rel_norm(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::rel_norm"
+        );
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__F32_VTABLE);
+        }
+        return __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<f32>(
+                    self.norm(__ctx) / self.displacement().norm(),
+                    &__registration__::__F32_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__F32_VTABLE);
+    }
     pub(crate) fn hausdorff_norm(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
         let __uid = entity_uid!(__ctx, "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::hausdorff_norm");
         if let Some(__result) =
@@ -110,6 +134,14 @@ impl<'eval> ConcaveComponent<'eval> {
             self.strokes.firstx().start.clone(),
             self.strokes.lastx().end.clone(),
         );
+    }
+
+    pub(crate) fn start(&self) -> crate::geom2d::Point2d {
+        return self.strokes.firstx().start.clone();
+    }
+
+    pub(crate) fn end(&self) -> crate::geom2d::Point2d {
+        return self.strokes.lastx().end.clone();
     }
 
     pub(crate) fn displacement(&self) -> crate::geom2d::Vector2d {

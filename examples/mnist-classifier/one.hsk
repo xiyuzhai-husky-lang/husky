@@ -13,16 +13,12 @@ def is_one -> ?MnistLabel:
     require connected_components.ilen() == 1
     narrow_down(
         MnistLabel::One,
-        major_connected_component.max_hole_ilen
-    )?
-    require normalize_vmax_f32(
         major_connected_component.max_hole_ilen,
-        MnistLabel::One
-    ) < 1.1
-    require normalize_vmax_f32(
         one_fermi_match.norm,
-        MnistLabel::One
-    ) < 1.1
+        one_fermi_match.rel_norm
+    )?
+    if one_fermi_match.rel_norm > 0.1:
+        a = 1
     if one_fermi_match.matches[0] be none:
         if one_fermi_match.matches[1] be none:
             MnistLabel::One
@@ -43,7 +39,7 @@ def is_one -> ?MnistLabel:
     MnistLabel::One
 
 func one_fermi_match -> FermiMatchResult:
-    fermi_match(major_concave_components, [downmost, upmost, downmost])
+    fermi_match(major_concave_components, [downmost, upmost, hat])
 
 func upmost(cc: &ConcaveComponent) -> ?f32:
     dp = cc.displacement()
@@ -53,4 +49,10 @@ func upmost(cc: &ConcaveComponent) -> ?f32:
 func downmost(cc: &ConcaveComponent) -> ?f32:
     dp = cc.displacement()
     require dp.y <= 0.0
-    -dp.y
+    -cc.end().y
+
+func hat(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    require dp.y < 0.0
+    require dp.x < 0.0
+    -dp.y-dp.x

@@ -10,6 +10,9 @@ struct ConcaveComponent:
     func norm -> f32:
         // needs improvement
         this.hausdorff_norm
+    
+    func rel_norm -> f32:
+        this.norm / this.displacement().norm()
 
     proc hausdorff_norm -> f32:
         var hausdorff_norm = 0.0
@@ -40,6 +43,12 @@ struct ConcaveComponent:
             strokes.lastx().end.clone()
         )
 
+    func start() -> Point2d:
+        strokes.firstx().start.clone()
+    
+    func end() -> Point2d:
+        strokes.lastx().end.clone()
+    
     func displacement() -> Vector2d:
         this.line_segment().displacement()
 
