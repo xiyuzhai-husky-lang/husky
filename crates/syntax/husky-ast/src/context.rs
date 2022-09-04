@@ -15,6 +15,10 @@ pub struct RawReturnContext {
 }
 
 impl RawReturnContext {
+    pub fn kind(&self) -> RawReturnContextKind {
+        self.kind
+    }
+
     pub fn return_ty(&self) -> EntityRoutePtr {
         self.opt_return_ty.unwrap().route
     }

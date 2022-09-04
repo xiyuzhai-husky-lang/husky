@@ -2,6 +2,7 @@ mod opn;
 mod parser;
 mod xml;
 
+use husky_opn_semantics::ImplicitConversion;
 use husky_pattern_semantics::PurePattern;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use infer_contract::LazyContract;
@@ -27,6 +28,7 @@ pub struct LazyExpr {
     pub contract: LazyContract,
     pub variant: LazyExprVariant,
     pub instruction_id: InstructionId,
+    pub implicit_conversion: ImplicitConversion,
 }
 
 impl LazyExpr {

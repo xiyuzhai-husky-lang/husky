@@ -57,7 +57,8 @@ impl<'eval> FeatureLazyBlock {
                 FeatureLazyStmtVariant::Init { .. } | FeatureLazyStmtVariant::Assert { .. } => (),
                 FeatureLazyStmtVariant::Return { .. }
                 | FeatureLazyStmtVariant::ReturnXml { .. } => finish_flag = true,
-                FeatureLazyStmtVariant::Require { .. }
+                FeatureLazyStmtVariant::ReturnUnveil { .. }
+                | FeatureLazyStmtVariant::Require { .. }
                 | FeatureLazyStmtVariant::ConditionFlow { .. } => {
                     opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
                         FeatureBranchIndicatorVariant::AfterStmtNotReturn { stmt: stmt.clone() },

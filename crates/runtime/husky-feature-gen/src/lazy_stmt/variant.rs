@@ -18,6 +18,9 @@ pub enum FeatureLazyStmtVariant {
     Return {
         result: Arc<FeatureLazyExpr>,
     },
+    ReturnUnveil {
+        result: Arc<FeatureLazyExpr>,
+    },
     ReturnXml {
         result: Arc<FeatureXmlExpr>,
     },
@@ -41,6 +44,11 @@ impl FeatureLazyStmtVariant {
                 }))
             }
             FeatureLazyStmtVariant::Return { result } => Some(result.feature),
+            FeatureLazyStmtVariant::ReturnUnveil { result } => {
+                Some(feature_interner.intern(Feature::ReturnUnveil {
+                    result: result.feature,
+                }))
+            }
             FeatureLazyStmtVariant::ReturnXml { result } => Some(result.feature),
             FeatureLazyStmtVariant::ConditionFlow { branches } => Some(
                 feature_interner.intern(Feature::Branches {

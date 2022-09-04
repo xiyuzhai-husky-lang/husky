@@ -258,12 +258,7 @@ impl<'eval> __Register<'eval> {
             }
             __RegisterDataKind::TempMut => panic!(),
             __RegisterDataKind::Moved => panic!(),
-            __RegisterDataKind::SomeNone => {
-                if unsafe { !self.data.as_ptr.is_null() } {
-                    todo!()
-                }
-            }
-            __RegisterDataKind::Unreturned => (),
+            __RegisterDataKind::SomeNone | __RegisterDataKind::Unreturned => (),
         }
     }
 

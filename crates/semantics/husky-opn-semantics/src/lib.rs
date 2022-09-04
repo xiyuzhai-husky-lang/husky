@@ -54,7 +54,7 @@ impl ImplicitConversion {
                     true => {
                         return ImplicitConversion::WrapInSome {
                             number_of_somes: expectation.option_level() - ty.option_level(),
-                        }
+                        };
                     }
                     false => todo!(),
                 }

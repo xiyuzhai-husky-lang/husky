@@ -316,6 +316,10 @@ pub trait InternEntityRoute {
         })
     }
 
+    fn opt_ty(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+        self.route_call(RootIdentifier::Option.into(), thin_vec![ty.into()])
+    }
+
     fn subroute(
         &self,
         parent: EntityRoutePtr,

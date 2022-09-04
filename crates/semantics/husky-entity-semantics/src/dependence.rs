@@ -1,4 +1,5 @@
 use husky_entity_route::EntityRouteVariant;
+use husky_lazy_semantics::LazyConditionBranchVariant;
 use husky_print_utils::msg_once;
 use husky_semantics_error::*;
 use vec_like::{VecMap, VecPairMap};
@@ -201,7 +202,12 @@ impl EntityDefn {
             EntityDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
             EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
             EntityDefnVariant::Trait { .. } => todo!(),
-            EntityDefnVariant::Function { .. } => todo!(),
+            EntityDefnVariant::Function { ref source, .. } => match source {
+                CallFormSource::Func { stmts } => extract_func_stmts_dependees(stmts, &mut builder),
+                CallFormSource::Proc { stmts } => todo!(),
+                CallFormSource::Lazy { stmts } => todo!(),
+                CallFormSource::Static(_) => (),
+            },
             EntityDefnVariant::TargetInput { .. } => todo!(),
             EntityDefnVariant::Any => (),
         };
@@ -252,7 +258,23 @@ impl EntityDefn {
                     LazyStmtVariant::Return { ref result } => {
                         extract_lazy_expr_dependees(result, builder)
                     }
-                    LazyStmtVariant::ConditionFlow { .. } => todo!(),
+                    LazyStmtVariant::ReturnUnveil { ref result } => {
+                        extract_lazy_expr_dependees(result, builder)
+                    }
+                    LazyStmtVariant::ConditionFlow { ref branches, ty } => {
+                        for branch in branches {
+                            match branch.variant {
+                                LazyConditionBranchVariant::If { ref condition } => {
+                                    extract_lazy_expr_dependees(condition, builder)
+                                }
+                                LazyConditionBranchVariant::Elif { ref condition } => {
+                                    extract_lazy_expr_dependees(condition, builder)
+                                }
+                                LazyConditionBranchVariant::Else => (),
+                            }
+                            extract_lazy_stmts_dependees(&branch.stmts, builder)
+                        }
+                    }
                     LazyStmtVariant::Match { .. } => todo!(),
                     LazyStmtVariant::ReturnXml { .. } => todo!(),
                 }
@@ -356,7 +378,7 @@ impl EntityDefn {
         fn extract_lazy_expr_dependees(expr: &LazyExpr, builder: &mut DependeeMapBuilder) {
             match expr.variant {
                 LazyExprVariant::Variable { .. } | LazyExprVariant::PrimitiveLiteral(_) => (),
-                LazyExprVariant::EnumLiteral { .. } => todo!(),
+                LazyExprVariant::EnumLiteral { .. } => (),
                 LazyExprVariant::Bracketed(_) => todo!(),
                 LazyExprVariant::Opn { opn_kind, ref opds } => {
                     match opn_kind {
@@ -381,7 +403,7 @@ impl EntityDefn {
                     entity_route: route,
                 } => builder.push(route),
                 LazyExprVariant::ThisField { .. } => todo!(),
-                LazyExprVariant::BePattern { .. } => todo!(),
+                LazyExprVariant::BePattern { .. } => (),
             }
         }
 

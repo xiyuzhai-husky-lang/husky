@@ -26,6 +26,9 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                 }
             }
             FeatureLazyStmtVariant::Return { ref result } => self.eval_expr(result),
+            FeatureLazyStmtVariant::ReturnUnveil { ref result } => self
+                .eval_expr(result)
+                .map(|v| v.unveil().unwrap_or(__Register::unreturned())),
             FeatureLazyStmtVariant::ReturnXml { ref result } => self.eval_xml_expr(result),
             FeatureLazyStmtVariant::ConditionFlow { ref branches, .. } => {
                 for branch in branches {

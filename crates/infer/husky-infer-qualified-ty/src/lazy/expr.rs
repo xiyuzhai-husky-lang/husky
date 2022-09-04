@@ -10,9 +10,11 @@ pub struct LazyExprQualifiedTy {
     canonical_ty: CanonicalTy,
 }
 
-impl LazyExprQualifiedTy {
-    pub fn option_level(&self) -> u8 {
-        self.canonical_ty.option_level()
+impl std::ops::Deref for LazyExprQualifiedTy {
+    type Target = CanonicalTy;
+
+    fn deref(&self) -> &Self::Target {
+        &self.canonical_ty
     }
 }
 
@@ -76,11 +78,6 @@ impl LazyExprQualifiedTy {
     #[inline(always)]
     pub fn qual(self) -> LazyExprQualifier {
         self.qual
-    }
-
-    #[inline(always)]
-    pub fn intrinsic_ty(self) -> EntityRoutePtr {
-        self.canonical_ty.intrinsic_ty()
     }
 
     pub(crate) fn entity_ty(

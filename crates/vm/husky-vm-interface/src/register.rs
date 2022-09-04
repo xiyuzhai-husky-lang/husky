@@ -309,11 +309,11 @@ impl<'eval> __Register<'eval> {
         std::mem::replace(self, moved)
     }
 
-    pub fn none(number_of_somes: u8) -> __Register<'eval> {
+    pub fn none(number_of_somes_before_none: u8) -> __Register<'eval> {
         __Register {
             data_kind: __RegisterDataKind::SomeNone,
             data: __RegisterData {
-                as_number_of_somes: number_of_somes,
+                as_number_of_somes: number_of_somes_before_none,
             },
             vtable: &__VOID_VTABLE,
         }
@@ -513,6 +513,38 @@ impl<'eval> __Register<'eval> {
     pub fn is_none(&self) -> bool {
         !self.is_some()
     }
+
+    pub fn wrap_in_some(mut self, number_of_somes: u8) -> Self {
+        match self.data_kind {
+            __RegisterDataKind::SomeNone => {
+                self.data = unsafe {
+                    __RegisterData {
+                        as_number_of_somes: self.number_of_somes_before_none() + number_of_somes,
+                    }
+                }
+            }
+            __RegisterDataKind::Moved => panic!(),
+            __RegisterDataKind::Unreturned => panic!(),
+            _ => (),
+        }
+        self
+    }
+
+    pub fn unveil(mut self) -> Option<Self> {
+        match self.data_kind {
+            __RegisterDataKind::SomeNone => {
+                let number_of_somes_before_none = self.number_of_somes_before_none();
+                if number_of_somes_before_none > 0 {
+                    Some(__Register::none(number_of_somes_before_none - 1))
+                } else {
+                    None
+                }
+            }
+            __RegisterDataKind::Moved => panic!(),
+            __RegisterDataKind::Unreturned => panic!(),
+            _ => Some(self),
+        }
+    }
 }
 
 #[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
@@ -537,12 +569,6 @@ impl<'eval> Drop for __Register<'eval> {
                 //     .unwrap())
                 // .__drop_dyn__()
             },
-            __RegisterDataKind::SomeNone => {
-                // when none, opt_data might hold a message
-                if !unsafe { self.data.as_ptr }.is_null() {
-                    todo!()
-                }
-            }
             _ => (),
         }
     }
