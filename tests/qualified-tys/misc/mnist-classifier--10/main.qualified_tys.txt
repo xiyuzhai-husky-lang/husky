@@ -18,7 +18,7 @@ lazy expr:
     26:19..26:37   concave_components     PureRef []mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     26:9..26:18    naive_i32              InferError: failed to infer expr ty
     26:19..26:44   concave_components.ilen()   Copyable i32
-    26:9..26:45    naive_i32(concave_components.ilen())   Option Transient domains::ml::datasets::cv::mnist::MnistLabel
+    26:9..26:45    naive_i32(concave_components.ilen())   ?Transient domains::ml::datasets::cv::mnist::MnistLabel
     28:9..28:24    MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
 
 eager expr:
@@ -42,5 +42,5 @@ lazy expr:
     26:19..26:37   concave_components     PureRef []mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     26:9..26:18    naive_i32              InferError: failed to infer expr ty
     26:19..26:44   concave_components.ilen()   Copyable i32
-    26:9..26:45    naive_i32(concave_components.ilen())   Option Transient domains::ml::datasets::cv::mnist::MnistLabel
+    26:9..26:45    naive_i32(concave_components.ilen())   ?Transient domains::ml::datasets::cv::mnist::MnistLabel
     28:9..28:24    MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel

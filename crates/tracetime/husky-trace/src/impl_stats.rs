@@ -164,9 +164,6 @@ fn feature_opt_stats<'eval>(
                 false => dev_falses += 1,
             },
             __RegisterDowncastResult::None { number_of_somes } => {
-                if number_of_somes != 0 {
-                    todo!()
-                }
                 dev_nones += 1;
                 let idx = partitions.partition_idx(labeled_data.label);
                 dev_partition_noness[idx].1 += 1;
