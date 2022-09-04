@@ -21,18 +21,18 @@ lazy expr:
     13:8..13:23    one_fermi_match        EvalRef mnist_classifier__10::fermi::FermiMatchResult
     13:8..13:31    one_fermi_match.matches   PureRef []?&mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     13:32..13:33   0                      Copyable i32
-    13:8..13:34    one_fermi_match.matches[0]   Option EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
+    13:8..13:34    one_fermi_match.matches[0]   ?EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     13:8..13:42    one_fermi_match.matches[0] be none   Copyable bool
     14:12..14:27   one_fermi_match        EvalRef mnist_classifier__10::fermi::FermiMatchResult
     14:12..14:35   one_fermi_match.matches   PureRef []?&mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     14:36..14:37   1                      Copyable i32
-    14:12..14:38   one_fermi_match.matches[1]   Option EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
+    14:12..14:38   one_fermi_match.matches[1]   ?EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     14:12..14:46   one_fermi_match.matches[1] be none   Copyable bool
     15:13..15:28   MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
     16:13..16:28   one_fermi_match        EvalRef mnist_classifier__10::fermi::FermiMatchResult
     16:13..16:36   one_fermi_match.matches   PureRef []?&mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     16:37..16:38   1                      Copyable i32
-    16:13..16:39   one_fermi_match.matches[1]   Option EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
+    16:13..16:39   one_fermi_match.matches[1]   ?EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     16:13..16:55   one_fermi_match.matches[1].hausdorff_width   Copyable f32
     17:9..17:24    MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
     18:5..18:20    MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
@@ -82,18 +82,18 @@ lazy expr:
     13:8..13:23    one_fermi_match        EvalRef mnist_classifier__10::fermi::FermiMatchResult
     13:8..13:31    one_fermi_match.matches   PureRef []?&mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     13:32..13:33   0                      Copyable i32
-    13:8..13:34    one_fermi_match.matches[0]   Option EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
+    13:8..13:34    one_fermi_match.matches[0]   ?EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     13:8..13:42    one_fermi_match.matches[0] be none   Copyable bool
     14:12..14:27   one_fermi_match        EvalRef mnist_classifier__10::fermi::FermiMatchResult
     14:12..14:35   one_fermi_match.matches   PureRef []?&mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     14:36..14:37   1                      Copyable i32
-    14:12..14:38   one_fermi_match.matches[1]   Option EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
+    14:12..14:38   one_fermi_match.matches[1]   ?EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     14:12..14:46   one_fermi_match.matches[1] be none   Copyable bool
     15:13..15:28   MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
     16:13..16:28   one_fermi_match        EvalRef mnist_classifier__10::fermi::FermiMatchResult
     16:13..16:36   one_fermi_match.matches   PureRef []?&mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     16:37..16:38   1                      Copyable i32
-    16:13..16:39   one_fermi_match.matches[1]   Option EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
+    16:13..16:39   one_fermi_match.matches[1]   ?EvalRef mnist_classifier__10::line_segment_sketch::concave_component::ConcaveComponent
     16:13..16:55   one_fermi_match.matches[1].hausdorff_width   Copyable f32
     17:9..17:24    MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
     18:5..18:20    MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel

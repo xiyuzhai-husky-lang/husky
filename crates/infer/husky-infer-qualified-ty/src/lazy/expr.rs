@@ -162,12 +162,11 @@ impl LazyExprQualifiedTy {
         let canonical_ty = raw_ty.canonicalize();
         let qual = match qual {
             LazyExprQualifier::Copyable | LazyExprQualifier::Transient => {
-                match canonical_ty.kind() {
-                    CanonicalTyKind::Intrinsic | CanonicalTyKind::Optional => qual,
-                    CanonicalTyKind::EvalRef | CanonicalTyKind::OptionalEvalRef => {
-                        LazyExprQualifier::EvalRef
-                    }
-                    CanonicalTyKind::TempRefMut => todo!(),
+                match canonical_ty.qual() {
+                    CanonicalQualifier::Intrinsic => qual,
+                    CanonicalQualifier::EvalRef => LazyExprQualifier::EvalRef,
+                    CanonicalQualifier::TempRef => todo!(),
+                    CanonicalQualifier::TempRefMut => todo!(),
                 }
             }
             LazyExprQualifier::PureRef => match canonical_ty.qual() {

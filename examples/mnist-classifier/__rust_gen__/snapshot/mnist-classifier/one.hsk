@@ -1,6 +1,7 @@
 use domains::ml::datasets::cv::mnist::MnistLabel
 use domains::ml::models::normalize::normalize_vmax_f32
 use domains::ml::models::boosting::boosting_with_vmax_normalized
+use domains::ml::models::narrow::narrow_down
 use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
@@ -10,6 +11,10 @@ func one_fermi_match_others -> []&ConcaveComponent:
 
 def is_one -> ?MnistLabel:
     require connected_components.ilen() == 1
+    narrow_down(
+        MnistLabel::One,
+        major_connected_component.max_hole_ilen
+    )?
     require normalize_vmax_f32(
         major_connected_component.max_hole_ilen,
         MnistLabel::One
