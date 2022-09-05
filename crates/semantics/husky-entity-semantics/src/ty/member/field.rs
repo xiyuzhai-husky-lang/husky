@@ -18,7 +18,7 @@ impl EntityDefnVariant {
                     FieldKind::StructRegular => FieldDefnVariant::StructOriginal,
                     FieldKind::StructDefault => todo!(),
                     FieldKind::StructDerived => todo!(),
-                    FieldKind::StructProperty => todo!(),
+                    FieldKind::StructMemo => todo!(),
                     FieldKind::RecordRegular => todo!(),
                     FieldKind::RecordProperty => todo!(),
                 },

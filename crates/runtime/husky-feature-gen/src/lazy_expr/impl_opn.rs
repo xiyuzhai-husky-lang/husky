@@ -290,7 +290,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     feature,
                 )
             }
-            FieldKind::StructProperty { .. } => {
+            FieldKind::StructMemo { .. } => {
                 let this_ty = this.ty();
                 let this_ty_defn = self.db.comptime().entity_defn(this_ty).unwrap();
                 let lazy_field_route =

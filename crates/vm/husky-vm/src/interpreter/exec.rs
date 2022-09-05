@@ -9,6 +9,7 @@ use crate::{history::HistoryEntry, *};
 use colored::Colorize;
 use husky_check_utils::should_eq;
 use husky_path_utils::get_relative_path;
+use husky_print_utils::p;
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
@@ -224,7 +225,6 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                     let this = self.stack.pop();
                     self.stack
                         .push(this.virtual_struct_field(field_idx, field_binding));
-                    // this.field(field_idx as usize, field_binding));
                     match mode {
                         Mode::Fast | Mode::TrackMutation => (),
                         Mode::TrackHistory => self.history.write(

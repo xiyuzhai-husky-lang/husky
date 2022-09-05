@@ -81,7 +81,7 @@ pub enum FieldKind {
     StructRegular,
     StructDefault,
     StructDerived,
-    StructProperty, // property is not store along with struct
+    StructMemo, // property is not store along with struct
     RecordRegular,
     RecordProperty,
 }

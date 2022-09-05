@@ -33,7 +33,7 @@ impl<'a> LinkageCollector<'a> {
                         FieldKind::StructRegular
                         | FieldKind::StructDefault
                         | FieldKind::StructDerived => (),
-                        FieldKind::StructProperty => self.insert(self.db.subroute(
+                        FieldKind::StructMemo => self.insert(self.db.subroute(
                             opds[0].intrinsic_ty(),
                             field_ident.ident,
                             Default::default(),
