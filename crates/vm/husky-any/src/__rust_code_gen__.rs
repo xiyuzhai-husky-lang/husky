@@ -7,29 +7,29 @@ type void = ();
 type b32 = u32;
 type b64 = u64;
 
-    use husky_trace_protocol::VisualData;
-    
+use husky_trace_protocol::VisualData;
+
 // VirtualStruct
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
-    Box::<VirtualStruct>::into_raw(Box::new((*(data as *mut VirtualStruct)).clone())) as *mut std::ffi::c_void
+    Box::<DeprecatedVirtualStruct>::into_raw(Box::new((*(data as *mut DeprecatedVirtualStruct)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_drop(data: *mut std::ffi::c_void) {
-    drop(Box::from_raw(data as *mut VirtualStruct))
+    drop(Box::from_raw(data as *mut DeprecatedVirtualStruct))
 }
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
-    *(this as *const std::ffi::c_void as *const VirtualStruct) == *(other as *const std::ffi::c_void as *const VirtualStruct)
+    *(this as *const std::ffi::c_void as *const DeprecatedVirtualStruct) == *(other as *const std::ffi::c_void as *const DeprecatedVirtualStruct)
 }
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_struct_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<VirtualStruct>(&__VIRTUAL_STRUCT_VTABLE) = registers[1].downcast_move(&__VIRTUAL_STRUCT_VTABLE)
+    *registers[0].downcast_temp_mut::<DeprecatedVirtualStruct>(&__VIRTUAL_STRUCT_VTABLE) = registers[1].downcast_move(&__VIRTUAL_STRUCT_VTABLE)
 }
 #[rustfmt::skip]
 #[no_mangle]
@@ -49,23 +49,23 @@ pub static __VIRTUAL_STRUCT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_vec_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
-    Box::<VirtualVec>::into_raw(Box::new((*(data as *mut VirtualVec)).clone())) as *mut std::ffi::c_void
+    Box::<DeprecatedVirtualVec>::into_raw(Box::new((*(data as *mut DeprecatedVirtualVec)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_vec_drop(data: *mut std::ffi::c_void) {
-    drop(Box::from_raw(data as *mut VirtualVec))
+    drop(Box::from_raw(data as *mut DeprecatedVirtualVec))
 }
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_vec_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
-    *(this as *const std::ffi::c_void as *const VirtualVec) == *(other as *const std::ffi::c_void as *const VirtualVec)
+    *(this as *const std::ffi::c_void as *const DeprecatedVirtualVec) == *(other as *const std::ffi::c_void as *const DeprecatedVirtualVec)
 }
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __virtual_vec_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<VirtualVec>(&__VIRTUAL_VEC_VTABLE) = registers[1].downcast_move(&__VIRTUAL_VEC_VTABLE)
+    *registers[0].downcast_temp_mut::<DeprecatedVirtualVec>(&__VIRTUAL_VEC_VTABLE) = registers[1].downcast_move(&__VIRTUAL_VEC_VTABLE)
 }
 #[rustfmt::skip]
 #[no_mangle]

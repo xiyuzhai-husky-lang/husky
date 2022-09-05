@@ -163,7 +163,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     Binding::TempMut => todo!(),
                     Binding::Move => todo!(),
                     Binding::Copy => {
-                        let this_value: &VirtualStruct =
+                        let this_value: &DeprecatedVirtualStruct =
                             this_value.downcast_temp_ref(&__VIRTUAL_STRUCT_VTABLE);
                         this_value.bind_field_copy(field_idx)
                     }

@@ -5,6 +5,15 @@ pub struct __VMError {
     pub variant: __VMErrorVariant,
 }
 
+impl From<(usize, __VMError)> for __VMError {
+    fn from((sample_id, e): (usize, __VMError)) -> Self {
+        Self {
+            message: e.message,
+            variant: __VMErrorVariant::FromBatch { sample_id },
+        }
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum __VMErrorVariant {
     Normal,

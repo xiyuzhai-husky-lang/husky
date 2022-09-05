@@ -84,7 +84,7 @@ fn test_alignment() {
         );
         assert_eq!(
             &a as *const _ as *const c_void,
-            &a.as_f32 as *const _ as *const c_void
+            &a.as_not_nan_f32 as *const _ as *const c_void
         );
         assert_eq!(
             &a as *const _ as *const c_void,

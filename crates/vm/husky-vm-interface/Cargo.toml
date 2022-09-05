@@ -5,6 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+ordered-float = "3.0.0"
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 husky-vm-binding = { path = "../husky-vm-binding", optional = true }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }

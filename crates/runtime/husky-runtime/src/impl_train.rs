@@ -2,7 +2,7 @@ use crate::*;
 use husky_feature_gen::{
     FeatureArrivalIndicator, FeatureLazyExpr, FeatureLazyExprVariant, TrainModel,
 };
-use husky_vm::{GenericArgument, __Register, __VMResult};
+use husky_vm::{GenericArgument, __Register, __VMError, __VMResult};
 use husky_vm::{__RegistrableSafe, __VirtualEnum};
 use std::time::Instant;
 
@@ -32,12 +32,10 @@ impl TrainModel for HuskyRuntime {
             }
             for (opd, argument) in std::iter::zip(opds.iter(), arguments.iter_mut()) {
                 match argument {
-                    GenericArgument::NonConstant { values } => {
-                        values.push(self.eval_feature_expr_cached(opd, sample_id).map_err(|e| {
-                            todo!()
-                            // (sample_id, e)
-                        })?)
-                    }
+                    GenericArgument::NonConstant { values } => values.push(
+                        self.eval_feature_expr_cached(opd, sample_id)
+                            .map_err(|e| -> __VMError { (sample_id.0, e).into() })?,
+                    ),
                     GenericArgument::Literal { .. } => (),
                 }
             }

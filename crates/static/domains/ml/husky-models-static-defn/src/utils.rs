@@ -1,6 +1,6 @@
 use std::ops::Range;
 
-use husky_vm::{GenericArgument, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
+use husky_vm::{GenericArgument, __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 use ordered_float::NotNan;
 
 pub struct FlagVectorField {
@@ -14,10 +14,10 @@ impl FlagVectorField {
         label0: &GenericArgument,
         arguments: &[GenericArgument],
         labels: &[i32],
-    ) -> Self {
+    ) -> __VMResult<Self> {
         let label0: &__VirtualEnum = label0.value().downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
         let label0 = label0.kind_idx;
-        Self {
+        Ok(Self {
             valuess: arguments
                 .iter()
                 .map(|value| {
@@ -33,7 +33,7 @@ impl FlagVectorField {
                 .collect(),
             flags: labels.iter().map(|label| *label == label0).collect(),
             label0,
-        }
+        })
     }
 
     pub fn flag_ranges(&self) -> Vec<FlagRange> {
