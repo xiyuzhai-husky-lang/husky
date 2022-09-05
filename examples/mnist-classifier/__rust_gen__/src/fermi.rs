@@ -67,6 +67,34 @@ impl<'eval> FermiMatchResult<'eval> {
             .unwrap()
             .downcast_eval_ref(&__registration__::__F32_VTABLE)
     }
+    pub(crate) fn angle_change_norm(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::fermi::FermiMatchResult::angle_change_norm"
+        );
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__F32_VTABLE);
+        }
+        let mut norm = 0f32;
+        for i in 0..self.others.ilen() {
+            norm = norm.max(*self.others[(i) as usize].angle_change(__ctx));
+        }
+        __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<f32>(
+                    norm,
+                    &__registration__::__F32_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__F32_VTABLE)
+    }
 }
 
 impl<'eval> __StaticInfo for FermiMatchResult<'eval> {
