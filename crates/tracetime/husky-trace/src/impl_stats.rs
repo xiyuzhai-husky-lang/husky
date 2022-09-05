@@ -21,15 +21,15 @@ impl<'eval> TraceVariant<'eval> {
                 feature_branch_opt_stats(runtime, partitions, branch)
             }
             TraceVariant::FeatureExpr(expr) => feature_expr_opt_stats(runtime, partitions, expr),
-            TraceVariant::FeatureCallArgument { .. } => Ok(None),
-            TraceVariant::FuncStmt { .. } => todo!(),
-            TraceVariant::ProcStmt { .. } => Ok(None),
-            TraceVariant::ProcBranch { .. } => todo!(),
-            TraceVariant::FuncBranch { .. } => todo!(),
-            TraceVariant::LoopFrame { .. } => todo!(),
-            TraceVariant::EagerExpr { .. } => todo!(),
-            TraceVariant::EagerCallArgument { .. } => todo!(),
-            TraceVariant::CallHead { .. } => todo!(),
+            TraceVariant::FeatureCallArgument { .. }
+            | TraceVariant::FuncStmt { .. }
+            | TraceVariant::ProcStmt { .. }
+            | TraceVariant::ProcBranch { .. }
+            | TraceVariant::FuncBranch { .. }
+            | TraceVariant::LoopFrame { .. }
+            | TraceVariant::EagerExpr { .. }
+            | TraceVariant::EagerCallArgument { .. }
+            | TraceVariant::CallHead { .. } => Ok(None),
         }
     }
 }
@@ -152,12 +152,8 @@ fn feature_opt_stats<'eval>(
             continue;
         }
         dev_arrivals += 1;
-        let value = compute_value(sample_id).map_err(|e| __VMError {
-            message: e.message,
-            variant: __VMErrorVariant::FromBatch {
-                sample_id: labeled_data.sample_id.0,
-            },
-        })?;
+        let value = compute_value(sample_id)
+            .map_err(|e| -> __VMError { (labeled_data.sample_id.0, e).into() })?;
         match convert_register_to_label(&value) {
             __RegisterDowncastResult::Value(prediction) => match prediction == labeled_data.label {
                 true => dev_trues += 1,

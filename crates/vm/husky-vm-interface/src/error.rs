@@ -1,15 +1,18 @@
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[repr(C)]
 pub struct __VMError {
-    pub message: String,
-    pub variant: __VMErrorVariant,
+    message: String,
+    variant: __VMErrorVariant,
 }
 
 impl From<(usize, __VMError)> for __VMError {
     fn from((sample_id, e): (usize, __VMError)) -> Self {
-        Self {
-            message: e.message,
-            variant: __VMErrorVariant::FromBatch { sample_id },
+        match e.variant {
+            __VMErrorVariant::Normal => Self {
+                message: e.message,
+                variant: __VMErrorVariant::FromBatch { sample_id },
+            },
+            __VMErrorVariant::FromBatch { sample_id } => e,
         }
     }
 }
@@ -27,6 +30,21 @@ impl __VMError {
             variant: __VMErrorVariant::Normal,
         }
     }
+
+    pub fn linkage_call_error(msg: &str) -> __VMError {
+        __VMError {
+            message: msg.to_string(),
+            variant: __VMErrorVariant::Normal,
+        }
+    }
+
+    pub fn message(&self) -> &str {
+        &self.message
+    }
+
+    pub fn variant(&self) -> &__VMErrorVariant {
+        &self.variant
+    }
 }
 
 impl Default for __VMErrorVariant {
@@ -42,13 +60,3 @@ impl std::fmt::Display for __VMError {
 }
 
 pub type __VMResult<T> = Result<T, __VMError>;
-
-#[macro_export]
-macro_rules! vm_error {
-    ($message: expr) => {
-        __VMError {
-            message: $message.into(),
-            variant: __VMErrorVariant::Normal,
-        }
-    };
-}

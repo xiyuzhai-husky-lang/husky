@@ -8,11 +8,11 @@ impl HuskyTraceTime {
         self.clear();
         match self.update_root_traces() {
             Ok(_) => (),
-            Err(e) => match e.variant {
+            Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
-                    self.restriction.set_specific(SampleId(sample_id));
-                    self.update_trace_stalks().unwrap();
+                    self.restriction.set_specific(SampleId(*sample_id));
+                    self.update_trace_stalks();
                 }
             },
         }

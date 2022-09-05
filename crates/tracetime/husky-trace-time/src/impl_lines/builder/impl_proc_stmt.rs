@@ -31,12 +31,10 @@ impl<'a> TraceTokenBuilder<'a> {
                     } => match opn_variant {
                         EagerOpnVariant::Binary { opr } => match opr {
                             BinaryOpr::Assign(_) => {
-                                self.push(fade!(" = "));
                                 if let Some(_) = history.register_result(expr) {
+                                    self.push(fade!(" = "));
                                     todo!()
                                     // self.push(register_result.into())
-                                } else {
-                                    todo!()
                                 }
                             }
                             BinaryOpr::Pure(_) => (),

@@ -199,8 +199,8 @@ impl HuskyTraceTime {
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())
                 .collect();
             let trace_stalks = self.update_trace_stalks();
-            let trace_stats = self.update_trace_statss();
-            Some((new_traces, subtrace_ids, trace_stalks?, trace_stats?))
+            let trace_stats = self.update_trace_statss()?;
+            Some((new_traces, subtrace_ids, trace_stalks, trace_stats))
         } else {
             None
         })

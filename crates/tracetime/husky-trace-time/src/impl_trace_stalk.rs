@@ -58,8 +58,8 @@ impl HuskyTraceTime {
         }
     }
 
-    pub(crate) fn update_trace_stalks(&mut self) -> __VMResult<Vec<(TraceStalkKey, TraceStalk)>> {
-        Ok(if let Some(sample_id) = self.restriction.opt_sample_id() {
+    pub(crate) fn update_trace_stalks(&mut self) -> Vec<(TraceStalkKey, TraceStalk)> {
+        if let Some(sample_id) = self.restriction.opt_sample_id() {
             let mut trace_stalks = Vec::new();
             for root_trace_id in self.root_trace_ids.clone() {
                 self.collect_new_trace_stalks_within_trace(
@@ -71,7 +71,7 @@ impl HuskyTraceTime {
             trace_stalks
         } else {
             vec![]
-        })
+        }
     }
 
     fn collect_new_trace_stalks_within_trace(
@@ -106,7 +106,7 @@ impl HuskyTraceTime {
             .eval_opt_arrival_indicator_cached(expr.opt_arrival_indicator.as_ref(), sample_id)
         {
             Ok(arrived) => arrived,
-            Err(_) => todo!(),
+            Err(e) => false,
         };
         if arrived {
             self.trace_stalk_from_result(
@@ -136,10 +136,11 @@ impl HuskyTraceTime {
     ) -> TraceTokenData {
         match result {
             Ok(value) => self.trace_token_from_value(value, ty),
-            Err(_) => {
-                todo!()
-                // e.into()
-            }
+            Err(e) => TraceTokenData {
+                kind: TraceTokenKind::Error,
+                value: e.message().to_string(),
+                opt_associated_trace_id: None,
+            },
         }
     }
 

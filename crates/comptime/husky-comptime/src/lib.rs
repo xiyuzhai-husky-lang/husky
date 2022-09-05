@@ -172,7 +172,7 @@ impl HuskyComptime {
                     TyKind::Vec => "[ ... ]".to_string(),
                     TyKind::Array => todo!(),
                     TyKind::Slice => todo!(),
-                    TyKind::CyclicSlice => todo!(),
+                    TyKind::CyclicSlice => "[ ... ]".to_string(),
                     TyKind::Tuple => todo!(),
                     TyKind::Mor => todo!(),
                     TyKind::ThickFp => todo!(),

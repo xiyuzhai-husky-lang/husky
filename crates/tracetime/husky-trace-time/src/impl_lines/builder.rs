@@ -152,10 +152,11 @@ impl<'a> TraceTokenBuilder<'a> {
             }
             ControlSnapshot::Err(ref e) => {
                 self.push(fade!(" = "));
-                todo!()
-                // self.push(
-                //     todo!(), // e.clone().into()
-                // );
+                self.push(TraceTokenData {
+                    kind: TraceTokenKind::Error,
+                    value: e.message().to_string(),
+                    opt_associated_trace_id: None,
+                });
             }
         }
     }

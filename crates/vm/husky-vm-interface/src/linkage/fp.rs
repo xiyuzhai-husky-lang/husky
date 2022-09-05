@@ -36,16 +36,10 @@ impl __ResolvedLinkage {
         mut arguments: Vec<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         catch_unwind(move || self.call(opt_ctx, &mut arguments)).map_err(|e| {
-            if let Some(e) = e.downcast_ref::<String>() {
-                __VMError {
-                    message: format!("error: `{e}` when calling linkage",),
-                    variant: __VMErrorVariant::Normal,
-                }
-            } else if let Some(e) = e.downcast_ref::<&str>() {
-                __VMError {
-                    message: format!("error: `{e}` when calling linkage",),
-                    variant: __VMErrorVariant::Normal,
-                }
+            if let Some(msg) = e.downcast_ref::<String>() {
+                __VMError::linkage_call_error(msg)
+            } else if let Some(msg) = e.downcast_ref::<&str>() {
+                __VMError::linkage_call_error(msg)
             } else {
                 todo!()
             }

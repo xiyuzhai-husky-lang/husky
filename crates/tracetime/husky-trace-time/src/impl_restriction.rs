@@ -18,7 +18,7 @@ impl HuskyTraceTime {
         Ok((
             self.update_figure_canvases()?,
             self.update_figure_controls()?,
-            self.update_trace_stalks()?,
+            self.update_trace_stalks(),
             self.update_trace_statss()?,
         ))
     }

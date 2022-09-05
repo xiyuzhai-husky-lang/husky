@@ -240,7 +240,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::Assert => {
                     let is_condition_satisfied = self.stack.pop().to_bool();
                     if !is_condition_satisfied {
-                        VMControl::Err(vm_error!(format!("assert failure")))
+                        VMControl::Err(__VMError::new_normal(format!("assert failure")))
                     } else {
                         VMControl::None
                     }
