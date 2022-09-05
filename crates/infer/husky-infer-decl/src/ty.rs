@@ -162,7 +162,7 @@ impl TyDecl {
                             FieldKind::StructDefault => keyword_parameters
                                 .insert(ParameterDecl::from_field(db, field_decl)?),
                             FieldKind::StructDerived => break,
-                            FieldKind::StructProperty => break,
+                            FieldKind::StructMemo => break,
                             FieldKind::RecordProperty => break,
                         },
                         TyMemberDecl::Method(_) | TyMemberDecl::Call(_) => break,
@@ -369,7 +369,7 @@ impl TyDecl {
                 FieldKind::StructRegular | FieldKind::StructDefault | FieldKind::StructDerived => {
                     Some(field_decl as &FieldDecl)
                 }
-                FieldKind::StructProperty => None,
+                FieldKind::StructMemo => None,
                 FieldKind::RecordRegular => todo!(),
                 FieldKind::RecordProperty => todo!(),
             },

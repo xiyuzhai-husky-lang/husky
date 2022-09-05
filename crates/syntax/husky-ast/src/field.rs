@@ -17,7 +17,7 @@ impl Into<FieldKind> for AstFieldKind {
             AstFieldKind::StructOriginal => FieldKind::StructRegular,
             AstFieldKind::StructDefault { .. } => FieldKind::StructDefault,
             AstFieldKind::StructDerivedEager { .. } => FieldKind::StructDerived,
-            AstFieldKind::StructProperty { .. } => FieldKind::StructProperty,
+            AstFieldKind::StructProperty { .. } => FieldKind::StructMemo,
             AstFieldKind::RecordOriginal => FieldKind::RecordRegular,
             AstFieldKind::RecordDerived => FieldKind::RecordProperty,
         }

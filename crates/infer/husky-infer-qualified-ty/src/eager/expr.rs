@@ -417,7 +417,7 @@ impl EagerExprQualifier {
                     is_member_copyable,
                 )
             }
-            FieldKind::StructProperty => EagerExprQualifier::EvalRef,
+            FieldKind::StructMemo => EagerExprQualifier::EvalRef,
             FieldKind::RecordRegular => todo!(),
             FieldKind::RecordProperty => todo!(),
         }

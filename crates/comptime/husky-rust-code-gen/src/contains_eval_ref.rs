@@ -47,7 +47,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
                                 return true;
                             }
                         }
-                        FieldKind::StructProperty => (),
+                        FieldKind::StructMemo => (),
                         FieldKind::RecordRegular => panic!(),
                         FieldKind::RecordProperty => panic!(),
                     },

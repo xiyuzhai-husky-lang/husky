@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_kind::TyKind;
+use husky_entity_kind::{FieldKind, TyKind};
 use husky_linkage_table::ResolveLinkage;
 use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
@@ -102,13 +102,23 @@ impl<'a> InstructionSheetBuilder<'a> {
                             }
                         } else {
                             let this_ty_decl = self.db.comptime().ty_decl(this_ty).unwrap();
-                            InstructionVariant::VirtualStructField {
-                                field_idx: this_ty_decl
-                                    .field_idx(field_ident.ident)
-                                    .try_into()
-                                    .unwrap(),
-                                field_binding,
-                                field_ty: expr.intrinsic_ty(),
+                            let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
+                            match field_decl.field_kind {
+                                FieldKind::StructRegular
+                                | FieldKind::StructDefault
+                                | FieldKind::StructDerived => {
+                                    InstructionVariant::VirtualStructField {
+                                        field_idx: this_ty_decl
+                                            .field_idx(field_ident.ident)
+                                            .try_into()
+                                            .unwrap(),
+                                        field_binding,
+                                        field_ty: expr.intrinsic_ty(),
+                                    }
+                                }
+                                FieldKind::StructMemo => todo!(),
+                                FieldKind::RecordRegular => todo!(),
+                                FieldKind::RecordProperty => todo!(),
                             }
                         },
                         expr.clone(),
@@ -229,13 +239,21 @@ impl<'a> InstructionSheetBuilder<'a> {
                         }
                     } else {
                         let this_ty_decl = self.db.comptime().ty_decl(*this_ty).unwrap();
-                        InstructionVariant::VirtualStructField {
-                            field_idx: this_ty_decl
-                                .field_idx(field_ident.ident)
-                                .try_into()
-                                .unwrap(),
-                            field_binding: *field_binding,
-                            field_ty: expr.intrinsic_ty(),
+                        let field_decl = this_ty_decl.field_decl(*field_ident).unwrap();
+                        match field_decl.field_kind {
+                            FieldKind::StructRegular
+                            | FieldKind::StructDefault
+                            | FieldKind::StructDerived => InstructionVariant::VirtualStructField {
+                                field_idx: this_ty_decl
+                                    .field_idx(field_ident.ident)
+                                    .try_into()
+                                    .unwrap(),
+                                field_binding: *field_binding,
+                                field_ty: expr.intrinsic_ty(),
+                            },
+                            FieldKind::StructMemo => todo!(),
+                            FieldKind::RecordRegular => todo!(),
+                            FieldKind::RecordProperty => todo!(),
                         }
                     },
                     expr.clone(),

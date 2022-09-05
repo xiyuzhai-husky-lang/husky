@@ -126,7 +126,7 @@ impl<'a> RustCodeGenerator<'a> {
                         FieldKind::StructRegular
                         | FieldKind::StructDefault
                         | FieldKind::StructDerived => (),
-                        FieldKind::StructProperty => self.write("(__ctx)"),
+                        FieldKind::StructMemo => self.write("(__ctx)"),
                         FieldKind::RecordRegular => todo!(),
                         FieldKind::RecordProperty => todo!(),
                     }
