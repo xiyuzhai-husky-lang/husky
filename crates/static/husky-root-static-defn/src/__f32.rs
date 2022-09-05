@@ -46,7 +46,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
             |values, _| {
                 let this = values[0].downcast_f32();
                 let other = values[0].downcast_f32();
-                this.min(other) .to_register()
+                this.min(other).to_register()
             },
             some base f32::min as fn (f32,f32)-> f32
         )),
