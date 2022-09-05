@@ -11,15 +11,14 @@ impl HuskyTraceTime {
         is_specific: bool,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         if is_specific {
-            Ok(FigureCanvasData::new_specific(
-                self.runtime()
-                    .visualize_feature(
-                        repr.clone(),
-                        opt_arrival_indicator,
-                        self.restriction.sample_id(),
-                    )
-                    .unwrap(),
-            ))
+            match self.runtime().visualize_feature(
+                repr.clone(),
+                opt_arrival_indicator,
+                self.restriction.sample_id(),
+            ) {
+                Ok(data) => Ok(FigureCanvasData::new_specific(data)),
+                Err(_) => Ok(FigureCanvasData::void()),
+            }
         } else {
             self.feature_repr_generic_figure(repr, opt_arrival_indicator)
         }

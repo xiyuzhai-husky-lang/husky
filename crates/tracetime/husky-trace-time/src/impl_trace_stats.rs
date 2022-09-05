@@ -58,7 +58,22 @@ impl HuskyTraceTime {
             Err(e) => {
                 self.trace_statss.insert(key.clone(), None);
                 new_trace_statss.push((key, None));
-                Err(e)
+                self.throw_otherworldly(e)
+            }
+        }
+    }
+
+    fn throw_otherworldly(&self, e: __VMError) -> __VMResult<()> {
+        match e.variant() {
+            __VMErrorVariant::Normal => todo!(),
+            __VMErrorVariant::FromBatch { sample_id } => {
+                if self.restriction.is_generic()
+                    || self.restriction.sample_id() != SampleId(*sample_id)
+                {
+                    Err(e)
+                } else {
+                    Ok(())
+                }
             }
         }
     }

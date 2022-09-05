@@ -40,10 +40,7 @@ impl HuskyTraceTime {
             ControlSnapshot::None => FigureCanvasData::void(),
             ControlSnapshot::Return(_) => todo!(),
             ControlSnapshot::Break => todo!(),
-            ControlSnapshot::Err(e) => {
-                todo!()
-                // e.clone().into()
-            }
+            ControlSnapshot::Err(e) => FigureCanvasData::void(),
         }
     }
 
@@ -70,17 +67,7 @@ impl HuskyTraceTime {
     ) -> __VMResult<()> {
         let key: FigureCanvasKey = self.gen_figure_canvas_key(trace_id, is_specific);
         // todo: clean all this trouble
-        let f = |(sample_id, e): (SampleId, __VMError)| -> __VMError {
-            match e.variant {
-                __VMErrorVariant::Normal => __VMError {
-                    message: e.message,
-                    variant: __VMErrorVariant::FromBatch {
-                        sample_id: sample_id.0,
-                    },
-                },
-                __VMErrorVariant::FromBatch { .. } => e,
-            }
-        };
+        let f = |(sample_id, e): (SampleId, __VMError)| -> __VMError { (sample_id.0, e).into() };
         if !self.figure_canvases.contains(&key) {
             self.figure_canvases.insert_move(key.clone());
             new_figure_canvases.push((

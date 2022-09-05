@@ -189,6 +189,8 @@ impl HuskyDebuggerInternal {
         &mut self,
         request: &HuskyTracerGuiMessage,
     ) -> Option<HuskyTracerServerMessageVariant> {
+        use husky_vm::__VMErrorVariant;
+
         if let Some(request_id) = request.opt_request_id {
             if self.next_request_id != request_id {
                 // make sure all requests are received in order
@@ -222,9 +224,28 @@ impl HuskyDebuggerInternal {
                 request,
             ),
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
-                if let Some((new_traces, subtrace_ids, trace_stalks, trace_stats)) =
-                    self.tracetime.toggle_expansion(trace_id).expect("todo")
-                {
+                let opt_results = match self.tracetime.toggle_expansion(trace_id) {
+                    Ok(opt_results) => opt_results,
+                    Err(e) => {
+                        match e.variant() {
+                            __VMErrorVariant::Normal => todo!(),
+                            __VMErrorVariant::FromBatch { sample_id } => {
+                                assert!(
+                                    self.tracetime.restriction().is_generic()
+                                        || self.tracetime.restriction().sample_id()
+                                            != SampleId(*sample_id)
+                                );
+                                p!(
+                                    self.tracetime.restriction().sample_id(),
+                                    SampleId(*sample_id)
+                                );
+                                todo!()
+                            }
+                        }
+                        todo!()
+                    }
+                };
+                if let Some((new_traces, subtrace_ids, trace_stalks, trace_stats)) = opt_results {
                     Some(HuskyTracerServerMessageVariant::ToggleExpansion {
                         new_traces,
                         subtrace_ids,
@@ -313,7 +334,10 @@ impl HuskyDebuggerInternal {
                     None
                 }
             }
-            Err(_) => todo!(),
+            Err(e) => {
+                p!(e);
+                todo!()
+            }
         }
     }
 
