@@ -150,6 +150,8 @@ Zig <https://github.com/ziglang/zig.git/>
 
 Lean 4 <https://github.com/leanprover/lean4/>
 
+Xena Project <https://github.com/ImperialCollegeLondon/formalising-mathematics/>
+
 Metamath Zero <https://github.com/digama0/mm0#metamath-zero/>
 
 ##### gui
