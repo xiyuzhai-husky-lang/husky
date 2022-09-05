@@ -59,7 +59,7 @@ pub enum __StaticLinkageKey {
     Index {
         opd_tys: &'static [&'static str],
     },
-    StructEagerField {
+    StructField {
         this_ty: &'static str,
         field_ident: &'static str,
     },

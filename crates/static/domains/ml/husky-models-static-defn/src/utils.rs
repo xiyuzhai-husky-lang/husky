@@ -26,7 +26,6 @@ impl FlagVectorField {
                         .iter()
                         .map(|r| {
                             let val = r.downcast_f32();
-                            assert!(val >= 0.);
                             NotNan::new(val).expect("todo")
                         })
                         .collect()

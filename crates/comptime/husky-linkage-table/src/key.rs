@@ -19,7 +19,7 @@ pub enum LinkageKey {
     Index {
         opd_uids: SmallVec<[EntityUid; 2]>,
     },
-    StructFieldAccess {
+    StructField {
         this_ty_uid: EntityUid,
         field_ident: CustomIdentifier,
     },
@@ -43,11 +43,11 @@ impl LinkageKey {
                     .map(|opd_uid| entity_uid(db, opd_uid))
                     .collect(),
             },
-            __StaticLinkageKey::StructEagerField {
+            __StaticLinkageKey::StructField {
                 this_ty,
                 field_ident,
                 ..
-            } => LinkageKey::StructFieldAccess {
+            } => LinkageKey::StructField {
                 this_ty_uid: entity_uid(db, this_ty),
                 field_ident: db.custom_ident(field_ident),
             },
@@ -74,7 +74,7 @@ impl LinkageKey {
                     .map(|uid| db.entity_route_by_uid(*uid))
                     .collect(),
             },
-            LinkageKey::StructFieldAccess {
+            LinkageKey::StructField {
                 this_ty_uid,
                 field_ident,
             } => LinkageForm::StructFieldAccess {

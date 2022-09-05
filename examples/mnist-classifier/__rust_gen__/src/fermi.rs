@@ -81,7 +81,7 @@ impl<'eval> FermiMatchResult<'eval> {
         }
         let mut norm = 0f32;
         for i in 0..self.others.ilen() {
-            norm = norm.max(*self.others[(i) as usize].angle_change(__ctx));
+            norm = norm.max(self.others[(i) as usize].angle_change(__ctx).abs());
         }
         __ctx
             .cache_lazy_field(

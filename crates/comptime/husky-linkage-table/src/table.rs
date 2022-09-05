@@ -52,7 +52,7 @@ impl LinkageTable {
         this_ty_uid: EntityUid,
         field_ident: CustomIdentifier,
     ) -> Option<__Linkage> {
-        self.get_linkage(LinkageKey::StructFieldAccess {
+        self.get_linkage(LinkageKey::StructField {
             this_ty_uid,
             field_ident,
         })
