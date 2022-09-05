@@ -155,7 +155,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             match catch_unwind(move || {
                 assert_eq!(
                     this_value.vtable as *const _,
-                    &__VIRTUAL_STRUCT_VTABLE as *const _
+                    &__DEPRECATED_VIRTUAL_STRUCT_VTABLE as *const _
                 );
                 match field_binding {
                     Binding::EvalRef => todo!(),
@@ -164,7 +164,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     Binding::Move => todo!(),
                     Binding::Copy => {
                         let this_value: &DeprecatedVirtualStruct =
-                            this_value.downcast_temp_ref(&__VIRTUAL_STRUCT_VTABLE);
+                            this_value.downcast_temp_ref(&__DEPRECATED_VIRTUAL_STRUCT_VTABLE);
                         this_value.bind_field_copy(field_idx)
                     }
                     Binding::DerefCopy => todo!(),

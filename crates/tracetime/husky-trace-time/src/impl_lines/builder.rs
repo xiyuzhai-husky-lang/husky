@@ -9,7 +9,6 @@ use super::*;
 
 pub struct TraceTokenBuilder<'a> {
     trace_time: &'a mut HuskyTraceTime,
-    trace_id: TraceId,
     trace_variant: &'a TraceVariant<'static>,
     indent: Indent,
     has_parent: bool,
@@ -19,14 +18,12 @@ pub struct TraceTokenBuilder<'a> {
 impl<'a> TraceTokenBuilder<'a> {
     pub(super) fn new(
         trace_time: &'a mut HuskyTraceTime,
-        trace_id: TraceId,
         indent: Indent,
         trace_variant: &'a TraceVariant<'static>,
         has_parent: bool,
     ) -> Self {
         TraceTokenBuilder {
             trace_time,
-            trace_id,
             trace_variant,
             indent,
             has_parent,
@@ -56,7 +53,7 @@ impl<'a> std::ops::DerefMut for TraceTokenBuilder<'a> {
 impl<'a> TraceTokenBuilder<'a> {
     pub(super) fn build(mut self) -> Vec<TraceLineData> {
         match self.trace_variant {
-            TraceVariant::Main(feature_block) => self.push(keyword!("main")),
+            TraceVariant::Main(_) => self.push(keyword!("main")),
             TraceVariant::EntityFeature {
                 route, ref repr, ..
             } => {
@@ -101,14 +98,12 @@ impl<'a> TraceTokenBuilder<'a> {
             TraceVariant::FuncBranch {
                 stmt,
                 branch,
-                branch_idx,
                 history,
                 ..
             } => self.func_branch_tokens(stmt, branch, history),
             TraceVariant::ProcBranch {
                 stmt,
                 branch,
-                branch_idx,
                 history,
                 ..
             } => self.proc_branch_tokens(stmt, branch, history),
@@ -145,7 +140,7 @@ impl<'a> TraceTokenBuilder<'a> {
     fn add_control_tokens(&mut self, control: &ControlSnapshot) {
         match control {
             ControlSnapshot::None => (),
-            ControlSnapshot::Return(ref value) => {
+            ControlSnapshot::Return(_) => {
                 self.push(fade!(" = "));
                 self.push(keyword!("return"));
                 todo!()
@@ -157,9 +152,10 @@ impl<'a> TraceTokenBuilder<'a> {
             }
             ControlSnapshot::Err(ref e) => {
                 self.push(fade!(" = "));
-                self.push(
-                    todo!(), // e.clone().into()
-                );
+                todo!()
+                // self.push(
+                //     todo!(), // e.clone().into()
+                // );
             }
         }
     }

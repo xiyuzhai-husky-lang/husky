@@ -1,5 +1,3 @@
-use std::iter::zip;
-
 use husky_ast::*;
 use infer_decl::{CallFormDecl, ParameterDecl, VariadicParametersDecl};
 
@@ -105,13 +103,7 @@ impl<'a> ContractSheetBuilder<'a> {
             RawExprVariant::Opn {
                 opn_variant: ref opr,
                 ref opds,
-            } => self.infer_lazy_opn(
-                opr,
-                opds,
-                contract,
-                self.arena[raw_expr_idx].range,
-                raw_expr_idx,
-            ),
+            } => self.infer_lazy_opn(opr, opds, contract, raw_expr_idx),
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::FrameVariable { .. } => panic!(),
         };
@@ -125,7 +117,6 @@ impl<'a> ContractSheetBuilder<'a> {
         opr: &RawOpnVariant,
         opds: &RawExprRange,
         contract: LazyContract,
-        range: TextRange,
         idx: RawExprIdx,
     ) -> InferResult<()> {
         match opr {
@@ -188,7 +179,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 format!("mutation not allowed in lazy functional context"),
                 self.arena[raw_expr_idx].range
             ),
-            RawSuffixOpr::AsTy(expr) => {
+            RawSuffixOpr::AsTy(_) => {
                 self.infer_lazy_expr(opd, contract);
                 Ok(())
             }
@@ -211,12 +202,8 @@ impl<'a> ContractSheetBuilder<'a> {
     ) -> InferResult<()> {
         let this_ty_decl = self.expr_ty_decl(opd)?;
         let field_decl = this_ty_decl.field_decl(field_ident)?;
-        let this_contract = LazyContract::member_self_lazy_contract(
-            field_decl.modifier,
-            contract,
-            field_decl.ty,
-            self.arena[opd].range,
-        )?;
+        let this_contract =
+            LazyContract::member_self_lazy_contract(field_decl.modifier, contract, field_decl.ty)?;
         self.infer_lazy_expr(opd, this_contract);
         Ok(())
     }
@@ -293,7 +280,6 @@ impl<'a> ContractSheetBuilder<'a> {
             parameter.modifier,
             parameter.ty(),
             decl.output.liason(),
-            self.arena[argument].range,
         )?;
         self.infer_lazy_expr(argument, contract);
         Ok(())
@@ -309,7 +295,6 @@ impl<'a> ContractSheetBuilder<'a> {
             decl.this_liason(),
             decl.opt_route.unwrap().parent(),
             decl.output.liason(),
-            self.arena[argument].range,
         )?;
         self.infer_lazy_expr(argument, contract);
         Ok(())
@@ -335,7 +320,6 @@ impl<'a> ContractSheetBuilder<'a> {
                 MemberModifier::Mutable, // ad hoc
                 contract,
                 elem_ty,
-                self.arena[idx].range,
             )?,
         );
         for opd in (total_opds.start + 1)..total_opds.end {

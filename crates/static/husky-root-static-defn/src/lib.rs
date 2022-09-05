@@ -1,18 +1,17 @@
 #![feature(const_trait_impl)]
 #![feature(const_convert)]
 #![feature(panic_info_message)]
-mod __Fp;
 mod __b32;
 mod __clone;
 mod __eq;
 mod __f32;
 mod __i32;
 pub mod __std;
+mod __thick_fp;
 mod __vec;
 pub mod domains;
 mod etc;
 
-pub use __Fp::*;
 pub use __b32::*;
 pub use __clone::*;
 pub use __eq::*;
@@ -20,6 +19,7 @@ pub use __f32::*;
 pub use __husky::{init::*, root::*};
 pub use __i32::*;
 pub use __std::*;
+pub use __thick_fp::*;
 pub use __vec::*;
 pub use domains::*;
 pub use etc::*;
@@ -28,14 +28,12 @@ pub use serde::Serialize as __Serialize;
 pub use serde_json::value::Value as __JsonValue;
 pub use std::sync::Arc as __Arc;
 
-use husky_dev_utils::*;
-use husky_entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
+use husky_entity_kind::{FieldKind, TyKind};
 use husky_liason_semantics::{MemberModifier, OutputModifier, ParameterModifier};
 use husky_static_defn::StaticParameter;
 use husky_static_defn::*;
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
 use husky_vm::*;
-use husky_vm_register_method::VMRegisterMethodX;
 use husky_word::RootIdentifier;
 
 pub fn __resolve_root_defn(ident: RootIdentifier) -> &'static EntityStaticDefn {

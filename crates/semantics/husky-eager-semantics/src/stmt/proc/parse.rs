@@ -42,15 +42,10 @@ impl<'a> EagerParser<'a> {
                         variant,
                     }
                 }
-                AstVariant::EnumVariantDefnHead {
-                    ident,
-                    variant_class: ref variant_kind,
-                } => todo!(),
+                AstVariant::EnumVariantDefnHead { .. } => todo!(),
                 AstVariant::FieldDefnHead { .. } => todo!(),
-                AstVariant::CallFormDefnHead { .. } => todo!(),
                 AstVariant::FeatureDefnHead { .. } => todo!(),
-                AstVariant::Submodule { ident, source_file } => todo!(),
-                AstVariant::CallFormDefnHead { .. } => todo!(),
+                AstVariant::Submodule { .. } => todo!(),
                 AstVariant::Visual => todo!(),
             }))
         }
@@ -114,7 +109,7 @@ impl<'a> EagerParser<'a> {
                 panic!("pattern branch must be inside match stmt")
             }
             RawStmtVariant::ReturnXml(_) => todo!(),
-            RawStmtVariant::Require { condition, .. } => todo!(),
+            RawStmtVariant::Require { .. } => todo!(),
         }
     }
 

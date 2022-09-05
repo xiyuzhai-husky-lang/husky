@@ -75,6 +75,6 @@ impl<'eval> __StaticInfo for DeprecatedVirtualStruct<'eval> {
 
 impl<'eval> __Registrable<'eval> for DeprecatedVirtualStruct<'eval> {
     unsafe fn __to_register(self) -> __Register<'eval> {
-        __Register::new_box(self, &__VIRTUAL_STRUCT_VTABLE)
+        __Register::new_box(self, &__DEPRECATED_VIRTUAL_STRUCT_VTABLE)
     }
 }

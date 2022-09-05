@@ -1,5 +1,3 @@
-use std::iter::zip;
-
 use super::*;
 use crate::*;
 use husky_ast::*;
@@ -328,7 +326,6 @@ impl<'a> ContractSheetBuilder<'a> {
                 parameter.modifier,
                 parameter.ty(),
                 decl.output.liason(),
-                self.arena[argument].range,
             )?;
             self.infer_eager_expr(argument, argument_contract)
         }
@@ -361,7 +358,6 @@ impl<'a> ContractSheetBuilder<'a> {
                 parameter.modifier,
                 parameter.ty(),
                 decl.output.liason(),
-                self.arena[argument].range,
             )?;
             self.infer_eager_expr(argument, argument_contract)
         }

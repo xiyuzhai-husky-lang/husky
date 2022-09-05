@@ -6,8 +6,7 @@ pub use function::*;
 use husky_dev_utils::__StaticDevSource;
 use husky_entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_liason_semantics::{MemberModifier, OutputModifier, ParameterModifier};
-use husky_static_visualizer::{StaticVisualTy, StaticVisualizer};
-use husky_vm::__ResolvedLinkage;
+use husky_static_visualizer::StaticVisualizer;
 use husky_vm_interface::__Linkage;
 use husky_word::RootIdentifier;
 

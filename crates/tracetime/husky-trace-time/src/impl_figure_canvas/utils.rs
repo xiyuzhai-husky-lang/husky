@@ -52,12 +52,12 @@ impl HuskyTraceTime {
     ) -> __VMResult<Vec<(FigureCanvasKey, FigureCanvasData)>> {
         let mut new_figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)> = vec![];
         if let Some(active_trace_id) = self.opt_active_trace_id {
-            self.update_figure_canvas(active_trace_id, true, &mut new_figure_canvases);
-            self.update_figure_canvas(active_trace_id, false, &mut new_figure_canvases);
+            self.update_figure_canvas(active_trace_id, true, &mut new_figure_canvases)?;
+            self.update_figure_canvas(active_trace_id, false, &mut new_figure_canvases)?;
         }
         for pin in self.pins.clone().into_iter() {
-            self.update_figure_canvas(*pin, true, &mut new_figure_canvases);
-            self.update_figure_canvas(*pin, false, &mut new_figure_canvases);
+            self.update_figure_canvas(*pin, true, &mut new_figure_canvases)?;
+            self.update_figure_canvas(*pin, false, &mut new_figure_canvases)?;
         }
         Ok(new_figure_canvases)
     }

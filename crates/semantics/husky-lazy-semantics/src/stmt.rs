@@ -88,24 +88,14 @@ pub enum LazyStmtVariant {
 impl std::fmt::Debug for LazyStmtVariant {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::Init { varname, value } => f.debug_struct("Init").finish(),
-            Self::Assert { condition } => f.debug_struct("Assert").finish(),
-            Self::Require {
-                condition,
-                return_context,
-            } => f.debug_struct("Require").finish(),
-            Self::ReturnUnveil {
-                result,
-                implicit_conversion,
-                return_context,
-            } => f.debug_struct("ReturnUnveil").finish(),
-            Self::Return { result } => f.debug_struct("Return").finish(),
-            Self::ReturnXml { xml_expr } => f.debug_struct("ReturnXml").finish(),
-            Self::ConditionFlow { branches, ty } => f.debug_struct("ConditionFlow").finish(),
-            Self::Match {
-                match_expr,
-                branches,
-            } => f.debug_struct("Match").finish(),
+            Self::Init { .. } => f.debug_struct("Init").finish(),
+            Self::Assert { .. } => f.debug_struct("Assert").finish(),
+            Self::Require { .. } => f.debug_struct("Require").finish(),
+            Self::ReturnUnveil { .. } => f.debug_struct("ReturnUnveil").finish(),
+            Self::Return { .. } => f.debug_struct("Return").finish(),
+            Self::ReturnXml { .. } => f.debug_struct("ReturnXml").finish(),
+            Self::ConditionFlow { .. } => f.debug_struct("ConditionFlow").finish(),
+            Self::Match { .. } => f.debug_struct("Match").finish(),
         }
     }
 }

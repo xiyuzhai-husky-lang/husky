@@ -32,7 +32,7 @@ impl<'a> TraceTokenBuilder<'a> {
                         EagerOpnVariant::Binary { opr } => match opr {
                             BinaryOpr::Assign(_) => {
                                 self.push(fade!(" = "));
-                                if let Some(register_result) = history.register_result(expr) {
+                                if let Some(_) = history.register_result(expr) {
                                     todo!()
                                     // self.push(register_result.into())
                                 } else {
@@ -50,15 +50,12 @@ impl<'a> TraceTokenBuilder<'a> {
                 self.push(keyword!("return "));
                 self.eager_expr_tokens(result, history, ExprTokenConfig::stmt())
             }
-            ProcStmtVariant::ConditionFlow { ref branches } => todo!(),
+            ProcStmtVariant::ConditionFlow { .. } => todo!(),
             ProcStmtVariant::Loop {
                 ref loop_variant, ..
             } => self.loop_stmt_tokens(stmt, loop_variant, history),
             ProcStmtVariant::Break => self.push(keyword!("break")),
-            ProcStmtVariant::Match {
-                ref match_expr,
-                ref branches,
-            } => todo!(),
+            ProcStmtVariant::Match { .. } => todo!(),
         }
     }
 
@@ -104,9 +101,7 @@ impl<'a> TraceTokenBuilder<'a> {
         }
         if let Some(entry) = history.get(stmt) {
             match entry {
-                HistoryEntry::Loop {
-                    control, mutations, ..
-                } => self.add_control_tokens(control),
+                HistoryEntry::Loop { control, .. } => self.add_control_tokens(control),
                 _ => panic!(),
             }
         }

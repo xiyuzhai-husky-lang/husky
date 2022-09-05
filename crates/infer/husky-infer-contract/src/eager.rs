@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::{MatchLiason, RawReturnContext, RawReturnContextKind};
 use husky_entity_route::{CanonicalQualifier, CanonicalTyKind, EntityRoutePtr, EntityRouteVariant};
-use husky_infer_error::{error, throw};
+use husky_infer_error::error;
 use husky_text::TextRange;
 use husky_word::RootIdentifier;
 use infer_decl::DeclQueryGroup;
@@ -22,7 +22,6 @@ impl EagerContract {
         parameter_liason: ParameterModifier,
         parameter_ty: EntityRoutePtr,
         output_liason: OutputModifier,
-        range: TextRange,
     ) -> InferResult<EagerContract> {
         Ok(match parameter_ty.variant {
             EntityRouteVariant::Root {

@@ -530,7 +530,7 @@ impl<'eval> __Register<'eval> {
         self
     }
 
-    pub fn unveil(mut self) -> Option<Self> {
+    pub fn unveil(self) -> Option<Self> {
         match self.data_kind {
             __RegisterDataKind::SomeNone => {
                 let number_of_somes_before_none = self.number_of_somes_before_none();

@@ -91,6 +91,11 @@ impl Restriction {
         self.is_specific = !self.is_specific;
     }
 
+    pub fn set_specific(&mut self, sample_id: SampleId) {
+        self.is_specific = true;
+        self.sample_id = sample_id;
+    }
+
     pub fn add_partition(&mut self, idx: usize, new_partition: PartitionDefnData) {
         self.partitions.add_partition(idx, new_partition)
     }

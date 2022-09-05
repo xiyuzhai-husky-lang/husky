@@ -10,7 +10,6 @@ impl HuskyTraceTime {
         stack_snapshot: &StackSnapshot<'static>,
         body_instruction_sheet: &Arc<InstructionSheet>,
     ) -> Vec<TraceId> {
-        let text = self.runtime.comptime().text(parent.file).unwrap();
         let sample_id = self.restriction.opt_sample_id().unwrap();
         let evaluator = self.runtime().evaluator(sample_id);
         let frames = exec_loop_debug(

@@ -146,7 +146,7 @@ impl HuskyTraceTime {
             let (file, range) = variant.file_and_range();
             let reachable = variant.reachable();
             let can_have_subtraces = variant.can_have_subtraces(reachable);
-            let lines = self.trace_lines(trace_id, indent, &variant, opt_parent_id.is_some());
+            let lines = self.trace_lines(indent, &variant, opt_parent_id.is_some());
             Trace {
                 raw_data: TraceData {
                     id: trace_id,

@@ -100,39 +100,39 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
 
 fn virtual_cyclic_slice_first_copy<'eval>(
     values: &mut [__Register<'eval>],
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    _opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!()
 }
 
 unsafe fn virtual_cyclic_slice_first_eval_ref<'eval>(
     values: &mut [__Register<'eval>],
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    _opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
-    let virtual_cyclic_slice: &'eval VirtualCyclicSlice<'eval> =
-        values[0].downcast_eval_ref(&__VIRTUAL_CYCLIC_SLICE_VTABLE);
+    let virtual_cyclic_slice: &'eval DeprecatedVirtualCyclicSlice<'eval> =
+        values[0].downcast_eval_ref(&__DEPRECATED_VIRTUAL_CYCLIC_SLICE_VTABLE);
     virtual_cyclic_slice.first().unwrap().eval_bind_eval_ref()
 }
 
 unsafe fn virtual_cyclic_slice_first_temp_ref<'temp, 'eval>(
     values: &mut [__Register<'eval>],
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    _opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
-    let virtual_cyclic_slice: &VirtualCyclicSlice<'eval> =
-        values[0].downcast_temp_ref(&__VIRTUAL_CYCLIC_SLICE_VTABLE);
+    let virtual_cyclic_slice: &DeprecatedVirtualCyclicSlice<'eval> =
+        values[0].downcast_temp_ref(&__DEPRECATED_VIRTUAL_CYCLIC_SLICE_VTABLE);
     virtual_cyclic_slice.first().unwrap().bind_temp_ref()
 }
 
 fn virtual_cyclic_slice_first_temp_mut<'temp, 'eval>(
     values: &mut [__Register<'eval>],
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    _opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!("deprecated")
 }
 
 fn virtual_cyclic_slice_first_move<'temp, 'eval>(
     values: &mut [__Register<'eval>],
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    _opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!()
 }
@@ -162,39 +162,39 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
 
 fn virtual_cyclic_slice_last_copy<'temp, 'eval>(
     values: &mut [__Register<'eval>],
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    _opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!()
 }
 
 unsafe fn virtual_cyclic_slice_last_eval_ref<'temp, 'eval>(
     values: &mut [__Register<'eval>],
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    _opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
-    let virtual_cyclic_slice: &'eval VirtualCyclicSlice<'eval> =
-        values[0].downcast_eval_ref(&__VIRTUAL_CYCLIC_SLICE_VTABLE);
+    let virtual_cyclic_slice: &'eval DeprecatedVirtualCyclicSlice<'eval> =
+        values[0].downcast_eval_ref(&__DEPRECATED_VIRTUAL_CYCLIC_SLICE_VTABLE);
     virtual_cyclic_slice.last().unwrap().eval_bind_eval_ref()
 }
 
 unsafe fn virtual_cyclic_slice_last_temp_ref<'temp, 'eval>(
     values: &mut [__Register<'eval>],
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    _opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
-    let virtual_cyclic_slice: &VirtualCyclicSlice<'eval> =
-        values[0].downcast_temp_ref(&__VIRTUAL_CYCLIC_SLICE_VTABLE);
+    let virtual_cyclic_slice: &DeprecatedVirtualCyclicSlice<'eval> =
+        values[0].downcast_temp_ref(&__DEPRECATED_VIRTUAL_CYCLIC_SLICE_VTABLE);
     virtual_cyclic_slice.last().unwrap().bind_temp_ref()
 }
 
 fn virtual_cyclic_slice_last_temp_mut<'temp, 'eval>(
     values: &mut [__Register<'eval>],
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    _opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!("deprecated")
 }
 
 fn virtual_cyclic_slice_last_move<'temp, 'eval>(
     values: &mut [__Register<'eval>],
-    opt_ctx: Option<&dyn __EvalContext<'eval>>,
+    _opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!()
 }

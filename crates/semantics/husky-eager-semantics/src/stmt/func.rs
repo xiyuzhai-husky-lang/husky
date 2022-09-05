@@ -3,7 +3,7 @@ mod parse;
 mod pattern_branch;
 
 pub use condition_branch::*;
-use husky_text::{TextPosition, TextRanged};
+use husky_text::TextRanged;
 pub use pattern_branch::*;
 
 use super::parser::EagerParser;
@@ -30,21 +30,18 @@ impl TextRanged for FuncStmt {
     }
 }
 
-impl FuncStmt {
-    fn text_end(stmt: &FuncStmt) -> TextPosition {
-        match stmt.variant {
-            FuncStmtVariant::Init { .. }
-            | FuncStmtVariant::Assert { .. }
-            | FuncStmtVariant::Require { .. }
-            | FuncStmtVariant::Return { .. } => stmt.range.end,
-            FuncStmtVariant::ConditionFlow { ref branches } => branches.last().unwrap().range.end,
-            FuncStmtVariant::Match {
-                ref match_expr,
-                ref branches,
-            } => todo!(),
-        }
-    }
-}
+// impl FuncStmt {
+//     fn text_end(stmt: &FuncStmt) -> TextPosition {
+//         match stmt.variant {
+//             FuncStmtVariant::Init { .. }
+//             | FuncStmtVariant::Assert { .. }
+//             | FuncStmtVariant::Require { .. }
+//             | FuncStmtVariant::Return { .. } => stmt.range.end,
+//             FuncStmtVariant::ConditionFlow { ref branches } => branches.last().unwrap().range.end,
+//             FuncStmtVariant::Match { .. } => todo!(),
+//         }
+//     }
+// }
 
 impl InstructionSource for FuncStmt {
     fn instruction_id(&self) -> InstructionId {

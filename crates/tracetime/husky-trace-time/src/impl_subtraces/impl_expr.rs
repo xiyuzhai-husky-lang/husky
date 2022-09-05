@@ -1,10 +1,6 @@
 mod impl_eager_expr;
 mod impl_feature_expr;
 
-use std::borrow::Cow;
-
-use husky_word::CustomIdentifier;
-
 use super::*;
 
 impl HuskyTraceTime {
@@ -20,7 +16,7 @@ impl HuskyTraceTime {
             &'static str,
         ) -> (TraceId, Option<__VMResult<__Register<'static>>>),
     ) -> Vec<TraceId> {
-        if let Some(sample_id) = self.restriction.opt_sample_id() {
+        if self.restriction.opt_sample_id().is_some() {
             // let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
             let mut subtraces = vec![];
             let mut func_input_values = vec![];
@@ -72,15 +68,10 @@ impl HuskyTraceTime {
                     subtraces.extend(self.proc_stmts_traces(parent.id(), 4, stmts, &history));
                 }
                 EntityDefnVariant::Function { .. } => todo!(),
-                EntityDefnVariant::Method {
-                    ref spatial_parameters,
-                    this_modifier: this_liason,
-                    ref parameters,
-                    output_ty,
-                    output_modifier: output_liason,
-                    ref opt_source,
-                    ..
-                } => match opt_source.as_ref().unwrap() {
+                EntityDefnVariant::Method { ref opt_source, .. } => match opt_source
+                    .as_ref()
+                    .unwrap()
+                {
                     CallFormSource::Func { stmts } => {
                         subtraces.extend(self.func_stmts_traces(parent.id(), 4, stmts, &history));
                     }

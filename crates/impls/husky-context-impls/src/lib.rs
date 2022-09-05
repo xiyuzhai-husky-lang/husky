@@ -1,5 +1,5 @@
 use husky_ast::{RawReturnContext, RawReturnContextKind};
-use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::EntityRoutePtr;
 use infer_decl::DeclQueryGroup;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

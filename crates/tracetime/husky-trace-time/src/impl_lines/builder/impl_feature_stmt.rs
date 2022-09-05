@@ -28,7 +28,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 })
             }
             FeatureLazyStmtVariant::ConditionFlow { .. } => panic!(),
-            FeatureLazyStmtVariant::ReturnXml { ref result } => todo!(),
+            FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
         }
     }
 }

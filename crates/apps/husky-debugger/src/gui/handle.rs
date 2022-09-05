@@ -1,5 +1,4 @@
 use super::*;
-use colored::Colorize;
 use husky_check_utils::should_eq;
 use std::panic::catch_unwind;
 use std::path::PathBuf;
