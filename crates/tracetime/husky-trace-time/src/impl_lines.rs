@@ -9,12 +9,11 @@ use builder::*;
 impl HuskyTraceTime {
     pub(crate) fn trace_lines(
         &mut self,
-        trace_id: TraceId,
         indent: Indent,
         trace_variant: &TraceVariant<'static>,
         has_parent: bool,
     ) -> Vec<TraceLineData> {
-        TraceTokenBuilder::new(self, trace_id, indent, trace_variant, has_parent).build()
+        TraceTokenBuilder::new(self, indent, trace_variant, has_parent).build()
     }
 
     // pub(crate) fn feature_expr_lines(

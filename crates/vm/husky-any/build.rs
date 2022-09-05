@@ -10,9 +10,9 @@ fn main() {
 }
 
 pub static NONPRIMITIVE_TYPES: &'static [&'static str] = &[
-    "VirtualStruct",
-    "VirtualVec",
-    "VirtualCyclicSlice",
+    "DeprecatedVirtualStruct",
+    "DeprecatedVirtualVec",
+    "DeprecatedVirtualCyclicSlice",
     "VisualData",
 ];
 

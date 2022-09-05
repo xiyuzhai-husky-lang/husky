@@ -20,17 +20,17 @@ unsafe fn virtual_vec_collect_refs<'temp, 'eval>(
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
     todo!()
-    // let this: &'eval VirtualVec = values[0].downcast_eval_ref(&__VIRTUAL_VEC_VTABLE);
+    // let this: &'eval DeprecatedVirtualVec = values[0].downcast_eval_ref(&__DEPRECATED_VIRTUAL_VEC_VTABLE);
     // let start = values[1].downcast_i32();
     // let end = values[2].downcast_i32();
     // (__Register::new_box(
-    //     VirtualCyclicSlice {
+    //     DeprecatedVirtualCyclicSlice {
     //         data: CyclicSlice::<'eval, __Register<'eval>> {
     //             start,
     //             end,
     //             total: this.as_slice(),
     //         },
     //     },
-    //     &__VIRTUAL_CYCLIC_SLICE_VTABLE,
+    //     &__DEPRECATED_VIRTUAL_CYCLIC_SLICE_VTABLE,
     // ))
 }

@@ -110,7 +110,6 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     field_liason,
                     field_contract,
                     opt_field_ty.unwrap().route,
-                    self.arena()[idx].range,
                 )?;
                 let this_qual = LazyExprQualifier::parameter_use_lazy_qualifier(
                     opt_this_liason.unwrap(),

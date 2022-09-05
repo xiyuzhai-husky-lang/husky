@@ -1,15 +1,11 @@
 use husky_ast::*;
-use husky_check_utils::should;
 use husky_defn_head::Parameter;
 use husky_entity_kind::EntityKind;
-use husky_infer_error::derived;
 use husky_infer_error::derived_not_none;
 use husky_infer_error::derived_unwrap;
 use husky_infer_error::throw_derived;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
-use husky_print_utils::p;
 use husky_text::RangedCustomIdentifier;
-use husky_text::TextRanged;
 
 use super::*;
 
@@ -41,7 +37,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             ty,
                         )
                     }),
-                ));
+                ))
+                .unwrap();
         }
     }
 
@@ -105,7 +102,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                         .insert_new((
                             (varname.ident.into(), varname.range),
                             qt.use_for_init(init_kind),
-                        ));
+                        ))
+                        .unwrap();
                 }
             }
             RawStmtVariant::Return { result, .. } => {
@@ -143,7 +141,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 RawXmlExprVariant::Value(raw_expr_idx) => {
                     self.infer_lazy_expr(raw_expr_idx);
                 }
-                RawXmlExprVariant::Tag { ident, ref props } => {
+                RawXmlExprVariant::Tag { ref props, .. } => {
                     props.iter().for_each(|(_, argument)| {
                         self.infer_lazy_expr(*argument);
                     })
@@ -155,9 +153,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     fn infer_lazy_case_pattern(&mut self, pattern: &RawPattern) {
         match pattern.variant {
             RawPatternVariant::PrimitiveLiteral(_) => (),
-            RawPatternVariant::OneOf {
-                subpatterns: ref patterns,
-            } => (),
+            RawPatternVariant::OneOf { .. } => (),
             RawPatternVariant::EnumLiteral(_) => (),
             RawPatternVariant::Some => todo!(),
             RawPatternVariant::None => todo!(),
@@ -214,7 +210,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 )
             }
             RawExprVariant::Unrecognized(_) => throw_derived!("unrecognized"),
-            RawExprVariant::Entity { route, kind } => match kind {
+            RawExprVariant::Entity { kind, .. } => match kind {
                 EntityKind::Module => Ok(LazyExprQualifiedTy::module_lazy_qualified_ty()),
                 EntityKind::Type(_) => Ok(LazyExprQualifiedTy::ty_lazy_qualified_ty()),
                 EntityKind::Trait => Ok(LazyExprQualifiedTy::trait_lazy_qualified_ty()),
@@ -245,9 +241,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawExprVariant::ThisField {
                 opt_this_ty,
                 opt_this_liason,
-                field_ident: ident,
                 field_liason,
                 opt_field_ty,
+                ..
             } => {
                 let this_ty = derived_not_none!(opt_this_ty)?;
                 let this_liason = derived_not_none!(opt_this_liason)?;
@@ -257,7 +253,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     field_liason,
                     field_contract,
                     field_ty.route,
-                    self.arena[idx].range,
                 )?;
                 let this_qual = LazyExprQualifier::parameter_use_lazy_qualifier(
                     this_liason,
@@ -281,8 +276,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opds: RawExprRange,
     ) -> InferResult<LazyExprQualifiedTy> {
         match opr {
-            RawOpnVariant::Binary(binary_opr) => self.lazy_binary(raw_expr_idx, opds),
-            RawOpnVariant::Prefix(prefix_opr) => self.lazy_prefix(raw_expr_idx, opds),
+            RawOpnVariant::Binary(_) => self.lazy_binary(raw_expr_idx, opds),
+            RawOpnVariant::Prefix(_) => self.lazy_prefix(raw_expr_idx, opds),
             RawOpnVariant::Suffix(suffix_opr) => self.lazy_suffix(raw_expr_idx, suffix_opr, opds),
             RawOpnVariant::List(list_opr) => self.lazy_paradigm_list(raw_expr_idx, list_opr, opds),
             RawOpnVariant::Field(field_ident) => self.lazy_field(raw_expr_idx, *field_ident, opds),
@@ -403,7 +398,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) -> InferResult<LazyExprQualifiedTy> {
         let call_decl = self.function_call_form_decl(all_opds.start).unwrap();
         self.infer_lazy_expr(all_opds.start);
-        let opt_opd_qualified_tys: Vec<_> = ((all_opds.start + 1)..all_opds.end)
+        let _opt_opd_qualified_tys: Vec<_> = ((all_opds.start + 1)..all_opds.end)
             .into_iter()
             .map(|opd_idx| self.infer_lazy_expr(opd_idx))
             .collect();
@@ -429,7 +424,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         total_opds: RawExprRange,
     ) -> InferResult<LazyExprQualifiedTy> {
         let this_qt = derived_not_none!(self.infer_lazy_expr(total_opds.start))?;
-        let this_contract = self.lazy_expr_contract(total_opds.start)?;
         for opd in (total_opds.start + 1)..total_opds.end {
             self.infer_lazy_expr(opd);
         }

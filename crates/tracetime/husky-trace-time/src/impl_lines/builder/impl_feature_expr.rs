@@ -53,11 +53,7 @@ impl<'a> TraceTokenBuilder<'a> {
                         ),
                     LazyOpnKind::StructCall(_) => todo!(),
                     LazyOpnKind::RecordCall(_) => todo!(),
-                    LazyOpnKind::MethodCall {
-                        method_ident,
-                        method_route,
-                        output_binding,
-                    } => {
+                    LazyOpnKind::MethodCall { method_ident, .. } => {
                         self.gen_feature_expr_tokens(&feature_opds[0], config.subexpr());
                         self.push(special!("."));
                         self.push(ident!(method_ident.ident.0));
@@ -74,12 +70,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 },
                 _ => panic!(""),
             },
-            FeatureLazyExprVariant::ModelCall {
-                ref opds,
-                has_this,
-                ref model_defn,
-                ..
-            } => match expr.expr.variant {
+            FeatureLazyExprVariant::ModelCall { ref opds, .. } => match expr.expr.variant {
                 LazyExprVariant::Opn { opn_kind, .. } => match opn_kind {
                     LazyOpnKind::FunctionModelCall(route) => self.feature_entity_call_tokens(
                         expr.expr.file,
@@ -90,16 +81,9 @@ impl<'a> TraceTokenBuilder<'a> {
                     ),
                     LazyOpnKind::StructCall(_) => todo!(),
                     LazyOpnKind::RecordCall(_) => todo!(),
-                    LazyOpnKind::Field {
-                        field_ident,
-                        field_binding,
-                    } => todo!(),
-                    LazyOpnKind::MethodCall {
-                        method_ident,
-                        method_route,
-                        output_binding,
-                    } => todo!(),
-                    LazyOpnKind::Index { element_binding } => todo!(),
+                    LazyOpnKind::Field { .. } => todo!(),
+                    LazyOpnKind::MethodCall { .. } => todo!(),
+                    LazyOpnKind::Index { .. } => todo!(),
                     _ => panic!(),
                 },
                 _ => panic!(),
@@ -108,8 +92,8 @@ impl<'a> TraceTokenBuilder<'a> {
                 let text = self.runtime.comptime().text(expr.expr.file).unwrap();
                 self.push(route!(text.ranged(expr.expr.range), opt_assoc_id))
             }
-            FeatureLazyExprVariant::NewRecord { ty, ref opds, .. } => todo!(),
-            FeatureLazyExprVariant::ThisValue { ref repr } => todo!(),
+            FeatureLazyExprVariant::NewRecord { .. } => todo!(),
+            FeatureLazyExprVariant::ThisValue { .. } => todo!(),
             FeatureLazyExprVariant::EvalInput => self.push(keyword!("input")),
             FeatureLazyExprVariant::Index { ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
@@ -235,7 +219,7 @@ impl<'a> TraceTokenBuilder<'a> {
     fn gen_pattern(&mut self, patt: &PurePattern) {
         match patt.variant {
             PurePatternVariant::PrimitiveLiteral(_) => todo!(),
-            PurePatternVariant::OneOf { ref subpatterns } => todo!(),
+            PurePatternVariant::OneOf { .. } => todo!(),
             PurePatternVariant::EnumLiteral(_) => todo!(),
             PurePatternVariant::Some => self.push(keyword!("some")),
             PurePatternVariant::None => self.push(keyword!("none")),

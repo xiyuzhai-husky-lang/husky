@@ -22,10 +22,7 @@ impl<'a> TraceTokenBuilder<'a> {
             FuncStmtVariant::Return { ref result, .. } => {
                 self.eager_expr_tokens(result, history, ExprTokenConfig::stmt())
             }
-            FuncStmtVariant::Match {
-                ref match_expr,
-                ref branches,
-            } => todo!(),
+            FuncStmtVariant::Match { .. } => todo!(),
             FuncStmtVariant::ConditionFlow { .. } => panic!(),
         }
     }

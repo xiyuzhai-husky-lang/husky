@@ -29,7 +29,6 @@ impl LazyContract {
         parameter_liason: ParameterModifier,
         parameter_ty: EntityRoutePtr,
         output: OutputModifier,
-        range: TextRange,
     ) -> InferResult<LazyContract> {
         match output {
             OutputModifier::Transfer => Ok(match parameter_liason {
@@ -75,7 +74,6 @@ impl LazyContract {
         member_modifier: MemberModifier,
         member_contract: LazyContract,
         member_ty: EntityRoutePtr,
-        range: TextRange,
     ) -> InferResult<LazyContract> {
         Ok(match member_modifier {
             MemberModifier::Immutable | MemberModifier::Mutable => {

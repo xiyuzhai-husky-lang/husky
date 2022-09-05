@@ -2,11 +2,11 @@ use super::*;
 use cyclic_slice::CyclicSlice;
 
 #[derive(Debug, Clone, PartialEq)]
-pub struct VirtualCyclicSlice<'eval> {
+pub struct DeprecatedVirtualCyclicSlice<'eval> {
     pub data: CyclicSlice<'eval, __Register<'eval>>,
 }
 
-impl<'eval> std::ops::Deref for VirtualCyclicSlice<'eval> {
+impl<'eval> std::ops::Deref for DeprecatedVirtualCyclicSlice<'eval> {
     type Target = CyclicSlice<'eval, __Register<'eval>>;
 
     fn deref(&self) -> &Self::Target {
@@ -14,14 +14,14 @@ impl<'eval> std::ops::Deref for VirtualCyclicSlice<'eval> {
     }
 }
 
-impl<'eval> std::ops::DerefMut for VirtualCyclicSlice<'eval> {
+impl<'eval> std::ops::DerefMut for DeprecatedVirtualCyclicSlice<'eval> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.data
     }
 }
 
-impl<'eval> __StaticInfo for VirtualCyclicSlice<'eval> {
-    type __StaticSelf = VirtualCyclicSlice<'static>;
+impl<'eval> __StaticInfo for DeprecatedVirtualCyclicSlice<'eval> {
+    type __StaticSelf = DeprecatedVirtualCyclicSlice<'static>;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
         "CyclicSlice<Any>".into()
@@ -35,7 +35,7 @@ impl<'eval> __StaticInfo for VirtualCyclicSlice<'eval> {
     }
 }
 
-impl<'eval> __Registrable<'eval> for VirtualCyclicSlice<'eval> {
+impl<'eval> __Registrable<'eval> for DeprecatedVirtualCyclicSlice<'eval> {
     unsafe fn __to_register(self) -> __Register<'eval> {
         todo!()
     }

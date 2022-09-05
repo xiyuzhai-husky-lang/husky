@@ -1,7 +1,6 @@
 use std::iter::Peekable;
 
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
-use husky_word::IdentPairDict;
 
 use super::parser::EagerParser;
 use super::*;
@@ -28,14 +27,12 @@ impl<'a> EagerParser<'a> {
                             &mut iter,
                             condition_branch_kind,
                         )?,
-                        RawStmtVariant::PatternBranch {
-                            ref pattern_branch_variant,
-                        } => todo!(),
+                        RawStmtVariant::PatternBranch { .. } => todo!(),
                         RawStmtVariant::Exec { .. } => todo!(),
                         RawStmtVariant::Init {
                             varname,
                             initial_value,
-                            init_kind: kind,
+                            ..
                         } => FuncStmtVariant::Init {
                             varname,
                             initial_value: self.parse_eager_expr(initial_value, None)?,
@@ -51,15 +48,9 @@ impl<'a> EagerParser<'a> {
                             condition: self.parse_eager_expr(condition, None)?,
                         },
                         RawStmtVariant::Break => todo!(),
-                        RawStmtVariant::Match {
-                            match_expr,
-                            match_liason: match_contract,
-                        } => self.parse_func_match(
-                            stmt,
-                            not_none!(item.opt_children),
-                            match_expr,
-                            match_contract,
-                        )?,
+                        RawStmtVariant::Match { match_expr, .. } => {
+                            self.parse_func_match(not_none!(item.opt_children), match_expr)?
+                        }
                         RawStmtVariant::ReturnXml(_) => panic!(),
                         RawStmtVariant::Require {
                             condition,
@@ -104,7 +95,7 @@ impl<'a> EagerParser<'a> {
                     idx: 0,
                 }))
             }
-            RawConditionBranchKind::Elif { condition } => todo!(),
+            RawConditionBranchKind::Elif { .. } => todo!(),
             RawConditionBranchKind::Else => todo!(),
         }
         while let Some(item) = iter.peek() {
@@ -134,7 +125,7 @@ impl<'a> EagerParser<'a> {
                     ..
                 }) => match condition_branch_kind {
                     RawConditionBranchKind::If { .. } => break,
-                    RawConditionBranchKind::Elif { condition } => {
+                    RawConditionBranchKind::Elif { .. } => {
                         if branches.len() == 0 {
                             todo!()
                         }
@@ -159,10 +150,8 @@ impl<'a> EagerParser<'a> {
 
     fn parse_func_match(
         &mut self,
-        stmt: &RawStmt,
         children: AstIter,
         match_expr: RawExprIdx,
-        match_contract: MatchLiason,
     ) -> SemanticResult<FuncStmtVariant> {
         let match_expr = self.parse_eager_expr(match_expr, None)?;
         Ok(FuncStmtVariant::Match {

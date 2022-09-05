@@ -187,7 +187,7 @@ impl<'a> LazyStmtParser<'a> {
                     stmts: self.parse_lazy_stmts(children, ty)?,
                 }))
             }
-            RawConditionBranchKind::Elif { condition } => todo!(),
+            RawConditionBranchKind::Elif { .. } => todo!(),
             RawConditionBranchKind::Else => todo!(),
         }
         while let Some(item) = iter.peek() {
@@ -224,7 +224,7 @@ impl<'a> LazyStmtParser<'a> {
                     ..
                 }) => match condition_branch_kind {
                     RawConditionBranchKind::If { .. } => panic!(),
-                    RawConditionBranchKind::Elif { condition } => {
+                    RawConditionBranchKind::Elif { .. } => {
                         if branches.len() == 0 {
                             todo!()
                         }

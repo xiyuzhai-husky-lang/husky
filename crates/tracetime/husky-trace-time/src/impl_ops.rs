@@ -6,7 +6,16 @@ use husky_entity_kind::EntityKind;
 impl HuskyTraceTime {
     pub(crate) fn update(&mut self) {
         self.clear();
-        self.update_root_traces();
+        match self.update_root_traces() {
+            Ok(_) => (),
+            Err(e) => match e.variant {
+                __VMErrorVariant::Normal => todo!(),
+                __VMErrorVariant::FromBatch { sample_id } => {
+                    self.restriction.set_specific(SampleId(sample_id));
+                    self.update_trace_stalks().unwrap();
+                }
+            },
+        }
     }
 
     fn clear(&mut self) {
@@ -21,7 +30,7 @@ impl HuskyTraceTime {
         self.figure_controls.clear();
     }
 
-    fn update_root_traces(&mut self) {
+    fn update_root_traces(&mut self) -> __VMResult<()> {
         let target_entrance = self.comptime().target_entrance();
         let now = Instant::now();
         let main_feature_repr = self.runtime().main_feature_repr(target_entrance);
@@ -68,6 +77,7 @@ impl HuskyTraceTime {
         // add main trace
         root_trace_ids.push(self.new_trace(None, 0, TraceVariant::Main(main_feature_repr)));
         self.root_trace_ids = root_trace_ids;
-        self.update_trace_statss();
+        self.update_trace_statss()?;
+        Ok(())
     }
 }

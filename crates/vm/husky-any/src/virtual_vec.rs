@@ -43,6 +43,6 @@ impl<'eval> __StaticInfo for DeprecatedVirtualVec<'eval> {
 
 impl<'eval> __Registrable<'eval> for DeprecatedVirtualVec<'eval> {
     unsafe fn __to_register(self) -> __Register<'eval> {
-        __Register::new_box(self, &__VIRTUAL_VEC_VTABLE)
+        __Register::new_box(self, &__DEPRECATED_VIRTUAL_VEC_VTABLE)
     }
 }

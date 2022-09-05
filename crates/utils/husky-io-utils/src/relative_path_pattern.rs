@@ -19,7 +19,7 @@ impl AtomicPattern for RelativePathPattern {
                     *extension == ""
                 }
             }
-            RelativePathPattern::NotOfExtension { extension } => todo!(),
+            RelativePathPattern::NotOfExtension { .. } => todo!(),
             RelativePathPattern::BePath { tmpl } => path == tmpl,
         }
     }

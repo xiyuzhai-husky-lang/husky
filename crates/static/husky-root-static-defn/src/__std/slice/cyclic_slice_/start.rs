@@ -11,8 +11,8 @@ pub static STD_SLICE_CYCLIC_SLICE_START_DEFN: EntityStaticDefn = EntityStaticDef
             mutable,
             Intrinsic,
             Direct,
-            VirtualCyclicSlice<'eval>,
-            &__VIRTUAL_CYCLIC_SLICE_VTABLE,
+            DeprecatedVirtualCyclicSlice<'eval>,
+            &__DEPRECATED_VIRTUAL_CYCLIC_SLICE_VTABLE,
             i32,
             &__I32_VTABLE,
             start

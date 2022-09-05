@@ -1,4 +1,4 @@
-use husky_entity_route::{CanonicalQualifier, CanonicalTy, CanonicalTyKind};
+use husky_entity_route::{CanonicalQualifier, CanonicalTy};
 use husky_print_utils::msg_once;
 use infer_decl::DeclQueryGroup;
 

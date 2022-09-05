@@ -122,10 +122,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 RawPatternBranchVariant::Case { pattern } => self.infer_eager_case_pattern(pattern),
                 RawPatternBranchVariant::Default => (),
             },
-            RawStmtVariant::Exec {
-                expr,
-                discard: silent,
-            } => {
+            RawStmtVariant::Exec { expr, .. } => {
                 self.insert_eager_expr_inference(expr);
             }
             RawStmtVariant::Init {
@@ -383,7 +380,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opds: RawExprRange,
     ) -> InferResult<EagerExprQualifiedTy> {
         let this_qt = derived_not_none!(self.insert_eager_expr_inference(opds.start))?;
-        let this_ty_decl = derived_unwrap!(self.db.ty_decl(this_qt.intrinsic_ty()));
         match opr {
             RawSuffixOpr::Incr | RawSuffixOpr::Decr => Ok(EagerExprQualifiedTy::new(
                 EagerExprQualifier::Copyable,
@@ -490,7 +486,6 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         total_opds: RawExprRange,
     ) -> InferResult<EagerExprQualifiedTy> {
         let this_qt = derived_not_none!(self.insert_eager_expr_inference(total_opds.start))?;
-        let this_contract = self.eager_expr_contract(total_opds.start)?;
         for opd in (total_opds.start + 1)..total_opds.end {
             self.insert_eager_expr_inference(opd);
         }

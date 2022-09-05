@@ -1,6 +1,6 @@
 use crate::*;
 use husky_comptime::{utils::__RegisterDowncastResult, *};
-use husky_print_utils::{msg_once, p};
+use husky_print_utils::msg_once;
 use husky_trace_protocol::TraceStats;
 use husky_vm::{__Register, __VMError, __VMErrorVariant, __VMResult};
 
@@ -163,7 +163,7 @@ fn feature_opt_stats<'eval>(
                 true => dev_trues += 1,
                 false => dev_falses += 1,
             },
-            __RegisterDowncastResult::None { number_of_somes } => {
+            __RegisterDowncastResult::None { .. } => {
                 dev_nones += 1;
                 let idx = partitions.partition_idx(labeled_data.label);
                 dev_partition_noness[idx].1 += 1;

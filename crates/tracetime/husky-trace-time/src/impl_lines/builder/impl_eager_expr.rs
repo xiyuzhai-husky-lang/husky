@@ -67,7 +67,7 @@ impl<'a> TraceTokenBuilder<'a> {
                     }
                     self.push(special!(")"));
                 }
-                EagerOpnVariant::Index { element_binding } => {
+                EagerOpnVariant::Index { .. } => {
                     self.eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.push(special!("[", associated_trace_id.clone()));
                     for i in 1..opds.len() {
@@ -103,7 +103,7 @@ impl<'a> TraceTokenBuilder<'a> {
                 let text = self.runtime.comptime().text(expr.file).unwrap();
                 self.push(route!(text.ranged(expr.range)))
             }
-            EagerExprVariant::EntityThickFp { route } => todo!(),
+            EagerExprVariant::EntityThickFp { .. } => todo!(),
         };
         if config.appended {
             self.push(fade!(" = "));
