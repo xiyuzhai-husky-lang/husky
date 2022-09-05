@@ -1564,6 +1564,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         lazy_field_linkage!(fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE, f32, __registration__::__F32_VTABLE, rel_norm)
     ),
     (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::fermi::FermiMatchResult::angle_change_norm",
+        },
+        lazy_field_linkage!(fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE, f32, __registration__::__F32_VTABLE, angle_change_norm)
+    ),
+    (
         __StaticLinkageKey::Routine { route: "Vec<?&mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen" },
         transfer_linkage!(
             {

@@ -8,10 +8,12 @@ pub trait VMRegisterMethodX<'eval>: Sized {
 
 impl<'eval> VMRegisterMethodX<'eval> for __Register<'eval> {
     fn virtual_struct_field(mut self, field_idx: u8, field_binding: Binding) -> __Register<'eval> {
-        assert_eq!(
-            self.vtable as *const _,
-            &__VIRTUAL_STRUCT_VTABLE as *const _
-        );
+        if self.vtable.typename_str_hash_u64 != __VIRTUAL_STRUCT_VTABLE.typename_str_hash_u64 {
+            panic!(
+                "expect virtual struct, but get `{}` instead",
+                self.vtable.typename_str
+            )
+        }
         match field_binding {
             Binding::EvalRef => match self.data_kind() {
                 __RegisterDataKind::PrimitiveValue => todo!(),
