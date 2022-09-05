@@ -92,7 +92,7 @@ impl<'a> RustCodeGenerator<'a> {
                 let field_ty_canonical_kind = canonical_field_ty.kind();
                 let field_ty_reg_memory_kind = self.db.reg_memory_kind(field_ty);
                 self.write(&format!(
-                    r#"        __StaticLinkageKey::StructEagerField {{
+                    r#"        __StaticLinkageKey::StructField {{
             this_ty: "{ty}",
             field_ident: "{field_ident}",
         }},
@@ -129,8 +129,9 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(&format!(
                         r#"
     (
-        __StaticLinkageKey::FeatureEagerBlock {{
-            route: "{route}",
+        __StaticLinkageKey::StructField {{
+            this_ty: "{ty}",
+            field_ident: "{field_ident}",
         }},
         lazy_field_linkage!("#,
                     ));
@@ -158,8 +159,9 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(&format!(
                         r#"
     (
-        __StaticLinkageKey::FeatureEagerBlock {{
-            route: "{route}",
+        __StaticLinkageKey::StructField {{
+            this_ty: "{ty}",
+            field_ident: "{field_ident}",
         }},
         lazy_field_linkage!("#,
                     ));

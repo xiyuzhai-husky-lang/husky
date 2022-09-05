@@ -49,7 +49,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::connected_component::ConnectedComponent",
             field_ident: "mask",
         },
@@ -62,14 +62,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::connected_component::ConnectedComponent::raw_contours",
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::connected_component::ConnectedComponent",
+            field_ident: "raw_contours",
         },
         lazy_field_linkage!(connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, Vec<raw_contour::RawContour<'eval>>, __registration__::__VEC_RAW_CONTOUR_VTABLE, raw_contours)
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::connected_component::ConnectedComponent::max_hole_ilen",
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::connected_component::ConnectedComponent",
+            field_ident: "max_hole_ilen",
         },
         lazy_field_linkage!(connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, max_hole_ilen)
     ),
@@ -110,7 +112,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::raw_contour::RawContour",
             field_ident: "cc",
         },
@@ -123,7 +125,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::raw_contour::RawContour",
             field_ident: "points",
         },
@@ -136,8 +138,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::raw_contour::RawContour::line_segment_sketch",
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::raw_contour::RawContour",
+            field_ident: "line_segment_sketch",
         },
         lazy_field_linkage!(raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE, line_segment_sketch)
     ),
@@ -320,7 +323,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::geom2d::Point2d",
             field_ident: "x",
         },
@@ -333,7 +336,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::geom2d::Point2d",
             field_ident: "y",
         },
@@ -402,7 +405,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegmentSketch",
             field_ident: "contour",
         },
@@ -415,7 +418,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegmentSketch",
             field_ident: "strokes",
         },
@@ -428,8 +431,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::line_segment_sketch::LineSegmentSketch::concave_components",
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::line_segment_sketch::LineSegmentSketch",
+            field_ident: "concave_components",
         },
         lazy_field_linkage!(line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE, Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>>, __registration__::__VEC_CONCAVE_COMPONENT_VTABLE, concave_components)
     ),
@@ -571,7 +575,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::raw_contour::StreakCache",
             field_ident: "prev1",
         },
@@ -584,7 +588,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::raw_contour::StreakCache",
             field_ident: "prev2",
         },
@@ -726,7 +730,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::geom2d::Vector2d",
             field_ident: "x",
         },
@@ -739,7 +743,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::geom2d::Vector2d",
             field_ident: "y",
         },
@@ -772,7 +776,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
             field_ident: "line_segment_sketch",
         },
@@ -785,7 +789,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
             field_ident: "strokes",
         },
@@ -798,26 +802,30 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::norm",
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
+            field_ident: "norm",
         },
         lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, norm)
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::rel_norm",
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
+            field_ident: "rel_norm",
         },
         lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, rel_norm)
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::hausdorff_norm",
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
+            field_ident: "hausdorff_norm",
         },
         lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, hausdorff_norm)
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::angle_change",
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
+            field_ident: "angle_change",
         },
         lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, angle_change)
     ),
@@ -841,7 +849,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegmentStroke",
             field_ident: "points",
         },
@@ -854,7 +862,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegmentStroke",
             field_ident: "start",
         },
@@ -867,7 +875,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::line_segment_sketch::LineSegmentStroke",
             field_ident: "end",
         },
@@ -880,7 +888,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegmentStroke>",
             field_ident: "start",
         },
@@ -893,7 +901,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegmentStroke>",
             field_ident: "end",
         },
@@ -1063,7 +1071,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent",
             field_ident: "line_segment_sketch",
         },
@@ -1076,7 +1084,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent",
             field_ident: "line_segments",
         },
@@ -1177,7 +1185,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::line_segment_sketch::line_segment::LineSegment",
             field_ident: "start",
         },
@@ -1190,7 +1198,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::line_segment_sketch::line_segment::LineSegment",
             field_ident: "end",
         },
@@ -1203,7 +1211,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::geom2d::Point2d>",
             field_ident: "start",
         },
@@ -1216,7 +1224,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "std::slice::CyclicSlice<mnist_classifier::geom2d::Point2d>",
             field_ident: "end",
         },
@@ -1526,7 +1534,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::fermi::FermiMatchResult",
             field_ident: "matches",
         },
@@ -1539,7 +1547,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::fermi::FermiMatchResult",
             field_ident: "others",
         },
@@ -1552,20 +1560,23 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::fermi::FermiMatchResult::norm",
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::fermi::FermiMatchResult",
+            field_ident: "norm",
         },
         lazy_field_linkage!(fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE, f32, __registration__::__F32_VTABLE, norm)
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::fermi::FermiMatchResult::rel_norm",
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::fermi::FermiMatchResult",
+            field_ident: "rel_norm",
         },
         lazy_field_linkage!(fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE, f32, __registration__::__F32_VTABLE, rel_norm)
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::fermi::FermiMatchResult::angle_change_norm",
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::fermi::FermiMatchResult",
+            field_ident: "angle_change_norm",
         },
         lazy_field_linkage!(fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE, f32, __registration__::__F32_VTABLE, angle_change_norm)
     ),
