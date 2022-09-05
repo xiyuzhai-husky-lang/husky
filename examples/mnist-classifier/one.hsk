@@ -19,17 +19,30 @@ def is_one -> ?MnistLabel:
     )?
     if one_fermi_match.rel_norm > 0.1:
         a = 1
+    if one_fermi_match.matches[1] be some:
+        narrow_down(
+            MnistLabel::One,
+            one_fermi_match.matches[1].norm,
+            one_fermi_match.matches[1].rel_norm,
+            one_fermi_match.matches[1].angle_change.abs(),
+        )?
+    if one_fermi_match.matches[2] be some:
+        narrow_down(
+            MnistLabel::One,
+            one_fermi_match.matches[2].norm,
+            one_fermi_match.matches[2].rel_norm,
+            one_fermi_match.matches[2].angle_change.abs(),
+        )?
     if one_fermi_match.matches[0] be none:
         if one_fermi_match.matches[1] be none:
             MnistLabel::One
         boosting_with_vmax_normalized(
             MnistLabel::One,
             one_fermi_match.matches[1].hausdorff_norm,
+            one_fermi_match.matches[1].rel_norm,
             one_fermi_match.matches[1].angle_change.abs(),
         )
     downmost_hausdorff_norm = one_fermi_match.matches[0].hausdorff_norm
-    if one_fermi_match.matches[2] be some:
-        a = one_fermi_match.matches[2].hausdorff_norm
     if downmost_hausdorff_norm < 3.0:
         boosting_with_vmax_normalized(
             MnistLabel::One,

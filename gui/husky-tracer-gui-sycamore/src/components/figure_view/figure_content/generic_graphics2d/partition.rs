@@ -6,6 +6,7 @@ pub struct PartitionContentProps<'a> {
     column_dimension: &'a ReadSignal<PixelDimension>,
     partition: &'a PartitionDefnData,
     samples: &'a [(SampleId, Graphics2dCanvasData)],
+    restriction: &'a ReadSignal<Restriction>,
 }
 
 #[component]
@@ -39,6 +40,7 @@ pub fn PartitionContent<'a, G: Html>(
     let sample_graphics2d_dimension =
         memo!(scope, move || { column_dimension.cget() / (1, 5) - (2, 4) });
     let partition = format!("{}", props.partition);
+    let restriction = props.restriction;
     view! {
         scope,
         div (
@@ -62,11 +64,12 @@ pub fn PartitionContent<'a, G: Html>(
                 style=samples_canvas_dimension.cget().to_style(),
             ) {
                 (View::new_fragment(
-                    props.samples.iter().map(|(sample_id, sample_visual)|
+                    props.samples.iter().map(|(sample_id, sample_visual)|{
+                        let anchored = memo!(scope, move || restriction.get().sample_id() == *sample_id);
                         view! {
                             scope,
                             div (
-                                class="SampleWrapper",
+                                class=if *anchored.get() { "SampleWrapper anchored" } else { "SampleWrapper" },
                                 style=sample_wrapper_dimension.cget().to_style(),
                             ) {
                                 Graphics2dCanvas {
@@ -78,7 +81,7 @@ pub fn PartitionContent<'a, G: Html>(
                                 }
                             }
                         }
-                    ).collect()
+                    }).collect()
                 ))
             }
         }

@@ -24,10 +24,6 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                 class="TraceStatsView",
                 style=format!("padding-left: {}ch", 3 + props.indent),
             ) {
-                div (class = "SampleStats") {
-                    "S "
-                    (*dev_samples)
-                }
                 div (class = "ArrivalStats") {
                     "A "
                     (*dev_arrivals)
@@ -35,10 +31,6 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                 div (class = "UnreturnedStats") {
                     "U "
                     (*dev_unreturneds)
-                }
-                div (class = "NoneStats") {
-                    "N "
-                    (*dev_nones)
                 }
                 div (class = "TrueStats") {
                     "T "
