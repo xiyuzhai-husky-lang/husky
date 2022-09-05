@@ -41,6 +41,7 @@ pub fn PartitionContent<'a, G: Html>(
         memo!(scope, move || { column_dimension.cget() / (1, 5) - (2, 4) });
     let partition = format!("{}", props.partition);
     let restriction = props.restriction;
+    let ctx = use_debugger_context(scope);
     view! {
         scope,
         div (
@@ -71,6 +72,7 @@ pub fn PartitionContent<'a, G: Html>(
                             div (
                                 class=if *anchored.get() { "SampleWrapper anchored" } else { "SampleWrapper" },
                                 style=sample_wrapper_dimension.cget().to_style(),
+                                on:click=ctx.set_sample_id_handler(*sample_id),
                             ) {
                                 Graphics2dCanvas {
                                     dimension: sample_graphics2d_dimension,
