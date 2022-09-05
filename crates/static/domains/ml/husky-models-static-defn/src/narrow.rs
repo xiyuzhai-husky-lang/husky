@@ -76,7 +76,7 @@ impl Model for NarrowDown {
         opds: Vec<GenericArgument>,
         labels: Vec<i32>,
     ) -> __VMResult<Self::Internal> {
-        let fvf = FlagVectorField::from_registers(&opds[0], &opds[1..], &labels);
+        let fvf = FlagVectorField::from_registers(&opds[0], &opds[1..], &labels)?;
         Ok(NarrowDownInternal {
             label0: fvf.label0(),
             flag_ranges: fvf.flag_ranges(),

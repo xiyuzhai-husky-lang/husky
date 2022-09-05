@@ -1,3 +1,5 @@
+use ordered_float::NotNan;
+
 use crate::*;
 
 impl __StaticInfo for i32 {
@@ -80,7 +82,12 @@ impl __StaticInfo for f32 {
 
 impl<'eval> __Registrable<'eval> for f32 {
     unsafe fn __to_register(self) -> __Register<'eval> {
-        __Register::new_primitive_value(__RegisterData { as_f32: self }, &__F32_VTABLE)
+        __Register::new_primitive_value(
+            __RegisterData {
+                as_not_nan_f32: NotNan::new(self).unwrap(),
+            },
+            &__F32_VTABLE,
+        )
     }
 }
 

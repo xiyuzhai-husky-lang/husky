@@ -43,7 +43,7 @@ pub union __RegisterData {
     pub as_i64: i64,
     pub as_b32: u32,
     pub as_b64: u64,
-    pub as_f32: f32,
+    pub as_not_nan_f32: ordered_float::NotNan<f32>,
     pub as_f64: f64,
     pub as_ptr: *mut c_void,
     pub as_number_of_somes: u8,

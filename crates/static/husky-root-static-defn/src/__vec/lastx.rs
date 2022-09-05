@@ -34,7 +34,8 @@ unsafe fn virtual_vec_lastx_eval_ref<'eval>(
     values: &mut [__Register<'eval>],
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
-    let virtual_vec: &'eval VirtualVec = values[0].downcast_eval_ref(&__VIRTUAL_VEC_VTABLE);
+    let virtual_vec: &'eval DeprecatedVirtualVec =
+        values[0].downcast_eval_ref(&__VIRTUAL_VEC_VTABLE);
     virtual_vec.last().unwrap().eval_bind_eval_ref()
 }
 
@@ -42,7 +43,7 @@ unsafe fn virtual_vec_lastx_temp_ref<'eval>(
     values: &mut [__Register<'eval>],
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
-    let virtual_vec: &VirtualVec = values[0].downcast_temp_ref(&__VIRTUAL_VEC_VTABLE);
+    let virtual_vec: &DeprecatedVirtualVec = values[0].downcast_temp_ref(&__VIRTUAL_VEC_VTABLE);
     virtual_vec.last().unwrap().bind_temp_ref()
 }
 
@@ -50,7 +51,7 @@ unsafe fn virtual_vec_lastx_temp_mut<'eval>(
     values: &mut [__Register<'eval>],
     opt_ctx: Option<&dyn __EvalContext<'eval>>,
 ) -> __Register<'eval> {
-    let virtual_vec: &mut VirtualVec = values[0].downcast_temp_mut(&__VIRTUAL_VEC_VTABLE);
+    let virtual_vec: &mut DeprecatedVirtualVec = values[0].downcast_temp_mut(&__VIRTUAL_VEC_VTABLE);
     virtual_vec.last_mut().unwrap().bind_temp_mut()
 }
 

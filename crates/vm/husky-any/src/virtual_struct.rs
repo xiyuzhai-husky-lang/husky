@@ -4,12 +4,12 @@ use serde::Serialize;
 use std::borrow::Cow;
 
 #[derive(Debug, Clone, PartialEq)]
-pub struct VirtualStruct<'eval> {
+pub struct DeprecatedVirtualStruct<'eval> {
     ty: EntityRoutePtr,
     fields: IdentPairDict<__Register<'eval>>,
 }
 
-impl<'eval> VirtualStruct<'eval> {
+impl<'eval> DeprecatedVirtualStruct<'eval> {
     pub fn new_struct(
         ty: EntityRoutePtr,
         arguments: impl Iterator<Item = __Register<'eval>>,
@@ -19,7 +19,7 @@ impl<'eval> VirtualStruct<'eval> {
         for (ident, argument) in std::iter::zip(field_liasons.iter(), arguments) {
             fields.insert_new((*ident, argument)).unwrap();
         }
-        VirtualStruct { ty, fields }
+        DeprecatedVirtualStruct { ty, fields }
     }
 
     pub fn eval_field(&self, field_idx: u8) -> &__Register<'eval> {
@@ -49,7 +49,7 @@ impl<'eval> VirtualStruct<'eval> {
     }
 }
 
-impl<'eval> Serialize for VirtualStruct<'eval> {
+impl<'eval> Serialize for DeprecatedVirtualStruct<'eval> {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -58,8 +58,8 @@ impl<'eval> Serialize for VirtualStruct<'eval> {
     }
 }
 
-impl<'eval> __StaticInfo for VirtualStruct<'eval> {
-    type __StaticSelf = VirtualStruct<'static>;
+impl<'eval> __StaticInfo for DeprecatedVirtualStruct<'eval> {
+    type __StaticSelf = DeprecatedVirtualStruct<'static>;
 
     fn __static_typename() -> Cow<'static, str> {
         "AnyStruct".into()
@@ -73,7 +73,7 @@ impl<'eval> __StaticInfo for VirtualStruct<'eval> {
     }
 }
 
-impl<'eval> __Registrable<'eval> for VirtualStruct<'eval> {
+impl<'eval> __Registrable<'eval> for DeprecatedVirtualStruct<'eval> {
     unsafe fn __to_register(self) -> __Register<'eval> {
         __Register::new_box(self, &__VIRTUAL_STRUCT_VTABLE)
     }

@@ -147,7 +147,7 @@ fn feature_opt_stats<'eval>(
         let sample_id = labeled_data.sample_id;
         if !db
             .eval_opt_arrival_indicator_cached(opt_arrival_indicator, sample_id)
-            .map_err(|_| todo!())?
+            .map_err(|e| -> __VMError { (sample_id.0, e).into() })?
         {
             continue;
         }

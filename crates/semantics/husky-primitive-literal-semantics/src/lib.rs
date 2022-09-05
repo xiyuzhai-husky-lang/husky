@@ -43,6 +43,7 @@ pub fn convert_primitive_literal_to_register(
     literal: PrimitiveLiteralData,
     ty: EntityRoutePtr,
 ) -> __Register<'static> {
+    // literal is guaranteed to be not nan
     match literal {
         PrimitiveLiteralData::Void => todo!(),
         PrimitiveLiteralData::Integer(i) => match ty {

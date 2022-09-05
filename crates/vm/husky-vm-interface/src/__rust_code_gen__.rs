@@ -617,7 +617,7 @@ impl<'eval> __Register<'eval> {
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __f32_primitive_value_to_bool(data: __RegisterData) -> bool {
-    let data = data.as_f32;
+    let data = data.as_not_nan_f32;
     data != 0.0
 }
 
@@ -631,8 +631,8 @@ pub unsafe extern "C" fn __f32_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __f32_primitive_value_to_box(data: __RegisterData) -> *mut std::ffi::c_void {
-    let data = data.as_f32;
-    let ptr: *mut f32 = Box::<f32>::into_raw(Box::new(data));
+    let data = data.as_not_nan_f32;
+    let ptr: *mut ordered_float::NotNan<f32> = Box::<ordered_float::NotNan<f32>>::into_raw(Box::new(data));
     ptr as *mut std::ffi::c_void
 }
 
@@ -683,7 +683,7 @@ impl<'eval> __Register<'eval> {
                 panic!("expect `f32` but get {} instead", self.vtable.typename_str)
             }
             match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => self.data.as_f32,
+                __RegisterDataKind::PrimitiveValue => self.data.as_not_nan_f32.into_inner(),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
@@ -699,7 +699,7 @@ impl<'eval> __Register<'eval> {
                 panic!("expect `f32` but get `{}` instead", self.vtable.typename_str)
             }
             match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => Some(self.data.as_f32),
+                __RegisterDataKind::PrimitiveValue => Some(self.data.as_not_nan_f32.into_inner()),
                 __RegisterDataKind::EvalRef
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
