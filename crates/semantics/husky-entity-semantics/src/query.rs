@@ -61,6 +61,9 @@ impl EntityRouteStore {
 
 pub(crate) fn entity_uid(db: &dyn EntityDefnQueryGroup, entity_route: EntityRoutePtr) -> EntityUid {
     // responds to changes in either defn or defns of dependees
+    if !entity_route.is_intrinsic() {
+        panic!("expect intrinsic, but get `{}` instead", entity_route)
+    }
     let entity_source = db.entity_source(entity_route).unwrap();
     match entity_source {
         // in the future, we should make a difference between entity in current pack and depending packs

@@ -281,7 +281,7 @@ impl<'a> FeatureExprBuilder<'a> {
                             .unwrap(),
                         field_binding,
                         opt_linkage: self.db.comptime().field_linkage_resolved(
-                            this_ty,
+                            this_ty.intrinsic(),
                             field_ident.ident,
                             field_binding,
                         ),
