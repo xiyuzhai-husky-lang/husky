@@ -1,6 +1,6 @@
 use super::*;
 use crate::*;
-use husky_print_utils::msg_once;
+use husky_print_utils::{msg_once, p};
 use husky_vm::__RegisterDataKind;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
@@ -32,6 +32,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         };
         let nargs: u8 = arguments.len().try_into().unwrap();
         msg_once!("kwargs");
+        // remove this once hot reload is implemented
+        assert!(block.opt_linkage.is_some());
         let result = husky_vm::eval_fast(
             self.db.upcast(),
             unsafe { self.some_ctx() },
@@ -57,6 +59,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         };
         let nargs: u8 = arguments.len().try_into().unwrap();
         msg_once!("kwargs");
+        // remove this once hot reload is implemented
+        assert!(block.opt_linkage.is_some());
         let result = husky_vm::eval_fast(
             self.db.upcast(),
             unsafe { self.some_ctx() },

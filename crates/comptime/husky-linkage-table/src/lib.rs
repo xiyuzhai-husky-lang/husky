@@ -77,27 +77,14 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         }
     }
 
-    fn field_linkage_fp(
+    fn field_linkage_resolved(
         &self,
         this_ty: EntityRoutePtr,
         field_ident: CustomIdentifier,
         field_binding: Binding,
     ) -> Option<__ResolvedLinkage> {
-        let this_ty = this_ty.intrinsic();
-        if let Some(linkage) = self
-            .linkage_table()
-            .field_linkage_source(self.entity_uid(this_ty), field_ident)
-        {
-            return Some(linkage.bind(field_binding));
-        }
-        let this_ty_defn = self.entity_defn(this_ty).unwrap();
-        let ty_field_defn = this_ty_defn.field(field_ident);
-        match ty_field_defn.variant {
-            EntityDefnVariant::TyField { opt_linkage, .. } => {
-                opt_linkage.map(|linkage| linkage.bind(field_binding))
-            }
-            _ => panic!(""),
-        }
+        self.field_linkage(this_ty, field_ident)
+            .map(|linkage| linkage.bind(field_binding))
     }
 
     fn method_linkage(&self, method_route: EntityRoutePtr) -> Option<__Linkage> {

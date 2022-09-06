@@ -89,7 +89,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         expr.clone(),
                     ));
                     self.push_instruction(Instruction::new(
-                        if let Some(linkage) = self.db.comptime().field_linkage_fp(
+                        if let Some(linkage) = self.db.comptime().field_linkage_resolved(
                             this_ty,
                             field_ident.ident,
                             field_binding,
@@ -226,7 +226,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 // no discard
                 assert!(!discard);
                 self.push_instruction(Instruction::new(
-                    if let Some(linkage) = self.db.comptime().field_linkage_fp(
+                    if let Some(linkage) = self.db.comptime().field_linkage_resolved(
                         *this_ty,
                         field_ident.ident,
                         *field_binding,

@@ -50,10 +50,10 @@ fn ty_data_viewer(db: &dyn HuskyDataViewerQueryGroup, ty: EntityRoutePtr) -> Arc
         TyKind::Slice => todo!(),
         TyKind::CyclicSlice => HuskyDataViewer::CyclicSlice {
             start: comptime
-                .field_linkage_fp(ty, comptime.intern_word("start").custom(), Binding::Copy)
+                .field_linkage_resolved(ty, comptime.intern_word("start").custom(), Binding::Copy)
                 .unwrap(),
             end: comptime
-                .field_linkage_fp(ty, comptime.intern_word("end").custom(), Binding::Copy)
+                .field_linkage_resolved(ty, comptime.intern_word("end").custom(), Binding::Copy)
                 .unwrap(),
             index: comptime.index_linkage(vec![ty, RootIdentifier::I32.into()]),
             elem_ty: ty.entity_route_argument(0),

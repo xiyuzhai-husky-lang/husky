@@ -280,7 +280,7 @@ impl<'a> FeatureExprBuilder<'a> {
                             .try_into()
                             .unwrap(),
                         field_binding,
-                        opt_linkage: self.db.comptime().field_linkage_fp(
+                        opt_linkage: self.db.comptime().field_linkage_resolved(
                             this_ty,
                             field_ident.ident,
                             field_binding,

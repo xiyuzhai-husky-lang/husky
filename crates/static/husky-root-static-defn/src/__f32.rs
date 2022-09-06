@@ -1,3 +1,4 @@
+use husky_print_utils::p;
 use husky_trace_protocol::VisualData;
 
 use super::*;
@@ -45,7 +46,7 @@ pub static F32_MIN: EntityStaticDefn = EntityStaticDefn {
         opt_linkage: Some(transfer_linkage!(
             |values, _| {
                 let this = values[0].downcast_f32();
-                let other = values[0].downcast_f32();
+                let other = values[1].downcast_f32();
                 this.min(other).to_register()
             },
             some base f32::min as fn (f32,f32)-> f32
@@ -70,7 +71,7 @@ pub static F32_MAX: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|values, _| {
             let this = values[0].downcast_f32();
-            let other = values[0].downcast_f32();
+            let other = values[1].downcast_f32();
              this.max(other) .to_register() 
         }, some base f32::max as fn (f32,f32)-> f32)),
     },
@@ -191,7 +192,8 @@ pub static F32_ACOS: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(|values, _| {
-             values[0].downcast_f32().acos() .to_register() 
+            todo!();
+            values[0].downcast_f32().acos().to_register()
         }, some base f32::acos as fn (f32)-> f32)),
     },
     dev_src: static_dev_src!(),
