@@ -24,28 +24,48 @@ inductive LoopVariant
 
 structure CustomIdentifier
 
-inductive ConditionFlowBranchVariant ( Expr : Type )
-  | If (condition : Expr) : ConditionFlowBranchVariant Expr
-  | Elif (condition : Expr) : ConditionFlowBranchVariant Expr
+structure File
+structure Range
+
+mutual
+inductive ProcConditionFlowBranch where
+  | _ (variant: ProcConditionFlowBranchVariant) (stmts: List ProcStmt) : ProcConditionFlowBranch
+
+inductive ProcConditionFlowBranchVariant
+  | If (condition : EagerExpr) : ProcConditionFlowBranchVariant
+  | Elif (condition : EagerExpr) : ProcConditionFlowBranchVariant
   | Else
 
-structure ConditionFlowBranch ( Expr : Type ) ( Stmt : Type ) where
-  variant: ConditionFlowBranchVariant Expr
-  stmts: List Stmt
-
 inductive ProcStmt where
-  | Init (varname : CustomIdentifier) (initial_value : EagerExpr) : ProcStmt
-  | Assert (condition : EagerExpr) : ProcStmt
-  | Execute (expr : EagerExpr) : ProcStmt
-  | ConditionFlow (branches : List (ConditionFlowBranch EagerExpr ProcStmt)) : ProcStmt
-  | Loop (loop_variant : LoopVariant) (stmts : List ProcStmt) : ProcStmt
+  | _ (file : File) (range : Range) (variant : ProcStmtVariant)
+
+inductive ProcStmtVariant where
+  | Init (varname : CustomIdentifier) (initial_value : EagerExpr)
+  | Assert (condition : EagerExpr)
+  | Execute (expr : EagerExpr)
+  | ConditionFlow (branches : List ProcConditionFlowBranch)
+  | Loop (loop_variant : LoopVariant) (stmts : List ProcStmt)
   | Break
-  | Return (result : EagerExpr) : ProcStmt
-  | Match (match_expr : EagerExpr) : ProcStmt
+  | Return (result : EagerExpr)
+  | Match (match_expr : EagerExpr)
+end
+
+mutual
+inductive FuncConditionFlowBranch where
+  | _ (variant: FuncConditionFlowBranchVariant) (stmts: List FuncStmt) : FuncConditionFlowBranch
+
+inductive FuncConditionFlowBranchVariant
+  | If (condition : EagerExpr) : FuncConditionFlowBranchVariant
+  | Elif (condition : EagerExpr) : FuncConditionFlowBranchVariant
+  | Else
 
 inductive FuncStmt where
-  | Init (varname : CustomIdentifier) (initial_value : EagerExpr) : FuncStmt
-  | Assert (condition : EagerExpr) : FuncStmt
-  | ConditionFlow (branches : List (ConditionFlowBranch EagerExpr FuncStmt)) : FuncStmt
-  | Return (result : EagerExpr) : FuncStmt
-  | Match (match_expr : EagerExpr) : FuncStmt
+  | _ (file : File) (range : Range) (variant : FuncStmtVariant)
+
+inductive FuncStmtVariant where
+  | Init (varname : CustomIdentifier) (initial_value : EagerExpr)
+  | Assert (condition : EagerExpr)
+  | ConditionFlow (branches : List FuncConditionFlowBranch)
+  | Return (result : EagerExpr)
+  | Match (match_expr : EagerExpr)
+end
