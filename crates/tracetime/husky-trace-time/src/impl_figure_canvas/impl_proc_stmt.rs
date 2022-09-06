@@ -1,6 +1,6 @@
 use super::*;
 
-impl HuskyTraceTime {
+impl HuskyTracetime {
     pub(crate) fn proc_stmt_figure(
         &self,
         stmt: &ProcStmt,

@@ -5,7 +5,7 @@ use husky_vm::HistoryEntry;
 
 use super::*;
 
-impl HuskyTraceTime {
+impl HuskyTracetime {
     #[inline(always)]
     pub fn figure_control(&mut self, trace_id: TraceId) -> FigureControlData {
         let trace = self.trace(trace_id);

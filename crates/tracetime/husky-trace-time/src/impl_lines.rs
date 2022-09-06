@@ -6,7 +6,7 @@ pub use expr_config::*;
 use super::*;
 use builder::*;
 
-impl HuskyTraceTime {
+impl HuskyTracetime {
     pub(crate) fn trace_lines(
         &mut self,
         indent: Indent,

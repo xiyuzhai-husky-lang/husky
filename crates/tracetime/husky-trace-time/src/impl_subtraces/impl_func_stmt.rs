@@ -1,6 +1,6 @@
 use super::*;
 
-impl HuskyTraceTime {
+impl HuskyTracetime {
     pub(crate) fn func_branch_subtraces(
         &mut self,
         stmts: &[Arc<FuncStmt>],

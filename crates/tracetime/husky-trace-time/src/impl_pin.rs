@@ -1,6 +1,6 @@
 use super::*;
 
-impl HuskyTraceTime {
+impl HuskyTracetime {
     pub fn toggle_pin(
         &mut self,
         trace_id: TraceId,

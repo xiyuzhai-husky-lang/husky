@@ -3,7 +3,7 @@ use std::time::Instant;
 use crate::*;
 use husky_entity_kind::EntityKind;
 
-impl HuskyTraceTime {
+impl HuskyTracetime {
     pub(crate) fn update(&mut self) {
         self.clear();
         match self.update_root_traces() {
