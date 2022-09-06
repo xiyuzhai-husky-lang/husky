@@ -6,6 +6,10 @@ structure RawStmt
 
 inductive UseVariant
 
+structure RawExprIdx where
+  raw: Nat
+
+mutual
 inductive RawExprVariant
   | Variable
   | FrameVariable
@@ -17,9 +21,11 @@ inductive RawExprVariant
   | Bracketed
   | Opn
   | Lambda
+end
+
 
 namespace RawExprVariant
-def subexprs (variant : RawExprVariant) : List RawExpr :=
+def subexprs (variant : RawExprVariant) : List RawExprIdx :=
   match variant with
   | Variable => []
   | FrameVariable => []
@@ -31,6 +37,10 @@ def subexprs (variant : RawExprVariant) : List RawExpr :=
   | Bracketed => sorry
   | Opn => sorry
   | Lambda => sorry
+-- def height (variant : RawExprVariant) : Nat :=
+--   match variant.subexprs with
+--   | [] => 0
+--   | _ => 0
 end RawExprVariant
 
 namespace RawExpr
@@ -46,7 +56,6 @@ structure RawExpr where
   range : Range
   paradigm : Paradigm
   variant : RawExprVariant
-  hvalid: RawExpr.valid range paradigm variant
 
 
 inductive AstVariant where
