@@ -72,7 +72,7 @@ impl Vector2d {
     }
 
     pub(crate) fn angle(&self, is_branch_cut_positive: bool) -> f32 {
-        let cos_value = (self.x / self.norm()).min(0.99999f32);
+        let cos_value = (self.x / self.norm()).min(1.f32);
         if cos_value + 1f32 < 0.001f32 {
             if is_branch_cut_positive {
                 return 180f32;
@@ -94,7 +94,7 @@ impl Vector2d {
         assert!(this_norm > 0f32);
         let other_norm = other.norm();
         assert!(other_norm > 0f32);
-        let cos_value = (self.dot(&other) / (this_norm * other_norm)).min(0.99999f32);
+        let cos_value = (self.dot(&other) / (this_norm * other_norm)).min(1.f32);
         if cos_value + 1f32 < 0.001f32 {
             if is_branch_cut_positive {
                 return 180f32;
