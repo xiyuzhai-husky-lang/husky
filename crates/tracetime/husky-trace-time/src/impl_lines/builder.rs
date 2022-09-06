@@ -8,7 +8,7 @@ mod impl_proc_stmt;
 use super::*;
 
 pub struct TraceTokenBuilder<'a> {
-    trace_time: &'a mut HuskyTraceTime,
+    trace_time: &'a mut HuskyTracetime,
     trace_variant: &'a TraceVariant<'static>,
     indent: Indent,
     has_parent: bool,
@@ -17,7 +17,7 @@ pub struct TraceTokenBuilder<'a> {
 
 impl<'a> TraceTokenBuilder<'a> {
     pub(super) fn new(
-        trace_time: &'a mut HuskyTraceTime,
+        trace_time: &'a mut HuskyTracetime,
         indent: Indent,
         trace_variant: &'a TraceVariant<'static>,
         has_parent: bool,
@@ -37,7 +37,7 @@ impl<'a> TraceTokenBuilder<'a> {
 }
 
 impl<'a> std::ops::Deref for TraceTokenBuilder<'a> {
-    type Target = HuskyTraceTime;
+    type Target = HuskyTracetime;
 
     fn deref(&self) -> &Self::Target {
         self.trace_time

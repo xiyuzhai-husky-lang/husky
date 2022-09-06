@@ -1,3 +1,4 @@
+#![feature(try_trait_v2)]
 mod impl_figure_canvas;
 mod impl_figure_control;
 mod impl_lines;
@@ -8,6 +9,7 @@ mod impl_subtraces;
 mod impl_trace;
 mod impl_trace_stalk;
 mod impl_trace_stats;
+mod monad;
 mod trace_node;
 
 use husky_comptime::*;
@@ -32,7 +34,7 @@ use trace_node::*;
 use upcast::Upcast;
 use vec_like::VecSet;
 
-pub struct HuskyTraceTime {
+pub struct HuskyTracetime {
     runtime: HuskyRuntime,
     restriction: Restriction,
     pins: VecSet<TraceId>,
@@ -46,7 +48,7 @@ pub struct HuskyTraceTime {
     subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
 }
 
-impl HuskyTraceTime {
+impl HuskyTracetime {
     pub fn new(
         init_compile_time: impl FnOnce(&mut HuskyComptime),
         eval_time_config: HuskyRuntimeConfig,

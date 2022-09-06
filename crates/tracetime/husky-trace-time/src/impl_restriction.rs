@@ -1,6 +1,6 @@
 use crate::*;
 
-impl HuskyTraceTime {
+impl HuskyTracetime {
     pub fn restriction(&self) -> &Restriction {
         &self.restriction
     }

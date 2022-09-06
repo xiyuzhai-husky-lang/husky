@@ -1,7 +1,7 @@
 use crate::*;
 use husky_feature_eval::FeatureEvaluator;
 
-impl HuskyTraceTime {
+impl HuskyTracetime {
     pub fn feature_repr_subtraces(
         &mut self,
         parent: &Trace,

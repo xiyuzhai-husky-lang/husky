@@ -1,6 +1,6 @@
 use super::*;
 
-impl HuskyTraceTime {
+impl HuskyTracetime {
     pub(crate) fn func_stmts_traces(
         &mut self,
         parent_id: TraceId,

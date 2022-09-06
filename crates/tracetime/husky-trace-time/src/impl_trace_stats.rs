@@ -1,6 +1,6 @@
 use crate::*;
 
-impl HuskyTraceTime {
+impl HuskyTracetime {
     pub(crate) fn update_trace_statss(
         &mut self,
     ) -> __VMResult<Vec<(TraceStatsKey, Option<TraceStats>)>> {

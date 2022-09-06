@@ -1,6 +1,6 @@
 use super::*;
 
-impl HuskyTraceTime {
+impl HuskyTracetime {
     pub(crate) fn feature_expr_figure(
         &self,
         expr: &Arc<FeatureLazyExpr>,
