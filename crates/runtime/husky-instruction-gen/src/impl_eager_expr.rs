@@ -90,7 +90,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     ));
                     self.push_instruction(Instruction::new(
                         if let Some(linkage) = self.db.comptime().field_linkage_resolved(
-                            this_ty,
+                            this_ty.intrinsic(),
                             field_ident.ident,
                             field_binding,
                         ) {

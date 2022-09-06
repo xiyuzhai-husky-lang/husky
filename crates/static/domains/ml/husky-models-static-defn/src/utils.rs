@@ -36,11 +36,65 @@ impl FlagVectorField {
         })
     }
 
-    pub fn flag_ranges(&self) -> Vec<FlagRange> {
+    fn raw_flag_ranges(&self) -> Vec<FlagRange> {
         self.valuess
             .iter()
             .map(|values| FlagRange::from_values(values, &self.flags))
             .collect()
+    }
+
+    pub fn flag_ranges(&self, border_shrink_rate: f32, border_expand_rate: f32) -> Vec<FlagRange> {
+        let raw_flag_ranges = self.raw_flag_ranges();
+        raw_flag_ranges
+            .iter()
+            .enumerate()
+            .map(|(idx, raw_flag_range)| {
+                self.flag_range(border_shrink_rate, border_expand_rate, idx, raw_flag_range)
+            })
+            .collect()
+    }
+
+    fn flag_range(
+        &self,
+        border_shrink_rate: f32,
+        border_expand_rate: f32,
+        idx: usize,
+        raw: &FlagRange,
+    ) -> FlagRange {
+        let true_values_sorted = self.true_values_sorted(idx);
+        assert!(border_shrink_rate < 0.3);
+        assert!(border_shrink_rate > 0.0);
+        assert!(border_expand_rate < 0.4);
+        assert!(border_expand_rate > 0.0);
+        let ntrim = ((true_values_sorted.len() as f32) * border_shrink_rate).round() as usize;
+        let interval_width = raw.true_range.end - raw.true_range.start;
+        let epsilon = interval_width * border_expand_rate;
+        let start = if raw.ambiguous_start() {
+            true_values_sorted[ntrim] - epsilon
+        } else {
+            raw.true_range.start
+        };
+        let end = if raw.ambiguous_end() {
+            true_values_sorted[true_values_sorted.len() - 1 - ntrim] + epsilon
+        } else {
+            raw.true_range.end
+        };
+        FlagRange {
+            true_range: ClosedRange { start, end },
+            false_range: raw.false_range,
+        }
+    }
+
+    fn true_values(&self, idx: usize) -> Vec<NotNan<f32>> {
+        std::iter::zip(self.valuess[idx].iter(), self.flags.iter())
+            .filter_map(|(value, flag)| if *flag { Some(*value) } else { None })
+            .collect()
+    }
+
+    fn true_values_sorted(&self, idx: usize) -> Vec<NotNan<f32>> {
+        let mut true_values = self.true_values(idx);
+        true_values.sort();
+        true_values
     }
 
     pub fn label0(&self) -> i32 {
@@ -57,8 +111,8 @@ pub struct FlagRange {
 impl FlagRange {
     pub fn apply(&self, v: NotNan<f32>) -> FlagRangeApplyResult {
         FlagRangeApplyResult {
-            within_true_range: self.true_range.is_within(v),
-            within_false_range: self.false_range.is_within(v),
+            within_true_range: self.true_range.contains(v),
+            within_false_range: self.false_range.contains(v),
         }
     }
 
@@ -84,6 +138,13 @@ impl FlagRange {
             ),
         }
     }
+
+    pub fn ambiguous_start(&self) -> bool {
+        self.false_range.contains(self.true_range.start)
+    }
+    pub fn ambiguous_end(&self) -> bool {
+        self.false_range.contains(self.true_range.end)
+    }
 }
 
 pub struct FlagRangeApplyResult {
@@ -100,7 +161,7 @@ impl FlagRangeApplyResult {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ClosedRange<T>
 where
     T: PartialOrd + Ord,
@@ -119,7 +180,7 @@ where
         Self { start, end }
     }
 
-    fn is_within(&self, v: T) -> bool {
+    fn contains(&self, v: T) -> bool {
         self.start <= v && v <= self.end
     }
 }

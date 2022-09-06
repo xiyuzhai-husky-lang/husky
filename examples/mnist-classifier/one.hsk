@@ -17,7 +17,7 @@ def is_one -> ?MnistLabel:
         one_fermi_match.norm,
         one_fermi_match.rel_norm
     )?
-    if one_fermi_match.rel_norm > 0.1:
+    if one_fermi_match.rel_norm > 0.5:
         a = 1
     if one_fermi_match.matches[1] be some:
         narrow_down(

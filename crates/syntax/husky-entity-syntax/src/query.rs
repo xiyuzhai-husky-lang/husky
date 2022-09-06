@@ -212,7 +212,9 @@ fn entity_source(
     db: &dyn EntitySyntaxSalsaQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> EntitySyntaxResult<EntitySource> {
-    assert!(entity_route.canonicalize().kind() == CanonicalTyKind::Intrinsic);
+    if entity_route.canonicalize().kind() != CanonicalTyKind::Intrinsic {
+        panic!("expect intrinsic, but get `{}`", entity_route)
+    }
     match entity_route.variant {
         EntityRouteVariant::Root { ident } => Ok(EntitySource::StaticModuleItem(db
             .__root_defn_resolver()(

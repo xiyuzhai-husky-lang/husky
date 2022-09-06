@@ -63,6 +63,9 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         this_ty: EntityRoutePtr,
         field_ident: CustomIdentifier,
     ) -> Option<__Linkage> {
+        if !this_ty.is_intrinsic() {
+            panic!("expect intrinsic ty, but get `{}` instead", this_ty)
+        }
         if let Some(linkage) = self
             .linkage_table()
             .field_linkage_source(self.entity_uid(this_ty), field_ident)
