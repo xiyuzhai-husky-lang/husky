@@ -141,9 +141,16 @@ impl FeatureRepr {
                         },
                     })
                 },
-                opt_this,
                 ty: *return_ty,
-                opt_linkage: { db.comptime().feature_eager_block_linkage(*route) },
+                opt_linkage: {
+                    match opt_this {
+                        Some(ref this) => db
+                            .comptime()
+                            .field_linkage(this.ty(), route.ident().custom()),
+                        None => db.comptime().feature_eager_block_linkage(*route),
+                    }
+                },
+                opt_this,
             })),
             DefinitionRepr::ProcBlock {
                 stmts,
@@ -176,9 +183,16 @@ impl FeatureRepr {
                         },
                     })
                 },
-                opt_this,
                 return_ty: *return_ty,
-                opt_linkage: { db.comptime().feature_eager_block_linkage(*route) },
+                opt_linkage: {
+                    match opt_this {
+                        Some(ref this) => db
+                            .comptime()
+                            .field_linkage(this.ty(), route.ident().custom()),
+                        None => db.comptime().feature_eager_block_linkage(*route),
+                    }
+                },
+                opt_this,
             })),
         };
         result
