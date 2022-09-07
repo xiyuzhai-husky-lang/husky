@@ -96,7 +96,7 @@ impl Model for BoostingWithVmaxNormalized {
                     .enumerate()
                     .filter_map(|(i, v)| if labels[i] == label0 { Some(v) } else { None })
                     .max()
-                    .expect("todo")
+                    .expect(&format!("input.len() = {}, todo", input.len()))
             })
             .collect();
         let mut true_weighted_sums: Vec<NotNan<f32>> = labels

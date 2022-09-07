@@ -3,7 +3,7 @@ use husky_entity_kind::FieldKind;
 use husky_entity_route::{EntityRoute, InternEntityRoute};
 use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
-use husky_vm::{Binding, __root::__NEQ_LINKAGE};
+use husky_vm::{Binding, InstructionSource, __root::__NEQ_LINKAGE};
 use husky_vm::{__Linkage, __root::__EQ_LINKAGE};
 use husky_vm_primitive_opr_linkage::resolve_primitive_pure_binary_opr_linkage;
 use map_collect::MapCollect;
@@ -40,10 +40,6 @@ impl<'a> FeatureExprBuilder<'a> {
                         source: CallFormSource::Static(__Linkage::Model(model)),
                         ..
                     } => self.db.train(model, self.opt_arrival_indicator, &opds),
-                    // model.train(
-                    //     self.opt_arrival_indicator.map(|r| r as &dyn std::any::Any),
-                    //     &opds,
-                    // ),
                     _ => todo!(),
                 };
                 let kind = FeatureLazyExprVariant::ModelCall {
