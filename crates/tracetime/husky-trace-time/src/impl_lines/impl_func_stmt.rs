@@ -1,22 +1,22 @@
 use super::*;
 
-impl<'a> TraceTokenBuilder<'a> {
+impl<'a> TraceLineBuilder<'a> {
     pub(crate) fn func_stmt_tokens(&mut self, stmt: &FuncStmt, history: &Arc<History<'static>>) {
         match stmt.variant {
             FuncStmtVariant::Init {
                 varname,
                 ref initial_value,
             } => {
-                self.push(ident!(varname.ident.0));
-                self.push(special!(" = "));
+                self.gen_ident_token(varname.ident.0, None);
+                self.gen_special_token(" = ", None);
                 self.eager_expr_tokens(initial_value, history, ExprTokenConfig::stmt())
             }
             FuncStmtVariant::Assert { ref condition } => {
-                self.push(keyword!("assert "));
+                self.gen_keyword_token("assert ", None);
                 self.eager_expr_tokens(condition, history, ExprTokenConfig::stmt())
             }
             FuncStmtVariant::Require { ref condition, .. } => {
-                self.push(keyword!("require "));
+                self.gen_keyword_token("require ", None);
                 self.eager_expr_tokens(condition, history, ExprTokenConfig::stmt())
             }
             FuncStmtVariant::Return { ref result, .. } => {
@@ -35,18 +35,18 @@ impl<'a> TraceTokenBuilder<'a> {
     ) {
         match branch.variant {
             FuncConditionFlowBranchVariant::If { ref condition } => {
-                self.push(keyword!("if "));
+                self.gen_keyword_token("if ", None);
                 self.eager_expr_tokens(condition, history, ExprTokenConfig::branch());
-                self.push(special!(":"))
+                self.gen_special_token(":", None)
             }
             FuncConditionFlowBranchVariant::Elif { ref condition } => {
-                self.push(keyword!("elif "));
+                self.gen_keyword_token("elif ", None);
                 self.eager_expr_tokens(condition, history, ExprTokenConfig::branch());
-                self.push(special!(":"))
+                self.gen_special_token(":", None)
             }
             FuncConditionFlowBranchVariant::Else => {
-                self.push(keyword!("else"));
-                self.push(special!(":"))
+                self.gen_keyword_token("else", None);
+                self.gen_special_token(":", None)
             }
         }
         if let Some(entry) = history.get(stmt) {

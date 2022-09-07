@@ -1,4 +1,5 @@
 use husky_signal::Signalable;
+use husky_text::TextRange;
 
 use super::*;
 
@@ -61,17 +62,6 @@ impl std::fmt::Display for TraceTokenKind {
     }
 }
 
-#[macro_export]
-macro_rules! keyword {
-    ($value:expr) => {{
-        TraceTokenData {
-            kind: TraceTokenKind::Keyword,
-            value: $value.into(),
-            opt_associated_trace_id: None,
-        }
-    }};
-}
-
 // #[macro_export]
 // macro_rules! label {
 //     ($value:expr, $associated:expr) => {{
@@ -84,88 +74,3 @@ macro_rules! keyword {
 //         }
 //     }};
 // }
-
-#[macro_export]
-macro_rules! ident {
-    ($value:expr) => {{
-        TraceTokenData {
-            kind: TraceTokenKind::Ident,
-            value: $value.into(),
-            opt_associated_trace_id: None,
-        }
-    }};
-    ($value:expr, $opt_associated_trace_id: expr) => {{
-        TraceTokenData {
-            kind: TraceTokenKind::Ident,
-            value: $value.into(),
-            opt_associated_trace_id: $opt_associated_trace_id,
-        }
-    }};
-}
-
-#[macro_export]
-macro_rules! literal {
-    ($value:expr) => {{
-        TraceTokenData {
-            kind: TraceTokenKind::Literal,
-            value: $value.into(),
-            opt_associated_trace_id: None,
-        }
-    }};
-}
-
-#[macro_export]
-macro_rules! special {
-    ($value: expr) => {{
-        TraceTokenData {
-            kind: TraceTokenKind::Special,
-            value: $value.into(),
-            opt_associated_trace_id: None,
-        }
-    }};
-
-    ($value: expr, $opt_associated_trace_id: expr) => {{
-        TraceTokenData {
-            kind: TraceTokenKind::Special,
-            value: $value.into(),
-            opt_associated_trace_id: $opt_associated_trace_id,
-        }
-    }};
-}
-
-#[macro_export]
-macro_rules! route {
-    ($value:expr) => {{
-        TraceTokenData {
-            kind: TraceTokenKind::Scope,
-            value: $value.into(),
-            opt_associated_trace_id: None,
-        }
-    }};
-
-    ($value:expr, $opt_associated_trace_id: expr) => {{
-        TraceTokenData {
-            kind: TraceTokenKind::Scope,
-            value: $value.into(),
-            opt_associated_trace_id: $opt_associated_trace_id,
-        }
-    }};
-}
-
-#[macro_export]
-macro_rules! fade {
-    ($value:expr) => {{
-        TraceTokenData {
-            kind: TraceTokenKind::Fade,
-            value: $value.into(),
-            opt_associated_trace_id: None,
-        }
-    }};
-    ($value:expr, $associated:expr) => {{
-        TraceTokenData {
-            kind: TraceTokenKind::Fade,
-            value: $value.into(),
-            opt_associated_trace_id: $associated,
-        }
-    }};
-}

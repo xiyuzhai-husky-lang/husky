@@ -19,6 +19,7 @@ husky-datasets-protocol = { path = "../../static/domains/ml/husky-datasets-proto
     "serde_support",
     "signal_support"
 ] }
+husky-text = { path = "../../syntax/husky-text" }
 
 [dependencies.web-sys]
 version = "0.3.57"

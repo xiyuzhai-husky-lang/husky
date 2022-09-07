@@ -108,31 +108,32 @@ impl HuskyTracetime {
             ident: Identifier,
             parameters: &[Parameter],
         ) -> Vec<TraceTokenData> {
-            let mut tokens = vec![
-                keyword!(routine_keyword),
-                ident!(ident.as_str()),
-                special!("("),
-            ];
-            for i in 0..parameters.len() {
-                let parameter = &parameters[i];
-                match parameter.liason() {
-                    ParameterModifier::None => (),
-                    ParameterModifier::Owned => todo!(),
-                    ParameterModifier::OwnedMut => todo!(),
-                    ParameterModifier::MemberAccess => todo!(),
-                    ParameterModifier::EvalRef => todo!(),
-                    ParameterModifier::TempRef => todo!(),
-                    ParameterModifier::TempRefMut => todo!(),
-                }
-                tokens.push(ident!(parameter.ident().as_str()));
-                tokens.push(special!(": "));
-                tokens.push(route!(text.ranged(parameter.raw_ty_range())));
-                if i < parameters.len() - 1 {
-                    tokens.push(special!(", "));
-                }
-            }
-            tokens.push(special!("):"));
-            tokens
+            todo!()
+            // let mut tokens = vec![
+            //     keyword!(routine_keyword),
+            //     ident!(ident.as_str()),
+            //     trace_token_special!("("),
+            // ];
+            // for i in 0..parameters.len() {
+            //     let parameter = &parameters[i];
+            //     match parameter.liason() {
+            //         ParameterModifier::None => (),
+            //         ParameterModifier::Owned => todo!(),
+            //         ParameterModifier::OwnedMut => todo!(),
+            //         ParameterModifier::MemberAccess => todo!(),
+            //         ParameterModifier::EvalRef => todo!(),
+            //         ParameterModifier::TempRef => todo!(),
+            //         ParameterModifier::TempRefMut => todo!(),
+            //     }
+            //     tokens.gen_ident_token(parameter.ident().as_str()));
+            //     tokens.push(trace_token_special!(": "));
+            //     tokens.push(route!(text.ranged(parameter.raw_ty_range())));
+            //     if i < parameters.len() - 1 {
+            //         tokens.push(trace_token_special!(", "));
+            //     }
+            // }
+            // tokens.push(trace_token_special!("):"));
+            // tokens
         }
     }
 }
