@@ -197,7 +197,10 @@ impl<'a> FeatureExprBuilder<'a> {
             PureBinaryOpr::Less => todo!(),
             PureBinaryOpr::Mul => todo!(),
             PureBinaryOpr::RemEuclid => todo!(),
-            PureBinaryOpr::Or => todo!(),
+            PureBinaryOpr::Or => {
+                p!(lopd.expr.qualified_ty);
+                todo!()
+            }
             PureBinaryOpr::Power => todo!(),
             PureBinaryOpr::Shl => todo!(),
             PureBinaryOpr::Shr => todo!(),

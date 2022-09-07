@@ -37,7 +37,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                     HuskyAtomVariant::BePattern(pattern),
                 ))?;
                 for atom in other_atoms {
-                    todo!()
+                    self.stack.push(atom)?
                 }
                 Ok(())
             }
