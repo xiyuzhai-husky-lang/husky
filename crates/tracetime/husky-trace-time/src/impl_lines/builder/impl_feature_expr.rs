@@ -30,6 +30,10 @@ impl<'a> TraceTokenBuilder<'a> {
                 self.push(special!(opr.spaced_code(), opt_assoc_id));
                 self.gen_feature_expr_tokens(&opds[1], config.subexpr())
             }
+            FeatureLazyExprVariant::ShortCircuitBinaryOpr {
+                opr: kind,
+                ref opds,
+            } => todo!(),
             FeatureLazyExprVariant::CustomBinaryOpr { opr, ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
                 self.push(special!(opr.spaced_code(), opt_assoc_id));

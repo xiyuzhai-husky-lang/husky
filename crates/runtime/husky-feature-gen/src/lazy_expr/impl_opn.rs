@@ -149,7 +149,6 @@ impl<'a> FeatureExprBuilder<'a> {
     ) -> (FeatureLazyExprVariant, interner::InternedPtr<Feature>) {
         match this {
             EntityRoutePtr::Root(RootIdentifier::Void)
-            | EntityRoutePtr::Root(RootIdentifier::Bool)
             | EntityRoutePtr::Root(RootIdentifier::I32)
             | EntityRoutePtr::Root(RootIdentifier::F32)
             | EntityRoutePtr::Root(RootIdentifier::F64)
@@ -172,6 +171,39 @@ impl<'a> FeatureExprBuilder<'a> {
                     },
                     feature,
                 )
+            }
+            EntityRoutePtr::Root(RootIdentifier::Bool) => {
+                let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
+                    opr,
+                    lopd: lopd.feature,
+                    ropd: ropd.feature,
+                });
+                match opr {
+                    PureBinaryOpr::And | PureBinaryOpr::Or => (
+                        FeatureLazyExprVariant::ShortCircuitBinaryOpr {
+                            opr,
+                            opds: vec![lopd, ropd],
+                        },
+                        feature,
+                    ),
+                    PureBinaryOpr::Add => todo!(),
+                    PureBinaryOpr::BitAnd => todo!(),
+                    PureBinaryOpr::BitOr => todo!(),
+                    PureBinaryOpr::BitXor => todo!(),
+                    PureBinaryOpr::Div => todo!(),
+                    PureBinaryOpr::Eq => todo!(),
+                    PureBinaryOpr::Geq => todo!(),
+                    PureBinaryOpr::Greater => todo!(),
+                    PureBinaryOpr::Leq => todo!(),
+                    PureBinaryOpr::Less => todo!(),
+                    PureBinaryOpr::Mul => todo!(),
+                    PureBinaryOpr::Neq => todo!(),
+                    PureBinaryOpr::RemEuclid => todo!(),
+                    PureBinaryOpr::Power => todo!(),
+                    PureBinaryOpr::Shl => todo!(),
+                    PureBinaryOpr::Shr => todo!(),
+                    PureBinaryOpr::Sub => todo!(),
+                }
             }
             _ => self.compile_custom_binary_opn(lopd, opr, ropd),
         }

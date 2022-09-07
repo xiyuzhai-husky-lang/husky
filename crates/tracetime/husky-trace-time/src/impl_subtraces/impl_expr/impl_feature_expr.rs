@@ -9,7 +9,8 @@ impl HuskyTracetime {
         match expr.variant {
             FeatureLazyExprVariant::Literal(_)
             | FeatureLazyExprVariant::PrimitiveBinaryOpr { .. }
-            | FeatureLazyExprVariant::Variable { .. } => None,
+            | FeatureLazyExprVariant::Variable { .. }
+            | FeatureLazyExprVariant::ShortCircuitBinaryOpr { .. } => None,
             FeatureLazyExprVariant::RoutineCall {
                 ref opt_instruction_sheet,
                 ref routine_defn,
