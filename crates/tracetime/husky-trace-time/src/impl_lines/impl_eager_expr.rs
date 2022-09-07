@@ -2,7 +2,7 @@ use husky_entity_route::RangedEntityRoute;
 
 use super::*;
 
-impl<'a> TraceTokenBuilder<'a> {
+impl<'a> TraceLineBuilder<'a> {
     pub(crate) fn eager_expr_tokens(
         &mut self,
         expr: &Arc<EagerExpr>,
@@ -16,13 +16,13 @@ impl<'a> TraceTokenBuilder<'a> {
         };
         match expr.variant {
             EagerExprVariant::Variable { varname, .. } => {
-                self.push(ident!(varname.0, associated_trace_id))
+                self.gen_ident_token(varname.0, associated_trace_id)
             }
             EagerExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
             EagerExprVariant::Bracketed(ref expr) => {
-                self.push(special!("("));
+                self.gen_special_token("(", None);
                 self.eager_expr_tokens(expr, history, config.subexpr());
-                self.push(special!(")"));
+                self.gen_special_token(")", None);
             }
             EagerExprVariant::Opn {
                 ref opn_variant,
@@ -30,16 +30,16 @@ impl<'a> TraceTokenBuilder<'a> {
             } => match opn_variant {
                 EagerOpnVariant::Binary { opr } => {
                     self.eager_expr_tokens(&opds[0], history, config.subexpr());
-                    self.push(special!(opr.spaced_code(), associated_trace_id));
+                    self.gen_special_token(opr.spaced_code(), associated_trace_id);
                     self.eager_expr_tokens(&opds[1], history, config.subexpr());
                 }
                 EagerOpnVariant::Prefix { opr, .. } => {
-                    self.push(special!(opr.code(), associated_trace_id));
+                    self.gen_special_token(opr.code(), associated_trace_id);
                     self.eager_expr_tokens(&opds[0], history, config.subexpr());
                 }
                 EagerOpnVariant::Suffix { opr, .. } => {
                     self.eager_expr_tokens(&opds[0], history, config.subexpr());
-                    self.push(special!(opr.code(), associated_trace_id));
+                    self.gen_special_token(&opr.code(), associated_trace_id);
                 }
                 EagerOpnVariant::RoutineCall(ranged_scope) => self.eager_routine_call_tokens(
                     expr.file,
@@ -51,57 +51,57 @@ impl<'a> TraceTokenBuilder<'a> {
                 ),
                 EagerOpnVariant::Field { field_ident, .. } => {
                     self.eager_expr_tokens(&opds[0], history, config.subexpr());
-                    self.push(special!("."));
-                    self.push(ident!(field_ident.ident.0, associated_trace_id));
+                    self.gen_special_token(".", None);
+                    self.gen_ident_token(field_ident.ident.0, associated_trace_id);
                 }
                 EagerOpnVariant::MethodCall { method_ident, .. } => {
                     self.eager_expr_tokens(&opds[0], history, config.subexpr());
-                    self.push(special!("."));
-                    self.push(ident!(method_ident.ident.0, associated_trace_id));
-                    self.push(special!("("));
+                    self.gen_special_token(".", None);
+                    self.gen_ident_token(method_ident.ident.0, associated_trace_id);
+                    self.gen_special_token("(", None);
                     for i in 1..opds.len() {
                         if i > 1 {
-                            self.push(special!(", "))
+                            self.gen_special_token(", ", None)
                         }
                         self.eager_expr_tokens(&opds[i], history, config.subexpr());
                     }
-                    self.push(special!(")"));
+                    self.gen_special_token(")", None);
                 }
                 EagerOpnVariant::Index { .. } => {
                     self.eager_expr_tokens(&opds[0], history, config.subexpr());
-                    self.push(special!("[", associated_trace_id.clone()));
+                    self.gen_special_token("[", associated_trace_id.clone());
                     for i in 1..opds.len() {
                         if i > 1 {
-                            self.push(special!(", "))
+                            self.gen_special_token(", ", None)
                         }
                         self.eager_expr_tokens(&opds[i], history, config.subexpr());
                     }
-                    self.push(special!("]", associated_trace_id));
+                    self.gen_special_token("]", associated_trace_id);
                 }
                 EagerOpnVariant::TypeCall { ranged_ty, .. } => {
                     let text = self.runtime.comptime().text(expr.file).unwrap();
-                    self.push(route!(text.ranged(ranged_ty.range)));
-                    self.push(special!("("));
+                    self.gen_route_token(text.ranged(ranged_ty.range), None);
+                    self.gen_special_token("(", None);
                     for i in 0..opds.len() {
                         if i > 0 {
-                            self.push(special!(", "))
+                            self.gen_special_token(", ", None)
                         }
                         self.eager_expr_tokens(&opds[i], history, config.subexpr());
                     }
-                    self.push(special!(")"));
+                    self.gen_special_token(")", None);
                 }
                 EagerOpnVariant::NewVecFromList => todo!(),
                 EagerOpnVariant::ValueCall => todo!(),
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::ThisValue { .. } => self.push(ident!("this")),
+            EagerExprVariant::ThisValue { .. } => self.gen_ident_token("this", None),
             EagerExprVariant::ThisField { field_ident, .. } => {
-                self.push(ident!(field_ident.ident.0))
+                self.gen_ident_token(field_ident.ident.0, None)
             }
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
             EagerExprVariant::EntityFeature { .. } => {
                 let text = self.runtime.comptime().text(expr.file).unwrap();
-                self.push(route!(text.ranged(expr.range)))
+                self.gen_route_token(text.ranged(expr.range), None)
             }
             EagerExprVariant::EntityThickFp { .. } => todo!(),
         };
@@ -130,14 +130,14 @@ impl<'a> TraceTokenBuilder<'a> {
         let text = self.runtime().comptime().text(file).unwrap();
         self.extend([
             route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
-            special!("("),
+            trace_token_special!("("),
         ]);
         for (i, input) in inputs.iter().enumerate() {
             if i > 0 {
-                self.push(special!(", "));
+                self.gen_special_token(", ", None);
             }
             self.eager_expr_tokens(input, history, config.subexpr());
         }
-        self.push(special!(")"));
+        self.gen_special_token(")", None);
     }
 }

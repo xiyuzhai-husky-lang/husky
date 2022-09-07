@@ -1,19 +1,19 @@
 use super::*;
 
-impl<'a> TraceTokenBuilder<'a> {
+impl<'a> TraceLineBuilder<'a> {
     pub(crate) fn feature_stmt_tokens(&mut self, stmt: &FeatureLazyStmt) {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { varname, ref value } => {
-                self.push(ident!(varname.0));
-                self.push(special!(" = "));
+                self.gen_ident_token(varname.0, None);
+                self.gen_special_token(" = ", None);
                 self.gen_feature_expr_tokens(value, ExprTokenConfig::stmt())
             }
             FeatureLazyStmtVariant::Assert { ref condition } => {
-                self.push(keyword!("assert "));
+                self.gen_keyword_token("assert ", None);
                 self.gen_feature_expr_tokens(condition, ExprTokenConfig::stmt())
             }
             FeatureLazyStmtVariant::Require { ref condition, .. } => {
-                self.push(keyword!("require "));
+                self.gen_keyword_token("require ", None);
                 self.gen_feature_expr_tokens(condition, ExprTokenConfig::stmt())
             }
             FeatureLazyStmtVariant::Return { ref result } => {
