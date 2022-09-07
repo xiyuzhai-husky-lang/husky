@@ -37,8 +37,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         PureBinaryOpr,
         RootIdentifier,
     )] = &[
-        // bool
-        (Bool, And, Bool),
+        // bool is not supported due to short-circuiting
         // i32
         (I32, Add, I32),
         (I32, Div, I32),

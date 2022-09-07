@@ -28,6 +28,7 @@ impl<'eval> TraceVariant<'eval> {
             TraceVariant::FeatureExpr(expr) => match expr.variant {
                 FeatureLazyExprVariant::Literal(_)
                 | FeatureLazyExprVariant::PrimitiveBinaryOpr { .. }
+                | FeatureLazyExprVariant::ShortCircuitBinaryOpr { .. }
                 | FeatureLazyExprVariant::Variable { .. } => false,
                 FeatureLazyExprVariant::StructOriginalField { .. } => false,
                 FeatureLazyExprVariant::EntityFeature { .. } => true,

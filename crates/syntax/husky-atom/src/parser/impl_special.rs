@@ -17,7 +17,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
             SpecialToken::DoubleVertical => self.stack.push(HuskyAtom::new(
                 self.token_stream.text_range(text_start),
                 if !self.stack.is_concave() {
-                    BinaryOpr::Pure(PureBinaryOpr::Or).into()
+                     BinaryOpr::Pure(PureBinaryOpr::Or).into()
                 } else {
                     HuskyAtomVariant::LambdaHead(Vec::new())
                 },

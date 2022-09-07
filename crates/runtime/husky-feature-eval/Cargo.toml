@@ -45,4 +45,5 @@ husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-data-viewer = { path = "../husky-data-viewer" }
 husky-pattern-semantics = { path = "../../semantics/husky-pattern-semantics" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }

@@ -2,6 +2,7 @@ use crate::*;
 use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
 use husky_opn_semantics::ImplicitConversion;
+use husky_opn_syntax::PureBinaryOpr;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_print_utils::{msg_once, p};
 use husky_trace_protocol::VisualData;
@@ -20,6 +21,24 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureLazyExprVariant::PrimitiveBinaryOpr {
                 linkage, ref opds, ..
             } => self.eval_routine_call(&None, Some(linkage), opds),
+            FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr, ref opds } => {
+                let lopd = self.eval_expr(&opds[0])?.to_bool();
+                match opr {
+                    PureBinaryOpr::And => {
+                        if !lopd {
+                            return Ok((false).to_register());
+                        }
+                        self.eval_expr(&opds[1])
+                    }
+                    PureBinaryOpr::Or => {
+                        if lopd {
+                            return Ok((true).to_register());
+                        }
+                        self.eval_expr(&opds[1])
+                    }
+                    _ => panic!(),
+                }
+            }
             FeatureLazyExprVariant::StructOriginalField {
                 ref this,
                 field_idx,
@@ -45,10 +64,6 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 self.eval_feature_repr_cached(repr)
             }
             FeatureLazyExprVariant::NewRecord { .. } => todo!(),
-            // Ok(self
-            //     .sheet
-            //     .resolve_record_call(self.db, expr.eval_id, entity, opds)
-            //     .into()),
             FeatureLazyExprVariant::Variable { ref value, .. } => self
                 .cache(EvalKey::Feature(expr.feature), |evaluator: &Self| {
                     evaluator.eval_expr(&value)
