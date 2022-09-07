@@ -36,6 +36,13 @@ def is_one -> ?MnistLabel:
     if (one_fermi_match.matches[0] be none) || (one_fermi_match.matches[0].hausdorff_norm < 3.0):
         if one_fermi_match.matches[1] be none:
             MnistLabel::One
+        // if one_fermi_match.matches[0] be some:
+        //     narrow_down(
+        //         MnistLabel::One,
+        //         one_fermi_match.matches[0].norm,
+        //         one_fermi_match.matches[0].rel_norm,
+        //         one_fermi_match.matches[0].angle_change.abs(),
+        //     )?
         boosting_with_vmax_normalized(
             MnistLabel::One,
             one_fermi_match.matches[1].hausdorff_norm,
@@ -43,12 +50,6 @@ def is_one -> ?MnistLabel:
             one_fermi_match.matches[1].angle_change.abs(),
         )
     downmost_hausdorff_norm = one_fermi_match.matches[0].hausdorff_norm
-    if downmost_hausdorff_norm < 3.0:
-        boosting_with_vmax_normalized(
-            MnistLabel::One,
-            downmost_hausdorff_norm,
-            one_fermi_match.matches[0].angle_change.abs(),
-        )
     MnistLabel::One
 
 func one_fermi_match -> FermiMatchResult:

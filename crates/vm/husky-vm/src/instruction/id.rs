@@ -4,7 +4,7 @@ use std::{
 };
 
 use husky_file::FilePtr;
-use husky_text::TextRange;
+use husky_text::{FileRange, TextRange};
 
 static NEXT_VM_INSTRUCTION_ID: AtomicUsize = AtomicUsize::new(0);
 
@@ -15,6 +15,9 @@ pub trait InstructionSource: std::fmt::Debug + Send + Sync + RefUnwindSafe {
     fn instruction_id(&self) -> InstructionId;
     fn file(&self) -> FilePtr;
     fn text_range(&self) -> TextRange;
+    fn file_range(&self) -> FileRange {
+        FileRange::new(self.file(), self.text_range())
+    }
 }
 
 impl Default for InstructionId {

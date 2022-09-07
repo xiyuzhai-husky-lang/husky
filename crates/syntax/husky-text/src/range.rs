@@ -4,6 +4,7 @@ mod bind_into;
 pub use bind_from::*;
 pub use bind_into::*;
 use husky_display_utils::HuskyDisplay;
+use husky_file::FilePtr;
 
 use crate::*;
 use husky_dev_utils::__StaticDevSource;
@@ -16,6 +17,43 @@ use std::fmt::Write;
 pub struct TextRange {
     pub start: TextPosition,
     pub end: TextPosition,
+}
+
+pub struct FileRange {
+    file: FilePtr,
+    range: TextRange,
+}
+
+impl FileRange {
+    pub fn new(file: FilePtr, range: TextRange) -> Self {
+        Self { file, range }
+    }
+}
+
+impl std::fmt::Display for TextRange {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("{:?} - {:?}", self.start, self.end))
+    }
+}
+
+impl std::fmt::Display for FileRange {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!(
+            "{}:{}",
+            self.file.as_os_str().to_str().unwrap(),
+            self.range
+        ))
+    }
+}
+
+impl std::fmt::Debug for FileRange {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!(
+            "{}:{}",
+            self.file.as_os_str().to_str().unwrap(),
+            self.range
+        ))
+    }
 }
 
 impl HuskyDisplay for TextRange {
