@@ -149,6 +149,7 @@ impl<'a> FeatureExprBuilder<'a> {
     ) -> (FeatureLazyExprVariant, interner::InternedPtr<Feature>) {
         match this {
             EntityRoutePtr::Root(RootIdentifier::Void)
+            | EntityRoutePtr::Root(RootIdentifier::Bool)
             | EntityRoutePtr::Root(RootIdentifier::I32)
             | EntityRoutePtr::Root(RootIdentifier::F32)
             | EntityRoutePtr::Root(RootIdentifier::F64)
