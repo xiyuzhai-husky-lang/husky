@@ -79,14 +79,18 @@ impl MatchPatternParser {
     }
 
     fn next_pattern_opr(&mut self) -> Option<(PatternOpr, TextRange)> {
-        let atom = &self.next_atom()?;
+        let atom = self.peek_atom()?;
         let opr = match atom.variant {
             HuskyAtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::BitOr)) => PatternOpr::Or,
+            HuskyAtomVariant::ListItem => {
+                return None;
+            }
             _ => {
-                p!(atom.variant);
+                p!(atom.variant, atom.range);
                 todo!()
             }
         };
+        let atom = self.next_atom().unwrap();
         Some((opr, atom.range))
     }
 
@@ -106,6 +110,10 @@ impl MatchPatternParser {
         } else {
             Some(&self.atoms[self.next])
         }
+    }
+
+    fn proceed(&mut self) {
+        self.next += 1;
     }
 
     fn parse_into_pattern(mut self) -> AtomResult<(RawPattern, Vec<HuskyAtom>)> {

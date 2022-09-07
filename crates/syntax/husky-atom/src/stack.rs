@@ -61,7 +61,15 @@ impl AtomStack {
             self.atoms.push(atom);
             Ok(())
         } else {
-            err!("convexity not compatible", atom.text_range())
+            err!(
+                format!(
+                    "convexity not compatible for `{:?}`, self.convexity() = {:?}, last_atom = `{:?}`",
+                    atom.variant,
+                    self.convexity(),
+                    self.atoms.last().unwrap().variant
+                ),
+                atom.text_range()
+            )
         }
     }
 

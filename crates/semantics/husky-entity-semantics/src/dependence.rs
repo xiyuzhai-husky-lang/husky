@@ -379,7 +379,7 @@ impl EntityDefn {
             match expr.variant {
                 LazyExprVariant::Variable { .. } | LazyExprVariant::PrimitiveLiteral(_) => (),
                 LazyExprVariant::EnumLiteral { .. } => (),
-                LazyExprVariant::Bracketed(_) => todo!(),
+                LazyExprVariant::Bracketed(ref expr) => extract_lazy_expr_dependees(expr, builder),
                 LazyExprVariant::Opn { opn_kind, ref opds } => {
                     match opn_kind {
                         LazyOpnKind::Binary { .. }
