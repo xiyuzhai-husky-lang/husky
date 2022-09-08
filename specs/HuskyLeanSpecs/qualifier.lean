@@ -28,8 +28,5 @@ example : is_enumeration all_ref_qualifiers := by
   apply rfl
   intro a
   cases a with
-  | None => rfl
-  | EvalRef => rfl
-  | TempRef => rfl
-  | TempRefMut => rfl
+  | _ => rfl
 end RefQualifier
