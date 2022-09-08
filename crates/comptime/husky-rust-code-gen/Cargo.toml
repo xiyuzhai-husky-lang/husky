@@ -11,6 +11,7 @@ doctest = false
 
 [dependencies]
 convert_case = "0.5.0"
+path-slash = "0.2.1"
 salsa = "0.17.0-pre.2"
 vec-like = { path = "../../abstraction/vec-like" }
 fold = { path = "../../abstraction/fold" }
