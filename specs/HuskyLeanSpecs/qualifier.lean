@@ -22,8 +22,14 @@ def no_dups[BEq α](list : List α) : Bool := list.eraseDups == list
 def is_enumeration[BEq α](list: List α) : Prop :=
   no_dups list ∧ (∀ a : α, list.contains a)
 
-theorem haha : is_enumeration all_ref_qualifiers := by
+namespace RefQualifier
+example : is_enumeration all_ref_qualifiers := by
   apply And.intro
   apply rfl
-  simp
-  sorry
+  intro a
+  cases a with
+  | None => rfl
+  | EvalRef => rfl
+  | TempRef => rfl
+  | TempRefMut => rfl
+end RefQualifier
