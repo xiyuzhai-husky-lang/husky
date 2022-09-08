@@ -19,6 +19,12 @@ pub struct TextRange {
     pub end: TextPosition,
 }
 
+impl TextRange {
+    pub fn closed_end(&self) -> TextPosition {
+        self.end.to_left(1)
+    }
+}
+
 pub struct FileRange {
     file: FilePtr,
     range: TextRange,

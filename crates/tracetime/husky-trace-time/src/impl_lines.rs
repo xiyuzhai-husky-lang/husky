@@ -8,6 +8,7 @@ mod impl_proc_stmt;
 mod impl_token;
 
 pub use expr_config::*;
+use husky_text::Row;
 
 use super::*;
 
@@ -27,6 +28,7 @@ pub struct TraceLineBuilder<'a> {
     indent: Indent,
     has_parent: bool,
     lines: Vec<TraceLineData>,
+    opt_cur_row: Option<Row>,
 }
 
 impl<'a> TraceLineBuilder<'a> {
@@ -46,6 +48,7 @@ impl<'a> TraceLineBuilder<'a> {
                 tokens: vec![],
                 idx: 0,
             }],
+            opt_cur_row: None,
         }
     }
 }
@@ -67,20 +70,20 @@ impl<'a> std::ops::DerefMut for TraceLineBuilder<'a> {
 impl<'a> TraceLineBuilder<'a> {
     pub(super) fn build(mut self) -> Vec<TraceLineData> {
         match self.trace_variant {
-            TraceVariant::Main(_) => self.gen_keyword_token("main", None),
+            TraceVariant::Main(_) => self.gen_keyword_token("main", None, None),
             TraceVariant::EntityFeature {
                 route, ref repr, ..
             } => {
                 if let Some(token) = repr.opt_leading_keyword() {
-                    self.gen_keyword_token(token, None);
-                    self.gen_ident_token(route.ident().as_str(), None)
+                    self.gen_keyword_token(token, None, None);
+                    self.gen_ident_token(route.ident().as_str(), None, None)
                 } else {
-                    self.gen_keyword_token(route.ident().as_str(), None)
+                    self.gen_keyword_token(route.ident().as_str(), None, None)
                 }
             }
             TraceVariant::Module { route, .. } => {
                 self.gen_mod();
-                self.gen_ident_token(route.ident().as_str(), None)
+                self.gen_ident_token(route.ident().as_str(), None, None)
             }
             TraceVariant::FeatureStmt(stmt) => self.feature_stmt_tokens(stmt),
             TraceVariant::FeatureExpr(ref expr) => {
@@ -118,7 +121,7 @@ impl<'a> TraceLineBuilder<'a> {
                 ..
             } => self.gen_proc_branch_tokens(stmt, branch, history),
             TraceVariant::FeatureCallArgument { name, argument } => {
-                self.gen_ident_token(name, None);
+                self.gen_ident_token(name, None, None);
                 self.gen_assign_token();
                 self.gen_feature_expr_tokens(argument, ExprTokenConfig::expr(true))
             }
@@ -127,7 +130,7 @@ impl<'a> TraceLineBuilder<'a> {
                 ref argument,
                 ref history,
             } => {
-                self.gen_ident_token(name, None);
+                self.gen_ident_token(name, None, None);
                 self.gen_assign_token();
                 self.gen_eager_expr_tokens(argument, history, ExprTokenConfig::expr(true));
             }
@@ -144,17 +147,17 @@ impl<'a> TraceLineBuilder<'a> {
             ControlSnapshot::None => (),
             ControlSnapshot::Return(_) => {
                 self.gen_fade_assign_token();
-                self.gen_keyword_token("return", None);
+                self.gen_keyword_token("return", None, None);
                 todo!()
                 // self.push(value.snapshot().into());
             }
             ControlSnapshot::Break => {
                 self.gen_fade_assign_token();
-                self.gen_keyword_token("break", None);
+                self.gen_keyword_token("break", None, None);
             }
             ControlSnapshot::Err(ref e) => {
                 self.gen_fade_assign_token();
-                self.gen_error_token(e)
+                self.gen_error_token(e, None)
             }
         }
     }

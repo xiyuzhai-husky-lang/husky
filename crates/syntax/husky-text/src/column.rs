@@ -5,7 +5,7 @@ use std::fmt::Write;
 #[derive(
     Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
 )]
-pub struct Column(pub(crate) u32); // raw is 0 based
+pub struct Column(pub u32); // raw is 0 based
 
 impl HuskyDisplay for Column {
     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
