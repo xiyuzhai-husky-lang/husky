@@ -3,6 +3,14 @@ inductive Paradigm
   | EagerFunctional
   | EagerProcedural
 
+namespace Paradigm
+def ParadigmEnumeration := [
+  LazyFunctional,
+  EagerFunctional,
+  EagerProcedural
+]
+end Paradigm
+
 inductive ConfigKeyword
   | Task
 
@@ -10,6 +18,21 @@ inductive TyKeyword
   | Struct
   | Enum
   | Record
+
+
+namespace TyKeyword
+def TyKeywordEnumeration := [
+  Struct,
+  Enum,
+  Record
+]
+instance : BEq TyKeyword where
+  beq
+  | Struct, Struct => true
+  | Enum, Enum => true
+  | Record, Record => true
+  | _, _ => false
+end TyKeyword
 
 inductive StmtKeyword
   | Let
@@ -28,6 +51,48 @@ inductive StmtKeyword
   | Return
   | Assert
   | Require
+
+namespace StmtKeyword
+def StmtKeywordEnumeration := [
+  Let,
+  Var,
+  If,
+  Elif,
+  Else,
+  Match,
+  Case,
+  DeFault,
+  For,
+  ForExt,
+  While,
+  Do,
+  Break,
+  Return,
+  Assert,
+  Require
+]
+
+instance : BEq StmtKeyword where
+  beq
+  | Let, Let => true
+  | Var, Var => true
+  | If, If => true
+  | Elif, Elif => true
+  | Else, Else => true
+  | Match, Match => true
+  | Case, Case => true
+  | DeFault, DeFault => true
+  | For, For => true
+  | ForExt,ForExt => true
+  | While, While => true
+  | Do, Do => true
+  | Break, Break => true
+  | Return, Return => true
+  | Assert, Assert => true
+  | Require, Require => true
+  | _, _ => false
+
+end StmtKeyword
 
 namespace StmtKeyword
 def as_str(kw: StmtKeyword): String :=
