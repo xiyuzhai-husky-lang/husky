@@ -1,0 +1,24 @@
+亲爱的宝贝儿子，妈妈好高兴啊
+成功了ssssssssssggggggikjuhyu kjl
+ooooooooo
+llllll
+kkkk
+jj
+p
+o
+i
+u
+y
+u
+pppppppp
+uuuu
+yyy
+hhh
+ooooo
+oi
+lk
+12333
+4
+5
+6
+9

@@ -11,37 +11,37 @@ impl<'a> TraceLineBuilder<'a> {
         expr: &Arc<FeatureLazyExpr>,
         config: ExprTokenConfig,
     ) {
-        let opt_assoc_id = if config.associated {
+        let opt_assoc = if config.associated {
             Some(self.new_trace(None, 0, TraceVariant::FeatureExpr(expr.clone())))
         } else {
             None
         };
         match expr.variant {
             FeatureLazyExprVariant::Literal(_) => match expr.expr.variant {
-                LazyExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
+                LazyExprVariant::PrimitiveLiteral(value) => self.gen_literal_token(value),
                 LazyExprVariant::EnumLiteral { .. } => {
                     let text = self.runtime().comptime().text(expr.expr.file).unwrap();
-                    self.gen_route_token(text.ranged(expr.expr.range), opt_assoc_id)
+                    self.gen_route_token(text.ranged(expr.expr.range), opt_assoc)
                 }
                 _ => panic!(),
             },
             FeatureLazyExprVariant::PrimitiveBinaryOpr { opr, ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
-                self.gen_special_token(opr.spaced_code(), opt_assoc_id);
+                self.gen_special_token(opr.spaced_code(), opt_assoc);
                 self.gen_feature_expr_tokens(&opds[1], config.subexpr())
             }
             FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr, ref opds } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
-                self.gen_special_token(opr.spaced_code(), opt_assoc_id);
+                self.gen_special_token(opr.spaced_code(), opt_assoc);
                 self.gen_feature_expr_tokens(&opds[1], config.subexpr())
             }
             FeatureLazyExprVariant::CustomBinaryOpr { opr, ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
-                self.gen_special_token(opr.spaced_code(), opt_assoc_id);
+                self.gen_special_token(opr.spaced_code(), opt_assoc);
                 self.gen_feature_expr_tokens(&opds[1], config.subexpr())
             }
             FeatureLazyExprVariant::Variable { varname, .. } => {
-                self.gen_ident_token(varname.0, opt_assoc_id)
+                self.gen_ident_token(varname.0, opt_assoc)
             }
             FeatureLazyExprVariant::RoutineCall {
                 opds: ref feature_opds,
@@ -53,7 +53,7 @@ impl<'a> TraceLineBuilder<'a> {
                             expr.expr.file,
                             ranged_route,
                             feature_opds,
-                            opt_assoc_id,
+                            opt_assoc,
                             config,
                         ),
                     LazyOpnKind::StructCall(_) => todo!(),
@@ -81,7 +81,7 @@ impl<'a> TraceLineBuilder<'a> {
                         expr.expr.file,
                         route,
                         opds,
-                        opt_assoc_id,
+                        opt_assoc,
                         config,
                     ),
                     LazyOpnKind::StructCall(_) => todo!(),
@@ -95,42 +95,42 @@ impl<'a> TraceLineBuilder<'a> {
             },
             FeatureLazyExprVariant::EntityFeature { .. } => {
                 let text = self.runtime.comptime().text(expr.expr.file).unwrap();
-                self.gen_route_token(text.ranged(expr.expr.range), opt_assoc_id)
+                self.gen_route_token(text.ranged(expr.expr.range), opt_assoc)
             }
             FeatureLazyExprVariant::NewRecord { .. } => todo!(),
             FeatureLazyExprVariant::ThisValue { .. } => todo!(),
             FeatureLazyExprVariant::EvalInput => self.gen_keyword_token("input", None),
             FeatureLazyExprVariant::Index { ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
-                self.gen_special_token("[", opt_assoc_id.clone());
+                self.gen_special_token("[", opt_assoc.clone());
                 for i in 1..opds.len() {
                     let index_opd = &opds[i];
                     self.gen_feature_expr_tokens(index_opd, config.subexpr());
                 }
-                self.gen_special_token("]", opt_assoc_id)
+                self.gen_special_token("]", opt_assoc)
             }
             FeatureLazyExprVariant::RecordDerivedField {
                 ref this,
                 field_ident,
                 ..
-            } => self.gen_feature_eager_field_tokens(config, this, field_ident),
+            } => self.gen_feature_eager_field_tokens(config, this, field_ident, opt_assoc),
             FeatureLazyExprVariant::StructOriginalField {
                 ref this,
                 field_ident,
                 ..
-            } => self.gen_feature_eager_field_tokens(config, this, field_ident),
+            } => self.gen_feature_eager_field_tokens(config, this, field_ident, opt_assoc),
             FeatureLazyExprVariant::RecordOriginalField {
                 ref this,
                 field_ident,
                 ..
-            } => self.gen_feature_eager_field_tokens(config, this, field_ident),
+            } => self.gen_feature_eager_field_tokens(config, this, field_ident, opt_assoc),
             FeatureLazyExprVariant::StructDerivedLazyField {
                 ref this,
                 field_ident,
                 ..
-            } => self.gen_feature_lazy_field_tokens(this, field_ident, opt_assoc_id, config),
+            } => self.gen_feature_lazy_field_tokens(this, field_ident, opt_assoc, config),
             FeatureLazyExprVariant::NewVecFromList { ref elements, .. } => {
-                self.gen_new_vec_from_list_tokens(elements, opt_assoc_id, config)
+                self.gen_new_vec_from_list_tokens(elements, opt_assoc, config)
             }
             FeatureLazyExprVariant::BePattern { ref this, ref patt } => {
                 self.gen_be_pattern(this, patt, config)
@@ -159,14 +159,13 @@ impl<'a> TraceLineBuilder<'a> {
         config: ExprTokenConfig,
         this: &FeatureRepr,
         field_ident: RangedCustomIdentifier,
+        opt_associated_trace_id: Option<TraceId>,
     ) {
         match this {
             FeatureRepr::LazyExpr(this) => {
                 self.gen_feature_expr_tokens(this, config.subexpr());
-                self.extend([
-                    trace_token_special!("."),
-                    ident!(field_ident.ident.as_str()),
-                ])
+                self.gen_special_token(".", None);
+                self.gen_ident_token(field_ident.ident.as_str(), opt_associated_trace_id)
             }
             _ => self.gen_ident_token(field_ident.ident.as_str(), None),
         }
