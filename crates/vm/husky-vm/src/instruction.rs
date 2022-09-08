@@ -40,27 +40,6 @@ impl Instruction {
     pub fn ins_id(&self) -> InstructionId {
         self.src.instruction_id()
     }
-
-    pub fn describe_like_assembly(&self) -> &'static str {
-        match self.variant {
-            InstructionVariant::PushVariable { .. } => todo!(),
-            InstructionVariant::PushLiteralValue { .. } => todo!(),
-            InstructionVariant::CallRoutine { .. } => "call routine",
-            InstructionVariant::CallInterpreted { .. } => todo!(),
-            InstructionVariant::VirtualStructField { .. } => todo!(),
-            InstructionVariant::NewVirtualStruct { .. } => todo!(),
-            InstructionVariant::Loop { .. } => todo!(),
-            InstructionVariant::Return { .. } => todo!(),
-            InstructionVariant::BreakIfFalse => todo!(),
-            InstructionVariant::Break => todo!(),
-            InstructionVariant::Assert => todo!(),
-            InstructionVariant::ConditionFlow { .. } => todo!(),
-            InstructionVariant::PatternMatch { .. } => todo!(),
-            InstructionVariant::EntityFeature { .. } => todo!(),
-            InstructionVariant::PushEntityFp { .. } => todo!(),
-            InstructionVariant::Require => "require",
-        }
-    }
 }
 
 impl<
