@@ -41,3 +41,4 @@ husky-file = { path = "../../syntax/husky-file" }
 husky-diagnostics = { path = "../../semantics/husky-diagnostics" }
 husky-token = { path = "../../syntax/husky-token" }
 husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
+winapi = "0.3.9"

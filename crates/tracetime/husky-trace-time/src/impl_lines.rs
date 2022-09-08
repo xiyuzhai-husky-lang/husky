@@ -67,7 +67,7 @@ impl<'a> std::ops::DerefMut for TraceLineBuilder<'a> {
 impl<'a> TraceLineBuilder<'a> {
     pub(super) fn build(mut self) -> Vec<TraceLineData> {
         match self.trace_variant {
-            TraceVariant::Main(_) => self.push_keyword("main"),
+            TraceVariant::Main(_) => self.gen_keyword_token("main", None),
             TraceVariant::EntityFeature {
                 route, ref repr, ..
             } => {
@@ -79,11 +79,7 @@ impl<'a> TraceLineBuilder<'a> {
                 }
             }
             TraceVariant::Module { route, .. } => {
-                self.push(TraceTokenData {
-                    kind: TraceTokenKind::Mod,
-                    value: "mod ".into(),
-                    opt_associated_trace_id: None,
-                });
+                self.gen_mod();
                 self.gen_ident_token(route.ident().as_str(), None)
             }
             TraceVariant::FeatureStmt(stmt) => self.feature_stmt_tokens(stmt),
@@ -103,32 +99,28 @@ impl<'a> TraceLineBuilder<'a> {
             TraceVariant::EagerExpr {
                 ref expr,
                 ref history,
-            } => self.eager_expr_tokens(expr, history, ExprTokenConfig::expr(self.has_parent)),
+            } => self.gen_eager_expr_tokens(expr, history, ExprTokenConfig::expr(self.has_parent)),
             TraceVariant::CallHead { ref tokens, .. } => self.extend(tokens.clone()),
             TraceVariant::LoopFrame {
                 ref loop_frame_data,
                 ..
-            } => self.loop_frame_tokens(loop_frame_data),
+            } => self.gen_loop_frame_tokens(loop_frame_data),
             TraceVariant::FuncBranch {
                 stmt,
                 branch,
                 history,
                 ..
-            } => self.func_branch_tokens(stmt, branch, history),
+            } => self.gen_func_branch_tokens(stmt, branch, history),
             TraceVariant::ProcBranch {
                 stmt,
                 branch,
                 history,
                 ..
-            } => self.proc_branch_tokens(stmt, branch, history),
-            TraceVariant::FeatureCallArgument {
-                name: ident,
-                argument: input,
-            } => {
-                self.gen_feature_expr_tokens(input, ExprTokenConfig::expr(true));
-                let first_line = self.lines.first_mut().unwrap();
-                first_line.tokens.insert(0, trace_token_special!(" = "));
-                first_line.tokens.insert(0, ident!(*ident))
+            } => self.gen_proc_branch_tokens(stmt, branch, history),
+            TraceVariant::FeatureCallArgument { name, argument } => {
+                self.gen_ident_token(name, None);
+                self.gen_assign_token();
+                self.gen_feature_expr_tokens(argument, ExprTokenConfig::expr(true))
             }
             TraceVariant::EagerCallArgument {
                 name,
@@ -137,7 +129,7 @@ impl<'a> TraceLineBuilder<'a> {
             } => {
                 self.gen_ident_token(name, None);
                 self.gen_assign_token();
-                self.eager_expr_tokens(argument, history, ExprTokenConfig::expr(true));
+                self.gen_eager_expr_tokens(argument, history, ExprTokenConfig::expr(true));
             }
         }
         self.lines
@@ -151,22 +143,18 @@ impl<'a> TraceLineBuilder<'a> {
         match control {
             ControlSnapshot::None => (),
             ControlSnapshot::Return(_) => {
-                self.push(fade!(" = "));
+                self.gen_fade_assign_token();
                 self.gen_keyword_token("return", None);
                 todo!()
                 // self.push(value.snapshot().into());
             }
             ControlSnapshot::Break => {
-                self.push(fade!(" = "));
+                self.gen_fade_assign_token();
                 self.gen_keyword_token("break", None);
             }
             ControlSnapshot::Err(ref e) => {
-                self.push(fade!(" = "));
-                self.push(TraceTokenData {
-                    kind: TraceTokenKind::Error,
-                    value: e.message().to_string(),
-                    opt_associated_trace_id: None,
-                });
+                self.gen_fade_assign_token();
+                self.gen_error_token(e)
             }
         }
     }

@@ -124,7 +124,14 @@ impl HuskyTracetime {
         ty: EntityRoutePtr,
     ) -> TraceStalk {
         TraceStalk {
-            extra_tokens: vec![fade!(" = "), self.trace_token_from_result(result, ty)],
+            extra_tokens: vec![
+                TraceTokenData {
+                    kind: TraceTokenKind::Fade,
+                    value: " = ".to_string(),
+                    opt_associated_trace_id: None,
+                },
+                self.trace_token_from_result(result, ty),
+            ],
             kind: TraceStalkKind::Value,
         }
     }

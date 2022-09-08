@@ -21,11 +21,7 @@ impl<'a> TraceLineBuilder<'a> {
             }
             FeatureLazyStmtVariant::ReturnUnveil { ref result, .. } => {
                 self.gen_feature_expr_tokens(result, ExprTokenConfig::stmt());
-                self.push(TraceTokenData {
-                    kind: TraceTokenKind::Special,
-                    value: "?".to_string(),
-                    opt_associated_trace_id: None,
-                })
+                self.gen_special_token("?", None)
             }
             FeatureLazyStmtVariant::ConditionFlow { .. } => panic!(),
             FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),

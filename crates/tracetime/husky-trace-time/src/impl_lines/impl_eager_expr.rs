@@ -3,7 +3,7 @@ use husky_entity_route::RangedEntityRoute;
 use super::*;
 
 impl<'a> TraceLineBuilder<'a> {
-    pub(crate) fn eager_expr_tokens(
+    pub(crate) fn gen_eager_expr_tokens(
         &mut self,
         expr: &Arc<EagerExpr>,
         history: &Arc<History<'static>>,
@@ -18,10 +18,10 @@ impl<'a> TraceLineBuilder<'a> {
             EagerExprVariant::Variable { varname, .. } => {
                 self.gen_ident_token(varname.0, associated_trace_id)
             }
-            EagerExprVariant::PrimitiveLiteral(value) => self.push(literal!(value)),
+            EagerExprVariant::PrimitiveLiteral(value) => self.gen_literal_token(value),
             EagerExprVariant::Bracketed(ref expr) => {
                 self.gen_special_token("(", None);
-                self.eager_expr_tokens(expr, history, config.subexpr());
+                self.gen_eager_expr_tokens(expr, history, config.subexpr());
                 self.gen_special_token(")", None);
             }
             EagerExprVariant::Opn {
@@ -29,16 +29,16 @@ impl<'a> TraceLineBuilder<'a> {
                 ref opds,
             } => match opn_variant {
                 EagerOpnVariant::Binary { opr } => {
-                    self.eager_expr_tokens(&opds[0], history, config.subexpr());
+                    self.gen_eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.gen_special_token(opr.spaced_code(), associated_trace_id);
-                    self.eager_expr_tokens(&opds[1], history, config.subexpr());
+                    self.gen_eager_expr_tokens(&opds[1], history, config.subexpr());
                 }
                 EagerOpnVariant::Prefix { opr, .. } => {
                     self.gen_special_token(opr.code(), associated_trace_id);
-                    self.eager_expr_tokens(&opds[0], history, config.subexpr());
+                    self.gen_eager_expr_tokens(&opds[0], history, config.subexpr());
                 }
                 EagerOpnVariant::Suffix { opr, .. } => {
-                    self.eager_expr_tokens(&opds[0], history, config.subexpr());
+                    self.gen_eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.gen_special_token(&opr.code(), associated_trace_id);
                 }
                 EagerOpnVariant::RoutineCall(ranged_scope) => self.eager_routine_call_tokens(
@@ -50,12 +50,12 @@ impl<'a> TraceLineBuilder<'a> {
                     &config,
                 ),
                 EagerOpnVariant::Field { field_ident, .. } => {
-                    self.eager_expr_tokens(&opds[0], history, config.subexpr());
+                    self.gen_eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.gen_special_token(".", None);
                     self.gen_ident_token(field_ident.ident.0, associated_trace_id);
                 }
                 EagerOpnVariant::MethodCall { method_ident, .. } => {
-                    self.eager_expr_tokens(&opds[0], history, config.subexpr());
+                    self.gen_eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.gen_special_token(".", None);
                     self.gen_ident_token(method_ident.ident.0, associated_trace_id);
                     self.gen_special_token("(", None);
@@ -63,18 +63,18 @@ impl<'a> TraceLineBuilder<'a> {
                         if i > 1 {
                             self.gen_special_token(", ", None)
                         }
-                        self.eager_expr_tokens(&opds[i], history, config.subexpr());
+                        self.gen_eager_expr_tokens(&opds[i], history, config.subexpr());
                     }
                     self.gen_special_token(")", None);
                 }
                 EagerOpnVariant::Index { .. } => {
-                    self.eager_expr_tokens(&opds[0], history, config.subexpr());
+                    self.gen_eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.gen_special_token("[", associated_trace_id.clone());
                     for i in 1..opds.len() {
                         if i > 1 {
                             self.gen_special_token(", ", None)
                         }
-                        self.eager_expr_tokens(&opds[i], history, config.subexpr());
+                        self.gen_eager_expr_tokens(&opds[i], history, config.subexpr());
                     }
                     self.gen_special_token("]", associated_trace_id);
                 }
@@ -86,7 +86,7 @@ impl<'a> TraceLineBuilder<'a> {
                         if i > 0 {
                             self.gen_special_token(", ", None)
                         }
-                        self.eager_expr_tokens(&opds[i], history, config.subexpr());
+                        self.gen_eager_expr_tokens(&opds[i], history, config.subexpr());
                     }
                     self.gen_special_token(")", None);
                 }
@@ -106,14 +106,11 @@ impl<'a> TraceLineBuilder<'a> {
             EagerExprVariant::EntityThickFp { .. } => todo!(),
         };
         if config.appended {
-            self.push(fade!(" = "));
+            self.gen_fade_assign_token();
             if let Some(result) = history.register_result(expr) {
-                self.push(
-                    self.trace_time
-                        .trace_token_from_result(result, expr.intrinsic_ty()),
-                )
+                self.gen_result_token(result, expr.intrinsic_ty())
             } else {
-                self.push(fade!("???"))
+                self.gen_fade_token("???")
             }
         }
     }
@@ -128,15 +125,13 @@ impl<'a> TraceLineBuilder<'a> {
         config: &ExprTokenConfig,
     ) {
         let text = self.runtime().comptime().text(file).unwrap();
-        self.extend([
-            route!(text.ranged(ranged_scope.range), opt_associated_trace_id),
-            trace_token_special!("("),
-        ]);
+        self.gen_route_token(text.ranged(ranged_scope.range), opt_associated_trace_id);
+        self.gen_special_token("(", None);
         for (i, input) in inputs.iter().enumerate() {
             if i > 0 {
                 self.gen_special_token(", ", None);
             }
-            self.eager_expr_tokens(input, history, config.subexpr());
+            self.gen_eager_expr_tokens(input, history, config.subexpr());
         }
         self.gen_special_token(")", None);
     }
