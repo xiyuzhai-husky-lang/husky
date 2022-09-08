@@ -1,6 +1,6 @@
 structure File
 
-structure Range
+structure TextRange
 
 structure RawStmt
 
