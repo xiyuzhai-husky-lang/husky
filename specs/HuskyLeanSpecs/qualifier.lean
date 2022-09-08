@@ -4,6 +4,7 @@ inductive RefQualifier
   | TempRef
   | TempRefMut
 
+
 namespace RefQualifier
 instance : BEq RefQualifier where
   beq
@@ -21,6 +22,10 @@ def no_dups[BEq α](list : List α) : Bool := list.eraseDups == list
 
 def is_enumeration[BEq α](list: List α) : Prop :=
   no_dups list ∧ (∀ a : α, list.contains a)
+
+structure Enumeration [BEq α] where
+  enumeration : List α
+  proof : is_enumeration enumeration
 
 namespace RefQualifier
 example : is_enumeration all_ref_qualifiers := by
