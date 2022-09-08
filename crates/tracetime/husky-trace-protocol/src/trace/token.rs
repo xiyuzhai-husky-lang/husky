@@ -1,5 +1,4 @@
 use husky_signal::Signalable;
-use husky_text::TextRange;
 
 use super::*;
 
