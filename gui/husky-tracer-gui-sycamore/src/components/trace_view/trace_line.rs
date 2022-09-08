@@ -1,5 +1,4 @@
 mod trace_arrival;
-mod trace_arrival_refined_control;
 mod trace_expansion;
 mod trace_pin;
 mod trace_token;

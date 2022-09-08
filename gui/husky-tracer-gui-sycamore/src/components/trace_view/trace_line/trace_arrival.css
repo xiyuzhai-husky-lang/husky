@@ -2,7 +2,7 @@ span.TraceArrival {
     color: rgb(27, 167, 210);
 }
 .TraceLineRight:not(:hover) .TraceArrival.ignored {
-    color: transparent;
+    color: rgb(56, 56, 56);
 }
 .TraceLineRight:hover .TraceArrival.ignored {
     color: grey;
