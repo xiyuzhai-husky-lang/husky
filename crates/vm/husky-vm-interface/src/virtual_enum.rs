@@ -10,7 +10,7 @@ impl __StaticInfo for __VirtualEnum {
     type __StaticSelf = Self;
 
     fn __static_typename() -> std::borrow::Cow<'static, str> {
-        todo!()
+        "VirtualEnum".into()
     }
 
     unsafe fn __transmute_static(self) -> Self::__StaticSelf {

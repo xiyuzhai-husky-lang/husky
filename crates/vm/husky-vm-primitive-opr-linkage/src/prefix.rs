@@ -24,11 +24,24 @@ pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, this_ty: RootIdentif
             _ => panic!(),
         },
         PrefixOpr::Not => match this_ty {
-            RootIdentifier::Void => todo!(),
-            RootIdentifier::I32 => todo!(),
-            RootIdentifier::I64 => todo!(),
-            RootIdentifier::F32 => todo!(),
-            RootIdentifier::F64 => todo!(),
+            RootIdentifier::I32 => {
+                transfer_linkage!(|args, _| (0 == args[0].downcast_i32()).to_register(), none)
+            }
+            RootIdentifier::I64 => {
+                transfer_linkage!(|args, _| (0 == args[0].downcast_i64()).to_register(), none)
+            }
+            RootIdentifier::F32 => {
+                transfer_linkage!(
+                    |args, _| (0.0 == args[0].downcast_f32()).to_register(),
+                    none
+                )
+            }
+            RootIdentifier::F64 => {
+                transfer_linkage!(
+                    |args, _| (0.0 == args[0].downcast_f64()).to_register(),
+                    none
+                )
+            }
             RootIdentifier::B32 => {
                 transfer_linkage!(|args, _| (0 == args[0].downcast_b32()).to_register(), none)
             }
