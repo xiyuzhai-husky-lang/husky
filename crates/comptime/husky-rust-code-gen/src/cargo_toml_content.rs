@@ -1,8 +1,8 @@
 use std::path::Path;
 
-use husky_word::snake_to_dash;
-
 use crate::*;
+use husky_word::snake_to_dash;
+use path_slash::PathExt;
 
 pub fn cargo_toml_content(
     db: &dyn RustCodeGenQueryGroup,
@@ -12,7 +12,7 @@ pub fn cargo_toml_content(
     let package = db.package(target_entrance).unwrap();
     let package_ident = package.ident;
     let dashed_package_ident = snake_to_dash(&package_ident);
-    let husky_dir = husky_dir.to_str().unwrap();
+    let slash_husky_dir = husky_dir.to_slash().unwrap();
     msg_once!("ad hoc");
     format!(
         r#"[package]
@@ -24,7 +24,7 @@ edition = "2021"
 rust-version = "1.56"
 
 [dependencies]
-__husky = {{ path = "{husky_dir}/crates/static/__husky" }}
+__husky = {{ path = "{slash_husky_dir}/crates/static/__husky" }}
 
 [lib]
 crate-type = ["cdylib"]

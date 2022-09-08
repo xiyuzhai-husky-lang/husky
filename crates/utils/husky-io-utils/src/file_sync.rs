@@ -20,10 +20,10 @@ fn diff_file_sync_bfs(src: impl Borrow<Path>, dst: impl Borrow<Path>, config: &F
     assert!(src.exists());
     if !dst.exists() {
         if src.is_dir() {
-            if config.verbose() {
-                todo!()
-            }
             fs::create_dir(dst.clone()).unwrap();
+            if config.verbose() {
+                println!("create dir {:?}", dst)
+            }
         }
     }
     if !config.filter_src(&src) {
