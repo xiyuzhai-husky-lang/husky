@@ -17,13 +17,14 @@ impl<'a> TraceLineBuilder<'a> {
                         InitKind::Decl => panic!(),
                     },
                     None,
+                    None,
                 );
-                self.gen_ident_token(varname.ident.0, None);
-                self.gen_special_token(" = ", None);
+                self.gen_ident_token(varname.ident.0, None, None);
+                self.gen_special_token(" = ", None, None);
                 self.gen_eager_expr_tokens(initial_value, history, ExprTokenConfig::stmt())
             }
             ProcStmtVariant::Assert { ref condition } => {
-                self.gen_keyword_token("assert ", None);
+                self.gen_keyword_token("assert ", None, None);
                 self.gen_eager_expr_tokens(condition, history, ExprTokenConfig::stmt())
             }
             ProcStmtVariant::Execute { ref expr } => {
@@ -46,14 +47,14 @@ impl<'a> TraceLineBuilder<'a> {
                 }
             }
             ProcStmtVariant::Return { ref result, .. } => {
-                self.gen_keyword_token("return ", None);
+                self.gen_keyword_token("return ", None, None);
                 self.gen_eager_expr_tokens(result, history, ExprTokenConfig::stmt())
             }
             ProcStmtVariant::ConditionFlow { .. } => todo!(),
             ProcStmtVariant::Loop {
                 ref loop_variant, ..
             } => self.loop_stmt_tokens(stmt, loop_variant, history),
-            ProcStmtVariant::Break => self.gen_keyword_token("break", None),
+            ProcStmtVariant::Break => self.gen_keyword_token("break", None, None),
             ProcStmtVariant::Match { .. } => todo!(),
         }
     }
@@ -71,31 +72,31 @@ impl<'a> TraceLineBuilder<'a> {
                 ref final_boundary,
                 ..
             } => {
-                self.gen_keyword_token("for ", None);
+                self.gen_keyword_token("for ", None, None);
                 self.initial_boundary_tokens(initial_boundary, history);
-                self.gen_ident_token(frame_var.ident.0, None);
+                self.gen_ident_token(frame_var.ident.0, None, Some(frame_var.range.start));
                 self.final_boundary_tokens(final_boundary, history);
-                self.gen_special_token(":", None);
+                self.gen_special_token(":", None, None);
             }
             LoopVariant::ForExt {
                 frame_var,
                 ref final_boundary,
                 ..
             } => {
-                self.gen_keyword_token("forext ", None);
-                self.gen_ident_token(frame_var.ident.0, None);
+                self.gen_keyword_token("forext ", None, None);
+                self.gen_ident_token(frame_var.ident.0, None, Some(frame_var.range.start));
                 self.final_boundary_tokens(final_boundary, history);
-                self.gen_special_token(":", None);
+                self.gen_special_token(":", None, None);
             }
             LoopVariant::While { ref condition } => {
-                self.gen_keyword_token("while ", None);
+                self.gen_keyword_token("while ", None, None);
                 self.gen_eager_expr_tokens(condition, history, ExprTokenConfig::loop_head());
-                self.gen_special_token(":", None);
+                self.gen_special_token(":", None, None);
             }
             LoopVariant::DoWhile { condition } => {
-                self.gen_keyword_token("do while ", None);
+                self.gen_keyword_token("do while ", None, None);
                 self.gen_eager_expr_tokens(condition, history, ExprTokenConfig::loop_head());
-                self.gen_special_token(":", None);
+                self.gen_special_token(":", None, None);
             }
         }
         if let Some(entry) = history.get(stmt) {
@@ -111,10 +112,10 @@ impl<'a> TraceLineBuilder<'a> {
             Some(ref bound) => {
                 self.gen_eager_expr_tokens(bound, history, ExprTokenConfig::stmt());
                 match boundary.kind {
-                    BoundaryKind::UpperOpen => self.gen_special_token(" > ", None),
-                    BoundaryKind::UpperClosed => self.gen_special_token(" >= ", None),
-                    BoundaryKind::LowerOpen => self.gen_special_token(" < ", None),
-                    BoundaryKind::LowerClosed => self.gen_special_token(" <= ", None),
+                    BoundaryKind::UpperOpen => self.gen_special_token(" > ", None, None),
+                    BoundaryKind::UpperClosed => self.gen_special_token(" >= ", None, None),
+                    BoundaryKind::LowerOpen => self.gen_special_token(" < ", None, None),
+                    BoundaryKind::LowerClosed => self.gen_special_token(" <= ", None, None),
                 }
             }
             None => (),
@@ -132,6 +133,7 @@ impl<'a> TraceLineBuilder<'a> {
                         BoundaryKind::LowerClosed => " >= ",
                     },
                     None,
+                    None,
                 );
                 self.gen_eager_expr_tokens(bound, history, ExprTokenConfig::stmt())
             }
@@ -142,14 +144,14 @@ impl<'a> TraceLineBuilder<'a> {
     pub(crate) fn gen_loop_frame_tokens(&mut self, loop_frame_data: &LoopFrameData) {
         match loop_frame_data.frame_kind {
             FrameKind::For(frame_var) => {
-                self.gen_keyword_token("frame ", None);
-                self.gen_ident_token(&frame_var, None);
-                self.gen_special_token(" = ", None);
-                self.gen_literal_token(loop_frame_data.frame_var_value);
+                self.gen_keyword_token("frame ", None, None);
+                self.gen_ident_token(&frame_var, None, None);
+                self.gen_special_token(" = ", None, None);
+                self.gen_literal_token(loop_frame_data.frame_var_value, None);
             }
             FrameKind::Loop => {
-                self.gen_keyword_token("frame ", None);
-                self.gen_literal_token(loop_frame_data.frame_var_value);
+                self.gen_keyword_token("frame ", None, None);
+                self.gen_literal_token(loop_frame_data.frame_var_value, None);
             }
         };
         self.add_control_tokens(&loop_frame_data.control)
@@ -163,18 +165,18 @@ impl<'a> TraceLineBuilder<'a> {
     ) {
         match branch.variant {
             ProcConditionFlowBranchVariant::If { ref condition } => {
-                self.gen_keyword_token("if ", None);
+                self.gen_keyword_token("if ", None, None);
                 self.gen_eager_expr_tokens(condition, history, ExprTokenConfig::branch());
-                self.gen_special_token(":", None)
+                self.gen_special_token(":", None, None)
             }
             ProcConditionFlowBranchVariant::Elif { ref condition } => {
-                self.gen_keyword_token("elif ", None);
+                self.gen_keyword_token("elif ", None, None);
                 self.gen_eager_expr_tokens(condition, history, ExprTokenConfig::branch());
-                self.gen_special_token(":", None)
+                self.gen_special_token(":", None, None)
             }
             ProcConditionFlowBranchVariant::Else => {
-                self.gen_keyword_token("else", None);
-                self.gen_special_token(":", None)
+                self.gen_keyword_token("else", None, None);
+                self.gen_special_token(":", None, None)
             }
         }
         if let Some(entry) = history.get(stmt) {
