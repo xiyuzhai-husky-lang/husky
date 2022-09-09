@@ -4,6 +4,8 @@ inductive Paradigm
   | EagerProcedural
 
 namespace Paradigm
+deriving instance BEq for Paradigm
+deriving instance DecidableEq for Paradigm
 def ParadigmEnumeration := [
   LazyFunctional,
   EagerFunctional,
@@ -14,10 +16,3 @@ def as_word : Paradigm -> String
   | EagerFunctional => "func"
   | EagerProcedural => "proc"
 end Paradigm
-
-
-deriving instance BEq for Paradigm
-deriving instance DecidableEq for Paradigm
-
-def haha [BEq α][LawfulBEq α] : α → Nat
-  | _ => 1
