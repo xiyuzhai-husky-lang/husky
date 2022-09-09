@@ -2,10 +2,9 @@ inductive Paradigm
   | LazyFunctional
   | EagerFunctional
   | EagerProcedural
+  deriving BEq
 
 namespace Paradigm
-deriving instance BEq for Paradigm
-deriving instance DecidableEq for Paradigm
 def ParadigmEnumeration := [
   LazyFunctional,
   EagerFunctional,

@@ -4,23 +4,21 @@ import HuskyLeanSpecs.syntax.Paradigm
 
 inductive ConfigKeyword
   | Task
-
-
-deriving instance BEq for ConfigKeyword
+  deriving BEq
 
 inductive LiasonKeyword
-
-deriving instance BEq for LiasonKeyword
+  | Haha
+  deriving BEq
+ 
 
 inductive Keyword
-    | Config: ConfigKeyword -> Keyword
-    | Paradigm: Paradigm -> Keyword
-    | Ty: TyKeyword -> Keyword
-    | Stmt: StmtKeyword -> Keyword
-    | Liason: LiasonKeyword -> Keyword
-    | Main
-    | Use
-    | Mod
-    | Visual
-
-deriving instance BEq for Keyword
+  | Config: ConfigKeyword -> Keyword
+  | Paradigm: Paradigm -> Keyword
+  | Ty: TyKeyword -> Keyword
+  | Stmt: StmtKeyword -> Keyword
+  | Liason: LiasonKeyword -> Keyword
+  | Main
+  | Use
+  | Mod
+  | Visual
+  deriving BEq

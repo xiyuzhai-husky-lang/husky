@@ -16,6 +16,7 @@ inductive StmtKeyword
   | Return
   | Assert
   | Require
+  deriving BEq
 
 namespace StmtKeyword
 def StmtKeywordEnumeration := [
@@ -37,8 +38,6 @@ def StmtKeywordEnumeration := [
   Require
 ]
 
-deriving instance BEq for StmtKeyword
-deriving instance DecidableEq for StmtKeyword
 
 def as_str(kw: StmtKeyword): String :=
   match kw with
