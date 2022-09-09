@@ -9,6 +9,12 @@ use crate::line_segment_sketch::concave_component::*
 func one_fermi_match_others -> []&ConcaveComponent:
     one_fermi_match.others
 
+def simp_one -> ?MnistLabel:
+    require connected_components.ilen() == 1
+    simp_one_match = fermi_match(major_concave_components, [])
+    require simp_one_match.rel_norm < 0.5
+    MnistLabel::One
+
 def is_one -> ?MnistLabel:
     require connected_components.ilen() == 1
     narrow_down(

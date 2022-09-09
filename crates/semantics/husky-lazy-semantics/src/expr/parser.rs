@@ -7,6 +7,7 @@ use husky_entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
 use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRoute;
 use husky_infer_qualified_ty::{InferQualifiedTy, LazyExprQualifier};
+use husky_print_utils::p;
 use husky_text::RangedCustomIdentifier;
 use husky_word::RootIdentifier;
 use infer_contract::{InferContract, LazyContract};

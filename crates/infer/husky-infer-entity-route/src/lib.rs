@@ -29,10 +29,6 @@ pub trait InferEntityRoute {
             .ty_decl(self.expr_raw_ty(idx)?.intrinsic())))
     }
 
-    // fn call_route_result(&self, idx: RawExprIdx) -> InferResult<EntityRoutePtr> {
-    //     self.entity_route_sheet().call_route(idx)
-    // }
-
     fn function_call_form_decl(&self, function_idx: RawExprIdx) -> InferResultArc<CallFormDecl> {
         if let Some(call_route_result) = self
             .entity_route_sheet()
