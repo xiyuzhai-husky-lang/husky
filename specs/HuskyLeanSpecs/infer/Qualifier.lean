@@ -5,9 +5,7 @@ inductive RefQualifier
   | EvalRef
   | TempRef
   | TempRefMut
-
-deriving instance BEq for RefQualifier
-deriving instance DecidableEq for RefQualifier
+  deriving BEq
 
 namespace RefQualifier
 instance : Enumerable RefQualifier where

@@ -4,4 +4,8 @@
 
 # complaints
 
-there are bugs if we try to use LawfulEq
+there are bugs if we try to use LawfulEq.
+
+Lean4's error messages are of very poor quality.
+
+It seems that they didn't care much about it.
