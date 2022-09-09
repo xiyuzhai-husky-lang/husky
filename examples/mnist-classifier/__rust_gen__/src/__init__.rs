@@ -78,9 +78,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     (
         __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::connected_component::ConnectedComponent",
-            field_ident: "max_row_span_haha",
+            field_ident: "max_row_span",
         },
-        lazy_field_linkage!(connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, i32, __registration__::__I32_VTABLE, max_row_span_haha)
+        lazy_field_linkage!(connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, i32, __registration__::__I32_VTABLE, max_row_span)
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::raw_contour::RawContour>::ilen" },

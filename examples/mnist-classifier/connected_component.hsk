@@ -17,8 +17,12 @@ struct ConnectedComponent:
                 max_hole_ilen = hole_ilen
         return max_hole_ilen as f32
     
-    func max_row_span_haha -> i32:
-        mask[0].span()
+    proc max_row_span -> i32:
+        // todo: change this to func
+        var max_row = 0
+        for 0 < i < 29:
+            max_row = max_row.max(mask[i].span())
+        return max_row
 
     visual:
         mask
