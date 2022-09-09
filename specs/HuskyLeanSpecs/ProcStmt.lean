@@ -22,6 +22,10 @@ structure LazyStmt
 
 inductive LoopVariant
 
+namespace LoopVariant
+def subexprs : LoopVariant -> List Expr := sorry
+end LoopVariant
+
 structure CustomIdentifier
 
 structure File
@@ -49,6 +53,17 @@ inductive ProcStmtVariant where
   | Return (result : EagerExpr)
   | Match (match_expr : EagerExpr)
 end
+namespace ProcStmtVariant
+def subexprs : ProcStmtVariant -> List EagerExpr
+  | Init (_) (initial_value) => [initial_value]
+  | Assert (condition) => [condition]
+  | Execute (expr) => [expr]
+  | ConditionFlow (_) => []
+  | Loop (loop_variant : LoopVariant) (_) => loop_variant.subexprs
+  | Break => []
+  | Return (result : EagerExpr) => [result]
+  | Match (match_expr : EagerExpr) => [match_expr]
+end ProcStmtVariant
 
 mutual
 inductive FuncConditionFlowBranch where
