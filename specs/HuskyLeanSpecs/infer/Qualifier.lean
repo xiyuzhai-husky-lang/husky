@@ -1,37 +1,21 @@
+import HuskyLeanSpecs.abstraction.Enumerable
+
 inductive RefQualifier
   | None
   | EvalRef
   | TempRef
   | TempRefMut
 
+deriving instance BEq for RefQualifier
+deriving instance DecidableEq for RefQualifier
 
 namespace RefQualifier
-instance : BEq RefQualifier where
-  beq
-    | None, None => true
-    | EvalRef, EvalRef => true
-    | TempRef, TempRef => true
-    | TempRefMut, TempRefMut => true
-    | _, _ => false
-end RefQualifier
-
-def all_ref_qualifiers : List RefQualifier :=
-  [RefQualifier.None, RefQualifier.EvalRef, RefQualifier.TempRef, RefQualifier.TempRefMut]
-
-def no_dups[BEq α](list : List α) : Bool := list.eraseDups == list
-
-def is_enumeration[BEq α](list: List α) : Prop :=
-  no_dups list ∧ (∀ a : α, list.contains a)
-
-structure Enumeration [BEq α] where
-  enumeration : List α
-  proof : is_enumeration enumeration
-
-namespace RefQualifier
-example : is_enumeration all_ref_qualifiers := by
-  apply And.intro
-  apply rfl
-  intro a
-  cases a with
-  | _ => rfl
+instance : Enumerable RefQualifier where
+  enumeration := [None, EvalRef, TempRef, TempRefMut]
+  hvalid := by
+    apply And.intro
+    apply rfl
+    intro a
+    cases a with
+    | _ => rfl
 end RefQualifier
