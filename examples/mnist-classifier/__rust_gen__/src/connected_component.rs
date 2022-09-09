@@ -73,7 +73,7 @@ impl ConnectedComponent {
             .unwrap()
             .downcast_eval_ref(&__registration__::__F32_VTABLE)
     }
-    pub(crate) fn max_row_span<'eval>(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval i32 {
+    pub(crate) fn max_row_span<'eval>(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
         let __uid = entity_uid!(
             __ctx,
             "mnist_classifier::connected_component::ConnectedComponent::max_row_span"
@@ -83,7 +83,7 @@ impl ConnectedComponent {
         {
             return __result
                 .unwrap()
-                .downcast_eval_ref(&__registration__::__I32_VTABLE);
+                .downcast_eval_ref(&__registration__::__F32_VTABLE);
         }
         let mut max_row = 0;
         for i in (0 + 1)..29 {
@@ -93,13 +93,13 @@ impl ConnectedComponent {
             .cache_lazy_field(
                 self as *const _ as *const std::ffi::c_void,
                 __uid,
-                Ok(__Register::new_box::<i32>(
-                    max_row,
-                    &__registration__::__I32_VTABLE,
+                Ok(__Register::new_box::<f32>(
+                    max_row as f32,
+                    &__registration__::__F32_VTABLE,
                 )),
             )
             .unwrap()
-            .downcast_eval_ref(&__registration__::__I32_VTABLE)
+            .downcast_eval_ref(&__registration__::__F32_VTABLE)
     }
 }
 
