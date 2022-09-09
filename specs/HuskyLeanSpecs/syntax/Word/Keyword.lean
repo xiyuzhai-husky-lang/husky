@@ -1,6 +1,6 @@
-import HuskyLeanSpecs.Word.Keyword.StmtKeyword
-import HuskyLeanSpecs.Word.Keyword.TyKeyword
-import HuskyLeanSpecs.Paradigm
+import HuskyLeanSpecs.syntax.Word.Keyword.StmtKeyword
+import HuskyLeanSpecs.syntax.Word.Keyword.TyKeyword
+import HuskyLeanSpecs.syntax.Paradigm
 
 inductive ConfigKeyword
   | Task
