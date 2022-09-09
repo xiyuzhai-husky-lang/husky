@@ -1,2 +1,2 @@
-structure Enumerable [BEq α] where
+structure Enumerable [BEq α][LawfulBEq α] where
   enumeration : List α

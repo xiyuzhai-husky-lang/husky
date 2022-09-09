@@ -9,7 +9,7 @@ def ParadigmEnumeration := [
   EagerFunctional,
   EagerProcedural
 ]
-def as_str : Paradigm -> String
+def as_word : Paradigm -> String
   | LazyFunctional => "def"
   | EagerFunctional => "func"
   | EagerProcedural => "proc"
@@ -18,3 +18,6 @@ end Paradigm
 
 deriving instance BEq for Paradigm
 deriving instance DecidableEq for Paradigm
+
+def haha [BEq α][LawfulBEq α] : α → Nat
+  | _ => 1
