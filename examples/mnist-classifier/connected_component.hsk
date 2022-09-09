@@ -16,6 +16,9 @@ struct ConnectedComponent:
             if max_hole_ilen < hole_ilen:
                 max_hole_ilen = hole_ilen
         return max_hole_ilen as f32
+    
+    func max_row_span_haha -> i32:
+        mask[0].span()
 
     visual:
         mask
