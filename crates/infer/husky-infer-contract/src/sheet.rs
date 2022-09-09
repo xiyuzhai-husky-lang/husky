@@ -21,19 +21,16 @@ impl ContractSheet {
         }
     }
 
-    pub(crate) fn lazy_expr_contract(&self, raw_expr_idx: RawExprIdx) -> InferResult<LazyContract> {
-        if let Some(contract_result) = self.lazy_expr_contract_results.get(raw_expr_idx) {
+    pub(crate) fn lazy_expr_contract(&self, idx: RawExprIdx) -> InferResult<LazyContract> {
+        if let Some(contract_result) = self.lazy_expr_contract_results.get(idx) {
             contract_result.clone()
         } else {
             Err(derived!(format!("contract not inferred")))
         }
     }
 
-    pub(crate) fn eager_expr_contract(
-        &self,
-        raw_expr_idx: RawExprIdx,
-    ) -> InferResult<EagerContract> {
-        if let Some(contract_result) = self.eager_expr_contract_results.get(raw_expr_idx) {
+    pub(crate) fn eager_expr_contract(&self, idx: RawExprIdx) -> InferResult<EagerContract> {
+        if let Some(contract_result) = self.eager_expr_contract_results.get(idx) {
             contract_result.clone()
         } else {
             Err(derived!(format!("contract not inferred")))
