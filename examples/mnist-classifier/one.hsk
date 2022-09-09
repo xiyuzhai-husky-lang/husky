@@ -11,8 +11,12 @@ func one_fermi_match_others -> []&ConcaveComponent:
 
 def simp_one -> ?MnistLabel:
     require connected_components.ilen() == 1
+    narrow_down(
+        MnistLabel::One,
+        major_connected_component.max_hole_ilen
+    )?
     simp_one_match = fermi_match(major_concave_components, [])
-    require simp_one_match.rel_norm < 0.5
+    require simp_one_match.norm < 3.0
     MnistLabel::One
 
 def is_one -> ?MnistLabel:

@@ -9,7 +9,7 @@ struct RawContour:
     points: []Point2d
 
     func line_segment_sketch -> LineSegmentSketch:
-        LineSegmentSketch::new(this, 1.2)
+        LineSegmentSketch::new(this, 1.4)
 
     func displacement(start: i32, end: i32) -> Vector2d:
         N = this.points.ilen()
