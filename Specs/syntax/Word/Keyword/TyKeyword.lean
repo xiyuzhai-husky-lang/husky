@@ -5,7 +5,10 @@ inductive TyKeyword
   deriving BEq
 
 namespace TyKeyword
-def toRustCode : TyKeyword -> String := sorry
+def toRustVersion : TyKeyword -> String
+  | Struct => "TyKeyword::Struct"
+  | Enum => "TyKeyword::Enum"
+  | Record => "TyKeyword::Record"
 
 instance : ToString TyKeyword where
   toString : TyKeyword -> String

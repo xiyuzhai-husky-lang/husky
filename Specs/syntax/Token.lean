@@ -1,27 +1,20 @@
 import Specs.syntax.Text
+import Specs.syntax.Word
 
 inductive HuskyTokenKind
-  | Decorator
-  | Keyword
-  | Identifier
-  | Special
-  | WordOpr
-  | WordPattern
-  | PrimitiveLiteral
-  | Unrecognized
-  | IllFormedLiteral
+  | Decorator : Decorator -> HuskyTokenKind
+  | Keyword : Keyword -> HuskyTokenKind
+  | Identifier : Identifier -> HuskyTokenKind
+  | Special : SpecialToken -> HuskyTokenKind
+  | WordOpr : WordOpr -> HuskyTokenKind
+  | WordPattern : WordPattern-> HuskyTokenKind
+  | PrimitiveLiteral : PrimitiveLiteralData -> HuskyTokenKind
+  | Unrecognized : Char -> HuskyTokenKind
+  | IllFormedLiteral : PrimitiveLiteralData -> HuskyTokenKind
 
 namespace HuskyTokenKind
 def as_str : HuskyTokenKind -> String
-  | Decorator
-  | Keyword
-  | Identifier
-  | Special
-  | WordOpr
-  | WordPattern
-  | PrimitiveLiteral
-  | Unrecognized
-  | IllFormedLiteral => sorry
+  | _ => sorry
 end HuskyTokenKind
 
 structure HuskyToken where

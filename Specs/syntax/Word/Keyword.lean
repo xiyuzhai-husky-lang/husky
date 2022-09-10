@@ -21,12 +21,12 @@ inductive Keyword
 -- method definition
 
 namespace Keyword
-def toRustCode : Keyword -> String
-  | Config (kw) => s!"Keyword::Config({kw.toRustCode})"
-  | Paradigm (kw) => s!"Keyword::Paradigm({kw.toRustCode})"
-  | Ty (kw) => s!"Keyword::Ty({kw.toRustCode})"
-  | Stmt (kw) => s!"Keyword::Stmt({kw.toRustCode})"
-  | Liason (kw) => s!"Keyword::Liason({kw.toRustCode})"
+def toRustVersion : Keyword -> String
+  | Config (kw) => s!"Keyword::Config({kw.toRustVersion})"
+  | Paradigm (kw) => s!"Keyword::Paradigm({kw.toRustVersion})"
+  | Ty (kw) => s!"Keyword::Ty({kw.toRustVersion})"
+  | Stmt (kw) => s!"Keyword::Stmt({kw.toRustVersion})"
+  | Liason (kw) => s!"Keyword::Liason({kw.toRustVersion})"
   | Main => "Keyword::Main"
   | Use => "Keyword::Use"
   | Mod => "Keyword::Mod"

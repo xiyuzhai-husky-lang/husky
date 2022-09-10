@@ -19,7 +19,23 @@ inductive StmtKeyword
   deriving BEq
 
 namespace StmtKeyword
-def toRustCode : StmtKeyword -> String := sorry
+def toRustVersion : StmtKeyword -> String
+  | Let => "StmtKeyword::Let"
+  | Var => "StmtKeyword::Var"
+  | If => "StmtKeyword::If"
+  | Elif => "StmtKeyword::Elif"
+  | Else => "StmtKeyword::Else"
+  | Match => "StmtKeyword::Match"
+  | Case => "StmtKeyword::Case"
+  | DeFault => "StmtKeyword::Default"
+  | For => "StmtKeyword::For"
+  | ForExt => "StmtKeyword::ForExt"
+  | While => "StmtKeyword::While"
+  | Do => "StmtKeyword::Do"
+  | Break => "StmtKeyword::Break"
+  | Return => "StmtKeyword::Return"
+  | Assert => "StmtKeyword::Assert"
+  | Require => "StmtKeyword::Require"
 def StmtKeywordEnumeration := [
   Let,
   Var,

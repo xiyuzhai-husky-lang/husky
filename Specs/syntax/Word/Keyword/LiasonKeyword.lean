@@ -4,7 +4,7 @@ inductive LiasonKeyword
   deriving BEq
 
 namespace LiasonKeyword
-def toRustCode : LiasonKeyword -> String := sorry
+def toRustVersion : LiasonKeyword -> String := sorry
 instance : ToString LiasonKeyword where
   toString := sorry
 end LiasonKeyword

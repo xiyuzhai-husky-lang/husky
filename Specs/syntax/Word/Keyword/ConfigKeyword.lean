@@ -3,7 +3,7 @@ inductive ConfigKeyword
   deriving BEq
 
 namespace ConfigKeyword
-def toRustCode : ConfigKeyword -> String
+def toRustVersion : ConfigKeyword -> String
   | Task => "ConfigKeyword::Task"
 
 instance : ToString ConfigKeyword where
