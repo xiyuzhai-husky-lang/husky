@@ -2,15 +2,14 @@ use husky_opn_syntax::Bracket;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum SpecialToken {
-    LAngle,       // <
-    Leq,          // <=
-    RAngle,       // >
-    Geq,          // >=
-    Neq,          // !=
-    DeriveAssign, // ?=
-    Eq,           // ==
-    Shl,          // <<
-    // Shr,               // >> Shr can't be differentiated from things like `Vec<Vec<i32>>` at this stage
+    LAngle,            // <
+    Leq,               // <=
+    RAngle,            // >
+    Geq,               // >=
+    Neq,               // !=
+    DeriveAssign,      // ?=
+    Eq,                // ==
+    Shl,               // <<
     LCurl,             // {
     RCurl,             // }
     LBox,              // [

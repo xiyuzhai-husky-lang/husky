@@ -5,7 +5,10 @@ inductive Paradigm
   deriving BEq
 
 namespace Paradigm
-def toRustCode : Paradigm -> String := sorry
+def toRustVersion : Paradigm -> String
+  | LazyFunctional => "Paradigm::LazyFunctional"
+  | EagerFunctional => "Paradigm::EagerFunctional"
+  | EagerProcedural => "Paradigm::EagerProcedural"
 def ParadigmEnumeration := [
   LazyFunctional,
   EagerFunctional,
@@ -19,3 +22,5 @@ end Paradigm
 instance : ToString Paradigm where
   toString : Paradigm -> String
   | paradigm => paradigm.as_word
+
+
