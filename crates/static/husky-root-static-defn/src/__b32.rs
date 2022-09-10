@@ -9,7 +9,12 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         base_route: "b32",
         spatial_parameters: &[],
         trait_impls: &[],
-        ty_members: &[&B32_LEADING_ZEROS, &B32_TRAILING_ZEROS, &B32_LAST_BITS],
+        ty_members: &[
+            &B32_LEADING_ZEROS,
+            &B32_TRAILING_ZEROS,
+            &B32_SPAN,
+            &B32_LAST_BITS,
+        ],
         variants: &[],
         kind: TyKind::Primitive,
         visualizer: StaticVisualizer {
@@ -52,6 +57,24 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         opt_linkage: Some(transfer_linkage!(
             |values, _| values[0]. downcast_b32().ctz().to_register(),
             some base u32::ctz as fn(u32) -> i32
+        )),
+    },
+    dev_src: static_dev_src!(),
+};
+
+pub static B32_SPAN: EntityStaticDefn = EntityStaticDefn {
+    name: "span",
+    items: &[],
+    variant: EntityStaticDefnVariant::Method {
+        this_modifier: ParameterModifier::None,
+        parameters: &[],
+        output_ty: "i32",
+        output_liason: OutputModifier::Transfer,
+        spatial_parameters: &[],
+        method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
+        opt_linkage: Some(transfer_linkage!(
+            |values, _| values[0]. downcast_b32().span().to_register(),
+            some base u32::span as fn(u32) -> i32
         )),
     },
     dev_src: static_dev_src!(),

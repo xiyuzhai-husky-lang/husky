@@ -60,6 +60,12 @@ pub struct ArenaIdx<T> {
     phantom: PhantomData<T>,
 }
 
+impl<T> ArenaIdx<T> {
+    pub fn raw(self) -> usize {
+        self.raw
+    }
+}
+
 impl<T> std::hash::Hash for ArenaIdx<T> {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.raw.hash(state);
