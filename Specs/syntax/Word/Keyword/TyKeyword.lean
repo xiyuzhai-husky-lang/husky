@@ -4,6 +4,14 @@ inductive TyKeyword
   | Record
   deriving BEq
 
+namespace TyKeyword
+instance : ToString TyKeyword where
+  toString : TyKeyword -> String
+  | Struct => "struct"
+  | Enum => "enum"
+  | Record => "record"
+end TyKeyword
+
 -- namespace TyKeyword
 -- def TyKeywordEnumeration := [
 --   Struct,

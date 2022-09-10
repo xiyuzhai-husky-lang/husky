@@ -15,3 +15,6 @@ def as_word : Paradigm -> String
   | EagerFunctional => "func"
   | EagerProcedural => "proc"
 end Paradigm
+instance : ToString Paradigm where
+  toString : Paradigm -> String
+  | paradigm => paradigm.as_word

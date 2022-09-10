@@ -17,8 +17,14 @@ inductive WordPattern
 
 
 inductive Word
-  | keyword: Keyword -> Word
+  | Keyword: Keyword -> Word
   | Opr: WordOpr -> Word
   | Decorator: Decorator -> Word
   | Pattern: WordPattern -> Word
   | Identifier: Identifier -> Word
+
+namespace Word
+def as_str : Word -> String
+  | keyword (a) => a.as_str
+  | _ => sorry
+end Word
