@@ -3,10 +3,21 @@ use __husky::init::__StaticLinkageKey;
 use husky_vm::__Linkage;
 use smallvec::SmallVec;
 
-#[derive(Debug, Clone)]
+#[derive(Clone)]
 pub struct LinkageTable {
     linkages: ASafeRwLock<HashMap<LinkageKey, __Linkage>>,
     pub(crate) config: LinkageTableConfig,
+}
+
+impl std::fmt::Debug for LinkageTable {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.linkages.read(|linkages| {
+            f.debug_struct("LinkageTable")
+                .field("linkages", linkages)
+                .field("config", &self.config)
+                .finish()
+        })
+    }
 }
 
 impl LinkageTable {

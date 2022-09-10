@@ -14,10 +14,7 @@ impl<T> SafeRwLock<T> {
         }
     }
     // declarative style prevents deadlock
-    pub fn read<F, S>(&self, f: F) -> S
-    where
-        F: FnOnce(&T) -> S,
-    {
+    pub fn read<S>(&self, f: impl FnOnce(&T) -> S) -> S {
         return f(&self.inner.read().unwrap());
     }
     pub fn write<F, S>(&self, f: F) -> S

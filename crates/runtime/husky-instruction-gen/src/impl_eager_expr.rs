@@ -166,7 +166,12 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
         match expr.implicit_conversion {
             ImplicitConversion::None => (),
-            ImplicitConversion::WrapInSome { number_of_somes } => todo!(),
+            ImplicitConversion::WrapInSome { number_of_somes } => {
+                self.push_instruction(Instruction::new(
+                    InstructionVariant::WrapInSome { number_of_somes },
+                    expr.clone(),
+                ))
+            }
             ImplicitConversion::ConvertToBool => todo!(),
         }
     }
