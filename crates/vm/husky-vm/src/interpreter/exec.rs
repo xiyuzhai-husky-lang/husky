@@ -268,6 +268,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
                 InstructionVariant::EntityFeature { feature_uid, ty } => {
                     self.exec_feature_eval(feature_uid, mode, ins, ty).into()
                 }
+                InstructionVariant::WrapInSome { number_of_somes } => todo!(),
             };
             match control {
                 VMControl::None => (),

@@ -74,6 +74,9 @@ pub enum InstructionVariant {
         ty: EntityRoutePtr,
         explicit: bool,
     },
+    WrapInSome {
+        number_of_somes: u8,
+    },
     CallRoutine {
         resolved_linkage: __ResolvedLinkage,
         nargs: u8,

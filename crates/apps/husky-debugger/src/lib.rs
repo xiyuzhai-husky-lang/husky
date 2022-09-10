@@ -6,7 +6,7 @@ mod internal;
 mod notif;
 
 pub use config::HuskyDebuggerConfig;
-use convert_case::{Case, Casing};
+use convert_case::{Boundary, Case, Casing};
 pub use error::{DebuggerError, DebuggerResult};
 use libloading::Library;
 
@@ -73,6 +73,9 @@ pub async fn debugger_test(packages_dir: PathBuf) {
             package_dir.as_os_str().to_str().unwrap(),
         );
         let opt_library = get_library(&package_dir);
+        if !(opt_library.is_some()) {
+            todo!()
+        }
         let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = opt_library
             .as_ref()
             .map(|library| unsafe {
@@ -104,6 +107,7 @@ fn get_library(package_dir: &Path) -> Option<Library> {
         .unwrap()
         .to_str()
         .unwrap()
+        .with_boundaries(&[Boundary::Hyphen])
         .to_case(Case::Snake);
     let library_release_path = package_dir.join(format!(
         "__rust_gen__/target/release/lib{}.so",
