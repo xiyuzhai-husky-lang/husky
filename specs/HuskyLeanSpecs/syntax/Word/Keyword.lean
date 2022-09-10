@@ -22,3 +22,6 @@ inductive Keyword
   | Mod
   | Visual
   deriving BEq
+
+namespace Keyword
+end Keyword
