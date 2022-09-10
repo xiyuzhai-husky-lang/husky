@@ -27,12 +27,12 @@ def simp_one -> ?MnistLabel:
             MnistLabel::One
         MnistLabel::One
     else:
-        narrow_down(
-            MnistLabel::One,
-            one_fermi_match.norm,
-            one_fermi_match.rel_norm,
-            one_fermi_match.angle_change_norm,
-        )?
+        // narrow_down(
+        //     MnistLabel::One,
+        //     one_fermi_match.norm,
+        //     one_fermi_match.rel_norm,
+        //     one_fermi_match.angle_change_norm,
+        // )?
         if one_fermi_match.matches[1] be some:
             narrow_down(
                 MnistLabel::One,
@@ -40,13 +40,13 @@ def simp_one -> ?MnistLabel:
                 one_fermi_match.matches[1].rel_norm,
                 one_fermi_match.matches[1].angle_change.abs(),
             )?
-        if one_fermi_match.matches[2] be some:
-            narrow_down(
-                MnistLabel::One,
-                one_fermi_match.matches[2].norm,
-                one_fermi_match.matches[2].rel_norm,
-                one_fermi_match.matches[2].angle_change.abs(),
-            )?
+        // if one_fermi_match.matches[2] be some:
+        //     narrow_down(
+        //         MnistLabel::One,
+        //         one_fermi_match.matches[2].norm,
+        //         one_fermi_match.matches[2].rel_norm,
+        //         one_fermi_match.matches[2].angle_change.abs(),
+        //     )?
         MnistLabel::One
 
 def is_one -> ?MnistLabel:
