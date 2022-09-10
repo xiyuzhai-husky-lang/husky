@@ -353,7 +353,7 @@ pub trait EntitySyntaxQueryGroup:
     }
 
     fn collect_source_files(&self, target_entrance: FilePtr) -> Vec<FilePtr> {
-        should!(target_entrance.ends_with("main.hsk"));
+        should!(target_entrance.ends_with("main.hsy"));
         collect_all_source_files(target_entrance.parent().unwrap().to_path_buf())
             .into_iter()
             .map(|path| self.intern_file(path))
@@ -364,7 +364,7 @@ pub trait EntitySyntaxQueryGroup:
         let path: PathBuf = file.to_path_buf();
         if !self.file_exists(file) {
             Err(derived_error!(format!("file doesn't exist")))?
-        } else if path_has_file_name(&path, "main.hsk") {
+        } else if path_has_file_name(&path, "main.hsy") {
             if let Some(pack_name) = path_parent_file_name_str(&path) {
                 let snake_name = dash_to_snake(&pack_name);
                 if let WordPtr::Identifier(Identifier::Custom(ident)) =
@@ -377,7 +377,7 @@ pub trait EntitySyntaxQueryGroup:
             } else {
                 Err(derived_error!(format!("pack root should have filename")))?
             }
-        } else if path_has_extension(&path, "hsk") {
+        } else if path_has_extension(&path, "hsy") {
             let parent = self.module(query_not_none!(
                 self.parent_module_file(file),
                 format!("cannot find parent")
@@ -406,7 +406,7 @@ pub trait EntitySyntaxQueryGroup:
             }
         } else {
             Err(derived_error!(format!(
-                "file (path: {:?}) should have extension .hsk",
+                "file (path: {:?}) should have extension .hsy",
                 path.to_str()
             )))?
         }

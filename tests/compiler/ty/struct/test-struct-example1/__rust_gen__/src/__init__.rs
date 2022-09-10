@@ -131,7 +131,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "test_struct_example1::A",
             field_ident: "x",
         },
@@ -147,8 +147,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "test_struct_example1::A::y",
+        __StaticLinkageKey::StructField {
+            this_ty: "test_struct_example1::A",
+            field_ident: "y",
         },
         lazy_field_linkage!(
             A,

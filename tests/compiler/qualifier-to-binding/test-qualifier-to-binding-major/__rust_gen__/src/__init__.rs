@@ -26,7 +26,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "test_qualifier_to_binding_major::A",
             field_ident: "x",
         },
@@ -61,7 +61,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "test_qualifier_to_binding_major::B",
             field_ident: "x",
         },
@@ -77,7 +77,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "test_qualifier_to_binding_major::B",
             field_ident: "a",
         },
@@ -93,7 +93,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::StructEagerField {
+        __StaticLinkageKey::StructField {
             this_ty: "test_qualifier_to_binding_major::B",
             field_ident: "y",
         },

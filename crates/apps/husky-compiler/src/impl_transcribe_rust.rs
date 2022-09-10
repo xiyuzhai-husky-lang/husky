@@ -22,7 +22,7 @@ impl CompilerInstance {
 
         self.save_husky_code_snapshot(
             &comptime,
-            &husky_code_snapshot_dir.join("main.hsk"),
+            &husky_code_snapshot_dir.join("main.hsy"),
             target_entrance,
         );
 
@@ -99,7 +99,7 @@ debug = 1
             self.compile_maybe_module(
                 &comptime,
                 src_dir.join(format!("{module_name}.rs")),
-                &husky_code_snapshot_dir.join(format!("{module_name}.hsk")),
+                &husky_code_snapshot_dir.join(format!("{module_name}.hsy")),
                 module,
             )
         }
@@ -131,7 +131,7 @@ debug = 1
             self.compile_maybe_module(
                 comptime,
                 module_rust_code_gen_dir.join(format!("{subentity_name}.rs")),
-                &module_husky_code_snapshot_dir.join(format!("{subentity_name}.hsk")),
+                &module_husky_code_snapshot_dir.join(format!("{subentity_name}.hsy")),
                 subentity,
             )
         }

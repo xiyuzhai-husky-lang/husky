@@ -10,7 +10,7 @@ impl CompilerInstance {
             package_dir.join("__rust_gen_cache__"),
             package_dir.join("__rust_gen__"),
             FileVisitConfig {
-                regular_file_filter: RelativePathPattern::extension_is_among(["toml", "hsk", "rs"]),
+                regular_file_filter: RelativePathPattern::extension_is_among(["toml", "hsy", "rs"]),
                 dir_filter: RelativePathPattern::ignore_paths(["target"]),
                 verbose,
             },

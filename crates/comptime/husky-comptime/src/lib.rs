@@ -81,7 +81,7 @@ impl HuskyComptime {
             config,
             entity_route_interner: Arc::new(husky_entity_route::new_entity_route_interner()),
         };
-        let target_entrance = comptime.intern_file(comptime.config.package_dir.join("main.hsk"));
+        let target_entrance = comptime.intern_file(comptime.config.package_dir.join("main.hsy"));
         comptime.set_opt_target_entrance(Some(target_entrance));
         comptime
     }

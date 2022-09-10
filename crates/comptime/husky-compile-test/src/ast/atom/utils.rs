@@ -13,9 +13,9 @@ pub(super) fn check_atom_kind(db: &mut HuskyComptime, line: &'static str, kind: 
 }
 #[cfg(test)]
 pub(super) fn get_atoms_in_line(db: &mut HuskyComptime, line: &'static str) -> Vec<HuskyAtom> {
-    db.set_live_file_text("haha/main.hsk".into(), line.into());
+    db.set_live_file_text("haha/main.hsy".into(), line.into());
     let tokens = db.tokenize(line);
-    let main = db.intern_file("haha/main.hsk".into());
+    let main = db.intern_file("haha/main.hsy".into());
     db.set_opt_target_entrance(Some(main));
     let symbols = fold::LocalStack::new();
     AtomParser::new(

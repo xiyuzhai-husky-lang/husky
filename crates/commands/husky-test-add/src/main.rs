@@ -72,9 +72,9 @@ fn main() {
 }
 
 fn check_is_package(src: &PathBuf) {
-    if !src.join("main.hsk").exists() {
+    if !src.join("main.hsy").exists() {
         panic!(
-            "{:?}, is not a valid package because `main.hsk` can't be found",
+            "{:?}, is not a valid package because `main.hsy` can't be found",
             src
         )
     }
@@ -110,7 +110,7 @@ fn attempt_to_save_husky_code(src_package_dir: &Path, dst_package_dir: &Path) {
             src_package_dir,
             dst_package_dir,
             FileVisitConfig {
-                regular_file_filter: RelativePathPattern::extension_is_among(["hsk", "toml"]),
+                regular_file_filter: RelativePathPattern::extension_is_among(["hsy", "toml"]),
                 dir_filter: RelativePathPattern::ignore_paths([
                     "__rust_gen__",
                     "__rust_gen_cache__",

@@ -38,7 +38,7 @@
                     "husky"
                 ],
                 "extensions": [
-                    ".hsk"
+                    ".hsy"
                 ],
                 "configuration": "./language-configuration.json"
             }

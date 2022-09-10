@@ -56,7 +56,7 @@ impl RelativePathPattern {
 
 #[test]
 fn test_extension_is_among() {
-    let pattern = RelativePathPattern::extension_is_among(["toml", "hsk", "rs"]);
+    let pattern = RelativePathPattern::extension_is_among(["toml", "hsy", "rs"]);
     let path0: RelativePathBuf = "haha.toml".into();
     let path1: RelativePathBuf = "haha.rs".into();
     let path2: RelativePathBuf = "haha.hs".into();
