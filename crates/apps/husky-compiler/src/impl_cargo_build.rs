@@ -3,7 +3,6 @@ use std::process::Command;
 
 impl CompilerInstance {
     pub(crate) fn cargo_build(&self, package_dir: &Path) {
-        println!("building {:?}", package_dir);
         let output = Command::new("cargo")
             .current_dir(
                 std::fs::canonicalize(package_dir)
