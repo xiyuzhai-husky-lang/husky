@@ -1,5 +1,5 @@
-import HuskyLeanSpecs.syntax.Word.Keyword
-import HuskyLeanSpecs.syntax.Word.Identifier
+import Specs.syntax.Word.Keyword
+import Specs.syntax.Word.Identifier
 
 inductive WordOpr
 

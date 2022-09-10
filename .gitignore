@@ -29,3 +29,8 @@ __c_code_gen_test__
 
 # vscode
 .vscode
+
+# lean4
+/build
+/lean_packages/*
+!/lean_packages/manifest.json

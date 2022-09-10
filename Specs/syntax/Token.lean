@@ -1,4 +1,4 @@
-import HuskyLeanSpecs.Text
+import Specs.syntax.Text
 
 inductive HuskyTokenKind
   | Decorator

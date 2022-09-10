@@ -1,15 +1,15 @@
 import Lake
 open Lake DSL
 
-package «memory-specs» {
+package «specs» {
   -- add package configuration options here
 }
 
-lean_lib MemorySpecs {
+lean_lib Specs {
   -- add library configuration options here
 }
 
-@[defaultTarget]
-lean_exe «memory-specs» {
-  root := `Main
-}
+-- @[defaultTarget]
+-- lean_exe «specs» {
+--   root := `Main
+-- }

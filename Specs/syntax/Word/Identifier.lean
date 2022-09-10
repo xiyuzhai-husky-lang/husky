@@ -1,3 +1,5 @@
+import Specs.syntax.Text
+
 inductive RootPrimitiveTyIdentifier
   | I32
   | I64
@@ -19,6 +21,10 @@ end CustomIdentifier
 structure CustomIdentifier where
   value : String
   hvalid : CustomIdentifier.is_valid value
+
+structure RangedCustomIdentifier where
+  range : TextRange
+  ident: CustomIdentifier
 
 inductive Identifier
   | RootPrimitiveTy : RootPrimitiveTyIdentifier -> Identifier
