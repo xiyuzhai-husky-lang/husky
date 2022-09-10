@@ -19,6 +19,7 @@ inductive StmtKeyword
   deriving BEq
 
 namespace StmtKeyword
+def toRustCode : StmtKeyword -> String := sorry
 def StmtKeywordEnumeration := [
   Let,
   Var,

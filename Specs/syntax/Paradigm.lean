@@ -5,6 +5,7 @@ inductive Paradigm
   deriving BEq
 
 namespace Paradigm
+def toRustCode : Paradigm -> String := sorry
 def ParadigmEnumeration := [
   LazyFunctional,
   EagerFunctional,
