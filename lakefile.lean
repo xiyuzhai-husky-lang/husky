@@ -9,7 +9,7 @@ lean_lib Specs {
   -- add library configuration options here
 }
 
--- @[defaultTarget]
--- lean_exe «specs» {
---   root := `Main
--- }
+@[defaultTarget]
+lean_exe «specs» {
+  root := `Main
+}
