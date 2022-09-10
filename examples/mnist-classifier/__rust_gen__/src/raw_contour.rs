@@ -35,7 +35,7 @@ impl<'eval> RawContour<'eval> {
                 Ok(__Register::new_box::<
                     crate::line_segment_sketch::LineSegmentSketch<'eval>,
                 >(
-                    crate::line_segment_sketch::LineSegmentSketch::new(&self, 1.2f32),
+                    crate::line_segment_sketch::LineSegmentSketch::new(&self, 1.4f32),
                     &__registration__::__LINE_SEGMENT_SKETCH_VTABLE,
                 )),
             )

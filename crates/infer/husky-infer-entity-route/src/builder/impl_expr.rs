@@ -25,10 +25,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     pub(super) fn expr_ty_result(
         &mut self,
-        raw_expr_idx: RawExprIdx,
+        idx: RawExprIdx,
         expectation: Option<EntityRoutePtr>,
     ) -> InferResult<EntityRoutePtr> {
-        let expr = &self.arena[raw_expr_idx];
+        let expr = &self.arena[idx];
         let ty = match expr.variant {
             RawExprVariant::Variable {
                 varname,
@@ -41,7 +41,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::Unrecognized(ident) => Err(InferError {
                 variant: InferErrorVariant::Original {
                     message: format!("Unrecognized identifier `{}`", &ident),
-                    range: self.arena[raw_expr_idx].range,
+                    range: self.arena[idx].range,
                 },
                 dev_src: dev_src!(),
             })?,
@@ -55,7 +55,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawExprVariant::Opn {
                 opn_variant: ref opr,
                 ref opds,
-            } => self.infer_opn(raw_expr_idx, expectation, opr, opds)?,
+            } => self.infer_opn(idx, expectation, opr, opds)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::ThisValue {
                 opt_this_ty: opt_ty,
@@ -70,7 +70,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             if !self.db.is_implicitly_castable(ty, expected_ty) {
                 throw!(
                     format!("expect `{:?}` but get `{:?}` instead", expected_ty, ty),
-                    self.arena[raw_expr_idx].range
+                    self.arena[idx].range
                 )
             }
         }
@@ -78,7 +78,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     }
 
     fn infer_entity_ty(
-        &mut self,
+        &self,
         entity_route: EntityRoutePtr,
         husky_entity_kind: EntityKind,
     ) -> InferResult<EntityRoutePtr> {
@@ -423,7 +423,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         msg_once!("expectation");
         match opr {
             ListOpr::TupleInit => todo!(),
-            ListOpr::NewVec => self.infer_new_vec_from_list(expectation, opds),
+            ListOpr::NewVec => self.infer_new_vec_from_list(idx, expectation, opds),
             ListOpr::NewDict => todo!(),
             ListOpr::FunctionCall => self.infer_function_call(idx, opds),
             ListOpr::Index => self.infer_index(opds, range),
@@ -437,6 +437,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     fn infer_new_vec_from_list(
         &mut self,
+        idx: RawExprIdx,
         expectation: Option<EntityRoutePtr>,
         opds: &RawExprRange,
     ) -> InferResult<EntityRoutePtr> {
@@ -470,6 +471,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         opds: &RawExprRange,
     ) -> InferResult<EntityRoutePtr> {
         let caller = &self.arena[opds.start];
+        // ad hoc
+        let caller_ty_result = self.infer_expr(opds.start, None);
         let call_decl = match caller.variant {
             RawExprVariant::Entity { route, .. } => {
                 self.entity_route_sheet
@@ -479,7 +482,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             }
             _ => self
                 .db
-                .value_call_form_decl(derived_not_none!(self.infer_expr(opds.start, None,))?),
+                .value_call_form_decl(derived_not_none!(caller_ty_result)?),
         }
         .bind_with_text_ranged(caller)?;
         for (argument, parameter) in call_decl
