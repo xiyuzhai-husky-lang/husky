@@ -39,8 +39,8 @@ def StmtKeywordEnumeration := [
 ]
 
 
-def as_str(kw: StmtKeyword): String :=
-  match kw with
+instance : ToString StmtKeyword where
+  toString : StmtKeyword -> String
   | Let => "let"
   | Var => "var"
   | If => "if"

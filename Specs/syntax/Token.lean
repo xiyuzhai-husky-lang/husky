@@ -12,7 +12,7 @@ inductive HuskyTokenKind
   | IllFormedLiteral
 
 namespace HuskyTokenKind
-def to_string : HuskyTokenKind -> String
+def as_str : HuskyTokenKind -> String
   | Decorator
   | Keyword
   | Identifier
