@@ -12,16 +12,16 @@ macro_rules! try_path {
 }
 
 pub fn parent_module_path(path: &Path, exists: impl Fn(&Path) -> bool) -> Option<PathBuf> {
-    try_path!(path.with_file_name("main.hsk"), exists);
-    try_path!(path.parent().unwrap().with_extension("hsk"), exists);
+    try_path!(path.with_file_name("main.hsy"), exists);
+    try_path!(path.parent().unwrap().with_extension("hsy"), exists);
     todo!()
 }
 
 pub fn submodule_path(path: &Path, ident: &str, exists: impl Fn(&Path) -> bool) -> Option<PathBuf> {
-    should_eq!(path.extension().unwrap(), "hsk");
-    if path.file_name().unwrap() == "main.hsk" {
+    should_eq!(path.extension().unwrap(), "hsy");
+    if path.file_name().unwrap() == "main.hsy" {
         submodule_path2(path.parent().unwrap(), ident, exists)
-    } else if path.extension().unwrap() == "hsk" {
+    } else if path.extension().unwrap() == "hsy" {
         submodule_path2(&path.with_extension(""), ident, exists)
     } else {
         p!(path);
@@ -30,7 +30,7 @@ pub fn submodule_path(path: &Path, ident: &str, exists: impl Fn(&Path) -> bool) 
 }
 
 fn submodule_path2(dir: &Path, ident: &str, exists: impl Fn(&Path) -> bool) -> Option<PathBuf> {
-    let maybe_result = dir.join(format!("{}.hsk", ident));
+    let maybe_result = dir.join(format!("{}.hsy", ident));
     if exists(&maybe_result) {
         return Some(maybe_result);
     } else {

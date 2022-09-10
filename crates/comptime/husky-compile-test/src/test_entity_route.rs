@@ -5,7 +5,7 @@ use crate::*;
 fn no_error_single_file() {
     let mut db = HuskyComptime::new_default(__resolve_root_defn);
     db.set_live_file_text(
-        "haha/main.hsk".into(),
+        "haha/main.hsy".into(),
         r#"
 struct A {}
 
@@ -15,7 +15,7 @@ main:
         .into(),
     );
 
-    let target_entrance = db.intern_file("haha/main.hsk".into());
+    let target_entrance = db.intern_file("haha/main.hsy".into());
     let pack = db.intern_entity_route(EntityRoute::package(
         target_entrance,
         db.intern_word("haha".into()).opt_custom().unwrap(),
@@ -29,7 +29,7 @@ main:
 fn no_error_many_files() {
     let mut db = HuskyComptime::new_default(__resolve_root_defn);
     db.set_live_file_text(
-        "haha/main.hsk".into(),
+        "haha/main.hsy".into(),
         r#"
 mod husky_lord
 struct A {}
@@ -40,15 +40,15 @@ main:
         .into(),
     );
     db.set_live_file_text(
-        "haha/husky_lord.hsk".into(),
+        "haha/husky_lord.hsy".into(),
         r#"
 struct B {}
 "#
         .into(),
     );
 
-    let target_entrance = db.intern_file("haha/main.hsk".into());
-    let husky_lord_file = db.intern_file("haha/husky_lord.hsk".into());
+    let target_entrance = db.intern_file("haha/main.hsy".into());
+    let husky_lord_file = db.intern_file("haha/husky_lord.hsy".into());
     let package = db.intern_entity_route(EntityRoute::package(
         target_entrance,
         db.intern_word("haha".into()).opt_custom().unwrap(),

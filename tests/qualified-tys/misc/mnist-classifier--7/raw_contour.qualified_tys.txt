@@ -61,7 +61,7 @@ lazy expr:
     21:26..21:37   this.points            EvalRef []mnist_classifier__7::geom2d::Point2d
 
 eager expr:
-    12:9..12:31    LineSegmentSketch::new   InferError: failed to infer expr ty
+    12:9..12:31    LineSegmentSketch::new   Copyable ThickFp<&mnist_classifier__7::raw_contour::RawContour, f32, mnist_classifier__7::line_segment_sketch::LineSegmentSketch>
     12:32..12:36   this                   EvalRef mnist_classifier__7::raw_contour::RawContour
     12:38..12:41   1.2                    Copyable f32
     12:9..12:42    LineSegmentSketch::new(this, 1.2)   Transient mnist_classifier__7::line_segment_sketch::LineSegmentSketch
@@ -107,11 +107,11 @@ eager expr:
     36:5..36:21    (row >> (j - 1))       Copyable b32
     36:24..36:28   1b32                   Copyable b32
     36:5..36:28    (row >> (j - 1)) & 1b32   Copyable b32
-    39:24..39:38   get_pixel_pair         InferError: failed to infer expr ty
+    39:24..39:38   get_pixel_pair         Copyable ThickFp<b32, i32, b32>
     39:39..39:48   row_above              Copyable b32
     39:50..39:51   j                      Copyable i32
     39:24..39:52   get_pixel_pair(row_above, j)   Copyable b32
-    40:24..40:38   get_pixel_pair         InferError: failed to infer expr ty
+    40:24..40:38   get_pixel_pair         Copyable ThickFp<b32, i32, b32>
     40:39..40:48   row_below              Copyable b32
     40:50..40:51   j                      Copyable i32
     40:24..40:52   get_pixel_pair(row_below, j)   Copyable b32
@@ -143,11 +143,11 @@ eager expr:
     69:13..69:29   raw_angle_change       Copyable b32
     69:13..69:36   raw_angle_change as i32   Copyable i32
     71:13..71:15   -1                     Copyable i32
-    79:24..79:38   get_pixel_pair         InferError: failed to infer expr ty
+    79:24..79:38   get_pixel_pair         Copyable ThickFp<b32, i32, b32>
     79:39..79:48   row_above              Copyable b32
     79:50..79:51   j                      Copyable i32
     79:24..79:52   get_pixel_pair(row_above, j)   Copyable b32
-    80:24..80:38   get_pixel_pair         InferError: failed to infer expr ty
+    80:24..80:38   get_pixel_pair         Copyable ThickFp<b32, i32, b32>
     80:39..80:48   row_below              Copyable b32
     80:50..80:51   j                      Copyable i32
     80:24..80:52   get_pixel_pair(row_below, j)   Copyable b32
@@ -267,7 +267,7 @@ eager expr:
     149:29..149:36 cc.mask                PureRef domains::ml::datasets::cv::mnist::BinaryImage28
     149:37..149:38 i                      Copyable i32
     149:29..149:39 cc.mask[i]             Copyable b32
-    151:36..151:56 get_inward_direction   InferError: failed to infer expr ty
+    151:36..151:56 get_inward_direction   Copyable ThickFp<b32, b32, i32, mnist_classifier__7::raw_contour::Direction>
     151:57..151:66 row_above              Copyable b32
     151:68..151:77 row_below              Copyable b32
     151:79..151:80 j                      Copyable i32
@@ -294,13 +294,13 @@ eager expr:
     165:24..165:72 i == i0 and j == j0 and inward_direction == dir0   Copyable bool
     165:23..165:73 (i == i0 and j == j0 and inward_direction == dir0)   Copyable bool
     165:22..165:73 !(i == i0 and j == j0 and inward_direction == dir0)   Copyable bool
-    166:41..166:62 get_outward_direction   InferError: failed to infer expr ty
+    166:41..166:62 get_outward_direction   Copyable ThickFp<b32, b32, i32, mnist_classifier__7::raw_contour::Direction, mnist_classifier__7::raw_contour::Direction>
     166:63..166:72 row_above              Copyable b32
     166:74..166:83 row_below              Copyable b32
     166:85..166:86 j                      Copyable i32
     166:88..166:104inward_direction       Copyable mnist_classifier__7::raw_contour::Direction
     166:41..166:105get_outward_direction(row_above, row_below, j, inward_direction)   Copyable mnist_classifier__7::raw_contour::Direction
-    167:36..167:52 get_angle_change       InferError: failed to infer expr ty
+    167:36..167:52 get_angle_change       Copyable ThickFp<mnist_classifier__7::raw_contour::Direction, mnist_classifier__7::raw_contour::Direction, i32>
     167:53..167:69 inward_direction       Copyable mnist_classifier__7::raw_contour::Direction
     167:71..167:88 outward_direction      Copyable mnist_classifier__7::raw_contour::Direction
     167:36..167:89 get_angle_change(inward_direction, outward_direction)   Copyable i32
@@ -339,12 +339,12 @@ eager expr:
     172:129..172:146prev_streak2 == 1      Copyable bool
     172:24..172:146prev_angle_change1 == -1 and prev_angle_change2 == -1 and current_streak == 1 and prev_streak1 != -1 and prev_streak2 == 1   Copyable bool
     173:25..173:32 contour                TempRefMut []mnist_classifier__7::geom2d::Point2d
-    173:43..173:67 get_concave_middle_point   InferError: failed to infer expr ty
+    173:43..173:67 get_concave_middle_point   Copyable ThickFp<[]mnist_classifier__7::geom2d::Point2d, mnist_classifier__7::geom2d::Point2d>
     173:68..173:75 contour                PureRef []mnist_classifier__7::geom2d::Point2d
     173:25..173:40 contour.lastx()        TempRefMut mnist_classifier__7::geom2d::Point2d
     173:43..173:76 get_concave_middle_point(contour)   Transient mnist_classifier__7::geom2d::Point2d
     173:25..173:76 contour.lastx() = get_concave_middle_point(contour)   Copyable void
-    174:38..174:61 Point2d::from_i_shift28   InferError: failed to infer expr ty
+    174:38..174:61 Point2d::from_i_shift28   Copyable ThickFp<i32, i32, mnist_classifier__7::geom2d::Point2d>
     174:62..174:63 i                      Copyable i32
     174:65..174:66 j                      Copyable i32
     174:25..174:32 contour                TempRefMut []mnist_classifier__7::geom2d::Point2d
@@ -368,7 +368,7 @@ eager expr:
     177:76..177:93 prev_streak1 == 1      Copyable bool
     177:26..177:93 prev_angle_change1 == -1 and prev_streak1 > 0 and prev_streak1 == 1   Copyable bool
     178:25..178:32 contour                TempRefMut []mnist_classifier__7::geom2d::Point2d
-    178:43..178:66 Point2d::from_i_shift28   InferError: failed to infer expr ty
+    178:43..178:66 Point2d::from_i_shift28   Copyable ThickFp<i32, i32, mnist_classifier__7::geom2d::Point2d>
     178:67..178:68 i                      Copyable i32
     178:70..178:71 j                      Copyable i32
     178:25..178:40 contour.lastx()        TempRefMut mnist_classifier__7::geom2d::Point2d
@@ -396,7 +396,7 @@ eager expr:
     181:100..181:116prev_streak1 > 1       Copyable bool
     181:26..181:116prev_angle_change1 == -1 and prev_streak1 > 0 and current_streak == 1 and prev_streak1 > 1   Copyable bool
     182:25..182:32 contour                TempRefMut []mnist_classifier__7::geom2d::Point2d
-    182:43..182:66 Point2d::from_i_shift28   InferError: failed to infer expr ty
+    182:43..182:66 Point2d::from_i_shift28   Copyable ThickFp<i32, i32, mnist_classifier__7::geom2d::Point2d>
     182:67..182:68 i                      Copyable i32
     182:70..182:71 j                      Copyable i32
     182:25..182:40 contour.lastx()        TempRefMut mnist_classifier__7::geom2d::Point2d
@@ -408,7 +408,7 @@ eager expr:
     184:25..184:37 prev_streak1           TempRefMut i32
     184:40..184:42 -1                     Copyable i32
     184:25..184:42 prev_streak1 = -1      Copyable void
-    186:38..186:61 Point2d::from_i_shift28   InferError: failed to infer expr ty
+    186:38..186:61 Point2d::from_i_shift28   Copyable ThickFp<i32, i32, mnist_classifier__7::geom2d::Point2d>
     186:62..186:63 i                      Copyable i32
     186:65..186:66 j                      Copyable i32
     186:25..186:32 contour                TempRefMut []mnist_classifier__7::geom2d::Point2d

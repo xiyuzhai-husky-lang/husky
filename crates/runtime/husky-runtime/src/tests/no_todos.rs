@@ -2,8 +2,8 @@ use husky_comptime::*;
 
 fn walkthrough(main_source: &'static str) {
     let mut db = husky - compilerompileTime::new_default(__root_defn);
-    db.set_live_file_text("haha/main.hsk".into(), main_source.into());
-    let target_entrance = db.intern_file("haha/main.hsk".into());
+    db.set_live_file_text("haha/main.hsy".into(), main_source.into());
+    let target_entrance = db.intern_file("haha/main.hsy".into());
     let pack = db.package(target_entrance).unwrap();
     // let sess = Session::new(&Pack);
 }

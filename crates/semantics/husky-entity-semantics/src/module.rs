@@ -5,7 +5,7 @@ pub fn module_defn(
     entity_route: EntityRoutePtr,
     file: FilePtr,
 ) -> SemanticResultArc<EntityDefn> {
-    let opt_main_defn = if file.ends_with("main.hsk") {
+    let opt_main_defn = if file.ends_with("main.hsy") {
         Some(db.main_defn(file)?)
     } else {
         None

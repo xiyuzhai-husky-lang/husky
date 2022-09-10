@@ -70,7 +70,7 @@ fn file_content(db: &dyn FileSalsaQuery, id: FilePtr) -> FileContent {
 fn target_entrance(db: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<FilePtr> {
     let pth: PathBuf = (*module_file_id).into();
     for ancestor in pth.ancestors() {
-        let id = db.intern_file(ancestor.with_file_name("main.hsk"));
+        let id = db.intern_file(ancestor.with_file_name("main.hsy"));
         match db.file_content(id) {
             FileContent::OnDisk(_) | FileContent::Live(_) => return Some(id),
             FileContent::Deleted | FileContent::NonExistent => (),

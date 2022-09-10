@@ -30,7 +30,7 @@ eager expr:
     28:20..28:21   L                      Copyable i32
     28:11..28:16   start                  Copyable i32
     28:19..28:21   -L                     Copyable i32
-    28:27..28:36   is_convex              InferError: failed to infer expr ty
+    28:27..28:36   is_convex              Copyable ThickFp<mnist_classifier__10::line_segment_sketch::LineSegmentSketch, i32, bool>
     28:37..28:56   line_segment_sketch    PureRef mnist_classifier__10::line_segment_sketch::LineSegmentSketch
     28:58..28:63   start                  Copyable i32
     28:27..28:64   is_convex(line_segment_sketch, start)   Copyable bool
@@ -49,7 +49,7 @@ eager expr:
     32:28..32:29   L                      Copyable i32
     32:15..32:18   end                    Copyable i32
     32:22..32:29   start+L                Copyable i32
-    32:35..32:44   is_convex              InferError: failed to infer expr ty
+    32:35..32:44   is_convex              Copyable ThickFp<mnist_classifier__10::line_segment_sketch::LineSegmentSketch, i32, bool>
     32:45..32:64   line_segment_sketch    PureRef mnist_classifier__10::line_segment_sketch::LineSegmentSketch
     32:66..32:69   end                    Copyable i32
     32:35..32:70   is_convex(line_segment_sketch, end)   Copyable bool

@@ -15,8 +15,8 @@ main:
         0
 "#;
 
-    db.set_live_file_text("haha/main.hsk".into(), source.into());
-    let main_file_id = db.intern_file("haha/main.hsk".into());
+    db.set_live_file_text("haha/main.hsy".into(), source.into());
+    let main_file_id = db.intern_file("haha/main.hsy".into());
     let ast_text = db.ast_text(main_file_id).unwrap();
     test_print!(ast_text.errors());
 }

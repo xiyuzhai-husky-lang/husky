@@ -16,7 +16,7 @@ lazy expr:
     8:48..8:49     0                      Copyable i32
     8:13..8:49     major_concave_components.ilen() == 0   Copyable bool
     9:5..9:20      MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
-    12:5..12:16    fermi_match            InferError: failed to infer expr ty
+    12:5..12:16    fermi_match            Copyable ThickFp<&[]mnist_classifier__9::line_segment_sketch::concave_component::ConcaveComponent, []ThickFp<&mnist_classifier__9::line_segment_sketch::concave_component::ConcaveComponent, ?f32>, mnist_classifier__9::fermi::FermiMatchResult>
     12:17..12:41   major_concave_components   EvalRef []mnist_classifier__9::line_segment_sketch::concave_component::ConcaveComponent
     12:43..12:45   []                     Transient []ThickFp<&mnist_classifier__9::line_segment_sketch::concave_component::ConcaveComponent, ?f32>
     12:5..12:46    fermi_match(major_concave_components, [])   Transient mnist_classifier__9::fermi::FermiMatchResult
@@ -38,7 +38,7 @@ lazy expr:
     8:48..8:49     0                      Copyable i32
     8:13..8:49     major_concave_components.ilen() == 0   Copyable bool
     9:5..9:20      MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
-    12:5..12:16    fermi_match            InferError: failed to infer expr ty
+    12:5..12:16    fermi_match            Copyable ThickFp<&[]mnist_classifier__9::line_segment_sketch::concave_component::ConcaveComponent, []ThickFp<&mnist_classifier__9::line_segment_sketch::concave_component::ConcaveComponent, ?f32>, mnist_classifier__9::fermi::FermiMatchResult>
     12:17..12:41   major_concave_components   EvalRef []mnist_classifier__9::line_segment_sketch::concave_component::ConcaveComponent
     12:43..12:45   []                     Transient []ThickFp<&mnist_classifier__9::line_segment_sketch::concave_component::ConcaveComponent, ?f32>
     12:5..12:46    fermi_match(major_concave_components, [])   Transient mnist_classifier__9::fermi::FermiMatchResult

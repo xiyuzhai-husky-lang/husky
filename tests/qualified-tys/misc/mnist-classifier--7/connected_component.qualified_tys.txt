@@ -23,10 +23,10 @@ lazy expr:
     11:9..11:13    mask                   EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
 
 eager expr:
-    8:9..8:26      find_raw_contours      InferError: failed to infer expr ty
+    8:9..8:26      find_raw_contours      Copyable ThickFp<&mnist_classifier__7::connected_component::ConnectedComponent, []mnist_classifier__7::raw_contour::RawContour>
     8:27..8:31     this                   EvalRef mnist_classifier__7::connected_component::ConnectedComponent
     8:9..8:32      find_raw_contours(this)   Transient []mnist_classifier__7::raw_contour::RawContour
-    14:5..14:30    find_connected_components   InferError: failed to infer expr ty
+    14:5..14:30    find_connected_components   Copyable ThickFp<domains::ml::datasets::cv::mnist::BinaryImage28, []mnist_classifier__7::connected_component::ConnectedComponent>
     14:31..14:36   input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     14:5..14:37    find_connected_components(input)   Transient []mnist_classifier__7::connected_component::ConnectedComponent
     17:5..17:25    connected_components   EvalRef []mnist_classifier__7::connected_component::ConnectedComponent
@@ -102,7 +102,7 @@ eager expr:
     35:18..35:19   j                      Copyable i32
     35:44..35:48   1b32                   Copyable b32
     35:52..35:57   shift                  Copyable i32
-    35:23..35:40   horizontal_extend      InferError: failed to infer expr ty
+    35:23..35:40   horizontal_extend      Copyable ThickFp<b32, b32, b32>
     35:41..35:42   a                      Copyable b32
     35:44..35:57   1b32 << shift          Copyable b32
     35:13..35:20   mask[j]                TempRefMut b32
@@ -129,7 +129,7 @@ eager expr:
     42:67..42:72   i + 1                  Copyable i32
     42:75..42:79   mask                   PureRef domains::ml::datasets::cv::mnist::BinaryImage28
     42:80..42:81   i                      Copyable i32
-    42:45..42:62   horizontal_extend      InferError: failed to infer expr ty
+    42:45..42:62   horizontal_extend      Copyable ThickFp<b32, b32, b32>
     42:63..42:73   img[i + 1]             Copyable b32
     42:75..42:82   mask[i]                Copyable b32
     42:35..42:42   old_row                Copyable b32
@@ -160,7 +160,7 @@ eager expr:
     50:80..50:81   1                      Copyable i32
     50:71..50:75   mask                   PureRef domains::ml::datasets::cv::mnist::BinaryImage28
     50:76..50:81   i + 1                  Copyable i32
-    50:45..50:62   horizontal_extend      InferError: failed to infer expr ty
+    50:45..50:62   horizontal_extend      Copyable ThickFp<b32, b32, b32>
     50:63..50:69   img[i]                 Copyable b32
     50:71..50:82   mask[i + 1]            Copyable b32
     50:35..50:42   old_row                Copyable b32

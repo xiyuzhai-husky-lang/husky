@@ -28,7 +28,7 @@ pub fn path_has_extension(path: &Path, extension: &str) -> bool {
 
 pub fn collect_package_dirs(dir: &Path) -> Vec<PathBuf> {
     should_satisfy!(dir, |dir: &Path| dir.is_dir());
-    let main_path = dir.join("main.hsk");
+    let main_path = dir.join("main.hsy");
     if main_path.exists() {
         return vec![dir.to_path_buf()];
     } else {
@@ -53,7 +53,7 @@ pub fn collect_all_source_files(dir: PathBuf) -> Vec<PathBuf> {
         if subpath.is_dir() {
             source_files.extend(collect_all_source_files(subpath))
         } else {
-            if subpath.extension().unwrap() == "hsk" {
+            if subpath.extension().unwrap() == "hsy" {
                 source_files.push(subpath)
             }
         }

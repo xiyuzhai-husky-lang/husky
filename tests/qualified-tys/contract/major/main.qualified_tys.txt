@@ -24,20 +24,20 @@ lazy expr:
     56:9..56:12    1++                    InferError: mutation not allowed in lazy functional context
     59:9..59:10    1                      Copyable i32
     59:9..59:17    1 as b32               Copyable i32
-    62:14..62:15   A                      InferError: failed to infer expr ty
+    62:14..62:15   A                      EvalRef Type
     62:16..62:17   1                      Copyable i32
-    62:9..62:10    B                      InferError: failed to infer expr ty
+    62:9..62:10    B                      EvalRef Type
     62:11..62:12   3                      Copyable i32
     62:14..62:18   A(1)                   Transient major::A
     62:9..62:19    B(3, A(1))             Transient major::B
     63:37..63:38   b                      EvalRef major::B
-    63:9..63:36    use_eval_ref_copyable_is_ok   InferError: failed to infer expr ty
+    63:9..63:36    use_eval_ref_copyable_is_ok   Copyable ThickFp<&i32, i32>
     63:37..63:40   b.x                    EvalRef i32
     63:9..63:41    use_eval_ref_copyable_is_ok(b.x)   Copyable i32
     64:5..64:6     1                      Copyable i32
 
 eager expr:
-    2:5..2:55      ml::datasets::synthetic::trivial::real1d::dataset1   InferError: failed to infer expr ty
+    2:5..2:55      ml::datasets::synthetic::trivial::real1d::dataset1   Copyable ThickFp<Dataset<f32, i32>>
     2:5..2:57      ml::datasets::synthetic::trivial::real1d::dataset1()   Transient Dataset<f32, i32>
     13:15..13:16   x                      Copyable i32
     13:19..13:20   1                      Copyable i32
@@ -54,11 +54,11 @@ eager expr:
     29:9..29:10    b                      EvalRef major::B
     29:9..29:12    b.a                    EvalRef major::A
     30:24..30:25   b                      EvalRef major::B
-    30:9..30:23    use_eval_ref_a         InferError: failed to infer expr ty
+    30:9..30:23    use_eval_ref_a         Copyable ThickFp<&major::A, i32>
     30:24..30:27   b.a                    EvalRef major::A
     30:9..30:28    use_eval_ref_a(b.a)    Copyable i32
     31:37..31:38   b                      EvalRef major::B
-    31:9..31:36    use_eval_ref_copyable_is_ok   InferError: failed to infer expr ty
+    31:9..31:36    use_eval_ref_copyable_is_ok   Copyable ThickFp<&i32, i32>
     31:37..31:40   b.x                    EvalRef i32
     31:9..31:41    use_eval_ref_copyable_is_ok(b.x)   Copyable i32
     32:9..32:10    b                      PureRef major::B
@@ -80,10 +80,10 @@ eager expr:
     49:15..49:16   3                      Copyable i32
     49:18..49:22   A(1)                   Transient major::A
     49:13..49:23   B(3, A(1))             Transient major::B
-    50:13..50:28   func_pure_is_ok        InferError: failed to infer expr ty
+    50:13..50:28   func_pure_is_ok        Copyable ThickFp<major::B, i32>
     50:29..50:30   b                      PureRef major::B
     50:13..50:31   func_pure_is_ok(b)     Copyable i32
-    51:41..51:56   func_move_is_ok        InferError: failed to infer expr ty
+    51:41..51:56   func_move_is_ok        Copyable ThickFp<major::B, i32>
     51:57..51:58   b                      Transient major::B
     51:41..51:59   func_move_is_ok(b)     Copyable i32
     52:22..52:23   b                      PureRef major::B
@@ -96,14 +96,14 @@ lazy expr:
     56:9..56:12    1++                    InferError: mutation not allowed in lazy functional context
     59:9..59:10    1                      Copyable i32
     59:9..59:17    1 as b32               Copyable i32
-    62:14..62:15   A                      InferError: failed to infer expr ty
+    62:14..62:15   A                      EvalRef Type
     62:16..62:17   1                      Copyable i32
-    62:9..62:10    B                      InferError: failed to infer expr ty
+    62:9..62:10    B                      EvalRef Type
     62:11..62:12   3                      Copyable i32
     62:14..62:18   A(1)                   Transient major::A
     62:9..62:19    B(3, A(1))             Transient major::B
     63:37..63:38   b                      EvalRef major::B
-    63:9..63:36    use_eval_ref_copyable_is_ok   InferError: failed to infer expr ty
+    63:9..63:36    use_eval_ref_copyable_is_ok   Copyable ThickFp<&i32, i32>
     63:37..63:40   b.x                    EvalRef i32
     63:9..63:41    use_eval_ref_copyable_is_ok(b.x)   Copyable i32
     64:5..64:6     1                      Copyable i32

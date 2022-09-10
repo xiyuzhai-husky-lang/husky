@@ -12,7 +12,7 @@ lazy expr:
     20:5..20:49    major_line_segment_sketch.concave_components   EvalRef []mnist_classifier__9::line_segment_sketch::concave_component::ConcaveComponent
 
 eager expr:
-    7:5..7:30      find_connected_components   InferError: failed to infer expr ty
+    7:5..7:30      find_connected_components   Copyable ThickFp<domains::ml::datasets::cv::mnist::BinaryImage28, []mnist_classifier__9::connected_component::ConnectedComponent>
     7:31..7:36     input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
     7:5..7:37      find_connected_components(input)   Transient []mnist_classifier__9::connected_component::ConnectedComponent
     10:5..10:25    connected_components   EvalRef []mnist_classifier__9::connected_component::ConnectedComponent

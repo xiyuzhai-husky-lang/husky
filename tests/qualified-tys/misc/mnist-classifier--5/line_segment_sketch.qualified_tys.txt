@@ -249,11 +249,11 @@ eager expr:
     51:20..51:21   r                      Copyable f32
     51:8..51:21    dp.norm() < r          Copyable bool
     52:16..52:19   end                    Copyable i32
-    53:23..53:31   go_right               InferError: failed to infer expr ty
+    53:23..53:31   go_right               Copyable ThickFp<mnist_classifier__5::geom2d::Vector2d, f32, mnist_classifier__5::geom2d::Vector2d>
     53:32..53:34   dp                     PureRef mnist_classifier__5::geom2d::Vector2d
     53:36..53:37   r                      Copyable f32
     53:23..53:38   go_right(dp, r)        Transient mnist_classifier__5::geom2d::Vector2d
-    54:22..54:29   go_left                InferError: failed to infer expr ty
+    54:22..54:29   go_left                Copyable ThickFp<mnist_classifier__5::geom2d::Vector2d, f32, mnist_classifier__5::geom2d::Vector2d>
     54:30..54:32   dp                     PureRef mnist_classifier__5::geom2d::Vector2d
     54:34..54:35   r                      Copyable f32
     54:22..54:36   go_left(dp, r)         Transient mnist_classifier__5::geom2d::Vector2d
@@ -289,11 +289,11 @@ eager expr:
     64:12..64:19   dp_norm                Copyable f32
     64:22..64:23   r                      Copyable f32
     64:12..64:23   dp_norm > r            Copyable bool
-    65:28..65:36   go_right               InferError: failed to infer expr ty
+    65:28..65:36   go_right               Copyable ThickFp<mnist_classifier__5::geom2d::Vector2d, f32, mnist_classifier__5::geom2d::Vector2d>
     65:37..65:39   dp                     PureRef mnist_classifier__5::geom2d::Vector2d
     65:41..65:42   r                      Copyable f32
     65:28..65:43   go_right(dp, r)        Transient mnist_classifier__5::geom2d::Vector2d
-    66:27..66:34   go_left                InferError: failed to infer expr ty
+    66:27..66:34   go_left                Copyable ThickFp<mnist_classifier__5::geom2d::Vector2d, f32, mnist_classifier__5::geom2d::Vector2d>
     66:35..66:37   dp                     PureRef mnist_classifier__5::geom2d::Vector2d
     66:39..66:40   r                      Copyable f32
     66:27..66:41   go_left(dp, r)         Transient mnist_classifier__5::geom2d::Vector2d
@@ -364,11 +364,11 @@ eager expr:
     84:16..84:21   start                  Copyable i32
     84:26..84:32   start0                 Copyable i32
     84:16..84:33   start.min(start0)      Copyable i32
-    85:23..85:31   go_right               InferError: failed to infer expr ty
+    85:23..85:31   go_right               Copyable ThickFp<mnist_classifier__5::geom2d::Vector2d, f32, mnist_classifier__5::geom2d::Vector2d>
     85:32..85:35   dp0                    PureRef mnist_classifier__5::geom2d::Vector2d
     85:37..85:38   r                      Copyable f32
     85:23..85:39   go_right(dp0, r)       Transient mnist_classifier__5::geom2d::Vector2d
-    86:22..86:29   go_left                InferError: failed to infer expr ty
+    86:22..86:29   go_left                Copyable ThickFp<mnist_classifier__5::geom2d::Vector2d, f32, mnist_classifier__5::geom2d::Vector2d>
     86:30..86:33   dp0                    PureRef mnist_classifier__5::geom2d::Vector2d
     86:35..86:36   r                      Copyable f32
     86:22..86:37   go_left(dp0, r)        Transient mnist_classifier__5::geom2d::Vector2d
@@ -398,11 +398,11 @@ eager expr:
     95:12..95:19   dp_norm                Copyable f32
     95:22..95:23   r                      Copyable f32
     95:12..95:23   dp_norm > r            Copyable bool
-    96:28..96:36   go_right               InferError: failed to infer expr ty
+    96:28..96:36   go_right               Copyable ThickFp<mnist_classifier__5::geom2d::Vector2d, f32, mnist_classifier__5::geom2d::Vector2d>
     96:37..96:39   dp                     PureRef mnist_classifier__5::geom2d::Vector2d
     96:41..96:42   r                      Copyable f32
     96:28..96:43   go_right(dp, r)        Transient mnist_classifier__5::geom2d::Vector2d
-    97:27..97:34   go_left                InferError: failed to infer expr ty
+    97:27..97:34   go_left                Copyable ThickFp<mnist_classifier__5::geom2d::Vector2d, f32, mnist_classifier__5::geom2d::Vector2d>
     97:35..97:37   dp                     PureRef mnist_classifier__5::geom2d::Vector2d
     97:39..97:40   r                      Copyable f32
     97:27..97:41   go_left(dp, r)         Transient mnist_classifier__5::geom2d::Vector2d
@@ -461,14 +461,14 @@ eager expr:
     123:11..123:14 end                    Copyable i32
     123:18..123:25 max_end                Copyable i32
     123:11..123:25 end <= max_end         Copyable bool
-    124:15..124:25 extend_end             InferError: failed to infer expr ty
+    124:15..124:25 extend_end             Copyable ThickFp<&mnist_classifier__5::raw_contour::RawContour, i32, f32, i32>
     124:26..124:28 ct                     EvalRef mnist_classifier__5::raw_contour::RawContour
     124:30..124:35 start                  Copyable i32
     124:37..124:38 r                      Copyable f32
     124:9..124:12  end                    TempRefMut i32
     124:15..124:39 extend_end(ct, start, r)   Copyable i32
     124:9..124:39  end = extend_end(ct, start, r)   Copyable void
-    125:29..125:45 LineSegment::new       InferError: failed to infer expr ty
+    125:29..125:45 LineSegment::new       Copyable ThickFp<&mnist_classifier__5::raw_contour::RawContour, i32, i32, mnist_classifier__5::line_segment_sketch::LineSegment>
     125:46..125:48 ct                     EvalRef mnist_classifier__5::raw_contour::RawContour
     125:50..125:55 start                  Copyable i32
     125:57..125:60 end                    Copyable i32
@@ -502,7 +502,7 @@ eager expr:
     133:62..133:75 line_segments          PureRef []mnist_classifier__5::line_segment_sketch::LineSegment
     133:62..133:83 line_segments.lastx()   PureRef mnist_classifier__5::line_segment_sketch::LineSegment
     133:62..133:90 line_segments.lastx().points   PureRef std::slice::CyclicSlice<mnist_classifier__5::geom2d::Point2d>
-    133:41..133:57 LineSegment::new       InferError: failed to infer expr ty
+    133:41..133:57 LineSegment::new       Copyable ThickFp<&mnist_classifier__5::raw_contour::RawContour, i32, i32, mnist_classifier__5::line_segment_sketch::LineSegment>
     133:58..133:60 ct                     EvalRef mnist_classifier__5::raw_contour::RawContour
     133:62..133:96 line_segments.lastx().points.start   Copyable i32
     133:98..133:101end                    Copyable i32
@@ -513,7 +513,7 @@ eager expr:
     134:37..134:42 false                  Copyable bool
     134:17..134:42 extend_start_flag = false   Copyable void
     135:12..135:29 extend_start_flag      Copyable bool
-    136:21..136:33 extend_start           InferError: failed to infer expr ty
+    136:21..136:33 extend_start           Copyable ThickFp<&mnist_classifier__5::raw_contour::RawContour, i32, i32, f32, i32>
     136:34..136:36 ct                     EvalRef mnist_classifier__5::raw_contour::RawContour
     136:38..136:43 start                  Copyable i32
     136:45..136:48 end                    Copyable i32
@@ -521,7 +521,7 @@ eager expr:
     136:13..136:18 start                  TempRefMut i32
     136:21..136:52 extend_start(ct, start, end, r)   Copyable i32
     136:13..136:52 start = extend_start(ct, start, end, r)   Copyable void
-    137:22..137:38 LineSegment::new       InferError: failed to infer expr ty
+    137:22..137:38 LineSegment::new       Copyable ThickFp<&mnist_classifier__5::raw_contour::RawContour, i32, i32, mnist_classifier__5::line_segment_sketch::LineSegment>
     137:39..137:41 ct                     EvalRef mnist_classifier__5::raw_contour::RawContour
     137:43..137:48 start                  Copyable i32
     137:50..137:53 end                    Copyable i32
@@ -572,7 +572,7 @@ eager expr:
     148:47..148:61 ls_last.points         PureRef std::slice::CyclicSlice<mnist_classifier__5::geom2d::Point2d>
     148:69..148:71 ls                     PureRef mnist_classifier__5::line_segment_sketch::LineSegment
     148:69..148:78 ls.points              PureRef std::slice::CyclicSlice<mnist_classifier__5::geom2d::Point2d>
-    148:26..148:42 LineSegment::new       InferError: failed to infer expr ty
+    148:26..148:42 LineSegment::new       Copyable ThickFp<&mnist_classifier__5::raw_contour::RawContour, i32, i32, mnist_classifier__5::line_segment_sketch::LineSegment>
     148:43..148:45 ct                     EvalRef mnist_classifier__5::raw_contour::RawContour
     148:47..148:67 ls_last.points.start   Copyable i32
     148:69..148:82 ls.points.end          Copyable i32
@@ -623,7 +623,7 @@ eager expr:
     159:91..159:104line_segments          PureRef []mnist_classifier__5::line_segment_sketch::LineSegment
     159:91..159:113line_segments.firstx()   PureRef mnist_classifier__5::line_segment_sketch::LineSegment
     159:91..159:120line_segments.firstx().points   PureRef std::slice::CyclicSlice<mnist_classifier__5::geom2d::Point2d>
-    159:34..159:50 LineSegment::new       InferError: failed to infer expr ty
+    159:34..159:50 LineSegment::new       Copyable ThickFp<&mnist_classifier__5::raw_contour::RawContour, i32, i32, mnist_classifier__5::line_segment_sketch::LineSegment>
     159:51..159:53 ct                     EvalRef mnist_classifier__5::raw_contour::RawContour
     159:55..159:89 last_line_segment.points.start - N   Copyable i32
     159:91..159:124line_segments.firstx().points.end   Copyable i32

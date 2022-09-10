@@ -6,19 +6,19 @@ eager variable:
     z           7:9..7:10  CopyableMut  b32
 
 lazy expr:
-    14:12..14:29   horizontal_extend      InferError: failed to infer expr ty
+    14:12..14:29   horizontal_extend      Copyable ThickFp<b32, b32, b32>
     14:30..14:34   0b32                   Copyable b32
     14:36..14:40   0b32                   Copyable b32
     14:12..14:41   horizontal_extend(0b32, 0b32)   Copyable b32
     14:45..14:49   0b32                   Copyable b32
     14:12..14:49   horizontal_extend(0b32, 0b32) == 0b32   Copyable bool
-    15:12..15:29   horizontal_extend      InferError: failed to infer expr ty
+    15:12..15:29   horizontal_extend      Copyable ThickFp<b32, b32, b32>
     15:30..15:34   3b32                   Copyable b32
     15:36..15:40   1b32                   Copyable b32
     15:12..15:41   horizontal_extend(3b32, 1b32)   Copyable b32
     15:45..15:49   3b32                   Copyable b32
     15:12..15:49   horizontal_extend(3b32, 1b32) == 3b32   Copyable bool
-    16:12..16:29   horizontal_extend      InferError: failed to infer expr ty
+    16:12..16:29   horizontal_extend      Copyable ThickFp<b32, b32, b32>
     16:30..16:36   255b32                 Copyable b32
     16:38..16:42   1b32                   Copyable b32
     16:12..16:43   horizontal_extend(255b32, 1b32)   Copyable b32
@@ -26,7 +26,7 @@ lazy expr:
     16:12..16:53   horizontal_extend(255b32, 1b32) == 255b32   Copyable bool
 
 eager expr:
-    2:5..2:48      ml::datasets::cv::mnist::new_binary_dataset   InferError: failed to infer expr ty
+    2:5..2:48      ml::datasets::cv::mnist::new_binary_dataset   Copyable ThickFp<Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>>
     2:5..2:50      ml::datasets::cv::mnist::new_binary_dataset()   Transient Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>
     6:23..6:24     x                      Copyable b32
     6:28..6:29     1                      Copyable i32
@@ -80,19 +80,19 @@ eager expr:
     11:12..11:13   y                      Copyable b32
 
 lazy expr:
-    14:12..14:29   horizontal_extend      InferError: failed to infer expr ty
+    14:12..14:29   horizontal_extend      Copyable ThickFp<b32, b32, b32>
     14:30..14:34   0b32                   Copyable b32
     14:36..14:40   0b32                   Copyable b32
     14:12..14:41   horizontal_extend(0b32, 0b32)   Copyable b32
     14:45..14:49   0b32                   Copyable b32
     14:12..14:49   horizontal_extend(0b32, 0b32) == 0b32   Copyable bool
-    15:12..15:29   horizontal_extend      InferError: failed to infer expr ty
+    15:12..15:29   horizontal_extend      Copyable ThickFp<b32, b32, b32>
     15:30..15:34   3b32                   Copyable b32
     15:36..15:40   1b32                   Copyable b32
     15:12..15:41   horizontal_extend(3b32, 1b32)   Copyable b32
     15:45..15:49   3b32                   Copyable b32
     15:12..15:49   horizontal_extend(3b32, 1b32) == 3b32   Copyable bool
-    16:12..16:29   horizontal_extend      InferError: failed to infer expr ty
+    16:12..16:29   horizontal_extend      Copyable ThickFp<b32, b32, b32>
     16:30..16:36   255b32                 Copyable b32
     16:38..16:42   1b32                   Copyable b32
     16:12..16:43   horizontal_extend(255b32, 1b32)   Copyable b32

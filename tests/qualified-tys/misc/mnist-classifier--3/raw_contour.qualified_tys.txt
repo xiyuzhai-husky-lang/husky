@@ -74,11 +74,11 @@ eager expr:
     25:5..25:21    (row >> (j - 1))       Copyable b32
     25:24..25:28   1b32                   Copyable b32
     25:5..25:28    (row >> (j - 1)) & 1b32   Copyable b32
-    28:24..28:38   get_pixel_pair         InferError: failed to infer expr ty
+    28:24..28:38   get_pixel_pair         Copyable ThickFp<b32, i32, b32>
     28:39..28:48   row_above              Copyable b32
     28:50..28:51   j                      Copyable i32
     28:24..28:52   get_pixel_pair(row_above, j)   Copyable b32
-    29:24..29:38   get_pixel_pair         InferError: failed to infer expr ty
+    29:24..29:38   get_pixel_pair         Copyable ThickFp<b32, i32, b32>
     29:39..29:48   row_below              Copyable b32
     29:50..29:51   j                      Copyable i32
     29:24..29:52   get_pixel_pair(row_below, j)   Copyable b32
@@ -98,11 +98,11 @@ eager expr:
     56:11..56:27   raw_angle_change       InferError: expect not none
     58:13..58:29   raw_angle_change       InferError: expect not none
     60:13..60:15   -1                     Copyable i32
-    68:24..68:38   get_pixel_pair         InferError: failed to infer expr ty
+    68:24..68:38   get_pixel_pair         Copyable ThickFp<b32, i32, b32>
     68:39..68:48   row_above              Copyable b32
     68:50..68:51   j                      Copyable i32
     68:24..68:52   get_pixel_pair(row_above, j)   Copyable b32
-    69:24..69:38   get_pixel_pair         InferError: failed to infer expr ty
+    69:24..69:38   get_pixel_pair         Copyable ThickFp<b32, i32, b32>
     69:39..69:48   row_below              Copyable b32
     69:50..69:51   j                      Copyable i32
     69:24..69:52   get_pixel_pair(row_below, j)   Copyable b32
@@ -199,7 +199,7 @@ Original { message: "Unrecognized identifier `BinaryGrid28`", range: 124:31..124
     138:29..138:31 cc                     PureRef domains::ml::datasets::cv::mnist::BinaryImage28
     138:32..138:33 i                      Copyable i32
     138:29..138:34 cc[i]                  Copyable b32
-    140:36..140:56 get_inward_direction   InferError: failed to infer expr ty
+    140:36..140:56 get_inward_direction   Copyable ThickFp<b32, b32, i32, mnist_classifier__3::raw_contour::Direction>
     140:57..140:66 row_above              Copyable b32
     140:68..140:77 row_below              Copyable b32
     140:79..140:80 j                      InferError: expect not none
@@ -219,13 +219,13 @@ Original { message: "Unrecognized identifier `BinaryGrid28`", range: 124:31..124
     154:24..154:72 i == i0 and j == j0 and inward_direction == dir0   InferError: expect not none
     154:23..154:73 (i == i0 and j == j0 and inward_direction == dir0)   InferError: expect not none
     154:22..154:73 !(i == i0 and j == j0 and inward_direction == dir0)   InferError: expect not none
-    155:41..155:62 get_outward_direction   InferError: failed to infer expr ty
+    155:41..155:62 get_outward_direction   Copyable ThickFp<b32, b32, i32, mnist_classifier__3::raw_contour::Direction, mnist_classifier__3::raw_contour::Direction>
     155:63..155:72 row_above              Copyable b32
     155:74..155:83 row_below              Copyable b32
     155:85..155:86 j                      InferError: expect not none
     155:88..155:104inward_direction       Copyable mnist_classifier__3::raw_contour::Direction
     155:41..155:105get_outward_direction(row_above, row_below, j, inward_direction)   Copyable mnist_classifier__3::raw_contour::Direction
-    156:36..156:52 get_angle_change       InferError: failed to infer expr ty
+    156:36..156:52 get_angle_change       Copyable ThickFp<mnist_classifier__3::raw_contour::Direction, mnist_classifier__3::raw_contour::Direction, i32>
     156:53..156:69 inward_direction       Copyable mnist_classifier__3::raw_contour::Direction
     156:71..156:88 outward_direction      Copyable mnist_classifier__3::raw_contour::Direction
     156:36..156:89 get_angle_change(inward_direction, outward_direction)   Copyable i32
@@ -253,7 +253,7 @@ Original { message: "Unrecognized identifier `BinaryGrid28`", range: 124:31..124
     161:129..161:146prev_streak2 == 1      Copyable bool
     161:24..161:146prev_angle_change1 == -1 and prev_angle_change2 == -1 and current_streak == 1 and prev_streak1 != -1 and prev_streak2 == 1   Copyable bool
     162:25..162:32 contour                TempRefMut []mnist_classifier__3::geom2d::Point2d
-    162:43..162:67 get_concave_middle_point   InferError: failed to infer expr ty
+    162:43..162:67 get_concave_middle_point   Copyable ThickFp<mnist_classifier__3::raw_contour::RawContour, mnist_classifier__3::geom2d::Point2d>
     162:68..162:75 contour                PureRef []mnist_classifier__3::geom2d::Point2d
     162:25..162:40 contour.lastx()        TempRefMut mnist_classifier__3::geom2d::Point2d
     162:43..162:76 get_concave_middle_point(contour)   Transient mnist_classifier__3::geom2d::Point2d
