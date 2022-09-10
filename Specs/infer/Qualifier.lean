@@ -1,4 +1,4 @@
-import HuskyLeanSpecs.abstraction.Enumerable
+import Specs.abstraction.Enumerable
 
 inductive RefQualifier
   | None
