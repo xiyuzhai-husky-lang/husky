@@ -5,6 +5,8 @@ inductive TyKeyword
   deriving BEq
 
 namespace TyKeyword
+def toRustCode : TyKeyword -> String := sorry
+
 instance : ToString TyKeyword where
   toString : TyKeyword -> String
   | Struct => "struct"
