@@ -1855,6 +1855,23 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         feature_linkage!(one::one_fermi_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
     ),
     (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::connected_component::ConnectedComponent::top_k_row_span_sum" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &connected_component::ConnectedComponent = __arguments[0].downcast_temp_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE);
+                    let k: i32 = __arguments[1].downcast_i32();
+                    __this.top_k_row_span_sum(k).to_register()
+                }
+                __wrapper
+            },
+            some base connected_component::ConnectedComponent::top_k_row_span_sum as fn(&'static connected_component::ConnectedComponent, i32) -> f32
+        ),
+    ),
+    (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::one::downmost",
         },

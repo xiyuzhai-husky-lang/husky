@@ -101,7 +101,9 @@ fn method_opt_instruction_sheet(
                         CallFormSource::Func { stmts } => {
                             Some(new_func_instruction_sheet(db, inputs, stmts, true))
                         }
-                        CallFormSource::Proc { .. } => todo!(),
+                        CallFormSource::Proc { stmts } => {
+                            Some(new_proc_instruction_sheet(db, inputs, stmts, true))
+                        }
                         CallFormSource::Lazy { .. } => todo!(),
                         CallFormSource::Static(_) => None,
                     }
