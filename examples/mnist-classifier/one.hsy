@@ -6,6 +6,8 @@ use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 
+func one_fermi_match -> FermiMatchResult:
+    fermi_match(major_concave_components, [downmost, upmost, hat])
 def is_one -> ?MnistLabel:
     require connected_components.ilen() == 1
     narrow_down(
@@ -22,7 +24,6 @@ def is_one -> ?MnistLabel:
             require major_connected_component.max_hole_ilen == 0.0
         MnistLabel::One
     else:
-        one_fermi_match = fermi_match(major_concave_components, [downmost, upmost, hat])
         require one_fermi_match.matches[0] be some
         require major_connected_component.max_hole_ilen == 0.0
         narrow_down(
