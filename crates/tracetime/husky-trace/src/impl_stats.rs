@@ -1,6 +1,7 @@
 use crate::*;
 use husky_comptime::{utils::__RegisterDowncastResult, *};
-use husky_print_utils::msg_once;
+use husky_print_utils::{msg_once, p};
+use husky_text::TextRanged;
 use husky_trace_protocol::TraceStats;
 use husky_vm::{__Register, __VMError, __VMErrorVariant, __VMResult};
 
@@ -63,7 +64,12 @@ fn feature_stmt_opt_stats<'eval>(
             db,
             partitions,
             return_context.return_ty(),
-            |sample_id| db.eval_feature_stmt(stmt, sample_id),
+            |sample_id| {
+                if stmt.line() == 51 {
+                    todo!()
+                }
+                db.eval_feature_stmt(stmt, sample_id)
+            },
             stmt.opt_arrival_indicator.as_ref(),
         ),
         FeatureLazyStmtVariant::Return { ref result } => {
@@ -113,7 +119,34 @@ fn feature_expr_opt_stats<'eval>(
         db,
         partitions,
         expr.expr.intrinsic_ty(),
-        |sample_id| db.eval_feature_expr(expr, sample_id),
+        |sample_id| {
+            if expr.line() == 51 {
+                if db
+                    .eval_opt_arrival_indicator_cached(
+                        expr.opt_arrival_indicator.as_ref(),
+                        sample_id,
+                    )
+                    .unwrap()
+                {
+                    match expr.opt_arrival_indicator.as_ref().unwrap().variant {
+                        FeatureArrivalIndicatorVariant::AfterStmtNotReturn { ref stmt } => {
+                            p!(expr.opt_arrival_indicator.as_ref().unwrap().feature);
+                            todo!()
+                        }
+                        FeatureArrivalIndicatorVariant::AfterConditionNotMet {
+                            ref opt_parent,
+                            ref condition,
+                        } => todo!(),
+                        FeatureArrivalIndicatorVariant::IfConditionMet {
+                            ref opt_parent,
+                            ref condition,
+                        } => todo!(),
+                    }
+                    todo!()
+                }
+            }
+            db.eval_feature_expr(expr, sample_id)
+        },
         expr.opt_arrival_indicator.as_ref(),
     )
 }

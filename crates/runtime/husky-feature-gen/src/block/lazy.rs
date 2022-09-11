@@ -1,6 +1,6 @@
 use husky_entity_route::RangedEntityRoute;
 
-use crate::lazy_branch::FeatureBranchIndicatorVariant;
+use crate::lazy_branch::FeatureArrivalIndicatorVariant;
 
 use super::*;
 
@@ -61,7 +61,7 @@ impl<'eval> FeatureLazyBlock {
                 | FeatureLazyStmtVariant::Require { .. }
                 | FeatureLazyStmtVariant::ConditionFlow { .. } => {
                     opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
-                        FeatureBranchIndicatorVariant::AfterStmtNotReturn { stmt: stmt.clone() },
+                        FeatureArrivalIndicatorVariant::AfterStmtNotReturn { stmt: stmt.clone() },
                         feature_interner,
                     ))
                 }

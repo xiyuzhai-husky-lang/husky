@@ -189,7 +189,7 @@ impl FeatureLazyStmt {
                 match last_branch.variant {
                     FeatureLazyBranchVariant::If { ref condition } => {
                         opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
-                            FeatureBranchIndicatorVariant::AfterConditionNotMet {
+                            FeatureArrivalIndicatorVariant::AfterConditionNotMet {
                                 opt_parent: opt_arrival_indicator,
                                 condition: condition.clone(),
                             },
@@ -198,7 +198,7 @@ impl FeatureLazyStmt {
                     }
                     FeatureLazyBranchVariant::Elif { ref condition } => {
                         opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
-                            FeatureBranchIndicatorVariant::AfterConditionNotMet {
+                            FeatureArrivalIndicatorVariant::AfterConditionNotMet {
                                 opt_parent: opt_arrival_indicator,
                                 condition: condition.clone(),
                             },
@@ -223,7 +223,7 @@ impl FeatureLazyStmt {
                             condition: condition.clone(),
                         },
                         Some(FeatureArrivalIndicator::new(
-                            FeatureBranchIndicatorVariant::IfConditionMet {
+                            FeatureArrivalIndicatorVariant::IfConditionMet {
                                 opt_parent: opt_arrival_indicator.clone(),
                                 condition,
                             },
@@ -245,7 +245,7 @@ impl FeatureLazyStmt {
                             condition: condition.clone(),
                         },
                         Some(FeatureArrivalIndicator::new(
-                            FeatureBranchIndicatorVariant::IfConditionMet {
+                            FeatureArrivalIndicatorVariant::IfConditionMet {
                                 opt_parent: opt_arrival_indicator.clone(),
                                 condition,
                             },

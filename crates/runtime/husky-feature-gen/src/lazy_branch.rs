@@ -17,7 +17,7 @@ pub enum FeatureLazyBranchVariant {
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct FeatureArrivalIndicator {
-    pub variant: FeatureBranchIndicatorVariant,
+    pub variant: FeatureArrivalIndicatorVariant,
     pub feature: FeaturePtr,
 }
 
@@ -31,23 +31,27 @@ impl std::fmt::Debug for FeatureArrivalIndicator {
 
 impl FeatureArrivalIndicator {
     pub fn new(
-        variant: FeatureBranchIndicatorVariant,
+        variant: FeatureArrivalIndicatorVariant,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
         let feature = feature_interner.intern(match variant {
-            FeatureBranchIndicatorVariant::AfterStmtNotReturn { ref stmt } => {
+            FeatureArrivalIndicatorVariant::AfterStmtNotReturn { ref stmt } => {
                 Feature::ArrivalAfterStmtNotReturn {
                     stmt: stmt.opt_feature.unwrap(),
+                    opt_stmt_arrival_indicator: stmt
+                        .opt_arrival_indicator
+                        .as_ref()
+                        .map(|ind| ind.feature),
                 }
             }
-            FeatureBranchIndicatorVariant::AfterConditionNotMet {
+            FeatureArrivalIndicatorVariant::AfterConditionNotMet {
                 ref opt_parent,
                 ref condition,
             } => Feature::ArrivalAfterConditionNotMet {
                 opt_parent: opt_parent.as_ref().map(|p| p.feature),
                 condition: condition.feature,
             },
-            FeatureBranchIndicatorVariant::IfConditionMet {
+            FeatureArrivalIndicatorVariant::IfConditionMet {
                 ref opt_parent,
                 ref condition,
             } => Feature::ArrivalIfConditionMet {
@@ -60,7 +64,7 @@ impl FeatureArrivalIndicator {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureBranchIndicatorVariant {
+pub enum FeatureArrivalIndicatorVariant {
     AfterStmtNotReturn {
         stmt: Arc<FeatureLazyStmt>,
     },

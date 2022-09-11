@@ -6,7 +6,7 @@ use husky_primitive_literal_semantics::{
 };
 pub use xml::*;
 
-use husky_vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
+use husky_vm::{InstructionSource, __Linkage, __Register, __RegistrableSafe, __VirtualEnum};
 
 use husky_entity_route::EntityRouteVariant;
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
@@ -25,6 +25,12 @@ pub struct FeatureLazyExpr {
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
     pub opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
+}
+
+impl TextRanged for FeatureLazyExpr {
+    fn text_range(&self) -> TextRange {
+        self.expr.text_range()
+    }
 }
 
 impl std::fmt::Debug for FeatureLazyExpr {
