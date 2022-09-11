@@ -6,10 +6,7 @@ use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 
-func one_fermi_match_others -> []&ConcaveComponent:
-    one_fermi_match.others
-
-def simp_one -> ?MnistLabel:
+def is_one -> ?MnistLabel:
     require connected_components.ilen() == 1
     narrow_down(
         MnistLabel::One,
@@ -21,12 +18,11 @@ def simp_one -> ?MnistLabel:
             MnistLabel::One,
             major_connected_component.max_row_span
         )?
-        a = major_connected_component.max_row_span
-        if a > 6.5:
+        if major_connected_component.max_row_span > 6.5:
             require major_connected_component.max_hole_ilen == 0.0
-            MnistLabel::One
         MnistLabel::One
     else:
+        one_fermi_match = fermi_match(major_concave_components, [downmost, upmost, hat])
         require one_fermi_match.matches[0] be some
         require major_connected_component.max_hole_ilen == 0.0
         narrow_down(
@@ -52,52 +48,6 @@ def simp_one -> ?MnistLabel:
         a = major_connected_component.top_k_row_span_sum(3)
         require a < 10.5
         MnistLabel::One
-
-def is_one -> ?MnistLabel:
-    require connected_components.ilen() == 1
-    narrow_down(
-        MnistLabel::One,
-        major_connected_component.max_hole_ilen,
-        one_fermi_match.norm,
-        one_fermi_match.rel_norm
-    )?
-    if one_fermi_match.rel_norm > 0.5:
-        a = 1
-    if one_fermi_match.matches[1] be some:
-        narrow_down(
-            MnistLabel::One,
-            one_fermi_match.matches[1].norm,
-            one_fermi_match.matches[1].rel_norm,
-            one_fermi_match.matches[1].angle_change.abs(),
-        )?
-    if one_fermi_match.matches[2] be some:
-        narrow_down(
-            MnistLabel::One,
-            one_fermi_match.matches[2].norm,
-            one_fermi_match.matches[2].rel_norm,
-            one_fermi_match.matches[2].angle_change.abs(),
-        )?
-    if (one_fermi_match.matches[0] be none) || (one_fermi_match.matches[0].hausdorff_norm < 3.0):
-        if one_fermi_match.matches[1] be none:
-            MnistLabel::One
-        // if one_fermi_match.matches[0] be some:
-        //     narrow_down(
-        //         MnistLabel::One,
-        //         one_fermi_match.matches[0].norm,
-        //         one_fermi_match.matches[0].rel_norm,
-        //         one_fermi_match.matches[0].angle_change.abs(),
-        //     )?
-        boosting_with_vmax_normalized(
-            MnistLabel::One,
-            one_fermi_match.matches[1].hausdorff_norm,
-            one_fermi_match.matches[1].rel_norm,
-            one_fermi_match.matches[1].angle_change.abs(),
-        )
-    downmost_hausdorff_norm = one_fermi_match.matches[0].hausdorff_norm
-    MnistLabel::One
-
-func one_fermi_match -> FermiMatchResult:
-    fermi_match(major_concave_components, [downmost, upmost, hat])
 
 func upmost(cc: &ConcaveComponent) -> ?f32:
     dp = cc.displacement()
