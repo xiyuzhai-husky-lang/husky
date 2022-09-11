@@ -27,7 +27,7 @@ def simp_one -> ?MnistLabel:
             MnistLabel::One
         MnistLabel::One
     else:
-        require one_fermi_match.matches[0] be some
+        require one_fermi_match.matches[0] be
         narrow_down(
             MnistLabel::One,
             one_fermi_match.norm,
