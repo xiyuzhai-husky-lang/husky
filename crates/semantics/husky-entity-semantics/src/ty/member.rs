@@ -2,6 +2,7 @@ mod field;
 mod method;
 
 pub use field::*;
+use husky_eager_semantics::{parse_func_stmts, parse_proc_stmts};
 use husky_word::Paradigm;
 pub use method::*;
 
@@ -58,16 +59,22 @@ impl EntityDefnVariant {
                 } => match opt_this_liason {
                     Some(this_contract) => {
                         let method_source = match paradigm {
-                            Paradigm::EagerProcedural => todo!(),
-                            Paradigm::EagerFunctional => {
-                                let stmts = husky_eager_semantics::parse_func_stmts(
+                            Paradigm::EagerProcedural => CallFormSource::Proc {
+                                stmts: parse_proc_stmts(
                                     db.upcast(),
                                     arena,
                                     child.opt_children.clone().unwrap(),
                                     file,
-                                )?;
-                                CallFormSource::Func { stmts }
-                            }
+                                )?,
+                            },
+                            Paradigm::EagerFunctional => CallFormSource::Func {
+                                stmts: parse_func_stmts(
+                                    db.upcast(),
+                                    arena,
+                                    child.opt_children.clone().unwrap(),
+                                    file,
+                                )?,
+                            },
                             Paradigm::LazyFunctional => todo!(),
                         };
                         (

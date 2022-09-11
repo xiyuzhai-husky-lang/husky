@@ -31,9 +31,8 @@ struct ConnectedComponent:
         forext i < 29:
             if mask[i]:
                 break
-        for i < 29:
-            if mask[i]:
-                break
+        for i <= j < i + k:
+            top_k_row_span_sum += mask[j].span()
         return top_k_row_span_sum as f32
 
 
