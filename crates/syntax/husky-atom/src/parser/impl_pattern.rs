@@ -5,7 +5,11 @@ use husky_word::WordPattern;
 
 impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     pub fn parse_pattern(&mut self) -> AtomResult<(RawPattern, Vec<HuskyAtom>)> {
-        let pattern_parser = MatchPatternParser::new(self.parse_all_remaining_atoms()?);
+        let pattern_parser =
+            MatchPatternParser::new(self.parse_all_remaining_atoms()?).ok_or(error!(
+                "expect pattern after, but got nothing",
+                self.token_stream.next_range()
+            ))?;
         pattern_parser.parse_into_pattern()
     }
 }
@@ -20,12 +24,18 @@ enum PatternOpr {
 }
 
 impl MatchPatternParser {
-    pub fn new(atoms: Vec<HuskyAtom>) -> Self {
-        Self { atoms, next: 0 }
+    pub fn new(atoms: Vec<HuskyAtom>) -> Option<Self> {
+        if atoms.len() == 0 {
+            return None;
+        }
+        Some(Self { atoms, next: 0 })
     }
 
     pub fn parse_pattern(&mut self) -> AtomResult<RawPattern> {
-        let mut pattern = self.parse_next_pattern()?.unwrap();
+        let mut pattern = self.parse_next_pattern()?.ok_or(error!(
+            "expect pattern after",
+            self.atoms.last().unwrap().range
+        ))?;
         while let Some((next_pattern_opr, range)) = self.next_pattern_opr() {
             match next_pattern_opr {
                 PatternOpr::Or => {
