@@ -33,9 +33,6 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 if !self.eval_opt_arrival_indicator_cached(stmt.opt_arrival_indicator.as_ref())? {
                     return Ok(false);
                 }
-                if stmt.line() == 37 {
-                    todo!()
-                }
                 self.eval_stmt(stmt)?.data_kind() == __RegisterDataKind::Unreturned
             }
             FeatureArrivalIndicatorVariant::AfterConditionNotMet {
