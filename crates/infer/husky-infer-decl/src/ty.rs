@@ -281,14 +281,15 @@ impl TyDecl {
                     ..
                 } => match opt_this_liason {
                     Some(_) => match paradigm {
-                        Paradigm::EagerProcedural => todo!(),
-                        Paradigm::EagerFunctional => throw_query_derived!(members.insert_new(
-                            TyMemberDecl::Method(CallFormDecl::from_ast(
-                                db,
-                                db.subroute(this_ty, ident.ident, thin_vec![]),
-                                ast,
-                            )?)
-                        )),
+                        Paradigm::EagerProcedural | Paradigm::EagerFunctional => {
+                            throw_query_derived!(members.insert_new(TyMemberDecl::Method(
+                                CallFormDecl::from_ast(
+                                    db,
+                                    db.subroute(this_ty, ident.ident, thin_vec![]),
+                                    ast,
+                                )?
+                            )))
+                        }
                         Paradigm::LazyFunctional => todo!(),
                     },
                     None => throw_query_derived!(members.insert_new(TyMemberDecl::Call(
