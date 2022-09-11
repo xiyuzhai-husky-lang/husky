@@ -116,6 +116,8 @@ pub enum Feature {
     },
     ArrivalAfterStmtNotReturn {
         stmt: FeaturePtr,
+        // without opt_stmt_arrival_indicator, there will be clash
+        opt_stmt_arrival_indicator: Option<FeaturePtr>,
     },
     ArrivalAfterConditionNotMet {
         opt_parent: Option<FeaturePtr>,
