@@ -7,6 +7,7 @@ inductive WordOpr
   | Or
   | As
   | Be
+  deriving DecidableEq
 namespace WordOpr
 def toRustVersion : WordOpr -> String
   | And => "WordOpr::And"
@@ -20,7 +21,7 @@ inductive Decorator
   | Priviate
   | Async
   | Static
-  deriving BEq
+  deriving DecidableEq
 
 namespace Decorator
   def toRustVersion : Decorator -> String
@@ -36,6 +37,7 @@ end Decorator
 inductive WordPattern
   | Some
   | None
+  deriving DecidableEq
 
 namespace WordPattern
   def toRustVersion : WordPattern -> String
@@ -49,6 +51,7 @@ inductive Word
   | Decorator: Decorator -> Word
   | Pattern: WordPattern -> Word
   | Identifier: Identifier -> Word
+  deriving DecidableEq
 
 namespace Word
 def toRustVersion : Word -> String

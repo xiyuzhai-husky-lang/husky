@@ -1,6 +1,6 @@
 inductive ConfigKeyword
   | Task
-  deriving BEq
+  deriving DecidableEq
 
 namespace ConfigKeyword
 def toRustVersion : ConfigKeyword -> String

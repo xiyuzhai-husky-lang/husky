@@ -2,7 +2,7 @@ inductive Paradigm
   | LazyFunctional
   | EagerFunctional
   | EagerProcedural
-  deriving BEq
+  deriving DecidableEq
 
 namespace Paradigm
 def toRustVersion : Paradigm -> String
