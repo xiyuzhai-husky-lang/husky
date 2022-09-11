@@ -16,7 +16,8 @@ def simp_one -> ?MnistLabel:
         major_connected_component.max_hole_ilen
     )?
     simp_one_match = fermi_match(major_concave_components, [])
-    if simp_one_match.norm < 3.0:
+    if true:
+    // if simp_one_match.norm < 3.0:
         narrow_down(
             MnistLabel::One,
             major_connected_component.max_row_span

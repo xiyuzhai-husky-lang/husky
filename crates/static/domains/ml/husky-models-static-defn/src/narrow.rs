@@ -40,7 +40,7 @@ struct NarrowDown;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct NarrowDownInternal {
     label0: i32,
-    flag_ranges: Vec<FlagRange>,
+    opt_flag_ranges: Option<Vec<FlagRange>>,
 }
 
 impl __StaticInfo for NarrowDownInternal {
@@ -79,7 +79,7 @@ impl Model for NarrowDown {
         let fvf = FlagVectorField::from_registers(&opds[0], &opds[1..], &labels)?;
         Ok(NarrowDownInternal {
             label0: fvf.label0(),
-            flag_ranges: fvf.flag_ranges(0.001, 0.1),
+            opt_flag_ranges: fvf.flag_ranges(0.001, 0.1),
         })
     }
 
@@ -88,20 +88,21 @@ impl Model for NarrowDown {
         internal: &Self::Internal,
         arguments: &[__Register<'eval>],
     ) -> __VMResult<__Register<'eval>> {
-        for (argument, flag_range) in
-            std::iter::zip(arguments[1..].iter(), internal.flag_ranges.iter())
-        {
-            let v = argument.downcast_f32();
-            let v = NotNan::new(v).unwrap();
-            let apply_result = flag_range.apply(v);
-            if !apply_result.within_false_range() && apply_result.within_true_range() {
-                return Ok(__VirtualEnum {
-                    kind_idx: internal.label0,
+        if let Some(ref flag_ranges) = internal.opt_flag_ranges {
+            for (argument, flag_range) in std::iter::zip(arguments[1..].iter(), flag_ranges.iter())
+            {
+                let v = argument.downcast_f32();
+                let v = NotNan::new(v).unwrap();
+                let apply_result = flag_range.apply(v);
+                if !apply_result.within_false_range() && apply_result.within_true_range() {
+                    return Ok(__VirtualEnum {
+                        kind_idx: internal.label0,
+                    }
+                    .to_register());
+                } else if apply_result.within_false_range() && !apply_result.within_true_range() {
+                    // corresponds to `return Some(None)` in Rust
+                    return Ok(__Register::none(1));
                 }
-                .to_register());
-            } else if apply_result.within_false_range() && !apply_result.within_true_range() {
-                // corresponds to `return Some(None)` in Rust
-                return Ok(__Register::none(1));
             }
         }
         Ok(__Register::none(0))

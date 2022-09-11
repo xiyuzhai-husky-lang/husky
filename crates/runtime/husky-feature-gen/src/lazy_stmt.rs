@@ -61,10 +61,10 @@ impl FeatureLazyStmt {
         opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
-        if lazy_stmt.range.start.line() == 36 {
-            p!(opt_arrival_indicator);
-            todo!()
-        }
+        // if lazy_stmt.range.start.line() == 36 {
+        //     p!(opt_arrival_indicator);
+        //     todo!()
+        // }
         let variant = match lazy_stmt.variant {
             LazyStmtVariant::Init { varname, ref value } => {
                 let value = FeatureLazyExpr::new(
