@@ -63,10 +63,10 @@ impl AtomStack {
         } else {
             err!(
                 format!(
-                    "convexity not compatible for `{:?}`, self.convexity() = {:?}, last_atom = `{:?}`",
+                    "convexity not compatible for `{:?}`, self.convexity() = `{:?}`, last_atom = {:?}",
                     atom.variant,
                     self.convexity(),
-                    self.atoms.last().unwrap().variant
+                    self.atoms.last().map(|atom| &atom.variant)
                 ),
                 atom.text_range()
             )
