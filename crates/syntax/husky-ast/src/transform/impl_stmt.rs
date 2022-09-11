@@ -332,7 +332,7 @@ impl<'a> AstTransformer<'a> {
                                             range: lropd.range,
                                         }
                                     } else {
-                                        err!("expect unrecognized", expr.range())?
+                                        err!("expect unused", expr.range())?
                                     };
                                     (
                                         frame_var,
@@ -346,7 +346,7 @@ impl<'a> AstTransformer<'a> {
                                         .into(),
                                     )
                                 }
-                                _ => todo!(),
+                                _ => err!("expect opn expr", expr.range())?,
                             }
                         };
                         self.insert_abs_semantic_token(AbsSemanticToken::new(
