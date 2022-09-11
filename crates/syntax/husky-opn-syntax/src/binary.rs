@@ -15,7 +15,7 @@ impl Into<RawOpnVariant> for BinaryOpr {
 impl BinaryOpr {
     pub fn spaced_code(self) -> &'static str {
         match self {
-            BinaryOpr::Pure(pure_binary_opr) => pure_binary_opr.spaced_code(),
+            BinaryOpr::Pure(pure_binary_opr) => pure_binary_opr.spaced_husky_code(),
             BinaryOpr::Assign(opt_binary_opr) => {
                 if let Some(binary_opr) = opt_binary_opr {
                     match binary_opr {
@@ -95,7 +95,7 @@ impl PureBinaryOpr {
         }
     }
 
-    pub fn code(&self) -> &'static str {
+    pub fn husky_code(&self) -> &'static str {
         match self {
             PureBinaryOpr::Less => "<",
             PureBinaryOpr::Leq => "<=",
@@ -119,7 +119,7 @@ impl PureBinaryOpr {
         }
     }
 
-    pub fn spaced_code(&self) -> &'static str {
+    pub fn spaced_husky_code(&self) -> &'static str {
         match self {
             PureBinaryOpr::Less => " < ",
             PureBinaryOpr::Leq => " <= ",

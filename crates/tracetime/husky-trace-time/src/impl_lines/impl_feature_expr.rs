@@ -33,17 +33,17 @@ impl<'a> TraceLineBuilder<'a> {
             },
             FeatureLazyExprVariant::PrimitiveBinaryOpr { opr, ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
-                self.gen_special_token(opr.spaced_code(), opt_assoc, None);
+                self.gen_special_token(opr.spaced_husky_code(), opt_assoc, None);
                 self.gen_feature_expr_tokens(&opds[1], config.subexpr())
             }
             FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr, ref opds } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
-                self.gen_special_token(opr.spaced_code(), opt_assoc, None);
+                self.gen_special_token(opr.spaced_husky_code(), opt_assoc, None);
                 self.gen_feature_expr_tokens(&opds[1], config.subexpr())
             }
             FeatureLazyExprVariant::CustomBinaryOpr { opr, ref opds, .. } => {
                 self.gen_feature_expr_tokens(&opds[0], config.subexpr());
-                self.gen_special_token(opr.spaced_code(), opt_assoc, None);
+                self.gen_special_token(opr.spaced_husky_code(), opt_assoc, None);
                 self.gen_feature_expr_tokens(&opds[1], config.subexpr())
             }
             FeatureLazyExprVariant::Variable { varname, .. } => {

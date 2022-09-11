@@ -1,3 +1,6 @@
+structure TemporalArgument
+  deriving DecidableEq
+  
 mutual
 inductive EntityRoute
   | _ (variant : EntityRouteVariant)
@@ -13,8 +16,22 @@ inductive EntityRouteVariant
   | Child
 end
 
+mutual
+instance : DecidableEq EntityRoute := by
+  sorry
+
+def SpatialArgument.deq (a b : EntityRoute) : Decidable (a = b) := by
+  sorry
+
+def EntityRouteVariant.deq (a b : EntityRoute) : Decidable (a = b) := by
+  sorry
+end
+
 namespace SpatialArgument
 end SpatialArgument
 
 namespace EntityRouteVariant
 end EntityRouteVariant
+
+structure RangedEntityRoute
+  deriving DecidableEq
