@@ -45,6 +45,7 @@ inductive SpecialToken
   | XmlKet             -- />
   | At                 -- @
   | QuestionMark       -- ?
+  deriving DecidableEq
 
 namespace SpecialToken
   def toRustVersion : SpecialToken -> String

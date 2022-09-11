@@ -2,7 +2,7 @@ inductive TyKeyword
   | Struct
   | Enum
   | Record
-  deriving BEq
+  deriving DecidableEq
 
 namespace TyKeyword
 def toRustVersion : TyKeyword -> String

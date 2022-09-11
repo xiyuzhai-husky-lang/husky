@@ -1,7 +1,7 @@
 
 inductive LiasonKeyword
   | Haha
-  deriving BEq
+  deriving DecidableEq
 
 namespace LiasonKeyword
 def toRustVersion : LiasonKeyword -> String := sorry

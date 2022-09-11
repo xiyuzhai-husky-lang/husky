@@ -5,7 +5,7 @@ inductive RefQualifier
   | EvalRef
   | TempRef
   | TempRefMut
-  deriving BEq
+  deriving DecidableEq
 
 namespace RefQualifier
 def toRustVersion : RefQualifier -> String

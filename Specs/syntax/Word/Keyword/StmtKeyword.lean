@@ -16,7 +16,7 @@ inductive StmtKeyword
   | Return
   | Assert
   | Require
-  deriving BEq
+  deriving DecidableEq
 
 namespace StmtKeyword
 def toRustVersion : StmtKeyword -> String
