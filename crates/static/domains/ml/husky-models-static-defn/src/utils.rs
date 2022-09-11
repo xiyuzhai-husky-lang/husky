@@ -36,22 +36,28 @@ impl FlagVectorField {
         })
     }
 
-    fn raw_flag_ranges(&self) -> Vec<FlagRange> {
+    fn raw_flag_ranges(&self) -> Option<Vec<FlagRange>> {
         self.valuess
             .iter()
             .map(|values| FlagRange::from_values(values, &self.flags))
             .collect()
     }
 
-    pub fn flag_ranges(&self, border_shrink_rate: f32, border_expand_rate: f32) -> Vec<FlagRange> {
-        let raw_flag_ranges = self.raw_flag_ranges();
-        raw_flag_ranges
-            .iter()
-            .enumerate()
-            .map(|(idx, raw_flag_range)| {
-                self.flag_range(border_shrink_rate, border_expand_rate, idx, raw_flag_range)
-            })
-            .collect()
+    pub fn flag_ranges(
+        &self,
+        border_shrink_rate: f32,
+        border_expand_rate: f32,
+    ) -> Option<Vec<FlagRange>> {
+        let raw_flag_ranges = self.raw_flag_ranges()?;
+        Some(
+            raw_flag_ranges
+                .iter()
+                .enumerate()
+                .map(|(idx, raw_flag_range)| {
+                    self.flag_range(border_shrink_rate, border_expand_rate, idx, raw_flag_range)
+                })
+                .collect(),
+        )
     }
 
     fn flag_range(
@@ -116,8 +122,8 @@ impl FlagRange {
         }
     }
 
-    pub fn from_values(values: &[NotNan<f32>], flags: &[bool]) -> Self {
-        Self {
+    pub fn from_values(values: &[NotNan<f32>], flags: &[bool]) -> Option<Self> {
+        Some(Self {
             true_range: ClosedRange::from_values(
                 std::iter::zip(values.iter(), flags.iter()).filter_map(|(value, flag)| {
                     if *flag {
@@ -126,7 +132,7 @@ impl FlagRange {
                         None
                     }
                 }),
-            ),
+            )?,
             false_range: ClosedRange::from_values(
                 std::iter::zip(values.iter(), flags.iter()).filter_map(|(value, flag)| {
                     if !*flag {
@@ -135,8 +141,9 @@ impl FlagRange {
                         None
                     }
                 }),
-            ),
-        }
+            )
+            .unwrap(),
+        })
     }
 
     pub fn ambiguous_start(&self) -> bool {
@@ -174,10 +181,10 @@ impl<T> ClosedRange<T>
 where
     T: PartialOrd + Ord,
 {
-    fn from_values(iter: impl Iterator<Item = T> + Clone) -> Self {
-        let start = iter.clone().min().unwrap();
+    fn from_values(iter: impl Iterator<Item = T> + Clone) -> Option<Self> {
+        let start = iter.clone().min()?;
         let end = iter.max().unwrap();
-        Self { start, end }
+        Some(Self { start, end })
     }
 
     fn contains(&self, v: T) -> bool {

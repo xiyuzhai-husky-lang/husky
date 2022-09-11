@@ -15,10 +15,18 @@ pub enum FeatureLazyBranchVariant {
     Else,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub struct FeatureArrivalIndicator {
     pub variant: FeatureBranchIndicatorVariant,
     pub feature: FeaturePtr,
+}
+
+impl std::fmt::Debug for FeatureArrivalIndicator {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("FeatureArrivalIndicator")
+            .field("variant", &self.variant)
+            .finish()
+    }
 }
 
 impl FeatureArrivalIndicator {
