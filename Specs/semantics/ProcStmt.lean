@@ -1,10 +1,7 @@
+import Specs.syntax.EntityRoute
+
 inductive PrimitiveLiteralData
-
-inductive EntityRouteVariant
-  | Root : RootIdentifier -> EntityRouteVariant
-
-structure EntityRoute where
-  variant : EntityRouteVariant
+  deriving DecidableEq
 
 inductive EagerExpr
   | Variable ( varname : String ) : EagerExpr
@@ -12,11 +9,12 @@ inductive EagerExpr
   | ThisField ( field_ident: String ) : EagerExpr
   | PrimitiveLiteral : PrimitiveLiteralData -> EagerExpr
   | EnumKindLiteral : EntityRoute -> EagerExpr
-  | Bracketed ( expr : EagerExpr ) : EagerExpr
+  | Bracketed ( expr : EagerExpr )
   | Opn
   | Lambda
   | EntityThickFp
   | EntityFeature
+  deriving DecidableEq
 
 structure LazyStmt
 

@@ -70,7 +70,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
     for (lopd_ty_ident, opr, ropd_ty_ident) in SUPPORTED_PURE_BINARY_OPNS {
         let lopd_ty_husky_name = lopd_ty_ident.as_str();
         let ropd_ty_husky_name = ropd_ty_ident.as_str();
-        let opr_code = opr.code();
+        let opr_code = opr.husky_code();
         // let rust_trait_method_name = opr.rust_trait_method_name();
         write!(
             code,
@@ -147,7 +147,7 @@ pub fn resolve_primitive_assign_binary_opr_linkage(
         let ropd_ty_husky_name = ropd_ty_ident.as_str();
         let upper_lopd_ty_husky_name = lopd_ty_husky_name.to_uppercase();
         if let Some(opr) = opt_opr {
-            let opr_code = opr.code();
+            let opr_code = opr.husky_code();
             // let rust_trait_method_name = opr.rust_trait_method_name();
             write!(
                 code,
