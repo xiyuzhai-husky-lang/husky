@@ -31,19 +31,55 @@ pub(crate) fn major_connected_component<'eval>(
             .unwrap()
             .downcast_eval_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE);
     }
-    return __ctx
+    let mut i0 = 0;
+    let mut max_row_span_sum = 0f32;
+    for i in 0..connected_components(__ctx).ilen() {
+        let row_span_sum = *connected_components(__ctx)[(i) as usize].row_span_sum(__ctx);
+        if row_span_sum > max_row_span_sum {
+            max_row_span_sum = row_span_sum;
+            i0 = i;
+        }
+    }
+    __ctx
         .cache_feature(
             __feature,
             Ok(
                 __Register::new_eval_ref::<crate::connected_component::ConnectedComponent>(
-                    &(connected_components(__ctx)[(0) as usize]),
+                    &(connected_components(__ctx)[(i0) as usize]),
                     &__registration__::__CONNECTED_COMPONENT_VTABLE,
                 )
                 .into(),
             ),
         )
         .unwrap()
-        .downcast_eval_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE);
+        .downcast_eval_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE)
+}
+pub(crate) fn ignored_connected_components_row_span_sum_sum<'eval>(
+    __ctx: &dyn __EvalContext<'eval>,
+) -> &'eval f32 {
+    let __feature = feature_ptr!(
+        __ctx,
+        "mnist_classifier::major::ignored_connected_components_row_span_sum_sum"
+    );
+    if let Some(__result) = __ctx.opt_cached_feature(__feature) {
+        return __result
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__F32_VTABLE);
+    }
+    let mut sum = 0f32;
+    for i in 0..connected_components(__ctx).ilen() {
+        sum += connected_components(__ctx)[(i) as usize].row_span_sum(__ctx);
+    }
+    __ctx
+        .cache_feature(
+            __feature,
+            Ok(__Register::new_box::<f32>(
+                sum - major_connected_component(__ctx).row_span_sum(__ctx),
+                &__registration__::__F32_VTABLE,
+            )),
+        )
+        .unwrap()
+        .downcast_eval_ref(&__registration__::__F32_VTABLE)
 }
 pub(crate) fn major_raw_contour<'eval>(
     __ctx: &dyn __EvalContext<'eval>,

@@ -9,10 +9,10 @@ use crate::line_segment_sketch::concave_component::*
 func one_fermi_match -> FermiMatchResult:
     fermi_match(major_concave_components, [downmost, upmost, hat])
 def is_one -> ?MnistLabel:
-    require connected_components.ilen() == 1
     narrow_down(
         MnistLabel::One,
-        major_connected_component.max_hole_ilen
+        major_connected_component.max_hole_ilen,
+        ignored_connected_components_row_span_sum_sum
     )?
     simp_one_match = fermi_match(major_concave_components, [])
     if simp_one_match.norm < 3.0:

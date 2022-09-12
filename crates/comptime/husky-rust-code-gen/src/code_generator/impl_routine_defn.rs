@@ -17,7 +17,9 @@ impl<'a> RustCodeGenerator<'a> {
             DefinitionRepr::FuncBlock {
                 stmts, return_ty, ..
             } => self.gen_feature_func_block_defn(feature_route, return_ty.route, stmts),
-            DefinitionRepr::ProcBlock { .. } => todo!(),
+            DefinitionRepr::ProcBlock {
+                stmts, return_ty, ..
+            } => self.gen_feature_proc_block_defn(feature_route, return_ty.route, stmts),
         }
     }
 
@@ -58,6 +60,46 @@ impl<'a> RustCodeGenerator<'a> {
             }
         ));
         self.gen_func_stmts(stmts);
+        self.write("}\n");
+    }
+
+    pub(super) fn gen_feature_proc_block_defn(
+        &mut self,
+        feature_route: EntityRoutePtr,
+        output_ty: EntityRoutePtr,
+        stmts: &[Arc<ProcStmt>],
+    ) {
+        self.write("pub(crate) fn ");
+        let ident = feature_route.ident();
+        self.write(&ident);
+        let is_output_option = output_ty.is_option();
+        self.write(format!(
+            "<'eval>(__ctx: &dyn __EvalContext<'eval>) -> {}&'eval ",
+            match is_output_option {
+                true => "Option<",
+                false => "",
+            },
+        ));
+        self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+        if is_output_option {
+            self.write(">")
+        }
+        let mangled_output_ty_vtable = self.db.mangled_intrinsic_ty_vtable(output_ty);
+        self.write(&format!(
+            r#" {{
+    let __feature = feature_ptr!(__ctx, "{feature_route:?}");
+    if let Some(__result) = __ctx.opt_cached_feature(__feature) {{
+        return __result
+            .unwrap()
+            .downcast_{}eval_ref(&__registration__::{mangled_output_ty_vtable});
+    }}
+"#,
+            match output_ty.is_option() {
+                true => "opt_",
+                false => "",
+            }
+        ));
+        self.gen_proc_stmts(stmts);
         self.write("}\n");
     }
 
