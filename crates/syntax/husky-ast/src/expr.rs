@@ -48,7 +48,7 @@ impl RawExpr {
         }
         let opn_variant = RawOpnVariant::List(match start_attr {
             ListStartAttr::None => match bracket {
-                Bracket::Par => ListOpr::TupleInit,
+                Bracket::Par => ListOpr::NewTuple,
                 Bracket::Box => ListOpr::NewVec,
                 Bracket::Curl => ListOpr::NewDict,
                 Bracket::Angle => todo!(),

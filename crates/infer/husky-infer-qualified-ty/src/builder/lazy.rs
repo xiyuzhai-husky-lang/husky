@@ -365,7 +365,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opds: RawExprRange,
     ) -> InferResult<LazyExprQualifiedTy> {
         match list_opr {
-            ListOpr::TupleInit => todo!(),
+            ListOpr::NewTuple => todo!(),
             ListOpr::NewVec => self.lazy_paradigm_new_vec_from_list(idx, opds),
             ListOpr::NewDict => todo!(),
             ListOpr::Index | ListOpr::ModuloIndex => self.lazy_paradigm_index(idx, opds),

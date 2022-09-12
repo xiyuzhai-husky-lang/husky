@@ -167,7 +167,7 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             RawOpnVariant::Prefix(opr) => self.parse_prefix_opr(*opr, opds),
             RawOpnVariant::Suffix(opr) => self.parse_suffix_opr(opr, opds),
             RawOpnVariant::List(opr) => match opr {
-                ListOpr::TupleInit => todo!(),
+                ListOpr::NewTuple => todo!(),
                 ListOpr::NewVec => self.parse_new_vec_from_list(idx, opds.clone()),
                 ListOpr::NewDict => todo!(),
                 ListOpr::FunctionCall => self.parse_function_call(opds.clone()),

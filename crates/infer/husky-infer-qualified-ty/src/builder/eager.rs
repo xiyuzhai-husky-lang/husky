@@ -420,8 +420,8 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         opds: RawExprRange,
     ) -> InferResult<EagerExprQualifiedTy> {
         match list_opr {
-            ListOpr::TupleInit => todo!(),
-            ListOpr::NewVec => self.eager_new_vec_from_list(idx, opds),
+            ListOpr::NewTuple => self.eager_new_tuple(idx, opds),
+            ListOpr::NewVec => self.eager_new_vec(idx, opds),
             ListOpr::NewDict => todo!(),
             ListOpr::FunctionCall => self.eager_function_call(idx, opds),
             ListOpr::Index | ListOpr::ModuloIndex => self.eager_index(idx, opds),
@@ -432,7 +432,25 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         }
     }
 
-    fn eager_new_vec_from_list(
+    fn eager_new_tuple(
+        &mut self,
+        idx: RawExprIdx,
+        opds: RawExprRange,
+    ) -> InferResult<EagerExprQualifiedTy> {
+        for opd in opds.clone() {
+            todo!()
+        }
+        Ok(EagerExprQualifiedTy::new(
+            if opds.start == opds.end {
+                EagerExprQualifier::Copyable
+            } else {
+                EagerExprQualifier::Transient
+            },
+            self.expr_raw_ty(idx)?,
+        ))
+    }
+
+    fn eager_new_vec(
         &mut self,
         idx: RawExprIdx,
         elements: RawExprRange,

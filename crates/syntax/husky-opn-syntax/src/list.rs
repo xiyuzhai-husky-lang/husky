@@ -5,7 +5,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ListOpr {
-    TupleInit,
+    NewTuple,
     NewVec,
     NewDict,
     FunctionCall,

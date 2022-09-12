@@ -283,7 +283,7 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: EagerContract,
     ) -> InferResult<()> {
         match opr {
-            ListOpr::TupleInit => {
+            ListOpr::NewTuple => {
                 p!(self.arena[idx].range);
                 todo!()
             }
