@@ -51,11 +51,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 DefinitionRepr::LazyExpr { .. } => (),
                 DefinitionRepr::LazyBlock { .. } => (),
                 DefinitionRepr::FuncBlock {
-                    route,
-                    return_ty: output_ty,
-                    ..
-                } => self.gen_eager_feature_linkage_entry(route, output_ty.route),
-                DefinitionRepr::ProcBlock { .. } => todo!(),
+                    route, return_ty, ..
+                }
+                | DefinitionRepr::ProcBlock {
+                    route, return_ty, ..
+                } => self.gen_eager_feature_linkage_entry(route, return_ty.route),
             },
             EntityDefnVariant::Function { .. } => todo!(),
             EntityDefnVariant::Method { .. } => {

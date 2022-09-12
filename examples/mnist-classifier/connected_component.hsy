@@ -23,6 +23,13 @@ struct ConnectedComponent:
         for 0 < i < 29:
             max_row = max_row.max(mask[i].span())
         return max_row as f32
+
+    proc row_span_sum -> f32:
+        // todo: change this to func
+        var row_span_sum = 0
+        for 0 < i < 29:
+            row_span_sum += mask[i].span()
+        return row_span_sum as f32
     
     proc top_k_row_span_sum(k : i32) -> f32:
         var top_k_row_span_sum = 0

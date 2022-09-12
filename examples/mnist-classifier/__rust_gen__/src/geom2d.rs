@@ -119,3 +119,101 @@ impl __StaticInfo for Vector2d {
         std::mem::transmute(self)
     }
 }
+#[derive(Debug, Clone, PartialEq)]
+pub(crate) struct ClosedRange {
+    pub(crate) min: f32,
+    pub(crate) max: f32,
+}
+
+impl ClosedRange {
+    pub(crate) fn __call__(min: f32, max: f32) -> Self {
+        Self { min, max }
+    }
+    pub(crate) fn relative(&self, base: &ClosedRange) -> ClosedRange {
+        assert!(base.max > base.min);
+        let base_span = base.max - base.min;
+        let rel_min = (self.min - base.min) / base_span;
+        let rel_max = (self.max - base.min) / base_span;
+        return ClosedRange::__call__(rel_min, rel_max);
+    }
+}
+
+impl __StaticInfo for ClosedRange {
+    type __StaticSelf = ClosedRange;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        "mnist_classifier::geom2d::ClosedRange".into()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
+    }
+}
+#[derive(Debug, Clone, PartialEq)]
+pub(crate) struct BoundingBox {
+    pub(crate) xrange: ClosedRange,
+    pub(crate) yrange: ClosedRange,
+}
+
+impl BoundingBox {
+    pub(crate) fn __call__(xrange: ClosedRange, yrange: ClosedRange) -> Self {
+        Self { xrange, yrange }
+    }
+    pub(crate) fn relative(&self, base: &BoundingBox) -> RelativeBoundingBox {
+        return RelativeBoundingBox::__call__(
+            self.xrange.relative(&base.xrange),
+            self.yrange.relative(&base.yrange),
+        );
+    }
+
+    pub(crate) fn xmin(&self) -> f32 {
+        return self.xrange.min;
+    }
+
+    pub(crate) fn xmax(&self) -> f32 {
+        return self.xrange.max;
+    }
+
+    pub(crate) fn ymin(&self) -> f32 {
+        return self.yrange.min;
+    }
+
+    pub(crate) fn ymax(&self) -> f32 {
+        return self.yrange.max;
+    }
+}
+
+impl __StaticInfo for BoundingBox {
+    type __StaticSelf = BoundingBox;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        "mnist_classifier::geom2d::BoundingBox".into()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
+    }
+}
+#[derive(Debug, Clone, PartialEq)]
+pub(crate) struct RelativeBoundingBox {
+    pub(crate) xrange: ClosedRange,
+    pub(crate) yrange: ClosedRange,
+}
+
+impl RelativeBoundingBox {
+    pub(crate) fn __call__(xrange: ClosedRange, yrange: ClosedRange) -> Self {
+        Self { xrange, yrange }
+    }
+}
+
+impl __StaticInfo for RelativeBoundingBox {
+    type __StaticSelf = RelativeBoundingBox;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        "mnist_classifier::geom2d::RelativeBoundingBox".into()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
+    }
+}

@@ -101,6 +101,34 @@ impl ConnectedComponent {
             .unwrap()
             .downcast_eval_ref(&__registration__::__F32_VTABLE)
     }
+    pub(crate) fn row_span_sum<'eval>(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::connected_component::ConnectedComponent::row_span_sum"
+        );
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__F32_VTABLE);
+        }
+        let mut row_span_sum = 0;
+        for i in (0 + 1)..29 {
+            row_span_sum += self.mask[(i) as usize].span();
+        }
+        __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<f32>(
+                    row_span_sum as f32,
+                    &__registration__::__F32_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__F32_VTABLE)
+    }
     pub(crate) fn top_k_row_span_sum(&self, k: i32) -> f32 {
         let mut top_k_row_span_sum = 0;
         assert!(k > 0);

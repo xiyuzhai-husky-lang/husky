@@ -186,7 +186,9 @@ impl<'a> RustCodeGenerator<'a> {
                         self.gen_expr(stmt.indent, result);
                         self.write(";")
                     }
-                    RawReturnContextKind::Feature => todo!(),
+                    RawReturnContextKind::Feature => {
+                        self.gen_feature_return(stmt.indent, result, return_context.return_ty())
+                    }
                     RawReturnContextKind::MemoField => self.gen_lazy_field_return(
                         stmt.indent,
                         result,
