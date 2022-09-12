@@ -45,6 +45,15 @@ impl __VMError {
     pub fn variant(&self) -> &__VMErrorVariant {
         &self.variant
     }
+
+    pub fn with_message(mut self, message: &str) -> Self {
+        self.message = format!(
+            r#"{message}      
+-> {}"#,
+            &self.message
+        );
+        self
+    }
 }
 
 impl Default for __VMErrorVariant {
