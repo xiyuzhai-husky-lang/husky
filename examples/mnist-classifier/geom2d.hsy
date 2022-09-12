@@ -75,10 +75,12 @@ struct ClosedRange:
 
     func relative(base: ClosedRange) -> ClosedRange:
         assert base.max > base.min
-        k = 1.0 / ()
+        base_span = base.max - base.min
+        rel_min = (min - base.min) / base_span
+        rel_max = (max - base.min) / base_span
         ClosedRange(
-            xrange.relative(parent.xrange),
-            yrange.relative(parent.yrange),
+            rel_min,
+            rel_max,
         )
 
 struct BoundingBox:
