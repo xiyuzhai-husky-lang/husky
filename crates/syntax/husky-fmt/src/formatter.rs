@@ -324,7 +324,7 @@ impl<'a> Formatter<'a> {
                 RawOpnVariant::Prefix(_) => todo!(),
                 RawOpnVariant::Suffix(_) => todo!(),
                 RawOpnVariant::List(opr) => match opr {
-                    ListOpr::TupleInit => todo!(),
+                    ListOpr::NewTuple => todo!(),
                     ListOpr::NewVec => todo!(),
                     ListOpr::NewDict => todo!(),
                     ListOpr::FunctionCall => todo!(),

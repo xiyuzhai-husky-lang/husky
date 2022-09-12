@@ -422,8 +422,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         msg_once!("expectation");
         match opr {
-            ListOpr::TupleInit => todo!(),
-            ListOpr::NewVec => self.infer_new_vec_from_list(idx, expectation, opds),
+            ListOpr::NewTuple => self.infer_new_tuple(idx, expectation, opds),
+            ListOpr::NewVec => self.infer_new_vec(idx, expectation, opds),
             ListOpr::NewDict => todo!(),
             ListOpr::FunctionCall => self.infer_function_call(idx, opds),
             ListOpr::Index => self.infer_index(opds, range),
@@ -435,7 +435,20 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         }
     }
 
-    fn infer_new_vec_from_list(
+    fn infer_new_tuple(
+        &mut self,
+        idx: RawExprIdx,
+        expectation: Option<EntityRoutePtr>,
+        opds: &RawExprRange,
+    ) -> InferResult<EntityRoutePtr> {
+        msg_once!("expectation");
+        if opds.start == opds.end {
+            return Ok(RootIdentifier::Void.into());
+        }
+        todo!()
+    }
+
+    fn infer_new_vec(
         &mut self,
         idx: RawExprIdx,
         expectation: Option<EntityRoutePtr>,

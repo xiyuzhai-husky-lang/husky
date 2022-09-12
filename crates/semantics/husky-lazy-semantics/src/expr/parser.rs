@@ -157,7 +157,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             RawOpnVariant::Prefix(_) => todo!(),
             RawOpnVariant::Suffix(opr) => self.parse_suffix_opr(opr, opds.start),
             RawOpnVariant::List(opr) => match opr {
-                ListOpr::TupleInit => todo!(),
+                ListOpr::NewTuple => todo!(),
                 ListOpr::NewVec => self.parse_new_vec_from_list(opds.clone()),
                 ListOpr::NewDict => todo!(),
                 ListOpr::FunctionCall => self.parse_function_call(opds),

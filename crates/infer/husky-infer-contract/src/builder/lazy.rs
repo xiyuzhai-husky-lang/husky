@@ -216,7 +216,7 @@ impl<'a> ContractSheetBuilder<'a> {
         contract: LazyContract,
     ) -> InferResult<()> {
         match opr {
-            ListOpr::TupleInit => todo!(),
+            ListOpr::NewTuple => todo!(),
             ListOpr::NewVec => self.infer_lazy_new_vec_from_list(opds.clone()),
             ListOpr::NewDict => todo!(),
             ListOpr::Index => self.infer_lazy_index(opds, contract, idx),
