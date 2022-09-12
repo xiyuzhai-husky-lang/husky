@@ -31,7 +31,7 @@ impl HuskyTracetime {
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         // const COLUMN_HEIGHT: u32 = 5;
         let ty = repr.ty();
-        let visualizer = self.runtime().comptime().visualizer(ty);
+        let visualizer = self.runtime().comptime().visualizer(ty.intrinsic());
         match visualizer.visual_ty {
             VisualTy::Void => Ok(FigureCanvasData::void()),
             VisualTy::Bool => todo!(),

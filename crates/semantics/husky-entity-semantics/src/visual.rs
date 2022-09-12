@@ -66,33 +66,15 @@ impl Visualizer {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum VisualizerVariant {
-    Group {
-        element_ty: EntityRoutePtr,
-    },
-    Custom {
-        stmts: Avec<LazyStmt>,
-    },
-    Static {
-        fp: StaticVisualizerFp,
-    },
+    Group { element_ty: EntityRoutePtr },
+    Custom { stmts: Avec<LazyStmt> },
+    Static { fp: StaticVisualizerFp },
     Void,
     Any,
-    Option {
-        intrinsic_visualizer: Arc<Visualizer>,
-    },
 }
 
 pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> Arc<Visualizer> {
-    if ty.is_option() {
-        let intrinsic_visualizer = db.visualizer(ty.intrinsic());
-        return Arc::new(Visualizer {
-            visual_ty: intrinsic_visualizer.visual_ty,
-            variant: VisualizerVariant::Option {
-                intrinsic_visualizer,
-            },
-        });
-    }
-    let ty = ty.deref_route();
+    assert!(ty.is_intrinsic());
     let ty_defn = db.entity_defn(ty).unwrap();
     if ty.spatial_arguments.len() == 0 {
         match ty_defn.variant {

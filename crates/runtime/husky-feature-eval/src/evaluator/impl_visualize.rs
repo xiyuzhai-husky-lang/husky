@@ -23,27 +23,17 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
 impl<'temp> FeatureEvaluator<'temp, 'static> {
     pub fn visualize_static(&self, this: FeatureRepr) -> __VMResult<VisualData> {
         let ty = this.ty();
-        let visualizer: Arc<Visualizer> = self.db.comptime().visualizer(ty);
-        match visualizer.variant {
-            VisualizerVariant::Option {
-                ref intrinsic_visualizer,
-            } => {
-                let value = self.eval_feature_repr_cached(&this)?;
-                match value.data_kind() {
-                    __RegisterDataKind::PrimitiveValue => todo!(),
-                    __RegisterDataKind::Box => todo!(),
-
-                    __RegisterDataKind::EvalRef => {
-                        self.visualize_intrinsic(this, intrinsic_visualizer)
-                    }
-                    __RegisterDataKind::TempRef => todo!(),
-                    __RegisterDataKind::TempMut => todo!(),
-                    __RegisterDataKind::Moved => todo!(),
-                    __RegisterDataKind::SomeNone => Ok(VisualData::void()),
-                    __RegisterDataKind::Unreturned => todo!(),
-                }
-            }
-            _ => self.visualize_intrinsic(this, &visualizer),
+        let visualizer: Arc<Visualizer> = self.db.comptime().visualizer(ty.intrinsic());
+        let value = self.eval_feature_repr_cached(&this)?;
+        match value.data_kind() {
+            __RegisterDataKind::SomeNone => Ok(VisualData::void()),
+            __RegisterDataKind::PrimitiveValue => todo!(),
+            __RegisterDataKind::Box => todo!(),
+            __RegisterDataKind::EvalRef => self.visualize_intrinsic(this, &visualizer),
+            __RegisterDataKind::TempRef => todo!(),
+            __RegisterDataKind::TempMut => todo!(),
+            __RegisterDataKind::Moved => panic!(),
+            __RegisterDataKind::Unreturned => panic!(),
         }
     }
 
@@ -96,7 +86,6 @@ impl<'temp> FeatureEvaluator<'temp, 'static> {
                 (fp.0)(&value)
             }
             VisualizerVariant::Any => todo!(),
-            VisualizerVariant::Option { .. } => panic!(),
         }
     }
 }

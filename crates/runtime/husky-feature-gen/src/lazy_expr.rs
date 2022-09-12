@@ -1,6 +1,7 @@
 mod impl_opn;
 mod xml;
 
+use husky_file::FilePtr;
 use husky_primitive_literal_semantics::{
     convert_primitive_literal_to_register, convert_primitive_literal_to_value,
 };
@@ -30,6 +31,12 @@ pub struct FeatureLazyExpr {
 impl TextRanged for FeatureLazyExpr {
     fn text_range(&self) -> TextRange {
         self.expr.text_range()
+    }
+}
+
+impl FileRanged for FeatureLazyExpr {
+    fn file(&self) -> FilePtr {
+        self.expr.file
     }
 }
 

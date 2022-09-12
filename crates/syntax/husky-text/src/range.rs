@@ -30,6 +30,17 @@ pub struct FileRange {
     range: TextRange,
 }
 
+pub trait FileRanged: TextRanged {
+    fn file(&self) -> FilePtr;
+
+    fn src(&self) -> FileRange {
+        FileRange {
+            file: self.file(),
+            range: self.text_range(),
+        }
+    }
+}
+
 impl FileRange {
     pub fn new(file: FilePtr, range: TextRange) -> Self {
         Self { file, range }

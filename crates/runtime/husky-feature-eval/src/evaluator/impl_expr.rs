@@ -5,6 +5,7 @@ use husky_opn_semantics::ImplicitConversion;
 use husky_opn_syntax::PureBinaryOpr;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_print_utils::{msg_once, p};
+use husky_text::FileRanged;
 use husky_trace_protocol::VisualData;
 use husky_vm::__Linkage;
 use husky_vm::*;
@@ -164,7 +165,13 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     ) -> __VMResult<__Register<'eval>> {
         if let Some(linkage) = opt_linkage {
             let this_value = self.eval_feature_repr(this)?;
-            linkage.call_catch_unwind(unsafe { self.some_ctx() }, vec![this_value])
+            linkage
+                .call_catch_unwind(unsafe { self.some_ctx() }, vec![this_value])
+                .map_err(|e| {
+                    e.with_message(&format!(
+                        "while evaluating struct original field with field binding `{field_binding:?}` at {}", expr.src()
+                    ))
+                })
         } else {
             let this_value = self.eval_feature_repr(this)?;
             match catch_unwind(move || {
@@ -191,6 +198,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     p!(
                         field_idx,
                         field_ident,
+                        field_binding,
                         this.ty(),
                         expr.expr.intrinsic_ty(),
                         expr.expr.file,

@@ -63,6 +63,14 @@ impl Graphics2dCanvasData {
                 xrange: (0.0, 28.0),
                 yrange: (0.0, 28.0),
             },
+            VisualData::Primitive {
+                value: PrimitiveValueData::Void(()),
+            } => Graphics2dCanvasData {
+                image_layers: vec![],
+                shapes: vec![],
+                xrange: (0.0, 28.0),
+                yrange: (0.0, 28.0),
+            },
             _ => {
                 panic!()
             }

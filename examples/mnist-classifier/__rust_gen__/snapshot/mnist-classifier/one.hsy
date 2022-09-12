@@ -47,6 +47,9 @@ def is_one -> ?MnistLabel:
                 one_fermi_match.matches[2].angle_change.abs(),
             )?
         a = major_connected_component.top_k_row_span_sum(3)
+        downmost = one_fermi_match.matches[0]
+        upmost = one_fermi_match.matches[1]
+        hat = one_fermi_match.matches[2]
         require a < 10.5
         MnistLabel::One
 
