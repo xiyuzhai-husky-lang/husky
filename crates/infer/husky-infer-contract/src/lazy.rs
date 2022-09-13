@@ -50,16 +50,6 @@ impl LazyContract {
                         CanonicalQualifier::TempRef => todo!(),
                         CanonicalQualifier::TempRefMut => todo!(),
                     }
-                    // match canonical_parameter_ty.kind() {
-                    //     CanonicalTyKind::Intrinsic => match db.is_copyable(parameter_ty)? {
-                    //         true => LazyContract::Pure,
-                    //         false => LazyContract::Move,
-                    //     },
-                    //     CanonicalTyKind::Optional => todo!(),
-                    //     CanonicalTyKind::EvalRef => todo!(),
-                    //     CanonicalTyKind::OptionalEvalRef => LazyContract::EvalRef,
-                    //     CanonicalTyKind::TempRefMut => todo!(),
-                    // }
                 }
                 ParameterModifier::TempRefMut => panic!(),
                 ParameterModifier::MemberAccess => todo!(),

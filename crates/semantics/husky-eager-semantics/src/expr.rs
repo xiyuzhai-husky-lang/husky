@@ -14,7 +14,7 @@ use std::sync::Arc;
 
 use husky_entity_route::EntityRoutePtr;
 use husky_semantics_error::SemanticResultArc;
-use husky_text::{RangedCustomIdentifier, TextRange};
+use husky_text::{FileRanged, RangedCustomIdentifier, TextRange, TextRanged};
 use husky_vm::{Binding, InstructionId, InstructionSource};
 use husky_word::CustomIdentifier;
 
@@ -47,17 +47,20 @@ impl EagerExpr {
     }
 }
 
-impl InstructionSource for EagerExpr {
-    fn instruction_id(&self) -> InstructionId {
-        self.instruction_id
+impl TextRanged for EagerExpr {
+    fn text_range(&self) -> TextRange {
+        self.range
     }
-
+}
+impl FileRanged for EagerExpr {
     fn file(&self) -> FilePtr {
         self.file
     }
+}
 
-    fn text_range(&self) -> TextRange {
-        self.range
+impl InstructionSource for EagerExpr {
+    fn instruction_id(&self) -> InstructionId {
+        self.instruction_id
     }
 }
 

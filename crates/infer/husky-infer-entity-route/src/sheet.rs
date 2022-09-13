@@ -51,10 +51,7 @@ impl EntityRouteSheet {
                 Err(e) => Err(e.derived()),
             }
         } else {
-            // p!(idx, self.expr_tys);
-            // todo!();
             todo!();
-            // p!(idx, self.ast_text.arena[idx]);
             Err(InferError {
                 variant: InferErrorVariant::Derived {
                     message: format!("failed to infer expr ty for `{:?}`", idx),

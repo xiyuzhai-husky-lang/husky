@@ -36,18 +36,20 @@ impl std::fmt::Debug for LazyStmt {
             .finish()
     }
 }
+impl TextRanged for LazyStmt {
+    fn text_range(&self) -> TextRange {
+        self.range
+    }
+}
+impl FileRanged for LazyStmt {
+    fn file(&self) -> FilePtr {
+        self.file
+    }
+}
 
 impl InstructionSource for LazyStmt {
     fn instruction_id(&self) -> InstructionId {
         self.instruction_id
-    }
-
-    fn file(&self) -> FilePtr {
-        self.file
-    }
-
-    fn text_range(&self) -> TextRange {
-        self.range
     }
 }
 

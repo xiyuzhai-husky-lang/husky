@@ -28,9 +28,9 @@ impl<'temp> FeatureEvaluator<'temp, 'static> {
         match value.data_kind() {
             __RegisterDataKind::SomeNone => Ok(VisualData::void()),
             __RegisterDataKind::PrimitiveValue => todo!(),
-            __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => self.visualize_intrinsic(this, &visualizer),
-            __RegisterDataKind::TempRef => todo!(),
+            __RegisterDataKind::Box | __RegisterDataKind::EvalRef | __RegisterDataKind::TempRef => {
+                self.visualize_intrinsic(this, &visualizer)
+            }
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => panic!(),
             __RegisterDataKind::Unreturned => panic!(),

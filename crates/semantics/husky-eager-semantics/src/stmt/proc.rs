@@ -10,7 +10,7 @@ pub use pattern_branch::*;
 use super::*;
 use crate::*;
 use fold::Indent;
-use husky_text::{RangedCustomIdentifier, TextRanged};
+use husky_text::{FileRanged, RangedCustomIdentifier, TextRanged};
 use husky_vm::{InstructionId, InstructionSource};
 use std::sync::Arc;
 
@@ -31,17 +31,15 @@ impl TextRanged for ProcStmt {
     }
 }
 
-impl InstructionSource for ProcStmt {
-    fn instruction_id(&self) -> InstructionId {
-        self.instruction_id
-    }
-
+impl FileRanged for ProcStmt {
     fn file(&self) -> FilePtr {
         self.file
     }
+}
 
-    fn text_range(&self) -> TextRange {
-        self.range
+impl InstructionSource for ProcStmt {
+    fn instruction_id(&self) -> InstructionId {
+        self.instruction_id
     }
 }
 
