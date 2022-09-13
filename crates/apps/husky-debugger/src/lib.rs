@@ -104,7 +104,7 @@ pub async fn debugger_test(packages_dir: PathBuf) {
 #[cfg(target_os = "linux")]
 static DYLIB_EXTENSION: &'static str = "so";
 #[cfg(target_os = "macos")]
-static DYLIB_EXTENSION: &'static str = "so";
+static DYLIB_EXTENSION: &'static str = "dylib";
 
 fn get_library(package_dir: &Path) -> Option<Library> {
     let package_name = package_dir
