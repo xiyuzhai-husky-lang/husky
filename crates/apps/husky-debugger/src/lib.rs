@@ -101,6 +101,11 @@ pub async fn debugger_test(packages_dir: PathBuf) {
     }
 }
 
+#[cfg(target_os = "linux")]
+static DYLIB_EXTENSION: &'static str = "so";
+#[cfg(target_os = "macos")]
+static DYLIB_EXTENSION: &'static str = "so";
+
 fn get_library(package_dir: &Path) -> Option<Library> {
     let package_name = package_dir
         .file_name()
@@ -110,14 +115,16 @@ fn get_library(package_dir: &Path) -> Option<Library> {
         .with_boundaries(&[Boundary::Hyphen])
         .to_case(Case::Snake);
     let library_release_path = package_dir.join(format!(
-        "__rust_gen__/target/release/lib{}.so",
-        package_name,
+        "__rust_gen__/target/release/lib{}.{DYLIB_EXTENSION}",
+        package_name
     ));
     if library_release_path.exists() {
         return Some(unsafe { Library::new(library_release_path) }.expect("it should work"));
     }
-    let library_debug_path =
-        package_dir.join(format!("__rust_gen__/target/debug/lib{}.so", package_name,));
+    let library_debug_path = package_dir.join(format!(
+        "__rust_gen__/target/debug/lib{}.{DYLIB_EXTENSION}",
+        package_name,
+    ));
     if library_debug_path.exists() {
         todo!()
     }
