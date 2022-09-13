@@ -1,6 +1,8 @@
 use crate::*;
 use husky_ast::{MatchLiason, RawReturnContext, RawReturnContextKind};
-use husky_entity_route::{CanonicalQualifier, CanonicalTyKind, EntityRoutePtr, EntityRouteVariant};
+use husky_entity_route::{
+    CanonicalQualifier, CanonicalTy, CanonicalTyKind, EntityRoutePtr, EntityRouteVariant,
+};
 use husky_infer_error::error;
 use husky_text::TextRange;
 use husky_word::RootIdentifier;
@@ -116,12 +118,17 @@ impl EagerContract {
         }
     }
 
-    pub fn init_contract(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferResult<Self> {
-        Ok(if db.is_copyable(ty)? {
-            EagerContract::Pure
-        } else {
-            EagerContract::Pass
-        })
+    pub fn init_contract(db: &dyn DeclQueryGroup, ty: CanonicalTy) -> InferResult<Self> {
+        match ty.qual() {
+            CanonicalQualifier::Intrinsic => Ok(if db.is_copyable(ty.intrinsic_ty())? {
+                EagerContract::Pure
+            } else {
+                EagerContract::Pass
+            }),
+            CanonicalQualifier::EvalRef => todo!(),
+            CanonicalQualifier::TempRef => todo!(),
+            CanonicalQualifier::TempRefMut => todo!(),
+        }
     }
 
     pub fn ret_contract(

@@ -1,5 +1,5 @@
 use husky_ast::MatchLiason;
-use husky_entity_route::{CanonicalQualifier, CanonicalTyKind, EntityRoutePtr};
+use husky_entity_route::{CanonicalQualifier, CanonicalTy, CanonicalTyKind, EntityRoutePtr};
 use husky_text::TextRange;
 
 use crate::*;
@@ -13,15 +13,20 @@ pub enum LazyContract {
 }
 
 impl LazyContract {
-    pub(crate) fn pure_or_pass(
+    pub(crate) fn init_contract(
         db: &dyn InferContractSalsaQueryGroup,
-        ty: EntityRoutePtr,
+        ty: CanonicalTy,
     ) -> InferResult<Self> {
-        Ok(if db.is_copyable(ty)? {
-            LazyContract::Pure
-        } else {
-            LazyContract::Pass
-        })
+        match ty.qual() {
+            CanonicalQualifier::Intrinsic => Ok(if db.is_copyable(ty.intrinsic_ty())? {
+                LazyContract::Pure
+            } else {
+                LazyContract::Pass
+            }),
+            CanonicalQualifier::EvalRef => Ok(LazyContract::EvalRef),
+            CanonicalQualifier::TempRef => todo!(),
+            CanonicalQualifier::TempRefMut => todo!(),
+        }
     }
 
     pub(crate) fn parameter_lazy_contract(

@@ -54,7 +54,8 @@ impl<'a> ContractSheetBuilder<'a> {
             RawStmtVariant::Exec { expr, .. } => self.infer_eager_expr(expr, EagerContract::Pure),
             RawStmtVariant::Init { initial_value, .. } => {
                 if let Ok(ty) = self.expr_raw_ty(initial_value) {
-                    if let Ok(contract) = EagerContract::init_contract(self.db.upcast(), ty) {
+                    if let Ok(contract) = EagerContract::init_contract(self.db.upcast(), ty.into())
+                    {
                         self.infer_eager_expr(initial_value, contract);
                     }
                 }
