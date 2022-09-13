@@ -14,6 +14,16 @@ inductive HuskyTokenKind
   | IllFormedLiteral : PrimitiveLiteralData -> HuskyTokenKind
 
 namespace HuskyTokenKind
+def kindName : HuskyTokenKind -> String
+  | Decorator -> "Decorator"
+  | Keyword -> "Keyword"
+  | Identifier -> "Identifier"
+  | Special -> "Special"
+  | WordOpr -> "WordOpr"
+  | WordPattern -> " WordPattern"
+  | PrimitiveLiteral -> "PrimitiveLiteral"
+  | Unrecognized -> "Unrecognized"
+  | IllFormedLiteral -> "IllFormedLiteral"
 def husky_code : HuskyTokenKind -> String
   | Decorator dec => dec.husky_code
   | Keyword kw => kw.husky_code
