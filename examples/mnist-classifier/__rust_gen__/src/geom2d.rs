@@ -204,6 +204,21 @@ impl RelativeBoundingBox {
     pub(crate) fn __call__(xrange: ClosedRange, yrange: ClosedRange) -> Self {
         Self { xrange, yrange }
     }
+    pub(crate) fn xmin(&self) -> f32 {
+        return self.xrange.min;
+    }
+
+    pub(crate) fn xmax(&self) -> f32 {
+        return self.xrange.max;
+    }
+
+    pub(crate) fn ymin(&self) -> f32 {
+        return self.yrange.min;
+    }
+
+    pub(crate) fn ymax(&self) -> f32 {
+        return self.yrange.max;
+    }
 }
 
 impl __StaticInfo for RelativeBoundingBox {
