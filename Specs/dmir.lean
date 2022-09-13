@@ -1,6 +1,12 @@
 -- dmir is short for Debuggable Middle Intermediate Representation
 
 inductive DmirVariant
+
+example : ∀ a b : Nat, ∀ f : Nat -> Nat, a = b → f a = f b := by
+    intro a b
+    intro f
+    intro h
+    rw [h]
     -- PushVariable {
     --     stack_idx: VMStackIdx,
     --     binding: Binding,
