@@ -5,8 +5,8 @@ use super::*;
 use crate::*;
 use husky_infer_error::*;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
-use husky_text::RangedCustomIdentifier;
 use husky_text::TextRange;
+use husky_text::{RangedCustomIdentifier, TextRanged};
 
 impl<'a> ContractSheetBuilder<'a> {
     pub(super) fn infer_lazy_stmts(&mut self, ast_iter: AstIter) {
@@ -42,14 +42,14 @@ impl<'a> ContractSheetBuilder<'a> {
             RawStmtVariant::Exec { .. } => panic!(),
             RawStmtVariant::Init { initial_value, .. } => {
                 if let Ok(ty) = self.expr_raw_ty(initial_value) {
-                    LazyContract::pure_or_pass(self.db, ty)
+                    LazyContract::init_contract(self.db, ty.into())
                         .ok()
                         .map(|contract| self.infer_lazy_expr(initial_value, contract));
                 }
             }
             RawStmtVariant::Return { result, .. } => {
                 if let Ok(ty) = self.expr_raw_ty(result) {
-                    LazyContract::pure_or_pass(self.db, ty)
+                    LazyContract::init_contract(self.db, ty.into())
                         .ok()
                         .map(|contract| self.infer_lazy_expr(result, contract));
                 }

@@ -10,6 +10,12 @@ pub struct CanonicalTy {
     intrinsic_ty: EntityRoutePtr,
 }
 
+impl From<EntityRoutePtr> for CanonicalTy {
+    fn from(route: EntityRoutePtr) -> Self {
+        route.canonicalize()
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum CanonicalQualifier {
     Intrinsic,
