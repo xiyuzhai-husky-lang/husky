@@ -85,6 +85,48 @@ impl<'eval> LineSegmentSketch<'eval> {
             .unwrap()
             .downcast_eval_ref(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
     }
+    pub(crate) fn bounding_box(
+        &'eval self,
+        __ctx: &dyn __EvalContext<'eval>,
+    ) -> &'eval crate::geom2d::BoundingBox {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::line_segment_sketch::LineSegmentSketch::bounding_box"
+        );
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__BOUNDING_BOX_VTABLE);
+        }
+        let start_point = &self.strokes[(0) as usize].start;
+        let mut xmin = start_point.x;
+        let mut xmax = start_point.x;
+        let mut ymin = start_point.y;
+        let mut ymax = start_point.y;
+        for i in 0..self.strokes.ilen() {
+            let point = &self.strokes[(i) as usize].end;
+            xmin = xmin.min(point.x);
+            xmax = xmax.max(point.x);
+            ymin = ymin.min(point.y);
+            ymax = ymax.max(point.y);
+        }
+        __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<crate::geom2d::BoundingBox>(
+                    crate::geom2d::BoundingBox::__call__(
+                        crate::geom2d::ClosedRange::__call__(xmin, xmax),
+                        crate::geom2d::ClosedRange::__call__(ymin, ymax),
+                    ),
+                    &__registration__::__BOUNDING_BOX_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__BOUNDING_BOX_VTABLE)
+    }
     pub(crate) fn new(
         ct: &'eval crate::raw_contour::RawContour<'eval>,
         r: f32,

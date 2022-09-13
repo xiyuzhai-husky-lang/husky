@@ -129,6 +129,70 @@ impl<'eval> ConcaveComponent<'eval> {
             .unwrap()
             .downcast_eval_ref(&__registration__::__F32_VTABLE)
     }
+    pub(crate) fn bounding_box(
+        &'eval self,
+        __ctx: &dyn __EvalContext<'eval>,
+    ) -> &'eval crate::geom2d::BoundingBox {
+        let __uid = entity_uid!(__ctx, "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::bounding_box");
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__BOUNDING_BOX_VTABLE);
+        }
+        let start_point = &self.strokes.firstx().start;
+        let mut xmin = start_point.x;
+        let mut xmax = start_point.x;
+        let mut ymin = start_point.y;
+        let mut ymax = start_point.y;
+        for i in self.strokes.start..self.strokes.end {
+            let point = &self.strokes[(i) as usize].end;
+            xmin = xmin.min(point.x);
+            xmax = xmax.max(point.x);
+            ymin = ymin.min(point.y);
+            ymax = ymax.max(point.y);
+        }
+        __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<crate::geom2d::BoundingBox>(
+                    crate::geom2d::BoundingBox::__call__(
+                        crate::geom2d::ClosedRange::__call__(xmin, xmax),
+                        crate::geom2d::ClosedRange::__call__(ymin, ymax),
+                    ),
+                    &__registration__::__BOUNDING_BOX_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__BOUNDING_BOX_VTABLE)
+    }
+    pub(crate) fn relative_bounding_box(
+        &'eval self,
+        __ctx: &dyn __EvalContext<'eval>,
+    ) -> &'eval crate::geom2d::RelativeBoundingBox {
+        let __uid = entity_uid!(__ctx, "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::relative_bounding_box");
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
+        }
+        return __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<crate::geom2d::RelativeBoundingBox>(
+                    self.bounding_box(__ctx)
+                        .relative(&self.line_segment_sketch.bounding_box(__ctx)),
+                    &__registration__::__RELATIVE_BOUNDING_BOX_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
+    }
     pub(crate) fn line_segment(&self) -> crate::line_segment_sketch::line_segment::LineSegment {
         return crate::line_segment_sketch::line_segment::LineSegment::__call__(
             self.strokes.firstx().start.clone(),

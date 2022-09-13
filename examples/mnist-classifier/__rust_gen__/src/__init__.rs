@@ -452,6 +452,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         lazy_field_linkage!(line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE, Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>>, __registration__::__VEC_CONCAVE_COMPONENT_VTABLE, concave_components)
     ),
     (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::line_segment_sketch::LineSegmentSketch",
+            field_ident: "bounding_box",
+        },
+        lazy_field_linkage!(line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE, geom2d::BoundingBox, __registration__::__BOUNDING_BOX_VTABLE, bounding_box)
+    ),
+    (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::raw_contour::get_pixel_pair",
         },
@@ -980,6 +987,20 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             field_ident: "angle_change",
         },
         lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, angle_change)
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
+            field_ident: "bounding_box",
+        },
+        lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, geom2d::BoundingBox, __registration__::__BOUNDING_BOX_VTABLE, bounding_box)
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent",
+            field_ident: "relative_bounding_box",
+        },
+        lazy_field_linkage!(line_segment_sketch::concave_component::ConcaveComponent<'eval>, __registration__::__CONCAVE_COMPONENT_VTABLE, geom2d::RelativeBoundingBox, __registration__::__RELATIVE_BOUNDING_BOX_VTABLE, relative_bounding_box)
     ),
     (
         __StaticLinkageKey::TypeCall {
