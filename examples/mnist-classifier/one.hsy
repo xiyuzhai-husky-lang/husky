@@ -32,6 +32,11 @@ def is_one -> ?MnistLabel:
             one_fermi_match.rel_norm,
             one_fermi_match.angle_change_norm,
         )?
+        narrow_down(
+            MnistLabel::One,
+            one_fermi_match.matches[0].rel_norm,
+            one_fermi_match.matches[0].angle_change.abs(),
+        )?
         if one_fermi_match.matches[1] be some:
             narrow_down(
                 MnistLabel::One,
