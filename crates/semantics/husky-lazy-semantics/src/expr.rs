@@ -16,7 +16,7 @@ pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
 use husky_entity_route::EntityRoutePtr;
-use husky_text::{RangedCustomIdentifier, TextRange};
+use husky_text::{FileRanged, RangedCustomIdentifier, TextRange, TextRanged};
 use husky_vm::*;
 use husky_word::CustomIdentifier;
 
@@ -31,6 +31,18 @@ pub struct LazyExpr {
     pub implicit_conversion: ImplicitConversion,
 }
 
+impl TextRanged for LazyExpr {
+    fn text_range(&self) -> TextRange {
+        self.range
+    }
+}
+
+impl FileRanged for LazyExpr {
+    fn file(&self) -> FilePtr {
+        self.file
+    }
+}
+
 impl LazyExpr {
     pub fn intrinsic_ty(&self) -> EntityRoutePtr {
         self.qualified_ty.intrinsic_ty()
@@ -40,14 +52,6 @@ impl LazyExpr {
 impl InstructionSource for LazyExpr {
     fn instruction_id(&self) -> InstructionId {
         self.instruction_id
-    }
-
-    fn file(&self) -> FilePtr {
-        self.file
-    }
-
-    fn text_range(&self) -> TextRange {
-        self.range
     }
 }
 

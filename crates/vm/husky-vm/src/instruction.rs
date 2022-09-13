@@ -14,7 +14,7 @@ use crate::*;
 use avec::Avec;
 use husky_entity_route::EntityRoutePtr;
 use husky_file::FilePtr;
-use husky_text::TextRange;
+use husky_text::{FileRanged, TextRange};
 use husky_word::{CustomIdentifier, Identifier};
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
@@ -44,18 +44,11 @@ impl Instruction {
 
 impl<
         S: InstructionSource,
-        T: Deref<Target = S> + std::fmt::Debug + Send + Sync + RefUnwindSafe,
+        T: Deref<Target = S> + std::fmt::Debug + Send + Sync + RefUnwindSafe + FileRanged,
     > InstructionSource for T
 {
     fn instruction_id(&self) -> InstructionId {
         S::instruction_id(self)
-    }
-    fn file(&self) -> FilePtr {
-        S::file(self)
-    }
-
-    fn text_range(&self) -> TextRange {
-        S::text_range(self)
     }
 }
 

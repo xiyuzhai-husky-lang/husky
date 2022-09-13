@@ -1,0 +1,73 @@
+{
+  "config": {
+    "package_dir": "examples/mnist-classifier",
+    "opt_sample_id": null,
+    "verbose": false,
+    "compiled": false
+  },
+  "gui_messages": [
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 1,
+      "variant": {
+        "kind": "InitDataRequest"
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 2,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 2,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 3,
+      "variant": {
+        "kind": "ToggleExpansion",
+        "trace_id": 2
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 4,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 5,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 5,
+      "variant": {
+        "kind": "ToggleExpansion",
+        "trace_id": 5
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 6,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 12,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    },
+    {
+      "kind": "HuskyTracerGuiMessage",
+      "opt_request_id": 7,
+      "variant": {
+        "kind": "Activate",
+        "trace_id": 0,
+        "needs_figure_canvases": true,
+        "needs_figure_controls": true
+      }
+    }
+  ]
+}

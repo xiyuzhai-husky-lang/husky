@@ -97,7 +97,11 @@ impl<'a> FeatureExprBuilder<'a> {
                 ..
             } => self.compile_method_call(method_ident, method_route, opds),
             LazyOpnKind::Index { element_binding } => {
-                self.compile_element_access(opds, element_binding)
+                if expr.line() == 50 {
+                    p!(expr.contract);
+                    todo!()
+                }
+                self.compile_index(opds, element_binding)
             }
             LazyOpnKind::StructCall(_) => todo!(),
             LazyOpnKind::RecordCall(ty) => {
@@ -431,7 +435,7 @@ impl<'a> FeatureExprBuilder<'a> {
         }
     }
 
-    fn compile_element_access(
+    fn compile_index(
         &self,
         opds: &[Arc<LazyExpr>],
         element_binding: Binding,
@@ -440,6 +444,10 @@ impl<'a> FeatureExprBuilder<'a> {
         let feature = self.feature_interner.intern(Feature::Index {
             opds: opds.map(|opd| opd.feature),
         });
+        if opds[0].line() == 50 {
+            p!(element_binding);
+            todo!()
+        }
         let feature_expr_kind = FeatureLazyExprVariant::Index {
             linkage: self
                 .db

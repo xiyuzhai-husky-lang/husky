@@ -41,6 +41,18 @@ pub trait FileRanged: TextRanged {
     }
 }
 
+impl<S: Deref<Target = T>, T: TextRanged> TextRanged for S {
+    fn text_range(&self) -> TextRange {
+        self.deref().text_range()
+    }
+}
+
+impl<S: Deref<Target = T>, T: FileRanged> FileRanged for S {
+    fn file(&self) -> FilePtr {
+        self.deref().file()
+    }
+}
+
 impl FileRange {
     pub fn new(file: FilePtr, range: TextRange) -> Self {
         Self { file, range }
@@ -147,7 +159,8 @@ pub trait TextRanged {
     fn text_end(&self) -> TextPosition {
         self.text_range().end
     }
-    fn text_range_to(&self, other: &impl TextRanged) -> TextRange {
+
+    fn text_range_to(&self, other: &dyn TextRanged) -> TextRange {
         (self.text_end()..(other.text_range().end)).into()
     }
 
@@ -163,15 +176,6 @@ pub trait TextRanged {
 impl TextRanged for TextRange {
     fn text_range(&self) -> TextRange {
         *self
-    }
-}
-
-impl<T> TextRanged for Arc<T>
-where
-    T: TextRanged,
-{
-    fn text_range(&self) -> TextRange {
-        self.deref().text_range()
     }
 }
 

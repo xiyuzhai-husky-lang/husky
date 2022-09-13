@@ -1,6 +1,6 @@
 use crate::*;
 use husky_file::FilePtr;
-use husky_text::TextRange;
+use husky_text::{FileRanged, TextRange, TextRanged};
 use husky_vm::{InstructionId, InstructionSource};
 use husky_word::IdentPairDict;
 use husky_xml_syntax::XmlTagKind;
@@ -14,17 +14,20 @@ pub struct XmlExpr {
     pub instruction_id: InstructionId,
 }
 
-impl InstructionSource for XmlExpr {
-    fn instruction_id(&self) -> husky_vm::InstructionId {
-        self.instruction_id
+impl TextRanged for XmlExpr {
+    fn text_range(&self) -> TextRange {
+        self.range
     }
-
+}
+impl FileRanged for XmlExpr {
     fn file(&self) -> FilePtr {
         self.file
     }
+}
 
-    fn text_range(&self) -> TextRange {
-        self.range
+impl InstructionSource for XmlExpr {
+    fn instruction_id(&self) -> husky_vm::InstructionId {
+        self.instruction_id
     }
 }
 
