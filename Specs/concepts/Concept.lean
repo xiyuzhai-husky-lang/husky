@@ -1,0 +1,3 @@
+inductive Concept
+  | TyConcept
+  | PropConcept
