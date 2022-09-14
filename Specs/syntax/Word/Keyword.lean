@@ -21,24 +21,36 @@ inductive Keyword
 namespace Keyword
   -- method definition
 
-  def toRustVersion : Keyword -> String
-    | Config (kw) => s!"Keyword::Config({kw.toRustVersion})"
-    | Paradigm (kw) => s!"Keyword::Paradigm({kw.toRustVersion})"
-    | Ty (kw) => s!"Keyword::Ty({kw.toRustVersion})"
-    | Stmt (kw) => s!"Keyword::Stmt({kw.toRustVersion})"
-    | Liason (kw) => s!"Keyword::Liason({kw.toRustVersion})"
+  def kindName : Keyword -> String
+    | Config _ => "Config"
+    | Paradigm _ => "Paradigm"
+    | Ty _ => "Ty"
+    | Stmt _ => "Stmt"
+    | Liason _ => "Liason"
+    | Main => "Main"
+    | Use => "Use"
+    | Mod => "Mod"
+    | Visual => "Visual"
+
+  instance : ToString Keyword where
+    toString : Keyword -> String
+    | Config kw => s!"Keyword::Config({kw})"
+    | Paradigm kw => s!"Keyword::Paradigm({kw})"
+    | Ty kw => s!"Keyword::Ty({kw})"
+    | Stmt kw => s!"Keyword::Stmt({kw})"
+    | Liason kw => s!"Keyword::Liason({kw})"
     | Main => "Keyword::Main"
     | Use => "Keyword::Use"
     | Mod => "Keyword::Mod"
     | Visual => "visual"
 
-  instance : ToString Keyword where
-    toString : Keyword -> String
-    | Config (kw) => ToString.toString kw
-    | Paradigm (kw) => ToString.toString kw
-    | Ty (kw) => ToString.toString kw
-    | Stmt (kw) => ToString.toString kw
-    | Liason (kw) => ToString.toString kw
+  
+  def huskyCode : Keyword -> String
+    | Config kw => kw.huskyCode
+    | Paradigm kw => kw.huskyCode
+    | Ty kw => kw.huskyCode
+    | Stmt kw => kw.huskyCode
+    | Liason kw => kw.huskyCode
     | Main => "main"
     | Use => "use"
     | Mod => "mod"

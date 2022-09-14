@@ -5,27 +5,17 @@ inductive TyKeyword
   deriving DecidableEq
 
 namespace TyKeyword
-def toRustVersion : TyKeyword -> String
-  | Struct => "TyKeyword::Struct"
-  | Enum => "TyKeyword::Enum"
-  | Record => "TyKeyword::Record"
+  def kindName : TyKeyword -> String
+    | Struct => "Struct"
+    | Enum => "Enum"
+    | Record => "Record"
 
-instance : ToString TyKeyword where
-  toString : TyKeyword -> String
-  | Struct => "struct"
-  | Enum => "enum"
-  | Record => "record"
+  def huskyCode : TyKeyword -> String
+    | Struct => "struct"
+    | Enum => "enum"
+    | Record => "record"
+
+  instance : ToString TyKeyword where
+    toString : TyKeyword -> String
+    | kw => s!"TyKeyword::{kw.kindName}"
 end TyKeyword
-
--- namespace TyKeyword
--- def TyKeywordEnumeration := [
---   Struct,
---   Enum,
---   Record
--- ]
--- def as_str (kw : TyKeyword) : String :=
---   match kw with
---   | Struct => "struct"
---   | Enum => "enum"
---   | Record => "record"
--- end TyKeyword

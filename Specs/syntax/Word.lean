@@ -29,9 +29,19 @@ namespace Decorator
     | Priviate => "Decorator::Priviate"
     | Async => "Decorator::Async"
     | Static => "Decorator::Static"
+  def huskyCode : Decorator -> String
+    | Pub => "pub"
+    | Priviate => "private"
+    | Async => "async"
+    | Static => "static"
   instance : Enumerable Decorator where
     enumeration := [Pub, Priviate, Async, Static]
-    hvalid := sorry
+    hvalid := by
+      apply And.intro
+      apply rfl
+      intro a
+      cases a with
+      | _ => rfl
 end Decorator
 
 inductive WordPattern

@@ -2,6 +2,8 @@ import Specs.syntax.Text
 import Specs.syntax.Word
 import Specs.syntax.Token.SpecialToken
 
+inductive PrimitiveLiteralData
+
 inductive HuskyTokenKind
   | Decorator : Decorator -> HuskyTokenKind
   | Keyword : Keyword -> HuskyTokenKind
@@ -15,25 +17,26 @@ inductive HuskyTokenKind
 
 namespace HuskyTokenKind
 def kindName : HuskyTokenKind -> String
-  | Decorator -> "Decorator"
-  | Keyword -> "Keyword"
-  | Identifier -> "Identifier"
-  | Special -> "Special"
-  | WordOpr -> "WordOpr"
-  | WordPattern -> " WordPattern"
-  | PrimitiveLiteral -> "PrimitiveLiteral"
-  | Unrecognized -> "Unrecognized"
-  | IllFormedLiteral -> "IllFormedLiteral"
-def husky_code : HuskyTokenKind -> String
-  | Decorator dec => dec.husky_code
-  | Keyword kw => kw.husky_code
-  | Identifier ident => ident.husky_code
-  | Special special => special.husky_code
-  | WordOpr opr => opr..husky_code
-  | WordPattern patt => patt.husky_code
-  | PrimitiveLiteral data => data.husky_code
-  | Unrecognized c => c.husky_code
-  | IllFormedLiteral data => data.husky_code
+  | Decorator _ => "Decorator"
+  | Keyword _ => "Keyword"
+  | Identifier _ => "Identifier"
+  | Special _ => "Special"
+  | WordOpr _ => "WordOpr"
+  | WordPattern _ => " WordPattern"
+  | PrimitiveLiteral _ => "PrimitiveLiteral"
+  | Unrecognized _ => "Unrecognized"
+  | IllFormedLiteral _ => "IllFormedLiteral"
+
+def huskyCode : HuskyTokenKind -> String
+  | Decorator dec => dec.huskyCode
+  | Keyword kw => kw.huskyCode
+  | Identifier ident => ident.huskyCode
+  | Special special => special.huskyCode
+  | WordOpr opr => opr.huskyCode
+  | WordPattern patt => patt.huskyCode
+  | PrimitiveLiteral data => data.huskyCode
+  | Unrecognized c => c.huskyCode
+  | IllFormedLiteral data => data.huskyCode
 end HuskyTokenKind
 
 structure HuskyToken where
