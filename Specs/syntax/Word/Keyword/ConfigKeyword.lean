@@ -3,12 +3,15 @@ inductive ConfigKeyword
   deriving DecidableEq
 
 namespace ConfigKeyword
-def toRustVersion : ConfigKeyword -> String
-  | Task => "ConfigKeyword::Task"
+def kindName : ConfigKeyword -> String
+  | Task => "Task"
+
+def huskyCode : ConfigKeyword -> String
+  | Task => "task"
 
 instance : ToString ConfigKeyword where
   toString : ConfigKeyword -> String
-  | Task => "task"
+  | kw => s!"ConfigKeyword::{kw.kindName}"
 
 def rustTests : String :=
   s!"
