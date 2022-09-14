@@ -375,8 +375,8 @@ impl<'a> AstTransformer<'a> {
 
     fn parse_forext_loop(&mut self, token_group: &[HuskyToken]) -> AstResult<RawStmtVariant> {
         expect_block_head!(token_group);
-        let raw_expr_idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
-        let expr = &self.arena[raw_expr_idx];
+        let idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
+        let expr = &self.arena[idx];
         Ok(match expr.variant {
             RawExprVariant::Opn {
                 opn_variant: RawOpnVariant::Binary(BinaryOpr::Pure(comparison)),
@@ -388,7 +388,7 @@ impl<'a> AstTransformer<'a> {
                 let frame_var = RangedCustomIdentifier {
                     ident: match lopd.variant {
                         RawExprVariant::Variable { varname, .. } => varname,
-                        _ => todo!(),
+                        _ => err!(format!("expect variable"), expr.range)?,
                     },
                     range: lopd.range,
                 };
