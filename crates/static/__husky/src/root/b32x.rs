@@ -1,4 +1,5 @@
 pub trait __B32X {
+    fn co(self) -> i32;
     fn ctz(self) -> i32;
     fn clz(self) -> i32;
     fn last_bits(self, n: i32) -> u32;
@@ -6,6 +7,10 @@ pub trait __B32X {
 }
 
 impl __B32X for u32 {
+    fn co(self) -> i32 {
+        self.count_ones() as i32
+    }
+
     fn ctz(self) -> i32 {
         self.trailing_zeros() as i32
     }

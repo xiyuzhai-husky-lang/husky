@@ -26,6 +26,7 @@ def is_one -> ?MnistLabel:
         MnistLabel::One
     else:
         require major_connected_component.max_hole_ilen == 0.0
+        require ignored_connected_components_row_span_sum_sum == 0.0
         downmost = one_fermi_match.matches[0]
         upmost = one_fermi_match.matches[1]
         hat = one_fermi_match.matches[2]
@@ -35,6 +36,7 @@ def is_one -> ?MnistLabel:
                 MnistLabel::One,
                 simp_one_match.angle_change_norm.abs()
             )?
+            require 2.0 * major_connected_component.lower_mass - major_connected_component.upper_mass < 52.0
             MnistLabel::One
         downmost_number_of_strokes = downmost.strokes.end - downmost.strokes.start
         require one_fermi_match.norm < 1.0

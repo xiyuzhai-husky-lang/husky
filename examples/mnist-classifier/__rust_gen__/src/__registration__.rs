@@ -1,6 +1,43 @@
 use crate::*;
 pub(crate) use __husky::registration::*;
 
+type ConnectedComponentDistribution = crate::connected_component::ConnectedComponentDistribution;
+
+// ConnectedComponentDistribution
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __connected_component_distribution_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<ConnectedComponentDistribution>::into_raw(Box::new((*(data as *mut ConnectedComponentDistribution)).clone())) as *mut std::ffi::c_void
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __connected_component_distribution_drop(data: *mut std::ffi::c_void) {
+    drop(Box::from_raw(data as *mut ConnectedComponentDistribution))
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __connected_component_distribution_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const ConnectedComponentDistribution) == *(other as *const std::ffi::c_void as *const ConnectedComponentDistribution)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __connected_component_distribution_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<ConnectedComponentDistribution>(&__CONNECTED_COMPONENT_DISTRIBUTION_VTABLE) = registers[1].downcast_move(&__CONNECTED_COMPONENT_DISTRIBUTION_VTABLE)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub static __CONNECTED_COMPONENT_DISTRIBUTION_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+    primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __connected_component_distribution_clone,
+    drop: __connected_component_distribution_drop,
+    eq: __connected_component_distribution_eq,
+    assign: __connected_component_distribution_assign,
+    typename_str_hash_u64: 12392668741125034683,
+    typename_str: "ConnectedComponentDistribution",
+};
 type ConnectedComponent = crate::connected_component::ConnectedComponent;
 
 // ConnectedComponent
