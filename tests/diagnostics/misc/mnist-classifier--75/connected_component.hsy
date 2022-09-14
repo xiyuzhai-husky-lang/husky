@@ -35,12 +35,7 @@ struct ConnectedComponent:
             row_span_sum += mask[i].span()
         return row_span_sum as f32
 
-    proc distribution -> ConnectedComponentDistribution:
-        var row_start = 1
-        forext i < 29:
-            if mask[i]:
-                break
-        return ConnectedComponentDistribution()
+    proc distribution -> ConnectedComponentDistribution
     
     proc top_k_row_span_sum(k : i32) -> f32:
         var top_k_row_span_sum = 0

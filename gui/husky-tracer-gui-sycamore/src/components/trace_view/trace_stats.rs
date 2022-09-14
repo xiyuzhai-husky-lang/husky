@@ -29,8 +29,8 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                     (*dev_arrivals)
                 }
                 div (class = "UnreturnedStats") {
-                    "U "
-                    (*dev_unreturneds)
+                    "R "
+                    (*dev_arrivals - *dev_unreturneds)
                 }
                 div (class = "TrueStats") {
                     "T "
