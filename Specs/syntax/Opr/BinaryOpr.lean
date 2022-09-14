@@ -21,7 +21,27 @@ inductive PureBinaryOpr
   deriving DecidableEq
 
 namespace PureBinaryOpr
-def kindName : PureBinaryOpr -> String := sorry
+def kindName : PureBinaryOpr -> String
+  | Add => "Add"
+  | And => "And"
+  | BitAnd => "BitAnd"
+  | BitOr => "BitOr"
+  | BitXor => "BitXor"
+  | Div => "Div"
+  | Eq => "Eq"
+  | Geq => "Geq"
+  | Greater => "Greater"
+  | Leq => "Leq"
+  | Less => "Less"
+  | Mul => "Mul"
+  | Neq => "Neq"
+  | Or => "Or"
+  | RemEuclid => "RemEuclid"
+  | Power => "Power"
+  | Shl => "Shl"
+  | Shr => "Shr"
+  | Sub => "Sub"
+
 def rustTraitMethodName : PureBinaryOpr -> String
   | Add => "add"
   | And => sorry

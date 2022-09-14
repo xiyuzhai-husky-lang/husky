@@ -8,6 +8,7 @@ use crate::line_segment_sketch::concave_component::*
 
 func one_fermi_match -> FermiMatchResult:
     fermi_match(major_concave_components, [downmost, upmost, hat])
+
 def is_one -> ?MnistLabel:
     narrow_down(
         MnistLabel::One,
@@ -28,7 +29,13 @@ def is_one -> ?MnistLabel:
         downmost = one_fermi_match.matches[0]
         upmost = one_fermi_match.matches[1]
         hat = one_fermi_match.matches[2]
-        require downmost be some
+        if downmost be none:
+            require simp_one_match.norm < 4.2
+            narrow_down(
+                MnistLabel::One,
+                simp_one_match.angle_change_norm.abs()
+            )?
+            MnistLabel::One
         downmost_number_of_strokes = downmost.strokes.end - downmost.strokes.start
         require one_fermi_match.norm < 1.0
         require major_connected_component.top_k_row_span_sum(3) < 14.5
