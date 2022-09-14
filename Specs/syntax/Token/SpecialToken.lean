@@ -144,6 +144,13 @@ def enumeration := [
     At,
     QuestionMark
   ]
+
+example : ∀ a : SpecialToken, enumeration.contains a
+  | LAngle => by rfl
+  | _ => sorry
+
+example : enumeration.all fun a => enumeration.contains a := by rfl
+
 def toString : SpecialToken -> String
   | LAngle => "<"
   | Leq => "<="
