@@ -1,3 +1,5 @@
+import Specs.abstraction.Enumerable
+
 inductive SpecialToken
   | LAngle             -- <
   | Leq                -- <=
@@ -96,7 +98,8 @@ namespace SpecialToken
     | At => "SpecialToken::At"
     | QuestionMark => "SpecialToken::QuestionMark"
 
-def enumeration := [
+instance : Enumerable SpecialToken where
+  enumeration := [
     LAngle,
     Leq,
     RAngle,
@@ -144,12 +147,11 @@ def enumeration := [
     At,
     QuestionMark
   ]
-
-example : ∀ a : SpecialToken, enumeration.contains a
-  | LAngle => by rfl
-  | _ => sorry
-
-example : enumeration.all fun a => enumeration.contains a := by rfl
+  hvalid := by
+    apply And.intro
+    rfl
+    intro a
+    cases a <;> rfl
 
 def toString : SpecialToken -> String
   | LAngle => "<"
