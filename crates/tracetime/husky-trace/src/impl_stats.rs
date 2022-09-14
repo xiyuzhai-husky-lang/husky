@@ -64,12 +64,7 @@ fn feature_stmt_opt_stats<'eval>(
             db,
             partitions,
             return_context.return_ty(),
-            |sample_id| {
-                if stmt.line() == 51 {
-                    todo!()
-                }
-                db.eval_feature_stmt(stmt, sample_id)
-            },
+            |sample_id| db.eval_feature_stmt(stmt, sample_id),
             stmt.opt_arrival_indicator.as_ref(),
         ),
         FeatureLazyStmtVariant::Return { ref result } => {

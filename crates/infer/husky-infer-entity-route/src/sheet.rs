@@ -51,7 +51,6 @@ impl EntityRouteSheet {
                 Err(e) => Err(e.derived()),
             }
         } else {
-            todo!();
             Err(InferError {
                 variant: InferErrorVariant::Derived {
                     message: format!("failed to infer expr ty for `{:?}`", idx),

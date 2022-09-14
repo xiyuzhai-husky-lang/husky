@@ -1,6 +1,36 @@
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq)]
+pub(crate) struct ConnectedComponentDistribution {
+    pub(crate) row_start: i32,
+    pub(crate) row_end: i32,
+    pub(crate) upper_mass: i32,
+    pub(crate) lower_mass: i32,
+}
+
+impl ConnectedComponentDistribution {
+    pub(crate) fn __call__(row_start: i32, row_end: i32, upper_mass: i32, lower_mass: i32) -> Self {
+        Self {
+            row_start,
+            row_end,
+            upper_mass,
+            lower_mass,
+        }
+    }
+}
+
+impl __StaticInfo for ConnectedComponentDistribution {
+    type __StaticSelf = ConnectedComponentDistribution;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        "mnist_classifier::connected_component::ConnectedComponentDistribution".into()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
+    }
+}
+#[derive(Debug, Clone, PartialEq)]
 pub(crate) struct ConnectedComponent {
     pub(crate) mask: domains::ml::datasets::cv::mnist::BinaryImage28,
 }
@@ -128,6 +158,107 @@ impl ConnectedComponent {
             )
             .unwrap()
             .downcast_eval_ref(&__registration__::__F32_VTABLE)
+    }
+    pub(crate) fn distribution<'eval>(
+        &'eval self,
+        __ctx: &dyn __EvalContext<'eval>,
+    ) -> &'eval ConnectedComponentDistribution {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::connected_component::ConnectedComponent::distribution"
+        );
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__CONNECTED_COMPONENT_DISTRIBUTION_VTABLE);
+        }
+        let mut row_start = 1;
+        while row_start < 29 {
+            if self.mask[(row_start) as usize] != 0 {
+                break;
+            }
+            row_start += 1;
+        }
+        let mut row_end = row_start + 1;
+        while row_end < 29 {
+            if (0 == self.mask[(row_end) as usize]) {
+                break;
+            }
+            row_end += 1;
+        }
+        let height = row_end - row_start;
+        let half_height = height / 2;
+        let mut upper_mass = 0;
+        for i1 in row_start..row_start + half_height {
+            upper_mass += self.mask[(i1) as usize].co();
+        }
+        let mut lower_mass = 0;
+        for i2 in row_end - half_height..row_end {
+            lower_mass += self.mask[(i2) as usize].co();
+        }
+        __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<ConnectedComponentDistribution>(
+                    ConnectedComponentDistribution::__call__(
+                        row_start, row_end, upper_mass, lower_mass,
+                    ),
+                    &__registration__::__CONNECTED_COMPONENT_DISTRIBUTION_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__CONNECTED_COMPONENT_DISTRIBUTION_VTABLE)
+    }
+    pub(crate) fn upper_mass<'eval>(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::connected_component::ConnectedComponent::upper_mass"
+        );
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__F32_VTABLE);
+        }
+        return __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<f32>(
+                    self.distribution(__ctx).upper_mass as f32,
+                    &__registration__::__F32_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__F32_VTABLE);
+    }
+    pub(crate) fn lower_mass<'eval>(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::connected_component::ConnectedComponent::lower_mass"
+        );
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__F32_VTABLE);
+        }
+        return __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<f32>(
+                    self.distribution(__ctx).lower_mass as f32,
+                    &__registration__::__F32_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__F32_VTABLE);
     }
     pub(crate) fn top_k_row_span_sum(&self, k: i32) -> f32 {
         let mut top_k_row_span_sum = 0;

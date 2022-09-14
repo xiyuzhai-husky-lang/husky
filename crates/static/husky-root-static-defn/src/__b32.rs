@@ -12,6 +12,7 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
         ty_members: &[
             &B32_LEADING_ZEROS,
             &B32_TRAILING_ZEROS,
+            &B32_COUNT_ONES,
             &B32_SPAN,
             &B32_LAST_BITS,
         ],
@@ -57,6 +58,24 @@ pub static B32_TRAILING_ZEROS: EntityStaticDefn = EntityStaticDefn {
         opt_linkage: Some(transfer_linkage!(
             |values, _| values[0]. downcast_b32().ctz().to_register(),
             some base u32::ctz as fn(u32) -> i32
+        )),
+    },
+    dev_src: static_dev_src!(),
+};
+
+pub static B32_COUNT_ONES: EntityStaticDefn = EntityStaticDefn {
+    name: "co",
+    items: &[],
+    variant: EntityStaticDefnVariant::Method {
+        this_modifier: ParameterModifier::None,
+        parameters: &[],
+        output_ty: "i32",
+        output_liason: OutputModifier::Transfer,
+        spatial_parameters: &[],
+        method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
+        opt_linkage: Some(transfer_linkage!(
+            |values, _| (values[0].downcast_b32().count_ones() as i32).to_register(),
+            some base u32::co as fn(u32) -> i32
         )),
     },
     dev_src: static_dev_src!(),

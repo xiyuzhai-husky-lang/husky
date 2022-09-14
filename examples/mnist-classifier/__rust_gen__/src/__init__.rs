@@ -31,6 +31,80 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::TypeCall {
+            ty: "mnist_classifier::connected_component::ConnectedComponentDistribution"
+        },
+
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let row_start: i32 = __arguments[0].downcast_i32();
+                    let row_end: i32 = __arguments[1].downcast_i32();
+                    let upper_mass: i32 = __arguments[2].downcast_i32();
+                    let lower_mass: i32 = __arguments[3].downcast_i32();
+                    __Register::new_box::<connected_component::ConnectedComponentDistribution>(connected_component::ConnectedComponentDistribution::__call__(row_start, row_end, upper_mass, lower_mass), &__registration__::__CONNECTED_COMPONENT_DISTRIBUTION_VTABLE)
+                }
+                __wrapper
+            },
+            some base connected_component::ConnectedComponentDistribution::__call__ as fn(i32, i32, i32, i32) -> connected_component::ConnectedComponentDistribution
+        ),
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::connected_component::ConnectedComponentDistribution",
+            field_ident: "row_start",
+        },
+        eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            Direct,
+            connected_component::ConnectedComponentDistribution, __registration__::__CONNECTED_COMPONENT_DISTRIBUTION_VTABLE, i32, __registration__::__I32_VTABLE,
+            row_start
+        )
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::connected_component::ConnectedComponentDistribution",
+            field_ident: "row_end",
+        },
+        eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            Direct,
+            connected_component::ConnectedComponentDistribution, __registration__::__CONNECTED_COMPONENT_DISTRIBUTION_VTABLE, i32, __registration__::__I32_VTABLE,
+            row_end
+        )
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::connected_component::ConnectedComponentDistribution",
+            field_ident: "upper_mass",
+        },
+        eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            Direct,
+            connected_component::ConnectedComponentDistribution, __registration__::__CONNECTED_COMPONENT_DISTRIBUTION_VTABLE, i32, __registration__::__I32_VTABLE,
+            upper_mass
+        )
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::connected_component::ConnectedComponentDistribution",
+            field_ident: "lower_mass",
+        },
+        eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            Direct,
+            connected_component::ConnectedComponentDistribution, __registration__::__CONNECTED_COMPONENT_DISTRIBUTION_VTABLE, i32, __registration__::__I32_VTABLE,
+            lower_mass
+        )
+    ),
+    (
+        __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::connected_component::ConnectedComponent"
         },
 
@@ -88,6 +162,27 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             field_ident: "row_span_sum",
         },
         lazy_field_linkage!(connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, row_span_sum)
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::connected_component::ConnectedComponent",
+            field_ident: "distribution",
+        },
+        lazy_field_linkage!(connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, connected_component::ConnectedComponentDistribution, __registration__::__CONNECTED_COMPONENT_DISTRIBUTION_VTABLE, distribution)
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::connected_component::ConnectedComponent",
+            field_ident: "upper_mass",
+        },
+        lazy_field_linkage!(connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, upper_mass)
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::connected_component::ConnectedComponent",
+            field_ident: "lower_mass",
+        },
+        lazy_field_linkage!(connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, f32, __registration__::__F32_VTABLE, lower_mass)
     ),
     (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::raw_contour::RawContour>::ilen" },
