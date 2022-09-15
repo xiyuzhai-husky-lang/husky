@@ -1,52 +1,87 @@
+import Specs.abstraction
+
 -- chore
-pub enum TyKind {
-    Enum,
-    Record,
-    Struct,
-    Primitive,
-    Vec,
-    Slice,
-    CyclicSlice,
-    Array,
-    Tuple,
-    Mor,
-    ThickFp,
-    AssociatedAny,
-    ThisAny,
-    TargetOutputAny,
-    SpatialPlaceholderAny,
-    BoxAny,
-    HigherKind,
-    Ref,
-    Option,
-}
+inductive TyKind
+  | Enum
+  | Record
+  | Struct
+  | Primitive
+  | Vec
+  | Slice
+  | CyclicSlice
+  | Array
+  | Tuple
+  | Mor
+  | ThickFp
+  | AssociatedAny
+  | ThisAny
+  | TargetOutputAny
+  | SpatialPlaceholderAny
+  | BoxAny
+  | HigherKind
+  | Ref
+  | Option
+  deriving DecidableEq
 
-impl From<TyKeyword> for TyKind {
-    fn from(keyword: TyKeyword) -> Self {
-        match keyword {
-            TyKeyword::Struct => TyKind::Struct,
-            TyKeyword::Enum => TyKind::Enum,
-            TyKeyword::Record => TyKind::Record,
-        }
-    }
-}
+namespace TyKind
+instance : Enumerable TyKind where
+    enumeration := [
+        Enum,
+        Record,
+        Struct,
+        Primitive,
+        Vec,
+        Slice,
+        CyclicSlice,
+        Array,
+        Tuple,
+        Mor,
+        ThickFp,
+        AssociatedAny,
+        ThisAny,
+        TargetOutputAny,
+        SpatialPlaceholderAny,
+        BoxAny,
+        HigherKind,
+        Ref,
+        Option
+    ]
+    hvalid := sorry
+end TyKind
 
-pub enum MemberKind {
-    Field,
-    Method { is_lazy: bool },
-    Call,
-    TraitAssociatedType,
-    TraitAssociatedConstSize,
-    TraitAssociatedAny,
-}
+-- impl From<TyKeyword> for TyKind {
+--     fn from(keyword: TyKeyword) -> Self {
+--         match keyword {
+--             TyKeyword::Struct => TyKind::Struct,
+--             TyKeyword::Enum => TyKind::Enum,
+--             TyKeyword::Record => TyKind::Record,
+--         }
+--     }
+-- }
 
-pub enum EntityKind {
-    Module,
-    Type(TyKind),
-    Trait,
-    Member(MemberKind),
-    Function { requires_lazy: bool },
-    Feature,
-    EnumVariant,
-    Main,
-}
+inductive MemberKind 
+   | Field
+   | Method ( is_lazy: Bool ) 
+   | Call
+   | TraitAssociatedType
+   | TraitAssociatedConstSize
+   | TraitAssociatedAny
+
+inductive EntityKind 
+   | Module
+   | Ty (kind: TyKind)
+   | Trait
+   | Member(kind: MemberKind)
+   | Function (requires_lazy: Bool)
+   | Feature
+   | EnumVariant
+   | Main
+
+structure Cat where
+  height : Float
+  weight : Float
+
+structure House where
+    window : Window
+    front_door : Door
+    back_door : Door

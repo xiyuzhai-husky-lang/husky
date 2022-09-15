@@ -4,9 +4,9 @@ inductive PrimitiveLiteralData
   deriving DecidableEq
 
 inductive EagerExpr
-  | Variable ( varname : String ) : EagerExpr
+  | Variable ( varname : String )
   | ThisValue
-  | ThisField ( field_ident: String ) : EagerExpr
+  | ThisField ( field_ident: String )
   | PrimitiveLiteral : PrimitiveLiteralData -> EagerExpr
   | EnumKindLiteral : EntityRoute -> EagerExpr
   | Bracketed ( expr : EagerExpr )
