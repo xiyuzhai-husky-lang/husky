@@ -1,31 +1,25 @@
 structure TemporalArgument
   deriving DecidableEq
-  
-mutual
-inductive EntityRoute
-  | _ (variant : EntityRouteVariant)
-      (temporal_arguments: List TemporalArgument)
-      (spatial_arguments: List SpatialArgument)
 
-inductive SpatialArgument
-  | Ty (route : EntityRoute)
-  | ConstUsize (value : Nat)
+structure EntityRoutePtr where
+  raw: Nat
+  deriving DecidableEq
 
 inductive EntityRouteVariant
   | Root
   | Child
-end
+  deriving DecidableEq
 
-mutual
-instance : DecidableEq EntityRoute := by
-  sorry
-
-def SpatialArgument.deq (a b : EntityRoute) : Decidable (a = b) := by
-  sorry
-
-def EntityRouteVariant.deq (a b : EntityRoute) : Decidable (a = b) := by
-  sorry
-end
+inductive SpatialArgument
+  | Ty (route : EntityRoutePtr)
+  | ConstUsize (value : Nat)
+  deriving DecidableEq
+  
+structure EntityRoute where
+  variant : EntityRouteVariant
+  temporal_arguments: List TemporalArgument
+  spatial_arguments: List SpatialArgument
+  deriving DecidableEq
 
 namespace SpatialArgument
 end SpatialArgument
