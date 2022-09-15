@@ -9,11 +9,18 @@ inductive WordOpr
   | Be
   deriving DecidableEq
 namespace WordOpr
-def toRustVersion : WordOpr -> String
+instance : ToString WordOpr where
+  toString : WordOpr -> String
   | And => "WordOpr::And"
   | Or => "WordOpr::Or"
   | As => "WordOpr::As"
   | Be => "WordOpr::Be"
+
+def huskyCode : WordOpr -> String
+  | And => "and"
+  | Or => "or"
+  | As => "as"
+  | Be => "be"
 end WordOpr
 
 inductive Decorator
@@ -24,7 +31,8 @@ inductive Decorator
   deriving DecidableEq
 
 namespace Decorator
-  def toRustVersion : Decorator -> String
+  instance : ToString Decorator where
+    toString : Decorator -> String
     | Pub => "Decorator::Pub"
     | Priviate => "Decorator::Priviate"
     | Async => "Decorator::Async"
@@ -50,9 +58,14 @@ inductive WordPattern
   deriving DecidableEq
 
 namespace WordPattern
-  def toRustVersion : WordPattern -> String
+  instance : ToString WordPattern where
+  toString : WordPattern -> String
     | Some => "WordPattern::Some"
     | None => "WordPattern::None"
+  
+  def huskyCode : WordPattern -> String
+    | Some => "some"
+    | None => "none"
 end WordPattern
 
 inductive Word
@@ -63,11 +76,12 @@ inductive Word
   | Identifier: Identifier -> Word
   deriving DecidableEq
 
-namespace Word
-def toRustVersion : Word -> String
-  | Keyword kw => s!"Word::Keyword({kw.toRustVersion})"
-  | Opr opr => s!"Word::Opr({opr.toRustVersion})" -- Keyword -> Opr
-  | Decorator dec => s!"Word::Decorator({dec.toRustVersion})" -- Decorator
-  | Pattern patt => s!"Word::Keyword({patt.toRustVersion})"
-  | Identifier ident => s!"Word::Keyword({ident.toRustVersion})"
-end Word
+-- namespace Word
+-- instance : ToString Word where
+--   toString : Word -> String
+--   | Keyword kw => s!"Word::Keyword({kw})"
+--   | Opr opr => s!"Word::Opr({opr})" -- Keyword -> Opr
+--   | Decorator dec => s!"Word::Decorator({dec})" -- Decorator
+--   | Pattern patt => s!"Word::Keyword({patt})"
+--   | Identifier ident => s!"Word::Identifier({ident})"
+-- end Word

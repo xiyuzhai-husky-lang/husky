@@ -153,7 +153,7 @@ instance : Enumerable SpecialToken where
     intro a
     cases a <;> rfl
 
-def toString : SpecialToken -> String
+def huskyCode : SpecialToken -> String
   | LAngle => "<"
   | Leq => "<="
   | RAngle => ">"
