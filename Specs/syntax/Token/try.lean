@@ -22,9 +22,13 @@ def parseCode : List Char -> List SimpleToken
 theorem t : ∀ tokens : List SimpleToken, tokens = parseCode (writeCode tokens)
   | [] => rfl
   | A::as => by
-    simp[writeCode]
-    simp[code]
-    simp[parseCode]
-    assumption
-  | _ => sorry
+    simp[writeCode, code, parseCode]
+    apply t as
+  | BB::as => by
+    simp[writeCode, code, parseCode]
+    apply t as
+  | (Custom c)::as => by
+    simp[writeCode, code, parseCode]
+    -- apply t as
+    sorry
 end SimpleToken
