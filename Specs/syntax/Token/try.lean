@@ -1,34 +1,24 @@
-inductive SimpleToken where
-  | A
-  | BB
-  | Custom : Char -> SimpleToken
+structure ValidChar where
+  c : Char
+  h : c != ' '
+
+structure SimpleToken where
+  value : List ValidChar
 
 namespace SimpleToken
-def code : SimpleToken -> List Char
-  | A => "A".toList
-  | BB => "BB".toList
-  | Custom c => [c]
-
-def writeCode : List SimpleToken -> List Char
-  | [] => []
-  | a::as => a.code.append (writeCode as)
-
-def parseCode : List Char -> List SimpleToken
-  | [] => []
-  | 'A'::as => [A].append (parseCode as)
-  | 'B'::'B'::as => [BB].append (parseCode as)
-  | c::as => [Custom c].append (parseCode as)
-
-theorem t : ∀ tokens : List SimpleToken, tokens = parseCode (writeCode tokens)
-  | [] => rfl
-  | A::as => by
-    simp[writeCode, code, parseCode]
-    apply t as
-  | BB::as => by
-    simp[writeCode, code, parseCode]
-    apply t as
-  | (Custom c)::as => by
-    simp[writeCode, code, parseCode]
-    -- apply t as
-    sorry
+def toChars (t : SimpleToken) : List Char :=
+  t.value.map fun vc => vc.c
 end SimpleToken
+
+def writeCode (tokens : List SimpleToken) : List Char :=
+  [' '].intercalate (tokens.map fun token => token.toChars)
+
+def parseCodeAux : List Char -> List ValidChar -> List SimpleToken
+  | [], pref => [{ value := pref : SimpleToken }]
+  | ' ' :: as, pref => [{ value := pref : SimpleToken }] ++ (parseCodeAux as [])
+  | c :: as, pref => sorry
+
+def parseCode (chars : List Char) : List SimpleToken := sorry
+
+theorem parsing_is_correct (tokens : List SimpleToken) : parseCode (writeCode tokens) = tokens := by
+  sorry
