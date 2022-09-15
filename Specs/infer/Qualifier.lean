@@ -1,4 +1,4 @@
-import Specs.abstraction.Enumerable
+import Specs.abstraction
 
 inductive RefQualifier
   | None
@@ -20,6 +20,15 @@ instance : Enumerable RefQualifier where
     apply And.intro
     apply rfl
     intro a
-    cases a with
-    | _ => rfl
+    cases a <;> rfl
+
+instance : Concept RefQualifier where
+  description : RefQualifier -> String
+  | None => sorry
+  | EvalRef => sorry
+  | TempRef => sorry
+  | TempRefMut => sorry
+  descriptions := "haha"
 end RefQualifier
+
+def descriptions : List String := []
