@@ -4,6 +4,10 @@ import Specs.syntax.Token.SpecialToken
 
 inductive PrimitiveLiteralData
 
+namespace PrimitiveLiteralData
+  def huskyCode : PrimitiveLiteralData -> String := sorry
+end PrimitiveLiteralData
+
 inductive HuskyTokenKind
   | Decorator : Decorator -> HuskyTokenKind
   | Keyword : Keyword -> HuskyTokenKind
@@ -35,7 +39,7 @@ def huskyCode : HuskyTokenKind -> String
   | WordOpr opr => opr.huskyCode
   | WordPattern patt => patt.huskyCode
   | PrimitiveLiteral data => data.huskyCode
-  | Unrecognized c => c.huskyCode
+  | Unrecognized c => [c].asString
   | IllFormedLiteral data => data.huskyCode
 end HuskyTokenKind
 

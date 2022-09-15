@@ -1,8 +1,11 @@
 import Specs.syntax.Text
 
 inductive RootPrimitiveTyIdentifier
+  | Bool
   | I32
   | I64
+  | B32
+  | B64
   | F32
   | F64
   deriving DecidableEq
@@ -10,10 +13,22 @@ inductive RootPrimitiveTyIdentifier
 namespace RootPrimitiveTyIdentifier
 
   def toRustVersion : RootPrimitiveTyIdentifier -> String
+    | Bool => "RootPrimitiveTyIdentifier::Bool"
     | I32 => "RootPrimitiveTyIdentifier::I32"
     | I64 => "RootPrimitiveTyIdentifier::I64"
+    | B32 => "RootPrimitiveTyIdentifier::B32"
+    | B64 => "RootPrimitiveTyIdentifier::B64"
     | F32 => "RootPrimitiveTyIdentifier::F32"
     | F64 => "RootPrimitiveTyIdentifier::F64"
+  
+  def huskyCode : RootPrimitiveTyIdentifier -> String
+    | Bool => "bool"
+    | I32 => "i32"
+    | I64 => "i64"
+    | B32 => "b32"
+    | B64 => "b64"
+    | F32 => "f32"
+    | F64 => "f64"
 end RootPrimitiveTyIdentifier
 
 inductive RootContainerTyIdentifier
@@ -25,6 +40,9 @@ namespace RootContainerTyIdentifier
 def toRustVersion : RootContainerTyIdentifier -> String
   | Vec => "RootContainerTyIdentifier::Vec"
   | Array => "RootContainerTyIdentifier::Array"
+  def huskyCode : RootContainerTyIdentifier -> String
+  | Vec => "Vec"
+  | Array => "Array"
 end RootContainerTyIdentifier
 
 --
@@ -35,9 +53,13 @@ inductive RootHigherTyIdentifier
   deriving DecidableEq
 
 namespace RootHigherTyIdentifier
-def toRustVersion : RootHigherTyIdentifier -> String
-  | TypeType => "RootHigherTyIdentifier::TypeType"
-  | TraitType=> "RootContainerTyIdentifier::TraitType"
+  def toRustVersion : RootHigherTyIdentifier -> String
+    | TypeType => "RootHigherTyIdentifier::TypeType"
+    | TraitType=> "RootContainerTyIdentifier::TraitType"
+
+  def huskyCode : RootHigherTyIdentifier -> String
+    | TypeType => "Type"
+    | TraitType => "Trait"
 end RootHigherTyIdentifier
 
 namespace CustomIdentifier
@@ -51,6 +73,8 @@ structure CustomIdentifier where
 
 namespace CustomIdentifier
   def toRustVersion : CustomIdentifier -> String := sorry
+  def huskyCode : CustomIdentifier -> String
+    | ident => ident.value
 end CustomIdentifier
 
 structure RangedCustomIdentifier where
@@ -71,4 +95,10 @@ namespace Identifier
     | RootContainerTy ident => s!"Identifier::ContainerTy({ident.toRustVersion})"
     | RootHigherTy ident => s!"Identifier::RootHigherTy({ident.toRustVersion})"
     | Custom ident => s!"Identifier::Custom({ident.toRustVersion})"
+  
+  def huskyCode : Identifier -> String
+    | RootPrimitiveTy ident => ident.huskyCode
+    | RootContainerTy ident => ident.huskyCode
+    | RootHigherTy ident => ident.huskyCode
+    | Custom ident => ident.huskyCode
 end Identifier

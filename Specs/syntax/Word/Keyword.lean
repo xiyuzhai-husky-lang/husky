@@ -2,13 +2,13 @@ import Specs.syntax.Word.Keyword.StmtKeyword
 import Specs.syntax.Word.Keyword.TyKeyword
 import Specs.syntax.Word.Keyword.LiasonKeyword
 import Specs.syntax.Word.Keyword.ConfigKeyword
-import Specs.syntax.Paradigm
+import Specs.syntax.Word.Keyword.ParadigmKeyword
 
 -- type definition
 
 inductive Keyword
   | Config: ConfigKeyword -> Keyword
-  | Paradigm: Paradigm -> Keyword
+  | Paradigm: ParadigmKeyword -> Keyword
   | Ty: TyKeyword -> Keyword
   | Stmt: StmtKeyword -> Keyword
   | Liason: LiasonKeyword -> Keyword
@@ -55,13 +55,4 @@ namespace Keyword
     | Use => "use"
     | Mod => "mod"
     | Visual => "visual"
-
-  -- proofs
-
-  example : ∀ a b : Keyword, (a = b) = ((ToString.toString a) = (ToString.toString b))
-    | Config (kw1), Config (kw2) => by simp
-    | Config (ConfigKeyword.Task), Paradigm (Paradigm.LazyFunctional) => by simp
-    | Config (ConfigKeyword.Task), Paradigm (Paradigm.EagerFunctional) => by simp
-    | Config (ConfigKeyword.Task), Paradigm (Paradigm.EagerProcedural) => by simp
-    | _, _ => sorry
 end Keyword
