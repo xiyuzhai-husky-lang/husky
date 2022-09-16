@@ -43,18 +43,14 @@ impl FlagVectorField {
             .collect()
     }
 
-    pub fn flag_ranges(
-        &self,
-        border_shrink_rate: f32,
-        border_expand_rate: f32,
-    ) -> Option<Vec<FlagRange>> {
+    pub fn flag_ranges(&self, ntrim: i32, border_expand_rate: f32) -> Option<Vec<FlagRange>> {
         let raw_flag_ranges = self.raw_flag_ranges()?;
         Some(
             raw_flag_ranges
                 .iter()
                 .enumerate()
                 .map(|(idx, raw_flag_range)| {
-                    self.flag_range(border_shrink_rate, border_expand_rate, idx, raw_flag_range)
+                    self.flag_range(ntrim, border_expand_rate, idx, raw_flag_range)
                 })
                 .collect(),
         )
@@ -62,17 +58,16 @@ impl FlagVectorField {
 
     fn flag_range(
         &self,
-        border_shrink_rate: f32,
+        ntrim: i32,
         border_expand_rate: f32,
         idx: usize,
         raw: &FlagRange,
     ) -> FlagRange {
         let true_values_sorted = self.true_values_sorted(idx);
-        assert!(border_shrink_rate < 0.3);
-        assert!(border_shrink_rate > 0.0);
         assert!(border_expand_rate < 0.4);
         assert!(border_expand_rate > 0.0);
-        let ntrim = ((true_values_sorted.len() as f32) * border_shrink_rate).round() as usize;
+        assert!(ntrim >= 0);
+        let ntrim = ntrim as usize;
         let interval_width = raw.true_range.end - raw.true_range.start;
         let epsilon = interval_width * border_expand_rate;
         let start = if raw.ambiguous_start() {

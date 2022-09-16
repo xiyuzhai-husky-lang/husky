@@ -17,11 +17,18 @@ pub static NARROW_DOWN_DEFN: EntityStaticDefn = EntityStaticDefn {
     items: &[],
     variant: EntityStaticDefnVariant::Function {
         spatial_parameters: &[],
-        parameters: &[StaticParameter {
-            name: "label0",
-            modifier: ParameterModifier::None,
-            ty: "TargetOutput",
-        }],
+        parameters: &[
+            StaticParameter {
+                name: "label0",
+                modifier: ParameterModifier::None,
+                ty: "TargetOutput",
+            },
+            StaticParameter {
+                name: "ntrim",
+                modifier: ParameterModifier::None,
+                ty: "i32",
+            },
+        ],
         variadic_template: StaticVariadicParameterDecl::RepeatSingle(StaticParameter {
             name: "args",
             modifier: ParameterModifier::None,
@@ -76,10 +83,11 @@ impl Model for NarrowDown {
         opds: Vec<GenericArgument>,
         labels: Vec<i32>,
     ) -> __VMResult<Self::Internal> {
-        let fvf = FlagVectorField::from_registers(&opds[0], &opds[1..], &labels)?;
+        let fvf = FlagVectorField::from_registers(&opds[0], &opds[2..], &labels)?;
+        let ntrim = opds[1].value().downcast_i32();
         Ok(NarrowDownInternal {
             label0: fvf.label0(),
-            opt_flag_ranges: fvf.flag_ranges(0.001, 0.1),
+            opt_flag_ranges: fvf.flag_ranges(ntrim, 0.1),
         })
     }
 
@@ -89,7 +97,7 @@ impl Model for NarrowDown {
         arguments: &[__Register<'eval>],
     ) -> __VMResult<__Register<'eval>> {
         if let Some(ref flag_ranges) = internal.opt_flag_ranges {
-            for (argument, flag_range) in std::iter::zip(arguments[1..].iter(), flag_ranges.iter())
+            for (argument, flag_range) in std::iter::zip(arguments[2..].iter(), flag_ranges.iter())
             {
                 let v = argument.downcast_f32();
                 let v = NotNan::new(v).unwrap();

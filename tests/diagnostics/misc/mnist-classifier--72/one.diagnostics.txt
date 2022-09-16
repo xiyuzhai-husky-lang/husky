@@ -1,4 +1,3 @@
-30:46..30:50	Ast Error: expect pattern after, but got nothing
 16:9..16:48	Infer Error: expect `i32` but get `f32` instead
 22:13..22:51	Infer Error: expect `i32` but get `f32` instead
 33:13..33:33	Infer Error: expect `i32` but get `f32` instead
