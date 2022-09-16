@@ -1,7 +1,4 @@
-import Specs.syntax.EntityRoute
-
-inductive PrimitiveLiteralData
-  deriving DecidableEq
+import Specs.syntax
 
 inductive EagerExpr
   | Variable ( varname : String )
@@ -23,8 +20,6 @@ inductive LoopVariant
 namespace LoopVariant
 def subexprs : LoopVariant -> List Expr := sorry
 end LoopVariant
-
-structure CustomIdentifier
 
 structure File
 structure Range
