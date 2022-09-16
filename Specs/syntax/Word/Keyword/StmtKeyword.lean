@@ -1,4 +1,3 @@
-
 inductive StmtKeyword
   | Let
   | Var
@@ -27,7 +26,7 @@ def kindName : StmtKeyword -> String
   | Else => "Else"
   | Match => "Match"
   | Case => "Case"
-  | DeFault => "Default"
+  | DeFault => "DeFault"
   | For => "For"
   | ForExt => "ForExt"
   | While => "While"

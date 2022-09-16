@@ -25,7 +25,7 @@ end WordOpr
 
 inductive Decorator
   | Pub
-  | Priviate
+  | Private
   | Async
   | Static
   deriving DecidableEq
@@ -34,16 +34,16 @@ namespace Decorator
   instance : ToString Decorator where
     toString : Decorator -> String
     | Pub => "Decorator::Pub"
-    | Priviate => "Decorator::Priviate"
+    | Private => "Decorator::Priviate"
     | Async => "Decorator::Async"
     | Static => "Decorator::Static"
   def huskyCode : Decorator -> String
     | Pub => "pub"
-    | Priviate => "private"
+    | Private => "private"
     | Async => "async"
     | Static => "static"
   instance : Enumerable Decorator where
-    enumeration := [Pub, Priviate, Async, Static]
+    enumeration := [Pub, Private, Async, Static]
     hvalid := by
       apply And.intro
       apply rfl

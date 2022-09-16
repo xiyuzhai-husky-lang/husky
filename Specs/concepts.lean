@@ -1,3 +1,7 @@
+import Specs.concepts.Ty
+import Specs.concepts.Paradigm
+import Specs.concepts.decl
+
 -- I believe that category theory is an overkill for describing type system
 -- I failed to see things corresponding to `isomorphism` `universal property` in type system
 -- so here we organise the concepts without establishing connection with category

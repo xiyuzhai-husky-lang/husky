@@ -1,12 +1,7 @@
-import Specs.syntax.Text
 import Specs.syntax.Word
-import Specs.syntax.Token.SpecialToken
+import Specs.syntax.PrimitiveLiteralData
+import Specs.syntax.Token.SpecialToken -- mod SpecialToken; use SpecialToken
 
-inductive PrimitiveLiteralData
-
-namespace PrimitiveLiteralData
-  def huskyCode : PrimitiveLiteralData -> String := sorry
-end PrimitiveLiteralData
 
 inductive HuskyTokenKind
   | Decorator : Decorator -> HuskyTokenKind
@@ -18,6 +13,7 @@ inductive HuskyTokenKind
   | PrimitiveLiteral : PrimitiveLiteralData -> HuskyTokenKind
   | Unrecognized : Char -> HuskyTokenKind
   | IllFormedLiteral : PrimitiveLiteralData -> HuskyTokenKind
+  deriving DecidableEq
 
 namespace HuskyTokenKind
 def kindName : HuskyTokenKind -> String
