@@ -4,21 +4,46 @@ inductive EagerExpr
   | Variable ( varname : String )
   | ThisValue
   | ThisField ( field_ident: String )
-  | PrimitiveLiteral : PrimitiveLiteralData -> EagerExpr
-  | EnumKindLiteral : EntityRoute -> EagerExpr
+  | PrimitiveLiteral (data : PrimitiveLiteralData)
+  | EnumKindLiteral (route : EntityRoute)
   | Bracketed ( expr : EagerExpr )
-  | Opn
+  | Opn (opds : List EagerExpr)
   | Lambda
   | EntityThickFp
   | EntityFeature
+
+instance : DecidableEq EagerExpr := by sorry
+
+
+inductive Expr
+  | Variable
+  | Opn (opds : List Expr)
+  -- deriving DecidableEq
+
+def Expr.deq (a b : Expr) : Decidable (a = b) := sorry
+-- instance : DecidableEq Expr := by sorry
+
+structure ExprWrapper where
+  expr : Expr
   deriving DecidableEq
+
 
 structure LazyStmt
 
 inductive LoopVariant
 
 namespace LoopVariant
-def subexprs : LoopVariant -> List Expr := sorry
+def subexprs : LoopVariant -> List Expr
+  | Variable ( varname : String )
+  | ThisValue
+  | ThisField ( field_ident: String )
+  | PrimitiveLiteral _ => []
+  | EnumKindLiteral _ => []
+  | Bracketed expr => [expr]
+  | Opn opds => opds
+  | Lambda
+  | EntityThickFp
+  | EntityFeature
 end LoopVariant
 
 structure File

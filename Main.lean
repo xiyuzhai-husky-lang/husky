@@ -1,9 +1,9 @@
 import Specs
-import Init.System.IO
 
-def genSpecBook : IO Unit := sorry
+def genSpecBook : IO Unit := IO.FS.writeFile "docs/specs.md" "haha"
 
-def genRustTests : IO Unit := sorry
+def genRustTests : IO Unit := do
+  return
 
 def main : IO Unit :=
   do
