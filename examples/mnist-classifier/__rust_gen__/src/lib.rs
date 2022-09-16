@@ -19,3 +19,5 @@ pub(crate) mod line_segment_sketch;
 pub(crate) mod major;
 pub(crate) mod one;
 pub(crate) mod raw_contour;
+pub(crate) mod six;
+pub(crate) mod zero;
