@@ -12,6 +12,7 @@ func one_fermi_match -> FermiMatchResult:
 def is_one -> ?MnistLabel:
     narrow_down(
         MnistLabel::One,
+        5,
         major_connected_component.max_hole_ilen,
         ignored_connected_components_row_span_sum_sum
     )?
@@ -19,6 +20,7 @@ def is_one -> ?MnistLabel:
     if simp_one_match.norm < 3.0:
         narrow_down(
             MnistLabel::One,
+            5,
             major_connected_component.max_row_span
         )?
         if major_connected_component.max_row_span > 6.5:
@@ -34,21 +36,24 @@ def is_one -> ?MnistLabel:
             require simp_one_match.norm < 4.2
             narrow_down(
                 MnistLabel::One,
+                2,
                 simp_one_match.angle_change_norm.abs()
             )?
             require 2.0 * major_connected_component.lower_mass - major_connected_component.upper_mass < 52.0
             MnistLabel::One
         downmost_number_of_strokes = downmost.strokes.end - downmost.strokes.start
         require one_fermi_match.norm < 1.0
-        require major_connected_component.top_k_row_span_sum(3) < 14.5
         narrow_down(
             MnistLabel::One,
+            5,
+            major_connected_component.top_k_row_span_sum(3),
             one_fermi_match.norm,
             one_fermi_match.rel_norm,
             one_fermi_match.angle_change_norm,
         )?
         narrow_down(
             MnistLabel::One,
+            2,
             one_fermi_match.matches[0].rel_norm,
             one_fermi_match.matches[0].angle_change.abs(),
         )?
@@ -60,18 +65,21 @@ def is_one -> ?MnistLabel:
             require long_vertical_dp.y > 0.0
             narrow_down(
                 MnistLabel::One,
+                2,
                 upmost.norm,
                 upmost.rel_norm,
                 upmost.angle_change.abs()
             )?
             narrow_down(
                 MnistLabel::One,
+                2,
                 long_vertical_dp.norm(),
                 long_vertical_dp.x / long_vertical_dp.y
             )?
         if hat be some:
             narrow_down(
                 MnistLabel::One,
+                2,
                 one_fermi_match.matches[2].norm,
                 one_fermi_match.matches[2].rel_norm,
                 one_fermi_match.matches[2].angle_change.abs(),
