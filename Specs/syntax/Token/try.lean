@@ -3,39 +3,49 @@ structure ValidChar where
   h : c != ' '
 
 structure SimpleToken where
-  value : List ValidChar
+  chars : List ValidChar
+  h : chars.length > 0
 
 namespace SimpleToken
 def toChars (t : SimpleToken) : List Char :=
-  t.value.map fun vc => vc.c
+  t.chars.map fun vc => vc.c
+
+def fromValidChars (chars : List ValidChar) : List SimpleToken :=
+  if h : chars.length > 0 then
+    [{ chars, h : SimpleToken }]
+  else
+    []
 end SimpleToken
 
 def writeCode (tokens : List SimpleToken) : List Char :=
   [' '].intercalate (tokens.map fun token => token.toChars)
 
 def parseCodeAux : List Char -> List ValidChar -> List SimpleToken
-  | [], pref => [{ value := pref : SimpleToken }]
-  | ' ' :: as, pref => [{ value := pref : SimpleToken }] ++ (parseCodeAux as [])
-  | c :: as, pref => parseCodeAux as (pref.concat {
-    c,
-    h := by
-      sorry
-    :ValidChar
-  })
+  | [], pref => SimpleToken.fromValidChars pref
+  | c :: as, pref => 
+    if h : c != ' ' then
+      parseCodeAux as (pref.concat { c, h : ValidChar })
+    else
+      SimpleToken.fromValidChars pref ++ (parseCodeAux as [])
 
-def parseCode (chars : List Char) : List SimpleToken := sorry
+def parseCode (chars : List Char) : List SimpleToken := parseCodeAux chars []
 
-theorem parsing_is_correct (tokens : List SimpleToken) : parseCode (writeCode tokens) = tokens := by
-  sorry
-
-structure NonZeroNat where
-  raw : Nat
-  h : raw > 0
-
-def fromRaw : Nat -> Option NonZeroNat
-  | 0 => none
-  | raw => some {
-    raw,
-    h := sorry
-    : NonZeroNat
-  }
+theorem parsingIsCorrectAux : (tokens : List SimpleToken)  -> parseCode (writeCode tokens) = tokens
+  | [] => by
+    simp[writeCode]
+    simp[List.map]
+    simp[List.intercalate]
+    simp[List.intersperse]
+    simp[List.join]
+    simp[parseCode]
+    simp[parseCodeAux]
+    simp[SimpleToken.fromValidChars]
+  | token::tokens => by
+    simp[parseCode]
+    simp[writeCode]
+    simp[List.map]
+    simp[SimpleToken.toChars]
+    simp[List.map]
+    simp[parseCodeAux]
+    simp[parseCodeAux]
+    sorry
