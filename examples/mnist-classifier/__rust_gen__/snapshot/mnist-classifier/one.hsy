@@ -45,7 +45,7 @@ def is_one -> ?MnistLabel:
         require one_fermi_match.norm < 1.0
         narrow_down(
             MnistLabel::One,
-            5,
+            12,
             major_connected_component.top_k_row_span_sum(3),
             one_fermi_match.norm,
             one_fermi_match.rel_norm,
@@ -84,11 +84,26 @@ def is_one -> ?MnistLabel:
                 one_fermi_match.matches[2].rel_norm,
                 one_fermi_match.matches[2].angle_change.abs(),
             )?
-        if downmost_number_of_strokes == 2:
-            MnistLabel::One
-        else:
-            require downmost_number_of_strokes == 3
-            MnistLabel::One
+        // ad hoc
+        require downmost_number_of_strokes == 3
+        downmost_hat = downmost.strokes[downmost.strokes.start]
+        downmost_hat_dp = downmost_hat.displacement()
+        downmost_feet = downmost.strokes[downmost.strokes.start + 2]
+        downmost_feet_dp = downmost_feet.displacement()
+        narrow_down(
+            MnistLabel::One,
+            10,
+            downmost_hat_dp.y,
+            downmost_feet_dp.y
+        )?
+        require downmost_number_of_strokes == 3
+        a = major_connected_component.lower_mass
+        b = major_connected_component.upper_mass
+        c = a - b
+        d = c + a
+        require c >= -10.0
+        require c <= 20.0
+        MnistLabel::One
 
 func upmost(cc: &ConcaveComponent) -> ?f32:
     dp = cc.displacement()
