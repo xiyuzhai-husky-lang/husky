@@ -18,10 +18,25 @@ instance : DecidableEq EagerExpr := by sorry
 inductive Expr
   | Variable
   | Opn (opds : List Expr)
-  -- deriving DecidableEq
 
-def Expr.deq (a b : Expr) : Decidable (a = b) := sorry
--- instance : DecidableEq Expr := by sorry
+instance Expr.deq : DecidableEq Expr
+| Variable, Variable => isTrue rfl
+| Variable, Opn _ => isFalse (by simp)
+| Opn _, Variable => isFalse (by simp)
+| Opn [], Opn [] => isTrue rfl
+| Opn (_ :: _), Opn [] => isFalse (by simp)
+| Opn [], Opn (_ :: _) => isFalse (by simp)
+| Opn (x :: xs), Opn (y :: ys) =>
+  have := Expr.deq x y
+  if hx : x = y then
+    match Expr.deq (Opn xs) (Opn ys) with
+    | isTrue h => isTrue (by { simp at h; simp [hx, h] })
+    | isFalse h => isFalse (by { intro h'; apply h; simp at h'; simp [h'.2] })
+  else isFalse (by simp [hx])
+
+
+-- def Expr.deq (a b : Expr) : Decidable (a = b) := sorry
+-- -- instance : DecidableEq Expr := by sorry
 
 structure ExprWrapper where
   expr : Expr
