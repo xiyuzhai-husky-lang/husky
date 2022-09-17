@@ -70,6 +70,36 @@ instance EagerExpr.deq : DecidableEq EagerExpr
   | PrimitiveLiteral _, Lambda => isFalse (by simp)
   | PrimitiveLiteral _, EntityThickFp => isFalse (by simp)
   | PrimitiveLiteral _, EntityFeature => isFalse (by simp)
+  
+  -- EnumKindLiteral _
+  | EnumKindLiteral _, Variable _ => isFalse (by simp)
+  | EnumKindLiteral _, ThisValue => isFalse (by simp)
+  | EnumKindLiteral _, ThisField _ => isFalse (by simp)
+  | EnumKindLiteral _, PrimitiveLiteral _ => isFalse (by simp)
+  | EnumKindLiteral a, EnumKindLiteral b => 
+    match decEq a b with
+      | isTrue h => isTrue (by rw[h])
+      | isFalse h => isFalse (by simp[h])
+  | EnumKindLiteral _, Bracketed _ => isFalse (by simp)
+  | EnumKindLiteral _, Opn _ => isFalse (by simp)
+  | EnumKindLiteral _, Lambda => isFalse (by simp)
+  | EnumKindLiteral _, EntityThickFp => isFalse (by simp)
+  | EnumKindLiteral _, EntityFeature => isFalse (by simp)
+  
+  -- Bracketed _
+  | Bracketed _, Variable _ => isFalse (by simp)
+  | Bracketed _, ThisValue => isFalse (by simp)
+  | Bracketed _, ThisField _ => isFalse (by simp)
+  | Bracketed _, PrimitiveLiteral _ => isFalse (by simp)
+  | Bracketed _, EnumKindLiteral _ => isFalse (by simp)
+  | Bracketed a, Bracketed b =>
+    match EagerExpr.deq a b with
+      | isTrue h => isTrue (by rw[h])
+      | isFalse h => isFalse (by simp[h])
+  | Bracketed _, Opn _ => isFalse (by simp)
+  | Bracketed _, Lambda => isFalse (by simp)
+  | Bracketed _, EntityThickFp => isFalse (by simp)
+  | Bracketed _, EntityFeature => isFalse (by simp)
 
   | _, _ => sorry
 
