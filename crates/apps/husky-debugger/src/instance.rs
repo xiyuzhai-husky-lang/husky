@@ -1,3 +1,6 @@
+use husky_compiler::CompilerInstance;
+use relative_path::RelativePathBuf;
+
 use super::*;
 
 pub(crate) struct HuskyDebuggerInstance {
@@ -29,6 +32,10 @@ impl HuskyDebuggerInstance {
             config,
             threadpool: ThreadPool::new().unwrap(),
         }
+    }
+
+    pub(crate) fn compiler_instance(&self) -> CompilerInstance {
+        CompilerInstance::new(RelativePathBuf::from_path(&self.config.package_dir).unwrap())
     }
 
     pub async fn serve_on_error(self, addr: impl ToSocketAddrs, sample_id: SampleId) -> TestResult {

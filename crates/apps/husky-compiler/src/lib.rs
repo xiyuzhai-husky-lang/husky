@@ -25,10 +25,6 @@ use std::{
     time::Instant,
 };
 
-pub struct CompilerInstance {
-    dir: RelativePathBuf,
-}
-
 pub enum CompileHuskyM {
     Ok,
 }
@@ -47,8 +43,6 @@ impl std::ops::FromResidual<CargoBuildR> for CompileHuskyM {
     }
 }
 
-impl MonadT<CargoBuildM> for CompileHuskyM {}
-
 pub struct CompileHuskyR;
 
 impl std::ops::Try for CompileHuskyM {
@@ -65,6 +59,12 @@ impl std::ops::Try for CompileHuskyM {
             CompileHuskyM::Ok => std::ops::ControlFlow::Continue(()),
         }
     }
+}
+
+impl MonadT<CargoBuildM> for CompileHuskyM {}
+
+pub struct CompilerInstance {
+    dir: RelativePathBuf,
 }
 
 impl CompilerInstance {

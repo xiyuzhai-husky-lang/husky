@@ -1,6 +1,6 @@
 use super::*;
 use husky_check_utils::should_eq;
-use husky_tracetime::TracetimeHotReloadResidual;
+use husky_tracetime::TracetimeHotReloadR;
 use monad::Monad;
 use std::panic::catch_unwind;
 use std::path::PathBuf;
@@ -20,9 +20,9 @@ impl<T> HandleGuiMessage<T> {
     }
 }
 
-impl<T> std::ops::FromResidual<TracetimeHotReloadResidual> for HandleGuiMessage<T> {
-    fn from_residual(residual: TracetimeHotReloadResidual) -> Self {
-        unreachable!()
+impl<T> std::ops::FromResidual<DebuggerHotReloadR> for HandleGuiMessage<T> {
+    fn from_residual(residual: DebuggerHotReloadR) -> Self {
+        todo!()
     }
 }
 
@@ -261,7 +261,7 @@ impl HuskyDebuggerInternal {
         HandleGuiMessage::Ok(match request.variant {
             HuskyTracerGuiMessageVariant::HotReloadRequest => {
                 Some(HuskyTracerServerMessageVariant::HotReload {
-                    init_data: self.tracetime.hot_reload()?,
+                    init_data: self.hot_reload()?,
                 })
             }
             HuskyTracerGuiMessageVariant::Activate {
