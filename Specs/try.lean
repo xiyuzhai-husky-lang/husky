@@ -1,20 +1,18 @@
+inductive Animal
+  | Dog (height : Nat)
+  | Cat
 
-inductive TYPE_NAME
-  | VARIANT1
-  | VARIANT2
+def Animal.getName : Animal -> String
+  | Dog _ => "Dog"
+  | Cat => "Cat"
 
+def Animal.isEqual : Animal -> Animal -> Bool
+  -- Dog
+  | Dog _, Dog _ => True
+  | Dog _, Cat => False
 
-inductive NaturalNumber
-  | Zero -- 0
-  | Succ : NaturalNumber -> NaturalNumber
+  -- Cat
+  | Cat, Cat => True
+  | Cat, Dog _ => False
 
-namespace NaturalNumber
-def add : NaturalNumber -> NaturalNumber -> NaturalNumber
-  | x, Zero => x
-  | x, Succ a => Succ (add x a)
-
-theorem example3 (a b : NaturalNumber) (h : Succ a = b) : Succ (Succ a) = Succ b := by
-  rw [h]
-
-  
-end NaturalNumber
+#eval Animal.getName Animal.Cat

@@ -12,9 +12,22 @@ func six_match -> FermiMatchResult:
 
 def is_six -> ?MnistLabel:
     require is_one be none
-    require major_connected_component.raw_contours.ilen() == 2
     require six_match.matches[0] be some
-    require six_match.norm == 0.0
+    if major_connected_component.raw_contours.ilen() == 1:
+        narrow_down(
+            MnistLabel::Six,
+            5,
+            six_match.norm,
+            six_match.rel_norm
+        )?
+        if six_match.norm > 0.0:
+            MnistLabel::Six
+        MnistLabel::Six
+    narrow_down(
+        MnistLabel::Six,
+        5,
+        six_match.norm
+    )?
     require six_match.matches[0].angle_change < -100.0
     MnistLabel::Six
 

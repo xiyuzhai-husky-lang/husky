@@ -12,8 +12,12 @@ inductive PrimitiveLiteralData
    | B32(value : b32)
    | B64(value : b64)
    | Bool(value : Bool)
-  deriving DecidableEq
 
+
+-- def PrimitiveLiteralData.decEq : DecidableEq PrimitiveLiteralData :=
+deriving instance DecidableEq for PrimitiveLiteralData
+
+def PrimitiveLiteralData.decEq2 : DecidableEq PrimitiveLiteralData := fun (a b) => decEq a b
 
 namespace PrimitiveLiteralData
   def huskyCode : PrimitiveLiteralData -> String := sorry
