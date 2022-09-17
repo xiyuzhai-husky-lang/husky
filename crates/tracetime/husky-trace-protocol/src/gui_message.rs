@@ -52,7 +52,7 @@ pub enum HuskyTracerGuiMessageVariant {
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 #[serde(tag = "kind")]
 pub enum HuskyTracerGuiMessageVariant {
-    InitRequest,
+    HotReloadRequest,
     Activate {
         trace_id: TraceId,
         needs_figure_canvases: bool,

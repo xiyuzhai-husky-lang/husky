@@ -11,7 +11,7 @@ pub struct HuskyTracerServerMessage {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(tag = "kind")]
 pub enum HuskyTracerServerMessageVariant {
-    Init {
+    HotReload {
         init_data: InitData,
     },
     Activate {

@@ -9,7 +9,6 @@ mod impl_subtraces;
 mod impl_trace;
 mod impl_trace_stalk;
 mod impl_trace_stats;
-mod monad;
 mod trace_node;
 
 use husky_comptime::*;
@@ -28,6 +27,7 @@ use husky_text::{HuskyText, TextQueryGroup};
 use husky_trace::*;
 use husky_trace_protocol::*;
 use husky_vm::*;
+use monad::Monad;
 use std::collections::HashMap;
 use std::sync::Arc;
 use trace_node::*;
@@ -226,7 +226,7 @@ impl HuskyTracetime {
         &*ptr
     }
 
-    pub fn init_data(&mut self) -> InitData {
+    pub fn hot_reload(&mut self) -> TracetimeHotReload {
         todo!("remake");
         let root_trace_ids = self.root_trace_ids.clone();
         // clear figure cache to reduce data transmission
@@ -236,7 +236,7 @@ impl HuskyTracetime {
         let figure_controls = self.update_figure_controls().expect("todo");
         let pins = self.pins.clone();
         let traces = self.all_trace_nodes();
-        InitData {
+        TracetimeHotReload::Ok(InitData {
             trace_init_data: TraceInitData {
                 opt_active_trace_id: self.opt_active_trace_id,
                 trace_nodes: traces,
@@ -261,10 +261,40 @@ impl HuskyTracetime {
             figure_canvases,
             figure_controls,
             pins,
-        }
+        })
     }
 
     fn vm_config(&self) -> &VMConfig {
         self.runtime().vm_config()
     }
 }
+
+pub enum TracetimeHotReload {
+    Ok(InitData),
+}
+
+pub struct TracetimeHotReloadResidual;
+
+impl std::ops::FromResidual<TracetimeHotReloadResidual> for TracetimeHotReload {
+    fn from_residual(residual: TracetimeHotReloadResidual) -> Self {
+        unreachable!()
+    }
+}
+
+impl std::ops::Try for TracetimeHotReload {
+    type Output = InitData;
+
+    type Residual = TracetimeHotReloadResidual;
+
+    fn from_output(output: Self::Output) -> Self {
+        TracetimeHotReload::Ok(output)
+    }
+
+    fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
+        match self {
+            TracetimeHotReload::Ok(init_data) => std::ops::ControlFlow::Continue(init_data),
+        }
+    }
+}
+
+impl Monad for TracetimeHotReload {}
