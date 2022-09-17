@@ -7,19 +7,18 @@ structure LazyStmt
 inductive LoopVariant
 
 namespace LoopVariant
-def subexprs : LoopVariant -> List Expr
-  | Variable ( varname : String )
-  | ThisValue
-  | ThisField ( field_ident: String )
-  | PrimitiveLiteral _ => []
-  | EnumKindLiteral _ => []
-  | Bracketed expr => [expr]
-  | Opn opds => opds
-  | Lambda => []
-  | EntityThickFp => []
-  | EntityFeature => []
+def subexprs : LoopVariant -> List EagerExpr := sorry
 end LoopVariant
-
+--   | Variable ( varname : String )
+--   | ThisValue
+--   | ThisField ( field_ident: String )
+--   | PrimitiveLiteral _ => []
+--   | EnumKindLiteral _ => []
+--   | Bracketed expr => [expr]
+--   | Opn opds => opds
+--   | Lambda => []
+--   | EntityThickFp => []
+--   | EntityFeature => []
 structure File
 structure Range
 
