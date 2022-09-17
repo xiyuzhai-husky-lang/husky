@@ -6,46 +6,46 @@ use std::panic::catch_unwind;
 use std::path::PathBuf;
 use xxhash_rust::xxh3::xxh3_64;
 
-pub enum HandleGuiMessage<T> {
+pub enum HandleGuiMessageM<T> {
     Ok(T),
 }
 
-impl<T> Monad for HandleGuiMessage<T> {}
+impl<T> Monad for HandleGuiMessageM<T> {}
 
-impl<T> HandleGuiMessage<T> {
+impl<T> HandleGuiMessageM<T> {
     pub(crate) fn unwrap(self) -> T {
         match self {
-            HandleGuiMessage::Ok(t) => t,
+            HandleGuiMessageM::Ok(t) => t,
         }
     }
 }
 
-impl<T> std::ops::FromResidual<DebuggerHotReloadR> for HandleGuiMessage<T> {
+impl<T> std::ops::FromResidual<DebuggerHotReloadR> for HandleGuiMessageM<T> {
     fn from_residual(residual: DebuggerHotReloadR) -> Self {
         todo!()
     }
 }
 
-pub struct HandleGuiMessageResidual;
+pub struct HandleGuiMessageR;
 
-impl<T> std::ops::FromResidual<HandleGuiMessageResidual> for HandleGuiMessage<T> {
-    fn from_residual(residual: HandleGuiMessageResidual) -> Self {
+impl<T> std::ops::FromResidual<HandleGuiMessageR> for HandleGuiMessageM<T> {
+    fn from_residual(residual: HandleGuiMessageR) -> Self {
         unreachable!()
     }
 }
 
-impl<T> std::ops::Try for HandleGuiMessage<T> {
+impl<T> std::ops::Try for HandleGuiMessageM<T> {
     type Output = T;
 
-    type Residual = HandleGuiMessageResidual;
+    type Residual = HandleGuiMessageR;
 
     fn from_output(output: Self::Output) -> Self {
-        HandleGuiMessage::Ok(output)
+        HandleGuiMessageM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            HandleGuiMessage::Ok(output) => std::ops::ControlFlow::Continue(output),
+            HandleGuiMessageM::Ok(output) => std::ops::ControlFlow::Continue(output),
         }
     }
 }
@@ -55,19 +55,19 @@ pub(crate) fn handle_message(
     client_sender: UnboundedSender<Result<Message, warp::Error>>,
     gui_messages: &[HuskyTracerGuiMessage],
     config: &HuskyDebuggerConfig,
-) -> HandleGuiMessage<()> {
+) -> HandleGuiMessageM<()> {
     let debugger_ = debugger.clone();
     let client_sender_ = client_sender.clone();
     let latest_gui_message = gui_messages.last().unwrap();
     match catch_unwind(|| debugger_.handle_gui_message(&latest_gui_message)) {
         Ok(monad) => match monad? {
             Some(text) => match client_sender_.send(Ok(Message::text(text))) {
-                Ok(_) => HandleGuiMessage::Ok(()),
+                Ok(_) => HandleGuiMessageM::Ok(()),
                 Err(_) => todo!(),
             },
-            None => HandleGuiMessage::Ok(()),
+            None => HandleGuiMessageM::Ok(()),
         },
-        Err(_) => HandleGuiMessage::Ok(save_server_history(
+        Err(_) => HandleGuiMessageM::Ok(save_server_history(
             &(DebuggerServerHistory {
                 config: config.clone(),
                 gui_messages: gui_messages.to_vec(),
@@ -93,7 +93,7 @@ impl HuskyDebuggerInstance {
     fn handle_gui_message(
         self: Arc<Self>,
         gui_message: &HuskyTracerGuiMessage,
-    ) -> HandleGuiMessage<Option<String>> {
+    ) -> HandleGuiMessageM<Option<String>> {
         let internal: &mut HuskyDebuggerInternal = &mut self.internal.lock().unwrap();
         let opt_response_variant = internal.handle_gui_message(gui_message)?;
         should_eq!(
@@ -108,7 +108,7 @@ impl HuskyDebuggerInstance {
                 variant,
             };
             match serde_json::to_string(&msg) {
-                Ok(text) => HandleGuiMessage::Ok(Some(text)),
+                Ok(text) => HandleGuiMessageM::Ok(Some(text)),
                 Err(e) => {
                     p!(msg);
                     p!(e);
@@ -116,7 +116,7 @@ impl HuskyDebuggerInstance {
                 }
             }
         } else {
-            HandleGuiMessage::Ok(None)
+            HandleGuiMessageM::Ok(None)
         }
     }
 }
@@ -239,7 +239,7 @@ impl HuskyDebuggerInternal {
     fn handle_gui_message(
         &mut self,
         request: &HuskyTracerGuiMessage,
-    ) -> HandleGuiMessage<Option<HuskyTracerServerMessageVariant>> {
+    ) -> HandleGuiMessageM<Option<HuskyTracerServerMessageVariant>> {
         use husky_vm::__VMErrorVariant;
 
         if let Some(request_id) = request.opt_request_id {
@@ -258,7 +258,7 @@ impl HuskyDebuggerInternal {
                 self.next_request_id += 1
             }
         }
-        HandleGuiMessage::Ok(match request.variant {
+        HandleGuiMessageM::Ok(match request.variant {
             HuskyTracerGuiMessageVariant::HotReloadRequest => {
                 Some(HuskyTracerServerMessageVariant::HotReload {
                     init_data: self.hot_reload()?,
