@@ -89,7 +89,7 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
-    pub(crate) fn push_infer_entries(&mut self, infer_roots: Vec<InferRoot>) {
+    pub(crate) fn push_infer_roots(&mut self, infer_roots: Vec<InferRoot>) {
         self.infer_roots.extend(infer_roots)
     }
 
@@ -154,7 +154,7 @@ impl<'a> fold::Transformer for AstTransformer<'a> {
             AstContext::Enum(_) => self.parse_enum_variant(token_group)?,
             AstContext::Record => self.parse_record_item(token_group, enter_block)?,
         };
-        self.push_infer_entries(variant.infer_roots());
+        self.push_infer_roots(variant.infer_roots());
         Ok(Ast {
             range: token_group.text_range(),
             variant,
