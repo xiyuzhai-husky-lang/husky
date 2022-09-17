@@ -1,11 +1,21 @@
-use std::time::Instant;
-
 use crate::*;
 use husky_entity_kind::EntityKind;
+use monad::Monad;
+use std::{ops::FromResidual, time::Instant};
+
+#[must_use]
+pub enum HuskyTracetimeUpdateM<T> {
+    Ok(T),
+}
+
+pub struct HuskyTracetimeUpdateR;
+
+impl<T> Monad for HuskyTracetimeUpdateM<T> {}
 
 impl HuskyTracetime {
-    pub(crate) fn update(&mut self) {
-        self.clear();
+    pub(crate) fn update(&mut self) -> HuskyTracetimeUpdateM<()> {
+        self.clear()?;
+        // ad hoc
         match self.update_root_traces() {
             Ok(_) => (),
             Err(e) => match e.variant() {
@@ -16,9 +26,10 @@ impl HuskyTracetime {
                 }
             },
         }
+        HuskyTracetimeUpdateM::Ok(())
     }
 
-    fn clear(&mut self) {
+    fn clear(&mut self) -> HuskyTracetimeUpdateM<()> {
         // replace this with diff, try to make the trace tree look the same across code change
         self.restriction = Default::default();
         self.pins.clear();
@@ -28,6 +39,7 @@ impl HuskyTracetime {
         self.root_trace_ids.clear();
         self.subtrace_ids_map.clear();
         self.figure_controls.clear();
+        HuskyTracetimeUpdateM::Ok(())
     }
 
     fn update_root_traces(&mut self) -> __VMResult<()> {
@@ -79,5 +91,25 @@ impl HuskyTracetime {
         self.root_trace_ids = root_trace_ids;
         self.update_trace_statss()?;
         Ok(())
+    }
+}
+
+impl<T> std::ops::Try for HuskyTracetimeUpdateM<T> {
+    type Output = T;
+
+    type Residual = HuskyTracetimeUpdateR;
+
+    fn from_output(output: Self::Output) -> Self {
+        HuskyTracetimeUpdateM::Ok(output)
+    }
+
+    fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
+        todo!()
+    }
+}
+
+impl<T> FromResidual<HuskyTracetimeUpdateR> for HuskyTracetimeUpdateM<T> {
+    fn from_residual(residual: HuskyTracetimeUpdateR) -> Self {
+        todo!()
     }
 }

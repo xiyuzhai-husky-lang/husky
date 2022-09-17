@@ -25,7 +25,6 @@ impl HuskyTracetime {
 pub struct TraceLineBuilder<'a> {
     tracetime: &'a mut HuskyTracetime,
     trace_variant: &'a TraceVariant<'static>,
-    indent: Indent,
     has_parent: bool,
     lines: Vec<TraceLineData>,
     opt_cur_row: Option<Row>,
@@ -41,7 +40,6 @@ impl<'a> TraceLineBuilder<'a> {
         TraceLineBuilder {
             tracetime,
             trace_variant,
-            indent,
             has_parent,
             lines: vec![TraceLineData {
                 indent,

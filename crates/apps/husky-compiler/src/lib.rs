@@ -25,6 +25,7 @@ use std::{
     time::Instant,
 };
 
+#[must_use]
 pub enum CompileHuskyM {
     Ok,
 }

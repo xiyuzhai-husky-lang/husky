@@ -1,9 +1,12 @@
 use std::ops::FromResidual;
 
+use husky_compiler::{CompileHuskyR, CompilerInstance};
 use husky_tracetime::TracetimeHotReloadR;
+use relative_path::RelativePathBuf;
 
 use crate::*;
 
+#[must_use]
 pub enum DebuggerHotReloadM {
     Ok(InitData),
 }
@@ -32,6 +35,12 @@ impl FromResidual<DebuggerHotReloadR> for DebuggerHotReloadM {
     }
 }
 
+impl FromResidual<CompileHuskyR> for DebuggerHotReloadM {
+    fn from_residual(residual: CompileHuskyR) -> Self {
+        todo!()
+    }
+}
+
 impl FromResidual<TracetimeHotReloadR> for DebuggerHotReloadM {
     fn from_residual(residual: TracetimeHotReloadR) -> Self {
         todo!()
@@ -39,8 +48,11 @@ impl FromResidual<TracetimeHotReloadR> for DebuggerHotReloadM {
 }
 
 impl HuskyDebuggerInternal {
+    fn compiler_instance(&self) -> CompilerInstance {
+        CompilerInstance::new(RelativePathBuf::from_path(&self.config.package_dir).unwrap())
+    }
     pub(crate) fn hot_reload(&mut self) -> DebuggerHotReloadM {
-        msg_once!("todo");
+        self.compiler_instance().compile_all()?;
         DebuggerHotReloadM::Ok(self.tracetime.hot_reload()?)
     }
 }

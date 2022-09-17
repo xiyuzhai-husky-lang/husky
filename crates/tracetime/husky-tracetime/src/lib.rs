@@ -2,13 +2,13 @@
 mod impl_figure_canvas;
 mod impl_figure_control;
 mod impl_lines;
-mod impl_ops;
 mod impl_pin;
-mod impl_restriction;
-mod impl_subtraces;
-mod impl_trace;
 mod impl_trace_stalk;
 mod impl_trace_stats;
+mod ops;
+mod restriction;
+mod subtraces;
+mod trace;
 mod trace_node;
 
 use husky_comptime::*;
@@ -227,7 +227,7 @@ impl HuskyTracetime {
     }
 
     pub fn hot_reload(&mut self) -> TracetimeHotReloadM {
-        msg_once!("todo: remake");
+        todo!();
         let root_trace_ids = self.root_trace_ids.clone();
         // clear figure cache to reduce data transmission
         self.figure_canvases.clear();
@@ -269,6 +269,7 @@ impl HuskyTracetime {
     }
 }
 
+#[must_use]
 pub enum TracetimeHotReloadM {
     Ok(InitData),
 }

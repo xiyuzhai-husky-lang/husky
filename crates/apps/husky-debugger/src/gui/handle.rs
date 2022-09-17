@@ -54,7 +54,6 @@ pub(crate) fn handle_message(
     debugger: Arc<HuskyDebuggerInstance>,
     client_sender: UnboundedSender<Result<Message, warp::Error>>,
     gui_messages: &[HuskyTracerGuiMessage],
-    config: &HuskyDebuggerConfig,
 ) -> HandleGuiMessageM<()> {
     let debugger_ = debugger.clone();
     let client_sender_ = client_sender.clone();
@@ -69,7 +68,7 @@ pub(crate) fn handle_message(
         },
         Err(_) => HandleGuiMessageM::Ok(save_server_history(
             &(DebuggerServerHistory {
-                config: config.clone(),
+                config: debugger.config(),
                 gui_messages: gui_messages.to_vec(),
             }),
         )),
