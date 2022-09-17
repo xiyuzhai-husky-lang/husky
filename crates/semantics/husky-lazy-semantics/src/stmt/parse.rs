@@ -46,7 +46,7 @@ impl<'a> LazyStmtParser<'a> {
                 AstVariant::Stmt(ref stmt) => {
                     let variant = match stmt.variant {
                         RawStmtVariant::Loop(_) => panic!(),
-                        RawStmtVariant::ConditionBranch {
+                        RawStmtVariant::IfElseBranch {
                             condition_branch_kind,
                         } => self.parse_condition_flow(
                             not_none!(item.opt_children),
@@ -54,7 +54,7 @@ impl<'a> LazyStmtParser<'a> {
                             condition_branch_kind,
                             output_ty,
                         )?,
-                        RawStmtVariant::PatternBranch { .. } => panic!(),
+                        RawStmtVariant::MatchBranch { .. } => panic!(),
                         RawStmtVariant::Exec { .. } => todo!(),
                         RawStmtVariant::Init {
                             varname,
@@ -194,7 +194,7 @@ impl<'a> LazyStmtParser<'a> {
             let item = match item.value.as_ref().unwrap().variant {
                 AstVariant::Stmt(RawStmt {
                     variant:
-                        RawStmtVariant::ConditionBranch {
+                        RawStmtVariant::IfElseBranch {
                             condition_branch_kind: RawConditionBranchKind::If { .. },
                             ..
                         },
@@ -202,7 +202,7 @@ impl<'a> LazyStmtParser<'a> {
                 }) => break,
                 AstVariant::Stmt(RawStmt {
                     variant:
-                        RawStmtVariant::ConditionBranch {
+                        RawStmtVariant::IfElseBranch {
                             condition_branch_kind,
                             ..
                         },
@@ -218,7 +218,7 @@ impl<'a> LazyStmtParser<'a> {
             match item.value.as_ref().unwrap().variant {
                 AstVariant::Stmt(RawStmt {
                     variant:
-                        RawStmtVariant::ConditionBranch {
+                        RawStmtVariant::IfElseBranch {
                             ref condition_branch_kind,
                         },
                     ..

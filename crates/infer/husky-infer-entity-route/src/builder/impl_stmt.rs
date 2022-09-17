@@ -63,7 +63,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 RawLoopKind::While { condition } => self.infer_condition(condition),
                 RawLoopKind::DoWhile { condition } => self.infer_condition(condition),
             },
-            RawStmtVariant::ConditionBranch {
+            RawStmtVariant::IfElseBranch {
                 condition_branch_kind,
             } => match condition_branch_kind {
                 RawConditionBranchKind::If { condition } => self.infer_condition(condition),
@@ -71,7 +71,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 RawConditionBranchKind::Else => (),
             },
             RawStmtVariant::Require { condition, .. } => self.infer_condition(condition),
-            RawStmtVariant::PatternBranch {
+            RawStmtVariant::MatchBranch {
                 ref pattern_branch_variant,
             } => match pattern_branch_variant {
                 RawPatternBranchVariant::Case { .. } => todo!(),
@@ -140,7 +140,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 match ast.variant {
                     AstVariant::Stmt(RawStmt {
                         variant:
-                            RawStmtVariant::PatternBranch {
+                            RawStmtVariant::MatchBranch {
                                 pattern_branch_variant:
                                     RawPatternBranchVariant::Case { ref pattern },
                             },
@@ -151,7 +151,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     }
                     AstVariant::Stmt(RawStmt {
                         variant:
-                            RawStmtVariant::PatternBranch {
+                            RawStmtVariant::MatchBranch {
                                 pattern_branch_variant: RawPatternBranchVariant::Default,
                             },
                         ..

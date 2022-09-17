@@ -20,7 +20,7 @@ impl<'a> AstTransformer<'a> {
             .parse_atoms(&token_group[1..(token_group.len() - 1)], |mut parser| {
                 parser.parse_pattern()
             })?;
-        Ok(RawStmtVariant::PatternBranch {
+        Ok(RawStmtVariant::MatchBranch {
             pattern_branch_variant: RawPatternBranchVariant::Case { pattern },
         })
     }

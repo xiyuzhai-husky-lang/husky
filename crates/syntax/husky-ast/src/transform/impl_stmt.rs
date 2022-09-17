@@ -31,7 +31,7 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::If => {
                     expect_block_head!(token_group);
                     expect_at_least!(token_group, kw_range, 3);
-                    RawStmtVariant::ConditionBranch {
+                    RawStmtVariant::IfElseBranch {
                         condition_branch_kind: RawConditionBranchKind::If {
                             condition: self.parse_expr(&token_group[1..(token_group.len() - 1)])?,
                         },
@@ -40,7 +40,7 @@ impl<'a> AstTransformer<'a> {
                 StmtKeyword::Elif => {
                     expect_block_head!(token_group);
                     expect_at_least!(token_group, kw_range, 3);
-                    RawStmtVariant::ConditionBranch {
+                    RawStmtVariant::IfElseBranch {
                         condition_branch_kind: RawConditionBranchKind::Elif {
                             condition: self.parse_expr(&token_group[1..(token_group.len() - 1)])?,
                         },
@@ -53,7 +53,7 @@ impl<'a> AstTransformer<'a> {
                         "expect `:` at the end",
                         token_group[0].text_range()
                     );
-                    RawStmtVariant::ConditionBranch {
+                    RawStmtVariant::IfElseBranch {
                         condition_branch_kind: RawConditionBranchKind::Else,
                     }
                 }
@@ -109,7 +109,7 @@ impl<'a> AstTransformer<'a> {
                     }
                     expect_head!(token_group);
                     must_be!(token_group.len() == 2, "expect some tokens after", kw_range);
-                    RawStmtVariant::PatternBranch {
+                    RawStmtVariant::MatchBranch {
                         pattern_branch_variant: RawPatternBranchVariant::Default,
                     }
                 }

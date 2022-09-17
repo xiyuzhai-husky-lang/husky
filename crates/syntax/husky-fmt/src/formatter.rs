@@ -235,8 +235,8 @@ impl<'a> Formatter<'a> {
     fn fmt_stmt(&mut self, stmt: &husky_ast::RawStmt) {
         match stmt.variant {
             RawStmtVariant::Loop(_) => todo!(),
-            RawStmtVariant::ConditionBranch { .. } => todo!(),
-            RawStmtVariant::PatternBranch { .. } => todo!(),
+            RawStmtVariant::IfElseBranch { .. } => todo!(),
+            RawStmtVariant::MatchBranch { .. } => todo!(),
             RawStmtVariant::Exec {
                 expr,
                 discard: silent,

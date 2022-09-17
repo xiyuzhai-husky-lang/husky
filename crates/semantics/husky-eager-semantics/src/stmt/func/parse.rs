@@ -19,7 +19,7 @@ impl<'a> EagerParser<'a> {
                 AstVariant::Stmt(ref stmt) => {
                     let variant = match stmt.variant {
                         RawStmtVariant::Loop(_) => todo!(),
-                        RawStmtVariant::ConditionBranch {
+                        RawStmtVariant::IfElseBranch {
                             condition_branch_kind,
                         } => self.parse_func_condition_flow(
                             stmt,
@@ -27,7 +27,7 @@ impl<'a> EagerParser<'a> {
                             &mut iter,
                             condition_branch_kind,
                         )?,
-                        RawStmtVariant::PatternBranch { .. } => todo!(),
+                        RawStmtVariant::MatchBranch { .. } => todo!(),
                         RawStmtVariant::Exec { .. } => todo!(),
                         RawStmtVariant::Init {
                             varname,
@@ -102,7 +102,7 @@ impl<'a> EagerParser<'a> {
             let item = match item.value.as_ref().unwrap().variant {
                 AstVariant::Stmt(RawStmt {
                     variant:
-                        RawStmtVariant::ConditionBranch {
+                        RawStmtVariant::IfElseBranch {
                             condition_branch_kind,
                             ..
                         },
@@ -119,7 +119,7 @@ impl<'a> EagerParser<'a> {
             match item.value.as_ref().unwrap().variant {
                 AstVariant::Stmt(RawStmt {
                     variant:
-                        RawStmtVariant::ConditionBranch {
+                        RawStmtVariant::IfElseBranch {
                             ref condition_branch_kind,
                         },
                     ..
@@ -161,7 +161,7 @@ impl<'a> EagerParser<'a> {
                     match value.variant {
                         AstVariant::Stmt(RawStmt {
                             variant:
-                                RawStmtVariant::PatternBranch {
+                                RawStmtVariant::MatchBranch {
                                     ref pattern_branch_variant,
                                 },
                             ..

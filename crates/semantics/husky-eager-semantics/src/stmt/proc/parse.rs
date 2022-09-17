@@ -60,7 +60,7 @@ impl<'a> EagerParser<'a> {
     ) -> SemanticResult<ProcStmtVariant> {
         match stmt.variant {
             RawStmtVariant::Loop(loop_kind) => self.parse_loop_stmt(loop_kind, not_none!(children)),
-            RawStmtVariant::ConditionBranch {
+            RawStmtVariant::IfElseBranch {
                 condition_branch_kind,
             } => self.parse_proc_condition_flow(
                 stmt,
@@ -105,7 +105,7 @@ impl<'a> EagerParser<'a> {
                 match_expr,
                 match_liason: match_contract,
             } => self.parse_proc_match(stmt, not_none!(children), match_expr, match_contract),
-            RawStmtVariant::PatternBranch { .. } => {
+            RawStmtVariant::MatchBranch { .. } => {
                 panic!("pattern branch must be inside match stmt")
             }
             RawStmtVariant::ReturnXml(_) => todo!(),
@@ -140,7 +140,7 @@ impl<'a> EagerParser<'a> {
             let item = match item.value.as_ref().unwrap().variant {
                 AstVariant::Stmt(RawStmt {
                     variant:
-                        RawStmtVariant::ConditionBranch {
+                        RawStmtVariant::IfElseBranch {
                             ref condition_branch_kind,
                         },
                     ..
@@ -155,7 +155,7 @@ impl<'a> EagerParser<'a> {
             match item.value.as_ref().unwrap().variant {
                 AstVariant::Stmt(RawStmt {
                     variant:
-                        RawStmtVariant::ConditionBranch {
+                        RawStmtVariant::IfElseBranch {
                             condition_branch_kind,
                         },
                     ..
@@ -275,7 +275,7 @@ impl<'a> EagerParser<'a> {
                     match value.variant {
                         AstVariant::Stmt(RawStmt {
                             variant:
-                                RawStmtVariant::PatternBranch {
+                                RawStmtVariant::MatchBranch {
                                     ref pattern_branch_variant,
                                 },
                             range,
