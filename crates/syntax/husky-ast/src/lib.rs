@@ -132,6 +132,7 @@ pub enum InferRoot {
 }
 
 impl AstVariant {
+    // todo: change this to SmallVec
     pub(crate) fn infer_roots(&self) -> Vec<InferRoot> {
         match self {
             AstVariant::TypeDefnHead {
@@ -175,8 +176,8 @@ impl AstVariant {
                     }]
                 }
                 AstFieldKind::StructProperty { .. } => vec![],
-                AstFieldKind::RecordOriginal => todo!(),
-                AstFieldKind::RecordDerived => todo!(),
+                AstFieldKind::RecordOriginal => vec![],
+                AstFieldKind::RecordDerived => vec![],
             },
             AstVariant::DatasetConfigDefnHead => vec![],
             AstVariant::Stmt(stmt) => match stmt.variant {
