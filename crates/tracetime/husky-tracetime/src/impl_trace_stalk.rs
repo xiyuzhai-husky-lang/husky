@@ -106,7 +106,7 @@ impl HuskyTracetime {
             .eval_opt_arrival_indicator_cached(expr.opt_arrival_indicator.as_ref(), sample_id)
         {
             Ok(arrived) => arrived,
-            Err(e) => false,
+            Err(_) => false,
         };
         if arrived {
             self.trace_stalk_from_result(
