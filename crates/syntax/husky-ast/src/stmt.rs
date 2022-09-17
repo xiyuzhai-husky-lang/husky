@@ -24,10 +24,10 @@ impl TextRanged for RawStmt {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawStmtVariant {
     Loop(RawLoopKind),
-    ConditionBranch {
+    IfElseBranch {
         condition_branch_kind: RawConditionBranchKind,
     },
-    PatternBranch {
+    MatchBranch {
         pattern_branch_variant: RawPatternBranchVariant,
     },
     Exec {

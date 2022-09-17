@@ -71,7 +71,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     ) {
         match stmt.variant {
             RawStmtVariant::Loop(_) => (),
-            RawStmtVariant::ConditionBranch {
+            RawStmtVariant::IfElseBranch {
                 condition_branch_kind,
             } => match condition_branch_kind {
                 RawConditionBranchKind::If { condition } => {
@@ -82,7 +82,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 }
                 RawConditionBranchKind::Else => (),
             },
-            RawStmtVariant::PatternBranch {
+            RawStmtVariant::MatchBranch {
                 ref pattern_branch_variant,
             } => match pattern_branch_variant {
                 RawPatternBranchVariant::Case { ref pattern } => {

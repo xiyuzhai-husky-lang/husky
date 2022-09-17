@@ -37,7 +37,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 RawLoopKind::While { condition } => self.infer_eager_condition(condition),
                 RawLoopKind::DoWhile { condition } => self.infer_eager_condition(condition),
             },
-            RawStmtVariant::ConditionBranch {
+            RawStmtVariant::IfElseBranch {
                 condition_branch_kind,
             } => match condition_branch_kind {
                 RawConditionBranchKind::If { condition } => self.infer_eager_condition(condition),
@@ -45,7 +45,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 RawConditionBranchKind::Else => (),
             },
             RawStmtVariant::Require { condition, .. } => self.infer_eager_condition(condition),
-            RawStmtVariant::PatternBranch {
+            RawStmtVariant::MatchBranch {
                 ref pattern_branch_variant,
             } => match pattern_branch_variant {
                 RawPatternBranchVariant::Case { pattern } => self.infer_eager_pattern(pattern),

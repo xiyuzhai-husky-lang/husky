@@ -39,6 +39,7 @@ pub struct AstTransformer<'a> {
     pub(crate) folded_results: FoldableList<AstResult<Ast>>,
     abs_semantic_tokens: Vec<AbsSemanticToken>,
     tokenized_text: Arc<TokenizedText>,
+    infer_roots: Vec<InferRoot>,
 }
 
 impl<'a> AstTransformer<'a> {
@@ -63,6 +64,7 @@ impl<'a> AstTransformer<'a> {
             opt_this_liason: LocalValue::new(None),
             abs_semantic_tokens: vec![],
             tokenized_text: db.tokenized_text(module_file)?,
+            infer_roots: vec![],
         });
 
         fn module_symbols(
@@ -87,6 +89,10 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
+    pub(crate) fn push_infer_entries(&mut self, infer_roots: Vec<InferRoot>) {
+        self.infer_roots.extend(infer_roots)
+    }
+
     pub(crate) fn finish(self) -> AstText {
         AstText {
             file: self.file,
@@ -94,6 +100,7 @@ impl<'a> AstTransformer<'a> {
             folded_results: self.folded_results,
             semantic_tokens: self.abs_semantic_tokens,
             text: self.db.text(self.file).unwrap(),
+            infer_roots: self.infer_roots,
         }
     }
 
@@ -127,28 +134,30 @@ impl<'a> fold::Transformer for AstTransformer<'a> {
         token_group: &[HuskyToken],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<Ast> {
+        let variant = match self.context() {
+            AstContext::Package(_) | AstContext::Module { .. } => {
+                self.parse_module_item(token_group, enter_block)?
+            }
+            AstContext::Stmt { .. } | AstContext::Match { .. } | AstContext::Visual => {
+                match token_group[0].kind {
+                    HuskyTokenKind::Keyword(keyword) => match keyword {
+                        Keyword::Stmt(keyword) => self
+                            .parse_stmt_with_keyword(keyword, token_group, enter_block)?
+                            .into(),
+                        Keyword::Use => todo!(),
+                        _ => todo!(),
+                    },
+                    _ => self.parse_stmt_without_keyword(token_group)?.into(),
+                }
+            }
+            AstContext::Struct { .. } => self.parse_struct_item(token_group, enter_block)?,
+            AstContext::Enum(_) => self.parse_enum_variant(token_group)?,
+            AstContext::Record => self.parse_record_item(token_group, enter_block)?,
+        };
+        self.push_infer_entries(variant.infer_roots());
         Ok(Ast {
             range: token_group.text_range(),
-            variant: match self.context() {
-                AstContext::Package(_) | AstContext::Module { .. } => {
-                    self.parse_module_item(token_group, enter_block)?
-                }
-                AstContext::Stmt { .. } | AstContext::Match { .. } | AstContext::Visual => {
-                    match token_group[0].kind {
-                        HuskyTokenKind::Keyword(keyword) => match keyword {
-                            Keyword::Stmt(keyword) => self
-                                .parse_stmt_with_keyword(keyword, token_group, enter_block)?
-                                .into(),
-                            Keyword::Use => todo!(),
-                            _ => todo!(),
-                        },
-                        _ => self.parse_stmt_without_keyword(token_group)?.into(),
-                    }
-                }
-                AstContext::Struct { .. } => self.parse_struct_item(token_group, enter_block)?,
-                AstContext::Enum(_) => self.parse_enum_variant(token_group)?,
-                AstContext::Record => self.parse_record_item(token_group, enter_block)?,
-            },
+            variant,
         })
     }
 

@@ -102,7 +102,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     self.insert_eager_expr_inference(condition);
                 }
             },
-            RawStmtVariant::ConditionBranch {
+            RawStmtVariant::IfElseBranch {
                 condition_branch_kind,
             } => match condition_branch_kind {
                 RawConditionBranchKind::If { condition } => {
@@ -116,7 +116,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawStmtVariant::Require { condition, .. } => {
                 self.insert_eager_expr_inference(condition);
             }
-            RawStmtVariant::PatternBranch {
+            RawStmtVariant::MatchBranch {
                 ref pattern_branch_variant,
             } => match pattern_branch_variant {
                 RawPatternBranchVariant::Case { pattern } => self.infer_eager_case_pattern(pattern),
