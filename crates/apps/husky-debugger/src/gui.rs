@@ -47,6 +47,7 @@ pub(crate) async fn handle_query_upgraded(
                         &gui_messages,
                         config,
                     )
+                    .unwrap()
                 }
                 Err(_) => {
                     p!(text);

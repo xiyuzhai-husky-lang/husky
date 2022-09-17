@@ -1,5 +1,6 @@
 use super::*;
 use husky_check_utils::should_eq;
+use monad::Monad;
 use std::panic::catch_unwind;
 use std::path::PathBuf;
 use xxhash_rust::xxh3::xxh3_64;
@@ -9,22 +10,24 @@ pub(crate) fn handle_message(
     client_sender: UnboundedSender<Result<Message, warp::Error>>,
     gui_messages: &[HuskyTracerGuiMessage],
     config: &HuskyDebuggerConfig,
-) {
+) -> HandleGuiMessage<()> {
     let debugger_ = debugger.clone();
     let client_sender_ = client_sender.clone();
     let latest_gui_message = gui_messages.last().unwrap();
     match catch_unwind(|| debugger_.handle_gui_message(&latest_gui_message)) {
-        Ok(Some(text)) => match client_sender_.send(Ok(Message::text(text))) {
-            Ok(_) => (),
-            Err(_) => todo!(),
+        Ok(monad) => match monad? {
+            Some(text) => match client_sender_.send(Ok(Message::text(text))) {
+                Ok(_) => HandleGuiMessage::Ok(()),
+                Err(_) => todo!(),
+            },
+            None => HandleGuiMessage::Ok(()),
         },
-        Ok(None) => (),
-        Err(_) => save_server_history(
+        Err(_) => HandleGuiMessage::Ok(save_server_history(
             &(DebuggerServerHistory {
                 config: config.clone(),
                 gui_messages: gui_messages.to_vec(),
             }),
-        ),
+        )),
     }
 }
 #[derive(Debug, Serialize, Deserialize)]
@@ -41,8 +44,47 @@ fn save_server_history(server_history: &DebuggerServerHistory) {
     husky_io_utils::diff_write(&filepath, &value, true)
 }
 
+pub enum HandleGuiMessage<T> {
+    Ok(T),
+}
+
+impl<T> HandleGuiMessage<T> {
+    pub(crate) fn unwrap(self) -> T {
+        match self {
+            HandleGuiMessage::Ok(t) => t,
+        }
+    }
+}
+
+pub struct HandleGuiMessageResidual;
+
+impl<T> std::ops::FromResidual<HandleGuiMessageResidual> for HandleGuiMessage<T> {
+    fn from_residual(residual: HandleGuiMessageResidual) -> Self {
+        unreachable!()
+    }
+}
+
+impl<T> std::ops::Try for HandleGuiMessage<T> {
+    type Output = T;
+
+    type Residual = HandleGuiMessageResidual;
+
+    fn from_output(output: Self::Output) -> Self {
+        todo!()
+    }
+
+    fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
+        todo!()
+    }
+}
+
+impl<T> Monad for HandleGuiMessage<T> {}
+
 impl HuskyDebuggerInstance {
-    fn handle_gui_message(self: Arc<Self>, gui_message: &HuskyTracerGuiMessage) -> Option<String> {
+    fn handle_gui_message(
+        self: Arc<Self>,
+        gui_message: &HuskyTracerGuiMessage,
+    ) -> HandleGuiMessage<Option<String>> {
         let internal: &mut HuskyDebuggerInternal = &mut self.internal.lock().unwrap();
         let opt_response_variant = internal.handle_gui_message(gui_message);
         should_eq!(
@@ -57,7 +99,7 @@ impl HuskyDebuggerInstance {
                 variant,
             };
             match serde_json::to_string(&msg) {
-                Ok(text) => Some(text),
+                Ok(text) => HandleGuiMessage::Ok(Some(text)),
                 Err(e) => {
                     p!(msg);
                     p!(e);
@@ -65,7 +107,7 @@ impl HuskyDebuggerInstance {
                 }
             }
         } else {
-            None
+            HandleGuiMessage::Ok(None)
         }
     }
 }
