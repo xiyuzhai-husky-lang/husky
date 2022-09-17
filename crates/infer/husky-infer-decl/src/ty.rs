@@ -116,7 +116,7 @@ impl TyDecl {
                     opt_type_call,
                 )
             }
-            _ => panic!(""),
+            _ => unreachable!(),
         })
     }
 
@@ -233,7 +233,7 @@ impl TyDecl {
                         .unwrap();
                     children.next();
                 }
-                _ => panic!(),
+                _ => unreachable!(),
             }
         }
         Ok(variants)
@@ -530,7 +530,7 @@ impl TyDecl {
                     .unwrap()
                     .into()
             }
-            _ => panic!(),
+            _ => unreachable!(),
         }
     }
 

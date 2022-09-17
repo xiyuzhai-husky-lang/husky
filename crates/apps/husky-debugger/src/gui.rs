@@ -23,17 +23,11 @@ pub(crate) async fn handle_query_upgraded(
     let (tx, mut rx) = websocket.split();
     let (client_sender, client_rcv) = mpsc::unbounded_channel::<Result<Message, warp::Error>>();
     let client_rcv = UnboundedReceiverStream::new(client_rcv);
-    tokio::task::spawn(
-        client_rcv.forward(tx).map(|result| {
-            if let Err(e) = result {
-                eprintln!("error sending websocket msg: {}", e);
-            }
-        }), // async move {
-            // while let Some(_) = client_rcv.recv().await {
-            //     //   tx.
-            //     todo!()
-            // }
-    );
+    tokio::task::spawn(client_rcv.forward(tx).map(|result| {
+        if let Err(e) = result {
+            eprintln!("error sending websocket msg: {}", e);
+        }
+    }));
     println!(
         "{}husky:{} query connection established.",
         husky_print_utils::CYAN,

@@ -7,12 +7,6 @@ pub(crate) struct HuskyDebuggerInstance {
 }
 
 impl HuskyDebuggerInstance {
-    // pub fn new_from_flags(
-    //     linkages_from_cdylib: &'static [(__StaticLinkageKey, __Linkage)],
-    // ) -> Self {
-    //     let mut config = HuskyDebuggerConfig::from_env();
-    //     HuskyDebugger::new(config, linkages_from_cdylib)
-    // }
     pub fn new(config: HuskyDebuggerConfig, linkages: &[(__StaticLinkageKey, __Linkage)]) -> Self {
         let package_dir: &Path = &config.package_dir;
         let mut trace_time = HuskyTracetime::new(

@@ -80,7 +80,7 @@ impl HuskyDebuggerInternal {
             if self.next_request_id != request_id {
                 // make sure all requests are received in order
                 match request.variant {
-                    HuskyTracerGuiMessageVariant::InitDataRequest => {
+                    HuskyTracerGuiMessageVariant::InitRequest => {
                         self.next_request_id = request_id + 1;
                     }
                     _ => {
@@ -93,7 +93,7 @@ impl HuskyDebuggerInternal {
             }
         }
         match request.variant {
-            HuskyTracerGuiMessageVariant::InitDataRequest => {
+            HuskyTracerGuiMessageVariant::InitRequest => {
                 Some(HuskyTracerServerMessageVariant::Init {
                     init_data: self.trace_time.init_data(),
                 })
@@ -195,7 +195,7 @@ impl HuskyDebuggerInternal {
             if self.next_request_id != request_id {
                 // make sure all requests are received in order
                 match request.variant {
-                    HuskyTracerGuiMessageVariant::InitDataRequest => {
+                    HuskyTracerGuiMessageVariant::InitRequest => {
                         self.next_request_id = request_id + 1;
                     }
                     _ => {
@@ -208,7 +208,7 @@ impl HuskyDebuggerInternal {
             }
         }
         match request.variant {
-            HuskyTracerGuiMessageVariant::InitDataRequest => {
+            HuskyTracerGuiMessageVariant::InitRequest => {
                 Some(HuskyTracerServerMessageVariant::Init {
                     init_data: self.tracetime.init_data(),
                 })
