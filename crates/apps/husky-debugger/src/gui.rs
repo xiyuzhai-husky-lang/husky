@@ -33,7 +33,6 @@ pub(crate) async fn handle_query_upgraded(
         husky_print_utils::CYAN,
         husky_print_utils::RESET
     );
-    let config = &debugger.config;
     let mut gui_messages = Vec::new();
     while let Some(message_result) = rx.next().await {
         let message = message_result.expect("error receiving ws message: {}");
@@ -41,13 +40,7 @@ pub(crate) async fn handle_query_upgraded(
             Ok(text) => match serde_json::from_str(text) {
                 Ok::<HuskyTracerGuiMessage, _>(gui_message) => {
                     gui_messages.push(gui_message);
-                    handle_message(
-                        debugger.clone(),
-                        client_sender.clone(),
-                        &gui_messages,
-                        config,
-                    )
-                    .unwrap()
+                    handle_message(debugger.clone(), client_sender.clone(), &gui_messages).unwrap()
                 }
                 Err(_) => {
                     p!(text);

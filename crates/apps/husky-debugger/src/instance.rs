@@ -4,7 +4,6 @@ use relative_path::RelativePathBuf;
 use super::*;
 
 pub(crate) struct HuskyDebuggerInstance {
-    pub(crate) config: HuskyDebuggerConfig,
     pub(crate) internal: Mutex<HuskyDebuggerInternal>,
     pub(crate) threadpool: ThreadPool,
 }
@@ -28,14 +27,14 @@ impl HuskyDebuggerInstance {
             internal: Mutex::new(HuskyDebuggerInternal {
                 tracetime: tracetime,
                 next_request_id: 0,
+                config,
             }),
-            config,
             threadpool: ThreadPool::new().unwrap(),
         }
     }
 
-    pub(crate) fn compiler_instance(&self) -> CompilerInstance {
-        CompilerInstance::new(RelativePathBuf::from_path(&self.config.package_dir).unwrap())
+    pub(crate) fn config(&self) -> HuskyDebuggerConfig {
+        self.internal.lock().unwrap().config.clone()
     }
 
     pub async fn serve_on_error(self, addr: impl ToSocketAddrs, sample_id: SampleId) -> TestResult {
