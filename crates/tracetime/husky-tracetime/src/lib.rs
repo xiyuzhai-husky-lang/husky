@@ -21,7 +21,7 @@ use husky_file::FilePtr;
 use husky_init_syntax::*;
 use husky_loop_syntax::*;
 use husky_opn_syntax::*;
-use husky_print_utils::p;
+use husky_print_utils::{msg_once, p};
 use husky_runtime::*;
 use husky_text::{HuskyText, TextQueryGroup};
 use husky_trace::*;
@@ -226,8 +226,8 @@ impl HuskyTracetime {
         &*ptr
     }
 
-    pub fn hot_reload(&mut self) -> TracetimeHotReload {
-        todo!("remake");
+    pub fn hot_reload(&mut self) -> TracetimeHotReloadM {
+        msg_once!("todo: remake");
         let root_trace_ids = self.root_trace_ids.clone();
         // clear figure cache to reduce data transmission
         self.figure_canvases.clear();
@@ -236,7 +236,7 @@ impl HuskyTracetime {
         let figure_controls = self.update_figure_controls().expect("todo");
         let pins = self.pins.clone();
         let traces = self.all_trace_nodes();
-        TracetimeHotReload::Ok(InitData {
+        TracetimeHotReloadM::Ok(InitData {
             trace_init_data: TraceInitData {
                 opt_active_trace_id: self.opt_active_trace_id,
                 trace_nodes: traces,
@@ -269,32 +269,32 @@ impl HuskyTracetime {
     }
 }
 
-pub enum TracetimeHotReload {
+pub enum TracetimeHotReloadM {
     Ok(InitData),
 }
 
-pub struct TracetimeHotReloadResidual;
+pub struct TracetimeHotReloadR;
 
-impl std::ops::FromResidual<TracetimeHotReloadResidual> for TracetimeHotReload {
-    fn from_residual(residual: TracetimeHotReloadResidual) -> Self {
+impl std::ops::FromResidual<TracetimeHotReloadR> for TracetimeHotReloadM {
+    fn from_residual(residual: TracetimeHotReloadR) -> Self {
         unreachable!()
     }
 }
 
-impl std::ops::Try for TracetimeHotReload {
+impl std::ops::Try for TracetimeHotReloadM {
     type Output = InitData;
 
-    type Residual = TracetimeHotReloadResidual;
+    type Residual = TracetimeHotReloadR;
 
     fn from_output(output: Self::Output) -> Self {
-        TracetimeHotReload::Ok(output)
+        TracetimeHotReloadM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            TracetimeHotReload::Ok(init_data) => std::ops::ControlFlow::Continue(init_data),
+            TracetimeHotReloadM::Ok(init_data) => std::ops::ControlFlow::Continue(init_data),
         }
     }
 }
 
-impl Monad for TracetimeHotReload {}
+impl Monad for TracetimeHotReloadM {}

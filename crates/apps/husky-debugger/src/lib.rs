@@ -5,12 +5,12 @@ mod gui;
 mod instance;
 mod internal;
 mod notif;
+mod ops;
 
 pub use config::HuskyDebuggerConfig;
-use convert_case::{Boundary, Case, Casing};
 pub use error::{DebuggerError, DebuggerResult};
-use libloading::Library;
 
+use convert_case::{Boundary, Case, Casing};
 use futures::executor::ThreadPool;
 use gui::handle_query;
 use husky_path_utils::collect_package_dirs;
@@ -22,7 +22,9 @@ use husky_tracetime::HuskyTracetime;
 use husky_vm::__Linkage;
 use instance::*;
 use internal::HuskyDebuggerInternal;
+use libloading::Library;
 use notif::handle_notif;
+use ops::*;
 use std::{
     convert::Infallible,
     net::ToSocketAddrs,
