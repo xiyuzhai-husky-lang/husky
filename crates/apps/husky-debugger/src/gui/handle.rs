@@ -1,6 +1,6 @@
 use super::*;
 use husky_check_utils::should_eq;
-use husky_trace_time::TracetimeHotReloadResidual;
+use husky_tracetime::TracetimeHotReloadResidual;
 use monad::Monad;
 use std::panic::catch_unwind;
 use std::path::PathBuf;
@@ -146,7 +146,7 @@ impl HuskyDebuggerInternal {
         match request.variant {
             HuskyTracerGuiMessageVariant::HotReloadRequest => {
                 Some(HuskyTracerServerMessageVariant::HotReload {
-                    init_data: self.trace_time.init_data(),
+                    init_data: self.tracetime.init_data(),
                 })
             }
             HuskyTracerGuiMessageVariant::Activate {
@@ -161,7 +161,7 @@ impl HuskyDebuggerInternal {
             ),
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
                 if let Some((new_traces, subtrace_ids, trace_stalks, trace_stats)) =
-                    self.trace_time.toggle_expansion(trace_id)
+                    self.tracetime.toggle_expansion(trace_id)
                 {
                     Some(HuskyTracerServerMessageVariant::ToggleExpansion {
                         new_traces,
@@ -184,17 +184,17 @@ impl HuskyDebuggerInternal {
                 }
             }
             HuskyTracerGuiMessageVariant::ToggleShow { trace_id } => {
-                self.trace_time.toggle_show(trace_id);
+                self.tracetime.toggle_show(trace_id);
                 None
             }
             HuskyTracerGuiMessageVariant::Trace { id } => {
-                let trace = self.trace_time.trace(id);
+                let trace = self.tracetime.trace(id);
                 Some(HuskyTracerServerMessageVariant::Trace {
                     trace_props: trace.raw_data.clone(),
                 })
             }
             HuskyTracerGuiMessageVariant::TraceStalk { trace_id } => {
-                let (_, stalk) = self.trace_time.keyed_trace_stalk(trace_id);
+                let (_, stalk) = self.tracetime.keyed_trace_stalk(trace_id);
                 Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
             }
             HuskyTracerGuiMessageVariant::SetRestriction {
@@ -215,7 +215,7 @@ impl HuskyDebuggerInternal {
                 ref restriction,
                 ref figure_control_props,
             } => {
-                self.trace_time.update_figure_control(
+                self.tracetime.update_figure_control(
                     trace_id,
                     restriction,
                     figure_control_props.clone(),
@@ -426,17 +426,17 @@ impl HuskyDebuggerInternal {
         new_stats_keys: &[TraceStatsKey],
     ) -> Option<HuskyTracerServerMessageVariant> {
         let (new_trace_stalks, new_trace_stats) =
-            self.trace_time.set_restriction(restriction.clone());
+            self.tracetime.set_restriction(restriction.clone());
         if needs_figure_canvases
             || needs_figure_controls
             || new_stalk_keys.len() > 0
             || new_stats_keys.len() > 0
         {
             let (opt_figure_canvas_data, opt_figure_control_data) = if let Some(active_trace_id) =
-                self.trace_time.opt_active_trace_id()
+                self.tracetime.opt_active_trace_id()
             {
                 let opt_figure_canvas_data = if needs_figure_canvases {
-                    match self.trace_time.figure_canvas(active_trace_id) {
+                    match self.tracetime.figure_canvas(active_trace_id) {
                         Ok(figure_canvas) => Some(figure_canvas),
                         Err((sample_id, error)) => {
                             return Some(HuskyTracerServerMessageVariant::SetRestrictionWithError {
@@ -449,7 +449,7 @@ impl HuskyDebuggerInternal {
                     None
                 };
                 let opt_figure_control_data = if needs_figure_controls {
-                    Some(self.trace_time.figure_control(active_trace_id))
+                    Some(self.tracetime.figure_control(active_trace_id))
                 } else {
                     None
                 };

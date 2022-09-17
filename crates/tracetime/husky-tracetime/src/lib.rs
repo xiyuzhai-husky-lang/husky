@@ -53,7 +53,7 @@ impl HuskyTracetime {
         init_compile_time: impl FnOnce(&mut HuskyComptime),
         eval_time_config: HuskyRuntimeConfig,
     ) -> Self {
-        let mut trace_time = Self {
+        let mut tracetime = Self {
             runtime: HuskyRuntime::new(init_compile_time, eval_time_config),
             trace_nodes: Default::default(),
             figure_canvases: Default::default(),
@@ -66,9 +66,9 @@ impl HuskyTracetime {
             restriction: Default::default(),
             pins: Default::default(),
         };
-        assert!(trace_time.restriction.opt_sample_id().is_none());
-        trace_time.update();
-        trace_time
+        assert!(tracetime.restriction.opt_sample_id().is_none());
+        tracetime.update();
+        tracetime
     }
 
     pub fn opt_active_trace_id(&mut self) -> Option<TraceId> {

@@ -18,7 +18,7 @@ use husky_print_utils::*;
 use husky_root_static_defn::__StaticLinkageKey;
 use husky_test_utils::TestResult;
 use husky_trace_protocol::*;
-use husky_trace_time::HuskyTracetime;
+use husky_tracetime::HuskyTracetime;
 use husky_vm::__Linkage;
 use instance::*;
 use internal::HuskyDebuggerInternal;

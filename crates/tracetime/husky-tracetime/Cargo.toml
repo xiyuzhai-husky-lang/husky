@@ -1,5 +1,5 @@
 [package]
-name = "husky-trace-time"
+name = "husky-tracetime"
 version = "0.0.0"
 edition = "2021"
 

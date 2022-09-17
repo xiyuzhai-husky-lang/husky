@@ -9,7 +9,7 @@ pub(crate) struct HuskyDebuggerInstance {
 impl HuskyDebuggerInstance {
     pub fn new(config: HuskyDebuggerConfig, linkages: &[(__StaticLinkageKey, __Linkage)]) -> Self {
         let package_dir: &Path = &config.package_dir;
-        let mut trace_time = HuskyTracetime::new(
+        let mut tracetime = HuskyTracetime::new(
             |comptime| {
                 comptime.load_package(package_dir);
                 comptime.load_linkages(linkages)
@@ -17,13 +17,13 @@ impl HuskyDebuggerInstance {
             config.eval_time(),
         );
         if let Some(specific_sample_id) = config.opt_sample_id {
-            trace_time
+            tracetime
                 .set_restriction(Restriction::new_specific(specific_sample_id))
                 .expect("todo");
         }
         Self {
             internal: Mutex::new(HuskyDebuggerInternal {
-                tracetime: trace_time,
+                tracetime: tracetime,
                 next_request_id: 0,
             }),
             config,
