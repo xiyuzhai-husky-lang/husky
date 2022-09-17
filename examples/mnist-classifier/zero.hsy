@@ -7,5 +7,16 @@ use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 
 def is_zero -> ?MnistLabel:
-    require false
+    if major_connected_component.raw_contours.ilen() == 1:
+        require false
+    simp_zero_match = fermi_match(major_concave_components, [])
+    narrow_down(
+        MnistLabel::Zero,
+        5,
+        simp_zero_match.norm,
+        simp_zero_match.rel_norm,
+        simp_zero_match.angle_change_norm,
+    )?
+    require simp_zero_match.norm < 3.0
+    a = simp_zero_match.norm
     MnistLabel::Zero
