@@ -23,7 +23,7 @@ impl HuskyTracetime {
     }
 }
 pub struct TraceLineBuilder<'a> {
-    trace_time: &'a mut HuskyTracetime,
+    tracetime: &'a mut HuskyTracetime,
     trace_variant: &'a TraceVariant<'static>,
     indent: Indent,
     has_parent: bool,
@@ -33,13 +33,13 @@ pub struct TraceLineBuilder<'a> {
 
 impl<'a> TraceLineBuilder<'a> {
     pub(super) fn new(
-        trace_time: &'a mut HuskyTracetime,
+        tracetime: &'a mut HuskyTracetime,
         indent: Indent,
         trace_variant: &'a TraceVariant<'static>,
         has_parent: bool,
     ) -> Self {
         TraceLineBuilder {
-            trace_time,
+            tracetime,
             trace_variant,
             indent,
             has_parent,
@@ -57,13 +57,13 @@ impl<'a> std::ops::Deref for TraceLineBuilder<'a> {
     type Target = HuskyTracetime;
 
     fn deref(&self) -> &Self::Target {
-        self.trace_time
+        self.tracetime
     }
 }
 
 impl<'a> std::ops::DerefMut for TraceLineBuilder<'a> {
     fn deref_mut(&mut self) -> &mut Self::Target {
-        self.trace_time
+        self.tracetime
     }
 }
 

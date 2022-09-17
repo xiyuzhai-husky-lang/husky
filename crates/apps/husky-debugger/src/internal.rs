@@ -1,4 +1,4 @@
-use husky_trace_time::HuskyTracetime;
+use husky_tracetime::HuskyTracetime;
 
 pub struct HuskyDebuggerInternal {
     pub(crate) tracetime: HuskyTracetime,
