@@ -1,6 +1,6 @@
 use super::*;
 use husky_check_utils::should_eq;
-use husky_tracetime::TracetimeHotReloadR;
+use husky_tracetime::HuskyTracetimeHotReloadR;
 use monad::Monad;
 use std::panic::catch_unwind;
 use std::path::PathBuf;

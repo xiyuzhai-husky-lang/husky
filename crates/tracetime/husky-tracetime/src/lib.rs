@@ -11,6 +11,8 @@ mod subtraces;
 mod trace;
 mod trace_node;
 
+pub use ops::*;
+
 use husky_comptime::*;
 use husky_defn_head::Parameter;
 use husky_eager_semantics::*;
