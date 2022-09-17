@@ -10,7 +10,7 @@ rust-version = "1.56"
 doctest = false
 
 [dependencies]
-convert_case = "0.5.0"
+convert_case = "0.6.0"
 path-slash = "0.2.1"
 salsa = "0.17.0-pre.2"
 vec-like = { path = "../../abstraction/vec-like" }
