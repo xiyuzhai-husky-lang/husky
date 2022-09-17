@@ -39,9 +39,9 @@ impl DebuggerContext {
         let mut gui_message_sender = self.ws.gui_message_sender.clone();
         let request_id = self.ws.issue_request_id();
         self.ws.send_message(
-            HuskyTracerGuiMessageVariant::InitDataRequest,
+            HuskyTracerGuiMessageVariant::HotReloadRequest,
             Some(Box::new(move |response| match response.variant {
-                HuskyTracerServerMessageVariant::Init { init_data } => {
+                HuskyTracerServerMessageVariant::HotReload { init_data } => {
                     self.receive_init_data(init_data)
                 }
                 _ => panic!(),

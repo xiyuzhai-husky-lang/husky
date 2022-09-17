@@ -1,9 +1,54 @@
 use super::*;
 use husky_check_utils::should_eq;
+use husky_trace_time::TracetimeHotReloadResidual;
 use monad::Monad;
 use std::panic::catch_unwind;
 use std::path::PathBuf;
 use xxhash_rust::xxh3::xxh3_64;
+
+pub enum HandleGuiMessage<T> {
+    Ok(T),
+}
+
+impl<T> Monad for HandleGuiMessage<T> {}
+
+impl<T> HandleGuiMessage<T> {
+    pub(crate) fn unwrap(self) -> T {
+        match self {
+            HandleGuiMessage::Ok(t) => t,
+        }
+    }
+}
+
+impl<T> std::ops::FromResidual<TracetimeHotReloadResidual> for HandleGuiMessage<T> {
+    fn from_residual(residual: TracetimeHotReloadResidual) -> Self {
+        unreachable!()
+    }
+}
+
+pub struct HandleGuiMessageResidual;
+
+impl<T> std::ops::FromResidual<HandleGuiMessageResidual> for HandleGuiMessage<T> {
+    fn from_residual(residual: HandleGuiMessageResidual) -> Self {
+        unreachable!()
+    }
+}
+
+impl<T> std::ops::Try for HandleGuiMessage<T> {
+    type Output = T;
+
+    type Residual = HandleGuiMessageResidual;
+
+    fn from_output(output: Self::Output) -> Self {
+        HandleGuiMessage::Ok(output)
+    }
+
+    fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
+        match self {
+            HandleGuiMessage::Ok(output) => std::ops::ControlFlow::Continue(output),
+        }
+    }
+}
 
 pub(crate) fn handle_message(
     debugger: Arc<HuskyDebuggerInstance>,
@@ -44,49 +89,13 @@ fn save_server_history(server_history: &DebuggerServerHistory) {
     husky_io_utils::diff_write(&filepath, &value, true)
 }
 
-pub enum HandleGuiMessage<T> {
-    Ok(T),
-}
-
-impl<T> HandleGuiMessage<T> {
-    pub(crate) fn unwrap(self) -> T {
-        match self {
-            HandleGuiMessage::Ok(t) => t,
-        }
-    }
-}
-
-pub struct HandleGuiMessageResidual;
-
-impl<T> std::ops::FromResidual<HandleGuiMessageResidual> for HandleGuiMessage<T> {
-    fn from_residual(residual: HandleGuiMessageResidual) -> Self {
-        unreachable!()
-    }
-}
-
-impl<T> std::ops::Try for HandleGuiMessage<T> {
-    type Output = T;
-
-    type Residual = HandleGuiMessageResidual;
-
-    fn from_output(output: Self::Output) -> Self {
-        todo!()
-    }
-
-    fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
-        todo!()
-    }
-}
-
-impl<T> Monad for HandleGuiMessage<T> {}
-
 impl HuskyDebuggerInstance {
     fn handle_gui_message(
         self: Arc<Self>,
         gui_message: &HuskyTracerGuiMessage,
     ) -> HandleGuiMessage<Option<String>> {
         let internal: &mut HuskyDebuggerInternal = &mut self.internal.lock().unwrap();
-        let opt_response_variant = internal.handle_gui_message(gui_message);
+        let opt_response_variant = internal.handle_gui_message(gui_message)?;
         should_eq!(
             gui_message.opt_request_id.is_some(),
             opt_response_variant.is_some(),
@@ -122,7 +131,7 @@ impl HuskyDebuggerInternal {
             if self.next_request_id != request_id {
                 // make sure all requests are received in order
                 match request.variant {
-                    HuskyTracerGuiMessageVariant::InitRequest => {
+                    HuskyTracerGuiMessageVariant::HotReloadRequest => {
                         self.next_request_id = request_id + 1;
                     }
                     _ => {
@@ -135,8 +144,8 @@ impl HuskyDebuggerInternal {
             }
         }
         match request.variant {
-            HuskyTracerGuiMessageVariant::InitRequest => {
-                Some(HuskyTracerServerMessageVariant::Init {
+            HuskyTracerGuiMessageVariant::HotReloadRequest => {
+                Some(HuskyTracerServerMessageVariant::HotReload {
                     init_data: self.trace_time.init_data(),
                 })
             }
@@ -230,14 +239,14 @@ impl HuskyDebuggerInternal {
     fn handle_gui_message(
         &mut self,
         request: &HuskyTracerGuiMessage,
-    ) -> Option<HuskyTracerServerMessageVariant> {
+    ) -> HandleGuiMessage<Option<HuskyTracerServerMessageVariant>> {
         use husky_vm::__VMErrorVariant;
 
         if let Some(request_id) = request.opt_request_id {
             if self.next_request_id != request_id {
                 // make sure all requests are received in order
                 match request.variant {
-                    HuskyTracerGuiMessageVariant::InitRequest => {
+                    HuskyTracerGuiMessageVariant::HotReloadRequest => {
                         self.next_request_id = request_id + 1;
                     }
                     _ => {
@@ -249,10 +258,10 @@ impl HuskyDebuggerInternal {
                 self.next_request_id += 1
             }
         }
-        match request.variant {
-            HuskyTracerGuiMessageVariant::InitRequest => {
-                Some(HuskyTracerServerMessageVariant::Init {
-                    init_data: self.tracetime.init_data(),
+        HandleGuiMessage::Ok(match request.variant {
+            HuskyTracerGuiMessageVariant::HotReloadRequest => {
+                Some(HuskyTracerServerMessageVariant::HotReload {
+                    init_data: self.tracetime.hot_reload()?,
                 })
             }
             HuskyTracerGuiMessageVariant::Activate {
@@ -353,7 +362,7 @@ impl HuskyDebuggerInternal {
                 needs_figure_controls,
                 request,
             ),
-        }
+        })
     }
 
     fn handle_activate(

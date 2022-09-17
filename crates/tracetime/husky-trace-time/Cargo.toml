@@ -7,16 +7,17 @@ edition = "2021"
 salsa = "0.17.0-pre.2"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-sync-utils = { path = "../../utils/husky-sync-utils" }
-wild-utils = { path = "../../utils/husky-wild-utils" }
 fold = { path = "../../abstraction/fold" }
 upcast = { path = "../../abstraction/upcast" }
 vec-like = { path = "../../abstraction/vec-like" }
 map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
+monad = { path = "../../abstraction/monad" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+sync-utils = { path = "../../utils/husky-sync-utils" }
+wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
