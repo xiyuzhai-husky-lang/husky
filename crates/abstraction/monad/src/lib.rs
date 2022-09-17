@@ -2,4 +2,4 @@
 
 pub trait Monad: std::ops::Try {}
 
-pub trait MonadTransFrom<T>: std::ops::FromResidual<T> {}
+pub trait MonadT<T: Monad>: std::ops::FromResidual<T::Residual> {}
