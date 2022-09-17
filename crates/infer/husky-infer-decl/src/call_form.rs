@@ -102,7 +102,7 @@ impl CallFormDecl {
                     keyword_parameters: Default::default(),
                 })
             }
-            _ => panic!(""),
+            _ => unreachable!(),
         })
     }
 

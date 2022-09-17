@@ -156,7 +156,7 @@ where
             }
             RawStmtVariant::Assert(condition) => self.build_condition(condition),
             RawStmtVariant::Break => (),
-            RawStmtVariant::Match { .. } => panic!("shouldn't be here"),
+            RawStmtVariant::Match { .. } => unreachable!(),
             RawStmtVariant::ReturnXml(ref xml_expr) => match xml_expr.variant {
                 RawXmlExprVariant::Value(raw_expr_idx) => {
                     self.infer_expr(raw_expr_idx, None);

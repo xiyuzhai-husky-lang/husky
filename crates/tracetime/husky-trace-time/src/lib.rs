@@ -227,6 +227,7 @@ impl HuskyTracetime {
     }
 
     pub fn init_data(&mut self) -> InitData {
+        todo!("remake");
         let root_trace_ids = self.root_trace_ids.clone();
         // clear figure cache to reduce data transmission
         self.figure_canvases.clear();

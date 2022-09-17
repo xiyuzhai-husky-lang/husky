@@ -470,7 +470,7 @@ impl EntityDefn {
 
         fn extract_member_dependees(member_defn: &EntityDefn, builder: &mut DependeeMapBuilder) {
             match member_defn.variant {
-                EntityDefnVariant::Module { .. } => panic!("shouldn't be here"),
+                EntityDefnVariant::Module { .. } => unreachable!(),
                 EntityDefnVariant::Feature { .. } => todo!(),
                 EntityDefnVariant::Func { .. } => todo!(),
                 EntityDefnVariant::Proc { .. } => todo!(),

@@ -192,7 +192,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                     let trai_impl = this_ty_decl.trait_impl(trai).unwrap();
                     let elem_ty = match trai_impl.member_impls()[0] {
                         TraitMemberImplDecl::AssociatedType { ty, .. } => ty,
-                        _ => panic!(),
+                        _ => unreachable!(),
                     };
                     self.gen_index_linkage(ty, elem_ty)
                 } else {
@@ -361,7 +361,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 | RootIdentifier::Bool => self.write(&format!(
                     " = __arguments[{i}].downcast_{maybe_opt}{root_identifier}();"
                 )),
-                _ => panic!(),
+                _ => unreachable!(),
             },
             EntityRoutePtr::Custom(_) => {
                 let parameter_ty_decl: Arc<TyDecl> =

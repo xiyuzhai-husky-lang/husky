@@ -41,6 +41,5 @@ pub(crate) async fn handle_notif_upgraded(
             Err(_) => todo!(),
         }
     }
-    // rx.next().await
     todo!()
 }
