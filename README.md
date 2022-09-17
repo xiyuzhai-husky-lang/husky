@@ -168,6 +168,12 @@ Google Jax <https://github.com/google/jax/>
 
 Torch Quantum <https://github.com/mit-han-lab/torchquantum/>
 
+## Zulip
+
+Rust <https://rust-lang.zulipchat.com/>
+
+Lean <https://leanprover.zulipchat.com/>
+
 ## Youtube Channels
 
 ### programming
