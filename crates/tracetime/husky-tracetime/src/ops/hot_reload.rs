@@ -47,10 +47,10 @@ impl HuskyTracetime {
     }
 }
 
-pub struct TracetimeHotReloadR;
+pub struct HuskyTracetimeHotReloadR;
 
-impl std::ops::FromResidual<TracetimeHotReloadR> for HuskyTracetimeHotReloadM {
-    fn from_residual(residual: TracetimeHotReloadR) -> Self {
+impl std::ops::FromResidual<HuskyTracetimeHotReloadR> for HuskyTracetimeHotReloadM {
+    fn from_residual(residual: HuskyTracetimeHotReloadR) -> Self {
         unreachable!()
     }
 }
@@ -58,7 +58,7 @@ impl std::ops::FromResidual<TracetimeHotReloadR> for HuskyTracetimeHotReloadM {
 impl std::ops::Try for HuskyTracetimeHotReloadM {
     type Output = InitData;
 
-    type Residual = TracetimeHotReloadR;
+    type Residual = HuskyTracetimeHotReloadR;
 
     fn from_output(output: Self::Output) -> Self {
         HuskyTracetimeHotReloadM::Ok(output)
