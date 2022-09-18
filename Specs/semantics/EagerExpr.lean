@@ -8,9 +8,9 @@ inductive EagerExpr
   | EnumKindLiteral (route : EntityRoute)
   | Bracketed ( expr : EagerExpr )
   | Opn (opds : List EagerExpr)
-  | Lambda
-  | EntityThickFp
-  | EntityFeature
+  | Lambda (whatever : Nat)
+  | EntityThickFp (whatever : Nat)
+  | EntityFeature (whatever : Nat)
 
 
 instance EagerExpr.deq : DecidableEq EagerExpr
@@ -25,9 +25,9 @@ instance EagerExpr.deq : DecidableEq EagerExpr
   | Variable _, EnumKindLiteral _ => isFalse (by simp)
   | Variable _, Bracketed _ => isFalse (by simp)
   | Variable _, Opn _ => isFalse (by simp)
-  | Variable _, Lambda => isFalse (by simp)
-  | Variable _, EntityThickFp => isFalse (by simp)
-  | Variable _, EntityFeature => isFalse (by simp)
+  | Variable _, Lambda _ => isFalse (by simp)
+  | Variable _, EntityThickFp _ => isFalse (by simp)
+  | Variable _, EntityFeature _ => isFalse (by simp)
   
   -- ThisValue
   | ThisValue, Variable _ => isFalse (by simp)
@@ -37,9 +37,9 @@ instance EagerExpr.deq : DecidableEq EagerExpr
   | ThisValue, EnumKindLiteral _ => isFalse (by simp)
   | ThisValue, Bracketed _ => isFalse (by simp)
   | ThisValue, Opn _ => isFalse (by simp)
-  | ThisValue, Lambda => isFalse (by simp)
-  | ThisValue, EntityThickFp => isFalse (by simp)
-  | ThisValue, EntityFeature => isFalse (by simp)
+  | ThisValue, Lambda _ => isFalse (by simp)
+  | ThisValue, EntityThickFp _ => isFalse (by simp)
+  | ThisValue, EntityFeature _ => isFalse (by simp)
 
   -- ThisField _
   | ThisField _, Variable _ => isFalse (by simp)
@@ -52,9 +52,9 @@ instance EagerExpr.deq : DecidableEq EagerExpr
   | ThisField _, EnumKindLiteral _ => isFalse (by simp)
   | ThisField _, Bracketed _ => isFalse (by simp)
   | ThisField _, Opn _ => isFalse (by simp)
-  | ThisField _, Lambda => isFalse (by simp)
-  | ThisField _, EntityThickFp => isFalse (by simp)
-  | ThisField _, EntityFeature => isFalse (by simp)
+  | ThisField _, Lambda _ => isFalse (by simp)
+  | ThisField _, EntityThickFp _ => isFalse (by simp)
+  | ThisField _, EntityFeature _ => isFalse (by simp)
 
   -- PrimitiveLiteral _
   | PrimitiveLiteral _, Variable _ => isFalse (by simp)
@@ -67,9 +67,9 @@ instance EagerExpr.deq : DecidableEq EagerExpr
   | PrimitiveLiteral _, EnumKindLiteral _ => isFalse (by simp)
   | PrimitiveLiteral _, Bracketed _ => isFalse (by simp)
   | PrimitiveLiteral _, Opn _ => isFalse (by simp)
-  | PrimitiveLiteral _, Lambda => isFalse (by simp)
-  | PrimitiveLiteral _, EntityThickFp => isFalse (by simp)
-  | PrimitiveLiteral _, EntityFeature => isFalse (by simp)
+  | PrimitiveLiteral _, Lambda _ => isFalse (by simp)
+  | PrimitiveLiteral _, EntityThickFp _ => isFalse (by simp)
+  | PrimitiveLiteral _, EntityFeature _ => isFalse (by simp)
   
   -- EnumKindLiteral _
   | EnumKindLiteral _, Variable _ => isFalse (by simp)
@@ -82,9 +82,9 @@ instance EagerExpr.deq : DecidableEq EagerExpr
       | isFalse h => isFalse (by simp[h])
   | EnumKindLiteral _, Bracketed _ => isFalse (by simp)
   | EnumKindLiteral _, Opn _ => isFalse (by simp)
-  | EnumKindLiteral _, Lambda => isFalse (by simp)
-  | EnumKindLiteral _, EntityThickFp => isFalse (by simp)
-  | EnumKindLiteral _, EntityFeature => isFalse (by simp)
+  | EnumKindLiteral _, Lambda _ => isFalse (by simp)
+  | EnumKindLiteral _, EntityThickFp _ => isFalse (by simp)
+  | EnumKindLiteral _, EntityFeature _ => isFalse (by simp)
   
   -- Bracketed _
   | Bracketed _, Variable _ => isFalse (by simp)
@@ -97,11 +97,74 @@ instance EagerExpr.deq : DecidableEq EagerExpr
       | isTrue h => isTrue (by rw[h])
       | isFalse h => isFalse (by simp[h])
   | Bracketed _, Opn _ => isFalse (by simp)
-  | Bracketed _, Lambda => isFalse (by simp)
-  | Bracketed _, EntityThickFp => isFalse (by simp)
-  | Bracketed _, EntityFeature => isFalse (by simp)
+  | Bracketed _, Lambda _ => isFalse (by simp)
+  | Bracketed _, EntityThickFp _ => isFalse (by simp)
+  | Bracketed _, EntityFeature _ => isFalse (by simp)
 
-  | _, _ => sorry
+  -- Lambda _
+  | Lambda _, Variable _ => isFalse (by simp)
+  | Lambda _, ThisValue => isFalse (by simp)
+  | Lambda _, ThisField _ => isFalse (by simp)
+  | Lambda _, PrimitiveLiteral _ => isFalse (by simp)
+  | Lambda _, EnumKindLiteral _ => isFalse (by simp)
+  | Lambda _, Bracketed b => isFalse (by simp)
+  | Lambda _, Opn _ => isFalse (by simp)
+  | Lambda a, Lambda b =>
+    match decEq a b with
+      | isTrue h => isTrue (by rw[h])
+      | isFalse h => isFalse (by simp[h])
+  | Lambda _, EntityThickFp _ => isFalse (by simp)
+  | Lambda _, EntityFeature _ => isFalse (by simp)
+
+  -- EntityThickFp _
+  | EntityThickFp _, Variable _ => isFalse (by simp)
+  | EntityThickFp _, ThisValue => isFalse (by simp)
+  | EntityThickFp _, ThisField _ => isFalse (by simp)
+  | EntityThickFp _, PrimitiveLiteral _ => isFalse (by simp)
+  | EntityThickFp _, EnumKindLiteral _ => isFalse (by simp)
+  | EntityThickFp _, Bracketed b => isFalse (by simp)
+  | EntityThickFp _, Opn _ => isFalse (by simp)
+  | EntityThickFp _, Lambda _ => isFalse (by simp)
+  | EntityThickFp a, EntityThickFp b =>
+    match decEq a b with
+      | isTrue h => isTrue (by rw[h])
+      | isFalse h => isFalse (by simp[h])
+  | EntityThickFp _, EntityFeature _ => isFalse (by simp)
+
+  -- EntityFeature _
+  | EntityFeature _, Variable _ => isFalse (by simp)
+  | EntityFeature _, ThisValue => isFalse (by simp)
+  | EntityFeature _, ThisField _ => isFalse (by simp)
+  | EntityFeature _, PrimitiveLiteral _ => isFalse (by simp)
+  | EntityFeature _, EnumKindLiteral _ => isFalse (by simp)
+  | EntityFeature _, Bracketed b => isFalse (by simp)
+  | EntityFeature _, Opn _ => isFalse (by simp)
+  | EntityFeature _, Lambda _ => isFalse (by simp)
+  | EntityFeature _, EntityThickFp _ => isFalse (by simp)
+  | EntityFeature a, EntityFeature b =>
+    match decEq a b with
+      | isTrue h => isTrue (by rw[h])
+      | isFalse h => isFalse (by simp[h])
+
+  -- Opn _
+  | Opn _, Variable _ => isFalse (by simp)
+  | Opn _, ThisValue => isFalse (by simp)
+  | Opn _, ThisField _ => isFalse (by simp)
+  | Opn _, PrimitiveLiteral _ => isFalse (by simp)
+  | Opn _, EnumKindLiteral _ => isFalse (by simp)
+  | Opn _, Bracketed b => isFalse (by simp)
+  | Opn a, Opn b =>
+    match a, b with
+    | [], [] => isTrue (by simp)
+    | a::as, [] => isFalse (by simp)
+    | [], b::bs => isFalse (by simp)
+    | _, _ => sorry
+    -- match decEq a b with
+    --   | isTrue h => isTrue (by rw[h])
+    --   | isFalse h => isFalse (by simp[h])
+  | Opn _, Lambda _ => isFalse (by simp)
+  | Opn _, EntityThickFp _ => isFalse (by simp)
+  | Opn _, EntityFeature _ => isFalse (by simp)
 
 inductive Expr
   | Variable
