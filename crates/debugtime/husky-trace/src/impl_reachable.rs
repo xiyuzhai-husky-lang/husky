@@ -1,6 +1,6 @@
 use crate::*;
 
-impl<'eval> TraceVariant<'eval> {
+impl TraceVariant {
     pub fn reachable(&self) -> bool {
         match self {
             TraceVariant::Main(_)

@@ -25,13 +25,13 @@ use std::sync::Arc;
 // ts: { idx: number; parent: number | null; tokens: Token[] }
 #[derive(Debug)]
 pub struct Trace {
-    pub variant: TraceVariant<'static>,
+    pub variant: TraceVariant,
     pub raw_data: TraceData,
     pub range: TextRange,
     pub file: FilePtr,
 }
 #[derive(Debug)]
-pub enum TraceVariant<'eval> {
+pub enum TraceVariant {
     Main(FeatureRepr),
     Module {
         route: EntityRoutePtr,
@@ -75,7 +75,7 @@ pub enum TraceVariant<'eval> {
         loop_stmt: Arc<ProcStmt>,
         body_instruction_sheet: Arc<InstructionSheet>,
         body_stmts: Arc<Vec<Arc<ProcStmt>>>,
-        loop_frame_data: LoopFrameData<'eval>,
+        loop_frame_data: LoopFrameData<'static>,
     },
     EagerExpr {
         expr: Arc<EagerExpr>,
@@ -92,7 +92,7 @@ pub enum TraceVariant<'eval> {
     },
 }
 
-impl<'eval> TraceVariant<'eval> {
+impl TraceVariant {
     pub fn input(db: &dyn FeatureGenQueryGroup) -> Self {
         TraceVariant::EntityFeature {
             route: db.comptime().intern_entity_route(EntityRoute {
@@ -105,7 +105,7 @@ impl<'eval> TraceVariant<'eval> {
     }
 }
 
-impl<'eval> Serialize for TraceVariant<'eval> {
+impl Serialize for TraceVariant {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,

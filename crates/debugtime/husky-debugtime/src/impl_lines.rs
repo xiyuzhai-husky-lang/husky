@@ -16,7 +16,7 @@ impl Debugtime {
     pub(crate) fn trace_lines(
         &mut self,
         indent: Indent,
-        trace_variant: &TraceVariant<'static>,
+        trace_variant: &TraceVariant,
         has_parent: bool,
     ) -> Vec<TraceLineData> {
         TraceLineBuilder::new(self, indent, trace_variant, has_parent).build()
@@ -24,7 +24,7 @@ impl Debugtime {
 }
 pub struct TraceLineBuilder<'a> {
     debugtime: &'a mut Debugtime,
-    trace_variant: &'a TraceVariant<'static>,
+    trace_variant: &'a TraceVariant,
     has_parent: bool,
     lines: Vec<TraceLineData>,
     opt_cur_row: Option<Row>,
@@ -34,7 +34,7 @@ impl<'a> TraceLineBuilder<'a> {
     pub(super) fn new(
         debugtime: &'a mut Debugtime,
         indent: Indent,
-        trace_variant: &'a TraceVariant<'static>,
+        trace_variant: &'a TraceVariant,
         has_parent: bool,
     ) -> Self {
         TraceLineBuilder {

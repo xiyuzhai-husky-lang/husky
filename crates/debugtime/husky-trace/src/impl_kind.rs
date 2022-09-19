@@ -1,6 +1,6 @@
 use crate::*;
 
-impl<'eval> TraceVariant<'eval> {
+impl TraceVariant {
     pub fn kind(&self) -> TraceKind {
         match self {
             TraceVariant::Main(_) => TraceKind::Main,

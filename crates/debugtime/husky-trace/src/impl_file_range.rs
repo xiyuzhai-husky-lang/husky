@@ -1,6 +1,6 @@
 use crate::*;
 
-impl<'eval> TraceVariant<'eval> {
+impl TraceVariant {
     pub fn file_and_range(&self) -> (FilePtr, TextRange) {
         match self {
             TraceVariant::Main(repr) => (repr.file(), repr.text_range()),

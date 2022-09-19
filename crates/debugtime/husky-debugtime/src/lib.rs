@@ -132,7 +132,7 @@ impl Debugtime {
         &mut self,
         opt_parent_id: Option<TraceId>,
         indent: Indent,
-        variant: TraceVariant<'static>,
+        variant: TraceVariant,
     ) -> TraceId {
         let trace_id = self.next_id();
         let trace = {
