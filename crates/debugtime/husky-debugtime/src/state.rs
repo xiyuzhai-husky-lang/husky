@@ -2,6 +2,7 @@ mod hot_reload;
 mod update;
 
 pub use hot_reload::*;
+use proj_like::ProjMap;
 pub use update::*;
 
 use crate::*;
@@ -13,7 +14,7 @@ pub struct DebugtimeState {
     pub(crate) trace_nodes: Vec<Option<TraceNode>>,
     pub(crate) opt_active_trace_id: Option<TraceId>,
     pub(crate) figure_canvases: VecSet<FigureCanvasKey>,
-    pub(crate) figure_controls: HashMap<FigureControlKey, FigureControlData>,
+    pub(crate) figure_controls: ProjMap<FigureControlKey, FigureControlData>,
     pub(crate) trace_stalks: HashMap<TraceStalkKey, TraceStalk>,
     pub(crate) trace_statss: HashMap<TraceStatsKey, Option<TraceStats>>,
     root_traces: Vec<TraceId>,
