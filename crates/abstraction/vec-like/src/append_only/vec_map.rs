@@ -3,14 +3,16 @@ use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use crate::*;
 
 #[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
-pub struct AppendOnlyVecMap<K, V>
+pub struct AppendOnlyVecMap<K, Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: VecMapEntry<K>,
+    Entry: VecMapEntry<K>,
 {
-    entries: Vec<V>,
+    entries: Vec<Entry>,
     phantom: PhantomData<K>,
 }
+
+pub type AppendOnlyVecPairMap<K, V> = AppendOnlyVecMap<K, (K, V)>;
 
 impl<K, V> std::fmt::Debug for AppendOnlyVecMap<K, V>
 where
@@ -21,8 +23,6 @@ where
         self.entries.fmt(f)
     }
 }
-
-pub type AppendOnlyVecPairMap<K, V> = AppendOnlyVecMap<K, (K, V)>;
 
 impl<K, Entry> AppendOnlyVecMap<K, Entry>
 where

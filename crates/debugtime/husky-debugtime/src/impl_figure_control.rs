@@ -19,7 +19,7 @@ impl Debugtime {
             control.clone()
         } else {
             let control = self.gen_figure_control_data(trace_id);
-            self.state.figure_controls.insert(key, control.clone());
+            self.state.figure_controls.insert_new(key, control.clone());
             control
         }
     }
@@ -116,11 +116,11 @@ impl Debugtime {
         new_figure_controls: &mut Vec<(FigureControlKey, FigureControlData)>,
     ) -> DebugtimeUpdatingM<()> {
         let key = self.gen_figure_control_key(trace_id);
-        if !self.state.figure_controls.contains_key(&key) {
+        if !self.state.figure_controls.contains(&key) {
             let figure_control_data = self.gen_figure_control_data(trace_id);
             self.state
                 .figure_controls
-                .insert(key, figure_control_data.clone());
+                .insert_new(key, figure_control_data.clone());
             new_figure_controls.push((key, figure_control_data))
         }
         DebugtimeUpdatingM::Ok(())
@@ -132,11 +132,9 @@ impl Debugtime {
         new_figure_control_data: FigureControlData,
     ) {
         let key = self.gen_figure_control_key(trace_id);
-        assert!(self
-            .state
+        self.state
             .figure_controls
-            .insert(key, new_figure_control_data)
-            .is_none())
+            .insert_new(key, new_figure_control_data)
     }
 
     fn gen_figure_control_key(&self, trace_id: TraceId) -> FigureControlKey {
