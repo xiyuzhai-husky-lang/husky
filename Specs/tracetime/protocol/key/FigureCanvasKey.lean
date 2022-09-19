@@ -1,0 +1,1 @@
+structure FigureCanvasKey where
