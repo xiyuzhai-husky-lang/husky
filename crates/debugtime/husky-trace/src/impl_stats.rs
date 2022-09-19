@@ -5,7 +5,7 @@ use husky_text::TextRanged;
 use husky_trace_protocol::TraceStats;
 use husky_vm::{__Register, __VMError, __VMErrorVariant, __VMResult};
 
-impl<'eval> TraceVariant<'eval> {
+impl TraceVariant {
     pub fn opt_stats_result(
         &self,
         runtime: &dyn EvalFeature,

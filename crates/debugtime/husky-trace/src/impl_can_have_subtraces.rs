@@ -1,6 +1,6 @@
 use crate::*;
 
-impl<'eval> TraceVariant<'eval> {
+impl TraceVariant {
     pub fn can_have_subtraces(&self, reachable: bool) -> bool {
         if !reachable {
             return false;
