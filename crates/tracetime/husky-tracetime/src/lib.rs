@@ -54,7 +54,7 @@ impl Tracetime {
             state: Default::default(),
         };
         assert!(tracetime.state.restriction.opt_sample_id().is_none());
-        tracetime.update();
+        tracetime.updating();
         tracetime
     }
 
@@ -65,12 +65,12 @@ impl Tracetime {
     pub fn activate(
         &mut self,
         trace_id: TraceId,
-    ) -> TracetimeUpdateM<(
+    ) -> TracetimeUpdatedM<(
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
     )> {
         self.state.opt_active_trace_id = Some(trace_id);
-        TracetimeUpdateM::Ok((
+        TracetimeUpdatedM::Ok((
             self.update_figure_canvases()?,
             self.update_figure_controls()?,
         ))
@@ -175,7 +175,7 @@ impl Tracetime {
     pub fn toggle_expansion(
         &mut self,
         trace_id: TraceId,
-    ) -> TracetimeUpdateM<
+    ) -> TracetimeUpdatedM<
         Option<(
             Vec<TraceNodeData>,
             Vec<TraceId>,
@@ -190,7 +190,7 @@ impl Tracetime {
             .expansion;
         *expansion = !*expansion;
         let subtrace_ids = self.subtrace_ids(trace_id);
-        TracetimeUpdateM::Ok(if self.state.trace_nodes.len() > old_len {
+        TracetimeUpdatedM::Ok(if self.state.trace_nodes.len() > old_len {
             let new_traces: Vec<TraceNodeData> = self.state.trace_nodes[old_len..]
                 .iter()
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())

@@ -8,14 +8,14 @@ impl Tracetime {
     pub fn set_restriction(
         &mut self,
         restriction: Restriction,
-    ) -> TracetimeUpdateM<(
+    ) -> TracetimeUpdatedM<(
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
         Vec<(TraceStalkKey, TraceStalk)>,
         Vec<(TraceStatsKey, Option<TraceStats>)>,
     )> {
         self.state.restriction = restriction;
-        TracetimeUpdateM::Ok((
+        TracetimeUpdatedM::Ok((
             self.update_figure_canvases()?,
             self.update_figure_controls()?,
             self.update_trace_stalks(),

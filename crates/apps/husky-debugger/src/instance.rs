@@ -19,9 +19,10 @@ impl HuskyDebuggerInstance {
             config.eval_time(),
         );
         if let Some(specific_sample_id) = config.opt_sample_id {
-            tracetime
-                .set_restriction(Restriction::new_specific(specific_sample_id))
-                .expect("todo");
+            todo!()
+            // tracetime
+            //     .set_restriction(Restriction::new_specific(specific_sample_id))
+            //     .expect("todo");
         }
         Self {
             internal: Mutex::new(HuskyDebuggerInternal {
@@ -47,31 +48,32 @@ impl HuskyDebuggerInstance {
     }
 
     async fn has_root_error(&self, specific_sample_id: SampleId) -> bool {
-        let mut error_flag = false;
-        let internal = &mut self.internal.lock().unwrap();
-        internal
-            .tracetime
-            .set_restriction(Restriction::new_specific(specific_sample_id))
-            .expect("todo");
-        for root_trace_id in internal.tracetime.root_traces().into_iter() {
-            let now = Instant::now();
-            let (_, stalk) = internal.tracetime.keyed_trace_stalk(root_trace_id);
-            println!(
-                "{} milliseconds elapsed for computing stalk of trace {}",
-                now.elapsed().as_millis(),
-                root_trace_id.0
-            );
-            for token in &stalk.extra_tokens {
-                match token.kind {
-                    TraceTokenKind::Error => {
-                        error_flag = true;
-                        break;
-                    }
-                    _ => (),
-                }
-            }
-        }
-        error_flag
+        todo!()
+        // let mut error_flag = false;
+        // let internal = &mut self.internal.lock().unwrap();
+        // internal
+        //     .tracetime
+        //     .set_restriction(Restriction::new_specific(specific_sample_id))
+        //     .expect("todo");
+        // for root_trace_id in internal.tracetime.root_traces().into_iter() {
+        //     let now = Instant::now();
+        //     let (_, stalk) = internal.tracetime.keyed_trace_stalk(root_trace_id);
+        //     println!(
+        //         "{} milliseconds elapsed for computing stalk of trace {}",
+        //         now.elapsed().as_millis(),
+        //         root_trace_id.0
+        //     );
+        //     for token in &stalk.extra_tokens {
+        //         match token.kind {
+        //             TraceTokenKind::Error => {
+        //                 error_flag = true;
+        //                 break;
+        //             }
+        //             _ => (),
+        //         }
+        //     }
+        // }
+        // error_flag
     }
 
     pub async fn serve(self, addr: impl ToSocketAddrs) -> DebuggerResult<()> {
