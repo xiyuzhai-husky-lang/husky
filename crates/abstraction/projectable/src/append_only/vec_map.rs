@@ -1,6 +1,6 @@
 use vec_like::{AppendOnlyVecMap, VecMapEntry};
 
-pub struct AppendOnlyVecMapProjector<K, V>
+pub struct ProjAppendOnlyVecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: VecMapEntry<K> + Projector,
@@ -9,7 +9,7 @@ where
     old_len: usize,
 }
 
-impl<K, V> Projector for AppendOnlyVecMapProjector<K, V>
+impl<K, V> Projectable for AppendOnlyVecMapProjector<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: VecMapEntry<K>,

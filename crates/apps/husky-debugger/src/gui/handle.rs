@@ -1,6 +1,6 @@
 use super::*;
 use husky_check_utils::should_eq;
-use husky_tracetime::TracetimeHotReloadR;
+use husky_tracetime::{TracetimeHotReloadR, TracetimeUpdatedR};
 use monad::Monad;
 use std::panic::catch_unwind;
 use std::path::PathBuf;
@@ -22,6 +22,12 @@ impl<T> HandleGuiMessageM<T> {
 
 impl<T> std::ops::FromResidual<DebuggerHotReloadR> for HandleGuiMessageM<T> {
     fn from_residual(residual: DebuggerHotReloadR) -> Self {
+        todo!()
+    }
+}
+
+impl<T> std::ops::FromResidual<TracetimeUpdatedR> for HandleGuiMessageM<T> {
+    fn from_residual(residual: TracetimeUpdatedR) -> Self {
         todo!()
     }
 }
@@ -272,9 +278,9 @@ impl HuskyDebuggerInternal {
                 needs_figure_canvases,
                 needs_figure_controls,
                 request,
-            ),
+            )?,
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
-                let opt_results = match self.tracetime.toggle_expansion(trace_id) {
+                let opt_results = match self.tracetime.toggle_expansion(trace_id).result()? {
                     Ok(opt_results) => opt_results,
                     Err(e) => {
                         match e.variant() {
@@ -342,7 +348,7 @@ impl HuskyDebuggerInternal {
                 needs_figure_controls,
                 needs_stalks,
                 needs_statss,
-            ),
+            )?,
             HuskyTracerGuiMessageVariant::UpdateFigureControlData {
                 trace_id,
                 ref figure_control_data,
@@ -360,7 +366,7 @@ impl HuskyDebuggerInternal {
                 needs_figure_canvases,
                 needs_figure_controls,
                 request,
-            ),
+            )?,
         })
     }
 
@@ -370,8 +376,8 @@ impl HuskyDebuggerInternal {
         needs_figure_canvases: bool,
         needs_figure_controls: bool,
         request: &HuskyTracerGuiMessage,
-    ) -> Option<HuskyTracerServerMessageVariant> {
-        match self.tracetime.activate(trace_id) {
+    ) -> HandleGuiMessageM<Option<HuskyTracerServerMessageVariant>> {
+        HandleGuiMessageM::Ok(match self.tracetime.activate(trace_id).result()? {
             Ok((new_figure_canvases, new_figure_controls)) => {
                 let needs_response = needs_figure_canvases || needs_figure_controls;
                 should_eq!(request.opt_request_id.is_some(), needs_response);
@@ -388,7 +394,7 @@ impl HuskyDebuggerInternal {
                 p!(e);
                 todo!()
             }
-        }
+        })
     }
 
     fn handle_toggle_pin(
@@ -397,8 +403,8 @@ impl HuskyDebuggerInternal {
         needs_figure_canvases: bool,
         needs_figure_controls: bool,
         request: &HuskyTracerGuiMessage,
-    ) -> Option<HuskyTracerServerMessageVariant> {
-        match self.tracetime.toggle_pin(trace_id) {
+    ) -> HandleGuiMessageM<Option<HuskyTracerServerMessageVariant>> {
+        HandleGuiMessageM::Ok(match self.tracetime.toggle_pin(trace_id).result()? {
             Ok((new_figure_canvases, new_figure_controls)) => {
                 let needs_response = needs_figure_canvases || needs_figure_controls;
                 should_eq!(request.opt_request_id.is_some(), needs_response);
@@ -412,7 +418,7 @@ impl HuskyDebuggerInternal {
                 }
             }
             Err(_) => todo!(),
-        }
+        })
     }
 
     #[cfg(feature = "verify_consistency")]
@@ -478,25 +484,40 @@ impl HuskyDebuggerInternal {
         needs_figure_controls: bool,
         needs_stalks: bool,
         needs_statss: bool,
-    ) -> Option<HuskyTracerServerMessageVariant> {
-        match self.tracetime.set_restriction(restriction.clone()) {
-            Ok((new_figure_canvases, new_figure_controls, new_trace_stalks, new_trace_statss)) => {
-                assert_eq!(needs_figure_canvases, new_figure_canvases.len() > 0);
-                assert_eq!(needs_figure_controls, new_figure_controls.len() > 0);
-                assert_eq!(needs_stalks, new_trace_stalks.len() > 0);
-                assert_eq!(needs_statss, new_trace_statss.len() > 0);
-                if needs_figure_canvases || needs_figure_controls || needs_stalks || needs_statss {
-                    Some(HuskyTracerServerMessageVariant::SetRestriction {
-                        new_figure_canvases,
-                        new_figure_controls,
-                        new_trace_stalks,
-                        new_trace_statss,
-                    })
-                } else {
-                    None
+    ) -> HandleGuiMessageM<Option<HuskyTracerServerMessageVariant>> {
+        HandleGuiMessageM::Ok(
+            match self
+                .tracetime
+                .set_restriction(restriction.clone())
+                .result()?
+            {
+                Ok((
+                    new_figure_canvases,
+                    new_figure_controls,
+                    new_trace_stalks,
+                    new_trace_statss,
+                )) => {
+                    assert_eq!(needs_figure_canvases, new_figure_canvases.len() > 0);
+                    assert_eq!(needs_figure_controls, new_figure_controls.len() > 0);
+                    assert_eq!(needs_stalks, new_trace_stalks.len() > 0);
+                    assert_eq!(needs_statss, new_trace_statss.len() > 0);
+                    if needs_figure_canvases
+                        || needs_figure_controls
+                        || needs_stalks
+                        || needs_statss
+                    {
+                        Some(HuskyTracerServerMessageVariant::SetRestriction {
+                            new_figure_canvases,
+                            new_figure_controls,
+                            new_trace_stalks,
+                            new_trace_statss,
+                        })
+                    } else {
+                        None
+                    }
                 }
-            }
-            Err(_) => todo!(),
-        }
+                Err(_) => todo!(),
+            },
+        )
     }
 }

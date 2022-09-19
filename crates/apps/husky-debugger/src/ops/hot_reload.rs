@@ -1,7 +1,7 @@
 use std::ops::FromResidual;
 
 use husky_compiler::{CompileHuskyR, CompilerInstance};
-use husky_tracetime::HuskyTracetimeHotReloadR;
+use husky_tracetime::TracetimeHotReloadR;
 use relative_path::RelativePathBuf;
 
 use crate::*;
@@ -41,8 +41,8 @@ impl FromResidual<CompileHuskyR> for DebuggerHotReloadM {
     }
 }
 
-impl FromResidual<HuskyTracetimeHotReloadR> for DebuggerHotReloadM {
-    fn from_residual(residual: HuskyTracetimeHotReloadR) -> Self {
+impl FromResidual<TracetimeHotReloadR> for DebuggerHotReloadM {
+    fn from_residual(residual: TracetimeHotReloadR) -> Self {
         todo!()
     }
 }
