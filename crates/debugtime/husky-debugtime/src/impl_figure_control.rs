@@ -130,11 +130,14 @@ impl Debugtime {
         &mut self,
         trace_id: TraceId,
         new_figure_control_data: FigureControlData,
-    ) {
-        let key = self.gen_figure_control_key(trace_id);
-        self.state
-            .figure_controls
-            .insert_new(key, new_figure_control_data)
+    ) -> DebugtimeUpdatedM<()> {
+        todo!()
+        // let key = self.gen_figure_control_key(trace_id);
+        // DebugtimeUpdatedM::Ok(
+        //     self.state
+        //         .figure_controls
+        //         .insert_new(key, new_figure_control_data)?,
+        // )
     }
 
     fn gen_figure_control_key(&self, trace_id: TraceId) -> FigureControlKey {

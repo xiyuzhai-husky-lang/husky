@@ -44,26 +44,22 @@ impl Debugtime {
         }
     }
 
-    pub(crate) fn update_figure_canvases(
-        &mut self,
-    ) -> DebugtimeUpdatingM<Vec<(FigureCanvasKey, FigureCanvasData)>> {
-        let mut new_figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)> = vec![];
+    pub(crate) fn update_figure_canvases(&mut self) -> DebugtimeUpdatingM<()> {
         if let Some(active_trace_id) = self.state.opt_active_trace_id {
-            self.update_figure_canvas(active_trace_id, true, &mut new_figure_canvases)?;
-            self.update_figure_canvas(active_trace_id, false, &mut new_figure_canvases)?;
+            self.update_figure_canvas(active_trace_id, true)?;
+            self.update_figure_canvas(active_trace_id, false)?;
         }
         for pin in self.state.pins.clone().into_iter() {
-            self.update_figure_canvas(*pin, true, &mut new_figure_canvases)?;
-            self.update_figure_canvas(*pin, false, &mut new_figure_canvases)?;
+            self.update_figure_canvas(*pin, true)?;
+            self.update_figure_canvas(*pin, false)?;
         }
-        DebugtimeUpdatingM::Ok(new_figure_canvases)
+        DebugtimeUpdatingM::Ok(())
     }
 
     fn update_figure_canvas(
         &mut self,
         trace_id: TraceId,
         is_specific: bool,
-        new_figure_canvases: &mut Vec<(FigureCanvasKey, FigureCanvasData)>,
     ) -> DebugtimeUpdatingM<()> {
         let key: FigureCanvasKey = self.gen_figure_canvas_key(trace_id, is_specific);
         // todo: clean all this trouble

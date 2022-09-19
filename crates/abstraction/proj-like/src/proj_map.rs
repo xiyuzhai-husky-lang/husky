@@ -1,3 +1,4 @@
+use crate::*;
 use projectable::{Projectable, Projector};
 
 pub struct ProjMap<K, V>
@@ -22,7 +23,7 @@ where
             .find_map(|(key, value)| if key == key0 { Some(value) } else { None })
     }
 
-    pub fn insert_new(&mut self, key: K, value: V) {
+    pub fn insert_new(&mut self, key: K, value: V) -> ProjUpdatingM<Self, ()> {
         todo!()
     }
 }
