@@ -49,13 +49,13 @@ impl Tracetime {
         init_compile_time: impl FnOnce(&mut HuskyComptime),
         eval_time_config: HuskyRuntimeConfig,
     ) -> Self {
-        let mut tracetime = Self {
+        let mut debugtime = Self {
             runtime: HuskyRuntime::new(init_compile_time, eval_time_config),
             state: Default::default(),
         };
-        assert!(tracetime.state.restriction.opt_sample_id().is_none());
-        tracetime.updating();
-        tracetime
+        assert!(debugtime.state.restriction.opt_sample_id().is_none());
+        debugtime.updating();
+        debugtime
     }
 
     pub fn opt_active_trace_id(&mut self) -> Option<TraceId> {

@@ -40,7 +40,7 @@ husky-diagnostics = { path = "../../semantics/husky-diagnostics" }
 husky-linkage-table = { path = "../husky-linkage-table" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-atom = { path = "../../syntax/husky-atom" }
-husky-trace-protocol = { path = "../../tracetime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 thin-vec = { path = "../../../forks/thin-vec" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
 husky-root-static-defn = { path = "../../static/husky-root-static-defn" }

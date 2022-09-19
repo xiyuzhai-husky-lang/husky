@@ -11,7 +11,7 @@ pub(crate) struct HuskyDebuggerInstance {
 impl HuskyDebuggerInstance {
     pub fn new(config: HuskyDebuggerConfig, linkages: &[(__StaticLinkageKey, __Linkage)]) -> Self {
         let package_dir: &Path = &config.package_dir;
-        let mut tracetime = Tracetime::new(
+        let mut debugtime = Tracetime::new(
             |comptime| {
                 comptime.load_package(package_dir);
                 comptime.load_linkages(linkages)
@@ -20,13 +20,13 @@ impl HuskyDebuggerInstance {
         );
         if let Some(specific_sample_id) = config.opt_sample_id {
             todo!()
-            // tracetime
+            // debugtime
             //     .set_restriction(Restriction::new_specific(specific_sample_id))
             //     .expect("todo");
         }
         Self {
             internal: Mutex::new(HuskyDebuggerInternal {
-                tracetime: tracetime,
+                debugtime: debugtime,
                 next_request_id: 0,
                 config,
             }),
@@ -52,12 +52,12 @@ impl HuskyDebuggerInstance {
         // let mut error_flag = false;
         // let internal = &mut self.internal.lock().unwrap();
         // internal
-        //     .tracetime
+        //     .debugtime
         //     .set_restriction(Restriction::new_specific(specific_sample_id))
         //     .expect("todo");
-        // for root_trace_id in internal.tracetime.root_traces().into_iter() {
+        // for root_trace_id in internal.debugtime.root_traces().into_iter() {
         //     let now = Instant::now();
-        //     let (_, stalk) = internal.tracetime.keyed_trace_stalk(root_trace_id);
+        //     let (_, stalk) = internal.debugtime.keyed_trace_stalk(root_trace_id);
         //     println!(
         //         "{} milliseconds elapsed for computing stalk of trace {}",
         //         now.elapsed().as_millis(),

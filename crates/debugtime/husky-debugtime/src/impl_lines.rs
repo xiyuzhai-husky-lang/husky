@@ -23,7 +23,7 @@ impl Tracetime {
     }
 }
 pub struct TraceLineBuilder<'a> {
-    tracetime: &'a mut Tracetime,
+    debugtime: &'a mut Tracetime,
     trace_variant: &'a TraceVariant<'static>,
     has_parent: bool,
     lines: Vec<TraceLineData>,
@@ -32,13 +32,13 @@ pub struct TraceLineBuilder<'a> {
 
 impl<'a> TraceLineBuilder<'a> {
     pub(super) fn new(
-        tracetime: &'a mut Tracetime,
+        debugtime: &'a mut Tracetime,
         indent: Indent,
         trace_variant: &'a TraceVariant<'static>,
         has_parent: bool,
     ) -> Self {
         TraceLineBuilder {
-            tracetime,
+            debugtime,
             trace_variant,
             has_parent,
             lines: vec![TraceLineData {
@@ -55,13 +55,13 @@ impl<'a> std::ops::Deref for TraceLineBuilder<'a> {
     type Target = Tracetime;
 
     fn deref(&self) -> &Self::Target {
-        self.tracetime
+        self.debugtime
     }
 }
 
 impl<'a> std::ops::DerefMut for TraceLineBuilder<'a> {
     fn deref_mut(&mut self) -> &mut Self::Target {
-        self.tracetime
+        self.debugtime
     }
 }
 

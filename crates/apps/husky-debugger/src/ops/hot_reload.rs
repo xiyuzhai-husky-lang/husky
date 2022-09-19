@@ -1,7 +1,7 @@
 use std::ops::FromResidual;
 
 use husky_compiler::{CompileHuskyR, CompilerInstance};
-use husky_tracetime::TracetimeHotReloadR;
+use husky_debugtime::TracetimeHotReloadR;
 use relative_path::RelativePathBuf;
 
 use crate::*;
@@ -53,6 +53,6 @@ impl HuskyDebuggerInternal {
     }
     pub(crate) fn hot_reload(&mut self) -> DebuggerHotReloadM {
         self.compiler_instance().compile_all()?;
-        DebuggerHotReloadM::Ok(self.tracetime.hot_reload()?)
+        DebuggerHotReloadM::Ok(self.debugtime.hot_reload()?)
     }
 }

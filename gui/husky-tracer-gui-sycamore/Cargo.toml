@@ -17,7 +17,7 @@ libmath = "0.2.1"
 js-sys = "0.3.58"
 sycamore = { path = "../../forks/sycamore/packages/sycamore" }
 vec-like = { path = "../../crates/abstraction/vec-like" }
-husky-trace-protocol = { path = "../../crates/tracetime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../crates/debugtime/husky-trace-protocol" }
 husky-vm-primitive-value = { path = "../../crates/vm/husky-vm-primitive-value" }
 
 [dependencies.web-sys]

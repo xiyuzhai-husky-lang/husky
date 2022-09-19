@@ -35,7 +35,7 @@ husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
-husky-trace-protocol = { path = "../../tracetime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
 husky-datasets-interface = { path = "../../static/domains/ml/husky-datasets-interface" }
 husky-feature-gen = { path = "../husky-feature-gen" }

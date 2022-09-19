@@ -43,7 +43,7 @@ husky-static-defn = { path = "../../static/husky-static-defn" }
 thin-vec = { path = "../../../forks/thin-vec" }
 husky-instruction-gen = { path = "../husky-instruction-gen" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
-husky-trace-protocol = { path = "../../tracetime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 husky-primitive-literal-semantics = { path = "../../semantics/husky-primitive-literal-semantics" }
 husky-vm-primitive-opr-linkage = { path = "../../vm/husky-vm-primitive-opr-linkage" }

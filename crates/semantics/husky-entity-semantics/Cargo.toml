@@ -39,4 +39,4 @@ husky-atom = { path = "../../syntax/husky-atom" }
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 thin-vec = { path = "../../../forks/thin-vec" }
-husky-trace-protocol = { path = "../../tracetime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
