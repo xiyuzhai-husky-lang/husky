@@ -3,7 +3,7 @@ mod impl_feature_expr;
 
 use super::*;
 
-impl Tracetime {
+impl Debugtime {
     pub(crate) fn routine_call_subtraces<A>(
         &mut self,
         parent: &Trace,

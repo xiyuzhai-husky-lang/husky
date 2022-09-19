@@ -7,7 +7,7 @@ pub use update::*;
 use crate::*;
 
 #[derive(Default)]
-pub struct TracetimeState {
+pub struct DebugtimeState {
     pub(crate) restriction: Restriction,
     pub(crate) pins: VecSet<TraceId>,
     pub(crate) trace_nodes: Vec<Option<TraceNode>>,
@@ -20,7 +20,7 @@ pub struct TracetimeState {
     pub(crate) subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
 }
 
-impl TracetimeState {
+impl DebugtimeState {
     pub(crate) fn root_traces(&self) -> &[TraceId] {
         &self.root_traces
     }

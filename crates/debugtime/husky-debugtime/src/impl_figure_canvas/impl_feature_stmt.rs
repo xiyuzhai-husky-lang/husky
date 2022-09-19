@@ -1,6 +1,6 @@
 use super::*;
 
-impl Tracetime {
+impl Debugtime {
     pub(crate) fn feature_stmt_figure(
         &self,
         stmt: &FeatureLazyStmt,

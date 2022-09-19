@@ -11,7 +11,7 @@ pub(crate) struct HuskyDebuggerInstance {
 impl HuskyDebuggerInstance {
     pub fn new(config: HuskyDebuggerConfig, linkages: &[(__StaticLinkageKey, __Linkage)]) -> Self {
         let package_dir: &Path = &config.package_dir;
-        let mut debugtime = Tracetime::new(
+        let mut debugtime = Debugtime::new(
             |comptime| {
                 comptime.load_package(package_dir);
                 comptime.load_linkages(linkages)

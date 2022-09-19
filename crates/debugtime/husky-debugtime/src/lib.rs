@@ -39,12 +39,12 @@ use trace_node::*;
 use upcast::Upcast;
 use vec_like::VecSet;
 
-pub struct Tracetime {
+pub struct Debugtime {
     runtime: HuskyRuntime,
-    state: TracetimeState,
+    state: DebugtimeState,
 }
 
-impl Tracetime {
+impl Debugtime {
     pub fn new(
         init_compile_time: impl FnOnce(&mut HuskyComptime),
         eval_time_config: HuskyRuntimeConfig,
@@ -65,12 +65,12 @@ impl Tracetime {
     pub fn activate(
         &mut self,
         trace_id: TraceId,
-    ) -> TracetimeUpdatedM<(
+    ) -> DebugtimeUpdatedM<(
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
     )> {
         self.state.opt_active_trace_id = Some(trace_id);
-        TracetimeUpdatedM::Ok((
+        DebugtimeUpdatedM::Ok((
             self.update_figure_canvases()?,
             self.update_figure_controls()?,
         ))
@@ -175,7 +175,7 @@ impl Tracetime {
     pub fn toggle_expansion(
         &mut self,
         trace_id: TraceId,
-    ) -> TracetimeUpdatedM<
+    ) -> DebugtimeUpdatedM<
         Option<(
             Vec<TraceNodeData>,
             Vec<TraceId>,
@@ -190,7 +190,7 @@ impl Tracetime {
             .expansion;
         *expansion = !*expansion;
         let subtrace_ids = self.subtrace_ids(trace_id);
-        TracetimeUpdatedM::Ok(if self.state.trace_nodes.len() > old_len {
+        DebugtimeUpdatedM::Ok(if self.state.trace_nodes.len() > old_len {
             let new_traces: Vec<TraceNodeData> = self.state.trace_nodes[old_len..]
                 .iter()
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())

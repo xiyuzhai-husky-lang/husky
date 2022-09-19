@@ -3,7 +3,7 @@ use husky_text::TextRange;
 
 use crate::*;
 
-impl Tracetime {
+impl Debugtime {
     pub fn visualize_temp_value(
         &self,
         value: &__Register<'static>,
@@ -46,7 +46,7 @@ impl Tracetime {
 
     pub(crate) fn update_figure_canvases(
         &mut self,
-    ) -> TracetimeUpdatingM<Vec<(FigureCanvasKey, FigureCanvasData)>> {
+    ) -> DebugtimeUpdatingM<Vec<(FigureCanvasKey, FigureCanvasData)>> {
         let mut new_figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)> = vec![];
         if let Some(active_trace_id) = self.state.opt_active_trace_id {
             self.update_figure_canvas(active_trace_id, true, &mut new_figure_canvases)?;
@@ -56,7 +56,7 @@ impl Tracetime {
             self.update_figure_canvas(*pin, true, &mut new_figure_canvases)?;
             self.update_figure_canvas(*pin, false, &mut new_figure_canvases)?;
         }
-        TracetimeUpdatingM::Ok(new_figure_canvases)
+        DebugtimeUpdatingM::Ok(new_figure_canvases)
     }
 
     fn update_figure_canvas(
@@ -64,7 +64,7 @@ impl Tracetime {
         trace_id: TraceId,
         is_specific: bool,
         new_figure_canvases: &mut Vec<(FigureCanvasKey, FigureCanvasData)>,
-    ) -> TracetimeUpdatingM<()> {
+    ) -> DebugtimeUpdatingM<()> {
         let key: FigureCanvasKey = self.gen_figure_canvas_key(trace_id, is_specific);
         // todo: clean all this trouble
         let f = |(sample_id, e): (SampleId, __VMError)| -> __VMError { (sample_id.0, e).into() };
@@ -77,7 +77,7 @@ impl Tracetime {
         //             .map_err(f)?,
         //     ))
         // }
-        // TracetimeUpdateM::Ok(())
+        // DebugtimeUpdateM::Ok(())
     }
 
     fn gen_figure_canvas_key(&self, trace_id: TraceId, is_specific: bool) -> FigureCanvasKey {

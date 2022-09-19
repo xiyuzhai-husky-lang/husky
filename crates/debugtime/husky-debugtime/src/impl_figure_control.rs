@@ -5,7 +5,7 @@ use husky_vm::HistoryEntry;
 
 use super::*;
 
-impl Tracetime {
+impl Debugtime {
     #[inline(always)]
     pub fn figure_control(&mut self, trace_id: TraceId) -> FigureControlData {
         let trace = self.trace(trace_id);
@@ -99,7 +99,7 @@ impl Tracetime {
 
     pub(crate) fn update_figure_controls(
         &mut self,
-    ) -> TracetimeUpdatingM<Vec<(FigureControlKey, FigureControlData)>> {
+    ) -> DebugtimeUpdatingM<Vec<(FigureControlKey, FigureControlData)>> {
         let mut new_figure_controls: Vec<(FigureControlKey, FigureControlData)> = vec![];
         if let Some(active_trace_id) = self.state.opt_active_trace_id {
             self.update_figure_control(active_trace_id, &mut new_figure_controls)?;
@@ -107,14 +107,14 @@ impl Tracetime {
         for pin in self.state.pins.clone().into_iter() {
             self.update_figure_control(*pin, &mut new_figure_controls)?;
         }
-        TracetimeUpdatingM::Ok(new_figure_controls)
+        DebugtimeUpdatingM::Ok(new_figure_controls)
     }
 
     pub(crate) fn update_figure_control(
         &mut self,
         trace_id: TraceId,
         new_figure_controls: &mut Vec<(FigureControlKey, FigureControlData)>,
-    ) -> TracetimeUpdatingM<()> {
+    ) -> DebugtimeUpdatingM<()> {
         let key = self.gen_figure_control_key(trace_id);
         if !self.state.figure_controls.contains_key(&key) {
             let figure_control_data = self.gen_figure_control_data(trace_id);
@@ -123,7 +123,7 @@ impl Tracetime {
                 .insert(key, figure_control_data.clone());
             new_figure_controls.push((key, figure_control_data))
         }
-        TracetimeUpdatingM::Ok(())
+        DebugtimeUpdatingM::Ok(())
     }
 
     pub fn set_figure_control(
