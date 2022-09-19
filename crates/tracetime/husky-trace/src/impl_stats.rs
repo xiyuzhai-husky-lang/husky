@@ -6,7 +6,7 @@ use husky_trace_protocol::TraceStats;
 use husky_vm::{__Register, __VMError, __VMErrorVariant, __VMResult};
 
 impl<'eval> TraceVariant<'eval> {
-    pub fn opt_stats(
+    pub fn opt_stats_result(
         &self,
         runtime: &dyn EvalFeature,
         partitions: &Partitions,

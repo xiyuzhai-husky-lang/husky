@@ -11,10 +11,17 @@ pub type Arrivals = VecPairMap<TraceId, ArrivalRefinedControl>;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub struct Restriction {
-    is_specific: bool,
+    kind: RestrictionKind,
     sample_id: SampleId,
     partitions: Partitions,
     arrivals: Arrivals,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum RestrictionKind {
+    Generic,
+    Specific,
+    Panic,
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
@@ -36,10 +43,10 @@ impl Signalable for ArrivalRefinedControl {}
 
 impl Restriction {
     pub fn is_specific(&self) -> bool {
-        self.is_specific
+        self.kind == RestrictionKind::Specific
     }
     pub fn is_generic(&self) -> bool {
-        !self.is_specific
+        self.kind == RestrictionKind::Generic
     }
 
     pub fn partitions(&self) -> &Partitions {
@@ -51,10 +58,10 @@ impl Restriction {
     }
 
     pub fn opt_sample_id(&self) -> Option<SampleId> {
-        if self.is_specific {
-            Some(self.sample_id)
-        } else {
-            None
+        match self.kind {
+            RestrictionKind::Generic => None,
+            RestrictionKind::Specific => Some(self.sample_id),
+            RestrictionKind::Panic => Some(self.sample_id),
         }
     }
 
@@ -64,7 +71,7 @@ impl Restriction {
 
     pub fn new_specific(specific_sample_id: SampleId) -> Restriction {
         Self {
-            is_specific: true,
+            kind: RestrictionKind::Specific,
             sample_id: specific_sample_id,
             partitions: Default::default(),
             arrivals: Default::default(),
@@ -87,12 +94,16 @@ impl Restriction {
         self.arrivals[trace_id].1.toggle_strike_evil()
     }
 
-    pub fn toggle_is_specific(&mut self) {
-        self.is_specific = !self.is_specific;
+    pub fn toggle_kind(&mut self) {
+        self.kind = match self.kind {
+            RestrictionKind::Generic => RestrictionKind::Specific,
+            RestrictionKind::Specific => RestrictionKind::Generic,
+            RestrictionKind::Panic => unreachable!(),
+        }
     }
 
     pub fn set_specific(&mut self, sample_id: SampleId) {
-        self.is_specific = true;
+        self.kind = RestrictionKind::Specific;
         self.sample_id = sample_id;
     }
 
@@ -106,7 +117,7 @@ impl Signalable for Restriction {}
 impl Default for Restriction {
     fn default() -> Self {
         Self {
-            is_specific: false,
+            kind: RestrictionKind::Generic,
             sample_id: SampleId(0),
             partitions: Default::default(),
             arrivals: Default::default(),

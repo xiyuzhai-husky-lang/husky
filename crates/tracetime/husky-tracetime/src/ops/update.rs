@@ -4,45 +4,47 @@ use monad::Monad;
 use std::{ops::FromResidual, time::Instant};
 
 #[must_use]
-pub enum HuskyTracetimeUpdateM<T> {
+pub enum TracetimeUpdateM<T> {
     Ok(T),
+    OtherworldlyErr(__VMError),
 }
 
-pub struct HuskyTracetimeUpdateR;
+pub enum TracetimeUpdateR {
+    OtherworldlyErr(__VMError),
+}
 
-impl<T> Monad for HuskyTracetimeUpdateM<T> {}
+impl<T> Monad for TracetimeUpdateM<T> {}
 
-impl HuskyTracetime {
-    pub(crate) fn update(&mut self) -> HuskyTracetimeUpdateM<()> {
+impl<T> TracetimeUpdateM<T> {
+    pub(crate) fn result(self) -> TracetimeUpdateM<__VMResult<T>> {
+        todo!()
+    }
+}
+
+impl Tracetime {
+    pub(crate) fn update(&mut self) -> TracetimeUpdateM<()> {
         self.clear()?;
         // ad hoc
-        match self.update_root_traces() {
-            Ok(_) => (),
+        match self.update_root_traces().result()? {
+            Ok(()) => (),
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
-                    self.restriction.set_specific(SampleId(*sample_id));
+                    self.state.restriction.set_specific(SampleId(*sample_id));
                     self.update_trace_stalks();
                 }
             },
         }
-        HuskyTracetimeUpdateM::Ok(())
+        TracetimeUpdateM::Ok(())
     }
 
-    fn clear(&mut self) -> HuskyTracetimeUpdateM<()> {
+    fn clear(&mut self) -> TracetimeUpdateM<()> {
         // replace this with diff, try to make the trace tree look the same across code change
-        self.restriction = Default::default();
-        self.pins.clear();
-        self.trace_nodes.clear();
-        self.opt_active_trace_id = None;
-        self.trace_stalks.clear();
-        self.root_trace_ids.clear();
-        self.subtrace_ids_map.clear();
-        self.figure_controls.clear();
-        HuskyTracetimeUpdateM::Ok(())
+        self.state = Default::default();
+        TracetimeUpdateM::Ok(())
     }
 
-    fn update_root_traces(&mut self) -> __VMResult<()> {
+    fn update_root_traces(&mut self) -> TracetimeUpdateM<()> {
         let target_entrance = self.comptime().target_entrance();
         let now = Instant::now();
         let main_feature_repr = self.runtime().main_feature_repr(target_entrance);
@@ -51,9 +53,9 @@ impl HuskyTracetime {
             now.elapsed().as_millis(),
         );
         let module = self.comptime().module(target_entrance).unwrap();
-        let mut root_trace_ids = vec![];
+        let mut root_traces = vec![];
         // add input trace
-        root_trace_ids.push(self.new_trace(None, 0, TraceVariant::input(self.runtime())));
+        root_traces.push(self.new_trace(None, 0, TraceVariant::input(self.runtime())));
         // add module traces
         for (subentity_kind, subentity_route) in
             self.comptime().subentity_kinded_routes(module).iter()
@@ -61,7 +63,7 @@ impl HuskyTracetime {
             match subentity_kind {
                 EntityKind::Module => {
                     if self.comptime().module_contains_features(*subentity_route) {
-                        root_trace_ids.push(self.new_trace(
+                        root_traces.push(self.new_trace(
                             None,
                             0,
                             TraceVariant::Module {
@@ -74,7 +76,7 @@ impl HuskyTracetime {
                 }
                 EntityKind::Feature => {
                     let repr = self.runtime().entity_feature_repr(*subentity_route);
-                    root_trace_ids.push(self.new_trace(
+                    root_traces.push(self.new_trace(
                         None,
                         0,
                         TraceVariant::EntityFeature {
@@ -87,29 +89,43 @@ impl HuskyTracetime {
             }
         }
         // add main trace
-        root_trace_ids.push(self.new_trace(None, 0, TraceVariant::Main(main_feature_repr)));
-        self.root_trace_ids = root_trace_ids;
+        root_traces.push(self.new_trace(None, 0, TraceVariant::Main(main_feature_repr)));
+        self.state.set_root_traces(root_traces);
         self.update_trace_statss()?;
-        Ok(())
+        TracetimeUpdateM::Ok(())
     }
 }
 
-impl<T> std::ops::Try for HuskyTracetimeUpdateM<T> {
+impl<T> From<__VMResult<T>> for TracetimeUpdateM<T> {
+    fn from(result: __VMResult<T>) -> Self {
+        match result {
+            Ok(cont) => TracetimeUpdateM::Ok(cont),
+            Err(_) => todo!(),
+        }
+    }
+}
+
+impl<T> std::ops::Try for TracetimeUpdateM<T> {
     type Output = T;
 
-    type Residual = HuskyTracetimeUpdateR;
+    type Residual = TracetimeUpdateR;
 
     fn from_output(output: Self::Output) -> Self {
-        HuskyTracetimeUpdateM::Ok(output)
+        TracetimeUpdateM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
-        todo!()
+        match self {
+            TracetimeUpdateM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
+            TracetimeUpdateM::OtherworldlyErr(e) => {
+                std::ops::ControlFlow::Break(TracetimeUpdateR::OtherworldlyErr(e))
+            }
+        }
     }
 }
 
-impl<T> FromResidual<HuskyTracetimeUpdateR> for HuskyTracetimeUpdateM<T> {
-    fn from_residual(residual: HuskyTracetimeUpdateR) -> Self {
+impl<T> FromResidual<TracetimeUpdateR> for TracetimeUpdateM<T> {
+    fn from_residual(residual: TracetimeUpdateR) -> Self {
         todo!()
     }
 }

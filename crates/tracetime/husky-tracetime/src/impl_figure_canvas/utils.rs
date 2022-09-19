@@ -3,7 +3,7 @@ use husky_text::TextRange;
 
 use crate::*;
 
-impl HuskyTracetime {
+impl Tracetime {
     pub fn visualize_temp_value(
         &self,
         value: &__Register<'static>,
@@ -12,7 +12,7 @@ impl HuskyTracetime {
         range: TextRange,
     ) -> __VMResult<VisualData> {
         let eval_time = self.runtime();
-        let sample_id = self.restriction.opt_sample_id().unwrap();
+        let sample_id = self.state.restriction.opt_sample_id().unwrap();
         let feature = self
             .runtime()
             .feature_interner()
@@ -46,17 +46,17 @@ impl HuskyTracetime {
 
     pub(crate) fn update_figure_canvases(
         &mut self,
-    ) -> __VMResult<Vec<(FigureCanvasKey, FigureCanvasData)>> {
+    ) -> TracetimeUpdateM<Vec<(FigureCanvasKey, FigureCanvasData)>> {
         let mut new_figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)> = vec![];
-        if let Some(active_trace_id) = self.opt_active_trace_id {
+        if let Some(active_trace_id) = self.state.opt_active_trace_id {
             self.update_figure_canvas(active_trace_id, true, &mut new_figure_canvases)?;
             self.update_figure_canvas(active_trace_id, false, &mut new_figure_canvases)?;
         }
-        for pin in self.pins.clone().into_iter() {
+        for pin in self.state.pins.clone().into_iter() {
             self.update_figure_canvas(*pin, true, &mut new_figure_canvases)?;
             self.update_figure_canvas(*pin, false, &mut new_figure_canvases)?;
         }
-        Ok(new_figure_canvases)
+        TracetimeUpdateM::Ok(new_figure_canvases)
     }
 
     fn update_figure_canvas(
@@ -64,25 +64,26 @@ impl HuskyTracetime {
         trace_id: TraceId,
         is_specific: bool,
         new_figure_canvases: &mut Vec<(FigureCanvasKey, FigureCanvasData)>,
-    ) -> __VMResult<()> {
+    ) -> TracetimeUpdateM<()> {
         let key: FigureCanvasKey = self.gen_figure_canvas_key(trace_id, is_specific);
         // todo: clean all this trouble
         let f = |(sample_id, e): (SampleId, __VMError)| -> __VMError { (sample_id.0, e).into() };
-        if !self.figure_canvases.contains(&key) {
-            self.figure_canvases.insert_move(key.clone());
-            new_figure_canvases.push((
-                key,
-                self.gen_figure_canvas_data(trace_id, is_specific)
-                    .map_err(f)?,
-            ))
-        }
-        Ok(())
+        todo!()
+        // if !self.state.figure_canvases.contains(&key) {
+        //     self.state.figure_canvases.insert_move(key.clone());
+        //     new_figure_canvases.push((
+        //         key,
+        //         self.gen_figure_canvas_data(trace_id, is_specific)
+        //             .map_err(f)?,
+        //     ))
+        // }
+        // TracetimeUpdateM::Ok(())
     }
 
     fn gen_figure_canvas_key(&self, trace_id: TraceId, is_specific: bool) -> FigureCanvasKey {
         FigureCanvasKey::from_trace_data(
             &self.trace(trace_id).raw_data,
-            &self.restriction,
+            &self.state.restriction,
             is_specific,
         )
     }

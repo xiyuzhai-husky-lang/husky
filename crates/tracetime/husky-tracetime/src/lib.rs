@@ -7,11 +7,13 @@ mod impl_trace_stalk;
 mod impl_trace_stats;
 mod ops;
 mod restriction;
+mod state;
 mod subtraces;
 mod trace;
 mod trace_node;
 
-pub use ops::*;
+use ops::TracetimeUpdateM;
+pub use state::*;
 
 use husky_comptime::*;
 use husky_defn_head::Parameter;
@@ -36,63 +38,45 @@ use trace_node::*;
 use upcast::Upcast;
 use vec_like::VecSet;
 
-pub struct HuskyTracetime {
+pub struct Tracetime {
     runtime: HuskyRuntime,
-    restriction: Restriction,
-    pins: VecSet<TraceId>,
-    trace_nodes: Vec<Option<TraceNode>>,
-    opt_active_trace_id: Option<TraceId>,
-    figure_canvases: VecSet<FigureCanvasKey>,
-    figure_controls: HashMap<FigureControlKey, FigureControlData>,
-    trace_stalks: HashMap<TraceStalkKey, TraceStalk>,
-    trace_statss: HashMap<TraceStatsKey, Option<TraceStats>>,
-    root_trace_ids: Vec<TraceId>,
-    subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
+    state: TracetimeState,
 }
 
-impl HuskyTracetime {
+impl Tracetime {
     pub fn new(
         init_compile_time: impl FnOnce(&mut HuskyComptime),
         eval_time_config: HuskyRuntimeConfig,
     ) -> Self {
         let mut tracetime = Self {
             runtime: HuskyRuntime::new(init_compile_time, eval_time_config),
-            trace_nodes: Default::default(),
-            figure_canvases: Default::default(),
-            figure_controls: Default::default(),
-            trace_stalks: Default::default(),
-            trace_statss: Default::default(),
-            opt_active_trace_id: Default::default(),
-            subtrace_ids_map: Default::default(),
-            root_trace_ids: Default::default(),
-            restriction: Default::default(),
-            pins: Default::default(),
+            state: Default::default(),
         };
-        assert!(tracetime.restriction.opt_sample_id().is_none());
+        assert!(tracetime.state.restriction.opt_sample_id().is_none());
         tracetime.update();
         tracetime
     }
 
     pub fn opt_active_trace_id(&mut self) -> Option<TraceId> {
-        self.opt_active_trace_id
+        self.state.opt_active_trace_id
     }
 
     pub fn activate(
         &mut self,
         trace_id: TraceId,
-    ) -> __VMResult<(
+    ) -> TracetimeUpdateM<(
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
     )> {
-        self.opt_active_trace_id = Some(trace_id);
-        Ok((
+        self.state.opt_active_trace_id = Some(trace_id);
+        TracetimeUpdateM::Ok((
             self.update_figure_canvases()?,
             self.update_figure_controls()?,
         ))
     }
 
     pub fn root_traces(&self) -> Vec<TraceId> {
-        self.root_trace_ids.clone()
+        self.state.root_traces().to_vec()
     }
 
     pub fn runtime(&self) -> &HuskyRuntime {
@@ -104,7 +88,8 @@ impl HuskyTracetime {
     }
 
     pub fn all_trace_nodes(&self) -> Vec<TraceNodeData> {
-        self.trace_nodes
+        self.state
+            .trace_nodes
             .iter()
             .filter_map(|opt_trace| opt_trace.as_ref().map(|node| node.to_data()))
             .collect()
@@ -112,16 +97,17 @@ impl HuskyTracetime {
 
     pub fn subtrace_ids(&mut self, trace_id: TraceId) -> Vec<TraceId> {
         let trace = &self.trace(trace_id);
-        let opt_sample_id = self.restriction.opt_sample_id();
+        let opt_sample_id = self.state.restriction.opt_sample_id();
         if !trace.raw_data.has_subtraces(opt_sample_id.is_some()) {
             return vec![];
         }
         let key = SubtracesKey::new(trace.raw_data.kind, trace_id, opt_sample_id);
-        if let Some(subtrace_ids) = self.subtrace_ids_map.get(&key) {
+        if let Some(subtrace_ids) = self.state.subtrace_ids_map.get(&key) {
             subtrace_ids.clone()
         } else {
             if let Some(subtrace_ids) = self.gen_subtraces(trace_id) {
-                self.subtrace_ids_map
+                self.state
+                    .subtrace_ids_map
                     .insert(key.clone(), subtrace_ids.clone());
                 subtrace_ids
             } else {
@@ -131,12 +117,15 @@ impl HuskyTracetime {
     }
 
     fn trace_node_data(&self, trace_id: TraceId) -> TraceNodeData {
-        self.trace_nodes[trace_id.0].as_ref().unwrap().to_data()
+        self.state.trace_nodes[trace_id.0]
+            .as_ref()
+            .unwrap()
+            .to_data()
     }
 
     pub(crate) fn next_id(&mut self) -> TraceId {
-        self.trace_nodes.push(None);
-        TraceId(self.trace_nodes.len() - 1)
+        self.state.trace_nodes.push(None);
+        TraceId(self.state.trace_nodes.len() - 1)
     }
 
     fn new_trace(
@@ -168,8 +157,8 @@ impl HuskyTracetime {
                 range,
             }
         };
-        assert!(self.trace_nodes[trace.id().0].is_none());
-        self.trace_nodes[trace_id.0] = Some(TraceNode {
+        assert!(self.state.trace_nodes[trace.id().0].is_none());
+        self.state.trace_nodes[trace_id.0] = Some(TraceNode {
             expansion: false,
             shown: match trace.raw_data.kind {
                 TraceKind::FeatureExprLazy | TraceKind::FeatureExprEager | TraceKind::EagerExpr => {
@@ -185,7 +174,7 @@ impl HuskyTracetime {
     pub fn toggle_expansion(
         &mut self,
         trace_id: TraceId,
-    ) -> __VMResult<
+    ) -> TracetimeUpdateM<
         Option<(
             Vec<TraceNodeData>,
             Vec<TraceId>,
@@ -193,12 +182,15 @@ impl HuskyTracetime {
             Vec<(TraceStatsKey, Option<TraceStats>)>,
         )>,
     > {
-        let old_len = self.trace_nodes.len();
-        let expansion = &mut self.trace_nodes[trace_id.0].as_mut().unwrap().expansion;
+        let old_len = self.state.trace_nodes.len();
+        let expansion = &mut self.state.trace_nodes[trace_id.0]
+            .as_mut()
+            .unwrap()
+            .expansion;
         *expansion = !*expansion;
         let subtrace_ids = self.subtrace_ids(trace_id);
-        Ok(if self.trace_nodes.len() > old_len {
-            let new_traces: Vec<TraceNodeData> = self.trace_nodes[old_len..]
+        TracetimeUpdateM::Ok(if self.state.trace_nodes.len() > old_len {
+            let new_traces: Vec<TraceNodeData> = self.state.trace_nodes[old_len..]
                 .iter()
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())
                 .collect();
@@ -211,20 +203,23 @@ impl HuskyTracetime {
     }
 
     pub fn is_expanded(&mut self, trace_id: TraceId) -> bool {
-        self.trace_nodes[trace_id.0].as_ref().unwrap().expansion
+        self.state.trace_nodes[trace_id.0]
+            .as_ref()
+            .unwrap()
+            .expansion
     }
 
     pub fn toggle_show(&mut self, trace_id: TraceId) {
-        let shown = &mut self.trace_nodes[trace_id.0].as_mut().unwrap().shown;
+        let shown = &mut self.state.trace_nodes[trace_id.0].as_mut().unwrap().shown;
         *shown = !*shown
     }
 
     pub fn trace(&self, trace_id: TraceId) -> &Trace {
-        &self.trace_nodes[trace_id.0].as_ref().unwrap().trace
+        &self.state.trace_nodes[trace_id.0].as_ref().unwrap().trace
     }
 
     pub(crate) unsafe fn trace_ref<'a>(&self, trace_id: TraceId) -> &'a Trace {
-        let ptr: *const Trace = &self.trace_nodes[trace_id.0].as_ref().unwrap().trace;
+        let ptr: *const Trace = &self.state.trace_nodes[trace_id.0].as_ref().unwrap().trace;
         &*ptr
     }
 
