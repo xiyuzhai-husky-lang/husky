@@ -1,4 +1,5 @@
 #![feature(try_trait_v2)]
+mod db;
 mod impl_figure_canvas;
 mod impl_figure_control;
 mod impl_lines;
@@ -12,7 +13,7 @@ mod subtraces;
 mod trace;
 mod trace_node;
 
-use ops::TracetimeUpdateM;
+pub use ops::*;
 pub use state::*;
 
 use husky_comptime::*;
