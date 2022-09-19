@@ -3,7 +3,7 @@ use husky_vm::History;
 use super::*;
 use crate::*;
 
-impl Tracetime {
+impl Debugtime {
     pub(crate) fn func_stmt_figure(
         &self,
         stmt: &FuncStmt,

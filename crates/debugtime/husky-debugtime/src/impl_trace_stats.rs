@@ -1,21 +1,21 @@
-use crate::{ops::TracetimeUpdatedM, *};
+use crate::{ops::DebugtimeUpdatedM, *};
 
-impl Tracetime {
+impl Debugtime {
     pub(crate) fn update_trace_statss(
         &mut self,
-    ) -> TracetimeUpdatingM<Vec<(TraceStatsKey, Option<TraceStats>)>> {
+    ) -> DebugtimeUpdatingM<Vec<(TraceStatsKey, Option<TraceStats>)>> {
         let mut trace_statss = Vec::new();
         for root_trace_id in self.state.root_traces().to_vec() {
             self.update_trace_statss_within_trace(root_trace_id, &mut trace_statss)?;
         }
-        TracetimeUpdatingM::Ok(trace_statss)
+        DebugtimeUpdatingM::Ok(trace_statss)
     }
 
     fn update_trace_statss_within_trace(
         &mut self,
         trace_id: TraceId,
         new_trace_statss: &mut Vec<(TraceStatsKey, Option<TraceStats>)>,
-    ) -> TracetimeUpdatingM<()> {
+    ) -> DebugtimeUpdatingM<()> {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
@@ -35,7 +35,7 @@ impl Tracetime {
                 self.update_trace_statss_within_trace(subtrace_id, new_trace_statss)?
             }
         }
-        TracetimeUpdatingM::Ok(())
+        DebugtimeUpdatingM::Ok(())
     }
 
     fn gen_trace_stats(
@@ -43,7 +43,7 @@ impl Tracetime {
         trace_id: TraceId,
         key: TraceStatsKey,
         new_trace_statss: &mut Vec<(TraceStatsKey, Option<TraceStats>)>,
-    ) -> TracetimeUpdatingM<()> {
+    ) -> DebugtimeUpdatingM<()> {
         let (opt_stats, result) = self
             .trace(trace_id)
             .variant
@@ -56,18 +56,18 @@ impl Tracetime {
         self.updating_t(result)
     }
 
-    fn updating_t(&self, result: __VMResult<()>) -> TracetimeUpdatingM<()> {
+    fn updating_t(&self, result: __VMResult<()>) -> DebugtimeUpdatingM<()> {
         match result {
-            Ok(()) => TracetimeUpdatingM::Ok(()),
+            Ok(()) => DebugtimeUpdatingM::Ok(()),
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
                     if self.state.restriction.is_generic()
                         || self.state.restriction.sample_id() != SampleId(*sample_id)
                     {
-                        TracetimeUpdatingM::OtherworldlyErr(e)
+                        DebugtimeUpdatingM::OtherworldlyErr(e)
                     } else {
-                        TracetimeUpdatingM::Ok(())
+                        DebugtimeUpdatingM::Ok(())
                     }
                 }
             },

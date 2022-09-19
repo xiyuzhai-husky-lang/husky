@@ -4,45 +4,45 @@ use monad::Monad;
 use std::{ops::FromResidual, time::Instant};
 
 #[must_use]
-pub(crate) enum TracetimeUpdatingM<T> {
+pub(crate) enum DebugtimeUpdatingM<T> {
     Ok(T),
     OtherworldlyErr(__VMError),
 }
 
-pub enum TracetimeUpdatingR {
+pub enum DebugtimeUpdatingR {
     OtherworldlyErr(__VMError),
 }
 
 #[must_use]
-pub enum TracetimeUpdatedM<T> {
+pub enum DebugtimeUpdatedM<T> {
     Ok(T),
     OtherworldlyErr(__VMError),
 }
 
-pub enum TracetimeUpdatedR {
+pub enum DebugtimeUpdatedR {
     OtherworldlyErr(__VMError),
 }
 
-impl<T> Monad for TracetimeUpdatingM<T> {}
+impl<T> Monad for DebugtimeUpdatingM<T> {}
 
-impl<T> Monad for TracetimeUpdatedM<T> {}
+impl<T> Monad for DebugtimeUpdatedM<T> {}
 
-impl<T> TracetimeUpdatingM<T> {
-    pub(crate) fn result(self) -> TracetimeUpdatingM<__VMResult<T>> {
+impl<T> DebugtimeUpdatingM<T> {
+    pub(crate) fn result(self) -> DebugtimeUpdatingM<__VMResult<T>> {
         match self {
-            TracetimeUpdatingM::Ok(output) => TracetimeUpdatingM::Ok(Ok(output)),
-            TracetimeUpdatingM::OtherworldlyErr(_) => todo!(),
+            DebugtimeUpdatingM::Ok(output) => DebugtimeUpdatingM::Ok(Ok(output)),
+            DebugtimeUpdatingM::OtherworldlyErr(_) => todo!(),
         }
     }
 }
-impl<T> TracetimeUpdatedM<T> {
-    pub fn result(self) -> TracetimeUpdatedM<__VMResult<T>> {
+impl<T> DebugtimeUpdatedM<T> {
+    pub fn result(self) -> DebugtimeUpdatedM<__VMResult<T>> {
         todo!()
     }
 }
 
-impl Tracetime {
-    pub(crate) fn updating(&mut self) -> TracetimeUpdatingM<()> {
+impl Debugtime {
+    pub(crate) fn updating(&mut self) -> DebugtimeUpdatingM<()> {
         self.clear()?;
         // ad hoc
         match self.update_root_traces().result()? {
@@ -55,16 +55,16 @@ impl Tracetime {
                 }
             },
         }
-        TracetimeUpdatingM::Ok(())
+        DebugtimeUpdatingM::Ok(())
     }
 
-    fn clear(&mut self) -> TracetimeUpdatingM<()> {
+    fn clear(&mut self) -> DebugtimeUpdatingM<()> {
         // replace this with diff, try to make the trace tree look the same across code change
         self.state = Default::default();
-        TracetimeUpdatingM::Ok(())
+        DebugtimeUpdatingM::Ok(())
     }
 
-    fn update_root_traces(&mut self) -> TracetimeUpdatingM<()> {
+    fn update_root_traces(&mut self) -> DebugtimeUpdatingM<()> {
         let target_entrance = self.comptime().target_entrance();
         let now = Instant::now();
         let main_feature_repr = self.runtime().main_feature_repr(target_entrance);
@@ -112,69 +112,69 @@ impl Tracetime {
         root_traces.push(self.new_trace(None, 0, TraceVariant::Main(main_feature_repr)));
         self.state.set_root_traces(root_traces);
         self.update_trace_statss()?;
-        TracetimeUpdatingM::Ok(())
+        DebugtimeUpdatingM::Ok(())
     }
 }
 
-// impl<T> From<__VMResult<T>> for TracetimeUpdatingM<T> {
+// impl<T> From<__VMResult<T>> for DebugtimeUpdatingM<T> {
 //     fn from(result: __VMResult<T>) -> Self {
 //         match result {
-//             Ok(cont) => TracetimeUpdatingM::Ok(cont),
+//             Ok(cont) => DebugtimeUpdatingM::Ok(cont),
 //             Err(_) => todo!(),
 //         }
 //     }
 // }
-impl<T> FromResidual<TracetimeUpdatingR> for TracetimeUpdatingM<T> {
-    fn from_residual(residual: TracetimeUpdatingR) -> Self {
+impl<T> FromResidual<DebugtimeUpdatingR> for DebugtimeUpdatingM<T> {
+    fn from_residual(residual: DebugtimeUpdatingR) -> Self {
         todo!()
     }
 }
 
-impl<T> std::ops::Try for TracetimeUpdatingM<T> {
+impl<T> std::ops::Try for DebugtimeUpdatingM<T> {
     type Output = T;
 
-    type Residual = TracetimeUpdatingR;
+    type Residual = DebugtimeUpdatingR;
 
     fn from_output(output: Self::Output) -> Self {
-        TracetimeUpdatingM::Ok(output)
+        DebugtimeUpdatingM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            TracetimeUpdatingM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
-            TracetimeUpdatingM::OtherworldlyErr(e) => {
-                std::ops::ControlFlow::Break(TracetimeUpdatingR::OtherworldlyErr(e))
+            DebugtimeUpdatingM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
+            DebugtimeUpdatingM::OtherworldlyErr(e) => {
+                std::ops::ControlFlow::Break(DebugtimeUpdatingR::OtherworldlyErr(e))
             }
         }
     }
 }
 
-impl<T> FromResidual<TracetimeUpdatedR> for TracetimeUpdatedM<T> {
-    fn from_residual(residual: TracetimeUpdatedR) -> Self {
+impl<T> FromResidual<DebugtimeUpdatedR> for DebugtimeUpdatedM<T> {
+    fn from_residual(residual: DebugtimeUpdatedR) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<TracetimeUpdatingR> for TracetimeUpdatedM<T> {
-    fn from_residual(residual: TracetimeUpdatingR) -> Self {
+impl<T> FromResidual<DebugtimeUpdatingR> for DebugtimeUpdatedM<T> {
+    fn from_residual(residual: DebugtimeUpdatingR) -> Self {
         todo!()
     }
 }
 
-impl<T> std::ops::Try for TracetimeUpdatedM<T> {
+impl<T> std::ops::Try for DebugtimeUpdatedM<T> {
     type Output = T;
 
-    type Residual = TracetimeUpdatedR;
+    type Residual = DebugtimeUpdatedR;
 
     fn from_output(output: Self::Output) -> Self {
-        TracetimeUpdatedM::Ok(output)
+        DebugtimeUpdatedM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            TracetimeUpdatedM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
-            TracetimeUpdatedM::OtherworldlyErr(e) => {
-                std::ops::ControlFlow::Break(TracetimeUpdatedR::OtherworldlyErr(e))
+            DebugtimeUpdatedM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
+            DebugtimeUpdatedM::OtherworldlyErr(e) => {
+                std::ops::ControlFlow::Break(DebugtimeUpdatedR::OtherworldlyErr(e))
             }
         }
     }

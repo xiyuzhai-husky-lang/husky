@@ -1,6 +1,6 @@
 use super::*;
 
-impl Tracetime {
+impl Debugtime {
     pub(crate) fn eager_expr_figure(
         &self,
         expr: &EagerExpr,

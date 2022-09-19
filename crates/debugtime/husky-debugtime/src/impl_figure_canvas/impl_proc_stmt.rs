@@ -1,6 +1,6 @@
 use super::*;
 
-impl Tracetime {
+impl Debugtime {
     pub(crate) fn proc_stmt_figure(
         &self,
         stmt: &ProcStmt,

@@ -1,14 +1,14 @@
 use crate::*;
 
 #[must_use]
-pub enum TracetimeHotReloadM {
+pub enum DebugtimeHotReloadM {
     Ok(InitData),
 }
 
-impl Monad for TracetimeHotReloadM {}
+impl Monad for DebugtimeHotReloadM {}
 
-impl Tracetime {
-    pub fn hot_reload(&mut self) -> TracetimeHotReloadM {
+impl Debugtime {
+    pub fn hot_reload(&mut self) -> DebugtimeHotReloadM {
         todo!();
         // let root_trace_ids = self.state.root_traces().to_vec();
         // // clear figure cache to reduce data transmission
@@ -18,7 +18,7 @@ impl Tracetime {
         // let figure_controls = self.update_figure_controls()?;
         // let pins = self.state.pins.clone();
         // let traces = self.all_trace_nodes();
-        // TracetimeHotReloadM::Ok(InitData {
+        // DebugtimeHotReloadM::Ok(InitData {
         //     trace_init_data: TraceInitData {
         //         opt_active_trace_id: self.state.opt_active_trace_id,
         //         trace_nodes: traces,
@@ -50,26 +50,26 @@ impl Tracetime {
     }
 }
 
-pub struct TracetimeHotReloadR;
+pub struct DebugtimeHotReloadR;
 
-impl std::ops::FromResidual<TracetimeHotReloadR> for TracetimeHotReloadM {
-    fn from_residual(residual: TracetimeHotReloadR) -> Self {
+impl std::ops::FromResidual<DebugtimeHotReloadR> for DebugtimeHotReloadM {
+    fn from_residual(residual: DebugtimeHotReloadR) -> Self {
         unreachable!()
     }
 }
 
-impl std::ops::Try for TracetimeHotReloadM {
+impl std::ops::Try for DebugtimeHotReloadM {
     type Output = InitData;
 
-    type Residual = TracetimeHotReloadR;
+    type Residual = DebugtimeHotReloadR;
 
     fn from_output(output: Self::Output) -> Self {
-        TracetimeHotReloadM::Ok(output)
+        DebugtimeHotReloadM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            TracetimeHotReloadM::Ok(init_data) => std::ops::ControlFlow::Continue(init_data),
+            DebugtimeHotReloadM::Ok(init_data) => std::ops::ControlFlow::Continue(init_data),
         }
     }
 }

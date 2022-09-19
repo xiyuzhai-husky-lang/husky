@@ -1,6 +1,6 @@
 use super::*;
 
-impl Tracetime {
+impl Debugtime {
     pub(crate) fn feature_expr_figure(
         &self,
         expr: &Arc<FeatureLazyExpr>,

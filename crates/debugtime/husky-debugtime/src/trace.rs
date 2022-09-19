@@ -6,7 +6,7 @@ use husky_word::Identifier;
 
 use super::*;
 
-impl Tracetime {
+impl Debugtime {
     pub(crate) fn feature_stmt_traces(
         &mut self,
         parent: &Trace,

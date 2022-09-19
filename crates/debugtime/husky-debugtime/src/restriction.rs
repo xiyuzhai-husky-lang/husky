@@ -1,6 +1,6 @@
 use crate::*;
 
-impl Tracetime {
+impl Debugtime {
     pub fn restriction(&self) -> &Restriction {
         &self.state.restriction
     }
@@ -8,14 +8,14 @@ impl Tracetime {
     pub fn set_restriction(
         &mut self,
         restriction: Restriction,
-    ) -> TracetimeUpdatedM<(
+    ) -> DebugtimeUpdatedM<(
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
         Vec<(TraceStalkKey, TraceStalk)>,
         Vec<(TraceStatsKey, Option<TraceStats>)>,
     )> {
         self.state.restriction = restriction;
-        TracetimeUpdatedM::Ok((
+        DebugtimeUpdatedM::Ok((
             self.update_figure_canvases()?,
             self.update_figure_controls()?,
             self.update_trace_stalks(),
