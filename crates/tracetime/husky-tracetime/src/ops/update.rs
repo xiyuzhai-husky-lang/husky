@@ -29,7 +29,10 @@ impl<T> Monad for TracetimeUpdatedM<T> {}
 
 impl<T> TracetimeUpdatingM<T> {
     pub(crate) fn result(self) -> TracetimeUpdatingM<__VMResult<T>> {
-        todo!()
+        match self {
+            TracetimeUpdatingM::Ok(output) => TracetimeUpdatingM::Ok(Ok(output)),
+            TracetimeUpdatingM::OtherworldlyErr(_) => todo!(),
+        }
     }
 }
 impl<T> TracetimeUpdatedM<T> {

@@ -27,7 +27,7 @@ impl StatusChange {
     }
 
     fn toggle_restriction_is_specific(ctx: &'static DebuggerContext) -> Self {
-        Self::update_restriction(ctx, |res| res.toggle_is_specific())
+        Self::update_restriction(ctx, |res| res.toggle_kind())
     }
 
     fn keydown(ctx: &'static DebuggerContext, ev: Event) -> Option<Self> {
