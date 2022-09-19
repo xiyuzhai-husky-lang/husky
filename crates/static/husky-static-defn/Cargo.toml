@@ -18,5 +18,5 @@ husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-static-visualizer = { path = "../husky-static-visualizer" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
-husky-trace-protocol = { path = "../../tracetime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }

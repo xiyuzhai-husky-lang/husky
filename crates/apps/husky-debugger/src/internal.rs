@@ -1,9 +1,9 @@
-use husky_tracetime::Tracetime;
+use husky_debugtime::Tracetime;
 
 use crate::HuskyDebuggerConfig;
 
 pub struct HuskyDebuggerInternal {
     pub(crate) config: HuskyDebuggerConfig,
-    pub(crate) tracetime: Tracetime,
+    pub(crate) debugtime: Tracetime,
     pub(crate) next_request_id: usize,
 }

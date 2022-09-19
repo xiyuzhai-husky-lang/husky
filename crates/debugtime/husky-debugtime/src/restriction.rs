@@ -25,10 +25,10 @@ impl Tracetime {
 }
 
 // let (opt_figure_canvas_data, opt_figure_control_data) = if let Some(active_trace_id) =
-// self.tracetime.opt_active_trace_id()
+// self.debugtime.opt_active_trace_id()
 // {
 // let opt_figure_canvas_data = if needs_figure_canvases {
-//     match self.tracetime.figure_canvas(active_trace_id) {
+//     match self.debugtime.figure_canvas(active_trace_id) {
 //         Ok(figure_canvas) => Some(figure_canvas),
 //         Err((sample_id, error)) => {
 //             return Some(HuskyTracerServerMessageVariant::SetRestrictionWithError {
@@ -41,7 +41,7 @@ impl Tracetime {
 //     None
 // };
 // let opt_figure_control_data = if needs_figure_controls {
-//     Some(self.tracetime.figure_control(active_trace_id))
+//     Some(self.debugtime.figure_control(active_trace_id))
 // } else {
 //     None
 // };

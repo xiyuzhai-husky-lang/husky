@@ -1,5 +1,5 @@
 [package]
-name = "husky-tracetime"
+name = "husky-debugtime"
 version = "0.0.0"
 edition = "2021"
 
@@ -31,9 +31,9 @@ husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
-husky-trace-protocol = { path = "../../tracetime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-runtime = { path = "../../runtime/husky-runtime" }
-husky-trace = { path = "../../tracetime/husky-trace" }
+husky-trace = { path = "../../debugtime/husky-trace" }
 husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
 husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
