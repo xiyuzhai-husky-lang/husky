@@ -3,7 +3,7 @@ mod impl_feature_expr;
 
 use super::*;
 
-impl HuskyTracetime {
+impl Tracetime {
     pub(crate) fn routine_call_subtraces<A>(
         &mut self,
         parent: &Trace,
@@ -16,7 +16,7 @@ impl HuskyTracetime {
             &'static str,
         ) -> (TraceId, Option<__VMResult<__Register<'static>>>),
     ) -> Vec<TraceId> {
-        if self.restriction.opt_sample_id().is_some() {
+        if self.state.restriction.opt_sample_id().is_some() {
             // let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
             let mut subtraces = vec![];
             let mut func_input_values = vec![];
@@ -51,7 +51,7 @@ impl HuskyTracetime {
                     todo!()
                 }
             }
-            let sample_id = self.restriction.opt_sample_id().unwrap();
+            let sample_id = self.state.restriction.opt_sample_id().unwrap();
             let evaluator = self.runtime().evaluator(sample_id);
             let history = exec_debug(
                 self.runtime(),

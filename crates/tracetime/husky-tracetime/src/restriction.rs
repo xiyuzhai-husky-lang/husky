@@ -1,21 +1,21 @@
 use crate::*;
 
-impl HuskyTracetime {
+impl Tracetime {
     pub fn restriction(&self) -> &Restriction {
-        &self.restriction
+        &self.state.restriction
     }
 
     pub fn set_restriction(
         &mut self,
         restriction: Restriction,
-    ) -> __VMResult<(
+    ) -> TracetimeUpdateM<(
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
         Vec<(TraceStalkKey, TraceStalk)>,
         Vec<(TraceStatsKey, Option<TraceStats>)>,
     )> {
-        self.restriction = restriction;
-        Ok((
+        self.state.restriction = restriction;
+        TracetimeUpdateM::Ok((
             self.update_figure_canvases()?,
             self.update_figure_controls()?,
             self.update_trace_stalks(),

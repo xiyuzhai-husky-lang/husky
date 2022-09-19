@@ -1,6 +1,6 @@
 use super::*;
 
-impl HuskyTracetime {
+impl Tracetime {
     pub(crate) fn feature_expr_subtraces(
         &mut self,
         parent: &Trace,
@@ -33,7 +33,7 @@ impl HuskyTracetime {
                         ),
                         Some(this.runtime.eval_feature_expr(
                             argument,
-                            this.restriction.opt_sample_id().unwrap(),
+                            this.state.restriction.opt_sample_id().unwrap(),
                         )),
                     )
                 },

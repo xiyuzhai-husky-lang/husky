@@ -3,7 +3,7 @@ use husky_vm_primitive_value::PrimitiveValueData;
 
 use super::*;
 
-impl HuskyTracetime {
+impl Tracetime {
     pub(crate) fn feature_repr_figure(
         &self,
         repr: &FeatureRepr,
@@ -14,7 +14,7 @@ impl HuskyTracetime {
             match self.runtime().visualize_feature(
                 repr.clone(),
                 opt_arrival_indicator,
-                self.restriction.sample_id(),
+                self.state.restriction.sample_id(),
             ) {
                 Ok(data) => Ok(FigureCanvasData::new_specific(data)),
                 Err(_) => Ok(FigureCanvasData::void()),
@@ -93,7 +93,7 @@ impl HuskyTracetime {
     ) -> Result<Vec<(PartitionDefnData, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
         let session = self.runtime().session();
         let dev_division = session.dev();
-        let restriction = &self.restriction;
+        let restriction = &self.state.restriction;
         let mut sampler = PartitionedSampler::<T>::new(restriction.partitions());
         for labeled_data in dev_division.each_labeled_data() {
             let label = labeled_data.label;
