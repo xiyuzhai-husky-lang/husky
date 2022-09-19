@@ -70,10 +70,9 @@ impl Debugtime {
         Vec<(FigureControlKey, FigureControlData)>,
     )> {
         self.state.opt_active_trace_id = Some(trace_id);
-        DebugtimeUpdatedM::Ok((
-            self.update_figure_canvases()?,
-            self.update_figure_controls()?,
-        ))
+        self.update_figure_canvases()?;
+        self.update_figure_controls()?;
+        DebugtimeUpdatedM::Ok((todo!(), todo!()))
     }
 
     pub fn root_traces(&self) -> Vec<TraceId> {
