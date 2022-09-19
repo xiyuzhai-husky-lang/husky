@@ -1,3 +1,3 @@
-structure Concept (α : Type) where
+class Concept (α : Type) where
   description: α -> String
   descriptions : String
