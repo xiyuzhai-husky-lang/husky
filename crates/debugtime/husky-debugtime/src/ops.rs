@@ -1,3 +1,4 @@
+mod clear;
 mod hot_reload;
 mod update;
 

@@ -7,7 +7,7 @@ pub mod utils;
 
 pub use config::*;
 pub use husky_ast::{AstQueryGroup, AstSalsaQueryGroup};
-pub use husky_diagnostics::DiagnosticQuery;
+pub use husky_diagnostics::DiagnosticSalsaQuery;
 use husky_entity_kind::TyKind;
 pub use husky_entity_route::{EntityRoute, InternEntityRoute};
 pub use husky_entity_semantics::EntityDefnQueryGroup;
@@ -51,7 +51,7 @@ use sync_utils::ASafeRwLock;
     husky_infer_qualified_ty::InferQualifiedTyQueryGroupStorage,
     husky_entity_semantics::EntityQueryGroupStorage,
     husky_package_semantics::PackageQueryGroupStorage,
-    husky_diagnostics::DiagnosticQueryGroupStorage,
+    husky_diagnostics::DiagnosticSalsaQueryGroupStorage,
     husky_rust_code_gen::RustGenQueryStorage,
     husky_layout::HuskyLayoutQueryGroupStorage
 )]
@@ -68,16 +68,13 @@ pub struct HuskyComptime {
 
 impl HuskyComptime {
     pub fn new(config: HuskyComptimeConfig) -> Self {
-        let live_docs = Default::default();
-        let entity_route_store = Default::default();
-        let linkage_table = LinkageTable::new(config.linkage_table.clone());
         let mut comptime = Self {
             storage: Default::default(),
             file_interner: Arc::new(husky_file::new_file_interner()),
             word_interner: Arc::new(husky_word::new_word_interner()),
-            live_docs,
-            linkage_table,
-            entity_route_store,
+            live_docs: Default::default(),
+            linkage_table: LinkageTable::new(config.linkage_table.clone()),
+            entity_route_store: Default::default(),
             config,
             entity_route_interner: Arc::new(husky_entity_route::new_entity_route_interner()),
         };
