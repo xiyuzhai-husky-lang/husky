@@ -13,7 +13,7 @@ impl Debugtime {
         let sample_id = self.state.restriction.opt_sample_id().unwrap();
         let evaluator = self.runtime().evaluator(sample_id);
         let frames = exec_loop_debug(
-            &self.runtime() as &HuskyRuntime,
+            &self.runtime() as &Runtime,
             unsafe { evaluator.some_ctx() },
             loop_kind,
             &body_instruction_sheet,

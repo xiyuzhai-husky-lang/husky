@@ -5,19 +5,19 @@ use husky_linkage_table::LinkageTable;
 use husky_static_defn::ResolveStaticRootDefn;
 use upcast::Upcast;
 
-impl AllocateUniqueFile for HuskyRuntime {
+impl AllocateUniqueFile for Runtime {
     fn file_interner(&self) -> &husky_file::FileInterner {
         &self.file_interner
     }
 }
 
-impl InternWord for HuskyRuntime {
+impl InternWord for Runtime {
     fn word_allocator(&self) -> &husky_word::WordInterner {
         &self.word_interner
     }
 }
 
-impl LiveFiles for HuskyRuntime {
+impl LiveFiles for Runtime {
     fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_file::FilePtr, ASafeRwLock<String>>> {
         &self.live_docs
     }
@@ -27,17 +27,17 @@ impl LiveFiles for HuskyRuntime {
     }
 }
 
-impl FileQueryGroup for HuskyRuntime {}
+impl FileQueryGroup for Runtime {}
 
-impl InternEntityRoute for HuskyRuntime {
+impl InternEntityRoute for Runtime {
     fn entity_route_interner(&self) -> &husky_entity_route::EntityRouteInterner {
         &self.entity_route_interner
     }
 }
 
-impl TokenQueryGroup for HuskyRuntime {}
+impl TokenQueryGroup for Runtime {}
 
-impl ResolveStaticRootDefn for HuskyRuntime {
+impl ResolveStaticRootDefn for Runtime {
     fn __root_defn_resolver(
         &self,
     ) -> fn(ident: husky_word::RootIdentifier) -> &'static husky_static_defn::EntityStaticDefn {
@@ -45,54 +45,54 @@ impl ResolveStaticRootDefn for HuskyRuntime {
     }
 }
 
-impl EntitySyntaxQueryGroup for HuskyRuntime {}
+impl EntitySyntaxQueryGroup for Runtime {}
 
-impl AstQueryGroup for HuskyRuntime {}
+impl AstQueryGroup for Runtime {}
 
-impl Upcast<dyn InferQueryGroup> for HuskyRuntime {
+impl Upcast<dyn InferQueryGroup> for Runtime {
     fn upcast(&self) -> &(dyn infer_total::InferQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn husky_entity_semantics::EntityDefnQueryGroup> for HuskyRuntime {
+impl Upcast<dyn husky_entity_semantics::EntityDefnQueryGroup> for Runtime {
     fn upcast(&self) -> &(dyn husky_entity_semantics::EntityDefnQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn husky_entity_syntax::EntitySyntaxSalsaQueryGroup> for HuskyRuntime {
+impl Upcast<dyn husky_entity_syntax::EntitySyntaxSalsaQueryGroup> for Runtime {
     fn upcast(&self) -> &(dyn husky_entity_syntax::EntitySyntaxSalsaQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn husky_entity_syntax::EntitySyntaxQueryGroup> for HuskyRuntime {
+impl Upcast<dyn husky_entity_syntax::EntitySyntaxQueryGroup> for Runtime {
     fn upcast(&self) -> &(dyn husky_entity_syntax::EntitySyntaxQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn DeclQueryGroup> for HuskyRuntime {
+impl Upcast<dyn DeclQueryGroup> for Runtime {
     fn upcast(&self) -> &(dyn DeclQueryGroup + 'static) {
         self
     }
 }
 
-impl infer_contract::InferContractQueryGroup for HuskyRuntime {}
+impl infer_contract::InferContractQueryGroup for Runtime {}
 
-impl infer_total::InferQueryGroup for HuskyRuntime {}
+impl infer_total::InferQueryGroup for Runtime {}
 
-impl ResolveLinkage for HuskyRuntime {
+impl ResolveLinkage for Runtime {
     fn linkage_table(&self) -> &LinkageTable {
         &self.linkage_table
     }
 }
 
-impl StoreEntityRoute for HuskyRuntime {
+impl StoreEntityRoute for Runtime {
     fn entity_route_store(&self) -> &EntityRouteStore {
         &self.entity_route_store
     }
 }
 
-impl DiagnosticQuery for HuskyRuntime {}
+impl DiagnosticQuery for Runtime {}

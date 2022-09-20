@@ -5,27 +5,27 @@ use upcast::Upcast;
 
 use crate::*;
 
-impl salsa::Database for HuskyRuntime {}
+impl salsa::Database for Runtime {}
 
-impl AskCompileTime for HuskyRuntime {
+impl AskCompileTime for Runtime {
     fn comptime(&self) -> &HuskyComptime {
         todo!()
     }
 }
 
-impl InternFeature for HuskyRuntime {
+impl InternFeature for Runtime {
     fn feature_interner(&self) -> &husky_feature_gen::FeatureInterner {
         &self.feature_interner
     }
 }
 
-impl Upcast<dyn InstructionGenQueryGroup> for HuskyRuntime {
+impl Upcast<dyn InstructionGenQueryGroup> for Runtime {
     fn upcast(&self) -> &(dyn InstructionGenQueryGroup + 'static) {
         self
     }
 }
 
-impl InterpreterQueryGroup for HuskyRuntime {
+impl InterpreterQueryGroup for Runtime {
     fn entity_opt_instruction_sheet_by_uid(
         &self,
         uid: husky_vm::EntityUid,
@@ -36,31 +36,31 @@ impl InterpreterQueryGroup for HuskyRuntime {
     }
 }
 
-impl Upcast<dyn InterpreterQueryGroup> for HuskyRuntime {
+impl Upcast<dyn InterpreterQueryGroup> for Runtime {
     fn upcast(&self) -> &(dyn InterpreterQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn FeatureGenQueryGroup> for HuskyRuntime {
+impl Upcast<dyn FeatureGenQueryGroup> for Runtime {
     fn upcast(&self) -> &(dyn FeatureGenQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn EvalFeature<'static>> for HuskyRuntime {
+impl Upcast<dyn EvalFeature<'static>> for Runtime {
     fn upcast(&self) -> &(dyn EvalFeature<'static> + 'static) {
         self
     }
 }
 
-impl Upcast<dyn HuskyDataViewerQueryGroup> for HuskyRuntime {
+impl Upcast<dyn HuskyDataViewerQueryGroup> for Runtime {
     fn upcast(&self) -> &(dyn HuskyDataViewerQueryGroup + 'static) {
         self
     }
 }
 
-impl EvalFeature<'static> for HuskyRuntime {
+impl EvalFeature<'static> for Runtime {
     fn session(&self) -> &Session<'static> {
         match self.variant {
             HuskyRuntimeVariant::None => todo!(),
