@@ -9,7 +9,7 @@ impl salsa::Database for HuskyRuntime {}
 
 impl AskCompileTime for HuskyRuntime {
     fn comptime(&self) -> &HuskyComptime {
-        &self.comptime
+        todo!()
     }
 }
 
@@ -30,7 +30,7 @@ impl InterpreterQueryGroup for HuskyRuntime {
         &self,
         uid: husky_vm::EntityUid,
     ) -> Option<Arc<husky_vm::InstructionSheet>> {
-        let entity_route = self.comptime.entity_route_by_uid(uid);
+        let entity_route = self.entity_route_by_uid(uid);
         self.entity_instruction_sheet(entity_route)
         // self.comptime.entity_opt_instruction_sheet_by_uid(uid)
     }

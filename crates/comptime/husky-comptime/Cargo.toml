@@ -10,20 +10,23 @@ rust-version = "1.56"
 doctest = false
 
 [dependencies]
+# external
 rustc-hash = "1.1.0"
 either = "1.6.1"
 itertools = "0.10.0"
 arrayvec = "0.7"
 indexmap = "1.7"
 salsa = "0.17.0-pre.2"
+# abstraction
+upcast = { path = "../../abstraction/upcast" }
+fold = { path = "../../abstraction/fold" }
+# utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
-upcast = { path = "../../abstraction/upcast" }
-fold = { path = "../../abstraction/fold" }
-husky-vm = { path = "../../vm/husky-vm" }
+# syntax
 husky-file = { path = "../../syntax/husky-file" }
 husky-word = { path = "../../syntax/husky-word" }
 husky-token = { path = "../../syntax/husky-token" }
@@ -32,21 +35,29 @@ husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-fmt = { path = "../../syntax/husky-fmt" }
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+husky-atom = { path = "../../syntax/husky-atom" }
+# infer
 infer-decl = { path = "../../infer/husky-infer-decl" }
 husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
 infer-contract = { path = "../../infer/husky-infer-contract" }
 husky-infer-qualified-ty = { path = "../../infer/husky-infer-qualified-ty" }
 infer-total = { path = "../../infer/total" }
+# semantics
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
-husky-rust-code-gen = { path = "../husky-rust-code-gen" }
 husky-diagnostics = { path = "../../semantics/husky-diagnostics" }
-husky-linkage-table = { path = "../husky-linkage-table" }
-husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
-husky-atom = { path = "../../syntax/husky-atom" }
+# comptime
+husky-layout = { path = "../../comptime/husky-layout" }
+husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
+husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
+# vm
+husky-vm = { path = "../../vm/husky-vm" }
+# debugtime
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
-thin-vec = { path = "../../../forks/thin-vec" }
+# static
 husky-static-defn = { path = "../../static/husky-static-defn" }
 __husky = { path = "../../static/__husky" }
-husky-layout = { path = "../../comptime/husky-layout" }
+# forks
+thin-vec = { path = "../../../forks/thin-vec" }

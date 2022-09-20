@@ -8,30 +8,54 @@ serde = { version = "1.0.106", features = ["derive"] }
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.93", features = ["proposed"] }
 indexmap = "1.8.1"
-husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
+# abstraction
 interner = { path = "../../abstraction/interner" }
 fold = { path = "../../abstraction/fold" }
 upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
 arena = { path = "../../abstraction/arena" }
+# utils
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+sync-utils = { path = "../../utils/husky-sync-utils" }
+# syntax
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-word = { path = "../../syntax/husky-word" }
+husky-token = { path = "../../syntax/husky-token" }
 husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-comptime = { path = "../../comptime/husky-comptime" }
-husky-vm = { path = "../../vm/husky-vm" }
+husky-fmt = { path = "../../syntax/husky-fmt" }
+husky-defn-head = { path = "../../syntax/husky-defn-head" }
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+husky-atom = { path = "../../syntax/husky-atom" }
+# infer
+infer-decl = { path = "../../infer/husky-infer-decl" }
+husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
+infer-contract = { path = "../../infer/husky-infer-contract" }
+husky-infer-qualified-ty = { path = "../../infer/husky-infer-qualified-ty" }
+infer-total = { path = "../../infer/total" }
+# semantics
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
-husky-feature-gen = { path = "../husky-feature-gen" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-husky-defn-head = { path = "../../syntax/husky-defn-head" }
-husky-feature-eval = { path = "../husky-feature-eval" }
+husky-diagnostics = { path = "../../semantics/husky-diagnostics" }
+# comptime
+husky-layout = { path = "../../comptime/husky-layout" }
+husky-comptime = { path = "../../comptime/husky-comptime" }
+husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
+husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
+# vm
+husky-vm = { path = "../../vm/husky-vm" }
+# runtime
+husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
+husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
+husky-instruction-gen = { path = "../../runtime/husky-instruction-gen" }
+husky-data-viewer = { path = "../../runtime/husky-data-viewer" }
+# debugtime
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
-husky-instruction-gen = { path = "../husky-instruction-gen" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
+# static
 husky-datasets-interface = { path = "../../static/domains/ml/husky-datasets-interface" }
-husky-atom = { path = "../../syntax/husky-atom" }
-husky-data-viewer = { path = "../husky-data-viewer" }

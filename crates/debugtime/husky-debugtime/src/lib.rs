@@ -46,15 +46,15 @@ pub struct Debugtime {
 
 impl Debugtime {
     pub fn new(
-        init_compile_time: impl FnOnce(&mut HuskyComptime),
+        init_runtime: impl FnOnce(&mut HuskyRuntime),
         eval_time_config: HuskyRuntimeConfig,
     ) -> Self {
         let mut debugtime = Self {
-            runtime: HuskyRuntime::new(init_compile_time, eval_time_config),
+            runtime: HuskyRuntime::new(init_runtime, eval_time_config),
             state: Default::default(),
         };
         assert!(debugtime.state.restriction.opt_sample_id().is_none());
-        debugtime.updating();
+        debugtime.update();
         debugtime
     }
 

@@ -4,7 +4,7 @@ use husky_file::FilePtr;
 use crate::*;
 
 pub(crate) fn collect_module_diagnostics(
-    db: &dyn DiagnosticQuery,
+    db: &dyn DiagnosticSalsaQuery,
     module: EntityRoutePtr,
 ) -> Vec<Diagnostic> {
     let mut diagnostics = Vec::new();
@@ -22,7 +22,7 @@ pub(crate) fn collect_module_diagnostics(
 }
 
 fn collect_module_entity_syntax_errors(
-    db: &dyn DiagnosticQuery,
+    db: &dyn DiagnosticSalsaQuery,
     module: EntityRoutePtr,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -30,7 +30,7 @@ fn collect_module_entity_syntax_errors(
 }
 
 fn collect_entity_syntax_errors(
-    db: &dyn DiagnosticQuery,
+    db: &dyn DiagnosticSalsaQuery,
     parent: EntityRoutePtr,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -42,7 +42,7 @@ fn collect_entity_syntax_errors(
 }
 
 fn collect_module_lex_errors(
-    db: &dyn DiagnosticQuery,
+    db: &dyn DiagnosticSalsaQuery,
     file: FilePtr,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -51,7 +51,7 @@ fn collect_module_lex_errors(
 }
 
 fn collect_module_ast_errors(
-    db: &dyn DiagnosticQuery,
+    db: &dyn DiagnosticSalsaQuery,
     file: FilePtr,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -68,7 +68,7 @@ fn collect_module_ast_errors(
 }
 
 fn collect_module_infer_ty_errors(
-    db: &dyn DiagnosticQuery,
+    db: &dyn DiagnosticSalsaQuery,
     file: FilePtr,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -79,7 +79,7 @@ fn collect_module_infer_ty_errors(
 }
 
 fn collect_module_infer_contract_errors(
-    db: &dyn DiagnosticQuery,
+    db: &dyn DiagnosticSalsaQuery,
     file: FilePtr,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -90,7 +90,7 @@ fn collect_module_infer_contract_errors(
 }
 
 fn collect_module_infer_qualified_ty_errors(
-    db: &dyn DiagnosticQuery,
+    db: &dyn DiagnosticSalsaQuery,
     file: FilePtr,
     diagnostics: &mut Vec<Diagnostic>,
 ) {

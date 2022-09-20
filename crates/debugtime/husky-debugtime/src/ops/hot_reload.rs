@@ -1,4 +1,5 @@
 use crate::*;
+use monad::MonadT;
 
 #[must_use]
 pub enum DebugtimeHotReloadM {
@@ -7,8 +8,12 @@ pub enum DebugtimeHotReloadM {
 
 impl Monad for DebugtimeHotReloadM {}
 
+impl<T> MonadT<DebugtimeMakeChangeM<T>> for DebugtimeHotReloadM {}
+
 impl Debugtime {
     pub fn hot_reload(&mut self) -> DebugtimeHotReloadM {
+        self.clear()?;
+        // self.comptime().reload();
         todo!();
         // let root_trace_ids = self.state.root_traces().to_vec();
         // // clear figure cache to reduce data transmission
@@ -54,6 +59,12 @@ pub struct DebugtimeHotReloadR;
 
 impl std::ops::FromResidual<DebugtimeHotReloadR> for DebugtimeHotReloadM {
     fn from_residual(residual: DebugtimeHotReloadR) -> Self {
+        unreachable!()
+    }
+}
+
+impl std::ops::FromResidual<DebugtimeMakeChangeR> for DebugtimeHotReloadM {
+    fn from_residual(residual: DebugtimeMakeChangeR) -> Self {
         unreachable!()
     }
 }

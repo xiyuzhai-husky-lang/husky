@@ -15,11 +15,7 @@ impl Debugtime {
         Vec<(TraceStatsKey, Option<TraceStats>)>,
     )> {
         self.state.restriction.set(restriction)?;
-        self.updating();
-        self.update_figure_canvases()?;
-        self.update_figure_controls()?;
-        self.update_trace_stalks();
-        self.update_trace_statss()?;
+        self.update()?;
         DebugtimeStageChangeM::Ok((todo!(), todo!(), todo!(), todo!()))
     }
 }

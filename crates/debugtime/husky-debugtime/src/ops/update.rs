@@ -43,28 +43,27 @@ impl<T> DebugtimeStageChangeM<T> {
 }
 
 impl Debugtime {
-    pub(crate) fn updating(&mut self) -> DebugtimeMakeChangeM<()> {
-        self.clear()?;
-        // ad hoc
-        match self.update_root_traces().result()? {
-            Ok(()) => (),
+    pub(crate) fn update(&mut self) -> DebugtimeMakeChangeM<()> {
+        match self.try_update().result()? {
+            Ok(()) => DebugtimeMakeChangeM::Ok(()),
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
                     self.state
                         .restriction
                         .update(|restriction| restriction.set_specific(SampleId(*sample_id)));
-                    self.update_trace_stalks();
+                    self.update()
                 }
             },
         }
-        DebugtimeMakeChangeM::Ok(())
     }
 
-    fn clear(&mut self) -> DebugtimeMakeChangeM<()> {
-        // replace this with diff, try to make the trace tree look the same across code change
-        self.state = Default::default();
-        DebugtimeMakeChangeM::Ok(())
+    fn try_update(&mut self) -> DebugtimeMakeChangeM<()> {
+        self.update_root_traces()?;
+        self.update_figure_canvases()?;
+        self.update_figure_controls()?;
+        self.update_trace_stalks()?;
+        self.update_trace_statss()
     }
 
     fn update_root_traces(&mut self) -> DebugtimeMakeChangeM<()> {
@@ -119,14 +118,6 @@ impl Debugtime {
     }
 }
 
-// impl<T> From<__VMResult<T>> for DebugtimeMakeChangeM<T> {
-//     fn from(result: __VMResult<T>) -> Self {
-//         match result {
-//             Ok(cont) => DebugtimeMakeChangeM::Ok(cont),
-//             Err(_) => todo!(),
-//         }
-//     }
-// }
 impl<T> FromResidual<DebugtimeMakeChangeR> for DebugtimeMakeChangeM<T> {
     fn from_residual(residual: DebugtimeMakeChangeR) -> Self {
         todo!()

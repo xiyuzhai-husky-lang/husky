@@ -3,6 +3,8 @@ use crate::*;
 #[cfg(test)]
 #[test]
 fn semantics_no_error_single_file() {
+    use husky_diagnostics::DiagnosticQuery;
+
     let mut db = HuskyComptime::new_default(__resolve_root_defn);
     db.set_live_file_text(
         "haha/main.hsy".into(),
