@@ -24,7 +24,12 @@ where
     }
 
     pub fn insert_new(&mut self, key: K, value: V) -> ProjMakeChangeM<Self, ()> {
-        todo!()
+        assert!(!self.contains(&key));
+        self.entries.push((key, value));
+        ProjMakeChangeM::Ok {
+            cont: (),
+            phantom_state: PhantomData,
+        }
     }
 }
 

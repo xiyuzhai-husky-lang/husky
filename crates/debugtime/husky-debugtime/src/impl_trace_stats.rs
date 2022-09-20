@@ -1,14 +1,14 @@
-use crate::{ops::DebugtimeUpdatedM, *};
+use crate::{ops::DebugtimeStageChangeM, *};
 
 impl Debugtime {
-    pub(crate) fn update_trace_statss(&mut self) -> DebugtimeUpdatingM<()> {
+    pub(crate) fn update_trace_statss(&mut self) -> DebugtimeMakeChangeM<()> {
         for root_trace_id in self.state.root_traces().to_vec() {
             self.update_trace_statss_within_trace(root_trace_id)?;
         }
-        DebugtimeUpdatingM::Ok(())
+        DebugtimeMakeChangeM::Ok(())
     }
 
-    fn update_trace_statss_within_trace(&mut self, trace_id: TraceId) -> DebugtimeUpdatingM<()> {
+    fn update_trace_statss_within_trace(&mut self, trace_id: TraceId) -> DebugtimeMakeChangeM<()> {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
@@ -28,10 +28,14 @@ impl Debugtime {
                 self.update_trace_statss_within_trace(subtrace_id)?
             }
         }
-        DebugtimeUpdatingM::Ok(())
+        DebugtimeMakeChangeM::Ok(())
     }
 
-    fn gen_trace_stats(&mut self, trace_id: TraceId, key: TraceStatsKey) -> DebugtimeUpdatingM<()> {
+    fn gen_trace_stats(
+        &mut self,
+        trace_id: TraceId,
+        key: TraceStatsKey,
+    ) -> DebugtimeMakeChangeM<()> {
         let (opt_stats, result) = self
             .trace(trace_id)
             .variant
@@ -43,18 +47,18 @@ impl Debugtime {
         self.updating_t(result)
     }
 
-    fn updating_t(&self, result: __VMResult<()>) -> DebugtimeUpdatingM<()> {
+    fn updating_t(&self, result: __VMResult<()>) -> DebugtimeMakeChangeM<()> {
         match result {
-            Ok(()) => DebugtimeUpdatingM::Ok(()),
+            Ok(()) => DebugtimeMakeChangeM::Ok(()),
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
                     if self.state.restriction.is_generic()
                         || self.state.restriction.sample_id() != SampleId(*sample_id)
                     {
-                        DebugtimeUpdatingM::OtherworldlyErr(e)
+                        DebugtimeMakeChangeM::OtherworldlyErr(e)
                     } else {
-                        DebugtimeUpdatingM::Ok(())
+                        DebugtimeMakeChangeM::Ok(())
                     }
                 }
             },

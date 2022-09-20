@@ -2,24 +2,23 @@ use crate::*;
 use ::monad::Monad;
 
 #[must_use]
-pub enum ProjMakeChangeM<State, T> {
+pub enum ProjMakeChangeM<P, T> {
     Ok {
         cont: T,
-        phantom_state: PhantomData<State>,
+        phantom_state: PhantomData<P>,
     },
 }
 
 impl<P, T> Monad for ProjMakeChangeM<P, T> {}
 
-pub struct ProjMakeChangeR<State, Continue> {
-    phantom_state: PhantomData<State>,
-    phantom_cont: PhantomData<Continue>,
+pub struct ProjMakeChangeR<P> {
+    phantom_state: PhantomData<P>,
 }
 
-impl<State, T> std::ops::Try for ProjMakeChangeM<State, T> {
+impl<P, T> std::ops::Try for ProjMakeChangeM<P, T> {
     type Output = T;
 
-    type Residual = ProjMakeChangeR<State, T>;
+    type Residual = ProjMakeChangeR<P>;
 
     fn from_output(cont: Self::Output) -> Self {
         ProjMakeChangeM::Ok {
@@ -35,8 +34,8 @@ impl<State, T> std::ops::Try for ProjMakeChangeM<State, T> {
     }
 }
 
-impl<P, T> std::ops::FromResidual<ProjMakeChangeR<P, T>> for ProjMakeChangeM<P, T> {
-    fn from_residual(residual: ProjMakeChangeR<P, T>) -> Self {
+impl<P, T> std::ops::FromResidual<ProjMakeChangeR<P>> for ProjMakeChangeM<P, T> {
+    fn from_residual(residual: ProjMakeChangeR<P>) -> Self {
         todo!()
     }
 }

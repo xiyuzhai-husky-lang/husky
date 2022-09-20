@@ -19,10 +19,14 @@ impl<E> ProjVec<E> {
     }
 
     pub fn push(&mut self, elem: E) -> ProjMakeChangeM<Self, ()> {
-        todo!()
+        self.entries.push(elem);
+        ProjMakeChangeM::Ok {
+            cont: (),
+            phantom_state: PhantomData,
+        }
     }
 
-    pub fn apply_set_elem(&mut self, elem: E) -> ProjApplyChangeM<Self, ()> {
+    pub fn apply_set_elem(&mut self, index: usize, elem: E) -> ProjApplyChangeM<Self, ()> {
         assert!(self.synced());
         todo!()
     }
