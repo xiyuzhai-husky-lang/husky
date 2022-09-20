@@ -65,14 +65,14 @@ impl Debugtime {
     pub fn activate(
         &mut self,
         trace_id: TraceId,
-    ) -> DebugtimeUpdatedM<(
+    ) -> DebugtimeStageChangeM<(
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
     )> {
-        *self.state.opt_active_trace_id = Some(trace_id);
+        self.state.opt_active_trace_id.set(Some(trace_id));
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
-        DebugtimeUpdatedM::Ok((todo!(), todo!()))
+        DebugtimeStageChangeM::Ok((todo!(), todo!()))
     }
 
     pub fn root_traces(&self) -> Vec<TraceId> {
@@ -174,7 +174,7 @@ impl Debugtime {
     pub fn toggle_expansion(
         &mut self,
         trace_id: TraceId,
-    ) -> DebugtimeUpdatedM<
+    ) -> DebugtimeStageChangeM<
         Option<(
             Vec<TraceNodeData>,
             Vec<TraceId>,
@@ -189,7 +189,7 @@ impl Debugtime {
             .expansion;
         *expansion = !*expansion;
         let subtrace_ids = self.subtrace_ids(trace_id);
-        DebugtimeUpdatedM::Ok(if self.state.trace_nodes.len() > old_len {
+        DebugtimeStageChangeM::Ok(if self.state.trace_nodes.len() > old_len {
             let new_traces: Vec<TraceNodeData> = self.state.trace_nodes[old_len..]
                 .iter()
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())

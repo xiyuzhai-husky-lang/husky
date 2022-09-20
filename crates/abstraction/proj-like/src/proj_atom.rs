@@ -1,3 +1,5 @@
+use crate::ProjMakeChangeM;
+
 #[derive(Default)]
 pub struct ProjAtom<V> {
     value: V,
@@ -12,9 +14,21 @@ impl<V> std::ops::Deref for ProjAtom<V> {
     }
 }
 
-impl<V> std::ops::DerefMut for ProjAtom<V> {
-    fn deref_mut(&mut self) -> &mut Self::Target {
+impl<V> ProjAtom<V> {
+    pub fn set(&mut self, new_value: V) -> ProjMakeChangeM<Self, ()> {
         self.updated = false;
-        &mut self.value
+        self.value = new_value;
+        ProjMakeChangeM::Ok {
+            cont: (),
+            phantom_state: std::marker::PhantomData,
+        }
+    }
+    pub fn update(&mut self, f: impl FnOnce(&mut V)) -> ProjMakeChangeM<Self, ()> {
+        self.updated = false;
+        f(&mut self.value);
+        ProjMakeChangeM::Ok {
+            cont: (),
+            phantom_state: std::marker::PhantomData,
+        }
     }
 }

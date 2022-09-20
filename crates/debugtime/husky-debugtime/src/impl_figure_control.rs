@@ -99,7 +99,7 @@ impl Debugtime {
 
     pub(crate) fn update_figure_controls(
         &mut self,
-    ) -> DebugtimeUpdatingM<Vec<(FigureControlKey, FigureControlData)>> {
+    ) -> DebugtimeMakeChangeM<Vec<(FigureControlKey, FigureControlData)>> {
         let mut new_figure_controls: Vec<(FigureControlKey, FigureControlData)> = vec![];
         if let Some(active_trace_id) = *self.state.opt_active_trace_id {
             self.update_figure_control(active_trace_id, &mut new_figure_controls)?;
@@ -107,14 +107,14 @@ impl Debugtime {
         for pin in self.state.pins.clone().into_iter() {
             self.update_figure_control(*pin, &mut new_figure_controls)?;
         }
-        DebugtimeUpdatingM::Ok(new_figure_controls)
+        DebugtimeMakeChangeM::Ok(new_figure_controls)
     }
 
     pub(crate) fn update_figure_control(
         &mut self,
         trace_id: TraceId,
         new_figure_controls: &mut Vec<(FigureControlKey, FigureControlData)>,
-    ) -> DebugtimeUpdatingM<()> {
+    ) -> DebugtimeMakeChangeM<()> {
         let key = self.gen_figure_control_key(trace_id);
         if !self.state.figure_controls.contains(&key) {
             let figure_control_data = self.gen_figure_control_data(trace_id);
@@ -123,17 +123,17 @@ impl Debugtime {
                 .insert_new(key, figure_control_data.clone());
             new_figure_controls.push((key, figure_control_data))
         }
-        DebugtimeUpdatingM::Ok(())
+        DebugtimeMakeChangeM::Ok(())
     }
 
     pub fn set_figure_control(
         &mut self,
         trace_id: TraceId,
         new_figure_control_data: FigureControlData,
-    ) -> DebugtimeUpdatedM<()> {
+    ) -> DebugtimeStageChangeM<()> {
         todo!()
         // let key = self.gen_figure_control_key(trace_id);
-        // DebugtimeUpdatedM::Ok(
+        // DebugtimeStageChangeM::Ok(
         //     self.state
         //         .figure_controls
         //         .insert_new(key, new_figure_control_data)?,

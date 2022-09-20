@@ -1,21 +1,21 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
 use monad::Monad;
-use proj_like::{ProjMakeChangeR, ProjMap};
+use proj_like::{ProjAtom, ProjMakeChangeR, ProjMap};
 use std::{ops::FromResidual, time::Instant};
 
 #[must_use]
-pub(crate) enum DebugtimeUpdatingM<T> {
+pub(crate) enum DebugtimeMakeChangeM<T> {
     Ok(T),
     OtherworldlyErr(__VMError),
 }
 
-pub enum DebugtimeUpdatingR {
+pub enum DebugtimeMakeChangeR {
     OtherworldlyErr(__VMError),
 }
 
 #[must_use]
-pub enum DebugtimeUpdatedM<T> {
+pub enum DebugtimeStageChangeM<T> {
     Ok(T),
     OtherworldlyErr(__VMError),
 }
@@ -24,26 +24,26 @@ pub enum DebugtimeUpdatedR {
     OtherworldlyErr(__VMError),
 }
 
-impl<T> Monad for DebugtimeUpdatingM<T> {}
+impl<T> Monad for DebugtimeMakeChangeM<T> {}
 
-impl<T> Monad for DebugtimeUpdatedM<T> {}
+impl<T> Monad for DebugtimeStageChangeM<T> {}
 
-impl<T> DebugtimeUpdatingM<T> {
-    pub(crate) fn result(self) -> DebugtimeUpdatingM<__VMResult<T>> {
+impl<T> DebugtimeMakeChangeM<T> {
+    pub(crate) fn result(self) -> DebugtimeMakeChangeM<__VMResult<T>> {
         match self {
-            DebugtimeUpdatingM::Ok(output) => DebugtimeUpdatingM::Ok(Ok(output)),
-            DebugtimeUpdatingM::OtherworldlyErr(_) => todo!(),
+            DebugtimeMakeChangeM::Ok(output) => DebugtimeMakeChangeM::Ok(Ok(output)),
+            DebugtimeMakeChangeM::OtherworldlyErr(_) => todo!(),
         }
     }
 }
-impl<T> DebugtimeUpdatedM<T> {
-    pub fn result(self) -> DebugtimeUpdatedM<__VMResult<T>> {
+impl<T> DebugtimeStageChangeM<T> {
+    pub fn result(self) -> DebugtimeStageChangeM<__VMResult<T>> {
         todo!()
     }
 }
 
 impl Debugtime {
-    pub(crate) fn updating(&mut self) -> DebugtimeUpdatingM<()> {
+    pub(crate) fn updating(&mut self) -> DebugtimeMakeChangeM<()> {
         self.clear()?;
         // ad hoc
         match self.update_root_traces().result()? {
@@ -51,21 +51,23 @@ impl Debugtime {
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
-                    self.state.restriction.set_specific(SampleId(*sample_id));
+                    self.state
+                        .restriction
+                        .update(|restriction| restriction.set_specific(SampleId(*sample_id)));
                     self.update_trace_stalks();
                 }
             },
         }
-        DebugtimeUpdatingM::Ok(())
+        DebugtimeMakeChangeM::Ok(())
     }
 
-    fn clear(&mut self) -> DebugtimeUpdatingM<()> {
+    fn clear(&mut self) -> DebugtimeMakeChangeM<()> {
         // replace this with diff, try to make the trace tree look the same across code change
         self.state = Default::default();
-        DebugtimeUpdatingM::Ok(())
+        DebugtimeMakeChangeM::Ok(())
     }
 
-    fn update_root_traces(&mut self) -> DebugtimeUpdatingM<()> {
+    fn update_root_traces(&mut self) -> DebugtimeMakeChangeM<()> {
         let target_entrance = self.comptime().target_entrance();
         let now = Instant::now();
         let main_feature_repr = self.runtime().main_feature_repr(target_entrance);
@@ -113,78 +115,100 @@ impl Debugtime {
         root_traces.push(self.new_trace(None, 0, TraceVariant::Main(main_feature_repr)));
         self.state.set_root_traces(root_traces);
         self.update_trace_statss()?;
-        DebugtimeUpdatingM::Ok(())
+        DebugtimeMakeChangeM::Ok(())
     }
 }
 
-// impl<T> From<__VMResult<T>> for DebugtimeUpdatingM<T> {
+// impl<T> From<__VMResult<T>> for DebugtimeMakeChangeM<T> {
 //     fn from(result: __VMResult<T>) -> Self {
 //         match result {
-//             Ok(cont) => DebugtimeUpdatingM::Ok(cont),
+//             Ok(cont) => DebugtimeMakeChangeM::Ok(cont),
 //             Err(_) => todo!(),
 //         }
 //     }
 // }
-impl<T> FromResidual<DebugtimeUpdatingR> for DebugtimeUpdatingM<T> {
-    fn from_residual(residual: DebugtimeUpdatingR) -> Self {
+impl<T> FromResidual<DebugtimeMakeChangeR> for DebugtimeMakeChangeM<T> {
+    fn from_residual(residual: DebugtimeMakeChangeR) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<ProjMakeChangeR<ProjMap<FigureControlKey, FigureControlData>, T>>
-    for DebugtimeUpdatingM<T>
+impl<T> FromResidual<ProjMakeChangeR<ProjAtom<Restriction>>> for DebugtimeMakeChangeM<T> {
+    fn from_residual(residual: ProjMakeChangeR<ProjAtom<Restriction>>) -> Self {
+        todo!()
+    }
+}
+
+impl<T> FromResidual<ProjMakeChangeR<ProjMap<FigureCanvasKey, FigureCanvasData>>>
+    for DebugtimeMakeChangeM<T>
 {
     fn from_residual(
-        residual: ProjMakeChangeR<ProjMap<FigureControlKey, FigureControlData>, T>,
+        residual: ProjMakeChangeR<ProjMap<FigureCanvasKey, FigureCanvasData>>,
     ) -> Self {
         todo!()
     }
 }
 
-impl<T> std::ops::Try for DebugtimeUpdatingM<T> {
+impl<T> FromResidual<ProjMakeChangeR<ProjMap<FigureControlKey, FigureControlData>>>
+    for DebugtimeMakeChangeM<T>
+{
+    fn from_residual(
+        residual: ProjMakeChangeR<ProjMap<FigureControlKey, FigureControlData>>,
+    ) -> Self {
+        todo!()
+    }
+}
+
+impl<T> std::ops::Try for DebugtimeMakeChangeM<T> {
     type Output = T;
 
-    type Residual = DebugtimeUpdatingR;
+    type Residual = DebugtimeMakeChangeR;
 
     fn from_output(output: Self::Output) -> Self {
-        DebugtimeUpdatingM::Ok(output)
+        DebugtimeMakeChangeM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            DebugtimeUpdatingM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
-            DebugtimeUpdatingM::OtherworldlyErr(e) => {
-                std::ops::ControlFlow::Break(DebugtimeUpdatingR::OtherworldlyErr(e))
+            DebugtimeMakeChangeM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
+            DebugtimeMakeChangeM::OtherworldlyErr(e) => {
+                std::ops::ControlFlow::Break(DebugtimeMakeChangeR::OtherworldlyErr(e))
             }
         }
     }
 }
 
-impl<T> FromResidual<DebugtimeUpdatedR> for DebugtimeUpdatedM<T> {
+impl<T> FromResidual<DebugtimeUpdatedR> for DebugtimeStageChangeM<T> {
     fn from_residual(residual: DebugtimeUpdatedR) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<DebugtimeUpdatingR> for DebugtimeUpdatedM<T> {
-    fn from_residual(residual: DebugtimeUpdatingR) -> Self {
+impl<T> FromResidual<DebugtimeMakeChangeR> for DebugtimeStageChangeM<T> {
+    fn from_residual(residual: DebugtimeMakeChangeR) -> Self {
         todo!()
     }
 }
 
-impl<T> std::ops::Try for DebugtimeUpdatedM<T> {
+impl<T> FromResidual<ProjMakeChangeR<ProjAtom<Restriction>>> for DebugtimeStageChangeM<T> {
+    fn from_residual(residual: ProjMakeChangeR<ProjAtom<Restriction>>) -> Self {
+        todo!()
+    }
+}
+
+impl<T> std::ops::Try for DebugtimeStageChangeM<T> {
     type Output = T;
 
     type Residual = DebugtimeUpdatedR;
 
     fn from_output(output: Self::Output) -> Self {
-        DebugtimeUpdatedM::Ok(output)
+        DebugtimeStageChangeM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            DebugtimeUpdatedM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
-            DebugtimeUpdatedM::OtherworldlyErr(e) => {
+            DebugtimeStageChangeM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
+            DebugtimeStageChangeM::OtherworldlyErr(e) => {
                 std::ops::ControlFlow::Break(DebugtimeUpdatedR::OtherworldlyErr(e))
             }
         }
