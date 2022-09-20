@@ -2,7 +2,7 @@ use crate::*;
 
 impl CompilerInstance {
     pub(crate) fn transcribe_package_in_rust(&self, package_dir: &Path) {
-        let mut comptime = HuskyComptime::new(HuskyComptimeConfig {
+        let mut comptime = HuskyComptime::new(ComptimeConfig {
             __resolve_root_defn,
             linkage_table: LinkageTableConfig {
                 warn_missing_linkage: false,

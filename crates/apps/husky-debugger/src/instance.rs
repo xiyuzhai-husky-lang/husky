@@ -17,7 +17,7 @@ impl HuskyDebuggerInstance {
                 // runtime.load_package(package_dir);
                 // runtime.load_linkages(linkages)
             },
-            config.eval_time(),
+            config.runtime(),
         );
         if let Some(specific_sample_id) = config.opt_sample_id {
             todo!()

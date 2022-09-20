@@ -1,9 +1,9 @@
 use crate::*;
-use husky_comptime::HuskyComptimeConfig;
+use husky_comptime::ComptimeConfig;
 use husky_feature_eval::EvaluatorConfig;
 use husky_linkage_table::LinkageTableConfig;
 use husky_root_static_defn::__resolve_root_defn;
-use husky_runtime::HuskyRuntimeConfig;
+use husky_runtime::RuntimeConfig;
 use husky_vm::VMConfig;
 use serde::{Deserialize, Serialize};
 
@@ -16,14 +16,14 @@ pub struct HuskyDebuggerConfig {
 }
 
 impl HuskyDebuggerConfig {
-    pub fn eval_time(&self) -> HuskyRuntimeConfig {
-        HuskyRuntimeConfig {
+    pub fn runtime(&self) -> RuntimeConfig {
+        RuntimeConfig {
             evaluator: EvaluatorConfig {
                 vm: VMConfig {
                     verbose: self.verbose,
                 },
             },
-            comptime: HuskyComptimeConfig {
+            comptime: ComptimeConfig {
                 package_dir: self.package_dir.clone(),
                 __resolve_root_defn,
                 linkage_table: LinkageTableConfig {

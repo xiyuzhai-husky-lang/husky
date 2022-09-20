@@ -44,11 +44,11 @@ use variant::*;
     husky_rust_code_gen::RustGenQueryStorage,
     husky_layout::HuskyLayoutQueryGroupStorage
 )]
-pub struct HuskyRuntime {
-    storage: salsa::Storage<HuskyRuntime>,
+pub struct Runtime {
+    storage: salsa::Storage<Runtime>,
     feature_interner: FeatureInterner,
     variant: HuskyRuntimeVariant,
-    config: HuskyRuntimeConfig,
+    config: RuntimeConfig,
     // comptime
     file_interner: Arc<husky_file::FileInterner>,
     word_interner: Arc<husky_word::WordInterner>,
@@ -59,16 +59,13 @@ pub struct HuskyRuntime {
 }
 
 #[derive(Debug)]
-pub struct HuskyRuntimeConfig {
+pub struct RuntimeConfig {
     pub evaluator: EvaluatorConfig,
-    pub comptime: HuskyComptimeConfig,
+    pub comptime: ComptimeConfig,
 }
 
-impl HuskyRuntime {
-    pub fn new(
-        init_runtime: impl FnOnce(&mut HuskyRuntime),
-        config: HuskyRuntimeConfig,
-    ) -> HuskyRuntime {
+impl Runtime {
+    pub fn new(init_runtime: impl FnOnce(&mut Runtime), config: RuntimeConfig) -> Runtime {
         let feature_interner = husky_feature_gen::new_feature_interner();
         let mut runtime = Self {
             storage: Default::default(),
