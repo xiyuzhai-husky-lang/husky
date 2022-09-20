@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
 use monad::Monad;
-use proj_like::{ProjMap, ProjUpdatingR};
+use proj_like::{ProjMakeChangeR, ProjMap};
 use std::{ops::FromResidual, time::Instant};
 
 #[must_use]
@@ -131,11 +131,11 @@ impl<T> FromResidual<DebugtimeUpdatingR> for DebugtimeUpdatingM<T> {
     }
 }
 
-impl<T> FromResidual<ProjUpdatingR<ProjMap<FigureControlKey, FigureControlData>, T>>
+impl<T> FromResidual<ProjMakeChangeR<ProjMap<FigureControlKey, FigureControlData>, T>>
     for DebugtimeUpdatingM<T>
 {
     fn from_residual(
-        residual: ProjUpdatingR<ProjMap<FigureControlKey, FigureControlData>, T>,
+        residual: ProjMakeChangeR<ProjMap<FigureControlKey, FigureControlData>, T>,
     ) -> Self {
         todo!()
     }
