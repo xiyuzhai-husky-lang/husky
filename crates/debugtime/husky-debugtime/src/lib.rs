@@ -45,9 +45,9 @@ pub struct Debugtime {
 }
 
 impl Debugtime {
-    pub fn new(init_runtime: impl FnOnce(&mut Runtime), eval_time_config: RuntimeConfig) -> Self {
+    pub fn new(runtime_config: RuntimeConfig) -> Self {
         let mut debugtime = Self {
-            runtime: Runtime::new(init_runtime, eval_time_config),
+            runtime: Runtime::new(runtime_config),
             state: Default::default(),
         };
         assert!(debugtime.state.restriction.opt_sample_id().is_none());

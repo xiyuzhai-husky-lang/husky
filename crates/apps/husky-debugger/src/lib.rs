@@ -10,7 +10,6 @@ mod ops;
 pub use config::HuskyDebuggerConfig;
 pub use error::{DebuggerError, DebuggerResult};
 
-use convert_case::{Boundary, Case, Casing};
 use futures::executor::ThreadPool;
 use gui::handle_query;
 use husky_debugtime::Debugtime;
@@ -22,7 +21,6 @@ use husky_trace_protocol::*;
 use husky_vm::__Linkage;
 use instance::*;
 use internal::HuskyDebuggerInternal;
-use libloading::Library;
 use notif::handle_notif;
 use ops::*;
 use std::{
@@ -34,27 +32,13 @@ use std::{
 use std::{sync::Mutex, time::Instant};
 use warp::Filter;
 
-type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];
-
 pub async fn debugger_run(package_dir: PathBuf) -> DebuggerResult<()> {
-    let opt_library = get_library(&package_dir);
-    let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = opt_library
-        .as_ref()
-        .map(|library| unsafe {
-            library
-                .get::<GetLinkagesFromCDylib>(b"get_linkages")
-                .expect("what")()
-        })
-        .unwrap_or(&[]);
-    let husky_debugger = HuskyDebuggerInstance::new(
-        HuskyDebuggerConfig {
-            package_dir,
-            opt_sample_id: None,
-            verbose: false,
-            compiled: false,
-        },
-        linkages_from_cdylib,
-    );
+    let husky_debugger = HuskyDebuggerInstance::new(HuskyDebuggerConfig {
+        package_dir,
+        opt_sample_id: None,
+        verbose: false,
+        compiled: false,
+    });
     husky_debugger.serve("localhost:51617").await
 }
 
@@ -75,63 +59,18 @@ pub async fn debugger_test(packages_dir: PathBuf) {
             husky_print_utils::RESET,
             package_dir.as_os_str().to_str().unwrap(),
         );
-        let opt_library = get_library(&package_dir);
-        if !(opt_library.is_some()) {
-            todo!()
-        }
-        let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = opt_library
-            .as_ref()
-            .map(|library| unsafe {
-                library
-                    .get::<GetLinkagesFromCDylib>(b"get_linkages")
-                    .expect("what")()
-            })
-            .unwrap_or(&[]);
-        let husky_debugger = HuskyDebuggerInstance::new(
-            HuskyDebuggerConfig {
-                package_dir,
-                opt_sample_id: Some(SampleId(23)),
-                verbose: false,
-                compiled: false,
-            },
-            linkages_from_cdylib,
-        );
+        let husky_debugger = HuskyDebuggerInstance::new(HuskyDebuggerConfig {
+            package_dir,
+            opt_sample_id: Some(SampleId(23)),
+            verbose: false,
+            compiled: false,
+        });
         finalize(
             husky_debugger
                 .serve_on_error("localhost:51617", SampleId(0))
                 .await,
         )
     }
-}
-
-#[cfg(target_os = "linux")]
-static DYLIB_EXTENSION: &'static str = "so";
-#[cfg(target_os = "macos")]
-static DYLIB_EXTENSION: &'static str = "dylib";
-
-fn get_library(package_dir: &Path) -> Option<Library> {
-    let package_name = package_dir
-        .file_name()
-        .unwrap()
-        .to_str()
-        .unwrap()
-        .with_boundaries(&[Boundary::Hyphen])
-        .to_case(Case::Snake);
-    let library_release_path = package_dir.join(format!(
-        "__rust_gen__/target/release/lib{}.{DYLIB_EXTENSION}",
-        package_name
-    ));
-    if library_release_path.exists() {
-        return Some(unsafe { Library::new(library_release_path) }.expect("it should work"));
-    }
-    let library_debug_path = package_dir.join(format!(
-        "__rust_gen__/target/debug/lib{}.{DYLIB_EXTENSION}",
-        package_name,
-    ));
-    if library_debug_path.exists() {
-        todo!()
-    }
-    None
 }
 
 fn finalize(test_result: TestResult) {

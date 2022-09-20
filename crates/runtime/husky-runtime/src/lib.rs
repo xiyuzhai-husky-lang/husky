@@ -11,15 +11,18 @@ use husky_feature_gen::FeatureInterner;
 pub use husky_feature_gen::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, InternFeature};
 pub use husky_instruction_gen::InstructionGenQueryGroup;
 use husky_linkage_table::LinkageTable;
+use husky_vm::{__Linkage, __StaticLinkageKey};
 use indexmap::IndexMap;
 pub use query::*;
 
+use convert_case::{Boundary, Case, Casing};
 use husky_check_utils::*;
 use husky_feature_eval::*;
 use husky_feature_eval::{EvalFeature, Session};
 use husky_file::{FilePtr, FileQueryGroup};
 use husky_print_utils::*;
-use std::sync::Arc;
+use libloading::Library;
+use std::{path::Path, sync::Arc};
 use sync_utils::ASafeRwLock;
 use variant::*;
 
@@ -64,9 +67,20 @@ pub struct RuntimeConfig {
     pub comptime: ComptimeConfig,
 }
 
+type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];
+
 impl Runtime {
-    pub fn new(init_runtime: impl FnOnce(&mut Runtime), config: RuntimeConfig) -> Runtime {
+    pub fn new(config: RuntimeConfig) -> Runtime {
         let feature_interner = husky_feature_gen::new_feature_interner();
+        let opt_library = get_library(&config.comptime.package_dir);
+        let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = opt_library
+            .as_ref()
+            .map(|library| unsafe {
+                library
+                    .get::<GetLinkagesFromCDylib>(b"get_linkages")
+                    .expect("what")()
+            })
+            .unwrap_or(&[]);
         let mut runtime = Self {
             storage: Default::default(),
             variant: HuskyRuntimeVariant::None,
@@ -81,7 +95,8 @@ impl Runtime {
             // config
             config,
         };
-        init_runtime(&mut runtime);
+        todo!();
+        // init_runtime(&mut runtime);
         let all_main_files = runtime.all_target_entrances();
         should_eq!(all_main_files.len(), 1, "config = {:?}", runtime.config);
         runtime.init();
@@ -106,4 +121,33 @@ impl Runtime {
             session: Session::new(&package, self, &self.evaluator_config().vm).unwrap(),
         }
     }
+}
+
+fn get_library(package_dir: &Path) -> Option<Library> {
+    #[cfg(target_os = "linux")]
+    static DYLIB_EXTENSION: &'static str = "so";
+    #[cfg(target_os = "macos")]
+    static DYLIB_EXTENSION: &'static str = "dylib";
+    let package_name = package_dir
+        .file_name()
+        .unwrap()
+        .to_str()
+        .unwrap()
+        .with_boundaries(&[Boundary::Hyphen])
+        .to_case(Case::Snake);
+    let library_release_path = package_dir.join(format!(
+        "__rust_gen__/target/release/lib{}.{DYLIB_EXTENSION}",
+        package_name
+    ));
+    if library_release_path.exists() {
+        return Some(unsafe { Library::new(library_release_path) }.expect("it should work"));
+    }
+    let library_debug_path = package_dir.join(format!(
+        "__rust_gen__/target/debug/lib{}.{DYLIB_EXTENSION}",
+        package_name,
+    ));
+    if library_debug_path.exists() {
+        todo!()
+    }
+    None
 }

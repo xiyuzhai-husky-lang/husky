@@ -9,16 +9,9 @@ pub(crate) struct HuskyDebuggerInstance {
 }
 
 impl HuskyDebuggerInstance {
-    pub fn new(config: HuskyDebuggerConfig, linkages: &[(__StaticLinkageKey, __Linkage)]) -> Self {
+    pub fn new(config: HuskyDebuggerConfig) -> Self {
         let package_dir: &Path = &config.package_dir;
-        let mut debugtime = Debugtime::new(
-            |runtime| {
-                todo!()
-                // runtime.load_package(package_dir);
-                // runtime.load_linkages(linkages)
-            },
-            config.runtime(),
-        );
+        let mut debugtime = Debugtime::new(config.runtime());
         if let Some(specific_sample_id) = config.opt_sample_id {
             todo!()
             // debugtime
