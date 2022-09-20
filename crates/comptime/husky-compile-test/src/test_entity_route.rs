@@ -3,7 +3,7 @@ use crate::*;
 #[cfg(test)]
 #[test]
 fn no_error_single_file() {
-    let mut db = HuskyComptime::new_default(__resolve_root_defn);
+    let mut db = Comptime::new_default(__resolve_root_defn);
     db.set_live_file_text(
         "haha/main.hsy".into(),
         r#"
@@ -27,7 +27,7 @@ main:
 
 #[test]
 fn no_error_many_files() {
-    let mut db = HuskyComptime::new_default(__resolve_root_defn);
+    let mut db = Comptime::new_default(__resolve_root_defn);
     db.set_live_file_text(
         "haha/main.hsy".into(),
         r#"

@@ -4,7 +4,7 @@ use std::{fmt, panic, thread};
 use serde::{de::DeserializeOwned, Serialize};
 
 use salsa::ParallelDatabase;
-type HuskyComptimeSnapshot = salsa::Snapshot<husky_comptime::HuskyComptime>;
+type HuskyComptimeSnapshot = salsa::Snapshot<husky_comptime::Comptime>;
 
 use crate::{
     server::{Server, TaskSet},

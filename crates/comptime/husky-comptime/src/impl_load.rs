@@ -4,7 +4,7 @@ use husky_vm::__Linkage;
 use crate::*;
 use std::{fs, path::Path};
 
-impl HuskyComptime {
+impl Comptime {
     pub(super) fn set_target_entrance(&mut self, package_dir: &Path) {
         // assert!(self.opt_target_entrance().is_none());
         self.set_opt_target_entrance(Some(self.intern_file(package_dir.join("main.hsy"))))
