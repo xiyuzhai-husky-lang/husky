@@ -12,7 +12,7 @@ mod utils;
 #[cfg(test)]
 use husky_check_utils::*;
 #[cfg(test)]
-use husky_comptime::HuskyComptime;
+use husky_comptime::Comptime;
 #[cfg(test)]
 use husky_comptime::*;
 #[cfg(test)]

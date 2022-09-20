@@ -55,8 +55,8 @@ use sync_utils::ASafeRwLock;
     husky_rust_code_gen::RustGenQueryStorage,
     husky_layout::HuskyLayoutQueryGroupStorage
 )]
-pub struct HuskyComptime {
-    storage: salsa::Storage<HuskyComptime>,
+pub struct Comptime {
+    storage: salsa::Storage<Comptime>,
     file_interner: Arc<husky_file::FileInterner>,
     word_interner: Arc<husky_word::WordInterner>,
     entity_route_interner: Arc<husky_entity_route::EntityRouteInterner>,
@@ -66,7 +66,7 @@ pub struct HuskyComptime {
     config: ComptimeConfig,
 }
 
-impl HuskyComptime {
+impl Comptime {
     pub fn new(config: ComptimeConfig) -> Self {
         let mut comptime = Self {
             storage: Default::default(),
@@ -188,5 +188,5 @@ impl HuskyComptime {
 }
 
 pub trait AskCompileTime {
-    fn comptime(&self) -> &HuskyComptime;
+    fn comptime(&self) -> &Comptime;
 }

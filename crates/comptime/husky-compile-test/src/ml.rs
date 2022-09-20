@@ -3,7 +3,7 @@ use crate::*;
 
 #[test]
 fn haha() {
-    let mut db = HuskyComptime::new_default(__resolve_root_defn);
+    let mut db = Comptime::new_default(__resolve_root_defn);
     let source: &'static str = r#"
 task:
     ml::datasets::synthetic::trivial::real1d::dataset1()
