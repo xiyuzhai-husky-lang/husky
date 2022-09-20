@@ -14,7 +14,7 @@ impl Debugtime {
         Vec<(TraceStalkKey, TraceStalk)>,
         Vec<(TraceStatsKey, Option<TraceStats>)>,
     )> {
-        self.state.restriction = restriction;
+        *self.state.restriction = restriction;
         self.updating();
         self.update_figure_canvases()?;
         self.update_figure_controls()?;

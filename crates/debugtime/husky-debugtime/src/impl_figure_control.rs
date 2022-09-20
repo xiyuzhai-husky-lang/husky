@@ -101,7 +101,7 @@ impl Debugtime {
         &mut self,
     ) -> DebugtimeUpdatingM<Vec<(FigureControlKey, FigureControlData)>> {
         let mut new_figure_controls: Vec<(FigureControlKey, FigureControlData)> = vec![];
-        if let Some(active_trace_id) = self.state.opt_active_trace_id {
+        if let Some(active_trace_id) = *self.state.opt_active_trace_id {
             self.update_figure_control(active_trace_id, &mut new_figure_controls)?;
         }
         for pin in self.state.pins.clone().into_iter() {

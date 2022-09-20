@@ -5,10 +5,10 @@ impl Debugtime {
     pub fn keyed_trace_stalk(&mut self, trace_id: TraceId) -> (TraceStalkKey, TraceStalk) {
         let sample_id = self.state.restriction.opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);
-        if !self.state.trace_stalks.contains_key(&key) {
+        if !self.state.trace_stalks.contains(&key) {
             self.state
                 .trace_stalks
-                .insert(key.clone(), self.produce_trace_stalk(trace_id, sample_id));
+                .insert_new(key.clone(), self.produce_trace_stalk(trace_id, sample_id));
         }
         let trace_stalk_raw_data = self.state.trace_stalks[&key].clone();
         (key, trace_stalk_raw_data)
@@ -59,45 +59,33 @@ impl Debugtime {
         }
     }
 
-    pub(crate) fn update_trace_stalks(&mut self) -> Vec<(TraceStalkKey, TraceStalk)> {
+    pub(crate) fn update_trace_stalks(&mut self) {
         if let Some(sample_id) = self.state.restriction.opt_sample_id() {
-            let mut trace_stalks = Vec::new();
             // ad hoc
             for root_trace_id in self.state.root_traces().to_vec() {
-                self.collect_new_trace_stalks_within_trace(
-                    sample_id,
-                    root_trace_id,
-                    &mut trace_stalks,
-                );
+                self.collect_new_trace_stalks_within_trace(sample_id, root_trace_id)
             }
-            trace_stalks
-        } else {
-            vec![]
         }
     }
 
-    fn collect_new_trace_stalks_within_trace(
-        &mut self,
-        sample_id: SampleId,
-        trace_id: TraceId,
-        trace_stalks: &mut Vec<(TraceStalkKey, TraceStalk)>,
-    ) {
+    fn collect_new_trace_stalks_within_trace(&mut self, sample_id: SampleId, trace_id: TraceId) {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
         let trace_stalk_key = TraceStalkKey::from_trace_data(sample_id, trace_raw_data);
         let associated_trace_ids = trace_raw_data.associated_trace_ids();
-        if !self.state.trace_stalks.contains_key(&trace_stalk_key) {
+        if !self.state.trace_stalks.contains(&trace_stalk_key) {
             let (key, data) = self.keyed_trace_stalk(trace_id);
-            self.state.trace_stalks.insert(key.clone(), data.clone());
-            trace_stalks.push((key, data))
+            self.state
+                .trace_stalks
+                .insert_new(key.clone(), data.clone());
         }
         for associated_trace_id in associated_trace_ids {
-            self.collect_new_trace_stalks_within_trace(sample_id, associated_trace_id, trace_stalks)
+            self.collect_new_trace_stalks_within_trace(sample_id, associated_trace_id)
         }
         if expanded {
             for subtrace_id in self.subtrace_ids(trace_id) {
-                self.collect_new_trace_stalks_within_trace(sample_id, subtrace_id, trace_stalks)
+                self.collect_new_trace_stalks_within_trace(sample_id, subtrace_id)
             }
         }
     }

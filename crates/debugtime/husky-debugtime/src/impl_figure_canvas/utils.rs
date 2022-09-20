@@ -45,7 +45,7 @@ impl Debugtime {
     }
 
     pub(crate) fn update_figure_canvases(&mut self) -> DebugtimeUpdatingM<()> {
-        if let Some(active_trace_id) = self.state.opt_active_trace_id {
+        if let Some(active_trace_id) = *self.state.opt_active_trace_id {
             self.update_figure_canvas(active_trace_id, true)?;
             self.update_figure_canvas(active_trace_id, false)?;
         }
