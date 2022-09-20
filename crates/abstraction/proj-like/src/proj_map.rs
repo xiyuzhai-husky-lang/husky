@@ -39,3 +39,14 @@ where
         }
     }
 }
+
+impl<K, V> std::ops::Index<&K> for ProjMap<K, V>
+where
+    K: PartialEq + Eq,
+{
+    type Output = V;
+
+    fn index(&self, index: &K) -> &Self::Output {
+        self.get(&index).unwrap()
+    }
+}

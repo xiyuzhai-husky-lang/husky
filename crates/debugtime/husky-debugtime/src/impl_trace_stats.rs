@@ -1,21 +1,14 @@
 use crate::{ops::DebugtimeUpdatedM, *};
 
 impl Debugtime {
-    pub(crate) fn update_trace_statss(
-        &mut self,
-    ) -> DebugtimeUpdatingM<Vec<(TraceStatsKey, Option<TraceStats>)>> {
-        let mut trace_statss = Vec::new();
+    pub(crate) fn update_trace_statss(&mut self) -> DebugtimeUpdatingM<()> {
         for root_trace_id in self.state.root_traces().to_vec() {
-            self.update_trace_statss_within_trace(root_trace_id, &mut trace_statss)?;
+            self.update_trace_statss_within_trace(root_trace_id)?;
         }
-        DebugtimeUpdatingM::Ok(trace_statss)
+        DebugtimeUpdatingM::Ok(())
     }
 
-    fn update_trace_statss_within_trace(
-        &mut self,
-        trace_id: TraceId,
-        new_trace_statss: &mut Vec<(TraceStatsKey, Option<TraceStats>)>,
-    ) -> DebugtimeUpdatingM<()> {
+    fn update_trace_statss_within_trace(&mut self, trace_id: TraceId) -> DebugtimeUpdatingM<()> {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
@@ -24,26 +17,21 @@ impl Debugtime {
             partitions: self.state.restriction.partitions().clone(),
         };
         let associated_trace_ids = trace_raw_data.associated_trace_ids();
-        if !self.state.trace_statss.contains_key(&trace_stats_key) {
-            self.gen_trace_stats(trace_id, trace_stats_key, new_trace_statss)?
+        if !self.state.trace_statss.contains(&trace_stats_key) {
+            self.gen_trace_stats(trace_id, trace_stats_key)?
         }
         for associated_trace_id in associated_trace_ids {
-            self.update_trace_statss_within_trace(associated_trace_id, new_trace_statss)?
+            self.update_trace_statss_within_trace(associated_trace_id)?
         }
         if expanded {
             for subtrace_id in self.subtrace_ids(trace_id) {
-                self.update_trace_statss_within_trace(subtrace_id, new_trace_statss)?
+                self.update_trace_statss_within_trace(subtrace_id)?
             }
         }
         DebugtimeUpdatingM::Ok(())
     }
 
-    fn gen_trace_stats(
-        &mut self,
-        trace_id: TraceId,
-        key: TraceStatsKey,
-        new_trace_statss: &mut Vec<(TraceStatsKey, Option<TraceStats>)>,
-    ) -> DebugtimeUpdatingM<()> {
+    fn gen_trace_stats(&mut self, trace_id: TraceId, key: TraceStatsKey) -> DebugtimeUpdatingM<()> {
         let (opt_stats, result) = self
             .trace(trace_id)
             .variant
@@ -51,8 +39,7 @@ impl Debugtime {
             .split();
         self.state
             .trace_statss
-            .insert(key.clone(), opt_stats.clone());
-        new_trace_statss.push((key, opt_stats));
+            .insert_new(key.clone(), opt_stats.clone());
         self.updating_t(result)
     }
 

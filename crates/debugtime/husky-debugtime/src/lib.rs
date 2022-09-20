@@ -58,8 +58,8 @@ impl Debugtime {
         debugtime
     }
 
-    pub fn opt_active_trace_id(&mut self) -> Option<TraceId> {
-        self.state.opt_active_trace_id
+    pub fn opt_active_trace_id(&self) -> Option<TraceId> {
+        *self.state.opt_active_trace_id
     }
 
     pub fn activate(
@@ -69,7 +69,7 @@ impl Debugtime {
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
     )> {
-        self.state.opt_active_trace_id = Some(trace_id);
+        *self.state.opt_active_trace_id = Some(trace_id);
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
         DebugtimeUpdatedM::Ok((todo!(), todo!()))
@@ -194,9 +194,9 @@ impl Debugtime {
                 .iter()
                 .map(|opt_node| opt_node.as_ref().unwrap().to_data())
                 .collect();
-            let trace_stalks = self.update_trace_stalks();
-            let trace_stats = self.update_trace_statss()?;
-            Some((new_traces, subtrace_ids, trace_stalks, trace_stats))
+            self.update_trace_stalks();
+            self.update_trace_statss()?;
+            Some((todo!(), todo!(), todo!(), todo!()))
         } else {
             None
         })

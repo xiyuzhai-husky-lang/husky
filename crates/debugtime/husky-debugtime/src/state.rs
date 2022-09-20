@@ -2,21 +2,21 @@ mod hot_reload;
 mod update;
 
 pub use hot_reload::*;
-use proj_like::ProjMap;
+use proj_like::{ProjAtom, ProjMap, ProjVec};
 pub use update::*;
 
 use crate::*;
 
 #[derive(Default)]
 pub struct DebugtimeState {
-    pub(crate) restriction: Restriction,
+    pub(crate) restriction: ProjAtom<Restriction>,
     pub(crate) pins: VecSet<TraceId>,
-    pub(crate) trace_nodes: Vec<Option<TraceNode>>,
-    pub(crate) opt_active_trace_id: Option<TraceId>,
-    pub(crate) figure_canvases: VecSet<FigureCanvasKey>,
+    pub(crate) opt_active_trace_id: ProjAtom<Option<TraceId>>,
+    pub(crate) trace_nodes: ProjVec<Option<TraceNode>>,
+    pub(crate) figure_canvases: ProjMap<FigureCanvasKey, FigureCanvasData>,
     pub(crate) figure_controls: ProjMap<FigureControlKey, FigureControlData>,
-    pub(crate) trace_stalks: HashMap<TraceStalkKey, TraceStalk>,
-    pub(crate) trace_statss: HashMap<TraceStatsKey, Option<TraceStats>>,
+    pub(crate) trace_stalks: ProjMap<TraceStalkKey, TraceStalk>,
+    pub(crate) trace_statss: ProjMap<TraceStatsKey, Option<TraceStats>>,
     root_traces: Vec<TraceId>,
     pub(crate) subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
 }
