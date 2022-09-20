@@ -14,7 +14,16 @@ pub struct ProjVecState {
 }
 
 impl<E> ProjVec<E> {
-    pub fn push(&mut self, elem: E) -> ProjUpdatingM<Self, ()> {
+    fn synced(&self) -> bool {
+        self.state.old_len == self.entries.len() && self.state.elems_modified.len() == 0
+    }
+
+    pub fn push(&mut self, elem: E) -> ProjMakeChangeM<Self, ()> {
+        todo!()
+    }
+
+    pub fn apply_set_elem(&mut self, elem: E) -> ProjApplyChangeM<Self, ()> {
+        assert!(self.synced());
         todo!()
     }
 }
