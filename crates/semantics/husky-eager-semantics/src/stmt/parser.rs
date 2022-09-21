@@ -19,7 +19,7 @@ impl<'a> EagerParser<'a> {
     pub(crate) fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena, file: FilePtr) -> Self {
         msg_once!("check no errors in entity_route_sheet");
         let qualified_ty_sheet = db.qualified_ty_sheet(file).unwrap();
-        let target_entrance = db.target_entrance(file).unwrap();
+        let target_entrance = db.module_target_entrance(file).unwrap();
         Self {
             target_entrance,
             db,

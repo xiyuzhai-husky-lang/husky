@@ -315,7 +315,7 @@ impl<'a> FeatureExprBuilder<'a> {
             LazyExprVariant::EntityFeature { entity_route } => match entity_route.variant {
                 EntityRouteVariant::Root { .. } | EntityRouteVariant::Package { .. } => panic!(),
                 EntityRouteVariant::Child { .. } => {
-                    let uid = self.db.comptime().entity_uid(entity_route);
+                    let uid = self.db.entity_uid(entity_route);
                     let feature = self.feature_interner.intern(Feature::EntityFeature {
                         route: entity_route,
                         uid,

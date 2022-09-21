@@ -22,7 +22,7 @@ impl<'a> TraceLineBuilder<'a> {
                     self.gen_literal_token(value, Some(expr.expr.range.start))
                 }
                 LazyExprVariant::EnumLiteral { .. } => {
-                    let text = self.runtime().comptime().text(expr.expr.file).unwrap();
+                    let text = self.runtime().text(expr.expr.file).unwrap();
                     self.gen_route_token(
                         text.ranged(expr.expr.range),
                         opt_assoc,
@@ -102,7 +102,7 @@ impl<'a> TraceLineBuilder<'a> {
                 _ => panic!(),
             },
             FeatureLazyExprVariant::EntityFeature { .. } => {
-                let text = self.runtime.comptime().text(expr.expr.file).unwrap();
+                let text = self.runtime.text(expr.expr.file).unwrap();
                 self.gen_route_token(
                     text.ranged(expr.expr.range),
                     opt_assoc,
@@ -217,7 +217,7 @@ impl<'a> TraceLineBuilder<'a> {
         config: ExprTokenConfig,
         expr: &LazyExpr,
     ) {
-        let text = self.runtime().comptime().text(file).unwrap();
+        let text = self.runtime().text(file).unwrap();
         self.gen_route_token(
             text.ranged(ranged_scope.range),
             opt_associated_trace_id,

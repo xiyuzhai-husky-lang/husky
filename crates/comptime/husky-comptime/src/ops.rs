@@ -5,14 +5,19 @@ use husky_vm::__Linkage;
 use std::{fs, path::Path};
 
 pub trait ComptimeOps: FileSalsaQuery + ResolveLinkage + Sized {
-    fn set_target_entrance_from_package_dir(&mut self, package_dir: &Path) {
+    fn comptime_config(&self) -> &ComptimeConfig;
+
+    fn set_target_entrance_from_package_dir(&mut self) {
         // assert!(self.opt_target_entrance().is_none());
-        self.set_opt_target_entrance(Some(self.intern_file(package_dir.join("main.hsy"))))
+        let package_main_file =
+            self.intern_file(self.comptime_config().package_dir.join("main.hsy"));
+        self.set_opt_target_entrance(Some(package_main_file))
     }
 
-    fn load_package(&mut self, package_dir: &Path) {
-        self.set_target_entrance_from_package_dir(package_dir);
-        self.load_dir(package_dir);
+    fn load_package(&mut self) {
+        self.set_target_entrance_from_package_dir();
+        // ad hoc
+        self.load_dir(&self.comptime_config().package_dir.clone());
     }
 
     fn load_dir(&mut self, dir: &Path) {
@@ -39,4 +44,8 @@ pub trait ComptimeOps: FileSalsaQuery + ResolveLinkage + Sized {
     }
 }
 
-impl ComptimeOps for HuskyComptime {}
+impl ComptimeOps for HuskyComptime {
+    fn comptime_config(&self) -> &ComptimeConfig {
+        &self.config
+    }
+}

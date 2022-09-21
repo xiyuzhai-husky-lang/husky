@@ -22,7 +22,8 @@ impl Server {
             client_comm: ClientCommunicator::new(sender),
             threadpool: ThreadPool::default(),
             event_loop_comm: EventLoopCommunicator::default(),
-            db: HuskyComptime::new_default(__resolve_root_defn),
+            // ad hoc
+            db: HuskyComptime::new_default("".into(), __resolve_root_defn),
         }
     }
 }

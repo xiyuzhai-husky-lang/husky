@@ -149,7 +149,7 @@ impl Debugtime {
     ) -> TraceTokenData {
         TraceTokenData {
             kind: TraceTokenKind::Fade,
-            value: self.comptime().print_short(&value, ty),
+            value: self.runtime().print_short(&value, ty),
             opt_associated_trace_id: None,
         }
     }

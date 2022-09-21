@@ -66,13 +66,13 @@ impl Debugtime {
     ) -> TraceId {
         let tokens = match entity.variant {
             EntityDefnVariant::Func { ref parameters, .. } => routine_call_head_tokens(
-                &self.runtime.comptime().text(entity.file).unwrap(),
+                &self.runtime().text(entity.file).unwrap(),
                 "func ",
                 entity.ident,
                 parameters,
             ),
             EntityDefnVariant::Proc { ref parameters, .. } => routine_call_head_tokens(
-                &self.runtime.comptime().text(entity.file).unwrap(),
+                &self.runtime().text(entity.file).unwrap(),
                 "proc ",
                 entity.ident,
                 parameters,
@@ -81,7 +81,7 @@ impl Debugtime {
             EntityDefnVariant::Feature { .. } => todo!(),
             EntityDefnVariant::Function { .. } => todo!(),
             EntityDefnVariant::Method { ref parameters, .. } => routine_call_head_tokens(
-                &self.runtime.comptime().text(entity.file).unwrap(),
+                &self.runtime().text(entity.file).unwrap(),
                 "func ",
                 entity.ident,
                 parameters,

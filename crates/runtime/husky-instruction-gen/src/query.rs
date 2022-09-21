@@ -1,11 +1,11 @@
 use crate::*;
-use husky_comptime::AskCompileTime;
+use husky_comptime::ComptimeQueryGroup;
 use husky_file::FilePtr;
 use husky_package_semantics::PackageQueryGroup;
 use infer_decl::DeclQueryGroup;
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
-pub trait InstructionGenQueryGroup: AskCompileTime {
+pub trait InstructionGenQueryGroup: ComptimeQueryGroup {
     fn entity_instruction_sheet(&self, route: EntityRoutePtr) -> Option<Arc<InstructionSheet>>;
     fn method_opt_instruction_sheet(
         &self,
@@ -19,7 +19,7 @@ fn entity_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     route: EntityRoutePtr,
 ) -> Option<Arc<InstructionSheet>> {
-    let entity_defn = db.comptime().entity_defn(route).unwrap();
+    let entity_defn = db.entity_defn(route).unwrap();
     match entity_defn.variant {
         EntityDefnVariant::Module { .. } => todo!(),
         EntityDefnVariant::Feature { .. } => todo!(),
@@ -84,10 +84,10 @@ fn method_opt_instruction_sheet(
     member_route: EntityRoutePtr,
 ) -> Option<Arc<InstructionSheet>> {
     let ty = member_route.parent();
-    let entity_defn = db.comptime().entity_defn(ty).unwrap();
+    let entity_defn = db.entity_defn(ty).unwrap();
     match entity_defn.variant {
         EntityDefnVariant::Ty { .. } => {
-            let method_defn = db.comptime().member_defn(member_route);
+            let method_defn = db.member_defn(member_route);
             match method_defn.variant {
                 EntityDefnVariant::Method {
                     ref parameters,
@@ -119,12 +119,12 @@ fn dataset_config_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
     target_entrance: FilePtr,
 ) -> Arc<InstructionSheet> {
-    let package = db.comptime().package(target_entrance).unwrap();
+    let package = db.package(target_entrance).unwrap();
     new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)
 }
 
 fn enum_literal_to_i32(db: &dyn InstructionGenQueryGroup, route: EntityRoutePtr) -> i32 {
-    let ty_decl = db.comptime().ty_decl(route.parent()).unwrap();
+    let ty_decl = db.ty_decl(route.parent()).unwrap();
     ty_decl
         .variants
         .position(route.ident().custom())

@@ -7,13 +7,13 @@ use husky_word::RootIdentifier;
 use std::sync::Arc;
 
 #[salsa::query_group(HuskyDataViewerQueryGroupStorage)]
-pub trait HuskyDataViewerQueryGroup: AskCompileTime {
+pub trait HuskyDataViewerQueryGroup: ComptimeQueryGroup {
     fn ty_data_viewer(&self, ty: EntityRoutePtr) -> Arc<HuskyDataViewer>;
 }
 
 fn ty_data_viewer(db: &dyn HuskyDataViewerQueryGroup, ty: EntityRoutePtr) -> Arc<HuskyDataViewer> {
-    let ty_decl: Arc<TyDecl> = db.comptime().ty_decl(ty).unwrap();
-    let comptime = db.comptime();
+    let ty_decl: Arc<TyDecl> = db.ty_decl(ty).unwrap();
+    let comptime = db;
     Arc::new(match ty_decl.ty_kind {
         TyKind::Enum => todo!(),
         TyKind::Record => todo!(),

@@ -34,8 +34,8 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
 
 impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     fn entity_uid(&self, entity_route_text: &str) -> u64 {
-        let route = self.db.comptime().parse_route_from_text(entity_route_text);
-        self.db.comptime().entity_uid(route).raw()
+        let route = self.db.parse_route_from_text(entity_route_text);
+        self.db.entity_uid(route).raw()
     }
 
     fn opt_cached_lazy_field(
@@ -81,8 +81,8 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     }
 
     fn feature_ptr(&self, feature_route_text: &str) -> *const std::ffi::c_void {
-        let route = self.db.comptime().parse_route_from_text(feature_route_text);
-        let uid = self.db.comptime().entity_uid(route);
+        let route = self.db.parse_route_from_text(feature_route_text);
+        let uid = self.db.entity_uid(route);
         unsafe {
             self.db
                 .feature_interner()
@@ -93,7 +93,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
 
     fn eval_feature_from_uid(&self, uid_raw: u64) -> __VMResult<__Register<'eval>> {
         let uid = unsafe { EntityUid::from_raw(uid_raw) };
-        let route = self.db.comptime().entity_route_by_uid(uid);
+        let route = self.db.entity_route_by_uid(uid);
         let feature = self
             .db
             .feature_interner()

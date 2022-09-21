@@ -50,7 +50,7 @@ impl<'a> AstTransformer<'a> {
         let module_file = db.module_file(module)?;
         return Ok(Self {
             db,
-            main: db.target_entrance(module_file).unwrap(),
+            main: db.module_target_entrance(module_file).unwrap(),
             file: module_file,
             arena: RawExprArena::new(),
             folded_results: FoldableList::new(),

@@ -10,6 +10,7 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 indexmap = "1.8.1"
 libloading = "0.7.3"
 convert_case = "0.6.0"
+relative-path = "1.7.2"
 # abstraction
 interner = { path = "../../abstraction/interner" }
 fold = { path = "../../abstraction/fold" }
@@ -61,3 +62,5 @@ husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
 # static
 husky-datasets-interface = { path = "../../static/domains/ml/husky-datasets-interface" }
+# ad hoc
+husky-compiler = { path = "../../apps/husky-compiler" }

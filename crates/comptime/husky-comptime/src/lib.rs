@@ -3,6 +3,7 @@ mod impl_code_gen;
 mod impl_diagnostics;
 mod impl_necessary;
 mod ops;
+mod query;
 pub mod utils;
 
 pub use config::*;
@@ -26,6 +27,7 @@ pub use infer_contract::*;
 pub use infer_decl::*;
 pub use infer_total::*;
 pub use ops::ComptimeOps;
+pub use query::*;
 
 use husky_check_utils::*;
 use husky_entity_route::EntityRoutePtr;
@@ -36,7 +38,7 @@ use husky_print_utils::*;
 use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 use husky_word::RootIdentifier;
 use indexmap::IndexMap;
-use std::{fmt, sync::Arc};
+use std::{fmt, path::PathBuf, sync::Arc};
 use sync_utils::ASafeRwLock;
 
 #[salsa::database(
@@ -85,109 +87,15 @@ impl HuskyComptime {
     }
 
     pub fn new_default(
+        package_dir: PathBuf,
         __root_defn: fn(
             ident: husky_word::RootIdentifier,
         ) -> &'static husky_static_defn::EntityStaticDefn,
     ) -> Self {
         Self::new(ComptimeConfig {
-            package_dir: Default::default(),
+            package_dir,
             __resolve_root_defn: __root_defn,
             linkage_table: Default::default(),
         })
     }
-
-    pub fn target_entrance(&self) -> FilePtr {
-        self.opt_target_entrance().unwrap()
-    }
-    // ad hoc loc
-    pub fn print_short<'eval>(&self, value: &__Register<'eval>, ty: EntityRoutePtr) -> String {
-        if value.data_kind() == __RegisterDataKind::SomeNone {
-            if unsafe { value.data().as_number_of_somes } > 0 {
-                todo!()
-            } else {
-                return "none".to_owned();
-            }
-        }
-        let intrinsic_ty = ty.intrinsic();
-        match intrinsic_ty {
-            EntityRoutePtr::Root(root_identifier) => match root_identifier {
-                RootIdentifier::Void => todo!(),
-                RootIdentifier::I32 => match value.data_kind() {
-                    __RegisterDataKind::Moved => todo!(),
-                    __RegisterDataKind::SomeNone => todo!(),
-                    __RegisterDataKind::Unreturned => "unreturned".to_string(),
-                    _ => format!("{}", value.downcast_i32()),
-                },
-                RootIdentifier::I64 => todo!(),
-                RootIdentifier::F32 => match value.data_kind() {
-                    __RegisterDataKind::Moved => todo!(),
-                    __RegisterDataKind::SomeNone => todo!(),
-                    __RegisterDataKind::Unreturned => "unreturned".to_string(),
-                    _ => format!("{}", value.downcast_f32()),
-                },
-                RootIdentifier::F64 => todo!(),
-                RootIdentifier::B32 => todo!(),
-                RootIdentifier::B64 => todo!(),
-                RootIdentifier::Bool => format!("{}", value.downcast_bool()),
-                RootIdentifier::True => todo!(),
-                RootIdentifier::False => todo!(),
-                RootIdentifier::Vec => todo!(),
-                RootIdentifier::Tuple => todo!(),
-                RootIdentifier::Debug => todo!(),
-                RootIdentifier::Std => todo!(),
-                RootIdentifier::Core => todo!(),
-                RootIdentifier::Mor => todo!(),
-                RootIdentifier::ThickFp => todo!(),
-                RootIdentifier::Fn => todo!(),
-                RootIdentifier::FnMut => todo!(),
-                RootIdentifier::FnOnce => todo!(),
-                RootIdentifier::Array => todo!(),
-                RootIdentifier::Domains => todo!(),
-                RootIdentifier::DatasetType => todo!(),
-                RootIdentifier::VisualType => todo!(),
-                RootIdentifier::TypeType => todo!(),
-                RootIdentifier::TraitType => todo!(),
-                RootIdentifier::ModuleType => todo!(),
-                RootIdentifier::CloneTrait => todo!(),
-                RootIdentifier::CopyTrait => todo!(),
-                RootIdentifier::PartialEqTrait => todo!(),
-                RootIdentifier::EqTrait => todo!(),
-                RootIdentifier::Ref => todo!(),
-                RootIdentifier::RefMut => todo!(),
-                RootIdentifier::Option => todo!(),
-            },
-            EntityRoutePtr::Custom(_) => {
-                let ty_decl: Arc<TyDecl> = self.ty_decl(intrinsic_ty).unwrap();
-                match ty_decl.ty_kind {
-                    TyKind::Enum => {
-                        let value: &__VirtualEnum = value.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
-                        let enum_variant_decl = &ty_decl.variants.data()[value.kind_idx as usize];
-                        format!("{}::{}", intrinsic_ty.ident(), enum_variant_decl.ident)
-                    }
-                    TyKind::Record => todo!(),
-                    TyKind::Struct => "{ ... }".to_string(),
-                    TyKind::Primitive => todo!(),
-                    TyKind::Vec => "[ ... ]".to_string(),
-                    TyKind::Array => todo!(),
-                    TyKind::Slice => todo!(),
-                    TyKind::CyclicSlice => "[ ... ]".to_string(),
-                    TyKind::Tuple => todo!(),
-                    TyKind::Mor => todo!(),
-                    TyKind::ThickFp => todo!(),
-                    TyKind::AssociatedAny => todo!(),
-                    TyKind::ThisAny => todo!(),
-                    TyKind::SpatialPlaceholderAny => todo!(),
-                    TyKind::BoxAny => todo!(),
-                    TyKind::HigherKind => todo!(),
-                    TyKind::Ref => todo!(),
-                    TyKind::Option => todo!(),
-                    TyKind::TargetOutputAny => todo!(),
-                }
-            }
-        }
-    }
-}
-
-pub trait AskCompileTime {
-    fn comptime(&self) -> &HuskyComptime;
 }

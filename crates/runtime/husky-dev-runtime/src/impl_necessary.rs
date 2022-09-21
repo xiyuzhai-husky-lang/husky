@@ -7,12 +7,6 @@ use crate::*;
 
 impl salsa::Database for HuskyDevRuntime {}
 
-impl AskCompileTime for HuskyDevRuntime {
-    fn comptime(&self) -> &HuskyComptime {
-        todo!()
-    }
-}
-
 impl InternFeature for HuskyDevRuntime {
     fn feature_interner(&self) -> &husky_feature_gen::FeatureInterner {
         &self.feature_interner

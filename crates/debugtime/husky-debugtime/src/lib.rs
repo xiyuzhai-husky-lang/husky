@@ -80,10 +80,6 @@ impl Debugtime {
         &self.runtime
     }
 
-    pub fn comptime(&self) -> &HuskyComptime {
-        self.runtime.comptime()
-    }
-
     pub fn all_trace_nodes(&self) -> Vec<TraceNodeData> {
         self.state
             .trace_nodes

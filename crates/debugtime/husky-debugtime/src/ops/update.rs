@@ -67,24 +67,24 @@ impl Debugtime {
     }
 
     fn update_root_traces(&mut self) -> DebugtimeMakeChangeM<()> {
-        let target_entrance = self.comptime().target_entrance();
+        let target_entrance = self.runtime().target_entrance();
         let now = Instant::now();
         let main_feature_repr = self.runtime().main_feature_repr(target_entrance);
         println!(
             "{} milliseconds elapsed for computing main feature",
             now.elapsed().as_millis(),
         );
-        let module = self.comptime().module(target_entrance).unwrap();
+        let module = self.runtime().module(target_entrance).unwrap();
         let mut root_traces = vec![];
         // add input trace
         root_traces.push(self.new_trace(None, 0, TraceVariant::input(self.runtime())));
         // add module traces
         for (subentity_kind, subentity_route) in
-            self.comptime().subentity_kinded_routes(module).iter()
+            self.runtime().subentity_kinded_routes(module).iter()
         {
             match subentity_kind {
                 EntityKind::Module => {
-                    if self.comptime().module_contains_features(*subentity_route) {
+                    if self.runtime().module_contains_features(*subentity_route) {
                         root_traces.push(self.new_trace(
                             None,
                             0,
