@@ -630,14 +630,12 @@ impl<'a> InstructionSheetBuilder<'a> {
         opds: &[Arc<EagerExpr>],
         element_binding: Binding,
     ) {
+        let index_linkage = self.db.index_linkage(opds.map(|opd| opd.intrinsic_ty()));
         self.push_instruction(Instruction::new(
             InstructionVariant::CallRoutine {
                 output_ty: expr.intrinsic_ty(),
                 nargs: opds.len().try_into().unwrap(),
-                resolved_linkage: self
-                    .db
-                    .index_linkage(opds.map(|opd| opd.intrinsic_ty()))
-                    .bind(element_binding),
+                resolved_linkage: index_linkage.bind(element_binding),
                 discard: false,
             },
             expr,

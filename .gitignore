@@ -27,8 +27,6 @@ __rust_gen_cache__
 *.exe
 __c_code_gen_test__
 
-# vscode
-.vscode
 
 # lean4
 /build

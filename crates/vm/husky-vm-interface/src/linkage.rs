@@ -29,11 +29,17 @@ impl __Linkage {
 
     #[cfg(feature = "binding")]
     pub fn bind(self, binding: husky_vm_binding::Binding) -> __ResolvedLinkage {
+        use husky_vm_binding::Binding;
+
+        todo!();
+        println!("{:?}", self);
+        todo!();
         match self {
             __Linkage::Member(linkage) => linkage.bind(binding),
             __Linkage::Transfer(fp) => fp,
             __Linkage::Model(_) => todo!(),
-        }
+        };
+        todo!();
     }
 
     pub fn transfer(self) -> __ResolvedLinkage {
