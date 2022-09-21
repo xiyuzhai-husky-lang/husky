@@ -1,6 +1,6 @@
 use crate::{convert::from_lsp_types, *};
 
-type HuskyLangDatabaseSnapshot = salsa::Snapshot<husky_comptime::Comptime>;
+type HuskyLangDatabaseSnapshot = salsa::Snapshot<husky_comptime::HuskyComptime>;
 
 use husky_comptime::{AllocateUniqueFile, AstSalsaQueryGroup};
 use husky_token::AbsSemanticToken;

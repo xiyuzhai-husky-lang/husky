@@ -8,7 +8,7 @@ use crate::*;
 impl salsa::Database for HuskyDevRuntime {}
 
 impl AskCompileTime for HuskyDevRuntime {
-    fn comptime(&self) -> &Comptime {
+    fn comptime(&self) -> &HuskyComptime {
         todo!()
     }
 }

@@ -2,7 +2,7 @@ use crate::*;
 
 impl CompilerInstance {
     pub(crate) fn transcribe_package_in_rust(&self, package_dir: &Path) {
-        let mut comptime = Comptime::new(ComptimeConfig {
+        let mut comptime = HuskyComptime::new(ComptimeConfig {
             __resolve_root_defn,
             linkage_table: LinkageTableConfig {
                 warn_missing_linkage: false,
@@ -107,7 +107,7 @@ debug = 1
 
     fn compile_maybe_module(
         &self,
-        comptime: &Comptime,
+        comptime: &HuskyComptime,
         rust_code_path: PathBuf,
         husky_code_snapshot_path: &Path,
         module: &EntityDefn,
@@ -139,7 +139,7 @@ debug = 1
 
     fn save_husky_code_snapshot(
         &self,
-        comptime: &Comptime,
+        comptime: &HuskyComptime,
         husky_code_snapshot_path: &Path,
         target_entrance: FilePtr,
     ) {
