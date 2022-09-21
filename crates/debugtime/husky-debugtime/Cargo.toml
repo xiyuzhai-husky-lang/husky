@@ -36,7 +36,7 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
-husky-runtime = { path = "../../runtime/husky-runtime" }
+husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-trace = { path = "../../debugtime/husky-trace" }
 husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
 husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
