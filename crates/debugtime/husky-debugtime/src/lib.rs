@@ -80,7 +80,7 @@ impl Debugtime {
         &self.runtime
     }
 
-    pub fn comptime(&self) -> &Comptime {
+    pub fn comptime(&self) -> &HuskyComptime {
         self.runtime.comptime()
     }
 

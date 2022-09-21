@@ -39,4 +39,4 @@ pub trait ComptimeOps: FileSalsaQuery + ResolveLinkage + Sized {
     }
 }
 
-impl ComptimeOps for Comptime {}
+impl ComptimeOps for HuskyComptime {}

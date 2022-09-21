@@ -2,7 +2,7 @@ use husky_trace_protocol::Label;
 
 use crate::*;
 
-impl Comptime {
+impl HuskyComptime {
     pub fn register_to_label_converter(
         &self,
     ) -> for<'eval> fn(&__Register<'eval>) -> __RegisterDowncastResult<Label> {
