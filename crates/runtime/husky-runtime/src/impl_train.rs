@@ -6,7 +6,7 @@ use husky_vm::{GenericArgument, __Register, __VMError, __VMResult};
 use husky_vm::{__RegistrableSafe, __VirtualEnum};
 use std::time::Instant;
 
-impl TrainModel for Runtime {
+impl TrainModel for HuskyDevRuntime {
     fn train(
         &self,
         model: husky_vm::__ModelLinkage,
