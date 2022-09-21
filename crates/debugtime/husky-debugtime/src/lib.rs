@@ -40,14 +40,14 @@ use upcast::Upcast;
 use vec_like::VecSet;
 
 pub struct Debugtime {
-    runtime: Runtime,
+    runtime: HuskyDevRuntime,
     state: DebugtimeState,
 }
 
 impl Debugtime {
     pub fn new(runtime_config: RuntimeConfig) -> Self {
         let mut debugtime = Self {
-            runtime: Runtime::new(runtime_config),
+            runtime: HuskyDevRuntime::new(runtime_config),
             state: Default::default(),
         };
         assert!(debugtime.state.restriction.opt_sample_id().is_none());
@@ -76,7 +76,7 @@ impl Debugtime {
         self.state.root_traces().to_vec()
     }
 
-    pub fn runtime(&self) -> &Runtime {
+    pub fn runtime(&self) -> &HuskyDevRuntime {
         &self.runtime
     }
 

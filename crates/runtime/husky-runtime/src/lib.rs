@@ -47,8 +47,8 @@ use variant::*;
     husky_rust_code_gen::RustGenQueryStorage,
     husky_layout::HuskyLayoutQueryGroupStorage
 )]
-pub struct Runtime {
-    storage: salsa::Storage<Runtime>,
+pub struct HuskyDevRuntime {
+    storage: salsa::Storage<HuskyDevRuntime>,
     feature_interner: FeatureInterner,
     variant: HuskyRuntimeVariant,
     config: RuntimeConfig,
@@ -69,22 +69,12 @@ pub struct RuntimeConfig {
 
 type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];
 
-impl Runtime {
-    pub fn new(config: RuntimeConfig) -> Runtime {
-        let feature_interner = husky_feature_gen::new_feature_interner();
-        let opt_library = get_library(&config.comptime.package_dir);
-        let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = opt_library
-            .as_ref()
-            .map(|library| unsafe {
-                library
-                    .get::<GetLinkagesFromCDylib>(b"get_linkages")
-                    .expect("what")()
-            })
-            .unwrap_or(&[]);
+impl HuskyDevRuntime {
+    pub fn new(config: RuntimeConfig) -> HuskyDevRuntime {
         let mut runtime = Self {
             storage: Default::default(),
             variant: HuskyRuntimeVariant::None,
-            feature_interner,
+            feature_interner: husky_feature_gen::new_feature_interner(),
             // comptime
             file_interner: Arc::new(husky_file::new_file_interner()),
             word_interner: Arc::new(husky_word::new_word_interner()),
@@ -95,15 +85,14 @@ impl Runtime {
             // config
             config,
         };
-        todo!();
-        // init_runtime(&mut runtime);
-        let all_main_files = runtime.all_target_entrances();
-        should_eq!(all_main_files.len(), 1, "config = {:?}", runtime.config);
         runtime.init();
-        runtime.into()
+        runtime
     }
 
     fn init(&mut self) {
+        self.hot_reload();
+        let all_main_files = self.all_target_entrances();
+        should_eq!(all_main_files.len(), 1, "config = {:?}", self.config);
         let all_diagnostics = self.all_diagnostics();
         if all_diagnostics.len() > 0 {
             p!(all_diagnostics);
@@ -120,6 +109,19 @@ impl Runtime {
         self.variant = HuskyRuntimeVariant::Learning {
             session: Session::new(&package, self, &self.evaluator_config().vm).unwrap(),
         }
+    }
+
+    fn hot_reload(&mut self) {
+        let opt_library = get_library(&self.config.comptime.package_dir);
+        let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = opt_library
+            .as_ref()
+            .map(|library| unsafe {
+                library
+                    .get::<GetLinkagesFromCDylib>(b"get_linkages")
+                    .expect("what")()
+            })
+            .unwrap_or(&[]);
+        todo!()
     }
 }
 

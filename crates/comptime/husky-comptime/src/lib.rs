@@ -1,8 +1,8 @@
 mod config;
 mod impl_code_gen;
 mod impl_diagnostics;
-mod impl_load;
 mod impl_necessary;
+mod ops;
 pub mod utils;
 
 pub use config::*;
@@ -25,6 +25,7 @@ pub use husky_word::InternWord;
 pub use infer_contract::*;
 pub use infer_decl::*;
 pub use infer_total::*;
+pub use ops::ComptimeOps;
 
 use husky_check_utils::*;
 use husky_entity_route::EntityRoutePtr;

@@ -1,4 +1,4 @@
-use husky_comptime::{Comptime, EntitySyntaxQueryGroup};
+use husky_comptime::{Comptime, ComptimeOps, EntitySyntaxQueryGroup};
 use husky_display_utils::{compare_saved_data, HuskyDisplay};
 use husky_file::FilePtr;
 use husky_root_static_defn::__resolve_root_defn;
