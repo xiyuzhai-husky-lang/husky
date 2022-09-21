@@ -41,7 +41,7 @@ husky-diagnostics = { path = "../../semantics/husky-diagnostics" }
 husky-token = { path = "../../syntax/husky-token" }
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-text = { path = "../../syntax/husky-text" }
-husky-runtime = { path = "../../runtime/husky-runtime" }
+husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-trace = { path = "../../debugtime/husky-trace" }
 husky-debugtime = { path = "../../debugtime/husky-debugtime" }
