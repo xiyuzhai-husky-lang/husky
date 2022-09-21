@@ -2,41 +2,7 @@ use husky_trace_protocol::Label;
 
 use crate::*;
 
-impl HuskyComptime {
-    pub fn register_to_label_converter(
-        &self,
-    ) -> for<'eval> fn(&__Register<'eval>) -> __RegisterDowncastResult<Label> {
-        let target_output_ty = self.target_output_ty().unwrap();
-        let target_output_ty_intrinsic = target_output_ty.intrinsic();
-
-        if target_output_ty_intrinsic == RootIdentifier::I32.into() {
-            convert_i32_register_to_label
-        } else {
-            let target_output_ty_intrinsic_decl = self.ty_decl(target_output_ty_intrinsic).unwrap();
-            match target_output_ty_intrinsic_decl.ty_kind {
-                TyKind::Enum => convert_enum_register_to_label,
-                TyKind::Record => todo!(),
-                TyKind::Struct => todo!(),
-                TyKind::Primitive => todo!(),
-                TyKind::Vec => todo!(),
-                TyKind::Slice => todo!(),
-                TyKind::CyclicSlice => todo!(),
-                TyKind::Array => todo!(),
-                TyKind::Tuple => todo!(),
-                TyKind::Mor => todo!(),
-                TyKind::ThickFp => todo!(),
-                TyKind::AssociatedAny => todo!(),
-                TyKind::ThisAny => todo!(),
-                TyKind::TargetOutputAny => todo!(),
-                TyKind::SpatialPlaceholderAny => todo!(),
-                TyKind::BoxAny => todo!(),
-                TyKind::HigherKind => todo!(),
-                TyKind::Ref => todo!(),
-                TyKind::Option => todo!(),
-            }
-        }
-    }
-}
+impl HuskyComptime {}
 
 // todo: move this to vm
 #[derive(Debug)]
@@ -46,7 +12,7 @@ pub enum __RegisterDowncastResult<T> {
     Unreturned,
 }
 
-fn convert_i32_register_to_label<'eval>(
+pub(crate) fn convert_i32_register_to_label<'eval>(
     value: &__Register<'eval>,
 ) -> __RegisterDowncastResult<Label> {
     match value.data_kind() {

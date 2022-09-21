@@ -97,4 +97,10 @@ impl StoreEntityRoute for HuskyDevRuntime {
 
 impl DiagnosticQuery for HuskyDevRuntime {}
 
-impl ComptimeOps for HuskyDevRuntime {}
+impl ComptimeOps for HuskyDevRuntime {
+    fn comptime_config(&self) -> &ComptimeConfig {
+        &self.config.comptime
+    }
+}
+
+impl ComptimeQueryGroup for HuskyDevRuntime {}

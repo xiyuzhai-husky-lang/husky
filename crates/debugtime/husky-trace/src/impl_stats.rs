@@ -126,10 +126,9 @@ fn feature_opt_stats<'eval>(
     compute_value: impl Fn(SampleId) -> __VMResult<__Register<'eval>>,
     opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
 ) -> __VMResult<Option<TraceStats>> {
-    let comptime = db.comptime();
-    let target_output_ty = comptime.target_output_ty().unwrap();
+    let target_output_ty = db.target_output_ty().unwrap();
     // todo check this could cause some problem
-    if !comptime.is_implicitly_castable(feature_ty, target_output_ty) {
+    if !db.is_implicitly_castable(feature_ty, target_output_ty) {
         return Ok(None);
     }
     let mut dev_samples = 0;
@@ -139,7 +138,7 @@ fn feature_opt_stats<'eval>(
     let mut dev_trues = 0;
     let mut dev_falses = 0;
     let mut dev_partition_noness = partitions.init_partition_values();
-    let convert_register_to_label = comptime.register_to_label_converter();
+    let convert_register_to_label = db.register_to_label_converter();
     for labeled_data in db.session().dev().each_labeled_data() {
         if dev_samples >= MAX_SAMPING_SIZE {
             break;

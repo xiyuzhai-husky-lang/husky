@@ -85,7 +85,7 @@ impl<'a> TraceLineBuilder<'a> {
                     self.gen_special_token("]", associated_trace_id, Some(expr.range.closed_end()));
                 }
                 EagerOpnVariant::TypeCall { ranged_ty, .. } => {
-                    let text = self.runtime.comptime().text(expr.file).unwrap();
+                    let text = self.runtime.text(expr.file).unwrap();
                     self.gen_route_token(
                         text.ranged(ranged_ty.range),
                         None,
@@ -112,7 +112,7 @@ impl<'a> TraceLineBuilder<'a> {
             }
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
             EagerExprVariant::EntityFeature { .. } => {
-                let text = self.runtime.comptime().text(expr.file).unwrap();
+                let text = self.runtime.text(expr.file).unwrap();
                 self.gen_route_token(text.ranged(expr.range), None, Some(expr.range.closed_end()))
             }
             EagerExprVariant::EntityThickFp { .. } => todo!(),
@@ -136,7 +136,7 @@ impl<'a> TraceLineBuilder<'a> {
         history: &Arc<History<'static>>,
         config: &ExprTokenConfig,
     ) {
-        let text = self.runtime().comptime().text(file).unwrap();
+        let text = self.runtime().text(file).unwrap();
         self.gen_route_token(
             text.ranged(ranged_scope.range),
             opt_associated_trace_id,

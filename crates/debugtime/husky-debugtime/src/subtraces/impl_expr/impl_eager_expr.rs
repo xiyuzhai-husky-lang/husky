@@ -36,7 +36,7 @@ impl Debugtime {
             EagerOpnVariant::Prefix { .. } => todo!(),
             EagerOpnVariant::Suffix { .. } => todo!(),
             EagerOpnVariant::RoutineCall(route) => {
-                let routine_defn = self.runtime().comptime().entity_defn(route.route).unwrap();
+                let routine_defn = self.runtime().entity_defn(route.route).unwrap();
                 let instruction_sheet = self
                     .runtime()
                     .entity_instruction_sheet(route.route)
@@ -65,11 +65,7 @@ impl Debugtime {
             EagerOpnVariant::TypeCall { .. } => todo!(),
             EagerOpnVariant::Field { .. } => todo!(),
             EagerOpnVariant::MethodCall { method_route, .. } => {
-                let routine_defn = self
-                    .runtime()
-                    .comptime()
-                    .entity_defn(*method_route)
-                    .unwrap();
+                let routine_defn = self.runtime().entity_defn(*method_route).unwrap();
                 let instruction_sheet = self
                     .runtime()
                     .entity_instruction_sheet(*method_route)

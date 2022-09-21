@@ -89,7 +89,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         expr.clone(),
                     ));
                     self.push_instruction(Instruction::new(
-                        if let Some(linkage) = self.db.comptime().field_linkage_resolved(
+                        if let Some(linkage) = self.db.field_linkage_resolved(
                             this_ty.intrinsic(),
                             field_ident.ident,
                             field_binding,
@@ -101,7 +101,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 discard,
                             }
                         } else {
-                            let this_ty_decl = self.db.comptime().ty_decl(this_ty).unwrap();
+                            let this_ty_decl = self.db.ty_decl(this_ty).unwrap();
                             let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
                             match field_decl.field_kind {
                                 FieldKind::StructRegular
@@ -150,14 +150,14 @@ impl<'a> InstructionSheetBuilder<'a> {
             )),
             EagerExprVariant::EntityFeature { route } => self.push_instruction(Instruction::new(
                 InstructionVariant::EntityFeature {
-                    feature_uid: self.db.comptime().entity_uid(route),
+                    feature_uid: self.db.entity_uid(route),
                     ty: expr.intrinsic_ty(),
                 },
                 expr.clone(),
             )),
             EagerExprVariant::EntityThickFp { route } => self.push_instruction(Instruction::new(
                 InstructionVariant::PushEntityFp {
-                    opt_linkage: self.db.comptime().routine_linkage(route),
+                    opt_linkage: self.db.routine_linkage(route),
                     opt_instruction_sheet: self.db.entity_instruction_sheet(route),
                     ty: expr.intrinsic_ty(),
                 },
@@ -194,7 +194,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 self.compile_suffix(opr, opds, expr, discard)
             }
             EagerOpnVariant::RoutineCall(routine) => {
-                if let Some(linkage) = self.db.comptime().routine_linkage(routine.route) {
+                if let Some(linkage) = self.db.routine_linkage(routine.route) {
                     match linkage {
                         __Linkage::Member { .. } => todo!(),
                         __Linkage::Transfer(resolved_linkage) => {
@@ -213,7 +213,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 } else {
                     self.push_instruction(Instruction::new(
                         InstructionVariant::CallInterpreted {
-                            routine_uid: self.db.comptime().entity_uid(routine.route),
+                            routine_uid: self.db.entity_uid(routine.route),
                             nargs: opds.len().try_into().unwrap(),
                             output_ty: expr.intrinsic_ty(),
                             discard,
@@ -231,11 +231,10 @@ impl<'a> InstructionSheetBuilder<'a> {
                 // no discard
                 assert!(!discard);
                 self.push_instruction(Instruction::new(
-                    if let Some(linkage) = self.db.comptime().field_linkage_resolved(
-                        *this_ty,
-                        field_ident.ident,
-                        *field_binding,
-                    ) {
+                    if let Some(linkage) =
+                        self.db
+                            .field_linkage_resolved(*this_ty, field_ident.ident, *field_binding)
+                    {
                         InstructionVariant::CallRoutine {
                             resolved_linkage: linkage,
                             nargs: 1,
@@ -243,7 +242,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             discard,
                         }
                     } else {
-                        let this_ty_decl = self.db.comptime().ty_decl(*this_ty).unwrap();
+                        let this_ty_decl = self.db.ty_decl(*this_ty).unwrap();
                         let field_decl = this_ty_decl.field_decl(*field_ident).unwrap();
                         match field_decl.field_kind {
                             FieldKind::StructRegular
@@ -289,7 +288,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             } => {
                 // no discard
                 assert!(!discard);
-                let ty_defn = self.db.comptime().entity_defn(ranged_ty.route).unwrap();
+                let ty_defn = self.db.entity_defn(ranged_ty.route).unwrap();
                 let instruction_variant = match ty_defn.variant {
                     EntityDefnVariant::Ty {
                         ty_kind: kind,
@@ -327,8 +326,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             }
                         }
                         self.context.exit();
-                        if let Some(linkage) = self.db.comptime().type_call_linkage(ranged_ty.route)
-                        {
+                        if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
                             match linkage {
                                 __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
                                     output_ty: expr.intrinsic_ty(),
@@ -374,7 +372,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 // no discard
                 assert!(!discard);
                 let output_ty = expr.intrinsic_ty();
-                let linkage = self.db.comptime().type_call_linkage(output_ty).unwrap();
+                let linkage = self.db.type_call_linkage(output_ty).unwrap();
                 self.push_instruction(Instruction::new(
                     match linkage {
                         __Linkage::Member(_) => todo!(),
@@ -417,7 +415,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             resolve_primitive_suffix_opr_linkage(opr, root_identifier).transfer()
                         }
                         EntityRoutePtr::Custom(_) => {
-                            let ty_decl: Arc<TyDecl> = self.db.comptime().ty_decl(this_ty).unwrap();
+                            let ty_decl: Arc<TyDecl> = self.db.ty_decl(this_ty).unwrap();
                             match ty_decl.ty_kind {
                                 TyKind::Enum => match opr {
                                     EagerSuffixOpr::Incr => todo!(),
@@ -638,7 +636,6 @@ impl<'a> InstructionSheetBuilder<'a> {
                 nargs: opds.len().try_into().unwrap(),
                 resolved_linkage: self
                     .db
-                    .comptime()
                     .index_linkage(opds.map(|opd| opd.intrinsic_ty()))
                     .bind(element_binding),
                 discard: false,
@@ -655,7 +652,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         nargs: u8,
         discard: bool,
     ) -> InstructionVariant {
-        if let Some(linkage) = self.db.comptime().method_linkage(method_route) {
+        if let Some(linkage) = self.db.method_linkage(method_route) {
             match linkage {
                 __Linkage::Member { .. } => InstructionVariant::CallRoutine {
                     resolved_linkage: linkage.bind(output_binding),
@@ -673,12 +670,8 @@ impl<'a> InstructionSheetBuilder<'a> {
                 __Linkage::Model(_) => todo!(),
             }
         } else {
-            let method_uid = self.db.comptime().entity_uid(method_route);
-            let call_form_decl = self
-                .db
-                .comptime()
-                .entity_call_form_decl(method_route)
-                .unwrap();
+            let method_uid = self.db.entity_uid(method_route);
+            let call_form_decl = self.db.entity_call_form_decl(method_route).unwrap();
             InstructionVariant::CallInterpreted {
                 routine_uid: method_uid,
                 nargs: (call_form_decl.primary_parameters.len() + 1)

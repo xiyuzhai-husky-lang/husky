@@ -5,23 +5,25 @@ mod query;
 mod variant;
 
 pub use husky_comptime::*;
-use husky_diagnostics::DiagnosticQuery;
-use husky_entity_semantics::EntityRouteStore;
-use husky_feature_gen::FeatureInterner;
 pub use husky_feature_gen::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, InternFeature};
 pub use husky_instruction_gen::InstructionGenQueryGroup;
-use husky_linkage_table::LinkageTable;
-use husky_vm::{__Linkage, __StaticLinkageKey};
-use indexmap::IndexMap;
 pub use query::*;
 
 use convert_case::{Boundary, Case, Casing};
 use husky_check_utils::*;
+use husky_compiler::CompilerInstance;
+use husky_diagnostics::DiagnosticQuery;
+use husky_entity_semantics::EntityRouteStore;
 use husky_feature_eval::*;
 use husky_feature_eval::{EvalFeature, Session};
+use husky_feature_gen::FeatureInterner;
 use husky_file::{FilePtr, FileQueryGroup};
+use husky_linkage_table::LinkageTable;
 use husky_print_utils::*;
+use husky_vm::{__Linkage, __StaticLinkageKey};
+use indexmap::IndexMap;
 use libloading::Library;
+use relative_path::RelativePathBuf;
 use std::{path::Path, sync::Arc};
 use sync_utils::ASafeRwLock;
 use variant::*;
@@ -112,6 +114,11 @@ impl HuskyDevRuntime {
     }
 
     fn hot_reload(&mut self) {
+        CompilerInstance::new(
+            RelativePathBuf::from_path(&self.config.comptime.package_dir).unwrap(),
+        )
+        .compile_all();
+        self.load_package();
         let opt_library = get_library(&self.config.comptime.package_dir);
         let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = opt_library
             .as_ref()
@@ -121,7 +128,7 @@ impl HuskyDevRuntime {
                     .expect("what")()
             })
             .unwrap_or(&[]);
-        todo!()
+        self.load_linkages(linkages_from_cdylib);
     }
 }
 

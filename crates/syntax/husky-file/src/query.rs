@@ -41,7 +41,7 @@ pub trait FileSalsaQuery: LiveFiles {
     #[salsa::input]
     fn opt_target_entrance(&self) -> Option<FilePtr>;
 
-    fn target_entrance(&self, module_file: FilePtr) -> Option<FilePtr>;
+    fn module_target_entrance(&self, module_file: FilePtr) -> Option<FilePtr>;
 
     fn file_content(&self, id: FilePtr) -> FileContent;
 
@@ -67,7 +67,7 @@ fn file_content(db: &dyn FileSalsaQuery, id: FilePtr) -> FileContent {
         })
 }
 
-fn target_entrance(db: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<FilePtr> {
+fn module_target_entrance(db: &dyn FileSalsaQuery, module_file_id: FilePtr) -> Option<FilePtr> {
     let pth: PathBuf = (*module_file_id).into();
     for ancestor in pth.ancestors() {
         let id = db.intern_file(ancestor.with_file_name("main.hsy"));
@@ -118,7 +118,7 @@ pub trait FileQueryGroup: FileSalsaQuery {
     fn all_target_entrances(&self) -> Vec<FilePtr> {
         self.file_interner()
             .id_iter()
-            .filter_map(|id| self.target_entrance(id))
+            .filter_map(|id| self.module_target_entrance(id))
             .unique()
             .collect()
     }

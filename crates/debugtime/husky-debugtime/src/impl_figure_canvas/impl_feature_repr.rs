@@ -31,7 +31,7 @@ impl Debugtime {
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         // const COLUMN_HEIGHT: u32 = 5;
         let ty = repr.ty();
-        let visualizer = self.runtime().comptime().visualizer(ty.intrinsic());
+        let visualizer = self.runtime().visualizer(ty.intrinsic());
         match visualizer.visual_ty {
             VisualTy::Void => Ok(FigureCanvasData::void()),
             VisualTy::Bool => todo!(),
@@ -214,8 +214,8 @@ impl Debugtime {
                 TraceVariant::EagerCallArgument { .. } => todo!(),
                 TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
             };
-            assert!(ty == self.comptime().target_output_ty().unwrap());
-            let label_downcast_result = self.comptime().register_to_label_converter()(&value);
+            assert!(ty == self.runtime().target_output_ty().unwrap());
+            let label_downcast_result = self.runtime().register_to_label_converter()(&value);
             let true_label = self.runtime.session().dev().label(sample_id);
             match label_downcast_result {
                 __RegisterDowncastResult::Value(predicted_label) => {

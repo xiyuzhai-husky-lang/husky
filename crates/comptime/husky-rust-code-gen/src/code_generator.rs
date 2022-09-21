@@ -29,7 +29,9 @@ pub(crate) struct RustCodeGenerator<'a> {
 
 impl<'a> RustCodeGenerator<'a> {
     pub(crate) fn new(db: &'a dyn RustCodeGenQueryGroup, module: EntityRoutePtr) -> Self {
-        let target_entrance = db.target_entrance(db.module_file(module).unwrap()).unwrap();
+        let target_entrance = db
+            .module_target_entrance(db.module_file(module).unwrap())
+            .unwrap();
         let entity_defn = db.entity_defn(module).unwrap();
         let mut symbols = LocalStack::new();
         for entity_defn in entity_defn.subentities.iter() {

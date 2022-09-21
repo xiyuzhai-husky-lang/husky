@@ -8,7 +8,7 @@ pub(crate) fn visual_feature_lazy_block(
     db: &dyn FeatureGenQueryGroup,
     this: FeatureRepr,
 ) -> __VMResult<Arc<FeatureLazyBlock>> {
-    let visualizer: Arc<Visualizer> = db.comptime().visualizer(this.ty());
+    let visualizer: Arc<Visualizer> = db.visualizer(this.ty());
     Ok(FeatureLazyBlock::new(
         db,
         Some(this),

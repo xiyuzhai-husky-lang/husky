@@ -9,13 +9,13 @@ impl Debugtime {
         module: EntityRoutePtr,
     ) -> Vec<TraceId> {
         let mut subtrace_ids = vec![];
-        let module_file = self.comptime().module_file(module).unwrap();
+        let module_file = self.runtime().module_file(module).unwrap();
         for (subentity_kind, subentity_route) in
-            self.comptime().subentity_kinded_routes(module).iter()
+            self.runtime().subentity_kinded_routes(module).iter()
         {
             match subentity_kind {
                 EntityKind::Module => {
-                    if self.comptime().module_contains_features(*subentity_route) {
+                    if self.runtime().module_contains_features(*subentity_route) {
                         subtrace_ids.push(self.new_trace(
                             Some(trace.id()),
                             0,

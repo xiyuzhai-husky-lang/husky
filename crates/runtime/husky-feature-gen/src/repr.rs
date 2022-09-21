@@ -137,17 +137,15 @@ impl FeatureRepr {
                         },
                         None => Feature::EntityFeature {
                             route: *route,
-                            uid: db.comptime().entity_uid(*route),
+                            uid: db.entity_uid(*route),
                         },
                     })
                 },
                 ty: *return_ty,
                 opt_linkage: {
                     match opt_this {
-                        Some(ref this) => db
-                            .comptime()
-                            .field_linkage(this.ty(), route.ident().custom()),
-                        None => db.comptime().feature_eager_block_linkage(*route),
+                        Some(ref this) => db.field_linkage(this.ty(), route.ident().custom()),
+                        None => db.feature_eager_block_linkage(*route),
                     }
                 },
                 opt_this,
@@ -179,17 +177,15 @@ impl FeatureRepr {
                         },
                         None => Feature::EntityFeature {
                             route: *route,
-                            uid: db.comptime().entity_uid(*route),
+                            uid: db.entity_uid(*route),
                         },
                     })
                 },
                 return_ty: *return_ty,
                 opt_linkage: {
                     match opt_this {
-                        Some(ref this) => db
-                            .comptime()
-                            .field_linkage(this.ty(), route.ident().custom()),
-                        None => db.comptime().feature_eager_block_linkage(*route),
+                        Some(ref this) => db.field_linkage(this.ty(), route.ident().custom()),
+                        None => db.feature_eager_block_linkage(*route),
                     }
                 },
                 opt_this,

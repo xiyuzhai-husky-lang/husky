@@ -23,7 +23,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
 impl<'temp> FeatureEvaluator<'temp, 'static> {
     pub fn visualize_static(&self, this: FeatureRepr) -> __VMResult<VisualData> {
         let ty = this.ty();
-        let visualizer: Arc<Visualizer> = self.db.comptime().visualizer(ty.intrinsic());
+        let visualizer: Arc<Visualizer> = self.db.visualizer(ty.intrinsic());
         let value = self.eval_feature_repr_cached(&this)?;
         match value.data_kind() {
             __RegisterDataKind::SomeNone => Ok(VisualData::void()),
