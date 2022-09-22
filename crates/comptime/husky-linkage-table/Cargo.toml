@@ -9,6 +9,8 @@ rust-version = "1.56"
 [dependencies]
 smallvec = "1.8.0"
 colored = "2.0.0"
+libloading = "0.7.3"
+convert_case = "0.6.0"
 husky-vm = { path = "../../vm/husky-vm" }
 map-collect = { path = "../../abstraction/map-collect" }
 upcast = { path = "../../abstraction/upcast" }

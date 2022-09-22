@@ -69,8 +69,6 @@ pub struct RuntimeConfig {
     pub comptime: ComptimeConfig,
 }
 
-type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];
-
 impl HuskyDevRuntime {
     pub fn new(config: RuntimeConfig) -> HuskyDevRuntime {
         let mut runtime = Self {
@@ -119,44 +117,6 @@ impl HuskyDevRuntime {
         )
         .compile_all();
         self.load_package();
-        let opt_library = get_library(&self.config.comptime.package_dir);
-        let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = opt_library
-            .as_ref()
-            .map(|library| unsafe {
-                library
-                    .get::<GetLinkagesFromCDylib>(b"get_linkages")
-                    .expect("what")()
-            })
-            .unwrap_or(&[]);
-        self.load_linkages(linkages_from_cdylib);
+        self.load_linkages();
     }
-}
-
-fn get_library(package_dir: &Path) -> Option<Library> {
-    #[cfg(target_os = "linux")]
-    static DYLIB_EXTENSION: &'static str = "so";
-    #[cfg(target_os = "macos")]
-    static DYLIB_EXTENSION: &'static str = "dylib";
-    let package_name = package_dir
-        .file_name()
-        .unwrap()
-        .to_str()
-        .unwrap()
-        .with_boundaries(&[Boundary::Hyphen])
-        .to_case(Case::Snake);
-    let library_release_path = package_dir.join(format!(
-        "__rust_gen__/target/release/lib{}.{DYLIB_EXTENSION}",
-        package_name
-    ));
-    if library_release_path.exists() {
-        return Some(unsafe { Library::new(library_release_path) }.expect("it should work"));
-    }
-    let library_debug_path = package_dir.join(format!(
-        "__rust_gen__/target/debug/lib{}.{DYLIB_EXTENSION}",
-        package_name,
-    ));
-    if library_debug_path.exists() {
-        todo!()
-    }
-    None
 }
