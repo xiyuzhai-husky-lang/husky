@@ -39,8 +39,9 @@ pub trait ComptimeOps: FileSalsaQuery + ResolveLinkage + Sized {
         self.load_dir(&module_dir);
     }
 
-    fn load_linkages(&self, linkages: &[(__StaticLinkageKey, __Linkage)]) {
-        self.linkage_table().load(self, linkages)
+    fn load_linkages(&self) {
+        self.linkage_table()
+            .load(self, &self.comptime_config().package_dir)
     }
 }
 

@@ -1,49 +1,96 @@
+use std::path::Path;
+
 use crate::*;
 use __husky::init::__StaticLinkageKey;
 use husky_vm::__Linkage;
+use libloading::Library;
 use smallvec::SmallVec;
 
 #[derive(Clone)]
 pub struct LinkageTable {
-    linkages: ASafeRwLock<HashMap<LinkageKey, __Linkage>>,
+    internal: ASafeRwLock<Option<LinkageTableInternal>>,
     pub(crate) config: LinkageTableConfig,
+}
+
+pub struct LinkageTableInternal {
+    linkages: HashMap<LinkageKey, __Linkage>,
+    library: Library,
 }
 
 impl std::fmt::Debug for LinkageTable {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.linkages.read(|linkages| {
-            f.debug_struct("LinkageTable")
-                .field("linkages", linkages)
-                .field("config", &self.config)
-                .finish()
-        })
+        todo!()
+        // self.internal.read(|internal| {
+        //     f.debug_struct("LinkageTable")
+        //         .field("linkages", internal.map(|internal|internal.linkages)
+        //         .field("config", &self.config)
+        //         .finish()
+        // })
     }
 }
 
-impl LinkageTable {
-    pub fn new(config: LinkageTableConfig) -> Self {
-        Self {
-            linkages: Default::default(),
-            config,
-        }
-    }
-
-    pub fn load(
-        &self,
-        db: &dyn ResolveLinkage,
-        static_linkages: &[(__StaticLinkageKey, __Linkage)],
-    ) {
-        let new_linkages: HashMap<LinkageKey, __Linkage> = static_linkages
+impl LinkageTableInternal {
+    fn new(db: &dyn ResolveLinkage, package_dir: &Path) -> Self {
+        let library = get_library(package_dir).unwrap();
+        let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = unsafe {
+            library
+                .get::<GetLinkagesFromCDylib>(b"get_linkages")
+                .expect("what")()
+        };
+        let linkages: HashMap<LinkageKey, __Linkage> = linkages_from_cdylib
             .iter()
             .map(|(static_key, linkage)| {
                 let key = LinkageKey::from_static(db, *static_key);
                 (key, *linkage)
             })
             .collect();
-        self.linkages.write(|linkages| {
-            should_eq!(linkages.len(), 0);
-            *linkages = new_linkages
-        })
+        Self { library, linkages }
+    }
+}
+
+type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];
+
+fn get_library(package_dir: &Path) -> Option<Library> {
+    use convert_case::*;
+    #[cfg(target_os = "linux")]
+    static DYLIB_EXTENSION: &'static str = "so";
+    #[cfg(target_os = "macos")]
+    static DYLIB_EXTENSION: &'static str = "dylib";
+    let package_name = package_dir
+        .file_name()
+        .unwrap()
+        .to_str()
+        .unwrap()
+        .with_boundaries(&[Boundary::Hyphen])
+        .to_case(Case::Snake);
+    let library_release_path = package_dir.join(format!(
+        "__rust_gen__/target/release/lib{}.{DYLIB_EXTENSION}",
+        package_name
+    ));
+    if library_release_path.exists() {
+        return Some(unsafe { Library::new(library_release_path) }.expect("it should work"));
+    }
+    let library_debug_path = package_dir.join(format!(
+        "__rust_gen__/target/debug/lib{}.{DYLIB_EXTENSION}",
+        package_name,
+    ));
+    if library_debug_path.exists() {
+        todo!()
+    }
+    None
+}
+
+impl LinkageTable {
+    pub fn new(config: LinkageTableConfig) -> Self {
+        Self {
+            internal: Default::default(),
+            config,
+        }
+    }
+
+    pub fn load(&self, db: &dyn ResolveLinkage, package_dir: &Path) {
+        self.internal
+            .write(|internal| *internal = Some(LinkageTableInternal::new(db, package_dir)))
     }
 
     pub(crate) fn type_call_linkage(&self, ty_uid: EntityUid) -> Option<__Linkage> {
@@ -74,7 +121,13 @@ impl LinkageTable {
     }
 
     fn get_linkage(&self, key: LinkageKey) -> Option<__Linkage> {
-        self.linkages
-            .read(|entries| entries.get(&key).map(|linkage_source| *linkage_source))
+        self.internal.read(|entries| {
+            entries
+                .as_ref()
+                .unwrap()
+                .linkages
+                .get(&key)
+                .map(|linkage_source| *linkage_source)
+        })
     }
 }
