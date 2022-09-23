@@ -2,13 +2,13 @@ mod hot_reload;
 mod update;
 
 pub use hot_reload::*;
-use proj_like::{ProjAtom, ProjMap, ProjVec};
+use proj_like::{Proj, ProjAtom, ProjMap, ProjVec};
 pub use update::*;
 
 use crate::*;
 
 #[derive(Default)]
-pub struct DebugtimeState {
+pub struct HuskyDebugtimeState {
     pub(crate) restriction: ProjAtom<Restriction>,
     pub(crate) pins: VecSet<TraceId>,
     pub(crate) opt_active_trace_id: ProjAtom<Option<TraceId>>,
@@ -21,7 +21,19 @@ pub struct DebugtimeState {
     pub(crate) subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
 }
 
-impl DebugtimeState {
+pub struct DebugtimeStateChange {}
+
+// implementation details
+
+impl Proj for HuskyDebugtimeState {
+    type Change = DebugtimeStateChange;
+
+    fn take_change(&mut self) -> proj_like::ProjTakeChangeM<Self> {
+        todo!()
+    }
+}
+
+impl HuskyDebugtimeState {
     pub(crate) fn root_traces(&self) -> &[TraceId] {
         &self.root_traces
     }

@@ -1,6 +1,6 @@
 use super::*;
 use husky_check_utils::should_eq;
-use husky_debugtime::{DebugtimeHotReloadR, HuskyDebugtimeStageChangeR};
+use husky_debugtime::{DebugtimeHotReloadR, HuskyDebugtimeTakeChangeR};
 use monad::Monad;
 use std::panic::catch_unwind;
 use std::path::PathBuf;
@@ -26,8 +26,8 @@ impl<T> std::ops::FromResidual<DebuggerHotReloadR> for HandleGuiMessageM<T> {
     }
 }
 
-impl<T> std::ops::FromResidual<HuskyDebugtimeStageChangeR> for HandleGuiMessageM<T> {
-    fn from_residual(residual: HuskyDebugtimeStageChangeR) -> Self {
+impl<T> std::ops::FromResidual<HuskyDebugtimeTakeChangeR> for HandleGuiMessageM<T> {
+    fn from_residual(residual: HuskyDebugtimeTakeChangeR) -> Self {
         todo!()
     }
 }

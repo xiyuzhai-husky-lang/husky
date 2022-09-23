@@ -23,10 +23,10 @@ where
             .find_map(|(key, value)| if key == key0 { Some(value) } else { None })
     }
 
-    pub fn insert_new(&mut self, key: K, value: V) -> ProjMakeChangeM<Self, ()> {
+    pub fn insert_new(&mut self, key: K, value: V) -> ProjUpdateM<Self, ()> {
         assert!(!self.contains(&key));
         self.entries.push((key, value));
-        ProjMakeChangeM::Ok {
+        ProjUpdateM::Ok {
             cont: (),
             phantom_state: PhantomData,
         }

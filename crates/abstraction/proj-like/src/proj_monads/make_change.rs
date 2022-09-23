@@ -2,26 +2,26 @@ use crate::*;
 use ::monad::Monad;
 
 #[must_use]
-pub enum ProjMakeChangeM<P, T> {
+pub enum ProjUpdateM<P, T> {
     Ok {
         cont: T,
         phantom_state: PhantomData<P>,
     },
 }
 
-impl<P, T> Monad for ProjMakeChangeM<P, T> {}
+impl<P, T> Monad for ProjUpdateM<P, T> {}
 
-pub struct ProjMakeChangeR<P> {
+pub struct ProjUpdateR<P> {
     phantom_state: PhantomData<P>,
 }
 
-impl<P, T> std::ops::Try for ProjMakeChangeM<P, T> {
+impl<P, T> std::ops::Try for ProjUpdateM<P, T> {
     type Output = T;
 
-    type Residual = ProjMakeChangeR<P>;
+    type Residual = ProjUpdateR<P>;
 
     fn from_output(cont: Self::Output) -> Self {
-        ProjMakeChangeM::Ok {
+        ProjUpdateM::Ok {
             cont,
             phantom_state: PhantomData,
         }
@@ -29,13 +29,13 @@ impl<P, T> std::ops::Try for ProjMakeChangeM<P, T> {
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            ProjMakeChangeM::Ok { cont, .. } => std::ops::ControlFlow::Continue(cont),
+            ProjUpdateM::Ok { cont, .. } => std::ops::ControlFlow::Continue(cont),
         }
     }
 }
 
-impl<P, T> std::ops::FromResidual<ProjMakeChangeR<P>> for ProjMakeChangeM<P, T> {
-    fn from_residual(residual: ProjMakeChangeR<P>) -> Self {
+impl<P, T> std::ops::FromResidual<ProjUpdateR<P>> for ProjUpdateM<P, T> {
+    fn from_residual(residual: ProjUpdateR<P>) -> Self {
         todo!()
     }
 }

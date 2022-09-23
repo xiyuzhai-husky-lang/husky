@@ -44,7 +44,7 @@ impl HuskyDebugtime {
         }
     }
 
-    pub(crate) fn update_figure_canvases(&mut self) -> HuskyDebugtimeMakeChangeM<()> {
+    pub(crate) fn update_figure_canvases(&mut self) -> HuskyDebugtimeUpdateM<()> {
         if let Some(active_trace_id) = *self.state.opt_active_trace_id {
             self.update_figure_canvas(active_trace_id, true)?;
             self.update_figure_canvas(active_trace_id, false)?;
@@ -53,14 +53,14 @@ impl HuskyDebugtime {
             self.update_figure_canvas(*pin, true)?;
             self.update_figure_canvas(*pin, false)?;
         }
-        HuskyDebugtimeMakeChangeM::Ok(())
+        HuskyDebugtimeUpdateM::Ok(())
     }
 
     fn update_figure_canvas(
         &mut self,
         trace_id: TraceId,
         is_specific: bool,
-    ) -> HuskyDebugtimeMakeChangeM<()> {
+    ) -> HuskyDebugtimeUpdateM<()> {
         let key: FigureCanvasKey = self.gen_figure_canvas_key(trace_id, is_specific);
         // todo: clean all this trouble
         let f = |(sample_id, e): (SampleId, __VMError)| -> __VMError { (sample_id.0, e).into() };

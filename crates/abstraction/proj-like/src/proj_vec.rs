@@ -18,9 +18,9 @@ impl<E> ProjVec<E> {
         self.state.old_len == self.entries.len() && self.state.elems_modified.len() == 0
     }
 
-    pub fn push(&mut self, elem: E) -> ProjMakeChangeM<Self, ()> {
+    pub fn push(&mut self, elem: E) -> ProjUpdateM<Self, ()> {
         self.entries.push(elem);
-        ProjMakeChangeM::Ok {
+        ProjUpdateM::Ok {
             cont: (),
             phantom_state: PhantomData,
         }

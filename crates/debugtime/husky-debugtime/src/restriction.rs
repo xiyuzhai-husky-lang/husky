@@ -8,7 +8,7 @@ impl HuskyDebugtime {
     pub fn set_restriction(
         &mut self,
         restriction: Restriction,
-    ) -> HuskyDebugtimeStageChangeM<(
+    ) -> HuskyDebugtimeTakeChangeM<(
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
         Vec<(TraceStalkKey, TraceStalk)>,
@@ -16,6 +16,6 @@ impl HuskyDebugtime {
     )> {
         self.state.restriction.set(restriction)?;
         self.update()?;
-        HuskyDebugtimeStageChangeM::Ok((todo!(), todo!(), todo!(), todo!()))
+        HuskyDebugtimeTakeChangeM::Ok((todo!(), todo!(), todo!(), todo!()))
     }
 }
