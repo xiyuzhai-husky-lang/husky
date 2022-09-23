@@ -1,14 +1,17 @@
-use crate::{ops::DebugtimeStageChangeM, *};
+use crate::{ops::HuskyDebugtimeStageChangeM, *};
 
 impl HuskyDebugtime {
-    pub(crate) fn update_trace_statss(&mut self) -> DebugtimeMakeChangeM<()> {
+    pub(crate) fn update_trace_statss(&mut self) -> HuskyDebugtimeMakeChangeM<()> {
         for root_trace_id in self.state.root_traces().to_vec() {
             self.update_trace_statss_within_trace(root_trace_id)?;
         }
-        DebugtimeMakeChangeM::Ok(())
+        HuskyDebugtimeMakeChangeM::Ok(())
     }
 
-    fn update_trace_statss_within_trace(&mut self, trace_id: TraceId) -> DebugtimeMakeChangeM<()> {
+    fn update_trace_statss_within_trace(
+        &mut self,
+        trace_id: TraceId,
+    ) -> HuskyDebugtimeMakeChangeM<()> {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
@@ -28,14 +31,14 @@ impl HuskyDebugtime {
                 self.update_trace_statss_within_trace(subtrace_id)?
             }
         }
-        DebugtimeMakeChangeM::Ok(())
+        HuskyDebugtimeMakeChangeM::Ok(())
     }
 
     fn gen_trace_stats(
         &mut self,
         trace_id: TraceId,
         key: TraceStatsKey,
-    ) -> DebugtimeMakeChangeM<()> {
+    ) -> HuskyDebugtimeMakeChangeM<()> {
         let (opt_stats, result) = self
             .trace(trace_id)
             .variant
@@ -47,18 +50,18 @@ impl HuskyDebugtime {
         self.updating_t(result)
     }
 
-    fn updating_t(&self, result: __VMResult<()>) -> DebugtimeMakeChangeM<()> {
+    fn updating_t(&self, result: __VMResult<()>) -> HuskyDebugtimeMakeChangeM<()> {
         match result {
-            Ok(()) => DebugtimeMakeChangeM::Ok(()),
+            Ok(()) => HuskyDebugtimeMakeChangeM::Ok(()),
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
                     if self.state.restriction.is_generic()
                         || self.state.restriction.sample_id() != SampleId(*sample_id)
                     {
-                        DebugtimeMakeChangeM::OtherworldlyErr(e)
+                        HuskyDebugtimeMakeChangeM::OtherworldlyErr(e)
                     } else {
-                        DebugtimeMakeChangeM::Ok(())
+                        HuskyDebugtimeMakeChangeM::Ok(())
                     }
                 }
             },

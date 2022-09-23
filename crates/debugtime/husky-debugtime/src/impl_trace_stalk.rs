@@ -59,14 +59,14 @@ impl HuskyDebugtime {
         }
     }
 
-    pub(crate) fn update_trace_stalks(&mut self) -> DebugtimeMakeChangeM<()> {
+    pub(crate) fn update_trace_stalks(&mut self) -> HuskyDebugtimeMakeChangeM<()> {
         if let Some(sample_id) = self.state.restriction.opt_sample_id() {
             // ad hoc
             for root_trace_id in self.state.root_traces().to_vec() {
                 self.collect_new_trace_stalks_within_trace(sample_id, root_trace_id)
             }
         }
-        DebugtimeMakeChangeM::Ok(())
+        HuskyDebugtimeMakeChangeM::Ok(())
     }
 
     fn collect_new_trace_stalks_within_trace(&mut self, sample_id: SampleId, trace_id: TraceId) {
