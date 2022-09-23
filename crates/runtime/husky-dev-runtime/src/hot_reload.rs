@@ -2,7 +2,9 @@ use monad::Monad;
 
 use crate::*;
 
-pub struct HuskyRuntimeHotReloadM;
+pub enum HuskyRuntimeHotReloadM {
+    Ok,
+}
 
 impl Monad for HuskyRuntimeHotReloadM {}
 
@@ -14,7 +16,7 @@ impl HuskyDevRuntime {
         .compile_all();
         self.load_package();
         self.load_linkages();
-        HuskyRuntimeHotReloadM
+        HuskyRuntimeHotReloadM::Ok
     }
 }
 
@@ -28,7 +30,9 @@ impl std::ops::Try for HuskyRuntimeHotReloadM {
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
-        todo!()
+        match self {
+            HuskyRuntimeHotReloadM::Ok => std::ops::ControlFlow::Continue(()),
+        }
     }
 }
 

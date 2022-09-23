@@ -31,9 +31,10 @@ where
     }
 }
 
-impl<T> std::ops::FromResidual<TrackableTakeChangeR<T>> for TrackableTakeChangeM<T>
+impl<T, S> std::ops::FromResidual<TrackableTakeChangeR<T>> for TrackableTakeChangeM<S>
 where
     T: Trackable,
+    S: Trackable,
 {
     fn from_residual(residual: TrackableTakeChangeR<T>) -> Self {
         todo!()

@@ -97,16 +97,14 @@ impl HuskyDebugtime {
         }
     }
 
-    pub(crate) fn update_figure_controls(
-        &mut self,
-    ) -> HuskyDebugtimeUpdateM<Vec<(FigureControlKey, FigureControlData)>> {
+    pub(crate) fn update_figure_controls(&mut self) -> HuskyDebugtimeUpdateM<()> {
         if let Some(active_trace_id) = *self.state.opt_active_trace_id {
             self.update_figure_control(active_trace_id)?;
         }
         for pin in self.state.pins.clone().into_iter() {
             self.update_figure_control(*pin)?;
         }
-        HuskyDebugtimeUpdateM::Ok(todo!())
+        HuskyDebugtimeUpdateM::Ok(())
     }
 
     pub(crate) fn update_figure_control(&mut self, trace_id: TraceId) -> HuskyDebugtimeUpdateM<()> {
