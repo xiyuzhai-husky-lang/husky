@@ -8,8 +8,8 @@ pub enum HuskyDebugtimeHotReloadM {
 
 impl Monad for HuskyDebugtimeHotReloadM {}
 
-impl<T> MonadT<HuskyDebugtimeMakeChangeM<T>> for HuskyDebugtimeHotReloadM {}
-impl<T> MonadT<HuskyDebugtimeStageChangeM<T>> for HuskyDebugtimeHotReloadM {}
+impl<T> MonadT<HuskyDebugtimeUpdateM<T>> for HuskyDebugtimeHotReloadM {}
+impl<T> MonadT<HuskyDebugtimeTakeChangeM<T>> for HuskyDebugtimeHotReloadM {}
 impl MonadT<HuskyRuntimeHotReloadM> for HuskyDebugtimeHotReloadM {}
 
 impl HuskyDebugtime {
@@ -20,7 +20,8 @@ impl HuskyDebugtime {
         HuskyDebugtimeHotReloadM::Ok(self.take_init_data()?)
     }
 
-    pub fn take_init_data(&mut self) -> HuskyDebugtimeStageChangeM<InitData> {
+    pub fn take_init_data(&mut self) -> HuskyDebugtimeTakeChangeM<InitData> {
+        let staged_change = self.take_change();
         // let root_trace_ids = self.state.root_traces().to_vec();
         // // clear figure cache to reduce data transmission
         // self.state.figure_canvases.clear();
@@ -70,14 +71,14 @@ impl std::ops::FromResidual<DebugtimeHotReloadR> for HuskyDebugtimeHotReloadM {
     }
 }
 
-impl std::ops::FromResidual<HuskyDebugtimeMakeChangeR> for HuskyDebugtimeHotReloadM {
-    fn from_residual(residual: HuskyDebugtimeMakeChangeR) -> Self {
+impl std::ops::FromResidual<HuskyDebugtimeUpdateR> for HuskyDebugtimeHotReloadM {
+    fn from_residual(residual: HuskyDebugtimeUpdateR) -> Self {
         unreachable!()
     }
 }
 
-impl std::ops::FromResidual<HuskyDebugtimeStageChangeR> for HuskyDebugtimeHotReloadM {
-    fn from_residual(residual: HuskyDebugtimeStageChangeR) -> Self {
+impl std::ops::FromResidual<HuskyDebugtimeTakeChangeR> for HuskyDebugtimeHotReloadM {
+    fn from_residual(residual: HuskyDebugtimeTakeChangeR) -> Self {
         unreachable!()
     }
 }

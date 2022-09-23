@@ -13,3 +13,8 @@ pub use proj_map::*;
 pub use proj_monads::*;
 pub use proj_set::*;
 pub use proj_vec::*;
+
+pub trait Proj: Sized {
+    type Change;
+    fn take_change(&mut self) -> ProjTakeChangeM<Self>;
+}
