@@ -1,15 +1,26 @@
 use crate::*;
-use projectable::{Projectable, Projector};
 
-pub struct ProjMap<K, V>
+pub struct TrackableMap<K, V>
 where
     K: PartialEq + Eq,
 {
     entries: Vec<(K, V)>,
     old_len: usize,
 }
+pub struct TrackableMapChange;
 
-impl<K, V> ProjMap<K, V>
+impl<K, V> Trackable for TrackableMap<K, V>
+where
+    K: PartialEq + Eq,
+{
+    type Change = TrackableMapChange;
+
+    fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
+        todo!()
+    }
+}
+
+impl<K, V> TrackableMap<K, V>
 where
     K: PartialEq + Eq,
 {
@@ -23,17 +34,17 @@ where
             .find_map(|(key, value)| if key == key0 { Some(value) } else { None })
     }
 
-    pub fn insert_new(&mut self, key: K, value: V) -> ProjUpdateM<Self, ()> {
+    pub fn insert_new(&mut self, key: K, value: V) -> TrackableUpdateM<Self, ()> {
         assert!(!self.contains(&key));
         self.entries.push((key, value));
-        ProjUpdateM::Ok {
+        TrackableUpdateM::Ok {
             cont: (),
             phantom_state: PhantomData,
         }
     }
 }
 
-impl<K, V> Default for ProjMap<K, V>
+impl<K, V> Default for TrackableMap<K, V>
 where
     K: PartialEq + Eq,
 {
@@ -45,7 +56,7 @@ where
     }
 }
 
-impl<K, V> std::ops::Index<&K> for ProjMap<K, V>
+impl<K, V> std::ops::Index<&K> for TrackableMap<K, V>
 where
     K: PartialEq + Eq,
 {

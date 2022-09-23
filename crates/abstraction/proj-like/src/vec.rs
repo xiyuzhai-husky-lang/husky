@@ -1,38 +1,47 @@
 use crate::*;
-use projectable::{Projectable, Projector};
 use vec_like::VecSet;
 
-pub struct ProjVec<E> {
+pub struct TrackableVec<E> {
     entries: Vec<E>,
-    state: ProjVecState,
+    state: TrackableVecState,
 }
 
 #[derive(Default)]
-pub struct ProjVecState {
+pub struct TrackableVecState {
     old_len: usize,
     elems_modified: VecSet<usize>,
 }
 
-impl<E> ProjVec<E> {
+pub struct ProjVecChange;
+
+impl<K> Trackable for TrackableVec<K> {
+    type Change = ProjVecChange;
+
+    fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
+        todo!()
+    }
+}
+
+impl<E> TrackableVec<E> {
     fn synced(&self) -> bool {
         self.state.old_len == self.entries.len() && self.state.elems_modified.len() == 0
     }
 
-    pub fn push(&mut self, elem: E) -> ProjUpdateM<Self, ()> {
+    pub fn push(&mut self, elem: E) -> TrackableUpdateM<Self, ()> {
         self.entries.push(elem);
-        ProjUpdateM::Ok {
+        TrackableUpdateM::Ok {
             cont: (),
             phantom_state: PhantomData,
         }
     }
 
-    pub fn apply_set_elem(&mut self, index: usize, elem: E) -> ProjApplyChangeM<Self, ()> {
+    pub fn apply_set_elem(&mut self, index: usize, elem: E) -> TrackableApplyChangeM<Self, ()> {
         assert!(self.synced());
         todo!()
     }
 }
 
-impl<E> Default for ProjVec<E> {
+impl<E> Default for TrackableVec<E> {
     fn default() -> Self {
         Self {
             entries: Default::default(),
@@ -41,7 +50,7 @@ impl<E> Default for ProjVec<E> {
     }
 }
 
-impl<E> std::ops::Deref for ProjVec<E> {
+impl<E> std::ops::Deref for TrackableVec<E> {
     type Target = [E];
 
     fn deref(&self) -> &Self::Target {
@@ -49,7 +58,7 @@ impl<E> std::ops::Deref for ProjVec<E> {
     }
 }
 
-impl<E> std::ops::Index<usize> for ProjVec<E> {
+impl<E> std::ops::Index<usize> for TrackableVec<E> {
     type Output = E;
 
     fn index(&self, index: usize) -> &Self::Output {
@@ -57,7 +66,7 @@ impl<E> std::ops::Index<usize> for ProjVec<E> {
     }
 }
 
-impl<E> std::ops::Index<std::ops::RangeFrom<usize>> for ProjVec<E> {
+impl<E> std::ops::Index<std::ops::RangeFrom<usize>> for TrackableVec<E> {
     type Output = [E];
 
     fn index(&self, range: std::ops::RangeFrom<usize>) -> &Self::Output {
@@ -65,7 +74,7 @@ impl<E> std::ops::Index<std::ops::RangeFrom<usize>> for ProjVec<E> {
     }
 }
 
-impl<E> std::ops::IndexMut<usize> for ProjVec<E> {
+impl<E> std::ops::IndexMut<usize> for TrackableVec<E> {
     fn index_mut(&mut self, index: usize) -> &mut Self::Output {
         self.state.elems_modified.insert(index);
         &mut self.entries[index]

@@ -2,33 +2,45 @@ mod hot_reload;
 mod update;
 
 pub use hot_reload::*;
-use proj_like::{Proj, ProjAtom, ProjMap, ProjVec};
+use proj_like::{Trackable, TrackableAtom, TrackableMap, TrackableVec};
 pub use update::*;
 
 use crate::*;
 
 #[derive(Default)]
 pub struct HuskyDebugtimeState {
-    pub(crate) restriction: ProjAtom<Restriction>,
+    pub(crate) restriction: TrackableAtom<Restriction>,
     pub(crate) pins: VecSet<TraceId>,
-    pub(crate) opt_active_trace_id: ProjAtom<Option<TraceId>>,
-    pub(crate) trace_nodes: ProjVec<Option<TraceNode>>,
-    pub(crate) figure_canvases: ProjMap<FigureCanvasKey, FigureCanvasData>,
-    pub(crate) figure_controls: ProjMap<FigureControlKey, FigureControlData>,
-    pub(crate) trace_stalks: ProjMap<TraceStalkKey, TraceStalk>,
-    pub(crate) trace_statss: ProjMap<TraceStatsKey, Option<TraceStats>>,
+    pub(crate) opt_active_trace_id: TrackableAtom<Option<TraceId>>,
+    pub(crate) trace_nodes: TrackableVec<Option<TraceNode>>,
+    pub(crate) figure_canvases: TrackableMap<FigureCanvasKey, FigureCanvasData>,
+    pub(crate) figure_controls: TrackableMap<FigureControlKey, FigureControlData>,
+    pub(crate) trace_stalks: TrackableMap<TraceStalkKey, TraceStalk>,
+    pub(crate) trace_statss: TrackableMap<TraceStatsKey, Option<TraceStats>>,
     root_traces: Vec<TraceId>,
     pub(crate) subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
 }
 
-pub struct DebugtimeStateChange {}
+pub struct DebugtimeStateChange {
+    pub(crate) restriction: <TrackableAtom<Restriction> as Trackable>::Change,
+    pub(crate) opt_active_trace_id: <TrackableAtom<Option<TraceId>> as Trackable>::Change,
+    pub(crate) trace_nodes: <TrackableVec<Option<TraceNode>> as Trackable>::Change,
+    pub(crate) figure_canvases:
+        <TrackableMap<FigureCanvasKey, FigureCanvasData> as Trackable>::Change,
+    pub(crate) figure_controls:
+        <TrackableMap<FigureControlKey, FigureControlData> as Trackable>::Change,
+    pub(crate) trace_stalks: <TrackableMap<TraceStalkKey, TraceStalk> as Trackable>::Change,
+    pub(crate) trace_statss: <TrackableMap<TraceStatsKey, Option<TraceStats>> as Trackable>::Change,
+    root_traces: Vec<TraceId>,
+    pub(crate) subtrace_ids_map: HashMap<SubtracesKey, Vec<TraceId>>,
+}
 
 // implementation details
 
-impl Proj for HuskyDebugtimeState {
+impl Trackable for HuskyDebugtimeState {
     type Change = DebugtimeStateChange;
 
-    fn take_change(&mut self) -> proj_like::ProjTakeChangeM<Self> {
+    fn take_change(&mut self) -> proj_like::TrackableTakeChangeM<Self> {
         todo!()
     }
 }
