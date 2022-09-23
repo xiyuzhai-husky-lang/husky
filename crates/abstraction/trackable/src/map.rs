@@ -7,16 +7,28 @@ where
     entries: Vec<(K, V)>,
     old_len: usize,
 }
-pub struct TrackableMapChange;
+pub enum TrackableMapChange<K, V> {
+    None,
+    Append { new_entries: Vec<(K, V)> },
+}
 
 impl<K, V> Trackable for TrackableMap<K, V>
 where
-    K: PartialEq + Eq,
+    K: PartialEq + Eq + Clone,
+    V: Clone,
 {
-    type Change = TrackableMapChange;
+    type Change = TrackableMapChange<K, V>;
 
     fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
-        todo!()
+        if self.old_len == self.entries.len() {
+            return TrackableTakeChangeM::Ok(TrackableMapChange::None);
+        }
+        let new_entries = self.entries[self.old_len..]
+            .iter()
+            .map(|entry| entry.clone())
+            .collect();
+        self.old_len = self.entries.len();
+        TrackableTakeChangeM::Ok(TrackableMapChange::Append { new_entries })
     }
 }
 
@@ -64,5 +76,16 @@ where
 
     fn index(&self, index: &K) -> &Self::Output {
         self.get(&index).unwrap()
+    }
+}
+
+impl<K, V> std::ops::Deref for TrackableMap<K, V>
+where
+    K: PartialEq + Eq,
+{
+    type Target = [(K, V)];
+
+    fn deref(&self) -> &Self::Target {
+        &self.entries
     }
 }

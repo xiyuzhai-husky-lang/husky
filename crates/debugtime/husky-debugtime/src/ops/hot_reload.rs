@@ -21,45 +21,39 @@ impl HuskyDebugtime {
     }
 
     pub fn take_init_data(&mut self) -> HuskyDebugtimeTakeChangeM<InitData> {
-        let staged_change = self.take_change();
-        // let root_trace_ids = self.state.root_traces().to_vec();
-        // // clear figure cache to reduce data transmission
-        // self.state.figure_canvases.clear();
-        // self.state.figure_controls.clear();
-        // let figure_canvases = self.update_figure_canvases()?;
-        // let figure_controls = self.update_figure_controls()?;
-        // let pins = self.state.pins.clone();
-        // let traces = self.all_trace_nodes();
-        // DebugtimeHotReloadM::Ok(InitData {
-        //     trace_init_data: TraceInitData {
-        //         opt_active_trace_id: self.state.opt_active_trace_id,
-        //         trace_nodes: traces,
-        //         subtrace_ids_map: self
-        //             .state
-        //             .subtrace_ids_map
-        //             .iter()
-        //             .map(|(k, v)| (k.clone(), v.clone()))
-        //             .collect(),
-        //         trace_stalks: self
-        //             .state
-        //             .trace_stalks
-        //             .iter()
-        //             .map(|(k, v)| (k.clone(), v.clone()))
-        //             .collect(),
-        //         trace_statss: self
-        //             .state
-        //             .trace_statss
-        //             .iter()
-        //             .map(|(k, v)| (k.clone(), v.clone()))
-        //             .collect(),
-        //         root_trace_ids,
-        //     },
-        //     restriction: self.state.restriction.clone(),
-        //     figure_canvases,
-        //     figure_controls,
-        //     pins,
-        // })
-        todo!()
+        // ignored
+        let _staged_change = self.take_change()?;
+        // ad hoc
+        let init_data = InitData {
+            restriction: self.restriction().clone(),
+            trace_init_data: TraceInitData {
+                trace_nodes: self.all_trace_nodes(),
+                opt_active_trace_id: self.opt_active_trace_id(),
+                subtrace_ids_map: self
+                    .state
+                    .subtrace_ids_map
+                    .iter()
+                    .map(|(k, v)| (k.clone(), v.clone()))
+                    .collect(),
+                trace_stalks: self
+                    .state
+                    .trace_stalks
+                    .iter()
+                    .map(|(k, v)| (k.clone(), v.clone()))
+                    .collect(),
+                trace_statss: self
+                    .state
+                    .trace_statss
+                    .iter()
+                    .map(|(k, v)| (k.clone(), v.clone()))
+                    .collect(),
+                root_trace_ids: self.root_traces(),
+            },
+            figure_canvases: self.state.figure_canvases.to_vec(),
+            figure_controls: self.state.figure_controls.to_vec(),
+            pins: self.state.pins.clone(),
+        };
+        HuskyDebugtimeTakeChangeM::Ok(init_data)
     }
 }
 
