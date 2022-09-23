@@ -101,7 +101,7 @@ impl HuskyDebugtime {
             if let Some(subtrace_ids) = self.gen_subtraces(trace_id) {
                 self.state
                     .subtrace_ids_map
-                    .insert(key.clone(), subtrace_ids.clone());
+                    .insert_new(key.clone(), subtrace_ids.clone());
                 subtrace_ids
             } else {
                 todo!()
