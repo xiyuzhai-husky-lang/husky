@@ -2,8 +2,8 @@ use crate::*;
 use vec_like::VecSet;
 
 pub trait TrackClone {
-    type Output;
-    fn track(&self) -> Self::Output;
+    type CloneOutput;
+    fn track_clone(&self) -> Self::CloneOutput;
 }
 
 pub struct TrackSimple<T>(T);
@@ -21,9 +21,9 @@ impl<T> TrackClone for TrackSimple<T>
 where
     T: Clone,
 {
-    type Output = T;
+    type CloneOutput = T;
 
-    fn track(&self) -> Self::Output {
+    fn track_clone(&self) -> Self::CloneOutput {
         self.0.clone()
     }
 }
@@ -55,7 +55,7 @@ where
     E: TrackClone,
 {
     None,
-    Append { new_entries: Vec<E> },
+    Append { new_entries: Vec<E::CloneOutput> },
 }
 
 impl<E> Trackable for TrackableVec<E>
@@ -72,12 +72,12 @@ where
         if self.state.old_len == self.entries.len() {
             return TrackableTakeChangeM::Ok(TrackableVecChange::None);
         }
-        let new_entries: Vec<_> = self.entries[self.state.old_len..]
+        let new_entries: Vec<E::CloneOutput> = self.entries[self.state.old_len..]
             .iter()
-            .map(|v| v.clone())
+            .map(|v| v.track_clone())
             .collect();
         self.state.old_len = self.entries.len();
-        todo!()
+        TrackableTakeChangeM::Ok(TrackableVecChange::Append { new_entries })
     }
 }
 

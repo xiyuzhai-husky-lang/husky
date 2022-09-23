@@ -13,10 +13,10 @@ pub enum TraceNode {
 }
 
 impl TrackClone for TraceNode {
-    type Output = TraceNodeData;
+    type CloneOutput = TraceNodeData;
 
-    fn track(&self) -> Self::Output {
-        todo!()
+    fn track_clone(&self) -> Self::CloneOutput {
+        self.to_data()
     }
 }
 
