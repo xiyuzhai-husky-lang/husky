@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
 use monad::Monad;
-use proj_like::{ProjAtom, ProjMap, ProjUpdateR};
+use proj_like::{TrackableAtom, TrackableMakeChangeR, TrackableMap};
 use std::{ops::FromResidual, time::Instant};
 
 #[must_use]
@@ -112,24 +112,30 @@ impl<T> FromResidual<HuskyDebugtimeUpdateR> for HuskyDebugtimeUpdateM<T> {
     }
 }
 
-impl<T> FromResidual<ProjUpdateR<ProjAtom<Restriction>>> for HuskyDebugtimeUpdateM<T> {
-    fn from_residual(residual: ProjUpdateR<ProjAtom<Restriction>>) -> Self {
+impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Restriction>>>
+    for HuskyDebugtimeUpdateM<T>
+{
+    fn from_residual(residual: TrackableMakeChangeR<TrackableAtom<Restriction>>) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<ProjUpdateR<ProjMap<FigureCanvasKey, FigureCanvasData>>>
+impl<T> FromResidual<TrackableMakeChangeR<TrackableMap<FigureCanvasKey, FigureCanvasData>>>
     for HuskyDebugtimeUpdateM<T>
 {
-    fn from_residual(residual: ProjUpdateR<ProjMap<FigureCanvasKey, FigureCanvasData>>) -> Self {
+    fn from_residual(
+        residual: TrackableMakeChangeR<TrackableMap<FigureCanvasKey, FigureCanvasData>>,
+    ) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<ProjUpdateR<ProjMap<FigureControlKey, FigureControlData>>>
+impl<T> FromResidual<TrackableMakeChangeR<TrackableMap<FigureControlKey, FigureControlData>>>
     for HuskyDebugtimeUpdateM<T>
 {
-    fn from_residual(residual: ProjUpdateR<ProjMap<FigureControlKey, FigureControlData>>) -> Self {
+    fn from_residual(
+        residual: TrackableMakeChangeR<TrackableMap<FigureControlKey, FigureControlData>>,
+    ) -> Self {
         todo!()
     }
 }

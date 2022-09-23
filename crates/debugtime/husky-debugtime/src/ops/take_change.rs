@@ -1,7 +1,7 @@
 use crate::*;
 use husky_vm::__VMError;
 use monad::Monad;
-use proj_like::{Proj, ProjAtom, ProjTakeChangeR, ProjUpdateR};
+use proj_like::{Trackable, TrackableAtom, TrackableMakeChangeR, TrackableTakeChangeR};
 use std::ops::FromResidual;
 
 #[must_use]
@@ -23,10 +23,10 @@ pub enum HuskyDebugtimeTakeChangeR {
     OtherworldlyErr(__VMError),
 }
 
-impl FromResidual<ProjTakeChangeR<HuskyDebugtimeState>>
+impl FromResidual<TrackableTakeChangeR<HuskyDebugtimeState>>
     for HuskyDebugtimeTakeChangeM<DebugtimeStateChange>
 {
-    fn from_residual(residual: ProjTakeChangeR<HuskyDebugtimeState>) -> Self {
+    fn from_residual(residual: TrackableTakeChangeR<HuskyDebugtimeState>) -> Self {
         todo!()
     }
 }
@@ -43,8 +43,10 @@ impl<T> FromResidual<HuskyDebugtimeUpdateR> for HuskyDebugtimeTakeChangeM<T> {
     }
 }
 
-impl<T> FromResidual<ProjUpdateR<ProjAtom<Restriction>>> for HuskyDebugtimeTakeChangeM<T> {
-    fn from_residual(residual: ProjUpdateR<ProjAtom<Restriction>>) -> Self {
+impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Restriction>>>
+    for HuskyDebugtimeTakeChangeM<T>
+{
+    fn from_residual(residual: TrackableMakeChangeR<TrackableAtom<Restriction>>) -> Self {
         todo!()
     }
 }

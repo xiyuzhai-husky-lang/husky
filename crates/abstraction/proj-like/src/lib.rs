@@ -1,20 +1,20 @@
 #![feature(try_trait_v2)]
 
-mod proj_atom;
-mod proj_map;
-mod proj_monads;
-mod proj_set;
-mod proj_vec;
+mod atom;
+mod map;
+mod monads;
+mod set;
+mod vec;
 
 use std::marker::PhantomData;
 
-pub use proj_atom::*;
-pub use proj_map::*;
-pub use proj_monads::*;
-pub use proj_set::*;
-pub use proj_vec::*;
+pub use atom::*;
+pub use map::*;
+pub use monads::*;
+pub use set::*;
+pub use vec::*;
 
-pub trait Proj: Sized {
+pub trait Trackable: Sized {
     type Change;
-    fn take_change(&mut self) -> ProjTakeChangeM<Self>;
+    fn take_change(&mut self) -> TrackableTakeChangeM<Self>;
 }
