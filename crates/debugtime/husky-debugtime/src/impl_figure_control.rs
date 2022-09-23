@@ -99,17 +99,20 @@ impl HuskyDebugtime {
 
     pub(crate) fn update_figure_controls(
         &mut self,
-    ) -> DebugtimeMakeChangeM<Vec<(FigureControlKey, FigureControlData)>> {
+    ) -> HuskyDebugtimeMakeChangeM<Vec<(FigureControlKey, FigureControlData)>> {
         if let Some(active_trace_id) = *self.state.opt_active_trace_id {
             self.update_figure_control(active_trace_id)?;
         }
         for pin in self.state.pins.clone().into_iter() {
             self.update_figure_control(*pin)?;
         }
-        DebugtimeMakeChangeM::Ok(todo!())
+        HuskyDebugtimeMakeChangeM::Ok(todo!())
     }
 
-    pub(crate) fn update_figure_control(&mut self, trace_id: TraceId) -> DebugtimeMakeChangeM<()> {
+    pub(crate) fn update_figure_control(
+        &mut self,
+        trace_id: TraceId,
+    ) -> HuskyDebugtimeMakeChangeM<()> {
         let key = self.gen_figure_control_key(trace_id);
         if !self.state.figure_controls.contains(&key) {
             let figure_control_data = self.gen_figure_control_data(trace_id);
@@ -117,14 +120,14 @@ impl HuskyDebugtime {
                 .figure_controls
                 .insert_new(key, figure_control_data.clone());
         }
-        DebugtimeMakeChangeM::Ok(())
+        HuskyDebugtimeMakeChangeM::Ok(())
     }
 
     pub fn set_figure_control(
         &mut self,
         trace_id: TraceId,
         new_figure_control_data: FigureControlData,
-    ) -> DebugtimeStageChangeM<()> {
+    ) -> HuskyDebugtimeStageChangeM<()> {
         todo!()
         // let key = self.gen_figure_control_key(trace_id);
         // DebugtimeStageChangeM::Ok(

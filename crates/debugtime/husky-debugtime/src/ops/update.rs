@@ -5,47 +5,47 @@ use proj_like::{ProjAtom, ProjMakeChangeR, ProjMap};
 use std::{ops::FromResidual, time::Instant};
 
 #[must_use]
-pub(crate) enum DebugtimeMakeChangeM<T> {
+pub(crate) enum HuskyDebugtimeMakeChangeM<T> {
     Ok(T),
     OtherworldlyErr(__VMError),
 }
 
-pub enum DebugtimeMakeChangeR {
+pub enum HuskyDebugtimeMakeChangeR {
     OtherworldlyErr(__VMError),
 }
 
 #[must_use]
-pub enum DebugtimeStageChangeM<T> {
+pub enum HuskyDebugtimeStageChangeM<T> {
     Ok(T),
     OtherworldlyErr(__VMError),
 }
 
-pub enum DebugtimeUpdatedR {
+pub enum HuskyDebugtimeStageChangeR {
     OtherworldlyErr(__VMError),
 }
 
-impl<T> Monad for DebugtimeMakeChangeM<T> {}
+impl<T> Monad for HuskyDebugtimeMakeChangeM<T> {}
 
-impl<T> Monad for DebugtimeStageChangeM<T> {}
+impl<T> Monad for HuskyDebugtimeStageChangeM<T> {}
 
-impl<T> DebugtimeMakeChangeM<T> {
-    pub(crate) fn result(self) -> DebugtimeMakeChangeM<__VMResult<T>> {
+impl<T> HuskyDebugtimeMakeChangeM<T> {
+    pub(crate) fn result(self) -> HuskyDebugtimeMakeChangeM<__VMResult<T>> {
         match self {
-            DebugtimeMakeChangeM::Ok(output) => DebugtimeMakeChangeM::Ok(Ok(output)),
-            DebugtimeMakeChangeM::OtherworldlyErr(_) => todo!(),
+            HuskyDebugtimeMakeChangeM::Ok(output) => HuskyDebugtimeMakeChangeM::Ok(Ok(output)),
+            HuskyDebugtimeMakeChangeM::OtherworldlyErr(_) => todo!(),
         }
     }
 }
-impl<T> DebugtimeStageChangeM<T> {
-    pub fn result(self) -> DebugtimeStageChangeM<__VMResult<T>> {
+impl<T> HuskyDebugtimeStageChangeM<T> {
+    pub fn result(self) -> HuskyDebugtimeStageChangeM<__VMResult<T>> {
         todo!()
     }
 }
 
 impl HuskyDebugtime {
-    pub(crate) fn update(&mut self) -> DebugtimeMakeChangeM<()> {
+    pub(crate) fn update(&mut self) -> HuskyDebugtimeMakeChangeM<()> {
         match self.try_update().result()? {
-            Ok(()) => DebugtimeMakeChangeM::Ok(()),
+            Ok(()) => HuskyDebugtimeMakeChangeM::Ok(()),
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
@@ -58,7 +58,7 @@ impl HuskyDebugtime {
         }
     }
 
-    fn try_update(&mut self) -> DebugtimeMakeChangeM<()> {
+    fn try_update(&mut self) -> HuskyDebugtimeMakeChangeM<()> {
         self.update_root_traces()?;
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
@@ -66,7 +66,7 @@ impl HuskyDebugtime {
         self.update_trace_statss()
     }
 
-    fn update_root_traces(&mut self) -> DebugtimeMakeChangeM<()> {
+    fn update_root_traces(&mut self) -> HuskyDebugtimeMakeChangeM<()> {
         let target_entrance = self.runtime().target_entrance();
         let now = Instant::now();
         let main_feature_repr = self.runtime().main_feature_repr(target_entrance);
@@ -114,24 +114,24 @@ impl HuskyDebugtime {
         root_traces.push(self.new_trace(None, 0, TraceVariant::Main(main_feature_repr)));
         self.state.set_root_traces(root_traces);
         self.update_trace_statss()?;
-        DebugtimeMakeChangeM::Ok(())
+        HuskyDebugtimeMakeChangeM::Ok(())
     }
 }
 
-impl<T> FromResidual<DebugtimeMakeChangeR> for DebugtimeMakeChangeM<T> {
-    fn from_residual(residual: DebugtimeMakeChangeR) -> Self {
+impl<T> FromResidual<HuskyDebugtimeMakeChangeR> for HuskyDebugtimeMakeChangeM<T> {
+    fn from_residual(residual: HuskyDebugtimeMakeChangeR) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<ProjMakeChangeR<ProjAtom<Restriction>>> for DebugtimeMakeChangeM<T> {
+impl<T> FromResidual<ProjMakeChangeR<ProjAtom<Restriction>>> for HuskyDebugtimeMakeChangeM<T> {
     fn from_residual(residual: ProjMakeChangeR<ProjAtom<Restriction>>) -> Self {
         todo!()
     }
 }
 
 impl<T> FromResidual<ProjMakeChangeR<ProjMap<FigureCanvasKey, FigureCanvasData>>>
-    for DebugtimeMakeChangeM<T>
+    for HuskyDebugtimeMakeChangeM<T>
 {
     fn from_residual(
         residual: ProjMakeChangeR<ProjMap<FigureCanvasKey, FigureCanvasData>>,
@@ -141,7 +141,7 @@ impl<T> FromResidual<ProjMakeChangeR<ProjMap<FigureCanvasKey, FigureCanvasData>>
 }
 
 impl<T> FromResidual<ProjMakeChangeR<ProjMap<FigureControlKey, FigureControlData>>>
-    for DebugtimeMakeChangeM<T>
+    for HuskyDebugtimeMakeChangeM<T>
 {
     fn from_residual(
         residual: ProjMakeChangeR<ProjMap<FigureControlKey, FigureControlData>>,
@@ -150,57 +150,57 @@ impl<T> FromResidual<ProjMakeChangeR<ProjMap<FigureControlKey, FigureControlData
     }
 }
 
-impl<T> std::ops::Try for DebugtimeMakeChangeM<T> {
+impl<T> std::ops::Try for HuskyDebugtimeMakeChangeM<T> {
     type Output = T;
 
-    type Residual = DebugtimeMakeChangeR;
+    type Residual = HuskyDebugtimeMakeChangeR;
 
     fn from_output(output: Self::Output) -> Self {
-        DebugtimeMakeChangeM::Ok(output)
+        HuskyDebugtimeMakeChangeM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            DebugtimeMakeChangeM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
-            DebugtimeMakeChangeM::OtherworldlyErr(e) => {
-                std::ops::ControlFlow::Break(DebugtimeMakeChangeR::OtherworldlyErr(e))
+            HuskyDebugtimeMakeChangeM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
+            HuskyDebugtimeMakeChangeM::OtherworldlyErr(e) => {
+                std::ops::ControlFlow::Break(HuskyDebugtimeMakeChangeR::OtherworldlyErr(e))
             }
         }
     }
 }
 
-impl<T> FromResidual<DebugtimeUpdatedR> for DebugtimeStageChangeM<T> {
-    fn from_residual(residual: DebugtimeUpdatedR) -> Self {
+impl<T> FromResidual<HuskyDebugtimeStageChangeR> for HuskyDebugtimeStageChangeM<T> {
+    fn from_residual(residual: HuskyDebugtimeStageChangeR) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<DebugtimeMakeChangeR> for DebugtimeStageChangeM<T> {
-    fn from_residual(residual: DebugtimeMakeChangeR) -> Self {
+impl<T> FromResidual<HuskyDebugtimeMakeChangeR> for HuskyDebugtimeStageChangeM<T> {
+    fn from_residual(residual: HuskyDebugtimeMakeChangeR) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<ProjMakeChangeR<ProjAtom<Restriction>>> for DebugtimeStageChangeM<T> {
+impl<T> FromResidual<ProjMakeChangeR<ProjAtom<Restriction>>> for HuskyDebugtimeStageChangeM<T> {
     fn from_residual(residual: ProjMakeChangeR<ProjAtom<Restriction>>) -> Self {
         todo!()
     }
 }
 
-impl<T> std::ops::Try for DebugtimeStageChangeM<T> {
+impl<T> std::ops::Try for HuskyDebugtimeStageChangeM<T> {
     type Output = T;
 
-    type Residual = DebugtimeUpdatedR;
+    type Residual = HuskyDebugtimeStageChangeR;
 
     fn from_output(output: Self::Output) -> Self {
-        DebugtimeStageChangeM::Ok(output)
+        HuskyDebugtimeStageChangeM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            DebugtimeStageChangeM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
-            DebugtimeStageChangeM::OtherworldlyErr(e) => {
-                std::ops::ControlFlow::Break(DebugtimeUpdatedR::OtherworldlyErr(e))
+            HuskyDebugtimeStageChangeM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
+            HuskyDebugtimeStageChangeM::OtherworldlyErr(e) => {
+                std::ops::ControlFlow::Break(HuskyDebugtimeStageChangeR::OtherworldlyErr(e))
             }
         }
     }
