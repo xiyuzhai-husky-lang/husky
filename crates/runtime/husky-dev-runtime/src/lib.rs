@@ -1,9 +1,13 @@
+#![feature(try_trait_v2)]
+
 mod comptime;
+mod hot_reload;
 mod impl_necessary;
 mod impl_train;
 mod query;
 mod variant;
 
+pub use hot_reload::{HuskyRuntimeHotReloadM, HuskyRuntimeHotReloadR};
 pub use husky_comptime::*;
 pub use husky_feature_gen::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, InternFeature};
 pub use husky_instruction_gen::InstructionGenQueryGroup;
@@ -109,14 +113,5 @@ impl HuskyDevRuntime {
         self.variant = HuskyRuntimeVariant::Learning {
             session: Session::new(&package, self, &self.evaluator_config().vm).unwrap(),
         }
-    }
-
-    fn hot_reload(&mut self) {
-        CompilerInstance::new(
-            RelativePathBuf::from_path(&self.config.comptime.package_dir).unwrap(),
-        )
-        .compile_all();
-        self.load_package();
-        self.load_linkages();
     }
 }

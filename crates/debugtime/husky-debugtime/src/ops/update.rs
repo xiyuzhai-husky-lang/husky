@@ -42,7 +42,7 @@ impl<T> DebugtimeStageChangeM<T> {
     }
 }
 
-impl Debugtime {
+impl HuskyDebugtime {
     pub(crate) fn update(&mut self) -> DebugtimeMakeChangeM<()> {
         match self.try_update().result()? {
             Ok(()) => DebugtimeMakeChangeM::Ok(()),

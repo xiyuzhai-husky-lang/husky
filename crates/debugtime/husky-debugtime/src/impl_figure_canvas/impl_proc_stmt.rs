@@ -1,6 +1,6 @@
 use super::*;
 
-impl Debugtime {
+impl HuskyDebugtime {
     pub(crate) fn proc_stmt_figure(
         &self,
         stmt: &ProcStmt,

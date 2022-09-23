@@ -20,3 +20,4 @@ sudo apt-get install lld
 cargo build
 lake build
 make vscode
+sudo snap install scc
