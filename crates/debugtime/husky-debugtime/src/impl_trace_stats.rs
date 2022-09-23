@@ -2,7 +2,7 @@ use crate::{ops::HuskyDebugtimeTakeChangeM, *};
 
 impl HuskyDebugtime {
     pub(crate) fn update_trace_statss(&mut self) -> HuskyDebugtimeUpdateM<()> {
-        for root_trace_id in self.state.root_traces().to_vec() {
+        for root_trace_id in self.root_traces() {
             self.update_trace_statss_within_trace(root_trace_id)?;
         }
         HuskyDebugtimeUpdateM::Ok(())

@@ -2,7 +2,10 @@ mod hot_reload;
 mod update;
 
 pub use hot_reload::*;
-use trackable::{Trackable, TrackableAtom, TrackableMap, TrackableTakeChangeM, TrackableVec};
+use trackable::{
+    TrackSimple, Trackable, TrackableAtom, TrackableMakeChangeM, TrackableMap,
+    TrackableTakeChangeM, TrackableVec, TrackableVecSimple,
+};
 pub use update::*;
 
 use crate::*;
@@ -12,26 +15,26 @@ pub struct HuskyDebugtimeState {
     pub(crate) restriction: TrackableAtom<Restriction>,
     pub(crate) pins: VecSet<TraceId>,
     pub(crate) opt_active_trace_id: TrackableAtom<Option<TraceId>>,
-    pub(crate) trace_nodes: TrackableVec<Option<TraceNode>>,
+    pub(crate) trace_nodes: TrackableVec<TraceNode>,
     pub(crate) figure_canvases: TrackableMap<FigureCanvasKey, FigureCanvasData>,
     pub(crate) figure_controls: TrackableMap<FigureControlKey, FigureControlData>,
     pub(crate) trace_stalks: TrackableMap<TraceStalkKey, TraceStalk>,
     pub(crate) trace_statss: TrackableMap<TraceStatsKey, Option<TraceStats>>,
-    root_traces: TrackableVec<TraceId>,
+    root_traces: TrackableVecSimple<TraceId>,
     pub(crate) subtrace_ids_map: TrackableMap<SubtracesKey, Vec<TraceId>>,
 }
 
 pub struct DebugtimeStateChange {
     pub(crate) restriction: <TrackableAtom<Restriction> as Trackable>::Change,
     pub(crate) opt_active_trace_id: <TrackableAtom<Option<TraceId>> as Trackable>::Change,
-    pub(crate) trace_nodes: <TrackableVec<Option<TraceNode>> as Trackable>::Change,
+    pub(crate) trace_nodes: <TrackableVec<TraceNode> as Trackable>::Change,
     pub(crate) figure_canvases:
         <TrackableMap<FigureCanvasKey, FigureCanvasData> as Trackable>::Change,
     pub(crate) figure_controls:
         <TrackableMap<FigureControlKey, FigureControlData> as Trackable>::Change,
     pub(crate) trace_stalks: <TrackableMap<TraceStalkKey, TraceStalk> as Trackable>::Change,
     pub(crate) trace_statss: <TrackableMap<TraceStatsKey, Option<TraceStats>> as Trackable>::Change,
-    root_traces: <TrackableVec<TraceId> as Trackable>::Change,
+    root_traces: <TrackableVecSimple<TraceId> as Trackable>::Change,
     pub(crate) subtrace_ids_map: <TrackableMap<SubtracesKey, Vec<TraceId>> as Trackable>::Change,
 }
 
@@ -56,12 +59,16 @@ impl Trackable for HuskyDebugtimeState {
 }
 
 impl HuskyDebugtimeState {
-    pub(crate) fn root_traces(&self) -> &[TraceId] {
+    pub(crate) fn root_traces(&self) -> &[TrackSimple<TraceId>] {
         &self.root_traces
     }
 
-    pub(crate) fn set_root_traces(&mut self, root_traces: Vec<TraceId>) {
-        todo!()
-        // self.root_traces.set(root_traces)
+    pub(crate) fn set_root_traces(
+        &mut self,
+        root_traces: Vec<TraceId>,
+    ) -> TrackableMakeChangeM<Self, ()> {
+        self.root_traces
+            .set(root_traces.into_iter().map(|id| id.into()).collect())?;
+        TrackableMakeChangeM::default()
     }
 }
