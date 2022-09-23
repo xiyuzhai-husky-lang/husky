@@ -1,8 +1,8 @@
 use crate::*;
 use husky_vm::__VMError;
 use monad::Monad;
-use proj_like::{Trackable, TrackableAtom, TrackableMakeChangeR, TrackableTakeChangeR};
 use std::ops::FromResidual;
+use trackable::{Trackable, TrackableAtom, TrackableMakeChangeR, TrackableTakeChangeR};
 
 #[must_use]
 pub enum HuskyDebugtimeTakeChangeM<T> {

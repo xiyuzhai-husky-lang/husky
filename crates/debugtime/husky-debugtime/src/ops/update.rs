@@ -1,8 +1,8 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
 use monad::Monad;
-use proj_like::{TrackableAtom, TrackableMakeChangeR, TrackableMap};
 use std::{ops::FromResidual, time::Instant};
+use trackable::{TrackableAtom, TrackableMakeChangeR, TrackableMap};
 
 #[must_use]
 pub(crate) enum HuskyDebugtimeUpdateM<T> {

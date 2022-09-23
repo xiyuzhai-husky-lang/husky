@@ -14,7 +14,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
 monad = { path = "../../abstraction/monad" }
-proj-like = { path = "../../abstraction/proj-like" }
+trackable = { path = "../../abstraction/trackable" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
