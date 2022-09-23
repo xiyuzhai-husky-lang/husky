@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_route::EntityRoutePtr;
 
-impl Debugtime {
+impl HuskyDebugtime {
     pub fn keyed_trace_stalk(&mut self, trace_id: TraceId) -> (TraceStalkKey, TraceStalk) {
         let sample_id = self.state.restriction.opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);

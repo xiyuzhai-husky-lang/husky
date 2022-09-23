@@ -2,17 +2,19 @@ use crate::*;
 use monad::MonadT;
 
 #[must_use]
-pub enum DebugtimeHotReloadM {
+pub enum HuskyDebugtimeHotReloadM {
     Ok(InitData),
 }
 
-impl Monad for DebugtimeHotReloadM {}
+impl Monad for HuskyDebugtimeHotReloadM {}
 
-impl<T> MonadT<DebugtimeMakeChangeM<T>> for DebugtimeHotReloadM {}
+impl<T> MonadT<DebugtimeMakeChangeM<T>> for HuskyDebugtimeHotReloadM {}
+impl MonadT<HuskyRuntimeHotReloadM> for HuskyDebugtimeHotReloadM {}
 
-impl Debugtime {
-    pub fn hot_reload(&mut self) -> DebugtimeHotReloadM {
+impl HuskyDebugtime {
+    pub fn hot_reload(&mut self) -> HuskyDebugtimeHotReloadM {
         self.clear()?;
+        self.runtime.hot_reload()?;
         // self.comptime().reload();
         todo!();
         // let root_trace_ids = self.state.root_traces().to_vec();
@@ -57,30 +59,36 @@ impl Debugtime {
 
 pub struct DebugtimeHotReloadR;
 
-impl std::ops::FromResidual<DebugtimeHotReloadR> for DebugtimeHotReloadM {
+impl std::ops::FromResidual<DebugtimeHotReloadR> for HuskyDebugtimeHotReloadM {
     fn from_residual(residual: DebugtimeHotReloadR) -> Self {
         unreachable!()
     }
 }
 
-impl std::ops::FromResidual<DebugtimeMakeChangeR> for DebugtimeHotReloadM {
+impl std::ops::FromResidual<DebugtimeMakeChangeR> for HuskyDebugtimeHotReloadM {
     fn from_residual(residual: DebugtimeMakeChangeR) -> Self {
         unreachable!()
     }
 }
 
-impl std::ops::Try for DebugtimeHotReloadM {
+impl std::ops::FromResidual<HuskyRuntimeHotReloadR> for HuskyDebugtimeHotReloadM {
+    fn from_residual(residual: HuskyRuntimeHotReloadR) -> Self {
+        todo!()
+    }
+}
+
+impl std::ops::Try for HuskyDebugtimeHotReloadM {
     type Output = InitData;
 
     type Residual = DebugtimeHotReloadR;
 
     fn from_output(output: Self::Output) -> Self {
-        DebugtimeHotReloadM::Ok(output)
+        HuskyDebugtimeHotReloadM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            DebugtimeHotReloadM::Ok(init_data) => std::ops::ControlFlow::Continue(init_data),
+            HuskyDebugtimeHotReloadM::Ok(init_data) => std::ops::ControlFlow::Continue(init_data),
         }
     }
 }

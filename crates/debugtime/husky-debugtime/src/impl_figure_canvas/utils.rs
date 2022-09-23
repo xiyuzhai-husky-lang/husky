@@ -3,7 +3,7 @@ use husky_text::TextRange;
 
 use crate::*;
 
-impl Debugtime {
+impl HuskyDebugtime {
     pub fn visualize_temp_value(
         &self,
         value: &__Register<'static>,

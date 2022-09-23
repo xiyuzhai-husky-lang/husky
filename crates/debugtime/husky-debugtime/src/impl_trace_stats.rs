@@ -1,6 +1,6 @@
 use crate::{ops::DebugtimeStageChangeM, *};
 
-impl Debugtime {
+impl HuskyDebugtime {
     pub(crate) fn update_trace_statss(&mut self) -> DebugtimeMakeChangeM<()> {
         for root_trace_id in self.state.root_traces().to_vec() {
             self.update_trace_statss_within_trace(root_trace_id)?;

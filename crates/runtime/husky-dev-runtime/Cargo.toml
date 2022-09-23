@@ -16,6 +16,7 @@ interner = { path = "../../abstraction/interner" }
 fold = { path = "../../abstraction/fold" }
 upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
+monad = { path = "../../abstraction/monad" }
 arena = { path = "../../abstraction/arena" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
