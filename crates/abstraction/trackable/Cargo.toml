@@ -1,5 +1,5 @@
 [package]
-name = "proj-like"
+name = "trackable"
 version = "0.1.0"
 edition = "2021"
 

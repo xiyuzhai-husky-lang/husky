@@ -2,7 +2,7 @@ mod hot_reload;
 mod update;
 
 pub use hot_reload::*;
-use proj_like::{Trackable, TrackableAtom, TrackableMap, TrackableVec};
+use trackable::{Trackable, TrackableAtom, TrackableMap, TrackableVec};
 pub use update::*;
 
 use crate::*;
@@ -40,7 +40,7 @@ pub struct DebugtimeStateChange {
 impl Trackable for HuskyDebugtimeState {
     type Change = DebugtimeStateChange;
 
-    fn take_change(&mut self) -> proj_like::TrackableTakeChangeM<Self> {
+    fn take_change(&mut self) -> trackable::TrackableTakeChangeM<Self> {
         todo!()
     }
 }
