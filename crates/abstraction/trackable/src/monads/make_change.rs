@@ -2,26 +2,40 @@ use crate::*;
 use ::monad::Monad;
 
 #[must_use]
-pub enum TrackableUpdateM<P, T> {
+pub enum TrackableMakeChangeM<P, T> {
     Ok {
         cont: T,
         phantom_state: PhantomData<P>,
     },
 }
 
-impl<P, T> Monad for TrackableUpdateM<P, T> {}
+impl<P, T> Monad for TrackableMakeChangeM<P, T> {}
 
 pub struct TrackableMakeChangeR<P> {
     phantom_state: PhantomData<P>,
 }
 
-impl<P, T> std::ops::Try for TrackableUpdateM<P, T> {
+// implementation details
+
+impl<P, T> Default for TrackableMakeChangeM<P, T>
+where
+    T: Default,
+{
+    fn default() -> Self {
+        TrackableMakeChangeM::Ok {
+            cont: Default::default(),
+            phantom_state: PhantomData,
+        }
+    }
+}
+
+impl<P, T> std::ops::Try for TrackableMakeChangeM<P, T> {
     type Output = T;
 
     type Residual = TrackableMakeChangeR<P>;
 
     fn from_output(cont: Self::Output) -> Self {
-        TrackableUpdateM::Ok {
+        TrackableMakeChangeM::Ok {
             cont,
             phantom_state: PhantomData,
         }
@@ -29,12 +43,12 @@ impl<P, T> std::ops::Try for TrackableUpdateM<P, T> {
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            TrackableUpdateM::Ok { cont, .. } => std::ops::ControlFlow::Continue(cont),
+            TrackableMakeChangeM::Ok { cont, .. } => std::ops::ControlFlow::Continue(cont),
         }
     }
 }
 
-impl<P, T> std::ops::FromResidual<TrackableMakeChangeR<P>> for TrackableUpdateM<P, T> {
+impl<P, Q, T> std::ops::FromResidual<TrackableMakeChangeR<P>> for TrackableMakeChangeM<Q, T> {
     fn from_residual(residual: TrackableMakeChangeR<P>) -> Self {
         todo!()
     }

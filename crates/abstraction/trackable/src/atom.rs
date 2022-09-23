@@ -1,18 +1,29 @@
-use crate::{Trackable, TrackableUpdateM};
+use crate::{Trackable, TrackableMakeChangeM, TrackableTakeChangeM};
 
 #[derive(Default)]
 pub struct TrackableAtom<V> {
     value: V,
-    updated: bool,
+    changed: bool,
 }
 
-pub struct TrackableAtomChange;
+pub enum TrackableAtomChange<V> {
+    Some(V),
+    None,
+}
 
-impl<V> Trackable for TrackableAtom<V> {
-    type Change = TrackableAtomChange;
+impl<V> Trackable for TrackableAtom<V>
+where
+    V: Clone,
+{
+    type Change = TrackableAtomChange<V>;
 
-    fn take_change(&mut self) -> crate::TrackableTakeChangeM<Self> {
-        todo!()
+    fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
+        if self.changed {
+            self.changed = false;
+            TrackableTakeChangeM::Ok(TrackableAtomChange::Some(self.value.clone()))
+        } else {
+            TrackableTakeChangeM::Ok(TrackableAtomChange::None)
+        }
     }
 }
 
@@ -25,18 +36,18 @@ impl<V> std::ops::Deref for TrackableAtom<V> {
 }
 
 impl<V> TrackableAtom<V> {
-    pub fn set(&mut self, new_value: V) -> TrackableUpdateM<Self, ()> {
-        self.updated = false;
+    pub fn set(&mut self, new_value: V) -> TrackableMakeChangeM<Self, ()> {
+        self.changed = true;
         self.value = new_value;
-        TrackableUpdateM::Ok {
+        TrackableMakeChangeM::Ok {
             cont: (),
             phantom_state: std::marker::PhantomData,
         }
     }
-    pub fn update(&mut self, f: impl FnOnce(&mut V)) -> TrackableUpdateM<Self, ()> {
-        self.updated = false;
+    pub fn update(&mut self, f: impl FnOnce(&mut V)) -> TrackableMakeChangeM<Self, ()> {
+        self.changed = true;
         f(&mut self.value);
-        TrackableUpdateM::Ok {
+        TrackableMakeChangeM::Ok {
             cont: (),
             phantom_state: std::marker::PhantomData,
         }
