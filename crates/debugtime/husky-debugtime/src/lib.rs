@@ -51,7 +51,7 @@ impl HuskyDebugtime {
             state: Default::default(),
         };
         assert!(debugtime.state.restriction.opt_sample_id().is_none());
-        debugtime.update();
+        debugtime.hot_reload();
         debugtime
     }
 
@@ -200,11 +200,10 @@ impl HuskyDebugtime {
         self.state
             .trace_nodes
             .apply_update_elem(trace_id.0, |node| node.toggle_expansion())?;
-        // ad hoc
-        self.update_subtraces(trace_id);
+        assert_eq!(self.state.trace_nodes[trace_id.0].expanded(), true);
+        self.update_subtraces(trace_id); // ad hoc
         self.update()?;
         let change = self.take_change()?;
-        assert_ne!(self.state.trace_nodes[6].trace_data().id.0, 0);
         HuskyDebugtimeTakeChangeM::Ok(
             if let Some(new_trace_nodes) = change.trace_nodes.opt_new_entries() {
                 assert_ne!(new_trace_nodes[0].trace_data.id.0, 0);

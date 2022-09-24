@@ -50,62 +50,10 @@ impl HuskyDebugtime {
     }
 
     fn try_update(&mut self) -> HuskyDebugtimeUpdateM<()> {
-        self.update_root_traces()?;
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
         self.update_trace_stalks()?;
         self.update_trace_statss()
-    }
-
-    fn update_root_traces(&mut self) -> HuskyDebugtimeUpdateM<()> {
-        let target_entrance = self.runtime().target_entrance();
-        let now = Instant::now();
-        let main_feature_repr = self.runtime().main_feature_repr(target_entrance);
-        println!(
-            "{} milliseconds elapsed for computing main feature",
-            now.elapsed().as_millis(),
-        );
-        let module = self.runtime().module(target_entrance).unwrap();
-        let mut root_traces = vec![];
-        // add input trace
-        root_traces.push(self.new_trace(None, 0, TraceVariant::input(self.runtime())));
-        // add module traces
-        for (subentity_kind, subentity_route) in
-            self.runtime().subentity_kinded_routes(module).iter()
-        {
-            match subentity_kind {
-                EntityKind::Module => {
-                    if self.runtime().module_contains_features(*subentity_route) {
-                        root_traces.push(self.new_trace(
-                            None,
-                            0,
-                            TraceVariant::Module {
-                                route: *subentity_route,
-                                file: target_entrance,
-                                range: Default::default(),
-                            },
-                        ))
-                    }
-                }
-                EntityKind::Feature => {
-                    let repr = self.runtime().entity_feature_repr(*subentity_route);
-                    root_traces.push(self.new_trace(
-                        None,
-                        0,
-                        TraceVariant::EntityFeature {
-                            route: *subentity_route,
-                            repr,
-                        },
-                    ))
-                }
-                _ => (),
-            }
-        }
-        // add main trace
-        root_traces.push(self.new_trace(None, 0, TraceVariant::Main(main_feature_repr)));
-        self.state.set_root_traces(root_traces);
-        self.update_trace_statss()?;
-        HuskyDebugtimeUpdateM::Ok(())
     }
 }
 
