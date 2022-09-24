@@ -46,6 +46,13 @@ impl TraceNode {
         }
     }
 
+    pub(crate) fn trace_data(&self) -> &TraceData {
+        match self {
+            TraceNode::Uninitialized => unreachable!(),
+            TraceNode::Initialized { trace, .. } => &trace.raw_data,
+        }
+    }
+
     pub(crate) fn toggle_shown(&mut self) {
         match self {
             TraceNode::Uninitialized => (),
