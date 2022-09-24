@@ -41,9 +41,7 @@ impl HuskyDebugtime {
             .variant
             .opt_stats_result(self.runtime(), self.state.restriction.partitions())
             .split();
-        self.state
-            .trace_statss
-            .insert_new(key.clone(), opt_stats.clone());
+        self.state.trace_statss.insert_new(key, opt_stats);
         self.updating_t(result)
     }
 
