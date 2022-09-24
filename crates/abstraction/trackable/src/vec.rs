@@ -84,7 +84,6 @@ where
         if self.state.old_len == self.entries.len() {
             return TrackableTakeChangeM::Ok(TrackableVecChange::None);
         }
-        println!("self.state.old_len = {}", self.state.old_len);
         let new_entries: Vec<E::CloneOutput> = self.entries[self.state.old_len..]
             .iter()
             .map(|v| v.track_clone())
