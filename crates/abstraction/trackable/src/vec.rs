@@ -44,7 +44,7 @@ where
 
 pub type TrackableVecSimple<E> = TrackableVec<TrackSimple<E>>;
 
-#[derive(Default)]
+#[derive(Debug, Default)]
 pub struct TrackableVecState {
     old_len: usize,
     elems_modified: VecSet<usize>,
@@ -84,6 +84,7 @@ where
         if self.state.old_len == self.entries.len() {
             return TrackableTakeChangeM::Ok(TrackableVecChange::None);
         }
+        println!("self.state.old_len = {}", self.state.old_len);
         let new_entries: Vec<E::CloneOutput> = self.entries[self.state.old_len..]
             .iter()
             .map(|v| v.track_clone())
@@ -118,7 +119,9 @@ where
         }
     }
     pub fn set_elem(&mut self, index: usize, new_value: E) -> TrackableMakeChangeM<Self, ()> {
-        self.state = Default::default();
+        if index < self.state.old_len {
+            todo!()
+        }
         self.entries[index] = new_value;
         TrackableMakeChangeM::Ok {
             cont: (),
@@ -142,6 +145,10 @@ where
             this: PhantomData,
             cont: (),
         }
+    }
+
+    pub fn state(&self) -> &TrackableVecState {
+        &self.state
     }
 }
 

@@ -204,6 +204,7 @@ impl HuskyDebugtime {
         self.update_subtraces(trace_id);
         self.update()?;
         let change = self.take_change()?;
+        assert_ne!(self.state.trace_nodes[6].trace_data().id.0, 0);
         HuskyDebugtimeTakeChangeM::Ok(
             if let Some(new_trace_nodes) = change.trace_nodes.opt_new_entries() {
                 assert_ne!(new_trace_nodes[0].trace_data.id.0, 0);
