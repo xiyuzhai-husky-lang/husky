@@ -1,8 +1,7 @@
 use std::marker::PhantomData;
 
-pub struct TrackableApplyChangeM<This, T> {
-    this: PhantomData<This>,
-    cont: PhantomData<T>,
+pub enum TrackableApplyChangeM<This, T> {
+    Ok { this: PhantomData<This>, cont: T },
 }
 
 pub struct TrackableApplyChangeR<This> {
@@ -19,7 +18,9 @@ impl<This, T> std::ops::Try for TrackableApplyChangeM<This, T> {
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
-        todo!()
+        match self {
+            TrackableApplyChangeM::Ok { this, cont } => std::ops::ControlFlow::Continue(cont),
+        }
     }
 }
 

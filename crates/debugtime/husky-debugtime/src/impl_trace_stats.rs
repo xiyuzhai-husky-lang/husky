@@ -24,7 +24,7 @@ impl HuskyDebugtime {
             self.update_trace_statss_within_trace(associated_trace_id)?
         }
         if expanded {
-            for subtrace_id in self.subtrace_ids(trace_id) {
+            for subtrace_id in self.subtraces(trace_id) {
                 self.update_trace_statss_within_trace(subtrace_id)?
             }
         }

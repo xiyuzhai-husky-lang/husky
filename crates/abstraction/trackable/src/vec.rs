@@ -58,6 +58,18 @@ where
     Append { new_entries: Vec<E::CloneOutput> },
 }
 
+impl<E> TrackableVecChange<E>
+where
+    E: TrackClone,
+{
+    pub fn opt_new_entries(self) -> Option<Vec<E::CloneOutput>> {
+        match self {
+            TrackableVecChange::None => None,
+            TrackableVecChange::Append { new_entries } => Some(new_entries),
+        }
+    }
+}
+
 impl<E> Trackable for TrackableVec<E>
 where
     E: TrackClone,
@@ -105,10 +117,31 @@ where
             phantom_state: PhantomData,
         }
     }
+    pub fn set_elem(&mut self, index: usize, new_value: E) -> TrackableMakeChangeM<Self, ()> {
+        self.state = Default::default();
+        self.entries[index] = new_value;
+        TrackableMakeChangeM::Ok {
+            cont: (),
+            phantom_state: PhantomData,
+        }
+    }
 
     pub fn apply_set_elem(&mut self, index: usize, elem: E) -> TrackableApplyChangeM<Self, ()> {
         assert!(self.synced());
         todo!()
+    }
+
+    pub fn apply_update_elem(
+        &mut self,
+        index: usize,
+        f: impl FnOnce(&mut E),
+    ) -> TrackableApplyChangeM<Self, ()> {
+        assert!(self.synced());
+        f(&mut self.entries[index]);
+        TrackableApplyChangeM::Ok {
+            this: PhantomData,
+            cont: (),
+        }
     }
 }
 
@@ -157,14 +190,14 @@ where
     }
 }
 
-impl<E> std::ops::IndexMut<usize> for TrackableVec<E>
-where
-    E: TrackClone,
-{
-    fn index_mut(&mut self, index: usize) -> &mut Self::Output {
-        if index < self.state.old_len {
-            self.state.elems_modified.insert(index);
-        }
-        &mut self.entries[index]
-    }
-}
+// impl<E> std::ops::IndexMut<usize> for TrackableVec<E>
+// where
+//     E: TrackClone,
+// {
+//     fn index_mut(&mut self, index: usize) -> &mut Self::Output {
+//         if index < self.state.old_len {
+//             self.state.elems_modified.insert(index);
+//         }
+//         &mut self.entries[index]
+//     }
+// }

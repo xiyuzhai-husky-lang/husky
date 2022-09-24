@@ -69,7 +69,11 @@ impl HuskyDebugtime {
         self.state.opt_active_trace_id.set(Some(trace_id));
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
-        HuskyDebugtimeTakeChangeM::Ok((todo!(), todo!()))
+        let change = self.take_change()?;
+        HuskyDebugtimeTakeChangeM::Ok((
+            change.figure_canvases.opt_new_entries().unwrap_or_default(),
+            change.figure_controls.opt_new_entries().unwrap_or_default(),
+        ))
     }
 
     pub fn root_traces(&self) -> Vec<TraceId> {
@@ -92,25 +96,39 @@ impl HuskyDebugtime {
             .collect()
     }
 
-    pub fn subtrace_ids(&mut self, trace_id: TraceId) -> Vec<TraceId> {
+    // move this to somewhere proper
+    pub(crate) fn update_subtraces(&mut self, trace_id: TraceId) -> HuskyDebugtimeUpdateM<()> {
+        let trace = &self.trace(trace_id);
+        let opt_sample_id = self.state.restriction.opt_sample_id();
+        if !trace.raw_data.has_subtraces(opt_sample_id.is_some()) {
+            return HuskyDebugtimeUpdateM::Ok(());
+        }
+        let key = SubtracesKey::new(trace.raw_data.kind, trace_id, opt_sample_id);
+        if self.state.subtrace_ids_map.get(&key).is_none() {
+            if let Some(subtraces) = self.gen_subtraces(trace_id) {
+                self.state
+                    .subtrace_ids_map
+                    .insert_new(key.clone(), subtraces.clone());
+            } else {
+                todo!()
+            }
+        }
+        HuskyDebugtimeUpdateM::Ok(())
+    }
+
+    pub(crate) fn subtraces(&self, trace_id: TraceId) -> Vec<TraceId> {
         let trace = &self.trace(trace_id);
         let opt_sample_id = self.state.restriction.opt_sample_id();
         if !trace.raw_data.has_subtraces(opt_sample_id.is_some()) {
             return vec![];
         }
         let key = SubtracesKey::new(trace.raw_data.kind, trace_id, opt_sample_id);
-        if let Some(subtrace_ids) = self.state.subtrace_ids_map.get(&key) {
-            subtrace_ids.clone()
-        } else {
-            if let Some(subtrace_ids) = self.gen_subtraces(trace_id) {
-                self.state
-                    .subtrace_ids_map
-                    .insert_new(key.clone(), subtrace_ids.clone());
-                subtrace_ids
-            } else {
-                todo!()
-            }
-        }
+        self.state
+            .subtrace_ids_map
+            .get(&key)
+            .as_ref()
+            .unwrap()
+            .to_vec()
     }
 
     fn trace_node_data(&self, trace_id: TraceId) -> TraceNodeData {
@@ -152,16 +170,19 @@ impl HuskyDebugtime {
             }
         };
         assert!(!self.state.trace_nodes[trace.id().0].initialized());
-        self.state.trace_nodes[trace_id.0] = TraceNode::Initialized {
-            expanded: false,
-            shown: match trace.raw_data.kind {
-                TraceKind::FeatureExprLazy | TraceKind::FeatureExprEager | TraceKind::EagerExpr => {
-                    trace.raw_data.opt_parent_id.is_some()
-                }
-                _ => true,
+        self.state.trace_nodes.set_elem(
+            trace_id.0,
+            TraceNode::Initialized {
+                expanded: false,
+                shown: match trace.raw_data.kind {
+                    TraceKind::FeatureExprLazy
+                    | TraceKind::FeatureExprEager
+                    | TraceKind::EagerExpr => trace.raw_data.opt_parent_id.is_some(),
+                    _ => true,
+                },
+                trace,
             },
-            trace,
-        };
+        );
         trace_id
     }
 
@@ -176,28 +197,40 @@ impl HuskyDebugtime {
             Vec<(TraceStatsKey, Option<TraceStats>)>,
         )>,
     > {
-        let old_len = self.state.trace_nodes.len();
-        self.state.trace_nodes[trace_id.0].toggle_expansion();
-        let subtrace_ids = self.subtrace_ids(trace_id);
-        HuskyDebugtimeTakeChangeM::Ok(if self.state.trace_nodes.len() > old_len {
-            let new_traces: Vec<TraceNodeData> = self.state.trace_nodes[old_len..]
-                .iter()
-                .map(|node| node.to_data())
-                .collect();
-            self.update_trace_stalks();
-            self.update_trace_statss()?;
-            Some((todo!(), todo!(), todo!(), todo!()))
-        } else {
-            None
-        })
+        self.state
+            .trace_nodes
+            .apply_update_elem(trace_id.0, |node| node.toggle_expansion())?;
+        // ad hoc
+        self.update_subtraces(trace_id);
+        self.update()?;
+        let change = self.take_change()?;
+        HuskyDebugtimeTakeChangeM::Ok(
+            if let Some(new_trace_nodes) = change.trace_nodes.opt_new_entries() {
+                assert_ne!(new_trace_nodes[0].trace_data.id.0, 0);
+                let mut subtraces = change.subtrace_ids_map.opt_new_entries().unwrap();
+                assert_eq!(subtraces.len(), 1);
+                let (_, subtraces) = subtraces.pop().unwrap();
+                Some((
+                    new_trace_nodes,
+                    subtraces,
+                    change.trace_stalks.opt_new_entries().unwrap_or_default(),
+                    change.trace_statss.opt_new_entries().unwrap_or_default(),
+                ))
+            } else {
+                None
+            },
+        )
     }
 
     pub fn expanded(&mut self, trace_id: TraceId) -> bool {
         self.state.trace_nodes[trace_id.0].expanded()
     }
 
-    pub fn toggle_show(&mut self, trace_id: TraceId) {
-        self.state.trace_nodes[trace_id.0].toggle_shown()
+    pub fn toggle_show(&mut self, trace_id: TraceId) -> HuskyDebugtimeTakeChangeM<()> {
+        self.state
+            .trace_nodes
+            .apply_update_elem(trace_id.0, |node| node.toggle_shown())?;
+        HuskyDebugtimeTakeChangeM::Ok(())
     }
 
     pub fn trace(&self, trace_id: TraceId) -> &Trace {

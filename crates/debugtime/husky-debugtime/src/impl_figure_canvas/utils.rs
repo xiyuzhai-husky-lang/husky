@@ -64,16 +64,14 @@ impl HuskyDebugtime {
         let key: FigureCanvasKey = self.gen_figure_canvas_key(trace_id, is_specific);
         // todo: clean all this trouble
         let f = |(sample_id, e): (SampleId, __VMError)| -> __VMError { (sample_id.0, e).into() };
-        todo!()
-        // if !self.state.figure_canvases.contains(&key) {
-        //     self.state.figure_canvases.insert_move(key.clone());
-        //     new_figure_canvases.push((
-        //         key,
-        //         self.gen_figure_canvas_data(trace_id, is_specific)
-        //             .map_err(f)?,
-        //     ))
-        // }
-        // DebugtimeUpdateM::Ok(())
+        if !self.state.figure_canvases.contains(&key) {
+            self.state.figure_canvases.insert_new(
+                key.clone(),
+                self.gen_figure_canvas_data(trace_id, is_specific)
+                    .map_err(f)?,
+            )?
+        }
+        HuskyDebugtimeUpdateM::Ok(())
     }
 
     fn gen_figure_canvas_key(&self, trace_id: TraceId, is_specific: bool) -> FigureCanvasKey {

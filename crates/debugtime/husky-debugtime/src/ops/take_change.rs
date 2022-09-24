@@ -2,7 +2,10 @@ use crate::*;
 use husky_vm::__VMError;
 use monad::Monad;
 use std::ops::FromResidual;
-use trackable::{Trackable, TrackableAtom, TrackableMakeChangeR, TrackableTakeChangeR};
+use trackable::{
+    Trackable, TrackableApplyChangeR, TrackableAtom, TrackableMakeChangeR, TrackableTakeChangeR,
+    TrackableVec,
+};
 
 #[must_use]
 pub enum HuskyDebugtimeTakeChangeM<T> {
@@ -21,6 +24,14 @@ impl HuskyDebugtime {
 
 pub enum HuskyDebugtimeTakeChangeR {
     OtherworldlyErr(__VMError),
+}
+
+impl<T> FromResidual<TrackableApplyChangeR<TrackableVec<TraceNode>>>
+    for HuskyDebugtimeTakeChangeM<T>
+{
+    fn from_residual(residual: TrackableApplyChangeR<TrackableVec<TraceNode>>) -> Self {
+        todo!()
+    }
 }
 
 impl FromResidual<TrackableTakeChangeR<HuskyDebugtimeState>>

@@ -85,7 +85,7 @@ impl HuskyDebugtime {
             self.collect_new_trace_stalks_within_trace(sample_id, associated_trace_id)
         }
         if expanded {
-            for subtrace_id in self.subtrace_ids(trace_id) {
+            for subtrace_id in self.subtraces(trace_id) {
                 self.collect_new_trace_stalks_within_trace(sample_id, subtrace_id)
             }
         }
