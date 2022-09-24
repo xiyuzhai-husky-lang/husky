@@ -26,7 +26,10 @@ impl<T> HuskyDebugtimeUpdateM<T> {
 }
 impl<T> HuskyDebugtimeTakeChangeM<T> {
     pub fn result(self) -> HuskyDebugtimeTakeChangeM<__VMResult<T>> {
-        todo!()
+        match self {
+            HuskyDebugtimeTakeChangeM::Ok(t) => HuskyDebugtimeTakeChangeM::Ok(Ok(t)),
+            HuskyDebugtimeTakeChangeM::OtherworldlyErr(e) => HuskyDebugtimeTakeChangeM::Ok(Err(e)),
+        }
     }
 }
 
@@ -103,6 +106,12 @@ impl HuskyDebugtime {
         self.state.set_root_traces(root_traces);
         self.update_trace_statss()?;
         HuskyDebugtimeUpdateM::Ok(())
+    }
+}
+
+impl<T> FromResidual<Result<std::convert::Infallible, __VMError>> for HuskyDebugtimeUpdateM<T> {
+    fn from_residual(residual: Result<std::convert::Infallible, __VMError>) -> Self {
+        todo!()
     }
 }
 

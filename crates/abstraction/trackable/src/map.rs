@@ -2,7 +2,8 @@ use crate::*;
 
 pub struct TrackableMap<K, V>
 where
-    K: PartialEq + Eq,
+    K: PartialEq + Eq + Clone,
+    V: Clone,
 {
     entries: Vec<(K, V)>,
     old_len: usize,
@@ -10,6 +11,19 @@ where
 pub enum TrackableMapChange<K, V> {
     None,
     Append { new_entries: Vec<(K, V)> },
+}
+
+impl<K, V> TrackableMapChange<K, V>
+where
+    K: PartialEq + Eq + Clone,
+    V: Clone,
+{
+    pub fn opt_new_entries(self) -> Option<Vec<(K, V)>> {
+        match self {
+            TrackableMapChange::None => None,
+            TrackableMapChange::Append { new_entries } => Some(new_entries),
+        }
+    }
 }
 
 impl<K, V> Trackable for TrackableMap<K, V>
@@ -34,7 +48,8 @@ where
 
 impl<K, V> TrackableMap<K, V>
 where
-    K: PartialEq + Eq,
+    K: PartialEq + Eq + Clone,
+    V: Clone,
 {
     pub fn contains(&mut self, key0: &K) -> bool {
         self.entries.iter().any(|(key, _)| key == key0)
@@ -58,7 +73,8 @@ where
 
 impl<K, V> Default for TrackableMap<K, V>
 where
-    K: PartialEq + Eq,
+    K: PartialEq + Eq + Clone,
+    V: Clone,
 {
     fn default() -> Self {
         Self {
@@ -70,7 +86,8 @@ where
 
 impl<K, V> std::ops::Index<&K> for TrackableMap<K, V>
 where
-    K: PartialEq + Eq,
+    K: PartialEq + Eq + Clone,
+    V: Clone,
 {
     type Output = V;
 
@@ -81,7 +98,8 @@ where
 
 impl<K, V> std::ops::Deref for TrackableMap<K, V>
 where
-    K: PartialEq + Eq,
+    K: PartialEq + Eq + Clone,
+    V: Clone,
 {
     type Target = [(K, V)];
 
