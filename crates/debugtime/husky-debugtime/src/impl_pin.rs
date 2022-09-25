@@ -12,8 +12,8 @@ impl HuskyDebugtime {
         self.update()?;
         let change = self.take_change()?;
         HuskyDebugtimeTakeChangeM::Ok((
-            change.figure_canvases.opt_new_entries().unwrap(),
-            change.figure_controls.opt_new_entries().unwrap(),
+            change.figure_canvases.opt_new_entries().unwrap_or_default(),
+            change.figure_controls.opt_new_entries().unwrap_or_default(),
         ))
     }
 }
