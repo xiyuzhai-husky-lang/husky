@@ -51,7 +51,13 @@ impl WebsocketService {
             async move {
                 while let Some(msg) = read.next().await {
                     let server_message: HuskyTracerServerMessage = match msg {
-                        Ok(Message::Text(ref data)) => serde_json::from_str(data).unwrap(),
+                        Ok(Message::Text(ref data)) => match serde_json::from_str(data) {
+                            Ok(msg) => msg,
+                            Err(e) => {
+                                log::info!("{}", data);
+                                panic!("{}", e)
+                            }
+                        },
                         Ok(Message::Bytes(b)) => {
                             let decoded = std::str::from_utf8(&b);
                             if let Ok(data) = decoded {

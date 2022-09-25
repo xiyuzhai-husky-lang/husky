@@ -11,11 +11,12 @@ func six_match -> FermiMatchResult:
     fermi_match(major_concave_components, [upmost])
 
 func six_match_refined1 -> FermiMatchResult:
-    fermi_match(major_concave_components, [upmost, right_bottom])
+    fermi_match(major_concave_components, [upmost, bottom1])
 
 def is_six -> ?MnistLabel:
     require is_one be none
-    require six_match.matches[0] be some
+    upmost_match = six_match.matches[0]
+    require upmost_match be some
     if major_connected_component.raw_contours.ilen() == 1:
         narrow_down(
             MnistLabel::Six,
@@ -23,7 +24,31 @@ def is_six -> ?MnistLabel:
             six_match.norm,
             six_match_refined1.rel_norm
         )?
-        if six_match_refined1.norm > 0.0:
+        bottom1_match = six_match_refined1.matches[1]
+        bottom1_match_dp = bottom1_match.displacement()
+        bottom1_match_dp_y = bottom1_match_dp.y
+        upmost_match_dp_y = upmost_match.displacement().y
+        others = six_match_refined1.others
+        require six_match_refined1.norm < 1.8
+        if bottom1_match be some:
+            require bottom1_match_dp_y > -2.5
+            // ad hoc
+            require ignored_connected_components_row_span_sum_sum < 30.0
+            narrow_down(
+                MnistLabel::Six,
+                15,
+                upmost_match_dp_y
+            )?
+            MnistLabel::Six
+        rel_upmost_match_end = major_line_segment_sketch.bounding_box.relative_point(upmost_match.end())
+        narrow_down(
+            MnistLabel::Six,
+            15,
+            upmost_match_dp_y,
+            ignored_connected_components_row_span_sum_sum,
+            2.0 * major_connected_component.lower_mass - major_connected_component.upper_mass,
+        )?
+        if rel_upmost_match_end.x < 0.7:
             MnistLabel::Six
         MnistLabel::Six
     narrow_down(
@@ -39,7 +64,11 @@ func upmost(cc: &ConcaveComponent) -> ?f32:
     require dp.y > 0.0
     dp.y
 
-func right_bottom(cc: &ConcaveComponent) -> ?f32:
+func bottom1(cc: &ConcaveComponent) -> ?f32:
     dp = cc.displacement()
-    require dp.y > 0.0
+    if dp.y < -3.0:
+        require (dp.x / dp.y).abs() > 1.4
+    require cc.relative_bounding_box.ymax() < 0.6
+    relative_end = cc.line_segment_sketch.bounding_box.relative_point(cc.end())
+    require relative_end.x > 0.5
     -cc.end().y

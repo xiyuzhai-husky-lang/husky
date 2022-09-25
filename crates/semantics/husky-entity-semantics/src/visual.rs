@@ -87,7 +87,7 @@ pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> A
             EntityDefnVariant::Ty { ref visualizer, .. } => match visualizer.visual_ty {
                 VisualTy::AnyGroup => {
                     let element_ty = ty.entity_route_argument(0);
-                    let visual_ty = match db.visualizer(element_ty).visual_ty {
+                    let visual_ty = match db.visualizer(element_ty.intrinsic()).visual_ty {
                         VisualTy::Void => todo!(),
                         VisualTy::Bool => todo!(),
                         VisualTy::B32 => todo!(),

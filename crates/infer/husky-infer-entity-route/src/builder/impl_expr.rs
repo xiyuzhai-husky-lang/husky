@@ -525,9 +525,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         arguments: RawExprRange,
         idx: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
-        let this_deref_ty = derived_not_none!(self.infer_expr(this, None))?.deref_route();
-        let this_deref_ty_decl = derived_unwrap!(self.db.ty_decl(this_deref_ty));
-        let call_form_decl = this_deref_ty_decl.method(method_ident, &self.trait_uses)?;
+        let intrinsic_ty = derived_not_none!(self.infer_expr(this, None))?.intrinsic();
+        let this_intrinsic_ty_decl = derived_unwrap!(self.db.ty_decl(intrinsic_ty));
+        let call_form_decl = this_intrinsic_ty_decl.method(method_ident, &self.trait_uses)?;
         msg_once!("handle variadics");
         if call_form_decl.primary_parameters.len() != arguments.end - arguments.start {
             self.entity_route_sheet.extra_errors.push(error!(

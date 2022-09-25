@@ -185,8 +185,9 @@ impl<'eval> ConcaveComponent<'eval> {
                 self as *const _ as *const std::ffi::c_void,
                 __uid,
                 Ok(__Register::new_box::<crate::geom2d::RelativeBoundingBox>(
-                    self.bounding_box(__ctx)
-                        .relative(&self.line_segment_sketch.bounding_box(__ctx)),
+                    self.line_segment_sketch
+                        .bounding_box(__ctx)
+                        .relative_range(&self.bounding_box(__ctx)),
                     &__registration__::__RELATIVE_BOUNDING_BOX_VTABLE,
                 )),
             )
