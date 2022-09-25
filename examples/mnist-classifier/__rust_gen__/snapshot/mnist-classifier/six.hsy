@@ -10,6 +10,9 @@ use crate::one::is_one
 func six_match -> FermiMatchResult:
     fermi_match(major_concave_components, [upmost])
 
+func six_match_refined1 -> FermiMatchResult:
+    fermi_match(major_concave_components, [upmost, right_bottom])
+
 def is_six -> ?MnistLabel:
     require is_one be none
     require six_match.matches[0] be some
@@ -18,9 +21,9 @@ def is_six -> ?MnistLabel:
             MnistLabel::Six,
             5,
             six_match.norm,
-            six_match.rel_norm
+            six_match_refined1.rel_norm
         )?
-        if six_match.norm > 0.0:
+        if six_match_refined1.norm > 0.0:
             MnistLabel::Six
         MnistLabel::Six
     narrow_down(
@@ -35,3 +38,8 @@ func upmost(cc: &ConcaveComponent) -> ?f32:
     dp = cc.displacement()
     require dp.y > 0.0
     dp.y
+
+func right_bottom(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    require dp.y > 0.0
+    -cc.end().y

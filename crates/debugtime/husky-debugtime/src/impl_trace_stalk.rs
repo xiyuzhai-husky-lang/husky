@@ -2,16 +2,20 @@ use crate::*;
 use husky_entity_route::EntityRoutePtr;
 
 impl HuskyDebugtime {
-    pub fn keyed_trace_stalk(&mut self, trace_id: TraceId) -> (TraceStalkKey, TraceStalk) {
+    pub fn trace_stalk(&self, trace_id: TraceId) -> &TraceStalk {
+        let sample_id = self.state.restriction.opt_sample_id().unwrap();
+        let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);
+        &self.state.trace_stalks[&key]
+    }
+
+    pub fn gen_trace_stalk(&mut self, trace_id: TraceId) {
         let sample_id = self.state.restriction.opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);
         if !self.state.trace_stalks.contains(&key) {
             self.state
                 .trace_stalks
-                .insert_new(key.clone(), self.produce_trace_stalk(trace_id, sample_id));
+                .insert_new(key, self.produce_trace_stalk(trace_id, sample_id));
         }
-        let trace_stalk_raw_data = self.state.trace_stalks[&key].clone();
-        (key, trace_stalk_raw_data)
     }
 
     fn produce_trace_stalk(&self, trace_id: TraceId, sample_id: SampleId) -> TraceStalk {
@@ -76,10 +80,7 @@ impl HuskyDebugtime {
         let trace_stalk_key = TraceStalkKey::from_trace_data(sample_id, trace_raw_data);
         let associated_trace_ids = trace_raw_data.associated_trace_ids();
         if !self.state.trace_stalks.contains(&trace_stalk_key) {
-            let (key, data) = self.keyed_trace_stalk(trace_id);
-            self.state
-                .trace_stalks
-                .insert_new(key.clone(), data.clone());
+            self.gen_trace_stalk(trace_id);
         }
         for associated_trace_id in associated_trace_ids {
             self.collect_new_trace_stalks_within_trace(sample_id, associated_trace_id)

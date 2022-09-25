@@ -333,7 +333,7 @@ impl HuskyDebuggerInternal {
                 })
             }
             HuskyTracerGuiMessageVariant::TraceStalk { trace_id } => {
-                let (_, stalk) = self.debugtime.keyed_trace_stalk(trace_id);
+                let stalk = self.debugtime.trace_stalk(trace_id).clone();
                 Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
             }
             HuskyTracerGuiMessageVariant::SetRestriction {
