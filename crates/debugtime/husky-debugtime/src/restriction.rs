@@ -16,6 +16,12 @@ impl HuskyDebugtime {
     )> {
         self.state.restriction.set(restriction)?;
         self.update()?;
-        HuskyDebugtimeTakeChangeM::Ok((todo!(), todo!(), todo!(), todo!()))
+        let change = self.take_change()?;
+        HuskyDebugtimeTakeChangeM::Ok((
+            change.figure_canvases.opt_new_entries().unwrap_or_default(),
+            change.figure_controls.opt_new_entries().unwrap_or_default(),
+            change.trace_stalks.opt_new_entries().unwrap_or_default(),
+            change.trace_statss.opt_new_entries().unwrap_or_default(),
+        ))
     }
 }
