@@ -9,8 +9,11 @@ impl HuskyDebugtime {
         Vec<(FigureControlKey, FigureControlData)>,
     )> {
         self.state.pins.toggle(trace_id);
-        self.update_figure_canvases()?;
-        self.update_figure_controls()?;
-        HuskyDebugtimeTakeChangeM::Ok((todo!(), todo!()))
+        self.update()?;
+        let change = self.take_change()?;
+        HuskyDebugtimeTakeChangeM::Ok((
+            change.figure_canvases.opt_new_entries().unwrap(),
+            change.figure_controls.opt_new_entries().unwrap(),
+        ))
     }
 }
