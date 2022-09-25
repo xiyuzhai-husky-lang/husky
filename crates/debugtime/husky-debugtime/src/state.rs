@@ -1,14 +1,8 @@
-mod hot_reload;
-mod update;
-
-pub use hot_reload::*;
+use crate::*;
 use trackable::{
     TrackSimple, Trackable, TrackableAtom, TrackableMakeChangeM, TrackableMap,
     TrackableTakeChangeM, TrackableVec, TrackableVecSimple,
 };
-pub use update::*;
-
-use crate::*;
 
 #[derive(Default)]
 pub struct HuskyDebugtimeState {
@@ -70,5 +64,16 @@ impl HuskyDebugtimeState {
         self.root_traces
             .set(root_traces.into_iter().map(|id| id.into()).collect())?;
         TrackableMakeChangeM::default()
+    }
+
+    pub(crate) fn clear(&mut self) -> HuskyDebugtimeUpdateM<()> {
+        self.trace_nodes = Default::default();
+        self.figure_canvases = Default::default();
+        self.figure_controls = Default::default();
+        self.trace_stalks = Default::default();
+        self.trace_statss = Default::default();
+        self.root_traces = Default::default();
+        self.subtrace_ids_map = Default::default();
+        HuskyDebugtimeUpdateM::Ok(())
     }
 }
