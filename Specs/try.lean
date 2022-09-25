@@ -25,6 +25,19 @@ def isPrefixOfDec [DecidableEq α]: List α -> List α -> Bool
   | _::_, [] => false
   | a::as, b::bs => a == b && isPrefixOfDec as bs
 
+theorem is_prefix_of_is_transitive
+  : ∀ a b c : List α, (isPrefixOf a b) ∧ (isPrefixOf b c) -> (isPrefixOf a c) := by
+  intro a b c
+  intro h
+  let ⟨ h1, h2 ⟩ := h
+  simp[isPrefixOf] at h1
+  simp[isPrefixOf] at h2
+  let ⟨ x1, hx1 ⟩ := h1
+  let ⟨ x2, hx2 ⟩ := h2
+  let ha : a ++ (x1 ++ x2) = b := by
+    sorry
+  sorry
+
 theorem is_prefix_of_dec_is_correct [DecidableEq α]
   : ∀ a b : List α, isPrefixOfDec a b -> isPrefixOf a b := by
   intro a b
@@ -50,10 +63,3 @@ theorem is_prefix_of_dec_is_correct [DecidableEq α]
 
 #eval isPrefixOfDec "Animal".toList "Animals".toList
   -- sorry
-
-theorem is_prefix_of_is_transitive
-  : ∀ a b c : String, a.isPrefixOf b && b.isPrefixOf c -> a.isPrefixOf c := by
-  intro a
-  match a with
-  | "" => sorry
-  | _ => sorry
