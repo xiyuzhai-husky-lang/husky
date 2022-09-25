@@ -200,7 +200,6 @@ impl HuskyDebugtime {
         self.state
             .trace_nodes
             .apply_update_elem(trace_id.0, |node| node.toggle_expansion())?;
-        assert_eq!(self.state.trace_nodes[trace_id.0].expanded(), true);
         self.update_subtraces(trace_id); // ad hoc
         self.update()?;
         let change = self.take_change()?;

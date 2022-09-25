@@ -42,6 +42,29 @@ impl __StaticInfo for Point2d {
     }
 }
 #[derive(Debug, Clone, PartialEq)]
+pub(crate) struct RelativePoint2d {
+    pub(crate) x: f32,
+    pub(crate) y: f32,
+}
+
+impl RelativePoint2d {
+    pub(crate) fn __call__(x: f32, y: f32) -> Self {
+        Self { x, y }
+    }
+}
+
+impl __StaticInfo for RelativePoint2d {
+    type __StaticSelf = RelativePoint2d;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        "mnist_classifier::geom2d::RelativePoint2d".into()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
+    }
+}
+#[derive(Debug, Clone, PartialEq)]
 pub(crate) struct Vector2d {
     pub(crate) x: f32,
     pub(crate) y: f32,
@@ -129,12 +152,17 @@ impl ClosedRange {
     pub(crate) fn __call__(min: f32, max: f32) -> Self {
         Self { min, max }
     }
-    pub(crate) fn relative(&self, base: &ClosedRange) -> ClosedRange {
-        assert!(base.max > base.min);
-        let base_span = base.max - base.min;
-        let rel_min = (self.min - base.min) / base_span;
-        let rel_max = (self.max - base.min) / base_span;
+    pub(crate) fn relative_range(&self, other: &ClosedRange) -> ClosedRange {
+        assert!(self.max > self.min);
+        let span = self.max - self.min;
+        let rel_min = (other.min - self.min) / span;
+        let rel_max = (other.max - self.min) / span;
         return ClosedRange::__call__(rel_min, rel_max);
+    }
+
+    pub(crate) fn relative_point(&self, v: f32) -> f32 {
+        let span = self.max - self.min;
+        return (v - self.min) / span;
     }
 }
 
@@ -159,10 +187,17 @@ impl BoundingBox {
     pub(crate) fn __call__(xrange: ClosedRange, yrange: ClosedRange) -> Self {
         Self { xrange, yrange }
     }
-    pub(crate) fn relative(&self, base: &BoundingBox) -> RelativeBoundingBox {
+    pub(crate) fn relative_range(&self, other: &BoundingBox) -> RelativeBoundingBox {
         return RelativeBoundingBox::__call__(
-            self.xrange.relative(&base.xrange),
-            self.yrange.relative(&base.yrange),
+            self.xrange.relative_range(&other.xrange),
+            self.yrange.relative_range(&other.yrange),
+        );
+    }
+
+    pub(crate) fn relative_point(&self, point: &Point2d) -> RelativePoint2d {
+        return RelativePoint2d::__call__(
+            self.xrange.relative_point(point.x),
+            self.yrange.relative_point(point.x),
         );
     }
 

@@ -371,6 +371,43 @@ pub static __STREAK_CACHE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     typename_str_hash_u64: 1217416088575417618,
     typename_str: "StreakCache",
 };
+type RelativePoint2d = crate::geom2d::RelativePoint2d;
+
+// RelativePoint2d
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __relative_point_2_d_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<RelativePoint2d>::into_raw(Box::new((*(data as *mut RelativePoint2d)).clone())) as *mut std::ffi::c_void
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __relative_point_2_d_drop(data: *mut std::ffi::c_void) {
+    drop(Box::from_raw(data as *mut RelativePoint2d))
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __relative_point_2_d_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const RelativePoint2d) == *(other as *const std::ffi::c_void as *const RelativePoint2d)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __relative_point_2_d_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<RelativePoint2d>(&__RELATIVE_POINT_2_D_VTABLE) = registers[1].downcast_move(&__RELATIVE_POINT_2_D_VTABLE)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub static __RELATIVE_POINT_2_D_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+    primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __relative_point_2_d_clone,
+    drop: __relative_point_2_d_drop,
+    eq: __relative_point_2_d_eq,
+    assign: __relative_point_2_d_assign,
+    typename_str_hash_u64: 5166584467720490879,
+    typename_str: "RelativePoint2d",
+};
 type Vector2d = crate::geom2d::Vector2d;
 
 // Vector2d

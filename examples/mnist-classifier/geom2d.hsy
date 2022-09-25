@@ -17,6 +17,10 @@ struct Point2d:
     func dist(other: Point2d) -> f32:
         this.to(other).norm()
 
+struct RelativePoint2d:
+    x: f32
+    y: f32
+
 struct Vector2d:
     x: f32
     y: f32
@@ -73,24 +77,34 @@ struct ClosedRange:
     min: f32
     max: f32
 
-    func relative(base: ClosedRange) -> ClosedRange:
-        assert base.max > base.min
-        base_span = base.max - base.min
-        rel_min = (min - base.min) / base_span
-        rel_max = (max - base.min) / base_span
+    func relative_range(other: ClosedRange) -> ClosedRange:
+        assert max > min
+        span = max - min
+        rel_min = (other.min - min) / span
+        rel_max = (other.max - min) / span
         ClosedRange(
             rel_min,
             rel_max,
         )
+    
+    func relative_point(v: f32) -> f32:
+        span = max - min
+        (v - min) / span
 
 struct BoundingBox:
     xrange: ClosedRange
     yrange: ClosedRange
 
-    func relative(base: BoundingBox) -> RelativeBoundingBox:
+    func relative_range(other: BoundingBox) -> RelativeBoundingBox:
         RelativeBoundingBox(
-            xrange.relative(base.xrange),
-            yrange.relative(base.yrange),
+            xrange.relative_range(other.xrange),
+            yrange.relative_range(other.yrange),
+        )
+    
+    func relative_point(point: Point2d) -> RelativePoint2d:
+        RelativePoint2d(
+            xrange.relative_point(point.x),
+            yrange.relative_point(point.x),
         )
     
     func xmin() -> f32:
