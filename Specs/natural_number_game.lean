@@ -18,4 +18,3 @@ theorem example3 (a b : NaturalNumber) (h : Succ a = b) : Succ (Succ a) = Succ b
 
   
 end NaturalNumber
-
