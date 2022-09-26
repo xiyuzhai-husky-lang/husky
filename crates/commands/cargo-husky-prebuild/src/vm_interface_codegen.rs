@@ -12,7 +12,7 @@ pub fn gen_rust_code() -> Result<String, std::fmt::Error> {
     let mut code = String::new();
     w!(code; BuildCodeGenStart);
     for ty in PRIMITIVE_TYPES {
-        w!(code; RootPrimitiveTypeRegistration { ty })
+        w!(code; PrimitiveTypeRegistration { ty })
     }
     for ty in NONPRIMITIVE_BUILTIN_TYPES {
         w!(code; NonPrimitiveTypeRegistration { ty })
