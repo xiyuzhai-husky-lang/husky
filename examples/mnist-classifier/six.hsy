@@ -57,7 +57,8 @@ def is_six -> ?MnistLabel:
         5,
         six_match.norm
     )?
-    require six_match.matches[0].angle_change < -100.0
+    if six_match.norm > 1.8:
+        require six_match.norm < 1.8
     MnistLabel::Six
 
 func upmost(cc: &ConcaveComponent) -> ?f32:

@@ -48,7 +48,6 @@ def is_six -> ?MnistLabel:
             ignored_connected_components_row_span_sum_sum,
             2.0 * major_connected_component.lower_mass - major_connected_component.upper_mass,
             major_connected_component.top_k_row_span_sum(6),
-            major_connected_component.top_k_row_span_sum(9),
         )?
         if rel_upmost_match_end.x < 0.7:
             MnistLabel::Six
@@ -58,7 +57,8 @@ def is_six -> ?MnistLabel:
         5,
         six_match.norm
     )?
-    require six_match.matches[0].angle_change < -100.0
+    if six_match.norm > 1.8:
+        require six_match.norm < 1.8
     MnistLabel::Six
 
 func upmost(cc: &ConcaveComponent) -> ?f32:
