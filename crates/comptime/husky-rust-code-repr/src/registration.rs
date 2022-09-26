@@ -1,7 +1,7 @@
 use xxhash_rust::xxh3::xxh3_64;
 
 pub use super::*;
-pub struct RootPrimitiveTypeRegistration<'a> {
+pub struct PrimitiveTypeRegistration<'a> {
     pub ty: &'a str,
 }
 
@@ -13,7 +13,7 @@ fn it_works() {
     assert_eq!(hash, 6639413044669031007)
 }
 
-impl<'a> Display for RootPrimitiveTypeRegistration<'a> {
+impl<'a> Display for PrimitiveTypeRegistration<'a> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let ty = self.ty;
         let uppercase_ty = ty.to_uppercase();

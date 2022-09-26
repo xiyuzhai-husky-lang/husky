@@ -1,6 +1,6 @@
 import Specs.syntax.Text
 
-inductive RootPrimitiveTyIdentifier
+inductive PrimitiveTyIdentifier
   | Bool
   | I32
   | I64
@@ -10,18 +10,18 @@ inductive RootPrimitiveTyIdentifier
   | F64
   deriving DecidableEq
 
-namespace RootPrimitiveTyIdentifier
+namespace PrimitiveTyIdentifier
 
-  def toRustVersion : RootPrimitiveTyIdentifier -> String
-    | Bool => "RootPrimitiveTyIdentifier::Bool"
-    | I32 => "RootPrimitiveTyIdentifier::I32"
-    | I64 => "RootPrimitiveTyIdentifier::I64"
-    | B32 => "RootPrimitiveTyIdentifier::B32"
-    | B64 => "RootPrimitiveTyIdentifier::B64"
-    | F32 => "RootPrimitiveTyIdentifier::F32"
-    | F64 => "RootPrimitiveTyIdentifier::F64"
+  def toRustVersion : PrimitiveTyIdentifier -> String
+    | Bool => "PrimitiveTyIdentifier::Bool"
+    | I32 => "PrimitiveTyIdentifier::I32"
+    | I64 => "PrimitiveTyIdentifier::I64"
+    | B32 => "PrimitiveTyIdentifier::B32"
+    | B64 => "PrimitiveTyIdentifier::B64"
+    | F32 => "PrimitiveTyIdentifier::F32"
+    | F64 => "PrimitiveTyIdentifier::F64"
   
-  def huskyCode : RootPrimitiveTyIdentifier -> String
+  def huskyCode : PrimitiveTyIdentifier -> String
     | Bool => "bool"
     | I32 => "i32"
     | I64 => "i64"
@@ -29,7 +29,7 @@ namespace RootPrimitiveTyIdentifier
     | B64 => "b64"
     | F32 => "f32"
     | F64 => "f64"
-end RootPrimitiveTyIdentifier
+end PrimitiveTyIdentifier
 
 inductive RootContainerTyIdentifier
   | Vec
@@ -83,7 +83,7 @@ structure RangedCustomIdentifier where
   deriving DecidableEq
 
 inductive Identifier
-  | RootPrimitiveTy : RootPrimitiveTyIdentifier -> Identifier
+  | PrimitiveTy : PrimitiveTyIdentifier -> Identifier
   | RootContainerTy : RootContainerTyIdentifier -> Identifier
   | RootHigherTy : RootHigherTyIdentifier -> Identifier
   | Custom : CustomIdentifier -> Identifier
@@ -91,13 +91,13 @@ inductive Identifier
 
 namespace Identifier
   def toRustVersion : Identifier -> String
-    | RootPrimitiveTy ident => s!"Identifier::RootPrimitiveTy({ident.toRustVersion})"
+    | PrimitiveTy ident => s!"Identifier::PrimitiveTy({ident.toRustVersion})"
     | RootContainerTy ident => s!"Identifier::ContainerTy({ident.toRustVersion})"
     | RootHigherTy ident => s!"Identifier::RootHigherTy({ident.toRustVersion})"
     | Custom ident => s!"Identifier::Custom({ident.toRustVersion})"
   
   def huskyCode : Identifier -> String
-    | RootPrimitiveTy ident => ident.huskyCode
+    | PrimitiveTy ident => ident.huskyCode
     | RootContainerTy ident => ident.huskyCode
     | RootHigherTy ident => ident.huskyCode
     | Custom ident => ident.huskyCode
