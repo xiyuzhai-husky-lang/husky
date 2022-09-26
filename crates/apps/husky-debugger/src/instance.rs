@@ -55,7 +55,7 @@ impl HuskyDebuggerInstance {
         //     println!(
         //         "{} milliseconds elapsed for computing stalk of trace {}",
         //         now.elapsed().as_millis(),
-        //         root_trace_id.0
+        //         root_trace_id.raw()
         //     );
         //     for token in &stalk.extra_tokens {
         //         match token.kind {

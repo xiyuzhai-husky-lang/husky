@@ -18,7 +18,8 @@ impl std::fmt::Debug for TraceStalkKey {
                 trace_id,
             } => f.write_fmt(format_args!(
                 "Lazy {{ sample_id: {}, trace_id: {} }}",
-                sample_id.0, trace_id.0
+                sample_id.0,
+                trace_id.raw()
             )),
         }
     }

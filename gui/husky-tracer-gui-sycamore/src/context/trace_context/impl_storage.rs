@@ -2,13 +2,13 @@ use super::*;
 
 impl TraceContext {
     pub(crate) fn trace_data(&self, trace_id: TraceId) -> &'static TraceData {
-        let trace_data = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
+        let trace_data = self.trace_nodes.borrow(file!(), line!())[trace_id.raw()].data;
         assert!(trace_data.id == trace_id);
         trace_data
     }
 
     pub(crate) fn trace_kind(&self, trace_id: TraceId) -> TraceKind {
-        self.trace_nodes.borrow(file!(), line!())[trace_id.0]
+        self.trace_nodes.borrow(file!(), line!())[trace_id.raw()]
             .data
             .kind
     }
@@ -20,7 +20,7 @@ impl TraceContext {
     ) -> &'static TraceStalk {
         let key = TraceStalkKey::from_trace_data(
             sample_id,
-            &self.trace_nodes.borrow(file!(), line!())[trace_id.0].data,
+            &self.trace_nodes.borrow(file!(), line!())[trace_id.raw()].data,
         );
         if let Some(trace_stalk) = self.trace_stalks.borrow(file!(), line!()).get(&key) {
             trace_stalk
@@ -29,7 +29,7 @@ impl TraceContext {
                 "self.trace_stalks = {:?}",
                 self.trace_stalks.borrow(file!(), line!())
             );
-            let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
+            let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.raw()].data;
             log::info!("trace: {:?}", trace);
             panic!("no trace stalk for key {:?}", key);
         }
@@ -51,7 +51,7 @@ impl TraceContext {
                 "self.trace_statss = {:?}",
                 self.trace_statss.borrow(file!(), line!())
             );
-            let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
+            let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.raw()].data;
             log::info!("trace: {:?}", trace);
             panic!("no opt trace stats for key {:?}", key);
         }
@@ -80,7 +80,7 @@ impl TraceContext {
         {
             subtrace_ids
         } else {
-            let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.0].data;
+            let trace = self.trace_nodes.borrow(file!(), line!())[trace_id.raw()].data;
             log::info!("trace: {:?}", trace);
             panic!("no subtraces for key {:?}", subtraces_key);
         }

@@ -132,12 +132,12 @@ impl HuskyDebugtime {
     }
 
     fn trace_node_data(&self, trace_id: TraceId) -> TraceNodeData {
-        self.state.trace_nodes[trace_id.0].to_data()
+        self.state.trace_nodes[trace_id.raw()].to_data()
     }
 
     pub(crate) fn next_id(&mut self) -> TraceId {
         self.state.trace_nodes.push(TraceNode::Uninitialized);
-        TraceId(self.state.trace_nodes.len() - 1)
+        TraceId::new(self.state.trace_nodes.len() - 1)
     }
 
     fn new_trace(
@@ -169,9 +169,9 @@ impl HuskyDebugtime {
                 range,
             }
         };
-        assert!(!self.state.trace_nodes[trace.id().0].initialized());
+        assert!(!self.state.trace_nodes[trace.id().raw()].initialized());
         self.state.trace_nodes.set_elem(
-            trace_id.0,
+            trace_id.raw(),
             TraceNode::Initialized {
                 expanded: false,
                 shown: match trace.raw_data.kind {
@@ -199,13 +199,12 @@ impl HuskyDebugtime {
     > {
         self.state
             .trace_nodes
-            .apply_update_elem(trace_id.0, |node| node.toggle_expansion())?;
+            .apply_update_elem(trace_id.raw(), |node| node.toggle_expansion())?;
         self.update_subtraces(trace_id); // ad hoc
         self.update()?;
         let change = self.take_change()?;
         HuskyDebugtimeTakeChangeM::Ok(
             if let Some(new_trace_nodes) = change.trace_nodes.opt_new_entries() {
-                assert_ne!(new_trace_nodes[0].trace_data.id.0, 0);
                 let mut subtraces = change.subtrace_ids_map.opt_new_entries().unwrap();
                 assert_eq!(subtraces.len(), 1);
                 let (_, subtraces) = subtraces.pop().unwrap();
@@ -222,22 +221,22 @@ impl HuskyDebugtime {
     }
 
     pub fn expanded(&mut self, trace_id: TraceId) -> bool {
-        self.state.trace_nodes[trace_id.0].expanded()
+        self.state.trace_nodes[trace_id.raw()].expanded()
     }
 
     pub fn toggle_show(&mut self, trace_id: TraceId) -> HuskyDebugtimeTakeChangeM<()> {
         self.state
             .trace_nodes
-            .apply_update_elem(trace_id.0, |node| node.toggle_shown())?;
+            .apply_update_elem(trace_id.raw(), |node| node.toggle_shown())?;
         HuskyDebugtimeTakeChangeM::Ok(())
     }
 
     pub fn trace(&self, trace_id: TraceId) -> &Trace {
-        self.state.trace_nodes[trace_id.0].trace()
+        self.state.trace_nodes[trace_id.raw()].trace()
     }
 
     pub(crate) unsafe fn trace_ref<'a>(&self, trace_id: TraceId) -> &'a Trace {
-        let ptr: *const Trace = self.state.trace_nodes[trace_id.0].trace();
+        let ptr: *const Trace = self.state.trace_nodes[trace_id.raw()].trace();
         &*ptr
     }
 

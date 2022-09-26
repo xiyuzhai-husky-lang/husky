@@ -2,7 +2,7 @@ use super::*;
 
 impl DebuggerContext {
     fn expansion_signal(&self, trace_id: TraceId) -> &'static Signal<bool> {
-        self.trace_context.trace_nodes.borrow(file!(), line!())[trace_id.0].expansion
+        self.trace_context.trace_nodes.borrow(file!(), line!())[trace_id.raw()].expansion
     }
 
     pub(super) fn toggle_expansion(&'static self, trace_id: TraceId) {
