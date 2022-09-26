@@ -47,6 +47,7 @@ def is_six -> ?MnistLabel:
             upmost_match_dp_y,
             ignored_connected_components_row_span_sum_sum,
             2.0 * major_connected_component.lower_mass - major_connected_component.upper_mass,
+            major_connected_component.top_k_row_span_sum(6),
         )?
         if rel_upmost_match_end.x < 0.7:
             MnistLabel::Six
