@@ -29,31 +29,45 @@ structure OrderedF32
 structure OrderedF64
   deriving DecidableEq
 
-structure TyUniverse where
+structure HuskyTyUniverse where
   raw : Nat
 
-structure NonEmptyList (α : Type) where
-  a : α
-  as : List α
-
-theorem haha : sizeOf α < sizeOf (NonEmptyList α) := sorry
-
-namespace NonEmptyList
-def maxf [LT β] [DecidableRel (@LT.lt β _)] (list : NonEmptyList α) (f : α -> β) : β :=
-  match (list.as.map f).maximum? with
-  | some v => max v (f list.a)
-  | none => f list.a
-end NonEmptyList
-
-inductive Ty
+inductive HuskyTy
   | PrimitiveTy (ty : PrimitiveTy)
-  | Struct (fields : NonEmptyList (String × Ty))
-  | TypeTy (u : TyUniverse)
+  | Struct (fields : List (String × HuskyTy))
+  | TypeTy (u : HuskyTyUniverse)
 
-def Ty.universe : Ty -> TyUniverse
+def HuskyTy.universe : HuskyTy -> HuskyTyUniverse
   | PrimitiveTy _ => { raw := 0 }
-  | Struct fields => { raw := (fields.maxf fun field => field.2.universe.raw) }
+  | Struct [] => { raw := 0 }
+  | Struct (field::fields) => {
+    raw := max field.2.universe.raw (Struct fields).universe.raw
+  }
   | TypeTy u => { raw := u.raw + 1 }
-  termination_by Ty.universe ty => ty
 
-def Ty.type_ty (ty : Ty) : Ty := Ty.TypeTy ty.universe
+def HuskyTy.type_ty (ty : HuskyTy) : HuskyTy := HuskyTy.TypeTy ty.universe
+
+inductive X
+  | None
+  | Single (x : X)
+  | Many (xs : List X)
+
+def X.n1 : X -> Nat
+  | None => 0
+  | Single x => x.n1
+  | Many xs => xs.length
+
+-- def X.n2 : X -> Nat
+--   | None => 0
+--   | Single x => x.n2
+--   | Many xs => match xs with
+--     | [] => 0
+--     | x::xs => match (xs.map X.n2).maximum? with
+--       | some v => max x.n2 v
+--       | none => x.n2
+
+def X.n2 : X -> Nat
+  | None => 0
+  | Single x => x.n2
+  | Many [] => 0
+  | Many (x::xs) => max x.n2 (Many xs).n2
