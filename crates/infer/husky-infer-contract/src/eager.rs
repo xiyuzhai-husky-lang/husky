@@ -125,7 +125,7 @@ impl EagerContract {
             } else {
                 EagerContract::Pass
             }),
-            CanonicalQualifier::EvalRef => todo!(),
+            CanonicalQualifier::EvalRef => Ok(EagerContract::EvalRef),
             CanonicalQualifier::TempRef => todo!(),
             CanonicalQualifier::TempRefMut => todo!(),
         }

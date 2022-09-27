@@ -7,11 +7,28 @@ struct ConnectedComponentDistribution:
     upper_mass: i32
     lower_mass: i32
 
+struct EffHoles:
+    matches: []?&RawContour
+
+func hole_tmpl(ct: &RawContour) -> ?f32:
+    len = ct.points.ilen()
+    require len > 4
+    len as f32
+
 struct ConnectedComponent:
     mask: BinaryImage28
 
     func raw_contours -> []RawContour:
         find_raw_contours(this)
+    
+    proc eff_holes -> EffHoles:
+        var raw_contours = this.raw_contours.collect_refs()
+        var matches = []?&RawContour()
+        // ad hoc, should replace this with pop_first
+        raw_contours.pop_with_largest_opt_f32(hole_tmpl);
+        matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl))
+        matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl))
+        return EffHoles(matches)
 
     proc max_hole_ilen -> f32:
         // todo: change this to iter

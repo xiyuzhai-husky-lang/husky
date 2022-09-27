@@ -17,7 +17,9 @@ def is_six -> ?MnistLabel:
     require is_one be none
     upmost_match = six_match.matches[0]
     require upmost_match be some
-    if major_connected_component.raw_contours.ilen() == 1:
+    eff_holes = major_connected_component.eff_holes
+    lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass
+    if eff_holes.matches[0] be none:
         narrow_down(
             MnistLabel::Six,
             5,
@@ -46,7 +48,7 @@ def is_six -> ?MnistLabel:
             15,
             upmost_match_dp_y,
             ignored_connected_components_row_span_sum_sum,
-            2.0 * major_connected_component.lower_mass - major_connected_component.upper_mass,
+            lower_excess,
             major_connected_component.top_k_row_span_sum(6),
         )?
         if rel_upmost_match_end.x < 0.7:
@@ -59,6 +61,8 @@ def is_six -> ?MnistLabel:
     )?
     if six_match.norm > 1.8:
         require six_match.norm < 1.8
+    require eff_holes.matches[1] be none
+    require lower_excess > 15.0
     MnistLabel::Six
 
 func upmost(cc: &ConcaveComponent) -> ?f32:

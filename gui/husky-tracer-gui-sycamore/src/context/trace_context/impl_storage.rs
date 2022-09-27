@@ -109,7 +109,6 @@ impl TraceContext {
     pub(crate) fn receive_traces(&self, new_trace_nodes: impl Iterator<Item = TraceNodeState>) {
         let trace_nodes = &mut self.trace_nodes.borrow_mut(file!(), line!());
         for trace_node in new_trace_nodes {
-            assert_eq!(trace_node.data.id.0, trace_nodes.len());
             trace_nodes.push(trace_node);
         }
     }

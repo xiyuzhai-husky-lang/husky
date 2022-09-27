@@ -38,42 +38,42 @@ pub static __CONNECTED_COMPONENT_DISTRIBUTION_VTABLE: __RegisterTyVTable = __Reg
     typename_str_hash_u64: 12392668741125034683,
     typename_str: "ConnectedComponentDistribution",
 };
-type ConnectedComponent = crate::connected_component::ConnectedComponent;
+type EffHoles<'eval> = crate::connected_component::EffHoles<'eval>;
 
-// ConnectedComponent
+// EffHoles
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __connected_component_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
-    Box::<ConnectedComponent>::into_raw(Box::new((*(data as *mut ConnectedComponent)).clone())) as *mut std::ffi::c_void
+pub unsafe extern "C" fn __eff_holes_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<EffHoles>::into_raw(Box::new((*(data as *mut EffHoles)).clone())) as *mut std::ffi::c_void
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __connected_component_drop(data: *mut std::ffi::c_void) {
-    drop(Box::from_raw(data as *mut ConnectedComponent))
+pub unsafe extern "C" fn __eff_holes_drop(data: *mut std::ffi::c_void) {
+    drop(Box::from_raw(data as *mut EffHoles))
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __connected_component_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
-    *(this as *const std::ffi::c_void as *const ConnectedComponent) == *(other as *const std::ffi::c_void as *const ConnectedComponent)
+pub unsafe extern "C" fn __eff_holes_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const EffHoles) == *(other as *const std::ffi::c_void as *const EffHoles)
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __connected_component_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __eff_holes_assign(registers: *mut __Register) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<ConnectedComponent>(&__CONNECTED_COMPONENT_VTABLE) = registers[1].downcast_move(&__CONNECTED_COMPONENT_VTABLE)
+    *registers[0].downcast_temp_mut::<EffHoles>(&__EFF_HOLES_VTABLE) = registers[1].downcast_move(&__EFF_HOLES_VTABLE)
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub static __CONNECTED_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+pub static __EFF_HOLES_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     primitive_value_to_bool: None,
     primitive_ref_to_bool: None,
     primitive_value_to_box: None,
-    clone: __connected_component_clone,
-    drop: __connected_component_drop,
-    eq: __connected_component_eq,
-    assign: __connected_component_assign,
-    typename_str_hash_u64: 3938217539454562886,
-    typename_str: "ConnectedComponent",
+    clone: __eff_holes_clone,
+    drop: __eff_holes_drop,
+    eq: __eff_holes_eq,
+    assign: __eff_holes_assign,
+    typename_str_hash_u64: 7812894624471535145,
+    typename_str: "EffHoles",
 };
 type RawContour<'eval> = crate::raw_contour::RawContour<'eval>;
 
@@ -111,6 +111,81 @@ pub static __RAW_CONTOUR_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     assign: __raw_contour_assign,
     typename_str_hash_u64: 16427054487712554671,
     typename_str: "RawContour",
+};
+type Vec__Option__Ref__RawContour<'eval> =
+    Vec<Option<&'eval crate::raw_contour::RawContour<'eval>>>;
+
+// Vec__Option__Ref__RawContour
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __vec_option_ref_raw_contour_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<Vec__Option__Ref__RawContour>::into_raw(Box::new((*(data as *mut Vec__Option__Ref__RawContour)).clone())) as *mut std::ffi::c_void
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __vec_option_ref_raw_contour_drop(data: *mut std::ffi::c_void) {
+    drop(Box::from_raw(data as *mut Vec__Option__Ref__RawContour))
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __vec_option_ref_raw_contour_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const Vec__Option__Ref__RawContour) == *(other as *const std::ffi::c_void as *const Vec__Option__Ref__RawContour)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __vec_option_ref_raw_contour_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<Vec__Option__Ref__RawContour>(&__VEC_OPTION_REF_RAW_CONTOUR_VTABLE) = registers[1].downcast_move(&__VEC_OPTION_REF_RAW_CONTOUR_VTABLE)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub static __VEC_OPTION_REF_RAW_CONTOUR_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+    primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __vec_option_ref_raw_contour_clone,
+    drop: __vec_option_ref_raw_contour_drop,
+    eq: __vec_option_ref_raw_contour_eq,
+    assign: __vec_option_ref_raw_contour_assign,
+    typename_str_hash_u64: 1162230281156185809,
+    typename_str: "Vec__Option__Ref__RawContour",
+};
+type ConnectedComponent = crate::connected_component::ConnectedComponent;
+
+// ConnectedComponent
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __connected_component_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<ConnectedComponent>::into_raw(Box::new((*(data as *mut ConnectedComponent)).clone())) as *mut std::ffi::c_void
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __connected_component_drop(data: *mut std::ffi::c_void) {
+    drop(Box::from_raw(data as *mut ConnectedComponent))
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __connected_component_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const ConnectedComponent) == *(other as *const std::ffi::c_void as *const ConnectedComponent)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __connected_component_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<ConnectedComponent>(&__CONNECTED_COMPONENT_VTABLE) = registers[1].downcast_move(&__CONNECTED_COMPONENT_VTABLE)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub static __CONNECTED_COMPONENT_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+    primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __connected_component_clone,
+    drop: __connected_component_drop,
+    eq: __connected_component_eq,
+    assign: __connected_component_assign,
+    typename_str_hash_u64: 3938217539454562886,
+    typename_str: "ConnectedComponent",
 };
 type Vec__RawContour<'eval> = Vec<crate::raw_contour::RawContour<'eval>>;
 

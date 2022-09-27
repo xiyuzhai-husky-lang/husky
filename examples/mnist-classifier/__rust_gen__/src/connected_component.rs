@@ -31,6 +31,35 @@ impl __StaticInfo for ConnectedComponentDistribution {
     }
 }
 #[derive(Debug, Clone, PartialEq)]
+pub(crate) struct EffHoles<'eval> {
+    pub(crate) matches: Vec<Option<&'eval crate::raw_contour::RawContour<'eval>>>,
+}
+
+impl<'eval> EffHoles<'eval> {
+    pub(crate) fn __call__(
+        matches: Vec<Option<&'eval crate::raw_contour::RawContour<'eval>>>,
+    ) -> Self {
+        Self { matches }
+    }
+}
+
+impl<'eval> __StaticInfo for EffHoles<'eval> {
+    type __StaticSelf = EffHoles<'static>;
+
+    fn __static_typename() -> std::borrow::Cow<'static, str> {
+        "mnist_classifier::connected_component::EffHoles".into()
+    }
+
+    unsafe fn __transmute_static(self) -> Self::__StaticSelf {
+        std::mem::transmute(self)
+    }
+}
+pub(crate) fn hole_tmpl<'eval>(ct: &'eval crate::raw_contour::RawContour<'eval>) -> Option<f32> {
+    let len = ct.points.ilen();
+    normal_require!(len > 4);
+    return Some(len as f32);
+}
+#[derive(Debug, Clone, PartialEq)]
 pub(crate) struct ConnectedComponent {
     pub(crate) mask: domains::ml::datasets::cv::mnist::BinaryImage28,
 }
@@ -67,6 +96,53 @@ impl ConnectedComponent {
             )
             .unwrap()
             .downcast_eval_ref(&__registration__::__VEC_RAW_CONTOUR_VTABLE);
+    }
+    pub(crate) fn eff_holes<'eval>(
+        &'eval self,
+        __ctx: &dyn __EvalContext<'eval>,
+    ) -> &'eval EffHoles<'eval> {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::connected_component::ConnectedComponent::eff_holes"
+        );
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__EFF_HOLES_VTABLE);
+        }
+        let mut raw_contours = self.raw_contours(__ctx).collect_refs();
+        let mut matches = Vec::<Option<&'eval crate::raw_contour::RawContour>>::__call__(vec![]);
+        raw_contours.pop_with_largest_opt_f32_copyable(
+            ThickFp::__new_base(
+                hole_tmpl as fn(&'static crate::raw_contour::RawContour<'static>) -> Option<f32>,
+            ),
+            __ctx,
+        );
+        matches.push(raw_contours.pop_with_largest_opt_f32_copyable(
+            ThickFp::__new_base(
+                hole_tmpl as fn(&'static crate::raw_contour::RawContour<'static>) -> Option<f32>,
+            ),
+            __ctx,
+        ));
+        matches.push(raw_contours.pop_with_largest_opt_f32_copyable(
+            ThickFp::__new_base(
+                hole_tmpl as fn(&'static crate::raw_contour::RawContour<'static>) -> Option<f32>,
+            ),
+            __ctx,
+        ));
+        __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<EffHoles<'eval>>(
+                    EffHoles::__call__(matches),
+                    &__registration__::__EFF_HOLES_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__EFF_HOLES_VTABLE)
     }
     pub(crate) fn max_hole_ilen<'eval>(
         &'eval self,

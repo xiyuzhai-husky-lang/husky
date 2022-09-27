@@ -105,6 +105,177 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::TypeCall {
+            ty: "mnist_classifier::connected_component::EffHoles"
+        },
+
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let matches: Vec<Option<&'eval raw_contour::RawContour<'eval>>> = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__VEC_OPTION_REF_RAW_CONTOUR_VTABLE);
+                    __Register::new_box::<connected_component::EffHoles<'eval>>(connected_component::EffHoles::__call__(matches), &__registration__::__EFF_HOLES_VTABLE)
+                }
+                __wrapper
+            },
+            some base connected_component::EffHoles::__call__ as fn(Vec<Option<&'static raw_contour::RawContour<'static>>>) -> connected_component::EffHoles<'static>
+        ),
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::connected_component::EffHoles",
+            field_ident: "matches",
+        },
+        eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            BoxNonCopyable,
+            connected_component::EffHoles<'eval>, __registration__::__EFF_HOLES_VTABLE, Vec<Option<&'eval raw_contour::RawContour<'eval>>>, __registration__::__VEC_OPTION_REF_RAW_CONTOUR_VTABLE,
+            matches
+        )
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "Vec<?&mnist_classifier::raw_contour::RawContour>::ilen" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &Vec<Option<&'eval raw_contour::RawContour<'eval>>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_OPTION_REF_RAW_CONTOUR_VTABLE);
+                    __this.ilen().to_register()
+                }
+                __wrapper
+            },
+            some base Vec::<Option<&raw_contour::RawContour>>::ilen as fn(&'static Vec<Option<&'static raw_contour::RawContour<'static>>>) -> i32
+        ),
+    ),
+    (
+        __StaticLinkageKey::TypeCall {
+            ty: "mnist_classifier::raw_contour::RawContour"
+        },
+
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval connected_component::ConnectedComponent = __arguments[0].downcast_eval_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE);
+                    let points: Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__VEC_POINT_2_D_VTABLE);
+                    __Register::new_box::<raw_contour::RawContour<'eval>>(raw_contour::RawContour::__call__(cc, points), &__registration__::__RAW_CONTOUR_VTABLE)
+                }
+                __wrapper
+            },
+            some base raw_contour::RawContour::__call__ as fn(&'static connected_component::ConnectedComponent, Vec<geom2d::Point2d>) -> raw_contour::RawContour<'static>
+        ),
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::raw_contour::RawContour",
+            field_ident: "cc",
+        },
+        eager_field_linkage!(
+            immutable,
+            EvalRef,
+            BoxNonCopyable,
+            raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE,
+            cc
+        )
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::raw_contour::RawContour",
+            field_ident: "points",
+        },
+        eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            BoxNonCopyable,
+            raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, Vec<geom2d::Point2d>, __registration__::__VEC_POINT_2_D_VTABLE,
+            points
+        )
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::raw_contour::RawContour",
+            field_ident: "line_segment_sketch",
+        },
+        lazy_field_linkage!(raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE, line_segment_sketch)
+    ),
+    (
+        __StaticLinkageKey::TypeCall {
+            ty: "[]?&mnist_classifier::raw_contour::RawContour"
+        },
+
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __variadics =
+                        __arguments[0..]
+                            .iter_mut()
+                            .map(|v|v.downcast_opt_eval_ref(&__registration__::__RAW_CONTOUR_VTABLE))
+                            .collect();
+                    __Register::new_box::<Vec<Option<&'eval raw_contour::RawContour<'eval>>>>(Vec::<Option<&'eval raw_contour::RawContour>>::__call__(__variadics), &__registration__::__VEC_OPTION_REF_RAW_CONTOUR_VTABLE)
+                }
+                __wrapper
+            },
+            some base Vec::<Option<&raw_contour::RawContour>>::__call__ as fn(Vec<Option<&'static raw_contour::RawContour<'static>>>) -> Vec<Option<&'static raw_contour::RawContour<'static>>>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Index {
+            opd_tys: &["[]?&mnist_classifier::raw_contour::RawContour", "i32"],
+        },
+        index_linkage!(
+            mutable,
+            OptionalEvalRef,
+            BoxNonCopyable,Vec<Option<&'eval raw_contour::RawContour<'eval>>>,
+            __registration__::__VEC_OPTION_REF_RAW_CONTOUR_VTABLE,
+            raw_contour::RawContour<'eval>,
+            __registration__::__RAW_CONTOUR_VTABLE
+)
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::connected_component::hole_tmpl",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__RAW_CONTOUR_VTABLE);
+                    connected_component::hole_tmpl(ct).to_register()
+                }
+                __wrapper
+            },
+            some base connected_component::hole_tmpl as fn(&'static raw_contour::RawContour<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::ilen" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_POINT_2_D_VTABLE);
+                    __this.ilen().to_register()
+                }
+                __wrapper
+            },
+            some base Vec::<geom2d::Point2d>::ilen as fn(&'static Vec<geom2d::Point2d>) -> i32
+        ),
+    ),
+    (
+        __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::connected_component::ConnectedComponent"
         },
 
@@ -141,6 +312,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             field_ident: "raw_contours",
         },
         lazy_field_linkage!(connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, Vec<raw_contour::RawContour<'eval>>, __registration__::__VEC_RAW_CONTOUR_VTABLE, raw_contours)
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::connected_component::ConnectedComponent",
+            field_ident: "eff_holes",
+        },
+        lazy_field_linkage!(connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, connected_component::EffHoles<'eval>, __registration__::__EFF_HOLES_VTABLE, eff_holes)
     ),
     (
         __StaticLinkageKey::StructField {
@@ -199,59 +377,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             },
             some base Vec::<raw_contour::RawContour>::ilen as fn(&'static Vec<raw_contour::RawContour<'static>>) -> i32
         ),
-    ),
-    (
-        __StaticLinkageKey::TypeCall {
-            ty: "mnist_classifier::raw_contour::RawContour"
-        },
-
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let cc: &'eval connected_component::ConnectedComponent = __arguments[0].downcast_eval_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE);
-                    let points: Vec<geom2d::Point2d> = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__VEC_POINT_2_D_VTABLE);
-                    __Register::new_box::<raw_contour::RawContour<'eval>>(raw_contour::RawContour::__call__(cc, points), &__registration__::__RAW_CONTOUR_VTABLE)
-                }
-                __wrapper
-            },
-            some base raw_contour::RawContour::__call__ as fn(&'static connected_component::ConnectedComponent, Vec<geom2d::Point2d>) -> raw_contour::RawContour<'static>
-        ),
-    ),
-    (
-        __StaticLinkageKey::StructField {
-            this_ty: "mnist_classifier::raw_contour::RawContour",
-            field_ident: "cc",
-        },
-        eager_field_linkage!(
-            immutable,
-            EvalRef,
-            BoxNonCopyable,
-            raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE,
-            cc
-        )
-    ),
-    (
-        __StaticLinkageKey::StructField {
-            this_ty: "mnist_classifier::raw_contour::RawContour",
-            field_ident: "points",
-        },
-        eager_field_linkage!(
-            immutable,
-            Intrinsic,
-            BoxNonCopyable,
-            raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, Vec<geom2d::Point2d>, __registration__::__VEC_POINT_2_D_VTABLE,
-            points
-        )
-    ),
-    (
-        __StaticLinkageKey::StructField {
-            this_ty: "mnist_classifier::raw_contour::RawContour",
-            field_ident: "line_segment_sketch",
-        },
-        lazy_field_linkage!(raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE, line_segment_sketch)
     ),
     (
         __StaticLinkageKey::TypeCall {
@@ -393,22 +518,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some base Vec::<connected_component::ConnectedComponent>::push as fn(&'static mut Vec<connected_component::ConnectedComponent>, connected_component::ConnectedComponent) -> ()
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::ilen" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_POINT_2_D_VTABLE);
-                    __this.ilen().to_register()
-                }
-                __wrapper
-            },
-            some base Vec::<geom2d::Point2d>::ilen as fn(&'static Vec<geom2d::Point2d>) -> i32
         ),
     ),
     (
