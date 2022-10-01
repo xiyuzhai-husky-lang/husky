@@ -42,9 +42,14 @@ impl ArrivalRefinedControl {
 impl Signalable for ArrivalRefinedControl {}
 
 impl Restriction {
+    pub fn clear(&mut self) {
+        self.arrivals.clear()
+    }
+
     pub fn is_specific(&self) -> bool {
         self.kind == RestrictionKind::Specific
     }
+
     pub fn is_generic(&self) -> bool {
         self.kind == RestrictionKind::Generic
     }
