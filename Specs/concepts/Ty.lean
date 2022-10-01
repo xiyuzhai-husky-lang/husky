@@ -37,13 +37,14 @@ inductive HuskyTy
   | Struct (fields : List (String × HuskyTy))
   | TypeTy (u : HuskyTyUniverse)
 
-def HuskyTy.universe : HuskyTy -> HuskyTyUniverse
-  | PrimitiveTy _ => { raw := 0 }
-  | Struct [] => { raw := 0 }
-  | Struct (field::fields) => {
-    raw := max field.2.universe.raw (Struct fields).universe.raw
-  }
-  | TypeTy u => { raw := u.raw + 1 }
+def HuskyTy.universe : HuskyTy -> HuskyTyUniverse :=
+  sorry
+  -- | PrimitiveTy _ => { raw := 0 }
+  -- | Struct [] => { raw := 0 }
+  -- | Struct (field::fields) => {
+  --   raw := max field.2.universe.raw (Struct fields).universe.raw
+  -- }
+  -- | TypeTy u => { raw := u.raw + 1 }
 
 def HuskyTy.type_ty (ty : HuskyTy) : HuskyTy := HuskyTy.TypeTy ty.universe
 

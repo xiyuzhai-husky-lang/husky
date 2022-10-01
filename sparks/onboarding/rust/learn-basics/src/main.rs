@@ -1,4 +1,4 @@
 fn main() {
-    let sb = 1 + 1;
-    println!("{sb}!");
+    println!("Hello, world!");
+    println!("Hello, 宝贝儿子world!");
 }
