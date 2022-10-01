@@ -67,6 +67,9 @@ impl HuskyDebugtimeState {
     }
 
     pub(crate) fn clear(&mut self) -> HuskyDebugtimeUpdateM<()> {
+        self.restriction.update(|restriction| restriction.clear());
+        self.pins = Default::default(); // improve this
+        self.opt_active_trace_id = Default::default(); //improve this
         self.trace_nodes = Default::default();
         self.figure_canvases = Default::default();
         self.figure_controls = Default::default();

@@ -74,6 +74,10 @@ where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     Entry: VecMapEntry<K>,
 {
+    pub fn clear(&mut self) {
+        self.entries.clear()
+    }
+
     pub fn take_data(self) -> Vec<Entry> {
         self.entries
     }
