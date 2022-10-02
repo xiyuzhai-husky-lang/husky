@@ -108,7 +108,7 @@ All these are possible:
 
 Debugging should be as easy as writing the code itself!
 
-Usually debuggers are designed for procedural languages, because functional ones don't seem to need one. However, the programming problems solved by Husky is intrinsically much harder that a debugger is needed even all code is pure functional. For example, in computer vision, blablabla. The major time cost of debugging is to find which line is wrong.
+Usually devs are designed for procedural languages, because functional ones don't seem to need one. However, the programming problems solved by Husky is intrinsically much harder that a dev is needed even all code is pure functional. For example, in computer vision, blablabla. The major time cost of debugging is to find which line is wrong.
 
 #### generic viewpoint: visualize feature over a subset of datapoints
 
@@ -116,7 +116,7 @@ Usually debuggers are designed for procedural languages, because functional ones
 
 #### specific viewpoint: visualize feature at a fixed datapoint
 
-![alt text](snapshots/debugger-stalk.png)
+![alt text](snapshots/dev-stalk.png)
 
 #### visualization can be customed in type definition
 

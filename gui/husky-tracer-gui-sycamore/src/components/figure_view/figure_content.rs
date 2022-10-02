@@ -22,7 +22,7 @@ pub struct FigureContentProps<'a> {
 
 #[component]
 pub fn FigureContent<'a, G: Html>(scope: Scope<'a>, props: FigureContentProps<'a>) -> View<G> {
-    let ctx = use_debugger_context(scope);
+    let ctx = use_dev_context(scope);
     let opt_active_trace_id = &ctx.trace_context.opt_active_trace_id;
     let restriction = &ctx.restriction_context.restriction;
     let opt_canvas_and_control_data = memo!(scope, move || opt_active_trace_id.cget().map(
@@ -65,7 +65,7 @@ fn FigureContentSwitch<'a, G: Html>(
     scope: Scope<'a>,
     props: FigureContentSwitchProps<'a>,
 ) -> View<G> {
-    let ctx = use_debugger_context(scope);
+    let ctx = use_dev_context(scope);
     let pinned_canvas_values = memo!(scope, move || ctx.collect_pinned_canvas_values());
     match props.canvas_value {
         FigureCanvasData::Primitive { value } => {

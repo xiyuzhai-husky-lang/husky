@@ -11,7 +11,7 @@ pub fn PartitionControl<'a, G: Html>(
     scope: Scope<'a>,
     props: PartitionControlProps<'a>,
 ) -> View<G> {
-    let ctx = use_debugger_context(scope);
+    let ctx = use_dev_context(scope);
     view! {
         scope,
         div (

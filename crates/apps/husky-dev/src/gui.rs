@@ -16,10 +16,7 @@ pub(crate) async fn handle_query(
     Ok(socket.on_upgrade(move |ws| handle_query_upgraded(ws, server)))
 }
 
-pub(crate) async fn handle_query_upgraded(
-    websocket: WebSocket,
-    debugger: Arc<HuskyDebuggerInstance>,
-) {
+pub(crate) async fn handle_query_upgraded(websocket: WebSocket, dev: Arc<HuskyDebuggerInstance>) {
     let (tx, mut rx) = websocket.split();
     let (client_sender, client_rcv) = mpsc::unbounded_channel::<Result<Message, warp::Error>>();
     let client_rcv = UnboundedReceiverStream::new(client_rcv);
@@ -40,7 +37,7 @@ pub(crate) async fn handle_query_upgraded(
             Ok(text) => match serde_json::from_str(text) {
                 Ok::<HuskyTracerGuiMessage, _>(gui_message) => {
                     gui_messages.push(gui_message);
-                    handle_message(debugger.clone(), client_sender.clone(), &gui_messages).unwrap()
+                    handle_message(dev.clone(), client_sender.clone(), &gui_messages).unwrap()
                 }
                 Err(_) => {
                     p!(text);

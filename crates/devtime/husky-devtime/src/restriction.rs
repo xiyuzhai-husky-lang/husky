@@ -1,6 +1,6 @@
 use crate::*;
 
-impl HuskyDebugtime {
+impl HuskyDevtime {
     pub fn restriction(&self) -> &Restriction {
         &self.state.restriction
     }

@@ -10,18 +10,18 @@ pub struct TraceNodeProps<'a> {
 
 #[component]
 pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> View<G> {
-    let debugger_context = use_debugger_context(scope);
-    let trace_context = &debugger_context.trace_context;
+    let dev_context = use_dev_context(scope);
+    let trace_context = &dev_context.trace_context;
     let shown = trace_context.shown_read_signal(props.trace_id);
     let expanded = trace_context.expansion_read_signal(props.trace_id);
     let trace = trace_context.trace_data(props.trace_id);
     let trace_kind = trace.kind;
-    let opt_sample_id = debugger_context.restriction_context.opt_sample_id;
+    let opt_sample_id = dev_context.restriction_context.opt_sample_id;
     let has_stalk = memo!(scope, move || trace_kind.can_have_stalk()
         && opt_sample_id.cget().is_some());
     let has_subtraces = props.has_subtraces;
-    let toggle_expansion_handler = debugger_context.toggle_expansion_handler(props.trace_id);
-    let activate_handler = debugger_context.activate_handler(props.trace_id);
+    let toggle_expansion_handler = dev_context.toggle_expansion_handler(props.trace_id);
+    let activate_handler = dev_context.activate_handler(props.trace_id);
     let opt_active_trace_id = &trace_context.opt_active_trace_id;
     let trace_id = trace.id;
     let is_trace_active = memo!(scope, move || opt_active_trace_id.cget() == Some(trace_id));
@@ -63,7 +63,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
             .collect(),
     );
     let reachable = memo!(scope, move || trace.reachable);
-    let restriction = debugger_context.restriction_context.restriction;
+    let restriction = dev_context.restriction_context.restriction;
     let opt_stats = memo!(scope, move || trace_context
         .opt_trace_stats(trace_id, &restriction.get()));
     view! {

@@ -1,6 +1,6 @@
 use super::*;
 use husky_check_utils::should_eq;
-use husky_debugtime::{DebugtimeHotReloadR, HuskyDebugtimeTakeChangeR};
+use husky_devtime::{DebugtimeHotReloadR, HuskyDebugtimeTakeChangeR};
 use monad::Monad;
 use std::panic::catch_unwind;
 use std::path::PathBuf;
@@ -57,14 +57,14 @@ impl<T> std::ops::Try for HandleGuiMessageM<T> {
 }
 
 pub(crate) fn handle_message(
-    debugger: Arc<HuskyDebuggerInstance>,
+    dev: Arc<HuskyDebuggerInstance>,
     client_sender: UnboundedSender<Result<Message, warp::Error>>,
     gui_messages: &[HuskyTracerGuiMessage],
 ) -> HandleGuiMessageM<()> {
-    let debugger_ = debugger.clone();
+    let dev_ = dev.clone();
     let client_sender_ = client_sender.clone();
     let latest_gui_message = gui_messages.last().unwrap();
-    match catch_unwind(|| debugger_.handle_gui_message(&latest_gui_message)) {
+    match catch_unwind(|| dev_.handle_gui_message(&latest_gui_message)) {
         Ok(monad) => match monad? {
             Some(text) => match client_sender_.send(Ok(Message::text(text))) {
                 Ok(_) => HandleGuiMessageM::Ok(()),
@@ -74,7 +74,7 @@ pub(crate) fn handle_message(
         },
         Err(_) => HandleGuiMessageM::Ok(save_server_history(
             &(DebuggerServerHistory {
-                config: debugger.config(),
+                config: dev.config(),
                 gui_messages: gui_messages.to_vec(),
             }),
         )),
@@ -90,7 +90,7 @@ fn save_server_history(server_history: &DebuggerServerHistory) {
     let value = serde_json::to_string_pretty(server_history).unwrap();
     let filename = format!("history-{}.json", xxh3_64(value.as_bytes()));
     let filename: &str = &filename;
-    let filepath: PathBuf = format!("tests/debugger/server-history/{filename}").into();
+    let filepath: PathBuf = format!("tests/dev/server-history/{filename}").into();
     husky_io_utils::diff_write(&filepath, &value, true)
 }
 

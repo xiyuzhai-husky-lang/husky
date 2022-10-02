@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_kind::EntityKind;
 use husky_entity_route::EntityRoutePtr;
 
-impl HuskyDebugtime {
+impl HuskyDevtime {
     pub(super) fn module_subtraces(
         &mut self,
         trace: &Trace,

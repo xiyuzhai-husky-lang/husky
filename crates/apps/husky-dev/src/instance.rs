@@ -11,7 +11,7 @@ pub(crate) struct HuskyDebuggerInstance {
 impl HuskyDebuggerInstance {
     pub fn new(config: HuskyDebuggerConfig) -> Self {
         let package_dir: &Path = &config.package_dir;
-        let mut devtime = HuskyDebugtime::new(config.runtime());
+        let mut devtime = HuskyDevtime::new(config.runtime());
         if let Some(specific_sample_id) = config.opt_sample_id {
             todo!()
             // devtime
@@ -71,7 +71,7 @@ impl HuskyDebuggerInstance {
     }
 
     pub async fn serve(self, addr: impl ToSocketAddrs) -> DebuggerResult<()> {
-        let debugger = Arc::new(self);
+        let dev = Arc::new(self);
         let addr = addr.to_socket_addrs().unwrap().next().unwrap();
         println!(
             "{}husky{}: serve on {:?}",
@@ -81,11 +81,11 @@ impl HuskyDebuggerInstance {
         );
         let notif = warp::path!("notif")
             .and(warp::ws())
-            .and(with_debugger(debugger.clone()))
+            .and(with_dev(dev.clone()))
             .and_then(handle_notif);
         let query = warp::path!("query")
             .and(warp::ws())
-            .and(with_debugger(debugger.clone()))
+            .and(with_dev(dev.clone()))
             .and_then(handle_query);
         let routes = notif.or(query);
         warp::serve(routes).run(addr).await;
@@ -97,8 +97,8 @@ impl HuskyDebuggerInstance {
     }
 }
 
-fn with_debugger(
-    debugger: Arc<HuskyDebuggerInstance>,
+fn with_dev(
+    dev: Arc<HuskyDebuggerInstance>,
 ) -> impl Filter<Extract = (Arc<HuskyDebuggerInstance>,), Error = Infallible> + Clone {
-    warp::any().map(move || debugger.clone())
+    warp::any().map(move || dev.clone())
 }

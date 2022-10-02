@@ -97,6 +97,6 @@ pub(crate) unsafe fn as_static_ref<'a, T>(value: &T) -> &'static T {
     &*ptr
 }
 
-pub(crate) fn use_debugger_context<'a>(scope: Scope<'a>) -> &'static DebuggerContext {
+pub(crate) fn use_dev_context<'a>(scope: Scope<'a>) -> &'static DebuggerContext {
     unsafe { as_static_ref(use_context::<DebuggerContext>(scope)) }
 }

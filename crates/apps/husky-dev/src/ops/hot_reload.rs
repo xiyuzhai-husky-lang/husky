@@ -1,7 +1,7 @@
 use std::ops::FromResidual;
 
 use husky_compiler::{CompileHuskyR, CompilerInstance};
-use husky_debugtime::DebugtimeHotReloadR;
+use husky_devtime::DebugtimeHotReloadR;
 use relative_path::RelativePathBuf;
 
 use crate::*;
