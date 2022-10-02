@@ -41,7 +41,7 @@ use vec_like::VecSet;
 
 pub struct HuskyDevtime {
     runtime: HuskyDevRuntime,
-    state: HuskyDebugtimeState,
+    state: HuskyDevtimeState,
 }
 
 impl HuskyDevtime {
@@ -62,7 +62,7 @@ impl HuskyDevtime {
     pub fn activate(
         &mut self,
         trace_id: TraceId,
-    ) -> HuskyDebugtimeTakeChangeM<(
+    ) -> HuskyDevtimeTakeChangeM<(
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
     )> {
@@ -70,7 +70,7 @@ impl HuskyDevtime {
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
         let change = self.take_change()?;
-        HuskyDebugtimeTakeChangeM::Ok((
+        HuskyDevtimeTakeChangeM::Ok((
             change.figure_canvases.opt_new_entries().unwrap_or_default(),
             change.figure_controls.opt_new_entries().unwrap_or_default(),
         ))
@@ -97,11 +97,11 @@ impl HuskyDevtime {
     }
 
     // move this to somewhere proper
-    pub(crate) fn update_subtraces(&mut self, trace_id: TraceId) -> HuskyDebugtimeUpdateM<()> {
+    pub(crate) fn update_subtraces(&mut self, trace_id: TraceId) -> HuskyDevtimeUpdateM<()> {
         let trace = &self.trace(trace_id);
         let opt_sample_id = self.state.restriction.opt_sample_id();
         if !trace.raw_data.has_subtraces(opt_sample_id.is_some()) {
-            return HuskyDebugtimeUpdateM::Ok(());
+            return HuskyDevtimeUpdateM::Ok(());
         }
         let key = SubtracesKey::new(trace.raw_data.kind, trace_id, opt_sample_id);
         if self.state.subtrace_ids_map.get(&key).is_none() {
@@ -113,7 +113,7 @@ impl HuskyDevtime {
                 todo!()
             }
         }
-        HuskyDebugtimeUpdateM::Ok(())
+        HuskyDevtimeUpdateM::Ok(())
     }
 
     pub(crate) fn subtraces(&self, trace_id: TraceId) -> Vec<TraceId> {
@@ -189,7 +189,7 @@ impl HuskyDevtime {
     pub fn toggle_expansion(
         &mut self,
         trace_id: TraceId,
-    ) -> HuskyDebugtimeTakeChangeM<
+    ) -> HuskyDevtimeTakeChangeM<
         Option<(
             Vec<TraceNodeData>,
             Vec<TraceId>,
@@ -203,7 +203,7 @@ impl HuskyDevtime {
         self.update_subtraces(trace_id); // ad hoc
         self.update()?;
         let change = self.take_change()?;
-        HuskyDebugtimeTakeChangeM::Ok(
+        HuskyDevtimeTakeChangeM::Ok(
             if let Some(new_trace_nodes) = change.trace_nodes.opt_new_entries() {
                 let mut subtraces = change.subtrace_ids_map.opt_new_entries().unwrap();
                 assert_eq!(subtraces.len(), 1);
@@ -224,11 +224,11 @@ impl HuskyDevtime {
         self.state.trace_nodes[trace_id.raw()].expanded()
     }
 
-    pub fn toggle_show(&mut self, trace_id: TraceId) -> HuskyDebugtimeTakeChangeM<()> {
+    pub fn toggle_show(&mut self, trace_id: TraceId) -> HuskyDevtimeTakeChangeM<()> {
         self.state
             .trace_nodes
             .apply_update_elem(trace_id.raw(), |node| node.toggle_shown())?;
-        HuskyDebugtimeTakeChangeM::Ok(())
+        HuskyDevtimeTakeChangeM::Ok(())
     }
 
     pub fn trace(&self, trace_id: TraceId) -> &Trace {

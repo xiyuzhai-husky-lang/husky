@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Default)]
-pub struct DebugtimeDb {
+pub struct DevtimeDb {
     pub(crate) trace_nodes: Vec<Option<TraceNode>>,
     pub(crate) opt_active_trace_id: Option<TraceId>,
     pub(crate) figure_canvases: VecSet<FigureCanvasKey>,
