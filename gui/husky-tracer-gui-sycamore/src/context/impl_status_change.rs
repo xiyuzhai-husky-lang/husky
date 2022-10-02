@@ -141,7 +141,6 @@ impl DebuggerContext {
     pub fn add_partition_handler(&'static self, idx: usize) -> impl Fn(Event) {
         move |_| {
             partition_ncol_input().set_value("2");
-            log::info!("add_partition_handler called");
             let dialog = new_partition_dialog();
             assert!(!dialog.open());
             dialog.show_modal();
