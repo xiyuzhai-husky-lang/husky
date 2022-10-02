@@ -10,7 +10,7 @@ pub struct FigureControlProps<'a> {
 
 #[component]
 pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a>) -> View<G> {
-    let ctx = use_debugger_context(scope);
+    let ctx = use_dev_context(scope);
     let opt_active_trace_id = &ctx.trace_context.opt_active_trace_id;
     let restriction = &ctx.restriction_context.restriction;
     let opt_canvas_and_control_data = memo!(scope, move || opt_active_trace_id.cget().map(

@@ -41,7 +41,7 @@ pub fn PartitionContent<'a, G: Html>(
         memo!(scope, move || { column_dimension.cget() / (1, 5) - (2, 4) });
     let partition = format!("{}", props.partition);
     let restriction = props.restriction;
-    let ctx = use_debugger_context(scope);
+    let ctx = use_dev_context(scope);
     view! {
         scope,
         div (

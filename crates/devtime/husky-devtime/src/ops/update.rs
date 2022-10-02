@@ -33,7 +33,7 @@ impl<T> HuskyDebugtimeTakeChangeM<T> {
     }
 }
 
-impl HuskyDebugtime {
+impl HuskyDevtime {
     pub(crate) fn update(&mut self) -> HuskyDebugtimeUpdateM<()> {
         match self.try_update().result()? {
             Ok(()) => HuskyDebugtimeUpdateM::Ok(()),

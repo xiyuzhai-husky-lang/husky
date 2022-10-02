@@ -14,7 +14,7 @@ impl<T> MonadT<HuskyDebugtimeUpdateM<T>> for HuskyDebugtimeHotReloadM {}
 impl<T> MonadT<HuskyDebugtimeTakeChangeM<T>> for HuskyDebugtimeHotReloadM {}
 impl MonadT<HuskyRuntimeHotReloadM> for HuskyDebugtimeHotReloadM {}
 
-impl HuskyDebugtime {
+impl HuskyDevtime {
     pub fn hot_reload(&mut self) -> HuskyDebugtimeHotReloadM {
         self.runtime.hot_reload()?;
         self.clear()?;

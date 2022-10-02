@@ -1,6 +1,6 @@
 use super::*;
 
-impl HuskyDebugtime {
+impl HuskyDevtime {
     pub(crate) fn feature_stmt_figure(
         &self,
         stmt: &FeatureLazyStmt,

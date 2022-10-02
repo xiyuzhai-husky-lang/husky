@@ -11,7 +11,7 @@ use trace_tree::*;
 
 #[component]
 pub fn TraceView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
-    let context = use_debugger_context(scope);
+    let context = use_dev_context(scope);
     let root_trace_ids = &context.trace_context.root_trace_ids;
     view! {
         scope,

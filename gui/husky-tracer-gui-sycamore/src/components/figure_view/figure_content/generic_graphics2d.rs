@@ -49,7 +49,7 @@ pub fn GenericGraphics2d<'a, G: Html>(
             height: props.dimension.cget().height - GENERIC_BOTTOM_SPACE,
         }
     });
-    let ctx = use_debugger_context(scope);
+    let ctx = use_dev_context(scope);
     let restriction = ctx.restriction_context.restriction;
     view! {
         scope,

@@ -37,31 +37,31 @@ add-mnist-classifier-to-folding-ranges-tests:
 add-mnist-classifier-to-qualified-tys-tests:
 	cargo run -q --bin husky-test-add examples/mnist-classifier qualified-tys misc
 
-test-debugger:
+test-dev:
 	@cargo check -q
-	cargo run --bin husky-debugger test tests/debugger
+	cargo run --bin husky-dev test tests/dev
 
-test-debugger-backtraced:
+test-dev-backtraced:
 	cargo check
-	RUST_BACKTRACE=1 cargo run --bin husky-debugger test tests/debugger
+	RUST_BACKTRACE=1 cargo run --bin husky-dev test tests/dev
 
-test-debugger-backtraced-filtered:
+test-dev-backtraced-filtered:
 	cargo check
-	RUST_BACKTRACE=1 cargo run --bin husky-debugger test tests/debugger 2>&1 | python scripts/filter_rust_backtrace.py
+	RUST_BACKTRACE=1 cargo run --bin husky-dev test tests/dev 2>&1 | python scripts/filter_rust_backtrace.py
 
 # compiler
 
 test-compiler:
 	cargo run --bin husky-compiler tests/compiler
-	cargo run --bin husky-debugger test tests/compiler
+	cargo run --bin husky-dev test tests/compiler
 
 test-compiler-backtraced:
 	RUST_BACKTRACE=1 cargo run --bin husky-compiler tests/compiler
-	RUST_BACKTRACE=1 cargo run --bin husky-debugger test tests/compiler
+	RUST_BACKTRACE=1 cargo run --bin husky-dev test tests/compiler
 
 test-compiler-backtraced-filtered:
 	RUST_BACKTRACE=1 cargo run --bin husky-compiler tests/compiler 2>&1 | python scripts/filter_rust_backtrace.py
-	RUST_BACKTRACE=1 cargo run --bin husky-debugger test tests/compiler 2>&1 | python scripts/filter_rust_backtrace.py
+	RUST_BACKTRACE=1 cargo run --bin husky-dev test tests/compiler 2>&1 | python scripts/filter_rust_backtrace.py
 
 test-update-dirnames:
 	cargo run --bin husky-test-update-dirname

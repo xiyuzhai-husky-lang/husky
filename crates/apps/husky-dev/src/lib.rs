@@ -12,7 +12,7 @@ pub use error::{DebuggerError, DebuggerResult};
 
 use futures::executor::ThreadPool;
 use gui::handle_query;
-use husky_debugtime::HuskyDebugtime;
+use husky_devtime::HuskyDevtime;
 use husky_path_utils::collect_package_dirs;
 use husky_print_utils::*;
 use husky_root_static_defn::__StaticLinkageKey;
@@ -32,17 +32,17 @@ use std::{
 use std::{sync::Mutex, time::Instant};
 use warp::Filter;
 
-pub async fn debugger_run(package_dir: PathBuf) -> DebuggerResult<()> {
-    let husky_debugger = HuskyDebuggerInstance::new(HuskyDebuggerConfig {
+pub async fn dev_run(package_dir: PathBuf) -> DebuggerResult<()> {
+    let husky_dev = HuskyDebuggerInstance::new(HuskyDebuggerConfig {
         package_dir,
         opt_sample_id: None,
         verbose: false,
         compiled: false,
     });
-    husky_debugger.serve("localhost:51617").await
+    husky_dev.serve("localhost:51617").await
 }
 
-pub async fn debugger_test(packages_dir: PathBuf) {
+pub async fn dev_test(packages_dir: PathBuf) {
     assert!(packages_dir.is_dir());
     let package_dirs = collect_package_dirs(&packages_dir);
     println!(
@@ -59,14 +59,14 @@ pub async fn debugger_test(packages_dir: PathBuf) {
             husky_print_utils::RESET,
             package_dir.as_os_str().to_str().unwrap(),
         );
-        let husky_debugger = HuskyDebuggerInstance::new(HuskyDebuggerConfig {
+        let husky_dev = HuskyDebuggerInstance::new(HuskyDebuggerConfig {
             package_dir,
             opt_sample_id: Some(SampleId(23)),
             verbose: false,
             compiled: false,
         });
         finalize(
-            husky_debugger
+            husky_dev
                 .serve_on_error("localhost:51617", SampleId(0))
                 .await,
         )

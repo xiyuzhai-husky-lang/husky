@@ -39,12 +39,12 @@ use trace_node::*;
 use upcast::Upcast;
 use vec_like::VecSet;
 
-pub struct HuskyDebugtime {
+pub struct HuskyDevtime {
     runtime: HuskyDevRuntime,
     state: HuskyDebugtimeState,
 }
 
-impl HuskyDebugtime {
+impl HuskyDevtime {
     pub fn new(runtime_config: RuntimeConfig) -> Self {
         let mut devtime = Self {
             runtime: HuskyDevRuntime::new(runtime_config),

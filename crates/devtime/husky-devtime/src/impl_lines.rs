@@ -12,7 +12,7 @@ use husky_text::Row;
 
 use super::*;
 
-impl HuskyDebugtime {
+impl HuskyDevtime {
     pub(crate) fn trace_lines(
         &mut self,
         indent: Indent,
@@ -23,7 +23,7 @@ impl HuskyDebugtime {
     }
 }
 pub struct TraceLineBuilder<'a> {
-    devtime: &'a mut HuskyDebugtime,
+    devtime: &'a mut HuskyDevtime,
     trace_variant: &'a TraceVariant,
     has_parent: bool,
     lines: Vec<TraceLineData>,
@@ -32,7 +32,7 @@ pub struct TraceLineBuilder<'a> {
 
 impl<'a> TraceLineBuilder<'a> {
     pub(super) fn new(
-        devtime: &'a mut HuskyDebugtime,
+        devtime: &'a mut HuskyDevtime,
         indent: Indent,
         trace_variant: &'a TraceVariant,
         has_parent: bool,
@@ -52,7 +52,7 @@ impl<'a> TraceLineBuilder<'a> {
 }
 
 impl<'a> std::ops::Deref for TraceLineBuilder<'a> {
-    type Target = HuskyDebugtime;
+    type Target = HuskyDevtime;
 
     fn deref(&self) -> &Self::Target {
         self.devtime

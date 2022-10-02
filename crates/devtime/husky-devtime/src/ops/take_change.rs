@@ -14,7 +14,7 @@ pub enum HuskyDebugtimeTakeChangeM<T> {
 }
 impl<T> Monad for HuskyDebugtimeTakeChangeM<T> {}
 
-impl HuskyDebugtime {
+impl HuskyDevtime {
     pub(crate) fn take_change(&mut self) -> HuskyDebugtimeTakeChangeM<DebugtimeStateChange> {
         HuskyDebugtimeTakeChangeM::Ok(self.state.take_change()?)
     }

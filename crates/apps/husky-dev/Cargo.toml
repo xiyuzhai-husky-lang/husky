@@ -1,10 +1,10 @@
 [package]
-name = "husky-debugger"
+name = "husky-dev"
 version = "0.0.0"
 edition = "2021"
 
 [[bin]]
-name = "husky-debugger"
+name = "husky-dev"
 path = "src/bin/main.rs"
 
 [dependencies]

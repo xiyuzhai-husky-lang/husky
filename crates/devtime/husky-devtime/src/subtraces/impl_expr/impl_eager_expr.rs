@@ -1,6 +1,6 @@
 use super::*;
 
-impl HuskyDebugtime {
+impl HuskyDevtime {
     pub(crate) fn eager_expr_subtraces(
         &mut self,
         parent: &Trace,

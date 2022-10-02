@@ -26,7 +26,7 @@ pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> 
     let dimension = props.dimension;
     let generic_f32_visual_region_dimension =
         memo!(scope, move || dimension.cget() * (7, 1) / (10, 1));
-    let ctx = use_debugger_context(scope);
+    let ctx = use_dev_context(scope);
     let pinned_canvas_values = memo!(scope, move || ctx.collect_pinned_canvas_values());
     let image_layers = memo!(scope, move || pinned_canvas_values.get().image_layers());
     let shapes = memo!(scope, move || pinned_canvas_values.get().shapes());
@@ -65,7 +65,7 @@ pub struct GenericF32PointProps {
 
 #[component]
 fn GenericF32Point<'a, G: Html>(scope: Scope<'a>, props: GenericF32PointProps) -> View<G> {
-    let ctx = use_debugger_context(scope);
+    let ctx = use_dev_context(scope);
     let restriction = ctx.restriction_context.restriction;
     view! {
         scope,

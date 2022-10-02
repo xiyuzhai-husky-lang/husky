@@ -7,7 +7,7 @@ pub struct TraceTreeProps {
 
 #[component]
 pub fn TraceTree<'a, G: Html>(scope: Scope<'a>, props: TraceTreeProps) -> View<G> {
-    let context = use_debugger_context(scope);
+    let context = use_dev_context(scope);
     let tree_context = &context.trace_context;
     let shown = tree_context.shown_read_signal(props.trace_id);
     let opt_sample_id = context.restriction_context.opt_sample_id;
