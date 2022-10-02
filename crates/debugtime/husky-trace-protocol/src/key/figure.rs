@@ -8,7 +8,7 @@ pub enum FigureCanvasKey {
     Generic {
         trace_id: TraceId,
         partitions: Partitions,
-        arrivals: Arrivals,
+        arrivals: PinnedArrivals,
     },
     Specific {
         trace_id: TraceId,

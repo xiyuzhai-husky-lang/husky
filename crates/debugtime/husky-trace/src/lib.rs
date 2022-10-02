@@ -1,8 +1,9 @@
-mod impl_can_have_subtraces;
-mod impl_file_range;
-mod impl_kind;
+mod always_arrived;
+mod can_have_subtraces;
+mod file_range;
 mod impl_reachable;
 mod impl_stats;
+mod kind;
 mod stalk;
 mod subtraces;
 #[cfg(test)]

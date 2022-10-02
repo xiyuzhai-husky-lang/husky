@@ -91,14 +91,6 @@ impl DebuggerContext {
         move || self.handle_status_change(StatusChange::ToggleShown { trace_id })
     }
 
-    pub fn toggle_arrival_handler(&'static self, trace_id: TraceId) -> impl Fn() {
-        move || {
-            self.handle_status_change(StatusChange::update_restriction(self, |res| {
-                res.toggle_arrival(trace_id)
-            }))
-        }
-    }
-
     pub fn toggle_arrival_refined_strike_evil_handler(
         &'static self,
         trace_id: TraceId,

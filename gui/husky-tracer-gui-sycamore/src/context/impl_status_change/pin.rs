@@ -5,7 +5,7 @@ impl DebuggerContext {
         let pins = self.pins;
         let trace = self.trace_context.trace_data(trace_id);
         let pinned = pins.get().has(trace_id);
-        let restriction = self.restriction_context.restriction.get();
+        let restriction = self.restriction_context.restriction.get().toggle_pin(trace);
         let needs_figure_canvases =
             !pinned && (self.needs_figure_canvases(Some(trace_id), &restriction));
         let needs_figure_controls =
@@ -31,14 +31,14 @@ impl DebuggerContext {
                                 .map(|(k, v)| (k, self.alloc_value(v))),
                         );
                         self.receive_figure_controls(self.scope, new_figure_controls.into_iter());
-                        self.did_toggle_pin(trace_id);
+                        self.did_toggle_pin(trace_id, restriction);
                     }
                     HuskyTracerServerMessageVariant::TogglePinWithError { .. } => todo!(),
                     _ => panic!("unexpected response {:?}", response),
                 }))
             } else {
                 {
-                    self.did_toggle_pin(trace_id);
+                    self.did_toggle_pin(trace_id, restriction);
                     None
                 }
             },

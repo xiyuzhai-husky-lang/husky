@@ -157,11 +157,11 @@ impl HuskyDebugtime {
                     id: trace_id,
                     opt_parent_id,
                     indent,
-                    compile_time_version: 0, //compile time version
                     can_have_subtraces,
                     reachable,
                     lines,
                     kind: variant.kind(),
+                    always_arrived: variant.always_arrived(),
                     // opt_stats: variant.opt_stats(self.runtime()).expect("todo"),
                 },
                 variant,
