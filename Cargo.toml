@@ -15,7 +15,7 @@ members = [
     "crates/static/husky-static-defn",
     "crates/static/husky-static-visualizer",
     "crates/syntax/*",
-    "crates/debugtime/*",
+    "crates/devtime/*",
     "crates/try",
     "crates/utils/*",
     "crates/vm/*",

@@ -23,7 +23,7 @@ impl HuskyDebugtime {
     }
 }
 pub struct TraceLineBuilder<'a> {
-    debugtime: &'a mut HuskyDebugtime,
+    devtime: &'a mut HuskyDebugtime,
     trace_variant: &'a TraceVariant,
     has_parent: bool,
     lines: Vec<TraceLineData>,
@@ -32,13 +32,13 @@ pub struct TraceLineBuilder<'a> {
 
 impl<'a> TraceLineBuilder<'a> {
     pub(super) fn new(
-        debugtime: &'a mut HuskyDebugtime,
+        devtime: &'a mut HuskyDebugtime,
         indent: Indent,
         trace_variant: &'a TraceVariant,
         has_parent: bool,
     ) -> Self {
         TraceLineBuilder {
-            debugtime,
+            devtime,
             trace_variant,
             has_parent,
             lines: vec![TraceLineData {
@@ -55,13 +55,13 @@ impl<'a> std::ops::Deref for TraceLineBuilder<'a> {
     type Target = HuskyDebugtime;
 
     fn deref(&self) -> &Self::Target {
-        self.debugtime
+        self.devtime
     }
 }
 
 impl<'a> std::ops::DerefMut for TraceLineBuilder<'a> {
     fn deref_mut(&mut self) -> &mut Self::Target {
-        self.debugtime
+        self.devtime
     }
 }
 

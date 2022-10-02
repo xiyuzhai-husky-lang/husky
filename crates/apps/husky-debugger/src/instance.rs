@@ -11,16 +11,16 @@ pub(crate) struct HuskyDebuggerInstance {
 impl HuskyDebuggerInstance {
     pub fn new(config: HuskyDebuggerConfig) -> Self {
         let package_dir: &Path = &config.package_dir;
-        let mut debugtime = HuskyDebugtime::new(config.runtime());
+        let mut devtime = HuskyDebugtime::new(config.runtime());
         if let Some(specific_sample_id) = config.opt_sample_id {
             todo!()
-            // debugtime
+            // devtime
             //     .set_restriction(Restriction::new_specific(specific_sample_id))
             //     .expect("todo");
         }
         Self {
             internal: Mutex::new(HuskyDebuggerInternal {
-                debugtime,
+                devtime,
                 next_request_id: 0,
                 config,
             }),
@@ -46,12 +46,12 @@ impl HuskyDebuggerInstance {
         // let mut error_flag = false;
         // let internal = &mut self.internal.lock().unwrap();
         // internal
-        //     .debugtime
+        //     .devtime
         //     .set_restriction(Restriction::new_specific(specific_sample_id))
         //     .expect("todo");
-        // for root_trace_id in internal.debugtime.root_traces().into_iter() {
+        // for root_trace_id in internal.devtime.root_traces().into_iter() {
         //     let now = Instant::now();
-        //     let (_, stalk) = internal.debugtime.keyed_trace_stalk(root_trace_id);
+        //     let (_, stalk) = internal.devtime.keyed_trace_stalk(root_trace_id);
         //     println!(
         //         "{} milliseconds elapsed for computing stalk of trace {}",
         //         now.elapsed().as_millis(),

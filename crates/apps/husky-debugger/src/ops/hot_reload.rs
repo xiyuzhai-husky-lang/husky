@@ -53,6 +53,6 @@ impl HuskyDebuggerInternal {
     }
     pub(crate) fn hot_reload(&mut self) -> DebuggerHotReloadM {
         self.compiler_instance().compile_all()?;
-        DebuggerHotReloadM::Ok(self.debugtime.hot_reload()?)
+        DebuggerHotReloadM::Ok(self.devtime.hot_reload()?)
     }
 }

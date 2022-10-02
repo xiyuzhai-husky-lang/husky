@@ -1,8 +1,8 @@
-import Specs.debugtime.Debugtime.TraceNode
-import Specs.debugtime.Trace
+import Specs.devtime.Debugtime.TraceNode
+import Specs.devtime.Trace
 import Specs.abstraction.vec_like
 import Specs.abstraction.HashMap
-import Specs.debugtime.protocol
+import Specs.devtime.protocol
 
 structure DebugtimeState where
     restriction: Restriction

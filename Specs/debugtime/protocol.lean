@@ -1,2 +1,2 @@
-import Specs.debugtime.protocol.key
-import Specs.debugtime.protocol.Restriction
+import Specs.devtime.protocol.key
+import Specs.devtime.protocol.Restriction

@@ -46,13 +46,13 @@ pub struct HuskyDebugtime {
 
 impl HuskyDebugtime {
     pub fn new(runtime_config: RuntimeConfig) -> Self {
-        let mut debugtime = Self {
+        let mut devtime = Self {
             runtime: HuskyDevRuntime::new(runtime_config),
             state: Default::default(),
         };
-        assert!(debugtime.state.restriction.opt_sample_id().is_none());
-        debugtime.hot_reload();
-        debugtime
+        assert!(devtime.state.restriction.opt_sample_id().is_none());
+        devtime.hot_reload();
+        devtime
     }
 
     pub fn opt_active_trace_id(&self) -> Option<TraceId> {

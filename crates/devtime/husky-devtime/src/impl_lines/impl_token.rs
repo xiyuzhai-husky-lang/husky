@@ -145,7 +145,7 @@ impl<'a> TraceLineBuilder<'a> {
         opt_pos: Option<TextPosition>,
     ) {
         self.push_token(
-            self.debugtime.trace_token_from_result(result, intrinsic_ty),
+            self.devtime.trace_token_from_result(result, intrinsic_ty),
             opt_pos,
         )
     }
