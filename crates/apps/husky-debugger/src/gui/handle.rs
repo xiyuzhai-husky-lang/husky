@@ -151,7 +151,7 @@ impl HuskyDebuggerInternal {
         match request.variant {
             HuskyTracerGuiMessageVariant::HotReloadRequest => {
                 Some(HuskyTracerServerMessageVariant::HotReload {
-                    init_data: self.debugtime.init_data(),
+                    init_data: self.devtime.init_data(),
                 })
             }
             HuskyTracerGuiMessageVariant::Activate {
@@ -166,7 +166,7 @@ impl HuskyDebuggerInternal {
             ),
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
                 if let Some((new_traces, subtrace_ids, trace_stalks, trace_stats)) =
-                    self.debugtime.toggle_expansion(trace_id)
+                    self.devtime.toggle_expansion(trace_id)
                 {
                     Some(HuskyTracerServerMessageVariant::ToggleExpansion {
                         new_traces,
@@ -189,17 +189,17 @@ impl HuskyDebuggerInternal {
                 }
             }
             HuskyTracerGuiMessageVariant::ToggleShow { trace_id } => {
-                self.debugtime.toggle_show(trace_id);
+                self.devtime.toggle_show(trace_id);
                 None
             }
             HuskyTracerGuiMessageVariant::Trace { id } => {
-                let trace = self.debugtime.trace(id);
+                let trace = self.devtime.trace(id);
                 Some(HuskyTracerServerMessageVariant::Trace {
                     trace_props: trace.raw_data.clone(),
                 })
             }
             HuskyTracerGuiMessageVariant::TraceStalk { trace_id } => {
-                let (_, stalk) = self.debugtime.keyed_trace_stalk(trace_id);
+                let (_, stalk) = self.devtime.keyed_trace_stalk(trace_id);
                 Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
             }
             HuskyTracerGuiMessageVariant::SetRestriction {
@@ -220,7 +220,7 @@ impl HuskyDebuggerInternal {
                 ref restriction,
                 ref figure_control_props,
             } => {
-                self.debugtime.update_figure_control(
+                self.devtime.update_figure_control(
                     trace_id,
                     restriction,
                     figure_control_props.clone(),
@@ -280,21 +280,18 @@ impl HuskyDebuggerInternal {
                 request,
             )?,
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
-                let opt_results = match self.debugtime.toggle_expansion(trace_id).result()? {
+                let opt_results = match self.devtime.toggle_expansion(trace_id).result()? {
                     Ok(opt_results) => opt_results,
                     Err(e) => {
                         match e.variant() {
                             __VMErrorVariant::Normal => todo!(),
                             __VMErrorVariant::FromBatch { sample_id } => {
                                 assert!(
-                                    self.debugtime.restriction().is_generic()
-                                        || self.debugtime.restriction().sample_id()
+                                    self.devtime.restriction().is_generic()
+                                        || self.devtime.restriction().sample_id()
                                             != SampleId(*sample_id)
                                 );
-                                p!(
-                                    self.debugtime.restriction().sample_id(),
-                                    SampleId(*sample_id)
-                                );
+                                p!(self.devtime.restriction().sample_id(), SampleId(*sample_id));
                                 todo!()
                             }
                         }
@@ -323,17 +320,17 @@ impl HuskyDebuggerInternal {
                 }
             }
             HuskyTracerGuiMessageVariant::ToggleShow { trace_id } => {
-                self.debugtime.toggle_show(trace_id);
+                self.devtime.toggle_show(trace_id);
                 None
             }
             HuskyTracerGuiMessageVariant::Trace { id } => {
-                let trace = self.debugtime.trace(id);
+                let trace = self.devtime.trace(id);
                 Some(HuskyTracerServerMessageVariant::Trace {
                     trace_props: trace.raw_data.clone(),
                 })
             }
             HuskyTracerGuiMessageVariant::TraceStalk { trace_id } => {
-                let stalk = self.debugtime.trace_stalk(trace_id).clone();
+                let stalk = self.devtime.trace_stalk(trace_id).clone();
                 Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
             }
             HuskyTracerGuiMessageVariant::SetRestriction {
@@ -353,7 +350,7 @@ impl HuskyDebuggerInternal {
                 trace_id,
                 ref figure_control_data,
             } => {
-                self.debugtime
+                self.devtime
                     .set_figure_control(trace_id, figure_control_data.clone());
                 None
             }
@@ -377,7 +374,7 @@ impl HuskyDebuggerInternal {
         needs_figure_controls: bool,
         request: &HuskyTracerGuiMessage,
     ) -> HandleGuiMessageM<Option<HuskyTracerServerMessageVariant>> {
-        HandleGuiMessageM::Ok(match self.debugtime.activate(trace_id).result()? {
+        HandleGuiMessageM::Ok(match self.devtime.activate(trace_id).result()? {
             Ok((new_figure_canvases, new_figure_controls)) => {
                 let needs_response = needs_figure_canvases || needs_figure_controls;
                 should_eq!(request.opt_request_id.is_some(), needs_response);
@@ -404,7 +401,7 @@ impl HuskyDebuggerInternal {
         needs_figure_controls: bool,
         request: &HuskyTracerGuiMessage,
     ) -> HandleGuiMessageM<Option<HuskyTracerServerMessageVariant>> {
-        HandleGuiMessageM::Ok(match self.debugtime.toggle_pin(trace_id).result()? {
+        HandleGuiMessageM::Ok(match self.devtime.toggle_pin(trace_id).result()? {
             Ok((new_figure_canvases, new_figure_controls)) => {
                 let needs_response = needs_figure_canvases || needs_figure_controls;
                 should_eq!(request.opt_request_id.is_some(), needs_response);
@@ -430,18 +427,17 @@ impl HuskyDebuggerInternal {
         new_stalk_keys: &[TraceStalkKey],
         new_stats_keys: &[TraceStatsKey],
     ) -> Option<HuskyTracerServerMessageVariant> {
-        let (new_trace_stalks, new_trace_stats) =
-            self.debugtime.set_restriction(restriction.clone());
+        let (new_trace_stalks, new_trace_stats) = self.devtime.set_restriction(restriction.clone());
         if needs_figure_canvases
             || needs_figure_controls
             || new_stalk_keys.len() > 0
             || new_stats_keys.len() > 0
         {
             let (opt_figure_canvas_data, opt_figure_control_data) = if let Some(active_trace_id) =
-                self.debugtime.opt_active_trace_id()
+                self.devtime.opt_active_trace_id()
             {
                 let opt_figure_canvas_data = if needs_figure_canvases {
-                    match self.debugtime.figure_canvas(active_trace_id) {
+                    match self.devtime.figure_canvas(active_trace_id) {
                         Ok(figure_canvas) => Some(figure_canvas),
                         Err((sample_id, error)) => {
                             return Some(HuskyTracerServerMessageVariant::SetRestrictionWithError {
@@ -454,7 +450,7 @@ impl HuskyDebuggerInternal {
                     None
                 };
                 let opt_figure_control_data = if needs_figure_controls {
-                    Some(self.debugtime.figure_control(active_trace_id))
+                    Some(self.devtime.figure_control(active_trace_id))
                 } else {
                     None
                 };
@@ -486,11 +482,7 @@ impl HuskyDebuggerInternal {
         needs_statss: bool,
     ) -> HandleGuiMessageM<Option<HuskyTracerServerMessageVariant>> {
         HandleGuiMessageM::Ok(
-            match self
-                .debugtime
-                .set_restriction(restriction.clone())
-                .result()?
-            {
+            match self.devtime.set_restriction(restriction.clone()).result()? {
                 Ok((
                     new_figure_canvases,
                     new_figure_controls,

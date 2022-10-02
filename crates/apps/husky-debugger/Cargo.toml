@@ -39,12 +39,12 @@ husky-entity-route = { path = "../../syntax/husky-entity-route" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-diagnostics = { path = "../../semantics/husky-diagnostics" }
 husky-token = { path = "../../syntax/husky-token" }
-husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
-husky-trace = { path = "../../debugtime/husky-trace" }
-husky-debugtime = { path = "../../debugtime/husky-debugtime" }
+husky-trace = { path = "../../devtime/husky-trace" }
+husky-devtime = { path = "../../devtime/husky-devtime" }
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
 husky-vm = { path = "../../vm/husky-vm" }

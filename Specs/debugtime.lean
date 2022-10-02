@@ -1,3 +1,3 @@
-import Specs.debugtime.Trace
-import Specs.debugtime.protocol
-import Specs.debugtime.Debugtime
+import Specs.devtime.Trace
+import Specs.devtime.protocol
+import Specs.devtime.Debugtime
