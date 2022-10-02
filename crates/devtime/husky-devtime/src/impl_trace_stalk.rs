@@ -8,7 +8,7 @@ impl HuskyDevtime {
         &self.state.trace_stalks[&key]
     }
 
-    pub(crate) fn gen_trace_stalk(&mut self, trace_id: TraceId) -> HuskyDebugtimeUpdateM<()> {
+    pub(crate) fn gen_trace_stalk(&mut self, trace_id: TraceId) -> HuskyDevtimeUpdateM<()> {
         let sample_id = self.state.restriction.opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);
         if !self.state.trace_stalks.contains(&key) {
@@ -16,7 +16,7 @@ impl HuskyDevtime {
                 .trace_stalks
                 .insert_new(key, self.produce_trace_stalk(trace_id, sample_id));
         }
-        HuskyDebugtimeUpdateM::Ok(())
+        HuskyDevtimeUpdateM::Ok(())
     }
 
     fn produce_trace_stalk(&self, trace_id: TraceId, sample_id: SampleId) -> TraceStalk {
@@ -64,21 +64,21 @@ impl HuskyDevtime {
         }
     }
 
-    pub(crate) fn update_trace_stalks(&mut self) -> HuskyDebugtimeUpdateM<()> {
+    pub(crate) fn update_trace_stalks(&mut self) -> HuskyDevtimeUpdateM<()> {
         if let Some(sample_id) = self.state.restriction.opt_sample_id() {
             // ad hoc
             for root_trace_id in self.root_traces() {
                 self.gen_trace_stalks_within_trace(sample_id, root_trace_id)?
             }
         }
-        HuskyDebugtimeUpdateM::Ok(())
+        HuskyDevtimeUpdateM::Ok(())
     }
 
     fn gen_trace_stalks_within_trace(
         &mut self,
         sample_id: SampleId,
         trace_id: TraceId,
-    ) -> HuskyDebugtimeUpdateM<()> {
+    ) -> HuskyDevtimeUpdateM<()> {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
@@ -93,7 +93,7 @@ impl HuskyDevtime {
                 self.gen_trace_stalks_within_trace(sample_id, subtrace_id)?
             }
         }
-        HuskyDebugtimeUpdateM::Ok(())
+        HuskyDevtimeUpdateM::Ok(())
     }
 
     fn trace_stalk_from_expr(&self, expr: &FeatureLazyExpr, sample_id: SampleId) -> TraceStalk {

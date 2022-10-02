@@ -8,7 +8,7 @@ impl HuskyDevtime {
     pub fn set_restriction(
         &mut self,
         restriction: Restriction,
-    ) -> HuskyDebugtimeTakeChangeM<(
+    ) -> HuskyDevtimeTakeChangeM<(
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
         Vec<(TraceStalkKey, TraceStalk)>,
@@ -17,7 +17,7 @@ impl HuskyDevtime {
         self.state.restriction.set(restriction)?;
         self.update()?;
         let change = self.take_change()?;
-        HuskyDebugtimeTakeChangeM::Ok((
+        HuskyDevtimeTakeChangeM::Ok((
             change.figure_canvases.opt_new_entries().unwrap_or_default(),
             change.figure_controls.opt_new_entries().unwrap_or_default(),
             change.trace_stalks.opt_new_entries().unwrap_or_default(),

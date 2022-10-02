@@ -1,16 +1,16 @@
-import Specs.devtime.Debugtime.TraceNode
+import Specs.devtime.Devtime.TraceNode
 import Specs.devtime.Trace
 import Specs.abstraction.vec_like
 import Specs.abstraction.HashMap
 import Specs.devtime.protocol
 
-structure DebugtimeState where
+structure DevtimeState where
     restriction: Restriction
     pins: VecSet TraceId
 
 structure TraceFactory where
 
-structure DebugtimeDb where
+structure DevtimeDb where
   trace_nodes: List (Option TraceNode)
   opt_active_trace_id: Option TraceId
   figure_canvases: VecSet FigureCanvasKey
@@ -20,6 +20,6 @@ structure DebugtimeDb where
   root_traces: List TraceId
   subtrace_ids_map: HashMap SubtracesKey (List TraceId)
 
-structure Debugtime where
-  state : DebugtimeState
-  db : DebugtimeDb
+structure Devtime where
+  state : DevtimeState
+  db : DevtimeDb

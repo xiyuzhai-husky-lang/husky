@@ -97,17 +97,17 @@ impl HuskyDevtime {
         }
     }
 
-    pub(crate) fn update_figure_controls(&mut self) -> HuskyDebugtimeUpdateM<()> {
+    pub(crate) fn update_figure_controls(&mut self) -> HuskyDevtimeUpdateM<()> {
         if let Some(active_trace_id) = *self.state.opt_active_trace_id {
             self.update_figure_control(active_trace_id)?;
         }
         for pin in self.state.pins.clone().into_iter() {
             self.update_figure_control(*pin)?;
         }
-        HuskyDebugtimeUpdateM::Ok(())
+        HuskyDevtimeUpdateM::Ok(())
     }
 
-    pub(crate) fn update_figure_control(&mut self, trace_id: TraceId) -> HuskyDebugtimeUpdateM<()> {
+    pub(crate) fn update_figure_control(&mut self, trace_id: TraceId) -> HuskyDevtimeUpdateM<()> {
         let key = self.gen_figure_control_key(trace_id);
         if !self.state.figure_controls.contains(&key) {
             let figure_control_data = self.gen_figure_control_data(trace_id);
@@ -115,17 +115,17 @@ impl HuskyDevtime {
                 .figure_controls
                 .insert_new(key, figure_control_data.clone());
         }
-        HuskyDebugtimeUpdateM::Ok(())
+        HuskyDevtimeUpdateM::Ok(())
     }
 
     pub fn set_figure_control(
         &mut self,
         trace_id: TraceId,
         new_figure_control_data: FigureControlData,
-    ) -> HuskyDebugtimeTakeChangeM<()> {
+    ) -> HuskyDevtimeTakeChangeM<()> {
         todo!()
         // let key = self.gen_figure_control_key(trace_id);
-        // DebugtimeStageChangeM::Ok(
+        // DevtimeStageChangeM::Ok(
         //     self.state
         //         .figure_controls
         //         .insert_new(key, new_figure_control_data)?,

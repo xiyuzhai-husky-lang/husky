@@ -8,74 +8,74 @@ use trackable::{
 };
 
 #[must_use]
-pub enum HuskyDebugtimeTakeChangeM<T> {
+pub enum HuskyDevtimeTakeChangeM<T> {
     Ok(T),
     OtherworldlyErr(__VMError),
 }
-impl<T> Monad for HuskyDebugtimeTakeChangeM<T> {}
+impl<T> Monad for HuskyDevtimeTakeChangeM<T> {}
 
 impl HuskyDevtime {
-    pub(crate) fn take_change(&mut self) -> HuskyDebugtimeTakeChangeM<DebugtimeStateChange> {
-        HuskyDebugtimeTakeChangeM::Ok(self.state.take_change()?)
+    pub(crate) fn take_change(&mut self) -> HuskyDevtimeTakeChangeM<DevtimeStateChange> {
+        HuskyDevtimeTakeChangeM::Ok(self.state.take_change()?)
     }
 }
 
 // implementation details
 
-pub enum HuskyDebugtimeTakeChangeR {
+pub enum HuskyDevtimeTakeChangeR {
     OtherworldlyErr(__VMError),
 }
 
 impl<T> FromResidual<TrackableApplyChangeR<TrackableVec<TraceNode>>>
-    for HuskyDebugtimeTakeChangeM<T>
+    for HuskyDevtimeTakeChangeM<T>
 {
     fn from_residual(residual: TrackableApplyChangeR<TrackableVec<TraceNode>>) -> Self {
         todo!()
     }
 }
 
-impl FromResidual<TrackableTakeChangeR<HuskyDebugtimeState>>
-    for HuskyDebugtimeTakeChangeM<DebugtimeStateChange>
+impl FromResidual<TrackableTakeChangeR<HuskyDevtimeState>>
+    for HuskyDevtimeTakeChangeM<DevtimeStateChange>
 {
-    fn from_residual(residual: TrackableTakeChangeR<HuskyDebugtimeState>) -> Self {
+    fn from_residual(residual: TrackableTakeChangeR<HuskyDevtimeState>) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<HuskyDebugtimeTakeChangeR> for HuskyDebugtimeTakeChangeM<T> {
-    fn from_residual(residual: HuskyDebugtimeTakeChangeR) -> Self {
+impl<T> FromResidual<HuskyDevtimeTakeChangeR> for HuskyDevtimeTakeChangeM<T> {
+    fn from_residual(residual: HuskyDevtimeTakeChangeR) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<HuskyDebugtimeUpdateR> for HuskyDebugtimeTakeChangeM<T> {
-    fn from_residual(residual: HuskyDebugtimeUpdateR) -> Self {
+impl<T> FromResidual<HuskyDevtimeUpdateR> for HuskyDevtimeTakeChangeM<T> {
+    fn from_residual(residual: HuskyDevtimeUpdateR) -> Self {
         todo!()
     }
 }
 
 impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Restriction>>>
-    for HuskyDebugtimeTakeChangeM<T>
+    for HuskyDevtimeTakeChangeM<T>
 {
     fn from_residual(residual: TrackableMakeChangeR<TrackableAtom<Restriction>>) -> Self {
         todo!()
     }
 }
 
-impl<T> std::ops::Try for HuskyDebugtimeTakeChangeM<T> {
+impl<T> std::ops::Try for HuskyDevtimeTakeChangeM<T> {
     type Output = T;
 
-    type Residual = HuskyDebugtimeTakeChangeR;
+    type Residual = HuskyDevtimeTakeChangeR;
 
     fn from_output(output: Self::Output) -> Self {
-        HuskyDebugtimeTakeChangeM::Ok(output)
+        HuskyDevtimeTakeChangeM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            HuskyDebugtimeTakeChangeM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
-            HuskyDebugtimeTakeChangeM::OtherworldlyErr(e) => {
-                std::ops::ControlFlow::Break(HuskyDebugtimeTakeChangeR::OtherworldlyErr(e))
+            HuskyDevtimeTakeChangeM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
+            HuskyDevtimeTakeChangeM::OtherworldlyErr(e) => {
+                std::ops::ControlFlow::Break(HuskyDevtimeTakeChangeR::OtherworldlyErr(e))
             }
         }
     }

@@ -5,7 +5,7 @@ use trackable::{
 };
 
 #[derive(Default)]
-pub struct HuskyDebugtimeState {
+pub struct HuskyDevtimeState {
     pub(crate) restriction: TrackableAtom<Restriction>,
     pub(crate) pins: VecSet<TraceId>,
     pub(crate) opt_active_trace_id: TrackableAtom<Option<TraceId>>,
@@ -18,7 +18,7 @@ pub struct HuskyDebugtimeState {
     pub(crate) subtrace_ids_map: TrackableMap<SubtracesKey, Vec<TraceId>>,
 }
 
-pub struct DebugtimeStateChange {
+pub struct DevtimeStateChange {
     pub(crate) restriction: <TrackableAtom<Restriction> as Trackable>::Change,
     pub(crate) opt_active_trace_id: <TrackableAtom<Option<TraceId>> as Trackable>::Change,
     pub(crate) trace_nodes: <TrackableVec<TraceNode> as Trackable>::Change,
@@ -34,11 +34,11 @@ pub struct DebugtimeStateChange {
 
 // implementation details
 
-impl Trackable for HuskyDebugtimeState {
-    type Change = DebugtimeStateChange;
+impl Trackable for HuskyDevtimeState {
+    type Change = DevtimeStateChange;
 
     fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
-        TrackableTakeChangeM::Ok(DebugtimeStateChange {
+        TrackableTakeChangeM::Ok(DevtimeStateChange {
             restriction: self.restriction.take_change()?,
             opt_active_trace_id: self.opt_active_trace_id.take_change()?,
             trace_nodes: self.trace_nodes.take_change()?,
@@ -52,7 +52,7 @@ impl Trackable for HuskyDebugtimeState {
     }
 }
 
-impl HuskyDebugtimeState {
+impl HuskyDevtimeState {
     pub(crate) fn root_traces(&self) -> &[TrackSimple<TraceId>] {
         &self.root_traces
     }
@@ -66,7 +66,7 @@ impl HuskyDebugtimeState {
         TrackableMakeChangeM::default()
     }
 
-    pub(crate) fn clear(&mut self) -> HuskyDebugtimeUpdateM<()> {
+    pub(crate) fn clear(&mut self) -> HuskyDevtimeUpdateM<()> {
         self.restriction.update(|restriction| restriction.clear());
         self.pins = Default::default(); // improve this
         self.opt_active_trace_id = Default::default(); //improve this
@@ -77,6 +77,6 @@ impl HuskyDebugtimeState {
         self.trace_statss = Default::default();
         self.root_traces = Default::default();
         self.subtrace_ids_map = Default::default();
-        HuskyDebugtimeUpdateM::Ok(())
+        HuskyDevtimeUpdateM::Ok(())
     }
 }
