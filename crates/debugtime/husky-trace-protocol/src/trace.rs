@@ -21,9 +21,9 @@ pub struct TraceData {
     pub kind: TraceKind,
     pub indent: Indent,
     pub lines: Vec<TraceLineData>,
-    pub compile_time_version: usize,
     pub can_have_subtraces: bool,
     pub reachable: bool,
+    pub always_arrived: bool,
 }
 
 impl TraceData {
@@ -63,6 +63,10 @@ impl TraceData {
                 has_sample_id && self.can_have_subtraces
             }
         }
+    }
+
+    pub fn always_arrived(&self) -> bool {
+        self.always_arrived
     }
 }
 

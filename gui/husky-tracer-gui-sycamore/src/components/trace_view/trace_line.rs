@@ -1,10 +1,8 @@
-mod trace_arrival;
 mod trace_expansion;
 mod trace_pin;
 mod trace_token;
 
 use super::*;
-use trace_arrival::*;
 use trace_expansion::*;
 use trace_pin::*;
 use trace_token::*;
@@ -80,10 +78,6 @@ pub fn TraceLine<'a, G: Html>(scope: Scope<'a>, props: TraceLineProps<'a>) -> Vi
                 (extra_tokens.cget())
             }
             div(class="TraceLineRight") {
-                TraceArrival {
-                    line_idx,
-                    trace_id,
-                }
                 TracePin {
                     line_idx,
                     trace_id,

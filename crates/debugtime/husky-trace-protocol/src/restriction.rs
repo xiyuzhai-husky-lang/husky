@@ -7,14 +7,14 @@ use vec_like::VecPairMap;
 use super::*;
 use serde::{Deserialize, Serialize};
 
-pub type Arrivals = VecPairMap<TraceId, ArrivalRefinedControl>;
+pub type PinnedArrivals = VecPairMap<TraceId, ArrivalRefinedControl>;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub struct Restriction {
     kind: RestrictionKind,
     sample_id: SampleId,
     partitions: Partitions,
-    arrivals: Arrivals,
+    pinned_arrivals: PinnedArrivals,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
@@ -43,7 +43,15 @@ impl Signalable for ArrivalRefinedControl {}
 
 impl Restriction {
     pub fn clear(&mut self) {
-        self.arrivals.clear()
+        self.pinned_arrivals.clear()
+    }
+
+    pub fn toggle_pin(&self, trace: &TraceData) -> Self {
+        let mut restriction = self.clone();
+        if !trace.always_arrived() {
+            restriction.toggle_arrival(trace.id)
+        }
+        restriction
     }
 
     pub fn is_specific(&self) -> bool {
@@ -58,8 +66,8 @@ impl Restriction {
         &self.partitions
     }
 
-    pub fn arrivals(&self) -> &Arrivals {
-        &self.arrivals
+    pub fn arrivals(&self) -> &PinnedArrivals {
+        &self.pinned_arrivals
     }
 
     pub fn opt_sample_id(&self) -> Option<SampleId> {
@@ -79,24 +87,24 @@ impl Restriction {
             kind: RestrictionKind::Specific,
             sample_id: specific_sample_id,
             partitions: Default::default(),
-            arrivals: Default::default(),
+            pinned_arrivals: Default::default(),
         }
     }
 
     pub fn arrival_refined_control(&self, trace_id: TraceId) -> Option<&ArrivalRefinedControl> {
-        self.arrivals.get_entry(trace_id).map(|p| &p.1)
+        self.pinned_arrivals.get_entry(trace_id).map(|p| &p.1)
     }
 
     pub fn set_sample_id(&mut self, sample_id: SampleId) {
         self.sample_id = sample_id
     }
 
-    pub fn toggle_arrival(&mut self, trace_id: TraceId) {
-        self.arrivals.toggle(trace_id)
+    pub(crate) fn toggle_arrival(&mut self, trace_id: TraceId) {
+        self.pinned_arrivals.toggle(trace_id)
     }
 
     pub fn toggle_arrival_refined_strike_evil(&mut self, trace_id: TraceId) {
-        self.arrivals[trace_id].1.toggle_strike_evil()
+        self.pinned_arrivals[trace_id].1.toggle_strike_evil()
     }
 
     pub fn toggle_kind(&mut self) {
@@ -125,7 +133,7 @@ impl Default for Restriction {
             kind: RestrictionKind::Generic,
             sample_id: SampleId(0),
             partitions: Default::default(),
-            arrivals: Default::default(),
+            pinned_arrivals: Default::default(),
         }
     }
 }
