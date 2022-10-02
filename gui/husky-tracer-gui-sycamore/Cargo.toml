@@ -1,5 +1,5 @@
 [package]
-name = "husky-dev-gui-sycamore"
+name = "husky-developer-gui-sycamore"
 version = "0.0.0"
 edition = "2021"
 
