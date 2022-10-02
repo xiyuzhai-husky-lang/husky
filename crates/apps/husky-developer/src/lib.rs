@@ -33,13 +33,13 @@ use std::{sync::Mutex, time::Instant};
 use warp::Filter;
 
 pub async fn dev_run(package_dir: PathBuf) -> DebuggerResult<()> {
-    let husky_dev = HuskyDebuggerInstance::new(HuskyDebuggerConfig {
+    let husky_devserver = HuskyDebuggerInstance::new(HuskyDebuggerConfig {
         package_dir,
         opt_sample_id: None,
         verbose: false,
         compiled: false,
     });
-    husky_dev.serve("localhost:51617").await
+    husky_devserver.serve("localhost:51617").await
 }
 
 pub async fn dev_test(packages_dir: PathBuf) {
@@ -59,14 +59,14 @@ pub async fn dev_test(packages_dir: PathBuf) {
             husky_print_utils::RESET,
             package_dir.as_os_str().to_str().unwrap(),
         );
-        let husky_dev = HuskyDebuggerInstance::new(HuskyDebuggerConfig {
+        let husky_devserver = HuskyDebuggerInstance::new(HuskyDebuggerConfig {
             package_dir,
             opt_sample_id: Some(SampleId(23)),
             verbose: false,
             compiled: false,
         });
         finalize(
-            husky_dev
+            husky_devserver
                 .serve_on_error("localhost:51617", SampleId(0))
                 .await,
         )

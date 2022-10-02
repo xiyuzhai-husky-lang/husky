@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
-#[clap(name = "husky-dev")]
+#[clap(name = "husky-developer")]
 #[clap(author = "Xiyu Zhai <dirac12345@gmail.com>")]
 pub struct HuskyCli {
     #[clap(short, long, value_parser)]
