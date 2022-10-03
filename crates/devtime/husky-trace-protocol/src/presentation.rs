@@ -61,6 +61,11 @@ impl Presentation {
         self.restriction
     }
 
+    pub fn activate_trace(&self, trace_data: &TraceData) -> Presentation {
+        let presentation = self.clone();
+        todo!()
+    }
+
     pub fn is_specific(&self) -> bool {
         self.kind == PresentationKind::Specific
     }

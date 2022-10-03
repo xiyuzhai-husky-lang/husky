@@ -7,7 +7,7 @@ pub fn RestrictionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
     let dev_context = use_dev_context(scope);
     let restriction_context = &dev_context.restriction_context;
     let generic = create_signal(scope, true);
-    let restriction = restriction_context.restriction;
+    let restriction = restriction_context.presentation;
     let last_sample_id = create_signal(scope, restriction.get_untracked().opt_sample_id());
     let toggle_restriction_kind_handler = dev_context.toggle_restriction_kind_handler();
     let restriction_kind = memo!(

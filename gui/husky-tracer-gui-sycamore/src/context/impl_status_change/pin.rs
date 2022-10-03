@@ -5,7 +5,7 @@ impl DebuggerContext {
         let pins = self.pins;
         let trace = self.trace_context.trace_data(trace_id);
         let pinned = pins.get().has(trace_id);
-        let restriction = self.restriction_context.restriction.get();
+        let restriction = self.restriction_context.presentation.get();
         let needs_figure_canvases =
             !pinned && (self.needs_figure_canvases(Some(trace_id), &restriction));
         let needs_figure_controls =

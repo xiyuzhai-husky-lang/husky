@@ -63,7 +63,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
             .collect(),
     );
     let reachable = memo!(scope, move || trace.reachable);
-    let restriction = dev_context.restriction_context.restriction;
+    let restriction = dev_context.restriction_context.presentation;
     let opt_stats = memo!(scope, move || trace_context
         .opt_trace_stats(trace_id, &restriction.get()));
     view! {

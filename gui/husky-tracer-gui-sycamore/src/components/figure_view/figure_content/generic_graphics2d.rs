@@ -50,7 +50,7 @@ pub fn GenericGraphics2d<'a, G: Html>(
         }
     });
     let ctx = use_dev_context(scope);
-    let restriction = ctx.restriction_context.restriction;
+    let restriction = ctx.restriction_context.presentation;
     view! {
         scope,
         div (

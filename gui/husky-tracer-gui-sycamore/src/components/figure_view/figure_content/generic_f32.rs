@@ -66,7 +66,7 @@ pub struct GenericF32PointProps {
 #[component]
 fn GenericF32Point<'a, G: Html>(scope: Scope<'a>, props: GenericF32PointProps) -> View<G> {
     let ctx = use_dev_context(scope);
-    let restriction = ctx.restriction_context.restriction;
+    let restriction = ctx.restriction_context.presentation;
     view! {
         scope,
         circle (

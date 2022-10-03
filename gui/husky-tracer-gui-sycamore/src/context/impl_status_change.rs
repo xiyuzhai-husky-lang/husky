@@ -21,7 +21,7 @@ impl StatusChange {
         ctx: &'static DebuggerContext,
         update: impl FnOnce(&mut Presentation),
     ) -> Self {
-        let mut restriction = ctx.restriction_context.restriction.cget();
+        let mut restriction = ctx.restriction_context.presentation.cget();
         update(&mut restriction);
         StatusChange::SetRestriction { restriction }
     }
@@ -40,7 +40,7 @@ impl StatusChange {
                     // log::info!("active trace is {:?}", ctx.trace_context.opt_active_trace());
                     log::info!(
                         "restriction is {:?}",
-                        ctx.restriction_context.restriction.get()
+                        ctx.restriction_context.presentation.get()
                     )
                 }
                 'C' => {

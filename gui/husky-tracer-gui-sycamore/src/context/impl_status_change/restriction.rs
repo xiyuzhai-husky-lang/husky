@@ -119,14 +119,14 @@ impl DebuggerContext {
                                 .map(|(k, v)| (k, v.map(|v| self.alloc_value(v)))),
                         );
                         self.restriction_context
-                            .restriction
+                            .presentation
                             .set(new_restriction.clone())
                     }
                     _ => panic!(),
                 }))
             } else {
                 self.restriction_context
-                    .restriction
+                    .presentation
                     .set(new_restriction.clone());
                 None
             },

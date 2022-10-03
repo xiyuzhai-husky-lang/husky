@@ -90,7 +90,7 @@ impl DebuggerContext {
 
 impl DebuggerContext {
     pub(crate) fn collect_pinned_canvas_values(&'static self) -> Vec<PinnedFigureCanvasValue> {
-        let restriction = self.restriction_context.restriction.get();
+        let restriction = self.restriction_context.presentation.get();
         self.pins
             .get()
             .iter()
