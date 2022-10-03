@@ -1,3 +1,5 @@
+use husky_datasets_interface::LabeledData;
+
 use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
@@ -77,15 +79,18 @@ impl<'a, T> PartitionedSampler<'a, T> {
     // returns a flag indicating whether the partitions are all full
     pub fn process<E>(
         &mut self,
-        label: Label,
-        f: impl FnOnce() -> Result<(SampleId, T), E>,
-    ) -> Result<bool, E> {
-        let i = self.partitions.partition_idx(label);
+        labeled_data: &LabeledData,
+        f: impl FnOnce() -> Result<T, E>,
+    ) -> Result<bool, (SampleId, E)> {
+        let i = self.partitions.partition_idx(labeled_data.label);
         let max_samples_len = (self.partition_ncol(i) * self.col_len) as usize;
         assert!(max_samples_len > 0);
         let samples = &mut self.partitioned_samples[i].1;
         if samples.len() < max_samples_len {
-            samples.push(f()?);
+            samples.push((
+                labeled_data.sample_id,
+                f().map_err(|e| (labeled_data.sample_id, e))?,
+            ));
             if samples.len() == max_samples_len {
                 // unset the bit at i
                 self.flags &= !(1 << i);

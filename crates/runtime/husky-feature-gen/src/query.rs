@@ -35,7 +35,7 @@ pub trait TrainModel {
     fn train(
         &self,
         model: __ModelLinkage,
-        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
         opds: &[Arc<FeatureLazyExpr>],
     ) -> __VMResult<__Register<'static>>;
 }

@@ -4,7 +4,7 @@ use crate::{eval_id::FeatureEvalId, *};
 pub struct FeatureLazyBranch {
     pub block: Arc<FeatureLazyBlock>,
     pub variant: FeatureLazyBranchVariant,
-    pub opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
+    pub opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
     pub(crate) eval_id: FeatureEvalId,
 }
 
@@ -16,12 +16,12 @@ pub enum FeatureLazyBranchVariant {
 }
 
 #[derive(PartialEq, Eq, Clone)]
-pub struct FeatureArrivalIndicator {
+pub struct FeatureDomainIndicator {
     pub variant: FeatureArrivalIndicatorVariant,
     pub feature: FeaturePtr,
 }
 
-impl std::fmt::Debug for FeatureArrivalIndicator {
+impl std::fmt::Debug for FeatureDomainIndicator {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("FeatureArrivalIndicator")
             .field("variant", &self.variant)
@@ -29,7 +29,7 @@ impl std::fmt::Debug for FeatureArrivalIndicator {
     }
 }
 
-impl FeatureArrivalIndicator {
+impl FeatureDomainIndicator {
     pub fn new(
         variant: FeatureArrivalIndicatorVariant,
         feature_interner: &FeatureInterner,
@@ -69,11 +69,11 @@ pub enum FeatureArrivalIndicatorVariant {
         stmt: Arc<FeatureLazyStmt>,
     },
     AfterConditionNotMet {
-        opt_parent: Option<Arc<FeatureArrivalIndicator>>,
+        opt_parent: Option<Arc<FeatureDomainIndicator>>,
         condition: Arc<FeatureLazyExpr>,
     },
     IfConditionMet {
-        opt_parent: Option<Arc<FeatureArrivalIndicator>>,
+        opt_parent: Option<Arc<FeatureDomainIndicator>>,
         condition: Arc<FeatureLazyExpr>,
     },
 }

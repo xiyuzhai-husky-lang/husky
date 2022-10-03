@@ -193,6 +193,10 @@ impl FeatureRepr {
         };
         result
     }
+
+    pub fn opt_domain_indicator(&self) -> Option<&Arc<FeatureDomainIndicator>> {
+        todo!()
+    }
 }
 
 impl<'eval> From<Arc<FeatureLazyExpr>> for FeatureRepr {

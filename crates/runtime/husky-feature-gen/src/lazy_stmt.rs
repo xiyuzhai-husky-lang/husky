@@ -13,7 +13,7 @@ use crate::{eval_id::FeatureEvalId, *};
 pub struct FeatureLazyStmt {
     pub indent: fold::Indent,
     pub variant: FeatureLazyStmtVariant,
-    pub opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
+    pub opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
     pub opt_feature: Option<FeaturePtr>,
     pub file: FilePtr,
     pub range: TextRange,
@@ -58,7 +58,7 @@ impl FeatureLazyStmt {
         opt_this: Option<FeatureRepr>,
         lazy_stmt: &Arc<LazyStmt>,
         symbols: &mut Vec<FeatureSymbol>,
-        opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
         // if lazy_stmt.range.start.line() == 36 {
@@ -179,7 +179,7 @@ impl FeatureLazyStmt {
         opt_this: Option<FeatureRepr>,
         symbols: &mut Vec<FeatureSymbol>,
         ty: RangedEntityRoute,
-        mut opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
+        mut opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
         feature_interner: &FeatureInterner,
     ) -> FeatureLazyStmtVariant {
         let mut branches: Vec<Arc<FeatureLazyBranch>> = vec![];
@@ -188,7 +188,7 @@ impl FeatureLazyStmt {
             if let Some(last_branch) = branches.last() {
                 match last_branch.variant {
                     FeatureLazyBranchVariant::If { ref condition } => {
-                        opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
+                        opt_arrival_indicator = Some(FeatureDomainIndicator::new(
                             FeatureArrivalIndicatorVariant::AfterConditionNotMet {
                                 opt_parent: opt_arrival_indicator,
                                 condition: condition.clone(),
@@ -197,7 +197,7 @@ impl FeatureLazyStmt {
                         ));
                     }
                     FeatureLazyBranchVariant::Elif { ref condition } => {
-                        opt_arrival_indicator = Some(FeatureArrivalIndicator::new(
+                        opt_arrival_indicator = Some(FeatureDomainIndicator::new(
                             FeatureArrivalIndicatorVariant::AfterConditionNotMet {
                                 opt_parent: opt_arrival_indicator,
                                 condition: condition.clone(),
@@ -222,7 +222,7 @@ impl FeatureLazyStmt {
                         FeatureLazyBranchVariant::If {
                             condition: condition.clone(),
                         },
-                        Some(FeatureArrivalIndicator::new(
+                        Some(FeatureDomainIndicator::new(
                             FeatureArrivalIndicatorVariant::IfConditionMet {
                                 opt_parent: opt_arrival_indicator.clone(),
                                 condition,
@@ -244,7 +244,7 @@ impl FeatureLazyStmt {
                         FeatureLazyBranchVariant::If {
                             condition: condition.clone(),
                         },
-                        Some(FeatureArrivalIndicator::new(
+                        Some(FeatureDomainIndicator::new(
                             FeatureArrivalIndicatorVariant::IfConditionMet {
                                 opt_parent: opt_arrival_indicator.clone(),
                                 condition,

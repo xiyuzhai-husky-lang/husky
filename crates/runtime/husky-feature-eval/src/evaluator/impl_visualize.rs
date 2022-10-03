@@ -10,7 +10,7 @@ impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
     pub fn visualize_feature(
         &self,
         this: FeatureRepr,
-        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
     ) -> __VMResult<VisualData> {
         let arrived = self.eval_opt_arrival_indicator_cached(opt_arrival_indicator)?;
         if arrived {

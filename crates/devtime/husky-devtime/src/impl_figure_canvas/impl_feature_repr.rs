@@ -7,7 +7,7 @@ impl HuskyDevtime {
     pub(crate) fn feature_repr_figure(
         &self,
         repr: &FeatureRepr,
-        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
         is_specific: bool,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         if is_specific {
@@ -27,7 +27,7 @@ impl HuskyDevtime {
     fn feature_repr_generic_figure(
         &self,
         repr: &FeatureRepr,
-        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         // const COLUMN_HEIGHT: u32 = 5;
         let ty = repr.ty();
@@ -42,7 +42,6 @@ impl HuskyDevtime {
                 Ok(FigureCanvasData::GenericI32 {
                     partitioned_samples: this.feature_repr_partitioned_samples(
                         repr,
-                        opt_arrival_indicator,
                         |visual_data| match visual_data {
                             VisualData::Primitive {
                                 value: PrimitiveValueData::I32(i),
@@ -58,7 +57,6 @@ impl HuskyDevtime {
             VisualTy::Float => Ok(FigureCanvasData::GenericF32 {
                 partitioned_samples: self.feature_repr_partitioned_samples(
                     repr,
-                    opt_arrival_indicator,
                     |visual_data| match visual_data {
                         VisualData::Primitive {
                             value: PrimitiveValueData::F32(f),
@@ -70,11 +68,10 @@ impl HuskyDevtime {
             VisualTy::Point2d => todo!(),
             VisualTy::Shape2d | VisualTy::Region2d | VisualTy::Image2d | VisualTy::Graphics2d => {
                 Ok(FigureCanvasData::GenericGraphics2d {
-                    partitioned_samples: self.feature_repr_partitioned_samples(
-                        repr,
-                        opt_arrival_indicator,
-                        |visual_data| Graphics2dCanvasData::from_visual_data(visual_data),
-                    )?,
+                    partitioned_samples: self
+                        .feature_repr_partitioned_samples(repr, |visual_data| {
+                            Graphics2dCanvasData::from_visual_data(visual_data)
+                        })?,
                 })
             }
             VisualTy::Dataset => todo!(),
@@ -88,7 +85,6 @@ impl HuskyDevtime {
     fn feature_repr_partitioned_samples<T>(
         &self,
         repr: &FeatureRepr,
-        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
         transform_visual_data: impl Fn(VisualData) -> T,
     ) -> Result<Vec<(PartitionDefnData, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
         let session = self.runtime().session();
@@ -98,29 +94,22 @@ impl HuskyDevtime {
         for labeled_data in dev_division.each_labeled_data() {
             let label = labeled_data.label;
             let sample_id = labeled_data.sample_id;
-            let f = |e| (sample_id, e);
-            if !self
-                .runtime()
-                .eval_opt_arrival_indicator_cached(opt_arrival_indicator, sample_id)
-                .map_err(f)?
-            {
+            if !self.is_restriction_satisfied(presentation, sample_id)? {
                 continue;
             }
-            if !self
-                .is_restriction_satisfied(presentation, sample_id)
-                .map_err(f)?
+            if self
+                .runtime
+                .eval_opt_domain_indicator_cached(repr.opt_domain_indicator(), sample_id)
+                .map_err(|e| (sample_id, e))?
             {
-                continue;
+                todo!()
             }
-            if sampler
-                .process(label, || {
-                    let visual_data =
-                        self.runtime()
-                            .visualize_feature(repr.clone(), None, sample_id)?;
-                    Ok((labeled_data.sample_id, transform_visual_data(visual_data)))
-                })
-                .map_err(f)?
-            {
+            if sampler.process(&labeled_data, || {
+                let visual_data =
+                    self.runtime()
+                        .visualize_feature(repr.clone(), None, sample_id)?;
+                Ok((transform_visual_data(visual_data)))
+            })? {
                 break;
             }
         }
@@ -131,7 +120,8 @@ impl HuskyDevtime {
         &self,
         presentation: &Presentation,
         sample_id: SampleId,
-    ) -> __VMResult<bool> {
+    ) -> Result<bool, (SampleId, __VMError)> {
+        let f = |e| (sample_id, e);
         match presentation.restriction() {
             Restriction::None => Ok(true),
             Restriction::Arrival {
@@ -145,6 +135,7 @@ impl HuskyDevtime {
                 sample_id,
             ),
         }
+        .map_err(f)
     }
 
     fn is_arrival_restriction_satisfied(
@@ -171,13 +162,10 @@ impl HuskyDevtime {
             TraceVariant::EntityFeature { .. } => Ok(true),
             TraceVariant::FeatureStmt(ref stmt) => self
                 .runtime()
-                .eval_opt_arrival_indicator_cached(stmt.opt_arrival_indicator.as_ref(), sample_id),
-            TraceVariant::FeatureBranch(ref branch) => {
-                self.runtime().eval_opt_arrival_indicator_cached(
-                    branch.opt_arrival_indicator.as_ref(),
-                    sample_id,
-                )
-            }
+                .eval_opt_domain_indicator_cached(stmt.opt_arrival_indicator.as_ref(), sample_id),
+            TraceVariant::FeatureBranch(ref branch) => self
+                .runtime()
+                .eval_opt_domain_indicator_cached(branch.opt_arrival_indicator.as_ref(), sample_id),
             TraceVariant::FeatureExpr(_) => todo!(),
             TraceVariant::FeatureCallArgument { .. } => todo!(),
             TraceVariant::FuncStmt { .. } => todo!(),
