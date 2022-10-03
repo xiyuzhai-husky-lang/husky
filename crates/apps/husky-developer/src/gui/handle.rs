@@ -475,14 +475,18 @@ impl HuskyDebuggerInternal {
     #[cfg(not(feature = "verify_consistency"))]
     fn handle_set_restriction(
         &mut self,
-        restriction: &Presentation,
+        presentation: &Presentation,
         needs_figure_canvases: bool,
         needs_figure_controls: bool,
         needs_stalks: bool,
         needs_statss: bool,
     ) -> HandleGuiMessageM<Option<HuskyTracerServerMessageVariant>> {
         HandleGuiMessageM::Ok(
-            match self.devtime.set_restriction(restriction.clone()).result()? {
+            match self
+                .devtime
+                .set_restriction(presentation.clone())
+                .result()?
+            {
                 Ok((
                     new_figure_canvases,
                     new_figure_controls,

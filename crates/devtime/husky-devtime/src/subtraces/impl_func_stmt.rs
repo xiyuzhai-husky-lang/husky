@@ -8,7 +8,7 @@ impl HuskyDevtime {
         stack_snapshot: &StackSnapshot<'static>,
         parent: &Trace,
     ) -> Vec<TraceId> {
-        let sample_id = self.state.restriction.opt_sample_id().unwrap();
+        let sample_id = self.state.presentation.opt_sample_id().unwrap();
         let evaluator = self.runtime().evaluator(sample_id);
         let history = exec_debug(
             self.runtime(),

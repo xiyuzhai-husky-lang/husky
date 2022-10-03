@@ -13,7 +13,7 @@ impl HuskyDevtime {
             trace.raw_data.opt_parent_id,
             trace.raw_data.kind,
             trace.raw_data.id,
-            &self.state.restriction,
+            &self.state.presentation,
         );
         if let Some(control) = self.state.figure_controls.get(&key) {
             control.clone()
@@ -138,7 +138,7 @@ impl HuskyDevtime {
             trace_raw_data.opt_parent_id,
             trace_raw_data.kind,
             trace_raw_data.id,
-            &self.state.restriction,
+            &self.state.presentation,
         )
     }
 }

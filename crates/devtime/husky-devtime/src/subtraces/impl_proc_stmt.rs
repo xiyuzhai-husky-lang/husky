@@ -10,7 +10,7 @@ impl HuskyDevtime {
         stack_snapshot: &StackSnapshot<'static>,
         body_instruction_sheet: &Arc<InstructionSheet>,
     ) -> Vec<TraceId> {
-        let sample_id = self.state.restriction.opt_sample_id().unwrap();
+        let sample_id = self.state.presentation.opt_sample_id().unwrap();
         let evaluator = self.runtime().evaluator(sample_id);
         let frames = exec_loop_debug(
             &self.runtime() as &HuskyDevRuntime,
@@ -45,7 +45,7 @@ impl HuskyDevtime {
         loop_frame_data: &LoopFrameData<'static>,
         parent: &Trace,
     ) -> Vec<TraceId> {
-        let sample_id = self.state.restriction.opt_sample_id().unwrap();
+        let sample_id = self.state.presentation.opt_sample_id().unwrap();
         let evaluator = self.runtime().evaluator(sample_id);
         let history = exec_debug(
             self.runtime(),
@@ -89,7 +89,7 @@ impl HuskyDevtime {
         stack_snapshot: &StackSnapshot<'static>,
         parent: &Trace,
     ) -> Vec<TraceId> {
-        let sample_id = self.state.restriction.opt_sample_id().unwrap();
+        let sample_id = self.state.presentation.opt_sample_id().unwrap();
         let evaluator = self.runtime().evaluator(sample_id);
         let history = exec_debug(
             self.runtime().upcast(),

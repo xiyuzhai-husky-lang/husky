@@ -3,7 +3,7 @@ mod figure;
 mod gui_message;
 mod init;
 mod key;
-mod restriction;
+mod presentation;
 mod server_message;
 mod trace;
 
@@ -11,7 +11,7 @@ pub use figure::*;
 pub use gui_message::*;
 pub use init::*;
 pub use key::*;
-pub use restriction::*;
+pub use presentation::*;
 pub use server_message::*;
 pub use trace::*;
 

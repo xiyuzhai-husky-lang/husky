@@ -12,7 +12,7 @@ impl HuskyDevtime {
         range: TextRange,
     ) -> __VMResult<VisualData> {
         let eval_time = self.runtime();
-        let sample_id = self.state.restriction.opt_sample_id().unwrap();
+        let sample_id = self.state.presentation.opt_sample_id().unwrap();
         let feature = self
             .runtime()
             .feature_interner()
@@ -77,7 +77,7 @@ impl HuskyDevtime {
     fn gen_figure_canvas_key(&self, trace_id: TraceId, is_specific: bool) -> FigureCanvasKey {
         FigureCanvasKey::from_trace_data(
             &self.trace(trace_id).raw_data,
-            &self.state.restriction,
+            &self.state.presentation,
             is_specific,
         )
     }

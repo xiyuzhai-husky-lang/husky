@@ -29,19 +29,19 @@ impl DebuggerContext {
     pub(crate) fn new_figure_canvas_key(
         &self,
         trace: &TraceData,
-        restriction: &Restriction,
+        presentation: &Presentation,
         is_specific: bool,
     ) -> FigureCanvasKey {
-        FigureCanvasKey::new(trace.kind, trace.id, restriction, is_specific)
+        FigureCanvasKey::new(trace.kind, trace.id, presentation, is_specific)
     }
 
     pub(crate) fn figure_canvas_data(
         &self,
         trace: &TraceData,
-        restriction: &Restriction,
+        presentation: &Presentation,
     ) -> &'static FigureCanvasData {
         let figure_canvas_key =
-            self.new_figure_canvas_key(trace, restriction, restriction.is_specific());
+            self.new_figure_canvas_key(trace, presentation, presentation.is_specific());
         let figure_canvases_borrowed = self.figure_canvases.borrow(file!(), line!());
         if let Some(figure_canvas_data) = figure_canvases_borrowed.get(&figure_canvas_key) {
             figure_canvas_data
@@ -75,13 +75,13 @@ impl DebuggerContext {
     pub(crate) fn figure_control_data(
         &self,
         trace: &TraceData,
-        restriction: &Restriction,
+        presentation: &Presentation,
     ) -> &'static Signal<FigureControlData> {
         self.figure_controls.borrow(file!(), line!())
-            [&FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, restriction)]
+            [&FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, presentation)]
     }
 
-    pub(crate) fn did_toggle_pin(&self, trace_id: TraceId, restriction: Restriction) {
+    pub(crate) fn did_toggle_pin(&self, trace_id: TraceId, restriction: Presentation) {
         let mut new_pins = self.pins.cget();
         new_pins.toggle(trace_id);
         self.restriction_context.restriction.set(restriction);

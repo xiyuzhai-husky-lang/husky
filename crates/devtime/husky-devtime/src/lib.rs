@@ -50,7 +50,7 @@ impl HuskyDevtime {
             runtime: HuskyDevRuntime::new(runtime_config),
             state: Default::default(),
         };
-        assert!(devtime.state.restriction.opt_sample_id().is_none());
+        assert!(devtime.state.presentation.opt_sample_id().is_none());
         devtime.hot_reload();
         devtime
     }
@@ -99,7 +99,7 @@ impl HuskyDevtime {
     // move this to somewhere proper
     pub(crate) fn update_subtraces(&mut self, trace_id: TraceId) -> HuskyDevtimeUpdateM<()> {
         let trace = &self.trace(trace_id);
-        let opt_sample_id = self.state.restriction.opt_sample_id();
+        let opt_sample_id = self.state.presentation.opt_sample_id();
         if !trace.raw_data.has_subtraces(opt_sample_id.is_some()) {
             return HuskyDevtimeUpdateM::Ok(());
         }
@@ -118,7 +118,7 @@ impl HuskyDevtime {
 
     pub(crate) fn subtraces(&self, trace_id: TraceId) -> Vec<TraceId> {
         let trace = &self.trace(trace_id);
-        let opt_sample_id = self.state.restriction.opt_sample_id();
+        let opt_sample_id = self.state.presentation.opt_sample_id();
         if !trace.raw_data.has_subtraces(opt_sample_id.is_some()) {
             return vec![];
         }

@@ -8,7 +8,7 @@ pub enum FigureCanvasKey {
     Generic {
         trace_id: TraceId,
         partitions: Partitions,
-        arrivals: PinnedArrivals,
+        restriction: Restriction,
     },
     Specific {
         trace_id: TraceId,
@@ -28,7 +28,7 @@ impl FigureCanvasKey {
     pub fn new(
         trace_kind: TraceKind,
         trace_id: TraceId,
-        restriction: &Presentation,
+        presentation: &Presentation,
         is_specific: bool,
     ) -> FigureCanvasKey {
         match trace_kind {
@@ -43,13 +43,13 @@ impl FigureCanvasKey {
                 if is_specific {
                     FigureCanvasKey::Specific {
                         trace_id,
-                        sample_id: restriction.sample_id(),
+                        sample_id: presentation.sample_id(),
                     }
                 } else {
                     FigureCanvasKey::Generic {
                         trace_id,
-                        partitions: restriction.partitions().clone(),
-                        arrivals: restriction.arrivals().clone(),
+                        partitions: presentation.partitions().clone(),
+                        restriction: presentation.restriction(),
                     }
                 }
             }
@@ -60,7 +60,7 @@ impl FigureCanvasKey {
             | TraceKind::EagerExpr
             | TraceKind::LoopFrame => FigureCanvasKey::Specific {
                 trace_id,
-                sample_id: restriction.sample_id(),
+                sample_id: presentation.sample_id(),
             },
             TraceKind::Module | TraceKind::CallHead | TraceKind::EagerCallArgument => {
                 FigureCanvasKey::Null

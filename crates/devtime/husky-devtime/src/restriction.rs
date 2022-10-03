@@ -2,7 +2,7 @@ use crate::*;
 
 impl HuskyDevtime {
     pub fn restriction(&self) -> &Presentation {
-        &self.state.restriction
+        &self.state.presentation
     }
 
     pub fn set_restriction(
@@ -14,7 +14,7 @@ impl HuskyDevtime {
         Vec<(TraceStalkKey, TraceStalk)>,
         Vec<(TraceStatsKey, Option<TraceStats>)>,
     )> {
-        self.state.restriction.set(restriction)?;
+        self.state.presentation.set(restriction)?;
         self.update()?;
         let change = self.take_change()?;
         HuskyDevtimeTakeChangeM::Ok((

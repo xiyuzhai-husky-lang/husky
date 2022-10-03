@@ -20,7 +20,7 @@ impl FigureControlKey {
         opt_parent_id: Option<TraceId>,
         trace_kind: TraceKind,
         trace_id: TraceId,
-        restriction: &Presentation,
+        presentation: &Presentation,
     ) -> FigureControlKey {
         match trace_kind {
             TraceKind::LoopFrame => FigureControlKey::LoopFrame {
@@ -28,7 +28,7 @@ impl FigureControlKey {
             },
             _ => FigureControlKey::Other {
                 trace_id,
-                specific: restriction.opt_sample_id().is_some(),
+                specific: presentation.opt_sample_id().is_some(),
             },
         }
     }

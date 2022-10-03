@@ -5,22 +5,22 @@ impl DebuggerContext {
     pub(super) fn needs_figure_canvases(
         &self,
         opt_active_trace_id: Option<TraceId>,
-        restriction: &Restriction,
+        presentation: &Presentation,
     ) -> bool {
         if let Some(active_trace_id) = opt_active_trace_id {
-            if self.needs_figure_canvas(active_trace_id, restriction) {
+            if self.needs_figure_canvas(active_trace_id, presentation) {
                 return true;
             }
         };
         for pin in self.pins.get().iter() {
-            if self.needs_figure_canvas(*pin, restriction) {
+            if self.needs_figure_canvas(*pin, presentation) {
                 return true;
             }
         }
         false
     }
 
-    fn needs_figure_canvas(&self, trace_id: TraceId, restriction: &Restriction) -> bool {
+    fn needs_figure_canvas(&self, trace_id: TraceId, restriction: &Presentation) -> bool {
         let trace = self.trace_context.trace_data(trace_id);
         let key = self.new_figure_canvas_key(trace, restriction, true);
         if !self
@@ -44,22 +44,22 @@ impl DebuggerContext {
     pub(super) fn needs_figure_controls(
         &self,
         opt_active_trace_id: Option<TraceId>,
-        restriction: &Restriction,
+        presentation: &Presentation,
     ) -> bool {
         if let Some(active_trace_id) = opt_active_trace_id {
-            if self.needs_figure_control(active_trace_id, restriction) {
+            if self.needs_figure_control(active_trace_id, presentation) {
                 return true;
             }
         }
         for pin in self.pins.get().iter() {
-            if self.needs_figure_control(*pin, restriction) {
+            if self.needs_figure_control(*pin, presentation) {
                 return true;
             }
         }
         false
     }
 
-    fn needs_figure_control(&self, trace_id: TraceId, restriction: &Restriction) -> bool {
+    fn needs_figure_control(&self, trace_id: TraceId, restriction: &Presentation) -> bool {
         let trace_data = self.trace_context.trace_data(trace_id);
         let key = FigureControlKey::from_trace_data(trace_data, restriction);
         !self
@@ -69,7 +69,7 @@ impl DebuggerContext {
     }
 
     #[cfg(feature = "verify_consistency")]
-    pub(super) fn new_stalk_keys(&self, restriction: &Restriction) -> Vec<TraceStalkKey> {
+    pub(super) fn new_stalk_keys(&self, restriction: &Presentation) -> Vec<TraceStalkKey> {
         let sample_id = match restriction.opt_sample_id() {
             Some(sample_id) => sample_id,
             None => return vec![],
@@ -91,7 +91,7 @@ impl DebuggerContext {
     }
 
     #[cfg(not(feature = "verify_consistency"))]
-    pub(super) fn needs_stalks(&self, restriction: &Restriction) -> bool {
+    pub(super) fn needs_stalks(&self, restriction: &Presentation) -> bool {
         let sample_id = match restriction.opt_sample_id() {
             Some(sample_id) => sample_id,
             None => return false,
@@ -108,7 +108,7 @@ impl DebuggerContext {
     }
 
     #[cfg(feature = "verify_consistency")]
-    pub(super) fn new_stats_keys(&self, new_restriction: &Restriction) -> Vec<TraceStatsKey> {
+    pub(super) fn new_stats_keys(&self, new_restriction: &Presentation) -> Vec<TraceStatsKey> {
         self.trace_context
             .filter_immediate_traces(new_restriction.opt_sample_id(), |trace_data| {
                 let key = TraceStatsKey {
@@ -129,7 +129,7 @@ impl DebuggerContext {
     }
 
     #[cfg(not(feature = "verify_consistency"))]
-    pub(super) fn needs_statss(&self, new_restriction: &Restriction) -> bool {
+    pub(super) fn needs_statss(&self, new_restriction: &Presentation) -> bool {
         !self.trace_context.for_all_immediate_traces(
             new_restriction.opt_sample_id(),
             |trace_data| {

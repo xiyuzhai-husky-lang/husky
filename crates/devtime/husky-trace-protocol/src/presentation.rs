@@ -8,13 +8,11 @@ use vec_like::VecPairMap;
 use super::*;
 use serde::{Deserialize, Serialize};
 
-pub type PinnedArrivals = VecPairMap<TraceId, ArrivalRefinedControl>;
-
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub struct Presentation {
     kind: PresentationKind,
     sample_id: SampleId,
-    restriction: GenericRestrictionKind,
+    restriction: Restriction,
     partitions: Partitions, // don't need this when we have monad
 }
 
@@ -26,39 +24,33 @@ pub enum PresentationKind {
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum GenericRestrictionKind {
+pub enum Restriction {
     None,
-    Arrival(FeatureId),
+    Arrival {
+        trace_id: TraceId,
+        feature_id: FeatureId,
+        arrival_restriction_kind: ArrivalRestrictionKind,
+    },
 }
 
-impl Default for GenericRestrictionKind {
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum ArrivalRestrictionKind {
+    Default,
+    Return,
+    DeprecatedStrikeEvil, // deprecated
+}
+
+impl Default for Restriction {
     fn default() -> Self {
-        GenericRestrictionKind::None
+        Restriction::None
     }
 }
 
-impl GenericRestrictionKind {
+impl Restriction {
     pub fn clear(&mut self) {
-        *self = GenericRestrictionKind::None
+        *self = Restriction::None
     }
 }
-
-#[derive(Debug, Default, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
-pub struct ArrivalRefinedControl {
-    strike_evil: bool,
-}
-
-impl ArrivalRefinedControl {
-    pub fn strike_evil(&self) -> bool {
-        self.strike_evil
-    }
-
-    pub fn toggle_strike_evil(&mut self) {
-        self.strike_evil = !self.strike_evil
-    }
-}
-
-impl Signalable for ArrivalRefinedControl {}
 
 impl Presentation {
     pub fn clear(&mut self) {
@@ -74,6 +66,10 @@ impl Presentation {
         // restriction
     }
 
+    pub fn restriction(&self) -> Restriction {
+        self.restriction
+    }
+
     pub fn is_specific(&self) -> bool {
         self.kind == PresentationKind::Specific
     }
@@ -84,11 +80,6 @@ impl Presentation {
 
     pub fn partitions(&self) -> &Partitions {
         &self.partitions
-    }
-
-    pub fn arrivals(&self) -> &PinnedArrivals {
-        todo!()
-        // &self.pinned_arrivals
     }
 
     pub fn opt_sample_id(&self) -> Option<SampleId> {

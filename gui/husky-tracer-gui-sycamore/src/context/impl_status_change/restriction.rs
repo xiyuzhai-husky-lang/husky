@@ -9,7 +9,7 @@ impl DebuggerContext {
     // }
 
     #[cfg(feature = "verify_consistency")]
-    pub(super) fn set_restriction(&'static self, new_restriction: Restriction) {
+    pub(super) fn set_restriction(&'static self, new_restriction: Presentation) {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
         let needs_figure_canvases =
             self.needs_figure_canvases(opt_active_trace_id, &new_restriction);
@@ -75,7 +75,7 @@ impl DebuggerContext {
     }
 
     #[cfg(not(feature = "verify_consistency"))]
-    pub(super) fn set_restriction(&'static self, new_restriction: Restriction) {
+    pub(super) fn set_restriction(&'static self, new_restriction: Presentation) {
         let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
         let needs_figure_canvases =
             self.needs_figure_canvases(opt_active_trace_id, &new_restriction);
