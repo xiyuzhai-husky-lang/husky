@@ -4,6 +4,7 @@ mod stalk;
 mod stats;
 mod token;
 
+use husky_feature_protocol::FeatureId;
 pub use id::*;
 pub use node::*;
 pub use stalk::*;
@@ -23,7 +24,7 @@ pub struct TraceData {
     pub lines: Vec<TraceLineData>,
     pub can_have_subtraces: bool,
     pub reachable: bool,
-    pub always_arrived: bool,
+    pub opt_arrival_indicator: Option<FeatureId>,
 }
 
 impl TraceData {
@@ -63,10 +64,6 @@ impl TraceData {
                 has_sample_id && self.can_have_subtraces
             }
         }
-    }
-
-    pub fn always_arrived(&self) -> bool {
-        self.always_arrived
     }
 }
 

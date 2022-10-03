@@ -161,7 +161,9 @@ impl HuskyDevtime {
                     reachable,
                     lines,
                     kind: variant.kind(),
-                    always_arrived: variant.always_arrived(),
+                    opt_arrival_indicator: variant
+                        .opt_arrival_indicator()
+                        .map(|ind| ind.feature.raw()),
                     // opt_stats: variant.opt_stats(self.runtime()).expect("todo"),
                 },
                 variant,

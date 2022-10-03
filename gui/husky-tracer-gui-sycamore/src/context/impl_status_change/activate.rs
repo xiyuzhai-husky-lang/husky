@@ -2,12 +2,16 @@ use super::*;
 
 impl DebuggerContext {
     pub(crate) fn activate(&'static self, new_active_trace_id: TraceId) {
-        let restriction = self.restriction_context.restriction.get();
-        let trace = self.trace_context.trace_data(new_active_trace_id);
+        let trace_data = self.trace_context.trace_data(new_active_trace_id);
+        let presentation = self
+            .restriction_context
+            .presentation
+            .get()
+            .activate_trace(trace_data);
         let needs_figure_canvases =
-            self.needs_figure_canvases(Some(new_active_trace_id), &restriction);
+            self.needs_figure_canvases(Some(new_active_trace_id), &presentation);
         let needs_figure_controls =
-            self.needs_figure_controls(Some(new_active_trace_id), &restriction);
+            self.needs_figure_controls(Some(new_active_trace_id), &presentation);
         let needs_response = needs_figure_canvases || needs_figure_controls;
         self.ws.send_message(
             HuskyTracerGuiMessageVariant::Activate {

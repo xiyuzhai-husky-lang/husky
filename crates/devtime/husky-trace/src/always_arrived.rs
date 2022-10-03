@@ -1,7 +1,7 @@
 use crate::*;
 
 impl TraceVariant {
-    fn opt_arrival_indicator(&self) -> Option<&Arc<FeatureArrivalIndicator>> {
+    pub fn opt_arrival_indicator(&self) -> Option<&Arc<FeatureArrivalIndicator>> {
         match self {
             TraceVariant::Main(_) => None,
             TraceVariant::Module { .. } => None,
@@ -19,9 +19,5 @@ impl TraceVariant {
             TraceVariant::EagerCallArgument { .. } => None,
             TraceVariant::CallHead { .. } => None,
         }
-    }
-
-    pub fn always_arrived(&self) -> bool {
-        self.opt_arrival_indicator().is_none()
     }
 }

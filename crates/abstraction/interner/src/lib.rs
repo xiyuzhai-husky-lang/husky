@@ -10,6 +10,8 @@ use sync_utils::SafeRwLock;
 
 use internal::InternerInternal;
 
+pub trait Internable {}
+
 pub struct Interner<T, Owned = T, Ptr = InternedPtr<T>>
 where
     T: Hash + Eq + 'static + ?Sized,
