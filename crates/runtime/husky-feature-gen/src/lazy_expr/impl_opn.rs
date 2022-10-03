@@ -140,7 +140,7 @@ impl<'a> FeatureExprBuilder<'a> {
         lopd: Arc<FeatureLazyExpr>,
         opr: PureBinaryOpr,
         ropd: Arc<FeatureLazyExpr>,
-    ) -> (FeatureLazyExprVariant, interner::InternedPtr<Feature>) {
+    ) -> (FeatureLazyExprVariant, FeaturePtr) {
         match this {
             EntityRoutePtr::Root(RootIdentifier::Void)
             | EntityRoutePtr::Root(RootIdentifier::I32)
@@ -208,7 +208,7 @@ impl<'a> FeatureExprBuilder<'a> {
         lopd: Arc<FeatureLazyExpr>,
         opr: PureBinaryOpr,
         ropd: Arc<FeatureLazyExpr>,
-    ) -> (FeatureLazyExprVariant, interner::InternedPtr<Feature>) {
+    ) -> (FeatureLazyExprVariant, FeaturePtr) {
         let (opt_instruction_sheet, opt_linkage) = match opr {
             PureBinaryOpr::Eq => (None, Some(__EQ_LINKAGE)),
             PureBinaryOpr::Neq => (None, Some(__NEQ_LINKAGE)),

@@ -1,9 +1,9 @@
 use std::path::{Path, PathBuf};
 
-use interner::Interner;
+use interner::{DefaultInternedPtr, Interner};
 
-pub type FileInterner = Interner<Path, PathBuf>;
-pub type FilePtr = interner::InternedPtr<Path>;
+pub type FilePtr = DefaultInternedPtr<Path, PathBuf>;
+pub type FileInterner = Interner<FilePtr>;
 
 pub trait AllocateUniqueFile {
     fn file_interner(&self) -> &FileInterner;

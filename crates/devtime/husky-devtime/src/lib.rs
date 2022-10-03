@@ -163,7 +163,7 @@ impl HuskyDevtime {
                     kind: variant.kind(),
                     opt_arrival_indicator: variant
                         .opt_arrival_indicator()
-                        .map(|ind| ind.feature.raw()),
+                        .map(|ind| ind.feature.id()),
                     // opt_stats: variant.opt_stats(self.runtime()).expect("todo"),
                 },
                 variant,

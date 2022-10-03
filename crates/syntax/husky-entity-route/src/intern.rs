@@ -1,11 +1,11 @@
 use crate::*;
 use core::hash::Hash;
 use husky_print_utils::{msg_once, p};
-use interner::{Intern, Interner};
+use interner::{Interner, IsInternPtr};
 use paste::paste;
 use std::{borrow::Borrow, ops::Deref};
 
-pub type EntityRouteInterner = Interner<EntityRoute, EntityRoute, EntityRoutePtr>;
+pub type EntityRouteInterner = Interner<EntityRoutePtr>;
 
 #[derive(Clone, Copy)]
 pub enum EntityRoutePtr {
@@ -268,14 +268,14 @@ impl Borrow<EntityRoute> for EntityRoutePtr {
     }
 }
 
-impl From<&'static EntityRoute> for EntityRoutePtr {
-    fn from(target: &'static EntityRoute) -> Self {
+impl IsInternPtr for EntityRoutePtr {
+    type T = EntityRoute;
+
+    type Owned = EntityRoute;
+
+    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
         Self::Custom(target)
     }
-}
-
-impl Intern for EntityRoutePtr {
-    type Thing = EntityRoute;
 }
 
 impl From<RootIdentifier> for EntityRoutePtr {
