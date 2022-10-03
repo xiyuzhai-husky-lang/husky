@@ -81,10 +81,9 @@ impl DebuggerContext {
             [&FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, presentation)]
     }
 
-    pub(crate) fn did_toggle_pin(&self, trace_id: TraceId, restriction: Presentation) {
+    pub(crate) fn did_toggle_pin(&self, trace_id: TraceId) {
         let mut new_pins = self.pins.cget();
         new_pins.toggle(trace_id);
-        self.restriction_context.restriction.set(restriction);
         self.pins.set(new_pins);
     }
 }

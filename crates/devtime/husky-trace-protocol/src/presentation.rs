@@ -57,15 +57,6 @@ impl Presentation {
         self.restriction.clear()
     }
 
-    pub fn toggle_pin(&self, trace: &TraceData) -> Self {
-        todo!()
-        // let mut restriction = self.clone();
-        // if !trace.always_arrived() {
-        //     restriction.toggle_arrival(trace.id)
-        // }
-        // restriction
-    }
-
     pub fn restriction(&self) -> Restriction {
         self.restriction
     }
