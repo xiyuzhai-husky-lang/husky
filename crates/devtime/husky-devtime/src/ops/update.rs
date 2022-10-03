@@ -69,8 +69,8 @@ impl<T> FromResidual<HuskyDevtimeUpdateR> for HuskyDevtimeUpdateM<T> {
     }
 }
 
-impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Restriction>>> for HuskyDevtimeUpdateM<T> {
-    fn from_residual(residual: TrackableMakeChangeR<TrackableAtom<Restriction>>) -> Self {
+impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Presentation>>> for HuskyDevtimeUpdateM<T> {
+    fn from_residual(residual: TrackableMakeChangeR<TrackableAtom<Presentation>>) -> Self {
         todo!()
     }
 }

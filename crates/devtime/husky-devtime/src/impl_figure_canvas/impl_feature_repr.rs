@@ -129,7 +129,7 @@ impl HuskyDevtime {
 
     fn all_arrived_in_restriction(
         &self,
-        restriction: &Restriction,
+        restriction: &Presentation,
         sample_id: SampleId,
     ) -> __VMResult<bool> {
         let mut all_arrived = true;

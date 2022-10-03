@@ -19,7 +19,7 @@ pub enum FigureCanvasKey {
 impl FigureCanvasKey {
     pub fn from_trace_data(
         trace_data: &TraceData,
-        restriction: &Restriction,
+        restriction: &Presentation,
         is_specific: bool,
     ) -> FigureCanvasKey {
         Self::new(trace_data.kind, trace_data.id, restriction, is_specific)
@@ -28,7 +28,7 @@ impl FigureCanvasKey {
     pub fn new(
         trace_kind: TraceKind,
         trace_id: TraceId,
-        restriction: &Restriction,
+        restriction: &Presentation,
         is_specific: bool,
     ) -> FigureCanvasKey {
         match trace_kind {

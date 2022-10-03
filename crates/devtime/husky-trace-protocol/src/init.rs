@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct InitData {
-    pub restriction: Restriction,
+    pub restriction: Presentation,
     pub trace_init_data: TraceInitData,
     pub figure_canvases: Vec<(FigureCanvasKey, FigureCanvasData)>,
     pub figure_controls: Vec<(FigureControlKey, FigureControlData)>,
