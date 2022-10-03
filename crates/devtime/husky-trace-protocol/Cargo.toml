@@ -19,6 +19,7 @@ husky-datasets-protocol = { path = "../../static/domains/ml/husky-datasets-proto
     "serde_support",
     "signal_support"
 ] }
+husky-datasets-interface = { path = "../../static/domains/ml/husky-datasets-interface" }
 husky-feature-protocol = { path = "../../runtime/husky-feature-protocol" }
 
 [dependencies.web-sys]

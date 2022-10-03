@@ -10,7 +10,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     #[inline(always)]
     pub(crate) fn eval_opt_arrival_indicator_cached(
         &self,
-        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
     ) -> __VMResult<bool> {
         if let Some(arrival_indicator) = opt_arrival_indicator {
             self.eval_cached(EvalKey::Feature(arrival_indicator.feature), |this| {
@@ -26,7 +26,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
 
     fn eval_arrival_indicator(
         &self,
-        arrival_indicator: &Arc<FeatureArrivalIndicator>,
+        arrival_indicator: &Arc<FeatureDomainIndicator>,
     ) -> __VMResult<bool> {
         Ok(match arrival_indicator.variant {
             FeatureArrivalIndicatorVariant::AfterStmtNotReturn { ref stmt } => {

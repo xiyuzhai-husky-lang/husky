@@ -25,7 +25,7 @@ pub struct FeatureLazyExpr {
     pub feature: FeaturePtr,
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
-    pub opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
+    pub opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
 }
 
 impl TextRanged for FeatureLazyExpr {
@@ -122,7 +122,7 @@ pub enum FeatureLazyExprVariant {
         opds: Vec<Arc<FeatureLazyExpr>>,
         has_this: bool,
         model_defn: Arc<EntityDefn>,
-        opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
         internal: __VMResult<__Register<'static>>,
     },
     RoutineCall {
@@ -231,7 +231,7 @@ impl FeatureLazyExpr {
         this: Option<FeatureRepr>,
         expr: Arc<LazyExpr>,
         symbols: &[FeatureSymbol],
-        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
         interner: &FeatureInterner,
     ) -> Arc<Self> {
         FeatureExprBuilder {
@@ -250,7 +250,7 @@ struct FeatureExprBuilder<'a> {
     symbols: &'a [FeatureSymbol],
     feature_interner: &'a FeatureInterner,
     opt_this: Option<FeatureRepr>,
-    opt_arrival_indicator: Option<&'a Arc<FeatureArrivalIndicator>>,
+    opt_arrival_indicator: Option<&'a Arc<FeatureDomainIndicator>>,
 }
 
 impl<'a> FeatureExprBuilder<'a> {

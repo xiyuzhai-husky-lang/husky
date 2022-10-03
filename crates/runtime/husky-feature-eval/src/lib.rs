@@ -39,7 +39,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
     fn visualize_feature(
         &self,
         this: FeatureRepr,
-        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
         sample_id: SampleId,
     ) -> __VMResult<VisualData> {
         self.evaluator(sample_id)
@@ -102,9 +102,9 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         self.evaluator(sample_id).eval_expr_cached(expr)
     }
 
-    fn eval_opt_arrival_indicator_cached(
+    fn eval_opt_domain_indicator_cached(
         &self,
-        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
         sample_id: SampleId,
     ) -> __VMResult<bool> {
         self.evaluator(sample_id)

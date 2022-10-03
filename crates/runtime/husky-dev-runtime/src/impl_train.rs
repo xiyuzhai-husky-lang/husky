@@ -1,6 +1,6 @@
 use crate::*;
 use husky_feature_gen::{
-    FeatureArrivalIndicator, FeatureLazyExpr, FeatureLazyExprVariant, TrainModel,
+    FeatureDomainIndicator, FeatureLazyExpr, FeatureLazyExprVariant, TrainModel,
 };
 use husky_vm::{GenericArgument, __Register, __VMError, __VMResult};
 use husky_vm::{__RegistrableSafe, __VirtualEnum};
@@ -10,7 +10,7 @@ impl TrainModel for HuskyDevRuntime {
     fn train(
         &self,
         model: husky_vm::__ModelLinkage,
-        opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
         opds: &[Arc<FeatureLazyExpr>],
     ) -> husky_vm::__VMResult<__Register<'static>> {
         let session = self.session();
@@ -27,7 +27,7 @@ impl TrainModel for HuskyDevRuntime {
         let mut labels: Vec<i32> = vec![];
         for labeled_data in dev_division.each_labeled_data() {
             let sample_id = labeled_data.sample_id;
-            if !self.eval_opt_arrival_indicator_cached(opt_arrival_indicator, sample_id)? {
+            if !self.eval_opt_domain_indicator_cached(opt_arrival_indicator, sample_id)? {
                 continue;
             }
             for (opd, argument) in std::iter::zip(opds.iter(), arguments.iter_mut()) {

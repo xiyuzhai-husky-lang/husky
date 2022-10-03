@@ -41,7 +41,7 @@ fn feature_repr_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
     partitions: &Partitions,
     repr: &FeatureRepr,
-    opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+    opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
 ) -> __VMResult<Option<TraceStats>> {
     feature_opt_stats(
         db,
@@ -124,7 +124,7 @@ fn feature_opt_stats<'eval>(
     partitions: &Partitions,
     feature_ty: EntityRoutePtr,
     compute_value: impl Fn(SampleId) -> __VMResult<__Register<'eval>>,
-    opt_arrival_indicator: Option<&Arc<FeatureArrivalIndicator>>,
+    opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
 ) -> __VMResult<Option<TraceStats>> {
     let target_output_ty = db.target_output_ty().unwrap();
     // todo check this could cause some problem
@@ -146,7 +146,7 @@ fn feature_opt_stats<'eval>(
         dev_samples += 1;
         let sample_id = labeled_data.sample_id;
         if !db
-            .eval_opt_arrival_indicator_cached(opt_arrival_indicator, sample_id)
+            .eval_opt_domain_indicator_cached(opt_arrival_indicator, sample_id)
             .map_err(|e| -> __VMError { (sample_id.0, e).into() })?
         {
             continue;
