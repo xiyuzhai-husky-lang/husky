@@ -7,27 +7,24 @@ impl HuskyDevtime {
     pub(crate) fn feature_repr_figure(
         &self,
         repr: &FeatureRepr,
-        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
         is_specific: bool,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         if is_specific {
-            match self.runtime().visualize_feature(
-                repr.clone(),
-                opt_arrival_indicator,
-                self.state.presentation.sample_id(),
-            ) {
+            match self
+                .runtime()
+                .visualize_feature(repr.clone(), self.state.presentation.sample_id())
+            {
                 Ok(data) => Ok(FigureCanvasData::new_specific(data)),
                 Err(_) => Ok(FigureCanvasData::void()),
             }
         } else {
-            self.feature_repr_generic_figure(repr, opt_arrival_indicator)
+            self.feature_repr_generic_figure(repr)
         }
     }
 
     fn feature_repr_generic_figure(
         &self,
         repr: &FeatureRepr,
-        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
     ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
         // const COLUMN_HEIGHT: u32 = 5;
         let ty = repr.ty();
@@ -97,17 +94,17 @@ impl HuskyDevtime {
             if !self.is_restriction_satisfied(presentation, sample_id)? {
                 continue;
             }
-            if self
+            // for testing
+            if !self
                 .runtime
                 .eval_opt_domain_indicator_cached(repr.opt_domain_indicator(), sample_id)
                 .map_err(|e| (sample_id, e))?
             {
+                p!(presentation.restriction());
                 todo!()
             }
             if sampler.process(&labeled_data, || {
-                let visual_data =
-                    self.runtime()
-                        .visualize_feature(repr.clone(), None, sample_id)?;
+                let visual_data = self.runtime().visualize_feature(repr.clone(), sample_id)?;
                 Ok((transform_visual_data(visual_data)))
             })? {
                 break;

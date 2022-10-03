@@ -11,9 +11,9 @@ pub(crate) fn record_field_repr<'eval>(
     match this {
         FeatureRepr::Value { .. } => todo!(),
         FeatureRepr::LazyExpr(ref expr) => expr_record_field(db, expr, field_ident),
-        FeatureRepr::LazyBlock(ref block) => block_record_field(db, block, field_ident),
-        FeatureRepr::FuncBlock(_) => todo!(),
-        FeatureRepr::ProcBlock(_) => todo!(),
+        FeatureRepr::LazyBody(ref block) => block_record_field(db, block, field_ident),
+        FeatureRepr::FuncBody(_) => todo!(),
+        FeatureRepr::ProcBody(_) => todo!(),
         FeatureRepr::TargetInput { .. } => todo!(),
     }
 }
@@ -83,7 +83,7 @@ pub(crate) fn expr_record_field<'eval>(
 
 pub(crate) fn block_record_field(
     db: &dyn FeatureGenQueryGroup,
-    this: &Arc<FeatureLazyBlock>,
+    this: &Arc<FeatureLazyBody>,
     field_ident: CustomIdentifier,
 ) -> FeatureRepr {
     let stmt_features = this.stmt_features();

@@ -10,9 +10,9 @@ impl HuskyDevtime {
         match feature_repr {
             FeatureRepr::Value { .. } => todo!(),
             FeatureRepr::LazyExpr(_) => todo!(),
-            FeatureRepr::LazyBlock(block) => Some(self.feature_lazy_block_subtraces(parent, block)),
-            FeatureRepr::FuncBlock(block) => self.feature_func_block_subtraces(parent, block),
-            FeatureRepr::ProcBlock(block) => self.feature_proc_block_subtraces(parent, block),
+            FeatureRepr::LazyBody(block) => Some(self.feature_lazy_block_subtraces(parent, block)),
+            FeatureRepr::FuncBody(block) => self.feature_func_block_subtraces(parent, block),
+            FeatureRepr::ProcBody(block) => self.feature_proc_block_subtraces(parent, block),
             FeatureRepr::TargetInput { .. } => todo!(),
         }
     }
@@ -20,7 +20,7 @@ impl HuskyDevtime {
     pub fn feature_lazy_block_subtraces(
         &mut self,
         parent: &Trace,
-        feature_block: &FeatureLazyBlock,
+        feature_block: &FeatureLazyBody,
     ) -> Vec<TraceId> {
         feature_block
             .stmts
@@ -33,7 +33,7 @@ impl HuskyDevtime {
     pub fn feature_func_block_subtraces(
         &mut self,
         parent: &Trace,
-        feature_block: &FeatureFuncBlock,
+        feature_block: &FeatureFuncBody,
     ) -> Option<Vec<TraceId>> {
         let instruction_sheet: &InstructionSheet = &feature_block.instruction_sheet;
         let mut arguments = vec![];
@@ -64,7 +64,7 @@ impl HuskyDevtime {
     pub fn feature_proc_block_subtraces(
         &mut self,
         parent: &Trace,
-        feature_block: &FeatureProcBlock,
+        feature_block: &FeatureProcBody,
     ) -> Option<Vec<TraceId>> {
         let instruction_sheet: &InstructionSheet = &feature_block.instruction_sheet;
         let mut arguments = vec![];

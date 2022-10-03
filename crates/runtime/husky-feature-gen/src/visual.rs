@@ -7,9 +7,9 @@ use husky_word::RootIdentifier;
 pub(crate) fn visual_feature_lazy_block(
     db: &dyn FeatureGenQueryGroup,
     this: FeatureRepr,
-) -> __VMResult<Arc<FeatureLazyBlock>> {
+) -> __VMResult<Arc<FeatureLazyBody>> {
     let visualizer: Arc<Visualizer> = db.visualizer(this.ty().intrinsic());
-    Ok(FeatureLazyBlock::new(
+    Ok(FeatureLazyBody::new(
         db,
         Some(this),
         match visualizer.variant {

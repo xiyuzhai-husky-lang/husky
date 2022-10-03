@@ -5,10 +5,7 @@ use husky_print_utils::{msg_once, p};
 use husky_vm::__RegisterDataKind;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn eval_lazy_block(
-        &self,
-        block: &FeatureLazyBlock,
-    ) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_lazy_block(&self, block: &FeatureLazyBody) -> __VMResult<__Register<'eval>> {
         self.cache(EvalKey::Feature(block.feature), |this: &Self| {
             for stmt in block.stmts.iter() {
                 let value = this.eval_stmt(stmt)?;
@@ -21,10 +18,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         })
     }
 
-    pub(crate) fn eval_func_block(
-        &self,
-        block: &FeatureFuncBlock,
-    ) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_func_block(&self, block: &FeatureFuncBody) -> __VMResult<__Register<'eval>> {
         let arguments = match block.opt_this {
             Some(ref this_repr) => {
                 vec![self.eval_feature_repr(this_repr)]
@@ -47,10 +41,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         result
     }
 
-    pub(crate) fn eval_proc_block(
-        &self,
-        block: &FeatureProcBlock,
-    ) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_proc_block(&self, block: &FeatureProcBody) -> __VMResult<__Register<'eval>> {
         let arguments = match block.opt_this {
             Some(ref this_repr) => {
                 vec![self.eval_feature_repr(this_repr)]

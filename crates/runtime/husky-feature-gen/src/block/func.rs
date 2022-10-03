@@ -4,7 +4,7 @@ use husky_entity_route::RangedEntityRoute;
 use husky_vm::{InstructionSheet, __Linkage};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct FeatureFuncBlock {
+pub struct FeatureFuncBody {
     pub opt_this: Option<FeatureRepr>,
     pub feature: FeaturePtr,
     pub file: FilePtr,
@@ -16,7 +16,7 @@ pub struct FeatureFuncBlock {
     pub opt_linkage: Option<__Linkage>,
 }
 
-impl<'eval> std::hash::Hash for FeatureFuncBlock {
+impl<'eval> std::hash::Hash for FeatureFuncBody {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.eval_id.hash(state)
     }

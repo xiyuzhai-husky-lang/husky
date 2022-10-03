@@ -7,13 +7,9 @@ use husky_vm::*;
 use std::sync::Arc;
 
 impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
-    pub fn visualize_feature(
-        &self,
-        this: FeatureRepr,
-        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
-    ) -> __VMResult<VisualData> {
-        let arrived = self.eval_opt_arrival_indicator_cached(opt_arrival_indicator)?;
-        if arrived {
+    pub fn visualize_feature(&self, this: FeatureRepr) -> __VMResult<VisualData> {
+        let within_domain = self.eval_opt_domain_indicator_cached(this.opt_domain_indicator())?;
+        if within_domain {
             self.as_static().visualize_static(this)
         } else {
             Ok(VisualData::void())
@@ -49,19 +45,16 @@ impl<'temp> FeatureEvaluator<'temp, 'static> {
                 let value = self.eval_feature_repr_cached(&this)?;
                 let mut elements = vec![];
                 for (index, element) in ty_data_viewer.member_eval_indexed_iter(&value) {
-                    elements.push(self.visualize_feature(
-                        FeatureRepr::Value {
-                            value: element,
-                            file: this.file(),
-                            range: this.text_range(),
-                            ty: element_ty,
-                            feature: self.db.feature_interner().intern(Feature::IndexFixed {
-                                this: this.feature(),
-                                index: index as usize,
-                            }),
-                        },
-                        None,
-                    )?)
+                    elements.push(self.visualize_feature(FeatureRepr::Value {
+                        value: element,
+                        file: this.file(),
+                        range: this.text_range(),
+                        ty: element_ty,
+                        feature: self.db.feature_interner().intern(Feature::IndexFixed {
+                            this: this.feature(),
+                            index: index as usize,
+                        }),
+                    })?)
                 }
                 Ok(VisualData::Group(elements))
             }

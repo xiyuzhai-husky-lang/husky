@@ -25,7 +25,7 @@ pub struct FeatureLazyExpr {
     pub feature: FeaturePtr,
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
-    pub opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
+    pub opt_domain_indicator: Option<Arc<FeatureDomainIndicator>>,
 }
 
 impl TextRanged for FeatureLazyExpr {
@@ -353,7 +353,7 @@ impl<'a> FeatureExprBuilder<'a> {
             feature,
             eval_id: Default::default(),
             expr,
-            opt_arrival_indicator: self.opt_arrival_indicator.map(|indi| indi.clone()),
+            opt_domain_indicator: self.opt_arrival_indicator.map(|indi| indi.clone()),
         })
     }
 }

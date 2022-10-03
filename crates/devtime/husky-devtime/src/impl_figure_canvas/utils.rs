@@ -29,7 +29,6 @@ impl HuskyDevtime {
                 range,
                 feature,
             },
-            None,
             sample_id,
         )
     }

@@ -7,9 +7,9 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         let result = match repr {
             FeatureRepr::Value { value, .. } => Ok(value.snapshot()),
             FeatureRepr::LazyExpr(expr) => self.eval_expr(expr),
-            FeatureRepr::LazyBlock(block) => self.eval_lazy_block(block),
-            FeatureRepr::FuncBlock(block) => self.eval_func_block(block),
-            FeatureRepr::ProcBlock(block) => self.eval_proc_block(block),
+            FeatureRepr::LazyBody(block) => self.eval_lazy_block(block),
+            FeatureRepr::FuncBody(block) => self.eval_func_block(block),
+            FeatureRepr::ProcBody(block) => self.eval_proc_block(block),
             FeatureRepr::TargetInput { .. } => Ok(self.target_input.bind_temp_ref()),
         };
         result
