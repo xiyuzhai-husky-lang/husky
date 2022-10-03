@@ -1,6 +1,6 @@
-use std::{borrow::Borrow, ffi::c_void, fmt::Debug, hash::Hash, ops::Deref};
+use std::{borrow::Borrow, ffi::c_void, fmt::Debug, hash::Hash, marker::PhantomData, ops::Deref};
 
-pub trait Intern:
+pub trait IsInternPtr:
     'static
     + Debug
     + Hash
@@ -9,59 +9,75 @@ pub trait Intern:
     + Send
     + Sync
     + Copy
-    + From<&'static Self::Thing>
-    + Deref<Target = Self::Thing>
-    + Borrow<Self::Thing>
+    + Deref<Target = Self::T>
+    + Borrow<Self::T>
 {
-    type Thing: 'static + ?Sized;
+    type T: 'static + Hash + Eq + ?Sized;
+    type Owned: 'static
+        + Hash
+        + Eq
+        + Send
+        + Sync
+        + Debug
+        + Clone
+        + Borrow<Self::T>
+        + for<'a> From<&'a Self::T>;
+
+    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self;
 }
 
-pub struct InternedPtr<T>
+pub struct DefaultInternedPtr<T, Q>
 where
     T: 'static + ?Sized,
+    Q: Sized,
 {
     target: &'static T,
+    phantom: PhantomData<Q>,
 }
 
-impl<T> InternedPtr<T> {
-    pub unsafe fn from_raw(raw: *const c_void) -> InternedPtr<T> {
+impl<T, Q> DefaultInternedPtr<T, Q> {
+    pub unsafe fn from_raw(raw: *const c_void) -> DefaultInternedPtr<T, Q> {
         let raw = raw as *const T;
         let target: &'static T = &*raw;
-        Self { target }
+        Self {
+            target,
+            phantom: PhantomData,
+        }
     }
     pub unsafe fn to_raw(self) -> *const c_void {
         self.target as *const T as *const c_void
     }
 }
 
-impl<T: 'static + ?Sized> PartialEq for InternedPtr<T> {
+impl<T: 'static + ?Sized, Q> PartialEq for DefaultInternedPtr<T, Q> {
     fn eq(&self, other: &Self) -> bool {
         (self.target as *const T) == (other.target as *const T)
     }
 }
 
-impl<T: 'static + ?Sized> Eq for InternedPtr<T> {}
+impl<T: 'static + ?Sized, Q> Eq for DefaultInternedPtr<T, Q> {}
 
-impl<T: 'static + ?Sized> Hash for InternedPtr<T> {
+impl<T: 'static + ?Sized, Q> Hash for DefaultInternedPtr<T, Q> {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         (self.target as *const T).hash(state);
     }
 }
 
-impl<T: 'static + ?Sized> Clone for InternedPtr<T> {
+impl<T: 'static + ?Sized, Q> Clone for DefaultInternedPtr<T, Q> {
     fn clone(&self) -> Self {
         Self {
             target: self.target,
+            phantom: PhantomData,
         }
     }
 }
 
-impl<T: 'static + ?Sized> Copy for InternedPtr<T> {}
+impl<T: 'static + ?Sized, Q> Copy for DefaultInternedPtr<T, Q> {}
 
-unsafe impl<T: 'static + ?Sized> std::marker::Sync for InternedPtr<T> {}
-unsafe impl<T: 'static + ?Sized> std::marker::Send for InternedPtr<T> {}
+unsafe impl<T: 'static + ?Sized, Q> std::marker::Sync for DefaultInternedPtr<T, Q> {}
+unsafe impl<T: 'static + ?Sized, Q> std::marker::Send for DefaultInternedPtr<T, Q> {}
 
-impl<T: 'static + ?Sized> std::fmt::Debug for InternedPtr<T>
+impl<T: 'static + ?Sized, Q> std::fmt::Debug for DefaultInternedPtr<T, Q>
 where
     T: 'static + Debug,
 {
@@ -70,7 +86,7 @@ where
     }
 }
 
-impl<T: 'static + ?Sized> Deref for InternedPtr<T> {
+impl<T: 'static + ?Sized, Q> Deref for DefaultInternedPtr<T, Q> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
@@ -78,21 +94,25 @@ impl<T: 'static + ?Sized> Deref for InternedPtr<T> {
     }
 }
 
-impl<T: 'static + ?Sized> Borrow<T> for InternedPtr<T> {
+impl<T: 'static + ?Sized, Q> Borrow<T> for DefaultInternedPtr<T, Q> {
     fn borrow(&self) -> &T {
         self.target
     }
 }
 
-impl<T: 'static + ?Sized> From<&'static T> for InternedPtr<T> {
-    fn from(target: &'static T) -> Self {
-        Self { target }
-    }
-}
-
-impl<T: 'static + ?Sized> Intern for InternedPtr<T>
+impl<T, Q> IsInternPtr for DefaultInternedPtr<T, Q>
 where
-    T: Debug,
+    T: 'static + Debug + Hash + Eq + ?Sized,
+    Q: 'static + Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
 {
-    type Thing = T;
+    type T = T;
+
+    type Owned = Q;
+
+    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
+        Self {
+            target,
+            phantom: PhantomData,
+        }
+    }
 }

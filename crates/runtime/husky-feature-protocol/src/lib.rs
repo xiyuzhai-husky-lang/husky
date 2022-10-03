@@ -7,4 +7,8 @@ impl FeatureId {
     pub fn new(raw: usize) -> Self {
         FeatureId(raw)
     }
+
+    pub fn raw(self) -> usize {
+        self.0
+    }
 }

@@ -55,3 +55,4 @@ husky-data-viewer = { path = "../husky-data-viewer" }
 husky-pattern-semantics = { path = "../../semantics/husky-pattern-semantics" }
 husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
 husky-context-impls = { path = "../../impls/husky-context-impls" }
+husky-feature-protocol = { path = "../../runtime/husky-feature-protocol" }

@@ -3,7 +3,7 @@ mod internal;
 mod pool;
 mod ptr;
 
-pub use ptr::{Intern, InternedPtr};
+pub use ptr::{DefaultInternedPtr, IsInternPtr};
 
 use std::{borrow::Borrow, fmt::Debug, hash::Hash, marker::PhantomData};
 use sync_utils::SafeRwLock;
@@ -12,14 +12,8 @@ use internal::InternerInternal;
 
 pub trait Internable {}
 
-pub struct Interner<T, Owned = T, Ptr = InternedPtr<T>>
-where
-    T: Hash + Eq + 'static + ?Sized,
-    Ptr: Intern<Thing = T>,
-    Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
-{
-    internal: SafeRwLock<InternerInternal<T, Owned, Ptr>>,
-    phantom: PhantomData<T>,
+pub struct Interner<Ptr: IsInternPtr> {
+    internal: SafeRwLock<InternerInternal<Ptr>>,
 }
 
 // impl<T, Owned, Id> Clone for Interner<T, Owned, Id>
@@ -36,16 +30,10 @@ where
 //     }
 // }
 
-impl<T, Owned, Ptr> Interner<T, Owned, Ptr>
-where
-    T: Hash + Eq + 'static + ?Sized,
-    Ptr: Intern<Thing = T>,
-    Owned: Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
-{
+impl<Ptr: IsInternPtr> Interner<Ptr> {
     pub fn empty() -> Self {
         Self {
             internal: SafeRwLock::new(InternerInternal::default()),
-            phantom: PhantomData,
         }
     }
 
@@ -55,21 +43,16 @@ where
     {
         Self {
             internal: SafeRwLock::new(InternerInternal::new_from(ids)),
-            phantom: PhantomData,
         }
     }
 
     pub fn new(ids: &[Ptr]) -> Self {
         Self {
             internal: SafeRwLock::new(InternerInternal::new(ids)),
-            phantom: PhantomData,
         }
     }
 
-    pub fn intern(&self, owned: Owned) -> Ptr
-    where
-        T: Debug,
-    {
+    pub fn intern(&self, owned: Ptr::Owned) -> Ptr {
         let result = match self
             .internal
             .read(|internal| internal.ids.get(owned.borrow()).map(|id| *id))
@@ -78,13 +61,14 @@ where
             None => {
                 self.internal
                     .write(|internal| match internal.ids.get(owned.borrow()) {
-                        Some(id) => *id, // this step is lest the value has changed
+                        Some(ptr) => *ptr, // this step is lest the value has changed
                         None => {
-                            let owned: &Owned = unsafe { &*internal.things.alloc(owned) };
-                            let ptr: *const T = owned.borrow();
-                            let id: Ptr = unsafe { &*ptr }.into();
-                            internal.ids.insert(owned.clone(), id);
-                            id
+                            let id = internal.things.len();
+                            let owned: &Ptr::Owned = unsafe { &*internal.things.alloc(owned) };
+                            let ptr: *const Ptr::T = owned.borrow();
+                            let ptr: Ptr = Ptr::new_intern_ptr(id, unsafe { &*ptr });
+                            internal.ids.insert(owned.clone(), ptr);
+                            ptr
                         }
                     })
             }
@@ -92,21 +76,22 @@ where
         return result;
     }
 
-    pub fn intern_borrowed(&self, t: &T) -> Ptr {
+    pub fn intern_borrowed(&self, t: &Ptr::T) -> Ptr {
         let result = match self
             .internal
             .read(|internal| internal.ids.get(t).map(|id| *id))
         {
-            Some(id) => id,
+            Some(ptr) => ptr,
             None => {
                 self.internal.write(|internal| match internal.ids.get(t) {
-                    Some(id) => *id, // this step is lest the value has changed
+                    Some(ptr) => *ptr, // this step is lest the value has changed
                     None => {
-                        let owned: &Owned = unsafe { &*internal.things.alloc(t.into()) };
-                        let ptr: *const T = owned.borrow();
-                        let id = unsafe { &*ptr }.into();
-                        internal.ids.insert(owned.clone(), id);
-                        id
+                        let id = internal.things.len();
+                        let owned: &Ptr::Owned = unsafe { &*internal.things.alloc(t.into()) };
+                        let ptr: *const Ptr::T = owned.borrow();
+                        let ptr = Ptr::new_intern_ptr(id, unsafe { &*ptr });
+                        internal.ids.insert(owned.clone(), ptr);
+                        ptr
                     }
                 })
             }

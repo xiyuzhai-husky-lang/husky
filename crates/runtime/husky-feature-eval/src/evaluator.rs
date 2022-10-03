@@ -15,6 +15,7 @@ mod sheet;
 pub use config::*;
 use husky_ast::AstQueryGroup;
 pub use indicator::FeatureEvalIndicator;
+use interner::IsInternPtr;
 pub use sheet::*;
 
 use crate::*;
@@ -49,14 +50,14 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         })
     }
 
-    fn opt_cached_feature(&self, feature: *const c_void) -> Option<__VMResult<__Register<'eval>>> {
+    fn opt_cached_feature(&self, feature: usize) -> Option<__VMResult<__Register<'eval>>> {
         self.sheet
             .cached_value(EvalKey::Feature(unsafe { FeaturePtr::from_raw(feature) }))
     }
 
     fn cache_feature(
         &self,
-        feature: *const c_void,
+        feature: usize,
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         self.sheet.cache(
@@ -80,14 +81,15 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         )
     }
 
-    fn feature_ptr(&self, feature_route_text: &str) -> *const std::ffi::c_void {
+    fn feature_ptr(&self, feature_route_text: &str) -> usize {
         let route = self.db.parse_route_from_text(feature_route_text);
         let uid = self.db.entity_uid(route);
         unsafe {
             self.db
                 .feature_interner()
                 .intern(Feature::EntityFeature { route, uid })
-                .to_raw()
+                .id()
+                .raw()
         }
     }
 

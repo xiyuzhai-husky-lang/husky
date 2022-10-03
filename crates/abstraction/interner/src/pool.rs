@@ -22,6 +22,10 @@ impl<T, const BLOCK_SIZE: usize> Pool<T, BLOCK_SIZE> {
         };
         block.alloc(t)
     }
+
+    pub fn len(&self) -> usize {
+        (self.blocks.len() - 1) * BLOCK_SIZE + self.blocks.last().unwrap().len()
+    }
 }
 
 pub struct Block<T, const BLOCK_SIZE: usize> {

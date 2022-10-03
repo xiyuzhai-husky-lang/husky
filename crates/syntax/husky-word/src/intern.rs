@@ -1,8 +1,8 @@
 use crate::{ident::ContextualIdentifier, *};
-use interner::{Intern, Interner};
+use interner::{Interner, IsInternPtr};
 use std::{borrow::Borrow, ops::Deref};
 
-pub type WordInterner = Interner<str, String, WordPtr>;
+pub type WordInterner = Interner<WordPtr>;
 
 impl Deref for WordPtr {
     type Target = str;
@@ -24,14 +24,14 @@ impl Borrow<str> for WordPtr {
     }
 }
 
-impl From<&'static str> for WordPtr {
-    fn from(target: &'static str) -> Self {
+impl IsInternPtr for WordPtr {
+    type T = str;
+
+    type Owned = String;
+
+    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
         Self::Identifier(Identifier::Custom(CustomIdentifier(target)))
     }
-}
-
-impl Intern for WordPtr {
-    type Thing = str;
 }
 
 pub fn new_word_interner() -> WordInterner {

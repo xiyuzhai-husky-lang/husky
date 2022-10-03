@@ -180,7 +180,7 @@ impl FeatureLazyStmt {
         symbols: &mut Vec<FeatureSymbol>,
         ty: RangedEntityRoute,
         mut opt_arrival_indicator: Option<Arc<FeatureArrivalIndicator>>,
-        feature_interner: &interner::Interner<Feature>,
+        feature_interner: &FeatureInterner,
     ) -> FeatureLazyStmtVariant {
         let mut branches: Vec<Arc<FeatureLazyBranch>> = vec![];
 

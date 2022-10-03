@@ -15,11 +15,11 @@ pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
 
     fn cache_feature(
         &self,
-        feature: *const c_void,
+        feature: usize,
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>>;
 
-    fn opt_cached_feature(&self, feature: *const c_void) -> Option<__VMResult<__Register<'eval>>>;
+    fn opt_cached_feature(&self, feature: usize) -> Option<__VMResult<__Register<'eval>>>;
 
     fn cache_lazy_field(
         &self,
@@ -28,9 +28,9 @@ pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>>;
 
-    fn feature_ptr(&self, feature_route_text: &str) -> *const c_void;
+    fn feature_ptr(&self, feature_route_text: &str) -> usize;
 
-    fn eval_feature_from_uid(&self, feature_uid: u64) -> __VMResult<__Register<'eval>>;
+    fn eval_feature_from_uid(&self, feature_entity_uid: u64) -> __VMResult<__Register<'eval>>;
 
     fn target_input(&self) -> &__Register<'eval>;
 }
@@ -39,7 +39,7 @@ pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
 macro_rules! feature_ptr {
     ($ctx: ident, $text: expr) => {{
         unsafe {
-            static mut __OPT_FEATURE_PTR: Option<*const std::ffi::c_void> = None;
+            static mut __OPT_FEATURE_PTR: Option<usize> = None;
             if let Some(__feature_ptr) = __OPT_FEATURE_PTR {
                 __feature_ptr
             } else {
