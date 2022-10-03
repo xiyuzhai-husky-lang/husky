@@ -38,11 +38,11 @@ impl TraceContext {
     pub(crate) fn opt_trace_stats(
         &self,
         trace_id: TraceId,
-        restriction: &Restriction,
+        presentation: &Presentation,
     ) -> Option<&'static TraceStats> {
         let key = TraceStatsKey {
             trace_id,
-            partitions: restriction.partitions().clone(),
+            partitions: presentation.partitions().clone(),
         };
         if let Some(opt_trace_stats) = self.trace_statss.borrow(file!(), line!()).get(&key) {
             opt_trace_stats.clone()

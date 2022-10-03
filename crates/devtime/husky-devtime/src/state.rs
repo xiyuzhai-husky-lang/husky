@@ -6,7 +6,7 @@ use trackable::{
 
 #[derive(Default)]
 pub struct HuskyDevtimeState {
-    pub(crate) restriction: TrackableAtom<Presentation>,
+    pub(crate) presentation: TrackableAtom<Presentation>,
     pub(crate) pins: VecSet<TraceId>,
     pub(crate) opt_active_trace_id: TrackableAtom<Option<TraceId>>,
     pub(crate) trace_nodes: TrackableVec<TraceNode>,
@@ -39,7 +39,7 @@ impl Trackable for HuskyDevtimeState {
 
     fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
         TrackableTakeChangeM::Ok(DevtimeStateChange {
-            restriction: self.restriction.take_change()?,
+            restriction: self.presentation.take_change()?,
             opt_active_trace_id: self.opt_active_trace_id.take_change()?,
             trace_nodes: self.trace_nodes.take_change()?,
             figure_canvases: self.figure_canvases.take_change()?,
@@ -67,7 +67,7 @@ impl HuskyDevtimeState {
     }
 
     pub(crate) fn clear(&mut self) -> HuskyDevtimeUpdateM<()> {
-        self.restriction.update(|restriction| restriction.clear());
+        self.presentation.update(|restriction| restriction.clear());
         self.pins = Default::default(); // improve this
         self.opt_active_trace_id = Default::default(); //improve this
         self.trace_nodes = Default::default();

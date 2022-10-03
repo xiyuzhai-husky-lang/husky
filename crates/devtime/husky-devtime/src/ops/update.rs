@@ -41,7 +41,7 @@ impl HuskyDevtime {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
                     self.state
-                        .restriction
+                        .presentation
                         .update(|restriction| restriction.set_specific(SampleId(*sample_id)));
                     self.update()
                 }

@@ -14,7 +14,7 @@ impl HuskyDevtime {
             match self.runtime().visualize_feature(
                 repr.clone(),
                 opt_arrival_indicator,
-                self.state.restriction.sample_id(),
+                self.state.presentation.sample_id(),
             ) {
                 Ok(data) => Ok(FigureCanvasData::new_specific(data)),
                 Err(_) => Ok(FigureCanvasData::void()),
@@ -93,8 +93,8 @@ impl HuskyDevtime {
     ) -> Result<Vec<(PartitionDefnData, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
         let session = self.runtime().session();
         let dev_division = session.dev();
-        let restriction = &self.state.restriction;
-        let mut sampler = PartitionedSampler::<T>::new(restriction.partitions());
+        let presentation = &self.state.presentation;
+        let mut sampler = PartitionedSampler::<T>::new(presentation.partitions());
         for labeled_data in dev_division.each_labeled_data() {
             let label = labeled_data.label;
             let sample_id = labeled_data.sample_id;
@@ -107,7 +107,7 @@ impl HuskyDevtime {
                 continue;
             }
             if !self
-                .all_arrived_in_restriction(restriction, sample_id)
+                .is_restriction_satisfied(presentation, sample_id)
                 .map_err(f)?
             {
                 continue;
@@ -127,28 +127,40 @@ impl HuskyDevtime {
         Ok(sampler.finish())
     }
 
-    fn all_arrived_in_restriction(
+    fn is_restriction_satisfied(
         &self,
-        restriction: &Presentation,
+        presentation: &Presentation,
         sample_id: SampleId,
     ) -> __VMResult<bool> {
-        let mut all_arrived = true;
-        for (trace_id, arrival_refined_control) in restriction.arrivals().iter() {
-            if !self.is_trace_arrived(*trace_id, sample_id)? {
-                all_arrived = false;
-                break;
-            }
-            if !self.is_trace_refined_control_ok(
-                *trace_id,
+        match presentation.restriction() {
+            Restriction::None => Ok(true),
+            Restriction::Arrival {
+                trace_id,
+                feature_id,
+                arrival_restriction_kind,
+            } => self.is_arrival_restriction_satisfied(
+                trace_id,
+                arrival_restriction_kind,
+                presentation.partitions(),
                 sample_id,
-                restriction.partitions(),
-                arrival_refined_control,
-            )? {
-                all_arrived = false;
-                break;
+            ),
+        }
+    }
+
+    fn is_arrival_restriction_satisfied(
+        &self,
+        trace_id: TraceId,
+        arrival_restriction_kind: ArrivalRestrictionKind,
+        partitions: &Partitions,
+        sample_id: SampleId,
+    ) -> __VMResult<bool> {
+        match arrival_restriction_kind {
+            ArrivalRestrictionKind::Default => self.is_trace_arrived(trace_id, sample_id),
+            ArrivalRestrictionKind::Return => todo!(),
+            ArrivalRestrictionKind::DeprecatedStrikeEvil => {
+                self.is_trace_striking_evil(trace_id, sample_id, partitions)
             }
         }
-        Ok(all_arrived)
     }
 
     fn is_trace_arrived(&self, trace_id: TraceId, sample_id: SampleId) -> __VMResult<bool> {
@@ -179,58 +191,51 @@ impl HuskyDevtime {
         }
     }
 
-    fn is_trace_refined_control_ok(
+    fn is_trace_striking_evil(
         &self,
         trace_id: TraceId,
         sample_id: SampleId,
         partitions: &Partitions,
-        arrival_refined_control: &ArrivalRefinedControl,
     ) -> __VMResult<bool> {
         let trace = self.trace(trace_id);
-        if arrival_refined_control.strike_evil() {
-            let (value, ty) = match trace.variant {
-                TraceVariant::Main(ref repr) => {
-                    (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
-                }
-                TraceVariant::EntityFeature { ref repr, .. } => {
-                    (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
-                }
-                TraceVariant::FeatureStmt(ref stmt) => (
-                    self.runtime.eval_feature_stmt(stmt, sample_id)?,
-                    stmt.return_ty,
-                ),
-                TraceVariant::FeatureBranch(ref branch) => (
-                    self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
-                    branch.block.return_ty.route,
-                ),
-                TraceVariant::FeatureExpr(_) => todo!(),
-                TraceVariant::FeatureCallArgument { .. } => todo!(),
-                TraceVariant::FuncStmt { .. } => todo!(),
-                TraceVariant::ProcStmt { .. } => todo!(),
-                TraceVariant::ProcBranch { .. } => todo!(),
-                TraceVariant::FuncBranch { .. } => todo!(),
-                TraceVariant::LoopFrame { .. } => todo!(),
-                TraceVariant::EagerExpr { .. } => todo!(),
-                TraceVariant::EagerCallArgument { .. } => todo!(),
-                TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
-            };
-            assert!(ty == self.runtime().target_output_ty().unwrap());
-            let label_downcast_result = self.runtime().register_to_label_converter()(&value);
-            let true_label = self.runtime.session().dev().label(sample_id);
-            match label_downcast_result {
-                __RegisterDowncastResult::Value(predicted_label) => {
-                    Ok(predicted_label != true_label)
-                }
-                __RegisterDowncastResult::None { number_of_somes } => {
-                    if number_of_somes != 0 {
-                        todo!()
-                    }
-                    Ok(partitions.is_nondefault(true_label))
-                }
-                __RegisterDowncastResult::Unreturned => Ok(false),
+        let (value, ty) = match trace.variant {
+            TraceVariant::Main(ref repr) => {
+                (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
             }
-        } else {
-            Ok(true)
+            TraceVariant::EntityFeature { ref repr, .. } => {
+                (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
+            }
+            TraceVariant::FeatureStmt(ref stmt) => (
+                self.runtime.eval_feature_stmt(stmt, sample_id)?,
+                stmt.return_ty,
+            ),
+            TraceVariant::FeatureBranch(ref branch) => (
+                self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
+                branch.block.return_ty.route,
+            ),
+            TraceVariant::FeatureExpr(_) => todo!(),
+            TraceVariant::FeatureCallArgument { .. } => todo!(),
+            TraceVariant::FuncStmt { .. } => todo!(),
+            TraceVariant::ProcStmt { .. } => todo!(),
+            TraceVariant::ProcBranch { .. } => todo!(),
+            TraceVariant::FuncBranch { .. } => todo!(),
+            TraceVariant::LoopFrame { .. } => todo!(),
+            TraceVariant::EagerExpr { .. } => todo!(),
+            TraceVariant::EagerCallArgument { .. } => todo!(),
+            TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
+        };
+        assert!(ty == self.runtime().target_output_ty().unwrap());
+        let label_downcast_result = self.runtime().register_to_label_converter()(&value);
+        let true_label = self.runtime.session().dev().label(sample_id);
+        match label_downcast_result {
+            __RegisterDowncastResult::Value(predicted_label) => Ok(predicted_label != true_label),
+            __RegisterDowncastResult::None { number_of_somes } => {
+                if number_of_somes != 0 {
+                    todo!()
+                }
+                Ok(partitions.is_nondefault(true_label))
+            }
+            __RegisterDowncastResult::Unreturned => Ok(false),
         }
     }
 }

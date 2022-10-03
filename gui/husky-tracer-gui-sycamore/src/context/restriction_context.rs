@@ -2,13 +2,13 @@ use super::*;
 
 #[derive(Debug)]
 pub struct RestrictionContext {
-    pub restriction: &'static Signal<Restriction>,
+    pub restriction: &'static Signal<Presentation>,
     pub opt_sample_id: &'static ReadSignal<Option<SampleId>>,
     restriction_locked_store: Signal<bool>,
 }
 impl RestrictionContext {
     pub(super) fn new<'a>(scope: Scope<'a>) -> Self {
-        let restriction = &create_static_signal(scope, Restriction::default());
+        let restriction = &create_static_signal(scope, Presentation::default());
         let opt_sample_id = create_static_memo(scope, || restriction.get().opt_sample_id());
         Self {
             restriction,
@@ -17,7 +17,7 @@ impl RestrictionContext {
         }
     }
 
-    pub(super) fn init(&self, restriction: Restriction) {
+    pub(super) fn init(&self, restriction: Presentation) {
         self.restriction_locked_store.set(true);
         self.restriction.set(restriction);
     }
@@ -26,7 +26,7 @@ impl RestrictionContext {
         self.restriction.get().opt_sample_id()
     }
 
-    pub(super) fn did_lock_restriction(&mut self, restriction: Restriction) {
+    pub(super) fn did_lock_restriction(&mut self, restriction: Presentation) {
         self.restriction.set(restriction);
         self.restriction_locked_store.set(true);
     }

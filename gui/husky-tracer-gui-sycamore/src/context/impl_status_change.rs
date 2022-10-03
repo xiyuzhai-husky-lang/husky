@@ -13,13 +13,13 @@ pub(super) enum StatusChange {
     TogglePin { trace_id: TraceId },
     ToggleShown { trace_id: TraceId },
     Activate { trace_id: TraceId },
-    SetRestriction { restriction: Restriction },
+    SetRestriction { restriction: Presentation },
 }
 
 impl StatusChange {
     pub(super) fn update_restriction(
         ctx: &'static DebuggerContext,
-        update: impl FnOnce(&mut Restriction),
+        update: impl FnOnce(&mut Presentation),
     ) -> Self {
         let mut restriction = ctx.restriction_context.restriction.cget();
         update(&mut restriction);
@@ -89,17 +89,6 @@ impl DebuggerContext {
 
     pub fn toggle_shown_handler(&'static self, trace_id: TraceId) -> impl Fn() {
         move || self.handle_status_change(StatusChange::ToggleShown { trace_id })
-    }
-
-    pub fn toggle_arrival_refined_strike_evil_handler(
-        &'static self,
-        trace_id: TraceId,
-    ) -> impl Fn() {
-        move || {
-            self.handle_status_change(StatusChange::update_restriction(self, |res| {
-                res.toggle_arrival_refined_strike_evil(trace_id)
-            }))
-        }
     }
 
     pub fn toggle_pin_handler(&'static self, trace_id: TraceId) -> impl Fn() {

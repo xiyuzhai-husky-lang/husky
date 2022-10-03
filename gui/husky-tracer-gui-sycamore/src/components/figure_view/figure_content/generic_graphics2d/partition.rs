@@ -6,7 +6,7 @@ pub struct PartitionContentProps<'a> {
     column_dimension: &'a ReadSignal<PixelDimension>,
     partition: &'a PartitionDefnData,
     samples: &'a [(SampleId, Graphics2dCanvasData)],
-    restriction: &'a ReadSignal<Restriction>,
+    restriction: &'a ReadSignal<Presentation>,
 }
 
 #[component]

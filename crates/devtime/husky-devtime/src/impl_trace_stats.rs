@@ -14,7 +14,7 @@ impl HuskyDevtime {
         let trace_raw_data = &trace_node_data.trace_data;
         let trace_stats_key = TraceStatsKey {
             trace_id,
-            partitions: self.state.restriction.partitions().clone(),
+            partitions: self.state.presentation.partitions().clone(),
         };
         let associated_trace_ids = trace_raw_data.associated_trace_ids();
         if !self.state.trace_statss.contains(&trace_stats_key) {
@@ -39,7 +39,7 @@ impl HuskyDevtime {
         let (opt_stats, result) = self
             .trace(trace_id)
             .variant
-            .opt_stats_result(self.runtime(), self.state.restriction.partitions())
+            .opt_stats_result(self.runtime(), self.state.presentation.partitions())
             .split();
         self.state.trace_statss.insert_new(key, opt_stats);
         self.updating_t(result)
@@ -51,8 +51,8 @@ impl HuskyDevtime {
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
-                    if self.state.restriction.is_generic()
-                        || self.state.restriction.sample_id() != SampleId(*sample_id)
+                    if self.state.presentation.is_generic()
+                        || self.state.presentation.sample_id() != SampleId(*sample_id)
                     {
                         HuskyDevtimeUpdateM::OtherworldlyErr(e)
                     } else {
