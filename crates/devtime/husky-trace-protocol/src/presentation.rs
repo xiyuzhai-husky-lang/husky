@@ -62,8 +62,17 @@ impl Presentation {
     }
 
     pub fn activate_trace(&self, trace_data: &TraceData) -> Presentation {
-        let presentation = self.clone();
-        todo!()
+        let mut presentation = self.clone();
+        presentation.restriction = if let Some(feature_id) = trace_data.opt_arrival_indicator {
+            Restriction::Arrival {
+                trace_id: trace_data.id,
+                feature_id,
+                arrival_restriction_kind: ArrivalRestrictionKind::Default,
+            }
+        } else {
+            Restriction::None
+        };
+        presentation
     }
 
     pub fn is_specific(&self) -> bool {
