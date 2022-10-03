@@ -8,7 +8,7 @@ use super::FeatureEvaluator;
 
 impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     #[inline(always)]
-    pub(crate) fn eval_opt_arrival_indicator_cached(
+    pub(crate) fn eval_opt_domain_indicator_cached(
         &self,
         opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
     ) -> __VMResult<bool> {
@@ -30,7 +30,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     ) -> __VMResult<bool> {
         Ok(match arrival_indicator.variant {
             FeatureArrivalIndicatorVariant::AfterStmtNotReturn { ref stmt } => {
-                if !self.eval_opt_arrival_indicator_cached(stmt.opt_arrival_indicator.as_ref())? {
+                if !self.eval_opt_domain_indicator_cached(stmt.opt_arrival_indicator.as_ref())? {
                     return Ok(false);
                 }
                 self.eval_stmt(stmt)?.data_kind() == __RegisterDataKind::Unreturned
@@ -39,7 +39,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref opt_parent,
                 ref condition,
             } => {
-                if !self.eval_opt_arrival_indicator_cached(opt_parent.as_ref())? {
+                if !self.eval_opt_domain_indicator_cached(opt_parent.as_ref())? {
                     return Ok(false);
                 }
                 !self.eval_expr(condition)?.downcast_bool()
@@ -48,7 +48,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 ref opt_parent,
                 ref condition,
             } => {
-                if !self.eval_opt_arrival_indicator_cached(opt_parent.as_ref())? {
+                if !self.eval_opt_domain_indicator_cached(opt_parent.as_ref())? {
                     return Ok(false);
                 }
                 self.eval_expr(condition)?.downcast_bool()

@@ -26,7 +26,7 @@ impl HuskyDevtime {
             TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_figure(stmt, is_specific)?,
             TraceVariant::FeatureBranch(_) => FigureCanvasData::void(),
             TraceVariant::EntityFeature { ref repr, .. } => {
-                self.feature_repr_figure(repr, None, is_specific)?
+                self.feature_repr_figure(repr, is_specific)?
             }
             TraceVariant::FeatureExpr(ref expr) => self.feature_expr_figure(expr, is_specific)?,
             TraceVariant::FeatureCallArgument {

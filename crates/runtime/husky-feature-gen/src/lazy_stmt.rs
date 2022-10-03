@@ -262,7 +262,7 @@ impl FeatureLazyStmt {
                 variant,
                 opt_arrival_indicator: opt_arrival_indicator.clone(),
                 eval_id: Default::default(),
-                block: FeatureLazyBlock::new(
+                block: FeatureLazyBody::new(
                     db,
                     opt_this.clone(),
                     &lazy_branch.stmts,

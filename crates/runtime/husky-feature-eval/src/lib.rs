@@ -36,14 +36,8 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
     // Some(self) otherwise
     fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature<'static>>;
 
-    fn visualize_feature(
-        &self,
-        this: FeatureRepr,
-        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
-        sample_id: SampleId,
-    ) -> __VMResult<VisualData> {
-        self.evaluator(sample_id)
-            .visualize_feature(this, opt_arrival_indicator)
+    fn visualize_feature(&self, this: FeatureRepr, sample_id: SampleId) -> __VMResult<VisualData> {
+        self.evaluator(sample_id).visualize_feature(this)
     }
 
     fn eval_feature_repr(
@@ -64,7 +58,7 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
 
     fn eval_feature_lazy_block(
         &self,
-        block: &FeatureLazyBlock,
+        block: &FeatureLazyBody,
         sample_id: SampleId,
     ) -> __VMResult<__Register<'eval>> {
         self.evaluator(sample_id).eval_lazy_block(block)
@@ -108,6 +102,6 @@ pub trait EvalFeature<'eval>: FeatureGenQueryGroup + Upcast<dyn FeatureGenQueryG
         sample_id: SampleId,
     ) -> __VMResult<bool> {
         self.evaluator(sample_id)
-            .eval_opt_arrival_indicator_cached(opt_arrival_indicator)
+            .eval_opt_domain_indicator_cached(opt_arrival_indicator)
     }
 }

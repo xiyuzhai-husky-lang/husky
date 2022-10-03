@@ -16,9 +16,9 @@ pub enum FeatureRepr {
         feature: FeaturePtr,
     },
     LazyExpr(Arc<FeatureLazyExpr>),
-    LazyBlock(Arc<FeatureLazyBlock>),
-    FuncBlock(Arc<FeatureFuncBlock>),
-    ProcBlock(Arc<FeatureProcBlock>),
+    LazyBody(Arc<FeatureLazyBody>),
+    FuncBody(Arc<FeatureFuncBody>),
+    ProcBody(Arc<FeatureProcBody>),
     TargetInput {
         main_file: FilePtr,
         ty: EntityRoutePtr,
@@ -30,10 +30,10 @@ impl FeatureRepr {
     pub fn is_lazy(&self) -> bool {
         match self {
             FeatureRepr::LazyExpr(_) => true,
-            FeatureRepr::LazyBlock(_) => true,
+            FeatureRepr::LazyBody(_) => true,
             FeatureRepr::Value { .. } => false,
-            FeatureRepr::FuncBlock(_) => false,
-            FeatureRepr::ProcBlock(_) => false,
+            FeatureRepr::FuncBody(_) => false,
+            FeatureRepr::ProcBody(_) => false,
             FeatureRepr::TargetInput { .. } => false,
         }
     }
@@ -42,9 +42,9 @@ impl FeatureRepr {
         match self {
             FeatureRepr::Value { .. } => panic!(),
             FeatureRepr::LazyExpr(_) => Some("def "),
-            FeatureRepr::LazyBlock(_) => Some("def "),
-            FeatureRepr::FuncBlock(_) => Some("func "),
-            FeatureRepr::ProcBlock(_) => Some("proc "),
+            FeatureRepr::LazyBody(_) => Some("def "),
+            FeatureRepr::FuncBody(_) => Some("func "),
+            FeatureRepr::ProcBody(_) => Some("proc "),
             FeatureRepr::TargetInput { .. } => None,
         }
     }
@@ -53,9 +53,9 @@ impl FeatureRepr {
         match self {
             FeatureRepr::Value { ty, .. } => *ty,
             FeatureRepr::LazyExpr(expr) => expr.expr.intrinsic_ty(),
-            FeatureRepr::LazyBlock(block) => block.return_ty.route,
-            FeatureRepr::FuncBlock(block) => block.ty.route,
-            FeatureRepr::ProcBlock(block) => block.return_ty.route,
+            FeatureRepr::LazyBody(block) => block.return_ty.route,
+            FeatureRepr::FuncBody(block) => block.ty.route,
+            FeatureRepr::ProcBody(block) => block.return_ty.route,
             FeatureRepr::TargetInput { ty, .. } => *ty,
         }
     }
@@ -63,9 +63,9 @@ impl FeatureRepr {
         match self {
             FeatureRepr::Value { feature, .. } => *feature,
             FeatureRepr::LazyExpr(expr) => expr.feature,
-            FeatureRepr::LazyBlock(block) => block.feature,
-            FeatureRepr::FuncBlock(block) => block.feature,
-            FeatureRepr::ProcBlock(block) => block.feature,
+            FeatureRepr::LazyBody(block) => block.feature,
+            FeatureRepr::FuncBody(block) => block.feature,
+            FeatureRepr::ProcBody(block) => block.feature,
             FeatureRepr::TargetInput { feature, .. } => *feature,
         }
     }
@@ -74,9 +74,9 @@ impl FeatureRepr {
         match self {
             FeatureRepr::Value { file, .. } => *file,
             FeatureRepr::LazyExpr(expr) => expr.expr.file,
-            FeatureRepr::LazyBlock(block) => block.file,
-            FeatureRepr::FuncBlock(block) => block.file,
-            FeatureRepr::ProcBlock(block) => block.file,
+            FeatureRepr::LazyBody(block) => block.file,
+            FeatureRepr::FuncBody(block) => block.file,
+            FeatureRepr::ProcBody(block) => block.file,
             FeatureRepr::TargetInput { main_file, .. } => *main_file,
         }
     }
@@ -85,9 +85,9 @@ impl FeatureRepr {
         match self {
             FeatureRepr::Value { range, .. } => *range,
             FeatureRepr::LazyExpr(expr) => expr.expr.range,
-            FeatureRepr::LazyBlock(block) => block.range,
-            FeatureRepr::FuncBlock(block) => block.range,
-            FeatureRepr::ProcBlock(block) => block.range,
+            FeatureRepr::LazyBody(block) => block.range,
+            FeatureRepr::FuncBody(block) => block.range,
+            FeatureRepr::ProcBody(block) => block.range,
             FeatureRepr::TargetInput { .. } => Default::default(),
         }
     }
@@ -98,104 +98,114 @@ impl FeatureRepr {
         defn_repr: &DefinitionRepr,
         feature_interner: &FeatureInterner,
     ) -> Self {
-        let result = match defn_repr {
-            DefinitionRepr::LazyExpr { expr } => FeatureRepr::LazyExpr(FeatureLazyExpr::new(
-                db,
-                opt_this,
-                expr.clone(),
-                &[],
-                None,
-                feature_interner,
-            )),
-            DefinitionRepr::LazyBlock { stmts, ty } => FeatureRepr::LazyBlock(
-                FeatureLazyBlock::new(db, opt_this, stmts, &[], None, feature_interner, *ty),
-            ),
-            DefinitionRepr::FuncBlock {
-                stmts,
-                file,
-                range,
-                route,
-                return_ty,
-            } => FeatureRepr::FuncBlock(Arc::new(FeatureFuncBlock {
-                file: *file,
-                range: *range,
-                eval_id: Default::default(),
-                stmts: stmts.clone(),
-                instruction_sheet: {
-                    new_func_instruction_sheet(
-                        db.upcast(),
-                        [].into_iter(),
-                        stmts,
-                        opt_this.is_some(),
-                    )
-                },
-                feature: {
-                    feature_interner.intern(match opt_this {
-                        Some(ref this) => Feature::FieldAccess {
-                            this: this.feature(),
-                            field_ident: route.ident().custom(),
-                        },
-                        None => Feature::EntityFeature {
-                            route: *route,
-                            uid: db.entity_uid(*route),
-                        },
-                    })
-                },
-                ty: *return_ty,
-                opt_linkage: {
-                    match opt_this {
-                        Some(ref this) => db.field_linkage(this.ty(), route.ident().custom()),
-                        None => db.feature_eager_block_linkage(*route),
-                    }
-                },
-                opt_this,
-            })),
-            DefinitionRepr::ProcBlock {
-                stmts,
-                file,
-                range,
-                route,
-                return_ty,
-            } => FeatureRepr::ProcBlock(Arc::new(FeatureProcBlock {
-                file: *file,
-                range: *range,
-                eval_id: Default::default(),
-                stmts: stmts.clone(),
-                instruction_sheet: {
-                    new_proc_instruction_sheet(
-                        db.upcast(),
-                        [].into_iter(),
-                        stmts,
-                        opt_this.is_some(),
-                    )
-                },
-                feature: {
-                    feature_interner.intern(match opt_this {
-                        Some(ref this) => Feature::FieldAccess {
-                            this: this.feature(),
-                            field_ident: route.ident().custom(),
-                        },
-                        None => Feature::EntityFeature {
-                            route: *route,
-                            uid: db.entity_uid(*route),
-                        },
-                    })
-                },
-                return_ty: *return_ty,
-                opt_linkage: {
-                    match opt_this {
-                        Some(ref this) => db.field_linkage(this.ty(), route.ident().custom()),
-                        None => db.feature_eager_block_linkage(*route),
-                    }
-                },
-                opt_this,
-            })),
-        };
+        let result =
+            match defn_repr {
+                DefinitionRepr::LazyExpr { expr } => FeatureRepr::LazyExpr(FeatureLazyExpr::new(
+                    db,
+                    opt_this,
+                    expr.clone(),
+                    &[],
+                    None,
+                    feature_interner,
+                )),
+                DefinitionRepr::LazyBlock { stmts, ty } => FeatureRepr::LazyBody(
+                    FeatureLazyBody::new(db, opt_this, stmts, &[], None, feature_interner, *ty),
+                ),
+                DefinitionRepr::FuncBlock {
+                    stmts,
+                    file,
+                    range,
+                    route,
+                    return_ty,
+                } => FeatureRepr::FuncBody(Arc::new(FeatureFuncBody {
+                    file: *file,
+                    range: *range,
+                    eval_id: Default::default(),
+                    stmts: stmts.clone(),
+                    instruction_sheet: {
+                        new_func_instruction_sheet(
+                            db.upcast(),
+                            [].into_iter(),
+                            stmts,
+                            opt_this.is_some(),
+                        )
+                    },
+                    feature: {
+                        feature_interner.intern(match opt_this {
+                            Some(ref this) => Feature::FieldAccess {
+                                this: this.feature(),
+                                field_ident: route.ident().custom(),
+                            },
+                            None => Feature::EntityFeature {
+                                route: *route,
+                                uid: db.entity_uid(*route),
+                            },
+                        })
+                    },
+                    ty: *return_ty,
+                    opt_linkage: {
+                        match opt_this {
+                            Some(ref this) => db.field_linkage(this.ty(), route.ident().custom()),
+                            None => db.feature_eager_block_linkage(*route),
+                        }
+                    },
+                    opt_this,
+                })),
+                DefinitionRepr::ProcBlock {
+                    stmts,
+                    file,
+                    range,
+                    route,
+                    return_ty,
+                } => FeatureRepr::ProcBody(Arc::new(FeatureProcBody {
+                    file: *file,
+                    range: *range,
+                    eval_id: Default::default(),
+                    stmts: stmts.clone(),
+                    instruction_sheet: {
+                        new_proc_instruction_sheet(
+                            db.upcast(),
+                            [].into_iter(),
+                            stmts,
+                            opt_this.is_some(),
+                        )
+                    },
+                    feature: {
+                        feature_interner.intern(match opt_this {
+                            Some(ref this) => Feature::FieldAccess {
+                                this: this.feature(),
+                                field_ident: route.ident().custom(),
+                            },
+                            None => Feature::EntityFeature {
+                                route: *route,
+                                uid: db.entity_uid(*route),
+                            },
+                        })
+                    },
+                    return_ty: *return_ty,
+                    opt_linkage: {
+                        match opt_this {
+                            Some(ref this) => db.field_linkage(this.ty(), route.ident().custom()),
+                            None => db.feature_eager_block_linkage(*route),
+                        }
+                    },
+                    opt_this,
+                })),
+            };
         result
     }
 
     pub fn opt_domain_indicator(&self) -> Option<&Arc<FeatureDomainIndicator>> {
-        todo!()
+        match self {
+            FeatureRepr::Value { .. } => None,
+            FeatureRepr::LazyExpr(expr) => expr.opt_domain_indicator.as_ref(),
+            FeatureRepr::LazyBody(_) | FeatureRepr::FuncBody(_) | FeatureRepr::ProcBody(_) => None,
+            FeatureRepr::TargetInput {
+                main_file,
+                ty,
+                feature,
+            } => todo!(),
+        }
     }
 }
 
@@ -205,8 +215,8 @@ impl<'eval> From<Arc<FeatureLazyExpr>> for FeatureRepr {
     }
 }
 
-impl<'eval> From<Arc<FeatureLazyBlock>> for FeatureRepr {
-    fn from(block: Arc<FeatureLazyBlock>) -> Self {
-        Self::LazyBlock(block)
+impl<'eval> From<Arc<FeatureLazyBody>> for FeatureRepr {
+    fn from(block: Arc<FeatureLazyBody>) -> Self {
+        Self::LazyBody(block)
     }
 }

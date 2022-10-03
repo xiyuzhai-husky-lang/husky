@@ -5,7 +5,7 @@ use crate::lazy_branch::FeatureArrivalIndicatorVariant;
 use super::*;
 
 #[derive(Debug, Clone)]
-pub struct FeatureLazyBlock {
+pub struct FeatureLazyBody {
     pub symbols: Vec<FeatureSymbol>,
     pub feature: FeaturePtr,
     pub file: FilePtr,
@@ -15,21 +15,21 @@ pub struct FeatureLazyBlock {
     pub stmts: Vec<Arc<FeatureLazyStmt>>,
 }
 
-impl<'eval> std::hash::Hash for FeatureLazyBlock {
+impl<'eval> std::hash::Hash for FeatureLazyBody {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.eval_id.hash(state)
     }
 }
 
-impl<'eval> PartialEq for FeatureLazyBlock {
+impl<'eval> PartialEq for FeatureLazyBody {
     fn eq(&self, other: &Self) -> bool {
         self.eval_id == other.eval_id
     }
 }
 
-impl<'eval> Eq for FeatureLazyBlock {}
+impl<'eval> Eq for FeatureLazyBody {}
 
-impl<'eval> FeatureLazyBlock {
+impl<'eval> FeatureLazyBody {
     pub(crate) fn new(
         db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,
@@ -38,7 +38,7 @@ impl<'eval> FeatureLazyBlock {
         mut opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
         feature_interner: &FeatureInterner,
         ty: RangedEntityRoute,
-    ) -> Arc<FeatureLazyBlock> {
+    ) -> Arc<FeatureLazyBody> {
         let mut symbols: Vec<FeatureSymbol> = externals.into();
         // for checking
         let mut finish_flag = false;
@@ -71,7 +71,7 @@ impl<'eval> FeatureLazyBlock {
         let feature = Feature::intern_block(feature_interner, &stmts);
         let file = stmts[0].file;
         let range = stmts.text_range();
-        Arc::new(FeatureLazyBlock {
+        Arc::new(FeatureLazyBody {
             symbols,
             stmts,
             feature,
