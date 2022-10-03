@@ -7,7 +7,7 @@ pub enum FigureControlKey {
 }
 
 impl FigureControlKey {
-    pub fn from_trace_data(trace_data: &TraceData, restriction: &Restriction) -> FigureControlKey {
+    pub fn from_trace_data(trace_data: &TraceData, restriction: &Presentation) -> FigureControlKey {
         Self::new(
             trace_data.opt_parent_id,
             trace_data.kind,
@@ -20,7 +20,7 @@ impl FigureControlKey {
         opt_parent_id: Option<TraceId>,
         trace_kind: TraceKind,
         trace_id: TraceId,
-        restriction: &Restriction,
+        restriction: &Presentation,
     ) -> FigureControlKey {
         match trace_kind {
             TraceKind::LoopFrame => FigureControlKey::LoopFrame {

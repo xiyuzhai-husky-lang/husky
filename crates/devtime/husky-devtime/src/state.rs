@@ -6,7 +6,7 @@ use trackable::{
 
 #[derive(Default)]
 pub struct HuskyDevtimeState {
-    pub(crate) restriction: TrackableAtom<Restriction>,
+    pub(crate) restriction: TrackableAtom<Presentation>,
     pub(crate) pins: VecSet<TraceId>,
     pub(crate) opt_active_trace_id: TrackableAtom<Option<TraceId>>,
     pub(crate) trace_nodes: TrackableVec<TraceNode>,
@@ -19,7 +19,7 @@ pub struct HuskyDevtimeState {
 }
 
 pub struct DevtimeStateChange {
-    pub(crate) restriction: <TrackableAtom<Restriction> as Trackable>::Change,
+    pub(crate) restriction: <TrackableAtom<Presentation> as Trackable>::Change,
     pub(crate) opt_active_trace_id: <TrackableAtom<Option<TraceId>> as Trackable>::Change,
     pub(crate) trace_nodes: <TrackableVec<TraceNode> as Trackable>::Change,
     pub(crate) figure_canvases:

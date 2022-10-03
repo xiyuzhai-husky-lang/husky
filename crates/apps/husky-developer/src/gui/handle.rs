@@ -421,7 +421,7 @@ impl HuskyDebuggerInternal {
     #[cfg(feature = "verify_consistency")]
     fn handle_set_restriction(
         &mut self,
-        restriction: &Restriction,
+        restriction: &Presentation,
         needs_figure_canvases: bool,
         needs_figure_controls: bool,
         new_stalk_keys: &[TraceStalkKey],
@@ -475,7 +475,7 @@ impl HuskyDebuggerInternal {
     #[cfg(not(feature = "verify_consistency"))]
     fn handle_set_restriction(
         &mut self,
-        restriction: &Restriction,
+        restriction: &Presentation,
         needs_figure_canvases: bool,
         needs_figure_controls: bool,
         needs_stalks: bool,

@@ -32,7 +32,7 @@ pub enum HuskyTracerGuiMessageVariant {
         id: TraceId,
     },
     SetRestriction {
-        restriction: Restriction,
+        restriction: Presentation,
         needs_figure_canvases: bool,
         needs_figure_controls: bool,
         new_stalk_keys: Vec<TraceStalkKey>,
@@ -43,7 +43,7 @@ pub enum HuskyTracerGuiMessageVariant {
     },
     UpdateFigureControlData {
         trace_id: TraceId,
-        restriction: Restriction,
+        restriction: Presentation,
         figure_control_props: FigureControlData,
     },
 }
@@ -73,7 +73,7 @@ pub enum HuskyTracerGuiMessageVariant {
         id: TraceId,
     },
     SetRestriction {
-        restriction: Restriction,
+        restriction: Presentation,
         needs_figure_canvases: bool,
         needs_figure_controls: bool,
         needs_stalks: bool,

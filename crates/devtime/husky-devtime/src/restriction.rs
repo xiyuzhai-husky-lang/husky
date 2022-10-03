@@ -1,13 +1,13 @@
 use crate::*;
 
 impl HuskyDevtime {
-    pub fn restriction(&self) -> &Restriction {
+    pub fn restriction(&self) -> &Presentation {
         &self.state.restriction
     }
 
     pub fn set_restriction(
         &mut self,
-        restriction: Restriction,
+        restriction: Presentation,
     ) -> HuskyDevtimeTakeChangeM<(
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
