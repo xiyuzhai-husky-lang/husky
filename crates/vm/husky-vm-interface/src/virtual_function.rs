@@ -13,6 +13,7 @@ impl __VirtualFunction {
     //     }
     // }
 
+    #[cfg(feature = "thick_fp")]
     pub unsafe fn downcast_thick_fp<F: __BaseThinFp>(&self) -> ThickFp<F> {
         match self {
             __VirtualFunction::ThickFp(linkage) => linkage.opt_thick_fp.downcast_thick_fp(),

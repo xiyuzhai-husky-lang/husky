@@ -12,7 +12,7 @@ pub struct TraceContext {
     pub trace_stalks: RefCell<HashMap<TraceStalkKey, &'static TraceStalk>>,
     pub trace_statss: RefCell<HashMap<TraceStatsKey, Option<&'static TraceStats>>>,
     pub root_trace_ids: &'static Signal<Vec<TraceId>>,
-    pub opt_active_trace_id: &'static Signal<Option<TraceId>>,
+    opt_active_trace_id: &'static Signal<Option<TraceId>>,
     pub trace_listing: &'static Signal<Vec<TraceId>>,
 }
 

@@ -1,13 +1,12 @@
 use super::*;
 
-impl DebuggerContext {
+impl DeveloperGuiContext {
     pub(crate) fn activate(&'static self, new_active_trace_id: TraceId) {
         let trace_data = self.trace_context.trace_data(new_active_trace_id);
         let presentation = self
-            .restriction_context
-            .presentation
+            .presentation_signal()
             .get()
-            .activate_trace(trace_data);
+            .activate_trace_out_of_place(trace_data);
         let needs_figure_canvases =
             self.needs_figure_canvases(Some(new_active_trace_id), &presentation);
         let needs_figure_controls =

@@ -5,7 +5,7 @@ use super::impl_status_change::StatusChange;
 
 use super::*;
 
-impl DebuggerContext {
+impl DeveloperGuiContext {
     pub(super) fn init<'a>(&'static self, read: Receiver<HuskyTracerServerMessage>) {
         self.add_event_listeners_to_dialogues();
         self.send_init_request();
@@ -54,7 +54,7 @@ impl DebuggerContext {
             assert!(init_data.figure_canvases.len() > 0);
         }
         // order matters
-        self.restriction_context.init(init_data.restriction.clone());
+        self.init_presentation(init_data.presentation.clone());
         *self.figure_canvases.borrow_mut(file!(), line!()) = self
             .alloc_key_value_pairs(init_data.figure_canvases)
             .collect();
@@ -88,9 +88,9 @@ impl DebuggerContext {
                 .collect(),
             init_data.trace_init_data.root_trace_ids,
             init_data.trace_init_data.opt_active_trace_id,
-            init_data.restriction.opt_sample_id(),
+            init_data.presentation.opt_sample_id(),
         );
-        self.pins.set(init_data.pins);
+        self.pins_signal.set(init_data.pins);
     }
 
     fn spawn_listening(&'static self, mut read: Receiver<HuskyTracerServerMessage>) {

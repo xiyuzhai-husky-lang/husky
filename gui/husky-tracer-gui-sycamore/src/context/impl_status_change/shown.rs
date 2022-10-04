@@ -1,7 +1,7 @@
 use super::*;
 use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
 
-impl DebuggerContext {
+impl DeveloperGuiContext {
     pub(crate) fn shown_signal(&self, trace_id: TraceId) -> &'static Signal<bool> {
         self.trace_context.trace_nodes.borrow(file!(), line!())[trace_id.raw()].shown
     }

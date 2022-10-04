@@ -50,7 +50,7 @@ pub fn GenericGraphics2d<'a, G: Html>(
         }
     });
     let ctx = use_dev_context(scope);
-    let restriction = ctx.restriction_context.presentation;
+    let presentation_signal = ctx.presentation_signal();
     view! {
         scope,
         div (
@@ -66,7 +66,7 @@ pub fn GenericGraphics2d<'a, G: Html>(
                             column_dimension,
                             partition,
                             samples,
-                            restriction,
+                            presentation_signal,
                         }
                     }
                 }

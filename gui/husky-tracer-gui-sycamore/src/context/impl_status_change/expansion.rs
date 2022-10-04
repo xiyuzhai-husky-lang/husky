@@ -1,6 +1,6 @@
 use super::*;
 
-impl DebuggerContext {
+impl DeveloperGuiContext {
     fn expansion_signal(&self, trace_id: TraceId) -> &'static Signal<bool> {
         self.trace_context.trace_nodes.borrow(file!(), line!())[trace_id.raw()].expansion
     }
@@ -10,7 +10,7 @@ impl DebuggerContext {
         if expansion.cget() {
             expansion.set(false)
         } else {
-            let opt_sample_id = self.restriction_context.opt_sample_id;
+            let opt_sample_id = self.opt_sample_id_signal();
             let trace_kind = self.trace_context.trace_kind(trace_id);
             let key = SubtracesKey::new(trace_kind, trace_id, opt_sample_id.cget());
             if self

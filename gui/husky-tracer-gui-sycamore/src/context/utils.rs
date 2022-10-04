@@ -1,6 +1,6 @@
 use super::*;
 
-impl DebuggerContext {
+impl DeveloperGuiContext {
     pub fn alloc_value<T>(&self, value: T) -> &'static T {
         create_static_ref(self.scope, value)
     }

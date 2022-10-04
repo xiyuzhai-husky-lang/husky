@@ -66,6 +66,16 @@ impl HuskyDevtimeState {
         TrackableMakeChangeM::default()
     }
 
+    pub(crate) fn activate_trace(&mut self, trace_id: TraceId) -> HuskyDevtimeTakeChangeM<()> {
+        self.opt_active_trace_id.set(Some(trace_id));
+        let trace_data = &self.trace_nodes[trace_id.raw()].trace_data();
+        if trace_data.opt_arrival_indicator.is_some() {
+            self.presentation
+                .update(|presentation| presentation.activate_trace(trace_data))?
+        }
+        HuskyDevtimeTakeChangeM::Ok(())
+    }
+
     pub(crate) fn clear(&mut self) -> HuskyDevtimeUpdateM<()> {
         self.presentation.update(|restriction| restriction.clear());
         self.pins = Default::default(); // improve this
