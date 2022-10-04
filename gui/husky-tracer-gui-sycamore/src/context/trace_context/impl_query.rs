@@ -1,6 +1,6 @@
 use super::*;
 
-impl TraceContext {
+impl DeveloperGuiContext {
     pub(crate) fn is_expanded(&self, trace_id: TraceId) -> bool {
         self.trace_nodes.borrow(file!(), line!())[trace_id.raw()]
             .expansion
@@ -27,9 +27,5 @@ impl TraceContext {
 
     pub(crate) fn did_toggle_show(&mut self, trace_id: TraceId) {
         todo!()
-    }
-
-    pub(crate) fn did_activate(&self, trace_id: TraceId) {
-        self.opt_active_trace_id.set(Some(trace_id))
     }
 }

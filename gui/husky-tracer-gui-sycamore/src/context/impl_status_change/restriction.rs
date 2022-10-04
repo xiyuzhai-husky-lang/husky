@@ -10,7 +10,7 @@ impl DeveloperGuiContext {
 
     #[cfg(feature = "verify_consistency")]
     pub(super) fn set_restriction(&'static self, new_restriction: Presentation) {
-        let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
+        let opt_active_trace_id = self.opt_active_trace_id.cget();
         let needs_figure_canvases =
             self.needs_figure_canvases(opt_active_trace_id, &new_restriction);
         let needs_figure_controls =
@@ -39,7 +39,7 @@ impl DeveloperGuiContext {
                         new_trace_stats,
                     } => {
                         opt_active_trace_id.map(|active_trace_id| {
-                            let active_trace = self.trace_context.trace_data(active_trace_id);
+                            let active_trace = self.trace_data(active_trace_id);
                             self.set_opt_figure_data(
                                 self.scope,
                                 &active_trace,
@@ -49,12 +49,12 @@ impl DeveloperGuiContext {
                                 opt_figure_control_data,
                             )
                         });
-                        self.trace_context.receive_trace_stalks(
+                        self.receive_trace_stalks(
                             new_trace_stalks
                                 .into_iter()
                                 .map(|(k, v)| (k, self.alloc_value(v))),
                         );
-                        self.trace_context.receive_trace_stats(
+                        self.receive_trace_stats(
                             new_trace_stats
                                 .into_iter()
                                 .map(|(k, v)| (k, v.map(|v| self.alloc_value(v)))),
@@ -108,12 +108,12 @@ impl DeveloperGuiContext {
                                 .map(|(k, v)| (k, self.alloc_value(v))),
                         );
                         self.receive_figure_controls(self.scope, new_figure_controls.into_iter());
-                        self.trace_context.receive_trace_stalks(
+                        self.receive_trace_stalks(
                             new_trace_stalks
                                 .into_iter()
                                 .map(|(k, v)| (k, self.alloc_value(v))),
                         );
-                        self.trace_context.receive_trace_stats(
+                        self.receive_trace_stats(
                             new_trace_statss
                                 .into_iter()
                                 .map(|(k, v)| (k, v.map(|v| self.alloc_value(v)))),

@@ -12,12 +12,12 @@ use trace_tree::*;
 #[component]
 pub fn TraceView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
     let context = use_dev_context(scope);
-    let root_trace_ids = &context.trace_context.root_trace_ids;
+    let root_trace_ids_signal = &context.root_trace_ids_signal();
     view! {
         scope,
         div(class="TraceView disable-select") {
             Indexed {
-                iterable: root_trace_ids,
+                iterable: root_trace_ids_signal,
                 view: |scope, trace_id| view! {
                     scope,
                     TraceTree {

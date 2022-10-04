@@ -1,6 +1,6 @@
 use super::*;
 
-impl TraceContext {
+impl DeveloperGuiContext {
     pub(crate) fn trace_data(&self, trace_id: TraceId) -> &'static TraceData {
         let trace_data = self.trace_nodes.borrow(file!(), line!())[trace_id.raw()].data;
         assert!(trace_data.id == trace_id);
@@ -58,7 +58,7 @@ impl TraceContext {
     }
 
     pub(crate) fn opt_active_trace(&self) -> Option<&'static TraceData> {
-        self.opt_active_trace_id
+        self.opt_active_trace_id_signal()
             .cget()
             .map(|trace_id| self.trace_data(trace_id))
     }

@@ -21,17 +21,28 @@ use std::{
 use wasm_bindgen_futures::spawn_local;
 
 pub struct DeveloperGuiContext {
+    // ws
     pub(crate) ws: WebsocketService,
+    // scope
     pub(crate) scope: Scope<'static>,
+    // hidden state
     pub(crate) window_inner_height: &'static Signal<f64>,
     pub(crate) window_inner_width: &'static Signal<f64>,
-    pub(crate) trace_context: TraceContext,
     pub(crate) dialog_opened: &'static Signal<bool>,
+    // trace
+    trace_nodes: RefCell<Vec<TraceNodeState>>,
+    subtrace_ids_map: RefCell<HashMap<SubtracesKey, &'static [TraceId]>>,
+    trace_stalks: RefCell<HashMap<TraceStalkKey, &'static TraceStalk>>,
+    trace_statss: RefCell<HashMap<TraceStatsKey, Option<&'static TraceStats>>>,
+    root_trace_ids_signal: &'static Signal<Vec<TraceId>>,
+    trace_listing: &'static Signal<Vec<TraceId>>,
+    // figure
     figure_canvases: RefCell<HashMap<FigureCanvasKey, &'static FigureCanvasData>>,
     figure_controls: RefCell<HashMap<FigureControlKey, &'static Signal<FigureControlData>>>,
     presentation_signal: &'static Signal<Presentation>,
     opt_sample_id_signal: &'static ReadSignal<Option<SampleId>>,
     opt_active_trace_id_signal: &'static ReadSignal<Option<TraceId>>,
+    // global control
     pub(crate) presentation_locked_signal: Signal<bool>,
     pub(crate) pins_signal: &'static Signal<VecSet<TraceId>>,
 }
@@ -73,16 +84,26 @@ impl DeveloperGuiContext {
         let opt_active_trace_id_signal =
             create_static_memo(scope, || presentation_signal.get().opt_active_trace_id());
         DeveloperGuiContext {
+            ws,
+            scope,
+            // hidden state
             window_inner_height,
             window_inner_width,
-            ws,
-            trace_context: TraceContext::new(scope),
             dialog_opened: create_signal(scope, false),
-            scope,
+            // trace
+            trace_nodes: Default::default(),
+            subtrace_ids_map: Default::default(),
+            trace_stalks: Default::default(),
+            trace_statss: Default::default(),
+            root_trace_ids_signal: create_signal(scope, vec![]),
+            trace_listing: create_signal(scope, vec![]),
+            // figure
             figure_canvases: Default::default(),
             figure_controls: Default::default(),
+            // user state
             pins_signal: create_static_signal(scope, Default::default()),
             presentation_signal,
+            // derived signals
             opt_sample_id_signal,
             opt_active_trace_id_signal,
             presentation_locked_signal: Default::default(),

@@ -3,7 +3,7 @@ use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
 
 impl DeveloperGuiContext {
     pub(crate) fn shown_signal(&self, trace_id: TraceId) -> &'static Signal<bool> {
-        self.trace_context.trace_nodes.borrow(file!(), line!())[trace_id.raw()].shown
+        self.trace_nodes.borrow(file!(), line!())[trace_id.raw()].shown
     }
 
     pub(super) fn toggle_shown(&'static self, trace_id: TraceId) {

@@ -1,7 +1,7 @@
 use crate::*;
 
 impl HuskyDevtime {
-    pub fn restriction(&self) -> &Presentation {
+    pub fn presentation(&self) -> &Presentation {
         &self.state.presentation
     }
 

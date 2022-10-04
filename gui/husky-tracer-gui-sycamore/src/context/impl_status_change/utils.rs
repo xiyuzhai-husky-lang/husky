@@ -21,7 +21,7 @@ impl DeveloperGuiContext {
     }
 
     fn needs_figure_canvas(&self, trace_id: TraceId, restriction: &Presentation) -> bool {
-        let trace = self.trace_context.trace_data(trace_id);
+        let trace = self.trace_data(trace_id);
         let key = self.new_figure_canvas_key(trace, restriction, true);
         if !self
             .figure_canvases
@@ -60,7 +60,7 @@ impl DeveloperGuiContext {
     }
 
     fn needs_figure_control(&self, trace_id: TraceId, restriction: &Presentation) -> bool {
-        let trace_data = self.trace_context.trace_data(trace_id);
+        let trace_data = self.trace_data(trace_id);
         let key = FigureControlKey::from_trace_data(trace_data, restriction);
         !self
             .figure_controls
@@ -74,20 +74,18 @@ impl DeveloperGuiContext {
             Some(sample_id) => sample_id,
             None => return vec![],
         };
-        self.trace_context
-            .filter_immediate_traces(Some(sample_id), |trace_data| {
-                let key = TraceStalkKey::from_trace_data(sample_id, trace_data);
-                if !self
-                    .trace_context
-                    .trace_stalks
-                    .borrow(file!(), line!())
-                    .contains_key(&key)
-                {
-                    Some(key)
-                } else {
-                    None
-                }
-            })
+        self.filter_immediate_traces(Some(sample_id), |trace_data| {
+            let key = TraceStalkKey::from_trace_data(sample_id, trace_data);
+            if !self
+                .trace_stalks
+                .borrow(file!(), line!())
+                .contains_key(&key)
+            {
+                Some(key)
+            } else {
+                None
+            }
+        })
     }
 
     #[cfg(not(feature = "verify_consistency"))]
@@ -96,52 +94,43 @@ impl DeveloperGuiContext {
             Some(sample_id) => sample_id,
             None => return false,
         };
-        !self
-            .trace_context
-            .for_all_immediate_traces(Some(sample_id), |trace_data| {
-                let key = TraceStalkKey::from_trace_data(sample_id, trace_data);
-                self.trace_context
-                    .trace_stalks
-                    .borrow(file!(), line!())
-                    .contains_key(&key)
-            })
+        !self.for_all_immediate_traces(Some(sample_id), |trace_data| {
+            let key = TraceStalkKey::from_trace_data(sample_id, trace_data);
+            self.trace_stalks
+                .borrow(file!(), line!())
+                .contains_key(&key)
+        })
     }
 
     #[cfg(feature = "verify_consistency")]
     pub(super) fn new_stats_keys(&self, new_restriction: &Presentation) -> Vec<TraceStatsKey> {
-        self.trace_context
-            .filter_immediate_traces(new_restriction.opt_sample_id(), |trace_data| {
-                let key = TraceStatsKey {
-                    trace_id: trace_data.id,
-                    partitions: new_restriction.partitions().clone(),
-                };
-                if !self
-                    .trace_context
-                    .trace_statss
-                    .borrow(file!(), line!())
-                    .contains_key(&key)
-                {
-                    Some(key)
-                } else {
-                    None
-                }
-            })
+        self.filter_immediate_traces(new_restriction.opt_sample_id(), |trace_data| {
+            let key = TraceStatsKey {
+                trace_id: trace_data.id,
+                partitions: new_restriction.partitions().clone(),
+            };
+            if !self
+                .trace_statss
+                .borrow(file!(), line!())
+                .contains_key(&key)
+            {
+                Some(key)
+            } else {
+                None
+            }
+        })
     }
 
     #[cfg(not(feature = "verify_consistency"))]
     pub(super) fn needs_statss(&self, new_restriction: &Presentation) -> bool {
-        !self.trace_context.for_all_immediate_traces(
-            new_restriction.opt_sample_id(),
-            |trace_data| {
-                let key = TraceStatsKey {
-                    trace_id: trace_data.id,
-                    partitions: new_restriction.partitions().clone(),
-                };
-                self.trace_context
-                    .trace_statss
-                    .borrow(file!(), line!())
-                    .contains_key(&key)
-            },
-        )
+        !self.for_all_immediate_traces(new_restriction.opt_sample_id(), |trace_data| {
+            let key = TraceStatsKey {
+                trace_id: trace_data.id,
+                partitions: new_restriction.partitions().clone(),
+            };
+            self.trace_statss
+                .borrow(file!(), line!())
+                .contains_key(&key)
+        })
     }
 }

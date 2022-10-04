@@ -95,16 +95,10 @@ impl DeveloperGuiContext {
             .get()
             .iter()
             .map(|pin| {
-                let specific_key = FigureCanvasKey::from_trace_data(
-                    self.trace_context.trace_data(*pin),
-                    &restriction,
-                    true,
-                );
-                let generic_key = FigureCanvasKey::from_trace_data(
-                    self.trace_context.trace_data(*pin),
-                    &restriction,
-                    false,
-                );
+                let specific_key =
+                    FigureCanvasKey::from_trace_data(self.trace_data(*pin), &restriction, true);
+                let generic_key =
+                    FigureCanvasKey::from_trace_data(self.trace_data(*pin), &restriction, false);
                 let generic_value = self.figure_canvases.borrow(file!(), line!())[&generic_key];
                 let specific_value = self.figure_canvases.borrow(file!(), line!())[&specific_key];
                 match specific_value {

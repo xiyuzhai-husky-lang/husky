@@ -17,10 +17,7 @@ pub fn TraceToken<'a, G: Html>(scope: Scope<'a>, props: TraceTokenProps<'a>) -> 
     let context = use_dev_context(scope);
     let shown = memo!(scope, move || {
         if let Some(associated_trace_id) = props.data.opt_associated_trace_id {
-            context
-                .trace_context
-                .shown_read_signal(associated_trace_id)
-                .cget()
+            context.shown_read_signal(associated_trace_id).cget()
         } else {
             false
         }
