@@ -46,6 +46,12 @@ impl StatusChange {
                     // log::info!("fcous context is \n:{:?}", self.restriction_context);
                     log::info!("opt active trace id is \n:{:?}", ctx.opt_active_trace_id());
                 }
+                'F' => {
+                    log::info!(
+                        "figure canvases: {:?}",
+                        ctx.figure_canvases.borrow(file!(), line!())
+                    );
+                }
                 'J' => {
                     todo!()
                 }

@@ -30,7 +30,8 @@ pub(super) fn TraceExpansion<'a, G: Html>(
                         }
                     },
                     on:click=move |ev:Event|{
-                        // ev.stop_propagation();
+                        ev.stop_propagation();
+                        log::info!("clicked");
                         opt_on_click_start.clone().unwrap()()
                     }
                 ) {
