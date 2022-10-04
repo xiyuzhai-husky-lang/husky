@@ -127,120 +127,6 @@ impl HuskyDebuggerInstance {
 }
 
 impl HuskyDebuggerInternal {
-    #[cfg(feature = "verify_consistency")]
-    fn handle_gui_message(
-        &mut self,
-        request: &HuskyTracerGuiMessage,
-    ) -> Option<HuskyTracerServerMessageVariant> {
-        if let Some(request_id) = request.opt_request_id {
-            if self.next_request_id != request_id {
-                // make sure all requests are received in order
-                match request.variant {
-                    HuskyTracerGuiMessageVariant::HotReloadRequest => {
-                        self.next_request_id = request_id + 1;
-                    }
-                    _ => {
-                        p!(request, self.next_request_id, request_id);
-                        panic!("todo: replace panic with caching or warning")
-                    }
-                }
-            } else {
-                self.next_request_id += 1
-            }
-        }
-        match request.variant {
-            HuskyTracerGuiMessageVariant::HotReloadRequest => {
-                Some(HuskyTracerServerMessageVariant::HotReload {
-                    init_data: self.devtime.init_data(),
-                })
-            }
-            HuskyTracerGuiMessageVariant::Activate {
-                trace_id,
-                needs_figure_canvases,
-                needs_figure_controls,
-            } => self.handle_activate(
-                trace_id,
-                needs_figure_canvases,
-                needs_figure_controls,
-                request,
-            ),
-            HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
-                if let Some((new_traces, subtrace_ids, trace_stalks, trace_stats)) =
-                    self.devtime.toggle_expansion(trace_id)
-                {
-                    Some(HuskyTracerServerMessageVariant::ToggleExpansion {
-                        new_traces,
-                        subtrace_ids,
-                        trace_stalks,
-                        trace_stats,
-                    })
-                } else {
-                    // ad hoc; should panic here
-                    if request.opt_request_id.is_some() {
-                        Some(HuskyTracerServerMessageVariant::ToggleExpansion {
-                            new_traces: Default::default(),
-                            subtrace_ids: Default::default(),
-                            trace_stalks: Default::default(),
-                            trace_stats: Default::default(),
-                        })
-                    } else {
-                        None
-                    }
-                }
-            }
-            HuskyTracerGuiMessageVariant::ToggleShow { trace_id } => {
-                self.devtime.toggle_show(trace_id);
-                None
-            }
-            HuskyTracerGuiMessageVariant::Trace { id } => {
-                let trace = self.devtime.trace(id);
-                Some(HuskyTracerServerMessageVariant::Trace {
-                    trace_props: trace.raw_data.clone(),
-                })
-            }
-            HuskyTracerGuiMessageVariant::TraceStalk { trace_id } => {
-                let (_, stalk) = self.devtime.keyed_trace_stalk(trace_id);
-                Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
-            }
-            HuskyTracerGuiMessageVariant::SetRestriction {
-                ref restriction,
-                needs_figure_canvases,
-                needs_figure_controls,
-                ref new_stalk_keys,
-                ref new_stats_keys,
-            } => self.handle_set_restriction(
-                restriction,
-                needs_figure_canvases,
-                needs_figure_controls,
-                new_stalk_keys,
-                new_stats_keys,
-            ),
-            HuskyTracerGuiMessageVariant::UpdateFigureControlData {
-                trace_id,
-                ref restriction,
-                ref figure_control_props,
-            } => {
-                self.devtime.update_figure_control(
-                    trace_id,
-                    restriction,
-                    figure_control_props.clone(),
-                );
-                None
-            }
-            HuskyTracerGuiMessageVariant::TogglePin {
-                trace_id,
-                needs_figure_canvases,
-                needs_figure_controls,
-            } => self.handle_toggle_pin(
-                trace_id,
-                needs_figure_canvases,
-                needs_figure_controls,
-                request,
-            ),
-        }
-    }
-
-    #[cfg(not(feature = "verify_consistency"))]
     fn handle_gui_message(
         &mut self,
         request: &HuskyTracerGuiMessage,
@@ -280,6 +166,7 @@ impl HuskyDebuggerInternal {
                 request,
             )?,
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
+                println!("toggle expansion message received");
                 let opt_results = match self.devtime.toggle_expansion(trace_id).result()? {
                     Ok(opt_results) => opt_results,
                     Err(e) => {
