@@ -1,7 +1,7 @@
 mod figure_context;
 mod impl_init;
 mod impl_status_change;
-mod restriction_context;
+mod presentation;
 mod trace_context;
 mod utils;
 
@@ -11,8 +11,8 @@ use vec_like::VecSet;
 use crate::{services::websocket::WebsocketService, *};
 use figure_context::*;
 use futures::{channel::mpsc::Sender, stream::SplitStream, SinkExt, StreamExt};
+use presentation::*;
 use reqwasm::websocket::{futures::WebSocket, Message};
-use restriction_context::*;
 use std::{
     collections::HashMap,
     rc::Rc,
@@ -20,29 +20,32 @@ use std::{
 };
 use wasm_bindgen_futures::spawn_local;
 
-pub struct DebuggerContext {
+pub struct DeveloperGuiContext {
     pub(crate) ws: WebsocketService,
     pub(crate) scope: Scope<'static>,
     pub(crate) window_inner_height: &'static Signal<f64>,
     pub(crate) window_inner_width: &'static Signal<f64>,
     pub(crate) trace_context: TraceContext,
-    pub(crate) restriction_context: RestrictionContext,
     pub(crate) dialog_opened: &'static Signal<bool>,
     figure_canvases: RefCell<HashMap<FigureCanvasKey, &'static FigureCanvasData>>,
     figure_controls: RefCell<HashMap<FigureControlKey, &'static Signal<FigureControlData>>>,
-    pub(crate) pins: &'static Signal<VecSet<TraceId>>,
+    presentation_signal: &'static Signal<Presentation>,
+    opt_sample_id_signal: &'static ReadSignal<Option<SampleId>>,
+    opt_active_trace_id_signal: &'static ReadSignal<Option<TraceId>>,
+    pub(crate) presentation_locked_signal: Signal<bool>,
+    pub(crate) pins_signal: &'static Signal<VecSet<TraceId>>,
 }
 
-impl DebuggerContext {
-    pub fn new_ref(scope: Scope<'static>) -> &'static DebuggerContext {
+impl DeveloperGuiContext {
+    pub fn new_ref(scope: Scope<'static>) -> &'static DeveloperGuiContext {
         let (mut ws, mut server_notification_receiver) = WebsocketService::new();
         let context =
-            unsafe { as_static_ref(provide_context(scope, DebuggerContext::new(scope, ws))) };
+            unsafe { as_static_ref(provide_context(scope, DeveloperGuiContext::new(scope, ws))) };
         context.init(server_notification_receiver);
         context
     }
 
-    fn new(scope: Scope<'static>, ws: WebsocketService) -> DebuggerContext {
+    fn new(scope: Scope<'static>, ws: WebsocketService) -> DeveloperGuiContext {
         let window = web_sys::window().unwrap();
         let window_inner_height =
             create_signal(scope, window.inner_height().unwrap().as_f64().unwrap());
@@ -64,17 +67,25 @@ impl DebuggerContext {
                 .unwrap();
             closure.forget();
         }
-        DebuggerContext {
+        let presentation_signal = &create_static_signal(scope, Presentation::default());
+        let opt_sample_id_signal =
+            create_static_memo(scope, || presentation_signal.get().opt_sample_id());
+        let opt_active_trace_id_signal =
+            create_static_memo(scope, || presentation_signal.get().opt_active_trace_id());
+        DeveloperGuiContext {
             window_inner_height,
             window_inner_width,
             ws,
             trace_context: TraceContext::new(scope),
-            restriction_context: RestrictionContext::new(scope),
             dialog_opened: create_signal(scope, false),
             scope,
             figure_canvases: Default::default(),
             figure_controls: Default::default(),
-            pins: create_static_signal(scope, Default::default()),
+            pins_signal: create_static_signal(scope, Default::default()),
+            presentation_signal,
+            opt_sample_id_signal,
+            opt_active_trace_id_signal,
+            presentation_locked_signal: Default::default(),
         }
     }
 }

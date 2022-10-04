@@ -66,14 +66,14 @@ pub struct GenericF32PointProps {
 #[component]
 fn GenericF32Point<'a, G: Html>(scope: Scope<'a>, props: GenericF32PointProps) -> View<G> {
     let ctx = use_dev_context(scope);
-    let restriction = ctx.restriction_context.presentation;
+    let presentation_signal = ctx.presentation_signal();
     view! {
         scope,
         circle (
             class=format!(
                 "ClassIndex{} {}",
                 props.circle.class_index,
-                if restriction.get().sample_id() == props.sample_id {
+                if presentation_signal.get().sample_id() == props.sample_id {
                     " focused"
                 } else {
                     ""

@@ -1,7 +1,7 @@
 use super::*;
 use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
 
-impl DebuggerContext {
+impl DeveloperGuiContext {
     // pub(super) fn toggle_restriction_kind(&'static self) {
     //     let mut restriction = self.restriction_context.restriction.cget();
     //     restriction.toggle_is_specific();
@@ -76,7 +76,7 @@ impl DebuggerContext {
 
     #[cfg(not(feature = "verify_consistency"))]
     pub(super) fn set_restriction(&'static self, new_restriction: Presentation) {
-        let opt_active_trace_id = self.trace_context.opt_active_trace_id.cget();
+        let opt_active_trace_id = self.opt_active_trace_id();
         let needs_figure_canvases =
             self.needs_figure_canvases(opt_active_trace_id, &new_restriction);
         let needs_figure_controls =
@@ -118,16 +118,12 @@ impl DebuggerContext {
                                 .into_iter()
                                 .map(|(k, v)| (k, v.map(|v| self.alloc_value(v)))),
                         );
-                        self.restriction_context
-                            .presentation
-                            .set(new_restriction.clone())
+                        self.set_presentation(new_restriction)
                     }
                     _ => panic!(),
                 }))
             } else {
-                self.restriction_context
-                    .presentation
-                    .set(new_restriction.clone());
+                self.set_presentation(new_restriction);
                 None
             },
         );

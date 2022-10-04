@@ -1,7 +1,7 @@
 use super::*;
 use web_sys::{Event, HtmlDialogElement, HtmlInputElement, KeyboardEvent};
 
-impl DebuggerContext {
+impl DeveloperGuiContext {
     pub(super) fn needs_figure_canvases(
         &self,
         opt_active_trace_id: Option<TraceId>,
@@ -12,7 +12,7 @@ impl DebuggerContext {
                 return true;
             }
         };
-        for pin in self.pins.get().iter() {
+        for pin in self.pins_signal.get().iter() {
             if self.needs_figure_canvas(*pin, presentation) {
                 return true;
             }
@@ -51,7 +51,7 @@ impl DebuggerContext {
                 return true;
             }
         }
-        for pin in self.pins.get().iter() {
+        for pin in self.pins_signal.get().iter() {
             if self.needs_figure_control(*pin, presentation) {
                 return true;
             }

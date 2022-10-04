@@ -13,24 +13,24 @@ pub(super) enum StatusChange {
     TogglePin { trace_id: TraceId },
     ToggleShown { trace_id: TraceId },
     Activate { trace_id: TraceId },
-    SetRestriction { restriction: Presentation },
+    SetPresentation { presentation: Presentation },
 }
 
 impl StatusChange {
     pub(super) fn update_restriction(
-        ctx: &'static DebuggerContext,
+        ctx: &'static DeveloperGuiContext,
         update: impl FnOnce(&mut Presentation),
     ) -> Self {
-        let mut restriction = ctx.restriction_context.presentation.cget();
-        update(&mut restriction);
-        StatusChange::SetRestriction { restriction }
+        let mut presentation = ctx.presentation_signal.cget();
+        update(&mut presentation);
+        StatusChange::SetPresentation { presentation }
     }
 
-    fn toggle_restriction_is_specific(ctx: &'static DebuggerContext) -> Self {
+    fn toggle_restriction_is_specific(ctx: &'static DeveloperGuiContext) -> Self {
         Self::update_restriction(ctx, |res| res.toggle_kind())
     }
 
-    fn keydown(ctx: &'static DebuggerContext, ev: Event) -> Option<Self> {
+    fn keydown(ctx: &'static DeveloperGuiContext, ev: Event) -> Option<Self> {
         if !ctx.dialog_opened.cget() {
             let ev: KeyboardEvent = ev.unchecked_into();
             let c = char::from_u32(ev.key_code()).unwrap();
@@ -38,19 +38,13 @@ impl StatusChange {
                 'T' => {
                     // 't'
                     // log::info!("active trace is {:?}", ctx.trace_context.opt_active_trace());
-                    log::info!(
-                        "restriction is {:?}",
-                        ctx.restriction_context.presentation.get()
-                    )
+                    log::info!("restriction is {:?}", ctx.presentation_signal.get())
                 }
                 'C' => {
                     // 't'
                     // log::info!("figure context is \n:{:?}", ctx);
                     // log::info!("fcous context is \n:{:?}", self.restriction_context);
-                    log::info!(
-                        "opt active trace id is \n:{:?}",
-                        ctx.trace_context.opt_active_trace_id
-                    );
+                    log::info!("opt active trace id is \n:{:?}", ctx.opt_active_trace_id());
                 }
                 'J' => {
                     todo!()
@@ -71,14 +65,16 @@ impl StatusChange {
     }
 }
 
-impl DebuggerContext {
+impl DeveloperGuiContext {
     pub(super) fn handle_status_change(&'static self, event: StatusChange) {
         // todo: record user events
         match event {
             StatusChange::ToggleExpansion { trace_id } => self.toggle_expansion(trace_id),
             StatusChange::ToggleShown { trace_id } => self.toggle_shown(trace_id),
             StatusChange::Activate { trace_id } => self.activate(trace_id),
-            StatusChange::SetRestriction { restriction } => self.set_restriction(restriction),
+            StatusChange::SetPresentation {
+                presentation: restriction,
+            } => self.set_restriction(restriction),
             StatusChange::TogglePin { trace_id } => self.toggle_pin(trace_id),
         }
     }

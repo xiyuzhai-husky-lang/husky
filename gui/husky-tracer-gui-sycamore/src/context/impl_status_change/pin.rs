@@ -1,11 +1,11 @@
 use super::*;
 
-impl DebuggerContext {
+impl DeveloperGuiContext {
     pub(super) fn toggle_pin(&'static self, trace_id: TraceId) {
-        let pins = self.pins;
+        let pins = self.pins_signal;
         let trace = self.trace_context.trace_data(trace_id);
         let pinned = pins.get().has(trace_id);
-        let restriction = self.restriction_context.presentation.get();
+        let restriction = self.presentation_signal().get();
         let needs_figure_canvases =
             !pinned && (self.needs_figure_canvases(Some(trace_id), &restriction));
         let needs_figure_controls =

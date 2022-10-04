@@ -374,7 +374,7 @@ impl HuskyDebuggerInternal {
         needs_figure_controls: bool,
         request: &HuskyTracerGuiMessage,
     ) -> HandleGuiMessageM<Option<HuskyTracerServerMessageVariant>> {
-        HandleGuiMessageM::Ok(match self.devtime.activate(trace_id).result()? {
+        HandleGuiMessageM::Ok(match self.devtime.activate_trace(trace_id).result()? {
             Ok((new_figure_canvases, new_figure_controls)) => {
                 let needs_response = needs_figure_canvases || needs_figure_controls;
                 should_eq!(request.opt_request_id.is_some(), needs_response);

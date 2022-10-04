@@ -70,7 +70,7 @@ macro_rules! insert_new {
 }
 pub(crate) use insert_new;
 
-use crate::context::DebuggerContext;
+use crate::context::DeveloperGuiContext;
 
 pub(crate) fn create_static_ref<'a, T>(scope: Scope<'a>, value: T) -> &'static T {
     unsafe { as_static_ref(create_ref(scope, value)) }
@@ -97,6 +97,6 @@ pub(crate) unsafe fn as_static_ref<'a, T>(value: &T) -> &'static T {
     &*ptr
 }
 
-pub(crate) fn use_dev_context<'a>(scope: Scope<'a>) -> &'static DebuggerContext {
-    unsafe { as_static_ref(use_context::<DebuggerContext>(scope)) }
+pub(crate) fn use_dev_context<'a>(scope: Scope<'a>) -> &'static DeveloperGuiContext {
+    unsafe { as_static_ref(use_context::<DeveloperGuiContext>(scope)) }
 }

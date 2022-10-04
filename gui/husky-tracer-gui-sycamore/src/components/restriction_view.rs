@@ -4,20 +4,19 @@ use web_sys::{Event, HtmlDialogElement, HtmlFormElement, HtmlInputElement, Keybo
 
 #[component]
 pub fn RestrictionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
-    let dev_context = use_dev_context(scope);
-    let restriction_context = &dev_context.restriction_context;
+    let ctx = use_dev_context(scope);
     let generic = create_signal(scope, true);
-    let restriction = restriction_context.presentation;
-    let last_sample_id = create_signal(scope, restriction.get_untracked().opt_sample_id());
-    let toggle_restriction_kind_handler = dev_context.toggle_restriction_kind_handler();
+    let presentation_signal = ctx.presentation_signal();
+    let last_sample_id = create_signal(scope, presentation_signal.get_untracked().opt_sample_id());
+    let toggle_restriction_kind_handler = ctx.toggle_restriction_kind_handler();
     let restriction_kind = memo!(
         scope,
-        move || match restriction.get().is_specific() {
+        move || match presentation_signal.get().is_specific() {
             true => "SPECIFIC",
             false => "GENERIC",
         }
         .to_string(),
-        restriction
+        presentation_signal
     );
     view! {
         scope,
@@ -35,9 +34,9 @@ pub fn RestrictionView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
             }
             label (
                 id="sample-id-value",
-                on:click=dev_context.set_restriction_from_dialog_handler()
+                on:click=ctx.set_restriction_from_dialog_handler()
             ) {
-                (restriction.get().sample_id().0)
+                (presentation_signal.get().sample_id().0)
             }
         }
     }

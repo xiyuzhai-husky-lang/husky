@@ -2,7 +2,7 @@ use vec_like::VecSet;
 
 use super::*;
 
-impl DebuggerContext {
+impl DeveloperGuiContext {
     pub(super) fn receive_figure_canvases(
         &self,
         scope: Scope<'static>,
@@ -82,16 +82,16 @@ impl DebuggerContext {
     }
 
     pub(crate) fn did_toggle_pin(&self, trace_id: TraceId) {
-        let mut new_pins = self.pins.cget();
+        let mut new_pins = self.pins_signal.cget();
         new_pins.toggle(trace_id);
-        self.pins.set(new_pins);
+        self.pins_signal.set(new_pins);
     }
 }
 
-impl DebuggerContext {
+impl DeveloperGuiContext {
     pub(crate) fn collect_pinned_canvas_values(&'static self) -> Vec<PinnedFigureCanvasValue> {
-        let restriction = self.restriction_context.presentation.get();
-        self.pins
+        let restriction = self.presentation_signal().get();
+        self.pins_signal
             .get()
             .iter()
             .map(|pin| {

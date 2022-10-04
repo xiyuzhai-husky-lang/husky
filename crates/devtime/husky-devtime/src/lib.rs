@@ -59,14 +59,14 @@ impl HuskyDevtime {
         *self.state.opt_active_trace_id
     }
 
-    pub fn activate(
+    pub fn activate_trace(
         &mut self,
         trace_id: TraceId,
     ) -> HuskyDevtimeTakeChangeM<(
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
     )> {
-        self.state.opt_active_trace_id.set(Some(trace_id));
+        self.state.activate_trace(trace_id);
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
         let change = self.take_change()?;

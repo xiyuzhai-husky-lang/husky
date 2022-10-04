@@ -12,6 +12,7 @@ use serde::{Deserialize, Serialize};
 pub struct Presentation {
     kind: PresentationKind,
     sample_id: SampleId,
+    opt_active_trace_id: Option<TraceId>,
     restriction: Restriction,
     partitions: Partitions, // don't need this when we have monad
 }
@@ -61,7 +62,23 @@ impl Presentation {
         self.restriction
     }
 
-    pub fn activate_trace(&self, trace_data: &TraceData) -> Presentation {
+    pub fn opt_active_trace_id(&self) -> Option<TraceId> {
+        self.opt_active_trace_id
+    }
+
+    pub fn activate_trace(&mut self, trace_data: &TraceData) {
+        self.restriction = if let Some(feature_id) = trace_data.opt_arrival_indicator {
+            Restriction::Arrival {
+                trace_id: trace_data.id,
+                feature_id,
+                arrival_restriction_kind: ArrivalRestrictionKind::Default,
+            }
+        } else {
+            Restriction::None
+        }
+    }
+
+    pub fn activate_trace_out_of_place(&self, trace_data: &TraceData) -> Presentation {
         let mut presentation = self.clone();
         presentation.restriction = if let Some(feature_id) = trace_data.opt_arrival_indicator {
             Restriction::Arrival {
@@ -105,6 +122,7 @@ impl Presentation {
             sample_id: specific_sample_id,
             partitions: Default::default(),
             restriction: Default::default(),
+            opt_active_trace_id: todo!(),
         }
     }
 
@@ -139,6 +157,7 @@ impl Default for Presentation {
             sample_id: SampleId(0),
             partitions: Default::default(),
             restriction: Default::default(),
+            opt_active_trace_id: None,
         }
     }
 }

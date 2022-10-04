@@ -24,8 +24,9 @@ fn main() {
     let gui: Element = get_gui();
     sycamore::render_to_static(
         |scope| {
-            let context =
-                unsafe { as_static_ref(provide_context(scope, DebuggerContext::new_ref(scope))) };
+            let context = unsafe {
+                as_static_ref(provide_context(scope, DeveloperGuiContext::new_ref(scope)))
+            };
             let layout_width = memo!(scope, || math::round::floor(
                 context.window_inner_width.cget(),
                 0

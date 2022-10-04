@@ -24,7 +24,7 @@ impl<'a> HSplitPanelProps<'a> {
 
 #[component]
 pub fn HSplitPanel<'a, G: Html>(scope: Scope<'a>, props: HSplitPanelProps<'a>) -> View<G> {
-    let context = use_context::<DebuggerContext>(scope);
+    let context = use_context::<DeveloperGuiContext>(scope);
     let root_trace_ids = &context.trace_context.root_trace_ids;
     let left_panel_dimension = memo!(scope, move || props.left_panel_dimension(), props);
     let right_panel_dimension = memo!(scope, move || props.right_panel_dimension(), props);

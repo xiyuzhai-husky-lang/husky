@@ -6,7 +6,7 @@ pub struct PartitionContentProps<'a> {
     column_dimension: &'a ReadSignal<PixelDimension>,
     partition: &'a PartitionDefnData,
     samples: &'a [(SampleId, Graphics2dCanvasData)],
-    restriction: &'a ReadSignal<Presentation>,
+    presentation_signal: &'a ReadSignal<Presentation>,
 }
 
 #[component]
@@ -40,7 +40,7 @@ pub fn PartitionContent<'a, G: Html>(
     let sample_graphics2d_dimension =
         memo!(scope, move || { column_dimension.cget() / (1, 5) - (2, 4) });
     let partition = format!("{}", props.partition);
-    let restriction = props.restriction;
+    let restriction = props.presentation_signal;
     let ctx = use_dev_context(scope);
     view! {
         scope,
