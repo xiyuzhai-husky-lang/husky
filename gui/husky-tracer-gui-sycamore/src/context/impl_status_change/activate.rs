@@ -2,6 +2,11 @@ use super::*;
 
 impl DeveloperGuiContext {
     pub(crate) fn activate(&'static self, new_active_trace_id: TraceId) {
+        if self.opt_active_trace_id() == Some(new_active_trace_id) {
+            // do nothing if already activated
+            // without this toggle expansion doesn't work
+            return;
+        }
         let trace_data = self.trace_data(new_active_trace_id);
         let presentation = self
             .presentation_signal()
