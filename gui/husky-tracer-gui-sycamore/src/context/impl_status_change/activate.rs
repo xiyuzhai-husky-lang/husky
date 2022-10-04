@@ -2,7 +2,7 @@ use super::*;
 
 impl DeveloperGuiContext {
     pub(crate) fn activate(&'static self, new_active_trace_id: TraceId) {
-        let trace_data = self.trace_context.trace_data(new_active_trace_id);
+        let trace_data = self.trace_data(new_active_trace_id);
         let presentation = self
             .presentation_signal()
             .get()
@@ -31,17 +31,21 @@ impl DeveloperGuiContext {
                                 .map(|(k, v)| (k, self.alloc_value(v))),
                         );
                         self.receive_figure_controls(self.scope, new_figure_controls.into_iter());
-                        self.trace_context.did_activate(new_active_trace_id);
+                        self.did_activate(new_active_trace_id);
                     }
                     HuskyTracerServerMessageVariant::ActivateWithError { .. } => todo!(),
                     _ => panic!("unexpected response {:?}", response),
                 }))
             } else {
                 {
-                    self.trace_context.did_activate(new_active_trace_id);
+                    self.did_activate(new_active_trace_id);
                     None
                 }
             },
         );
+    }
+
+    fn did_activate(&'static self, new_active_trace_id: TraceId) {
+        todo!()
     }
 }

@@ -11,10 +11,9 @@ pub struct TraceNodeProps<'a> {
 #[component]
 pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> View<G> {
     let ctx = use_dev_context(scope);
-    let trace_context = &ctx.trace_context;
-    let shown = trace_context.shown_read_signal(props.trace_id);
-    let expanded = trace_context.expansion_read_signal(props.trace_id);
-    let trace = trace_context.trace_data(props.trace_id);
+    let shown = ctx.shown_read_signal(props.trace_id);
+    let expanded = ctx.expansion_read_signal(props.trace_id);
+    let trace = ctx.trace_data(props.trace_id);
     let trace_kind = trace.kind;
     let opt_sample_id = ctx.opt_sample_id_signal();
     let has_stalk = memo!(scope, move || trace_kind.can_have_stalk()
@@ -37,7 +36,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                     memo!(scope, move || -> Option<&'static [TraceTokenData]> {
                         if let Some(sample_id) = opt_sample_id.cget() {
                             if line_idx == trace_lines_len - 1 {
-                                let trace_stalk = trace_context.trace_stalk(sample_id, trace_id);
+                                let trace_stalk = ctx.trace_stalk(sample_id, trace_id);
                                 Some(&trace_stalk.extra_tokens)
                             } else {
                                 None
@@ -64,7 +63,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     );
     let reachable = memo!(scope, move || trace.reachable);
     let presentation_signal = ctx.presentation_signal();
-    let opt_stats = memo!(scope, move || trace_context
+    let opt_stats = memo!(scope, move || ctx
         .opt_trace_stats(trace_id, &presentation_signal.get()));
     view! {
         scope,

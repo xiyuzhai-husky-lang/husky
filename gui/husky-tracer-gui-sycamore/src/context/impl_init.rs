@@ -61,7 +61,7 @@ impl DeveloperGuiContext {
         *self.figure_controls.borrow_mut(file!(), line!()) = self
             .alloc_key_signal_pairs(init_data.figure_controls)
             .collect();
-        self.trace_context.init(
+        self.init_trace_context(
             init_data
                 .trace_init_data
                 .trace_nodes

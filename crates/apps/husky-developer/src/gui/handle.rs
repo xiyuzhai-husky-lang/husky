@@ -287,11 +287,14 @@ impl HuskyDebuggerInternal {
                             __VMErrorVariant::Normal => todo!(),
                             __VMErrorVariant::FromBatch { sample_id } => {
                                 assert!(
-                                    self.devtime.restriction().is_generic()
-                                        || self.devtime.restriction().sample_id()
+                                    self.devtime.presentation().is_generic()
+                                        || self.devtime.presentation().sample_id()
                                             != SampleId(*sample_id)
                                 );
-                                p!(self.devtime.restriction().sample_id(), SampleId(*sample_id));
+                                p!(
+                                    self.devtime.presentation().sample_id(),
+                                    SampleId(*sample_id)
+                                );
                                 todo!()
                             }
                         }

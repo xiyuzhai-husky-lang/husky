@@ -3,7 +3,7 @@ use super::*;
 impl DeveloperGuiContext {
     pub(super) fn toggle_pin(&'static self, trace_id: TraceId) {
         let pins = self.pins_signal;
-        let trace = self.trace_context.trace_data(trace_id);
+        let trace = self.trace_data(trace_id);
         let pinned = pins.get().has(trace_id);
         let restriction = self.presentation_signal().get();
         let needs_figure_canvases =

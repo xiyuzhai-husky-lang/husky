@@ -28,8 +28,8 @@ impl<'a> VSplitPanelProps<'a> {
 
 #[component]
 pub fn VSplitPanel<'a, G: Html>(scope: Scope<'a>, props: VSplitPanelProps<'a>) -> View<G> {
-    let context = use_dev_context(scope);
-    let root_trace_ids = &context.trace_context.root_trace_ids;
+    let ctx = use_dev_context(scope);
+    let root_trace_ids = &ctx.root_trace_ids_signal();
     let upper_panel_dimension = memo!(scope, move || props.upper_panel_dimension(), props);
     let lower_panel_dimension = memo!(scope, move || props.lower_panel_dimension(), props);
     view! {

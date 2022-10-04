@@ -77,7 +77,7 @@ impl HuskyDevtime {
         let _staged_change = self.take_change()?;
         // ad hoc
         let init_data = InitData {
-            restriction: self.restriction().clone(),
+            presentation: self.presentation().clone(),
             trace_init_data: TraceInitData {
                 trace_nodes: self.all_trace_nodes(),
                 opt_active_trace_id: self.opt_active_trace_id(),
