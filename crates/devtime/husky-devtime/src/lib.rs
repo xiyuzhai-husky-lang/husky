@@ -56,7 +56,7 @@ impl HuskyDevtime {
     }
 
     pub fn opt_active_trace_id(&self) -> Option<TraceId> {
-        *self.state.opt_active_trace_id
+        self.state.presentation.opt_active_trace_id()
     }
 
     pub fn activate_trace(

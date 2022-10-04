@@ -67,6 +67,7 @@ impl Presentation {
     }
 
     pub fn activate_trace(&mut self, trace_data: &TraceData) {
+        self.opt_active_trace_id = Some(trace_data.id);
         self.restriction = if let Some(feature_id) = trace_data.opt_arrival_indicator {
             Restriction::Arrival {
                 trace_id: trace_data.id,
@@ -80,15 +81,7 @@ impl Presentation {
 
     pub fn activate_trace_out_of_place(&self, trace_data: &TraceData) -> Presentation {
         let mut presentation = self.clone();
-        presentation.restriction = if let Some(feature_id) = trace_data.opt_arrival_indicator {
-            Restriction::Arrival {
-                trace_id: trace_data.id,
-                feature_id,
-                arrival_restriction_kind: ArrivalRestrictionKind::Default,
-            }
-        } else {
-            Restriction::None
-        };
+        presentation.activate_trace(trace_data);
         presentation
     }
 

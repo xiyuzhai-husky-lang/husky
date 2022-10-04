@@ -8,7 +8,6 @@ use trackable::{
 pub struct HuskyDevtimeState {
     pub(crate) presentation: TrackableAtom<Presentation>,
     pub(crate) pins: VecSet<TraceId>,
-    pub(crate) opt_active_trace_id: TrackableAtom<Option<TraceId>>,
     pub(crate) trace_nodes: TrackableVec<TraceNode>,
     pub(crate) figure_canvases: TrackableMap<FigureCanvasKey, FigureCanvasData>,
     pub(crate) figure_controls: TrackableMap<FigureControlKey, FigureControlData>,
@@ -20,7 +19,6 @@ pub struct HuskyDevtimeState {
 
 pub struct DevtimeStateChange {
     pub(crate) restriction: <TrackableAtom<Presentation> as Trackable>::Change,
-    pub(crate) opt_active_trace_id: <TrackableAtom<Option<TraceId>> as Trackable>::Change,
     pub(crate) trace_nodes: <TrackableVec<TraceNode> as Trackable>::Change,
     pub(crate) figure_canvases:
         <TrackableMap<FigureCanvasKey, FigureCanvasData> as Trackable>::Change,
@@ -40,7 +38,6 @@ impl Trackable for HuskyDevtimeState {
     fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
         TrackableTakeChangeM::Ok(DevtimeStateChange {
             restriction: self.presentation.take_change()?,
-            opt_active_trace_id: self.opt_active_trace_id.take_change()?,
             trace_nodes: self.trace_nodes.take_change()?,
             figure_canvases: self.figure_canvases.take_change()?,
             figure_controls: self.figure_controls.take_change()?,
@@ -67,19 +64,15 @@ impl HuskyDevtimeState {
     }
 
     pub(crate) fn activate_trace(&mut self, trace_id: TraceId) -> HuskyDevtimeTakeChangeM<()> {
-        self.opt_active_trace_id.set(Some(trace_id));
         let trace_data = &self.trace_nodes[trace_id.raw()].trace_data();
-        if trace_data.opt_arrival_indicator.is_some() {
-            self.presentation
-                .update(|presentation| presentation.activate_trace(trace_data))?
-        }
+        self.presentation
+            .update(|presentation| presentation.activate_trace(trace_data));
         HuskyDevtimeTakeChangeM::Ok(())
     }
 
     pub(crate) fn clear(&mut self) -> HuskyDevtimeUpdateM<()> {
         self.presentation.update(|restriction| restriction.clear());
         self.pins = Default::default(); // improve this
-        self.opt_active_trace_id = Default::default(); //improve this
         self.trace_nodes = Default::default();
         self.figure_canvases = Default::default();
         self.figure_controls = Default::default();
