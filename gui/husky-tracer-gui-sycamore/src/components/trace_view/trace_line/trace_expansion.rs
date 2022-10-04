@@ -29,10 +29,12 @@ pub(super) fn TraceExpansion<'a, G: Html>(
                             "TraceExpansion"
                         }
                     },
-                    on:click=move |ev:Event|{
+                    on:mousedown=move |ev:Event| {
                         ev.stop_propagation();
-                        log::info!("clicked");
                         opt_on_click_start.clone().unwrap()()
+                    },
+                    on:click=move |ev:Event| {
+                        ev.stop_propagation()
                     }
                 ) {
                     svg (

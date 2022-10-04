@@ -98,7 +98,10 @@ impl DeveloperGuiContext {
     }
 
     pub fn activate_handler(&'static self, trace_id: TraceId) -> impl Fn(Event) {
-        move |_| self.handle_status_change(StatusChange::Activate { trace_id })
+        move |_| {
+            log::info!("handle activation");
+            self.handle_status_change(StatusChange::Activate { trace_id })
+        }
     }
 
     pub fn toggle_restriction_kind_handler(&'static self) -> impl Fn(Event) {

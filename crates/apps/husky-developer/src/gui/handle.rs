@@ -166,7 +166,6 @@ impl HuskyDebuggerInternal {
                 request,
             )?,
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
-                println!("toggle expansion message received");
                 let opt_results = match self.devtime.toggle_expansion(trace_id).result()? {
                     Ok(opt_results) => opt_results,
                     Err(e) => {
