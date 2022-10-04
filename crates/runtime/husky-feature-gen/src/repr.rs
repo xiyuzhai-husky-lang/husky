@@ -202,11 +202,7 @@ impl FeatureRepr {
             // ad hoc
             // todo: rename `Body` to `Block` and add opt_domain_indicator
             FeatureRepr::LazyBody(_) | FeatureRepr::FuncBody(_) | FeatureRepr::ProcBody(_) => None,
-            FeatureRepr::TargetInput {
-                main_file,
-                ty,
-                feature,
-            } => todo!(),
+            FeatureRepr::TargetInput { .. } => None,
         }
     }
 }

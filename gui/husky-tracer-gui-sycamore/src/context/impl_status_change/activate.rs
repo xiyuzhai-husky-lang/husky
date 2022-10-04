@@ -31,21 +31,21 @@ impl DeveloperGuiContext {
                                 .map(|(k, v)| (k, self.alloc_value(v))),
                         );
                         self.receive_figure_controls(self.scope, new_figure_controls.into_iter());
-                        self.did_activate(new_active_trace_id);
+                        self.did_activate(presentation);
                     }
                     HuskyTracerServerMessageVariant::ActivateWithError { .. } => todo!(),
                     _ => panic!("unexpected response {:?}", response),
                 }))
             } else {
                 {
-                    self.did_activate(new_active_trace_id);
+                    self.did_activate(presentation);
                     None
                 }
             },
         );
     }
 
-    fn did_activate(&'static self, new_active_trace_id: TraceId) {
-        todo!()
+    fn did_activate(&'static self, presentation: Presentation) {
+        self.presentation_signal.set(presentation)
     }
 }
