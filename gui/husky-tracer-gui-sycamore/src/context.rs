@@ -40,8 +40,6 @@ pub struct DeveloperGuiContext {
     figure_canvases: RefCell<HashMap<FigureCanvasKey, &'static FigureCanvasData>>,
     figure_controls: RefCell<HashMap<FigureControlKey, &'static Signal<FigureControlData>>>,
     presentation_signal: &'static Signal<Presentation>,
-    opt_sample_id_signal: &'static ReadSignal<Option<SampleId>>,
-    opt_active_trace_id_signal: &'static ReadSignal<Option<TraceId>>,
     // global control
     pub(crate) presentation_locked_signal: Signal<bool>,
     pub(crate) pins_signal: &'static Signal<VecSet<TraceId>>,
@@ -79,10 +77,6 @@ impl DeveloperGuiContext {
             closure.forget();
         }
         let presentation_signal = &create_static_signal(scope, Presentation::default());
-        let opt_sample_id_signal =
-            create_static_memo(scope, || presentation_signal.get().opt_sample_id());
-        let opt_active_trace_id_signal =
-            create_static_memo(scope, || presentation_signal.get().opt_active_trace_id());
         DeveloperGuiContext {
             ws,
             scope,
@@ -103,9 +97,6 @@ impl DeveloperGuiContext {
             // user state
             pins_signal: create_static_signal(scope, Default::default()),
             presentation_signal,
-            // derived signals
-            opt_sample_id_signal,
-            opt_active_trace_id_signal,
             presentation_locked_signal: Default::default(),
         }
     }

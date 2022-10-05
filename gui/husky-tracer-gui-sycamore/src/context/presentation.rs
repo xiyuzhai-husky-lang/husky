@@ -23,14 +23,6 @@ impl DeveloperGuiContext {
         self.presentation_signal
     }
 
-    pub(crate) fn opt_sample_id_signal(&self) -> &'static ReadSignal<Option<SampleId>> {
-        self.opt_sample_id_signal
-    }
-
-    pub(crate) fn opt_active_trace_id_signal(&self) -> &'static ReadSignal<Option<TraceId>> {
-        self.opt_active_trace_id_signal
-    }
-
     pub(crate) fn set_presentation(&self, presentation: Presentation) {
         self.presentation_signal.set(presentation)
     }

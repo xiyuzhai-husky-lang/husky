@@ -15,15 +15,17 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
     let expanded = ctx.expansion_read_signal(props.trace_id);
     let trace = ctx.trace_data(props.trace_id);
     let trace_kind = trace.kind;
-    let opt_sample_id = ctx.opt_sample_id_signal();
-    let has_stalk = memo!(scope, move || trace_kind.can_have_stalk()
-        && opt_sample_id.cget().is_some());
+    let presentation_signal = ctx.presentation_signal();
+    let has_stalk = memo!(scope, move || {
+        trace_kind.can_have_stalk() && presentation_signal.get().opt_sample_id().is_some()
+    });
     let has_subtraces = props.has_subtraces;
     let toggle_expansion_handler = ctx.toggle_expansion_handler(props.trace_id);
     let activate_handler = ctx.activate_handler(props.trace_id);
-    let opt_active_trace_id = ctx.opt_active_trace_id_signal();
     let trace_id = trace.id;
-    let is_trace_active = memo!(scope, move || opt_active_trace_id.cget() == Some(trace_id));
+    let is_trace_active = memo!(scope, move || {
+        presentation_signal.get().opt_active_trace_id() == Some(trace_id)
+    });
     let trace_lines_len = trace.lines.len();
     let trace_lines = View::new_fragment(
         trace
@@ -34,7 +36,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
                 let line_idx = line_data.idx;
                 let opt_extra_tokens =
                     memo!(scope, move || -> Option<&'static [TraceTokenData]> {
-                        if let Some(sample_id) = opt_sample_id.cget() {
+                        if let Some(sample_id) = presentation_signal.get().opt_sample_id() {
                             if line_idx == trace_lines_len - 1 {
                                 let trace_stalk = ctx.trace_stalk(sample_id, trace_id);
                                 Some(&trace_stalk.extra_tokens)
@@ -62,7 +64,6 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
             .collect(),
     );
     let reachable = memo!(scope, move || trace.reachable);
-    let presentation_signal = ctx.presentation_signal();
     let opt_stats = memo!(scope, move || ctx
         .opt_trace_stats(trace_id, &presentation_signal.get()));
     view! {
