@@ -11,7 +11,7 @@ pub enum TraceStats {
         dev_nones: usize,
         dev_trues: usize,
         dev_falses: usize,
-        dev_partition_noness: Vec<(PartitionDefnData, usize)>,
+        dev_partition_noness: Vec<(Partition, usize)>,
     },
 }
 

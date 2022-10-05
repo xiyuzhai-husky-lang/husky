@@ -83,7 +83,7 @@ impl HuskyDevtime {
         &self,
         repr: &FeatureRepr,
         transform_visual_data: impl Fn(VisualData) -> T,
-    ) -> Result<Vec<(PartitionDefnData, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
+    ) -> Result<Vec<(Partition, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
         let session = self.runtime().session();
         let dev_division = session.dev();
         let presentation = &self.state.presentation;

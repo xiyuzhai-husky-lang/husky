@@ -3,7 +3,7 @@ use super::*;
 #[derive(Prop)]
 pub struct GenericI32Props<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
-    partitioned_samples: &'a [(PartitionDefnData, Vec<(SampleId, i32)>)],
+    partitioned_samples: &'a [(Partition, Vec<(SampleId, i32)>)],
 }
 
 #[component]
@@ -16,14 +16,14 @@ pub fn GenericI32<'a, G: Html>(scope: Scope<'a>, props: GenericI32Props<'a>) -> 
         .map(|(_, value)| value);
     let max = *map.clone().max().unwrap();
     let min = *map.min().unwrap();
-    let bins: Vec<Vec<(&'a PartitionDefnData, Vec<SampleId>)>> = (min..(max + 1))
+    let bins: Vec<Vec<(&'a Partition, Vec<SampleId>)>> = (min..(max + 1))
         .into_iter()
         .map(|dv| {
             props
                 .partitioned_samples
                 .iter()
                 .map(
-                    |(partition_defn_data, samples)| -> (&'a PartitionDefnData, Vec<SampleId>) {
+                    |(partition_defn_data, samples)| -> (&'a Partition, Vec<SampleId>) {
                         (
                             partition_defn_data,
                             samples
@@ -70,7 +70,7 @@ pub fn GenericI32<'a, G: Html>(scope: Scope<'a>, props: GenericI32Props<'a>) -> 
 #[derive(Prop)]
 pub struct GenericI32BinProps<'a> {
     label: i32,
-    partitioned_samples: Vec<(&'a PartitionDefnData, Vec<SampleId>)>,
+    partitioned_samples: Vec<(&'a Partition, Vec<SampleId>)>,
 }
 
 #[component]
@@ -106,7 +106,7 @@ fn GenericI32Bin<'a, G: Html>(scope: Scope<'a>, props: GenericI32BinProps<'a>) -
 
 #[derive(Prop)]
 pub struct GenericI32SampleProps<'a> {
-    partition_defn: &'a PartitionDefnData,
+    partition_defn: &'a Partition,
     sample_id: SampleId,
 }
 

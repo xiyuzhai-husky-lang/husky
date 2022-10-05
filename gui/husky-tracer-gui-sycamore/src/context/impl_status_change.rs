@@ -157,7 +157,7 @@ impl DeveloperGuiContext {
                                     return;
                                 }
                             };
-                            let new_partition = PartitionDefnData {
+                            let new_partition = Partition {
                                 ncol,
                                 variant: PartitionDefnDataVariant::Label(Label(label_raw as i32)),
                             };

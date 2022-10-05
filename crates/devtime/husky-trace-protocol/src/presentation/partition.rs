@@ -3,12 +3,12 @@ use husky_datasets_interface::LabeledData;
 use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
-pub struct PartitionDefnData {
+pub struct Partition {
     pub ncol: u32,
     pub variant: PartitionDefnDataVariant,
 }
 
-impl std::fmt::Display for PartitionDefnData {
+impl std::fmt::Display for Partition {
     fn fmt(&self, f: &mut __private::Formatter<'_>) -> std::fmt::Result {
         match self.variant {
             PartitionDefnDataVariant::Label(label) => label.0.fmt(f),
@@ -27,7 +27,7 @@ pub enum PartitionDefnDataVariant {
 
 #[test]
 fn test_contains() {
-    let partition = PartitionDefnData {
+    let partition = Partition {
         ncol: 3,
         variant: PartitionDefnDataVariant::Label(Label(3)),
     };
@@ -36,7 +36,7 @@ fn test_contains() {
     assert!(!partition.contains(Label(0)));
 }
 
-impl PartitionDefnData {
+impl Partition {
     pub fn contains(&self, target: Label) -> bool {
         match self.variant {
             PartitionDefnDataVariant::Label(label) => label == target,
@@ -61,7 +61,7 @@ pub struct PartitionedSampler<'a, T> {
     // the second partition is filled iff the last second digit of partition_filled is 0
     flags: u32,
     partitions: &'a Partitions,
-    partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, T)>)>,
+    partitioned_samples: Vec<(Partition, Vec<(SampleId, T)>)>,
     col_len: u32,
 }
 
@@ -105,7 +105,7 @@ impl<'a, T> PartitionedSampler<'a, T> {
         self.partitions.partition_ncol(partition_idx)
     }
 
-    pub fn finish(self) -> Vec<(PartitionDefnData, Vec<(SampleId, T)>)> {
+    pub fn finish(self) -> Vec<(Partition, Vec<(SampleId, T)>)> {
         self.partitioned_samples
     }
 }

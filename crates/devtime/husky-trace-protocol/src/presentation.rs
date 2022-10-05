@@ -157,7 +157,7 @@ impl Presentation {
         self.sample_id = sample_id;
     }
 
-    pub fn add_partition(&mut self, idx: usize, new_partition: PartitionDefnData) {
+    pub fn add_partition(&mut self, idx: usize, new_partition: Partition) {
         self.partitions.add_partition(idx, new_partition)
     }
 

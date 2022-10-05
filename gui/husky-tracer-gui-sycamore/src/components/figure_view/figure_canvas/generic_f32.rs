@@ -6,7 +6,7 @@ use scale::*;
 #[derive(Prop)]
 pub struct GenericF32Props<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
-    partitioned_samples: &'a [(PartitionDefnData, Vec<(SampleId, f32)>)],
+    partitioned_samples: &'a [(Partition, Vec<(SampleId, f32)>)],
 }
 
 #[component]

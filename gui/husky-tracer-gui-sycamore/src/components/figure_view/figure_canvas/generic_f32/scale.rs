@@ -11,7 +11,7 @@ pub(super) struct GenericF32Scale {
 }
 
 impl GenericF32Scale {
-    pub fn new(partitioned_samples: &[(PartitionDefnData, Vec<(SampleId, f32)>)]) -> Self {
+    pub fn new(partitioned_samples: &[(Partition, Vec<(SampleId, f32)>)]) -> Self {
         let mut value_min = f32::MAX;
         let mut value_max = f32::MIN;
         for (_, samples) in partitioned_samples {

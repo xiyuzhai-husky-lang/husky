@@ -4,7 +4,7 @@ use super::*;
 pub struct PartitionContentProps<'a> {
     idx: usize,
     column_dimension: &'a ReadSignal<PixelDimension>,
-    partition: &'a PartitionDefnData,
+    partition: &'a Partition,
     samples: &'a [(SampleId, Graphics2dCanvasData)],
     presentation_signal: &'a ReadSignal<Presentation>,
 }
