@@ -36,8 +36,17 @@ pub(crate) async fn handle_query_upgraded(websocket: WebSocket, dev: Arc<HuskyDe
         match message.to_str() {
             Ok(text) => match serde_json::from_str(text) {
                 Ok::<HuskyTracerGuiMessage, _>(gui_message) => {
+                    println!(
+                        r#"receive message:
+    {text}"#
+                    );
                     gui_messages.push(gui_message);
-                    handle_message(dev.clone(), client_sender.clone(), &gui_messages).unwrap()
+                    let now = Instant::now();
+                    handle_message(dev.clone(), client_sender.clone(), &gui_messages).unwrap();
+                    println!(
+                        "{} milliseconds elapsed for handling message",
+                        now.elapsed().as_millis(),
+                    );
                 }
                 Err(_) => {
                     p!(text);
