@@ -6,16 +6,16 @@ pub enum FigureCanvasValue {
         value: PrimitiveValueData,
     },
     GenericF32 {
-        partitioned_samples: Vec<(Partition, Vec<(SampleId, f32)>)>,
+        partitioned_samples: &'static [(Partition, Vec<(SampleId, f32)>)],
     },
     GenericI32 {
-        partitioned_samples: Vec<(Partition, Vec<(SampleId, i32)>)>,
+        partitioned_samples: &'static [(Partition, Vec<(SampleId, i32)>)],
     },
     Graphics2d {
-        particular: Graphics2dCanvasData,
+        graphics2d_data: Graphics2dCanvasValue,
     },
     GenericGraphics2d {
-        partitioned_samples: Vec<(Partition, Vec<(SampleId, Graphics2dCanvasValue)>)>,
+        partitioned_samples: Vec<(&'static Partition, Vec<(SampleId, Graphics2dCanvasValue)>)>,
         particular: Graphics2dCanvasValue,
     },
 }
@@ -28,11 +28,24 @@ impl Default for FigureCanvasValue {
     }
 }
 
+#[derive(Clone)]
 pub struct Graphics2dCanvasValue {
     pub(crate) image_layers: Vec<&'static ImageLayerData>,
     pub(crate) shapes: Vec<&'static Shape2dData>,
     pub xrange: (f32, f32),
     pub yrange: (f32, f32),
+}
+
+impl ContainsShapes<'static> for Graphics2dCanvasValue {
+    fn shapes(&self) -> Vec<&'static Shape2dData> {
+        self.shapes.clone()
+    }
+}
+
+impl ContainsImageLayers<'static> for Graphics2dCanvasValue {
+    fn image_layers(&self) -> Vec<&'static ImageLayerData> {
+        self.image_layers.clone()
+    }
 }
 
 impl FigureCanvasValue {
@@ -67,7 +80,9 @@ impl FigureCanvasValue {
             FigureCanvasValue::GenericI32 {
                 partitioned_samples,
             } => todo!(),
-            FigureCanvasValue::Graphics2d { particular } => todo!(),
+            FigureCanvasValue::Graphics2d {
+                graphics2d_data: particular,
+            } => todo!(),
             FigureCanvasValue::GenericGraphics2d {
                 partitioned_samples,
                 particular,

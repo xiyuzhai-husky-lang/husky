@@ -91,43 +91,46 @@ impl DeveloperGuiContext {
 }
 
 impl DeveloperGuiContext {
-    pub(crate) fn collect_pinned_canvas_values(&'static self) -> Vec<FigureCanvasDataItd> {
-        let restriction = self.presentation_signal().get();
-        restriction
-            .pins()
-            .iter()
-            .map(|pin| {
-                let specific_key =
-                    FigureCanvasKey::from_trace_data(self.trace_data(*pin), &restriction, true);
-                let generic_key =
-                    FigureCanvasKey::from_trace_data(self.trace_data(*pin), &restriction, false);
-                let generic_value = self.figure_canvases.borrow(file!(), line!())[&generic_key];
-                let specific_value = self.figure_canvases.borrow(file!(), line!())[&specific_key];
-                match specific_value {
-                    FigureCanvasData::Plot2d {
-                        plot_kind,
-                        point_groups,
-                        xrange,
-                        yrange,
-                    } => todo!(),
-                    FigureCanvasData::Mutations { mutations } => todo!(),
-                    FigureCanvasData::GenericGraphics2d {
-                        partitioned_samples,
-                    } => todo!(),
-                    FigureCanvasData::GenericF32 {
-                        partitioned_samples,
-                    } => todo!(),
-                    FigureCanvasData::GenericI32 {
-                        partitioned_samples,
-                    } => todo!(),
-                    FigureCanvasData::EvalError { message } => todo!(),
-                    _ => (),
-                }
-                FigureCanvasDataItd {
-                    generic: generic_value,
-                    specific: specific_value,
-                }
-            })
-            .collect()
+    pub(crate) fn figure_canvas_value(&self) -> FigureCanvasValue {
+        todo!()
     }
+    // pub(crate) fn collect_pinned_canvas_values(&'static self) -> Vec<FigureCanvasDataItd> {
+    //     let restriction = self.presentation_signal().get();
+    //     restriction
+    //         .pins()
+    //         .iter()
+    //         .map(|pin| {
+    //             let specific_key =
+    //                 FigureCanvasKey::from_trace_data(self.trace_data(*pin), &restriction, true);
+    //             let generic_key =
+    //                 FigureCanvasKey::from_trace_data(self.trace_data(*pin), &restriction, false);
+    //             let generic_value = self.figure_canvases.borrow(file!(), line!())[&generic_key];
+    //             let specific_value = self.figure_canvases.borrow(file!(), line!())[&specific_key];
+    //             match specific_value {
+    //                 FigureCanvasData::Plot2d {
+    //                     plot_kind,
+    //                     point_groups,
+    //                     xrange,
+    //                     yrange,
+    //                 } => todo!(),
+    //                 FigureCanvasData::Mutations { mutations } => todo!(),
+    //                 FigureCanvasData::GenericGraphics2d {
+    //                     partitioned_samples,
+    //                 } => todo!(),
+    //                 FigureCanvasData::GenericF32 {
+    //                     partitioned_samples,
+    //                 } => todo!(),
+    //                 FigureCanvasData::GenericI32 {
+    //                     partitioned_samples,
+    //                 } => todo!(),
+    //                 FigureCanvasData::EvalError { message } => todo!(),
+    //                 _ => (),
+    //             }
+    //             FigureCanvasDataItd {
+    //                 generic: generic_value,
+    //                 specific: specific_value,
+    //             }
+    //         })
+    //         .collect()
+    // }
 }

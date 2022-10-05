@@ -6,7 +6,7 @@ use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement, ImageData};
 #[derive(Prop)]
 pub struct ImageProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
-    image_layers: &'a ReadSignal<Vec<&'a ImageLayerData>>,
+    image_layers: Vec<&'a ImageLayerData>,
 }
 
 fn render(
@@ -35,9 +35,7 @@ fn render(
 pub fn Image<'a, G: Html>(scope: Scope<'a>, props: ImageProps<'a>) -> View<G> {
     let canvas_ref = create_node_ref_signal(scope);
     let dimension = props.dimension;
-    let composed_image_data = memo!(scope, move || OriginalImageData::new_composed(
-        &props.image_layers.get()
-    ));
+    let composed_image_data = OriginalImageData::new_composed(&props.image_layers);
     effect!(scope, {
         dimension.track();
         move || {
@@ -48,7 +46,7 @@ pub fn Image<'a, G: Html>(scope: Scope<'a>, props: ImageProps<'a>) -> View<G> {
                     .dyn_into::<HtmlCanvasElement>()
                     .map_err(|_| ())
                     .unwrap();
-                render(html_canvas, &composed_image_data.get(), dimension)
+                render(html_canvas, &composed_image_data, dimension)
             }
         }
     });

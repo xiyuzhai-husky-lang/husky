@@ -4,8 +4,8 @@ use super::*;
 pub struct PartitionContentProps<'a> {
     idx: usize,
     column_dimension: &'a ReadSignal<PixelDimension>,
-    partition: &'a Partition,
-    samples: &'a [(SampleId, Graphics2dCanvasData)],
+    partition: &'static Partition,
+    samples: Vec<(SampleId, Graphics2dCanvasValue)>,
     presentation_signal: &'a ReadSignal<Presentation>,
 }
 
@@ -40,7 +40,7 @@ pub fn PartitionContent<'a, G: Html>(
     let sample_graphics2d_dimension =
         memo!(scope, move || { column_dimension.cget() / (1, 5) - (2, 4) });
     let partition = format!("{}", props.partition);
-    let restriction = props.presentation_signal;
+    let presentation_signal = props.presentation_signal;
     let ctx = use_dev_context(scope);
     view! {
         scope,
@@ -65,21 +65,20 @@ pub fn PartitionContent<'a, G: Html>(
                 style=samples_canvas_dimension.cget().to_style(),
             ) {
                 (View::new_fragment(
-                    props.samples.iter().map(|(sample_id, sample_visual)|{
-                        let anchored = memo!(scope, move || restriction.get().sample_id() == *sample_id);
+                    props.samples.clone().into_iter().map(|(sample_id, sample_canvas_value)|{
                         view! {
                             scope,
                             div (
-                                class=if *anchored.get() { "SampleWrapper anchored" } else { "SampleWrapper" },
+                                class=if presentation_signal.get().sample_id() == sample_id { "SampleWrapper anchored" } else { "SampleWrapper" },
                                 style=sample_wrapper_dimension.cget().to_style(),
-                                on:click=ctx.set_sample_id_handler(*sample_id),
+                                on:click=ctx.set_sample_id_handler(sample_id),
                             ) {
                                 Graphics2dCanvas {
                                     dimension: sample_graphics2d_dimension,
-                                    image_layers: memo!(scope, move || sample_visual.image_layers()), /* todo */
-                                    shapes: memo!(scope, move || sample_visual.shapes()), /* todo */
-                                    xrange: sample_visual.xrange,
-                                    yrange: sample_visual.yrange,
+                                    image_layers: sample_canvas_value.image_layers(),
+                                    shapes: sample_canvas_value.shapes(),
+                                    xrange: sample_canvas_value.xrange,
+                                    yrange: sample_canvas_value.yrange,
                                 }
                             }
                         }

@@ -5,21 +5,21 @@ use super::*;
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
 pub struct Partition {
     pub ncol: u32,
-    pub variant: PartitionDefnDataVariant,
+    pub variant: PartitionVariant,
 }
 
 impl std::fmt::Display for Partition {
     fn fmt(&self, f: &mut __private::Formatter<'_>) -> std::fmt::Result {
         match self.variant {
-            PartitionDefnDataVariant::Label(label) => label.0.fmt(f),
-            PartitionDefnDataVariant::LabelSet(_) => todo!(),
-            PartitionDefnDataVariant::Default => "default".fmt(f),
+            PartitionVariant::Label(label) => label.0.fmt(f),
+            PartitionVariant::LabelSet(_) => todo!(),
+            PartitionVariant::Default => "default".fmt(f),
         }
     }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]
-pub enum PartitionDefnDataVariant {
+pub enum PartitionVariant {
     Label(Label),
     LabelSet(Vec<Label>),
     Default,
@@ -29,7 +29,7 @@ pub enum PartitionDefnDataVariant {
 fn test_contains() {
     let partition = Partition {
         ncol: 3,
-        variant: PartitionDefnDataVariant::Label(Label(3)),
+        variant: PartitionVariant::Label(Label(3)),
     };
     assert!(partition.contains(Label(3)));
     assert!(!partition.contains(Label(6)));
@@ -39,17 +39,17 @@ fn test_contains() {
 impl Partition {
     pub fn contains(&self, target: Label) -> bool {
         match self.variant {
-            PartitionDefnDataVariant::Label(label) => label == target,
-            PartitionDefnDataVariant::LabelSet(ref labels) => labels.contains(&target),
-            PartitionDefnDataVariant::Default => panic!(),
+            PartitionVariant::Label(label) => label == target,
+            PartitionVariant::LabelSet(ref labels) => labels.contains(&target),
+            PartitionVariant::Default => panic!(),
         }
     }
 
     pub fn name(&self) -> String {
         match self.variant {
-            PartitionDefnDataVariant::Label(l) => format!("{}", l.0),
-            PartitionDefnDataVariant::LabelSet(_) => todo!(),
-            PartitionDefnDataVariant::Default => "_".to_string(),
+            PartitionVariant::Label(l) => format!("{}", l.0),
+            PartitionVariant::LabelSet(_) => todo!(),
+            PartitionVariant::Default => "_".to_string(),
         }
     }
 }
