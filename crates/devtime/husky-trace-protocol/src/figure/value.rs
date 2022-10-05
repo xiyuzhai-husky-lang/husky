@@ -1,3 +1,5 @@
+use std::iter::zip;
+
 use crate::*;
 use husky_signal::Signalable;
 use husky_vm_primitive_value::PrimitiveValueData;
@@ -32,6 +34,20 @@ pub struct Graphics2dCanvasValue {
     pub(crate) shapes: Vec<&'static Shape2dData>,
     pub xrange: (f32, f32),
     pub yrange: (f32, f32),
+}
+
+impl Graphics2dCanvasValue {
+    fn add(&mut self, other: &Self) {
+        if self.xrange != other.xrange {
+            todo!()
+        }
+        if self.yrange != other.yrange {
+            todo!()
+        }
+        self.image_layers
+            .extend(other.image_layers.iter().map(|r| *r));
+        self.shapes.extend(other.shapes.iter().map(|r| *r))
+    }
 }
 
 impl ContainsShapes<'static> for Graphics2dCanvasValue {
@@ -126,7 +142,7 @@ impl FigureCanvasValue {
 
     fn add(&mut self, other: FigureCanvasValue) {
         match self {
-            FigureCanvasValue::Primitive { value } => todo!(),
+            FigureCanvasValue::Primitive { .. } => (),
             FigureCanvasValue::GenericF32 {
                 partitioned_samples,
             } => todo!(),
@@ -143,6 +159,20 @@ impl FigureCanvasValue {
                     partitioned_samples: partitioned_samples1,
                 } => {
                     assert_eq!(partitioned_samples0.len(), partitioned_samples1.len());
+                    for ((partition0, samples0), (partition1, samples1)) in
+                        zip(partitioned_samples0.iter_mut(), partitioned_samples1.iter())
+                    {
+                        assert_eq!(partition0, partition1);
+                        assert_eq!(samples0.len(), samples1.len());
+                        for (
+                            (sample_id0, sample_figure_canvas_value0),
+                            (sample_id1, sample_figure_canvas_value1),
+                        ) in zip(samples0.iter_mut(), samples1.iter())
+                        {
+                            assert_eq!(sample_id0, sample_id1);
+                            sample_figure_canvas_value0.add(sample_figure_canvas_value1)
+                        }
+                    }
                     todo!()
                 }
             },
