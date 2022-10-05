@@ -2,14 +2,13 @@ use super::*;
 
 impl DeveloperGuiContext {
     pub(super) fn toggle_pin(&'static self, trace_id: TraceId) {
-        let pins = self.pins_signal;
+        let presentation = self.presentation_signal().get();
         let trace = self.trace_data(trace_id);
-        let pinned = pins.get().has(trace_id);
-        let restriction = self.presentation_signal().get();
+        let pinned = presentation.is_pinned(trace_id);
         let needs_figure_canvases =
-            !pinned && (self.needs_figure_canvases(Some(trace_id), &restriction));
+            !pinned && (self.needs_figure_canvases(Some(trace_id), &presentation));
         let needs_figure_controls =
-            !pinned && self.needs_figure_controls(Some(trace_id), &restriction);
+            !pinned && self.needs_figure_controls(Some(trace_id), &presentation);
         let needs_response = needs_figure_canvases || needs_figure_controls;
 
         self.ws.send_message(

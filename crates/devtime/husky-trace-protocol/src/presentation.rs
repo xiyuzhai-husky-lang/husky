@@ -3,7 +3,7 @@ mod partition;
 use husky_feature_protocol::FeatureId;
 use husky_signal::Signalable;
 pub use partition::*;
-use vec_like::VecPairMap;
+use vec_like::{VecPairMap, VecSet};
 
 use super::*;
 use serde::{Deserialize, Serialize};
@@ -14,6 +14,7 @@ pub struct Presentation {
     sample_id: SampleId,
     opt_active_trace_id: Option<TraceId>,
     restriction: Restriction,
+    pins: VecSet<TraceId>,
     partitions: Partitions, // don't need this when we have monad
 }
 
@@ -73,7 +74,8 @@ impl Restriction {
 impl Presentation {
     pub fn clear(&mut self) {
         self.restriction.clear();
-        self.opt_active_trace_id = None
+        self.opt_active_trace_id = None;
+        self.pins.clear()
     }
 
     pub fn restriction(&self) -> Restriction {
@@ -134,6 +136,7 @@ impl Presentation {
             partitions: Default::default(),
             restriction: Default::default(),
             opt_active_trace_id: todo!(),
+            pins: todo!(),
         }
     }
 
@@ -157,6 +160,18 @@ impl Presentation {
     pub fn add_partition(&mut self, idx: usize, new_partition: PartitionDefnData) {
         self.partitions.add_partition(idx, new_partition)
     }
+
+    pub fn is_pinned(&self, id: TraceId) -> bool {
+        self.pins.contains(&id)
+    }
+
+    pub fn toggle_pin(&mut self, id: TraceId) {
+        self.pins.toggle(id)
+    }
+
+    pub fn pins(&self) -> &[TraceId] {
+        &self.pins
+    }
 }
 
 impl Signalable for Presentation {}
@@ -169,6 +184,7 @@ impl Default for Presentation {
             partitions: Default::default(),
             restriction: Default::default(),
             opt_active_trace_id: None,
+            pins: Default::default(),
         }
     }
 }

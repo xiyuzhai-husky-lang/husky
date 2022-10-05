@@ -48,9 +48,9 @@ impl HuskyDevtime {
             self.update_figure_canvas(active_trace_id, true)?;
             self.update_figure_canvas(active_trace_id, false)?;
         }
-        for pin in self.state.pins.clone().into_iter() {
-            self.update_figure_canvas(*pin, true)?;
-            self.update_figure_canvas(*pin, false)?;
+        for pin in self.state.presentation.pins().to_vec().into_iter() {
+            self.update_figure_canvas(pin, true)?;
+            self.update_figure_canvas(pin, false)?;
         }
         HuskyDevtimeUpdateM::Ok(())
     }
