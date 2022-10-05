@@ -1,3 +1,4 @@
+mod canvas_value;
 mod control;
 mod graphics2d;
 mod visual;
@@ -53,20 +54,20 @@ pub struct MutationFigureData {
 }
 
 #[derive(Debug, PartialEq)]
-pub struct PinnedFigureCanvasValue {
+pub struct FigureCanvasDataItd {
     pub generic: &'static FigureCanvasData,
     pub specific: &'static FigureCanvasData,
 }
 
-impl Signalable for PinnedFigureCanvasValue {}
+impl Signalable for FigureCanvasDataItd {}
 
-impl<'a> ContainsImageLayers<'a> for PinnedFigureCanvasValue {
+impl<'a> ContainsImageLayers<'a> for FigureCanvasDataItd {
     fn image_layers(&self) -> Vec<&'a ImageLayerData> {
         self.specific.image_layers()
     }
 }
 
-impl<'a> ContainsShapes<'a> for PinnedFigureCanvasValue {
+impl<'a> ContainsShapes<'a> for FigureCanvasDataItd {
     fn shapes(&self) -> Vec<&'a Shape2dData> {
         self.specific.shapes()
     }

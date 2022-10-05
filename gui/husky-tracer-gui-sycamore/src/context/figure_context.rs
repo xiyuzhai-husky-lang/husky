@@ -91,7 +91,7 @@ impl DeveloperGuiContext {
 }
 
 impl DeveloperGuiContext {
-    pub(crate) fn collect_pinned_canvas_values(&'static self) -> Vec<PinnedFigureCanvasValue> {
+    pub(crate) fn collect_pinned_canvas_values(&'static self) -> Vec<FigureCanvasDataItd> {
         let restriction = self.presentation_signal().get();
         restriction
             .pins()
@@ -123,7 +123,7 @@ impl DeveloperGuiContext {
                     FigureCanvasData::EvalError { message } => todo!(),
                     _ => (),
                 }
-                PinnedFigureCanvasValue {
+                FigureCanvasDataItd {
                     generic: generic_value,
                     specific: specific_value,
                 }
