@@ -101,9 +101,9 @@ impl DeveloperGuiContext {
                 .opt_active_trace_id()
                 .map(|trace_id| {
                     if presentation.is_pinned(trace_id) {
-                        Some(self.figure_canvas_data_itd(trace_id, presentation))
-                    } else {
                         None
+                    } else {
+                        Some(self.figure_canvas_data_itd(trace_id, presentation))
                     }
                 })
                 .flatten();
