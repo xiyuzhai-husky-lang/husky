@@ -11,8 +11,8 @@ pub struct TracePinProps {
 pub(super) fn TracePin<'a, G: Html>(scope: Scope<'a>, props: TracePinProps) -> View<G> {
     let ctx = use_dev_context(scope);
     let trace_id = props.trace_id;
-    let pins = ctx.pins_signal;
-    let pinned = memo!(scope, move || pins.get().has(trace_id));
+    let presentation_signal = ctx.presentation_signal();
+    let pinned = memo!(scope, move || presentation_signal.get().is_pinned(trace_id));
     if props.line_idx == 0 {
         view! {
             scope,

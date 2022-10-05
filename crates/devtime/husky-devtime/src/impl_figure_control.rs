@@ -101,8 +101,8 @@ impl HuskyDevtime {
         if let Some(active_trace_id) = self.opt_active_trace_id() {
             self.update_figure_control(active_trace_id)?;
         }
-        for pin in self.state.pins.clone().into_iter() {
-            self.update_figure_control(*pin)?;
+        for pin in self.state.presentation.pins().to_vec().into_iter() {
+            self.update_figure_control(pin)?;
         }
         HuskyDevtimeUpdateM::Ok(())
     }

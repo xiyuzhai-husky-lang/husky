@@ -42,7 +42,6 @@ pub struct DeveloperGuiContext {
     presentation_signal: &'static Signal<Presentation>,
     // global control
     pub(crate) presentation_locked_signal: Signal<bool>,
-    pub(crate) pins_signal: &'static Signal<VecSet<TraceId>>,
 }
 
 impl DeveloperGuiContext {
@@ -95,7 +94,6 @@ impl DeveloperGuiContext {
             figure_canvases: Default::default(),
             figure_controls: Default::default(),
             // user state
-            pins_signal: create_static_signal(scope, Default::default()),
             presentation_signal,
             presentation_locked_signal: Default::default(),
         }

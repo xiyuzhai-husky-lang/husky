@@ -82,7 +82,6 @@ impl DeveloperGuiContext {
             .alloc_key_signal_pairs(init_data.figure_controls)
             .collect();
         // global control
-        self.pins_signal.set(init_data.pins);
         self.init_presentation(init_data.presentation.clone());
         // root traces
         self.root_trace_ids_signal

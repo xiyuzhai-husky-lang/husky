@@ -8,7 +8,9 @@ impl HuskyDevtime {
         Vec<(FigureCanvasKey, FigureCanvasData)>,
         Vec<(FigureControlKey, FigureControlData)>,
     )> {
-        self.state.pins.toggle(trace_id);
+        self.state
+            .presentation
+            .update(|presentation| presentation.toggle_pin(trace_id));
         self.update()?;
         let change = self.take_change()?;
         HuskyDevtimeTakeChangeM::Ok((

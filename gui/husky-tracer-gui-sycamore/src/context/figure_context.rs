@@ -84,17 +84,17 @@ impl DeveloperGuiContext {
     }
 
     pub(crate) fn did_toggle_pin(&self, trace_id: TraceId) {
-        let mut new_pins = self.pins_signal.cget();
-        new_pins.toggle(trace_id);
-        self.pins_signal.set(new_pins);
+        let mut presentation = self.presentation_signal.cget();
+        presentation.toggle_pin(trace_id);
+        self.presentation_signal.set(presentation)
     }
 }
 
 impl DeveloperGuiContext {
     pub(crate) fn collect_pinned_canvas_values(&'static self) -> Vec<PinnedFigureCanvasValue> {
         let restriction = self.presentation_signal().get();
-        self.pins_signal
-            .get()
+        restriction
+            .pins()
             .iter()
             .map(|pin| {
                 let specific_key =

@@ -12,7 +12,7 @@ impl DeveloperGuiContext {
                 return true;
             }
         };
-        for pin in self.pins_signal.get().iter() {
+        for pin in presentation.pins().iter() {
             if self.needs_figure_canvas(*pin, presentation) {
                 return true;
             }
@@ -51,7 +51,7 @@ impl DeveloperGuiContext {
                 return true;
             }
         }
-        for pin in self.pins_signal.get().iter() {
+        for pin in presentation.pins().iter() {
             if self.needs_figure_control(*pin, presentation) {
                 return true;
             }

@@ -102,7 +102,6 @@ impl HuskyDevtime {
             },
             figure_canvases: self.state.figure_canvases.to_vec(),
             figure_controls: self.state.figure_controls.to_vec(),
-            pins: self.state.pins.clone(),
         };
         HuskyDevtimeTakeChangeM::Ok(init_data)
     }
