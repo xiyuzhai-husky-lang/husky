@@ -52,4 +52,3 @@ husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-compiler = { path = "../../apps/husky-compiler" }
 
 [features]
-verify_consistency = ["husky-trace-protocol/verify_consistency"]

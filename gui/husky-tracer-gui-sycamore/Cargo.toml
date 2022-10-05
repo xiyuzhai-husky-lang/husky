@@ -46,4 +46,3 @@ features = [
 opt-level = 1
 
 [features]
-verify_consistency = []
