@@ -307,61 +307,6 @@ impl HuskyDebuggerInternal {
         })
     }
 
-    #[cfg(feature = "verify_consistency")]
-    fn handle_set_restriction(
-        &mut self,
-        restriction: &Presentation,
-        needs_figure_canvases: bool,
-        needs_figure_controls: bool,
-        new_stalk_keys: &[TraceStalkKey],
-        new_stats_keys: &[TraceStatsKey],
-    ) -> Option<HuskyTracerServerMessageVariant> {
-        let (new_trace_stalks, new_trace_stats) = self.devtime.set_restriction(restriction.clone());
-        if needs_figure_canvases
-            || needs_figure_controls
-            || new_stalk_keys.len() > 0
-            || new_stats_keys.len() > 0
-        {
-            let (opt_figure_canvas_data, opt_figure_control_data) = if let Some(active_trace_id) =
-                self.devtime.opt_active_trace_id()
-            {
-                let opt_figure_canvas_data = if needs_figure_canvases {
-                    match self.devtime.figure_canvas(active_trace_id) {
-                        Ok(figure_canvas) => Some(figure_canvas),
-                        Err((sample_id, error)) => {
-                            return Some(HuskyTracerServerMessageVariant::SetRestrictionWithError {
-                                sample_id,
-                                error: format!("{:?}", error),
-                            })
-                        }
-                    }
-                } else {
-                    None
-                };
-                let opt_figure_control_data = if needs_figure_controls {
-                    Some(self.devtime.figure_control(active_trace_id))
-                } else {
-                    None
-                };
-                (opt_figure_canvas_data, opt_figure_control_data)
-            } else {
-                (None, None)
-            };
-            if new_stalk_keys.len() > 0 {
-                assert!(new_trace_stalks.len() > 0);
-            }
-            Some(HuskyTracerServerMessageVariant::SetRestriction {
-                opt_figure_canvas_data,
-                opt_figure_control_data,
-                new_trace_stalks,
-                new_trace_stats,
-            })
-        } else {
-            None
-        }
-    }
-
-    #[cfg(not(feature = "verify_consistency"))]
     fn handle_set_restriction(
         &mut self,
         presentation: &Presentation,

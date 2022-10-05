@@ -7,47 +7,6 @@ pub struct HuskyTracerGuiMessage {
     pub variant: HuskyTracerGuiMessageVariant,
 }
 
-#[cfg(feature = "verify_consistency")]
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
-#[serde(tag = "kind")]
-pub enum HuskyTracerGuiMessageVariant {
-    InitDataRequest,
-    Activate {
-        trace_id: TraceId,
-        needs_figure_canvases: bool,
-        needs_figure_controls: bool,
-    },
-    ToggleExpansion {
-        trace_id: TraceId,
-    },
-    ToggleShow {
-        trace_id: TraceId,
-    },
-    TogglePin {
-        trace_id: TraceId,
-        needs_figure_canvases: bool,
-        needs_figure_controls: bool,
-    },
-    Trace {
-        id: TraceId,
-    },
-    SetRestriction {
-        restriction: Presentation,
-        needs_figure_canvases: bool,
-        needs_figure_controls: bool,
-        new_stalk_keys: Vec<TraceStalkKey>,
-        new_stats_keys: Vec<TraceStatsKey>,
-    },
-    TraceStalk {
-        trace_id: TraceId,
-    },
-    UpdateFigureControlData {
-        trace_id: TraceId,
-        restriction: Presentation,
-        figure_control_props: FigureControlData,
-    },
-}
-
 #[cfg(not(feature = "verify_consistency"))]
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 #[serde(tag = "kind")]

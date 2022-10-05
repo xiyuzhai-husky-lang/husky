@@ -68,27 +68,6 @@ impl DeveloperGuiContext {
             .contains_key(&key)
     }
 
-    #[cfg(feature = "verify_consistency")]
-    pub(super) fn new_stalk_keys(&self, restriction: &Presentation) -> Vec<TraceStalkKey> {
-        let sample_id = match restriction.opt_sample_id() {
-            Some(sample_id) => sample_id,
-            None => return vec![],
-        };
-        self.filter_immediate_traces(Some(sample_id), |trace_data| {
-            let key = TraceStalkKey::from_trace_data(sample_id, trace_data);
-            if !self
-                .trace_stalks
-                .borrow(file!(), line!())
-                .contains_key(&key)
-            {
-                Some(key)
-            } else {
-                None
-            }
-        })
-    }
-
-    #[cfg(not(feature = "verify_consistency"))]
     pub(super) fn needs_stalks(&self, restriction: &Presentation) -> bool {
         let sample_id = match restriction.opt_sample_id() {
             Some(sample_id) => sample_id,
@@ -102,26 +81,6 @@ impl DeveloperGuiContext {
         })
     }
 
-    #[cfg(feature = "verify_consistency")]
-    pub(super) fn new_stats_keys(&self, new_restriction: &Presentation) -> Vec<TraceStatsKey> {
-        self.filter_immediate_traces(new_restriction.opt_sample_id(), |trace_data| {
-            let key = TraceStatsKey {
-                trace_id: trace_data.id,
-                partitions: new_restriction.partitions().clone(),
-            };
-            if !self
-                .trace_statss
-                .borrow(file!(), line!())
-                .contains_key(&key)
-            {
-                Some(key)
-            } else {
-                None
-            }
-        })
-    }
-
-    #[cfg(not(feature = "verify_consistency"))]
     pub(super) fn needs_statss(&self, new_restriction: &Presentation) -> bool {
         !self.for_all_immediate_traces(new_restriction.opt_sample_id(), |trace_data| {
             let key = TraceStatsKey {
