@@ -72,7 +72,8 @@ impl Restriction {
 
 impl Presentation {
     pub fn clear(&mut self) {
-        self.restriction.clear()
+        self.restriction.clear();
+        self.opt_active_trace_id = None
     }
 
     pub fn restriction(&self) -> Restriction {
