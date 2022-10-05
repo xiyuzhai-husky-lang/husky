@@ -18,115 +18,68 @@ use primitive_value::*;
 #[derive(Prop)]
 pub struct FigureCanvasProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
+    value: FigureCanvasValue,
 }
 
 #[component]
 pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>) -> View<G> {
-    let ctx = use_dev_context(scope);
-    let presentation_signal = ctx.presentation_signal();
-    let opt_canvas_and_control_data = memo!(scope, move || {
-        let presentation = &presentation_signal.get();
-        presentation.opt_active_trace_id().map(|active_trace_id| {
-            let active_trace = ctx.trace_data(active_trace_id);
-            let canvas_value = ctx.figure_canvas_data(active_trace, presentation);
-            let control_data = ctx.figure_control_data(active_trace, presentation);
-            (canvas_value, control_data)
-        })
-    });
-    view! {
-        scope,
-        (if let Some((canvas_value, control_data)) = opt_canvas_and_control_data.cget() {
-            view! {
-                scope,
-                FigureCanvasSwitch {
-                    canvas_value,
-                    control_data,
-                    dimension: props.dimension
-                }
-            }
-        } else {
-            view!{
-                scope,
-                "no active trace"
-            }
-        })
-    }
-}
-
-#[derive(Prop)]
-struct FigureCanvasSwitchProps<'a> {
-    canvas_value: &'static FigureCanvasData,
-    control_data: &'a Signal<FigureControlData>,
-    dimension: &'a ReadSignal<PixelDimension>,
-}
-
-#[component]
-fn FigureCanvasSwitch<'a, G: Html>(
-    scope: Scope<'a>,
-    props: FigureCanvasSwitchProps<'a>,
-) -> View<G> {
-    let ctx = use_dev_context(scope);
-    let pinned_canvas_values = memo!(scope, move || ctx.collect_pinned_canvas_values());
-    match props.canvas_value {
-        FigureCanvasData::Primitive { value } => {
+    match props.value {
+        FigureCanvasValue::Primitive { value } => {
             view! {
                 scope,
                 PrimitiveValueCanvas {
-                    value: *value
+                    value
                 }
             }
         }
-        FigureCanvasData::Plot2d {
-            plot_kind,
-            ref point_groups,
-            xrange,
-            yrange,
-        } => {
-            view! {
-                scope,
-                Plot2dCanvas {
-                    dimension: props.dimension,
-                    plot_kind: *plot_kind,
-                    point_groups: point_groups.clone(),
-                    xrange: *xrange,
-                    yrange: *yrange,
-                }
-            }
-        }
-        FigureCanvasData::Graphics2d {
+        // FigureCanvasValue::Plot2d {
+        //     plot_kind,
+        //     ref point_groups,
+        //     xrange,
+        //     yrange,
+        // } => {
+        //     view! {
+        //         scope,
+        //         Plot2dCanvas {
+        //             dimension: props.dimension,
+        //             plot_kind: *plot_kind,
+        //             point_groups: point_groups.clone(),
+        //             xrange: *xrange,
+        //             yrange: *yrange,
+        //         }
+        //     }
+        // }
+        FigureCanvasValue::Graphics2d {
             ref graphics2d_data,
         } => {
-            let image_layers = memo!(scope, move || (graphics2d_data, pinned_canvas_values.get())
-                .image_layers());
-            let shapes = memo!(scope, move || (graphics2d_data, pinned_canvas_values.get())
-                .shapes());
             view! {
                 scope,
                 Graphics2dCanvas {
                     dimension: props.dimension,
-                    image_layers,
-                    shapes,
+                    image_layers: graphics2d_data.image_layers(),
+                    shapes: graphics2d_data.shapes(),
                     xrange: graphics2d_data.xrange,
                     yrange: graphics2d_data.yrange,
                 }
             }
         }
-        FigureCanvasData::Mutations { ref mutations } => {
-            if let Some(mutation_selection) = props.control_data.get().opt_mutation_selection {
-                view! {
-                    scope,
-                    MutationCanvas {
-                        dimension: props.dimension,
-                        control_data: props.control_data,
-                        mutation: &mutations[mutation_selection as usize]
-                    }
-                }
-            } else {
-                view! {scope, }
-            }
-        }
-        FigureCanvasData::GenericGraphics2d {
-            ref partitioned_samples,
+        // FigureCanvasValue::Mutations { ref mutations } => {
+        //     if let Some(mutation_selection) = props.control_data.get().opt_mutation_selection {
+        //         view! {
+        //             scope,
+        //             MutationCanvas {
+        //                 dimension: props.dimension,
+        //                 control_data: props.control_data,
+        //                 mutation: &mutations[mutation_selection as usize]
+        //             }
+        //         }
+        //     } else {
+        //         view! {scope, }
+        //     }
+        // }
+        FigureCanvasValue::GenericGraphics2d {
+            partitioned_samples,
+            ..
         } => {
             view! {
                 scope,
@@ -136,8 +89,9 @@ fn FigureCanvasSwitch<'a, G: Html>(
                 }
             }
         }
-        FigureCanvasData::GenericI32 {
-            ref partitioned_samples,
+        FigureCanvasValue::GenericI32 {
+            partitioned_samples,
+            ..
         } => {
             view! {
                 scope,
@@ -147,7 +101,7 @@ fn FigureCanvasSwitch<'a, G: Html>(
                 }
             }
         }
-        FigureCanvasData::GenericF32 {
+        FigureCanvasValue::GenericF32 {
             ref partitioned_samples,
         } => {
             view! {
@@ -155,16 +109,17 @@ fn FigureCanvasSwitch<'a, G: Html>(
                 GenericF32 {
                     dimension: props.dimension,
                     partitioned_samples,
+                    image_layers: todo!(),
+                    shapes: todo!(),
                 }
             }
-        }
-        FigureCanvasData::EvalError { ref message } => {
-            view! {
-                scope,
-                div (class="EvalErrorCanvas") {
-                    (message.clone())
-                }
-            }
-        }
+        } // FigureCanvasValue::EvalError { ref message } => {
+          //     view! {
+          //         scope,
+          //         div (class="EvalErrorCanvas") {
+          //             (message.clone())
+          //         }
+          //     }
+          // }
     }
 }

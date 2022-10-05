@@ -52,7 +52,7 @@ fn test_partition_idx() {
         0,
         Partition {
             ncol: 3,
-            variant: PartitionDefnDataVariant::Label(Label(0)),
+            variant: PartitionVariant::Label(Label(0)),
         },
     );
     assert_eq!(partitions.opt_nondefault_partition_idx(Label(0)), Some(0));
@@ -86,7 +86,7 @@ impl From<SmallVec<[Partition; PARTITION_SMALL_VEC_SIZE]>> for Partitions {
 
 impl Partitions {
     pub fn add_partition(&mut self, idx: usize, new_partition: Partition) {
-        assert_ne!(new_partition.variant, PartitionDefnDataVariant::Default);
+        assert_ne!(new_partition.variant, PartitionVariant::Default);
         self.default_partition_ncol -= new_partition.ncol;
         assert!(self.default_partition_ncol > 0);
         assert!(new_partition.ncol > 0);
@@ -135,7 +135,7 @@ impl Partitions {
     fn default_partition_defn_data(&self) -> Partition {
         Partition {
             ncol: self.default_partition_ncol,
-            variant: PartitionDefnDataVariant::Default,
+            variant: PartitionVariant::Default,
         }
     }
 

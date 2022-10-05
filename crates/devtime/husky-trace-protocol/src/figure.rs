@@ -1,10 +1,11 @@
-mod canvas_value;
 mod control;
 mod graphics2d;
+mod value;
 mod visual;
 
 pub use control::*;
 pub use graphics2d::*;
+pub use value::*;
 pub use visual::*;
 
 use super::*;

@@ -10,7 +10,7 @@ use partition_control::*;
 #[derive(Prop)]
 pub struct GenericGraphics2dProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
-    partitioned_samples: &'a [(Partition, Vec<(SampleId, Graphics2dCanvasData)>)],
+    partitioned_samples: Vec<(&'static Partition, Vec<(SampleId, Graphics2dCanvasValue)>)>,
 }
 
 #[component]
@@ -18,16 +18,17 @@ pub fn GenericGraphics2d<'a, G: Html>(
     scope: Scope<'a>,
     props: GenericGraphics2dProps<'a>,
 ) -> View<G> {
-    let partitioned_samples = props.partitioned_samples;
-    let column_dimension = memo!(scope, || {
-        let nline: u32 = partitioned_samples
-            .iter()
-            .map(|(partition, _)| partition.ncol + 1)
-            .sum();
-        let ncol: u32 = partitioned_samples
-            .iter()
-            .map(|(partition, _)| partition.ncol)
-            .sum();
+    let nline: u32 = props
+        .partitioned_samples
+        .iter()
+        .map(|(partition, _)| partition.ncol + 1)
+        .sum();
+    let ncol: u32 = props
+        .partitioned_samples
+        .iter()
+        .map(|(partition, _)| partition.ncol)
+        .sum();
+    let column_dimension = memo!(scope, move || {
         (props.dimension.cget()
             - (
                 nline * GENERIC_SEPARATOR_LINE_WIDTH,
@@ -35,15 +36,7 @@ pub fn GenericGraphics2d<'a, G: Html>(
             ))
             / (ncol, 1)
     });
-    let actual_dimension = memo!(scope, || {
-        let nline: u32 = partitioned_samples
-            .iter()
-            .map(|(partition, _)| partition.ncol + 1)
-            .sum();
-        let ncol: u32 = partitioned_samples
-            .iter()
-            .map(|(partition, _)| partition.ncol)
-            .sum();
+    let actual_dimension = memo!(scope, move || {
         PixelDimension {
             width: column_dimension.cget().width * ncol + nline * GENERIC_SEPARATOR_LINE_WIDTH,
             height: props.dimension.cget().height - GENERIC_BOTTOM_SPACE,
@@ -57,7 +50,7 @@ pub fn GenericGraphics2d<'a, G: Html>(
             class="GenericGraphics2dCanvas",
             style=actual_dimension.cget().to_style()
         ) {
-            (View::new_fragment(props.partitioned_samples.iter().enumerate().map(
+            (View::new_fragment(props.partitioned_samples.clone().into_iter().enumerate().map(
                 |(idx, (partition, samples))| {
                     view!{
                         scope,

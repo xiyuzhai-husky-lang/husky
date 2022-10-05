@@ -3,7 +3,7 @@ use super::*;
 #[derive(Prop)]
 pub struct GenericI32Props<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
-    partitioned_samples: &'a [(Partition, Vec<(SampleId, i32)>)],
+    partitioned_samples: &'static [(Partition, Vec<(SampleId, i32)>)],
 }
 
 #[component]

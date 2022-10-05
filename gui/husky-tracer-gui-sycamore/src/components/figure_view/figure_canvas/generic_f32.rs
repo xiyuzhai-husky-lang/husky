@@ -7,6 +7,8 @@ use scale::*;
 pub struct GenericF32Props<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
     partitioned_samples: &'a [(Partition, Vec<(SampleId, f32)>)],
+    image_layers: Vec<&'static ImageLayerData>,
+    shapes: Vec<&'static Shape2dData>,
 }
 
 #[component]
@@ -27,9 +29,6 @@ pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> 
     let generic_f32_visual_region_dimension =
         memo!(scope, move || dimension.cget() * (7, 1) / (10, 1));
     let ctx = use_dev_context(scope);
-    let pinned_canvas_values = memo!(scope, move || ctx.collect_pinned_canvas_values());
-    let image_layers = memo!(scope, move || pinned_canvas_values.get().image_layers());
-    let shapes = memo!(scope, move || pinned_canvas_values.get().shapes());
     view! {
         scope,
         div (
@@ -47,8 +46,8 @@ pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> 
             div (class="GenericF32VisualRegion") {
                 Graphics2dCanvas {
                     dimension: generic_f32_visual_region_dimension,
-                    image_layers,
-                    shapes,
+                    image_layers: props.image_layers,
+                    shapes: props.shapes,
                     xrange: (0.0, 28.0), // ad hoc
                     yrange: (0.0, 28.0), // ad hoc
                 }

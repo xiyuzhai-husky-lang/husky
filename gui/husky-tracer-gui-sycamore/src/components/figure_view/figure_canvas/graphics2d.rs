@@ -8,8 +8,8 @@ use shape2d::*;
 #[derive(Prop)]
 pub struct Graphics2dCanvasProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
-    image_layers: &'a ReadSignal<Vec<&'a ImageLayerData>>,
-    shapes: &'a ReadSignal<Vec<&'a Shape2dData>>,
+    image_layers: Vec<&'static ImageLayerData>,
+    shapes: Vec<&'static Shape2dData>,
     xrange: (f32, f32),
     yrange: (f32, f32),
 }
@@ -56,7 +56,7 @@ pub fn Graphics2dCanvas<'a, G: Html>(
                     g (
                         transform=transform
                     ) {
-                        (View::new_fragment(props.shapes.get().iter().map(|data| {
+                        (View::new_fragment(props.shapes.iter().map(|data| {
                             view! {
                                 scope,
                                 Shape2d {
