@@ -80,7 +80,6 @@ impl HuskyDevtime {
             presentation: self.presentation().clone(),
             trace_init_data: TraceInitData {
                 trace_nodes: self.all_trace_nodes(),
-                opt_active_trace_id: self.opt_active_trace_id(),
                 subtrace_ids_map: self
                     .state
                     .subtrace_ids_map

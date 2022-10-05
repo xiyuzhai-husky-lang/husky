@@ -50,47 +50,44 @@ impl DeveloperGuiContext {
     }
 
     fn receive_init_data<'a>(&'static self, init_data: InitData) {
-        if init_data.trace_init_data.opt_active_trace_id.is_some() {
-            assert!(init_data.figure_canvases.len() > 0);
-        }
         // order matters
-        self.init_trace_context(
-            init_data
-                .trace_init_data
-                .trace_nodes
-                .into_iter()
-                .map(|trace_node| TraceNodeState::from_data(self.scope, trace_node))
-                .collect(),
-            init_data
-                .trace_init_data
-                .trace_stalks
-                .into_iter()
-                .map(|(k, v)| (k, self.alloc_value(v)))
-                .collect(),
-            init_data
-                .trace_init_data
-                .trace_statss
-                .into_iter()
-                .map(|(k, v)| (k, v.map(|v| self.alloc_value(v))))
-                .collect(),
-            init_data
-                .trace_init_data
-                .subtrace_ids_map
-                .into_iter()
-                .map(|(k, v)| (k, self.alloc_value(v) as &'static [TraceId]))
-                .collect(),
-            init_data.trace_init_data.root_trace_ids,
-            init_data.trace_init_data.opt_active_trace_id,
-            init_data.presentation.opt_sample_id(),
-        );
+        *self.trace_nodes.borrow_mut(file!(), line!()) = init_data
+            .trace_init_data
+            .trace_nodes
+            .into_iter()
+            .map(|trace_node| TraceNodeState::from_data(self.scope, trace_node))
+            .collect();
+        *self.subtrace_ids_map.borrow_mut(file!(), line!()) = init_data
+            .trace_init_data
+            .subtrace_ids_map
+            .into_iter()
+            .map(|(k, v)| (k, self.alloc_value(v) as &'static [TraceId]))
+            .collect();
+        *self.trace_stalks.borrow_mut(file!(), line!()) = init_data
+            .trace_init_data
+            .trace_stalks
+            .into_iter()
+            .map(|(k, v)| (k, self.alloc_value(v)))
+            .collect();
+        *self.trace_statss.borrow_mut(file!(), line!()) = init_data
+            .trace_init_data
+            .trace_statss
+            .into_iter()
+            .map(|(k, v)| (k, v.map(|v| self.alloc_value(v))))
+            .collect();
         *self.figure_canvases.borrow_mut(file!(), line!()) = self
             .alloc_key_value_pairs(init_data.figure_canvases)
             .collect();
         *self.figure_controls.borrow_mut(file!(), line!()) = self
             .alloc_key_signal_pairs(init_data.figure_controls)
             .collect();
+        // global control
         self.pins_signal.set(init_data.pins);
         self.init_presentation(init_data.presentation.clone());
+        // root traces
+        self.root_trace_ids_signal
+            .set(init_data.trace_init_data.root_trace_ids);
+        self.update_trace_listing(init_data.presentation.opt_sample_id());
     }
 
     fn spawn_listening(&'static self, mut read: Receiver<HuskyTracerServerMessage>) {

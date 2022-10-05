@@ -24,24 +24,6 @@ impl TraceNodeState {
 }
 
 impl DeveloperGuiContext {
-    pub(super) fn init_trace_context<'a>(
-        &'static self,
-        trace_nodes: Vec<TraceNodeState>,
-        trace_stalks: HashMap<TraceStalkKey, &'static TraceStalk>,
-        trace_statss: HashMap<TraceStatsKey, Option<&'static TraceStats>>,
-        subtrace_ids_map: HashMap<SubtracesKey, &'static [TraceId]>,
-        root_trace_ids: Vec<TraceId>,
-        opt_active_trace_id: Option<TraceId>,
-        opt_sample_id: Option<SampleId>,
-    ) {
-        *self.trace_nodes.borrow_mut(file!(), line!()) = trace_nodes;
-        *self.subtrace_ids_map.borrow_mut(file!(), line!()) = subtrace_ids_map;
-        *self.trace_stalks.borrow_mut(file!(), line!()) = trace_stalks;
-        *self.trace_statss.borrow_mut(file!(), line!()) = trace_statss;
-        self.root_trace_ids_signal.set(root_trace_ids);
-        self.update_trace_listing(opt_sample_id);
-    }
-
     pub(crate) fn root_trace_ids_signal(&self) -> &'static ReadSignal<Vec<TraceId>> {
         &self.root_trace_ids_signal
     }
@@ -72,7 +54,7 @@ impl DeveloperGuiContext {
             .map(|id| *id)
     }
 
-    fn update_trace_listing(&self, opt_sample_id: Option<SampleId>) {
+    pub(super) fn update_trace_listing(&self, opt_sample_id: Option<SampleId>) {
         let mut trace_listing: Vec<TraceId> = vec![];
         for trace_id in &*self.root_trace_ids_signal.get() {
             self.update_trace_listing_dfs(*trace_id, opt_sample_id, &mut trace_listing);

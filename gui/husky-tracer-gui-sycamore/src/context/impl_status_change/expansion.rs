@@ -10,9 +10,12 @@ impl DeveloperGuiContext {
         if expansion.cget() {
             expansion.set(false)
         } else {
-            let opt_sample_id = self.opt_sample_id_signal();
             let trace_kind = self.trace_kind(trace_id);
-            let key = SubtracesKey::new(trace_kind, trace_id, opt_sample_id.cget());
+            let key = SubtracesKey::new(
+                trace_kind,
+                trace_id,
+                self.presentation_signal.get().opt_sample_id(),
+            );
             if self
                 .subtrace_ids_map
                 .borrow(file!(), line!())

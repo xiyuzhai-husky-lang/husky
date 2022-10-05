@@ -58,8 +58,9 @@ impl DeveloperGuiContext {
     }
 
     pub(crate) fn opt_active_trace(&self) -> Option<&'static TraceData> {
-        self.opt_active_trace_id_signal()
-            .cget()
+        self.presentation_signal()
+            .get()
+            .opt_active_trace_id()
             .map(|trace_id| self.trace_data(trace_id))
     }
 
