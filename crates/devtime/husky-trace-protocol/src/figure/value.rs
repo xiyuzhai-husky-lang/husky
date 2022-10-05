@@ -88,7 +88,7 @@ impl FigureCanvasValue {
         }
         let mut value = Self::new_piece(presentation_kind, &all_figures[0]);
         for other in all_figures[1..].iter() {
-            value.add(Self::new_piece(presentation_kind, other))
+            value.merge(Self::new_piece(presentation_kind, other))
         }
         value
     }
@@ -140,9 +140,9 @@ impl FigureCanvasValue {
         }
     }
 
-    fn add(&mut self, other: FigureCanvasValue) {
+    fn merge(&mut self, other: FigureCanvasValue) {
         match self {
-            FigureCanvasValue::Primitive { .. } => (),
+            FigureCanvasValue::Primitive { .. } => *self = other,
             FigureCanvasValue::GenericF32 {
                 partitioned_samples,
             } => todo!(),
