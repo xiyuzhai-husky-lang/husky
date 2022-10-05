@@ -12,3 +12,9 @@ impl FeatureId {
         self.0
     }
 }
+
+impl std::fmt::Display for FeatureId {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "ft#{}", self.0)
+    }
+}

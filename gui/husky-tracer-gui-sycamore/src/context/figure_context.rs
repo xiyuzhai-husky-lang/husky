@@ -46,6 +46,8 @@ impl DeveloperGuiContext {
         if let Some(figure_canvas_data) = figure_canvases_borrowed.get(&figure_canvas_key) {
             figure_canvas_data
         } else {
+            log::info!("presentation = {presentation:?}");
+            log::info!("figure canvases: {figure_canvases_borrowed:?}");
             log::info!("no entry with key {figure_canvas_key:?}");
             panic!()
         }
