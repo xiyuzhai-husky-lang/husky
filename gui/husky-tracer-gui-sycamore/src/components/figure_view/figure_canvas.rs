@@ -27,7 +27,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
     view! {
         scope,
         (match *props.value.get() {
-            FigureCanvasValue::Void => {
+            FigureCanvasValue::Primitive { .. } => {
                 view! {
                     scope,
                 }
@@ -49,9 +49,8 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
             //         }
             //     }
             // }
-            FigureCanvasValue::Graphics2d {
+            FigureCanvasValue::GenericGraphics2d {
                 ref partitioned_samples,
-                ref particular,
             } => {
                 match props.presentation_kind.cget() {
                     PresentationKind::Generic => {
@@ -95,7 +94,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
             //         view! {scope, }
             //     }
             // }
-            FigureCanvasValue::Graphics2d {
+            FigureCanvasValue::GenericGraphics2d {
                 ref partitioned_samples,
                 ..
             } => {
@@ -107,7 +106,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                     }
                 }
             }
-            FigureCanvasValue::Integer {
+            FigureCanvasValue::GenericI32 {
                 partitioned_samples,
                 ..
             } => {
@@ -119,7 +118,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                     }
                 }
             }
-            FigureCanvasValue::Float {
+            FigureCanvasValue::GenericF32 {
                 ref partitioned_samples,
             } => {
                 view! {

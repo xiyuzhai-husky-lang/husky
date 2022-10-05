@@ -97,11 +97,19 @@ impl DeveloperGuiContext {
     ) -> &'a ReadSignal<FigureCanvasValue> {
         memo!(scope, move || {
             let presentation = &self.presentation_signal.get();
-            let opt_active_figure = presentation
+            let opt_active_figure_not_pinned = presentation
                 .opt_active_trace_id()
-                .map(|trace_id| self.figure_canvas_data_itd(trace_id, presentation));
+                .map(|trace_id| {
+                    if presentation.is_pinned(trace_id) {
+                        Some(self.figure_canvas_data_itd(trace_id, presentation))
+                    } else {
+                        None
+                    }
+                })
+                .flatten();
             FigureCanvasValue::new(
-                opt_active_figure,
+                presentation.kind(),
+                opt_active_figure_not_pinned,
                 self.figure_canvas_data_itds(presentation),
             )
         })
