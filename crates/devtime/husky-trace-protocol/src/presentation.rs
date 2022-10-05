@@ -25,6 +25,8 @@ pub enum PresentationKind {
     Panic,
 }
 
+impl Signalable for PresentationKind {}
+
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Restriction {
     None,
@@ -76,6 +78,10 @@ impl Presentation {
         self.restriction.clear();
         self.opt_active_trace_id = None;
         self.pins.clear()
+    }
+
+    pub fn kind(&self) -> PresentationKind {
+        self.kind
     }
 
     pub fn restriction(&self) -> Restriction {

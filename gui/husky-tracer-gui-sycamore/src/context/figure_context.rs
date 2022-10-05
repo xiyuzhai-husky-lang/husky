@@ -91,46 +91,67 @@ impl DeveloperGuiContext {
 }
 
 impl DeveloperGuiContext {
-    pub(crate) fn figure_canvas_value(&self) -> FigureCanvasValue {
-        todo!()
+    pub(crate) fn figure_canvas_value_signal<'a>(
+        &'static self,
+        scope: Scope<'a>,
+    ) -> &'a ReadSignal<FigureCanvasValue> {
+        memo!(scope, move || {
+            let presentation = &self.presentation_signal.get();
+            let opt_active_figure = presentation
+                .opt_active_trace_id()
+                .map(|trace_id| self.figure_canvas_data_itd(trace_id, presentation));
+            FigureCanvasValue::new(
+                opt_active_figure,
+                self.figure_canvas_data_itds(presentation),
+            )
+        })
     }
-    // pub(crate) fn collect_pinned_canvas_values(&'static self) -> Vec<FigureCanvasDataItd> {
-    //     let restriction = self.presentation_signal().get();
-    //     restriction
-    //         .pins()
-    //         .iter()
-    //         .map(|pin| {
-    //             let specific_key =
-    //                 FigureCanvasKey::from_trace_data(self.trace_data(*pin), &restriction, true);
-    //             let generic_key =
-    //                 FigureCanvasKey::from_trace_data(self.trace_data(*pin), &restriction, false);
-    //             let generic_value = self.figure_canvases.borrow(file!(), line!())[&generic_key];
-    //             let specific_value = self.figure_canvases.borrow(file!(), line!())[&specific_key];
-    //             match specific_value {
-    //                 FigureCanvasData::Plot2d {
-    //                     plot_kind,
-    //                     point_groups,
-    //                     xrange,
-    //                     yrange,
-    //                 } => todo!(),
-    //                 FigureCanvasData::Mutations { mutations } => todo!(),
-    //                 FigureCanvasData::GenericGraphics2d {
-    //                     partitioned_samples,
-    //                 } => todo!(),
-    //                 FigureCanvasData::GenericF32 {
-    //                     partitioned_samples,
-    //                 } => todo!(),
-    //                 FigureCanvasData::GenericI32 {
-    //                     partitioned_samples,
-    //                 } => todo!(),
-    //                 FigureCanvasData::EvalError { message } => todo!(),
-    //                 _ => (),
-    //             }
-    //             FigureCanvasDataItd {
-    //                 generic: generic_value,
-    //                 specific: specific_value,
-    //             }
-    //         })
-    //         .collect()
-    // }
+
+    fn figure_canvas_data_itds(
+        &'static self,
+        presentation: &Presentation,
+    ) -> Vec<FigureCanvasDataItd> {
+        presentation
+            .pins()
+            .iter()
+            .map(|pin| self.figure_canvas_data_itd(*pin, presentation))
+            .collect()
+    }
+
+    fn figure_canvas_data_itd(
+        &'static self,
+        trace_id: TraceId,
+        presentation: &Presentation,
+    ) -> FigureCanvasDataItd {
+        let specific_key =
+            FigureCanvasKey::from_trace_data(self.trace_data(trace_id), presentation, true);
+        let generic_key =
+            FigureCanvasKey::from_trace_data(self.trace_data(trace_id), presentation, false);
+        let generic_value = self.figure_canvases.borrow(file!(), line!())[&generic_key];
+        let specific_value = self.figure_canvases.borrow(file!(), line!())[&specific_key];
+        match specific_value {
+            FigureCanvasData::Plot2d {
+                plot_kind,
+                point_groups,
+                xrange,
+                yrange,
+            } => todo!(),
+            FigureCanvasData::Mutations { mutations } => todo!(),
+            FigureCanvasData::GenericGraphics2d {
+                partitioned_samples,
+            } => todo!(),
+            FigureCanvasData::GenericF32 {
+                partitioned_samples,
+            } => todo!(),
+            FigureCanvasData::GenericI32 {
+                partitioned_samples,
+            } => todo!(),
+            FigureCanvasData::EvalError { message } => todo!(),
+            _ => (),
+        }
+        FigureCanvasDataItd {
+            generic: generic_value,
+            specific: specific_value,
+        }
+    }
 }

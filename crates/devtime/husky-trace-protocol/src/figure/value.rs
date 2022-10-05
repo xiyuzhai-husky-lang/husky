@@ -1,34 +1,31 @@
 use crate::*;
+use husky_signal::Signalable;
 use husky_vm_primitive_value::PrimitiveValueData;
 
+#[derive(Debug, Clone, PartialEq)]
 pub enum FigureCanvasValue {
-    Primitive {
-        value: PrimitiveValueData,
-    },
-    GenericF32 {
+    Void,
+    Float {
         partitioned_samples: &'static [(Partition, Vec<(SampleId, f32)>)],
     },
-    GenericI32 {
+    Integer {
         partitioned_samples: &'static [(Partition, Vec<(SampleId, i32)>)],
     },
     Graphics2d {
-        graphics2d_data: Graphics2dCanvasValue,
-    },
-    GenericGraphics2d {
         partitioned_samples: Vec<(&'static Partition, Vec<(SampleId, Graphics2dCanvasValue)>)>,
         particular: Graphics2dCanvasValue,
     },
 }
 
+impl Signalable for FigureCanvasValue {}
+
 impl Default for FigureCanvasValue {
     fn default() -> Self {
-        FigureCanvasValue::Primitive {
-            value: PrimitiveValueData::Void(()),
-        }
+        FigureCanvasValue::Void
     }
 }
 
-#[derive(Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Graphics2dCanvasValue {
     pub(crate) image_layers: Vec<&'static ImageLayerData>,
     pub(crate) shapes: Vec<&'static Shape2dData>,
@@ -45,6 +42,17 @@ impl ContainsShapes<'static> for Graphics2dCanvasValue {
 impl ContainsImageLayers<'static> for Graphics2dCanvasValue {
     fn image_layers(&self) -> Vec<&'static ImageLayerData> {
         self.image_layers.clone()
+    }
+}
+
+impl Graphics2dCanvasValue {
+    pub fn new(data: &'static Graphics2dCanvasData) -> Self {
+        Graphics2dCanvasValue {
+            image_layers: data.image_layers.iter().collect(),
+            shapes: data.shapes.iter().collect(),
+            xrange: data.xrange,
+            yrange: data.yrange,
+        }
     }
 }
 
@@ -68,22 +76,60 @@ impl FigureCanvasValue {
     }
 
     fn new_piece(data_itd: &FigureCanvasDataItd) -> Self {
-        todo!()
+        match data_itd.generic {
+            FigureCanvasData::Primitive { value } => todo!(),
+            FigureCanvasData::Plot2d {
+                plot_kind,
+                point_groups,
+                xrange,
+                yrange,
+            } => todo!(),
+            FigureCanvasData::Graphics2d { graphics2d_data } => todo!(),
+            FigureCanvasData::Mutations { mutations } => todo!(),
+            FigureCanvasData::GenericGraphics2d {
+                partitioned_samples,
+            } => FigureCanvasValue::Graphics2d {
+                partitioned_samples: partitioned_samples
+                    .iter()
+                    .map(|(partition, samples)| {
+                        (
+                            partition,
+                            samples
+                                .iter()
+                                .map(|(sample_id, data)| {
+                                    (*sample_id, Graphics2dCanvasValue::new(data))
+                                })
+                                .collect(),
+                        )
+                    })
+                    .collect(),
+                particular: match data_itd.specific {
+                    FigureCanvasData::Graphics2d { graphics2d_data } => {
+                        Graphics2dCanvasValue::new(graphics2d_data)
+                    }
+                    _ => unreachable!(),
+                },
+            },
+            FigureCanvasData::GenericF32 {
+                partitioned_samples,
+            } => todo!(),
+            FigureCanvasData::GenericI32 {
+                partitioned_samples,
+            } => todo!(),
+            FigureCanvasData::EvalError { message } => todo!(),
+        }
     }
 
     fn add(&mut self, other: FigureCanvasValue) {
         match self {
-            FigureCanvasValue::Primitive { value } => todo!(),
-            FigureCanvasValue::GenericF32 {
+            FigureCanvasValue::Void => todo!(),
+            FigureCanvasValue::Float {
                 partitioned_samples,
             } => todo!(),
-            FigureCanvasValue::GenericI32 {
+            FigureCanvasValue::Integer {
                 partitioned_samples,
             } => todo!(),
             FigureCanvasValue::Graphics2d {
-                graphics2d_data: particular,
-            } => todo!(),
-            FigureCanvasValue::GenericGraphics2d {
                 partitioned_samples,
                 particular,
             } => todo!(),
