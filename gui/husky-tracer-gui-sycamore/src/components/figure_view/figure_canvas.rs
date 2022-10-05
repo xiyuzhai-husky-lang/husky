@@ -55,7 +55,13 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
             } => {
                 match props.presentation_kind.cget() {
                     PresentationKind::Generic => {
-                        todo!()
+                        view! {
+                            scope,
+                            GenericGraphics2d {
+                                dimension: props.dimension,
+                                partitioned_samples: partitioned_samples.clone(),
+                            }
+                        }
                     }
                     PresentationKind::Specific => {
                         todo!()
