@@ -27,6 +27,9 @@ pub(super) fn TracePin<'a, G: Html>(scope: Scope<'a>, props: TracePinProps) -> V
                 on:mousedown=move |ev:Event|{
                     ev.stop_propagation() ;
                     ctx.toggle_pin_handler(trace_id)()
+                },
+                on:click=move |ev:Event| {
+                    ev.stop_propagation()
                 }
             ) {
                 svg (

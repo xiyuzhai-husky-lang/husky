@@ -70,7 +70,7 @@ pub fn TraceNode<'a, G: Html>(scope: Scope<'a>, props: TraceNodeProps<'a>) -> Vi
         scope,
         div(
             class=format!("TraceNode {}", class!(*reachable)),
-            on:click=activate_handler
+            on:mousedown=activate_handler
         ) {
             div(
                 class={
