@@ -35,6 +35,8 @@ pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps<'a>) -> 
     let content_dimension = memo!(scope, move || props.content_dimension(), props);
     let title_dimension = memo!(scope, move || props.title_dimension(), props);
     let ctx = use_dev_context(scope);
+    let figure_canvas_value_signal = ctx.figure_canvas_value_signal(scope);
+    let presentation_kind = memo!(scope, move || ctx.presentation_signal().get().kind());
     view! {
         scope,
         div (class="FigureView disable-select") {
@@ -50,7 +52,8 @@ pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps<'a>) -> 
             ) {
                 FigureCanvas {
                     dimension: content_dimension,
-                    value: ctx.figure_canvas_value(),
+                    value: figure_canvas_value_signal,
+                    presentation_kind,
                 }
             }
         }

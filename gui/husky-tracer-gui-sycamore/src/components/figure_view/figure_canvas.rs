@@ -18,108 +18,122 @@ use primitive_value::*;
 #[derive(Prop)]
 pub struct FigureCanvasProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
-    value: FigureCanvasValue,
+    value: &'a ReadSignal<FigureCanvasValue>,
+    presentation_kind: &'a ReadSignal<PresentationKind>,
 }
 
 #[component]
 pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>) -> View<G> {
-    match props.value {
-        FigureCanvasValue::Primitive { value } => {
-            view! {
-                scope,
-                PrimitiveValueCanvas {
-                    value
+    view! {
+        scope,
+        (match *props.value.get() {
+            FigureCanvasValue::Void => {
+                view! {
+                    scope,
                 }
             }
-        }
-        // FigureCanvasValue::Plot2d {
-        //     plot_kind,
-        //     ref point_groups,
-        //     xrange,
-        //     yrange,
-        // } => {
-        //     view! {
-        //         scope,
-        //         Plot2dCanvas {
-        //             dimension: props.dimension,
-        //             plot_kind: *plot_kind,
-        //             point_groups: point_groups.clone(),
-        //             xrange: *xrange,
-        //             yrange: *yrange,
-        //         }
-        //     }
-        // }
-        FigureCanvasValue::Graphics2d {
-            ref graphics2d_data,
-        } => {
-            view! {
-                scope,
-                Graphics2dCanvas {
-                    dimension: props.dimension,
-                    image_layers: graphics2d_data.image_layers(),
-                    shapes: graphics2d_data.shapes(),
-                    xrange: graphics2d_data.xrange,
-                    yrange: graphics2d_data.yrange,
+            // FigureCanvasValue::Plot2d {
+            //     plot_kind,
+            //     ref point_groups,
+            //     xrange,
+            //     yrange,
+            // } => {
+            //     view! {
+            //         scope,
+            //         Plot2dCanvas {
+            //             dimension: props.dimension,
+            //             plot_kind: *plot_kind,
+            //             point_groups: point_groups.clone(),
+            //             xrange: *xrange,
+            //             yrange: *yrange,
+            //         }
+            //     }
+            // }
+            FigureCanvasValue::Graphics2d {
+                ref partitioned_samples,
+                ref particular,
+            } => {
+                match props.presentation_kind.cget() {
+                    PresentationKind::Generic => {
+                        todo!()
+                    }
+                    PresentationKind::Specific => {
+                        todo!()
+                    }
+                    PresentationKind::Panic => {
+                        todo!()
+                    }
+                }
+                // view! {
+                //     scope,
+                //     Graphics2dCanvas {
+                //         dimension: props.dimension,
+                //         image_layers: graphics2d_data.image_layers(),
+                //         shapes: graphics2d_data.shapes(),
+                //         xrange: graphics2d_data.xrange,
+                //         yrange: graphics2d_data.yrange,
+                //     }
+                // }
+            }
+            // FigureCanvasValue::Mutations { ref mutations } => {
+            //     if let Some(mutation_selection) = props.control_data.get().opt_mutation_selection {
+            //         view! {
+            //             scope,
+            //             MutationCanvas {
+            //                 dimension: props.dimension,
+            //                 control_data: props.control_data,
+            //                 mutation: &mutations[mutation_selection as usize]
+            //             }
+            //         }
+            //     } else {
+            //         view! {scope, }
+            //     }
+            // }
+            FigureCanvasValue::Graphics2d {
+                ref partitioned_samples,
+                ..
+            } => {
+                view! {
+                    scope,
+                    GenericGraphics2d {
+                        dimension: props.dimension,
+                        partitioned_samples: partitioned_samples.clone(),
+                    }
                 }
             }
-        }
-        // FigureCanvasValue::Mutations { ref mutations } => {
-        //     if let Some(mutation_selection) = props.control_data.get().opt_mutation_selection {
-        //         view! {
-        //             scope,
-        //             MutationCanvas {
-        //                 dimension: props.dimension,
-        //                 control_data: props.control_data,
-        //                 mutation: &mutations[mutation_selection as usize]
-        //             }
-        //         }
-        //     } else {
-        //         view! {scope, }
-        //     }
-        // }
-        FigureCanvasValue::GenericGraphics2d {
-            partitioned_samples,
-            ..
-        } => {
-            view! {
-                scope,
-                GenericGraphics2d {
-                    dimension: props.dimension,
-                    partitioned_samples,
+            FigureCanvasValue::Integer {
+                partitioned_samples,
+                ..
+            } => {
+                view! {
+                    scope,
+                    GenericI32 {
+                        dimension: props.dimension,
+                        partitioned_samples,
+                    }
                 }
             }
-        }
-        FigureCanvasValue::GenericI32 {
-            partitioned_samples,
-            ..
-        } => {
-            view! {
-                scope,
-                GenericI32 {
-                    dimension: props.dimension,
-                    partitioned_samples,
+            FigureCanvasValue::Float {
+                ref partitioned_samples,
+            } => {
+                view! {
+                    scope,
+                    GenericF32 {
+                        dimension: props.dimension,
+                        partitioned_samples,
+                        image_layers: todo!(),
+                        shapes: todo!(),
+                    }
                 }
             }
-        }
-        FigureCanvasValue::GenericF32 {
-            ref partitioned_samples,
-        } => {
-            view! {
-                scope,
-                GenericF32 {
-                    dimension: props.dimension,
-                    partitioned_samples,
-                    image_layers: todo!(),
-                    shapes: todo!(),
-                }
-            }
-        } // FigureCanvasValue::EvalError { ref message } => {
-          //     view! {
-          //         scope,
-          //         div (class="EvalErrorCanvas") {
-          //             (message.clone())
-          //         }
-          //     }
-          // }
+            // FigureCanvasValue::EvalError { ref message } => {
+            //     view! {
+            //         scope,
+            //         div (class="EvalErrorCanvas") {
+            //             (message.clone())
+            //         }
+            //     }
+            // }
+        })
     }
 }
