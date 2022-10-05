@@ -1,8 +1,8 @@
-mod figure_content;
+mod figure_canvas;
 mod figure_control;
 
 use super::*;
-use figure_content::*;
+use figure_canvas::*;
 use figure_control::*;
 
 #[derive(Prop, Clone)]
@@ -44,10 +44,10 @@ pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps<'a>) -> 
                 label { "title" }
             }
             div (
-                class="FigureContentWrapper",
+                class="FigureCanvasWrapper",
                 style=dimension.cget().to_style(),
             ) {
-                FigureContent {
+                FigureCanvas {
                     dimension: content_dimension
                 }
             }

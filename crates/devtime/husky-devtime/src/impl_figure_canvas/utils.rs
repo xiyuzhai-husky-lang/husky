@@ -66,7 +66,7 @@ impl HuskyDevtime {
         if !self.state.figure_canvases.contains(&key) {
             self.state.figure_canvases.insert_new(
                 key.clone(),
-                self.gen_figure_canvas_data(trace_id, is_specific)
+                self.gen_figure_content_data(trace_id, is_specific)
                     .map_err(f)?,
             )?
         }
