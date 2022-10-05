@@ -1,3 +1,5 @@
+use std::fmt::Pointer;
+
 use smallvec::SmallVec;
 
 use super::*;
@@ -11,10 +13,19 @@ pub struct TraceStatsKey {
 const PARTITION_SMALL_VEC_SIZE: usize = 4;
 const NCOL_TOTAL: u32 = 7;
 
-#[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize, Hash)]
+#[derive(PartialEq, Eq, Clone, Serialize, Deserialize, Hash)]
 pub struct Partitions {
     nondefaults: SmallVec<[PartitionDefnData; PARTITION_SMALL_VEC_SIZE]>,
     default_partition_ncol: u32,
+}
+
+impl std::fmt::Debug for Partitions {
+    fn fmt(&self, f: &mut __private::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!(
+            "Partitions({:?};{})",
+            &self.nondefaults, &self.default_partition_ncol
+        ))
+    }
 }
 
 impl Default for Partitions {

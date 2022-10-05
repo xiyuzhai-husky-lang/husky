@@ -24,7 +24,7 @@ pub enum PresentationKind {
     Panic,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Restriction {
     None,
     Arrival {
@@ -32,6 +32,23 @@ pub enum Restriction {
         feature_id: FeatureId,
         arrival_restriction_kind: ArrivalRestrictionKind,
     },
+}
+
+impl std::fmt::Debug for Restriction {
+    fn fmt(&self, f: &mut __private::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Restriction::None => write!(f, "None"),
+            Restriction::Arrival {
+                trace_id,
+                feature_id,
+                arrival_restriction_kind,
+            } => write!(
+                f,
+                "Arrival({},{};{:?})",
+                trace_id, feature_id, arrival_restriction_kind
+            ),
+        }
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]

@@ -48,7 +48,7 @@ impl StatusChange {
                 }
                 'F' => {
                     log::info!(
-                        "figure canvases: {:?}",
+                        "figure canvases: {:#?}",
                         ctx.figure_canvases.borrow(file!(), line!())
                     );
                 }
@@ -98,10 +98,7 @@ impl DeveloperGuiContext {
     }
 
     pub fn activate_handler(&'static self, trace_id: TraceId) -> impl Fn(Event) {
-        move |_| {
-            log::info!("handle activation");
-            self.handle_status_change(StatusChange::Activate { trace_id })
-        }
+        move |_| self.handle_status_change(StatusChange::Activate { trace_id })
     }
 
     pub fn toggle_restriction_kind_handler(&'static self) -> impl Fn(Event) {

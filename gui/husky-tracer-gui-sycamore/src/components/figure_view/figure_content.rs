@@ -23,16 +23,16 @@ pub struct FigureContentProps<'a> {
 #[component]
 pub fn FigureContent<'a, G: Html>(scope: Scope<'a>, props: FigureContentProps<'a>) -> View<G> {
     let ctx = use_dev_context(scope);
-    let opt_active_trace_id = ctx.opt_active_trace_id_signal();
     let presentation_signal = ctx.presentation_signal();
-    let opt_canvas_and_control_data = memo!(scope, move || opt_active_trace_id.cget().map(
-        |active_trace_id| {
+    let opt_canvas_and_control_data = memo!(scope, move || {
+        let presentation = &presentation_signal.get();
+        presentation.opt_active_trace_id().map(|active_trace_id| {
             let active_trace = ctx.trace_data(active_trace_id);
-            let canvas_value = ctx.figure_canvas_data(&active_trace, &presentation_signal.get());
-            let control_data = ctx.figure_control_data(&active_trace, &presentation_signal.get());
+            let canvas_value = ctx.figure_canvas_data(active_trace, presentation);
+            let control_data = ctx.figure_control_data(active_trace, presentation);
             (canvas_value, control_data)
-        }
-    ));
+        })
+    });
     view! {
         scope,
         (if let Some((canvas_value, control_data)) = opt_canvas_and_control_data.cget() {
