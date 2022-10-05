@@ -16,12 +16,12 @@ use plot2d::*;
 use primitive_value::*;
 
 #[derive(Prop)]
-pub struct FigureContentProps<'a> {
+pub struct FigureCanvasProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
 }
 
 #[component]
-pub fn FigureContent<'a, G: Html>(scope: Scope<'a>, props: FigureContentProps<'a>) -> View<G> {
+pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>) -> View<G> {
     let ctx = use_dev_context(scope);
     let presentation_signal = ctx.presentation_signal();
     let opt_canvas_and_control_data = memo!(scope, move || {
@@ -38,7 +38,7 @@ pub fn FigureContent<'a, G: Html>(scope: Scope<'a>, props: FigureContentProps<'a
         (if let Some((canvas_value, control_data)) = opt_canvas_and_control_data.cget() {
             view! {
                 scope,
-                FigureContentSwitch {
+                FigureCanvasSwitch {
                     canvas_value,
                     control_data,
                     dimension: props.dimension
@@ -54,16 +54,16 @@ pub fn FigureContent<'a, G: Html>(scope: Scope<'a>, props: FigureContentProps<'a
 }
 
 #[derive(Prop)]
-struct FigureContentSwitchProps<'a> {
+struct FigureCanvasSwitchProps<'a> {
     canvas_value: &'static FigureCanvasData,
     control_data: &'a Signal<FigureControlData>,
     dimension: &'a ReadSignal<PixelDimension>,
 }
 
 #[component]
-fn FigureContentSwitch<'a, G: Html>(
+fn FigureCanvasSwitch<'a, G: Html>(
     scope: Scope<'a>,
-    props: FigureContentSwitchProps<'a>,
+    props: FigureCanvasSwitchProps<'a>,
 ) -> View<G> {
     let ctx = use_dev_context(scope);
     let pinned_canvas_values = memo!(scope, move || ctx.collect_pinned_canvas_values());

@@ -14,7 +14,7 @@
     flex-direction: row;
     justify-content: center;
 }
-.FigureContentWrapper {
+.FigureCanvasWrapper {
     display: flex;
     justify-content: space-around;
     align-items: center;
