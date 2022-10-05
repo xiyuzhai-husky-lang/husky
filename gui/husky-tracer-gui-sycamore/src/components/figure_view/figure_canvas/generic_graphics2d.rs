@@ -10,7 +10,7 @@ use partition_control::*;
 #[derive(Prop)]
 pub struct GenericGraphics2dProps<'a> {
     dimension: &'a ReadSignal<PixelDimension>,
-    partitioned_samples: &'a [(PartitionDefnData, Vec<(SampleId, Graphics2dCanvasData)>)],
+    partitioned_samples: &'a [(Partition, Vec<(SampleId, Graphics2dCanvasData)>)],
 }
 
 #[component]

@@ -6,16 +6,16 @@ pub enum FigureCanvasValue {
         value: PrimitiveValueData,
     },
     GenericF32 {
-        partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, f32)>)>,
+        partitioned_samples: Vec<(Partition, Vec<(SampleId, f32)>)>,
     },
     GenericI32 {
-        partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, i32)>)>,
+        partitioned_samples: Vec<(Partition, Vec<(SampleId, i32)>)>,
     },
     Graphics2d {
         particular: Graphics2dCanvasData,
     },
     GenericGraphics2d {
-        partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, Graphics2dCanvasValue)>)>,
+        partitioned_samples: Vec<(Partition, Vec<(SampleId, Graphics2dCanvasValue)>)>,
         particular: Graphics2dCanvasValue,
     },
 }

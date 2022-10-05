@@ -30,13 +30,13 @@ pub enum FigureCanvasData {
         mutations: Vec<MutationFigureData>,
     },
     GenericGraphics2d {
-        partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, Graphics2dCanvasData)>)>,
+        partitioned_samples: Vec<(Partition, Vec<(SampleId, Graphics2dCanvasData)>)>,
     },
     GenericF32 {
-        partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, f32)>)>,
+        partitioned_samples: Vec<(Partition, Vec<(SampleId, f32)>)>,
     },
     GenericI32 {
-        partitioned_samples: Vec<(PartitionDefnData, Vec<(SampleId, i32)>)>,
+        partitioned_samples: Vec<(Partition, Vec<(SampleId, i32)>)>,
     },
     EvalError {
         message: String,

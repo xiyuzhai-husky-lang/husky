@@ -15,7 +15,7 @@ const NCOL_TOTAL: u32 = 7;
 
 #[derive(PartialEq, Eq, Clone, Serialize, Deserialize, Hash)]
 pub struct Partitions {
-    nondefaults: SmallVec<[PartitionDefnData; PARTITION_SMALL_VEC_SIZE]>,
+    nondefaults: SmallVec<[Partition; PARTITION_SMALL_VEC_SIZE]>,
     default_partition_ncol: u32,
 }
 
@@ -50,7 +50,7 @@ fn test_partition_idx() {
     assert!(!partitions.is_nondefault(Label(5)));
     partitions.add_partition(
         0,
-        PartitionDefnData {
+        Partition {
             ncol: 3,
             variant: PartitionDefnDataVariant::Label(Label(0)),
         },
@@ -66,8 +66,8 @@ fn test_partition_idx() {
     assert!(!partitions.is_nondefault(Label(5)));
 }
 
-impl From<SmallVec<[PartitionDefnData; PARTITION_SMALL_VEC_SIZE]>> for Partitions {
-    fn from(nondefaults: SmallVec<[PartitionDefnData; PARTITION_SMALL_VEC_SIZE]>) -> Self {
+impl From<SmallVec<[Partition; PARTITION_SMALL_VEC_SIZE]>> for Partitions {
+    fn from(nondefaults: SmallVec<[Partition; PARTITION_SMALL_VEC_SIZE]>) -> Self {
         let nodefault_ncol_total: u32 = nondefaults
             .iter()
             .map(|p| {
@@ -85,7 +85,7 @@ impl From<SmallVec<[PartitionDefnData; PARTITION_SMALL_VEC_SIZE]>> for Partition
 }
 
 impl Partitions {
-    pub fn add_partition(&mut self, idx: usize, new_partition: PartitionDefnData) {
+    pub fn add_partition(&mut self, idx: usize, new_partition: Partition) {
         assert_ne!(new_partition.variant, PartitionDefnDataVariant::Default);
         self.default_partition_ncol -= new_partition.ncol;
         assert!(self.default_partition_ncol > 0);
@@ -114,7 +114,7 @@ impl Partitions {
         self.opt_nondefault_partition_idx(label).is_some()
     }
 
-    pub fn init_partition_values<T>(&self) -> Vec<(PartitionDefnData, T)>
+    pub fn init_partition_values<T>(&self) -> Vec<(Partition, T)>
     where
         T: Default,
     {
@@ -124,7 +124,7 @@ impl Partitions {
             .collect()
     }
 
-    fn defn_data(&self, i: usize) -> PartitionDefnData {
+    fn defn_data(&self, i: usize) -> Partition {
         if i < self.nondefaults.len() {
             self.nondefaults[i].clone()
         } else {
@@ -132,8 +132,8 @@ impl Partitions {
         }
     }
 
-    fn default_partition_defn_data(&self) -> PartitionDefnData {
-        PartitionDefnData {
+    fn default_partition_defn_data(&self) -> Partition {
+        Partition {
             ncol: self.default_partition_ncol,
             variant: PartitionDefnDataVariant::Default,
         }
@@ -145,7 +145,7 @@ impl Partitions {
 }
 
 // impl std::ops::Deref for Partitions {
-//     type Target = [PartitionDefnData];
+//     type Target = [Partition];
 
 //     fn deref(&self) -> &Self::Target {
 //         &self.nondefaults
