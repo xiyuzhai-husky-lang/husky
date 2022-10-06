@@ -15,15 +15,15 @@ const NCOL_TOTAL: u32 = 7;
 
 #[derive(PartialEq, Eq, Clone, Serialize, Deserialize, Hash)]
 pub struct Partitions {
-    nondefaults: SmallVec<[Partition; PARTITION_SMALL_VEC_SIZE]>,
-    default_partition_ncol: u32,
+    others: SmallVec<[Partition; PARTITION_SMALL_VEC_SIZE]>,
+    others_ncol: u32,
 }
 
 impl std::fmt::Debug for Partitions {
     fn fmt(&self, f: &mut __private::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!(
             "Partitions({:?};{})",
-            &self.nondefaults, &self.default_partition_ncol
+            &self.others, &self.others_ncol
         ))
     }
 }
@@ -31,8 +31,8 @@ impl std::fmt::Debug for Partitions {
 impl Default for Partitions {
     fn default() -> Self {
         Self {
-            nondefaults: Default::default(),
-            default_partition_ncol: NCOL_TOTAL,
+            others: Default::default(),
+            others_ncol: NCOL_TOTAL,
         }
     }
 }
@@ -78,8 +78,8 @@ impl From<SmallVec<[Partition; PARTITION_SMALL_VEC_SIZE]>> for Partitions {
         let default_partition_ncol: u32 = NCOL_TOTAL - nodefault_ncol_total;
         assert!(default_partition_ncol > 0);
         Self {
-            nondefaults,
-            default_partition_ncol,
+            others: nondefaults,
+            others_ncol: default_partition_ncol,
         }
     }
 }
@@ -87,25 +87,31 @@ impl From<SmallVec<[Partition; PARTITION_SMALL_VEC_SIZE]>> for Partitions {
 impl Partitions {
     pub fn add_partition(&mut self, idx: usize, new_partition: Partition) {
         assert_ne!(new_partition.variant, PartitionVariant::Default);
-        self.default_partition_ncol -= new_partition.ncol;
-        assert!(self.default_partition_ncol > 0);
+        self.others_ncol -= new_partition.ncol;
+        assert!(self.others_ncol > 0);
         assert!(new_partition.ncol > 0);
-        self.nondefaults.insert(idx, new_partition)
+        self.others.insert(idx, new_partition)
+    }
+
+    pub fn remove_partition(&mut self, index: usize) {
+        assert!(index < self.others.len());
+        let removed: Partition = self.others.remove(index);
+        self.others_ncol += removed.ncol;
     }
 
     pub fn partition_idx(&self, label: Label) -> usize {
         self.opt_nondefault_partition_idx(label)
-            .unwrap_or(self.nondefaults.len())
+            .unwrap_or(self.others.len())
     }
     pub fn partition_ncol(&self, partition_idx: usize) -> u32 {
-        self.nondefaults
+        self.others
             .get(partition_idx)
             .map(|d| d.ncol)
-            .unwrap_or(self.default_partition_ncol)
+            .unwrap_or(self.others_ncol)
     }
 
     pub fn opt_nondefault_partition_idx(&self, label: Label) -> Option<usize> {
-        self.nondefaults
+        self.others
             .iter()
             .position(|partition| partition.contains(label))
     }
@@ -125,8 +131,8 @@ impl Partitions {
     }
 
     fn defn_data(&self, i: usize) -> Partition {
-        if i < self.nondefaults.len() {
-            self.nondefaults[i].clone()
+        if i < self.others.len() {
+            self.others[i].clone()
         } else {
             self.default_partition_defn_data()
         }
@@ -134,13 +140,13 @@ impl Partitions {
 
     fn default_partition_defn_data(&self) -> Partition {
         Partition {
-            ncol: self.default_partition_ncol,
+            ncol: self.others_ncol,
             variant: PartitionVariant::Default,
         }
     }
 
     pub fn total_len(&self) -> usize {
-        self.nondefaults.len() + 1
+        self.others.len() + 1
     }
 }
 
