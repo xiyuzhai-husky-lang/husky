@@ -1,9 +1,9 @@
-mod impl_eager_expr;
-mod impl_feature_expr;
-mod impl_feature_repr;
-mod impl_feature_stmt;
-mod impl_func_stmt;
-mod impl_proc_stmt;
+mod eager_expr;
+mod feature_expr;
+mod feature_repr;
+mod feature_stmt;
+mod func_stmt;
+mod proc_stmt;
 mod utils;
 
 use crate::*;
