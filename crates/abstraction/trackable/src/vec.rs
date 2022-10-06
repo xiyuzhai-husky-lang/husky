@@ -117,11 +117,33 @@ where
             phantom_state: PhantomData,
         }
     }
+
+    pub fn clear_pop(&mut self) -> Vec<E> {
+        let entries = std::mem::take(&mut self.entries);
+        self.state = Default::default();
+        entries
+    }
+
     pub fn set_elem(&mut self, index: usize, new_value: E) -> TrackableMakeChangeM<Self, ()> {
         if index < self.state.old_len {
             todo!()
         }
         self.entries[index] = new_value;
+        TrackableMakeChangeM::Ok {
+            cont: (),
+            phantom_state: PhantomData,
+        }
+    }
+
+    pub fn update_elem(
+        &mut self,
+        index: usize,
+        f: impl FnOnce(&mut E),
+    ) -> TrackableMakeChangeM<Self, ()> {
+        if index < self.state.old_len {
+            todo!()
+        }
+        f(&mut self.entries[index]);
         TrackableMakeChangeM::Ok {
             cont: (),
             phantom_state: PhantomData,
