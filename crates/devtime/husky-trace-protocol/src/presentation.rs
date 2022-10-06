@@ -211,6 +211,10 @@ impl Presentation {
         self.partitions.add_partition(idx, new_partition)
     }
 
+    pub fn remove_partition(&mut self, idx: usize) {
+        self.partitions.remove_partition(idx)
+    }
+
     pub fn is_pinned(&self, id: TraceId) -> bool {
         self.pins.contains(&id)
     }

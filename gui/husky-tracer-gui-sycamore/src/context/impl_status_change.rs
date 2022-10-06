@@ -173,4 +173,19 @@ impl DeveloperGuiContext {
             })
         }
     }
+
+    pub fn close_partition_handler(&'static self, idx: usize) -> impl Fn(Event) {
+        move |_| {
+            self.handle_status_change(StatusChange::update_restriction(self, |res| {
+                res.remove_partition(idx)
+            }))
+            // let new_partition = Partition {
+            //     ncol,
+            //     variant: PartitionVariant::Label(Label(label_raw as i32)),
+            // };
+            // self.handle_status_change(StatusChange::update_restriction(self, |res| {
+            //     res.add_partition(idx, new_partition)
+            // }))
+        }
+    }
 }
