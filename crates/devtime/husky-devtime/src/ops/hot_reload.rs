@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
+use husky_print_utils::epin;
 use monad::MonadT;
 use std::time::Instant;
 
@@ -73,14 +74,15 @@ impl HuskyDevtime {
         self.state.set_root_traces(root_traces);
     }
 
-    fn mimic_old_state(&mut self, old_state: HuskyDevtimeOldState) -> HuskyDevtimeUpdateM<()> {
-        self.mimic_old_expansions(&old_state)?;
+    fn mimic_old_state(&mut self, mut old_state: HuskyDevtimeOldState) -> HuskyDevtimeUpdateM<()> {
+        // order matters
+        self.mimic_old_expansions(&mut old_state)?;
         todo!()
     }
 
     fn mimic_old_expansions(
         &mut self,
-        old_state: &HuskyDevtimeOldState,
+        old_state: &mut HuskyDevtimeOldState,
     ) -> HuskyDevtimeUpdateM<()> {
         self.mimic_old_expansions_dfs(0, old_state)
     }
@@ -88,19 +90,19 @@ impl HuskyDevtime {
     fn mimic_old_expansions_dfs(
         &mut self,
         start: usize,
-        old_state: &HuskyDevtimeOldState,
+        old_state: &mut HuskyDevtimeOldState,
     ) -> HuskyDevtimeUpdateM<()> {
+        epin!();
         let end = self.state.trace_nodes.len();
         for idx in start..end {
             let trace_node = &self.state.trace_nodes[idx];
-            if let Some(old_trace_node) = old_state.try_match(trace_node) {
+            if let Some(old_trace_node) = old_state.try_match_node(trace_node) {
                 if old_trace_node.expanded() != trace_node.expanded() {
                     self.state
                         .trace_nodes
                         .update_elem(idx, |node| node.toggle_expansion())?
                 }
             }
-            todo!()
         }
         self.mimic_old_expansions_dfs(end, old_state)
     }

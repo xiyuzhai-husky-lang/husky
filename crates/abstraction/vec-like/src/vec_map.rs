@@ -4,7 +4,7 @@ use crate::*;
 
 pub trait VecMapEntry<K>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: PartialEq + Eq + std::fmt::Debug,
 {
     fn key(&self) -> K;
 }
@@ -33,7 +33,7 @@ where
 
 impl<K, T> VecMapEntry<K> for Arc<T>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: PartialEq + Eq + std::fmt::Debug,
     T: VecMapEntry<K>,
 {
     fn key(&self) -> K {
@@ -44,7 +44,7 @@ where
 #[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
 pub struct VecMap<K, V>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: PartialEq + Eq + std::fmt::Debug,
     V: VecMapEntry<K>,
 {
     entries: Vec<V>,
@@ -53,7 +53,7 @@ where
 
 impl<K, V> std::fmt::Debug for VecMap<K, V>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: PartialEq + Eq + std::fmt::Debug,
     V: VecMapEntry<K> + std::fmt::Debug,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -71,7 +71,7 @@ pub struct EntryRepeatError<Entry> {
 
 impl<K, Entry> VecMap<K, Entry>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: PartialEq + Eq + std::fmt::Debug,
     Entry: VecMapEntry<K>,
 {
     pub fn clear(&mut self) {
