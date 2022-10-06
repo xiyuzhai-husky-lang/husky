@@ -94,7 +94,7 @@ pub fn PartitionControl<'a, G: Html>(
             div (class = "PartitionControlRight") {
                 div (
                     class = "PartitionControlRightItem PartitionClose",
-                    on:click=ctx.close_partition_handler(props.idx)
+                    on:click=ctx.remove_partition_handler(props.idx)
                 ) {
                     "X"
                 }
