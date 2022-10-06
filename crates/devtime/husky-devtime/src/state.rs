@@ -1,3 +1,7 @@
+mod old;
+
+pub use old::*;
+
 use crate::*;
 use trackable::{
     TrackSimple, Trackable, TrackableAtom, TrackableMakeChangeM, TrackableMap,
@@ -30,7 +34,6 @@ pub struct DevtimeStateChange {
 }
 
 // implementation details
-
 impl Trackable for HuskyDevtimeState {
     type Change = DevtimeStateChange;
 
@@ -69,15 +72,15 @@ impl HuskyDevtimeState {
         HuskyDevtimeTakeChangeM::Ok(())
     }
 
-    pub(crate) fn clear(&mut self) -> HuskyDevtimeUpdateM<()> {
-        self.presentation.update(|restriction| restriction.clear());
-        self.trace_nodes = Default::default();
+    pub(crate) fn clear_pop(&mut self) -> HuskyDevtimeUpdateM<HuskyDevtimeOldState> {
+        let presentation = self.presentation.clear_pop();
+        let trace_nodes = self.trace_nodes.clear_pop();
         self.figure_canvases = Default::default();
         self.figure_controls = Default::default();
         self.trace_stalks = Default::default();
         self.trace_statss = Default::default();
         self.root_traces = Default::default();
         self.subtrace_ids_map = Default::default();
-        HuskyDevtimeUpdateM::Ok(())
+        HuskyDevtimeUpdateM::Ok(HuskyDevtimeOldState::new(presentation, trace_nodes))
     }
 }

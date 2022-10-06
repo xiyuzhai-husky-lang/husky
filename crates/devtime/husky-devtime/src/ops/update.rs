@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_kind::EntityKind;
 use monad::Monad;
 use std::{ops::FromResidual, time::Instant};
-use trackable::{TrackableAtom, TrackableMakeChangeR, TrackableMap};
+use trackable::{TrackableAtom, TrackableMakeChangeR, TrackableMap, TrackableVec};
 
 #[must_use]
 pub(crate) enum HuskyDevtimeUpdateM<T> {
@@ -65,6 +65,12 @@ impl<T> FromResidual<Result<std::convert::Infallible, __VMError>> for HuskyDevti
 
 impl<T> FromResidual<HuskyDevtimeUpdateR> for HuskyDevtimeUpdateM<T> {
     fn from_residual(residual: HuskyDevtimeUpdateR) -> Self {
+        todo!()
+    }
+}
+
+impl<T> FromResidual<TrackableMakeChangeR<TrackableVec<TraceNode>>> for HuskyDevtimeUpdateM<T> {
+    fn from_residual(residual: TrackableMakeChangeR<TrackableVec<TraceNode>>) -> Self {
         todo!()
     }
 }

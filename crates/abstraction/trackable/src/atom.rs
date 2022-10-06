@@ -52,4 +52,12 @@ impl<V> TrackableAtom<V> {
             phantom_state: std::marker::PhantomData,
         }
     }
+
+    pub fn clear_pop(&mut self) -> V
+    where
+        V: Default,
+    {
+        self.changed = false;
+        std::mem::take(&mut self.value)
+    }
 }

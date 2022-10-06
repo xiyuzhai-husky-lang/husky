@@ -17,8 +17,9 @@ impl MonadT<HuskyRuntimeHotReloadM> for HuskyDevtimeHotReloadM {}
 impl HuskyDevtime {
     pub fn hot_reload(&mut self) -> HuskyDevtimeHotReloadM {
         self.runtime.hot_reload()?;
-        self.clear()?;
-        self.gen_root_traces(); // ad hoc
+        let old_state = self.clear()?;
+        self.gen_root_traces();
+        self.mimic_old_state(old_state);
         self.update()?;
         HuskyDevtimeHotReloadM::Ok(self.take_init_data()?)
     }
@@ -72,7 +73,39 @@ impl HuskyDevtime {
         self.state.set_root_traces(root_traces);
     }
 
-    pub fn take_init_data(&mut self) -> HuskyDevtimeTakeChangeM<InitData> {
+    fn mimic_old_state(&mut self, old_state: HuskyDevtimeOldState) -> HuskyDevtimeUpdateM<()> {
+        self.mimic_old_expansions(&old_state)?;
+        todo!()
+    }
+
+    fn mimic_old_expansions(
+        &mut self,
+        old_state: &HuskyDevtimeOldState,
+    ) -> HuskyDevtimeUpdateM<()> {
+        self.mimic_old_expansions_dfs(0, old_state)
+    }
+
+    fn mimic_old_expansions_dfs(
+        &mut self,
+        start: usize,
+        old_state: &HuskyDevtimeOldState,
+    ) -> HuskyDevtimeUpdateM<()> {
+        let end = self.state.trace_nodes.len();
+        for idx in start..end {
+            let trace_node = &self.state.trace_nodes[idx];
+            if let Some(old_trace_node) = old_state.try_match(trace_node) {
+                if old_trace_node.expanded() != trace_node.expanded() {
+                    self.state
+                        .trace_nodes
+                        .update_elem(idx, |node| node.toggle_expansion())?
+                }
+            }
+            todo!()
+        }
+        self.mimic_old_expansions_dfs(end, old_state)
+    }
+
+    fn take_init_data(&mut self) -> HuskyDevtimeTakeChangeM<InitData> {
         // ignored
         let _staged_change = self.take_change()?;
         // ad hoc
