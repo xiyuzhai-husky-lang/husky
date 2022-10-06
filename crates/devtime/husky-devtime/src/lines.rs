@@ -1,11 +1,11 @@
+mod eager_expr;
 mod expr_config;
-mod impl_eager_expr;
-mod impl_feature_branch;
-mod impl_feature_expr;
-mod impl_feature_stmt;
-mod impl_func_stmt;
-mod impl_proc_stmt;
-mod impl_token;
+mod feature_branch;
+mod feature_expr;
+mod feature_stmt;
+mod func_stmt;
+mod proc_stmt;
+mod token;
 
 pub use expr_config::*;
 use husky_text::Row;

@@ -1,17 +1,17 @@
 #![feature(try_trait_v2)]
 mod db;
-mod impl_figure_canvas;
-mod impl_figure_control;
-mod impl_lines;
-mod impl_pin;
-mod impl_trace_stalk;
-mod impl_trace_stats;
+mod figure_canvas;
+mod figure_control;
+mod lines;
 mod ops;
+mod pin;
 mod restriction;
 mod state;
 mod subtraces;
 mod trace;
 mod trace_node;
+mod trace_stalk;
+mod trace_stats;
 
 pub use ops::*;
 pub use state::*;
