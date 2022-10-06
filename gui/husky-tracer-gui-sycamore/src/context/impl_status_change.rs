@@ -174,18 +174,27 @@ impl DeveloperGuiContext {
         }
     }
 
+    pub fn shrink_partition_handler(&'static self, idx: usize) -> impl Fn(Event) {
+        move |_| {
+            self.handle_status_change(StatusChange::update_restriction(self, |res| {
+                res.shrink_partition(idx)
+            }))
+        }
+    }
+
+    pub fn expand_partition_handler(&'static self, idx: usize) -> impl Fn(Event) {
+        move |_| {
+            self.handle_status_change(StatusChange::update_restriction(self, |res| {
+                res.expand_partition(idx)
+            }))
+        }
+    }
+
     pub fn remove_partition_handler(&'static self, idx: usize) -> impl Fn(Event) {
         move |_| {
             self.handle_status_change(StatusChange::update_restriction(self, |res| {
                 res.remove_partition(idx)
             }))
-            // let new_partition = Partition {
-            //     ncol,
-            //     variant: PartitionVariant::Label(Label(label_raw as i32)),
-            // };
-            // self.handle_status_change(StatusChange::update_restriction(self, |res| {
-            //     res.add_partition(idx, new_partition)
-            // }))
         }
     }
 }
