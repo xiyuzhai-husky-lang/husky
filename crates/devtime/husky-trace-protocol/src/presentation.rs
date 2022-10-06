@@ -211,6 +211,14 @@ impl Presentation {
         self.partitions.add_partition(idx, new_partition)
     }
 
+    pub fn shrink_partition(&mut self, idx: usize) {
+        self.partitions.shrink_partition(idx)
+    }
+
+    pub fn expand_partition(&mut self, idx: usize) {
+        self.partitions.expand_partition(idx)
+    }
+
     pub fn remove_partition(&mut self, idx: usize) {
         self.partitions.remove_partition(idx)
     }

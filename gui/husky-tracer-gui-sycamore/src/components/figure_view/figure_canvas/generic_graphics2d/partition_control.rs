@@ -42,7 +42,7 @@ pub fn PartitionControl<'a, G: Html>(
                 }
                 div (
                     class = "PartitionControlRightItem PartitionShrink",
-                    on:click=|_|todo!()
+                    on:click=ctx.shrink_partition_handler(props.idx)
                 ) {
                     svg (
                         stroke="currentColor",
@@ -67,7 +67,7 @@ pub fn PartitionControl<'a, G: Html>(
                 }
                 div (
                     class = "PartitionControlRightItem PartitionExpand",
-                    on:click=|_|todo!()
+                    on:click=ctx.expand_partition_handler(props.idx)
                 ) {
                     svg (
                         stroke="currentColor",
