@@ -11,12 +11,17 @@ pub enum FigureCanvasValue {
     },
     GenericF32 {
         partitioned_samples: &'static [(Partition, Vec<(SampleId, f32)>)],
+        image_layers: Vec<&'static ImageLayerData>,
+        shapes: Vec<&'static Shape2dData>,
     },
     GenericI32 {
         partitioned_samples: &'static [(Partition, Vec<(SampleId, i32)>)],
+        image_layers: Vec<&'static ImageLayerData>,
+        shapes: Vec<&'static Shape2dData>,
     },
     GenericGraphics2d {
         partitioned_samples: Vec<(&'static Partition, Vec<(SampleId, Graphics2dCanvasValue)>)>,
+        specific: Graphics2dCanvasValue,
     },
 }
 
@@ -37,16 +42,15 @@ pub struct Graphics2dCanvasValue {
 }
 
 impl Graphics2dCanvasValue {
-    fn add(&mut self, other: &Self) {
+    fn add(&mut self, other: Self) {
         if self.xrange != other.xrange {
             todo!()
         }
         if self.yrange != other.yrange {
             todo!()
         }
-        self.image_layers
-            .extend(other.image_layers.iter().map(|r| *r));
-        self.shapes.extend(other.shapes.iter().map(|r| *r))
+        self.image_layers.extend(other.image_layers.into_iter());
+        self.shapes.extend(other.shapes.into_iter())
     }
 }
 
@@ -129,13 +133,27 @@ impl FigureCanvasValue {
                         )
                     })
                     .collect(),
+                specific: match data_itd.specific {
+                    FigureCanvasData::Graphics2d { graphics2d_data } => {
+                        Graphics2dCanvasValue::new(graphics2d_data)
+                    }
+                    _ => unreachable!(),
+                },
             },
             FigureCanvasData::GenericF32 {
                 partitioned_samples,
-            } => todo!(),
+            } => FigureCanvasValue::GenericF32 {
+                partitioned_samples,
+                image_layers: vec![],
+                shapes: vec![],
+            },
             FigureCanvasData::GenericI32 {
                 partitioned_samples,
-            } => todo!(),
+            } => FigureCanvasValue::GenericI32 {
+                partitioned_samples,
+                image_layers: vec![],
+                shapes: vec![],
+            },
             FigureCanvasData::EvalError { message } => todo!(),
         }
     }
@@ -145,35 +163,58 @@ impl FigureCanvasValue {
             FigureCanvasValue::Primitive { .. } => *self = other,
             FigureCanvasValue::GenericF32 {
                 partitioned_samples,
-            } => todo!(),
+                image_layers,
+                shapes,
+            } => match other {
+                FigureCanvasValue::Primitive { value } => todo!(),
+                FigureCanvasValue::GenericF32 {
+                    partitioned_samples,
+                    image_layers,
+                    shapes,
+                } => todo!(),
+                FigureCanvasValue::GenericI32 {
+                    partitioned_samples,
+                    image_layers,
+                    shapes,
+                } => todo!(),
+                FigureCanvasValue::GenericGraphics2d { specific, .. } => {
+                    image_layers.extend(specific.image_layers().into_iter());
+                    shapes.extend(specific.shapes().into_iter())
+                }
+            },
             FigureCanvasValue::GenericI32 {
                 partitioned_samples,
+                image_layers,
+                shapes,
             } => todo!(),
             FigureCanvasValue::GenericGraphics2d {
                 partitioned_samples: partitioned_samples0,
+                specific: particular0,
             } => match other {
                 FigureCanvasValue::Primitive { .. } => (),
                 FigureCanvasValue::GenericF32 { .. } => (),
                 FigureCanvasValue::GenericI32 { .. } => (),
                 FigureCanvasValue::GenericGraphics2d {
                     partitioned_samples: partitioned_samples1,
+                    specific: particular1,
                 } => {
                     assert_eq!(partitioned_samples0.len(), partitioned_samples1.len());
-                    for ((partition0, samples0), (partition1, samples1)) in
-                        zip(partitioned_samples0.iter_mut(), partitioned_samples1.iter())
-                    {
-                        assert_eq!(partition0, partition1);
+                    for ((partition0, samples0), (partition1, samples1)) in zip(
+                        partitioned_samples0.iter_mut(),
+                        partitioned_samples1.into_iter(),
+                    ) {
+                        assert_eq!(partition0, &partition1);
                         assert_eq!(samples0.len(), samples1.len());
                         for (
-                            (sample_id0, sample_figure_canvas_value0),
-                            (sample_id1, sample_figure_canvas_value1),
-                        ) in zip(samples0.iter_mut(), samples1.iter())
+                            (sample_id0, sample_canvas_value0),
+                            (sample_id1, sample_canvas_value1),
+                        ) in zip(samples0.iter_mut(), samples1.into_iter())
                         {
-                            assert_eq!(sample_id0, sample_id1);
-                            sample_figure_canvas_value0.add(sample_figure_canvas_value1)
+                            assert_eq!(*sample_id0, sample_id1);
+                            sample_canvas_value0.add(sample_canvas_value1)
                         }
                     }
-                    todo!()
+                    particular0.add(particular1)
                 }
             },
         }

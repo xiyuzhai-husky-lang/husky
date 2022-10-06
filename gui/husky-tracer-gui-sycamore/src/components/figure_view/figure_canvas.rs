@@ -51,6 +51,7 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
             // }
             FigureCanvasValue::GenericGraphics2d {
                 ref partitioned_samples,
+                ..
             } => {
                 match props.presentation_kind.cget() {
                     PresentationKind::Generic => {
@@ -120,14 +121,16 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
             }
             FigureCanvasValue::GenericF32 {
                 ref partitioned_samples,
+                ref image_layers,
+                ref shapes,
             } => {
                 view! {
                     scope,
                     GenericF32 {
                         dimension: props.dimension,
                         partitioned_samples,
-                        image_layers: todo!(),
-                        shapes: todo!(),
+                        image_layers: image_layers.clone(),
+                        shapes: shapes.clone(),
                     }
                 }
             }
