@@ -37,6 +37,34 @@ pub enum Restriction {
     },
 }
 
+impl Restriction {
+    pub fn mimic<'a>(self, f: &'a impl Fn(TraceId) -> Option<&'a TraceData>) -> Self {
+        match self {
+            Restriction::None => Restriction::None,
+            Restriction::Arrival {
+                trace_id: old_trace_id,
+                arrival_restriction_kind,
+                ..
+            } => {
+                if let Some(trace_data) = f(old_trace_id) {
+                    let trace_id = trace_data.id;
+                    if let Some(feature_id) = trace_data.opt_arrival_indicator {
+                        Restriction::Arrival {
+                            trace_id,
+                            feature_id,
+                            arrival_restriction_kind,
+                        }
+                    } else {
+                        Restriction::None
+                    }
+                } else {
+                    Restriction::None
+                }
+            }
+        }
+    }
+}
+
 impl std::fmt::Debug for Restriction {
     fn fmt(&self, f: &mut __private::Formatter<'_>) -> std::fmt::Result {
         match self {
@@ -74,6 +102,22 @@ impl Restriction {
 }
 
 impl Presentation {
+    pub fn mimic<'a>(&self, f: &'a impl Fn(TraceId) -> Option<&'a TraceData>) -> Self {
+        Self {
+            kind: self.kind,
+            sample_id: self.sample_id,
+            opt_active_trace_id: self.opt_active_trace_id.map(f).flatten().map(|n| n.id),
+            restriction: self.restriction.mimic(f),
+            pins: self
+                .pins
+                .iter()
+                .filter_map(|pin| f(*pin))
+                .map(|n| n.id)
+                .collect(),
+            partitions: self.partitions.clone(),
+        }
+    }
+
     pub fn clear(&mut self) {
         self.restriction.clear();
         self.opt_active_trace_id = None;

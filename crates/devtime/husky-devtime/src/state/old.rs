@@ -2,11 +2,6 @@ use crate::*;
 use husky_entity_route::EntityRoutePtr;
 use vec_like::VecPairMap;
 
-pub struct TraceIdMatch {
-    old_id: TraceId,
-    new_id: TraceId,
-}
-
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub enum TraceSketch {
     Main,
@@ -40,9 +35,11 @@ impl TraceSketch {
 
 #[must_use]
 pub struct HuskyDevtimeOldState {
+    presentation: Presentation,
     trace_nodes: Vec<TraceNode>,
     trace_id_map: Vec<TraceIdMatch>,
     trace_sketches: HashMap<TraceSketch, TraceId>,
+    fixed: bool,
 }
 
 impl HuskyDevtimeOldState {
@@ -54,9 +51,11 @@ impl HuskyDevtimeOldState {
             })
             .collect();
         Self {
+            presentation,
             trace_nodes,
             trace_id_map: vec![],
             trace_sketches,
+            fixed: false,
         }
     }
 
@@ -79,4 +78,24 @@ impl HuskyDevtimeOldState {
             .find(|m| m.new_id == new)
             .map(|m| m.old_id)
     }
+
+    pub fn fix(&mut self) {
+        assert!(!self.fixed);
+        self.fixed = true;
+    }
+
+    pub fn mimic_presentation(&self, trace_nodes: &[TraceNode]) -> Presentation {
+        assert!(self.fixed);
+        self.presentation.mimic(&|id| {
+            self.trace_id_map
+                .iter()
+                .find(|m| m.old_id == id)
+                .map(|m| &trace_nodes[m.new_id.raw()].trace().raw_data)
+        })
+    }
+}
+
+pub struct TraceIdMatch {
+    pub old_id: TraceId,
+    pub new_id: TraceId,
 }

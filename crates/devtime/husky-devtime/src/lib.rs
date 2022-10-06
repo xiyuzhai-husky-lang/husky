@@ -202,7 +202,7 @@ impl HuskyDevtime {
         self.state
             .trace_nodes
             .apply_update_elem(trace_id.raw(), |node| node.toggle_expansion())?;
-        self.update_subtraces(trace_id); // ad hoc
+        self.update_subtraces(trace_id); // not atomic, man
         self.update()?;
         let change = self.take_change()?;
         HuskyDevtimeTakeChangeM::Ok(
