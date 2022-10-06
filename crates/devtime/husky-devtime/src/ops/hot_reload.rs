@@ -77,7 +77,8 @@ impl HuskyDevtime {
     fn mimic_old_state(&mut self, mut old_state: HuskyDevtimeOldState) -> HuskyDevtimeUpdateM<()> {
         // order matters
         self.mimic_old_expansions(&mut old_state)?;
-        todo!()
+        old_state.fix();
+        self.mimic_old_presentation(&old_state)
     }
 
     fn mimic_old_expansions(
@@ -92,19 +93,33 @@ impl HuskyDevtime {
         start: usize,
         old_state: &mut HuskyDevtimeOldState,
     ) -> HuskyDevtimeUpdateM<()> {
-        epin!();
         let end = self.state.trace_nodes.len();
+        if start >= end {
+            return HuskyDevtimeUpdateM::Ok(());
+        }
         for idx in start..end {
             let trace_node = &self.state.trace_nodes[idx];
             if let Some(old_trace_node) = old_state.try_match_node(trace_node) {
                 if old_trace_node.expanded() != trace_node.expanded() {
+                    let new_trace_id = trace_node.trace().id();
                     self.state
                         .trace_nodes
-                        .update_elem(idx, |node| node.toggle_expansion())?
+                        .update_elem(idx, |node| node.toggle_expansion())?;
+                    self.update_subtraces(new_trace_id)?
                 }
             }
         }
         self.mimic_old_expansions_dfs(end, old_state)
+    }
+
+    fn mimic_old_presentation(
+        &mut self,
+        old_state: &HuskyDevtimeOldState,
+    ) -> HuskyDevtimeUpdateM<()> {
+        self.state
+            .presentation
+            .set(old_state.mimic_presentation(&self.state.trace_nodes));
+        HuskyDevtimeUpdateM::Ok(())
     }
 
     fn take_init_data(&mut self) -> HuskyDevtimeTakeChangeM<InitData> {
