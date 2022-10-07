@@ -39,7 +39,7 @@ pub struct AstTransformer<'a> {
     pub(crate) folded_results: FoldableList<AstResult<Ast>>,
     abs_semantic_tokens: Vec<AbsSemanticToken>,
     tokenized_text: Arc<TokenizedText>,
-    infer_roots: Vec<ExprEntrance>,
+    infer_roots: Vec<AstEntrance>,
 }
 
 impl<'a> AstTransformer<'a> {
@@ -89,7 +89,7 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
-    pub(crate) fn push_infer_roots(&mut self, infer_roots: Vec<ExprEntrance>) {
+    pub(crate) fn push_infer_roots(&mut self, infer_roots: Vec<AstEntrance>) {
         self.infer_roots.extend(infer_roots)
     }
 
@@ -154,7 +154,7 @@ impl<'a> fold::Transformer for AstTransformer<'a> {
             AstContext::Enum(_) => self.parse_enum_variant(token_group)?,
             AstContext::Record => self.parse_record_item(token_group, enter_block)?,
         };
-        self.push_infer_roots(variant.expr_entrances());
+        self.push_infer_roots(variant.ast_entrances());
         Ok(Ast {
             range: token_group.text_range(),
             variant,

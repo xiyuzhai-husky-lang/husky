@@ -1,5 +1,5 @@
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ExprEntrance {
+pub enum AstEntrance {
     Condition {
         condition: RawExprIdx,
     },
@@ -50,7 +50,7 @@ use crate::*;
 
 impl AstVariant {
     // todo: change this to SmallVec
-    pub(crate) fn expr_entrances(&self) -> Vec<ExprEntrance> {
+    pub(crate) fn ast_entrances(&self) -> Vec<AstEntrance> {
         match self {
             AstVariant::TypeDefnHead {
                 ident,
@@ -68,7 +68,7 @@ impl AstVariant {
                 opt_this_liason,
             } => parameters
                 .iter()
-                .map(|parameter| ExprEntrance::Parameter {
+                .map(|parameter| AstEntrance::Parameter {
                     parameter: parameter.clone(),
                 })
                 .collect(),
@@ -85,10 +85,10 @@ impl AstVariant {
             } => match ast_field_kind {
                 AstFieldKind::StructOriginal => vec![],
                 AstFieldKind::StructDefault { default } => {
-                    vec![ExprEntrance::Default { default: *default }]
+                    vec![AstEntrance::Default { default: *default }]
                 }
                 AstFieldKind::StructDerivedEager { derivation } => {
-                    vec![ExprEntrance::Derivation {
+                    vec![AstEntrance::Derivation {
                         derivation: *derivation,
                     }]
                 }
@@ -107,11 +107,11 @@ impl AstVariant {
                     } => {
                         let mut infer_entrances = vec![];
                         if let Some(bound) = initial_boundary.opt_bound {
-                            infer_entrances.push(ExprEntrance::Bound { bound })
+                            infer_entrances.push(AstEntrance::Bound { bound })
                         }
-                        infer_entrances.push(ExprEntrance::FrameVar { frame_var });
+                        infer_entrances.push(AstEntrance::FrameVar { frame_var });
                         if let Some(bound) = final_boundary.opt_bound {
-                            infer_entrances.push(ExprEntrance::Bound { bound })
+                            infer_entrances.push(AstEntrance::Bound { bound })
                         }
                         infer_entrances
                     }
@@ -120,28 +120,28 @@ impl AstVariant {
                         final_boundary,
                         step,
                     } => {
-                        let mut expr_entrances = vec![];
-                        expr_entrances.push(ExprEntrance::FrameVar { frame_var });
+                        let mut ast_entrances = vec![];
+                        ast_entrances.push(AstEntrance::FrameVar { frame_var });
                         if let Some(bound) = final_boundary.opt_bound {
-                            expr_entrances.push(ExprEntrance::Bound { bound })
+                            ast_entrances.push(AstEntrance::Bound { bound })
                         }
-                        expr_entrances
+                        ast_entrances
                     }
                     RawLoopKind::While { condition } => {
-                        vec![ExprEntrance::Condition { condition }]
+                        vec![AstEntrance::Condition { condition }]
                     }
                     RawLoopKind::DoWhile { condition } => {
-                        vec![ExprEntrance::Condition { condition }]
+                        vec![AstEntrance::Condition { condition }]
                     }
                 },
                 RawStmtVariant::IfElseBranch {
                     condition_branch_kind,
                 } => match condition_branch_kind {
                     RawConditionBranchKind::If { condition } => {
-                        vec![ExprEntrance::Condition { condition }]
+                        vec![AstEntrance::Condition { condition }]
                     }
                     RawConditionBranchKind::Elif { condition } => {
-                        vec![ExprEntrance::Condition { condition }]
+                        vec![AstEntrance::Condition { condition }]
                     }
                     RawConditionBranchKind::Else => vec![],
                 },
@@ -149,20 +149,20 @@ impl AstVariant {
                     ref pattern_branch_variant,
                 } => match pattern_branch_variant {
                     RawPatternBranchVariant::Case { pattern } => {
-                        vec![ExprEntrance::Case {
+                        vec![AstEntrance::Case {
                             pattern: pattern.clone(),
                         }]
                     }
                     RawPatternBranchVariant::Default => vec![],
                 },
                 RawStmtVariant::Exec { expr, discard } => {
-                    vec![ExprEntrance::Exec { expr, discard }]
+                    vec![AstEntrance::Exec { expr, discard }]
                 }
                 RawStmtVariant::Init {
                     init_kind,
                     varname,
                     initial_value,
-                } => vec![ExprEntrance::Init {
+                } => vec![AstEntrance::Init {
                     init_kind,
                     varname,
                     initial_value,
@@ -170,19 +170,19 @@ impl AstVariant {
                 RawStmtVariant::Return {
                     result,
                     return_context,
-                } => vec![ExprEntrance::Return {
+                } => vec![AstEntrance::Return {
                     result,
                     return_context,
                 }],
-                RawStmtVariant::ReturnXml(ref xml) => vec![ExprEntrance::Xml { xml: xml.clone() }],
+                RawStmtVariant::ReturnXml(ref xml) => vec![AstEntrance::Xml { xml: xml.clone() }],
                 RawStmtVariant::Assert(condition) => {
-                    vec![ExprEntrance::Condition { condition }]
+                    vec![AstEntrance::Condition { condition }]
                 }
                 RawStmtVariant::Break => vec![],
                 RawStmtVariant::Match {
                     match_expr,
                     match_liason,
-                } => vec![ExprEntrance::MatchExpr {
+                } => vec![AstEntrance::MatchExpr {
                     match_expr,
                     match_liason,
                 }],
@@ -190,8 +190,8 @@ impl AstVariant {
                     condition,
                     return_context,
                 } => vec![
-                    ExprEntrance::Require { return_context },
-                    ExprEntrance::Condition { condition },
+                    AstEntrance::Require { return_context },
+                    AstEntrance::Condition { condition },
                 ],
             },
             AstVariant::EnumVariantDefnHead { .. } => vec![],
