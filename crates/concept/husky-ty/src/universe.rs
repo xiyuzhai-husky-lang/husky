@@ -1,3 +1,4 @@
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub struct Universe(u8);
 
 const UNIVERSE_MAX: u8 = 100;

@@ -33,26 +33,33 @@ pub enum Ty {
     Type(Universe),
 }
 
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub struct RegularParameter {}
 
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub struct KeywordParameter {}
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub enum VariadicParameter {
     None,
 }
 
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub struct TemporalParameter {
     route: EntityRoutePtr,
 }
 
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub struct SpatialParameter {
     route: EntityRoutePtr,
 }
 
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub enum TemporalArgument {
     Eval,
     Custom(/* todo */),
 }
 
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub enum SpatialArgument {
     PhysicalTy(TyPtr),
     ConstUsize, //ad hoc
