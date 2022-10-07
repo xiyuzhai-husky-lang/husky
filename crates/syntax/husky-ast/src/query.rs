@@ -72,7 +72,7 @@ pub struct AstText {
     pub folded_results: FoldableList<AstResult<Ast>>,
     pub semantic_tokens: Vec<AbsSemanticToken>,
     pub text: Arc<HuskyText>,
-    pub infer_roots: Vec<InferRoot>,
+    pub infer_roots: Vec<ExprEntrance>,
 }
 
 impl AstText {
