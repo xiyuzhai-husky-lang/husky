@@ -69,17 +69,8 @@ macro_rules! ep_once {
 #[macro_export]
 macro_rules! msg_once {
     ($msg:expr) => {{
-        // static ONCE: std::sync::Once = std::sync::Once::new();
-        // ONCE.call_once(|| {
-        //     eprintln!(
-        //         "{}[message]{} {}, src: {}:{}",
-        //         husky_print_utils::LIGHT_YELLOW,
-        //         husky_print_utils::RESET,
-        //         $msg,
-        //         file!(),
-        //         line!()
-        //     )
-        // })
+        static ONCE: std::sync::Once = std::sync::Once::new();
+        ONCE.call_once(|| eprintln!("[message] {}, src: {}:{}", $msg, file!(), line!()))
     }};
 }
 

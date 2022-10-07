@@ -36,7 +36,7 @@ husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-rust-code-gen = { path = "../husky-rust-code-gen" }
-husky-diagnostics = { path = "../../semantics/husky-diagnostics" }
+husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 husky-linkage-table = { path = "../husky-linkage-table" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-atom = { path = "../../syntax/husky-atom" }
