@@ -19,11 +19,11 @@ pub trait IsInternPtr:
         + Send
         + Sync
         + Debug
-        + Clone
         + Borrow<Self::T>
         + for<'a> From<&'a Self::T>;
 
     fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self;
+    fn raw(self) -> *const Self::T;
 }
 
 pub struct DefaultInternedPtr<T, Q>
@@ -103,7 +103,7 @@ impl<T: 'static + ?Sized, Q> Borrow<T> for DefaultInternedPtr<T, Q> {
 impl<T, Q> IsInternPtr for DefaultInternedPtr<T, Q>
 where
     T: 'static + Debug + Hash + Eq + ?Sized,
-    Q: 'static + Hash + Eq + Send + Sync + Debug + Clone + Borrow<T> + for<'a> From<&'a T>,
+    Q: 'static + Hash + Eq + Send + Sync + Debug + Borrow<T> + for<'a> From<&'a T>,
 {
     type T = T;
 
@@ -114,5 +114,9 @@ where
             target,
             phantom: PhantomData,
         }
+    }
+
+    fn raw(self) -> *const Self::T {
+        self.target
     }
 }

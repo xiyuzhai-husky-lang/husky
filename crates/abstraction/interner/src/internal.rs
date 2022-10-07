@@ -4,7 +4,7 @@ use crate::{pool::Pool, *};
 
 pub struct InternerInternal<Ptr: IsInternPtr> {
     pub(crate) things: Pool<Ptr::Owned, 10000>,
-    pub(crate) ids: HashMap<Ptr::Owned, Ptr>,
+    pub(crate) ids: HashMap<&'static Ptr::T, Ptr>,
 }
 impl<Ptr: IsInternPtr> Default for InternerInternal<Ptr> {
     fn default() -> Self {
@@ -24,17 +24,20 @@ impl<Ptr: IsInternPtr> InternerInternal<Ptr> {
     where
         Ptr: for<'a> From<&'a I>,
     {
-        let ids = HashMap::<Ptr::Owned, Ptr>::from_iter(ids.iter().map(|id| {
-            let id: Ptr = id.into();
-            ((*id).into(), id)
-        }));
+        let ids = HashMap::<&'static Ptr::T, Ptr>::from_iter(ids.iter().map(
+            |id| -> (&'static Ptr::T, Ptr) {
+                let id: Ptr = id.into();
+                (unsafe { &*id.raw() }, id)
+            },
+        ));
         let things = Default::default();
         Self { things, ids }
     }
 
     pub fn new(ids: &[Ptr]) -> Self {
-        let ids =
-            HashMap::<Ptr::Owned, Ptr>::from_iter(ids.iter().map(|id: &Ptr| ((**id).into(), *id)));
+        let ids = HashMap::<&'static Ptr::T, Ptr>::from_iter(
+            ids.iter().map(|id: &Ptr| (unsafe { &*id.raw() }, *id)),
+        );
         Self {
             things: Default::default(),
             ids,
