@@ -1,7 +1,7 @@
 use crate::*;
 
 impl Ty {
-    pub fn ty(&self) -> Self {
+    pub(crate) fn ty(&self) -> Self {
         match self {
             Ty::Entity(_)
             | Ty::TemplateInstantiation { .. }

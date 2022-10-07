@@ -76,7 +76,10 @@ impl<Ptr: IsInternPtr> Interner<Ptr> {
         return result;
     }
 
-    pub fn intern_borrowed(&self, t: &Ptr::T) -> Ptr {
+    pub fn intern_borrowed(&self, t: &Ptr::T) -> Ptr
+    where
+        Ptr::Owned: for<'a> From<&'a Ptr::T>,
+    {
         let result = match self
             .internal
             .read(|internal| internal.ids.get(t).map(|id| *id))

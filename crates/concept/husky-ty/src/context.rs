@@ -6,6 +6,6 @@ pub struct TyContext<'a> {
 
 impl<'a> TyContext<'a> {
     fn ty_ty(&self, ty: TyPtr) -> TyPtr {
-        self.db.intern(ty.ty())
+        self.db.intern_ty(ty.ty())
     }
 }

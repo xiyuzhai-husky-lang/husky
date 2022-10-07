@@ -1,1 +1,3 @@
-pub trait TyQuery {}
+use crate::*;
+
+pub trait TyQuery: InternTy {}
