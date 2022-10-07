@@ -47,7 +47,7 @@ infer-total = { path = "../../infer/total" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
-husky-diagnostics = { path = "../../semantics/husky-diagnostics" }
+husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # comptime
 husky-layout = { path = "../../comptime/husky-layout" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
