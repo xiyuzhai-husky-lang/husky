@@ -26,7 +26,7 @@ husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
 husky-word = { path = "../husky-word" }
 husky-token = { path = "../husky-token" }
-husky-entity-route = { path = "../husky-entity-route" }
+husky-entity-route = { path = "../../concept/husky-entity-route" }
 husky-entity-syntax = { path = "../husky-entity-syntax" }
 husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
 husky-entity-kind = { path = "../husky-entity-kind" }

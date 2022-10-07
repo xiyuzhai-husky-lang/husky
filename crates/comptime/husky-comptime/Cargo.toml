@@ -30,7 +30,7 @@ husky-test-utils = { path = "../../utils/husky-test-utils" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-word = { path = "../../syntax/husky-word" }
 husky-token = { path = "../../syntax/husky-token" }
-husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-entity-route = { path = "../../concept/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }

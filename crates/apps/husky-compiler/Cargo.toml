@@ -18,7 +18,7 @@ husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-io-utils = { path = "../../utils/husky-io-utils" }
 husky-file = { path = "../../syntax/husky-file" }
-husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-entity-route = { path = "../../concept/husky-entity-route" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-compile-dir = { path = "../../comptime/husky-compile-dir" }

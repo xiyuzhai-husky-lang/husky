@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 salsa = { version = "0.17.0-pre.2", optional = true }
 convert_case = "0.6.0"
-husky-entity-route = { path = "../../syntax/husky-entity-route", optional = true }
+husky-entity-route = { path = "../../concept/husky-entity-route", optional = true }
 xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
 
 [features]

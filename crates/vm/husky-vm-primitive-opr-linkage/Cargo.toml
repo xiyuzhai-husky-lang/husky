@@ -11,7 +11,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
-husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-entity-route = { path = "../../concept/husky-entity-route" }
 num = "0.4.0"
 
 [build-dependencies]

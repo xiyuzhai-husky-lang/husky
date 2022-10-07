@@ -11,6 +11,6 @@ salsa = "0.17.0-pre.2"
 husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
-husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-entity-route = { path = "../../concept/husky-entity-route" }
 husky-vm-binding = { path = "../../vm/husky-vm-binding" }
 husky-word = { path = "../../syntax/husky-word" }
