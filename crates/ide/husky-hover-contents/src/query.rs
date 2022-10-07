@@ -5,10 +5,10 @@ pub trait HoverContentsQuery {
         Some(HoverContents::Markup(MarkupContent {
             kind: MarkupKind::Markdown,
             value: [
-                "# Deep learning is Dead",
+                "# Cohomology theories",
                 "Michael Jordan is Goat",
                 "```typescript",
-                "someCode();",
+                "husky.is_happy();",
                 "```",
             ]
             .join("\n"),
