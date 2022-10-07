@@ -1,8 +1,11 @@
-use husky_diagnostics::{Diagnostic, DiagnosticQuery};
-use husky_hover_contents::HoverContentsQuery;
+use husky_completion::HuskyCompletionQuery;
+use husky_diagnostics::{Diagnostic, HuskyDiagnosticQuery};
+use husky_hover_contents::HuskyHoverContentsQuery;
 
 use crate::*;
 
-impl DiagnosticQuery for HuskyComptime {}
+impl HuskyDiagnosticQuery for HuskyComptime {}
 
-impl HoverContentsQuery for HuskyComptime {}
+impl HuskyHoverContentsQuery for HuskyComptime {}
+
+impl HuskyCompletionQuery for HuskyComptime {}

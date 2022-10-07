@@ -14,7 +14,7 @@ pub trait DiagnosticSalsaQuery:
     fn diagnostics_reserve(&self, module: EntityRoutePtr) -> Arc<DiagnosticReserve>;
 }
 
-pub trait DiagnosticQuery: DiagnosticSalsaQuery {
+pub trait HuskyDiagnosticQuery: DiagnosticSalsaQuery {
     fn print_diagnostics(&self) {
         let modules = self.all_modules();
         for module in modules.iter() {

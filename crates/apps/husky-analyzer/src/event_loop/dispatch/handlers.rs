@@ -2,7 +2,7 @@ use crate::{convert::from_lsp_types, lsp_ext::PositionOrRange, *};
 
 type HuskyComptimeSnapshot = salsa::Snapshot<husky_comptime::HuskyComptime>;
 
-use husky_comptime::{AllocateUniqueFile, AstSalsaQueryGroup, HoverContentsQuery};
+use husky_comptime::*;
 use husky_token::AbsSemanticToken;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,
@@ -104,11 +104,10 @@ pub(crate) fn handle_parent_module(
 }
 
 pub(crate) fn handle_completion(
-    _snapshot: HuskyComptimeSnapshot,
-    _params: lsp_types::CompletionParams,
+    comptime: HuskyComptimeSnapshot,
+    params: lsp_types::CompletionParams,
 ) -> Result<Option<lsp_types::CompletionResponse>> {
-    msg_once!("todo handle completion!");
-    Ok(None)
+    Ok(comptime.completion())
 }
 
 pub(crate) fn handle_completion_resolve(
