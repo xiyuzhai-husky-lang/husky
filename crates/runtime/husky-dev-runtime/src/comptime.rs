@@ -1,5 +1,5 @@
 use crate::*;
-use husky_diagnostics::DiagnosticQuery;
+use husky_diagnostics::HuskyDiagnosticQuery;
 use husky_entity_semantics::{EntityRouteStore, StoreEntityRoute};
 use husky_linkage_table::LinkageTable;
 use husky_static_defn::ResolveStaticRootDefn;
@@ -95,7 +95,7 @@ impl StoreEntityRoute for HuskyDevRuntime {
     }
 }
 
-impl DiagnosticQuery for HuskyDevRuntime {}
+impl HuskyDiagnosticQuery for HuskyDevRuntime {}
 
 impl ComptimeOps for HuskyDevRuntime {
     fn comptime_config(&self) -> &ComptimeConfig {

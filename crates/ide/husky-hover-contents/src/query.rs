@@ -1,6 +1,6 @@
 use lsp_types::{HoverContents, MarkupContent, MarkupKind};
 
-pub trait HoverContentsQuery {
+pub trait HuskyHoverContentsQuery {
     fn hover_contents(&self) -> Option<HoverContents> {
         Some(HoverContents::Markup(MarkupContent {
             kind: MarkupKind::Markdown,

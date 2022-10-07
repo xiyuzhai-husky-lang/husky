@@ -5,7 +5,7 @@ mod query;
 mod severity;
 
 pub use kind::DiagnosticKind;
-pub use query::{DiagnosticQuery, DiagnosticSalsaQuery, DiagnosticSalsaQueryGroupStorage};
+pub use query::{DiagnosticSalsaQuery, DiagnosticSalsaQueryGroupStorage, HuskyDiagnosticQuery};
 pub use severity::DiagnosticSeverity;
 
 use husky_ast::{AstError, AstErrorVariant};

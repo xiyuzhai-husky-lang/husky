@@ -16,7 +16,7 @@ pub use query::*;
 use convert_case::{Boundary, Case, Casing};
 use husky_check_utils::*;
 use husky_compiler::CompilerInstance;
-use husky_diagnostics::DiagnosticQuery;
+use husky_diagnostics::HuskyDiagnosticQuery;
 use husky_entity_semantics::EntityRouteStore;
 use husky_feature_eval::*;
 use husky_feature_eval::{EvalFeature, Session};
