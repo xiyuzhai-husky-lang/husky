@@ -1,7 +1,7 @@
+mod codegen;
 mod config;
-mod impl_code_gen;
-mod impl_diagnostics;
-mod impl_necessary;
+mod ide;
+mod necessary;
 mod ops;
 mod query;
 pub mod utils;

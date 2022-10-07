@@ -8,6 +8,7 @@ members = [
     "crates/impls/*",
     "crates/runtime/*",
     "crates/semantics/*",
+    "crates/ide/*",
     "crates/static/husky-root-static-defn",
     "crates/static/husky-static-defn",
     "crates/static/domains/ml/*",
