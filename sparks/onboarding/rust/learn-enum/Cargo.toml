@@ -1,9 +1,9 @@
 [package]
-name = "husky-ty"
+name = "learn-enum"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-interner = { path = "../../abstraction/interner" }
-husky-entity-route = { path = "../../concept/husky-entity-route" }
+
+[workspace]
