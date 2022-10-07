@@ -1,3 +1,5 @@
+mod adt;
+
 // = inductive
 // 枚举类型
 #[derive(Debug, Copy, Clone)]
