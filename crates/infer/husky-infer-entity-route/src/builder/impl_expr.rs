@@ -53,9 +53,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 derived_not_none!(self.infer_expr(expr, expectation))?
             }
             RawExprVariant::Opn {
-                opn_variant: ref opr,
+                ref opn_variant,
                 ref opds,
-            } => self.infer_opn(idx, expectation, opr, opds)?,
+            } => self.infer_opn(idx, expectation, opn_variant, opds)?,
             RawExprVariant::Lambda(_, _) => todo!(),
             RawExprVariant::ThisValue {
                 opt_this_ty: opt_ty,
