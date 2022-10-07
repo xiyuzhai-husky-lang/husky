@@ -24,7 +24,7 @@ wild-utils = { path = "../../utils/husky-wild-utils" }
 # syntax
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
-husky-entity-route = { path = "../../syntax/husky-entity-route" }
+husky-entity-route = { path = "../../concept/husky-entity-route" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-word = { path = "../../syntax/husky-word" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
