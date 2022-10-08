@@ -5,6 +5,6 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-husky-word = { path = "../../syntax/husky-word" }
+husky-word = { path = "../../concept/husky-word" }
 husky-entity-route = { path = "../../concept/husky-entity-route" }
 husky-text = { path = "../../syntax/husky-text" }

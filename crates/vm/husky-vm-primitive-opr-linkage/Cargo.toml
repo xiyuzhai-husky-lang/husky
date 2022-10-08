@@ -5,7 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-husky-word = { path = "../../syntax/husky-word" }
+husky-word = { path = "../../concept/husky-word" }
 husky-vm-interface = { path = "../husky-vm-interface" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
@@ -20,5 +20,5 @@ husky-rust-code-repr = { path = "../../comptime/husky-rust-code-repr", features 
 ] }
 husky-write-utils = { path = "../../utils/husky-write-utils" }
 husky-io-utils = { path = "../../utils/husky-io-utils" }
-husky-word = { path = "../../syntax/husky-word" }
+husky-word = { path = "../../concept/husky-word" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }

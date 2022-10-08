@@ -28,7 +28,7 @@ sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
 # syntax
 husky-file = { path = "../../syntax/husky-file" }
-husky-word = { path = "../../syntax/husky-word" }
+husky-word = { path = "../../concept/husky-word" }
 husky-token = { path = "../../syntax/husky-token" }
 husky-entity-route = { path = "../../concept/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
