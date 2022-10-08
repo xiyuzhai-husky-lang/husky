@@ -4,7 +4,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub struct TermVariable {
-    opt_namespace: Optioned<NamespacePtr>,
+    opt_namespace: Optioned<TermNamespace>,
     name: Identifier,
 }
 

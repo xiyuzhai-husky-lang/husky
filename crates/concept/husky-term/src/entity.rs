@@ -1,24 +1,27 @@
 mod intern;
+mod namespace;
+
+pub use intern::*;
+pub use namespace::*;
 
 use husky_word::Identifier;
-pub use intern::*;
 use optional::Optioned;
 
 use crate::{TermQuery, Ty};
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-pub struct Namespace {
-    opt_parent: Optioned<NamespacePtr>,
+pub struct TermEntityPath {
+    opt_parent: Optioned<TermEntityPathPtr>,
     name: Identifier,
 }
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-pub struct TermNamespace {
-    namespace: Namespace,
+pub struct TermEntity {
+    namespace: TermEntityPath,
     ty: Ty,
 }
 
-impl TermNamespace {
+impl TermEntity {
     pub fn ty(&self) -> Ty {
         self.ty
     }

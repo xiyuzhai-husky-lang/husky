@@ -28,7 +28,7 @@ impl Ty {
         match *term {
             Term::Literal(_) => return Err(TermError::TermIsNotTy),
             Term::Abstraction(_) => return Err(TermError::TermIsNotTy),
-            Term::Namespace(_) | Term::Variable(_) | Term::Application(_) => {
+            Term::Entity(_) | Term::Variable(_) | Term::Application(_) => {
                 match *term.ty_term().deref() {
                     Term::Universe(ref u) => match u.kind() {
                         crate::universe::UniverseKind::Type => todo!(),
@@ -53,7 +53,7 @@ impl Term {
     pub(crate) fn ty_term(&self) -> TermCow {
         match self {
             Term::Literal(l) => l.ty().term().into(),
-            Term::Namespace(n) => n.ty().term().into(),
+            Term::Entity(n) => n.ty().term().into(),
             Term::Curry(c) => c.ty().term().into(),
             Term::Variable(v) => v.ty().term().into(),
             Term::Abstraction(abs) => abs.ty().term().into(),
