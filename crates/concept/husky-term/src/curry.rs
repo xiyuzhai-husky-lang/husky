@@ -1,5 +1,7 @@
 use std::ops::Deref;
 
+use husky_print_utils::msg_once;
+
 use crate::*;
 
 /// representing term `x -> y`
@@ -56,6 +58,7 @@ impl<'a> TermContext<'a> {
         if self.ty_family(x)? == TyFamily::Monadic {
             return Err(TermError::MonadIsNotInput);
         }
+        msg_once!("check compatibility of y");
         Ty::new(
             self.it_term(
                 TermCurry {
