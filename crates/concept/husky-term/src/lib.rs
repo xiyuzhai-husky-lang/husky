@@ -25,7 +25,7 @@ pub use decl::*;
 pub use entity::*;
 pub use error::*;
 pub use intern::*;
-pub use literal::TermLiteral;
+pub use literal::*;
 pub use menu::*;
 pub use query::TermQuery;
 pub use ty::Ty;

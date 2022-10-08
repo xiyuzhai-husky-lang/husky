@@ -1,15 +1,10 @@
 [package]
-name = "husky-term"
+name = "husky-entity-path"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 optional = "0.5.0"
-thiserror = "1.0.37"
-salsa = "0.17.0-pre.2"
 interner = { path = "../../abstraction/interner" }
-# utils
-husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-word = { path = "../../concept/husky-word" }
-husky-entity-path = { path = "../../concept/husky-entity-path" }

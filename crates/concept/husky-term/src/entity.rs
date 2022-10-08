@@ -1,8 +1,7 @@
-mod intern;
 mod namespace;
 mod root;
 
-pub use intern::*;
+use husky_entity_path::EntityPathPtr;
 pub use namespace::*;
 
 use husky_word::{Identifier, RootBuiltinIdentifier};
@@ -11,29 +10,18 @@ use optional::Optioned;
 use crate::{Term, TermQuery, Ty};
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-pub struct TermEntityPath {
-    opt_parent: Optioned<TermEntityPathPtr>,
-    ident: Identifier,
-}
-
-impl TermEntityPath {
-    pub fn root(ident: RootBuiltinIdentifier) -> Self {
-        Self {
-            opt_parent: Optioned::none(),
-            ident: ident.into(),
-        }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Hash)]
 pub struct TermEntity {
-    path: TermEntityPath,
+    path: EntityPathPtr,
     ty: Ty,
 }
 
 impl TermEntity {
     pub fn ty(&self) -> Ty {
         self.ty
+    }
+
+    pub fn path(&self) -> EntityPathPtr {
+        self.path
     }
 }
 
