@@ -1,6 +1,6 @@
-use std::ops::Deref;
-
 use husky_print_utils::p;
+use husky_word::RootBuiltinIdentifier::{self, *};
+use std::ops::Deref;
 
 use crate::*;
 
@@ -47,6 +47,26 @@ impl Ty {
             Term::Universe(u) => u.level(),
             _ => unreachable!(),
         }
+    }
+
+    pub(crate) fn i32(db: &dyn TermQuery) -> Ty {
+        Self::root_builtin_ty(db, I32)
+    }
+
+    pub(crate) fn i64(db: &dyn TermQuery) -> Ty {
+        Self::root_builtin_ty(db, I64)
+    }
+
+    pub(crate) fn module(db: &dyn TermQuery) -> Ty {
+        Self::root_builtin_ty(db, ModuleType)
+    }
+
+    pub(crate) fn trai(db: &dyn TermQuery) -> Ty {
+        Self::root_builtin_ty(db, TraitType)
+    }
+
+    fn root_builtin_ty(db: &dyn TermQuery, ident: RootBuiltinIdentifier) -> Ty {
+        Ty::new(TermEntity::root_builtin_entity(db, ident)).unwrap()
     }
 }
 
