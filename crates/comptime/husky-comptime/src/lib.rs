@@ -38,7 +38,7 @@ use husky_file::FilePtr;
 use husky_linkage_table::LinkageTable;
 use husky_print_utils::*;
 use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use indexmap::IndexMap;
 use std::{fmt, path::PathBuf, sync::Arc};
 use sync_utils::ASafeRwLock;
@@ -91,7 +91,7 @@ impl HuskyComptime {
     pub fn new_default(
         package_dir: PathBuf,
         __root_defn: fn(
-            ident: husky_word::RootIdentifier,
+            ident: husky_word::RootBuiltinIdentifier,
         ) -> &'static husky_static_defn::EntityStaticDefn,
     ) -> Self {
         Self::new(ComptimeConfig {

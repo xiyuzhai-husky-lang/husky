@@ -8,10 +8,11 @@ use husky_entity_kind::{EntityKind, FieldKind, MemberKind, RoutineKind, TyKind};
 use husky_liason_semantics::{MemberModifier, OutputModifier, ParameterModifier};
 use husky_static_visualizer::StaticVisualizer;
 use husky_vm_interface::__Linkage;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 
 pub trait ResolveStaticRootDefn {
-    fn __root_defn_resolver(&self) -> fn(ident: RootIdentifier) -> &'static EntityStaticDefn;
+    fn __root_defn_resolver(&self)
+        -> fn(ident: RootBuiltinIdentifier) -> &'static EntityStaticDefn;
 }
 
 #[derive(PartialEq, Eq)]

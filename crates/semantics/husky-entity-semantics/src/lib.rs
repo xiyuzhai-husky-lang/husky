@@ -44,7 +44,9 @@ use husky_static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use husky_static_visualizer::StaticVisualTy;
 use husky_text::*;
 use husky_vm::*;
-use husky_word::{ContextualIdentifier, CustomIdentifier, IdentDict, Identifier, RootIdentifier};
+use husky_word::{
+    ContextualIdentifier, CustomIdentifier, IdentDict, Identifier, RootBuiltinIdentifier,
+};
 use map_collect::MapCollect;
 use module::module_defn;
 use std::sync::atomic::{AtomicUsize, Ordering};
@@ -599,10 +601,10 @@ pub(crate) fn entity_defn(
         },
         EntitySource::StaticTypeAsTraitMember => match entity_route.variant {
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match trai {
-                EntityRoutePtr::Root(RootIdentifier::CloneTrait) => {
+                EntityRoutePtr::Root(RootBuiltinIdentifier::CloneTrait) => {
                     msg_once!("this is a temporary ugly solution");
                     let clone_trait_defn = db
-                        .entity_defn(EntityRoutePtr::Root(RootIdentifier::CloneTrait))
+                        .entity_defn(EntityRoutePtr::Root(RootBuiltinIdentifier::CloneTrait))
                         .unwrap();
                     Ok(clone_trait_defn.trait_member_defn(ident).unwrap().clone())
                 }

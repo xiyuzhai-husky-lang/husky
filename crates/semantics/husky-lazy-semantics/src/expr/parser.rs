@@ -9,7 +9,7 @@ use husky_infer_entity_route::InferEntityRoute;
 use husky_infer_qualified_ty::{InferQualifiedTy, LazyExprQualifier};
 use husky_print_utils::p;
 use husky_text::RangedCustomIdentifier;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use infer_contract::{InferContract, LazyContract};
 
 use super::*;
@@ -56,10 +56,10 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             } => match kind {
                 EntityKind::Module => todo!(),
                 EntityKind::EnumVariant => match entity_route {
-                    EntityRoutePtr::Root(RootIdentifier::True) => {
+                    EntityRoutePtr::Root(RootBuiltinIdentifier::True) => {
                         LazyExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Bool(true))
                     }
-                    EntityRoutePtr::Root(RootIdentifier::False) => {
+                    EntityRoutePtr::Root(RootBuiltinIdentifier::False) => {
                         LazyExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Bool(false))
                     }
                     EntityRoutePtr::Custom(_) => LazyExprVariant::EnumLiteral { entity_route },
@@ -222,8 +222,8 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
     fn infer_root_pure_binary_opr_type(
         &self,
         pure_binary_opr: PureBinaryOpr,
-        lopd_root_ty: RootIdentifier,
-        ropd_root_ty: RootIdentifier,
+        lopd_root_ty: RootBuiltinIdentifier,
+        ropd_root_ty: RootBuiltinIdentifier,
     ) -> SemanticResult<EntityRoutePtr> {
         Ok(match pure_binary_opr {
             PureBinaryOpr::Less
@@ -234,16 +234,16 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     err!("expect use of \"<, <=, >, >=\" on same types")
                 }
                 match lopd_root_ty {
-                    RootIdentifier::I32 | RootIdentifier::F32 => (),
+                    RootBuiltinIdentifier::I32 | RootBuiltinIdentifier::F32 => (),
                     _ => err!("expect use of \"<, <=, >, >=\" on i32 or f32"),
                 }
-                RootIdentifier::Bool
+                RootBuiltinIdentifier::Bool
             }
             PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
                 if lopd_root_ty != ropd_root_ty {
                     err!("expect use of \"!=\" on same types")
                 }
-                RootIdentifier::Bool
+                RootBuiltinIdentifier::Bool
             }
             PureBinaryOpr::Shl => todo!(),
             PureBinaryOpr::Shr => todo!(),
@@ -256,7 +256,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
                     err!("expect use of \"+, -, *, /, **\" on same types")
                 }
                 match lopd_root_ty {
-                    RootIdentifier::I32 | RootIdentifier::F32 => (),
+                    RootBuiltinIdentifier::I32 | RootBuiltinIdentifier::F32 => (),
                     _ => err!("expect use of \"+, -, *, /, **\" on i32 or f32"),
                 }
                 lopd_root_ty
@@ -280,7 +280,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         match pure_binary_opr {
             PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
                 if lopd_ty.deref_route() == ropd_ty.deref_route() {
-                    Ok(RootIdentifier::Bool.into())
+                    Ok(RootBuiltinIdentifier::Bool.into())
                 } else {
                     todo!()
                 }

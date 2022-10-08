@@ -7,7 +7,7 @@ use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::PackageQueryGroup;
 use husky_trace_protocol::Label;
 use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use infer_decl::TyDecl;
 
 use crate::{
@@ -27,7 +27,7 @@ pub trait ComptimeQueryGroup: PackageQueryGroup + ResolveLinkage {
         let target_output_ty = self.target_output_ty().unwrap();
         let target_output_ty_intrinsic = target_output_ty.intrinsic();
 
-        if target_output_ty_intrinsic == RootIdentifier::I32.into() {
+        if target_output_ty_intrinsic == RootBuiltinIdentifier::I32.into() {
             convert_i32_register_to_label
         } else {
             let target_output_ty_intrinsic_decl = self.ty_decl(target_output_ty_intrinsic).unwrap();
@@ -67,50 +67,50 @@ pub trait ComptimeQueryGroup: PackageQueryGroup + ResolveLinkage {
         let intrinsic_ty = ty.intrinsic();
         match intrinsic_ty {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
-                RootIdentifier::Void => todo!(),
-                RootIdentifier::I32 => match value.data_kind() {
+                RootBuiltinIdentifier::Void => todo!(),
+                RootBuiltinIdentifier::I32 => match value.data_kind() {
                     __RegisterDataKind::Moved => todo!(),
                     __RegisterDataKind::SomeNone => todo!(),
                     __RegisterDataKind::Unreturned => "unreturned".to_string(),
                     _ => format!("{}", value.downcast_i32()),
                 },
-                RootIdentifier::I64 => todo!(),
-                RootIdentifier::F32 => match value.data_kind() {
+                RootBuiltinIdentifier::I64 => todo!(),
+                RootBuiltinIdentifier::F32 => match value.data_kind() {
                     __RegisterDataKind::Moved => todo!(),
                     __RegisterDataKind::SomeNone => todo!(),
                     __RegisterDataKind::Unreturned => "unreturned".to_string(),
                     _ => format!("{}", value.downcast_f32()),
                 },
-                RootIdentifier::F64 => todo!(),
-                RootIdentifier::B32 => todo!(),
-                RootIdentifier::B64 => todo!(),
-                RootIdentifier::Bool => format!("{}", value.downcast_bool()),
-                RootIdentifier::True => todo!(),
-                RootIdentifier::False => todo!(),
-                RootIdentifier::Vec => todo!(),
-                RootIdentifier::Tuple => todo!(),
-                RootIdentifier::Debug => todo!(),
-                RootIdentifier::Std => todo!(),
-                RootIdentifier::Core => todo!(),
-                RootIdentifier::Mor => todo!(),
-                RootIdentifier::ThickFp => todo!(),
-                RootIdentifier::Fn => todo!(),
-                RootIdentifier::FnMut => todo!(),
-                RootIdentifier::FnOnce => todo!(),
-                RootIdentifier::Array => todo!(),
-                RootIdentifier::Domains => todo!(),
-                RootIdentifier::DatasetType => todo!(),
-                RootIdentifier::VisualType => todo!(),
-                RootIdentifier::TypeType => todo!(),
-                RootIdentifier::TraitType => todo!(),
-                RootIdentifier::ModuleType => todo!(),
-                RootIdentifier::CloneTrait => todo!(),
-                RootIdentifier::CopyTrait => todo!(),
-                RootIdentifier::PartialEqTrait => todo!(),
-                RootIdentifier::EqTrait => todo!(),
-                RootIdentifier::Ref => todo!(),
-                RootIdentifier::RefMut => todo!(),
-                RootIdentifier::Option => todo!(),
+                RootBuiltinIdentifier::F64 => todo!(),
+                RootBuiltinIdentifier::B32 => todo!(),
+                RootBuiltinIdentifier::B64 => todo!(),
+                RootBuiltinIdentifier::Bool => format!("{}", value.downcast_bool()),
+                RootBuiltinIdentifier::True => todo!(),
+                RootBuiltinIdentifier::False => todo!(),
+                RootBuiltinIdentifier::Vec => todo!(),
+                RootBuiltinIdentifier::Tuple => todo!(),
+                RootBuiltinIdentifier::Debug => todo!(),
+                RootBuiltinIdentifier::Std => todo!(),
+                RootBuiltinIdentifier::Core => todo!(),
+                RootBuiltinIdentifier::Mor => todo!(),
+                RootBuiltinIdentifier::ThickFp => todo!(),
+                RootBuiltinIdentifier::Fn => todo!(),
+                RootBuiltinIdentifier::FnMut => todo!(),
+                RootBuiltinIdentifier::FnOnce => todo!(),
+                RootBuiltinIdentifier::Array => todo!(),
+                RootBuiltinIdentifier::Domains => todo!(),
+                RootBuiltinIdentifier::DatasetType => todo!(),
+                RootBuiltinIdentifier::VisualType => todo!(),
+                RootBuiltinIdentifier::TypeType => todo!(),
+                RootBuiltinIdentifier::TraitType => todo!(),
+                RootBuiltinIdentifier::ModuleType => todo!(),
+                RootBuiltinIdentifier::CloneTrait => todo!(),
+                RootBuiltinIdentifier::CopyTrait => todo!(),
+                RootBuiltinIdentifier::PartialEqTrait => todo!(),
+                RootBuiltinIdentifier::EqTrait => todo!(),
+                RootBuiltinIdentifier::Ref => todo!(),
+                RootBuiltinIdentifier::RefMut => todo!(),
+                RootBuiltinIdentifier::Option => todo!(),
             },
             EntityRoutePtr::Custom(_) => {
                 let ty_decl: Arc<TyDecl> = self.ty_decl(intrinsic_ty).unwrap();

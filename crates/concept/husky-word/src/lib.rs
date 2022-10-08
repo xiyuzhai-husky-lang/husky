@@ -90,8 +90,8 @@ impl From<Identifier> for WordPtr {
     }
 }
 
-impl From<RootIdentifier> for WordPtr {
-    fn from(ident: RootIdentifier) -> Self {
+impl From<RootBuiltinIdentifier> for WordPtr {
+    fn from(ident: RootBuiltinIdentifier) -> Self {
         WordPtr::Identifier(Identifier::Root(ident))
     }
 }

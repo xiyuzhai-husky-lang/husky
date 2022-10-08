@@ -14,7 +14,7 @@ use husky_file::FilePtr;
 use husky_infer_error::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use infer_decl::{CallFormDecl, DeclQueryGroup, TyDecl};
 
 pub trait InferEntityRoute {

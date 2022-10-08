@@ -4,7 +4,7 @@ mod lazy;
 use husky_ast::{AstFieldKind, AstIter, AstVariant, RawExprArena};
 use husky_entity_syntax::EntitySyntaxResult;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
-use husky_word::{Paradigm, RootIdentifier};
+use husky_word::{Paradigm, RootBuiltinIdentifier};
 use infer_decl::DeclQueryGroup;
 
 use crate::*;
@@ -87,7 +87,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     }
                     AstVariant::MainDefnHead => self.infer_lazy_stmts(children),
                     AstVariant::DatasetConfigDefnHead => {
-                        self.infer_eager_stmts(children, RootIdentifier::DatasetType.into())
+                        self.infer_eager_stmts(children, RootBuiltinIdentifier::DatasetType.into())
                     }
                     AstVariant::CallFormDefnHead {
                         return_ty: output_ty,

@@ -423,8 +423,8 @@ impl<'a> InstructionSheetBuilder<'a> {
                                     EagerSuffixOpr::AsTy(as_ty) => match as_ty.route {
                                         EntityRoutePtr::Root(root_identifier) => {
                                             match root_identifier {
-                                                RootIdentifier::Void => todo!(),
-                                                RootIdentifier::I32 => transfer_linkage!(
+                                                RootBuiltinIdentifier::Void => todo!(),
+                                                RootBuiltinIdentifier::I32 => transfer_linkage!(
                                                     |args, _| {
                                                         let enum_value: &__VirtualEnum = args[0]
                                                             .downcast_temp_ref(
@@ -435,38 +435,38 @@ impl<'a> InstructionSheetBuilder<'a> {
                                                     none
                                                 )
                                                 .transfer(),
-                                                RootIdentifier::I64 => todo!(),
-                                                RootIdentifier::F32 => todo!(),
-                                                RootIdentifier::F64 => todo!(),
-                                                RootIdentifier::B32 => todo!(),
-                                                RootIdentifier::B64 => todo!(),
-                                                RootIdentifier::Bool => todo!(),
-                                                RootIdentifier::True => todo!(),
-                                                RootIdentifier::False => todo!(),
-                                                RootIdentifier::Vec => todo!(),
-                                                RootIdentifier::Tuple => todo!(),
-                                                RootIdentifier::Debug => todo!(),
-                                                RootIdentifier::Std => todo!(),
-                                                RootIdentifier::Core => todo!(),
-                                                RootIdentifier::Mor => todo!(),
-                                                RootIdentifier::ThickFp => todo!(),
-                                                RootIdentifier::Fn => todo!(),
-                                                RootIdentifier::FnMut => todo!(),
-                                                RootIdentifier::FnOnce => todo!(),
-                                                RootIdentifier::Array => todo!(),
-                                                RootIdentifier::Domains => todo!(),
-                                                RootIdentifier::DatasetType => todo!(),
-                                                RootIdentifier::VisualType => todo!(),
-                                                RootIdentifier::TypeType => todo!(),
-                                                RootIdentifier::TraitType => todo!(),
-                                                RootIdentifier::ModuleType => todo!(),
-                                                RootIdentifier::CloneTrait => todo!(),
-                                                RootIdentifier::CopyTrait => todo!(),
-                                                RootIdentifier::PartialEqTrait => todo!(),
-                                                RootIdentifier::EqTrait => todo!(),
-                                                RootIdentifier::Ref => todo!(),
-                                                RootIdentifier::RefMut => todo!(),
-                                                RootIdentifier::Option => todo!(),
+                                                RootBuiltinIdentifier::I64 => todo!(),
+                                                RootBuiltinIdentifier::F32 => todo!(),
+                                                RootBuiltinIdentifier::F64 => todo!(),
+                                                RootBuiltinIdentifier::B32 => todo!(),
+                                                RootBuiltinIdentifier::B64 => todo!(),
+                                                RootBuiltinIdentifier::Bool => todo!(),
+                                                RootBuiltinIdentifier::True => todo!(),
+                                                RootBuiltinIdentifier::False => todo!(),
+                                                RootBuiltinIdentifier::Vec => todo!(),
+                                                RootBuiltinIdentifier::Tuple => todo!(),
+                                                RootBuiltinIdentifier::Debug => todo!(),
+                                                RootBuiltinIdentifier::Std => todo!(),
+                                                RootBuiltinIdentifier::Core => todo!(),
+                                                RootBuiltinIdentifier::Mor => todo!(),
+                                                RootBuiltinIdentifier::ThickFp => todo!(),
+                                                RootBuiltinIdentifier::Fn => todo!(),
+                                                RootBuiltinIdentifier::FnMut => todo!(),
+                                                RootBuiltinIdentifier::FnOnce => todo!(),
+                                                RootBuiltinIdentifier::Array => todo!(),
+                                                RootBuiltinIdentifier::Domains => todo!(),
+                                                RootBuiltinIdentifier::DatasetType => todo!(),
+                                                RootBuiltinIdentifier::VisualType => todo!(),
+                                                RootBuiltinIdentifier::TypeType => todo!(),
+                                                RootBuiltinIdentifier::TraitType => todo!(),
+                                                RootBuiltinIdentifier::ModuleType => todo!(),
+                                                RootBuiltinIdentifier::CloneTrait => todo!(),
+                                                RootBuiltinIdentifier::CopyTrait => todo!(),
+                                                RootBuiltinIdentifier::PartialEqTrait => todo!(),
+                                                RootBuiltinIdentifier::EqTrait => todo!(),
+                                                RootBuiltinIdentifier::Ref => todo!(),
+                                                RootBuiltinIdentifier::RefMut => todo!(),
+                                                RootBuiltinIdentifier::Option => todo!(),
                                             }
                                         }
                                         EntityRoutePtr::Custom(_) => todo!(),
@@ -582,7 +582,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                             InstructionVariant::CallRoutine {
                                 resolved_linkage: __ASSIGN_LINKAGE.transfer(),
                                 nargs: 2,
-                                output_ty: RootIdentifier::Void.into(),
+                                output_ty: RootBuiltinIdentifier::Void.into(),
                                 discard,
                             }
                         }

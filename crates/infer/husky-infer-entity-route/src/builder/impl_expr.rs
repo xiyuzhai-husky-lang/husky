@@ -83,22 +83,24 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         husky_entity_kind: EntityKind,
     ) -> InferResult<EntityRoutePtr> {
         Ok(match husky_entity_kind {
-            EntityKind::Module => EntityRoutePtr::Root(RootIdentifier::ModuleType),
+            EntityKind::Module => EntityRoutePtr::Root(RootBuiltinIdentifier::ModuleType),
             EntityKind::EnumVariant => match entity_route {
                 EntityRoutePtr::Root(ident) => match ident {
-                    RootIdentifier::True | RootIdentifier::False => RootIdentifier::Bool.into(),
+                    RootBuiltinIdentifier::True | RootBuiltinIdentifier::False => {
+                        RootBuiltinIdentifier::Bool.into()
+                    }
                     _ => panic!(),
                 },
                 EntityRoutePtr::Custom(route) => route.parent(),
             },
-            EntityKind::Type(_) => RootIdentifier::TypeType.into(),
-            EntityKind::Trait => RootIdentifier::TraitType.into(),
+            EntityKind::Type(_) => RootBuiltinIdentifier::TypeType.into(),
+            EntityKind::Trait => RootBuiltinIdentifier::TraitType.into(),
             EntityKind::Function { .. } | EntityKind::Member(_) => {
                 let decl = self.db.entity_call_form_decl(entity_route)?;
                 let base_route: EntityRoutePtr = if decl.is_lazy {
-                    RootIdentifier::Mor
+                    RootBuiltinIdentifier::Mor
                 } else {
-                    RootIdentifier::ThickFp
+                    RootBuiltinIdentifier::ThickFp
                 }
                 .into();
                 msg_once!("handle temporal/spatial parameters");
@@ -131,12 +133,12 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 if let Some(expectation) = expectation {
                     let intrinsic = expectation.intrinsic();
                     match intrinsic {
-                        EntityRoutePtr::Root(RootIdentifier::I64) => intrinsic,
-                        _ => RootIdentifier::I32.into(),
+                        EntityRoutePtr::Root(RootBuiltinIdentifier::I64) => intrinsic,
+                        _ => RootBuiltinIdentifier::I32.into(),
                     }
                 } else {
                     // the default integer type is i32
-                    RootIdentifier::I32.into()
+                    RootBuiltinIdentifier::I32.into()
                 }
             }
             PrimitiveLiteralData::I32(_) => todo!(),
@@ -145,12 +147,12 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 if let Some(expectation) = expectation {
                     let intrinsic = expectation.intrinsic();
                     match intrinsic {
-                        EntityRoutePtr::Root(RootIdentifier::F64) => intrinsic,
-                        _ => RootIdentifier::F32.into(),
+                        EntityRoutePtr::Root(RootBuiltinIdentifier::F64) => intrinsic,
+                        _ => RootBuiltinIdentifier::F32.into(),
                     }
                 } else {
                     // the default float type is f32
-                    RootIdentifier::F32.into()
+                    RootBuiltinIdentifier::F32.into()
                 }
             }
             PrimitiveLiteralData::F32(_) => todo!(),
@@ -159,12 +161,12 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             PrimitiveLiteralData::B32(_) => {
                 if let Some(expectation) = expectation {
                     match expectation.intrinsic() {
-                        EntityRoutePtr::Root(RootIdentifier::B32) => (),
+                        EntityRoutePtr::Root(RootBuiltinIdentifier::B32) => (),
                         _ => todo!(),
                     }
                 }
                 // the default float type is f32
-                RootIdentifier::B32.into()
+                RootBuiltinIdentifier::B32.into()
             }
             PrimitiveLiteralData::B64(_) => todo!(),
             PrimitiveLiteralData::Bool(_) => todo!(),
@@ -216,7 +218,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 EntityRoutePtr::Custom(_) => match pure_binary_opr {
                     PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
                         if lopd_ty.intrinsic() == ropd_ty.intrinsic() {
-                            Ok(EntityRoutePtr::Root(RootIdentifier::Bool))
+                            Ok(EntityRoutePtr::Root(RootBuiltinIdentifier::Bool))
                         } else {
                             todo!()
                         }
@@ -231,7 +233,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 if lopd_ty != ropd_ty {
                     throw!(format!("expect same type for assignment"), range)
                 }
-                Ok(RootIdentifier::Void.into())
+                Ok(RootBuiltinIdentifier::Void.into())
             }
         }
     }
@@ -239,8 +241,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     fn root_pure_binary_opn(
         &self,
         pure_binary_opr: PureBinaryOpr,
-        lopd_builtin_ty: RootIdentifier,
-        ropd_builtin_ty: RootIdentifier,
+        lopd_builtin_ty: RootBuiltinIdentifier,
+        ropd_builtin_ty: RootBuiltinIdentifier,
         range: TextRange,
     ) -> InferResult<EntityRoutePtr> {
         Ok(match pure_binary_opr {
@@ -252,35 +254,35 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     throw!("expect use of \"<, <=, >, >=\" on same types", range)
                 }
                 match lopd_builtin_ty {
-                    RootIdentifier::I32 | RootIdentifier::F32 => (),
+                    RootBuiltinIdentifier::I32 | RootBuiltinIdentifier::F32 => (),
                     _ => throw!("expect use of \"<, <=, >, >=\" on i32 or f32", range),
                 }
-                RootIdentifier::Bool
+                RootBuiltinIdentifier::Bool
             }
             PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
                 if lopd_builtin_ty != ropd_builtin_ty {
                     throw!("expect use of \"!=\" on same types", range)
                 }
-                RootIdentifier::Bool
+                RootBuiltinIdentifier::Bool
             }
             PureBinaryOpr::Shl => {
                 match lopd_builtin_ty {
-                    RootIdentifier::B32 | RootIdentifier::B64 => (),
+                    RootBuiltinIdentifier::B32 | RootBuiltinIdentifier::B64 => (),
                     _ => throw!("expect b32 or b64 for lopd of shift left `<<`", range),
                 }
                 match ropd_builtin_ty {
-                    RootIdentifier::I32 => (),
+                    RootBuiltinIdentifier::I32 => (),
                     _ => throw!("expect i32 for ropd of shift left `>>`", range),
                 }
                 lopd_builtin_ty
             }
             PureBinaryOpr::Shr => {
                 match lopd_builtin_ty {
-                    RootIdentifier::B32 | RootIdentifier::B64 => (),
+                    RootBuiltinIdentifier::B32 | RootBuiltinIdentifier::B64 => (),
                     _ => throw!("expect b32 or b64 for lopd of shift right `>>`", range),
                 }
                 match ropd_builtin_ty {
-                    RootIdentifier::I32 => (),
+                    RootBuiltinIdentifier::I32 => (),
                     _ => throw!("expect i32 for ropd of shift right `>>`", range),
                 }
                 lopd_builtin_ty
@@ -294,19 +296,19 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     throw!("expect use of \"+, -, *, /, **\" on same types", range)
                 }
                 match lopd_builtin_ty {
-                    RootIdentifier::I32 | RootIdentifier::F32 => (),
+                    RootBuiltinIdentifier::I32 | RootBuiltinIdentifier::F32 => (),
                     _ => throw!("expect use of \"+, -, *, /, **\" on i32 or f32", range),
                 }
                 lopd_builtin_ty
             }
             PureBinaryOpr::And | PureBinaryOpr::Or => {
-                if lopd_builtin_ty != RootIdentifier::Bool {
+                if lopd_builtin_ty != RootBuiltinIdentifier::Bool {
                     throw!("expect lopd to be of type `bool`", range)
                 }
-                if ropd_builtin_ty != RootIdentifier::Bool {
+                if ropd_builtin_ty != RootBuiltinIdentifier::Bool {
                     throw!("expect ropd to be of type `bool`", range)
                 }
-                RootIdentifier::Bool
+                RootBuiltinIdentifier::Bool
             }
             PureBinaryOpr::BitXor | PureBinaryOpr::BitAnd | PureBinaryOpr::BitOr => {
                 if lopd_builtin_ty != ropd_builtin_ty {
@@ -319,16 +321,23 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         range
                     )
                 }
-                if lopd_builtin_ty != RootIdentifier::B32 && lopd_builtin_ty != RootIdentifier::B64
+                if lopd_builtin_ty != RootBuiltinIdentifier::B32
+                    && lopd_builtin_ty != RootBuiltinIdentifier::B64
                 {
                     throw!("expect use of \"|\" on b32 or b64", range)
                 }
                 lopd_builtin_ty
             }
             PureBinaryOpr::RemEuclid => match (lopd_builtin_ty, ropd_builtin_ty) {
-                (RootIdentifier::I32, RootIdentifier::I32) => RootIdentifier::I32,
-                (RootIdentifier::I64, RootIdentifier::I64) => RootIdentifier::I64,
-                (RootIdentifier::F32, RootIdentifier::F32) => RootIdentifier::F32,
+                (RootBuiltinIdentifier::I32, RootBuiltinIdentifier::I32) => {
+                    RootBuiltinIdentifier::I32
+                }
+                (RootBuiltinIdentifier::I64, RootBuiltinIdentifier::I64) => {
+                    RootBuiltinIdentifier::I64
+                }
+                (RootBuiltinIdentifier::F32, RootBuiltinIdentifier::F32) => {
+                    RootBuiltinIdentifier::F32
+                }
                 _ => {
                     throw!("expect use of rem euclid \"%\" on i32 or f32", range)
                 }
@@ -342,10 +351,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         match opr {
             PrefixOpr::Minus => match opd_ty {
                 EntityRoutePtr::Root(root_ident) => match root_ident {
-                    RootIdentifier::I32
-                    | RootIdentifier::I64
-                    | RootIdentifier::F32
-                    | RootIdentifier::F64 => Ok(opd_ty),
+                    RootBuiltinIdentifier::I32
+                    | RootBuiltinIdentifier::I64
+                    | RootBuiltinIdentifier::F32
+                    | RootBuiltinIdentifier::F64 => Ok(opd_ty),
                     _ => Err(error!(
                         "minus can only be applied for integer or float",
                         self.arena[opd].range
@@ -354,11 +363,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 EntityRoutePtr::Custom(_) => todo!(),
             },
             PrefixOpr::Not => {
-                if self
-                    .db
-                    .is_implicitly_castable(opd_ty, EntityRoutePtr::Root(RootIdentifier::Bool))
-                {
-                    Ok(EntityRoutePtr::Root(RootIdentifier::Bool))
+                if self.db.is_implicitly_castable(
+                    opd_ty,
+                    EntityRoutePtr::Root(RootBuiltinIdentifier::Bool),
+                ) {
+                    Ok(EntityRoutePtr::Root(RootBuiltinIdentifier::Bool))
                 } else {
                     p!(opd_ty);
                     todo!()
@@ -366,7 +375,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             }
             PrefixOpr::BitNot => match opd_ty {
                 EntityRoutePtr::Root(root_ident) => match root_ident {
-                    RootIdentifier::B32 | RootIdentifier::B64 => Ok(opd_ty),
+                    RootBuiltinIdentifier::B32 | RootBuiltinIdentifier::B64 => Ok(opd_ty),
                     _ => todo!(),
                 },
                 EntityRoutePtr::Custom(_) => todo!(),
@@ -382,17 +391,17 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             RawSuffixOpr::Incr | RawSuffixOpr::Decr => {
                 match opd_ty {
                     EntityRoutePtr::Root(opd_ty_ident) => match opd_ty_ident {
-                        RootIdentifier::I32 => (),
+                        RootBuiltinIdentifier::I32 => (),
                         _ => todo!(),
                     },
                     EntityRoutePtr::Custom(_) => todo!(),
                 }
-                Ok(EntityRoutePtr::Root(RootIdentifier::Void))
+                Ok(EntityRoutePtr::Root(RootBuiltinIdentifier::Void))
             }
             RawSuffixOpr::AsTy(ranged_ty) => Ok(ranged_ty.route),
             RawSuffixOpr::BePattern(_) => {
                 msg_once!("check be pattern ty");
-                Ok(RootIdentifier::Bool.into())
+                Ok(RootBuiltinIdentifier::Bool.into())
             }
             RawSuffixOpr::Unveil => {
                 if !opd_ty.is_option() {
@@ -443,7 +452,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     ) -> InferResult<EntityRoutePtr> {
         msg_once!("expectation");
         if opds.start == opds.end {
-            return Ok(RootIdentifier::Void.into());
+            return Ok(RootBuiltinIdentifier::Void.into());
         }
         todo!()
     }
@@ -460,7 +469,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             if let Some(expectation) = expectation {
                 if expectation.variant
                     != (EntityRouteVariant::Root {
-                        ident: RootIdentifier::Vec,
+                        ident: RootBuiltinIdentifier::Vec,
                     })
                 {
                     todo!()

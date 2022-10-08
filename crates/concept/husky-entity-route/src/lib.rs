@@ -16,7 +16,7 @@ pub use menu::*;
 
 use husky_file::FilePtr;
 use husky_text::{TextRange, TextRanged};
-use husky_word::{ContextualIdentifier, CustomIdentifier, Identifier, RootIdentifier};
+use husky_word::{ContextualIdentifier, CustomIdentifier, Identifier, RootBuiltinIdentifier};
 use thin_vec::{thin_vec, ThinVec};
 
 #[derive(Clone, PartialEq, Eq, Hash)]
@@ -78,14 +78,14 @@ impl From<EntityRoutePtr> for SpatialArgument {
     }
 }
 
-impl From<RootIdentifier> for EntityRouteVariant {
-    fn from(ident: RootIdentifier) -> Self {
+impl From<RootBuiltinIdentifier> for EntityRouteVariant {
+    fn from(ident: RootBuiltinIdentifier) -> Self {
         Self::Root { ident }
     }
 }
 
-impl From<&RootIdentifier> for EntityRouteVariant {
-    fn from(ident: &RootIdentifier) -> Self {
+impl From<&RootBuiltinIdentifier> for EntityRouteVariant {
+    fn from(ident: &RootBuiltinIdentifier) -> Self {
         Self::Root { ident: *ident }
     }
 }
@@ -93,7 +93,7 @@ impl From<&RootIdentifier> for EntityRouteVariant {
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum EntityRouteVariant {
     Root {
-        ident: RootIdentifier,
+        ident: RootBuiltinIdentifier,
     },
     Package {
         main: FilePtr,
@@ -163,7 +163,7 @@ impl EntityRoute {
     }
 
     pub fn new_root(
-        ident: RootIdentifier,
+        ident: RootBuiltinIdentifier,
         spatial_arguments: ThinVec<SpatialArgument>,
     ) -> EntityRoute {
         EntityRoute {
@@ -187,12 +187,12 @@ impl EntityRoute {
     }
 
     pub fn vec(element: EntityRoutePtr) -> Self {
-        Self::new_root(RootIdentifier::Vec, thin_vec![element.into()])
+        Self::new_root(RootBuiltinIdentifier::Vec, thin_vec![element.into()])
     }
 
     pub fn array(element: EntityRoutePtr, size: usize) -> Self {
         Self::new_root(
-            RootIdentifier::Array,
+            RootBuiltinIdentifier::Array,
             thin_vec![element.into(), size.into()],
         )
     }
@@ -200,9 +200,9 @@ impl EntityRoute {
     pub fn tuple_or_void(args: ThinVec<SpatialArgument>) -> Self {
         EntityRoute::new_root(
             if args.len() > 0 {
-                RootIdentifier::Tuple
+                RootBuiltinIdentifier::Tuple
             } else {
-                RootIdentifier::Void
+                RootBuiltinIdentifier::Void
             },
             args,
         )
@@ -249,8 +249,8 @@ impl EntityRoute {
     }
 }
 
-impl From<RootIdentifier> for EntityRoute {
-    fn from(ident: RootIdentifier) -> Self {
+impl From<RootBuiltinIdentifier> for EntityRoute {
+    fn from(ident: RootBuiltinIdentifier) -> Self {
         Self::new_root(ident, ThinVec::new())
     }
 }

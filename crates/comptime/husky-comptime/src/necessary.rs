@@ -63,7 +63,8 @@ impl TokenQueryGroup for HuskyComptime {}
 impl ResolveStaticRootDefn for HuskyComptime {
     fn __root_defn_resolver(
         &self,
-    ) -> fn(ident: husky_word::RootIdentifier) -> &'static husky_static_defn::EntityStaticDefn {
+    ) -> fn(ident: husky_word::RootBuiltinIdentifier) -> &'static husky_static_defn::EntityStaticDefn
+    {
         self.config.__resolve_root_defn
     }
 }

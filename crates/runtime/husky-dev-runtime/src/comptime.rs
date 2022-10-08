@@ -40,7 +40,8 @@ impl TokenQueryGroup for HuskyDevRuntime {}
 impl ResolveStaticRootDefn for HuskyDevRuntime {
     fn __root_defn_resolver(
         &self,
-    ) -> fn(ident: husky_word::RootIdentifier) -> &'static husky_static_defn::EntityStaticDefn {
+    ) -> fn(ident: husky_word::RootBuiltinIdentifier) -> &'static husky_static_defn::EntityStaticDefn
+    {
         self.config.comptime.__resolve_root_defn
     }
 }

@@ -9,6 +9,7 @@ mod entity;
 mod error;
 mod intern;
 mod literal;
+mod menu;
 mod query;
 #[cfg(test)]
 mod tests;
@@ -25,6 +26,7 @@ pub use entity::*;
 pub use error::*;
 pub use intern::*;
 pub use literal::TermLiteral;
+pub use menu::*;
 pub use query::TermQuery;
 pub use ty::Ty;
 pub use universe::*;

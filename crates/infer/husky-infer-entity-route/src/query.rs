@@ -30,56 +30,56 @@ fn is_implicitly_castable(
     }
     match dst_ty {
         EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
-            RootIdentifier::Void => false,
-            RootIdentifier::I32 => false,
-            RootIdentifier::I64 => false,
-            RootIdentifier::F32 => false,
-            RootIdentifier::F64 => false,
-            RootIdentifier::B32 => false,
-            RootIdentifier::B64 => false,
-            RootIdentifier::Bool => match src_ty {
+            RootBuiltinIdentifier::Void => false,
+            RootBuiltinIdentifier::I32 => false,
+            RootBuiltinIdentifier::I64 => false,
+            RootBuiltinIdentifier::F32 => false,
+            RootBuiltinIdentifier::F64 => false,
+            RootBuiltinIdentifier::B32 => false,
+            RootBuiltinIdentifier::B64 => false,
+            RootBuiltinIdentifier::Bool => match src_ty {
                 EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
-                    RootIdentifier::I32
-                    | RootIdentifier::I64
-                    | RootIdentifier::F32
-                    | RootIdentifier::F64
-                    | RootIdentifier::B32
-                    | RootIdentifier::B64
-                    | RootIdentifier::Bool => true,
-                    RootIdentifier::Void
-                    | RootIdentifier::Vec
-                    | RootIdentifier::Tuple
-                    | RootIdentifier::ThickFp
-                    | RootIdentifier::Fn
-                    | RootIdentifier::FnMut
-                    | RootIdentifier::FnOnce
-                    | RootIdentifier::Array
-                    | RootIdentifier::DatasetType
-                    | RootIdentifier::TypeType => false,
+                    RootBuiltinIdentifier::I32
+                    | RootBuiltinIdentifier::I64
+                    | RootBuiltinIdentifier::F32
+                    | RootBuiltinIdentifier::F64
+                    | RootBuiltinIdentifier::B32
+                    | RootBuiltinIdentifier::B64
+                    | RootBuiltinIdentifier::Bool => true,
+                    RootBuiltinIdentifier::Void
+                    | RootBuiltinIdentifier::Vec
+                    | RootBuiltinIdentifier::Tuple
+                    | RootBuiltinIdentifier::ThickFp
+                    | RootBuiltinIdentifier::Fn
+                    | RootBuiltinIdentifier::FnMut
+                    | RootBuiltinIdentifier::FnOnce
+                    | RootBuiltinIdentifier::Array
+                    | RootBuiltinIdentifier::DatasetType
+                    | RootBuiltinIdentifier::TypeType => false,
                     _ => panic!(),
                 },
                 EntityRoutePtr::Custom(_) => false,
             },
-            RootIdentifier::Vec => false,
-            RootIdentifier::Tuple => false,
-            RootIdentifier::ThickFp => false,
-            RootIdentifier::Fn => false,
-            RootIdentifier::FnMut => false,
-            RootIdentifier::FnOnce => false,
-            RootIdentifier::Array => false,
-            RootIdentifier::DatasetType => match src_ty {
-                EntityRoutePtr::Root(RootIdentifier::DatasetType) => true,
+            RootBuiltinIdentifier::Vec => false,
+            RootBuiltinIdentifier::Tuple => false,
+            RootBuiltinIdentifier::ThickFp => false,
+            RootBuiltinIdentifier::Fn => false,
+            RootBuiltinIdentifier::FnMut => false,
+            RootBuiltinIdentifier::FnOnce => false,
+            RootBuiltinIdentifier::Array => false,
+            RootBuiltinIdentifier::DatasetType => match src_ty {
+                EntityRoutePtr::Root(RootBuiltinIdentifier::DatasetType) => true,
                 EntityRoutePtr::Custom(scope) => match scope.variant {
                     EntityRouteVariant::Root {
-                        ident: RootIdentifier::DatasetType,
+                        ident: RootBuiltinIdentifier::DatasetType,
                     } => true,
                     _ => false,
                 },
                 _ => false,
             },
-            RootIdentifier::TypeType => false,
-            RootIdentifier::ModuleType => false,
-            RootIdentifier::Ref => false,
+            RootBuiltinIdentifier::TypeType => false,
+            RootBuiltinIdentifier::ModuleType => false,
+            RootBuiltinIdentifier::Ref => false,
             _ => panic!(),
         },
         EntityRoutePtr::Custom(_) => {
@@ -110,7 +110,9 @@ fn is_explicitly_castable(
     Ok(match src_ty_decl.ty_kind {
         TyKind::Enum => match dst_ty {
             EntityRoutePtr::Root(dst_ty_ident) => match dst_ty_ident {
-                RootIdentifier::I32 | RootIdentifier::B32 | RootIdentifier::B64 => true,
+                RootBuiltinIdentifier::I32
+                | RootBuiltinIdentifier::B32
+                | RootBuiltinIdentifier::B64 => true,
                 _ => todo!(),
             },
             EntityRoutePtr::Custom(_) => todo!(),
@@ -120,25 +122,25 @@ fn is_explicitly_castable(
 }
 
 fn are_different_root_tys_explicity_castable(
-    src_ty: RootIdentifier,
-    dst_ty: RootIdentifier,
+    src_ty: RootBuiltinIdentifier,
+    dst_ty: RootBuiltinIdentifier,
 ) -> bool {
     match (src_ty, dst_ty) {
-        (RootIdentifier::I32, RootIdentifier::I64)
-        | (RootIdentifier::I32, RootIdentifier::F32)
-        | (RootIdentifier::I32, RootIdentifier::F64)
-        | (RootIdentifier::I32, RootIdentifier::Bool)
-        | (RootIdentifier::I32, RootIdentifier::B32)
-        | (RootIdentifier::I32, RootIdentifier::B64)
-        | (RootIdentifier::I64, RootIdentifier::B64)
-        | (RootIdentifier::I64, RootIdentifier::F64)
-        | (RootIdentifier::B32, RootIdentifier::I32)
-        | (RootIdentifier::B32, RootIdentifier::I64)
-        | (RootIdentifier::B32, RootIdentifier::B64) => true,
-        (RootIdentifier::B32, _) => false,
-        (RootIdentifier::B64, _) => false,
-        (RootIdentifier::Bool, _) => false,
-        (RootIdentifier::F32, _) => false,
+        (RootBuiltinIdentifier::I32, RootBuiltinIdentifier::I64)
+        | (RootBuiltinIdentifier::I32, RootBuiltinIdentifier::F32)
+        | (RootBuiltinIdentifier::I32, RootBuiltinIdentifier::F64)
+        | (RootBuiltinIdentifier::I32, RootBuiltinIdentifier::Bool)
+        | (RootBuiltinIdentifier::I32, RootBuiltinIdentifier::B32)
+        | (RootBuiltinIdentifier::I32, RootBuiltinIdentifier::B64)
+        | (RootBuiltinIdentifier::I64, RootBuiltinIdentifier::B64)
+        | (RootBuiltinIdentifier::I64, RootBuiltinIdentifier::F64)
+        | (RootBuiltinIdentifier::B32, RootBuiltinIdentifier::I32)
+        | (RootBuiltinIdentifier::B32, RootBuiltinIdentifier::I64)
+        | (RootBuiltinIdentifier::B32, RootBuiltinIdentifier::B64) => true,
+        (RootBuiltinIdentifier::B32, _) => false,
+        (RootBuiltinIdentifier::B64, _) => false,
+        (RootBuiltinIdentifier::Bool, _) => false,
+        (RootBuiltinIdentifier::F32, _) => false,
         _ => false,
     }
 }

@@ -14,4 +14,4 @@ use husky_file::FilePtr;
 use husky_print_utils::*;
 use husky_semantics_error::{err, not_none};
 use husky_text::TextRange;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;

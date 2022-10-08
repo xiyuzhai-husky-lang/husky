@@ -1,15 +1,15 @@
 use super::*;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use husky_vm_interface::*;
 use husky_opn_syntax::*;
 
 pub fn resolve_primitive_pure_binary_opr_linkage(
-    lopd_ty: RootIdentifier,
+    lopd_ty: RootBuiltinIdentifier,
     opr: PureBinaryOpr,
-    ropd_ty: RootIdentifier,
+    ropd_ty: RootBuiltinIdentifier,
 ) -> __Linkage {
     use PureBinaryOpr::*;
-    use RootIdentifier::*;
+    use RootBuiltinIdentifier::*;
     type b32 = u32;
     type b64 = u64;
 
@@ -136,12 +136,12 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
 
 
 pub fn resolve_primitive_assign_binary_opr_linkage(
-    lopd_ty: RootIdentifier,
+    lopd_ty: RootBuiltinIdentifier,
     opt_opr: Option<PureBinaryOpr>,
-    ropd_ty: RootIdentifier,
+    ropd_ty: RootBuiltinIdentifier,
 ) -> __Linkage {
     use PureBinaryOpr::*;
-    use RootIdentifier::*;
+    use RootBuiltinIdentifier::*;
     type b32 = u32;
     type b64 = u64;
 

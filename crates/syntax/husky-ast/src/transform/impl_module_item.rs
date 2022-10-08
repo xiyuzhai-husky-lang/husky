@@ -64,13 +64,16 @@ impl<'a> AstTransformer<'a> {
                             paradigm: Paradigm::EagerFunctional,
                             return_context: Some(RawReturnContext {
                                 opt_return_ty: Some(RangedEntityRoute {
-                                    route: RootIdentifier::DatasetType.into(),
+                                    route: RootBuiltinIdentifier::DatasetType.into(),
                                     range: Default::default(),
                                 }),
                                 kind: RawReturnContextKind::Normal,
                             }),
                         });
-                        self.use_all(RootIdentifier::Domains.into(), token_group[0].text_range())?;
+                        self.use_all(
+                            RootBuiltinIdentifier::Domains.into(),
+                            token_group[0].text_range(),
+                        )?;
                         AstVariant::DatasetConfigDefnHead
                     }
                 })

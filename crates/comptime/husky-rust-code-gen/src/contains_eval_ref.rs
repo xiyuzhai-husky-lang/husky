@@ -1,6 +1,6 @@
 use husky_entity_kind::{EntityKind, FieldKind};
 use husky_entity_route::{EntityRoute, EntityRouteVariant, SpatialArgument};
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use infer_decl::TyMemberDecl;
 
 use super::*;
@@ -16,14 +16,14 @@ pub(super) fn entity_route_variant_contains_eval_ref(
     });
     if entity_route.variant
         == (EntityRouteVariant::Root {
-            ident: RootIdentifier::Ref,
+            ident: RootBuiltinIdentifier::Ref,
         })
     {
         return true;
     }
     if entity_route.variant
         == (EntityRouteVariant::Root {
-            ident: RootIdentifier::Option,
+            ident: RootBuiltinIdentifier::Option,
         })
     {
         return false;

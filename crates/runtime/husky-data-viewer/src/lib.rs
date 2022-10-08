@@ -2,7 +2,7 @@ mod query;
 
 use husky_entity_route::EntityRoutePtr;
 use husky_vm_binding::Binding;
-use husky_word::{IdentPairDict, RootIdentifier};
+use husky_word::{IdentPairDict, RootBuiltinIdentifier};
 pub use query::*;
 
 use husky_vm_interface::{__Linkage, __Register, __RegistrableSafe, __ResolvedLinkage};
@@ -10,7 +10,7 @@ use husky_vm_interface::{__Linkage, __Register, __RegistrableSafe, __ResolvedLin
 #[derive(Debug, PartialEq, Eq)]
 pub enum HuskyDataViewer {
     Primitive {
-        ty: RootIdentifier,
+        ty: RootBuiltinIdentifier,
     },
     Struct {
         fields: IdentPairDict<(__Linkage, EntityRoutePtr)>,
@@ -40,14 +40,14 @@ impl HuskyDataViewer {
     ) -> serde_json::Value {
         match self {
             HuskyDataViewer::Primitive { ty } => match ty {
-                RootIdentifier::Void => todo!(),
-                RootIdentifier::I32 => todo!(),
-                RootIdentifier::I64 => todo!(),
-                RootIdentifier::F32 => serde_json::to_value(value.downcast_f32()).unwrap(),
-                RootIdentifier::F64 => todo!(),
-                RootIdentifier::B32 => todo!(),
-                RootIdentifier::B64 => todo!(),
-                RootIdentifier::Bool => todo!(),
+                RootBuiltinIdentifier::Void => todo!(),
+                RootBuiltinIdentifier::I32 => todo!(),
+                RootBuiltinIdentifier::I64 => todo!(),
+                RootBuiltinIdentifier::F32 => serde_json::to_value(value.downcast_f32()).unwrap(),
+                RootBuiltinIdentifier::F64 => todo!(),
+                RootBuiltinIdentifier::B32 => todo!(),
+                RootBuiltinIdentifier::B64 => todo!(),
+                RootBuiltinIdentifier::Bool => todo!(),
                 _ => panic!(),
             },
             HuskyDataViewer::Struct { fields } => serde_json::Value::Object(

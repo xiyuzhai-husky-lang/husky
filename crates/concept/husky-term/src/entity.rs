@@ -5,7 +5,7 @@ mod root;
 pub use intern::*;
 pub use namespace::*;
 
-use husky_word::{Identifier, RootIdentifier};
+use husky_word::{Identifier, RootBuiltinIdentifier};
 use optional::Optioned;
 
 use crate::{Term, TermQuery, Ty};
@@ -17,7 +17,7 @@ pub struct TermEntityPath {
 }
 
 impl TermEntityPath {
-    pub fn root(ident: RootIdentifier) -> Self {
+    pub fn root(ident: RootBuiltinIdentifier) -> Self {
         Self {
             opt_parent: Optioned::none(),
             ident: ident.into(),

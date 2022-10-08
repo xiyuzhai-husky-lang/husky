@@ -1,7 +1,7 @@
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 
 use crate::*;
-use RootIdentifier::*;
+use RootBuiltinIdentifier::*;
 
 impl TermEntity {
     pub(crate) fn i32(db: &dyn TermQuery) -> TermPtr {
@@ -24,7 +24,7 @@ impl TermEntity {
         Self::root_entity(db, Std)
     }
 
-    fn root_entity(db: &dyn TermQuery, ident: RootIdentifier) -> TermPtr {
+    fn root_entity(db: &dyn TermQuery, ident: RootBuiltinIdentifier) -> TermPtr {
         db.it_term(
             Self {
                 path: TermEntityPath::root(ident.into()),

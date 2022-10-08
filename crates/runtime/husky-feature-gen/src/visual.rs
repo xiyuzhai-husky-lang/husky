@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_route::RangedEntityRoute;
 use husky_entity_semantics::{Visualizer, VisualizerVariant};
 use husky_vm::__VMResult;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 
 pub(crate) fn visual_feature_lazy_block(
     db: &dyn FeatureGenQueryGroup,
@@ -20,7 +20,7 @@ pub(crate) fn visual_feature_lazy_block(
         None,
         db.feature_interner(),
         RangedEntityRoute {
-            route: RootIdentifier::VisualType.into(),
+            route: RootBuiltinIdentifier::VisualType.into(),
             range: Default::default(),
         },
     ))

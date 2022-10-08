@@ -7,7 +7,7 @@ use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
 use husky_opn_semantics::ImplicitConversion;
 use husky_semantics_error::*;
-use husky_word::{CustomIdentifier, IdentPairDict, RootIdentifier};
+use husky_word::{CustomIdentifier, IdentPairDict, RootBuiltinIdentifier};
 use husky_xml_syntax::XmlTagKind;
 use infer_contract::{ContractSheet, InferContract};
 use std::{iter::Peekable, sync::Arc};
@@ -110,15 +110,19 @@ impl<'a> LazyStmtParser<'a> {
                             },
                         },
                         RawStmtVariant::Assert(condition) => LazyStmtVariant::Assert {
-                            condition: self
-                                .parse_lazy_expr(condition, Some(RootIdentifier::Bool.into()))?,
+                            condition: self.parse_lazy_expr(
+                                condition,
+                                Some(RootBuiltinIdentifier::Bool.into()),
+                            )?,
                         },
                         RawStmtVariant::Require {
                             condition,
                             return_context,
                         } => LazyStmtVariant::Require {
-                            condition: self
-                                .parse_lazy_expr(condition, Some(RootIdentifier::Bool.into()))?,
+                            condition: self.parse_lazy_expr(
+                                condition,
+                                Some(RootBuiltinIdentifier::Bool.into()),
+                            )?,
                             return_context: ReturnContext::from_raw(
                                 self.db.upcast(),
                                 return_context,

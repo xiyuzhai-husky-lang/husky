@@ -78,9 +78,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         let opt_output_ty = self.db.target_output_ty().ok();
                         self.infer_function(&[], opt_output_ty, children)
                     }
-                    AstVariant::DatasetConfigDefnHead => {
-                        self.infer_function(&[], Some(RootIdentifier::DatasetType.into()), children)
-                    }
+                    AstVariant::DatasetConfigDefnHead => self.infer_function(
+                        &[],
+                        Some(RootBuiltinIdentifier::DatasetType.into()),
+                        children,
+                    ),
                     AstVariant::CallFormDefnHead {
                         ref parameters,
                         return_ty: output_ty,
