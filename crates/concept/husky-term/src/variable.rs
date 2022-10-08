@@ -1,3 +1,5 @@
+use husky_word::Identifier;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash)]

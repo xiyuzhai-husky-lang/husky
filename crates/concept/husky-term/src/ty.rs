@@ -1,4 +1,5 @@
 mod error;
+mod primitive_ty;
 
 use std::ops::Deref;
 
@@ -25,13 +26,14 @@ impl std::ops::Deref for Ty {
 impl Ty {
     pub(crate) fn new(term: TermPtr) -> TermResult<Self> {
         match *term {
-            Term::Type(_) | Term::Curry(TermCurry { .. }) => (),
+            Term::Literal(_) => return Err(TermError::TermIsNotTy),
             Term::Abstraction(_) => return Err(TermError::TermIsNotTy),
-            Term::Variable(_) | Term::Application(_) => {
+            Term::Namespace(_) | Term::Variable(_) | Term::Application(_) => {
                 if !matches!(&*term.ty_term(), &Term::Type(_)) {
                     return Err(TermError::TermIsNotTy);
                 }
             }
+            Term::Type(_) | Term::Curry(TermCurry { .. }) => (),
         }
         Ok(Self(term))
     }
@@ -42,13 +44,16 @@ impl Ty {
 }
 
 impl Term {
+    #[inline(always)]
     pub(crate) fn ty_term(&self) -> TermCow {
         match self {
-            Term::Type(u) => Term::Type(u.next().expect("todo")).into(),
+            Term::Literal(l) => l.ty().term().into(),
+            Term::Namespace(n) => n.ty().term().into(),
             Term::Curry(c) => c.ty().term().into(),
             Term::Variable(v) => v.ty().term().into(),
             Term::Abstraction(abs) => abs.ty().term().into(),
             Term::Application(app) => app.ty().term().into(),
+            Term::Type(u) => Term::Type(u.next().expect("todo")).into(),
         }
     }
 

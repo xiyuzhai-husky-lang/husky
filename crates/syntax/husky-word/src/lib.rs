@@ -43,7 +43,7 @@ impl WordPtr {
     pub fn opt_custom(self) -> Option<CustomIdentifier> {
         self.opt_ident()
             .map(|ident| match ident {
-                Identifier::Builtin(_) | Identifier::Contextual(_) => None,
+                Identifier::Root(_) | Identifier::Contextual(_) => None,
                 Identifier::Custom(ident) => Some(ident),
             })
             .flatten()
@@ -92,7 +92,7 @@ impl From<Identifier> for WordPtr {
 
 impl From<RootIdentifier> for WordPtr {
     fn from(ident: RootIdentifier) -> Self {
-        WordPtr::Identifier(Identifier::Builtin(ident))
+        WordPtr::Identifier(Identifier::Root(ident))
     }
 }
 

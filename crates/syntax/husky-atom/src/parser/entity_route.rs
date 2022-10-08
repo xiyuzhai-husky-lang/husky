@@ -95,7 +95,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                                 token.range,
                             ));
                         match ident {
-                            Identifier::Builtin(_) | Identifier::Contextual(_) => panic!(),
+                            Identifier::Root(_) | Identifier::Contextual(_) => panic!(),
                             Identifier::Custom(varname) => HuskyAtomVariant::Variable {
                                 varname,
                                 init_range,

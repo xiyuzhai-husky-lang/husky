@@ -3,9 +3,10 @@ mod application;
 mod context;
 mod cow;
 mod curry;
+mod display;
 mod error;
-mod ident;
 mod intern;
+mod literal;
 mod namespace;
 mod query;
 #[cfg(test)]
@@ -18,8 +19,9 @@ pub use abstraction::TermAbstraction;
 pub use application::TermApplication;
 pub use context::TermContext;
 pub use curry::TermCurry;
-pub use ident::Identifier;
 pub use intern::{InternTerm, TermInterner, TermPtr};
+pub use literal::TermLiteral;
+use namespace::TermNamespace;
 pub use namespace::{Namespace, NamespacePtr};
 pub use query::TermQuery;
 pub use ty::Ty;
@@ -31,9 +33,11 @@ use optional::Optioned;
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub enum Term {
-    Type(Universe),
+    Literal(TermLiteral),
+    Namespace(TermNamespace),
     Curry(TermCurry),
     Variable(TermVariable),
     Abstraction(TermAbstraction),
     Application(TermApplication),
+    Type(Universe),
 }

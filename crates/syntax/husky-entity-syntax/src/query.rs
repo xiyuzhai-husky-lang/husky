@@ -393,7 +393,7 @@ pub trait EntitySyntaxQueryGroup:
                     word_opr.as_str()
                 ))),
                 WordPtr::Identifier(ident) => match ident {
-                    Identifier::Builtin(_) => todo!(),
+                    Identifier::Root(_) => todo!(),
                     Identifier::Custom(ident) => Ok(self.intern_entity_route(EntityRoute {
                         variant: EntityRouteVariant::Child { parent, ident },
                         temporal_arguments: thin_vec![],

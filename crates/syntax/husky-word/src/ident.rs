@@ -14,7 +14,7 @@ use std::{borrow::Borrow, ops::Deref};
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Identifier {
-    Builtin(RootIdentifier),
+    Root(RootIdentifier),
     Custom(CustomIdentifier),
     Contextual(ContextualIdentifier),
 }
@@ -54,7 +54,7 @@ impl Serialize for Identifier {
 impl Identifier {
     pub fn as_str(&self) -> &'static str {
         match self {
-            Identifier::Builtin(ident) => ident.as_str(),
+            Identifier::Root(ident) => ident.as_str(),
             Identifier::Custom(ident) => ident.as_str(),
             Identifier::Contextual(ident) => ident.as_str(),
         }
@@ -80,7 +80,7 @@ impl Deref for Identifier {
 
     fn deref(&self) -> &Self::Target {
         match self {
-            Identifier::Builtin(ident) => ident.deref(),
+            Identifier::Root(ident) => ident.deref(),
             Identifier::Custom(ident) => ident.deref(),
             Identifier::Contextual(ident) => ident.deref(),
         }

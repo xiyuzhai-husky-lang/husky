@@ -110,7 +110,7 @@ pub trait AtomContext<'a> {
 
     fn resolve_symbol_kind(&self, ident: Identifier, range: TextRange) -> AtomResult<SymbolKind> {
         match ident {
-            Identifier::Builtin(ident) => Ok(SymbolKind::EntityRoute(ident.into())),
+            Identifier::Root(ident) => Ok(SymbolKind::EntityRoute(ident.into())),
             Identifier::Contextual(ident) => match ident {
                 ContextualIdentifier::CrateInputValue => Ok(SymbolKind::EntityRoute(
                     self.entity_syntax_db().intern_entity_route(EntityRoute {
