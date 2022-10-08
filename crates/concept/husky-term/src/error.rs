@@ -8,6 +8,8 @@ pub enum TermError {
     TermIsNotTy,
     #[error("universe overflows")]
     UniverseOverflow,
+    #[error("monad is not input")]
+    MonadIsNotInput,
     // #[error("data store disconnected")]
     // Disconnect(#[from] io::Error),
     // #[error("the data for key `{0}` is not available")]

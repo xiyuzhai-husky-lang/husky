@@ -48,13 +48,37 @@ impl Ty {
             _ => unreachable!(),
         }
     }
-
+    // void
+    pub(crate) fn void(db: &dyn TermQuery) -> Ty {
+        Self::root_builtin_ty(db, Void)
+    }
+    // i32
     pub(crate) fn i32(db: &dyn TermQuery) -> Ty {
         Self::root_builtin_ty(db, I32)
     }
-
+    // i64
     pub(crate) fn i64(db: &dyn TermQuery) -> Ty {
         Self::root_builtin_ty(db, I64)
+    }
+    // f32: Ty,
+    pub(crate) fn f32(db: &dyn TermQuery) -> Ty {
+        Self::root_builtin_ty(db, F32)
+    }
+    // f64: Ty,
+    pub(crate) fn f64(db: &dyn TermQuery) -> Ty {
+        Self::root_builtin_ty(db, F64)
+    }
+    // b32: Ty,
+    pub(crate) fn b32(db: &dyn TermQuery) -> Ty {
+        Self::root_builtin_ty(db, B32)
+    }
+    // b64: Ty,
+    pub(crate) fn b64(db: &dyn TermQuery) -> Ty {
+        Self::root_builtin_ty(db, B64)
+    }
+    // bool: Ty,
+    pub(crate) fn bool(db: &dyn TermQuery) -> Ty {
+        Self::root_builtin_ty(db, Bool)
     }
 
     pub(crate) fn module(db: &dyn TermQuery) -> Ty {
