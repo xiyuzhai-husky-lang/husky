@@ -1,9 +1,15 @@
-use crate::error::{TermError, TermResult};
+use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub struct TermUniverse {
     pub kind: UniverseKind,
     pub level: UniverseLevel,
+}
+
+impl Into<Term> for TermUniverse {
+    fn into(self) -> Term {
+        Term::Universe(self)
+    }
 }
 
 impl TermUniverse {
@@ -15,6 +21,13 @@ impl TermUniverse {
         TermUniverse {
             kind: UniverseKind::Type,
             level: self.level.next().expect("todo"),
+        }
+    }
+
+    pub fn zeroth_ty_universe() -> TermUniverse {
+        Self {
+            kind: UniverseKind::Type,
+            level: UniverseLevel::zero(),
         }
     }
 }
