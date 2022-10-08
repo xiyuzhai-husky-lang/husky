@@ -17,10 +17,10 @@ pub struct TermEntityPath {
 }
 
 impl TermEntityPath {
-    pub fn root(ident: Identifier) -> Self {
+    pub fn root(ident: RootIdentifier) -> Self {
         Self {
             opt_parent: Optioned::none(),
-            ident,
+            ident: ident.into(),
         }
     }
 }
