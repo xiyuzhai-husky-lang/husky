@@ -75,15 +75,19 @@ impl std::fmt::Display for TermUniverse {
 fn display_term() {
     let db = TermTestsDb::new();
     let menu = db.term_menu();
-    assert_eq!(menu.i32().to_string(), "i32")
     // TermLiteralData::I32(v) => v.fmt(f),
+    assert_eq!(menu.i32().to_string(), "i32");
     // TermLiteralData::I64(v) => v.fmt(f),
-    // TermLiteralData::Float(v) => v.fmt(f),
+    assert_eq!(menu.i64().to_string(), "i64");
     // TermLiteralData::F32(v) => v.fmt(f),
+    assert_eq!(menu.f32().to_string(), "f32");
     // TermLiteralData::F64(v) => v.fmt(f),
-    // TermLiteralData::Bits(v) => v.fmt(f),
+    assert_eq!(menu.f64().to_string(), "f64");
     // TermLiteralData::B32(v) => v.fmt(f),
+    assert_eq!(menu.b64().to_string(), "b64");
     // TermLiteralData::B64(v) => v.fmt(f),
+    assert_eq!(menu.b64().to_string(), "b64");
     // TermLiteralData::Bool(v) => v.fmt(f),
+    assert_eq!(menu.bool().to_string(), "bool");
     // mom
 }
