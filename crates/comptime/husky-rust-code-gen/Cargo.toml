@@ -19,7 +19,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-token = { path = "../../syntax/husky-token" }
-husky-word = { path = "../../syntax/husky-word" }
+husky-word = { path = "../../concept/husky-word" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }

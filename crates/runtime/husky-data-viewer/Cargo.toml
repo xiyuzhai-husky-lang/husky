@@ -13,4 +13,4 @@ husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-entity-route = { path = "../../concept/husky-entity-route" }
 husky-vm-binding = { path = "../../vm/husky-vm-binding" }
-husky-word = { path = "../../syntax/husky-word" }
+husky-word = { path = "../../concept/husky-word" }

@@ -11,4 +11,4 @@ salsa = "0.17.0-pre.2"
 interner = { path = "../../abstraction/interner" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-word = { path = "../../syntax/husky-word" }
+husky-word = { path = "../../concept/husky-word" }

@@ -19,7 +19,7 @@ upcast = { path = "../../abstraction/upcast" }
 fold = { path = "../../abstraction/fold" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
-husky-word = { path = "../../syntax/husky-word" }
+husky-word = { path = "../../concept/husky-word" }
 husky-token = { path = "../../syntax/husky-token" }
 husky-entity-route = { path = "../../concept/husky-entity-route" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }

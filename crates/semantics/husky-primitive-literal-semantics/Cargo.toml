@@ -8,5 +8,5 @@ edition = "2021"
 husky-entity-route = { path = "../../concept/husky-entity-route" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
-husky-word = { path = "../../syntax/husky-word" }
+husky-word = { path = "../../concept/husky-word" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }

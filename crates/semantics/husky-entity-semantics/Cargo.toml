@@ -22,7 +22,7 @@ husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
-husky-word = { path = "../../syntax/husky-word" }
+husky-word = { path = "../../concept/husky-word" }
 fold = { path = "../../abstraction/fold" }
 husky-entity-route = { path = "../../concept/husky-entity-route" }
 husky-semantics-error = { path = "../../semantics/husky-semantics-error" }

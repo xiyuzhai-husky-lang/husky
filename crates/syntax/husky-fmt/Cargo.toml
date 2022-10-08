@@ -14,7 +14,7 @@ arena = { path = "../../abstraction/arena" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
-husky-word = { path = "../husky-word" }
+husky-word = { path = "../../concept/husky-word" }
 husky-entity-route = { path = "../../concept/husky-entity-route" }
 husky-entity-syntax = { path = "../husky-entity-syntax" }
 husky-ast = { path = "../husky-ast" }
