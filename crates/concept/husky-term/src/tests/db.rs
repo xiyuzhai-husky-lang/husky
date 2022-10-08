@@ -1,3 +1,5 @@
+use std::{collections::HashMap, sync::Arc};
+
 use husky_entity_path::{new_entity_path_itr, EntityPathInterner, InternEntityPath};
 
 use crate::*;
@@ -7,6 +9,7 @@ pub(crate) struct TermTestsDb {
     storage: salsa::Storage<TermTestsDb>,
     entity_path_itr: EntityPathInterner,
     term_itr: TermInterner,
+    ty_decls: HashMap<Ty, Arc<TyDecl>>,
 }
 
 impl TermTestsDb {
@@ -15,11 +18,27 @@ impl TermTestsDb {
             storage: Default::default(),
             entity_path_itr: new_entity_path_itr(),
             term_itr: new_term_itr(),
+            ty_decls: Default::default(),
         }
         .init()
     }
 
     fn init(mut self) -> Self {
+        use TyFamily::*;
+        let menu = self.term_menu();
+        self.ty_decls.extend(
+            [
+                (menu.void(), Arc::new(TyDecl::new(Physical))),
+                (menu.i32(), Arc::new(TyDecl::new(Physical))),
+                (menu.i64(), Arc::new(TyDecl::new(Physical))),
+                (menu.f32(), Arc::new(TyDecl::new(Physical))),
+                (menu.f64(), Arc::new(TyDecl::new(Physical))),
+                (menu.b32(), Arc::new(TyDecl::new(Physical))),
+                (menu.b64(), Arc::new(TyDecl::new(Physical))),
+                (menu.bool(), Arc::new(TyDecl::new(Physical))),
+            ]
+            .into_iter(),
+        );
         self
     }
 }
@@ -44,6 +63,6 @@ impl AskDecl for TermTestsDb {
     }
 
     fn ask_ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl> {
-        todo!()
+        Ok(self.ty_decls[&ty].clone())
     }
 }

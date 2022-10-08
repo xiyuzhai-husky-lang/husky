@@ -17,6 +17,10 @@ pub struct TyDecl {
 }
 
 impl TyDecl {
+    pub fn new(ty_family: TyFamily) -> Self {
+        Self { ty_family }
+    }
+
     pub fn ty_family(&self) -> TyFamily {
         self.ty_family
     }
@@ -24,8 +28,8 @@ impl TyDecl {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TyFamily {
-    Physics,
-    Concept,
-    Monad,
-    Prop,
+    Physical,
+    Conceptual,
+    Monadic,
+    Propositional,
 }
