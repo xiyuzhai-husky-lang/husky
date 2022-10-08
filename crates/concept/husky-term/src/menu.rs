@@ -20,7 +20,7 @@ pub(crate) fn term_menu(db: &dyn TermQuery) -> Arc<TermMenu> {
         i64,
         i32_literal_0: TermLiteral::i32_literal(db, 0, i32),
         i32_literal_1: TermLiteral::i32_literal(db, 1, i32),
-        i64_literal_0: todo!(),
-        i64_literal_1: todo!(),
+        i64_literal_0: TermLiteral::i64_literal(db, 0, i64),
+        i64_literal_1: TermLiteral::i64_literal(db, 1, i64),
     })
 }

@@ -21,10 +21,18 @@ impl TermLiteral {
             ty: i32,
         }))
     }
+
+    pub fn i64_literal(db: &dyn TermQuery, i: i64, i64: Ty) -> TermPtr {
+        db.it_term(Term::Literal(TermLiteral {
+            data: TermLiteralData::I64(i),
+            ty: i64,
+        }))
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub enum TermLiteralData {
     I32(i32),
+    I64(i64),
     // mom
 }

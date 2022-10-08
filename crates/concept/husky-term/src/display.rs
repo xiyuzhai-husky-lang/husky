@@ -19,6 +19,7 @@ impl std::fmt::Display for TermLiteral {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.data() {
             TermLiteralData::I32(_) => todo!(),
+            TermLiteralData::I64(_) => todo!(),
         }
     }
 }
