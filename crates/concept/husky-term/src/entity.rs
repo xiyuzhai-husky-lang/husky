@@ -1,10 +1,11 @@
 mod intern;
 mod namespace;
+mod root;
 
 pub use intern::*;
 pub use namespace::*;
 
-use husky_word::Identifier;
+use husky_word::{Identifier, RootIdentifier};
 use optional::Optioned;
 
 use crate::{TermQuery, Ty};
@@ -12,21 +13,26 @@ use crate::{TermQuery, Ty};
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub struct TermEntityPath {
     opt_parent: Optioned<TermEntityPathPtr>,
-    name: Identifier,
+    ident: Identifier,
+}
+
+impl TermEntityPath {
+    pub fn root(ident: Identifier) -> Self {
+        Self {
+            opt_parent: Optioned::none(),
+            ident,
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub struct TermEntity {
-    namespace: TermEntityPath,
+    path: TermEntityPath,
     ty: Ty,
 }
 
 impl TermEntity {
     pub fn ty(&self) -> Ty {
         self.ty
-    }
-
-    pub(crate) fn i32(db: &dyn TermQuery) -> Self {
-        todo!()
     }
 }

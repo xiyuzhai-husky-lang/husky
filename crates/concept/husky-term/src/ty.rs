@@ -1,5 +1,5 @@
 mod error;
-mod primitive_ty;
+mod root;
 
 use std::ops::Deref;
 
@@ -9,7 +9,7 @@ use crate::{
     cow::TermCow,
     error::{TermError, TermResult},
     intern::new_term_interner,
-    Term, TermCurry, TermInterner, TermPtr, UniverseLevel,
+    Term, TermCurry, TermInterner, TermPtr, TermQuery, TermUniverse, UniverseLevel,
 };
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -45,6 +45,10 @@ impl Ty {
 
     pub fn term(self) -> TermPtr {
         self.0
+    }
+
+    pub(crate) fn entity_ty_ty(db: &dyn TermQuery) -> Self {
+        Ty::new(db.it_term(TermUniverse::zeroth_ty_universe().into())).unwrap()
     }
 }
 
