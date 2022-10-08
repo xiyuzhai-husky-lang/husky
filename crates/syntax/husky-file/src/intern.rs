@@ -18,7 +18,7 @@ pub trait AllocateUniqueFile {
 }
 
 pub fn new_file_interner() -> FileInterner {
-    FileInterner::empty()
+    FileInterner::new_empty()
 }
 
 #[test]

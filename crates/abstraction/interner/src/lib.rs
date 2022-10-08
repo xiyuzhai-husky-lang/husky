@@ -31,7 +31,7 @@ pub struct Interner<Ptr: IsInternPtr> {
 // }
 
 impl<Ptr: IsInternPtr> Interner<Ptr> {
-    pub fn empty() -> Self {
+    pub fn new_empty() -> Self {
         Self {
             internal: SafeRwLock::new(InternerInternal::default()),
         }

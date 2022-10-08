@@ -8,3 +8,5 @@ edition = "2021"
 optional = "0.5.0"
 thiserror = "1.0.37"
 interner = { path = "../../abstraction/interner" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
