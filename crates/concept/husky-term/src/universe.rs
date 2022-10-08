@@ -1,20 +1,46 @@
 use crate::error::{TermError, TermResult};
 
+#[derive(Debug, PartialEq, Eq, Hash)]
+pub struct TermUniverse {
+    pub kind: UniverseKind,
+    pub level: UniverseLevel,
+}
+
+impl TermUniverse {
+    pub fn kind(&self) -> UniverseKind {
+        self.kind
+    }
+
+    pub(crate) fn ty_universe(&self) -> TermUniverse {
+        TermUniverse {
+            kind: UniverseKind::Type,
+            level: self.level.next().expect("todo"),
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
+pub enum UniverseKind {
+    Type,
+    Sort,
+    Term,
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct Universe(u8);
+pub struct UniverseLevel(u8);
 
 const UNIVERSE_MAX: u8 = 100;
 
-impl Universe {
+impl UniverseLevel {
     pub(crate) fn zero() -> Self {
-        Universe(0)
+        UniverseLevel(0)
     }
 
     pub(crate) fn next(self) -> TermResult<Self> {
         if !(self.0 < UNIVERSE_MAX) {
             return Err(TermError::UniverseOverflow);
         }
-        Ok(Universe(self.0 + 1))
+        Ok(UniverseLevel(self.0 + 1))
     }
 
     // pub(crate) fn prev(self) -> Option<Self> {
@@ -24,8 +50,8 @@ impl Universe {
     //     Some(Universe(self.0 - 1))
     // }
 
-    pub(crate) fn max(self, other: Universe) -> Universe {
-        Universe(self.0.max(other.0))
+    pub(crate) fn max(self, other: UniverseLevel) -> UniverseLevel {
+        UniverseLevel(self.0.max(other.0))
     }
 
     pub(crate) fn positive(self) -> bool {
