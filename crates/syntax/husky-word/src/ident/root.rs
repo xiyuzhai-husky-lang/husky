@@ -46,7 +46,7 @@ impl std::fmt::Display for RootIdentifier {
 
 impl From<RootIdentifier> for Identifier {
     fn from(ident: RootIdentifier) -> Self {
-        Self::Builtin(ident)
+        Self::Root(ident)
     }
 }
 

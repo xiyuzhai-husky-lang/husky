@@ -66,7 +66,7 @@ impl SubrouteEntry {
                     if let HuskyTokenKind::Identifier(ident) = token_group[1].kind {
                         if let Some(kind) = tell_entity_kind(keyword, &token_group[2]) {
                             return match ident {
-                                Identifier::Builtin(_) => Err(defn_error!(
+                                Identifier::Root(_) => Err(defn_error!(
                                     "builtin identifiers are reserved",
                                     token_group[1].text_range()
                                 )),
