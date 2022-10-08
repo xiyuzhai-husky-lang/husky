@@ -8,7 +8,7 @@ pub use namespace::*;
 use husky_word::{Identifier, RootIdentifier};
 use optional::Optioned;
 
-use crate::{TermQuery, Ty};
+use crate::{Term, TermQuery, Ty};
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub struct TermEntityPath {
@@ -34,5 +34,11 @@ pub struct TermEntity {
 impl TermEntity {
     pub fn ty(&self) -> Ty {
         self.ty
+    }
+}
+
+impl Into<Term> for TermEntity {
+    fn into(self) -> Term {
+        Term::Entity(self)
     }
 }
