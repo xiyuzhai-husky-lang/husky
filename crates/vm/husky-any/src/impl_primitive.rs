@@ -1,3 +1,3 @@
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 
 use super::*;

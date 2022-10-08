@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_route::SpatialArgument;
 use husky_instantiate::InstantiationContext;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 mod impl_entity;
 mod impl_expr;
 mod impl_stmt;
@@ -21,7 +21,7 @@ impl<'a> LinkageCollector<'a> {
             }
             EntityRouteVariant::TargetInputValue { .. } => return,
             EntityRouteVariant::Root {
-                ident: RootIdentifier::Vec,
+                ident: RootBuiltinIdentifier::Vec,
             } => {
                 // ad hoc
                 if entity_route.spatial_arguments.len() > 0 {

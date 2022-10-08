@@ -304,7 +304,7 @@ pub(crate) fn value_call_form_decl(
 ) -> InferQueryResultArc<CallFormDecl> {
     match ty.variant {
         EntityRouteVariant::Root {
-            ident: RootIdentifier::ThickFp,
+            ident: RootBuiltinIdentifier::ThickFp,
         } => {
             msg_once!("much more todo");
             let nargs = ty.spatial_arguments.len() - 1;
@@ -335,13 +335,13 @@ pub(crate) fn value_call_form_decl(
             }));
         }
         EntityRouteVariant::Root {
-            ident: RootIdentifier::Fn,
+            ident: RootBuiltinIdentifier::Fn,
         } => todo!(),
         EntityRouteVariant::Root {
-            ident: RootIdentifier::FnMut,
+            ident: RootBuiltinIdentifier::FnMut,
         } => todo!(),
         EntityRouteVariant::Root {
-            ident: RootIdentifier::FnOnce,
+            ident: RootBuiltinIdentifier::FnOnce,
         } => todo!(),
         _ => Err(query_error!(format!(
             "a value of type `{ty:?}` can not be called"

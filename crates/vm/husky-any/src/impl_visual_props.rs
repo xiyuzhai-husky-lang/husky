@@ -1,6 +1,6 @@
 use husky_entity_route::EntityRoutePtr;
 use husky_trace_protocol::VisualData;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 
 use crate::*;
 

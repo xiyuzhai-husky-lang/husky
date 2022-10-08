@@ -1,5 +1,5 @@
 use husky_entity_route::*;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 
 use super::*;
 
@@ -13,11 +13,11 @@ impl<'a> RustCodeGenerator<'a> {
         } else {
             match entity_route.variant {
                 EntityRouteVariant::Root { ident } => match ident {
-                    RootIdentifier::Void => self.write("()"),
-                    RootIdentifier::B32 => self.write("u32"),
-                    RootIdentifier::B64 => self.write("u64"),
-                    RootIdentifier::Std => self.write("__std"),
-                    RootIdentifier::ThickFp => {
+                    RootBuiltinIdentifier::Void => self.write("()"),
+                    RootBuiltinIdentifier::B32 => self.write("u32"),
+                    RootBuiltinIdentifier::B64 => self.write("u64"),
+                    RootBuiltinIdentifier::Std => self.write("__std"),
+                    RootBuiltinIdentifier::ThickFp => {
                         match role {
                             EntityRouteRole::StaticThinFpTyDecl { .. } => self.write("fn("),
                             _ => self.write("ThickFp<fn("),
@@ -53,7 +53,7 @@ impl<'a> RustCodeGenerator<'a> {
                             .last()
                             .unwrap()
                             .take_entity_route();
-                        if output_ty != EntityRoutePtr::Root(RootIdentifier::Void) {
+                        if output_ty != EntityRoutePtr::Root(RootBuiltinIdentifier::Void) {
                             self.write("->");
                             self.gen_entity_route(output_ty, EntityRouteRole::StaticDecl)
                         }
@@ -63,10 +63,10 @@ impl<'a> RustCodeGenerator<'a> {
                         }
                         return;
                     }
-                    RootIdentifier::FnMut => todo!(),
-                    RootIdentifier::Fn => todo!(),
-                    RootIdentifier::FnOnce => todo!(),
-                    RootIdentifier::Ref => {
+                    RootBuiltinIdentifier::FnMut => todo!(),
+                    RootBuiltinIdentifier::Fn => todo!(),
+                    RootBuiltinIdentifier::FnOnce => todo!(),
+                    RootBuiltinIdentifier::Ref => {
                         match role {
                             EntityRouteRole::StaticCallRoute
                             | EntityRouteRole::ForAnyLifetimeOther => self.write("&"),

@@ -14,7 +14,7 @@ use husky_liason_semantics::{MemberModifier, ParameterModifier};
 use husky_opn_syntax::{ListOpr, RawOpnVariant};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_print_utils::msg_once;
-use husky_word::{Paradigm, RootIdentifier};
+use husky_word::{Paradigm, RootBuiltinIdentifier};
 
 pub struct Formatter<'a> {
     db: &'a dyn EntitySyntaxQueryGroup,
@@ -175,7 +175,7 @@ impl<'a> Formatter<'a> {
                     self.fmt_parameter(parameter);
                 }
                 self.write(")");
-                if return_ty.route != EntityRoutePtr::Root(RootIdentifier::Void) {
+                if return_ty.route != EntityRoutePtr::Root(RootBuiltinIdentifier::Void) {
                     self.write(" -> ");
                     self.fmt_ty(return_ty.route);
                 }

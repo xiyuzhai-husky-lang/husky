@@ -9,7 +9,7 @@ use husky_entity_kind::TyKind;
 #[cfg(test)]
 use husky_entity_route::EntityKind;
 #[cfg(test)]
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 
 #[test]
 fn std_scope() {
@@ -18,7 +18,7 @@ fn std_scope() {
         &mut db,
         "std",
         HuskyAtomVariant::EntityRoute {
-            route: RootIdentifier::Std.into(),
+            route: RootBuiltinIdentifier::Std.into(),
             kind: EntityKind::Module,
         },
     );
@@ -31,7 +31,7 @@ fn core_scope() {
         &mut db,
         "core",
         HuskyAtomVariant::EntityRoute {
-            route: RootIdentifier::Core.into(),
+            route: RootBuiltinIdentifier::Core.into(),
             kind: EntityKind::Module,
         },
     );
@@ -44,7 +44,7 @@ fn debug_scope() {
         &mut db,
         "debug",
         HuskyAtomVariant::EntityRoute {
-            route: RootIdentifier::Debug.into(),
+            route: RootBuiltinIdentifier::Debug.into(),
             kind: EntityKind::Module,
         },
     );
@@ -57,7 +57,7 @@ fn i32_type() {
         &mut db,
         "i32",
         HuskyAtomVariant::EntityRoute {
-            route: RootIdentifier::I32.into(),
+            route: RootBuiltinIdentifier::I32.into(),
             kind: EntityKind::Type(TyKind::Primitive),
         },
     );
@@ -70,7 +70,7 @@ fn i64_type() {
         &mut db,
         "i64",
         HuskyAtomVariant::EntityRoute {
-            route: RootIdentifier::I64.into(),
+            route: RootBuiltinIdentifier::I64.into(),
             kind: EntityKind::Type(TyKind::Primitive),
         },
     );
@@ -83,7 +83,7 @@ fn f32_type() {
         &mut db,
         "f32",
         HuskyAtomVariant::EntityRoute {
-            route: RootIdentifier::F32.into(),
+            route: RootBuiltinIdentifier::F32.into(),
             kind: EntityKind::Type(TyKind::Primitive),
         },
     );
@@ -96,7 +96,7 @@ fn f64_type() {
         &mut db,
         "f64",
         HuskyAtomVariant::EntityRoute {
-            route: RootIdentifier::F64.into(),
+            route: RootBuiltinIdentifier::F64.into(),
             kind: EntityKind::Type(TyKind::Primitive),
         },
     );
@@ -109,7 +109,7 @@ fn vec_generics() {
         &mut db,
         "Vec",
         HuskyAtomVariant::EntityRoute {
-            route: RootIdentifier::Vec.into(),
+            route: RootBuiltinIdentifier::Vec.into(),
             kind: EntityKind::Type(TyKind::Vec),
         },
     );
@@ -122,7 +122,7 @@ fn tuple_generics() {
         &mut db,
         "Tuple",
         HuskyAtomVariant::EntityRoute {
-            route: RootIdentifier::Tuple.into(),
+            route: RootBuiltinIdentifier::Tuple.into(),
             kind: EntityKind::Type(TyKind::Tuple),
         },
     );

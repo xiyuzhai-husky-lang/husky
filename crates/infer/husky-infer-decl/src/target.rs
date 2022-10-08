@@ -1,5 +1,5 @@
 use husky_text::{BindWithTextRange, TextRange};
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use thin_vec::ThinVec;
 
 use crate::*;
@@ -31,7 +31,7 @@ fn target_input_ty_from_ast(
                         let dataset_type = signature_result?.output.ty();
                         match dataset_type.variant {
                             EntityRouteVariant::Root {
-                                ident: RootIdentifier::DatasetType,
+                                ident: RootBuiltinIdentifier::DatasetType,
                             } => match dataset_type.spatial_arguments[0] {
                                 SpatialArgument::Const(_) => todo!(),
                                 SpatialArgument::EntityRoute(input_ty) => Ok(input_ty),
@@ -76,7 +76,7 @@ fn target_output_ty_from_ast(
                             .ty();
                         match dataset_type.variant {
                             EntityRouteVariant::Root {
-                                ident: RootIdentifier::DatasetType,
+                                ident: RootBuiltinIdentifier::DatasetType,
                             } => match dataset_type.spatial_arguments[1] {
                                 SpatialArgument::Const(_) => todo!(),
                                 SpatialArgument::EntityRoute(label_ty) => {

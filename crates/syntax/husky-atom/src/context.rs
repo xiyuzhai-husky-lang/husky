@@ -14,7 +14,7 @@ use husky_print_utils::p;
 use husky_static_defn::{StaticParameter, StaticSpatialParameter};
 use husky_text::*;
 use husky_token::AbsSemanticToken;
-use husky_word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootIdentifier};
+use husky_word::{ContextualIdentifier, CustomIdentifier, IdentDict, RootBuiltinIdentifier};
 use map_collect::MapCollect;
 use std::borrow::Cow;
 use thin_vec::{thin_vec, ThinVec};
@@ -61,7 +61,7 @@ pub trait AtomContext<'a> {
 
     fn builtin_type_atom(
         &self,
-        ident: RootIdentifier,
+        ident: RootBuiltinIdentifier,
         generics: ThinVec<SpatialArgument>,
         tail: TextRange,
     ) -> HuskyAtom {
@@ -69,40 +69,40 @@ pub trait AtomContext<'a> {
         let kind = HuskyAtomVariant::EntityRoute {
             route: self.entity_syntax_db().intern_entity_route(scope),
             kind: EntityKind::Type(match ident {
-                RootIdentifier::Void
-                | RootIdentifier::I32
-                | RootIdentifier::I64
-                | RootIdentifier::F32
-                | RootIdentifier::F64
-                | RootIdentifier::B32
-                | RootIdentifier::B64
-                | RootIdentifier::Bool => TyKind::Primitive,
-                RootIdentifier::True => todo!(),
-                RootIdentifier::False => todo!(),
-                RootIdentifier::Vec => todo!(),
-                RootIdentifier::Tuple => TyKind::Tuple,
-                RootIdentifier::Debug => todo!(),
-                RootIdentifier::Std => todo!(),
-                RootIdentifier::Core => todo!(),
-                RootIdentifier::Mor => TyKind::Mor,
-                RootIdentifier::ThickFp => TyKind::ThickFp,
-                RootIdentifier::Fn => todo!(),
-                RootIdentifier::FnMut => todo!(),
-                RootIdentifier::FnOnce => todo!(),
-                RootIdentifier::Array => todo!(),
-                RootIdentifier::DatasetType => todo!(),
-                RootIdentifier::TypeType => todo!(),
-                RootIdentifier::TraitType => todo!(),
-                RootIdentifier::Domains => todo!(),
-                RootIdentifier::CloneTrait => todo!(),
-                RootIdentifier::CopyTrait => todo!(),
-                RootIdentifier::PartialEqTrait => todo!(),
-                RootIdentifier::EqTrait => todo!(),
-                RootIdentifier::ModuleType => todo!(),
-                RootIdentifier::Ref => todo!(),
-                RootIdentifier::RefMut => todo!(),
-                RootIdentifier::Option => todo!(),
-                RootIdentifier::VisualType => todo!(),
+                RootBuiltinIdentifier::Void
+                | RootBuiltinIdentifier::I32
+                | RootBuiltinIdentifier::I64
+                | RootBuiltinIdentifier::F32
+                | RootBuiltinIdentifier::F64
+                | RootBuiltinIdentifier::B32
+                | RootBuiltinIdentifier::B64
+                | RootBuiltinIdentifier::Bool => TyKind::Primitive,
+                RootBuiltinIdentifier::True => todo!(),
+                RootBuiltinIdentifier::False => todo!(),
+                RootBuiltinIdentifier::Vec => todo!(),
+                RootBuiltinIdentifier::Tuple => TyKind::Tuple,
+                RootBuiltinIdentifier::Debug => todo!(),
+                RootBuiltinIdentifier::Std => todo!(),
+                RootBuiltinIdentifier::Core => todo!(),
+                RootBuiltinIdentifier::Mor => TyKind::Mor,
+                RootBuiltinIdentifier::ThickFp => TyKind::ThickFp,
+                RootBuiltinIdentifier::Fn => todo!(),
+                RootBuiltinIdentifier::FnMut => todo!(),
+                RootBuiltinIdentifier::FnOnce => todo!(),
+                RootBuiltinIdentifier::Array => todo!(),
+                RootBuiltinIdentifier::DatasetType => todo!(),
+                RootBuiltinIdentifier::TypeType => todo!(),
+                RootBuiltinIdentifier::TraitType => todo!(),
+                RootBuiltinIdentifier::Domains => todo!(),
+                RootBuiltinIdentifier::CloneTrait => todo!(),
+                RootBuiltinIdentifier::CopyTrait => todo!(),
+                RootBuiltinIdentifier::PartialEqTrait => todo!(),
+                RootBuiltinIdentifier::EqTrait => todo!(),
+                RootBuiltinIdentifier::ModuleType => todo!(),
+                RootBuiltinIdentifier::Ref => todo!(),
+                RootBuiltinIdentifier::RefMut => todo!(),
+                RootBuiltinIdentifier::Option => todo!(),
+                RootBuiltinIdentifier::VisualType => todo!(),
             }),
         };
         HuskyAtom::new(tail, kind)

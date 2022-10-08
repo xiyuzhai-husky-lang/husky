@@ -9,7 +9,7 @@ pub type EntityRouteInterner = Interner<EntityRoutePtr>;
 
 #[derive(Clone, Copy)]
 pub enum EntityRoutePtr {
-    Root(RootIdentifier),
+    Root(RootBuiltinIdentifier),
     Custom(&'static EntityRoute),
 }
 
@@ -21,7 +21,7 @@ impl EntityRoutePtr {
         }
     }
 
-    pub fn root(self) -> RootIdentifier {
+    pub fn root(self) -> RootBuiltinIdentifier {
         match self {
             EntityRoutePtr::Root(root_identifier) => root_identifier,
             _ => panic!(),
@@ -31,30 +31,30 @@ impl EntityRoutePtr {
     pub fn is_primitive(self) -> bool {
         match self {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
-                RootIdentifier::Void
-                | RootIdentifier::I32
-                | RootIdentifier::I64
-                | RootIdentifier::F32
-                | RootIdentifier::F64
-                | RootIdentifier::B32
-                | RootIdentifier::B64
-                | RootIdentifier::Bool => true,
-                RootIdentifier::Vec => todo!(),
-                RootIdentifier::Tuple => todo!(),
-                RootIdentifier::Debug => todo!(),
-                RootIdentifier::Mor => todo!(),
-                RootIdentifier::ThickFp => todo!(),
-                RootIdentifier::Fn => todo!(),
-                RootIdentifier::FnMut => todo!(),
-                RootIdentifier::FnOnce => todo!(),
-                RootIdentifier::Array => todo!(),
-                RootIdentifier::DatasetType => todo!(),
-                RootIdentifier::VisualType => todo!(),
-                RootIdentifier::TypeType => todo!(),
-                RootIdentifier::TraitType => todo!(),
-                RootIdentifier::ModuleType => todo!(),
-                RootIdentifier::Ref => todo!(),
-                RootIdentifier::Option => todo!(),
+                RootBuiltinIdentifier::Void
+                | RootBuiltinIdentifier::I32
+                | RootBuiltinIdentifier::I64
+                | RootBuiltinIdentifier::F32
+                | RootBuiltinIdentifier::F64
+                | RootBuiltinIdentifier::B32
+                | RootBuiltinIdentifier::B64
+                | RootBuiltinIdentifier::Bool => true,
+                RootBuiltinIdentifier::Vec => todo!(),
+                RootBuiltinIdentifier::Tuple => todo!(),
+                RootBuiltinIdentifier::Debug => todo!(),
+                RootBuiltinIdentifier::Mor => todo!(),
+                RootBuiltinIdentifier::ThickFp => todo!(),
+                RootBuiltinIdentifier::Fn => todo!(),
+                RootBuiltinIdentifier::FnMut => todo!(),
+                RootBuiltinIdentifier::FnOnce => todo!(),
+                RootBuiltinIdentifier::Array => todo!(),
+                RootBuiltinIdentifier::DatasetType => todo!(),
+                RootBuiltinIdentifier::VisualType => todo!(),
+                RootBuiltinIdentifier::TypeType => todo!(),
+                RootBuiltinIdentifier::TraitType => todo!(),
+                RootBuiltinIdentifier::ModuleType => todo!(),
+                RootBuiltinIdentifier::Ref => todo!(),
+                RootBuiltinIdentifier::Option => todo!(),
                 _ => panic!(),
             },
             EntityRoutePtr::Custom(_) => false,
@@ -68,7 +68,7 @@ impl EntityRoutePtr {
     pub fn intrinsic(self) -> EntityRoutePtr {
         match self.variant {
             EntityRouteVariant::Root {
-                ident: RootIdentifier::Ref | RootIdentifier::Option,
+                ident: RootBuiltinIdentifier::Ref | RootBuiltinIdentifier::Option,
             } => self.entity_route_argument(0).intrinsic(),
             _ => self,
         }
@@ -101,10 +101,10 @@ impl EntityRoutePtr {
     pub fn deref_route(self) -> EntityRoutePtr {
         match self.variant {
             EntityRouteVariant::Root {
-                ident: RootIdentifier::Ref,
+                ident: RootBuiltinIdentifier::Ref,
             } => self.entity_route_argument(0).deref_route(),
             EntityRouteVariant::Root {
-                ident: RootIdentifier::Option,
+                ident: RootBuiltinIdentifier::Option,
             } => todo!(),
             _ => self,
         }
@@ -113,7 +113,7 @@ impl EntityRoutePtr {
     pub fn is_eval_ref(self) -> bool {
         match self.variant {
             EntityRouteVariant::Root {
-                ident: RootIdentifier::Ref,
+                ident: RootBuiltinIdentifier::Ref,
             } => {
                 if self.temporal_arguments.len() > 0 {
                     todo!()
@@ -128,7 +128,7 @@ impl EntityRoutePtr {
     pub fn is_temp_ref_mut(self) -> bool {
         match self.variant {
             EntityRouteVariant::Root {
-                ident: RootIdentifier::RefMut,
+                ident: RootBuiltinIdentifier::RefMut,
             } => true,
             _ => false,
         }
@@ -137,7 +137,7 @@ impl EntityRoutePtr {
     pub fn is_fp(self) -> bool {
         match self.variant {
             EntityRouteVariant::Root {
-                ident: RootIdentifier::ThickFp,
+                ident: RootBuiltinIdentifier::ThickFp,
             } => true,
             _ => false,
         }
@@ -146,7 +146,7 @@ impl EntityRoutePtr {
     pub fn is_option(self) -> bool {
         match self.variant {
             EntityRouteVariant::Root {
-                ident: RootIdentifier::Option,
+                ident: RootBuiltinIdentifier::Option,
             } => true,
             _ => false,
         }
@@ -232,7 +232,7 @@ impl Deref for EntityRoutePtr {
                     $(
                         const [<$reserved:upper _ROUTE>]: &EntityRoute = &EntityRoute {
                             variant: EntityRouteVariant::Root {
-                                ident: RootIdentifier::$reserved,
+                                ident: RootBuiltinIdentifier::$reserved,
                             },
                             temporal_arguments: thin_vec![],
                             spatial_arguments: thin_vec![],
@@ -241,7 +241,7 @@ impl Deref for EntityRoutePtr {
 
                     match $x {
                         $(
-                            RootIdentifier::$reserved => [<$reserved:upper _ROUTE>],
+                            RootBuiltinIdentifier::$reserved => [<$reserved:upper _ROUTE>],
                         )*
                     }
                 }
@@ -278,14 +278,14 @@ impl IsInternPtr for EntityRoutePtr {
     }
 }
 
-impl From<RootIdentifier> for EntityRoutePtr {
-    fn from(ident: RootIdentifier) -> Self {
+impl From<RootBuiltinIdentifier> for EntityRoutePtr {
+    fn from(ident: RootBuiltinIdentifier) -> Self {
         Self::Root(ident)
     }
 }
 
-impl From<&RootIdentifier> for EntityRoutePtr {
-    fn from(ident: &RootIdentifier) -> Self {
+impl From<&RootBuiltinIdentifier> for EntityRoutePtr {
+    fn from(ident: &RootBuiltinIdentifier) -> Self {
         Self::Root(*ident)
     }
 }
@@ -317,7 +317,7 @@ pub trait InternEntityRoute {
     }
 
     fn opt_ty(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
-        self.route_call(RootIdentifier::Option.into(), thin_vec![ty.into()])
+        self.route_call(RootBuiltinIdentifier::Option.into(), thin_vec![ty.into()])
     }
 
     fn subroute(
@@ -356,15 +356,15 @@ pub trait InternEntityRoute {
     }
 
     fn option(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
-        self.route_call(RootIdentifier::Option.into(), thin_vec![ty.into()])
+        self.route_call(RootBuiltinIdentifier::Option.into(), thin_vec![ty.into()])
     }
 
     fn reference(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
-        self.route_call(RootIdentifier::Ref.into(), thin_vec![ty.into()])
+        self.route_call(RootBuiltinIdentifier::Ref.into(), thin_vec![ty.into()])
     }
 
     fn vec(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
-        self.route_call(RootIdentifier::Vec.into(), thin_vec![ty.into()])
+        self.route_call(RootBuiltinIdentifier::Vec.into(), thin_vec![ty.into()])
     }
 }
 
@@ -375,35 +375,35 @@ impl InternEntityRoute for EntityRouteInterner {
 }
 
 pub fn new_entity_route_interner() -> EntityRouteInterner {
-    EntityRouteInterner::new_from::<RootIdentifier>(&[
-        RootIdentifier::Void,
-        RootIdentifier::I32,
-        RootIdentifier::I64,
-        RootIdentifier::F32,
-        RootIdentifier::F64,
-        RootIdentifier::B32,
-        RootIdentifier::B64,
-        RootIdentifier::Bool,
-        RootIdentifier::True,
-        RootIdentifier::False,
-        RootIdentifier::Vec,
-        RootIdentifier::Tuple,
-        RootIdentifier::Debug,
-        RootIdentifier::Std,
-        RootIdentifier::Core,
-        RootIdentifier::ThickFp,
-        RootIdentifier::Fn,
-        RootIdentifier::FnMut,
-        RootIdentifier::FnOnce,
-        RootIdentifier::Array,
-        RootIdentifier::Domains,
-        RootIdentifier::DatasetType,
-        RootIdentifier::TypeType,
-        RootIdentifier::ModuleType,
-        RootIdentifier::CloneTrait,
-        RootIdentifier::CopyTrait,
-        RootIdentifier::PartialEqTrait,
-        RootIdentifier::EqTrait,
+    EntityRouteInterner::new_from::<RootBuiltinIdentifier>(&[
+        RootBuiltinIdentifier::Void,
+        RootBuiltinIdentifier::I32,
+        RootBuiltinIdentifier::I64,
+        RootBuiltinIdentifier::F32,
+        RootBuiltinIdentifier::F64,
+        RootBuiltinIdentifier::B32,
+        RootBuiltinIdentifier::B64,
+        RootBuiltinIdentifier::Bool,
+        RootBuiltinIdentifier::True,
+        RootBuiltinIdentifier::False,
+        RootBuiltinIdentifier::Vec,
+        RootBuiltinIdentifier::Tuple,
+        RootBuiltinIdentifier::Debug,
+        RootBuiltinIdentifier::Std,
+        RootBuiltinIdentifier::Core,
+        RootBuiltinIdentifier::ThickFp,
+        RootBuiltinIdentifier::Fn,
+        RootBuiltinIdentifier::FnMut,
+        RootBuiltinIdentifier::FnOnce,
+        RootBuiltinIdentifier::Array,
+        RootBuiltinIdentifier::Domains,
+        RootBuiltinIdentifier::DatasetType,
+        RootBuiltinIdentifier::TypeType,
+        RootBuiltinIdentifier::ModuleType,
+        RootBuiltinIdentifier::CloneTrait,
+        RootBuiltinIdentifier::CopyTrait,
+        RootBuiltinIdentifier::PartialEqTrait,
+        RootBuiltinIdentifier::EqTrait,
     ])
 }
 

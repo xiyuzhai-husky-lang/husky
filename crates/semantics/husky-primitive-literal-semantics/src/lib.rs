@@ -2,7 +2,7 @@ use husky_entity_route::EntityRoutePtr;
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_vm_interface::{__Register, __RegistrableSafe};
 use husky_vm_primitive_value::PrimitiveValueData;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 
 pub fn convert_primitive_literal_to_value(
     literal: PrimitiveLiteralData,
@@ -12,10 +12,10 @@ pub fn convert_primitive_literal_to_value(
         PrimitiveLiteralData::Void => todo!(),
         PrimitiveLiteralData::Integer(i) => match ty {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
-                RootIdentifier::I32 => PrimitiveValueData::I32(i as i32),
-                RootIdentifier::I64 => PrimitiveValueData::I64(i as i64),
-                RootIdentifier::B32 => PrimitiveValueData::B32(i as u32),
-                RootIdentifier::B64 => PrimitiveValueData::B64(i as u64),
+                RootBuiltinIdentifier::I32 => PrimitiveValueData::I32(i as i32),
+                RootBuiltinIdentifier::I64 => PrimitiveValueData::I64(i as i64),
+                RootBuiltinIdentifier::B32 => PrimitiveValueData::B32(i as u32),
+                RootBuiltinIdentifier::B64 => PrimitiveValueData::B64(i as u64),
                 _ => panic!(),
             },
             EntityRoutePtr::Custom(_) => todo!(),
@@ -24,8 +24,8 @@ pub fn convert_primitive_literal_to_value(
         PrimitiveLiteralData::I64(_) => todo!(),
         PrimitiveLiteralData::Float(f) => match ty {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
-                RootIdentifier::F32 => PrimitiveValueData::F32(f.0 as f32),
-                RootIdentifier::F64 => todo!(),
+                RootBuiltinIdentifier::F32 => PrimitiveValueData::F32(f.0 as f32),
+                RootBuiltinIdentifier::F64 => todo!(),
                 _ => panic!(),
             },
             EntityRoutePtr::Custom(_) => todo!(),
@@ -48,10 +48,10 @@ pub fn convert_primitive_literal_to_register(
         PrimitiveLiteralData::Void => todo!(),
         PrimitiveLiteralData::Integer(i) => match ty {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
-                RootIdentifier::I32 => (i as i32).to_register(),
-                RootIdentifier::I64 => (i as i64).to_register(),
-                RootIdentifier::B32 => (i as u32).to_register(),
-                RootIdentifier::B64 => (i as u64).to_register(),
+                RootBuiltinIdentifier::I32 => (i as i32).to_register(),
+                RootBuiltinIdentifier::I64 => (i as i64).to_register(),
+                RootBuiltinIdentifier::B32 => (i as u32).to_register(),
+                RootBuiltinIdentifier::B64 => (i as u64).to_register(),
                 _ => panic!(),
             },
             EntityRoutePtr::Custom(_) => todo!(),
@@ -60,8 +60,8 @@ pub fn convert_primitive_literal_to_register(
         PrimitiveLiteralData::I64(_) => todo!(),
         PrimitiveLiteralData::Float(f) => match ty {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
-                RootIdentifier::F32 => (f.0 as f32).to_register(),
-                RootIdentifier::F64 => todo!(),
+                RootBuiltinIdentifier::F32 => (f.0 as f32).to_register(),
+                RootBuiltinIdentifier::F64 => todo!(),
                 _ => panic!(),
             },
             EntityRoutePtr::Custom(_) => todo!(),

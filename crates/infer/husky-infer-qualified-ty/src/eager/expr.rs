@@ -80,7 +80,7 @@ impl EagerExprQualifiedTy {
             canonical_ty: CanonicalTy::new(
                 0,
                 CanonicalQualifier::EvalRef,
-                RootIdentifier::TypeType.into(),
+                RootBuiltinIdentifier::TypeType.into(),
             ),
         }
     }
@@ -91,7 +91,7 @@ impl EagerExprQualifiedTy {
             canonical_ty: CanonicalTy::new(
                 0,
                 CanonicalQualifier::EvalRef,
-                RootIdentifier::ModuleType.into(),
+                RootBuiltinIdentifier::ModuleType.into(),
             ),
         }
     }
@@ -102,7 +102,7 @@ impl EagerExprQualifiedTy {
             canonical_ty: CanonicalTy::new(
                 0,
                 CanonicalQualifier::EvalRef,
-                RootIdentifier::TraitType.into(),
+                RootBuiltinIdentifier::TraitType.into(),
             ),
         }
     }

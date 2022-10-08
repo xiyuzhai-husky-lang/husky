@@ -14,7 +14,7 @@ use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_semantics::*;
 use husky_lazy_semantics::*;
 use husky_vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use std::sync::Arc;
 
 use crate::{eval_id::FeatureEvalId, *};

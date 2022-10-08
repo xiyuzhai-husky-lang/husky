@@ -6,7 +6,7 @@ use husky_infer_qualified_ty::{EagerExprQualifiedTy, EagerExprQualifier, InferQu
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_text::RangedCustomIdentifier;
 use husky_vm::*;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use infer_contract::{EagerContract, InferContract};
 
 use crate::*;
@@ -62,10 +62,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
             RawExprVariant::Entity { route, kind } => match kind {
                 EntityKind::Module => todo!(),
                 EntityKind::EnumVariant => match route {
-                    EntityRoutePtr::Root(RootIdentifier::True) => {
+                    EntityRoutePtr::Root(RootBuiltinIdentifier::True) => {
                         EagerExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Bool(true))
                     }
-                    EntityRoutePtr::Root(RootIdentifier::False) => {
+                    EntityRoutePtr::Root(RootBuiltinIdentifier::False) => {
                         EagerExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Bool(false))
                     }
                     EntityRoutePtr::Custom(_) => EagerExprVariant::EnumKindLiteral(route),

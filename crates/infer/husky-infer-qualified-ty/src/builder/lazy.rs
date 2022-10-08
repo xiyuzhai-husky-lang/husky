@@ -334,7 +334,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawSuffixOpr::AsTy(_) => Ok(this_qt),
             RawSuffixOpr::BePattern(_) => Ok(LazyExprQualifiedTy::new(
                 LazyExprQualifier::Copyable,
-                RootIdentifier::Bool.into(),
+                RootBuiltinIdentifier::Bool.into(),
             )),
             RawSuffixOpr::Unveil => panic!(),
         }

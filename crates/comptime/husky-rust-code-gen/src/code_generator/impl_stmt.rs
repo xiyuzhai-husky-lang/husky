@@ -10,7 +10,7 @@ use husky_eager_semantics::{
 };
 use husky_entity_route::EntityRoutePtr;
 use husky_opn_semantics::EagerSuffixOpr;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 
 use super::*;
 
@@ -261,43 +261,43 @@ impl<'a> RustCodeGenerator<'a> {
     fn gen_condition(&mut self, indent: Indent, condition: &EagerExpr) {
         match condition.intrinsic_ty() {
             EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
-                RootIdentifier::Void => todo!(),
-                RootIdentifier::I32
-                | RootIdentifier::I64
-                | RootIdentifier::F32
-                | RootIdentifier::F64
-                | RootIdentifier::B32
-                | RootIdentifier::B64 => {
+                RootBuiltinIdentifier::Void => todo!(),
+                RootBuiltinIdentifier::I32
+                | RootBuiltinIdentifier::I64
+                | RootBuiltinIdentifier::F32
+                | RootBuiltinIdentifier::F64
+                | RootBuiltinIdentifier::B32
+                | RootBuiltinIdentifier::B64 => {
                     self.gen_expr(indent, condition);
                     self.write(" != 0");
                 }
-                RootIdentifier::Bool => self.gen_expr(indent, condition),
-                RootIdentifier::True
-                | RootIdentifier::False
-                | RootIdentifier::Vec
-                | RootIdentifier::Tuple
-                | RootIdentifier::Debug
-                | RootIdentifier::Std
-                | RootIdentifier::Core
-                | RootIdentifier::Mor
-                | RootIdentifier::ThickFp
-                | RootIdentifier::Fn
-                | RootIdentifier::FnMut
-                | RootIdentifier::FnOnce
-                | RootIdentifier::Array
-                | RootIdentifier::DatasetType
-                | RootIdentifier::TypeType
-                | RootIdentifier::TraitType => panic!(),
-                RootIdentifier::Domains => todo!(),
-                RootIdentifier::CloneTrait => todo!(),
-                RootIdentifier::CopyTrait => todo!(),
-                RootIdentifier::PartialEqTrait => todo!(),
-                RootIdentifier::EqTrait => todo!(),
-                RootIdentifier::ModuleType => todo!(),
-                RootIdentifier::Ref => todo!(),
-                RootIdentifier::RefMut => todo!(),
-                RootIdentifier::Option => todo!(),
-                RootIdentifier::VisualType => todo!(),
+                RootBuiltinIdentifier::Bool => self.gen_expr(indent, condition),
+                RootBuiltinIdentifier::True
+                | RootBuiltinIdentifier::False
+                | RootBuiltinIdentifier::Vec
+                | RootBuiltinIdentifier::Tuple
+                | RootBuiltinIdentifier::Debug
+                | RootBuiltinIdentifier::Std
+                | RootBuiltinIdentifier::Core
+                | RootBuiltinIdentifier::Mor
+                | RootBuiltinIdentifier::ThickFp
+                | RootBuiltinIdentifier::Fn
+                | RootBuiltinIdentifier::FnMut
+                | RootBuiltinIdentifier::FnOnce
+                | RootBuiltinIdentifier::Array
+                | RootBuiltinIdentifier::DatasetType
+                | RootBuiltinIdentifier::TypeType
+                | RootBuiltinIdentifier::TraitType => panic!(),
+                RootBuiltinIdentifier::Domains => todo!(),
+                RootBuiltinIdentifier::CloneTrait => todo!(),
+                RootBuiltinIdentifier::CopyTrait => todo!(),
+                RootBuiltinIdentifier::PartialEqTrait => todo!(),
+                RootBuiltinIdentifier::EqTrait => todo!(),
+                RootBuiltinIdentifier::ModuleType => todo!(),
+                RootBuiltinIdentifier::Ref => todo!(),
+                RootBuiltinIdentifier::RefMut => todo!(),
+                RootBuiltinIdentifier::Option => todo!(),
+                RootBuiltinIdentifier::VisualType => todo!(),
             },
             EntityRoutePtr::Custom(_) => panic!(),
         }

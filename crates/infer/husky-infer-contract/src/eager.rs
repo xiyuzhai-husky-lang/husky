@@ -5,7 +5,7 @@ use husky_entity_route::{
 };
 use husky_infer_error::error;
 use husky_text::TextRange;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use infer_decl::DeclQueryGroup;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -27,7 +27,7 @@ impl EagerContract {
     ) -> InferResult<EagerContract> {
         Ok(match parameter_ty.variant {
             EntityRouteVariant::Root {
-                ident: RootIdentifier::Ref,
+                ident: RootBuiltinIdentifier::Ref,
             } => EagerContract::EvalRef,
             _ => match output_liason {
                 OutputModifier::Transfer => match parameter_liason {
@@ -146,7 +146,7 @@ impl EagerContract {
                 }
             } else if output_ty.variant
                 == (EntityRouteVariant::Root {
-                    ident: RootIdentifier::Option,
+                    ident: RootBuiltinIdentifier::Option,
                 })
             {
                 if output_ty.entity_route_argument(0) == expr_ty {
@@ -172,7 +172,7 @@ impl EagerContract {
                     }
                 } else if output_ty.variant
                     == (EntityRouteVariant::Root {
-                        ident: RootIdentifier::Option,
+                        ident: RootBuiltinIdentifier::Option,
                     })
                 {
                     if output_ty.entity_route_argument(0) == expr_ty {

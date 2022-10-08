@@ -7,7 +7,7 @@ use husky_ast::*;
 use husky_entity_syntax::EntitySyntaxResult;
 use husky_file::FilePtr;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
-use husky_word::{Paradigm, RootIdentifier};
+use husky_word::{Paradigm, RootBuiltinIdentifier};
 use infer_contract::{ContractSheet, InferContract};
 use infer_decl::DeclQueryGroup;
 
@@ -75,7 +75,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                     AstVariant::DatasetConfigDefnHead => self.infer_eager_call_form(
                         &[],
                         children,
-                        Some(EntityRoutePtr::Root(RootIdentifier::DatasetType)),
+                        Some(EntityRoutePtr::Root(RootBuiltinIdentifier::DatasetType)),
                         OutputModifier::Transfer,
                     ),
                     AstVariant::CallFormDefnHead {

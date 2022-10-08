@@ -73,7 +73,9 @@ impl<'a> EagerParser<'a> {
                 discard: silent,
             } => {
                 let expr = self.parse_eager_expr(expr, None)?;
-                if !silent && expr.intrinsic_ty() != EntityRoutePtr::Root(RootIdentifier::Void) {
+                if !silent
+                    && expr.intrinsic_ty() != EntityRoutePtr::Root(RootBuiltinIdentifier::Void)
+                {
                     err!(format!(
                         "expect non-silent executed expression to be of type void, but got {:?} instead",
                         expr.intrinsic_ty()
@@ -230,11 +232,11 @@ impl<'a> EagerParser<'a> {
             RawLoopKind::While { condition } => {
                 let condition = self.parse_eager_expr(condition, None)?;
                 match condition.intrinsic_ty() {
-                    EntityRoutePtr::Root(RootIdentifier::Bool)
-                    | EntityRoutePtr::Root(RootIdentifier::I32)
-                    | EntityRoutePtr::Root(RootIdentifier::F32)
-                    | EntityRoutePtr::Root(RootIdentifier::B32)
-                    | EntityRoutePtr::Root(RootIdentifier::B64) => (),
+                    EntityRoutePtr::Root(RootBuiltinIdentifier::Bool)
+                    | EntityRoutePtr::Root(RootBuiltinIdentifier::I32)
+                    | EntityRoutePtr::Root(RootBuiltinIdentifier::F32)
+                    | EntityRoutePtr::Root(RootBuiltinIdentifier::B32)
+                    | EntityRoutePtr::Root(RootBuiltinIdentifier::B64) => (),
                     _ => todo!(),
                 }
                 ProcStmtVariant::Loop {
@@ -245,11 +247,11 @@ impl<'a> EagerParser<'a> {
             RawLoopKind::DoWhile { condition } => {
                 let condition = self.parse_eager_expr(condition, None)?;
                 match condition.intrinsic_ty() {
-                    EntityRoutePtr::Root(RootIdentifier::Bool)
-                    | EntityRoutePtr::Root(RootIdentifier::I32)
-                    | EntityRoutePtr::Root(RootIdentifier::F32)
-                    | EntityRoutePtr::Root(RootIdentifier::B32)
-                    | EntityRoutePtr::Root(RootIdentifier::B64) => (),
+                    EntityRoutePtr::Root(RootBuiltinIdentifier::Bool)
+                    | EntityRoutePtr::Root(RootBuiltinIdentifier::I32)
+                    | EntityRoutePtr::Root(RootBuiltinIdentifier::F32)
+                    | EntityRoutePtr::Root(RootBuiltinIdentifier::B32)
+                    | EntityRoutePtr::Root(RootBuiltinIdentifier::B64) => (),
                     _ => todo!(),
                 }
                 ProcStmtVariant::Loop {

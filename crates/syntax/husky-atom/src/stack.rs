@@ -1,6 +1,6 @@
 use husky_entity_route::{EntityKind, SpatialArgument};
 use husky_opn_syntax::ListStartAttr;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use thin_vec::{thin_vec, ThinVec};
 
 use crate::{context::AtomContext, *};
@@ -109,9 +109,9 @@ impl AtomStack {
             ) => {
                 let (attr, mut generics) = self.pop_par_list_of_types(&mut tail)?;
                 let ident = match attr {
-                    ListStartAttr::None => RootIdentifier::Tuple,
+                    ListStartAttr::None => RootBuiltinIdentifier::Tuple,
                     ListStartAttr::Attach => {
-                        generics.push(EntityRoutePtr::Root(RootIdentifier::Void).into());
+                        generics.push(EntityRoutePtr::Root(RootBuiltinIdentifier::Void).into());
                         self.func_generic(attr)?
                     }
                     ListStartAttr::MethodAttach { .. } => todo!(),
@@ -138,7 +138,7 @@ impl AtomStack {
         .unwrap();
     }
 
-    fn func_generic(&mut self, attr: ListStartAttr) -> AtomResult<RootIdentifier> {
+    fn func_generic(&mut self, attr: ListStartAttr) -> AtomResult<RootBuiltinIdentifier> {
         let expectation = "expect ThickFp, Fn, FnMut, FnOnce";
 
         match attr {
@@ -150,10 +150,10 @@ impl AtomStack {
                         route: EntityRoutePtr::Root(ident),
                         ..
                     } => match ident {
-                        RootIdentifier::ThickFp
-                        | RootIdentifier::Fn
-                        | RootIdentifier::FnMut
-                        | RootIdentifier::FnOnce => Ok(ident),
+                        RootBuiltinIdentifier::ThickFp
+                        | RootBuiltinIdentifier::Fn
+                        | RootBuiltinIdentifier::FnMut
+                        | RootBuiltinIdentifier::FnOnce => Ok(ident),
                         _ => err!(expectation, last_atom.text_range()),
                     },
                     _ => err!(expectation, last_atom.text_range()),

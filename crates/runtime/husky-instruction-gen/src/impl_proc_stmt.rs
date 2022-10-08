@@ -190,7 +190,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 InstructionVariant::PushLiteralValue {
                     value: 0i32.to_register(),
                     explicit: false,
-                    ty: RootIdentifier::I32.into(),
+                    ty: RootBuiltinIdentifier::I32.into(),
                 },
                 loop_stmt.clone(),
             ))

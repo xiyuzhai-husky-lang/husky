@@ -14,7 +14,7 @@ use std::{borrow::Borrow, ops::Deref};
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
 pub enum Identifier {
-    Root(RootIdentifier),
+    Root(RootBuiltinIdentifier),
     Custom(CustomIdentifier),
     Contextual(ContextualIdentifier),
 }
@@ -87,6 +87,6 @@ impl Deref for Identifier {
     }
 }
 
-pub fn default_func_type() -> RootIdentifier {
-    RootIdentifier::ThickFp
+pub fn default_func_type() -> RootBuiltinIdentifier {
+    RootBuiltinIdentifier::ThickFp
 }

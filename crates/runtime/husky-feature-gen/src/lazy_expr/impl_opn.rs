@@ -142,12 +142,12 @@ impl<'a> FeatureExprBuilder<'a> {
         ropd: Arc<FeatureLazyExpr>,
     ) -> (FeatureLazyExprVariant, FeaturePtr) {
         match this {
-            EntityRoutePtr::Root(RootIdentifier::Void)
-            | EntityRoutePtr::Root(RootIdentifier::I32)
-            | EntityRoutePtr::Root(RootIdentifier::F32)
-            | EntityRoutePtr::Root(RootIdentifier::F64)
-            | EntityRoutePtr::Root(RootIdentifier::B32)
-            | EntityRoutePtr::Root(RootIdentifier::B64) => {
+            EntityRoutePtr::Root(RootBuiltinIdentifier::Void)
+            | EntityRoutePtr::Root(RootBuiltinIdentifier::I32)
+            | EntityRoutePtr::Root(RootBuiltinIdentifier::F32)
+            | EntityRoutePtr::Root(RootBuiltinIdentifier::F64)
+            | EntityRoutePtr::Root(RootBuiltinIdentifier::B32)
+            | EntityRoutePtr::Root(RootBuiltinIdentifier::B64) => {
                 let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
                     opr,
                     lopd: lopd.feature,
@@ -166,7 +166,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     feature,
                 )
             }
-            EntityRoutePtr::Root(RootIdentifier::Bool) => {
+            EntityRoutePtr::Root(RootBuiltinIdentifier::Bool) => {
                 let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
                     opr,
                     lopd: lopd.feature,

@@ -74,7 +74,7 @@ impl EagerVariableQualifier {
     ) -> InferResult<Self> {
         Ok(match parameter_ty.variant {
             EntityRouteVariant::Root {
-                ident: RootIdentifier::Ref,
+                ident: RootBuiltinIdentifier::Ref,
             } => {
                 if parameter_ty.temporal_arguments.len() == 0 {
                     EagerVariableQualifier::EvalRef
@@ -199,7 +199,7 @@ impl EagerVariableQualifiedTy {
         msg_once!("ad hoc");
         match ty.variant {
             EntityRouteVariant::Root {
-                ident: RootIdentifier::Ref,
+                ident: RootBuiltinIdentifier::Ref,
             } => todo!(),
             _ => Self { qual, ty },
         }

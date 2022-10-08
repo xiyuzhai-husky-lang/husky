@@ -3,7 +3,7 @@ use husky_comptime::*;
 use husky_entity_kind::TyKind;
 use husky_entity_route::EntityRoutePtr;
 use husky_vm_binding::Binding;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use std::sync::Arc;
 
 #[salsa::query_group(HuskyDataViewerQueryGroupStorage)]
@@ -44,7 +44,7 @@ fn ty_data_viewer(db: &dyn HuskyDataViewerQueryGroup, ty: EntityRoutePtr) -> Arc
                 ))
                 .unwrap()
                 .transfer(),
-            index: comptime.index_linkage(vec![ty, RootIdentifier::I32.into()]),
+            index: comptime.index_linkage(vec![ty, RootBuiltinIdentifier::I32.into()]),
             elem_ty: ty.entity_route_argument(0),
         },
         TyKind::Slice => todo!(),
@@ -55,7 +55,7 @@ fn ty_data_viewer(db: &dyn HuskyDataViewerQueryGroup, ty: EntityRoutePtr) -> Arc
             end: comptime
                 .field_linkage_resolved(ty, comptime.intern_word("end").custom(), Binding::Copy)
                 .unwrap(),
-            index: comptime.index_linkage(vec![ty, RootIdentifier::I32.into()]),
+            index: comptime.index_linkage(vec![ty, RootBuiltinIdentifier::I32.into()]),
             elem_ty: ty.entity_route_argument(0),
         },
         TyKind::Array => todo!(),

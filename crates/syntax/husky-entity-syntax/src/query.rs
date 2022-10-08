@@ -7,7 +7,7 @@ use husky_file::FilePtr;
 use husky_path_utils::*;
 use husky_print_utils::msg_once;
 use husky_static_defn::*;
-use husky_word::{dash_to_snake, CustomIdentifier, Identifier, RootIdentifier, WordPtr};
+use husky_word::{dash_to_snake, CustomIdentifier, Identifier, RootBuiltinIdentifier, WordPtr};
 use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;
 
@@ -36,7 +36,7 @@ pub trait EntitySyntaxSalsaQueryGroup:
 }
 
 fn entity_route_menu(db: &dyn EntitySyntaxSalsaQueryGroup) -> Arc<EntityRouteMenu> {
-    let std_mod = EntityRoutePtr::Root(RootIdentifier::Std);
+    let std_mod = EntityRoutePtr::Root(RootBuiltinIdentifier::Std);
     let std_ops_mod = db.subroute(std_mod, db.intern_word("ops").custom(), thin_vec![]);
     let std_ops_index_trai =
         db.subroute(std_ops_mod, db.intern_word("Index").custom(), thin_vec![]);
@@ -47,11 +47,11 @@ fn entity_route_menu(db: &dyn EntitySyntaxSalsaQueryGroup) -> Arc<EntityRouteMen
         thin_vec![],
     );
     Arc::new(EntityRouteMenu {
-        clone_trait: EntityRoutePtr::Root(RootIdentifier::CloneTrait),
-        copy_trait: EntityRoutePtr::Root(RootIdentifier::CopyTrait),
-        void_type: EntityRoutePtr::Root(RootIdentifier::Void),
-        i32_ty: EntityRoutePtr::Root(RootIdentifier::I32),
-        vec_ty: EntityRoutePtr::Root(RootIdentifier::Vec),
+        clone_trait: EntityRoutePtr::Root(RootBuiltinIdentifier::CloneTrait),
+        copy_trait: EntityRoutePtr::Root(RootBuiltinIdentifier::CopyTrait),
+        void_type: EntityRoutePtr::Root(RootBuiltinIdentifier::Void),
+        i32_ty: EntityRoutePtr::Root(RootBuiltinIdentifier::I32),
+        vec_ty: EntityRoutePtr::Root(RootBuiltinIdentifier::Vec),
         std_mod,
         std_ops_mod,
         std_ops_index_trai,
@@ -152,39 +152,39 @@ fn entity_kind_from_entity_route_kind(
 ) -> EntitySyntaxResult<EntityKind> {
     Ok(match entity_route_variant {
         EntityRouteVariant::Root { ident } => match ident {
-            RootIdentifier::Void
-            | RootIdentifier::I32
-            | RootIdentifier::I64
-            | RootIdentifier::F32
-            | RootIdentifier::F64
-            | RootIdentifier::B32
-            | RootIdentifier::B64
-            | RootIdentifier::Bool => EntityKind::Type(TyKind::Primitive),
-            RootIdentifier::Vec => EntityKind::Type(TyKind::Vec),
-            RootIdentifier::Tuple => EntityKind::Type(TyKind::Tuple),
-            RootIdentifier::Mor => todo!(),
-            RootIdentifier::ThickFp => EntityKind::Type(TyKind::ThickFp),
-            RootIdentifier::Array => todo!(),
-            RootIdentifier::DatasetType => EntityKind::Type(TyKind::BoxAny),
-            RootIdentifier::TraitType | RootIdentifier::TypeType | RootIdentifier::ModuleType => {
-                EntityKind::Type(TyKind::HigherKind)
-            }
-            RootIdentifier::True | RootIdentifier::False => EntityKind::EnumVariant,
-            RootIdentifier::Fn | RootIdentifier::FnMut | RootIdentifier::FnOnce => {
-                EntityKind::Trait
-            }
-            RootIdentifier::Debug | RootIdentifier::Std | RootIdentifier::Core => {
-                EntityKind::Module
-            }
-            RootIdentifier::Domains => EntityKind::Module,
-            RootIdentifier::CloneTrait
-            | RootIdentifier::CopyTrait
-            | RootIdentifier::PartialEqTrait
-            | RootIdentifier::EqTrait => EntityKind::Trait,
-            RootIdentifier::Ref => EntityKind::Type(TyKind::Ref),
-            RootIdentifier::Option => EntityKind::Type(TyKind::Option),
-            RootIdentifier::VisualType => todo!(),
-            RootIdentifier::RefMut => todo!(),
+            RootBuiltinIdentifier::Void
+            | RootBuiltinIdentifier::I32
+            | RootBuiltinIdentifier::I64
+            | RootBuiltinIdentifier::F32
+            | RootBuiltinIdentifier::F64
+            | RootBuiltinIdentifier::B32
+            | RootBuiltinIdentifier::B64
+            | RootBuiltinIdentifier::Bool => EntityKind::Type(TyKind::Primitive),
+            RootBuiltinIdentifier::Vec => EntityKind::Type(TyKind::Vec),
+            RootBuiltinIdentifier::Tuple => EntityKind::Type(TyKind::Tuple),
+            RootBuiltinIdentifier::Mor => todo!(),
+            RootBuiltinIdentifier::ThickFp => EntityKind::Type(TyKind::ThickFp),
+            RootBuiltinIdentifier::Array => todo!(),
+            RootBuiltinIdentifier::DatasetType => EntityKind::Type(TyKind::BoxAny),
+            RootBuiltinIdentifier::TraitType
+            | RootBuiltinIdentifier::TypeType
+            | RootBuiltinIdentifier::ModuleType => EntityKind::Type(TyKind::HigherKind),
+            RootBuiltinIdentifier::True | RootBuiltinIdentifier::False => EntityKind::EnumVariant,
+            RootBuiltinIdentifier::Fn
+            | RootBuiltinIdentifier::FnMut
+            | RootBuiltinIdentifier::FnOnce => EntityKind::Trait,
+            RootBuiltinIdentifier::Debug
+            | RootBuiltinIdentifier::Std
+            | RootBuiltinIdentifier::Core => EntityKind::Module,
+            RootBuiltinIdentifier::Domains => EntityKind::Module,
+            RootBuiltinIdentifier::CloneTrait
+            | RootBuiltinIdentifier::CopyTrait
+            | RootBuiltinIdentifier::PartialEqTrait
+            | RootBuiltinIdentifier::EqTrait => EntityKind::Trait,
+            RootBuiltinIdentifier::Ref => EntityKind::Type(TyKind::Ref),
+            RootBuiltinIdentifier::Option => EntityKind::Type(TyKind::Option),
+            RootBuiltinIdentifier::VisualType => todo!(),
+            RootBuiltinIdentifier::RefMut => todo!(),
         },
         EntityRouteVariant::Package { .. } => EntityKind::Module,
         EntityRouteVariant::Child { parent, ident } => match parent.variant {
@@ -236,10 +236,10 @@ fn entity_source(
         EntityRouteVariant::ThisType { file, range } => Ok(EntitySource::ThisType { file, range }),
         EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match trai {
             EntityRoutePtr::Root(root_ident) => match root_ident {
-                RootIdentifier::CloneTrait => {
+                RootBuiltinIdentifier::CloneTrait => {
                     msg_once!("ad hoc");
                     Ok(EntitySource::StaticTypeAsTraitMember)
-                    // db.entity_source(EntityRoutePtr::Root(RootIdentifier::CloneTrait))
+                    // db.entity_source(EntityRoutePtr::Root(RootBuiltinIdentifier::CloneTrait))
                 }
                 _ => todo!(),
             },

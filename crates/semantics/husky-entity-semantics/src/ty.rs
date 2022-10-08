@@ -294,7 +294,7 @@ impl EntityDefnVariant {
                     item.opt_children.clone().unwrap(),
                     file,
                     RangedEntityRoute {
-                        route: RootIdentifier::VisualType.into(),
+                        route: RootBuiltinIdentifier::VisualType.into(),
                         range: Default::default(),
                     },
                 )

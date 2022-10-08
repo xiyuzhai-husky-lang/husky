@@ -26,7 +26,7 @@ use husky_instantiate::*;
 use husky_liason_semantics::*;
 use husky_opn_syntax::*;
 use husky_static_defn::*;
-use husky_word::{CustomIdentifier, RootIdentifier};
+use husky_word::{CustomIdentifier, RootBuiltinIdentifier};
 use std::sync::Arc;
 use target::*;
 
@@ -51,25 +51,25 @@ pub trait DeclQueryGroup: EntitySyntaxQueryGroup + husky_ast::AstQueryGroup {
 pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferResult<bool> {
     match ty.variant {
         EntityRouteVariant::Root { ident } => Ok(match ident {
-            RootIdentifier::Void
-            | RootIdentifier::I32
-            | RootIdentifier::I64
-            | RootIdentifier::F32
-            | RootIdentifier::F64
-            | RootIdentifier::B32
-            | RootIdentifier::B64
-            | RootIdentifier::Bool
-            | RootIdentifier::Ref
-            | RootIdentifier::ThickFp => true,
-            RootIdentifier::Vec => false,
-            RootIdentifier::Tuple => false,
-            RootIdentifier::Array => false,
-            RootIdentifier::DatasetType => false,
-            RootIdentifier::TypeType => false,
-            RootIdentifier::TraitType => false,
-            RootIdentifier::ModuleType => false,
-            RootIdentifier::RefMut => false,
-            RootIdentifier::Option => db.is_copyable(ty.entity_route_argument(0))?,
+            RootBuiltinIdentifier::Void
+            | RootBuiltinIdentifier::I32
+            | RootBuiltinIdentifier::I64
+            | RootBuiltinIdentifier::F32
+            | RootBuiltinIdentifier::F64
+            | RootBuiltinIdentifier::B32
+            | RootBuiltinIdentifier::B64
+            | RootBuiltinIdentifier::Bool
+            | RootBuiltinIdentifier::Ref
+            | RootBuiltinIdentifier::ThickFp => true,
+            RootBuiltinIdentifier::Vec => false,
+            RootBuiltinIdentifier::Tuple => false,
+            RootBuiltinIdentifier::Array => false,
+            RootBuiltinIdentifier::DatasetType => false,
+            RootBuiltinIdentifier::TypeType => false,
+            RootBuiltinIdentifier::TraitType => false,
+            RootBuiltinIdentifier::ModuleType => false,
+            RootBuiltinIdentifier::RefMut => false,
+            RootBuiltinIdentifier::Option => db.is_copyable(ty.entity_route_argument(0))?,
             _ => {
                 p!(ident);
                 panic!()

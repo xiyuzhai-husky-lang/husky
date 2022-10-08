@@ -21,7 +21,7 @@ use husky_text::TextRanged;
 use husky_token::Convexity;
 use husky_token::{HuskyToken, HuskyTokenKind};
 use husky_word::Identifier;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct HuskyAtom {

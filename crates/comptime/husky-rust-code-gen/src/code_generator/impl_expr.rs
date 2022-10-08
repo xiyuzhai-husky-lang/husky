@@ -7,7 +7,7 @@ use husky_infer_qualified_ty::EagerExprQualifier;
 use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
 use husky_primitive_literal_syntax::PrimitiveLiteralData;
 use husky_vm_binding::Binding;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use infer_decl::{CallFormDecl, VariadicParametersDecl};
 
 impl<'a> RustCodeGenerator<'a> {
@@ -76,7 +76,7 @@ impl<'a> RustCodeGenerator<'a> {
                 }
                 EagerOpnVariant::Prefix { opr, .. } => match opr {
                     PrefixOpr::Not => match opds[0].intrinsic_ty() {
-                        EntityRoutePtr::Root(RootIdentifier::Bool) => {
+                        EntityRoutePtr::Root(RootBuiltinIdentifier::Bool) => {
                             self.write("!");
                             self.gen_expr(indent, &opds[0]);
                         }

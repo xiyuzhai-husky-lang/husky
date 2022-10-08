@@ -8,7 +8,7 @@ use thin_vec::thin_vec;
 
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_text::{RangedCustomIdentifier, TextRange};
-use husky_word::{CustomIdentifier, RootIdentifier};
+use husky_word::{CustomIdentifier, RootBuiltinIdentifier};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Parameter {
@@ -47,9 +47,10 @@ impl Parameter {
             ParameterModifier::MemberAccess => todo!(),
             ParameterModifier::EvalRef => todo!(),
             ParameterModifier::TempRef => todo!(),
-            ParameterModifier::TempRefMut => {
-                db.route_call(RootIdentifier::RefMut.into(), thin_vec![raw_ty.into()])
-            }
+            ParameterModifier::TempRefMut => db.route_call(
+                RootBuiltinIdentifier::RefMut.into(),
+                thin_vec![raw_ty.into()],
+            ),
         }
     }
 

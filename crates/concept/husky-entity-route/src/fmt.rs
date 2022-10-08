@@ -5,7 +5,7 @@ impl EntityRoute {
     pub fn root_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self.variant {
             EntityRouteVariant::Root { ident } => match ident {
-                RootIdentifier::Vec => {
+                RootBuiltinIdentifier::Vec => {
                     if self.spatial_arguments.len() > 0 {
                         f.write_str("[]")?;
                         return self.entity_route_argument(0).root_fmt(f);
@@ -13,12 +13,12 @@ impl EntityRoute {
                         f.write_str("Vec")?
                     }
                 }
-                RootIdentifier::Array => todo!(),
-                RootIdentifier::Option => {
+                RootBuiltinIdentifier::Array => todo!(),
+                RootBuiltinIdentifier::Option => {
                     f.write_str("?")?;
                     return self.entity_route_argument(0).root_fmt(f);
                 }
-                RootIdentifier::Tuple => {
+                RootBuiltinIdentifier::Tuple => {
                     f.write_str("(")?;
                     for (i, spatial_argument) in self.spatial_arguments.iter().enumerate() {
                         if i > 0 {
@@ -28,7 +28,7 @@ impl EntityRoute {
                     }
                     return f.write_str(")");
                 }
-                RootIdentifier::Ref => {
+                RootBuiltinIdentifier::Ref => {
                     f.write_str("&")?;
                     return self.entity_route_argument(0).root_fmt(f);
                 }
@@ -71,7 +71,7 @@ impl EntityRoute {
     pub fn parent_fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self.variant {
             EntityRouteVariant::Root { ident } => match ident {
-                RootIdentifier::Tuple => {
+                RootBuiltinIdentifier::Tuple => {
                     f.write_str("(")?;
                     for (i, spatial_argument) in self.spatial_arguments.iter().enumerate() {
                         if i > 0 {

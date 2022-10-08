@@ -64,7 +64,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                 Some(HuskyAtomVariant::EntityRoute {
                     route: self
                         .db()
-                        .route_call(RootIdentifier::Ref.into(), thin_vec![ty.into()]),
+                        .route_call(RootBuiltinIdentifier::Ref.into(), thin_vec![ty.into()]),
                     kind: EntityKind::Type(TyKind::Ref),
                 })
             } else if is_special!(token, "?") {
@@ -72,7 +72,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                 Some(HuskyAtomVariant::EntityRoute {
                     route: self
                         .db()
-                        .route_call(RootIdentifier::Option.into(), thin_vec![ty.into()]),
+                        .route_call(RootBuiltinIdentifier::Option.into(), thin_vec![ty.into()]),
                     kind: EntityKind::Type(TyKind::Option),
                 })
             } else if let HuskyTokenKind::Identifier(ident) = token.kind {
@@ -244,40 +244,40 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
         }
         match route.variant {
             EntityRouteVariant::Root { ident } => match ident {
-                RootIdentifier::Void
-                | RootIdentifier::I32
-                | RootIdentifier::I64
-                | RootIdentifier::F32
-                | RootIdentifier::F64
-                | RootIdentifier::B32
-                | RootIdentifier::B64
-                | RootIdentifier::Bool
-                | RootIdentifier::True
-                | RootIdentifier::False
-                | RootIdentifier::Debug
-                | RootIdentifier::Std
-                | RootIdentifier::Core
-                | RootIdentifier::Domains
-                | RootIdentifier::CloneTrait
-                | RootIdentifier::CopyTrait
-                | RootIdentifier::PartialEqTrait
-                | RootIdentifier::EqTrait
-                | RootIdentifier::TypeType
-                | RootIdentifier::TraitType
-                | RootIdentifier::ModuleType => Ok(thin_vec![]),
-                RootIdentifier::Mor
-                | RootIdentifier::ThickFp
-                | RootIdentifier::Fn
-                | RootIdentifier::FnMut
-                | RootIdentifier::FnOnce => Ok(self.func_args()?),
-                RootIdentifier::Vec
-                | RootIdentifier::Array
-                | RootIdentifier::Tuple
-                | RootIdentifier::DatasetType
-                | RootIdentifier::Ref
-                | RootIdentifier::Option => Ok(self.angled_generics()?.expect("todo")),
-                RootIdentifier::VisualType => todo!(),
-                RootIdentifier::RefMut => todo!(),
+                RootBuiltinIdentifier::Void
+                | RootBuiltinIdentifier::I32
+                | RootBuiltinIdentifier::I64
+                | RootBuiltinIdentifier::F32
+                | RootBuiltinIdentifier::F64
+                | RootBuiltinIdentifier::B32
+                | RootBuiltinIdentifier::B64
+                | RootBuiltinIdentifier::Bool
+                | RootBuiltinIdentifier::True
+                | RootBuiltinIdentifier::False
+                | RootBuiltinIdentifier::Debug
+                | RootBuiltinIdentifier::Std
+                | RootBuiltinIdentifier::Core
+                | RootBuiltinIdentifier::Domains
+                | RootBuiltinIdentifier::CloneTrait
+                | RootBuiltinIdentifier::CopyTrait
+                | RootBuiltinIdentifier::PartialEqTrait
+                | RootBuiltinIdentifier::EqTrait
+                | RootBuiltinIdentifier::TypeType
+                | RootBuiltinIdentifier::TraitType
+                | RootBuiltinIdentifier::ModuleType => Ok(thin_vec![]),
+                RootBuiltinIdentifier::Mor
+                | RootBuiltinIdentifier::ThickFp
+                | RootBuiltinIdentifier::Fn
+                | RootBuiltinIdentifier::FnMut
+                | RootBuiltinIdentifier::FnOnce => Ok(self.func_args()?),
+                RootBuiltinIdentifier::Vec
+                | RootBuiltinIdentifier::Array
+                | RootBuiltinIdentifier::Tuple
+                | RootBuiltinIdentifier::DatasetType
+                | RootBuiltinIdentifier::Ref
+                | RootBuiltinIdentifier::Option => Ok(self.angled_generics()?.expect("todo")),
+                RootBuiltinIdentifier::VisualType => todo!(),
+                RootBuiltinIdentifier::RefMut => todo!(),
             },
             _ => {
                 let husky_entity_kind = self
@@ -306,7 +306,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
         args.push(if deprecated_try_eat!(self, "->") {
             self.spatial_argument()?
         } else {
-            EntityRoutePtr::Root(RootIdentifier::Void).into()
+            EntityRoutePtr::Root(RootBuiltinIdentifier::Void).into()
         });
         Ok(args)
     }

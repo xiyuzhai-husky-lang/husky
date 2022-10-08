@@ -1,5 +1,5 @@
 use husky_opn_syntax::*;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use std::fmt::Write;
 use std::path::PathBuf;
 
@@ -14,28 +14,28 @@ pub fn gen_rust_code() -> Result<String, std::fmt::Error> {
     write!(
         code,
         r#"use super::*;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use husky_vm_interface::*;
 use husky_opn_syntax::*;
 
 pub fn resolve_primitive_pure_binary_opr_linkage(
-    lopd_ty: RootIdentifier,
+    lopd_ty: RootBuiltinIdentifier,
     opr: PureBinaryOpr,
-    ropd_ty: RootIdentifier,
+    ropd_ty: RootBuiltinIdentifier,
 ) -> __Linkage {{
     use PureBinaryOpr::*;
-    use RootIdentifier::*;
+    use RootBuiltinIdentifier::*;
     type b32 = u32;
     type b64 = u64;
 
     match (lopd_ty, opr, ropd_ty) {{"#
     )?;
     use PureBinaryOpr::*;
-    use RootIdentifier::*;
+    use RootBuiltinIdentifier::*;
     static SUPPORTED_PURE_BINARY_OPNS: &'static [(
-        RootIdentifier,
+        RootBuiltinIdentifier,
         PureBinaryOpr,
-        RootIdentifier,
+        RootBuiltinIdentifier,
     )] = &[
         // bool is not supported due to short-circuiting
         // i32
@@ -107,9 +107,9 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
     )?;
 
     static SUPPORTED_ASSIGN_BINARY_OPNS: &'static [(
-        RootIdentifier,
+        RootBuiltinIdentifier,
         std::option::Option<PureBinaryOpr>,
-        RootIdentifier,
+        RootBuiltinIdentifier,
     )] = &[
         // bool
         (Bool, None, Bool),
@@ -131,12 +131,12 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         r#"
 
 pub fn resolve_primitive_assign_binary_opr_linkage(
-    lopd_ty: RootIdentifier,
+    lopd_ty: RootBuiltinIdentifier,
     opt_opr: Option<PureBinaryOpr>,
-    ropd_ty: RootIdentifier,
+    ropd_ty: RootBuiltinIdentifier,
 ) -> __Linkage {{
     use PureBinaryOpr::*;
-    use RootIdentifier::*;
+    use RootBuiltinIdentifier::*;
     type b32 = u32;
     type b64 = u64;
 

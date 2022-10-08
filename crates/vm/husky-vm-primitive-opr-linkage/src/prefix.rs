@@ -1,52 +1,55 @@
 use super::*;
 use husky_opn_syntax::PrefixOpr;
 use husky_vm_interface::*;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use std::ops::Not;
 
-pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, this_ty: RootIdentifier) -> __Linkage {
+pub fn resolve_primitive_prefix_opr_linkage(
+    opr: PrefixOpr,
+    this_ty: RootBuiltinIdentifier,
+) -> __Linkage {
     match opr {
         PrefixOpr::Minus => match this_ty {
-            RootIdentifier::Void => todo!(),
-            RootIdentifier::I32 => {
+            RootBuiltinIdentifier::Void => todo!(),
+            RootBuiltinIdentifier::I32 => {
                 transfer_linkage!(|args, _| (-args[0].downcast_i32()).to_register(), none)
             }
-            RootIdentifier::I64 => todo!(),
-            RootIdentifier::F32 => {
+            RootBuiltinIdentifier::I64 => todo!(),
+            RootBuiltinIdentifier::F32 => {
                 transfer_linkage!(|args, _| (-args[0].downcast_f32()).to_register(), none)
             }
-            RootIdentifier::F64 => {
+            RootBuiltinIdentifier::F64 => {
                 transfer_linkage!(|args, _| (-args[0].downcast_f64()).to_register(), none)
             }
-            RootIdentifier::B32 => todo!(),
-            RootIdentifier::B64 => todo!(),
-            RootIdentifier::Bool => todo!(),
+            RootBuiltinIdentifier::B32 => todo!(),
+            RootBuiltinIdentifier::B64 => todo!(),
+            RootBuiltinIdentifier::Bool => todo!(),
             _ => panic!(),
         },
         PrefixOpr::Not => match this_ty {
-            RootIdentifier::I32 => {
+            RootBuiltinIdentifier::I32 => {
                 transfer_linkage!(|args, _| (0 == args[0].downcast_i32()).to_register(), none)
             }
-            RootIdentifier::I64 => {
+            RootBuiltinIdentifier::I64 => {
                 transfer_linkage!(|args, _| (0 == args[0].downcast_i64()).to_register(), none)
             }
-            RootIdentifier::F32 => {
+            RootBuiltinIdentifier::F32 => {
                 transfer_linkage!(
                     |args, _| (0.0 == args[0].downcast_f32()).to_register(),
                     none
                 )
             }
-            RootIdentifier::F64 => {
+            RootBuiltinIdentifier::F64 => {
                 transfer_linkage!(
                     |args, _| (0.0 == args[0].downcast_f64()).to_register(),
                     none
                 )
             }
-            RootIdentifier::B32 => {
+            RootBuiltinIdentifier::B32 => {
                 transfer_linkage!(|args, _| (0 == args[0].downcast_b32()).to_register(), none)
             }
-            RootIdentifier::B64 => todo!(),
-            RootIdentifier::Bool => {
+            RootBuiltinIdentifier::B64 => todo!(),
+            RootBuiltinIdentifier::Bool => {
                 transfer_linkage!(
                     |args, _|(!args[0].downcast_bool()).to_register(),
                     some base bool::not as fn(bool) -> bool
@@ -55,19 +58,19 @@ pub fn resolve_primitive_prefix_opr_linkage(opr: PrefixOpr, this_ty: RootIdentif
             _ => panic!(),
         },
         PrefixOpr::BitNot => match this_ty {
-            RootIdentifier::Void => todo!(),
-            RootIdentifier::I32 => todo!(),
-            RootIdentifier::I64 => todo!(),
-            RootIdentifier::F32 => todo!(),
-            RootIdentifier::F64 => todo!(),
-            RootIdentifier::B32 => {
+            RootBuiltinIdentifier::Void => todo!(),
+            RootBuiltinIdentifier::I32 => todo!(),
+            RootBuiltinIdentifier::I64 => todo!(),
+            RootBuiltinIdentifier::F32 => todo!(),
+            RootBuiltinIdentifier::F64 => todo!(),
+            RootBuiltinIdentifier::B32 => {
                 transfer_linkage!(
                     |args, _| (!args[0].downcast_b32()).to_register(),
                     some base u32::not as fn(u32) -> u32
                 )
             }
-            RootIdentifier::B64 => todo!(),
-            RootIdentifier::Bool => todo!(),
+            RootBuiltinIdentifier::B64 => todo!(),
+            RootBuiltinIdentifier::Bool => todo!(),
             _ => panic!(),
         },
         PrefixOpr::Shared => todo!(),

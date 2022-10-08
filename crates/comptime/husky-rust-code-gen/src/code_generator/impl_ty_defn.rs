@@ -1,7 +1,7 @@
 use husky_entity_semantics::{
     CallFormSource, DefinitionRepr, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn,
 };
-use husky_word::{CustomIdentifier, RootIdentifier};
+use husky_word::{CustomIdentifier, RootBuiltinIdentifier};
 
 use super::*;
 
@@ -417,10 +417,10 @@ impl From<i32> for {tyname} {{
     }
 
     fn gen_trait_impl(&mut self, trait_impl: &TraitImplDefn) {
-        if trait_impl.trai == RootIdentifier::CopyTrait.into() {
+        if trait_impl.trai == RootBuiltinIdentifier::CopyTrait.into() {
             return;
         }
-        if trait_impl.trai == RootIdentifier::CloneTrait.into() {
+        if trait_impl.trai == RootBuiltinIdentifier::CloneTrait.into() {
             return;
         }
         todo!()

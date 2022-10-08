@@ -4,7 +4,7 @@ mod impl_ty_linkage_entries;
 use husky_entity_route::{CanonicalQualifier, CanonicalTyKind};
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant};
 use husky_layout::RegMemoryKind;
-use husky_word::RootIdentifier;
+use husky_word::RootBuiltinIdentifier;
 use infer_decl::{
     CallFormDecl, ParameterDecl, TraitMemberImplDecl, TyDecl, VariadicParametersDecl,
 };
@@ -245,11 +245,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         // ad hoc
         let mutability = match ty.variant {
             EntityRouteVariant::Root { ident } => match ident {
-                RootIdentifier::B32 => todo!(),
-                RootIdentifier::B64 => todo!(),
-                RootIdentifier::Vec => "mutable",
-                RootIdentifier::Tuple => todo!(),
-                RootIdentifier::Array => "mutable",
+                RootBuiltinIdentifier::B32 => todo!(),
+                RootBuiltinIdentifier::B64 => todo!(),
+                RootBuiltinIdentifier::Vec => "mutable",
+                RootBuiltinIdentifier::Tuple => todo!(),
+                RootBuiltinIdentifier::Array => "mutable",
                 _ => panic!(),
             },
             _ => {
@@ -351,14 +351,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         };
         match parameter_ty.intrinsic() {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
-                RootIdentifier::Void
-                | RootIdentifier::I32
-                | RootIdentifier::I64
-                | RootIdentifier::F32
-                | RootIdentifier::F64
-                | RootIdentifier::B32
-                | RootIdentifier::B64
-                | RootIdentifier::Bool => self.write(&format!(
+                RootBuiltinIdentifier::Void
+                | RootBuiltinIdentifier::I32
+                | RootBuiltinIdentifier::I64
+                | RootBuiltinIdentifier::F32
+                | RootBuiltinIdentifier::F64
+                | RootBuiltinIdentifier::B32
+                | RootBuiltinIdentifier::B64
+                | RootBuiltinIdentifier::Bool => self.write(&format!(
                     " = __arguments[{i}].downcast_{maybe_opt}{root_identifier}();"
                 )),
                 _ => unreachable!(),

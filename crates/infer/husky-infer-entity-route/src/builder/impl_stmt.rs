@@ -53,7 +53,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                         .variable_tys
                         .insert(
                             (frame_var.ident, frame_var.range),
-                            RootIdentifier::I32.into()
+                            RootBuiltinIdentifier::I32.into()
                         )
                         .is_none());
                     self.infer_loop_bound(initial_boundary);
@@ -83,11 +83,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     if discard {
                         None
                     } else {
-                        Some(RootIdentifier::Void.into())
+                        Some(RootBuiltinIdentifier::Void.into())
                     },
                 ) {
                     match (ty, discard) {
-                        (EntityRoutePtr::Root(RootIdentifier::Void), true) => {
+                        (EntityRoutePtr::Root(RootBuiltinIdentifier::Void), true) => {
                             self.entity_route_sheet.extra_errors.push(error!(
                                 format!("obsolete discard because the output is of type `void`"),
                                 self.arena[expr].range
@@ -176,21 +176,21 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 PrimitiveLiteralData::Void => todo!(),
                 PrimitiveLiteralData::Integer(_) => match expectation {
                     EntityRoutePtr::Root(
-                        RootIdentifier::I32
-                        | RootIdentifier::I64
-                        | RootIdentifier::B32
-                        | RootIdentifier::B64,
+                        RootBuiltinIdentifier::I32
+                        | RootBuiltinIdentifier::I64
+                        | RootBuiltinIdentifier::B32
+                        | RootBuiltinIdentifier::B64,
                     ) => return,
-                    _ => RootIdentifier::I32.into(),
+                    _ => RootBuiltinIdentifier::I32.into(),
                 },
-                PrimitiveLiteralData::I32(_) => RootIdentifier::I32.into(),
-                PrimitiveLiteralData::I64(_) => RootIdentifier::I64.into(),
+                PrimitiveLiteralData::I32(_) => RootBuiltinIdentifier::I32.into(),
+                PrimitiveLiteralData::I64(_) => RootBuiltinIdentifier::I64.into(),
                 PrimitiveLiteralData::Float(_) => todo!(),
-                PrimitiveLiteralData::F32(_) => RootIdentifier::F32.into(),
-                PrimitiveLiteralData::F64(_) => RootIdentifier::F64.into(),
+                PrimitiveLiteralData::F32(_) => RootBuiltinIdentifier::F32.into(),
+                PrimitiveLiteralData::F64(_) => RootBuiltinIdentifier::F64.into(),
                 PrimitiveLiteralData::Bits(_) => todo!(),
-                PrimitiveLiteralData::B32(_) => RootIdentifier::B32.into(),
-                PrimitiveLiteralData::B64(_) => RootIdentifier::B64.into(),
+                PrimitiveLiteralData::B32(_) => RootBuiltinIdentifier::B32.into(),
+                PrimitiveLiteralData::B64(_) => RootBuiltinIdentifier::B64.into(),
                 PrimitiveLiteralData::Bool(_) => todo!(),
             },
             RawPatternVariant::OneOf { ref subpatterns } => {
@@ -224,11 +224,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     fn infer_loop_bound(&mut self, boundary: RawBoundary) {
         if let Some(bound) = boundary.opt_bound {
-            self.infer_expr(bound, Some(RootIdentifier::I32.into()));
+            self.infer_expr(bound, Some(RootBuiltinIdentifier::I32.into()));
         }
     }
 
     fn infer_condition(&mut self, condition: RawExprIdx) {
-        self.infer_expr(condition, Some(RootIdentifier::Bool.into()));
+        self.infer_expr(condition, Some(RootBuiltinIdentifier::Bool.into()));
     }
 }

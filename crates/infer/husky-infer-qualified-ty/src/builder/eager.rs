@@ -79,7 +79,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                             (frame_var.ident.into(), frame_var.range),
                             Ok(EagerVariableQualifiedTy {
                                 qual: EagerVariableQualifier::Copyable,
-                                ty: EntityRoutePtr::Root(RootIdentifier::I32),
+                                ty: EntityRoutePtr::Root(RootBuiltinIdentifier::I32),
                             }),
                         ))
                         .unwrap();
@@ -226,7 +226,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             },
             RawExprVariant::FrameVariable { .. } => Ok(EagerExprQualifiedTy::new(
                 EagerExprQualifier::Copyable,
-                EntityRoutePtr::Root(RootIdentifier::I32),
+                EntityRoutePtr::Root(RootBuiltinIdentifier::I32),
             )),
             RawExprVariant::ThisValue {
                 opt_this_ty,
@@ -383,7 +383,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
         match opr {
             RawSuffixOpr::Incr | RawSuffixOpr::Decr => Ok(EagerExprQualifiedTy::new(
                 EagerExprQualifier::Copyable,
-                EntityRoutePtr::Root(RootIdentifier::Void),
+                EntityRoutePtr::Root(RootBuiltinIdentifier::Void),
             )),
             RawSuffixOpr::AsTy(ranged_ty) => this_qt.as_ty(self.db, ranged_ty.route),
             RawSuffixOpr::BePattern(_) => todo!(),
