@@ -1,6 +1,6 @@
 use std::{borrow::Borrow, ffi::c_void, fmt::Debug, hash::Hash, marker::PhantomData, ops::Deref};
 
-use optional::Noned;
+use optional::{Noned, OptEq};
 
 pub trait IsInternPtr:
     'static
@@ -78,6 +78,18 @@ impl<T: 'static + ?Sized, Q> PartialEq for DefaultInternedPtr<T, Q> {
 }
 
 impl<T: 'static + ?Sized, Q> Eq for DefaultInternedPtr<T, Q> {}
+
+impl<T: 'static + ?Sized, Q> OptEq for DefaultInternedPtr<T, Q> {
+    fn opt_eq(&self, other: &Self) -> bool {
+        match (self.target, other.target) {
+            (None, None) => true,
+            (Some(self_target), Some(other_target)) => {
+                (self_target as *const T) == (other_target as *const T)
+            }
+            _ => false,
+        }
+    }
+}
 
 impl<T: 'static + ?Sized, Q> Hash for DefaultInternedPtr<T, Q> {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
