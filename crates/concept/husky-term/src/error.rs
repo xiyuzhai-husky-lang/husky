@@ -1,6 +1,8 @@
+use std::sync::Arc;
+
 use thiserror::Error;
 
-#[derive(Error, Debug)]
+#[derive(Error, Debug, PartialEq, Eq, Clone)]
 pub enum TermError {
     #[error("term is not type")]
     TermIsNotTy,
@@ -17,3 +19,4 @@ pub enum TermError {
 }
 
 pub type TermResult<T> = Result<T, TermError>;
+pub type TermResultArc<T> = Result<Arc<T>, TermError>;
