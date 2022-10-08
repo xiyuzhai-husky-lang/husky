@@ -1,7 +1,6 @@
 mod error;
-mod intern;
 
-pub use intern::{TyInterner, TyPtr};
+use crate::TermPtr;
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-pub enum Ty {}
+pub struct Ty(TermPtr);
