@@ -24,10 +24,10 @@ infer-contract = { path = "../husky-infer-contract" }
 infer-decl = { path = "../husky-infer-decl" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
-husky-word = { path = "../../concept/husky-word" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
-husky-entity-route = { path = "../../concept/husky-entity-route" }
+husky-entity-route = { path = "../../kernel/husky-entity-route" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-pattern-syntax = { path = "../../syntax/husky-pattern-syntax" }

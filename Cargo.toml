@@ -4,7 +4,7 @@ members = [
     "crates/apps/*",
     "crates/commands/*",
     "crates/comptime/*",
-    "crates/concept/*",
+    "crates/kernel/*",
     "crates/ide/*",
     "crates/infer/*",
     "crates/impls/*",

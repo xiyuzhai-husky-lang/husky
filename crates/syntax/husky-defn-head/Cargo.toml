@@ -18,9 +18,9 @@ vec-like = { path = "../../abstraction/vec-like" }
 fold = { path = "../../abstraction/fold" }
 husky-file = { path = "../husky-file" }
 husky-text = { path = "../husky-text" }
-husky-word = { path = "../../concept/husky-word" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-token = { path = "../husky-token" }
-husky-entity-route = { path = "../../concept/husky-entity-route" }
+husky-entity-route = { path = "../../kernel/husky-entity-route" }
 husky-entity-kind = { path = "../husky-entity-kind" }
 husky-entity-syntax = { path = "../husky-entity-syntax" }
 husky-static-defn = { path = "../../static/husky-static-defn" }

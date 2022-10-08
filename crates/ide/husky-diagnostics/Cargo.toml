@@ -16,7 +16,7 @@ husky-test-utils = { path = "../../utils/husky-test-utils" }
 reserve = { path = "../../abstraction/reserve" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
-husky-entity-route = { path = "../../concept/husky-entity-route" }
+husky-entity-route = { path = "../../kernel/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-ast = { path = "../../syntax/husky-ast" }
 infer-total = { path = "../../infer/total" }
