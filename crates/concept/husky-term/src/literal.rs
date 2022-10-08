@@ -1,4 +1,4 @@
-use crate::{Namespace, Ty};
+use crate::{TermEntityPath, Ty};
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub struct TermLiteral {

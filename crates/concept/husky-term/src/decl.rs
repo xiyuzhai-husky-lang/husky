@@ -2,7 +2,7 @@ use crate::*;
 use husky_word::IdentPairDict;
 
 pub trait AskDecl {
-    fn ask_namespace_decl(&self) -> TermResultArc<NamespaceDecl>;
+    fn ask_namespace_decl(&self, namespace: TermNamespace) -> TermResultArc<NamespaceDecl>;
 }
 
 #[derive(Debug, PartialEq, Eq)]
