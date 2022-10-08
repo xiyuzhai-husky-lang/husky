@@ -1,9 +1,11 @@
 use std::sync::Arc;
 
+use husky_entity_path::InternEntityPath;
+
 use crate::*;
 
 #[salsa::query_group(TermQueryStorage)]
-pub trait TermQuery: InternTerm + AskDecl {
+pub trait TermQuery: InternTerm + AskDecl + InternEntityPath {
     fn term_menu(&self) -> Arc<TermMenu>;
     fn namespace_decl(&self, namespace: TermNamespace) -> TermResultArc<NamespaceDecl>;
 }
