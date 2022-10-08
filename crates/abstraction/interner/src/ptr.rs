@@ -1,5 +1,7 @@
 use std::{borrow::Borrow, ffi::c_void, fmt::Debug, hash::Hash, marker::PhantomData, ops::Deref};
 
+use optional::Noned;
+
 pub trait IsInternPtr:
     'static
     + Debug
@@ -21,32 +23,57 @@ pub trait IsInternPtr:
     }
 }
 
+impl<T, Q> Noned for DefaultInternedPtr<T, Q>
+where
+    T: 'static + ?Sized,
+    Q: Sized,
+{
+    fn is_none(&self) -> bool {
+        self.target.is_none()
+    }
+
+    fn get_none() -> Self {
+        Self {
+            target: None,
+            phantom: PhantomData,
+        }
+    }
+}
+
 pub struct DefaultInternedPtr<T, Q>
 where
     T: 'static + ?Sized,
     Q: Sized,
 {
-    target: &'static T,
+    target: Option<&'static T>,
     phantom: PhantomData<Q>,
 }
 
-impl<T, Q> DefaultInternedPtr<T, Q> {
-    pub unsafe fn from_raw(raw: *const c_void) -> DefaultInternedPtr<T, Q> {
-        let raw = raw as *const T;
-        let target: &'static T = &*raw;
-        Self {
-            target,
-            phantom: PhantomData,
-        }
-    }
-    pub unsafe fn to_raw(self) -> *const c_void {
-        self.target as *const T as *const c_void
+impl<T, Q> DefaultInternedPtr<T, Q>
+where
+    T: 'static + ?Sized,
+    Q: Sized,
+{
+    // pub unsafe fn from_raw(raw: *const c_void) -> DefaultInternedPtr<T, Q> {
+    //     let raw = raw as *const T;
+    //     let target: Option<&'static T> = Some(&*raw);
+    //     Self {
+    //         target,
+    //         phantom: PhantomData,
+    //     }
+    // }
+    // pub unsafe fn to_raw(self) -> *const c_void {
+    //     self.target() as *const T as *const c_void
+    // }
+
+    fn target(self) -> &'static T {
+        self.target.unwrap()
     }
 }
 
 impl<T: 'static + ?Sized, Q> PartialEq for DefaultInternedPtr<T, Q> {
     fn eq(&self, other: &Self) -> bool {
-        (self.target as *const T) == (other.target as *const T)
+        (self.target() as *const T) == (other.target() as *const T)
     }
 }
 
@@ -54,7 +81,7 @@ impl<T: 'static + ?Sized, Q> Eq for DefaultInternedPtr<T, Q> {}
 
 impl<T: 'static + ?Sized, Q> Hash for DefaultInternedPtr<T, Q> {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        (self.target as *const T).hash(state);
+        (self.target() as *const T).hash(state);
     }
 }
 
@@ -77,7 +104,7 @@ where
     T: 'static + Debug,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("{:?}", self.target))
+        f.write_fmt(format_args!("{:?}", self.target()))
     }
 }
 
@@ -85,13 +112,13 @@ impl<T: 'static + ?Sized, Q> Deref for DefaultInternedPtr<T, Q> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
-        self.target
+        self.target()
     }
 }
 
 impl<T: 'static + ?Sized, Q> Borrow<T> for DefaultInternedPtr<T, Q> {
     fn borrow(&self) -> &T {
-        self.target
+        self.target()
     }
 }
 
@@ -106,7 +133,7 @@ where
 
     fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
         Self {
-            target,
+            target: Some(target),
             phantom: PhantomData,
         }
     }

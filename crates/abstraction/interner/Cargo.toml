@@ -7,4 +7,5 @@ edition = "2021"
 doctest = false
 
 [dependencies]
+optional = "0.5.0"
 sync-utils = { path = "../../utils/husky-sync-utils" }
