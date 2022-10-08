@@ -5,7 +5,7 @@ pub type TermInterner = Interner<TermPtr>;
 
 pub type TermPtr = DefaultInternedPtr<Term, Term>;
 
-pub fn new_term_interner() -> TermInterner {
+pub fn new_term_itr() -> TermInterner {
     TermInterner::new_empty()
 }
 

@@ -27,13 +27,15 @@ pub use error::*;
 pub use intern::*;
 pub use literal::*;
 pub use menu::*;
-pub use query::TermQuery;
+pub use query::*;
 pub use ty::Ty;
 pub use universe::*;
 pub use variable::TermVariable;
 
 use cow::TermCow;
 use optional::Optioned;
+#[cfg(test)]
+use tests::*;
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub enum Term {

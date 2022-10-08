@@ -93,7 +93,7 @@ impl<T: 'static + ?Sized, Q> OptEq for DefaultInternedPtr<T, Q> {
 
 impl<T: 'static + ?Sized, Q> Hash for DefaultInternedPtr<T, Q> {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        (self.target() as *const T).hash(state);
+        (self.target.map(|t| t as *const T)).hash(state);
     }
 }
 
