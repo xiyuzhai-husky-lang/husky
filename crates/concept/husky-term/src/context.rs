@@ -1,5 +1,5 @@
 use crate::TermQuery;
 
 pub struct TermContext<'a> {
-    db: &'a dyn TermQuery,
+    pub(crate) db: &'a dyn TermQuery,
 }
