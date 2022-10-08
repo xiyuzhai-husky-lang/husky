@@ -19,12 +19,12 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-token = { path = "../../syntax/husky-token" }
-husky-word = { path = "../../concept/husky-word" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
-husky-entity-route = { path = "../../concept/husky-entity-route" }
+husky-entity-route = { path = "../../kernel/husky-entity-route" }
 husky-ast = { path = "../../syntax/husky-ast" }
 infer-decl = { path = "../../infer/husky-infer-decl" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }

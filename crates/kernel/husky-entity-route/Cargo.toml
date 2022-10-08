@@ -15,6 +15,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 vec-like = { path = "../../abstraction/vec-like" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
-husky-word = { path = "../../concept/husky-word" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 thin-vec = { path = "../../../forks/thin-vec" }

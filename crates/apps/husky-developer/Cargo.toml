@@ -35,7 +35,7 @@ husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-io-utils = { path = "../../utils/husky-io-utils" }
-husky-entity-route = { path = "../../concept/husky-entity-route" }
+husky-entity-route = { path = "../../kernel/husky-entity-route" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 husky-token = { path = "../../syntax/husky-token" }

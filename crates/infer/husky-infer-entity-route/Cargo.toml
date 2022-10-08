@@ -24,10 +24,10 @@ husky-file = { path = "../../syntax/husky-file" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-token = { path = "../../syntax/husky-token" }
-husky-entity-route = { path = "../../concept/husky-entity-route" }
+husky-entity-route = { path = "../../kernel/husky-entity-route" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-vm-binding = { path = "../../vm/husky-vm-binding" }
-husky-word = { path = "../../concept/husky-word" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-infer-error = { path = "../husky-infer-error" }
 infer-decl = { path = "../husky-infer-decl" }
