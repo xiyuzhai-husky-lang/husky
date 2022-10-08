@@ -9,7 +9,7 @@ use crate::{
     cow::TermCow,
     error::{TermError, TermResult},
     intern::new_term_interner,
-    Term, TermCurry, TermInterner, TermPtr, Universe,
+    Term, TermCurry, TermInterner, TermPtr, UniverseLevel,
 };
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -29,11 +29,16 @@ impl Ty {
             Term::Literal(_) => return Err(TermError::TermIsNotTy),
             Term::Abstraction(_) => return Err(TermError::TermIsNotTy),
             Term::Namespace(_) | Term::Variable(_) | Term::Application(_) => {
-                if !matches!(&*term.ty_term(), &Term::Type(_)) {
-                    return Err(TermError::TermIsNotTy);
+                match *term.ty_term().deref() {
+                    Term::Universe(ref u) => match u.kind() {
+                        crate::universe::UniverseKind::Type => todo!(),
+                        crate::universe::UniverseKind::Sort => todo!(),
+                        crate::universe::UniverseKind::Term => todo!(),
+                    },
+                    _ => return Err(TermError::TermIsNotTy),
                 }
             }
-            Term::Type(_) | Term::Curry(TermCurry { .. }) => (),
+            Term::Universe(_) | Term::Curry(TermCurry { .. }) => (),
         }
         Ok(Self(term))
     }
@@ -53,7 +58,7 @@ impl Term {
             Term::Variable(v) => v.ty().term().into(),
             Term::Abstraction(abs) => abs.ty().term().into(),
             Term::Application(app) => app.ty().term().into(),
-            Term::Type(u) => Term::Type(u.next().expect("todo")).into(),
+            Term::Universe(u) => Term::Universe(u.ty_universe()).into(),
         }
     }
 
@@ -68,14 +73,4 @@ impl Term {
     //         Term::Application(app) => app.universe(),
     //     }
     // }
-}
-
-#[test]
-fn test_ty_term() {
-    let term_interner = new_term_interner();
-    let term = term_interner.intern(Term::Type(Universe::zero()));
-    assert_eq!(
-        Term::Type(Universe::zero()).ty_term().deref(),
-        &Term::Type(Universe::zero().next().unwrap())
-    );
 }

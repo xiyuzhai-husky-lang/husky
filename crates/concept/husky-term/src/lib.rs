@@ -28,7 +28,7 @@ pub use namespace::TermNamespace;
 pub use namespace::{Namespace, NamespacePtr};
 pub use query::TermQuery;
 pub use ty::Ty;
-pub use universe::Universe;
+pub use universe::*;
 pub use variable::TermVariable;
 
 use cow::TermCow;
@@ -42,5 +42,5 @@ pub enum Term {
     Variable(TermVariable),
     Abstraction(TermAbstraction),
     Application(TermApplication),
-    Type(Universe),
+    Universe(TermUniverse),
 }
