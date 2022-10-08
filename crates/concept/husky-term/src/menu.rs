@@ -22,7 +22,27 @@ impl TermMenu {
     pub fn i32(&self) -> Ty {
         self.i32
     }
-    // mom
+    pub fn void(&self) -> Ty {
+        self.void
+    }
+    pub fn i64(&self) -> Ty {
+        self.i64
+    }
+    pub fn f32(&self) -> Ty {
+        self.f32
+    }
+    pub fn f64(&self) -> Ty {
+        self.f64
+    }
+    pub fn b32(&self) -> Ty {
+        self.b32
+    }
+    pub fn b64(&self) -> Ty {
+        self.b64
+    }
+    pub fn bool(&self) -> Ty {
+        self.bool
+    }
 }
 
 pub(crate) fn term_menu(db: &dyn TermQuery) -> Arc<TermMenu> {

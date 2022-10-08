@@ -16,6 +16,11 @@ impl TermTestsDb {
             entity_path_itr: new_entity_path_itr(),
             term_itr: new_term_itr(),
         }
+        .init()
+    }
+
+    fn init(mut self) -> Self {
+        self
     }
 }
 
