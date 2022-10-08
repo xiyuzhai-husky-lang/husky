@@ -2,12 +2,7 @@ use std::ops::Deref;
 
 use husky_print_utils::p;
 
-use crate::{
-    cow::TermCow,
-    error::{TermError, TermResult},
-    intern::new_term_interner,
-    Term, TermCurry, TermInterner, TermPtr, TermQuery, TermUniverse, UniverseLevel,
-};
+use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct Ty(TermPtr);
@@ -28,9 +23,8 @@ impl Ty {
             Term::Entity(_) | Term::Variable(_) | Term::Application(_) => {
                 match *term.ty_term().deref() {
                     Term::Universe(ref u) => match u.kind() {
-                        crate::universe::UniverseKind::Type => todo!(),
-                        crate::universe::UniverseKind::Sort => todo!(),
-                        crate::universe::UniverseKind::Term => todo!(),
+                        TermUniverseKind::Type => (),
+                        _ => return Err(TermError::TermIsNotTy),
                     },
                     _ => return Err(TermError::TermIsNotTy),
                 }
@@ -47,6 +41,13 @@ impl Ty {
     pub(crate) fn entity_ty_ty(db: &dyn TermQuery) -> Self {
         Ty::new(db.it_term(TermUniverse::zeroth_ty_universe().into())).unwrap()
     }
+
+    pub fn universe_level(self) -> TermUniverseLevel {
+        match self.ty_term().deref() {
+            Term::Universe(u) => u.level(),
+            _ => unreachable!(),
+        }
+    }
 }
 
 impl Term {
@@ -59,7 +60,7 @@ impl Term {
             Term::Variable(v) => v.ty().term().into(),
             Term::Abstraction(abs) => abs.ty().term().into(),
             Term::Application(app) => app.ty().term().into(),
-            Term::Universe(u) => Term::Universe(u.ty_universe()).into(),
+            Term::Universe(u) => TermUniverse::ty_universe(u.level().next().unwrap()).into(),
         }
     }
 

@@ -11,7 +11,7 @@ impl TermApplication {
         todo!()
     }
 
-    pub fn universe(&self) -> UniverseLevel {
+    pub fn universe(&self) -> TermUniverseLevel {
         todo!()
     }
 }
