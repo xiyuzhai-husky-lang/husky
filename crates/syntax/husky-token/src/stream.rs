@@ -13,7 +13,7 @@ pub struct TokenStreamState {
 }
 
 impl<'a> TokenStream<'a> {
-    pub fn empty(&self) -> bool {
+    pub fn is_empty(&self) -> bool {
         self.next >= self.tokens.len()
     }
 

@@ -59,7 +59,7 @@ impl<'a> AstTransformer<'a> {
                 }),
             });
             self.opt_this_liason.set(Some(ParameterModifier::None));
-            if token_stream.empty() {
+            if token_stream.is_empty() {
                 return err!(
                     format!("expect expr but got nothing"),
                     token_stream.next_range()
@@ -85,7 +85,7 @@ impl<'a> AstTransformer<'a> {
                 }),
             });
             self.opt_this_liason.set(Some(ParameterModifier::None));
-            if token_stream.empty() {
+            if token_stream.is_empty() {
                 return err!(
                     format!("expect expr but got nothing"),
                     token_stream.next_range()

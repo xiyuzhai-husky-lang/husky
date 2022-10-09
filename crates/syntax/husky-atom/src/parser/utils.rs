@@ -579,7 +579,7 @@ macro_rules! deprecated_thin_comma_list {
 #[macro_export]
 macro_rules! end {
     ($parser: expr) => {{
-        if !$parser.token_stream.empty() {
+        if !$parser.token_stream.is_empty() {
             return err!(format!("expect end"), $parser.token_stream.next_range());
         }
     }};
