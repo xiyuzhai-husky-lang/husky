@@ -17,86 +17,10 @@ fn test_play() {
     assert_eq!(
         tokenize_debug("struct A {}"),
         r#"[
-    Token {
-        range: TextRange {
-            start: TextPosition {
-                row: 1,
-                col: Column(
-                    0,
-                ),
-            },
-            end: TextPosition {
-                row: 1,
-                col: Column(
-                    6,
-                ),
-            },
-        },
-        kind: Keyword(
-            Type(
-                Struct,
-            ),
-        ),
-    },
-    Token {
-        range: TextRange {
-            start: TextPosition {
-                row: 1,
-                col: Column(
-                    7,
-                ),
-            },
-            end: TextPosition {
-                row: 1,
-                col: Column(
-                    8,
-                ),
-            },
-        },
-        kind: Identifier(
-            Custom(
-                A,
-            ),
-        ),
-    },
-    Token {
-        range: TextRange {
-            start: TextPosition {
-                row: 1,
-                col: Column(
-                    9,
-                ),
-            },
-            end: TextPosition {
-                row: 1,
-                col: Column(
-                    10,
-                ),
-            },
-        },
-        kind: Special(
-            LCurl,
-        ),
-    },
-    Token {
-        range: TextRange {
-            start: TextPosition {
-                row: 1,
-                col: Column(
-                    10,
-                ),
-            },
-            end: TextPosition {
-                row: 1,
-                col: Column(
-                    11,
-                ),
-            },
-        },
-        kind: Special(
-            RCurl,
-        ),
-    },
+    Token { kind: `struct`, range: [1:1, 1:7) },
+    Token { kind: `A`, range: [1:8, 1:9) },
+    Token { kind: `{`, range: [1:10, 1:11) },
+    Token { kind: `}`, range: [1:11, 1:12) },
 ]"#
     );
 }

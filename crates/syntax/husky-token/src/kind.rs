@@ -1,7 +1,7 @@
 pub use crate::*;
 use husky_word::{Decorator, Identifier, Keyword, WordOpr, WordPattern, WordPtr};
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(PartialEq, Eq, Clone, Copy)]
 pub enum TokenKind {
     Decorator(Decorator),
     Keyword(Keyword),
@@ -18,6 +18,23 @@ impl std::fmt::Display for TokenKind {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             TokenKind::Decorator(decorator) => write!(f, "`{}`", decorator.as_str()),
+            TokenKind::Keyword(keyword) => write!(f, "`{}`", keyword.as_str()),
+            TokenKind::Identifier(ident) => write!(f, "`{}`", ident.as_str()),
+            TokenKind::Special(special_token) => write!(f, "`{}`", special_token.code()),
+            TokenKind::WordOpr(opr) => write!(f, "`{}`", opr.as_str()),
+            TokenKind::WordPattern(patt) => write!(f, "`{}`", patt.as_str()),
+            TokenKind::PrimitiveLiteral(lit) => write!(f, "`{}`", lit),
+            TokenKind::Unrecognized(_) => todo!(),
+            TokenKind::IllFormedLiteral(_) => todo!(),
+        }
+    }
+}
+
+impl std::fmt::Debug for TokenKind {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // mom
+        match self {
+            TokenKind::Decorator(decorator) => write!(f, "Decorator(`{}`)", decorator.as_str()),
             TokenKind::Keyword(keyword) => write!(f, "`{}`", keyword.as_str()),
             TokenKind::Identifier(ident) => write!(f, "`{}`", ident.as_str()),
             TokenKind::Special(special_token) => write!(f, "`{}`", special_token.code()),

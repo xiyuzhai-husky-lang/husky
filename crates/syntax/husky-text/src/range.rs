@@ -13,7 +13,7 @@ use husky_word::CustomIdentifier;
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 
-#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct TextRange {
     pub start: TextPosition,
     pub end: TextPosition,
@@ -62,6 +62,12 @@ impl FileRange {
 impl std::fmt::Display for TextRange {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("{} - {}", self.start, self.end))
+    }
+}
+
+impl std::fmt::Debug for TextRange {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("[{}, {})", self.start, self.end))
     }
 }
 
