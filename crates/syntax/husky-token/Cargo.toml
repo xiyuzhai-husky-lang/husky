@@ -22,3 +22,8 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-entity-kind = { path = "../husky-entity-kind" }
 husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../husky-opn-syntax" }
+
+[dev-dependencies]
+husky-test-utils = { path = "../../utils/husky-test-utils", features = [
+    "expect"
+] }
