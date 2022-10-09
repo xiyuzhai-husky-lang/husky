@@ -27,10 +27,20 @@ use husky_text::{RangedCustomIdentifier, TextIndent, TextRange, TextRanged};
 use husky_word::Identifier;
 use scanner::TokenScanner;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq)]
 pub struct Token {
     pub range: TextRange,
     pub kind: TokenKind,
+}
+
+impl std::fmt::Debug for Token {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "Token {{ kind: {:?}, range: {:?} }}",
+            self.kind, self.range
+        )
+    }
 }
 
 impl std::fmt::Display for Token {
