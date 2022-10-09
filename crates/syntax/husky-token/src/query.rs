@@ -3,12 +3,12 @@ use crate::{line_token_iter::LineTokenIter, *};
 use husky_dev_utils::dev_src;
 use husky_file::{FileError, FileErrorKind, FileResultArc};
 #[salsa::query_group(TokenQueryGroupStorage)]
-pub trait TokenSalsaQueryGroup: husky_file::FileQueryGroup + husky_word::InternWord {
+pub trait TokenizedTextQueryGroup: husky_file::FileQueryGroup + TokenQueryGroup {
     fn tokenized_text(&self, id: husky_file::FilePtr) -> FileResultArc<TokenizedText>;
 }
 
 fn tokenized_text(
-    this: &dyn TokenSalsaQueryGroup,
+    this: &dyn TokenizedTextQueryGroup,
     id: husky_file::FilePtr,
 ) -> FileResultArc<TokenizedText> {
     if let Some(text) = this.raw_text(id) {
@@ -21,7 +21,7 @@ fn tokenized_text(
     }
 }
 
-pub trait TokenQueryGroup: TokenSalsaQueryGroup {
+pub trait TokenQueryGroup: husky_word::InternWord {
     fn tokenize(&self, line: &str) -> Vec<HuskyToken> {
         LineTokenIter::new(
             self.word_allocator(),

@@ -9,7 +9,6 @@ mod special;
 mod stream;
 #[cfg(test)]
 mod tests;
-mod tests_db;
 mod tokenized_text;
 mod utils;
 
