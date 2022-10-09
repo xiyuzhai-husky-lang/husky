@@ -13,5 +13,7 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-token = { path = "../../syntax/husky-token" }
 # utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }

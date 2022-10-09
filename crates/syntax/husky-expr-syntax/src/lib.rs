@@ -1,12 +1,13 @@
+mod automata;
 mod opn;
 mod parser;
 mod precedence;
-mod stack;
 mod variant;
 
-pub use stack::*;
+pub use automata::*;
 pub use variant::*;
 
+use husky_opn_syntax::*;
 use husky_text::*;
 use husky_word::*;
 use precedence::*;

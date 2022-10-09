@@ -6,7 +6,7 @@ use husky_text::RangedCustomIdentifier;
 impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     pub fn xml_props(mut self) -> AtomResult<Vec<(RangedCustomIdentifier, URange)>> {
         let mut props: Vec<(RangedCustomIdentifier, URange)> = Vec::new();
-        while !self.token_stream.empty() {
+        while !self.token_stream.is_empty() {
             let ranged_ident = deprecated_get!(self, custom_ident);
             eat_special!(self, "=");
             eat_special!(self, "{");

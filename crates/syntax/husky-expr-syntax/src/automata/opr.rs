@@ -1,23 +1,13 @@
 use crate::*;
-use husky_opn_syntax::*;
-
-pub(crate) struct ExprStack<'a> {
-    arena: &'a mut RawExprArena,
-    oprs: Vec<ExprStackOpr>,
-    exprs: Vec<RawExpr>,
-    state: ExprStackState,
-}
-
-pub struct ExprStackState {}
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-struct ExprStackOpr {
+pub(super) struct OnStackOpr {
     precedence: Precedence,
-    variant: ExprStackOprVariant,
+    variant: OnStackOprVariant,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-enum ExprStackOprVariant {
+pub(super) enum OnStackOprVariant {
     Binary(BinaryOpr),
     ListItem(TextPosition),
     Prefix {
