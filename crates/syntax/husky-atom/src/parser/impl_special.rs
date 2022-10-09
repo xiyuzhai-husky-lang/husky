@@ -6,7 +6,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     pub(super) fn handle_special(
         &mut self,
         special: SpecialToken,
-        token: &HuskyToken,
+        token: &Token,
     ) -> AtomResult<()> {
         let text_start = token.range.start;
         match special {
@@ -136,7 +136,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                     if let Some(generic_arguments) = deprecated_try_get!(self, angled_generics?) {
                         match self.token_stream.next() {
                             Some(token) => match token.kind {
-                                HuskyTokenKind::Special(SpecialToken::LPar) => {
+                                TokenKind::Special(SpecialToken::LPar) => {
                                     self.token_stream.text_range(text_start);
                                 }
                                 _ => todo!(),

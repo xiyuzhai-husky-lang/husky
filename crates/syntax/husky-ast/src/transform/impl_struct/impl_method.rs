@@ -3,7 +3,7 @@ use super::*;
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_struct_method(
         &mut self,
-        token_group: &[HuskyToken],
+        token_group: &[Token],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         // even if context update is not successful, must set context correctly for children

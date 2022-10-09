@@ -81,7 +81,7 @@ impl HuskyDevRuntime {
             feature_interner: husky_feature_gen::new_feature_interner(),
             // comptime
             file_interner: Arc::new(husky_file::new_file_interner()),
-            word_interner: Arc::new(husky_word::new_word_interner()),
+            word_interner: Arc::new(husky_word::new_word_itr()),
             live_docs: Default::default(),
             linkage_table: LinkageTable::new(config.comptime.linkage_table.clone()),
             entity_route_store: Default::default(),

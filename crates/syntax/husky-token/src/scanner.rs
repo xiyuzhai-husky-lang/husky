@@ -26,7 +26,7 @@ impl std::fmt::Debug for TokenizedLine {
 
 pub(crate) struct TokenScanner<'lex> {
     word_interner: &'lex WordInterner,
-    tokens: Vec<HuskyToken>,
+    tokens: Vec<Token>,
     tokenized_lines: Vec<TokenizedLine>,
     errors: Vec<LexError>,
 }
@@ -62,11 +62,11 @@ impl<'token> TokenScanner<'token> {
         })
     }
 
-    fn last_token(&self, line: &TokenizedLine) -> &HuskyToken {
+    fn last_token(&self, line: &TokenizedLine) -> &Token {
         &self.tokens[line.tokens.end - 1]
     }
 
-    fn first_token(&self, line: &TokenizedLine) -> &HuskyToken {
+    fn first_token(&self, line: &TokenizedLine) -> &Token {
         &self.tokens[line.tokens.start]
     }
 
@@ -95,8 +95,7 @@ impl<'token> TokenScanner<'token> {
         TokenGroup {
             indent: group_indent,
             tokens: first_line.tokens.start..{
-                if self.last_token(first_line).kind == HuskyTokenKind::Special(SpecialToken::Colon)
-                {
+                if self.last_token(first_line).kind == TokenKind::Special(SpecialToken::Colon) {
                     if let Some(line) = line_iter.peek() {
                         match line.indent.within(group_indent) {
                             Ok(is_within) => {
@@ -130,14 +129,14 @@ impl<'token> TokenScanner<'token> {
                                     if is_within {
                                         line_iter.next();
                                         if self.last_token(line).kind
-                                            == HuskyTokenKind::Special(SpecialToken::Colon)
+                                            == TokenKind::Special(SpecialToken::Colon)
                                         {
                                             break line.tokens.end;
                                         }
                                     } else {
-                                        fn bind_to_last_line(kind: HuskyTokenKind) -> bool {
+                                        fn bind_to_last_line(kind: TokenKind) -> bool {
                                             match kind {
-                                                HuskyTokenKind::Special(special) => match special {
+                                                TokenKind::Special(special) => match special {
                                                     SpecialToken::RCurl => true,
                                                     SpecialToken::RBox => true,
                                                     SpecialToken::RPar => true,

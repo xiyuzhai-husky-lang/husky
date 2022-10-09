@@ -3,18 +3,15 @@ use crate::*;
 use husky_word::IdentPairDict;
 
 impl<'a> AstTransformer<'a> {
-    pub(crate) fn parse_xml_expr(
-        &mut self,
-        token_group: &[HuskyToken],
-    ) -> AstResultArc<RawXmlExpr> {
+    pub(crate) fn parse_xml_expr(&mut self, token_group: &[Token]) -> AstResultArc<RawXmlExpr> {
         msg_once!("todo: parse children");
         let variant = match token_group[0].kind {
-            HuskyTokenKind::Special(SpecialToken::LAngle) => {
+            TokenKind::Special(SpecialToken::LAngle) => {
                 if token_group.len() < 2 {
                     return err!(format!("expect xml"), token_group.text_range());
                 }
                 match token_group.last().unwrap().kind {
-                    HuskyTokenKind::Special(SpecialToken::XmlKet) => (),
+                    TokenKind::Special(SpecialToken::XmlKet) => (),
                     _ => return err!(format!("expect `/>`"), token_group[0].range),
                 }
                 if token_group.len() == 2 {
@@ -34,7 +31,7 @@ impl<'a> AstTransformer<'a> {
         }))
     }
 
-    fn parse_xml_props(&mut self, tokens: &[HuskyToken]) -> AstResult<IdentPairDict<RawExprIdx>> {
+    fn parse_xml_props(&mut self, tokens: &[Token]) -> AstResult<IdentPairDict<RawExprIdx>> {
         self.parse_atoms(tokens, |parser| parser.xml_props())?
             .into_iter()
             .map(

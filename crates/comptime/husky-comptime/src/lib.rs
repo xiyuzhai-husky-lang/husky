@@ -76,7 +76,7 @@ impl HuskyComptime {
         let mut comptime = Self {
             storage: Default::default(),
             file_interner: Arc::new(husky_file::new_file_interner()),
-            word_interner: Arc::new(husky_word::new_word_interner()),
+            word_interner: Arc::new(husky_word::new_word_itr()),
             live_docs: Default::default(),
             linkage_table: LinkageTable::new(config.linkage_table.clone()),
             entity_route_store: Default::default(),

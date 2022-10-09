@@ -15,8 +15,8 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
             while layer > 0 {
                 match self.token_stream.next() {
                     Some(token) => match token.kind {
-                        HuskyTokenKind::Special(SpecialToken::LCurl) => layer += 1,
-                        HuskyTokenKind::Special(SpecialToken::RCurl) => layer -= 1,
+                        TokenKind::Special(SpecialToken::LCurl) => layer += 1,
+                        TokenKind::Special(SpecialToken::RCurl) => layer -= 1,
                         _ => (),
                     },
                     None => {

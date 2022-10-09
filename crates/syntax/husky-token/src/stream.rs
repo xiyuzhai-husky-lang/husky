@@ -4,7 +4,7 @@ use husky_text::TextPosition;
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
-    pub tokens: &'a [HuskyToken],
+    pub tokens: &'a [Token],
     next: usize,
 }
 
@@ -45,7 +45,7 @@ impl<'a> TokenStream<'a> {
         self.next = state.next;
     }
 
-    pub fn next(&mut self) -> Option<&'a HuskyToken> {
+    pub fn next(&mut self) -> Option<&'a Token> {
         if self.next < self.tokens.len() {
             let next = self.next;
             self.next += 1;
@@ -55,7 +55,7 @@ impl<'a> TokenStream<'a> {
         }
     }
 
-    pub fn peek(&self) -> Option<&'a HuskyToken> {
+    pub fn peek(&self) -> Option<&'a Token> {
         if self.next < self.tokens.len() {
             Some(&self.tokens[self.next])
         } else {
@@ -89,7 +89,7 @@ impl<'a> TokenStream<'a> {
     pub fn peek_next_bra(&mut self) -> Option<Bracket> {
         if self.next < self.tokens.len() {
             match self.tokens[self.next].kind {
-                HuskyTokenKind::Special(special) => special.opt_bra(),
+                TokenKind::Special(special) => special.opt_bra(),
                 _ => None,
             }
         } else {
@@ -98,8 +98,8 @@ impl<'a> TokenStream<'a> {
     }
 }
 
-impl<'a> From<&'a [HuskyToken]> for TokenStream<'a> {
-    fn from(tokens: &'a [HuskyToken]) -> Self {
+impl<'a> From<&'a [Token]> for TokenStream<'a> {
+    fn from(tokens: &'a [Token]) -> Self {
         should!(tokens.len() > 0);
         Self { tokens, next: 0 }
     }

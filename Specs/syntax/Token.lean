@@ -3,20 +3,20 @@ import Specs.syntax.RawLiteralData
 import Specs.syntax.Token.SpecialToken -- mod SpecialToken; use SpecialToken
 
 
-inductive HuskyTokenKind
-  | Decorator : Decorator -> HuskyTokenKind
-  | Keyword : Keyword -> HuskyTokenKind
-  | Identifier : Identifier -> HuskyTokenKind
-  | Special : SpecialToken -> HuskyTokenKind
-  | WordOpr : WordOpr -> HuskyTokenKind
-  | WordPattern : WordPattern-> HuskyTokenKind
-  | PrimitiveLiteral : RawLiteralData -> HuskyTokenKind
-  | Unrecognized : Char -> HuskyTokenKind
-  | IllFormedLiteral : RawLiteralData -> HuskyTokenKind
+inductive TokenKind
+  | Decorator : Decorator -> TokenKind
+  | Keyword : Keyword -> TokenKind
+  | Identifier : Identifier -> TokenKind
+  | Special : SpecialToken -> TokenKind
+  | WordOpr : WordOpr -> TokenKind
+  | WordPattern : WordPattern-> TokenKind
+  | PrimitiveLiteral : RawLiteralData -> TokenKind
+  | Unrecognized : Char -> TokenKind
+  | IllFormedLiteral : RawLiteralData -> TokenKind
   deriving DecidableEq
 
-namespace HuskyTokenKind
-def kindName : HuskyTokenKind -> String
+namespace TokenKind
+def kindName : TokenKind -> String
   | Decorator _ => "Decorator"
   | Keyword _ => "Keyword"
   | Identifier _ => "Identifier"
@@ -27,7 +27,7 @@ def kindName : HuskyTokenKind -> String
   | Unrecognized _ => "Unrecognized"
   | IllFormedLiteral _ => "IllFormedLiteral"
 
-def huskyCode : HuskyTokenKind -> String
+def huskyCode : TokenKind -> String
   | Decorator dec => dec.huskyCode
   | Keyword kw => kw.huskyCode
   | Identifier ident => ident.huskyCode
@@ -37,8 +37,8 @@ def huskyCode : HuskyTokenKind -> String
   | PrimitiveLiteral data => data.huskyCode
   | Unrecognized c => [c].asString
   | IllFormedLiteral data => data.huskyCode
-end HuskyTokenKind
+end TokenKind
 
 structure HuskyToken where
   range: TextRange
-  kind : HuskyTokenKind
+  kind : TokenKind

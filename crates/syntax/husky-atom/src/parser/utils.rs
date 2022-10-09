@@ -130,7 +130,7 @@ macro_rules! deprecated_try_eat {
     }};
 
     ($parser:expr, "mut") => {{
-        deprecated_try_eat!($parser, token_kind, HuskyTokenKind::Keyword(husky_word::Keyword::Liason(husky_word::LiasonKeyword::Mut)))
+        deprecated_try_eat!($parser, token_kind, TokenKind::Keyword(husky_word::Keyword::Liason(husky_word::LiasonKeyword::Mut)))
     }};
 
     ($parser:expr, "!!") => {{

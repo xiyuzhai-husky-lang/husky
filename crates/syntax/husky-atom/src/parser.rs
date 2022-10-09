@@ -22,7 +22,7 @@ use husky_file::URange;
 use husky_print_utils::p;
 use husky_text::TextRange;
 use husky_token::{
-    identify_token, AbsSemanticToken, HuskyToken, HuskyTokenKind, SemanticTokenKind, SpecialToken,
+    identify_token, AbsSemanticToken, SemanticTokenKind, SpecialToken, Token, TokenKind,
     TokenStream,
 };
 use pattern::AtomParserPattern;
@@ -71,26 +71,24 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
             let text_start = self.token_stream.text_start();
             if let Some(token) = self.token_stream.next() {
                 match token.kind {
-                    HuskyTokenKind::Keyword(_) => err!(
+                    TokenKind::Keyword(_) => err!(
                         "keyword should be put at start",
                         self.token_stream.text_range(text_start)
                     )?,
-                    HuskyTokenKind::Special(SpecialToken::Colon) => {
+                    TokenKind::Special(SpecialToken::Colon) => {
                         if let Some(_) = self.token_stream.next() {
                             err!("unexpected colon", token.range)?
                         } else {
                             break;
                         }
                     }
-                    HuskyTokenKind::Special(special) => self.handle_special(special, token)?,
-                    HuskyTokenKind::WordOpr(word_opr) => {
-                        self.handle_word_opr(word_opr, text_start)?
-                    }
-                    HuskyTokenKind::Identifier(_) => err!(
+                    TokenKind::Special(special) => self.handle_special(special, token)?,
+                    TokenKind::WordOpr(word_opr) => self.handle_word_opr(word_opr, text_start)?,
+                    TokenKind::Identifier(_) => err!(
                         "unexpected identifier here",
                         self.token_stream.text_range(text_start)
                     )?,
-                    HuskyTokenKind::PrimitiveLiteral(_value) => {
+                    TokenKind::PrimitiveLiteral(_value) => {
                         let range = self.token_stream.text_range(text_start);
                         self.atom_context
                             .push_abs_semantic_token(AbsSemanticToken::new(
@@ -99,14 +97,14 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                             ));
                         self.stack.push(token.into())?
                     }
-                    HuskyTokenKind::Unrecognized(c) => {
+                    TokenKind::Unrecognized(c) => {
                         err!(format!("unrecognized char `{}`", c), token.range)?
                     }
-                    HuskyTokenKind::IllFormedLiteral(n) => {
+                    TokenKind::IllFormedLiteral(n) => {
                         err!(format!("ill formed literal `{:?}`", n), token.range)?
                     }
-                    HuskyTokenKind::Decorator(_) => todo!(),
-                    HuskyTokenKind::WordPattern(_) => {
+                    TokenKind::Decorator(_) => todo!(),
+                    TokenKind::WordPattern(_) => {
                         let range = self.token_stream.text_range(text_start);
                         self.atom_context
                             .push_abs_semantic_token(AbsSemanticToken::new(
@@ -155,7 +153,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
 
 pub fn parse_route<'a, 'b>(
     symbol_context: &'a mut dyn AtomContext,
-    tokens: &'a [HuskyToken],
+    tokens: &'a [Token],
 ) -> AtomResult<RangedEntityRoute> {
     let result = AtomParser::new(symbol_context, &mut tokens.into()).parse_all_remaining_atoms()?;
     if result.len() == 0 {
