@@ -44,3 +44,20 @@ fn test_tokenize2() {
 ]"#
     );
 }
+
+#[test]
+fn test_tokenize3() {
+    use husky_word::Keyword::*;
+    use TokenKind::*;
+    assert_eq!(
+        tokenize_debug("def f -> []i32"),
+        r#"[
+    Token("def", [1:1, 1:4)),
+    Token("f", [1:5, 1:6)),
+    Token("->", [1:7, 1:9)),
+    Token("[", [1:10, 1:11)),
+    Token("]", [1:11, 1:12)),
+    Token("i32", [1:12, 1:15)),
+]"#
+    );
+}
