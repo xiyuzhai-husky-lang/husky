@@ -1,3 +1,6 @@
+#[cfg(feature = "expect")]
+pub mod expect;
+
 use std::path::{Path, PathBuf};
 
 use husky_path_utils::collect_package_dirs;

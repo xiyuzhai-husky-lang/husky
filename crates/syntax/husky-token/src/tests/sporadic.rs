@@ -1,3 +1,5 @@
+use husky_test_utils::expect::expect_test;
+
 use super::*;
 
 #[test]
@@ -50,4 +52,9 @@ fn test_tokenize3() {
     Token("i32", [1:12, 1:15)),
 ]"#
     );
+}
+
+#[test]
+fn test_tokenize() {
+    expect_test::<String, _>("sporadic", tokenize_debug)
 }

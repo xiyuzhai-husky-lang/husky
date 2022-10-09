@@ -11,6 +11,6 @@ use husky_word::new_word_itr;
 
 use crate::*;
 
-fn tokenize_debug(text: &'static str) -> String {
+fn tokenize_debug(text: &str) -> String {
     format!("{:#?}", new_word_itr().tokenize(text))
 }
