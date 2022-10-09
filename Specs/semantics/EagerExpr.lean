@@ -4,7 +4,7 @@ inductive EagerExpr
   | Variable ( varname : String )
   | ThisValue
   | ThisField ( field_ident: String )
-  | PrimitiveLiteral (data : PrimitiveLiteralData)
+  | PrimitiveLiteral (data : RawLiteralData)
   | EnumKindLiteral (route : EntityRoute)
   | Bracketed ( expr : EagerExpr )
   | Opn (opds : List EagerExpr)

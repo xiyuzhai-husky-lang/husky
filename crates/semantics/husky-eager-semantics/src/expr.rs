@@ -5,7 +5,7 @@ use crate::*;
 use husky_ast::{RawExprArena, RawExprIdx};
 use husky_file::FilePtr;
 use husky_infer_qualified_ty::EagerExprQualifiedTy;
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use infer_contract::EagerContract;
 use infer_total::InferQueryGroup;
 pub use opn::*;
@@ -80,7 +80,7 @@ pub enum EagerExprVariant {
         this_binding: Binding,
         field_binding: Binding,
     },
-    PrimitiveLiteral(PrimitiveLiteralData),
+    PrimitiveLiteral(RawLiteralData),
     EnumKindLiteral(EntityRoutePtr),
     Bracketed(Arc<EagerExpr>),
     Opn {

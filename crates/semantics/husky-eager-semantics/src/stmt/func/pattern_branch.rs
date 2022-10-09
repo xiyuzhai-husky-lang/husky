@@ -1,5 +1,5 @@
 use crate::*;
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FuncStmtPatternBranch {
@@ -21,7 +21,7 @@ pub struct FuncStmtPattern {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum FuncStmtPatternVariant {
-    PrimitiveLiteral(PrimitiveLiteralData),
+    PrimitiveLiteral(RawLiteralData),
     OneOf { subpatterns: Vec<FuncStmtPattern> },
     EnumLiteral(EntityRoutePtr),
 }

@@ -4,7 +4,7 @@ mod xml;
 
 use husky_opn_semantics::ImplicitConversion;
 use husky_pattern_semantics::PurePattern;
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use infer_contract::LazyContract;
 pub use xml::*;
 
@@ -61,7 +61,7 @@ pub enum LazyExprVariant {
         varname: CustomIdentifier,
         binding: Binding,
     },
-    PrimitiveLiteral(PrimitiveLiteralData),
+    PrimitiveLiteral(RawLiteralData),
     EnumLiteral {
         entity_route: EntityRoutePtr,
     },

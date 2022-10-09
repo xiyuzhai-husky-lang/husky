@@ -3,7 +3,7 @@ use std::iter::zip;
 use super::*;
 use husky_ast::RawExprRange;
 use husky_dev_utils::dev_src;
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::*;
 use infer_decl::{TraitMemberImplDecl, VariadicParametersDecl};
 use thin_vec::{thin_vec, ThinVec};
@@ -125,11 +125,11 @@ impl<'a> EntityRouteSheetBuilder<'a> {
     fn infer_primitive_literal(
         &mut self,
         expectation: Option<EntityRoutePtr>,
-        value: PrimitiveLiteralData,
+        value: RawLiteralData,
     ) -> EntityRoutePtr {
         match value {
-            PrimitiveLiteralData::Void => todo!(),
-            PrimitiveLiteralData::Integer(_) => {
+            RawLiteralData::Void => todo!(),
+            RawLiteralData::Integer(_) => {
                 if let Some(expectation) = expectation {
                     let intrinsic = expectation.intrinsic();
                     match intrinsic {
@@ -141,9 +141,9 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     RootBuiltinIdentifier::I32.into()
                 }
             }
-            PrimitiveLiteralData::I32(_) => todo!(),
-            PrimitiveLiteralData::I64(_) => todo!(),
-            PrimitiveLiteralData::Float(_) => {
+            RawLiteralData::I32(_) => todo!(),
+            RawLiteralData::I64(_) => todo!(),
+            RawLiteralData::Float(_) => {
                 if let Some(expectation) = expectation {
                     let intrinsic = expectation.intrinsic();
                     match intrinsic {
@@ -155,10 +155,10 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     RootBuiltinIdentifier::F32.into()
                 }
             }
-            PrimitiveLiteralData::F32(_) => todo!(),
-            PrimitiveLiteralData::F64(_) => todo!(),
-            PrimitiveLiteralData::Bits(_) => todo!(),
-            PrimitiveLiteralData::B32(_) => {
+            RawLiteralData::F32(_) => todo!(),
+            RawLiteralData::F64(_) => todo!(),
+            RawLiteralData::Bits(_) => todo!(),
+            RawLiteralData::B32(_) => {
                 if let Some(expectation) = expectation {
                     match expectation.intrinsic() {
                         EntityRoutePtr::Root(RootBuiltinIdentifier::B32) => (),
@@ -168,8 +168,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 // the default float type is f32
                 RootBuiltinIdentifier::B32.into()
             }
-            PrimitiveLiteralData::B64(_) => todo!(),
-            PrimitiveLiteralData::Bool(_) => todo!(),
+            RawLiteralData::B64(_) => todo!(),
+            RawLiteralData::Bool(_) => todo!(),
         }
     }
 

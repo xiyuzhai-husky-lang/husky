@@ -1,5 +1,5 @@
 use husky_entity_route::EntityRoutePtr;
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::{TextRange, TextRanged};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -10,7 +10,7 @@ pub struct RawPattern {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawPatternVariant {
-    PrimitiveLiteral(PrimitiveLiteralData),
+    PrimitiveLiteral(RawLiteralData),
     OneOf { subpatterns: Vec<RawPattern> },
     EnumLiteral(EntityRoutePtr),
     Some,
@@ -24,7 +24,7 @@ impl TextRanged for RawPattern {
 }
 
 impl RawPattern {
-    pub fn primitive_literal(value: PrimitiveLiteralData, range: TextRange) -> Self {
+    pub fn primitive_literal(value: RawLiteralData, range: TextRange) -> Self {
         Self {
             variant: RawPatternVariant::PrimitiveLiteral(value),
             range,

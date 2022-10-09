@@ -12,7 +12,7 @@ use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_init_syntax::InitKind;
 use husky_liason_semantics::{MemberModifier, ParameterModifier};
 use husky_opn_syntax::{ListOpr, RawOpnVariant};
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use husky_print_utils::msg_once;
 use husky_word::{Paradigm, RootBuiltinIdentifier};
 
@@ -294,17 +294,17 @@ impl<'a> Formatter<'a> {
             RawExprVariant::Variable { varname, .. } => self.write(&varname),
             RawExprVariant::Unrecognized(varname) => self.write(&varname),
             RawExprVariant::PrimitiveLiteral(literal) => match literal {
-                PrimitiveLiteralData::Integer(i) => self.write(&i.to_string()),
-                PrimitiveLiteralData::I32(i) => self.write(&i.to_string()),
-                PrimitiveLiteralData::Float(f) => self.write(&f.to_string()),
-                PrimitiveLiteralData::F32(f) => self.write(&f.to_string()),
-                PrimitiveLiteralData::Void => todo!(),
-                PrimitiveLiteralData::I64(_) => todo!(),
-                PrimitiveLiteralData::F64(_) => todo!(),
-                PrimitiveLiteralData::Bits(_) => todo!(),
-                PrimitiveLiteralData::B32(_) => todo!(),
-                PrimitiveLiteralData::B64(_) => todo!(),
-                PrimitiveLiteralData::Bool(_) => todo!(),
+                RawLiteralData::Integer(i) => self.write(&i.to_string()),
+                RawLiteralData::I32(i) => self.write(&i.to_string()),
+                RawLiteralData::Float(f) => self.write(&f.to_string()),
+                RawLiteralData::F32(f) => self.write(&f.to_string()),
+                RawLiteralData::Void => todo!(),
+                RawLiteralData::I64(_) => todo!(),
+                RawLiteralData::F64(_) => todo!(),
+                RawLiteralData::Bits(_) => todo!(),
+                RawLiteralData::B32(_) => todo!(),
+                RawLiteralData::B64(_) => todo!(),
+                RawLiteralData::Bool(_) => todo!(),
             },
             RawExprVariant::Bracketed(raw_expr_idx) => {
                 self.write("(");

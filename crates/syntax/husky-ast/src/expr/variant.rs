@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::RangedCustomIdentifier;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -29,7 +29,7 @@ pub enum RawExprVariant {
         route: EntityRoutePtr,
         kind: EntityKind,
     },
-    PrimitiveLiteral(PrimitiveLiteralData),
+    PrimitiveLiteral(RawLiteralData),
     Bracketed(RawExprIdx),
     Opn {
         opn_variant: RawOpnVariant,

@@ -5,7 +5,7 @@ use husky_entity_kind::FieldKind;
 use husky_entity_semantics::FieldDefnVariant;
 use husky_infer_qualified_ty::EagerExprQualifier;
 use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use husky_vm_binding::Binding;
 use husky_word::RootBuiltinIdentifier;
 use infer_decl::{CallFormDecl, VariadicParametersDecl};
@@ -532,43 +532,43 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    fn gen_primitive_literal(&mut self, v: PrimitiveLiteralData) {
+    fn gen_primitive_literal(&mut self, v: RawLiteralData) {
         match v {
-            PrimitiveLiteralData::Integer(i) => {
+            RawLiteralData::Integer(i) => {
                 self.result.push_str(&i.to_string());
             }
-            PrimitiveLiteralData::I32(i) => {
+            RawLiteralData::I32(i) => {
                 self.result.push_str(&i.to_string());
                 self.write("i32")
             }
-            PrimitiveLiteralData::I64(i) => {
+            RawLiteralData::I64(i) => {
                 self.result.push_str(&i.to_string());
                 self.write("i64")
             }
-            PrimitiveLiteralData::Float(f) => {
+            RawLiteralData::Float(f) => {
                 self.result.push_str(&f.to_string());
                 msg_once!("ad hoc");
                 self.write("f32")
             }
-            PrimitiveLiteralData::F32(f) => {
+            RawLiteralData::F32(f) => {
                 self.result.push_str(&f.to_string());
                 self.write("f32")
             }
-            PrimitiveLiteralData::F64(f) => {
+            RawLiteralData::F64(f) => {
                 self.result.push_str(&f.to_string());
                 self.write("f64")
             }
-            PrimitiveLiteralData::Bits(b) => self.result.push_str(&b.to_string()),
-            PrimitiveLiteralData::B32(b) => {
+            RawLiteralData::Bits(b) => self.result.push_str(&b.to_string()),
+            RawLiteralData::B32(b) => {
                 self.result.push_str(&b.to_string());
                 self.write("u32")
             }
-            PrimitiveLiteralData::B64(b) => {
+            RawLiteralData::B64(b) => {
                 self.result.push_str(&b.to_string());
                 self.write("u64")
             }
-            PrimitiveLiteralData::Bool(b) => self.result.push_str(&b.to_string()),
-            PrimitiveLiteralData::Void => self.result.push_str("()"),
+            RawLiteralData::Bool(b) => self.result.push_str(&b.to_string()),
+            RawLiteralData::Void => self.result.push_str("()"),
         }
     }
 

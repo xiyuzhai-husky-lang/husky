@@ -1,5 +1,5 @@
 import Specs.syntax.Word
-import Specs.syntax.PrimitiveLiteralData
+import Specs.syntax.RawLiteralData
 import Specs.syntax.Token.SpecialToken -- mod SpecialToken; use SpecialToken
 
 
@@ -10,9 +10,9 @@ inductive HuskyTokenKind
   | Special : SpecialToken -> HuskyTokenKind
   | WordOpr : WordOpr -> HuskyTokenKind
   | WordPattern : WordPattern-> HuskyTokenKind
-  | PrimitiveLiteral : PrimitiveLiteralData -> HuskyTokenKind
+  | PrimitiveLiteral : RawLiteralData -> HuskyTokenKind
   | Unrecognized : Char -> HuskyTokenKind
-  | IllFormedLiteral : PrimitiveLiteralData -> HuskyTokenKind
+  | IllFormedLiteral : RawLiteralData -> HuskyTokenKind
   deriving DecidableEq
 
 namespace HuskyTokenKind

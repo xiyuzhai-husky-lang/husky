@@ -1,6 +1,6 @@
 use crate::*;
 use husky_file::FilePtr;
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::TextRange;
 use std::sync::Arc;
 
@@ -26,7 +26,7 @@ pub struct ProcStmtPattern {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ProcStmtPatternVariant {
-    PrimitiveLiteral(PrimitiveLiteralData),
+    PrimitiveLiteral(RawLiteralData),
     OneOf { subpatterns: Vec<ProcStmtPattern> },
     EnumLiteral(EntityRoutePtr),
 }
