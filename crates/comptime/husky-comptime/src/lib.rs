@@ -21,7 +21,7 @@ pub use husky_infer_qualified_ty::*;
 pub use husky_linkage_table::ResolveLinkage;
 pub use husky_package_semantics::PackageQueryGroup;
 pub use husky_rust_code_gen::RustCodeGenQueryGroup;
-pub use husky_token::TokenQueryGroup;
+pub use husky_token::Tokenize;
 pub use husky_token::TokenizedTextQueryGroup;
 pub use husky_word::InternWord;
 pub use infer_contract::*;

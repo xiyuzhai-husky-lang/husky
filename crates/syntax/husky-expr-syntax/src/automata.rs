@@ -1,4 +1,5 @@
 mod opr;
+mod ops;
 mod state;
 
 use crate::*;
@@ -15,7 +16,11 @@ pub(crate) struct Automata<'a> {
 }
 
 impl<'a> Automata<'a> {
-    pub(super) fn new(arena: &'a mut RawExprArena, tokens: &'a [Token]) -> Self {
+    pub(crate) fn stream(&self) -> &TokenStream<'a> {
+        &self.stream
+    }
+
+    fn new(arena: &'a mut RawExprArena, tokens: &'a [Token]) -> Self {
         Self {
             arena,
             oprs: vec![],
@@ -25,24 +30,13 @@ impl<'a> Automata<'a> {
         }
     }
 
-    fn parse_next(&mut self) {
-        let token = self.stream.next().expect("non empty");
-        match token.kind {
-            TokenKind::Decorator(_) => todo!(),
-            TokenKind::Keyword(_) => todo!(),
-            TokenKind::Identifier(_) => todo!(),
-            TokenKind::Special(_) => todo!(),
-            TokenKind::WordOpr(_) => todo!(),
-            TokenKind::WordPattern(_) => todo!(),
-            TokenKind::PrimitiveLiteral(_) => todo!(),
-            TokenKind::Unrecognized(_) => todo!(),
-            TokenKind::IllFormedLiteral(_) => todo!(),
+    fn parse_all(mut self) {
+        while !self.stream().is_empty() {
+            self.parse_step()
         }
     }
 
-    pub(super) fn parse_all(mut self) {
-        while !self.stream.is_empty() {
-            self.parse_next()
-        }
+    pub fn parse_raw_exprs(arena: &'a mut RawExprArena, tokens: &'a [Token]) {
+        Self::new(arena, tokens).parse_all()
     }
 }
