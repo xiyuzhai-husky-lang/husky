@@ -1,17 +1,102 @@
 use std::sync::Arc;
 
 use husky_print_utils::ep;
-use husky_word::new_word_interner;
+use husky_text::{Column, Row, TextPosition};
+use husky_word::new_word_itr;
 
-use crate::TokenizedText;
+use crate::*;
 
-fn standalone_tokenize(text: &'static str) -> Arc<TokenizedText> {
-    let word_interner = new_word_interner();
-    TokenizedText::parse(&word_interner, text)
+fn tokenize_debug(text: &'static str) -> String {
+    format!("{:#?}", new_word_itr().tokenize(text))
 }
 
 #[test]
 fn test_play() {
-    let tokenized_text = standalone_tokenize("struct A {}");
-    ep!(tokenized_text);
+    use husky_word::Keyword::*;
+    use TokenKind::*;
+    assert_eq!(
+        tokenize_debug("struct A {}"),
+        r#"[
+    Token {
+        range: TextRange {
+            start: TextPosition {
+                row: 1,
+                col: Column(
+                    0,
+                ),
+            },
+            end: TextPosition {
+                row: 1,
+                col: Column(
+                    6,
+                ),
+            },
+        },
+        kind: Keyword(
+            Type(
+                Struct,
+            ),
+        ),
+    },
+    Token {
+        range: TextRange {
+            start: TextPosition {
+                row: 1,
+                col: Column(
+                    7,
+                ),
+            },
+            end: TextPosition {
+                row: 1,
+                col: Column(
+                    8,
+                ),
+            },
+        },
+        kind: Identifier(
+            Custom(
+                A,
+            ),
+        ),
+    },
+    Token {
+        range: TextRange {
+            start: TextPosition {
+                row: 1,
+                col: Column(
+                    9,
+                ),
+            },
+            end: TextPosition {
+                row: 1,
+                col: Column(
+                    10,
+                ),
+            },
+        },
+        kind: Special(
+            LCurl,
+        ),
+    },
+    Token {
+        range: TextRange {
+            start: TextPosition {
+                row: 1,
+                col: Column(
+                    10,
+                ),
+            },
+            end: TextPosition {
+                row: 1,
+                col: Column(
+                    11,
+                ),
+            },
+        },
+        kind: Special(
+            RCurl,
+        ),
+    },
+]"#
+    );
 }

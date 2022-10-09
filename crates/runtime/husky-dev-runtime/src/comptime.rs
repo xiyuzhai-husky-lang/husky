@@ -35,8 +35,6 @@ impl InternEntityRoute for HuskyDevRuntime {
     }
 }
 
-impl TokenQueryGroup for HuskyDevRuntime {}
-
 impl ResolveStaticRootDefn for HuskyDevRuntime {
     fn __root_defn_resolver(
         &self,

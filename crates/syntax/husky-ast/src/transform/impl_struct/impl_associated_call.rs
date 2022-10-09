@@ -3,7 +3,7 @@ use super::*;
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_struct_associated_routine(
         &mut self,
-        token_group: &[HuskyToken],
+        token_group: &[Token],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<AstVariant> {
         self.update_struct_item_context(StructItemContext::AssociatedCall, token_group)?;

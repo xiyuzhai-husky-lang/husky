@@ -6,7 +6,7 @@ impl<'a> AstTransformer<'a> {
     pub(super) fn parse_feature_defn_head(
         &mut self,
         paradigm: Paradigm,
-        token_group: &[HuskyToken],
+        token_group: &[Token],
     ) -> AstResult<AstVariant> {
         self.context.set(AstContext::Stmt {
             paradigm,

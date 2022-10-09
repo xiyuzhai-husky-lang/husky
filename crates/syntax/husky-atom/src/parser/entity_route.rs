@@ -75,7 +75,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                         .route_call(RootBuiltinIdentifier::Option.into(), thin_vec![ty.into()]),
                     kind: EntityKind::Type(TyKind::Option),
                 })
-            } else if let HuskyTokenKind::Identifier(ident) = token.kind {
+            } else if let TokenKind::Identifier(ident) = token.kind {
                 let symbol_kind = self.atom_context.resolve_symbol_kind(ident, token.range)?;
                 Some(match symbol_kind {
                     SymbolKind::EntityRoute(route) => {

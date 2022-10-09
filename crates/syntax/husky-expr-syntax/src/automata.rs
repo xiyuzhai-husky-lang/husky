@@ -2,7 +2,7 @@ mod opr;
 mod state;
 
 use crate::*;
-use husky_token::{HuskyToken, HuskyTokenKind, TokenStream};
+use husky_token::{Token, TokenKind, TokenStream};
 use opr::*;
 use state::*;
 
@@ -15,7 +15,7 @@ pub(crate) struct Automata<'a> {
 }
 
 impl<'a> Automata<'a> {
-    pub(super) fn new(arena: &'a mut RawExprArena, tokens: &'a [HuskyToken]) -> Self {
+    pub(super) fn new(arena: &'a mut RawExprArena, tokens: &'a [Token]) -> Self {
         Self {
             arena,
             oprs: vec![],
@@ -28,15 +28,15 @@ impl<'a> Automata<'a> {
     fn parse_next(&mut self) {
         let token = self.stream.next().expect("non empty");
         match token.kind {
-            HuskyTokenKind::Decorator(_) => todo!(),
-            HuskyTokenKind::Keyword(_) => todo!(),
-            HuskyTokenKind::Identifier(_) => todo!(),
-            HuskyTokenKind::Special(_) => todo!(),
-            HuskyTokenKind::WordOpr(_) => todo!(),
-            HuskyTokenKind::WordPattern(_) => todo!(),
-            HuskyTokenKind::PrimitiveLiteral(_) => todo!(),
-            HuskyTokenKind::Unrecognized(_) => todo!(),
-            HuskyTokenKind::IllFormedLiteral(_) => todo!(),
+            TokenKind::Decorator(_) => todo!(),
+            TokenKind::Keyword(_) => todo!(),
+            TokenKind::Identifier(_) => todo!(),
+            TokenKind::Special(_) => todo!(),
+            TokenKind::WordOpr(_) => todo!(),
+            TokenKind::WordPattern(_) => todo!(),
+            TokenKind::PrimitiveLiteral(_) => todo!(),
+            TokenKind::Unrecognized(_) => todo!(),
+            TokenKind::IllFormedLiteral(_) => todo!(),
         }
     }
 

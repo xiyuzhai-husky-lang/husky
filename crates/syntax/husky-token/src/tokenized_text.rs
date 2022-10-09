@@ -8,7 +8,7 @@ use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenizedText {
-    pub tokens: Vec<HuskyToken>,
+    pub tokens: Vec<Token>,
     pub errors: Vec<LexError>,
     pub token_groups: FoldableList<URange>,
 }
@@ -16,7 +16,7 @@ pub struct TokenizedText {
 impl TokenizedText {
     pub fn new(
         line_groups: Vec<TokenGroup>,
-        tokens: Vec<HuskyToken>,
+        tokens: Vec<Token>,
         errors: Vec<LexError>,
     ) -> TokenizedText {
         TokenizedText {
@@ -79,7 +79,7 @@ impl TokenizedText {
 pub type TokenGroupIter<'a> = fold::FoldableIter<'a, TokenizedText>;
 
 impl fold::FoldableStorage for TokenizedText {
-    type Value = [HuskyToken];
+    type Value = [Token];
 
     fn len(&self) -> usize {
         self.token_groups.len()
@@ -89,7 +89,7 @@ impl fold::FoldableStorage for TokenizedText {
         self.token_groups.folding_end(index)
     }
 
-    fn value(&self, index: usize) -> &[HuskyToken] {
+    fn value(&self, index: usize) -> &[Token] {
         &self.tokens[self.token_groups.value(index).clone()]
     }
 

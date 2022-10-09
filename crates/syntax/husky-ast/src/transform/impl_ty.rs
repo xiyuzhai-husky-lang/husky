@@ -8,7 +8,7 @@ impl<'a> AstTransformer<'a> {
     pub(super) fn parse_ty_defn(
         &mut self,
         ty_kw: TyKeyword,
-        tokens: &[HuskyToken],
+        tokens: &[Token],
     ) -> AstResult<AstVariant> {
         match ty_kw {
             TyKeyword::Struct => self.parse_struct(tokens),
@@ -17,10 +17,10 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
-    fn parse_struct(&mut self, tokens: &[HuskyToken]) -> AstResult<AstVariant> {
+    fn parse_struct(&mut self, tokens: &[Token]) -> AstResult<AstVariant> {
         let opt_base_ty = if tokens.len() >= 2 {
             match tokens[1].kind {
-                HuskyTokenKind::Identifier(ident) => match ident {
+                TokenKind::Identifier(ident) => match ident {
                     Identifier::Custom(custom_ident) => {
                         self.context().opt_subroute(self.db.upcast(), custom_ident)
                     }
@@ -50,10 +50,10 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    fn parse_record(&mut self, tokens: &[HuskyToken]) -> AstResult<AstVariant> {
+    fn parse_record(&mut self, tokens: &[Token]) -> AstResult<AstVariant> {
         if tokens.len() >= 2 {
             match tokens[1].kind {
-                HuskyTokenKind::Identifier(ident) => match ident {
+                TokenKind::Identifier(ident) => match ident {
                     Identifier::Custom(custom_ident) => {
                         self.opt_base_ty
                             .set(self.context().opt_subroute(self.db.upcast(), custom_ident));
@@ -79,7 +79,7 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    fn parse_enum(&mut self, tokens: &[HuskyToken]) -> AstResult<AstVariant> {
+    fn parse_enum(&mut self, tokens: &[Token]) -> AstResult<AstVariant> {
         expect_len!(tokens, 3);
         expect_head!(tokens);
         msg_once!("record generic placeholders");

@@ -2,6 +2,7 @@ use crate::{line_token_iter::LineTokenIter, *};
 
 use husky_dev_utils::dev_src;
 use husky_file::{FileError, FileErrorKind, FileResultArc};
+use husky_word::InternWord;
 #[salsa::query_group(TokenQueryGroupStorage)]
 pub trait TokenizedTextQueryGroup: husky_file::FileQueryGroup + TokenQueryGroup {
     fn tokenized_text(&self, id: husky_file::FilePtr) -> FileResultArc<TokenizedText>;
@@ -21,8 +22,8 @@ fn tokenized_text(
     }
 }
 
-pub trait TokenQueryGroup: husky_word::InternWord {
-    fn tokenize(&self, line: &str) -> Vec<HuskyToken> {
+pub trait TokenQueryGroup: InternWord {
+    fn tokenize(&self, line: &str) -> Vec<Token> {
         LineTokenIter::new(
             self.word_allocator(),
             0,
@@ -32,3 +33,5 @@ pub trait TokenQueryGroup: husky_word::InternWord {
         .collect()
     }
 }
+
+impl<T> TokenQueryGroup for T where T: InternWord {}

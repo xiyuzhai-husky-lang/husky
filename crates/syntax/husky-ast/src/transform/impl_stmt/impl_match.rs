@@ -2,7 +2,7 @@ use super::*;
 use crate::*;
 
 impl<'a> AstTransformer<'a> {
-    pub(super) fn parse_match(&mut self, token_group: &[HuskyToken]) -> AstResult<RawStmtVariant> {
+    pub(super) fn parse_match(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
         expect_block_head!(token_group);
         let match_expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         Ok(RawStmtVariant::Match {
@@ -11,7 +11,7 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    pub(super) fn parse_case(&mut self, token_group: &[HuskyToken]) -> AstResult<RawStmtVariant> {
+    pub(super) fn parse_case(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
         expect_block_head!(token_group);
         if token_group.len() < 3 {
             return err!("expect `case <pattern>:`", token_group.text_range());

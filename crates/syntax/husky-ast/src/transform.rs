@@ -110,7 +110,7 @@ impl<'a> AstTransformer<'a> {
 }
 
 impl<'a> fold::Transformer for AstTransformer<'a> {
-    type Input = [HuskyToken];
+    type Input = [Token];
     type InputStorage = TokenizedText;
     type Output = AstResult<Ast>;
 
@@ -131,7 +131,7 @@ impl<'a> fold::Transformer for AstTransformer<'a> {
     fn transform(
         &mut self,
         _indent: fold::Indent,
-        token_group: &[HuskyToken],
+        token_group: &[Token],
         enter_block: impl FnOnce(&mut Self),
     ) -> AstResult<Ast> {
         let variant = match self.context() {
@@ -140,7 +140,7 @@ impl<'a> fold::Transformer for AstTransformer<'a> {
             }
             AstContext::Stmt { .. } | AstContext::Match { .. } | AstContext::Visual => {
                 match token_group[0].kind {
-                    HuskyTokenKind::Keyword(keyword) => match keyword {
+                    TokenKind::Keyword(keyword) => match keyword {
                         Keyword::Stmt(keyword) => self
                             .parse_stmt_with_keyword(keyword, token_group, enter_block)?
                             .into(),

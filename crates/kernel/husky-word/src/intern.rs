@@ -34,7 +34,7 @@ impl IsInternPtr for WordPtr {
     }
 }
 
-pub fn new_word_interner() -> WordInterner {
+pub fn new_word_itr() -> WordInterner {
     WordInterner::new(&[
         ConfigKeyword::Task.into(),
         Keyword::Use.into(),
@@ -124,5 +124,11 @@ pub trait InternWord {
     }
     fn custom_ident(&self, word: &str) -> CustomIdentifier {
         self.intern_word(word).opt_custom().unwrap()
+    }
+}
+
+impl InternWord for WordInterner {
+    fn word_allocator(&self) -> &WordInterner {
+        self
     }
 }

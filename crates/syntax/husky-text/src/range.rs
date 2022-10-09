@@ -13,7 +13,7 @@ use husky_word::CustomIdentifier;
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 
-#[derive(Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct TextRange {
     pub start: TextPosition,
     pub end: TextPosition,
@@ -61,7 +61,7 @@ impl FileRange {
 
 impl std::fmt::Display for TextRange {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("{:?} - {:?}", self.start, self.end))
+        f.write_fmt(format_args!("{} - {}", self.start, self.end))
     }
 }
 
@@ -75,22 +75,12 @@ impl std::fmt::Display for FileRange {
     }
 }
 
-impl std::fmt::Debug for FileRange {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!(
-            "{}:{}",
-            self.file.as_os_str().to_str().unwrap(),
-            self.range
-        ))
-    }
-}
-
 impl HuskyDisplay for TextRange {
     fn write_inherent(&self, config: husky_display_utils::HuskyDisplayConfig, result: &mut String) {
         if config.colored {
-            write!(result, "{GREEN}{:?}{RESET}", self).unwrap()
+            write!(result, "{GREEN}{}{RESET}", self).unwrap()
         } else {
-            write!(result, "{:?}", self).unwrap()
+            write!(result, "{}", self).unwrap()
         }
     }
 }
@@ -108,12 +98,6 @@ impl TextRange {
 impl From<__StaticDevSource> for TextRange {
     fn from(dev_src: __StaticDevSource) -> Self {
         ((dev_src.line, 0)..(dev_src.line, 10)).into()
-    }
-}
-
-impl std::fmt::Debug for TextRange {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.pad(&format!("{:?}..{:?}", self.start, self.end))
     }
 }
 

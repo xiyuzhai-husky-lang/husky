@@ -9,21 +9,21 @@ use husky_entity_route::*;
 use husky_file::FilePtr;
 use husky_static_defn::*;
 use husky_text::{RangedCustomIdentifier, TextRanged};
-use husky_token::{HuskyToken, HuskyTokenKind, SpecialToken, TokenGroupIter};
+use husky_token::{SpecialToken, Token, TokenGroupIter, TokenKind};
 use husky_word::Identifier;
 use husky_word::{CustomIdentifier, Decorator, Keyword};
 use thin_vec::thin_vec;
 
-pub fn tell_entity_kind(keyword: Keyword, third_token: &HuskyToken) -> Option<EntityKind> {
+pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityKind> {
     match keyword {
         Keyword::Use | Keyword::Stmt(_) | Keyword::Config(_) | Keyword::Liason(_) => None,
         Keyword::Mod => Some(EntityKind::Module),
         Keyword::Paradigm(paradigm) => Some(match third_token.kind {
-            HuskyTokenKind::Special(SpecialToken::LPar) => EntityKind::Function {
+            TokenKind::Special(SpecialToken::LPar) => EntityKind::Function {
                 requires_lazy: paradigm.is_lazy(),
             },
-            HuskyTokenKind::Special(SpecialToken::LightArrow)
-            | HuskyTokenKind::Special(SpecialToken::Colon) => EntityKind::Feature,
+            TokenKind::Special(SpecialToken::LightArrow)
+            | TokenKind::Special(SpecialToken::Colon) => EntityKind::Feature,
             _ => return None,
         }),
         Keyword::Type(keyword) => Some(EntityKind::Type(keyword.into())),

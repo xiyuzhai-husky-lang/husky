@@ -2,7 +2,7 @@
 macro_rules! identify_token {
     ($this: expr, $token:expr, $semantic_token_kind: expr) => {{
         match $token.kind {
-            HuskyTokenKind::Identifier(Identifier::Custom(ident)) => {
+            TokenKind::Identifier(Identifier::Custom(ident)) => {
                 $this.push_abs_semantic_token(husky_token::AbsSemanticToken::new(
                     $semantic_token_kind,
                     $token.range,
@@ -30,7 +30,7 @@ macro_rules! must_be {
 macro_rules! expect_token_kind {
     ($token:expr, $kind:expr) => {
         must_be!(
-            $token.kind == HuskyTokenKind::Special($kind),
+            $token.kind == TokenKind::Special($kind),
             format!("expect `{}`", $kind.code()),
             $token.range
         );

@@ -4,7 +4,9 @@ use std::fmt::Write;
 
 use crate::*;
 
-#[derive(Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize)]
+#[derive(
+    Debug, Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
+)]
 pub struct TextPosition {
     pub row: Row,
     pub col: Column,
@@ -81,7 +83,7 @@ impl TextPosition {
     }
 }
 
-impl std::fmt::Debug for TextPosition {
+impl std::fmt::Display for TextPosition {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("{:?}:{:?}", self.row.0 + 1, self.col.0 + 1))
     }

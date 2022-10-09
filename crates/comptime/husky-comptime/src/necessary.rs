@@ -58,8 +58,6 @@ impl InternEntityRoute for HuskyComptime {
     }
 }
 
-impl TokenQueryGroup for HuskyComptime {}
-
 impl ResolveStaticRootDefn for HuskyComptime {
     fn __root_defn_resolver(
         &self,

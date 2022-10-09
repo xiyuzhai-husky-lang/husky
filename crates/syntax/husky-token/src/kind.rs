@@ -2,7 +2,7 @@ pub use crate::*;
 use husky_word::{Decorator, Identifier, Keyword, WordOpr, WordPattern, WordPtr};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum HuskyTokenKind {
+pub enum TokenKind {
     Decorator(Decorator),
     Keyword(Keyword),
     Identifier(Identifier),
@@ -14,62 +14,62 @@ pub enum HuskyTokenKind {
     IllFormedLiteral(RawLiteralData),
 }
 
-impl std::fmt::Display for HuskyTokenKind {
+impl std::fmt::Display for TokenKind {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            HuskyTokenKind::Decorator(decorator) => write!(f, "`{}`", decorator.as_str()),
-            HuskyTokenKind::Keyword(keyword) => write!(f, "`{}`", keyword.as_str()),
-            HuskyTokenKind::Identifier(ident) => write!(f, "`{}`", ident.as_str()),
-            HuskyTokenKind::Special(special_token) => write!(f, "`{}`", special_token.code()),
-            HuskyTokenKind::WordOpr(opr) => write!(f, "`{}`", opr.as_str()),
-            HuskyTokenKind::WordPattern(patt) => write!(f, "`{}`", patt.as_str()),
-            HuskyTokenKind::PrimitiveLiteral(lit) => write!(f, "`{}`", lit),
-            HuskyTokenKind::Unrecognized(_) => todo!(),
-            HuskyTokenKind::IllFormedLiteral(_) => todo!(),
+            TokenKind::Decorator(decorator) => write!(f, "`{}`", decorator.as_str()),
+            TokenKind::Keyword(keyword) => write!(f, "`{}`", keyword.as_str()),
+            TokenKind::Identifier(ident) => write!(f, "`{}`", ident.as_str()),
+            TokenKind::Special(special_token) => write!(f, "`{}`", special_token.code()),
+            TokenKind::WordOpr(opr) => write!(f, "`{}`", opr.as_str()),
+            TokenKind::WordPattern(patt) => write!(f, "`{}`", patt.as_str()),
+            TokenKind::PrimitiveLiteral(lit) => write!(f, "`{}`", lit),
+            TokenKind::Unrecognized(_) => todo!(),
+            TokenKind::IllFormedLiteral(_) => todo!(),
         }
     }
 }
 
-impl HuskyTokenKind {
+impl TokenKind {
     pub fn left_convexity(self) -> Option<Convexity> {
         match self {
-            HuskyTokenKind::Decorator(_) => todo!(),
-            HuskyTokenKind::Keyword(_) => todo!(),
-            HuskyTokenKind::Identifier(_) => Some(Convexity::Convex),
-            HuskyTokenKind::Special(_) => todo!(),
-            HuskyTokenKind::WordOpr(_) => todo!(),
-            HuskyTokenKind::PrimitiveLiteral(_) => Some(Convexity::Convex),
-            HuskyTokenKind::Unrecognized(_) => None,
-            HuskyTokenKind::IllFormedLiteral(_) => Some(Convexity::Convex),
-            HuskyTokenKind::WordPattern(_) => Some(Convexity::Convex),
+            TokenKind::Decorator(_) => todo!(),
+            TokenKind::Keyword(_) => todo!(),
+            TokenKind::Identifier(_) => Some(Convexity::Convex),
+            TokenKind::Special(_) => todo!(),
+            TokenKind::WordOpr(_) => todo!(),
+            TokenKind::PrimitiveLiteral(_) => Some(Convexity::Convex),
+            TokenKind::Unrecognized(_) => None,
+            TokenKind::IllFormedLiteral(_) => Some(Convexity::Convex),
+            TokenKind::WordPattern(_) => Some(Convexity::Convex),
         }
     }
 }
 
-impl From<SpecialToken> for HuskyTokenKind {
+impl From<SpecialToken> for TokenKind {
     fn from(special: SpecialToken) -> Self {
-        HuskyTokenKind::Special(special)
+        TokenKind::Special(special)
     }
 }
-impl std::hash::Hash for HuskyTokenKind {
+impl std::hash::Hash for TokenKind {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         core::mem::discriminant(self).hash(state);
     }
 }
-impl From<WordPtr> for HuskyTokenKind {
+impl From<WordPtr> for TokenKind {
     fn from(word: WordPtr) -> Self {
         match word {
-            WordPtr::Keyword(keyword) => HuskyTokenKind::Keyword(keyword),
-            WordPtr::Identifier(ident) => HuskyTokenKind::Identifier(ident),
-            WordPtr::Opr(word_opr) => HuskyTokenKind::WordOpr(word_opr),
-            WordPtr::Decorator(decorator) => HuskyTokenKind::Decorator(decorator),
-            WordPtr::Pattern(patt) => HuskyTokenKind::WordPattern(patt),
+            WordPtr::Keyword(keyword) => TokenKind::Keyword(keyword),
+            WordPtr::Identifier(ident) => TokenKind::Identifier(ident),
+            WordPtr::Opr(word_opr) => TokenKind::WordOpr(word_opr),
+            WordPtr::Decorator(decorator) => TokenKind::Decorator(decorator),
+            WordPtr::Pattern(patt) => TokenKind::WordPattern(patt),
         }
     }
 }
 
-impl From<Keyword> for HuskyTokenKind {
+impl From<Keyword> for TokenKind {
     fn from(keyword: Keyword) -> Self {
-        HuskyTokenKind::Keyword(keyword)
+        TokenKind::Keyword(keyword)
     }
 }
