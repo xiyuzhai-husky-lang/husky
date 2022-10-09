@@ -67,7 +67,7 @@ impl<Ptr: IsInternPtr> Interner<Ptr> {
                             let owned: &Ptr::Owned = unsafe { &*internal.things.alloc(owned) };
                             let ptr: *const Ptr::T = owned.borrow();
                             let itd: Ptr = Ptr::new_intern_ptr(id, unsafe { &*ptr });
-                            internal.ids.insert(unsafe { &*itd.raw() }, itd);
+                            internal.ids.insert(unsafe { &*ptr }, itd);
                             itd
                         }
                     })
