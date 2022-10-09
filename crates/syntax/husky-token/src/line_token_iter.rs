@@ -76,7 +76,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                     self.line_index,
                     j_start,
                     j_start + len,
-                    HuskyTokenKind::PrimitiveLiteral(PrimitiveLiteralData::Float(
+                    HuskyTokenKind::PrimitiveLiteral(RawLiteralData::Float(
                         self.take_buffer::<f64>().into(),
                     )),
                 )
@@ -90,7 +90,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         if self.peek_char() != '2' {
                             (
                                 self.buffer.len() + 2,
-                                HuskyTokenKind::IllFormedLiteral(PrimitiveLiteralData::Bits(
+                                HuskyTokenKind::IllFormedLiteral(RawLiteralData::Bits(
                                     self.take_buffer::<u64>().into(),
                                 )),
                             )
@@ -102,7 +102,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                             } else {
                                 (
                                     self.buffer.len() + 3,
-                                    HuskyTokenKind::PrimitiveLiteral(PrimitiveLiteralData::B32(
+                                    HuskyTokenKind::PrimitiveLiteral(RawLiteralData::B32(
                                         self.take_buffer::<u32>().into(),
                                     )),
                                 )
@@ -118,7 +118,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                     }
                     _ => (
                         self.buffer.len() + 1,
-                        HuskyTokenKind::IllFormedLiteral(PrimitiveLiteralData::B64(
+                        HuskyTokenKind::IllFormedLiteral(RawLiteralData::B64(
                             self.take_buffer::<u64>(),
                         )),
                     ),
@@ -141,7 +141,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         self.line_index,
                         j_start,
                         j_start + token_len,
-                        HuskyTokenKind::IllFormedLiteral(PrimitiveLiteralData::B64(
+                        HuskyTokenKind::IllFormedLiteral(RawLiteralData::B64(
                             self.take_buffer::<u64>().into(),
                         )),
                     )
@@ -152,7 +152,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         self.line_index,
                         j_start,
                         j_start + len,
-                        HuskyTokenKind::PrimitiveLiteral(PrimitiveLiteralData::Integer(
+                        HuskyTokenKind::PrimitiveLiteral(RawLiteralData::Integer(
                             self.take_buffer::<i32>().into(),
                         )),
                     )

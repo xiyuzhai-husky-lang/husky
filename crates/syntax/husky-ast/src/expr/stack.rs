@@ -2,7 +2,7 @@ use crate::*;
 use husky_check_utils::should;
 use husky_entity_route::{RangedEntityRoute, SpatialArgument};
 use husky_opn_syntax::{RawOpnVariant, RawSuffixOpr};
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::RangedCustomIdentifier;
 use husky_text::{TextPosition, TextRange};
 use thin_vec::ThinVec;
@@ -310,31 +310,29 @@ impl<'a> ExprStack<'a> {
             if let RawExprVariant::PrimitiveLiteral(lit) = self.exprs.last().unwrap().variant {
                 self.exprs.pop();
                 match lit {
-                    PrimitiveLiteralData::I32(i) => self.exprs.push(RawExpr {
+                    RawLiteralData::I32(i) => self.exprs.push(RawExpr {
                         range,
-                        variant: RawExprVariant::PrimitiveLiteral(PrimitiveLiteralData::I32(-i)),
+                        variant: RawExprVariant::PrimitiveLiteral(RawLiteralData::I32(-i)),
                     }),
-                    PrimitiveLiteralData::F32(f) => self.exprs.push(RawExpr {
+                    RawLiteralData::F32(f) => self.exprs.push(RawExpr {
                         range,
-                        variant: RawExprVariant::PrimitiveLiteral(PrimitiveLiteralData::F32(-f)),
+                        variant: RawExprVariant::PrimitiveLiteral(RawLiteralData::F32(-f)),
                     }),
-                    PrimitiveLiteralData::Void
-                    | PrimitiveLiteralData::B32(_)
-                    | PrimitiveLiteralData::Bool(_)
-                    | PrimitiveLiteralData::B64(_) => todo!(),
-                    PrimitiveLiteralData::Integer(i) => self.exprs.push(RawExpr {
+                    RawLiteralData::Void
+                    | RawLiteralData::B32(_)
+                    | RawLiteralData::Bool(_)
+                    | RawLiteralData::B64(_) => todo!(),
+                    RawLiteralData::Integer(i) => self.exprs.push(RawExpr {
                         range,
-                        variant: RawExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Integer(
-                            -i,
-                        )),
+                        variant: RawExprVariant::PrimitiveLiteral(RawLiteralData::Integer(-i)),
                     }),
-                    PrimitiveLiteralData::I64(_) => todo!(),
-                    PrimitiveLiteralData::Float(f) => self.exprs.push(RawExpr {
+                    RawLiteralData::I64(_) => todo!(),
+                    RawLiteralData::Float(f) => self.exprs.push(RawExpr {
                         range,
-                        variant: RawExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Float(-f)),
+                        variant: RawExprVariant::PrimitiveLiteral(RawLiteralData::Float(-f)),
                     }),
-                    PrimitiveLiteralData::F64(_) => todo!(),
-                    PrimitiveLiteralData::Bits(_) => todo!(),
+                    RawLiteralData::F64(_) => todo!(),
+                    RawLiteralData::Bits(_) => todo!(),
                 }
                 return;
             }

@@ -1,4 +1,4 @@
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::RangedCustomIdentifier;
 use husky_word::{Keyword, LiasonKeyword, Paradigm};
 
@@ -65,29 +65,29 @@ impl AtomParserPattern for UsizeLiteralPattern {
             }) = parser.token_stream.next()
             {
                 match data {
-                    PrimitiveLiteralData::Void => todo!(),
-                    PrimitiveLiteralData::I32(i) => {
+                    RawLiteralData::Void => todo!(),
+                    RawLiteralData::I32(i) => {
                         if *i < 0 {
                             None
                         } else {
                             Some(*i as usize)
                         }
                     }
-                    PrimitiveLiteralData::Integer(i) => {
+                    RawLiteralData::Integer(i) => {
                         if *i < 0 {
                             None
                         } else {
                             Some(*i as usize)
                         }
                     }
-                    PrimitiveLiteralData::I64(_) => todo!(),
-                    PrimitiveLiteralData::Float(_) => None,
-                    PrimitiveLiteralData::F32(_) => todo!(),
-                    PrimitiveLiteralData::F64(_) => todo!(),
-                    PrimitiveLiteralData::Bits(_) => todo!(),
-                    PrimitiveLiteralData::B32(_) => todo!(),
-                    PrimitiveLiteralData::B64(_) => todo!(),
-                    PrimitiveLiteralData::Bool(_) => todo!(),
+                    RawLiteralData::I64(_) => todo!(),
+                    RawLiteralData::Float(_) => None,
+                    RawLiteralData::F32(_) => todo!(),
+                    RawLiteralData::F64(_) => todo!(),
+                    RawLiteralData::Bits(_) => todo!(),
+                    RawLiteralData::B32(_) => todo!(),
+                    RawLiteralData::B64(_) => todo!(),
+                    RawLiteralData::Bool(_) => todo!(),
                 }
             } else {
                 None
@@ -141,29 +141,29 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
         }) = self.token_stream.next()
         {
             match data {
-                PrimitiveLiteralData::Void => todo!(),
-                PrimitiveLiteralData::I32(i) => {
+                RawLiteralData::Void => todo!(),
+                RawLiteralData::I32(i) => {
                     if *i < 0 {
                         None
                     } else {
                         Some(*i as usize)
                     }
                 }
-                PrimitiveLiteralData::Integer(i) => {
+                RawLiteralData::Integer(i) => {
                     if *i < 0 {
                         None
                     } else {
                         Some(*i as usize)
                     }
                 }
-                PrimitiveLiteralData::I64(_) => todo!(),
-                PrimitiveLiteralData::Float(_) => None,
-                PrimitiveLiteralData::F32(_) => todo!(),
-                PrimitiveLiteralData::F64(_) => todo!(),
-                PrimitiveLiteralData::Bits(_) => todo!(),
-                PrimitiveLiteralData::B32(_) => todo!(),
-                PrimitiveLiteralData::B64(_) => todo!(),
-                PrimitiveLiteralData::Bool(_) => todo!(),
+                RawLiteralData::I64(_) => todo!(),
+                RawLiteralData::Float(_) => None,
+                RawLiteralData::F32(_) => todo!(),
+                RawLiteralData::F64(_) => todo!(),
+                RawLiteralData::Bits(_) => todo!(),
+                RawLiteralData::B32(_) => todo!(),
+                RawLiteralData::B64(_) => todo!(),
+                RawLiteralData::Bool(_) => todo!(),
             }
         } else {
             None

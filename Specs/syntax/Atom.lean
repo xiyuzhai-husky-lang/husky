@@ -23,7 +23,7 @@ inductive HuskyAtomVariant
         (opt_field_ty: Option RangedEntityRoute)
         (field_liason: MemberModifier)
     | Unrecognized (ident : CustomIdentifier)
-    | PrimitiveLiteral(data : PrimitiveLiteralData)
+    | PrimitiveLiteral(data : RawLiteralData)
     | Binary(opr : BinaryOpr)
     | Prefix(opr : PrefixOpr)
     | Suffix(opr : RawSuffixOpr)

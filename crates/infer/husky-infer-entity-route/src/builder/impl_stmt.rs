@@ -1,6 +1,6 @@
 use husky_ast::{RawBoundary, RawLoopKind};
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 
 use super::*;
 
@@ -173,8 +173,8 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         // because there is no implicit conversion
         let ty: EntityRoutePtr = match pattern.variant {
             RawPatternVariant::PrimitiveLiteral(value) => match value {
-                PrimitiveLiteralData::Void => todo!(),
-                PrimitiveLiteralData::Integer(_) => match expectation {
+                RawLiteralData::Void => todo!(),
+                RawLiteralData::Integer(_) => match expectation {
                     EntityRoutePtr::Root(
                         RootBuiltinIdentifier::I32
                         | RootBuiltinIdentifier::I64
@@ -183,15 +183,15 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                     ) => return,
                     _ => RootBuiltinIdentifier::I32.into(),
                 },
-                PrimitiveLiteralData::I32(_) => RootBuiltinIdentifier::I32.into(),
-                PrimitiveLiteralData::I64(_) => RootBuiltinIdentifier::I64.into(),
-                PrimitiveLiteralData::Float(_) => todo!(),
-                PrimitiveLiteralData::F32(_) => RootBuiltinIdentifier::F32.into(),
-                PrimitiveLiteralData::F64(_) => RootBuiltinIdentifier::F64.into(),
-                PrimitiveLiteralData::Bits(_) => todo!(),
-                PrimitiveLiteralData::B32(_) => RootBuiltinIdentifier::B32.into(),
-                PrimitiveLiteralData::B64(_) => RootBuiltinIdentifier::B64.into(),
-                PrimitiveLiteralData::Bool(_) => todo!(),
+                RawLiteralData::I32(_) => RootBuiltinIdentifier::I32.into(),
+                RawLiteralData::I64(_) => RootBuiltinIdentifier::I64.into(),
+                RawLiteralData::Float(_) => todo!(),
+                RawLiteralData::F32(_) => RootBuiltinIdentifier::F32.into(),
+                RawLiteralData::F64(_) => RootBuiltinIdentifier::F64.into(),
+                RawLiteralData::Bits(_) => todo!(),
+                RawLiteralData::B32(_) => RootBuiltinIdentifier::B32.into(),
+                RawLiteralData::B64(_) => RootBuiltinIdentifier::B64.into(),
+                RawLiteralData::Bool(_) => todo!(),
             },
             RawPatternVariant::OneOf { ref subpatterns } => {
                 for subpattern in subpatterns {

@@ -1,6 +1,6 @@
 use husky_entity_route::EntityRoutePtr;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use infer_total::InferQueryGroup;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -11,7 +11,7 @@ pub struct PurePattern {
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum PurePatternVariant {
-    PrimitiveLiteral(PrimitiveLiteralData),
+    PrimitiveLiteral(RawLiteralData),
     OneOf { subpatterns: Vec<PurePattern> },
     EnumLiteral(EntityRoutePtr),
     Some,

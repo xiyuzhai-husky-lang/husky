@@ -4,7 +4,7 @@ use husky_opn_syntax::{
     BinaryOpr, Bracket, ListEndAttr, ListStartAttr, PrefixOpr, PureBinaryOpr, RawSuffixOpr,
 };
 use husky_pattern_syntax::RawPattern;
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::*;
 use husky_token::SpecialToken;
 use husky_word::{CustomIdentifier, WordOpr, WordPattern};
@@ -35,7 +35,7 @@ pub enum HuskyAtomVariant {
         field_liason: MemberModifier,
     },
     Unrecognized(CustomIdentifier),
-    PrimitiveLiteral(PrimitiveLiteralData),
+    PrimitiveLiteral(RawLiteralData),
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(RawSuffixOpr),
@@ -140,15 +140,15 @@ impl From<WordOpr> for HuskyAtomVariant {
     }
 }
 
-impl From<PrimitiveLiteralData> for HuskyAtomVariant {
-    fn from(lit: PrimitiveLiteralData) -> Self {
+impl From<RawLiteralData> for HuskyAtomVariant {
+    fn from(lit: RawLiteralData) -> Self {
         Self::PrimitiveLiteral(lit)
     }
 }
 
 // impl From<i32> for AtomVariant {
 //     fn from(i: i32) -> Self {
-//         PrimitiveLiteralData::I32(i).into()
+//         RawLiteralData::I32(i).into()
 //     }
 // }
 

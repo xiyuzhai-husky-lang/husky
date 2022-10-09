@@ -9,9 +9,9 @@ pub enum HuskyTokenKind {
     Special(SpecialToken),
     WordOpr(WordOpr),
     WordPattern(WordPattern),
-    PrimitiveLiteral(PrimitiveLiteralData),
+    PrimitiveLiteral(RawLiteralData),
     Unrecognized(char),
-    IllFormedLiteral(PrimitiveLiteralData),
+    IllFormedLiteral(RawLiteralData),
 }
 
 impl std::fmt::Display for HuskyTokenKind {

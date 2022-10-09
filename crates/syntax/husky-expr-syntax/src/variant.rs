@@ -1,10 +1,10 @@
 use crate::*;
 use husky_opn_syntax::RawOpnVariant;
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprVariant {
-    PrimitiveLiteral(PrimitiveLiteralData),
+    Literal(RawLiteralData),
     Variable {
         varname: Identifier,
         variable_kind: RawVariableKind,

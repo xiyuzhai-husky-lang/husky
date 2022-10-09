@@ -1,7 +1,7 @@
 use ordered_float::OrderedFloat;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum PrimitiveLiteralData {
+pub enum RawLiteralData {
     Void,
     Integer(i64),
     I32(i32),
@@ -15,38 +15,38 @@ pub enum PrimitiveLiteralData {
     Bool(bool),
 }
 
-impl std::fmt::Display for PrimitiveLiteralData {
+impl std::fmt::Display for RawLiteralData {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            PrimitiveLiteralData::Void => "void".fmt(formatter),
-            PrimitiveLiteralData::Integer(i) => i.fmt(formatter),
-            PrimitiveLiteralData::I32(i) => i.fmt(formatter),
-            PrimitiveLiteralData::I64(i) => i.fmt(formatter),
-            PrimitiveLiteralData::Float(f) => f.fmt(formatter),
-            PrimitiveLiteralData::F32(f) => f.fmt(formatter),
-            PrimitiveLiteralData::F64(f) => f.fmt(formatter),
-            PrimitiveLiteralData::Bits(b) => b.fmt(formatter),
-            PrimitiveLiteralData::B32(b) => b.fmt(formatter),
-            PrimitiveLiteralData::B64(b) => b.fmt(formatter),
-            PrimitiveLiteralData::Bool(b) => b.fmt(formatter),
+            RawLiteralData::Void => "void".fmt(formatter),
+            RawLiteralData::Integer(i) => i.fmt(formatter),
+            RawLiteralData::I32(i) => i.fmt(formatter),
+            RawLiteralData::I64(i) => i.fmt(formatter),
+            RawLiteralData::Float(f) => f.fmt(formatter),
+            RawLiteralData::F32(f) => f.fmt(formatter),
+            RawLiteralData::F64(f) => f.fmt(formatter),
+            RawLiteralData::Bits(b) => b.fmt(formatter),
+            RawLiteralData::B32(b) => b.fmt(formatter),
+            RawLiteralData::B64(b) => b.fmt(formatter),
+            RawLiteralData::Bool(b) => b.fmt(formatter),
         }
     }
 }
 
-impl Into<String> for PrimitiveLiteralData {
+impl Into<String> for RawLiteralData {
     fn into(self) -> String {
         match self {
-            PrimitiveLiteralData::Void => "void".to_string(),
-            PrimitiveLiteralData::Integer(i) => format!("{i}"),
-            PrimitiveLiteralData::I32(i) => format!("{i}i32"),
-            PrimitiveLiteralData::I64(i) => format!("{i}i64"),
-            PrimitiveLiteralData::Float(f) => format!("{f}"),
-            PrimitiveLiteralData::F32(f) => format!("{f}f32"),
-            PrimitiveLiteralData::F64(f) => format!("{f}f64"),
-            PrimitiveLiteralData::Bits(b) => format!("{b}"),
-            PrimitiveLiteralData::B32(b) => format!("{b}u32"),
-            PrimitiveLiteralData::B64(b) => format!("{b}u64"),
-            PrimitiveLiteralData::Bool(b) => format!("{b}"),
+            RawLiteralData::Void => "void".to_string(),
+            RawLiteralData::Integer(i) => format!("{i}"),
+            RawLiteralData::I32(i) => format!("{i}i32"),
+            RawLiteralData::I64(i) => format!("{i}i64"),
+            RawLiteralData::Float(f) => format!("{f}"),
+            RawLiteralData::F32(f) => format!("{f}f32"),
+            RawLiteralData::F64(f) => format!("{f}f64"),
+            RawLiteralData::Bits(b) => format!("{b}"),
+            RawLiteralData::B32(b) => format!("{b}u32"),
+            RawLiteralData::B64(b) => format!("{b}u64"),
+            RawLiteralData::Bool(b) => format!("{b}"),
         }
     }
 }

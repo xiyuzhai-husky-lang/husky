@@ -3,7 +3,7 @@ use husky_entity_route::{EntityKind, EntityRoutePtr};
 use husky_file::FilePtr;
 use husky_infer_entity_route::InferEntityRoute;
 use husky_infer_qualified_ty::{EagerExprQualifiedTy, EagerExprQualifier, InferQualifiedTy};
-use husky_primitive_literal_syntax::PrimitiveLiteralData;
+use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::RangedCustomIdentifier;
 use husky_vm::*;
 use husky_word::RootBuiltinIdentifier;
@@ -63,10 +63,10 @@ pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualified
                 EntityKind::Module => todo!(),
                 EntityKind::EnumVariant => match route {
                     EntityRoutePtr::Root(RootBuiltinIdentifier::True) => {
-                        EagerExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Bool(true))
+                        EagerExprVariant::PrimitiveLiteral(RawLiteralData::Bool(true))
                     }
                     EntityRoutePtr::Root(RootBuiltinIdentifier::False) => {
-                        EagerExprVariant::PrimitiveLiteral(PrimitiveLiteralData::Bool(false))
+                        EagerExprVariant::PrimitiveLiteral(RawLiteralData::Bool(false))
                     }
                     EntityRoutePtr::Custom(_) => EagerExprVariant::EnumKindLiteral(route),
                     _ => todo!(),
