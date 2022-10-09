@@ -1,0 +1,17 @@
+[package]
+name = "husky-expr-syntax"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+# abstraction
+arena = { path = "../../abstraction/arena" }
+# kernel
+husky-word = { path = "../../kernel/husky-word" }
+# syntax
+husky-text = { path = "../../syntax/husky-text" }
+husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+# utils
+husky-check-utils = { path = "../../utils/husky-check-utils" }
