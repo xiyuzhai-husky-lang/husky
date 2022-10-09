@@ -1,0 +1,7 @@
+struct LogicAnd<P: Prop, Q: Prop>:
+    left: P,
+    right: Q
+
+enum LogicOr<P: Prop, Q: Prop>:
+    Left(P)
+    Right(Q)
