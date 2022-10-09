@@ -1,7 +1,11 @@
 use husky_path_utils::PathBuf;
 use relative_path::RelativePathBuf;
 use serde::{Deserialize, Serialize};
-use std::{fs::read_to_string, ops::Deref};
+use std::{
+    fs::read_to_string,
+    io::{stdin, stdout, Write},
+    ops::Deref,
+};
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 struct Entry<In, Out> {
@@ -40,8 +44,32 @@ where
     }
 }
 
-fn ask_for_overwrite(message: String) {
-    todo!()
+#[must_use]
+enum OverwritePermission {
+    Allowed,
+    Forbidden,
+}
+
+fn ask_for_overwrite(message: String) -> OverwritePermission {
+    loop {
+        print!("{message}. Do you want to overwrite expect (y/n)? ");
+        let _ = stdout().flush();
+        let mut s = String::new();
+        stdin()
+            .read_line(&mut s)
+            .expect("Did not enter a correct string");
+        if let Some('\n') = s.chars().next_back() {
+            s.pop();
+        }
+        if let Some('\r') = s.chars().next_back() {
+            s.pop();
+        }
+        match &s as &str {
+            "y" => break OverwritePermission::Allowed,
+            "n" => break OverwritePermission::Forbidden,
+            _ => println!("Invalid answer: {}", s),
+        }
+    }
 }
 
 use thiserror::Error;
