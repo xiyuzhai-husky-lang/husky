@@ -58,51 +58,21 @@ pub fn expect_test<Input, Output>(
         for<'a> Deserialize<'a> + Serialize + std::fmt::Display + std::fmt::Debug + PartialEq + Eq,
 {
     let dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
-    let input_path = dir.join(format!("tests/{partial_path}.json"));
-    let inputs: Vec<Input> = deserialize_from_file(&input_path).unwrap();
-    let expect_path = dir.join(format!("tests/{partial_path}.expect.json"));
-    let outputs = inputs.iter().map(|input| f(input)).collect::<Vec<_>>();
-    let expects = match deserialize_from_file(&expect_path) {
+    let data_path = dir.join(format!("tests/{partial_path}.json"));
+    let mut expects = match deserialize_from_file(&data_path) {
         Ok::<Vec<Expect<Input, Output>>, _>(expects) => expects,
-        Err(e) => match e {
-            DesIoError::IO(_) => todo!(),
-            DesIoError::NotValidFile(_) | DesIoError::SerdeJson(_) => {
-                match ask_yes_or_no(format!(
-                    r#"{RED}Unable to parse json value from {expect_path:?}.{RESET}
-    Do you want to overwrite expect (y/n)? "#
-                )) {
-                    true => (),
-                    false => panic!("Unable to parse json value from {expect_path:?}"),
-                }
-                vec![]
-            }
-        },
+        Err(e) => panic!("unable to parse results because due to {e}"),
     };
     if interative == Interactive::True {
-        let mut updated_expects = expects;
-        for (i, (input, output)) in
-            std::iter::zip(inputs.into_iter(), outputs.into_iter()).enumerate()
-        {
-            let needs_asking = if i < updated_expects.len() {
-                !(updated_expects[i].input == input && updated_expects[i].output == output)
-            } else {
-                assert_eq!(i, updated_expects.len());
-                true
-            };
-            if needs_asking {
-                match ask_is_input_output_okay(&input, &output) {
-                    true => {
-                        if i < updated_expects.len() {
-                            updated_expects[i] = Expect { input, output };
-                        } else {
-                            assert_eq!(i, updated_expects.len());
-                            updated_expects.push(Expect { input, output })
-                        }
-                    }
+        for expect in expects.iter_mut() {
+            let output = f(&expect.input);
+            if expect.output != output {
+                match ask_is_input_output_okay(&expect.input, &output) {
+                    true => expect.output = output,
                     false => {
                         diff_write(
-                            &expect_path,
-                            &serde_json::to_string_pretty(&updated_expects).unwrap(),
+                            &data_path,
+                            &serde_json::to_string_pretty(&expects).unwrap(),
                             true,
                         );
                         panic!("expect update not accepted")
@@ -111,14 +81,14 @@ pub fn expect_test<Input, Output>(
             }
         }
         diff_write(
-            &expect_path,
-            &serde_json::to_string_pretty(&updated_expects).unwrap(),
+            &data_path,
+            &serde_json::to_string_pretty(&expects).unwrap(),
             true,
         );
     } else {
-        assert_eq!(outputs.len(), expects.len());
-        for (output, expect) in std::iter::zip(outputs.into_iter(), expects.into_iter()) {
-            assert_eq!(output, expect.output)
+        for expect in expects.iter() {
+            let output = f(&expect.input);
+            assert_eq!(expect.output, output)
         }
     }
 }
