@@ -47,9 +47,15 @@ pub fn expect_test<Input, Output>(
     partial_path: &'static str,
     f: fn(&<Input as Deref>::Target) -> Output,
 ) where
-    Input:
-        for<'a> Deserialize<'a> + Serialize + std::fmt::Display + PartialEq + Eq + std::ops::Deref,
-    Output: for<'a> Deserialize<'a> + Serialize + std::fmt::Display + PartialEq + Eq,
+    Input: for<'a> Deserialize<'a>
+        + Serialize
+        + std::fmt::Display
+        + std::fmt::Debug
+        + PartialEq
+        + Eq
+        + std::ops::Deref,
+    Output:
+        for<'a> Deserialize<'a> + Serialize + std::fmt::Display + std::fmt::Debug + PartialEq + Eq,
 {
     let dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
     let input_path = dir.join(format!("tests/{partial_path}.json"));
@@ -61,54 +67,85 @@ pub fn expect_test<Input, Output>(
         Err(e) => match e {
             DesIoError::IO(_) => todo!(),
             DesIoError::NotValidFile(_) | DesIoError::SerdeJson(_) => {
+                match ask_yes_or_no(format!(
+                    r#"{RED}Unable to parse json value from {expect_path:?}.{RESET}
+    Do you want to overwrite expect (y/n)? "#
+                )) {
+                    true => (),
+                    false => panic!("Unable to parse json value from {expect_path:?}"),
+                }
                 vec![]
             }
         },
     };
-    let updated_expects = if interative == Interactive::True {
-        match ask_yes_or_no(format!(
-            r#"{RED}Unable to parse json value from {expect_path:?}.{RESET}
-Do you want to overwrite expect (y/n)? "#
-        )) {
-            true => {
-                let mut updated_expects = vec![];
-                for (input, output) in std::iter::zip(inputs.into_iter(), outputs.into_iter()) {
-                    match ask_yes_or_no(format!(
-                        r#"
+    if interative == Interactive::True {
+        let mut updated_expects = expects;
+        for (i, (input, output)) in
+            std::iter::zip(inputs.into_iter(), outputs.into_iter()).enumerate()
+        {
+            let needs_asking = if i < updated_expects.len() {
+                !(updated_expects[i].input == input && updated_expects[i].output == output)
+            } else {
+                assert_eq!(i, updated_expects.len());
+                true
+            };
+            if needs_asking {
+                match ask_is_input_output_okay(&input, &output) {
+                    true => {
+                        if i < updated_expects.len() {
+                            updated_expects[i] = Expect { input, output };
+                        } else {
+                            assert_eq!(i, updated_expects.len());
+                            updated_expects.push(Expect { input, output })
+                        }
+                    }
+                    false => {
+                        diff_write(
+                            &expect_path,
+                            &serde_json::to_string_pretty(&updated_expects).unwrap(),
+                            true,
+                        );
+                        panic!("expect update not accepted")
+                    }
+                }
+            }
+        }
+        diff_write(
+            &expect_path,
+            &serde_json::to_string_pretty(&updated_expects).unwrap(),
+            true,
+        );
+    } else {
+        assert_eq!(outputs.len(), expects.len());
+        for (output, expect) in std::iter::zip(outputs.into_iter(), expects.into_iter()) {
+            assert_eq!(output, expect.output)
+        }
+    }
+}
+
+fn ask_is_input_output_okay<Input, Output>(input: &Input, output: &Output) -> bool
+where
+    Input: for<'a> Deserialize<'a>
+        + Serialize
+        + std::fmt::Display
+        + std::fmt::Debug
+        + PartialEq
+        + Eq
+        + std::ops::Deref,
+    Output:
+        for<'a> Deserialize<'a> + Serialize + std::fmt::Display + std::fmt::Debug + PartialEq + Eq,
+{
+    ask_yes_or_no(format!(
+        r#"
 {CYAN}[input]{RESET}
 {}
 {CYAN}[output]{RESET}
 {}
 
 is this okay (y/n)? "#,
-                        textwrap::indent(&input.to_string(), "    ").blue(),
-                        textwrap::indent(&output.to_string(), "    ").yellow(),
-                    )) {
-                        true => updated_expects.push(Expect { input, output }),
-                        false => {
-                            diff_write(
-                                &expect_path,
-                                &serde_json::to_string_pretty(&updated_expects).unwrap(),
-                                true,
-                            );
-                            panic!("expect update not accepted")
-                        }
-                    }
-                }
-                updated_expects
-            }
-            false => {
-                panic!("Unable to parse json value from {expect_path:?}")
-            }
-        }
-    } else {
-        panic!("Unable to parse json value from {expect_path:?}")
-    };
-    diff_write(
-        &expect_path,
-        &serde_json::to_string_pretty(&updated_expects).unwrap(),
-        true,
-    );
+        textwrap::indent(&input.to_string(), "    ").blue(),
+        textwrap::indent(&output.to_string(), "    ").yellow(),
+    ))
 }
 
 #[must_use]

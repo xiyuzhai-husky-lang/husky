@@ -70,11 +70,6 @@ impl std::fmt::Display for TermApplication {
         todo!()
     }
 }
-impl std::fmt::Display for TermUniverse {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
-    }
-}
 
 #[test]
 fn display_term() {

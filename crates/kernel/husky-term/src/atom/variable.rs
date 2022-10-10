@@ -13,7 +13,7 @@ impl TermVariable {
         todo!()
     }
 
-    pub fn universe(&self) -> TermUniverseLevel {
-        todo!()
-    }
+    // pub fn universe(&self) -> TermUniverseLevel {
+    //     todo!()
+    // }
 }

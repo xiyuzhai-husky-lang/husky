@@ -1,9 +1,7 @@
 mod namespace;
 mod root;
-mod universe;
 
 pub use namespace::*;
-pub use universe::*;
 
 use husky_entity_path::EntityPathPtr;
 
