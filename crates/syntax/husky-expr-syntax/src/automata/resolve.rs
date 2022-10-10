@@ -18,7 +18,7 @@ impl<'a> Automata<'a> {
             TokenKind::Special(_) => todo!(),
             TokenKind::WordOpr(_) => todo!(),
             TokenKind::WordPattern(_) => todo!(),
-            TokenKind::PrimitiveLiteral(_) => todo!(),
+            TokenKind::PrimitiveLiteral(literal) => ResolvedTokenKind::Atom(literal.into()),
             TokenKind::Unrecognized(_) => todo!(),
             TokenKind::IllFormedLiteral(_) => todo!(),
         }
