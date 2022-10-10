@@ -8,7 +8,8 @@ pub struct TermUniverse {
 
 impl Into<Term> for TermUniverse {
     fn into(self) -> Term {
-        Term::Universe(self)
+        todo!()
+        // Term::Universe(self)
     }
 }
 

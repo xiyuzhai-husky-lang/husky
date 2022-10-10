@@ -1,7 +1,9 @@
+mod category;
 mod entity;
 mod literal;
 mod variable;
 
+pub use category::*;
 pub use entity::*;
 pub use literal::*;
 pub use variable::*;
@@ -20,6 +22,10 @@ pub enum TermAtomVariant {
     Variable {
         variable_variant: TermVariableVariant,
     },
+    Entity {/* todo */},
+    Category {
+        category_kind: TermCategoryKind,
+    },
 }
 
 impl std::fmt::Display for TermAtom {
@@ -29,8 +35,12 @@ impl std::fmt::Display for TermAtom {
 }
 
 impl TermAtom {
-    pub fn ty_term(&self) -> TermCow {
+    pub(crate) fn ty_term(&self) -> TermCow {
         todo!()
+    }
+
+    pub(crate) fn variant(&self) -> &TermAtomVariant {
+        &self.variant
     }
 
     pub(crate) fn new_literal(data: TermLiteralData, ty: Ty) -> Self {

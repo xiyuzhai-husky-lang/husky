@@ -1,8 +1,11 @@
 mod namespace;
 mod root;
+mod universe;
+
+pub use namespace::*;
+pub use universe::*;
 
 use husky_entity_path::EntityPathPtr;
-pub use namespace::*;
 
 use husky_word::{Identifier, RootBuiltinIdentifier};
 use optional::Optioned;
@@ -27,6 +30,7 @@ impl TermEntity {
 
 impl Into<Term> for TermEntity {
     fn into(self) -> Term {
-        Term::Entity(self)
+        todo!()
+        // Term::Entity(self)
     }
 }

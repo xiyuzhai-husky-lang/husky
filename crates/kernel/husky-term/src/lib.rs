@@ -13,7 +13,6 @@ mod query;
 #[cfg(test)]
 mod tests;
 mod ty;
-mod universe;
 
 pub use abstraction::TermAbstraction;
 pub use application::TermApplication;
@@ -26,7 +25,6 @@ pub use intern::*;
 pub use menu::*;
 pub use query::*;
 pub use ty::Ty;
-pub use universe::*;
 
 use cow::TermCow;
 use optional::Optioned;
@@ -39,5 +37,4 @@ pub enum Term {
     Curry(TermCurry),
     Abstraction(TermAbstraction),
     Application(TermApplication),
-    Universe(TermUniverse),
 }
