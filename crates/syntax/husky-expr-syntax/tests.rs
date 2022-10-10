@@ -12,4 +12,4 @@ fn test_parse_raw_exprs_debug(text: &str) -> String {
     format!("{:#?}", arena)
 }
 
-expect_test!(test_parse_raw_exprs_debug, ["sporadic"]);
+expect_test!(test_parse_raw_exprs_debug);

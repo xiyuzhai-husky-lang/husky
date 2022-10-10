@@ -19,5 +19,9 @@ count-todo:
 	scripts/pattern_statistics.py "todo!()" crates 1 10
 	scripts/pattern_statistics.py "todo!()" crates 2 10
 
+expect-tests:
+	cargo run --bin husky-token-tests
+	cargo run --bin husky-expr-syntax-tests
+
 ubuntu-setup:
 	scripts/ubuntu_setup.sh
