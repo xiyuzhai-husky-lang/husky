@@ -1,5 +1,6 @@
 mod atom;
 mod automata;
+mod error;
 mod opn;
 mod parser;
 mod precedence;
@@ -7,6 +8,7 @@ mod variant;
 
 pub use atom::*;
 pub use automata::*;
+pub use error::*;
 pub use variant::*;
 
 use husky_opn_syntax::*;

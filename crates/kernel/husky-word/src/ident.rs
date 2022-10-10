@@ -12,7 +12,7 @@ use serde::Serialize;
 use std::fmt::Write;
 use std::{borrow::Borrow, ops::Deref};
 
-#[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
 pub enum Identifier {
     Root(RootBuiltinIdentifier),
     Custom(CustomIdentifier),

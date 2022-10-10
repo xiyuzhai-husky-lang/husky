@@ -10,6 +10,7 @@ description = "Generic LSP server scaffold."
 lsp-types = { version = "0.93", features = ["proposed"] }
 ordered-float = "3.0.0"
 salsa = "0.17.0-pre.2"
+thin-vec = { path = "../../../forks/thin-vec" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
@@ -34,7 +35,6 @@ husky-atom = { path = "../husky-atom" }
 husky-defn-head = { path = "../husky-defn-head" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
-thin-vec = { path = "../../../forks/thin-vec" }
 # husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
 husky-pattern-syntax = { path = "../husky-pattern-syntax" }
 husky-opn-syntax = { path = "../husky-opn-syntax" }

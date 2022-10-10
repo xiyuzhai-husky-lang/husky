@@ -6,6 +6,12 @@ pub(super) struct OnStackOpr {
     pub(super) variant: OnStackOprVariant,
 }
 
+impl OnStackOpr {
+    pub(super) fn precedence(&self) -> Precedence {
+        self.precedence
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(super) enum OnStackOprVariant {
     Binary(BinaryOpr),

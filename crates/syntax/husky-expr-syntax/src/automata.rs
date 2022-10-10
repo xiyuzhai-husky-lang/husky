@@ -2,8 +2,10 @@ mod accept;
 mod opr;
 mod resolve;
 mod stack;
+mod synthesize;
 
 use crate::*;
+use husky_check_utils::should;
 use husky_symbol_syntax::SymbolContext;
 use husky_token::{Token, TokenKind, TokenStream};
 use opr::*;
@@ -40,6 +42,9 @@ impl<'a> Automata<'a> {
             let token = &self.stream.next().unwrap();
             self.accept_token(self.resolve_token(token))
         }
+        self.synthesize_all_above(Precedence::None).expect("todo");
+        should!(self.stack.number_of_exprs() == 1);
+        self.arena.alloc_one(self.stack.pop_expr().unwrap());
     }
 }
 
