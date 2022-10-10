@@ -1,6 +1,8 @@
+use colored::Colorize;
 use husky_io_utils::diff_write;
 use husky_path_utils::{Path, PathBuf};
 use husky_print_utils::p;
+use husky_print_utils::*;
 use relative_path::RelativePathBuf;
 use serde::{Deserialize, Serialize};
 use std::{
@@ -54,67 +56,57 @@ pub fn expect_test<Input, Output>(
     let inputs: Vec<Input> = deserialize_from_file(&input_path).unwrap();
     let expect_path = dir.join(format!("tests/{partial_path}.expect.json"));
     let outputs = inputs.iter().map(|input| f(input)).collect::<Vec<_>>();
-    let updated_expects = match deserialize_from_file(&expect_path) {
-        Ok::<Vec<Expect<Input, Output>>, _>(mut expects) => {
-            assert_eq!(outputs.len(), expects.len());
-            for (output, expect) in std::iter::zip(outputs.into_iter(), expects.iter_mut()) {
-                if output != expect.output {
-                    todo!()
-                }
-            }
-            expects
-        }
+    let expects = match deserialize_from_file(&expect_path) {
+        Ok::<Vec<Expect<Input, Output>>, _>(expects) => expects,
         Err(e) => match e {
             DesIoError::IO(_) => todo!(),
             DesIoError::NotValidFile(_) | DesIoError::SerdeJson(_) => {
-                if interative == Interactive::True {
-                    match ask_yes_or_no(format!(
-                        r#"Unable to parse json value from {expect_path:?}.
-Do you want to overwrite expect (y/n)? "#
-                    )) {
-                        true => {
-                            let mut updated_expects = vec![];
-                            for (input, output) in
-                                std::iter::zip(inputs.into_iter(), outputs.into_iter())
-                            {
-                                match ask_yes_or_no(format!(
-                                    r#"
-input:
-
-{input}
-
-output:
-
-{output}
-
-is this okay (y/n)? "#
-                                )) {
-                                    true => updated_expects.push(Expect { input, output }),
-                                    false => {
-                                        diff_write(
-                                            &expect_path,
-                                            &serde_json::to_string(&updated_expects).unwrap(),
-                                            true,
-                                        );
-                                        panic!()
-                                    }
-                                }
-                            }
-                            updated_expects
-                        }
-                        false => {
-                            panic!("Unable to parse json value from {expect_path:?}")
-                        }
-                    }
-                } else {
-                    panic!("Unable to parse json value from {expect_path:?}")
-                }
+                vec![]
             }
         },
     };
+    let updated_expects = if interative == Interactive::True {
+        match ask_yes_or_no(format!(
+            r#"{RED}Unable to parse json value from {expect_path:?}.{RESET}
+Do you want to overwrite expect (y/n)? "#
+        )) {
+            true => {
+                let mut updated_expects = vec![];
+                for (input, output) in std::iter::zip(inputs.into_iter(), outputs.into_iter()) {
+                    match ask_yes_or_no(format!(
+                        r#"
+{CYAN}[input]{RESET}
+{}
+{CYAN}[output]{RESET}
+{}
+
+is this okay (y/n)? "#,
+                        textwrap::indent(&input.to_string(), "    ").blue(),
+                        textwrap::indent(&output.to_string(), "    ").yellow(),
+                    )) {
+                        true => updated_expects.push(Expect { input, output }),
+                        false => {
+                            diff_write(
+                                &expect_path,
+                                &serde_json::to_string_pretty(&updated_expects).unwrap(),
+                                true,
+                            );
+                            panic!("expect update not accepted")
+                        }
+                    }
+                }
+                updated_expects
+            }
+            false => {
+                panic!("Unable to parse json value from {expect_path:?}")
+            }
+        }
+    } else {
+        panic!("Unable to parse json value from {expect_path:?}")
+    };
     diff_write(
         &expect_path,
-        &serde_json::to_string(&updated_expects).unwrap(),
+        &serde_json::to_string_pretty(&updated_expects).unwrap(),
         true,
     );
 }

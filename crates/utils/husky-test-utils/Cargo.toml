@@ -10,6 +10,8 @@ serde_json = { version = "1.0.48", features = [
 ], optional = true }
 thiserror = "1.0.37"
 relative-path = "1.7.2"
+textwrap = "0.15.1"
+colored = "2.0.0"
 husky-path-utils = { path = "../husky-path-utils" }
 husky-print-utils = { path = "../husky-print-utils" }
 husky-io-utils = { path = "../../utils/husky-io-utils" }
