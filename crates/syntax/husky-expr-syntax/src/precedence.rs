@@ -50,6 +50,7 @@ impl From<BinaryOpr> for Precedence {
                 PureBinaryOpr::Power => Precedence::Power,
             },
             BinaryOpr::Assign(_) => Precedence::None,
+            BinaryOpr::ScopeResolution => todo!(),
         }
     }
 }

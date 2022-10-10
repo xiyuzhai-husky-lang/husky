@@ -7,8 +7,6 @@ mod scanner;
 mod semantic_token;
 mod special;
 mod stream;
-#[cfg(test)]
-mod tests;
 mod tokenized_text;
 mod utils;
 

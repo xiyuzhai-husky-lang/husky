@@ -59,6 +59,7 @@ impl<'a> RustCodeGenerator<'a> {
                             },
                             _ => self.write("*"),
                         },
+                        BinaryOpr::ScopeResolution => todo!(),
                     }
                     self.gen_expr(indent, &opds[0]);
                     match opr {

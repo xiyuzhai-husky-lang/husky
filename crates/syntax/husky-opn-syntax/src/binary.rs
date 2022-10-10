@@ -4,6 +4,7 @@ use super::*;
 pub enum BinaryOpr {
     Pure(PureBinaryOpr),
     Assign(Option<PureBinaryOpr>),
+    ScopeResolution,
 }
 
 impl Into<RawOpnVariant> for BinaryOpr {
@@ -43,6 +44,7 @@ impl BinaryOpr {
                     " = "
                 }
             }
+            BinaryOpr::ScopeResolution => todo!(),
         }
     }
 }
@@ -97,25 +99,25 @@ impl PureBinaryOpr {
 
     pub fn husky_code(&self) -> &'static str {
         match self {
-            PureBinaryOpr::Less => "<",
-            PureBinaryOpr::Leq => "<=",
-            PureBinaryOpr::Greater => ">",
-            PureBinaryOpr::Geq => ">=",
-            PureBinaryOpr::Neq => "!=",
-            PureBinaryOpr::Eq => "==",
-            PureBinaryOpr::Shl => "<<",
-            PureBinaryOpr::Shr => ">>",
             PureBinaryOpr::Add => "+",
-            PureBinaryOpr::Sub => "-",
-            PureBinaryOpr::Mul => "*",
-            PureBinaryOpr::Div => "/",
             PureBinaryOpr::And => "&&",
             PureBinaryOpr::BitAnd => "&",
+            PureBinaryOpr::BitOr => "|",
+            PureBinaryOpr::BitXor => "^",
+            PureBinaryOpr::Div => "/",
+            PureBinaryOpr::Eq => "==",
+            PureBinaryOpr::Greater => ">",
+            PureBinaryOpr::Geq => ">=",
+            PureBinaryOpr::Less => "<",
+            PureBinaryOpr::Leq => "<=",
+            PureBinaryOpr::Mul => "*",
+            PureBinaryOpr::Neq => "!=",
             PureBinaryOpr::Or => "||",
             PureBinaryOpr::Power => "**",
-            PureBinaryOpr::BitXor => "^",
-            PureBinaryOpr::BitOr => "|",
             PureBinaryOpr::RemEuclid => "%",
+            PureBinaryOpr::Shl => "<<",
+            PureBinaryOpr::Shr => ">>",
+            PureBinaryOpr::Sub => "-",
         }
     }
 

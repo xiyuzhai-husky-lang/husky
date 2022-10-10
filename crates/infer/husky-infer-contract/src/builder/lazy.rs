@@ -154,6 +154,7 @@ impl<'a> ContractSheetBuilder<'a> {
                     self.arena[idx].range
                 )
             }
+            BinaryOpr::ScopeResolution => todo!(),
         }
         Ok(())
     }

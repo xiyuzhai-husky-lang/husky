@@ -15,10 +15,7 @@ use std::{
 // first read and compare, and then write if different
 pub fn diff_write(path: &Path, content: &str, verbose: bool) {
     let different = match fs::read_to_string(path) {
-        Ok(content_on_disk) => {
-            assert!(content_on_disk.len() > 0);
-            content != content_on_disk
-        }
+        Ok(content_on_disk) => content != content_on_disk,
         Err(_) => true,
     };
     if different {
