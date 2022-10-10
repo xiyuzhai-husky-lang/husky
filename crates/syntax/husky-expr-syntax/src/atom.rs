@@ -8,6 +8,12 @@ pub enum RawAtom {
     Symbol(Symbol),
 }
 
+impl From<RawLiteralData> for RawAtom {
+    fn from(value: RawLiteralData) -> Self {
+        RawAtom::Literal(value)
+    }
+}
+
 impl From<Symbol> for RawAtom {
     fn from(symbol: Symbol) -> Self {
         RawAtom::Symbol(symbol)

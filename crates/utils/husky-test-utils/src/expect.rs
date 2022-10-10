@@ -12,9 +12,10 @@ use std::{
 };
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
-struct Expect<In, Out> {
-    input: In,
-    output: Out,
+struct Expect<Input, Output> {
+    input: Input,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    output: Option<Output>,
 }
 
 #[derive(PartialEq, Eq)]
@@ -83,9 +84,9 @@ pub fn expect_test<Input, Output>(
         if interative == Interactive::True {
             for expect in expects.iter_mut() {
                 let output = f(&expect.input);
-                if expect.output != output {
+                if expect.output.as_ref() != Some(&output) {
                     match ask_is_input_output_okay(&expect.input, &output) {
-                        true => expect.output = output,
+                        true => expect.output = Some(output),
                         false => {
                             diff_write(
                                 &test_path,
@@ -105,7 +106,7 @@ pub fn expect_test<Input, Output>(
         } else {
             for expect in expects.iter() {
                 let output = f(&expect.input);
-                assert_eq!(expect.output, output)
+                assert_eq!(expect.output, Some(output))
             }
         }
     }

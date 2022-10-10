@@ -1,0 +1,18 @@
+[
+  {
+    "input": "0",
+    "output": "Arena([\n  #0: RawExpr { variant: Atom(Literal(Integer(0))), range: [1:1, 1:2) }\n])"
+  },
+  {
+    "input": "1",
+    "output": "Arena([\n  #0: RawExpr { variant: Atom(Literal(Integer(1))), range: [1:1, 1:2) }\n])"
+  },
+  {
+    "input": "1b32",
+    "output": "Arena([\n  #0: RawExpr { variant: Atom(Literal(B32(1))), range: [1:1, 1:5) }\n])"
+  },
+  {
+    "input": "0.1",
+    "output": "Arena([\n  #0: RawExpr { variant: Atom(Literal(Float(OrderedFloat(0.1)))), range: [1:1, 1:4) }\n])"
+  }
+]
