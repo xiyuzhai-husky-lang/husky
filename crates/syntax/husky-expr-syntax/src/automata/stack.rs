@@ -11,7 +11,19 @@ impl AutomataStack {
         self.oprs.last()
     }
 
+    pub(super) fn number_of_exprs(&self) -> usize {
+        self.exprs.len()
+    }
+
+    pub(super) fn pop_opr(&mut self) -> Option<OnStackOpr> {
+        self.oprs.pop()
+    }
+
     pub(super) fn push_expr(&mut self, expr: RawExpr) {
         self.exprs.push(expr)
+    }
+
+    pub(super) fn pop_expr(&mut self) -> Option<RawExpr> {
+        self.exprs.pop()
     }
 }

@@ -2,7 +2,7 @@ use super::*;
 use core::hash::Hash;
 use std::{borrow::Borrow, fmt::Display, ops::Deref};
 
-#[derive(Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct CustomIdentifier(pub &'static str);
 impl From<CustomIdentifier> for Identifier {
     fn from(ident: CustomIdentifier) -> Self {
@@ -45,12 +45,6 @@ impl CustomIdentifier {
 
     pub fn as_str(&self) -> &'static str {
         self.0
-    }
-}
-
-impl std::fmt::Debug for CustomIdentifier {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str(self.0)
     }
 }
 
