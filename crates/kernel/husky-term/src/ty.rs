@@ -18,8 +18,10 @@ impl std::ops::Deref for Ty {
 impl Ty {
     pub(crate) fn new(term: TermPtr) -> TermResult<Self> {
         match *term.ty_term().deref() {
-            Term::Universe(ref u) => match u.kind() {
-                TermUniverseKind::Type => (),
+            Term::Atom(ref a) => match a.variant() {
+                TermAtomVariant::Category {
+                    category_kind: TermCategoryKind::Type,
+                } => (),
                 _ => return Err(TermError::TermIsNotTy),
             },
             _ => return Err(TermError::TermIsNotTy),
@@ -36,10 +38,11 @@ impl Ty {
     }
 
     pub fn universe_level(self) -> TermUniverseLevel {
-        match self.ty_term().deref() {
-            Term::Universe(u) => u.level(),
-            _ => unreachable!(),
-        }
+        todo!()
+        // match self.ty_term().deref() {
+        //     Term::Universe(u) => u.level(),
+        //     _ => unreachable!(),
+        // }
     }
     // void
     pub(crate) fn void(db: &dyn TermQuery) -> Ty {
@@ -95,7 +98,6 @@ impl Term {
             Term::Curry(c) => c.ty().term().into(),
             Term::Abstraction(abs) => abs.ty().term().into(),
             Term::Application(app) => app.ty().term().into(),
-            Term::Universe(u) => TermUniverse::ty_universe(u.level().next().unwrap()).into(),
         }
     }
 

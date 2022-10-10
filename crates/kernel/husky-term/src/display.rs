@@ -10,7 +10,6 @@ impl std::fmt::Display for Term {
             Term::Curry(c) => c.fmt(f),
             Term::Abstraction(a) => a.fmt(f),
             Term::Application(a) => a.fmt(f),
-            Term::Universe(a) => a.fmt(f),
         }
     }
 }
