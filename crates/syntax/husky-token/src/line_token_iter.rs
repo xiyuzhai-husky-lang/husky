@@ -112,9 +112,26 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                     '6' => {
                         self.ignore_char();
                         if self.peek_char() != '4' {
-                            todo!()
+                            (
+                                self.buffer.len() + 2,
+                                TokenKind::IllFormedLiteral(RawLiteralData::Bits(
+                                    self.take_buffer::<u64>().into(),
+                                )),
+                            )
+                        } else {
+                            // b64
+                            self.ignore_char();
+                            if is_word_char(self.peek_char()) {
+                                todo!()
+                            } else {
+                                (
+                                    self.buffer.len() + 3,
+                                    TokenKind::PrimitiveLiteral(RawLiteralData::B64(
+                                        self.take_buffer::<u64>().into(),
+                                    )),
+                                )
+                            }
                         }
-                        todo!()
                     }
                     _ => (
                         self.buffer.len() + 1,
@@ -124,8 +141,63 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 Token::new(self.line_index, j_start, j_start + token_len, kind)
             }
             'i' => {
-                // i64
-                todo!()
+                // i32 or i64
+                self.ignore_char();
+                let (token_len, kind) = match self.peek_char() {
+                    '3' => {
+                        self.ignore_char();
+                        if self.peek_char() != '2' {
+                            (
+                                self.buffer.len() + 2,
+                                TokenKind::IllFormedLiteral(RawLiteralData::Integer(
+                                    self.take_buffer::<i32>().into(),
+                                )),
+                            )
+                        } else {
+                            // i32
+                            self.ignore_char();
+                            if is_word_char(self.peek_char()) {
+                                todo!()
+                            } else {
+                                (
+                                    self.buffer.len() + 3,
+                                    TokenKind::PrimitiveLiteral(RawLiteralData::I32(
+                                        self.take_buffer::<i32>().into(),
+                                    )),
+                                )
+                            }
+                        }
+                    }
+                    '6' => {
+                        self.ignore_char();
+                        if self.peek_char() != '4' {
+                            (
+                                self.buffer.len() + 2,
+                                TokenKind::IllFormedLiteral(RawLiteralData::Integer(
+                                    self.take_buffer::<i64>().into(),
+                                )),
+                            )
+                        } else {
+                            // b64
+                            self.ignore_char();
+                            if is_word_char(self.peek_char()) {
+                                todo!()
+                            } else {
+                                (
+                                    self.buffer.len() + 3,
+                                    TokenKind::PrimitiveLiteral(RawLiteralData::I64(
+                                        self.take_buffer::<i64>().into(),
+                                    )),
+                                )
+                            }
+                        }
+                    }
+                    _ => (
+                        self.buffer.len() + 1,
+                        TokenKind::IllFormedLiteral(RawLiteralData::I64(self.take_buffer::<i64>())),
+                    ),
+                };
+                Token::new(self.line_index, j_start, j_start + token_len, kind)
             }
             default => {
                 if default.is_alphabetic() {

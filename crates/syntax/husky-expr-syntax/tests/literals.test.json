@@ -8,8 +8,20 @@
     "output": "Arena([\n  #0: RawExpr { variant: Atom(Literal(Integer(1))), range: [1:1, 1:2) }\n])"
   },
   {
+    "input": "1i32",
+    "output": "Arena([\n  #0: RawExpr { variant: Atom(Literal(I32(1))), range: [1:1, 1:5) }\n])"
+  },
+  {
+    "input": "2i64",
+    "output": "Arena([\n  #0: RawExpr { variant: Atom(Literal(I64(2))), range: [1:1, 1:5) }\n])"
+  },
+  {
     "input": "1b32",
     "output": "Arena([\n  #0: RawExpr { variant: Atom(Literal(B32(1))), range: [1:1, 1:5) }\n])"
+  },
+  {
+    "input": "1b64",
+    "output": "Arena([\n  #0: RawExpr { variant: Atom(Literal(B64(1))), range: [1:1, 1:5) }\n])"
   },
   {
     "input": "0.1",
