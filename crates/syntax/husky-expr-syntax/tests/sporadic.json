@@ -1,14 +1,14 @@
 [
-    {
-        "input": "haha",
-        "output": "Arena([])"
-    },
-    {
-        "input": "bt",
-        "output": "Arena([])"
-    },
-    {
-        "input": "what",
-        "output": "Arena([])"
-    }
+  {
+    "input": "haha",
+    "output": "Arena([\n  #0: RawExpr { variant: Atom(Symbol(Symbol { ident: Custom(CustomIdentifier(\"haha\")), kind: Unrecognized })), range: [1:1, 1:5) }\n])"
+  },
+  {
+    "input": "bt",
+    "output": "Arena([\n  #0: RawExpr { variant: Atom(Symbol(Symbol { ident: Custom(CustomIdentifier(\"bt\")), kind: Unrecognized })), range: [1:1, 1:3) }\n])"
+  },
+  {
+    "input": "what",
+    "output": "Arena([\n  #0: RawExpr { variant: Atom(Symbol(Symbol { ident: Custom(CustomIdentifier(\"what\")), kind: Unrecognized })), range: [1:1, 1:5) }\n])"
+  }
 ]
