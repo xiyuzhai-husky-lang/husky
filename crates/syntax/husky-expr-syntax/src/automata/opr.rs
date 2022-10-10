@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(super) struct OnStackOpr {
     precedence: Precedence,
-    variant: OnStackOprVariant,
+    pub(super) variant: OnStackOprVariant,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

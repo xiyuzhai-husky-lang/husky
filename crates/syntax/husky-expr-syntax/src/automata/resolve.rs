@@ -16,8 +16,11 @@ impl<'a> Automata<'a> {
     }
 
     fn resolve_ident(&self, ident: Identifier) -> ResolvedToken {
-        if let Some(_) = self.stack.top_opr() {
-            todo!()
+        if let Some(opr) = self.stack.top_opr() {
+            match opr.variant {
+                automata::opr::OnStackOprVariant::Binary(BinaryOpr::ScopeResolution) => todo!(),
+                _ => (),
+            }
         }
         todo!()
     }

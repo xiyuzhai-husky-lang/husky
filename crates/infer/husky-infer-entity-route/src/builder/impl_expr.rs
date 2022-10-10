@@ -235,6 +235,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 }
                 Ok(RootBuiltinIdentifier::Void.into())
             }
+            BinaryOpr::ScopeResolution => todo!(),
         }
     }
 

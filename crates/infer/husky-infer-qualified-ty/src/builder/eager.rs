@@ -347,6 +347,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 | EagerExprQualifier::Transient => throw!("lopd is not mutable", range),
                 EagerExprQualifier::TempRefMut => (),
             },
+            BinaryOpr::ScopeResolution => todo!(),
         }
         self.insert_eager_expr_inference(opds.start + 1);
         let ty = self.expr_raw_ty(idx)?;

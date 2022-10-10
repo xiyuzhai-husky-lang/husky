@@ -188,6 +188,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         let opr = match opr {
             BinaryOpr::Pure(opr) => opr,
             BinaryOpr::Assign(_) => todo!(),
+            BinaryOpr::ScopeResolution => todo!(),
         };
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::Binary {
