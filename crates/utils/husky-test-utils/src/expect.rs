@@ -1,5 +1,6 @@
 use husky_io_utils::diff_write;
-use husky_path_utils::PathBuf;
+use husky_path_utils::{Path, PathBuf};
+use husky_print_utils::p;
 use relative_path::RelativePathBuf;
 use serde::{Deserialize, Serialize};
 use std::{
@@ -48,9 +49,10 @@ pub fn expect_test<Input, Output>(
         for<'a> Deserialize<'a> + Serialize + std::fmt::Display + PartialEq + Eq + std::ops::Deref,
     Output: for<'a> Deserialize<'a> + Serialize + std::fmt::Display + PartialEq + Eq,
 {
-    let input_path = &format!("tests/{partial_path}.in.json").into();
+    let dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
+    let input_path = dir.join(format!("tests/{partial_path}.json"));
     let inputs: Vec<Input> = deserialize_from_file(&input_path).unwrap();
-    let expect_path = format!("tests/{partial_path}.expect.json").into();
+    let expect_path = dir.join(format!("tests/{partial_path}.expect.json"));
     let outputs = inputs.iter().map(|input| f(input)).collect::<Vec<_>>();
     let updated_expects = match deserialize_from_file(&expect_path) {
         Ok::<Vec<Expect<Input, Output>>, _>(mut expects) => {
@@ -64,7 +66,7 @@ pub fn expect_test<Input, Output>(
         }
         Err(e) => match e {
             DesIoError::IO(_) => todo!(),
-            DesIoError::SerdeJson(_) => {
+            DesIoError::NotValidFile(_) | DesIoError::SerdeJson(_) => {
                 if interative == Interactive::True {
                     match ask_yes_or_no(format!(
                         r#"Unable to parse json value from {expect_path:?}.
@@ -90,7 +92,7 @@ is this okay (y/n)? "#
                                     true => updated_expects.push(Expect { input, output }),
                                     false => {
                                         diff_write(
-                                            &expect_path.to_path("."),
+                                            &expect_path,
                                             &serde_json::to_string(&updated_expects).unwrap(),
                                             true,
                                         );
@@ -111,7 +113,7 @@ is this okay (y/n)? "#
         },
     };
     diff_write(
-        &expect_path.to_path("."),
+        &expect_path,
         &serde_json::to_string(&updated_expects).unwrap(),
         true,
     );
@@ -149,21 +151,20 @@ use thiserror::Error;
 
 #[derive(Error, Debug)]
 enum DesIoError {
+    #[error("not valid file")]
+    NotValidFile(PathBuf),
     #[error("io")]
     IO(#[from] std::io::Error),
     #[error("serde json")]
     SerdeJson(#[from] serde_json::error::Error),
 }
 
-fn deserialize_from_file<T>(rel_path: &RelativePathBuf) -> Result<T, DesIoError>
+fn deserialize_from_file<T>(path: &Path) -> Result<T, DesIoError>
 where
     T: for<'a> Deserialize<'a>,
 {
-    // let mut cargo_manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-    let path = rel_path.to_path(".");
     if !path.exists() || !path.is_file() {
-        println!("{:?}", PathBuf::from(".").canonicalize());
-        panic!("path = {path:?}")
+        return Err(DesIoError::NotValidFile(path.to_owned()));
     }
     let content = read_to_string(&path)?;
     let value = serde_json::from_str(&content)?;

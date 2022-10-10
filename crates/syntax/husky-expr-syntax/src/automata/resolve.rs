@@ -1,7 +1,16 @@
+use husky_symbol_syntax::Symbol;
+
 use crate::*;
 
 impl<'a> Automata<'a> {
     pub(crate) fn resolve_token(&self, token: &Token) -> ResolvedToken {
+        ResolvedToken {
+            kind: self.resolve_token_kind(token),
+            range: token.range,
+        }
+    }
+
+    fn resolve_token_kind(&self, token: &Token) -> ResolvedTokenKind {
         match token.kind {
             TokenKind::Decorator(_) => todo!(),
             TokenKind::Keyword(_) => todo!(),
@@ -15,15 +24,41 @@ impl<'a> Automata<'a> {
         }
     }
 
-    fn resolve_ident(&self, ident: Identifier) -> ResolvedToken {
+    fn resolve_ident(&self, ident: Identifier) -> ResolvedTokenKind {
         if let Some(opr) = self.stack.top_opr() {
             match opr.variant {
                 automata::opr::OnStackOprVariant::Binary(BinaryOpr::ScopeResolution) => todo!(),
                 _ => (),
             }
         }
-        todo!()
+        self.ctx.resolve_ident(ident).into()
     }
 }
 
-pub(crate) enum ResolvedToken {}
+pub(crate) struct ResolvedToken {
+    kind: ResolvedTokenKind,
+    range: TextRange,
+}
+
+impl ResolvedToken {
+    pub(super) fn kind(&self) -> &ResolvedTokenKind {
+        &self.kind
+    }
+
+    pub(super) fn to_expr(self) -> RawExpr {
+        let variant = match self.kind {
+            ResolvedTokenKind::Symbol(symbol) => symbol.into(),
+        };
+        RawExpr::new(variant, self.range)
+    }
+}
+
+pub(crate) enum ResolvedTokenKind {
+    Symbol(Symbol),
+}
+
+impl From<Symbol> for ResolvedTokenKind {
+    fn from(symbol: Symbol) -> Self {
+        ResolvedTokenKind::Symbol(symbol)
+    }
+}
