@@ -1,17 +1,67 @@
+use std::ops::Deref;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub struct TermApplication {
     m: TermPtr,
     n: TermPtr,
+    ty_itd: Option<Ty>,
 }
 
 impl TermApplication {
-    pub fn ty(&self) -> Ty {
-        todo!()
+    pub fn ty_itd(&self) -> Option<Ty> {
+        self.ty_itd
     }
 
-    // pub fn universe(&self) -> TermUniverseLevel {
-    //     todo!()
+    pub fn m(&self) -> TermPtr {
+        self.m
+    }
+
+    // pub(crate) fn ty_term(&self) -> TermCow {
+    //     if let Some(ty_itd) = self.ty_itd {
+    //         ty_itd.term().into()
+    //     } else {
+    //         match self.m.deref() {
+    //             Term::Atom(a) => match a.variant() {
+    //                 TermAtomVariant::Literal(_) => todo!(),
+    //                 TermAtomVariant::Variable { variable_variant } => todo!(),
+    //                 TermAtomVariant::Entity {} => todo!(),
+    //                 TermAtomVariant::Category { category_kind } => {
+    //                     self.n.as_universe().unwrap().next().into()
+    //                 },
+    //                 TermAtomVariant::Universe(_) => todo!(),
+    //             },
+    //             Term::Curry(_) => todo!(),
+    //             Term::Abstraction(_) => todo!(),
+    //             Term::Application(_) => todo!(),
+    //         }
+    //     }
     // }
+
+    pub fn new(m: TermPtr, n: TermPtr) -> TermResult<Self> {
+        if m.ty_itd().is_none() {
+            match m.deref() {
+                Term::Atom(a) => match a.variant() {
+                    TermAtomVariant::Category { category_kind } => match n.deref() {
+                        Term::Atom(b) => match b.variant() {
+                            TermAtomVariant::Literal(_) => todo!(),
+                            TermAtomVariant::Variable { variable_variant } => todo!(),
+                            TermAtomVariant::Entity { .. } => todo!(),
+                            TermAtomVariant::Category { category_kind } => todo!(),
+                            TermAtomVariant::Universe(_) => Ok(Self { m, n, ty_itd: None }),
+                        },
+                        Term::Curry(_) => todo!(),
+                        Term::Abstraction(_) => todo!(),
+                        Term::Application(_) => todo!(),
+                    },
+                    TermAtomVariant::Universe(_) => todo!(),
+                    _ => unreachable!(),
+                },
+                _ => unreachable!(),
+            }
+        } else {
+            todo!()
+        }
+    }
 }

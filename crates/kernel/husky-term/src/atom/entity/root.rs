@@ -4,16 +4,22 @@ use RootBuiltinIdentifier::*;
 
 use crate::*;
 
-impl TermEntity {
-    pub(crate) fn std(db: &dyn TermQuery) -> TermPtr {
-        Self::root_builtin_entity(db, Std)
+impl Term {
+    pub(crate) fn std(db: &dyn TermQuery, menu2: &TermMenu2) -> TermPtr {
+        Self::root_builtin_entity(db, Std, todo!())
     }
 
-    pub(crate) fn root_builtin_entity(db: &dyn TermQuery, ident: RootBuiltinIdentifier) -> TermPtr {
+    pub(crate) fn root_builtin_entity(
+        db: &dyn TermQuery,
+        ident: RootBuiltinIdentifier,
+        ty: Ty,
+    ) -> TermPtr {
         db.it_term(
-            Self {
-                path: db.it_root_entity_path(ident.into()),
-                ty: Ty::entity_ty_ty(db),
+            TermAtom {
+                variant: TermAtomVariant::Entity {
+                    path: db.it_entity_path(EntityPath::root(ident.into())),
+                },
+                ty_itd: Some(ty),
             }
             .into(),
         )

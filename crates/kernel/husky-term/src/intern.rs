@@ -11,6 +11,7 @@ pub fn new_term_itr() -> TermInterner {
 
 pub trait InternTerm {
     fn term_itr(&self) -> &TermInterner;
+
     fn it_term(&self, term: Term) -> TermPtr {
         self.term_itr().intern(term)
     }

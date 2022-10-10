@@ -10,25 +10,24 @@ use optional::Optioned;
 
 use crate::{Term, TermQuery, Ty};
 
-#[derive(Debug, PartialEq, Eq, Hash)]
-pub struct TermEntity {
-    path: EntityPathPtr,
-    ty: Ty,
-}
+// #[derive(Debug, PartialEq, Eq, Hash)]
+// pub struct TermEntity {
+//     path: EntityPathPtr,
+//     ty: Ty,
+// }
 
-impl TermEntity {
-    pub fn ty(&self) -> Ty {
-        self.ty
-    }
+// impl TermEntity {
+//     pub fn ty(&self) -> Ty {
+//         self.ty
+//     }
 
-    pub fn path(&self) -> EntityPathPtr {
-        self.path
-    }
-}
+//     pub fn path(&self) -> EntityPathPtr {
+//         self.path
+//     }
+// }
 
-impl Into<Term> for TermEntity {
-    fn into(self) -> Term {
-        todo!()
-        // Term::Entity(self)
-    }
-}
+// impl Into<Term> for TermEntity {
+//     fn into(self) -> Term {
+//         Term::AtomTermTerm::Entity(self)
+//     }
+// }
