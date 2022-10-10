@@ -1,14 +1,14 @@
 mod accept;
 mod opr;
 mod resolve;
-mod state;
+mod stack;
 
 use crate::*;
 use husky_symbol_syntax::SymbolContext;
 use husky_token::{Token, TokenKind, TokenStream};
 use opr::*;
 use resolve::*;
-use state::*;
+use stack::*;
 
 pub(crate) struct Automata<'a> {
     ctx: &'a mut SymbolContext<'a>,
@@ -41,12 +41,12 @@ impl<'a> Automata<'a> {
             self.accept_token(self.resolve_token(token))
         }
     }
+}
 
-    pub fn parse_raw_exprs(
-        ctx: &'a mut SymbolContext<'a>,
-        arena: &'a mut RawExprArena,
-        tokens: &'a [Token],
-    ) {
-        Self::new(ctx, tokens, arena).parse_all()
-    }
+pub fn parse_raw_exprs<'a>(
+    ctx: &'a mut SymbolContext<'a>,
+    arena: &'a mut RawExprArena,
+    tokens: &'a [Token],
+) {
+    Automata::new(ctx, tokens, arena).parse_all()
 }

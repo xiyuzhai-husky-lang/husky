@@ -9,20 +9,20 @@ pub use tests_db::*;
 
 use husky_entity_path::EntityPathPtr;
 use husky_text::TextRange;
-use husky_word::CustomIdentifier;
+use husky_word::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct RawVariable {
-    pub ident: CustomIdentifier,
-    pub kind: RawVariableKind,
+pub struct Symbol {
+    pub ident: Identifier,
+    pub kind: SymbolKind,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum RawVariableKind {
+pub enum SymbolKind {
     EntityPath(EntityPathPtr),
     LocalVariable { init_range: TextRange },
     FrameVariable { init_range: TextRange },
-    Unrecognized(CustomIdentifier),
+    Unrecognized,
     ThisValue,
     ThisMethod,
     ThisField,
