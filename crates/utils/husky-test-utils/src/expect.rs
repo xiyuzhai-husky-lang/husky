@@ -25,11 +25,11 @@ pub enum Interactive {
 
 #[macro_export]
 macro_rules! expect_test {
-    ($f: expr, $partial_paths: expr) => {
+    ($f: expr) => {
         use husky_test_utils::expect::*;
 
         fn run_tests(interactive: Interactive) {
-            expect_test::<String, _>(interactive, &$partial_paths, $f)
+            expect_test::<String, _>(interactive, $f)
         }
         #[test]
         fn it_works() {
@@ -44,7 +44,6 @@ macro_rules! expect_test {
 
 pub fn expect_test<Input, Output>(
     interative: Interactive,
-    partial_paths: &[&str],
     f: fn(&<Input as Deref>::Target) -> Output,
 ) where
     Input: for<'a> Deserialize<'a>
@@ -57,12 +56,29 @@ pub fn expect_test<Input, Output>(
     Output:
         for<'a> Deserialize<'a> + Serialize + std::fmt::Display + std::fmt::Debug + PartialEq + Eq,
 {
-    for partial_path in partial_paths {
-        let dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
-        let data_path = dir.join(format!("tests/{partial_path}.json"));
-        let mut expects = match deserialize_from_file(&data_path) {
+    let dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
+    let tests_dir = dir.join("tests");
+    assert!(tests_dir.exists());
+    assert!(tests_dir.is_dir());
+    let mut test_paths: Vec<PathBuf> = vec![];
+    for entry in std::fs::read_dir(tests_dir).unwrap() {
+        let entry = entry.unwrap();
+        let subpath = entry.path();
+        if subpath.is_dir() {
+            todo!()
+        } else {
+            let file_stem = subpath.file_name().unwrap().to_str().unwrap();
+            let splits: Vec<_> = file_stem.split(".").collect();
+            assert_eq!(splits.len(), 3);
+            assert_eq!(splits[1], "test");
+            assert_eq!(splits[2], "json");
+            test_paths.push(subpath)
+        }
+    }
+    for test_path in test_paths {
+        let mut expects = match deserialize_from_file(&test_path) {
             Ok::<Vec<Expect<Input, Output>>, _>(expects) => expects,
-            Err(e) => panic!("unable to parse results because due to {e}"),
+            Err(e) => panic!("unable to parse results because due to {e} for {test_path:?}"),
         };
         if interative == Interactive::True {
             for expect in expects.iter_mut() {
@@ -72,7 +88,7 @@ pub fn expect_test<Input, Output>(
                         true => expect.output = output,
                         false => {
                             diff_write(
-                                &data_path,
+                                &test_path,
                                 &serde_json::to_string_pretty(&expects).unwrap(),
                                 true,
                             );
@@ -82,7 +98,7 @@ pub fn expect_test<Input, Output>(
                 }
             }
             diff_write(
-                &data_path,
+                &test_path,
                 &serde_json::to_string_pretty(&expects).unwrap(),
                 true,
             );

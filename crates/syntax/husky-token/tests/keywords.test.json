@@ -1,0 +1,6 @@
+[
+  {
+    "input": "def",
+    "output": "[\n    Token(\"def\", [1:1, 1:4)),\n]"
+  }
+]

@@ -7,7 +7,7 @@ impl<'a> Automata<'a> {
 
     pub(crate) fn accept_token(&mut self, token: ResolvedToken) {
         match token.kind() {
-            ResolvedTokenKind::Symbol(_) => self.accept_atom(token.to_expr()),
+            ResolvedTokenKind::Atom(atom) => self.accept_atom(token.to_expr()),
         }
     }
 

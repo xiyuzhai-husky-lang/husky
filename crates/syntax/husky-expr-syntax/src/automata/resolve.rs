@@ -13,7 +13,7 @@ impl<'a> Automata<'a> {
     fn resolve_token_kind(&self, token: &Token) -> ResolvedTokenKind {
         match token.kind {
             TokenKind::Decorator(_) => todo!(),
-            TokenKind::Keyword(_) => todo!(),
+            TokenKind::Keyword(keyword) => todo!(),
             TokenKind::Identifier(ident) => self.resolve_ident(ident),
             TokenKind::Special(_) => todo!(),
             TokenKind::WordOpr(_) => todo!(),
@@ -47,18 +47,18 @@ impl ResolvedToken {
 
     pub(super) fn to_expr(self) -> RawExpr {
         let variant = match self.kind {
-            ResolvedTokenKind::Symbol(symbol) => symbol.into(),
+            ResolvedTokenKind::Atom(variant) => variant.into(),
         };
         RawExpr::new(variant, self.range)
     }
 }
 
 pub(crate) enum ResolvedTokenKind {
-    Symbol(Symbol),
+    Atom(RawAtom),
 }
 
 impl From<Symbol> for ResolvedTokenKind {
     fn from(symbol: Symbol) -> Self {
-        ResolvedTokenKind::Symbol(symbol)
+        ResolvedTokenKind::Atom(symbol.into())
     }
 }

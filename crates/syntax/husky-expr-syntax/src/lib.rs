@@ -27,7 +27,7 @@ pub struct RawExpr {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprVariant {
-    Atom(RawExprAtomVariant),
+    Atom(RawAtom),
     Bracketed(RawExprIdx),
     Opn {
         opn_variant: RawOpnVariant,
@@ -39,9 +39,9 @@ pub enum RawExprVariant {
     ),
 }
 
-impl From<Symbol> for RawExprVariant {
-    fn from(value: Symbol) -> Self {
-        RawExprVariant::Atom(value.into())
+impl From<RawAtom> for RawExprVariant {
+    fn from(atom: RawAtom) -> Self {
+        RawExprVariant::Atom(atom)
     }
 }
 
