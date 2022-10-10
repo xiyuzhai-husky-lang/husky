@@ -2,15 +2,15 @@ mod db;
 
 use crate::*;
 use db::*;
+use husky_symbol_syntax::{SymbolContext, SymbolTestsDb};
 use husky_token::Tokenize;
-use husky_variable_syntax::{VariableContext, VariableTestsDb};
 
 fn parse_raw_exprs_debug(text: &'static str) -> String {
     format!("{:#?}", parse_raw_exprs(text))
 }
 
 fn parse_raw_exprs(text: &'static str) -> RawExprArena {
-    let db = VariableTestsDb::new();
+    let db = SymbolTestsDb::new();
     let tokens = db.tokenize(text);
     let mut arena = RawExprArena::new();
     let mut ctx = db.fake_ctx();

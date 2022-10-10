@@ -6,7 +6,7 @@ mod tests_db;
 pub use context::*;
 pub use query::*;
 #[cfg(test)]
-pub use tests_db::VariableTestsDb;
+pub use tests_db::SymbolTestsDb;
 #[cfg(test)]
 pub use tests_db::*;
 
