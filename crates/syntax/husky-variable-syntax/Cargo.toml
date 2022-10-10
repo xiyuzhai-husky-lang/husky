@@ -1,0 +1,11 @@
+[package]
+name = "husky-variable-syntax"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+salsa = "0.17.0-pre.2"
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-word = { path = "../../kernel/husky-word" }
+husky-text = { path = "../../syntax/husky-text" }

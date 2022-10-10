@@ -2,12 +2,10 @@ mod automata;
 mod opn;
 mod parser;
 mod precedence;
-mod query;
 #[cfg(test)]
 mod tests;
 mod variant;
 
-pub use query::*;
 pub use variant::*;
 
 use automata::*;
