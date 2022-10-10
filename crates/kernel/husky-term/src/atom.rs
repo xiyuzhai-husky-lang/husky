@@ -1,11 +1,13 @@
 mod category;
 mod entity;
 mod literal;
+mod universe;
 mod variable;
 
 pub use category::*;
 pub use entity::*;
 pub use literal::*;
+pub use universe::*;
 pub use variable::*;
 
 use crate::*;

@@ -34,16 +34,18 @@ impl Ty {
     }
 
     pub(crate) fn entity_ty_ty(db: &dyn TermQuery) -> Self {
-        Ty::new(db.it_term(TermUniverse::zeroth_ty_universe().into())).unwrap()
+        todo!()
+        // Ty::new(db.it_term(TermUniverse::zeroth_ty_universe().into())).unwrap()
     }
 
-    pub fn universe_level(self) -> TermUniverseLevel {
-        todo!()
-        // match self.ty_term().deref() {
-        //     Term::Universe(u) => u.level(),
-        //     _ => unreachable!(),
-        // }
-    }
+    // pub fn universe_level(self) -> TermUniverseLevel {
+    //     todo!()
+    //     todo!()
+    //     // match self.ty_term().deref() {
+    //     //     Term::Universe(u) => u.level(),
+    //     //     _ => unreachable!(),
+    //     // }
+    // }
     // void
     pub(crate) fn void(db: &dyn TermQuery) -> Ty {
         Self::root_builtin_ty(db, Void)
