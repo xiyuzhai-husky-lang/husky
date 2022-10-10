@@ -3,6 +3,21 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TermUniverse(u8);
 
+impl Into<TermAtom> for TermUniverse {
+    fn into(self) -> TermAtom {
+        TermAtom {
+            variant: TermAtomVariant::Universe(self),
+            ty_itd: None,
+        }
+    }
+}
+
+impl Into<Term> for TermUniverse {
+    fn into(self) -> Term {
+        Term::Atom(self.into())
+    }
+}
+
 const UNIVERSE_MAX: u8 = 100;
 
 impl TermUniverse {
@@ -53,21 +68,12 @@ impl Term {
                     ref variable_variant,
                 } => todo!(),
                 TermAtomVariant::Entity { .. } => todo!(),
-                TermAtomVariant::Category { category_kind } => todo!(),
+                TermAtomVariant::CategoryKind(category_kind) => todo!(),
                 TermAtomVariant::Universe(u) => Ok(u),
             },
             Term::Curry(_) => todo!(),
             Term::Abstraction(_) => todo!(),
             Term::Application(_) => todo!(),
         }
-    }
-}
-
-impl Into<Term> for TermUniverse {
-    fn into(self) -> Term {
-        Term::Atom(TermAtom {
-            variant: TermAtomVariant::Universe(self),
-            ty_itd: None, // ad hoc
-        })
     }
 }

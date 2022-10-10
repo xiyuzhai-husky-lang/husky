@@ -32,7 +32,7 @@ impl Ty {
                     TermAtomVariant::Literal(_) => todo!(),
                     TermAtomVariant::Variable { variable_variant } => todo!(),
                     TermAtomVariant::Entity { .. } => todo!(),
-                    TermAtomVariant::Category { category_kind } => match category_kind {
+                    TermAtomVariant::CategoryKind(category_kind) => match category_kind {
                         TermCategoryKind::Type => todo!(),
                         TermCategoryKind::Sort => Ok(()),
                         TermCategoryKind::Term => todo!(),

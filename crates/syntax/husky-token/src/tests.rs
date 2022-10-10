@@ -17,4 +17,4 @@ fn tokenize_debug(text: &str) -> String {
     format!("{:#?}", new_word_itr().tokenize(text))
 }
 
-expect_test!("tokens/sporadic", tokenize_debug);
+expect_test!("sporadic", tokenize_debug);
