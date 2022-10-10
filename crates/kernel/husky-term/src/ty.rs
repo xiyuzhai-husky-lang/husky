@@ -17,25 +17,45 @@ impl std::ops::Deref for Ty {
 
 impl Ty {
     pub(crate) fn new(term: TermPtr) -> TermResult<Self> {
-        match *term.ty_term().deref() {
-            Term::Atom(ref a) => match a.variant() {
-                TermAtomVariant::Category {
-                    category_kind: TermCategoryKind::Type,
-                } => (),
-                _ => return Err(TermError::TermIsNotTy),
-            },
-            _ => return Err(TermError::TermIsNotTy),
+        if let Some(ty_itd) = term.ty_itd() {
+            Self::check_is_category(ty_itd.term())?
+        } else {
+            Self::check_is_category(term)?
         }
         Ok(Self(term))
     }
 
-    pub fn term(self) -> TermPtr {
-        self.0
+    fn check_is_category(term: TermPtr) -> TermResult<()> {
+        match term.deref() {
+            Term::Application(app) => match app.m().deref() {
+                Term::Atom(a) => match a.variant() {
+                    TermAtomVariant::Literal(_) => todo!(),
+                    TermAtomVariant::Variable { variable_variant } => todo!(),
+                    TermAtomVariant::Entity { .. } => todo!(),
+                    TermAtomVariant::Category { category_kind } => match category_kind {
+                        TermCategoryKind::Type => todo!(),
+                        TermCategoryKind::Sort => Ok(()),
+                        TermCategoryKind::Term => todo!(),
+                    },
+                    TermAtomVariant::Universe(_) => todo!(),
+                },
+                Term::Curry(_) => todo!(),
+                Term::Abstraction(_) => todo!(),
+                Term::Application(_) => todo!(),
+            },
+            _ => Err(todo!()),
+        }
     }
 
-    pub(crate) fn entity_ty_ty(db: &dyn TermQuery) -> Self {
-        todo!()
-        // Ty::new(db.it_term(TermUniverse::zeroth_ty_universe().into())).unwrap()
+    fn check_ty_itd(ty: Ty) -> TermResult<()> {
+        match ty.term().deref() {
+            Term::Atom(a) => todo!(),
+            _ => return Err(TermError::TermIsNotTy),
+        }
+    }
+
+    pub fn term(self) -> TermPtr {
+        self.0
     }
 
     // pub fn universe_level(self) -> TermUniverseLevel {
@@ -47,61 +67,61 @@ impl Ty {
     //     // }
     // }
     // void
-    pub(crate) fn void(db: &dyn TermQuery) -> Ty {
-        Self::root_builtin_ty(db, Void)
+    pub(crate) fn void(db: &dyn TermQuery, menu1: &TermMenu1) -> Ty {
+        Self::root_builtin_ty(db, Void, menu1)
     }
     // i32
-    pub(crate) fn i32(db: &dyn TermQuery) -> Ty {
-        Self::root_builtin_ty(db, I32)
+    pub(crate) fn i32(db: &dyn TermQuery, menu1: &TermMenu1) -> Ty {
+        Self::root_builtin_ty(db, I32, menu1)
     }
     // i64
-    pub(crate) fn i64(db: &dyn TermQuery) -> Ty {
-        Self::root_builtin_ty(db, I64)
+    pub(crate) fn i64(db: &dyn TermQuery, menu1: &TermMenu1) -> Ty {
+        Self::root_builtin_ty(db, I64, menu1)
     }
     // f32: Ty,
-    pub(crate) fn f32(db: &dyn TermQuery) -> Ty {
-        Self::root_builtin_ty(db, F32)
+    pub(crate) fn f32(db: &dyn TermQuery, menu1: &TermMenu1) -> Ty {
+        Self::root_builtin_ty(db, F32, menu1)
     }
     // f64: Ty,
-    pub(crate) fn f64(db: &dyn TermQuery) -> Ty {
-        Self::root_builtin_ty(db, F64)
+    pub(crate) fn f64(db: &dyn TermQuery, menu1: &TermMenu1) -> Ty {
+        Self::root_builtin_ty(db, F64, menu1)
     }
     // b32: Ty,
-    pub(crate) fn b32(db: &dyn TermQuery) -> Ty {
-        Self::root_builtin_ty(db, B32)
+    pub(crate) fn b32(db: &dyn TermQuery, menu1: &TermMenu1) -> Ty {
+        Self::root_builtin_ty(db, B32, menu1)
     }
     // b64: Ty,
-    pub(crate) fn b64(db: &dyn TermQuery) -> Ty {
-        Self::root_builtin_ty(db, B64)
+    pub(crate) fn b64(db: &dyn TermQuery, menu1: &TermMenu1) -> Ty {
+        Self::root_builtin_ty(db, B64, menu1)
     }
     // bool: Ty,
-    pub(crate) fn bool(db: &dyn TermQuery) -> Ty {
-        Self::root_builtin_ty(db, Bool)
+    pub(crate) fn bool(db: &dyn TermQuery, menu1: &TermMenu1) -> Ty {
+        Self::root_builtin_ty(db, Bool, menu1)
     }
 
-    pub(crate) fn module(db: &dyn TermQuery) -> Ty {
-        Self::root_builtin_ty(db, ModuleType)
+    pub(crate) fn module(db: &dyn TermQuery, menu1: &TermMenu1) -> Ty {
+        Self::root_builtin_ty(db, ModuleType, menu1)
     }
 
-    pub(crate) fn trai(db: &dyn TermQuery) -> Ty {
-        Self::root_builtin_ty(db, TraitType)
+    pub(crate) fn trai(db: &dyn TermQuery, menu1: &TermMenu1) -> Ty {
+        Self::root_builtin_ty(db, TraitType, menu1)
     }
 
-    fn root_builtin_ty(db: &dyn TermQuery, ident: RootBuiltinIdentifier) -> Ty {
-        Ty::new(TermEntity::root_builtin_entity(db, ident)).unwrap()
+    fn root_builtin_ty(db: &dyn TermQuery, ident: RootBuiltinIdentifier, menu1: &TermMenu1) -> Ty {
+        Ty::new(Term::root_builtin_entity(db, ident, menu1.ty0())).unwrap()
     }
 }
 
 impl Term {
-    #[inline(always)]
-    pub(crate) fn ty_term(&self) -> TermCow {
-        match self {
-            Term::Atom(a) => a.ty_term(),
-            Term::Curry(c) => c.ty().term().into(),
-            Term::Abstraction(abs) => abs.ty().term().into(),
-            Term::Application(app) => app.ty().term().into(),
-        }
-    }
+    // #[inline(always)]
+    // pub(crate) fn ty_term(&self) -> TermCow {
+    //     match self {
+    //         Term::Atom(a) => a.ty_term(),
+    //         Term::Curry(c) => c.ty().term().into(),
+    //         Term::Abstraction(abs) => abs.ty().term().into(),
+    //         Term::Application(app) => app.ty_term(),
+    //     }
+    // }
 
     // pub(crate) fn universe(&self) -> Universe {
     //     match self {

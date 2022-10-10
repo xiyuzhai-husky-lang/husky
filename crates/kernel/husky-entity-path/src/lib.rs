@@ -12,7 +12,7 @@ pub struct EntityPath {
 }
 
 impl EntityPath {
-    fn root(ident: Identifier) -> Self {
+    pub fn root(ident: Identifier) -> Self {
         Self {
             opt_parent: Optioned::none(),
             ident,

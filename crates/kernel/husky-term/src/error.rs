@@ -4,6 +4,8 @@ use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone)]
 pub enum TermError {
+    #[error("term is not reduced")]
+    TermIsNotReduced,
     #[error("term is not type")]
     TermIsNotTy,
     #[error("universe overflows")]

@@ -38,3 +38,14 @@ pub enum Term {
     Abstraction(TermAbstraction),
     Application(TermApplication),
 }
+
+impl Term {
+    pub fn ty_itd(&self) -> Option<Ty> {
+        match self {
+            Term::Atom(a) => a.ty_itd(),
+            Term::Curry(_) => todo!(),
+            Term::Abstraction(_) => todo!(),
+            Term::Application(a) => a.ty_itd(),
+        }
+    }
+}
