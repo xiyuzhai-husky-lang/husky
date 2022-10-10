@@ -16,4 +16,4 @@ fn test_parse_raw_exprs(text: &str) -> RawExprArena {
     arena
 }
 
-expect_test!("sporadic", test_parse_raw_exprs_debug);
+expect_test!(test_parse_raw_exprs_debug, ["sporadic"]);

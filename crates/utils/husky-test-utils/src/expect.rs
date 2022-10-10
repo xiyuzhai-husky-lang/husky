@@ -25,11 +25,11 @@ pub enum Interactive {
 
 #[macro_export]
 macro_rules! expect_test {
-    ($partial_paths: expr, $f: expr) => {
+    ($f: expr, $partial_paths: expr) => {
         use husky_test_utils::expect::*;
 
         fn run_tests(interactive: Interactive) {
-            expect_test::<String, _>(interactive, $partial_paths, $f)
+            expect_test::<String, _>(interactive, &$partial_paths, $f)
         }
         #[test]
         fn it_works() {
@@ -44,7 +44,7 @@ macro_rules! expect_test {
 
 pub fn expect_test<Input, Output>(
     interative: Interactive,
-    partial_path: &'static str,
+    partial_paths: &[&str],
     f: fn(&<Input as Deref>::Target) -> Output,
 ) where
     Input: for<'a> Deserialize<'a>
@@ -57,38 +57,40 @@ pub fn expect_test<Input, Output>(
     Output:
         for<'a> Deserialize<'a> + Serialize + std::fmt::Display + std::fmt::Debug + PartialEq + Eq,
 {
-    let dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
-    let data_path = dir.join(format!("tests/{partial_path}.json"));
-    let mut expects = match deserialize_from_file(&data_path) {
-        Ok::<Vec<Expect<Input, Output>>, _>(expects) => expects,
-        Err(e) => panic!("unable to parse results because due to {e}"),
-    };
-    if interative == Interactive::True {
-        for expect in expects.iter_mut() {
-            let output = f(&expect.input);
-            if expect.output != output {
-                match ask_is_input_output_okay(&expect.input, &output) {
-                    true => expect.output = output,
-                    false => {
-                        diff_write(
-                            &data_path,
-                            &serde_json::to_string_pretty(&expects).unwrap(),
-                            true,
-                        );
-                        panic!("expect update not accepted")
+    for partial_path in partial_paths {
+        let dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
+        let data_path = dir.join(format!("tests/{partial_path}.json"));
+        let mut expects = match deserialize_from_file(&data_path) {
+            Ok::<Vec<Expect<Input, Output>>, _>(expects) => expects,
+            Err(e) => panic!("unable to parse results because due to {e}"),
+        };
+        if interative == Interactive::True {
+            for expect in expects.iter_mut() {
+                let output = f(&expect.input);
+                if expect.output != output {
+                    match ask_is_input_output_okay(&expect.input, &output) {
+                        true => expect.output = output,
+                        false => {
+                            diff_write(
+                                &data_path,
+                                &serde_json::to_string_pretty(&expects).unwrap(),
+                                true,
+                            );
+                            panic!("expect update not accepted")
+                        }
                     }
                 }
             }
-        }
-        diff_write(
-            &data_path,
-            &serde_json::to_string_pretty(&expects).unwrap(),
-            true,
-        );
-    } else {
-        for expect in expects.iter() {
-            let output = f(&expect.input);
-            assert_eq!(expect.output, output)
+            diff_write(
+                &data_path,
+                &serde_json::to_string_pretty(&expects).unwrap(),
+                true,
+            );
+        } else {
+            for expect in expects.iter() {
+                let output = f(&expect.input);
+                assert_eq!(expect.output, output)
+            }
         }
     }
 }
