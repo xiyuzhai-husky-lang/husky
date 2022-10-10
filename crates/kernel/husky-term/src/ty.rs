@@ -17,19 +17,12 @@ impl std::ops::Deref for Ty {
 
 impl Ty {
     pub(crate) fn new(term: TermPtr) -> TermResult<Self> {
-        match *term {
-            Term::Literal(_) => return Err(TermError::TermIsNotTy),
-            Term::Abstraction(_) => return Err(TermError::TermIsNotTy),
-            Term::Entity(_) | Term::Variable(_) | Term::Application(_) => {
-                match *term.ty_term().deref() {
-                    Term::Universe(ref u) => match u.kind() {
-                        TermUniverseKind::Type => (),
-                        _ => return Err(TermError::TermIsNotTy),
-                    },
-                    _ => return Err(TermError::TermIsNotTy),
-                }
-            }
-            Term::Universe(_) | Term::Curry(TermCurry { .. }) => (),
+        match *term.ty_term().deref() {
+            Term::Universe(ref u) => match u.kind() {
+                TermUniverseKind::Type => (),
+                _ => return Err(TermError::TermIsNotTy),
+            },
+            _ => return Err(TermError::TermIsNotTy),
         }
         Ok(Self(term))
     }
@@ -98,10 +91,8 @@ impl Term {
     #[inline(always)]
     pub(crate) fn ty_term(&self) -> TermCow {
         match self {
-            Term::Literal(l) => l.ty().term().into(),
-            Term::Entity(n) => n.ty().term().into(),
+            Term::Atom(a) => a.ty_term(),
             Term::Curry(c) => c.ty().term().into(),
-            Term::Variable(v) => v.ty().term().into(),
             Term::Abstraction(abs) => abs.ty().term().into(),
             Term::Application(app) => app.ty().term().into(),
             Term::Universe(u) => TermUniverse::ty_universe(u.level().next().unwrap()).into(),

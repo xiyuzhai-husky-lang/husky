@@ -1,13 +1,10 @@
 mod context;
 mod query;
-#[cfg(test)]
 mod tests_db;
 
 pub use context::*;
 pub use query::*;
-#[cfg(test)]
 pub use tests_db::SymbolTestsDb;
-#[cfg(test)]
 pub use tests_db::*;
 
 use husky_entity_path::EntityPathPtr;

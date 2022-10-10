@@ -6,10 +6,8 @@ use crate::*;
 impl std::fmt::Display for Term {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Term::Literal(l) => l.fmt(f),
-            Term::Entity(e) => e.fmt(f),
+            Term::Atom(a) => a.fmt(f),
             Term::Curry(c) => c.fmt(f),
-            Term::Variable(v) => v.fmt(f),
             Term::Abstraction(a) => a.fmt(f),
             Term::Application(a) => a.fmt(f),
             Term::Universe(a) => a.fmt(f),

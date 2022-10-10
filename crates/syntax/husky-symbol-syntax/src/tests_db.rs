@@ -13,14 +13,14 @@ impl salsa::Database for SymbolTestsDb {}
 impl AnswerVariableQuery for SymbolTestsDb {}
 
 impl SymbolTestsDb {
-    pub(crate) fn new() -> Self {
+    pub fn new() -> Self {
         Self {
             word_itr: husky_word::new_word_itr(),
             storage: Default::default(),
         }
     }
 
-    fn fake_ctx<'a>(&'a self) -> SymbolContext<'a> {
+    pub fn fake_ctx<'a>(&'a self) -> SymbolContext<'a> {
         let mut ctx = SymbolContext::new(self);
         /* do something with ctx */
         ctx
