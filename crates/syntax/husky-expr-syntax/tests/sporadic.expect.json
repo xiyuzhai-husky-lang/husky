@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "input": "haha",
+    "output": "Arena([])"
+  },
+  {
+    "input": "bt",
+    "output": "Arena([])"
+  },
+  {
+    "input": "what",
+    "output": "Arena([])"
+  }
+]
