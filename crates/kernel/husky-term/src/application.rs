@@ -9,6 +9,12 @@ pub struct TermApplication {
     ty_itd: Option<Ty>,
 }
 
+impl Into<Term> for TermApplication {
+    fn into(self) -> Term {
+        Term::Application(self)
+    }
+}
+
 impl TermApplication {
     pub fn ty_itd(&self) -> Option<Ty> {
         self.ty_itd
@@ -16,6 +22,10 @@ impl TermApplication {
 
     pub fn m(&self) -> TermPtr {
         self.m
+    }
+
+    pub fn n(&self) -> TermPtr {
+        self.n
     }
 
     // pub(crate) fn ty_term(&self) -> TermCow {
@@ -43,12 +53,12 @@ impl TermApplication {
         if m.ty_itd().is_none() {
             match m.deref() {
                 Term::Atom(a) => match a.variant() {
-                    TermAtomVariant::Category { category_kind } => match n.deref() {
+                    TermAtomVariant::CategoryKind(category_kind) => match n.deref() {
                         Term::Atom(b) => match b.variant() {
                             TermAtomVariant::Literal(_) => todo!(),
                             TermAtomVariant::Variable { variable_variant } => todo!(),
                             TermAtomVariant::Entity { .. } => todo!(),
-                            TermAtomVariant::Category { category_kind } => todo!(),
+                            TermAtomVariant::CategoryKind(category_kind) => todo!(),
                             TermAtomVariant::Universe(_) => Ok(Self { m, n, ty_itd: None }),
                         },
                         Term::Curry(_) => todo!(),
@@ -63,5 +73,18 @@ impl TermApplication {
         } else {
             todo!()
         }
+    }
+}
+
+impl<'a> TermContext<'a> {
+    pub(crate) fn sort(&self, universe: TermUniverse) -> TermPtr {
+        self.it_term(
+            TermApplication {
+                m: self.it_term(TermCategoryKind::Sort.into()),
+                n: self.it_term(universe.into()),
+                ty_itd: None,
+            }
+            .into(),
+        )
     }
 }

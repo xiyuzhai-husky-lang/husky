@@ -53,3 +53,9 @@ pub enum TermLiteralData {
     B64(u64),
     Bool(bool),
 }
+
+impl std::fmt::Display for TermLiteralData {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
+    }
+}

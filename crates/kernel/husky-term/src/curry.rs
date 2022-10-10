@@ -65,10 +65,7 @@ impl<'a> TermContext<'a> {
                     curry_kind,
                     x,
                     y,
-                    ty: todo!(),
-                    // Ty::new(self.it_term(TermUniverse::ty_universe(
-                    //     x.universe_level().max(y.universe_level()),
-                    // )))?,
+                    ty: Ty::new(self.sort(x.universe().max(y.universe())))?,
                 }
                 .into(),
             ),
