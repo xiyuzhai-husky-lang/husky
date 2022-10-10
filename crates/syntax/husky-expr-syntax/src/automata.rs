@@ -1,18 +1,17 @@
 mod accept;
-mod context;
 mod opr;
 mod resolve;
 mod state;
 
 use crate::*;
-use context::*;
 use husky_token::{Token, TokenKind, TokenStream};
+use husky_variable_syntax::VariableContext;
 use opr::*;
 use resolve::*;
 use state::*;
 
 pub(crate) struct Automata<'a> {
-    ctx: AutomataContext<'a>,
+    ctx: &'a mut VariableContext<'a>,
     stream: TokenStream<'a>,
     stack: AutomataStack,
     arena: &'a mut RawExprArena,
@@ -23,9 +22,13 @@ impl<'a> Automata<'a> {
         &self.stream
     }
 
-    fn new(db: &'a dyn ExprSyntaxQuery, tokens: &'a [Token], arena: &'a mut RawExprArena) -> Self {
+    fn new(
+        ctx: &'a mut VariableContext<'a>,
+        tokens: &'a [Token],
+        arena: &'a mut RawExprArena,
+    ) -> Self {
         Self {
-            ctx: AutomataContext::new(db),
+            ctx,
             stream: tokens.into(),
             stack: Default::default(),
             arena,
@@ -40,10 +43,10 @@ impl<'a> Automata<'a> {
     }
 
     pub fn parse_raw_exprs(
-        db: &'a dyn ExprSyntaxQuery,
+        ctx: &'a mut VariableContext<'a>,
         arena: &'a mut RawExprArena,
         tokens: &'a [Token],
     ) {
-        Self::new(db, tokens, arena).parse_all()
+        Self::new(ctx, tokens, arena).parse_all()
     }
 }
