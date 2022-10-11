@@ -71,10 +71,9 @@ impl<'a> Automata<'a> {
         self.synthesize_opn(prefix.into(), 1, range)
     }
 
-    fn synthesize_suffix(&mut self, suffix: RawSuffixOpr, end: TextPosition) {
-        todo!()
-        // let range = (self.exprs.last().unwrap().range.start..end).into();
-        // self.synthesize_opn(suffix.into(), Default::default(), 1, range)
+    pub(super) fn synthesize_suffix(&mut self, suffix: RawSuffixOpr, end: TextPosition) {
+        let range = (self.stack.top_expr().unwrap().text_start()..end).into();
+        self.synthesize_opn(suffix.into(), 1, range)
     }
 
     fn synthesize_field_access(&mut self, field_ident: RangedCustomIdentifier, end: TextPosition) {

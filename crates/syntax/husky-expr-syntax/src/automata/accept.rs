@@ -10,6 +10,9 @@ impl<'a> Automata<'a> {
             ResolvedTokenKind::Atom(atom) => Ok(self.accept_atom(token.to_expr())),
             ResolvedTokenKind::BinaryOpr(opr) => self.accept_binary_opr(*opr),
             ResolvedTokenKind::Prefix(opr) => Ok(self.accept_prefix_opr(*opr, token.text_start())),
+            ResolvedTokenKind::Suffix(opr) => {
+                Ok(self.accept_suffix_opr(/* ad hoc */ opr.clone(), token.text_end()))
+            }
         }
     }
 
@@ -19,6 +22,10 @@ impl<'a> Automata<'a> {
 
     pub(crate) fn accept_prefix_opr(&mut self, prefix: PrefixOpr, start: TextPosition) {
         self.stack.push_opr(OnStackOpr::prefix(prefix, start))
+    }
+
+    pub(crate) fn accept_suffix_opr(&mut self, suffix: RawSuffixOpr, end: TextPosition) {
+        self.synthesize_suffix(suffix, end)
     }
 
     pub(crate) fn accept_binary_opr(&mut self, binary: BinaryOpr) -> ExprSyntaxResult<()> {

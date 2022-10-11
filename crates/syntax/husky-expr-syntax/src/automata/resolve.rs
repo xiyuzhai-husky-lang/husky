@@ -38,6 +38,9 @@ impl<'a> Automata<'a> {
                     ResolvedTokenKind::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Sub))
                 }
                 SpecialToken::Minus => ResolvedTokenKind::Prefix(PrefixOpr::Minus),
+                SpecialToken::Exclamation => ResolvedTokenKind::Prefix(PrefixOpr::Not),
+                SpecialToken::Incr => ResolvedTokenKind::Suffix(RawSuffixOpr::Incr),
+                SpecialToken::Decr => ResolvedTokenKind::Suffix(RawSuffixOpr::Decr),
                 SpecialToken::Star => todo!(),
                 SpecialToken::Div => todo!(),
                 SpecialToken::Power => todo!(),
@@ -52,8 +55,6 @@ impl<'a> Automata<'a> {
                 SpecialToken::Colon => todo!(),
                 SpecialToken::Comma => todo!(),
                 SpecialToken::Ambersand => todo!(),
-                SpecialToken::Incr => todo!(),
-                SpecialToken::Decr => todo!(),
                 SpecialToken::Vertical => todo!(),
                 SpecialToken::Assign => todo!(),
                 SpecialToken::AddAssign => todo!(),
@@ -62,7 +63,6 @@ impl<'a> Automata<'a> {
                 SpecialToken::DivAssign => todo!(),
                 SpecialToken::BitAndAssign => todo!(),
                 SpecialToken::BitOrAssign => todo!(),
-                SpecialToken::Exclamation => todo!(),
                 SpecialToken::DoubleExclamation => todo!(),
                 SpecialToken::Semicolon => todo!(),
                 SpecialToken::XmlKet => todo!(),
@@ -110,6 +110,7 @@ impl ResolvedToken {
             ResolvedTokenKind::Atom(variant) => variant.into(),
             ResolvedTokenKind::BinaryOpr(_) => todo!(),
             ResolvedTokenKind::Prefix(_) => todo!(),
+            ResolvedTokenKind::Suffix(_) => todo!(),
         };
         RawExpr::new(variant, self.range)
     }
@@ -120,6 +121,7 @@ pub(crate) enum ResolvedTokenKind {
     Atom(RawAtom),
     BinaryOpr(BinaryOpr),
     Prefix(PrefixOpr),
+    Suffix(RawSuffixOpr),
 }
 
 impl From<Symbol> for ResolvedTokenKind {
