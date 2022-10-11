@@ -22,6 +22,7 @@ count-todo:
 expect-tests:
 	cargo run --bin husky-token-tests
 	cargo run --bin husky-expr-syntax-tests
+	cargo run --bin husky-term-infer-tests
 
 ubuntu-setup:
 	scripts/ubuntu_setup.sh
