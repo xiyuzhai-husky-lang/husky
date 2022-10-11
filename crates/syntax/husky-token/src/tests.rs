@@ -14,7 +14,7 @@ use husky_word::new_word_itr;
 // use crate::*;
 
 fn tokenize_debug(text: &str) -> String {
-    format!("{:#?}", new_word_itr().tokenize(text))
+    format!("{:#?}", new_word_itr().tokenize_line(text))
 }
 
 expect_test!(tokenize_debug);

@@ -5,13 +5,26 @@ impl<'a> Automata<'a> {
         self.stream.next()
     }
 
-    pub(crate) fn accept_token(&mut self, token: ResolvedToken) {
+    pub(crate) fn accept_token(&mut self, token: ResolvedToken) -> ExprSyntaxResult<()> {
         match token.kind() {
-            ResolvedTokenKind::Atom(atom) => self.accept_atom(token.to_expr()),
+            ResolvedTokenKind::Atom(atom) => Ok(self.accept_atom(token.to_expr())),
+            ResolvedTokenKind::BinaryOpr(opr) => self.accept_binary_opr(*opr),
+            ResolvedTokenKind::Prefix(opr) => Ok(self.accept_prefix_opr(*opr, token.text_start())),
         }
     }
 
     fn accept_atom(&mut self, atom: RawExpr) {
         self.stack.push_expr(atom)
+    }
+
+    pub(crate) fn accept_prefix_opr(&mut self, prefix: PrefixOpr, start: TextPosition) {
+        self.stack.push_opr(OnStackOpr::prefix(prefix, start))
+    }
+
+    pub(crate) fn accept_binary_opr(&mut self, binary: BinaryOpr) -> ExprSyntaxResult<()> {
+        let stack_opr = OnStackOpr::binary(binary);
+        self.synthesize_all_above(stack_opr.precedence())?;
+        self.stack.push_opr(stack_opr);
+        Ok(())
     }
 }

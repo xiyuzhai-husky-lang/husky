@@ -88,7 +88,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                         "unexpected identifier here",
                         self.token_stream.text_range(text_start)
                     )?,
-                    TokenKind::PrimitiveLiteral(_value) => {
+                    TokenKind::Literal(_value) => {
                         let range = self.token_stream.text_range(text_start);
                         self.atom_context
                             .push_abs_semantic_token(AbsSemanticToken::new(

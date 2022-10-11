@@ -104,19 +104,21 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                     BinaryOpr::Pure(PureBinaryOpr::Greater).into(),
                 ))
             }
-            SpecialToken::SubOrMinus => {
-                if self.stack.convexity() == Convexity::Convex {
-                    self.stack.push(HuskyAtom::new(
-                        self.token_stream.text_range(text_start),
-                        BinaryOpr::Pure(PureBinaryOpr::Sub).into(),
-                    ))
-                } else {
-                    self.stack.push(HuskyAtom::new(
-                        self.token_stream.text_range(text_start),
-                        PrefixOpr::Minus.into(),
-                    ))
-                }
-            }
+            SpecialToken::Sub => todo!(),
+            SpecialToken::Minus => todo!(),
+            //  {
+            //     if self.stack.convexity() == Convexity::Convex {
+            //         self.stack.push(HuskyAtom::new(
+            //             self.token_stream.text_range(text_start),
+            //             BinaryOpr::Pure(PureBinaryOpr::Sub).into(),
+            //         ))
+            //     } else {
+            //         self.stack.push(HuskyAtom::new(
+            //             self.token_stream.text_range(text_start),
+            //             PrefixOpr::Minus.into(),
+            //         ))
+            //     }
+            // }
             SpecialToken::FieldAccess => {
                 let field_ident_token = self
                     .token_stream
@@ -168,7 +170,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                     ))
                 },
                 Convexity::Concave => todo!(),
-                Convexity::WordPatternAny => todo!(),
+                Convexity::Any => todo!(),
             },
             _ => {
                 self.token_stream.text_range(text_start);

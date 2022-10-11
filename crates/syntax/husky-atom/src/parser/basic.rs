@@ -60,7 +60,7 @@ impl AtomParserPattern for UsizeLiteralPattern {
     fn get_parsed(&self, parser: &mut AtomParser) -> AtomResult<Option<Self::Output>> {
         Ok(
             if let Some(Token {
-                kind: TokenKind::PrimitiveLiteral(data),
+                kind: TokenKind::Literal(data),
                 ..
             }) = parser.token_stream.next()
             {
@@ -136,7 +136,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
 
     pub fn usize_literal(&mut self) -> Option<usize> {
         if let Some(Token {
-            kind: TokenKind::PrimitiveLiteral(data),
+            kind: TokenKind::Literal(data),
             ..
         }) = self.token_stream.next()
         {

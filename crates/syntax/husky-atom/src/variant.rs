@@ -89,7 +89,8 @@ impl From<SpecialToken> for HuskyAtomVariant {
             | SpecialToken::RCurl
             | SpecialToken::RBox
             | SpecialToken::RPar
-            | SpecialToken::SubOrMinus
+            | SpecialToken::Sub
+            | SpecialToken::Minus
             | SpecialToken::FieldAccess => {
                 p!(special);
                 panic!()

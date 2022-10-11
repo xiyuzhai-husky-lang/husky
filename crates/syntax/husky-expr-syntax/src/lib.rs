@@ -25,6 +25,12 @@ pub struct RawExpr {
     pub range: TextRange,
 }
 
+impl TextRanged for RawExpr {
+    fn text_range(&self) -> TextRange {
+        self.range
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprVariant {
     Atom(RawAtom),

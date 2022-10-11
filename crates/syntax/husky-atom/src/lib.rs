@@ -58,7 +58,7 @@ impl From<&Token> for HuskyAtom {
                 panic!()
             }
             TokenKind::Special(special) => HuskyAtom::new(token.text_range(), special.into()),
-            TokenKind::PrimitiveLiteral(i) => HuskyAtom::new(token.text_range(), i.into()),
+            TokenKind::Literal(i) => HuskyAtom::new(token.text_range(), i.into()),
             TokenKind::WordOpr(word_opr) => HuskyAtom::new(token.text_range(), word_opr.into()),
             TokenKind::Unrecognized(_) => todo!(),
             TokenKind::IllFormedLiteral(_) => todo!(),

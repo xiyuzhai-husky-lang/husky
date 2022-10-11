@@ -30,3 +30,44 @@ pub(super) enum OnStackOprVariant {
         start: TextPosition,
     },
 }
+
+impl OnStackOpr {
+    pub(super) fn binary(opr: BinaryOpr) -> Self {
+        let precedence = opr.into();
+        Self {
+            precedence,
+            variant: OnStackOprVariant::Binary(opr),
+        }
+    }
+
+    pub(super) fn prefix(prefix: PrefixOpr, start: TextPosition) -> Self {
+        Self {
+            precedence: Precedence::Prefix,
+            variant: OnStackOprVariant::Prefix { prefix, start },
+        }
+    }
+
+    pub(super) fn list_item(position: TextPosition) -> Self {
+        Self {
+            precedence: Precedence::None,
+            variant: OnStackOprVariant::ListItem(position),
+        }
+    }
+
+    pub(super) fn list_start(bra: Bracket, attr: ListStartAttr, start: TextPosition) -> Self {
+        Self {
+            precedence: Precedence::None,
+            variant: OnStackOprVariant::ListStart { bra, attr, start },
+        }
+    }
+
+    pub(super) fn lambda_head(
+        inputs: Vec<(RangedCustomIdentifier, Option<RawExprIdx>)>,
+        start: TextPosition,
+    ) -> Self {
+        Self {
+            precedence: Precedence::LambdaHead,
+            variant: OnStackOprVariant::LambdaHead { inputs, start },
+        }
+    }
+}

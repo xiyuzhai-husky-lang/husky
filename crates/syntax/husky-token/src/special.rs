@@ -17,7 +17,8 @@ pub enum SpecialToken {
     LPar,              // (
     RPar,              //)
     Add,               // +
-    SubOrMinus,        // -
+    Sub,               // -
+    Minus,             // -
     Star,              // *
     Div,               // /
     Power,             // **
@@ -74,7 +75,8 @@ impl SpecialToken {
             SpecialToken::LPar => "(",
             SpecialToken::RPar => ")",
             SpecialToken::Add => "+",
-            SpecialToken::SubOrMinus => "-",
+            SpecialToken::Sub => "-",
+            SpecialToken::Minus => "-",
             SpecialToken::Star => "*",
             SpecialToken::Div => "/",
             SpecialToken::Power => "**",

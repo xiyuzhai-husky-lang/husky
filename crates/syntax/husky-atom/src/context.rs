@@ -203,7 +203,7 @@ pub trait AtomContext<'a> {
     }
 
     fn parse_entity_route(&mut self, text: &str) -> AtomResult<EntityRoutePtr> {
-        let tokens = self.entity_syntax_db().tokenize(text);
+        let tokens = self.entity_syntax_db().tokenize_line(text);
         let result = AtomParser::new(self.as_dyn_mut(), &mut (&tokens as &[_]).into())
             .parse_all_remaining_atoms()?;
         if result.len() == 0 {

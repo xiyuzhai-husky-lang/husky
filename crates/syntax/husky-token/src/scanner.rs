@@ -1,6 +1,6 @@
 use std::{iter::Peekable, sync::Arc};
 
-use crate::{line_token_iter::LineTokenIter, tokenized_text::TokenGroup, *};
+use crate::{raw_token_iter::RawTokenIter, tokenized_text::TokenGroup, *};
 
 use husky_dev_utils::dev_src;
 use husky_file::URange;
@@ -37,6 +37,11 @@ impl<'lex> std::fmt::Debug for TokenScanner<'lex> {
     }
 }
 
+enum TokenScannerAction {
+    Push,
+    ReplaceLast,
+}
+
 impl<'token> TokenScanner<'token> {
     pub(crate) fn new(word_interner: &'token WordInterner) -> Self {
         Self {
@@ -47,19 +52,69 @@ impl<'token> TokenScanner<'token> {
         }
     }
 
+    pub(crate) fn finish_with_tokens(self) -> Vec<Token> {
+        self.tokens
+    }
+
     pub(crate) fn scan(&mut self, line_index: usize, line: &str) {
         let start = self.tokens.len();
-        let (indent, token_iter) = LineTokenIter::new(
+        let (indent, token_iter) = RawTokenIter::new(
             self.word_interner,
             line_index,
             line.chars().enumerate().peekable(),
         );
-        self.tokens.extend(token_iter);
+        self.push_tokens(token_iter);
         let end = self.tokens.len();
         self.tokenized_lines.push(TokenizedLine {
             indent,
             tokens: start..end,
         })
+    }
+
+    fn push_tokens(&mut self, iter: impl Iterator<Item = RawToken>) {
+        for token in iter {
+            let (action, token) = self.resolve_token(token);
+            match action {
+                TokenScannerAction::Push => self.tokens.push(token),
+                TokenScannerAction::ReplaceLast => *self.tokens.last_mut().unwrap() = token,
+            }
+        }
+    }
+
+    fn resolve_token(&self, token: RawToken) -> (TokenScannerAction, Token) {
+        let (action, kind) = match token.kind {
+            RawTokenKind::Certain(token_kind) => (TokenScannerAction::Push, token_kind),
+            RawTokenKind::SubOrMinus => (
+                TokenScannerAction::Push,
+                match self.right_convexity() {
+                    Convexity::Convex => TokenKind::Special(SpecialToken::Sub),
+                    Convexity::Concave => TokenKind::Special(SpecialToken::Minus),
+                    Convexity::Any => todo!(),
+                },
+            ),
+            RawTokenKind::Literal(lit) => match self.tokens.last().map(|t| t.kind) {
+                Some(TokenKind::Special(SpecialToken::Minus)) => (
+                    TokenScannerAction::ReplaceLast,
+                    TokenKind::Literal(lit.negative().expect("todo")),
+                ),
+                _ => (TokenScannerAction::Push, TokenKind::Literal(lit)),
+            },
+            RawTokenKind::IllFormedLiteral(_) => todo!(),
+        };
+        (
+            action,
+            Token {
+                range: token.range,
+                kind,
+            },
+        )
+    }
+
+    fn right_convexity(&self) -> Convexity {
+        match self.tokens.last() {
+            Some(token) => token.right_convexity(),
+            None => Convexity::Concave,
+        }
     }
 
     fn last_token(&self, line: &TokenizedLine) -> &Token {
