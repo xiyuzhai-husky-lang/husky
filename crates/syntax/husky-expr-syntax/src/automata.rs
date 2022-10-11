@@ -40,7 +40,10 @@ impl<'a> Automata<'a> {
     fn parse_all(mut self) {
         while !self.stream().is_empty() {
             let token = &self.stream.next().unwrap();
-            self.accept_token(self.resolve_token(token))
+            match self.accept_token(self.resolve_token(token)) {
+                Ok(()) => (),
+                Err(_) => todo!(),
+            }
         }
         self.synthesize_all_above(Precedence::None).expect("todo");
         should!(self.stack.number_of_exprs() == 1);

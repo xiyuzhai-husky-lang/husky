@@ -38,7 +38,7 @@ impl AtomStack {
         match self.convexity() {
             Convexity::Convex => true,
             Convexity::Concave => false,
-            Convexity::WordPatternAny => true,
+            Convexity::Any => true,
         }
     }
 

@@ -60,47 +60,15 @@ impl<'a> Automata<'a> {
     }
 
     fn synthesize_binary(&mut self, binary: BinaryOpr) {
-        todo!()
-        // let len = self.exprs.len();
-        // let range = (self.exprs[len - 2].range.start..self.exprs[len - 1].range.end).into();
-        // self.synthesize_opn(binary.into(), Default::default(), 2, range)
+        use husky_text::TextRanged;
+        let len = self.stack.number_of_exprs();
+        let range = self.stack.topk_exprs(2).text_range();
+        self.synthesize_opn(binary.into(), 2, range)
     }
 
     fn synthesize_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
-        todo!()
-        // let range = (start..self.exprs.last().unwrap().range.end).into();
-        // if prefix == PrefixOpr::Minus {
-        //     if let RawExprVariant::PrimitiveLiteral(lit) = self.exprs.last().unwrap().variant {
-        //         self.exprs.pop();
-        //         match lit {
-        //             RawLiteralData::I32(i) => self.exprs.push(RawExpr {
-        //                 range,
-        //                 variant: RawExprVariant::PrimitiveLiteral(RawLiteralData::I32(-i)),
-        //             }),
-        //             RawLiteralData::F32(f) => self.exprs.push(RawExpr {
-        //                 range,
-        //                 variant: RawExprVariant::PrimitiveLiteral(RawLiteralData::F32(-f)),
-        //             }),
-        //             RawLiteralData::Void
-        //             | RawLiteralData::B32(_)
-        //             | RawLiteralData::Bool(_)
-        //             | RawLiteralData::B64(_) => todo!(),
-        //             RawLiteralData::Integer(i) => self.exprs.push(RawExpr {
-        //                 range,
-        //                 variant: RawExprVariant::PrimitiveLiteral(RawLiteralData::Integer(-i)),
-        //             }),
-        //             RawLiteralData::I64(_) => todo!(),
-        //             RawLiteralData::Float(f) => self.exprs.push(RawExpr {
-        //                 range,
-        //                 variant: RawExprVariant::PrimitiveLiteral(RawLiteralData::Float(-f)),
-        //             }),
-        //             RawLiteralData::F64(_) => todo!(),
-        //             RawLiteralData::Bits(_) => todo!(),
-        //         }
-        //         return;
-        //     }
-        // }
-        // self.synthesize_opn(prefix.into(), Default::default(), 1, range)
+        let range = (start..self.stack.top_expr().unwrap().range.end).into();
+        self.synthesize_opn(prefix.into(), 1, range)
     }
 
     fn synthesize_suffix(&mut self, suffix: RawSuffixOpr, end: TextPosition) {
@@ -121,14 +89,12 @@ impl<'a> Automata<'a> {
     }
 
     fn synthesize_opn(&mut self, opn_variant: RawOpnVariant, n_opds: usize, range: TextRange) {
-        todo!()
-        // let len = self.exprs.len();
-        // let opds = self.arena.alloc(self.exprs[(len - n_opds)..len].into());
-        // self.exprs.truncate(len - n_opds);
-        // self.exprs.push(RawExpr {
-        //     range,
-        //     variant: RawExprVariant::Opn { opn_variant, opds },
-        // });
+        let len = self.stack.number_of_exprs();
+        let opds = self.arena.alloc(self.stack.drain_exprs(n_opds).into());
+        self.stack.push_expr(RawExpr {
+            range,
+            variant: RawExprVariant::Opn { opn_variant, opds },
+        });
     }
 
     fn synthesize_lambda(

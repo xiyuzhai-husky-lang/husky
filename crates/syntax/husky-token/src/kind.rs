@@ -9,7 +9,7 @@ pub enum TokenKind {
     Special(SpecialToken),
     WordOpr(WordOpr),
     WordPattern(WordPattern),
-    PrimitiveLiteral(RawLiteralData),
+    Literal(RawLiteralData),
     Unrecognized(char),
     IllFormedLiteral(RawLiteralData),
 }
@@ -23,7 +23,7 @@ impl std::fmt::Display for TokenKind {
             TokenKind::Special(special_token) => write!(f, "\"{}\"", special_token.code()),
             TokenKind::WordOpr(opr) => write!(f, "\"{}\"", opr.as_str()),
             TokenKind::WordPattern(patt) => write!(f, "\"{}\"", patt.as_str()),
-            TokenKind::PrimitiveLiteral(lit) => write!(f, "\"{}\"", lit),
+            TokenKind::Literal(lit) => write!(f, "\"{}\"", lit),
             TokenKind::Unrecognized(_) => todo!(),
             TokenKind::IllFormedLiteral(_) => todo!(),
         }
@@ -40,7 +40,7 @@ impl std::fmt::Debug for TokenKind {
             TokenKind::Special(special_token) => write!(f, "\"{}\"", special_token.code()),
             TokenKind::WordOpr(opr) => write!(f, "\"{}\"", opr.as_str()),
             TokenKind::WordPattern(patt) => write!(f, "\"{}\"", patt.as_str()),
-            TokenKind::PrimitiveLiteral(lit) => write!(f, "\"{}\"", lit),
+            TokenKind::Literal(lit) => write!(f, "\"{}\"", lit),
             TokenKind::Unrecognized(_) => todo!(),
             TokenKind::IllFormedLiteral(_) => todo!(),
         }
@@ -55,10 +55,24 @@ impl TokenKind {
             TokenKind::Identifier(_) => Some(Convexity::Convex),
             TokenKind::Special(_) => todo!(),
             TokenKind::WordOpr(_) => todo!(),
-            TokenKind::PrimitiveLiteral(_) => Some(Convexity::Convex),
+            TokenKind::Literal(_) => Some(Convexity::Convex),
             TokenKind::Unrecognized(_) => None,
             TokenKind::IllFormedLiteral(_) => Some(Convexity::Convex),
             TokenKind::WordPattern(_) => Some(Convexity::Convex),
+        }
+    }
+
+    pub fn right_convexity(self) -> Convexity {
+        match self {
+            TokenKind::Decorator(_) => todo!(),
+            TokenKind::Keyword(_) => todo!(),
+            TokenKind::Identifier(_) => Convexity::Convex,
+            TokenKind::Special(_) => todo!(),
+            TokenKind::WordOpr(_) => todo!(),
+            TokenKind::Literal(_) => Convexity::Convex,
+            TokenKind::Unrecognized(_) => Convexity::Any,
+            TokenKind::IllFormedLiteral(_) => Convexity::Convex,
+            TokenKind::WordPattern(_) => Convexity::Any,
         }
     }
 }

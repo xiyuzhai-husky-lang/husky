@@ -5,7 +5,7 @@ use husky_token::Tokenize;
 
 fn test_parse_raw_exprs_debug(text: &str) -> String {
     let db = SymbolTestsDb::new();
-    let tokens = db.tokenize(text);
+    let tokens = db.tokenize_line(text);
     let mut arena = RawExprArena::new();
     let mut ctx = db.fake_ctx();
     parse_raw_exprs(&mut ctx, &mut arena, &tokens);

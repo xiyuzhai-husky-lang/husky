@@ -93,7 +93,7 @@ pub fn expect_test<Input, Output>(
                                 &serde_json::to_string_pretty(&expects).unwrap(),
                                 true,
                             );
-                            panic!("expect update not accepted")
+                            panic!("{RED}expect update not accepted{RESET}")
                         }
                     }
                 }

@@ -51,7 +51,7 @@ impl HuskyAtomVariant {
             HuskyAtomVariant::Be => Convexity::Concave,
             HuskyAtomVariant::BePattern(_) => Convexity::Convex,
             HuskyAtomVariant::WordPattern { patt } => match patt {
-                WordPattern::Some => Convexity::WordPatternAny,
+                WordPattern::Some => Convexity::Any,
                 WordPattern::None => Convexity::Convex,
             },
         }

@@ -1,4 +1,4 @@
-use crate::{line_token_iter::LineTokenIter, *};
+use crate::{raw_token_iter::RawTokenIter, *};
 
 use husky_dev_utils::dev_src;
 use husky_file::{FileError, FileErrorKind, FileResultArc};
@@ -23,14 +23,10 @@ fn tokenized_text(
 }
 
 pub trait Tokenize: InternWord {
-    fn tokenize(&self, line: &str) -> Vec<Token> {
-        LineTokenIter::new(
-            self.word_allocator(),
-            0,
-            line.chars().enumerate().peekable(),
-        )
-        .1
-        .collect()
+    fn tokenize_line(&self, line: &str) -> Vec<Token> {
+        let mut scanner = TokenScanner::new(self.word_allocator());
+        scanner.scan(0, line);
+        scanner.finish_with_tokens()
     }
 }
 

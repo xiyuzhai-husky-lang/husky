@@ -1,8 +1,8 @@
 mod convexity;
 mod error;
 mod kind;
-mod line_token_iter;
 mod query;
+mod raw_token_iter;
 mod scanner;
 mod semantic_token;
 mod special;
@@ -23,6 +23,7 @@ use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::{RangedCustomIdentifier, TextIndent, TextRange, TextRanged};
 use husky_word::Identifier;
+use raw_token_iter::*;
 use scanner::TokenScanner;
 
 #[derive(PartialEq, Eq)]
@@ -63,6 +64,10 @@ impl Token {
 
     pub fn left_convexity(&self) -> Option<Convexity> {
         self.kind.left_convexity()
+    }
+
+    pub fn right_convexity(&self) -> Convexity {
+        self.kind.right_convexity()
     }
 }
 

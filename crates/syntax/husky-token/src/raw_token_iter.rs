@@ -5,14 +5,50 @@ use husky_word::WordInterner;
 
 use crate::*;
 
-pub(crate) struct LineTokenIter<'token_line, 'lex: 'token_line> {
+pub(crate) struct RawToken {
+    pub(crate) range: TextRange,
+    pub(crate) kind: RawTokenKind,
+}
+
+impl RawToken {
+    fn new(i: usize, start: usize, end: usize, kind: RawTokenKind) -> Self {
+        RawToken {
+            range: husky_text::new_same_line(i, start, end),
+            kind,
+        }
+    }
+}
+
+pub enum RawTokenKind {
+    Certain(TokenKind),
+    Literal(RawLiteralData),
+    IllFormedLiteral(RawLiteralData),
+    SubOrMinus,
+}
+
+impl From<TokenKind> for RawTokenKind {
+    fn from(kind: TokenKind) -> Self {
+        RawTokenKind::Certain(kind)
+    }
+}
+
+impl From<Token> for RawToken {
+    fn from(value: Token) -> Self {
+        Self {
+            range: value.range,
+            kind: RawTokenKind::Certain(value.kind),
+        }
+    }
+}
+
+pub(crate) struct RawTokenIter<'token_line, 'lex: 'token_line> {
     word_interner: &'lex WordInterner,
     line_index: usize,
     buffer: String,
     char_iter: CharIter<'token_line>,
 }
 
-impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
+impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
     pub fn new(
         word_interner: &'lex WordInterner,
         line_index: usize,
@@ -33,7 +69,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
     }
 }
 
-impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
+impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
     fn skip_whitespaces(&mut self) {
         while let Some((_, c)) = self.char_iter.peek() {
             if *c != ' ' {
@@ -61,7 +97,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         );
     }
 
-    fn next_number(&mut self, j_start: usize) -> Token {
+    fn next_number(&mut self, j_start: usize) -> RawToken {
         while self.peek_char().is_digit(10) {
             self.eat_char()
         }
@@ -72,13 +108,11 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                     self.eat_char()
                 }
                 let len = self.buffer.len();
-                Token::new(
+                RawToken::new(
                     self.line_index,
                     j_start,
                     j_start + len,
-                    TokenKind::PrimitiveLiteral(RawLiteralData::Float(
-                        self.take_buffer::<f64>().into(),
-                    )),
+                    RawTokenKind::Literal(RawLiteralData::Float(self.take_buffer::<f64>().into())),
                 )
             }
             'b' => {
@@ -90,7 +124,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         if self.peek_char() != '2' {
                             (
                                 self.buffer.len() + 2,
-                                TokenKind::IllFormedLiteral(RawLiteralData::Bits(
+                                RawTokenKind::IllFormedLiteral(RawLiteralData::Bits(
                                     self.take_buffer::<u64>().into(),
                                 )),
                             )
@@ -102,7 +136,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                             } else {
                                 (
                                     self.buffer.len() + 3,
-                                    TokenKind::PrimitiveLiteral(RawLiteralData::B32(
+                                    RawTokenKind::Literal(RawLiteralData::B32(
                                         self.take_buffer::<u32>().into(),
                                     )),
                                 )
@@ -114,7 +148,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         if self.peek_char() != '4' {
                             (
                                 self.buffer.len() + 2,
-                                TokenKind::IllFormedLiteral(RawLiteralData::Bits(
+                                RawTokenKind::IllFormedLiteral(RawLiteralData::Bits(
                                     self.take_buffer::<u64>().into(),
                                 )),
                             )
@@ -126,7 +160,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                             } else {
                                 (
                                     self.buffer.len() + 3,
-                                    TokenKind::PrimitiveLiteral(RawLiteralData::B64(
+                                    RawTokenKind::Literal(RawLiteralData::B64(
                                         self.take_buffer::<u64>().into(),
                                     )),
                                 )
@@ -135,10 +169,12 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                     }
                     _ => (
                         self.buffer.len() + 1,
-                        TokenKind::IllFormedLiteral(RawLiteralData::B64(self.take_buffer::<u64>())),
+                        RawTokenKind::IllFormedLiteral(RawLiteralData::B64(
+                            self.take_buffer::<u64>(),
+                        )),
                     ),
                 };
-                Token::new(self.line_index, j_start, j_start + token_len, kind)
+                RawToken::new(self.line_index, j_start, j_start + token_len, kind)
             }
             'i' => {
                 // i32 or i64
@@ -149,7 +185,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         if self.peek_char() != '2' {
                             (
                                 self.buffer.len() + 2,
-                                TokenKind::IllFormedLiteral(RawLiteralData::Integer(
+                                RawTokenKind::IllFormedLiteral(RawLiteralData::Integer(
                                     self.take_buffer::<i32>().into(),
                                 )),
                             )
@@ -161,7 +197,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                             } else {
                                 (
                                     self.buffer.len() + 3,
-                                    TokenKind::PrimitiveLiteral(RawLiteralData::I32(
+                                    RawTokenKind::Literal(RawLiteralData::I32(
                                         self.take_buffer::<i32>().into(),
                                     )),
                                 )
@@ -173,7 +209,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         if self.peek_char() != '4' {
                             (
                                 self.buffer.len() + 2,
-                                TokenKind::IllFormedLiteral(RawLiteralData::Integer(
+                                RawTokenKind::IllFormedLiteral(RawLiteralData::Integer(
                                     self.take_buffer::<i64>().into(),
                                 )),
                             )
@@ -185,7 +221,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                             } else {
                                 (
                                     self.buffer.len() + 3,
-                                    TokenKind::PrimitiveLiteral(RawLiteralData::I64(
+                                    RawTokenKind::Literal(RawLiteralData::I64(
                                         self.take_buffer::<i64>().into(),
                                     )),
                                 )
@@ -194,10 +230,12 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                     }
                     _ => (
                         self.buffer.len() + 1,
-                        TokenKind::IllFormedLiteral(RawLiteralData::I64(self.take_buffer::<i64>())),
+                        RawTokenKind::IllFormedLiteral(RawLiteralData::I64(
+                            self.take_buffer::<i64>(),
+                        )),
                     ),
                 };
-                Token::new(self.line_index, j_start, j_start + token_len, kind)
+                RawToken::new(self.line_index, j_start, j_start + token_len, kind)
             }
             default => {
                 if default.is_alphabetic() {
@@ -207,22 +245,22 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                         self.ignore_char();
                         token_len += 1;
                     }
-                    Token::new(
+                    RawToken::new(
                         self.line_index,
                         j_start,
                         j_start + token_len,
-                        TokenKind::IllFormedLiteral(RawLiteralData::B64(
+                        RawTokenKind::IllFormedLiteral(RawLiteralData::B64(
                             self.take_buffer::<u64>().into(),
                         )),
                     )
                 } else {
                     // integer
                     let len = self.buffer.len();
-                    Token::new(
+                    RawToken::new(
                         self.line_index,
                         j_start,
                         j_start + len,
-                        TokenKind::PrimitiveLiteral(RawLiteralData::Integer(
+                        RawTokenKind::Literal(RawLiteralData::Integer(
                             self.take_buffer::<i32>().into(),
                         )),
                     )
@@ -266,7 +304,12 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
         let (_, _c) = self.char_iter.next().expect("what");
     }
 
-    fn next_special(&mut self, j_start: usize, c_start: char) -> Option<Token> {
+    fn next_special(&mut self, j_start: usize, c_start: char) -> Option<RawToken> {
+        let (len, kind) = self.next_special_aux(j_start, c_start)?;
+        Some(RawToken::new(self.line_index, j_start, j_start + len, kind).into())
+    }
+
+    fn next_special_aux(&mut self, j_start: usize, c_start: char) -> Option<(usize, RawTokenKind)> {
         let (len, special) = match c_start {
             '=' => match self.peek_char() {
                 '=' => self.pass_two(SpecialToken::Eq),
@@ -304,7 +347,7 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 '=' => self.pass_two(SpecialToken::SubAssign),
                 '-' => self.pass_two(SpecialToken::Decr),
                 '>' => self.pass_two(SpecialToken::LightArrow),
-                _ => (1, SpecialToken::SubOrMinus),
+                _ => return Some((1, RawTokenKind::SubOrMinus)),
             },
             '<' => match self.peek_char() {
                 '<' => self.pass_two(SpecialToken::Shl), // <<
@@ -338,26 +381,14 @@ impl<'token_line, 'lex: 'token_line> LineTokenIter<'token_line, 'lex> {
                 _ => (1, SpecialToken::Exclamation),
             },
             '?' => (1, SpecialToken::QuestionMark),
-            c => {
-                return Some(Token::new(
-                    self.line_index,
-                    j_start,
-                    j_start + 1,
-                    TokenKind::Unrecognized(c),
-                ))
-            }
+            c => return Some((1, TokenKind::Unrecognized(c).into())),
         };
-        Some(Token::new(
-            self.line_index,
-            j_start,
-            j_start + len,
-            TokenKind::Special(special),
-        ))
+        Some((len, RawTokenKind::Certain(TokenKind::Special(special))))
     }
 }
 
-impl<'token_line, 'lex: 'token_line> Iterator for LineTokenIter<'token_line, 'lex> {
-    type Item = Token;
+impl<'token_line, 'lex: 'token_line> Iterator for RawTokenIter<'token_line, 'lex> {
+    type Item = RawToken;
 
     fn next(&mut self) -> Option<Self::Item> {
         if let Some((j, c)) = self.char_iter.next() {
@@ -366,10 +397,10 @@ impl<'token_line, 'lex: 'token_line> Iterator for LineTokenIter<'token_line, 'le
                 return self.next();
             } else if c.is_alphabetic() || c == '_' {
                 self.buffer.push(c);
-                Some(self.next_word(j))
+                Some(self.next_word(j).into())
             } else if c.is_digit(10) {
                 self.buffer.push(c);
-                Some(self.next_number(j))
+                Some(self.next_number(j).into())
             } else {
                 self.next_special(j, c)
             }

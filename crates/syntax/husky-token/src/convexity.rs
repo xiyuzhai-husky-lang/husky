@@ -2,7 +2,7 @@
 pub enum Convexity {
     Convex,
     Concave,
-    WordPatternAny,
+    Any,
 }
 impl Convexity {
     pub fn compatible_with(self: Convexity, right: Convexity) -> bool {
@@ -10,14 +10,14 @@ impl Convexity {
             Convexity::Convex => match right {
                 Convexity::Convex => false,
                 Convexity::Concave => true,
-                Convexity::WordPatternAny => true,
+                Convexity::Any => true,
             },
             Convexity::Concave => match right {
                 Convexity::Convex => true,
                 Convexity::Concave => false,
-                Convexity::WordPatternAny => true,
+                Convexity::Any => true,
             },
-            Convexity::WordPatternAny => true,
+            Convexity::Any => true,
         }
     }
 }

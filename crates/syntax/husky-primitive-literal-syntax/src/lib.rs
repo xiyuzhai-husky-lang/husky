@@ -15,6 +15,24 @@ pub enum RawLiteralData {
     Bool(bool),
 }
 
+impl RawLiteralData {
+    pub fn negative(self) -> Option<RawLiteralData> {
+        match self {
+            RawLiteralData::Void => None,
+            RawLiteralData::Integer(i) => Some(RawLiteralData::Integer(-i)),
+            RawLiteralData::I32(_) => todo!(),
+            RawLiteralData::I64(_) => todo!(),
+            RawLiteralData::Float(_) => todo!(),
+            RawLiteralData::F32(_) => todo!(),
+            RawLiteralData::F64(_) => todo!(),
+            RawLiteralData::Bits(_) => todo!(),
+            RawLiteralData::B32(_) => todo!(),
+            RawLiteralData::B64(_) => todo!(),
+            RawLiteralData::Bool(_) => None,
+        }
+    }
+}
+
 impl std::fmt::Display for RawLiteralData {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
