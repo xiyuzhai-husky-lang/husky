@@ -4,6 +4,8 @@ mod error;
 mod opn;
 mod parser;
 mod precedence;
+#[cfg(test)]
+mod tests;
 mod variant;
 
 pub use atom::*;

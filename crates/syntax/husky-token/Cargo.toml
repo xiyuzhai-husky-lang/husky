@@ -22,12 +22,7 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-entity-kind = { path = "../husky-entity-kind" }
 husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../husky-opn-syntax" }
-husky-test-utils = { path = "../../utils/husky-test-utils", features = [
-    "expect"
-] }
+husky-test-utils = { path = "../../utils/husky-test-utils" }
+husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
 
 [lib]
-
-[[bin]]
-name = "husky-token-tests"
-path = "src/tests.rs"

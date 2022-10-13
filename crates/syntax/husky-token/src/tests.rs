@@ -5,16 +5,17 @@
 
 use std::sync::Arc;
 
+use crate::*;
+use husky_expect_test_utils::*;
 use husky_print_utils::ep;
-use husky_test_utils::{expect::expect_test, *};
 use husky_text::{Column, Row, TextPosition};
-use husky_token::*;
 use husky_word::new_word_itr;
 
-// use crate::*;
+#[test]
+fn it_works() {
+    expect_test::<String, _>(tokenize_debug);
 
-fn tokenize_debug(text: &str) -> String {
-    format!("{:#?}", new_word_itr().tokenize_line(text))
+    fn tokenize_debug(text: &str) -> String {
+        format!("{:#?}", new_word_itr().tokenize_line(text))
+    }
 }
-
-expect_test!(tokenize_debug);
