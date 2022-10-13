@@ -54,7 +54,7 @@ impl TermCurry {
 }
 
 impl<'a> TermContext<'a> {
-    pub fn curry(&self, curry_kind: TermCurryKind, x: Ty, y: Ty) -> TermResult<Ty> {
+    pub(crate) fn curry(&self, curry_kind: TermCurryKind, x: Ty, y: Ty) -> TermResult<Ty> {
         if self.ty_family(x)? == TyFamily::Monadic {
             return Err(TermError::MonadIsNotInput);
         }
@@ -76,8 +76,8 @@ impl<'a> TermContext<'a> {
 #[test]
 fn test_curry() {
     let db = TermTestsDb::new();
-    let ctx = TermContext::new(&db);
     let menu = db.term_menu();
+    let ctx = TermContext::new(&db, &menu);
     let i32_to_i32 = ctx
         .curry(TermCurryKind::Concept, menu.i32(), menu.i32())
         .unwrap();
