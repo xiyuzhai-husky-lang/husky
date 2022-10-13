@@ -13,7 +13,7 @@ fn it_works() {
         let tokens = db.tokenize_line(text);
         let mut arena = RawExprArena::new();
         let mut ctx = db.fake_ctx();
-        parse_raw_exprs(&mut ctx, &mut arena, &tokens);
+        parse_raw_expr(&mut ctx, &mut arena, &tokens);
         format!("{:#?}", arena)
     }
 }

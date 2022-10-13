@@ -5,7 +5,10 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+textwrap = "0.15.1"
 salsa = "0.17.0-pre.2"
+# syntax
+husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
@@ -18,7 +21,3 @@ husky-token = { path = "../../syntax/husky-token" }
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-
-[[bin]]
-name = "husky-term-infer-tests"
-path = "tests.rs"

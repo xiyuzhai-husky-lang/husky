@@ -51,7 +51,7 @@ impl<'a> Automata<'a> {
     }
 }
 
-pub fn parse_raw_exprs<'a>(
+pub fn parse_raw_expr<'a>(
     ctx: &'a mut SymbolContext<'a>,
     arena: &'a mut RawExprArena,
     tokens: &'a [Token],
