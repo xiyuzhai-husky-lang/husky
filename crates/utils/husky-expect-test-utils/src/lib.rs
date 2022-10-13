@@ -115,12 +115,6 @@ is this okay (y/n)? "#,
     ))
 }
 
-#[must_use]
-enum OverwritePermission {
-    Allowed,
-    Forbidden,
-}
-
 fn ask_yes_or_no(message: String) -> bool {
     loop {
         print!("{message}");
