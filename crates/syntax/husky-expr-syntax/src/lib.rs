@@ -58,6 +58,7 @@ use ::arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
 pub type RawExprArena = Arena<RawExpr>;
 pub type RawExprIdx = ArenaIdx<RawExpr>;
 pub type RawExprRange = ArenaRange<RawExpr>;
+pub type RawExprMap<V> = ArenaMap<RawExpr, V>;
 
 impl RawExpr {
     fn new(variant: RawExprVariant, range: TextRange) -> Self {
