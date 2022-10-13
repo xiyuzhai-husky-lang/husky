@@ -1,4 +1,4 @@
-#[salsa::query_group(VariableQueryStorage)]
-pub trait VariableQuery: AnswerVariableQuery {}
+#[salsa::query_group(SymbolDbStorage)]
+pub trait SymbolDb: SymbolQueries {}
 
-pub trait AnswerVariableQuery {}
+pub trait SymbolQueries {}

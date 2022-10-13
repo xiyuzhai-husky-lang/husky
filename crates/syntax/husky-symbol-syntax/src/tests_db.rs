@@ -2,7 +2,7 @@ use husky_word::{InternWord, WordInterner};
 
 use crate::*;
 
-#[salsa::database(VariableQueryStorage)]
+#[salsa::database(SymbolDbStorage)]
 pub struct SymbolTestsDb {
     storage: salsa::Storage<Self>,
     word_itr: WordInterner,
@@ -10,7 +10,7 @@ pub struct SymbolTestsDb {
 
 impl salsa::Database for SymbolTestsDb {}
 
-impl AnswerVariableQuery for SymbolTestsDb {}
+impl SymbolQueries for SymbolTestsDb {}
 
 impl SymbolTestsDb {
     pub fn new() -> Self {

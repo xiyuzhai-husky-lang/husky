@@ -13,7 +13,6 @@ node_modules
 
 _outdated
 
-.vscode
 .metals
 *.swp
 
@@ -26,7 +25,6 @@ __rust_gen_cache__
 *.out
 *.exe
 __c_code_gen_test__
-
 
 # lean4
 /build

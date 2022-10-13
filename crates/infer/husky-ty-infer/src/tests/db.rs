@@ -2,14 +2,14 @@ use super::*;
 use husky_entity_path::{
     new_entity_path_itr, EntityPath, EntityPathInterner, EntityPathPtr, InternEntityPath,
 };
-use husky_symbol_syntax::SymbolContext;
+use husky_symbol_syntax::{SymbolContext, SymbolDb, SymbolDbStorage, SymbolQueries};
 use husky_term::{new_term_itr, AskDecl, TermDb, TermInterner, Ty};
 use husky_term::{InternTerm, TermDbStorage};
 use husky_word::{InternWord, WordInterner};
 use salsa::Database;
 use std::collections::HashMap;
 
-#[salsa::database(TermDbStorage)]
+#[salsa::database(TermDbStorage, SymbolDbStorage)]
 pub(crate) struct TyInferTestsDb {
     storage: salsa::Storage<Self>,
     term_itr: TermInterner,
@@ -20,7 +20,7 @@ pub(crate) struct TyInferTestsDb {
 
 impl TyInferTestsDb {
     pub(super) fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
-        todo!()
+        SymbolContext::new(self)
     }
 }
 
@@ -43,6 +43,8 @@ impl InternWord for TyInferTestsDb {
         &self.word_itr
     }
 }
+
+impl SymbolQueries for TyInferTestsDb {}
 
 impl AskDecl for TyInferTestsDb {
     fn ask_namespace_decl(

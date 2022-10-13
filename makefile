@@ -20,9 +20,9 @@ count-todo:
 	scripts/pattern_statistics.py "todo!()" crates 2 10
 
 update-expect:
-	UPDATE_EXPECT=1 cargo test --package husky-token
-	UPDATE_EXPECT=1 cargo test --package husky-expr-syntax
-	UPDATE_EXPECT=1 cargo test --package husky-ty-infer
+	UPDATE_EXPECT=1 cargo test --package husky-token -j 1 -- --nocapture
+	UPDATE_EXPECT=1 cargo test --package husky-expr-syntax -j 1 -- --nocapture
+	UPDATE_EXPECT=1 cargo test --package husky-ty-infer -j 1 -- --nocapture
 
 ubuntu-setup:
 	scripts/ubuntu_setup.sh
