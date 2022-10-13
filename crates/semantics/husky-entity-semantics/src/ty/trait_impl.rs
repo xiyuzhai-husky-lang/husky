@@ -36,7 +36,7 @@ impl EntityDefnVariant {
                 trai: entity_route_menu.copy_trait,
                 member_impls: vec![EntityDefn::new(
                     db,
-                    db.intern_word("clone").ident(),
+                    db.it_word("clone").ident(),
                     EntityDefnVariant::Method {
                         spatial_parameters: Default::default(),
                         this_modifier: ParameterModifier::None,
@@ -54,7 +54,7 @@ impl EntityDefnVariant {
                     db.ty_as_trai_subroute(
                         this_ty,
                         clone_trait,
-                        db.intern_word("clone").custom(),
+                        db.it_word("clone").custom(),
                         thin_vec![],
                     ),
                     file,

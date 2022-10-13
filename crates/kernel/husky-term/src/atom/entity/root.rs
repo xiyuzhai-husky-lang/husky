@@ -5,12 +5,12 @@ use RootBuiltinIdentifier::*;
 use crate::*;
 
 impl Term {
-    pub(crate) fn std(db: &dyn TermQuery, menu2: &TermMenu2) -> TermPtr {
+    pub(crate) fn std(db: &dyn TermDb, menu2: &TermMenu2) -> TermPtr {
         Self::root_builtin_entity(db, Std, todo!())
     }
 
     pub(crate) fn root_builtin_entity(
-        db: &dyn TermQuery,
+        db: &dyn TermDb,
         ident: RootBuiltinIdentifier,
         ty: Ty,
     ) -> TermPtr {

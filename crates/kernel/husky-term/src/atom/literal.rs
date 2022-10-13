@@ -25,14 +25,14 @@ impl TermLiteral {
         }
     }
 
-    pub fn i32_literal(db: &dyn TermQuery, i: i32, menu2: &TermMenu2) -> TermPtr {
+    pub fn i32_literal(db: &dyn TermDb, i: i32, menu2: &TermMenu2) -> TermPtr {
         db.it_term(Term::Atom(TermAtom::new_literal(
             TermLiteralData::I32(i),
             menu2.i32(),
         )))
     }
 
-    pub fn i64_literal(db: &dyn TermQuery, i: i64, menu2: &TermMenu2) -> TermPtr {
+    pub fn i64_literal(db: &dyn TermDb, i: i64, menu2: &TermMenu2) -> TermPtr {
         db.it_term(Term::Atom(TermAtom::new_literal(
             TermLiteralData::I64(i),
             menu2.i64(),

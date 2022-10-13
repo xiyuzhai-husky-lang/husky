@@ -22,7 +22,7 @@ impl std::ops::Deref for TermMenu2 {
 }
 
 impl TermMenu2 {
-    pub(crate) fn new(db: &dyn TermQuery, menu1: TermMenu1) -> Self {
+    pub(crate) fn new(db: &dyn TermDb, menu1: TermMenu1) -> Self {
         let void = Ty::void(db, &menu1);
         let i32 = Ty::i32(db, &menu1);
         let i64 = Ty::i64(db, &menu1);

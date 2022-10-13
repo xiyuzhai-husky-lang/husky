@@ -230,7 +230,7 @@ pub trait AtomContext<'a> {
             RangedCustomIdentifier {
                 ident: self
                     .entity_syntax_db()
-                    .intern_word(static_parameter.name)
+                    .it_word(static_parameter.name)
                     .custom(),
                 range: Default::default(),
             },
@@ -259,7 +259,7 @@ pub trait AtomContext<'a> {
             ident: RangedCustomIdentifier {
                 ident: self
                     .entity_syntax_db()
-                    .intern_word(static_spatial_parameter.name)
+                    .it_word(static_spatial_parameter.name)
                     .custom(),
                 range: Default::default(),
             },

@@ -13,7 +13,7 @@ impl<'a> dyn DeclQueryGroup + 'a {
     ) -> IdentDict<SpatialParameter> {
         static_generic_parameters.map(|static_spatial_parameter| SpatialParameter {
             ident: RangedCustomIdentifier {
-                ident: self.intern_word(static_spatial_parameter.name).custom(),
+                ident: self.it_word(static_spatial_parameter.name).custom(),
                 range: Default::default(),
             },
             variant: SpatialParameterVariant::Type { traits: vec![] },

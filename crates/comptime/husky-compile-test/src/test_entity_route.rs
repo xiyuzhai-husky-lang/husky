@@ -18,7 +18,7 @@ main:
     let target_entrance = db.intern_file("haha/main.hsy".into());
     let pack = db.intern_entity_route(EntityRoute::package(
         target_entrance,
-        db.intern_word("haha".into()).opt_custom().unwrap(),
+        db.it_word("haha".into()).opt_custom().unwrap(),
     ));
     let subscope_table = db.subroute_table(pack).ok().unwrap();
     should_eq!(subscope_table.entries.len(), 2);
@@ -51,10 +51,10 @@ struct B {}
     let husky_lord_file = db.intern_file("haha/husky_lord.hsy".into());
     let package = db.intern_entity_route(EntityRoute::package(
         target_entrance,
-        db.intern_word("haha".into()).opt_custom().unwrap(),
+        db.it_word("haha".into()).opt_custom().unwrap(),
     ));
     let subroute_table = db.subroute_table(package).ok().unwrap();
-    let husky_lord_route = db.subroute(package, db.intern_word("husky_lord").custom(), thin_vec![]);
+    let husky_lord_route = db.subroute(package, db.it_word("husky_lord").custom(), thin_vec![]);
     should_eq!(
         db.entity_source(husky_lord_route).unwrap(),
         EntitySource::Module {

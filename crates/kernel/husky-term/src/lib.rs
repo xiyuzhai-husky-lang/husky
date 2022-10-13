@@ -4,12 +4,12 @@ mod atom;
 mod context;
 mod cow;
 mod curry;
+mod db;
 mod decl;
 mod display;
 mod error;
 mod intern;
 mod menu;
-mod query;
 #[cfg(test)]
 mod tests;
 mod ty;
@@ -19,11 +19,11 @@ pub use application::TermApplication;
 pub use atom::*;
 pub use context::TermContext;
 pub use curry::TermCurry;
+pub use db::*;
 pub use decl::*;
 pub use error::*;
 pub use intern::*;
 pub use menu::*;
-pub use query::*;
 pub use ty::Ty;
 
 use cow::TermCow;

@@ -58,7 +58,7 @@ impl EntityDefn {
             EntityDefnVariant::trait_member_impl_from_static(context, trai, static_trait_impl);
         let ident = context
             .entity_syntax_db()
-            .intern_word(static_trait_impl.name)
+            .it_word(static_trait_impl.name)
             .ident();
         let ty = context.opt_this_ty().unwrap();
         assert!(!matches!(ty.variant, EntityRouteVariant::ThisType { .. }));

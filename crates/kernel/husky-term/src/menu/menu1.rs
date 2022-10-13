@@ -9,7 +9,7 @@ pub struct TermMenu1 {
 }
 
 impl TermMenu1 {
-    pub fn new(db: &dyn TermQuery, menu0: TermMenu0) -> Self {
+    pub fn new(db: &dyn TermDb, menu0: TermMenu0) -> Self {
         let term = db.it_term(Term::Application(
             TermApplication::new(menu0.sort(), menu0.universe1()).unwrap(),
         ));

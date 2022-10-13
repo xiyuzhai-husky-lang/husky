@@ -102,7 +102,7 @@ impl TraitImplDecl {
                     opt_route: Some(db.ty_as_trai_subroute(
                         this_ty,
                         clone_trait,
-                        db.intern_word("clone").custom(),
+                        db.it_word("clone").custom(),
                         thin_vec![],
                     )),
                     opt_this_liason: Some(ParameterModifier::None),
@@ -268,7 +268,7 @@ impl TraitMemberImplDecl {
                 EntityStaticDefnVariant::Method { .. } => None,
                 EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
                 EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => Some((
-                    db.intern_word(static_member_impl.name).custom(),
+                    db.it_word(static_member_impl.name).custom(),
                     SpatialArgument::EntityRoute(symbol_context.parse_entity_route(ty).unwrap()),
                 )),
                 EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),

@@ -37,7 +37,7 @@ impl FieldDecl {
             } => Arc::new(Self {
                 ident: symbol_context
                     .entity_syntax_db()
-                    .intern_word(static_decl.name)
+                    .it_word(static_decl.name)
                     .custom(),
                 modifier: liason,
                 ty: symbol_context.parse_entity_route(field_ty).unwrap(),

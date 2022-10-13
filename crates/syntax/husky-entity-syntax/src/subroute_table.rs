@@ -240,7 +240,7 @@ impl SubrouteTable {
             .iter()
             .map(|data| SubrouteEntry {
                 ident: Some(RangedCustomIdentifier {
-                    ident: db.intern_word(data.name).opt_custom().unwrap(),
+                    ident: db.it_word(data.name).opt_custom().unwrap(),
                     range: Default::default(),
                 }),
                 kind: data.variant.husky_entity_kind(),
@@ -257,7 +257,7 @@ impl SubrouteTable {
                 for ty_member in ty_members {
                     entries.push(SubrouteEntry {
                         ident: Some(RangedCustomIdentifier {
-                            ident: db.intern_word(ty_member.name).custom(),
+                            ident: db.it_word(ty_member.name).custom(),
                             range: Default::default(),
                         }),
                         kind: EntityKind::Member(match ty_member.variant {
@@ -285,7 +285,7 @@ impl SubrouteTable {
                 for member in members.iter() {
                     entries.push(SubrouteEntry {
                         ident: Some(RangedCustomIdentifier {
-                            ident: db.intern_word(member.name).custom(),
+                            ident: db.it_word(member.name).custom(),
                             range: Default::default(),
                         }),
                         kind: EntityKind::Member(match member.variant {

@@ -24,7 +24,7 @@ impl std::ops::Deref for TermMenu {
         &self.parent
     }
 }
-pub(crate) fn term_menu(db: &dyn TermQuery) -> Arc<TermMenu> {
+pub(crate) fn term_menu(db: &dyn TermDb) -> Arc<TermMenu> {
     let menu0 = TermMenu0::new(db);
     let menu1 = TermMenu1::new(db, menu0);
     let menu2 = TermMenu2::new(db, menu1);

@@ -3,12 +3,12 @@ use std::sync::Arc;
 use crate::*;
 
 pub struct TermContext<'a> {
-    db: &'a dyn TermQuery,
+    db: &'a dyn TermDb,
     menu: Arc<TermMenu>,
 }
 
 impl<'a> TermContext<'a> {
-    pub fn new(db: &'a dyn TermQuery) -> Self {
+    pub fn new(db: &'a dyn TermDb) -> Self {
         Self {
             db,
             menu: db.term_menu(),

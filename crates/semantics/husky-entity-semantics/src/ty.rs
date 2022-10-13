@@ -200,7 +200,7 @@ impl EntityDefnVariant {
                 let ty_members = ty_members.map(|ty_member| {
                     let route = symbol_context.db.subroute(
                         this_ty,
-                        symbol_context.db.intern_word(ty_member.name).custom(),
+                        symbol_context.db.it_word(ty_member.name).custom(),
                         thin_vec![],
                     );
                     EntityDefn::from_static(db, &mut symbol_context, route, ty_member)
@@ -208,7 +208,7 @@ impl EntityDefnVariant {
                 let variants = variants.map(|variant| {
                     let route = symbol_context.db.subroute(
                         this_ty,
-                        symbol_context.db.intern_word(variant.name).custom(),
+                        symbol_context.db.it_word(variant.name).custom(),
                         thin_vec![],
                     );
                     EntityDefn::from_static(db, &mut symbol_context, route, variant)
