@@ -31,12 +31,18 @@ use optional::Optioned;
 #[cfg(test)]
 use tests::*;
 
-#[derive(Debug, PartialEq, Eq, Hash)]
+#[derive(PartialEq, Eq, Hash)]
 pub enum Term {
     Atom(TermAtom),
     Curry(TermCurry),
     Abstraction(TermAbstraction),
     Application(TermApplication),
+}
+
+impl std::fmt::Debug for Term {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Term(\"{}\")", self)
+    }
 }
 
 impl Term {

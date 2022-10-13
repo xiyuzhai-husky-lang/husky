@@ -1,5 +1,6 @@
 [
   {
-    "input": "1"
+    "input": "1",
+    "output": "raw expr arena:\n    Arena ([\n      #0: RawExpr { variant: Atom(Literal(Integer(1))), range: [1:1, 1:2) }\n    ])\nty infer sheet:\n    TyInferSheet {\n        infer_results: ArenaMap ([\n            0, Ty(Term(\"i32\"))\n        ]),\n    }"
   }
 ]

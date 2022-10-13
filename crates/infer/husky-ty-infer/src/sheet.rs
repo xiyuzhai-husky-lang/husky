@@ -1,4 +1,19 @@
-#[derive(Default, Debug)]
-pub struct TyInferSheet {}
+use husky_expr_syntax::{RawExprArena, RawExprIdx, RawExprMap};
+use husky_term::Ty;
 
-impl TyInferSheet {}
+#[derive(Debug)]
+pub struct TyInferSheet {
+    infer_results: RawExprMap<Ty>,
+}
+
+impl TyInferSheet {
+    pub(crate) fn new(arena: &RawExprArena) -> Self {
+        Self {
+            infer_results: RawExprMap::new(arena),
+        }
+    }
+
+    pub(crate) fn insert(&mut self, expr: RawExprIdx, ty: Ty) {
+        self.infer_results.insert_new(expr, ty)
+    }
+}

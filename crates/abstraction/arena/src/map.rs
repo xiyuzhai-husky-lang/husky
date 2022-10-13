@@ -47,11 +47,11 @@ where
     V: std::fmt::Debug,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("ArenaMap {\n  data: [\n")?;
+        f.write_str("ArenaMap ([\n")?;
         for (i, v) in self.iter() {
-            f.write_fmt(format_args!("    {:?}\n", (i, v)))?
+            f.write_fmt(format_args!("    {}, {:?}\n", i, v))?
         }
-        f.write_str("  ]\n}\n")
+        f.write_str("])")
     }
 }
 

@@ -5,6 +5,7 @@ use db::*;
 use husky_expect_test_utils::expect_test;
 use husky_expr_syntax::{parse_raw_expr, RawExprArena};
 use husky_print_utils::epin;
+use husky_term::TermDb;
 use husky_token::*;
 
 #[test]
@@ -17,8 +18,9 @@ fn test_infer_ty_works() {
         let mut arena = RawExprArena::new();
         let mut symbol_ctx = db.fake_symbol_ctx();
         let expr = parse_raw_expr(&mut symbol_ctx, &mut arena, &tokens);
-        let mut sheet = TyInferSheet::default();
-        let mut ctx = TyInferContext::new(&db, &mut sheet, &arena, expr);
+        let mut sheet = TyInferSheet::new(&arena);
+        let term_menu = db.term_menu();
+        TyInferContext::new(&db, &mut sheet, &arena, expr, &term_menu).run();
         format!(
             r#"raw expr arena:
 {}
