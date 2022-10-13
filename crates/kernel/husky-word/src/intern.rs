@@ -32,9 +32,13 @@ impl IsInternPtr for WordPtr {
     fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
         Self::Identifier(Identifier::Custom(CustomIdentifier(target)))
     }
+
+    fn new_itr() -> Interner<Self> {
+        new_word_itr()
+    }
 }
 
-pub fn new_word_itr() -> WordInterner {
+fn new_word_itr() -> WordInterner {
     WordInterner::new(&[
         ConfigKeyword::Task.into(),
         Keyword::Use.into(),
@@ -118,12 +122,12 @@ pub fn new_word_itr() -> WordInterner {
 }
 
 pub trait InternWord {
-    fn word_allocator(&self) -> &WordInterner;
+    fn word_itr(&self) -> &WordInterner;
     fn it_word(&self, word: &str) -> WordPtr {
-        self.word_allocator().intern_borrowed(word)
+        self.word_itr().intern_borrowed(word)
     }
     fn it_ident(&self, word: &str) -> Identifier {
-        self.word_allocator().intern_borrowed(word).ident()
+        self.word_itr().intern_borrowed(word).ident()
     }
     fn custom_ident(&self, word: &str) -> CustomIdentifier {
         self.it_word(word).opt_custom().unwrap()
@@ -131,7 +135,7 @@ pub trait InternWord {
 }
 
 impl InternWord for WordInterner {
-    fn word_allocator(&self) -> &WordInterner {
+    fn word_itr(&self) -> &WordInterner {
         self
     }
 }

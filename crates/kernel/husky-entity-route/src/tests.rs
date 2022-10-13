@@ -4,7 +4,7 @@ use crate::*;
 
 #[test]
 fn test_canonicalize() {
-    let interner = new_entity_route_interner();
+    let interner = EntityRouteInterner::default();
     let opt_f32_ty = interner.route_call(
         RootBuiltinIdentifier::Option.into(),
         thin_vec![SpatialArgument::EntityRoute(

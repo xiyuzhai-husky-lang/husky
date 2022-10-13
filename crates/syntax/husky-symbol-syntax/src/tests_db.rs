@@ -15,7 +15,7 @@ impl AnswerVariableQuery for SymbolTestsDb {}
 impl SymbolTestsDb {
     pub fn new() -> Self {
         Self {
-            word_itr: husky_word::new_word_itr(),
+            word_itr: WordInterner::default(),
             storage: Default::default(),
         }
     }
@@ -28,7 +28,7 @@ impl SymbolTestsDb {
 }
 
 impl InternWord for SymbolTestsDb {
-    fn word_allocator(&self) -> &WordInterner {
+    fn word_itr(&self) -> &WordInterner {
         &self.word_itr
     }
 }

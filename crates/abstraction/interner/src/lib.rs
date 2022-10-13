@@ -16,6 +16,15 @@ pub struct Interner<Ptr: IsInternPtr> {
     internal: SafeRwLock<InternerInternal<Ptr>>,
 }
 
+impl<Ptr> Default for Interner<Ptr>
+where
+    Ptr: IsInternPtr,
+{
+    fn default() -> Self {
+        Ptr::new_itr()
+    }
+}
+
 // impl<T, Owned, Id> Clone for Interner<T, Owned, Id>
 // where
 //     T: Hash + Eq + 'static + ?Sized,

@@ -48,10 +48,10 @@ impl IsInternPtr for FeaturePtr {
             id: FeatureId::new(id),
         }
     }
+
+    fn new_itr() -> interner::Interner<Self> {
+        FeatureInterner::new(&[])
+    }
 }
 
 pub type FeatureInterner = interner::Interner<FeaturePtr>;
-
-pub fn new_feature_interner() -> FeatureInterner {
-    FeatureInterner::new(&[])
-}

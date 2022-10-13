@@ -13,7 +13,7 @@ fn tokenized_text(
     id: husky_file::FilePtr,
 ) -> FileResultArc<TokenizedText> {
     if let Some(text) = this.raw_text(id) {
-        return Ok(TokenizedText::parse(this.word_allocator(), text.as_str()));
+        return Ok(TokenizedText::parse(this.word_itr(), text.as_str()));
     } else {
         Err(FileError {
             kind: FileErrorKind::FileNotFound,
@@ -24,7 +24,7 @@ fn tokenized_text(
 
 pub trait Tokenize: InternWord {
     fn tokenize_line(&self, line: &str) -> Vec<Token> {
-        let mut scanner = TokenScanner::new(self.word_allocator());
+        let mut scanner = TokenScanner::new(self.word_itr());
         scanner.scan(0, line);
         scanner.finish_with_tokens()
     }

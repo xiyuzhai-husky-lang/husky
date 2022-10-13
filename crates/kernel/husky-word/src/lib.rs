@@ -7,7 +7,7 @@ mod style;
 
 pub use decorator::*;
 pub use ident::*;
-pub use intern::{new_word_itr, InternWord, WordInterner};
+pub use intern::{InternWord, WordInterner};
 pub use keyword::*;
 pub use opr::*;
 pub use pattern::*;

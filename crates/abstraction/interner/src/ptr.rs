@@ -2,6 +2,8 @@ use std::{borrow::Borrow, ffi::c_void, fmt::Debug, hash::Hash, marker::PhantomDa
 
 use optional::{Noned, OptEq};
 
+use crate::Interner;
+
 pub trait IsInternPtr:
     'static
     + Debug
@@ -18,6 +20,7 @@ pub trait IsInternPtr:
     type Owned: 'static + Hash + Eq + Send + Sync + Debug + Borrow<Self::T>;
 
     fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self;
+    fn new_itr() -> Interner<Self>;
     fn raw(self) -> *const Self::T {
         self.deref()
     }
@@ -148,5 +151,9 @@ where
             target: Some(target),
             phantom: PhantomData,
         }
+    }
+
+    fn new_itr() -> Interner<Self> {
+        Interner::new_empty()
     }
 }

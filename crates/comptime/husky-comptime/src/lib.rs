@@ -75,13 +75,13 @@ impl HuskyComptime {
     pub fn new(config: ComptimeConfig) -> Self {
         let mut comptime = Self {
             storage: Default::default(),
-            file_interner: Arc::new(husky_file::new_file_interner()),
-            word_interner: Arc::new(husky_word::new_word_itr()),
+            file_interner: Default::default(),
+            word_interner: Default::default(),
             live_docs: Default::default(),
             linkage_table: LinkageTable::new(config.linkage_table.clone()),
             entity_route_store: Default::default(),
             config,
-            entity_route_interner: Arc::new(husky_entity_route::new_entity_route_interner()),
+            entity_route_interner: Default::default(),
         };
         let target_entrance = comptime.intern_file(comptime.config.package_dir.join("main.hsy"));
         comptime.set_opt_target_entrance(Some(target_entrance));
