@@ -27,7 +27,7 @@ impl<'a> LinkageCollector<'a> {
                 if entity_route.spatial_arguments.len() > 0 {
                     self.insert(self.db.subroute(
                         entity_route,
-                        self.db.intern_word("ilen").custom(),
+                        self.db.it_word("ilen").custom(),
                         Default::default(),
                     ))
                 }

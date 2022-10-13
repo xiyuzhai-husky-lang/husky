@@ -96,7 +96,7 @@ impl EntityDefn {
             db,
             symbol_context
                 .entity_syntax_db()
-                .intern_word(static_entity_defn.name)
+                .it_word(static_entity_defn.name)
                 .ident(),
             variant,
             route,
@@ -371,7 +371,7 @@ impl EntityDefnVariant {
                     .intern_entity_route(base_route.call(spatial_arguments));
                 let member_kinds: Vec<_> = members.map(|member| {
                     (
-                        symbol_context.db.intern_word(member.name).custom(),
+                        symbol_context.db.it_word(member.name).custom(),
                         match member.variant {
                             EntityStaticDefnVariant::Method { .. } => {
                                 MemberKind::Method { is_lazy: false }
@@ -395,7 +395,7 @@ impl EntityDefnVariant {
                     members: members.map(|member: &'static EntityStaticDefn| {
                         let route = symbol_context.db.intern_entity_route(EntityRoute::subroute(
                             this_trai,
-                            symbol_context.db.intern_word(member.name).custom(),
+                            symbol_context.db.it_word(member.name).custom(),
                             thin_vec![],
                         ));
                         EntityDefn::from_static(db, &mut symbol_context, route, member)

@@ -119,11 +119,14 @@ pub fn new_word_itr() -> WordInterner {
 
 pub trait InternWord {
     fn word_allocator(&self) -> &WordInterner;
-    fn intern_word(&self, word: &str) -> WordPtr {
+    fn it_word(&self, word: &str) -> WordPtr {
         self.word_allocator().intern_borrowed(word)
     }
+    fn it_ident(&self, word: &str) -> Identifier {
+        self.word_allocator().intern_borrowed(word).ident()
+    }
     fn custom_ident(&self, word: &str) -> CustomIdentifier {
-        self.intern_word(word).opt_custom().unwrap()
+        self.it_word(word).opt_custom().unwrap()
     }
 }
 

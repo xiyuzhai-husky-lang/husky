@@ -41,7 +41,7 @@ impl TraitMemberDecl {
             EntityStaticDefnVariant::TraitAssociatedType { traits, .. } => TraitMemberDecl::Type {
                 ident: symbol_context
                     .entity_syntax_db()
-                    .intern_word(static_member_defn.name)
+                    .it_word(static_member_defn.name)
                     .custom(),
                 traits: traits.map(|trai| symbol_context.parse_entity_route(trai).unwrap()),
             },
@@ -122,7 +122,7 @@ impl TraitDecl {
                 let symbols = db.symbols_from_spatial_parameters(&spatial_parameters);
                 let member_context: Vec<_> = members.map(|member| {
                     (
-                        db.intern_word(member.name).custom(),
+                        db.it_word(member.name).custom(),
                         match member.variant {
                             EntityStaticDefnVariant::Method { .. } => {
                                 MemberKind::Method { is_lazy: false }
@@ -174,7 +174,7 @@ impl TraitDecl {
                                         spatial_arguments: Default::default(),
                                     }),
                                     trai,
-                                    db.intern_word(member.name).custom(),
+                                    db.it_word(member.name).custom(),
                                     thin_vec![],
                                 ),
                                 member,

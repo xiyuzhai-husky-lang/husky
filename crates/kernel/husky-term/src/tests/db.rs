@@ -4,7 +4,7 @@ use husky_entity_path::{new_entity_path_itr, EntityPathInterner, InternEntityPat
 
 use crate::*;
 
-#[salsa::database(TermQueryStorage)]
+#[salsa::database(TermDbStorage)]
 pub(crate) struct TermTestsDb {
     storage: salsa::Storage<TermTestsDb>,
     entity_path_itr: EntityPathInterner,

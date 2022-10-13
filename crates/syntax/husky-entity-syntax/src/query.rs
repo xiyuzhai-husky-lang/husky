@@ -37,13 +37,12 @@ pub trait EntitySyntaxSalsaQueryGroup:
 
 fn entity_route_menu(db: &dyn EntitySyntaxSalsaQueryGroup) -> Arc<EntityRouteMenu> {
     let std_mod = EntityRoutePtr::Root(RootBuiltinIdentifier::Std);
-    let std_ops_mod = db.subroute(std_mod, db.intern_word("ops").custom(), thin_vec![]);
-    let std_ops_index_trai =
-        db.subroute(std_ops_mod, db.intern_word("Index").custom(), thin_vec![]);
-    let std_slice_mod = db.subroute(std_mod, db.intern_word("slice").custom(), thin_vec![]);
+    let std_ops_mod = db.subroute(std_mod, db.it_word("ops").custom(), thin_vec![]);
+    let std_ops_index_trai = db.subroute(std_ops_mod, db.it_word("Index").custom(), thin_vec![]);
+    let std_slice_mod = db.subroute(std_mod, db.it_word("slice").custom(), thin_vec![]);
     let std_slice_cyclic_slice = db.subroute(
         std_slice_mod,
-        db.intern_word("CyclicSlice").custom(),
+        db.it_word("CyclicSlice").custom(),
         thin_vec![],
     );
     Arc::new(EntityRouteMenu {
@@ -382,7 +381,7 @@ pub trait EntitySyntaxQueryGroup:
                 self.parent_module_file(file),
                 format!("cannot find parent")
             )?)?;
-            let word = self.intern_word(path.file_stem().unwrap().to_str().unwrap());
+            let word = self.it_word(path.file_stem().unwrap().to_str().unwrap());
             match word {
                 WordPtr::Keyword(kw) => Err(derived_error!(format!(
                     "expect custom identifier for module name, but got keyword {} instead",

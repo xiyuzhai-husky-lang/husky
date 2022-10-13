@@ -320,7 +320,7 @@ pub(crate) fn value_call_form_decl(
                             db,
                             ParameterModifier::None,
                             spatial_argument.take_entity_route(),
-                            db.intern_word(&format!("arg{}", i)).custom(),
+                            db.it_word(&format!("arg{}", i)).custom(),
                         )
                     })
                     .collect::<InferResult<IdentDict<_>>>()?,

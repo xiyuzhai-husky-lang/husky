@@ -91,7 +91,7 @@ impl TyDecl {
                         TyMemberDecl::from_static(
                             db,
                             &mut symbol_context,
-                            db.subroute(this_ty, db.intern_word(member.name).custom(), thin_vec![]),
+                            db.subroute(this_ty, db.it_word(member.name).custom(), thin_vec![]),
                             member,
                         )
                     })

@@ -8,7 +8,7 @@ use husky_entity_path::EntityPathPtr;
 use husky_word::{Identifier, RootBuiltinIdentifier};
 use optional::Optioned;
 
-use crate::{Term, TermQuery, Ty};
+use crate::{Term, TermDb, Ty};
 
 // #[derive(Debug, PartialEq, Eq, Hash)]
 // pub struct TermEntity {
