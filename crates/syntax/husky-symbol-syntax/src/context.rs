@@ -1,11 +1,11 @@
 use crate::*;
 
 pub struct SymbolContext<'a> {
-    db: &'a dyn VariableQuery,
+    db: &'a dyn SymbolDb,
 }
 
 impl<'a> SymbolContext<'a> {
-    pub fn new(db: &'a dyn VariableQuery) -> Self {
+    pub fn new(db: &'a dyn SymbolDb) -> Self {
         Self { db }
     }
 
