@@ -22,7 +22,4 @@ husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
-
-[[bin]]
-name = "husky-expr-syntax-tests"
-path = "tests.rs"
+husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }

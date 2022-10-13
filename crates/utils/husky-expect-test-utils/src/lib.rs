@@ -1,14 +1,16 @@
+mod config;
+
 use colored::Colorize;
+use config::*;
 use husky_io_utils::diff_write;
-use husky_path_utils::{Path, PathBuf};
-use husky_print_utils::p;
+use husky_path_utils::*;
 use husky_print_utils::*;
-use relative_path::RelativePathBuf;
 use serde::{Deserialize, Serialize};
 use std::{
     fs::read_to_string,
     io::{stdin, stdout, Write},
     ops::Deref,
+    path::{Path, PathBuf},
 };
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
@@ -18,35 +20,8 @@ struct Expect<Input, Output> {
     output: Option<Output>,
 }
 
-#[derive(PartialEq, Eq)]
-pub enum Interactive {
-    True,
-    False,
-}
-
-#[macro_export]
-macro_rules! expect_test {
-    ($f: expr) => {
-        use husky_test_utils::expect::*;
-
-        fn run_tests(interactive: Interactive) {
-            expect_test::<String, _>(interactive, $f)
-        }
-        #[test]
-        fn it_works() {
-            run_tests(Interactive::False)
-        }
-
-        fn main() {
-            run_tests(Interactive::True)
-        }
-    };
-}
-
-pub fn expect_test<Input, Output>(
-    interative: Interactive,
-    f: fn(&<Input as Deref>::Target) -> Output,
-) where
+pub fn expect_test<Input, Output>(f: fn(&<Input as Deref>::Target) -> Output)
+where
     Input: for<'a> Deserialize<'a>
         + Serialize
         + std::fmt::Display
@@ -57,6 +32,7 @@ pub fn expect_test<Input, Output>(
     Output:
         for<'a> Deserialize<'a> + Serialize + std::fmt::Display + std::fmt::Debug + PartialEq + Eq,
 {
+    let flag = ExpectTestConfig::from_env();
     let dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
     let tests_dir = dir.join("tests");
     assert!(tests_dir.exists());
@@ -81,7 +57,7 @@ pub fn expect_test<Input, Output>(
             Ok::<Vec<Expect<Input, Output>>, _>(expects) => expects,
             Err(e) => panic!("unable to parse results because due to {e} for {test_path:?}"),
         };
-        if interative == Interactive::True {
+        if flag == ExpectTestConfig::UpdateExpect {
             for expect in expects.iter_mut() {
                 let output = f(&expect.input);
                 if expect.output.as_ref() != Some(&output) {

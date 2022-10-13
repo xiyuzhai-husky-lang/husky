@@ -1,0 +1,15 @@
+[package]
+name = "husky-expect-test-utils"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+colored = "2.0.0"
+textwrap = "0.15.1"
+thiserror = "1.0.37"
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+husky-io-utils = { path = "../../utils/husky-io-utils" }
+husky-path-utils = { path = "../../utils/husky-path-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
