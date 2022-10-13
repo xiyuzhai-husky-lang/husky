@@ -276,6 +276,10 @@ impl IsInternPtr for EntityRoutePtr {
     fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
         Self::Custom(target)
     }
+
+    fn new_itr() -> Interner<Self> {
+        new_entity_route_interner()
+    }
 }
 
 impl From<RootBuiltinIdentifier> for EntityRoutePtr {
@@ -374,7 +378,7 @@ impl InternEntityRoute for EntityRouteInterner {
     }
 }
 
-pub fn new_entity_route_interner() -> EntityRouteInterner {
+fn new_entity_route_interner() -> EntityRouteInterner {
     EntityRouteInterner::new_from::<RootBuiltinIdentifier>(&[
         RootBuiltinIdentifier::Void,
         RootBuiltinIdentifier::I32,

@@ -17,7 +17,7 @@ use husky_opn_semantics::ImplicitConversion;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_vm_primitive_value::PrimitiveValueData;
 use husky_xml_syntax::XmlTagKind;
-pub use intern::{new_feature_interner, FeatureInterner, FeaturePtr, InternFeature};
+pub use intern::{FeatureInterner, FeaturePtr, InternFeature};
 pub use lazy_branch::*;
 pub use lazy_expr::*;
 pub use lazy_stmt::{FeatureLazyStmt, FeatureLazyStmtVariant};

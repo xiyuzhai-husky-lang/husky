@@ -10,6 +10,13 @@ salsa = "0.17.0-pre.2"
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
+# utils
+husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
+
+[dev-dependencies]
+husky-token = { path = "../../syntax/husky-token" }
+husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
+husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 
 [[bin]]
 name = "husky-term-infer-tests"

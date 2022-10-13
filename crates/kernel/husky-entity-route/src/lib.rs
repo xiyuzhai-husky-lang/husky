@@ -9,9 +9,7 @@ mod verifiy;
 
 pub use canonical::*;
 pub use husky_entity_kind::EntityKind;
-pub use intern::{
-    new_entity_route_interner, EntityRouteInterner, EntityRoutePtr, InternEntityRoute,
-};
+pub use intern::{EntityRouteInterner, EntityRoutePtr, InternEntityRoute};
 pub use menu::*;
 
 use husky_file::FilePtr;

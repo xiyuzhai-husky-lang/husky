@@ -35,7 +35,7 @@ impl AllocateUniqueFile for HuskyComptime {
 }
 
 impl InternWord for HuskyComptime {
-    fn word_allocator(&self) -> &husky_word::WordInterner {
+    fn word_itr(&self) -> &husky_word::WordInterner {
         &self.word_interner
     }
 }

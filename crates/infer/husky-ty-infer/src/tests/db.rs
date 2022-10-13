@@ -1,8 +1,11 @@
 use super::*;
-use husky_entity_path::{EntityPath, EntityPathPtr, InternEntityPath};
+use husky_entity_path::{
+    new_entity_path_itr, EntityPath, EntityPathInterner, EntityPathPtr, InternEntityPath,
+};
+use husky_symbol_syntax::SymbolContext;
 use husky_term::{new_term_itr, AskDecl, TermDb, TermInterner, Ty};
 use husky_term::{InternTerm, TermDbStorage};
-use husky_word::InternWord;
+use husky_word::{InternWord, WordInterner};
 use salsa::Database;
 use std::collections::HashMap;
 
@@ -10,26 +13,34 @@ use std::collections::HashMap;
 pub(crate) struct TyInferTestsDb {
     storage: salsa::Storage<Self>,
     term_itr: TermInterner,
+    entity_path_itr: EntityPathInterner,
+    word_itr: WordInterner,
     entity_tys: HashMap<EntityPathPtr, Ty>,
+}
+
+impl TyInferTestsDb {
+    pub(super) fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
+        todo!()
+    }
 }
 
 impl Database for TyInferTestsDb {}
 
 impl InternTerm for TyInferTestsDb {
     fn term_itr(&self) -> &TermInterner {
-        todo!()
+        &self.term_itr
     }
 }
 
 impl InternEntityPath for TyInferTestsDb {
     fn entity_path_itr(&self) -> &husky_entity_path::EntityPathInterner {
-        todo!()
+        &self.entity_path_itr
     }
 }
 
 impl InternWord for TyInferTestsDb {
-    fn word_allocator(&self) -> &husky_word::WordInterner {
-        todo!()
+    fn word_itr(&self) -> &husky_word::WordInterner {
+        &self.word_itr
     }
 }
 
@@ -50,7 +61,9 @@ impl TyInferTestsDb {
     pub(crate) fn new() -> Self {
         let mut db = Self {
             storage: Default::default(),
-            term_itr: new_term_itr(),
+            term_itr: Default::default(),
+            entity_path_itr: Default::default(),
+            word_itr: Default::default(),
             entity_tys: Default::default(),
         };
         db.init();

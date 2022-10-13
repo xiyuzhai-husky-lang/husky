@@ -78,14 +78,14 @@ impl HuskyDevRuntime {
         let mut runtime = Self {
             storage: Default::default(),
             variant: HuskyRuntimeVariant::None,
-            feature_interner: husky_feature_gen::new_feature_interner(),
+            feature_interner: Default::default(),
             // comptime
-            file_interner: Arc::new(husky_file::new_file_interner()),
-            word_interner: Arc::new(husky_word::new_word_itr()),
+            file_interner: Default::default(),
+            word_interner: Default::default(),
             live_docs: Default::default(),
             linkage_table: LinkageTable::new(config.comptime.linkage_table.clone()),
             entity_route_store: Default::default(),
-            entity_route_interner: Arc::new(husky_entity_route::new_entity_route_interner()),
+            entity_route_interner: Default::default(),
             // config
             config,
         };
