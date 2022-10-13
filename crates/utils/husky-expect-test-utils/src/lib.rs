@@ -20,8 +20,10 @@ struct Expect<Input, Output> {
     output: Option<Output>,
 }
 
-pub fn expect_test<Input, Output>(f: fn(&<Input as Deref>::Target) -> Output)
-where
+pub fn expect_test<Input, Output>(
+    relative_folder_path: &str,
+    f: fn(&<Input as Deref>::Target) -> Output,
+) where
     Input: for<'a> Deserialize<'a>
         + Serialize
         + std::fmt::Display
@@ -34,7 +36,7 @@ where
 {
     let flag = ExpectTestConfig::from_env();
     let dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
-    let tests_dir = dir.join("tests");
+    let tests_dir = dir.join("tests").join(relative_folder_path);
     assert!(tests_dir.exists());
     assert!(tests_dir.is_dir());
     let mut test_paths: Vec<PathBuf> = vec![];

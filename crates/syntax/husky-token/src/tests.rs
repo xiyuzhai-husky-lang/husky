@@ -13,7 +13,7 @@ use husky_word::new_word_itr;
 
 #[test]
 fn it_works() {
-    expect_test::<String, _>(tokenize_debug);
+    expect_test::<String, _>("", tokenize_debug);
 
     fn tokenize_debug(text: &str) -> String {
         format!("{:#?}", new_word_itr().tokenize_line(text))
