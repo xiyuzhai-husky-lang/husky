@@ -9,7 +9,7 @@ use husky_word::{InternWord, WordInterner};
 use salsa::Database;
 use std::collections::HashMap;
 
-#[salsa::database(TermDbStorage, SymbolDbStorage)]
+#[salsa::database(TermDbStorage, SymbolDbStorage, TyInferDbStorage)]
 pub(crate) struct TyInferTestsDb {
     storage: salsa::Storage<Self>,
     term_itr: TermInterner,
