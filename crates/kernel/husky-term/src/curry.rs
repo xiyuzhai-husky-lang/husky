@@ -73,6 +73,20 @@ impl<'a> TermContext<'a> {
     }
 }
 
+impl std::fmt::Display for TermCurry {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self.curry_kind() {
+            curry::TermCurryKind::Physics {
+                physical_curry_kind,
+                modifier,
+            } => todo!(),
+            curry::TermCurryKind::Concept => {
+                write!(f, "{} -> {}", self.x(), self.y())
+            }
+        }
+    }
+}
+
 #[test]
 fn test_curry() {
     let db = TermTestsDb::new();

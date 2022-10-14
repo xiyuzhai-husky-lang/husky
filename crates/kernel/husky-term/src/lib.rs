@@ -6,7 +6,6 @@ mod cow;
 mod curry;
 mod db;
 mod decl;
-mod display;
 mod error;
 mod intern;
 mod menu;
@@ -61,6 +60,17 @@ impl Term {
             Term::Curry(_) => todo!(),
             Term::Abstraction(_) => todo!(),
             Term::Application(_) => todo!(),
+        }
+    }
+}
+
+impl std::fmt::Display for Term {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Term::Atom(a) => a.fmt(f),
+            Term::Curry(c) => c.fmt(f),
+            Term::Abstraction(a) => a.fmt(f),
+            Term::Application(a) => a.fmt(f),
         }
     }
 }
