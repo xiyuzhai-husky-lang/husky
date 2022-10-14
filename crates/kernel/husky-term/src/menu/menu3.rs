@@ -6,7 +6,6 @@ pub struct TermMenu3 {
     i32_literal_1: TermPtr,
     i64_literal_0: TermPtr,
     i64_literal_1: TermPtr,
-    sized: TermPtr,
     parent: TermMenu2,
 }
 
@@ -28,7 +27,6 @@ impl TermMenu3 {
             i32_literal_1: TermLiteral::i32_literal(db, 1, &menu2),
             i64_literal_0: TermLiteral::i64_literal(db, 0, &menu2),
             i64_literal_1: TermLiteral::i64_literal(db, 1, &menu2),
-            sized: todo!(),
             parent: menu2,
         }
     }
