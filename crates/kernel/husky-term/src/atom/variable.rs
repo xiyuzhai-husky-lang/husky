@@ -23,3 +23,9 @@ impl std::fmt::Display for TermVariableVariant {
         todo!()
     }
 }
+
+impl std::fmt::Display for TermVariable {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
+    }
+}

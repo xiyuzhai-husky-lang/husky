@@ -15,6 +15,23 @@ impl std::ops::Deref for TermLiteral {
     }
 }
 
+impl std::fmt::Display for TermLiteral {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self.data() {
+            TermLiteralData::Void => "void".fmt(f),
+            TermLiteralData::I32(v) => v.fmt(f),
+            TermLiteralData::I64(v) => v.fmt(f),
+            TermLiteralData::Float(v) => v.fmt(f),
+            TermLiteralData::F32(v) => v.fmt(f),
+            TermLiteralData::F64(v) => v.fmt(f),
+            TermLiteralData::Bits(v) => v.fmt(f),
+            TermLiteralData::B32(v) => v.fmt(f),
+            TermLiteralData::B64(v) => v.fmt(f),
+            TermLiteralData::Bool(v) => v.fmt(f),
+        }
+    }
+}
+
 impl TermLiteral {
     pub fn data(&self) -> &TermLiteralData {
         match self.deref() {
