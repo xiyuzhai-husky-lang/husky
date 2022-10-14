@@ -83,7 +83,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
         husky_entity_kind: EntityKind,
     ) -> InferResult<EntityRoutePtr> {
         Ok(match husky_entity_kind {
-            EntityKind::Module => EntityRoutePtr::Root(RootBuiltinIdentifier::ModuleType),
+            EntityKind::Module => EntityRoutePtr::Root(RootBuiltinIdentifier::Module),
             EntityKind::EnumVariant => match entity_route {
                 EntityRoutePtr::Root(ident) => match ident {
                     RootBuiltinIdentifier::True | RootBuiltinIdentifier::False => {
@@ -94,7 +94,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
                 EntityRoutePtr::Custom(route) => route.parent(),
             },
             EntityKind::Type(_) => RootBuiltinIdentifier::TypeType.into(),
-            EntityKind::Trait => RootBuiltinIdentifier::TraitType.into(),
+            EntityKind::Trait => RootBuiltinIdentifier::Trait.into(),
             EntityKind::Function { .. } | EntityKind::Member(_) => {
                 let decl = self.db.entity_call_form_decl(entity_route)?;
                 let base_route: EntityRoutePtr = if decl.is_lazy {

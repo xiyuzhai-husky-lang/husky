@@ -263,8 +263,8 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                 | RootBuiltinIdentifier::PartialEqTrait
                 | RootBuiltinIdentifier::EqTrait
                 | RootBuiltinIdentifier::TypeType
-                | RootBuiltinIdentifier::TraitType
-                | RootBuiltinIdentifier::ModuleType => Ok(thin_vec![]),
+                | RootBuiltinIdentifier::Trait
+                | RootBuiltinIdentifier::Module => Ok(thin_vec![]),
                 RootBuiltinIdentifier::Mor
                 | RootBuiltinIdentifier::ThickFp
                 | RootBuiltinIdentifier::Fn

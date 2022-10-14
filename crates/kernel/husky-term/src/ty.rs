@@ -74,37 +74,37 @@ impl Ty {
     pub(crate) fn i32(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
         Self::root_builtin_ty(db, I32, menu1)
     }
-    // i64
+
     pub(crate) fn i64(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
         Self::root_builtin_ty(db, I64, menu1)
     }
-    // f32: Ty,
+
     pub(crate) fn f32(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
         Self::root_builtin_ty(db, F32, menu1)
     }
-    // f64: Ty,
+
     pub(crate) fn f64(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
         Self::root_builtin_ty(db, F64, menu1)
     }
-    // b32: Ty,
+
     pub(crate) fn b32(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
         Self::root_builtin_ty(db, B32, menu1)
     }
-    // b64: Ty,
+
     pub(crate) fn b64(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
         Self::root_builtin_ty(db, B64, menu1)
     }
-    // bool: Ty,
+
     pub(crate) fn bool(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
         Self::root_builtin_ty(db, Bool, menu1)
     }
 
     pub(crate) fn module(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
-        Self::root_builtin_ty(db, ModuleType, menu1)
+        Self::root_builtin_ty(db, Module, menu1)
     }
 
     pub(crate) fn trai(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
-        Self::root_builtin_ty(db, TraitType, menu1)
+        Self::root_builtin_ty(db, Trait, menu1)
     }
 
     fn root_builtin_ty(db: &dyn TermDb, ident: RootBuiltinIdentifier, menu1: &TermMenu1) -> Ty {

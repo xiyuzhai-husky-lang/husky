@@ -66,8 +66,8 @@ pub(crate) fn is_copyable(db: &dyn DeclQueryGroup, ty: EntityRoutePtr) -> InferR
             RootBuiltinIdentifier::Array => false,
             RootBuiltinIdentifier::DatasetType => false,
             RootBuiltinIdentifier::TypeType => false,
-            RootBuiltinIdentifier::TraitType => false,
-            RootBuiltinIdentifier::ModuleType => false,
+            RootBuiltinIdentifier::Trait => false,
+            RootBuiltinIdentifier::Module => false,
             RootBuiltinIdentifier::RefMut => false,
             RootBuiltinIdentifier::Option => db.is_copyable(ty.entity_route_argument(0))?,
             _ => {

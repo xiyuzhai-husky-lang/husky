@@ -11,6 +11,7 @@ pub struct TermMenu2 {
     b32: Ty,
     b64: Ty,
     bool: Ty,
+    trai: Ty,
 }
 
 impl std::ops::Deref for TermMenu2 {
@@ -31,6 +32,7 @@ impl TermMenu2 {
         let b32 = Ty::b32(db, &menu1);
         let b64 = Ty::b64(db, &menu1);
         let bool = Ty::bool(db, &menu1);
+        let trai = Ty::trai(db, &menu1);
         TermMenu2 {
             parent: menu1,
             void,
@@ -41,6 +43,7 @@ impl TermMenu2 {
             b32,
             b64,
             bool,
+            trai,
         }
     }
 

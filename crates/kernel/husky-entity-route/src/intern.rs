@@ -51,8 +51,8 @@ impl EntityRoutePtr {
                 RootBuiltinIdentifier::DatasetType => todo!(),
                 RootBuiltinIdentifier::VisualType => todo!(),
                 RootBuiltinIdentifier::TypeType => todo!(),
-                RootBuiltinIdentifier::TraitType => todo!(),
-                RootBuiltinIdentifier::ModuleType => todo!(),
+                RootBuiltinIdentifier::Trait => todo!(),
+                RootBuiltinIdentifier::Module => todo!(),
                 RootBuiltinIdentifier::Ref => todo!(),
                 RootBuiltinIdentifier::Option => todo!(),
                 _ => panic!(),
@@ -251,7 +251,7 @@ impl Deref for EntityRoutePtr {
         match self {
             EntityRoutePtr::Root(ident) => match_root!(
                 ident => Void, I32, I64, F32, F64, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Mor, ThickFp, Fn,
-                FnMut, FnOnce, Array, Domains, DatasetType, VisualType, TypeType, TraitType, ModuleType,
+                FnMut, FnOnce, Array, Domains, DatasetType, VisualType, TypeType, Trait, Module,
                 CloneTrait,
                 CopyTrait,
                 PartialEqTrait,
@@ -403,7 +403,7 @@ fn new_entity_route_interner() -> EntityRouteInterner {
         RootBuiltinIdentifier::Domains,
         RootBuiltinIdentifier::DatasetType,
         RootBuiltinIdentifier::TypeType,
-        RootBuiltinIdentifier::ModuleType,
+        RootBuiltinIdentifier::Module,
         RootBuiltinIdentifier::CloneTrait,
         RootBuiltinIdentifier::CopyTrait,
         RootBuiltinIdentifier::PartialEqTrait,
