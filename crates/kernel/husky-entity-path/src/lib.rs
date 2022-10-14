@@ -1,5 +1,10 @@
+mod db;
 mod display;
 mod intern;
+mod menu;
+
+pub use db::*;
+pub use menu::*;
 
 use husky_word::{Identifier, RootBuiltinIdentifier};
 pub use intern::*;
