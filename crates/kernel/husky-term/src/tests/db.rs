@@ -26,19 +26,7 @@ impl TermTestsDb {
     fn init(mut self) -> Self {
         use TyFamily::*;
         let menu = self.term_menu();
-        self.ty_decls.extend(
-            [
-                (menu.void(), Arc::new(TyDecl::new(Physical))),
-                (menu.i32(), Arc::new(TyDecl::new(Physical))),
-                (menu.i64(), Arc::new(TyDecl::new(Physical))),
-                (menu.f32(), Arc::new(TyDecl::new(Physical))),
-                (menu.f64(), Arc::new(TyDecl::new(Physical))),
-                (menu.b32(), Arc::new(TyDecl::new(Physical))),
-                (menu.b64(), Arc::new(TyDecl::new(Physical))),
-                (menu.bool(), Arc::new(TyDecl::new(Physical))),
-            ]
-            .into_iter(),
-        );
+        self.ty_decls.extend(menu.primitive_ty_decls());
         self
     }
 }
