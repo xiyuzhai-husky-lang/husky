@@ -31,3 +31,4 @@ impl TermMenu3 {
         }
     }
 }
+type A = core::primitive::i32;
