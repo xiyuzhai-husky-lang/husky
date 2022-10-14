@@ -11,6 +11,7 @@ mod intern;
 mod menu;
 #[cfg(test)]
 mod tests;
+mod trai;
 mod ty;
 
 pub use abstraction::TermAbstraction;

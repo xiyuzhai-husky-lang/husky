@@ -78,7 +78,7 @@ fn is_implicitly_castable(
                 _ => false,
             },
             RootBuiltinIdentifier::TypeType => false,
-            RootBuiltinIdentifier::ModuleType => false,
+            RootBuiltinIdentifier::Module => false,
             RootBuiltinIdentifier::Ref => false,
             _ => panic!(),
         },

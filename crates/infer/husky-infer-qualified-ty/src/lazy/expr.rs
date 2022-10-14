@@ -112,7 +112,7 @@ impl LazyExprQualifiedTy {
             canonical_ty: CanonicalTy::new(
                 0,
                 CanonicalQualifier::EvalRef,
-                EntityRoutePtr::Root(RootBuiltinIdentifier::ModuleType),
+                EntityRoutePtr::Root(RootBuiltinIdentifier::Module),
             ),
         }
     }
@@ -123,7 +123,7 @@ impl LazyExprQualifiedTy {
             canonical_ty: CanonicalTy::new(
                 0,
                 CanonicalQualifier::EvalRef,
-                EntityRoutePtr::Root(RootBuiltinIdentifier::TraitType),
+                EntityRoutePtr::Root(RootBuiltinIdentifier::Trait),
             ),
         }
     }

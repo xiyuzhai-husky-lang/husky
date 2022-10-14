@@ -165,9 +165,9 @@ fn entity_kind_from_entity_route_kind(
             RootBuiltinIdentifier::ThickFp => EntityKind::Type(TyKind::ThickFp),
             RootBuiltinIdentifier::Array => todo!(),
             RootBuiltinIdentifier::DatasetType => EntityKind::Type(TyKind::BoxAny),
-            RootBuiltinIdentifier::TraitType
+            RootBuiltinIdentifier::Trait
             | RootBuiltinIdentifier::TypeType
-            | RootBuiltinIdentifier::ModuleType => EntityKind::Type(TyKind::HigherKind),
+            | RootBuiltinIdentifier::Module => EntityKind::Type(TyKind::HigherKind),
             RootBuiltinIdentifier::True | RootBuiltinIdentifier::False => EntityKind::EnumVariant,
             RootBuiltinIdentifier::Fn
             | RootBuiltinIdentifier::FnMut

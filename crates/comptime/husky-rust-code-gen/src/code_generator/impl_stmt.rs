@@ -287,13 +287,13 @@ impl<'a> RustCodeGenerator<'a> {
                 | RootBuiltinIdentifier::Array
                 | RootBuiltinIdentifier::DatasetType
                 | RootBuiltinIdentifier::TypeType
-                | RootBuiltinIdentifier::TraitType => panic!(),
+                | RootBuiltinIdentifier::Trait => panic!(),
                 RootBuiltinIdentifier::Domains => todo!(),
                 RootBuiltinIdentifier::CloneTrait => todo!(),
                 RootBuiltinIdentifier::CopyTrait => todo!(),
                 RootBuiltinIdentifier::PartialEqTrait => todo!(),
                 RootBuiltinIdentifier::EqTrait => todo!(),
-                RootBuiltinIdentifier::ModuleType => todo!(),
+                RootBuiltinIdentifier::Module => todo!(),
                 RootBuiltinIdentifier::Ref => todo!(),
                 RootBuiltinIdentifier::RefMut => todo!(),
                 RootBuiltinIdentifier::Option => todo!(),
