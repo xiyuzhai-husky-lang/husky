@@ -35,7 +35,7 @@ pub struct Block<T, const BLOCK_SIZE: usize> {
 impl<T, const BLOCK_SIZE: usize> Block<T, BLOCK_SIZE> {
     fn new() -> Self {
         let mut storage = Vec::new();
-        storage.reserve(BLOCK_SIZE);
+        storage.reserve_exact(BLOCK_SIZE);
         let result = Self { storage };
         result
     }

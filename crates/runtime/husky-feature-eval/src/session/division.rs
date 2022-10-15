@@ -16,7 +16,7 @@ impl<'eval> Division<'eval> {
     pub fn new(loader: DataLoader<'eval>) -> Self {
         let mut sheets = vec![];
         let mut indicators = vec![];
-        sheets.reserve(loader.len());
+        sheets.reserve_exact(loader.len());
         (0..loader.len()).for_each(|_| {
             sheets.push(EvalSheet::default());
             indicators.push(Default::default())

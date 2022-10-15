@@ -1,14 +1,15 @@
 mod application;
+mod curry;
 mod unresolved;
 
 use application::*;
-use husky_term::TermPtr;
+use curry::*;
+use husky_term::*;
 use unresolved::*;
 
-pub enum TermPattern {
-    Unresolved(usize),
+pub enum TermPattern<'a> {
+    Unresolved(UnresolvedTerm),
     Resolved(TermPtr),
-    Application(TermApplicationPattern),
+    Application(TermApplicationPattern<'a>),
+    Curry(TermCurryPattern<'a>),
 }
-
-pub type TermPatternPtr = *const ();

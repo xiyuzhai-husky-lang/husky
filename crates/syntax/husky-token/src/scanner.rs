@@ -127,7 +127,7 @@ impl<'token> TokenScanner<'token> {
 
     fn produce_line_groups(&mut self) -> Vec<TokenGroup> {
         let mut line_groups = Vec::new();
-        line_groups.reserve(self.tokenized_lines.len());
+        line_groups.reserve_exact(self.tokenized_lines.len());
         let mut line_iter = self
             .tokenized_lines
             .iter()
