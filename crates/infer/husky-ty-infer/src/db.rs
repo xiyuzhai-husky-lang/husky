@@ -1,8 +1,9 @@
 use husky_entity_path::EntityPathPtr;
 use husky_term::Ty;
+use husky_word::InternWord;
 
 #[salsa::query_group(TyInferDbStorage)]
-pub trait TyInferDb: TyInferQueries {
+pub trait TyInferDb: TyInferQueries + InternWord {
     fn entity_ty(&self, entity: EntityPathPtr) -> Ty;
 }
 

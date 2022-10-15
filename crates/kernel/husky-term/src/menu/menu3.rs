@@ -6,6 +6,7 @@ pub struct TermMenu3 {
     i32_literal_1: TermPtr,
     i64_literal_0: TermPtr,
     i64_literal_1: TermPtr,
+    core: TermPtr,
     parent: TermMenu2,
 }
 
@@ -27,8 +28,13 @@ impl TermMenu3 {
             i32_literal_1: TermLiteral::i32_literal(db, 1, &menu2),
             i64_literal_0: TermLiteral::i64_literal(db, 0, &menu2),
             i64_literal_1: TermLiteral::i64_literal(db, 1, &menu2),
+            core: Term::core(db, &menu2),
             parent: menu2,
         }
+    }
+
+    pub fn core(&self) -> TermPtr {
+        self.core
     }
 }
 type A = core::primitive::i32;

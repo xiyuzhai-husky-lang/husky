@@ -8,8 +8,6 @@ use std::{
     ops::{Add, Sub},
 };
 
-use husky_marker_utils::PhantomUnsync;
-
 #[derive(Clone, PartialEq, Eq)]
 pub struct IdxArena<T> {
     data: Vec<T>,

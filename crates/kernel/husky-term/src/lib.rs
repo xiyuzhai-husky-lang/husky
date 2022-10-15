@@ -9,9 +9,11 @@ mod decl;
 mod error;
 mod intern;
 mod menu;
+mod subentity;
 #[cfg(test)]
 mod tests;
 mod trai;
+mod trait_impl;
 mod ty;
 
 pub use abstraction::TermAbstraction;
@@ -24,6 +26,9 @@ pub use decl::*;
 pub use error::*;
 pub use intern::*;
 pub use menu::*;
+pub use subentity::*;
+pub use trai::*;
+pub use trait_impl::*;
 pub use ty::Ty;
 
 use cow::TermCow;
@@ -37,6 +42,8 @@ pub enum Term {
     Curry(TermCurry),
     Abstraction(TermAbstraction),
     Application(TermApplication),
+    Subentity(TermSubentity),
+    TraitImpl(TermTraitImpl),
 }
 
 impl std::fmt::Debug for Term {
@@ -52,6 +59,8 @@ impl Term {
             Term::Curry(c) => Some(c.ty()),
             Term::Abstraction(_) => todo!(),
             Term::Application(a) => a.ty_itd(),
+            Term::Subentity(_) => todo!(),
+            Term::TraitImpl(_) => todo!(),
         }
     }
 
@@ -61,6 +70,8 @@ impl Term {
             Term::Curry(_) => todo!(),
             Term::Abstraction(_) => todo!(),
             Term::Application(_) => todo!(),
+            Term::Subentity(_) => todo!(),
+            Term::TraitImpl(_) => todo!(),
         }
     }
 }
@@ -72,6 +83,8 @@ impl std::fmt::Display for Term {
             Term::Curry(c) => c.fmt(f),
             Term::Abstraction(a) => a.fmt(f),
             Term::Application(a) => a.fmt(f),
+            Term::Subentity(_) => todo!(),
+            Term::TraitImpl(_) => todo!(),
         }
     }
 }
