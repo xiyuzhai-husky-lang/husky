@@ -18,7 +18,7 @@ impl TermMenu4 {
     pub(super) fn new(db: &dyn TermDb, menu3: TermMenu3) -> Self {
         Self {
             core_ops: TermSubentity::new(db, menu3.core(), "ops"),
-            parent: todo!(),
+            parent: menu3,
         }
     }
 
