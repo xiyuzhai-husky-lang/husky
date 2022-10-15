@@ -1,29 +1,49 @@
 use crate::*;
 use husky_expr_syntax::{RawExpr, RawExprArena, RawExprIdx, RawExprVariant};
 use husky_term::{TermMenu, Ty};
+use husky_word::InternWord;
 
 pub(crate) struct TyInferContext<'a> {
     db: &'a dyn TyInferDb,
     sheet: &'a mut TyInferSheet,
-    arena: &'a RawExprArena,
+    expr_arena: &'a RawExprArena,
     expr: RawExprIdx,
     term_menu: &'a TermMenu,
+}
+
+impl<'a> InternWord for TyInferContext<'a> {
+    fn word_itr(&self) -> &husky_word::WordInterner {
+        self.db.word_itr()
+    }
 }
 
 impl<'a> TyInferContext<'a> {
     pub(crate) fn new(
         db: &'a dyn TyInferDb,
         sheet: &'a mut TyInferSheet,
-        arena: &'a RawExprArena,
+        expr_arena: &'a RawExprArena,
         expr: RawExprIdx,
         term_menu: &'a TermMenu,
     ) -> Self {
         Self {
             db,
             sheet,
-            arena,
+            expr_arena,
             expr,
             term_menu,
+        }
+    }
+
+    pub(crate) fn subexpr_context<'b>(&'b mut self, subexpr: RawExprIdx) -> TyInferContext<'b>
+    where
+        'a: 'b,
+    {
+        Self {
+            db: self.db,
+            sheet: unsafe { &mut *(self.sheet as *mut _) },
+            expr_arena: self.expr_arena,
+            expr: subexpr,
+            term_menu: self.term_menu,
         }
     }
 
@@ -33,7 +53,7 @@ impl<'a> TyInferContext<'a> {
     }
 
     pub(crate) fn expr(&self) -> &'a RawExpr {
-        &self.arena[self.expr]
+        &self.expr_arena[self.expr]
     }
 
     pub(crate) fn term_menu(&self) -> &'a TermMenu {

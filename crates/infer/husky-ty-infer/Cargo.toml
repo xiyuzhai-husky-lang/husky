@@ -17,6 +17,7 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # utils
 husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 husky-token = { path = "../../syntax/husky-token" }

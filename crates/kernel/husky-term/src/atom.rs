@@ -81,6 +81,8 @@ impl TermAtom {
                     Term::Curry(_) => todo!(),
                     Term::Abstraction(_) => todo!(),
                     Term::Application(_) => todo!(),
+                    Term::Subentity(_) => todo!(),
+                    Term::TraitImpl(_) => todo!(),
                 },
                 _ => (),
             }
