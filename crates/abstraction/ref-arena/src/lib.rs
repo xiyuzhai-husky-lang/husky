@@ -1,30 +1,33 @@
-use std::{cell::RefCell, marker::PhantomData};
+use std::{cell::Cell, marker::PhantomData};
 
 use thiserror::Error;
 
-#[derive(Clone, PartialEq, Eq)]
-pub struct RefArena<T, const CAPACITY: usize> {
-    data: RefCell<Vec<T>>,
+pub struct RefArena<T> {
+    data: Cell<Vec<T>>,
 }
 
-impl<T, const CAPACITY: usize> RefArena<T, CAPACITY> {
-    pub fn new() -> Self {
+impl<T> RefArena<T> {
+    pub fn new(capacity: usize) -> Self {
         let mut data = vec![];
-        data.reserve(CAPACITY);
+        data.reserve_exact(capacity);
+        assert_eq!(data.capacity(), 2);
         Self {
-            data: RefCell::new(data),
+            data: Cell::new(data),
         }
     }
 
-    pub fn alloc<'a>(&'a self, t: T) -> RefArenaResult<ArenaRef<'a, T>> {
-        let data: &mut Vec<_> = &mut *self.data.borrow_mut();
-        if data.len() == CAPACITY {
+    pub fn alloc<'a>(&'a self, t: T) -> RefArenaResult<&'a T> {
+        let data: &mut Vec<_> = unsafe { &mut *self.data.as_ptr() };
+        assert_eq!(data.capacity(), 2);
+        if data.len() == data.capacity() {
             return Err(RefArenaError::RefArenaIsFull);
         }
         data.push(t);
-        Ok(ArenaRef(unsafe {
-            wild_utils::arb_ref(data.last().unwrap())
-        }))
+        Ok(unsafe { wild_utils::arb_ref(data.last().unwrap()) })
+    }
+
+    pub fn reset(&mut self) {
+        self.data.get_mut().clear();
     }
 }
 
@@ -36,17 +39,15 @@ pub enum RefArenaError {
 
 pub type RefArenaResult<T> = Result<T, RefArenaError>;
 
-pub struct ArenaRef<'a, T>(&'a T);
-
-impl<'a, T> std::ops::Deref for ArenaRef<'a, T> {
-    type Target = T;
-
-    fn deref(&self) -> &Self::Target {
-        self.0
-    }
-}
-
 #[test]
 fn it_works() {
-    todo!()
+    let arena = RefArena::<i32>::new(2);
+    let a = arena.alloc(1);
+    assert_eq!(a, Ok(&1));
+    let b = arena.alloc(2);
+    assert_eq!(b, Ok(&2));
+    let c = arena.alloc(3);
+    assert_eq!(a, Ok(&1));
+    assert_eq!(b, Ok(&2));
+    assert_eq!(c, Err(RefArenaError::RefArenaIsFull));
 }

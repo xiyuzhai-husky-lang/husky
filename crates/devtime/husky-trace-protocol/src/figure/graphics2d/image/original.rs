@@ -18,7 +18,7 @@ impl OriginalImageData {
             ImageLayerData::Colored { .. } => todo!(),
             ImageLayerData::Binary28 { rows } => {
                 let mut data = Vec::new();
-                data.reserve(28 * 28 * 4);
+                data.reserve_exact(28 * 28 * 4);
                 for i in 0..28 {
                     for j in 0..28 {
                         let try_into: u8 = ((rows[i] >> (28 - j)) & 1).try_into().unwrap();
@@ -49,7 +49,7 @@ impl OriginalImageData {
 
     pub fn to_image_data_scaled(&self, dimension: PixelDimension) -> ImageData {
         let mut data = vec![];
-        data.reserve((dimension.width * dimension.height) as usize * 4);
+        data.reserve_exact((dimension.width * dimension.height) as usize * 4);
         if self.data.len() > 0 {
             for i1 in 0..dimension.height {
                 for j1 in 0..dimension.width {

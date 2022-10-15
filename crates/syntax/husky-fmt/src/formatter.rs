@@ -73,7 +73,7 @@ impl<'a> fold::Executor for Formatter<'a> {
 impl<'a> Formatter<'a> {
     fn newline(&mut self) {
         self.result
-            .reserve(self.result.len() + self.indent as usize + 1);
+            .reserve_exact(self.result.len() + self.indent as usize + 1);
         self.result.push('\n');
         for _ in 0..self.indent {
             self.result.push(' ');

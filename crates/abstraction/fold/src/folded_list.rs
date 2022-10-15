@@ -88,7 +88,7 @@ where
 {
     fn from(items: Vec<Item>) -> Self {
         let mut nodes = Vec::new();
-        nodes.reserve(items.len());
+        nodes.reserve_exact(items.len());
 
         for i in 0..items.len() {
             let mut j = i + 1;

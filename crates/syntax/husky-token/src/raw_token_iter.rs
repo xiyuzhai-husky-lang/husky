@@ -55,7 +55,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
         mut char_iter: CharIter<'token_line>,
     ) -> (TextIndent, Self) {
         let mut buffer = String::new();
-        buffer.reserve(100);
+        buffer.reserve_exact(100);
         let indent = TextIndent::from(&mut char_iter);
         (
             indent,
