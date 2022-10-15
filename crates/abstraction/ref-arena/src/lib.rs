@@ -38,6 +38,14 @@ pub type RefArenaResult<T> = Result<T, RefArenaError>;
 
 pub struct ArenaRef<'a, T>(&'a T);
 
+impl<'a, T> std::ops::Deref for ArenaRef<'a, T> {
+    type Target = T;
+
+    fn deref(&self) -> &Self::Target {
+        self.0
+    }
+}
+
 #[test]
 fn it_works() {
     todo!()
