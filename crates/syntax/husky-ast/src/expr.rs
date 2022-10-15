@@ -11,7 +11,7 @@ use husky_atom::HuskyAtom;
 use husky_atom::HuskyAtomVariant;
 use husky_text::TextRange;
 use husky_text::TextRanged;
-use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
+use idx_arena::{map::ArenaMap, ArenaIdx, ArenaRange, IdxArena};
 pub(crate) use stack::ExprStack;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -148,6 +148,6 @@ impl From<HuskyAtom> for RawExpr {
     }
 }
 
-pub type RawExprArena = Arena<RawExpr>;
+pub type RawExprArena = IdxArena<RawExpr>;
 pub type RawExprIdx = ArenaIdx<RawExpr>;
 pub type RawExprRange = ArenaRange<RawExpr>;

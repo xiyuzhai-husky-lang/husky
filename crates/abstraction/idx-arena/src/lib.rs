@@ -8,12 +8,14 @@ use std::{
     ops::{Add, Sub},
 };
 
+use husky_marker_utils::PhantomUnsync;
+
 #[derive(Clone, PartialEq, Eq)]
-pub struct Arena<T> {
+pub struct IdxArena<T> {
     data: Vec<T>,
 }
 
-impl<T> Debug for Arena<T>
+impl<T> Debug for IdxArena<T>
 where
     T: Debug,
 {
@@ -29,7 +31,7 @@ where
     }
 }
 
-impl<T> Arena<T> {
+impl<T> IdxArena<T> {
     pub fn new() -> Self {
         Self { data: Vec::new() }
     }
@@ -234,7 +236,7 @@ impl<T> ArenaIdx<T> {
     }
 }
 
-impl<T> core::ops::Index<ArenaIdx<T>> for Arena<T> {
+impl<T> core::ops::Index<ArenaIdx<T>> for IdxArena<T> {
     type Output = T;
 
     fn index(&self, idx: ArenaIdx<T>) -> &Self::Output {
@@ -250,7 +252,7 @@ impl<T> core::ops::Index<ArenaIdx<T>> for Vec<T> {
     }
 }
 
-impl<T> core::ops::Index<&ArenaIdx<T>> for Arena<T> {
+impl<T> core::ops::Index<&ArenaIdx<T>> for IdxArena<T> {
     type Output = T;
 
     fn index(&self, idx: &ArenaIdx<T>) -> &Self::Output {
@@ -258,7 +260,7 @@ impl<T> core::ops::Index<&ArenaIdx<T>> for Arena<T> {
     }
 }
 
-impl<T> core::ops::Index<ArenaRange<T>> for Arena<T> {
+impl<T> core::ops::Index<ArenaRange<T>> for IdxArena<T> {
     type Output = [T];
 
     fn index(&self, idx: ArenaRange<T>) -> &Self::Output {
@@ -266,7 +268,7 @@ impl<T> core::ops::Index<ArenaRange<T>> for Arena<T> {
     }
 }
 
-impl<T> core::ops::Index<&ArenaRange<T>> for Arena<T> {
+impl<T> core::ops::Index<&ArenaRange<T>> for IdxArena<T> {
     type Output = [T];
 
     fn index(&self, idx: &ArenaRange<T>) -> &Self::Output {
