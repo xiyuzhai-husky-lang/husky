@@ -68,7 +68,7 @@ impl Term {
                     ref variable_variant,
                 } => todo!(),
                 TermAtomVariant::Entity { .. } => todo!(),
-                TermAtomVariant::CategoryKind(category_kind) => todo!(),
+                TermAtomVariant::Category(category_kind) => todo!(),
                 TermAtomVariant::Universe(u) => Ok(u),
             },
             Term::Curry(_) => todo!(),
