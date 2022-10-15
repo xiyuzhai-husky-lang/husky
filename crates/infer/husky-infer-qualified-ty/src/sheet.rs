@@ -1,11 +1,11 @@
 use std::sync::Arc;
 
-use arena::map::{ArenaKeyQuery, ArenaMap};
 use husky_ast::RawExprMap;
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use husky_infer_error::{derived_not_none, InferError, InferErrorVariant};
 use husky_text::TextRange;
 use husky_word::CustomIdentifier;
+use idx_arena::map::{ArenaKeyQuery, ArenaMap};
 use infer_contract::ContractSheet;
 use std::fmt::Write;
 use vec_like::VecPairMap;

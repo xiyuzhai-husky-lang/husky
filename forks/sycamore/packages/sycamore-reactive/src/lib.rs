@@ -14,9 +14,9 @@ use std::mem;
 use std::rc::{Rc, Weak};
 
 use ahash::AHashMap;
-use arena::*;
 pub use context::*;
 pub use effect::*;
+use idx_arena::*;
 use indexmap::IndexMap;
 pub use iter::*;
 pub use memo::*;

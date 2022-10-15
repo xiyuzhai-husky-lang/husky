@@ -10,6 +10,7 @@ salsa = "0.17.0-pre.2"
 # syntax
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
