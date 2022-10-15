@@ -53,9 +53,9 @@ impl From<RawAtom> for RawExprVariant {
     }
 }
 
-use ::idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
+use ::idx_arena::{map::ArenaMap, ArenaIdx, ArenaRange, IdxArena};
 
-pub type RawExprArena = Arena<RawExpr>;
+pub type RawExprArena = IdxArena<RawExpr>;
 pub type RawExprIdx = ArenaIdx<RawExpr>;
 pub type RawExprRange = ArenaRange<RawExpr>;
 pub type RawExprMap<V> = ArenaMap<RawExpr, V>;

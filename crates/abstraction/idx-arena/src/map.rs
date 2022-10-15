@@ -56,7 +56,7 @@ where
 }
 
 impl<T, V> ArenaMap<T, V> {
-    pub fn new(arena: &Arena<T>) -> Self {
+    pub fn new(arena: &IdxArena<T>) -> Self {
         Self {
             data: arena.data.iter().map(|_| None).collect(),
             phantom: PhantomData,
