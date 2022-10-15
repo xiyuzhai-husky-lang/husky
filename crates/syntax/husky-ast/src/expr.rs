@@ -7,11 +7,11 @@ pub use husky_word::Keyword;
 pub use variant::*;
 
 use crate::*;
-use arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
 use husky_atom::HuskyAtom;
 use husky_atom::HuskyAtomVariant;
 use husky_text::TextRange;
 use husky_text::TextRanged;
+use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaRange};
 pub(crate) use stack::ExprStack;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -40,7 +40,10 @@ impl RawExpr {
         range: TextRange,
         opds: RawExprRange,
     ) -> AstResult<Self> {
-        if bracket == Bracket::Par && start_attr == ListStartAttr::None && arena::len(&opds) == 1 {
+        if bracket == Bracket::Par
+            && start_attr == ListStartAttr::None
+            && idx_arena::len(&opds) == 1
+        {
             return Ok(Self {
                 range,
                 variant: RawExprVariant::Bracketed(opds.start),
@@ -57,7 +60,7 @@ impl RawExpr {
                 Bracket::Par => ListOpr::FunctionCall,
                 Bracket::Box => match end_attr {
                     ListEndAttr::None => {
-                        if arena::len(&opds) < 2 {
+                        if idx_arena::len(&opds) < 2 {
                             return err!(format!("expect index expr inside `[]`"), range);
                         }
                         ListOpr::Index

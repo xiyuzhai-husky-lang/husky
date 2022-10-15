@@ -17,7 +17,7 @@ fold = { path = "../../abstraction/fold" }
 upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
 monad = { path = "../../abstraction/monad" }
-arena = { path = "../../abstraction/arena" }
+idx-arena = { path = "../../abstraction/idx-arena" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

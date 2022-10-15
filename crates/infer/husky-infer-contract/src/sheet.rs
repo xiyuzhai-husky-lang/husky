@@ -1,8 +1,8 @@
 use crate::*;
-use arena::map::ArenaMap;
 use husky_ast::RawExprMap;
 use husky_infer_entity_route::EntityRouteSheet;
 use husky_infer_error::*;
+use idx_arena::map::ArenaMap;
 use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq)]

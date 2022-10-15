@@ -2,13 +2,13 @@ mod expr;
 
 use std::{collections::HashMap, sync::Arc};
 
-use arena::map::ArenaMap;
 use builder::EntityRouteSheetBuilder;
 use fold::FoldableStorage;
 use husky_ast::{AstText, RawExpr};
 use husky_dev_utils::dev_src;
 use husky_text::TextRange;
 use husky_word::CustomIdentifier;
+use idx_arena::map::ArenaMap;
 
 use super::*;
 

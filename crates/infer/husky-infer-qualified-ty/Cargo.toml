@@ -14,7 +14,7 @@ husky-test-utils = { path = "../../utils/husky-test-utils" }
 husky-display-utils = { path = "../../utils/husky-display-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 fold = { path = "../../abstraction/fold" }
-arena = { path = "../../abstraction/arena" }
+idx-arena = { path = "../../abstraction/idx-arena" }
 vec-like = { path = "../../abstraction/vec-like" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-infer-error = { path = "../husky-infer-error" }

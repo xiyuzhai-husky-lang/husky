@@ -16,7 +16,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 fold = { path = "../../abstraction/fold" }
 upcast = { path = "../../abstraction/upcast" }
-arena = { path = "../../abstraction/arena" }
+idx-arena = { path = "../../abstraction/idx-arena" }
 vec-like = { path = "../../abstraction/vec-like" }
 interner = { path = "../../abstraction/interner" }
 husky-text = { path = "../../syntax/husky-text" }

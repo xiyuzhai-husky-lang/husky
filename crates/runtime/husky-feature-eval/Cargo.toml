@@ -22,7 +22,7 @@ interner = { path = "../../abstraction/interner" }
 fold = { path = "../../abstraction/fold" }
 upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
-arena = { path = "../../abstraction/arena" }
+idx-arena = { path = "../../abstraction/idx-arena" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-word = { path = "../../kernel/husky-word" }

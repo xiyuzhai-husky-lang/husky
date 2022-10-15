@@ -9,7 +9,7 @@ thiserror = "1.0.37"
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
-arena = { path = "../../abstraction/arena" }
+idx-arena = { path = "../../abstraction/idx-arena" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 # syntax
