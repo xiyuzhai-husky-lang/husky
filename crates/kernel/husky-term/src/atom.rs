@@ -36,7 +36,7 @@ pub enum TermAtomVariant {
     Entity {
         path: EntityPathPtr,
     },
-    CategoryKind(TermCategoryKind),
+    Category(TermCategory),
     Universe(TermUniverse),
 }
 
@@ -48,7 +48,7 @@ impl std::fmt::Display for TermAtom {
                 ref variable_variant,
             } => variable_variant.fmt(f),
             TermAtomVariant::Entity { path } => path.fmt(f),
-            TermAtomVariant::CategoryKind(category_kind) => todo!(),
+            TermAtomVariant::Category(category_kind) => todo!(),
             TermAtomVariant::Universe(_) => todo!(),
         }
     }
@@ -71,10 +71,10 @@ impl TermAtom {
                         TermAtomVariant::Literal(_) => todo!(),
                         TermAtomVariant::Variable { variable_variant } => todo!(),
                         TermAtomVariant::Entity { path } => todo!(),
-                        TermAtomVariant::CategoryKind(category_kind) => match category_kind {
-                            TermCategoryKind::Type => todo!(),
-                            TermCategoryKind::Sort => return app.n().as_universe().unwrap(),
-                            TermCategoryKind::Term => todo!(),
+                        TermAtomVariant::Category(category_kind) => match category_kind {
+                            TermCategory::Type => todo!(),
+                            TermCategory::Sort => return app.n().as_universe().unwrap(),
+                            TermCategory::Term => todo!(),
                         },
                         TermAtomVariant::Universe(_) => todo!(),
                     },
@@ -92,7 +92,7 @@ impl TermAtom {
                     ref variable_variant,
                 } => todo!(),
                 TermAtomVariant::Entity { path } => todo!(),
-                TermAtomVariant::CategoryKind(category_kind) => todo!(),
+                TermAtomVariant::Category(category_kind) => todo!(),
                 TermAtomVariant::Universe(_) => todo!(),
             }
         }
@@ -112,9 +112,9 @@ impl TermAtom {
         }
     }
 
-    pub(crate) fn new_category(category_kind: TermCategoryKind) -> Self {
+    pub(crate) fn new_category(category_kind: TermCategory) -> Self {
         Self {
-            variant: TermAtomVariant::CategoryKind(category_kind),
+            variant: TermAtomVariant::Category(category_kind),
             ty_itd: None,
         }
     }

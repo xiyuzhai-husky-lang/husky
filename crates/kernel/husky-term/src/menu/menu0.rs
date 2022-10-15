@@ -8,7 +8,7 @@ pub struct TermMenu0 {
 
 impl TermMenu0 {
     pub fn new(db: &dyn TermDb) -> Self {
-        let sort = db.it_term(TermAtom::new_category(TermCategoryKind::Sort).into());
+        let sort = db.it_term(TermAtom::new_category(TermCategory::Sort).into());
         let universe1 = db.it_term(TermAtom::new_universe(1).into());
         TermMenu0 { sort, universe1 }
     }
