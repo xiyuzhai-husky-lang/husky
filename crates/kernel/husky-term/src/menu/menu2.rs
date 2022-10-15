@@ -74,4 +74,12 @@ impl TermMenu2 {
     pub fn bool(&self) -> Ty {
         self.bool
     }
+
+    pub fn trai(&self) -> Ty {
+        self.trai
+    }
+
+    pub fn module(&self) -> Ty {
+        self.module
+    }
 }
