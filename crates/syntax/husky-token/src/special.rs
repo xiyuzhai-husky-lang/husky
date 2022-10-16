@@ -4,19 +4,14 @@ use husky_opn_syntax::{BinaryOpr, Bracket, PureBinaryOpr};
 pub enum SpecialToken {
     BinaryOpr(BinaryOpr),
     LAngle,            // <
-    Leq,               // <=
     RAngle,            // >
-    Geq,               // >=
-    Neq,               // !=
     DeriveAssign,      // ?=
-    Eq,                // ==
-    Shl,               // <<
     LCurl,             // {
     RCurl,             // }
     LBox,              // [
     RBox,              //]
     LPar,              // (
-    RPar,              //)
+    RPar,              // )
     Minus,             // -
     DoubleVertical,    // ||
     BitNot,            // ~
@@ -27,12 +22,6 @@ pub enum SpecialToken {
     Incr,              // ++
     Decr,              // --
     Vertical,          // |
-    AddAssign,         // +=
-    SubAssign,         // -=
-    MulAssign,         // *=
-    DivAssign,         // /=
-    BitAndAssign,      // &=
-    BitOrAssign,       // |=
     Exclamation,       // !
     DoubleExclamation, // !!
     Semicolon,         // ;
@@ -52,13 +41,8 @@ impl SpecialToken {
         match self {
             SpecialToken::BinaryOpr(opr) => opr.code(),
             SpecialToken::LAngle => "<",
-            SpecialToken::Leq => "<=",
             SpecialToken::RAngle => ">",
-            SpecialToken::Geq => ">=",
-            SpecialToken::Neq => "!=",
             SpecialToken::DeriveAssign => "?=",
-            SpecialToken::Eq => "==",
-            SpecialToken::Shl => "<<",
             SpecialToken::LCurl => "{",
             SpecialToken::RCurl => "}",
             SpecialToken::LBox => "[",
@@ -75,13 +59,7 @@ impl SpecialToken {
             SpecialToken::Incr => "++",
             SpecialToken::Decr => "--",
             SpecialToken::Vertical => "|",
-            SpecialToken::AddAssign => "+=",
-            SpecialToken::SubAssign => "-=",
-            SpecialToken::MulAssign => "*=",
-            SpecialToken::DivAssign => "/=",
             SpecialToken::Exclamation => "!",
-            SpecialToken::BitOrAssign => "|=",
-            SpecialToken::BitAndAssign => "&=",
             SpecialToken::DoubleExclamation => "!!",
             SpecialToken::Semicolon => ";",
             SpecialToken::XmlKet => "/>",

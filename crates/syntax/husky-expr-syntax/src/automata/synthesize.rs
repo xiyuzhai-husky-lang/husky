@@ -90,10 +90,11 @@ impl<'a> Automata<'a> {
     fn synthesize_opn(&mut self, opn_variant: RawOpnVariant, n_opds: usize, range: TextRange) {
         let len = self.stack.number_of_exprs();
         let opds = self.arena.alloc(self.stack.drain_exprs(n_opds).into());
-        self.stack.push_expr(RawExpr {
+        self.stack.push_expr(RawExpr::new(
+            RawExprVariant::Opn { opn_variant, opds },
             range,
-            variant: RawExprVariant::Opn { opn_variant, opds },
-        });
+            self.arena,
+        ));
     }
 
     fn synthesize_lambda(

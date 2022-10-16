@@ -6,6 +6,7 @@ pub enum BinaryOpr {
     Assign(Option<PureBinaryOpr>),
     ScopeResolution, // ::
     Curry,           // ->
+    As,              // as
 }
 
 impl Into<RawOpnVariant> for BinaryOpr {
@@ -21,6 +22,7 @@ impl BinaryOpr {
             BinaryOpr::Assign(_) => todo!(),
             BinaryOpr::ScopeResolution => todo!(),
             BinaryOpr::Curry => "->",
+            BinaryOpr::As => todo!(),
         }
     }
 
@@ -56,6 +58,7 @@ impl BinaryOpr {
             }
             BinaryOpr::ScopeResolution => todo!(),
             BinaryOpr::Curry => " -> ",
+            BinaryOpr::As => todo!(),
         }
     }
 }

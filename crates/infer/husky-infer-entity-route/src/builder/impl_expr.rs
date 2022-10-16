@@ -237,6 +237,7 @@ impl<'a> EntityRouteSheetBuilder<'a> {
             }
             BinaryOpr::ScopeResolution => todo!(),
             BinaryOpr::Curry => todo!(),
+            BinaryOpr::As => todo!(),
         }
     }
 

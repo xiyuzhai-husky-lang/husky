@@ -536,6 +536,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         }
                         BinaryOpr::ScopeResolution => todo!(),
                         BinaryOpr::Curry => todo!(),
+                        BinaryOpr::As => todo!(),
                     },
                     nargs: 2,
                     output_ty: expr.intrinsic_ty(),
@@ -591,6 +592,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     }
                     BinaryOpr::ScopeResolution => todo!(),
                     BinaryOpr::Curry => todo!(),
+                    BinaryOpr::As => todo!(),
                 };
                 let instruction = Instruction::new(ins_variant, expr.clone());
                 self.push_instruction(instruction)

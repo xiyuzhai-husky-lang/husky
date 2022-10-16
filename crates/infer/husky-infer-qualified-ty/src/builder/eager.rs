@@ -349,6 +349,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             },
             BinaryOpr::ScopeResolution => todo!(),
             BinaryOpr::Curry => todo!(),
+            BinaryOpr::As => todo!(),
         }
         self.insert_eager_expr_inference(opds.start + 1);
         let ty = self.expr_raw_ty(idx)?;

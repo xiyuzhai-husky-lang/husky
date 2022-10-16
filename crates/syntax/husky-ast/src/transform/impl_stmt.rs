@@ -326,6 +326,7 @@ impl<'a> AstTransformer<'a> {
                                             }
                                             BinaryOpr::ScopeResolution => todo!(),
                                             BinaryOpr::Curry => todo!(),
+                                            BinaryOpr::As => todo!(),
                                         },
                                         _ => return err!(format!("expect comparison"), lopd.range),
                                     };
@@ -368,6 +369,7 @@ impl<'a> AstTransformer<'a> {
                     }
                     BinaryOpr::ScopeResolution => todo!(),
                     BinaryOpr::Curry => todo!(),
+                    BinaryOpr::As => todo!(),
                 },
                 RawOpnVariant::Prefix(_)
                 | RawOpnVariant::Suffix(_)
