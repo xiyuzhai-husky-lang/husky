@@ -83,12 +83,8 @@ impl From<SpecialToken> for HuskyAtomVariant {
             | SpecialToken::Exclamation
             | SpecialToken::DoubleVertical
             | SpecialToken::BinaryOpr(BinaryOpr::Curry)
-            | SpecialToken::LPar
-            | SpecialToken::LBox
-            | SpecialToken::LCurl
-            | SpecialToken::RCurl
-            | SpecialToken::RBox
-            | SpecialToken::RPar
+            | SpecialToken::Bra(_)
+            | SpecialToken::Ket(_)
             | SpecialToken::Minus
             | SpecialToken::FieldAccess => {
                 p!(special);

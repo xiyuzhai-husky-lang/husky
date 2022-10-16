@@ -25,7 +25,7 @@ impl<'a> AstTransformer<'a> {
                     Keyword::Paradigm(_) => {
                         expect_at_least!(token_group, token_group.text_range(), 4);
                         match token_group[2].kind {
-                            TokenKind::Special(SpecialToken::LPar) => {
+                            TokenKind::Special(SpecialToken::Bra(Bracket::Par)) => {
                                 self.parse_struct_method(token_group,  enter_block)
                             },
                             TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::Curry)) =>{

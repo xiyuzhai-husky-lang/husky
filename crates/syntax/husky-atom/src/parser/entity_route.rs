@@ -302,7 +302,8 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
         if !try_eat_special!(self, "(") {
             return Ok(self.angled_generics()?.expect("todo"));
         }
-        let mut args = deprecated_thin_comma_list![self, spatial_argument!, RPar];
+        let mut args =
+            deprecated_thin_comma_list![self, spatial_argument!, SpecialToken::Ket(Bracket::Par)];
         args.push(if deprecated_try_eat!(self, "->") {
             self.spatial_argument()?
         } else {
