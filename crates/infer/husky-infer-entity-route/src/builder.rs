@@ -16,7 +16,7 @@ pub struct EntityRouteSheetBuilder<'a> {
 }
 
 impl<'a> EntityRouteSheetBuilder<'a> {
-    fn file(&self) -> FilePtr {
+    fn file(&self) -> FileItd {
         self.entity_route_sheet.ast_text.file
     }
 

@@ -1,4 +1,3 @@
-
 use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AstVariant {
@@ -39,7 +38,7 @@ pub enum AstVariant {
     },
     Submodule {
         ident: RangedCustomIdentifier,
-        source_file: FilePtr,
+        source_file: FileItd,
     },
     Visual,
 }

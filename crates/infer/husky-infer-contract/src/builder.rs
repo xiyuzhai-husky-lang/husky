@@ -29,7 +29,7 @@ impl<'a> ContractSheetBuilder<'a> {
     pub(crate) fn new(
         db: &'a dyn InferContractSalsaQueryGroup,
         arena: &'a RawExprArena,
-        file: FilePtr,
+        file: FileItd,
     ) -> EntitySyntaxResult<Self> {
         Ok(Self {
             db,

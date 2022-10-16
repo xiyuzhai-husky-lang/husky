@@ -5,7 +5,7 @@ use std::sync::Arc;
 
 use husky_ast::*;
 use husky_entity_syntax::EntitySyntaxResult;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use husky_word::{Paradigm, RootBuiltinIdentifier};
 use infer_contract::{ContractSheet, InferContract};
@@ -25,7 +25,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
     pub(super) fn new(
         db: &'a dyn InferQualifiedTyQueryGroup,
         arena: &'a RawExprArena,
-        file: FilePtr,
+        file: FileItd,
     ) -> EntitySyntaxResult<Self> {
         let contract_sheet = db.contract_sheet(file)?;
         Ok(Self {

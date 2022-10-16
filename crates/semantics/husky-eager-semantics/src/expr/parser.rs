@@ -1,6 +1,6 @@
 use husky_ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
 use husky_entity_route::{EntityKind, EntityRoutePtr};
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_infer_entity_route::InferEntityRoute;
 use husky_infer_qualified_ty::{EagerExprQualifiedTy, EagerExprQualifier, InferQualifiedTy};
 use husky_primitive_literal_syntax::RawLiteralData;
@@ -16,8 +16,8 @@ use super::EagerOpnVariant;
 
 pub trait EagerExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedTy {
     fn arena(&self) -> &'a RawExprArena;
-    fn file(&self) -> FilePtr;
-    fn target_entrance(&self) -> FilePtr;
+    fn file(&self) -> FileItd;
+    fn target_entrance(&self) -> FileItd;
 
     fn parse_eager_expr(
         &mut self,

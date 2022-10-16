@@ -13,7 +13,7 @@ use utils::module_contains_features;
 pub trait EntityDefnQueryGroup:
     InferQueryGroup + husky_ast::AstQueryGroup + Upcast<dyn InferQueryGroup> + StoreEntityRoute
 {
-    fn main_defn(&self, target_entrance: husky_file::FilePtr) -> SemanticResultArc<MainDefn>;
+    fn main_defn(&self, target_entrance: husky_file::FileItd) -> SemanticResultArc<MainDefn>;
     fn entity_defn(&self, route: EntityRoutePtr) -> SemanticResultArc<EntityDefn>;
     fn member_defn(&self, route: EntityRoutePtr) -> Arc<EntityDefn>;
     fn entity_immediate_dependees(

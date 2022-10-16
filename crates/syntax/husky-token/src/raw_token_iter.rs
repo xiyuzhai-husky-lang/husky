@@ -363,16 +363,12 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                 '<' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
                     PureBinaryOpr::Shl,
                 )))),
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
-                    PureBinaryOpr::Leq,
-                )))),
+                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Leq))),
                 _ => (1, SpecialToken::LAngle),
             },
             '>' => match self.peek_char() {
                 // '>' => self.pass_two(SpecialToken::Shr), // >>
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
-                    PureBinaryOpr::Geq,
-                )))),
+                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Geq))),
                 _ => (1, SpecialToken::RAngle),
             },
             '*' => match self.peek_char() {

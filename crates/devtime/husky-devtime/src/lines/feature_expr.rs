@@ -210,7 +210,7 @@ impl<'a> TraceLineBuilder<'a> {
 
     fn feature_entity_call_tokens(
         &mut self,
-        file: FilePtr,
+        file: FileItd,
         ranged_scope: RangedEntityRoute,
         inputs: &[Arc<FeatureLazyExpr>],
         opt_associated_trace_id: Option<TraceId>,

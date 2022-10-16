@@ -3,7 +3,7 @@ use husky_check_utils::should;
 use husky_dev_utils::dev_src;
 use husky_entity_kind::{MemberKind, TyKind};
 use husky_entity_route::*;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_path_utils::*;
 use husky_print_utils::msg_once;
 use husky_static_defn::*;
@@ -315,7 +315,7 @@ pub trait EntitySyntaxQueryGroup:
             .collect()
     }
 
-    fn all_source_files(&self) -> Vec<FilePtr>
+    fn all_source_files(&self) -> Vec<FileItd>
     where
         Self: Sized,
     {
@@ -330,7 +330,7 @@ pub trait EntitySyntaxQueryGroup:
         self.all_modules().into_iter()
     }
 
-    fn collect_modules(&self, file: FilePtr) -> Vec<EntityRoutePtr> {
+    fn collect_modules(&self, file: FileItd) -> Vec<EntityRoutePtr> {
         if let Ok(module) = self.module(file) {
             let mut modules = vec![module];
             self.subroute_table(module).ok().map(|table| {
@@ -351,7 +351,7 @@ pub trait EntitySyntaxQueryGroup:
         }
     }
 
-    fn collect_source_files(&self, target_entrance: FilePtr) -> Vec<FilePtr> {
+    fn collect_source_files(&self, target_entrance: FileItd) -> Vec<FileItd> {
         should!(target_entrance.ends_with("main.hsy"));
         collect_all_source_files(target_entrance.parent().unwrap().to_path_buf())
             .into_iter()
@@ -359,7 +359,7 @@ pub trait EntitySyntaxQueryGroup:
             .collect()
     }
 
-    fn module(&self, file: FilePtr) -> EntitySyntaxResult<EntityRoutePtr> {
+    fn module(&self, file: FileItd) -> EntitySyntaxResult<EntityRoutePtr> {
         let path: PathBuf = file.to_path_buf();
         if !self.file_exists(file) {
             Err(derived_error!(format!("file doesn't exist")))?
@@ -411,7 +411,7 @@ pub trait EntitySyntaxQueryGroup:
         }
     }
 
-    fn module_file(&self, module: EntityRoutePtr) -> EntitySyntaxResult<FilePtr> {
+    fn module_file(&self, module: EntityRoutePtr) -> EntitySyntaxResult<FileItd> {
         Ok(match self.entity_source(module)? {
             EntitySource::StaticModuleItem(_) => panic!(),
             EntitySource::WithinModule { file, .. } => file,

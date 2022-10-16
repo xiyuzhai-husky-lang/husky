@@ -1,7 +1,7 @@
 use husky_entity_kind::TyKind;
 use husky_entity_route::{EntityKind, RangedEntityRoute};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_static_defn::StaticSpatialParameter;
 use husky_text::{RangedCustomIdentifier, TextRange};
 use husky_word::CustomIdentifier;
@@ -11,7 +11,7 @@ use vec_like::VecMapEntry;
 pub struct SpatialParameter {
     pub ident: RangedCustomIdentifier,
     pub variant: SpatialParameterVariant,
-    pub file: FilePtr,
+    pub file: FileItd,
     pub range: TextRange,
 }
 

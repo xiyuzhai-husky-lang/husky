@@ -3,7 +3,7 @@ mod variant;
 use husky_entity_route::RangedEntityRoute;
 pub use variant::*;
 
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_lazy_semantics::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
 use husky_text::TextRange;
 
@@ -15,7 +15,7 @@ pub struct FeatureLazyStmt {
     pub variant: FeatureLazyStmtVariant,
     pub opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
     pub opt_feature: Option<FeaturePtr>,
-    pub file: FilePtr,
+    pub file: FileItd,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     pub stmt: Arc<LazyStmt>,

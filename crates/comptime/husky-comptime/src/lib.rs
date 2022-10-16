@@ -34,7 +34,7 @@ use husky_check_utils::*;
 use husky_entity_kind::TyKind;
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityRouteStore;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_linkage_table::LinkageTable;
 use husky_print_utils::*;
 use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
@@ -65,7 +65,7 @@ pub struct HuskyComptime {
     file_interner: Arc<husky_file::FileInterner>,
     word_interner: Arc<husky_word::WordInterner>,
     entity_route_interner: Arc<husky_entity_route::EntityRouteInterner>,
-    live_docs: ASafeRwLock<IndexMap<FilePtr, ASafeRwLock<String>>>,
+    live_docs: ASafeRwLock<IndexMap<FileItd, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
     config: ComptimeConfig,

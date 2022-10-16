@@ -12,7 +12,7 @@ pub use sheet::*;
 
 use husky_ast::RawExprIdx;
 use husky_entity_syntax::EntitySyntaxResultArc;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_infer_entity_route::InferEntityRouteQueryGroup;
 use husky_infer_error::InferResult;
 use husky_opn_syntax::*;

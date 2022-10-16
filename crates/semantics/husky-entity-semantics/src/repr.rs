@@ -14,14 +14,14 @@ pub enum DefinitionRepr {
     },
     FuncBlock {
         route: EntityRoutePtr,
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
         return_ty: RangedEntityRoute,
     },
     ProcBlock {
         route: EntityRoutePtr,
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
         return_ty: RangedEntityRoute,
@@ -35,7 +35,7 @@ pub(crate) fn parse_definition_repr(
     return_ty: RangedEntityRoute,
     arena: &RawExprArena,
     children: Option<AstIter>,
-    file: FilePtr,
+    file: FileItd,
 ) -> SemanticResult<Arc<DefinitionRepr>> {
     Ok(Arc::new(match paradigm {
         Paradigm::LazyFunctional => {

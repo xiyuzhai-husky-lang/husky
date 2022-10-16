@@ -129,7 +129,7 @@ impl<'a> TraceLineBuilder<'a> {
 
     fn eager_routine_call_tokens(
         &mut self,
-        file: FilePtr,
+        file: FileItd,
         ranged_scope: RangedEntityRoute,
         inputs: &[Arc<EagerExpr>],
         opt_associated_trace_id: Option<TraceId>,

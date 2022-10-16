@@ -4,18 +4,18 @@ use husky_ast::{AstText, AstVariant};
 use husky_eager_semantics::parse_func_stmts;
 use husky_entity_route::EntityRouteVariant;
 use husky_entity_semantics::EntityDefnQueryGroup;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_semantics_error::*;
 
 #[salsa::query_group(PackageQueryGroupStorage)]
 pub trait PackageQueryGroup: EntityDefnQueryGroup {
-    fn package(&self, target_entrance: husky_file::FilePtr) -> SemanticResultArc<Package>;
-    fn config(&self, target_entrance: husky_file::FilePtr) -> SemanticResultArc<Config>;
+    fn package(&self, target_entrance: husky_file::FileItd) -> SemanticResultArc<Package>;
+    fn config(&self, target_entrance: husky_file::FileItd) -> SemanticResultArc<Config>;
 }
 
 fn package(
     db: &dyn PackageQueryGroup,
-    target_entrance: husky_file::FilePtr,
+    target_entrance: husky_file::FileItd,
 ) -> SemanticResultArc<Package> {
     let module = db.module(target_entrance).unwrap();
     let ident = match module.variant {
@@ -32,7 +32,7 @@ fn package(
 
 fn config(
     this: &dyn PackageQueryGroup,
-    target_entrance: husky_file::FilePtr,
+    target_entrance: husky_file::FileItd,
 ) -> SemanticResultArc<Config> {
     let ast_text = this.ast_text(target_entrance).unwrap();
     config_from_ast(this, &ast_text, target_entrance)
@@ -41,7 +41,7 @@ fn config(
 fn config_from_ast(
     this: &dyn PackageQueryGroup,
     ast_text: &AstText,
-    file: FilePtr,
+    file: FileItd,
 ) -> SemanticResultArc<Config> {
     Ok(Arc::new(Config {
         dataset: dataset_config_from_ast_text(this, ast_text, file)?,
@@ -51,7 +51,7 @@ fn config_from_ast(
 fn dataset_config_from_ast_text(
     this: &dyn PackageQueryGroup,
     ast_text: &AstText,
-    file: FilePtr,
+    file: FileItd,
 ) -> SemanticResult<DatasetConfig> {
     for item in ast_text.folded_results.iter() {
         match item.value.as_ref().unwrap().variant {

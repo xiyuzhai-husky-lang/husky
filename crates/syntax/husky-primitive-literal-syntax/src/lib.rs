@@ -20,14 +20,14 @@ impl RawLiteralData {
         match self {
             RawLiteralData::Void => None,
             RawLiteralData::Integer(i) => Some(RawLiteralData::Integer(-i)),
-            RawLiteralData::I32(_) => todo!(),
-            RawLiteralData::I64(_) => todo!(),
-            RawLiteralData::Float(_) => todo!(),
-            RawLiteralData::F32(_) => todo!(),
-            RawLiteralData::F64(_) => todo!(),
-            RawLiteralData::Bits(_) => todo!(),
-            RawLiteralData::B32(_) => todo!(),
-            RawLiteralData::B64(_) => todo!(),
+            RawLiteralData::I32(i) => Some(RawLiteralData::I32(-i)),
+            RawLiteralData::I64(i) => Some(RawLiteralData::I64(-i)),
+            RawLiteralData::Float(f) => Some(RawLiteralData::Float(-f)),
+            RawLiteralData::F32(f) => Some(RawLiteralData::F32(-f)),
+            RawLiteralData::F64(f) => Some(RawLiteralData::F64(-f)),
+            RawLiteralData::Bits(_) => None,
+            RawLiteralData::B32(_) => None,
+            RawLiteralData::B64(_) => None,
             RawLiteralData::Bool(_) => None,
         }
     }

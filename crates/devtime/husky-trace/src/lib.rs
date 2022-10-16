@@ -16,7 +16,7 @@ use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
 use husky_entity_semantics::*;
 use husky_feature_eval::EvalFeature;
 use husky_feature_gen::*;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_text::TextRange;
 use husky_trace_protocol::*;
 use husky_vm::{History, HistoryEntry, InstructionSheet, LoopFrameData, VMConditionBranch};
@@ -29,14 +29,14 @@ pub struct Trace {
     pub variant: TraceVariant,
     pub raw_data: TraceData,
     pub range: TextRange,
-    pub file: FilePtr,
+    pub file: FileItd,
 }
 #[derive(Debug)]
 pub enum TraceVariant {
     Main(FeatureRepr),
     Module {
         route: EntityRoutePtr,
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
     },
     EntityFeature {

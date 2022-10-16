@@ -8,7 +8,7 @@ use husky_vm::{InstructionSheet, __Linkage};
 pub struct FeatureProcBody {
     pub opt_this: Option<FeatureRepr>,
     pub feature: FeaturePtr,
-    pub file: FilePtr,
+    pub file: FileItd,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     pub return_ty: RangedEntityRoute,

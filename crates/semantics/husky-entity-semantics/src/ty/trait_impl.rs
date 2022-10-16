@@ -5,7 +5,7 @@ impl EntityDefnVariant {
     pub(super) fn collect_trait_impls(
         db: &dyn EntityDefnQueryGroup,
         this_ty: EntityRoutePtr,
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
     ) -> Vec<Arc<TraitImplDefn>> {
         Self::implicit_trait_impls(db, this_ty, file, range)
@@ -14,7 +14,7 @@ impl EntityDefnVariant {
     fn implicit_trait_impls(
         db: &dyn EntityDefnQueryGroup,
         this_ty: EntityRoutePtr,
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
     ) -> Vec<Arc<TraitImplDefn>> {
         let mut trait_impl_decls = Vec::<Arc<TraitImplDefn>>::new();

@@ -7,7 +7,7 @@ use crate::*;
 pub trait InferEntityRouteQueryGroup: DeclQueryGroup + Upcast<dyn DeclQueryGroup> {
     // fn scope_ty(&self, entity_route: EntityRoutePtr) -> InferResult<EntityRoutePtr>;
     // fn enum_literal_value(&self, entity_route: EntityRoutePtr) -> EnumLiteralValue;
-    fn entity_route_sheet(&self, file: FilePtr) -> EntitySyntaxResultArc<EntityRouteSheet>;
+    fn entity_route_sheet(&self, file: FileItd) -> EntitySyntaxResultArc<EntityRouteSheet>;
 
     fn is_implicitly_castable(&self, src_ty: EntityRoutePtr, dst_ty: EntityRoutePtr) -> bool;
     fn is_explicitly_castable(

@@ -1,5 +1,5 @@
 use husky_entity_route::EntityRoutePtr;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_text::TextRange;
 use husky_word::Identifier;
 
@@ -7,7 +7,7 @@ use crate::*;
 
 #[derive(Debug)]
 pub struct MutationData<'eval> {
-    pub file: FilePtr,
+    pub file: FileItd,
     pub range: TextRange,
     pub kind: MutationDataVariant,
     pub ty: EntityRoutePtr,

@@ -1,5 +1,5 @@
 use husky_entity_semantics::DefinitionRepr;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_instruction_gen::{new_func_instruction_sheet, new_proc_instruction_sheet};
 use husky_linkage_table::ResolveLinkage;
 use husky_vm::__Register;
@@ -11,7 +11,7 @@ pub enum FeatureRepr {
     Value {
         value: __Register<'static>,
         ty: EntityRoutePtr,
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
         feature: FeaturePtr,
     },
@@ -20,7 +20,7 @@ pub enum FeatureRepr {
     FuncBody(Arc<FeatureFuncBody>),
     ProcBody(Arc<FeatureProcBody>),
     TargetInput {
-        main_file: FilePtr,
+        main_file: FileItd,
         ty: EntityRoutePtr,
         feature: FeaturePtr,
     },
@@ -70,7 +70,7 @@ impl FeatureRepr {
         }
     }
 
-    pub fn file(&self) -> FilePtr {
+    pub fn file(&self) -> FileItd {
         match self {
             FeatureRepr::Value { file, .. } => *file,
             FeatureRepr::LazyExpr(expr) => expr.expr.file,

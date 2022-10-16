@@ -1,5 +1,5 @@
 use husky_entity_route::EntityRoutePtr;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_static_defn::EntityStaticDefn;
 use husky_text::TextRange;
 use husky_word::CustomIdentifier;
@@ -13,27 +13,27 @@ pub enum EntitySource {
     StaticTypeAsTraitMember,
     WithinBuiltinModule,
     WithinModule {
-        file: FilePtr,
+        file: FileItd,
         token_group_index: usize, // None means the whole file
     },
     Module {
-        file: FilePtr,
+        file: FileItd,
     },
     TargetInput,
     Any {
         ident: CustomIdentifier,
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
         route: EntityRoutePtr,
     },
     ThisType {
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
     },
 }
 
 impl EntitySource {
-    pub fn from_file(file_id: FilePtr, token_group_index: usize) -> EntitySource {
+    pub fn from_file(file_id: FileItd, token_group_index: usize) -> EntitySource {
         EntitySource::WithinModule {
             file: file_id,
             token_group_index,

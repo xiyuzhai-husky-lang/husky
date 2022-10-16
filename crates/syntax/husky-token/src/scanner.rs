@@ -4,6 +4,7 @@ use crate::{raw_token_iter::RawTokenIter, tokenized_text::TokenGroup, *};
 
 use husky_dev_utils::dev_src;
 use husky_file::URange;
+use husky_print_utils::p;
 use husky_text::TextIndent;
 use husky_word::WordInterner;
 use wild_utils::ref_to_mut_ref;
@@ -91,7 +92,11 @@ impl<'token> TokenScanner<'token> {
                         BinaryOpr::Pure(PureBinaryOpr::Sub),
                     )),
                     Convexity::Concave => TokenKind::Special(SpecialToken::Minus),
-                    Convexity::Any => todo!(),
+                    Convexity::Any => {
+                        p!(token.range);
+                        p!(self.tokens);
+                        todo!()
+                    }
                 },
             ),
             RawTokenKind::Literal(lit) => match self.tokens.last().map(|t| t.kind) {
@@ -113,9 +118,23 @@ impl<'token> TokenScanner<'token> {
     }
 
     fn right_convexity(&self) -> Convexity {
-        match self.tokens.last() {
+        match self.last_token_in_unfinished_line() {
             Some(token) => token.right_convexity(),
             None => Convexity::Concave,
+        }
+    }
+
+    fn last_token_in_unfinished_line(&self) -> Option<&Token> {
+        match self.tokenized_lines.last() {
+            Some(line) => {
+                if line.tokens.end == self.tokens.len() {
+                    None
+                } else {
+                    assert!(line.tokens.end < self.tokens.len());
+                    self.tokens.last()
+                }
+            }
+            None => self.tokens.last(),
         }
     }
 

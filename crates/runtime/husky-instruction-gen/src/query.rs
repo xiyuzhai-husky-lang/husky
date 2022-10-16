@@ -1,6 +1,6 @@
 use crate::*;
 use husky_comptime::ComptimeQueryGroup;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_package_semantics::PackageQueryGroup;
 use infer_decl::DeclQueryGroup;
 
@@ -11,7 +11,7 @@ pub trait InstructionGenQueryGroup: ComptimeQueryGroup {
         &self,
         member_route: EntityRoutePtr,
     ) -> Option<Arc<InstructionSheet>>;
-    fn dataset_config_instruction_sheet(&self, target_entrance: FilePtr) -> Arc<InstructionSheet>;
+    fn dataset_config_instruction_sheet(&self, target_entrance: FileItd) -> Arc<InstructionSheet>;
     fn enum_literal_to_i32(&self, route: EntityRoutePtr) -> i32;
 }
 
@@ -117,7 +117,7 @@ fn method_opt_instruction_sheet(
 
 fn dataset_config_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
-    target_entrance: FilePtr,
+    target_entrance: FileItd,
 ) -> Arc<InstructionSheet> {
     let package = db.package(target_entrance).unwrap();
     new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)

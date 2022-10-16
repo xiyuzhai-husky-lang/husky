@@ -4,7 +4,7 @@ mod bind_into;
 pub use bind_from::*;
 pub use bind_into::*;
 use husky_display_utils::HuskyDisplay;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 
 use crate::*;
 use husky_dev_utils::__StaticDevSource;
@@ -26,12 +26,12 @@ impl TextRange {
 }
 
 pub struct FileRange {
-    file: FilePtr,
+    file: FileItd,
     range: TextRange,
 }
 
 pub trait FileRanged: TextRanged {
-    fn file(&self) -> FilePtr;
+    fn file(&self) -> FileItd;
 
     fn src(&self) -> FileRange {
         FileRange {
@@ -48,13 +48,13 @@ impl<S: Deref<Target = T>, T: TextRanged> TextRanged for S {
 }
 
 impl<S: Deref<Target = T>, T: FileRanged> FileRanged for S {
-    fn file(&self) -> FilePtr {
+    fn file(&self) -> FileItd {
         self.deref().file()
     }
 }
 
 impl FileRange {
-    pub fn new(file: FilePtr, range: TextRange) -> Self {
+    pub fn new(file: FileItd, range: TextRange) -> Self {
         Self { file, range }
     }
 }

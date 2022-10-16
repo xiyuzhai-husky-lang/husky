@@ -34,7 +34,7 @@ use husky_entity_kind::*;
 use husky_entity_route::{EntityRoute, EntityRouteVariant};
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_syntax::EntitySource;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_lazy_semantics::parse_lazy_stmts;
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
 use husky_liason_semantics::*;
@@ -74,7 +74,7 @@ pub struct EntityDefn {
     pub variant: EntityDefnVariant,
     pub subentities: Arc<Vec<Arc<EntityDefn>>>,
     pub base_route: EntityRoutePtr,
-    pub file: FilePtr,
+    pub file: FileItd,
     pub range: TextRange,
 }
 
@@ -111,13 +111,13 @@ impl EntityDefn {
         db: &dyn EntityDefnQueryGroup,
         ident: CustomIdentifier,
         route: EntityRoutePtr,
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
     ) -> Arc<Self> {
         Self::new(db, ident.into(), EntityDefnVariant::Any, route, file, range)
     }
 
-    pub fn this_type(db: &dyn EntityDefnQueryGroup, file: FilePtr, range: TextRange) -> Arc<Self> {
+    pub fn this_type(db: &dyn EntityDefnQueryGroup, file: FileItd, range: TextRange) -> Arc<Self> {
         Self::new(
             db,
             Identifier::Contextual(ContextualIdentifier::ThisType),
@@ -137,7 +137,7 @@ impl EntityDefn {
         ident: Identifier,
         variant: EntityDefnVariant,
         base_route: EntityRoutePtr,
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
     ) -> Arc<EntityDefn> {
         let entity_defn = Self {
@@ -445,7 +445,7 @@ impl EntityDefnVariant {
 
 pub(crate) fn main_defn(
     this: &dyn EntityDefnQueryGroup,
-    target_entrance: husky_file::FilePtr,
+    target_entrance: husky_file::FileItd,
 ) -> SemanticResultArc<MainDefn> {
     let ast_text = this.ast_text(target_entrance).unwrap();
     for item in ast_text.folded_results.iter() {
