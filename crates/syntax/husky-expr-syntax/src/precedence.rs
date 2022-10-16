@@ -3,6 +3,7 @@ use husky_opn_syntax::*;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub(crate) enum Precedence {
+    ScopeResolution = 19,
     Prefix = 18,
     Power = 17,
     Multiplicative = 16,
@@ -50,7 +51,8 @@ impl From<BinaryOpr> for Precedence {
                 PureBinaryOpr::Power => Precedence::Power,
             },
             BinaryOpr::Assign(_) => Precedence::None,
-            BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::ScopeResolution => Precedence::ScopeResolution,
+            BinaryOpr::Curry => todo!(),
         }
     }
 }

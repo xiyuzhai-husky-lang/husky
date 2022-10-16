@@ -313,12 +313,11 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
         let (len, special) = match c_start {
             '=' => match self.peek_char() {
                 '=' => self.pass_two(SpecialToken::Eq),
-                '>' => self.pass_two(SpecialToken::HeavyArrow),
                 _ => (1, SpecialToken::BinaryOpr(BinaryOpr::Assign(None))),
             },
             ':' => match self.peek_char() {
                 '=' => self.pass_two(SpecialToken::DeriveAssign),
-                ':' => self.pass_two(SpecialToken::DoubleColon),
+                ':' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution)),
                 _ => (1, SpecialToken::Colon),
             },
             '(' => (1, SpecialToken::LPar),
@@ -349,7 +348,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
             '-' => match self.peek_char() {
                 '=' => self.pass_two(SpecialToken::SubAssign),
                 '-' => self.pass_two(SpecialToken::Decr),
-                '>' => self.pass_two(SpecialToken::LightArrow),
+                '>' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Curry)),
                 _ => return Some((1, RawTokenKind::SubOrMinus)),
             },
             '<' => match self.peek_char() {

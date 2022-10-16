@@ -21,9 +21,6 @@ pub enum SpecialToken {
     DoubleVertical,    // ||
     BitNot,            // ~
     FieldAccess,       // .
-    LightArrow,        // ->
-    HeavyArrow,        // =>
-    DoubleColon,       // ::
     Colon,             // :
     Comma,             // ,
     Ambersand,         // &
@@ -69,13 +66,9 @@ impl SpecialToken {
             SpecialToken::LPar => "(",
             SpecialToken::RPar => ")",
             SpecialToken::Minus => "-",
-            SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Mul)) => "*",
             SpecialToken::DoubleVertical => "||",
             SpecialToken::BitNot => "~",
             SpecialToken::FieldAccess => ".",
-            SpecialToken::LightArrow => "->",
-            SpecialToken::HeavyArrow => "=>",
-            SpecialToken::DoubleColon => "::",
             SpecialToken::Colon => ":",
             SpecialToken::Comma => ",",
             SpecialToken::Ambersand => "&",
@@ -186,13 +179,10 @@ macro_rules! special_token {
         SpecialToken::MemberAccess
     }};
     ("->") => {{
-        SpecialToken::LightArrow
-    }};
-    (")") => {{
-        SpecialToken::HeavyArrow
+        SpecialToken::BinaryOpr(BinaryOpr::Curry)
     }};
     ("::") => {{
-        SpecialToken::DoubleColon
+        SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution)
     }};
     (":") => {{
         SpecialToken::Colon

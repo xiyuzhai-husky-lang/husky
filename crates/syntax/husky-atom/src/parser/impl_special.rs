@@ -10,7 +10,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
     ) -> AtomResult<()> {
         let text_start = token.range.start;
         match special {
-            SpecialToken::DoubleColon => err!(
+            SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution) => err!(
                 "unexpected double colon, maybe the identifier before is not recognized as entity_route correctly",
                 self.token_stream.text_range(text_start)
             )?,
@@ -58,7 +58,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                 .stack
                 .start_list(Bracket::Curl, self.token_stream.text_range(text_start))),
             SpecialToken::RPar => {
-                if deprecated_try_eat!(self, SpecialToken::LightArrow) {
+                if deprecated_try_eat!(self, SpecialToken::BinaryOpr(BinaryOpr::Curry)) {
                     let output = deprecated_get!(self, ty?);
                     self.stack.make_func_type(
                         self.atom_context,

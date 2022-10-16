@@ -91,18 +91,8 @@ macro_rules! deprecated_try_eat {
         }
     }};
 
-    ($parser:expr, SpecialToken::$special:ident) => {{
-        let saved_state = $parser.save_state();
-        if $parser.special(SpecialToken::$special).is_some() {
-            true
-        } else {
-            $parser.rollback(saved_state);
-            false
-        }
-    }};
-
     ($parser:expr, "->") => {{
-        deprecated_try_eat!($parser, SpecialToken::LightArrow)
+        deprecated_try_eat!($parser, SpecialToken::BinaryOpr(BinaryOpr::Curry))
     }};
 
     ($parser:expr, "(") => {{
@@ -139,6 +129,16 @@ macro_rules! deprecated_try_eat {
 
     ($parser:expr, "_") => {{
         deprecated_try_eat!($parser, elide)
+    }};
+
+    ($parser:expr, $special:expr) => {{
+        let saved_state = $parser.save_state();
+        if $parser.special($special).is_some() {
+            true
+        } else {
+            $parser.rollback(saved_state);
+            false
+        }
     }};
 }
 

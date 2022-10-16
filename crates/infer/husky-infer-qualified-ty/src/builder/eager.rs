@@ -348,6 +348,7 @@ impl<'a> QualifiedTySheetBuilder<'a> {
                 EagerExprQualifier::TempRefMut => (),
             },
             BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::Curry => todo!(),
         }
         self.insert_eager_expr_inference(opds.start + 1);
         let ty = self.expr_raw_ty(idx)?;

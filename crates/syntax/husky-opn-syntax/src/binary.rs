@@ -4,7 +4,8 @@ use super::*;
 pub enum BinaryOpr {
     Pure(PureBinaryOpr),
     Assign(Option<PureBinaryOpr>),
-    ScopeResolution,
+    ScopeResolution, // ::
+    Curry,           // ->
 }
 
 impl Into<RawOpnVariant> for BinaryOpr {
@@ -16,9 +17,10 @@ impl Into<RawOpnVariant> for BinaryOpr {
 impl BinaryOpr {
     pub fn code(self) -> &'static str {
         match self {
-            BinaryOpr::Pure(_) => todo!(),
+            BinaryOpr::Pure(pure_opr) => pure_opr.husky_code(),
             BinaryOpr::Assign(_) => todo!(),
             BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::Curry => "->",
         }
     }
 
@@ -53,6 +55,7 @@ impl BinaryOpr {
                 }
             }
             BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::Curry => " -> ",
         }
     }
 }

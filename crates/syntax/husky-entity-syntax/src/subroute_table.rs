@@ -1,6 +1,7 @@
 mod entry;
 
 pub use entry::*;
+use husky_opn_syntax::BinaryOpr;
 
 use crate::{error::*, *};
 use husky_dev_utils::dev_src;
@@ -22,7 +23,7 @@ pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityK
             TokenKind::Special(SpecialToken::LPar) => EntityKind::Function {
                 requires_lazy: paradigm.is_lazy(),
             },
-            TokenKind::Special(SpecialToken::LightArrow)
+            TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::Curry))
             | TokenKind::Special(SpecialToken::Colon) => EntityKind::Feature,
             _ => return None,
         }),

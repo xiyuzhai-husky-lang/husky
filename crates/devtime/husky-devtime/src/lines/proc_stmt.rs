@@ -41,6 +41,7 @@ impl<'a> TraceLineBuilder<'a> {
                             }
                             BinaryOpr::Pure(_) => (),
                             BinaryOpr::ScopeResolution => todo!(),
+                            BinaryOpr::Curry => todo!(),
                         },
                         _ => (),
                     },

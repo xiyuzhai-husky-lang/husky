@@ -189,6 +189,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             BinaryOpr::Pure(opr) => opr,
             BinaryOpr::Assign(_) => todo!(),
             BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::Curry => todo!(),
         };
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::Binary {
