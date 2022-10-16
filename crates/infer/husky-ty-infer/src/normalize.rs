@@ -18,6 +18,7 @@ pub(crate) enum NormalizedOpnKind {
         opt_trait_entity: Option<TraitEntity>,
         method_ident: Identifier,
     },
+    ScopeResolution,
 }
 
 pub struct TraitEntity(TermPtr);
@@ -71,7 +72,7 @@ impl<'a> TyInferContext<'a> {
                 PureBinaryOpr::Sub => todo!(),
             },
             BinaryOpr::Assign(_) => todo!(),
-            BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::ScopeResolution => NormalizedOpnKind::ScopeResolution,
             BinaryOpr::Curry => todo!(),
             BinaryOpr::As => todo!(),
         }
