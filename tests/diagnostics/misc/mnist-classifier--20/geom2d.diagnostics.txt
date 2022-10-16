@@ -1,1 +1,1 @@
-1:8..1:15	Ast Error: expect `:`
+[1:8, 1:15)	Ast Error: expect `:`

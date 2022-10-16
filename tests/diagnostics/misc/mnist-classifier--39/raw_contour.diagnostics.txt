@@ -1,1 +1,1 @@
-9:18..9:19	Ast Error: expect custom_ident
+[9:18, 9:19)	Ast Error: expect custom_ident

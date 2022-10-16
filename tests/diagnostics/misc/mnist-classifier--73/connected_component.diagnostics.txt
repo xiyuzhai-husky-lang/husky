@@ -1,1 +1,1 @@
-34:13..34:19	Ast Error: expect opn expr
+[34:13, 34:19)	Ast Error: expect opn expr

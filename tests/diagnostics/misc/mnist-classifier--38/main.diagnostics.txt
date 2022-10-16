@@ -1,2 +1,2 @@
-17:5..17:16	Infer Error: expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `Module` instead
-18:5..18:32	Infer Error: expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead
+[17:5, 17:16)	Infer Error: expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `Module` instead
+[18:5, 18:32)	Infer Error: expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead

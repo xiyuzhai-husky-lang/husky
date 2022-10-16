@@ -101,7 +101,9 @@ impl<'token> TokenScanner<'token> {
                 ),
                 _ => (TokenScannerAction::Push, TokenKind::Literal(lit)),
             },
-            RawTokenKind::IllFormedLiteral(_) => todo!(),
+            RawTokenKind::IllFormedLiteral(l) => {
+                (TokenScannerAction::Push, TokenKind::IllFormedLiteral(l))
+            }
         };
         (
             action,

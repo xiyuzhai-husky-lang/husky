@@ -65,7 +65,7 @@ impl TokenKind {
     pub fn right_convexity(self) -> Convexity {
         match self {
             TokenKind::Decorator(_) => todo!(),
-            TokenKind::Keyword(_) => todo!(),
+            TokenKind::Keyword(_) => Convexity::Concave,
             TokenKind::Identifier(_) => Convexity::Convex,
             TokenKind::Special(special) => match special {
                 SpecialToken::BinaryOpr(_) => Convexity::Concave,

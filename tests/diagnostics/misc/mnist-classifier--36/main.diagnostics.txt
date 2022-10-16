@@ -1,2 +1,2 @@
-16:5..16:27	Ast Error: expect index expr inside `[]`
-17:5..17:32	Infer Error: expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead
+[16:5, 16:27)	Ast Error: expect index expr inside `[]`
+[17:5, 17:32)	Infer Error: expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead
