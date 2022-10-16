@@ -39,7 +39,7 @@ pub enum HuskyAtomVariant {
     Binary(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(RawSuffixOpr),
-    FieldAccess(RangedCustomIdentifier),
+    FieldAccess(Option<RangedCustomIdentifier>),
     ListStart(Bracket, ListStartAttr),
     ListEnd(Bracket, ListEndAttr),
     ListItem,

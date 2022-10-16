@@ -150,9 +150,12 @@ impl<'a> ContractSheetBuilder<'a> {
             }
             RawOpnVariant::Suffix(opr) => self.infer_eager_suffix(opr, opds.start, contract),
             RawOpnVariant::List(opr) => self.infer_eager_list_opn(idx, opr, opds, contract),
-            RawOpnVariant::Field(field_ident) => {
-                self.infer_eager_field_access(idx, *field_ident, opds.start, contract)
-            }
+            RawOpnVariant::Field(field_ident) => self.infer_eager_field_access(
+                idx,
+                derived_not_none!(field_ident)?,
+                opds.start,
+                contract,
+            ),
         }
     }
 

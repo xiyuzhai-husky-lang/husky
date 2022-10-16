@@ -325,7 +325,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawOpnVariant::Prefix(prefix_opr) => self.eager_prefix(idx, opds),
             RawOpnVariant::Suffix(suffix_opr) => self.eager_suffix(idx, suffix_opr, opds),
             RawOpnVariant::List(list_opr) => self.eager_list(idx, list_opr, opds),
-            RawOpnVariant::Field(field_ident) => self.eager_field(idx, *field_ident, opds),
+            RawOpnVariant::Field(field_ident) => {
+                self.eager_field(idx, derived_not_none!(field_ident)?, opds)
+            }
         }
     }
 

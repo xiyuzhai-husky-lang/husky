@@ -28,8 +28,8 @@ impl<'a> AstTransformer<'a> {
                 HuskyAtomVariant::Binary(opr) => stack.accept_binary(opr)?,
                 HuskyAtomVariant::Prefix(prefix) => stack.accept_prefix(prefix, atom.text_start()),
                 HuskyAtomVariant::Suffix(suffix) => stack.accept_suffix(suffix, end),
-                HuskyAtomVariant::FieldAccess(field_ident) => {
-                    stack.accept_field_access(field_ident, atom.text_end())
+                HuskyAtomVariant::FieldAccess(opt_field_ident) => {
+                    stack.accept_field_access(opt_field_ident, atom.text_end())
                 }
                 HuskyAtomVariant::ListStart(bra, attr) => {
                     stack.accept_list_start(bra, attr, atom_text_start, Default::default())

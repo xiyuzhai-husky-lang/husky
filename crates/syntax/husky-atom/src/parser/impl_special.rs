@@ -105,47 +105,52 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                 ))
             }
             SpecialToken::FieldAccess => {
-                let field_ident_token = self
-                    .token_stream
-                    .next()
-                    .ok_or(error!("expect identifier after `.`", self.token_stream.text_range(text_start)))?;
-                let is_lpar_or_langle_next = match self.token_stream.peek_next_bra() {
-                    Some(Bracket::Par) | Some(Bracket::Angle) => true,
-                    _ => false,
-                };
-                let semantic_token_kind = if is_lpar_or_langle_next {
-                    SemanticTokenKind::Method
-                } else {
-                    SemanticTokenKind::Field
-                };
-                let ranged_ident = identify_token!(self, field_ident_token, semantic_token_kind);
-                let atom_variant = if is_lpar_or_langle_next {
-                    if let Some(generic_arguments) = deprecated_try_get!(self, angled_generics?) {
-                        match self.token_stream.next() {
-                            Some(token) => match token.kind {
-                                TokenKind::Special(SpecialToken::Bra(Bracket::Par)) => {
-                                    self.token_stream.text_range(text_start);
-                                }
-                                _ => todo!(),
-                            },
-                            None => todo!(),
-                        }
-                        HuskyAtomVariant::ListStart(
-                            Bracket::Par,
-                            ListStartAttr::MethodAttach {
-                                ranged_ident,
-                                generic_arguments,
-                            },
-                        )
+                if self
+                .token_stream.is_next_ident() {
+                    let field_ident_token = self.token_stream.next().unwrap();
+                    let is_lpar_or_langle_next = match self.token_stream.peek_next_bra() {
+                        Some(Bracket::Par) | Some(Bracket::Angle) => true,
+                        _ => false,
+                    };
+                    let semantic_token_kind = if is_lpar_or_langle_next {
+                        SemanticTokenKind::Method
                     } else {
-                        HuskyAtomVariant::FieldAccess(ranged_ident)
-                    }
+                        SemanticTokenKind::Field
+                    };
+                    let ranged_ident = identify_token!(self, field_ident_token, semantic_token_kind);
+                    let atom_variant = if is_lpar_or_langle_next {
+                        if let Some(generic_arguments) = deprecated_try_get!(self, angled_generics?) {
+                            match self.token_stream.next() {
+                                Some(token) => match token.kind {
+                                    TokenKind::Special(SpecialToken::Bra(Bracket::Par)) => {
+                                        self.token_stream.text_range(text_start);
+                                    }
+                                    _ => todo!(),
+                                },
+                                None => todo!(),
+                            }
+                            HuskyAtomVariant::ListStart(
+                                Bracket::Par,
+                                ListStartAttr::MethodAttach {
+                                    ranged_ident,
+                                    generic_arguments,
+                                },
+                            )
+                        } else {
+                            HuskyAtomVariant::FieldAccess(Some(ranged_ident))
+                        }
+                    } else {
+                        HuskyAtomVariant::FieldAccess(Some(ranged_ident))
+                    };
+                    self.stack.push(HuskyAtom::new(
+                        self.token_stream.text_range(text_start), atom_variant
+                    ))
                 } else {
-                    HuskyAtomVariant::FieldAccess(ranged_ident)
-                };
-                self.stack.push(HuskyAtom::new(
-                    self.token_stream.text_range(text_start), atom_variant
-                ))
+                    self.stack.push(HuskyAtom::new(
+                        self.token_stream.text_range(text_start),
+                        HuskyAtomVariant::FieldAccess(None),
+                    ))
+                }
             }
             SpecialToken::QuestionMark => match self.stack.convexity() {
                 Convexity::Convex => {
