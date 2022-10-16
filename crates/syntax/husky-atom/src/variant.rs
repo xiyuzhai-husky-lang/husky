@@ -76,14 +76,13 @@ impl From<SpecialToken> for HuskyAtomVariant {
     fn from(special: SpecialToken) -> Self {
         match special {
             SpecialToken::BinaryOpr(opr) => opr.into(),
-            SpecialToken::DoubleColon
+            SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution)
             | SpecialToken::Colon
             | SpecialToken::Vertical
             | SpecialToken::Ambersand
             | SpecialToken::Exclamation
             | SpecialToken::DoubleVertical
-            | SpecialToken::LightArrow
-            | SpecialToken::HeavyArrow
+            | SpecialToken::BinaryOpr(BinaryOpr::Curry)
             | SpecialToken::LPar
             | SpecialToken::LBox
             | SpecialToken::LCurl

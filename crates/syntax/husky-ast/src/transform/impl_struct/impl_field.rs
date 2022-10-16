@@ -47,9 +47,7 @@ impl<'a> AstTransformer<'a> {
         let field_kind = if deprecated_try_eat!(
             parser,
             token_kind,
-            TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::Pure(
-                PureBinaryOpr::Assign
-            )))
+            TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::Assign(None)))
         ) {
             self.update_struct_item_context(StructItemContext::DefaultField, token_group)?;
             enter_block(self);
@@ -133,7 +131,7 @@ impl<'a> AstTransformer<'a> {
         self.opt_this_liason.set(Some(ParameterModifier::EvalRef));
         let ident = identify_token!(self, token_group[1], SemanticTokenKind::Field);
         match token_group[2].kind {
-            TokenKind::Special(SpecialToken::LightArrow) => (),
+            TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::Curry)) => (),
             _ => todo!(),
         }
         let field_ty_result = husky_atom::parse_route(self, &token_group[3..]);

@@ -17,7 +17,7 @@ impl<'a> Automata<'a> {
             TokenKind::Keyword(keyword) => todo!(),
             TokenKind::Identifier(ident) => self.resolve_ident(ident),
             TokenKind::Special(special) => match special {
-                SpecialToken::BinaryOpr(_) => todo!(),
+                SpecialToken::BinaryOpr(opr) => ResolvedTokenKind::BinaryOpr(opr),
                 SpecialToken::LAngle => todo!(),
                 SpecialToken::Leq => todo!(),
                 SpecialToken::RAngle => todo!(),
@@ -32,32 +32,19 @@ impl<'a> Automata<'a> {
                 SpecialToken::RBox => todo!(),
                 SpecialToken::LPar => todo!(),
                 SpecialToken::RPar => todo!(),
-                SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Add)) => {
-                    ResolvedTokenKind::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Add))
-                }
-                SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Sub)) => {
-                    ResolvedTokenKind::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Sub))
-                }
                 SpecialToken::Minus => ResolvedTokenKind::Prefix(PrefixOpr::Minus),
                 SpecialToken::Exclamation => ResolvedTokenKind::Prefix(PrefixOpr::Not),
                 SpecialToken::Incr => ResolvedTokenKind::Suffix(RawSuffixOpr::Incr),
                 SpecialToken::Decr => ResolvedTokenKind::Suffix(RawSuffixOpr::Decr),
-                SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Mul)) => todo!(),
-                SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Div)) => todo!(),
-                SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Power)) => todo!(),
-                SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::And)) => todo!(),
                 SpecialToken::DoubleVertical => todo!(),
                 SpecialToken::BitNot => todo!(),
-                SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::RemEuclid)) => todo!(),
                 SpecialToken::FieldAccess => todo!(),
-                SpecialToken::LightArrow => todo!(),
-                SpecialToken::HeavyArrow => todo!(),
-                SpecialToken::DoubleColon => todo!(),
+                SpecialToken::BinaryOpr(BinaryOpr::Curry) => todo!(),
+                SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution) => todo!(),
                 SpecialToken::Colon => todo!(),
                 SpecialToken::Comma => todo!(),
                 SpecialToken::Ambersand => todo!(),
                 SpecialToken::Vertical => todo!(),
-                SpecialToken::BinaryOpr(BinaryOpr::Assign(None)) => todo!(),
                 SpecialToken::AddAssign => todo!(),
                 SpecialToken::SubAssign => todo!(),
                 SpecialToken::MulAssign => todo!(),

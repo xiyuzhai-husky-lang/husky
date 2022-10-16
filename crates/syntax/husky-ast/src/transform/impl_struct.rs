@@ -28,7 +28,7 @@ impl<'a> AstTransformer<'a> {
                             TokenKind::Special(SpecialToken::LPar) => {
                                 self.parse_struct_method(token_group,  enter_block)
                             },
-                            TokenKind::Special(SpecialToken::LightArrow) =>{
+                            TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::Curry)) =>{
                                 self.parse_struct_memo(token_group,  enter_block)
                             },
                             _=> todo!(),

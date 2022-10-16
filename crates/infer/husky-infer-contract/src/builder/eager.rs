@@ -200,6 +200,7 @@ impl<'a> ContractSheetBuilder<'a> {
                 );
             }
             BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::Curry => todo!(),
         }
         Ok(())
     }

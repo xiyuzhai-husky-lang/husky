@@ -28,7 +28,7 @@ impl<'a> AstTransformer<'a> {
                     return err!(format!("expect more tokens"), token_group.text_range());
                 }
                 match token_group[2].kind {
-                    TokenKind::Special(SpecialToken::LightArrow) => {
+                    TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::Curry)) => {
                         enter_block(self);
                         self.context.set(AstContext::Stmt {
                             paradigm,

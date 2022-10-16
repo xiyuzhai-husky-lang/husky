@@ -20,7 +20,8 @@ impl<'a> AstTransformer<'a> {
             );
             let second_last_token = &token_group[token_group.len() - 2];
             must_be!(
-                second_last_token.kind == TokenKind::Special(SpecialToken::DoubleColon),
+                second_last_token.kind
+                    == TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution)),
                 "expect `::`",
                 second_last_token.range
             );

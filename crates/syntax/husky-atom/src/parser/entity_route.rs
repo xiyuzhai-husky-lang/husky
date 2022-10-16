@@ -168,7 +168,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
             .atom_context
             .entity_syntax_db()
             .route_call(route, generic_arguments);
-        while deprecated_try_eat!(self, SpecialToken::DoubleColon) {
+        while deprecated_try_eat!(self, SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution)) {
             let ranged_ident = deprecated_get!(self, custom_ident);
             let new_route = self
                 .db()
