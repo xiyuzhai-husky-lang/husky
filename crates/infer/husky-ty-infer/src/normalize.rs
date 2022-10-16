@@ -73,6 +73,7 @@ impl<'a> TyInferContext<'a> {
             BinaryOpr::Assign(_) => todo!(),
             BinaryOpr::ScopeResolution => todo!(),
             BinaryOpr::Curry => todo!(),
+            BinaryOpr::As => todo!(),
         }
     }
 }

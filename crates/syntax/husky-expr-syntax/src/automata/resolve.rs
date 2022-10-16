@@ -1,7 +1,8 @@
+use super::*;
+use husky_print_utils::p;
 use husky_symbol_syntax::Symbol;
+use husky_term::TermPtr;
 use husky_token::{Convexity, SpecialToken};
-
-use crate::*;
 
 impl<'a> Automata<'a> {
     pub(crate) fn resolve_token(&self, token: &Token) -> ResolvedToken {
@@ -19,13 +20,8 @@ impl<'a> Automata<'a> {
             TokenKind::Special(special) => match special {
                 SpecialToken::BinaryOpr(opr) => ResolvedTokenKind::BinaryOpr(opr),
                 SpecialToken::LAngle => todo!(),
-                SpecialToken::Leq => todo!(),
                 SpecialToken::RAngle => todo!(),
-                SpecialToken::Geq => todo!(),
-                SpecialToken::Neq => todo!(),
                 SpecialToken::DeriveAssign => todo!(),
-                SpecialToken::Eq => todo!(),
-                SpecialToken::Shl => todo!(),
                 SpecialToken::LCurl => todo!(),
                 SpecialToken::RCurl => todo!(),
                 SpecialToken::LBox => todo!(),
@@ -45,12 +41,6 @@ impl<'a> Automata<'a> {
                 SpecialToken::Comma => todo!(),
                 SpecialToken::Ambersand => todo!(),
                 SpecialToken::Vertical => todo!(),
-                SpecialToken::AddAssign => todo!(),
-                SpecialToken::SubAssign => todo!(),
-                SpecialToken::MulAssign => todo!(),
-                SpecialToken::DivAssign => todo!(),
-                SpecialToken::BitAndAssign => todo!(),
-                SpecialToken::BitOrAssign => todo!(),
                 SpecialToken::DoubleExclamation => todo!(),
                 SpecialToken::Semicolon => todo!(),
                 SpecialToken::XmlKet => todo!(),
@@ -68,11 +58,49 @@ impl<'a> Automata<'a> {
     fn resolve_ident(&self, ident: Identifier) -> ResolvedTokenKind {
         if let Some(opr) = self.stack.top_opr() {
             match opr.variant {
-                automata::opr::OnStackOprVariant::Binary(BinaryOpr::ScopeResolution) => todo!(),
+                OnStackOprVariant::Binary(BinaryOpr::ScopeResolution) => {
+                    if let Some(previous_expr) = self.stack.top_expr() {
+                        // match previous_expr.
+                        // p!(previous_expr);
+                        // p!(ident);
+                        match previous_expr.opt_scope().into_option() {
+                            Some(_) => todo!(),
+                            None => todo!(),
+                        }
+                        todo!()
+                    } else {
+                        todo!()
+                    }
+                }
                 _ => (),
             }
         }
         self.ctx.resolve_ident(ident).into()
+    }
+
+    fn resolve_previous_entity(&self) -> Option<TermPtr> {
+        self.stack.top_expr().map(|expr| self.resolve_entity(expr))
+    }
+
+    fn resolve_entity(&self, expr: &RawExpr) -> TermPtr {
+        match expr.variant {
+            RawExprVariant::Atom(ref atom) => match atom {
+                RawAtom::Literal(_) => todo!(),
+                RawAtom::Symbol(_) => todo!(),
+            },
+            RawExprVariant::Bracketed(idx) => self.resolve_entity(&self.arena[idx]),
+            RawExprVariant::Opn {
+                ref opn_variant,
+                ref opds,
+            } => match opn_variant {
+                RawOpnVariant::Binary(_) => todo!(),
+                RawOpnVariant::Prefix(_) => todo!(),
+                RawOpnVariant::Suffix(_) => todo!(),
+                RawOpnVariant::List(_) => todo!(),
+                RawOpnVariant::Field(_) => todo!(),
+            },
+            RawExprVariant::Lambda(_, _) => todo!(),
+        }
     }
 }
 
@@ -93,14 +121,14 @@ impl ResolvedToken {
         &self.kind
     }
 
-    pub(super) fn to_expr(self) -> RawExpr {
+    pub(super) fn to_expr(self, arena: &RawExprArena) -> RawExpr {
         let variant = match self.kind {
             ResolvedTokenKind::Atom(variant) => variant.into(),
             ResolvedTokenKind::BinaryOpr(_) => todo!(),
             ResolvedTokenKind::Prefix(_) => todo!(),
             ResolvedTokenKind::Suffix(_) => todo!(),
         };
-        RawExpr::new(variant, self.range)
+        RawExpr::new(variant, self.range, arena)
     }
 }
 

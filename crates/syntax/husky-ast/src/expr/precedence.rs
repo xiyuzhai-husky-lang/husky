@@ -51,6 +51,7 @@ impl From<BinaryOpr> for Precedence {
             BinaryOpr::Assign(_) => Precedence::None,
             BinaryOpr::ScopeResolution => todo!(),
             BinaryOpr::Curry => todo!(),
+            BinaryOpr::As => todo!(),
         }
     }
 }

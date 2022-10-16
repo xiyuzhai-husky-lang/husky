@@ -94,20 +94,8 @@ impl From<SpecialToken> for HuskyAtomVariant {
                 p!(special);
                 panic!()
             }
-            SpecialToken::AddAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Add)).into(),
-            SpecialToken::SubAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Sub)).into(),
-            SpecialToken::MulAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Mul)).into(),
-            SpecialToken::DivAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Div)).into(),
-            SpecialToken::BitOrAssign => BinaryOpr::Assign(Some(PureBinaryOpr::BitOr)).into(),
-            SpecialToken::BitAndAssign => BinaryOpr::Assign(Some(PureBinaryOpr::BitAnd)).into(),
             SpecialToken::LAngle => BinaryOpr::Pure(PureBinaryOpr::Less).into(),
-            SpecialToken::Leq => BinaryOpr::Pure(PureBinaryOpr::Leq).into(),
             SpecialToken::RAngle => panic!("should check whether this is a `>>`"),
-            //  BinaryOpr::Pure(PureBinaryOpr::Greater).into(),
-            SpecialToken::Geq => BinaryOpr::Pure(PureBinaryOpr::Geq).into(),
-            SpecialToken::Neq => BinaryOpr::Pure(PureBinaryOpr::Neq).into(),
-            SpecialToken::Eq => BinaryOpr::Pure(PureBinaryOpr::Eq).into(),
-            SpecialToken::Shl => BinaryOpr::Pure(PureBinaryOpr::Shl).into(),
             SpecialToken::BitNot => PrefixOpr::BitNot.into(),
             SpecialToken::DoubleExclamation => PrefixOpr::Move.into(),
             SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::RemEuclid)) => {
