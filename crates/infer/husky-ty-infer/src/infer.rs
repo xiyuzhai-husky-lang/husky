@@ -20,6 +20,7 @@ impl<'a> TyInferContext<'a> {
         match atom {
             RawAtom::Literal(literal) => self.infer_literal(literal),
             RawAtom::Symbol(_) => todo!(),
+            RawAtom::Uncertain => todo!(),
         }
     }
 

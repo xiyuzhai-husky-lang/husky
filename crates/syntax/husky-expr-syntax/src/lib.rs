@@ -27,7 +27,14 @@ use precedence::*;
 pub struct RawExpr {
     pub variant: RawExprVariant,
     pub range: TextRange,
-    opt_scope: Optioned<TermPtr>,
+    base_scope_result: BaseScopeResult,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum BaseScopeResult {
+    None,
+    Some(TermPtr),
+    Uncertain,
 }
 
 impl TextRanged for RawExpr {
@@ -51,20 +58,24 @@ pub enum RawExprVariant {
 }
 
 impl RawExprVariant {
-    fn opt_scope(&self, arena: &RawExprArena) -> Optioned<TermPtr> {
+    fn base_scope_result(&self, arena: &RawExprArena) -> BaseScopeResult {
         match self {
             RawExprVariant::Atom(ref atom) => match atom {
-                RawAtom::Literal(_) => Optioned::none(),
+                RawAtom::Literal(_) => BaseScopeResult::None,
                 RawAtom::Symbol(symbol) => match symbol.kind {
                     SymbolKind::EntityPath(_) => todo!(),
-                    _ => Optioned::none(),
+                    SymbolKind::Unrecognized => BaseScopeResult::Uncertain,
+                    _ => BaseScopeResult::None,
                 },
+                RawAtom::Uncertain => BaseScopeResult::Uncertain,
             },
             RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn { opn_variant, opds } => match opn_variant {
-                RawOpnVariant::Binary(BinaryOpr::ScopeResolution) => todo!(),
+                RawOpnVariant::Binary(BinaryOpr::ScopeResolution) => {
+                    arena[opds.start + 1].base_scope_result()
+                }
                 RawOpnVariant::Binary(BinaryOpr::As) => todo!(),
-                _ => Optioned::none(),
+                _ => BaseScopeResult::None,
             },
             RawExprVariant::Lambda(_, _) => todo!(),
         }
@@ -87,13 +98,13 @@ pub type RawExprMap<V> = ArenaMap<RawExpr, V>;
 impl RawExpr {
     fn new(variant: RawExprVariant, range: TextRange, arena: &RawExprArena) -> Self {
         Self {
-            opt_scope: variant.opt_scope(arena),
+            base_scope_result: variant.base_scope_result(arena),
             variant,
             range,
         }
     }
 
-    pub fn opt_scope(&self) -> Optioned<TermPtr> {
-        self.opt_scope
+    pub fn base_scope_result(&self) -> BaseScopeResult {
+        self.base_scope_result
     }
 }

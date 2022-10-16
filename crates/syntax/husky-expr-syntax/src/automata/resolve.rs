@@ -56,14 +56,13 @@ impl<'a> Automata<'a> {
             match opr.variant {
                 OnStackOprVariant::Binary(BinaryOpr::ScopeResolution) => {
                     if let Some(previous_expr) = self.stack.top_expr() {
-                        // match previous_expr.
-                        // p!(previous_expr);
-                        // p!(ident);
-                        match previous_expr.opt_scope().into_option() {
-                            Some(_) => todo!(),
-                            None => todo!(),
+                        match previous_expr.base_scope_result() {
+                            BaseScopeResult::None => todo!(),
+                            BaseScopeResult::Some(_) => todo!(),
+                            BaseScopeResult::Uncertain => {
+                                return ResolvedTokenKind::Atom(RawAtom::Uncertain)
+                            }
                         }
-                        todo!()
                     } else {
                         todo!()
                     }
@@ -83,6 +82,7 @@ impl<'a> Automata<'a> {
             RawExprVariant::Atom(ref atom) => match atom {
                 RawAtom::Literal(_) => todo!(),
                 RawAtom::Symbol(_) => todo!(),
+                RawAtom::Uncertain => todo!(),
             },
             RawExprVariant::Bracketed(idx) => self.resolve_entity(&self.arena[idx]),
             RawExprVariant::Opn {

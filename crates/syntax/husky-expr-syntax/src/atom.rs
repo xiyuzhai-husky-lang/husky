@@ -6,6 +6,7 @@ use crate::*;
 pub enum RawAtom {
     Literal(RawLiteralData),
     Symbol(Symbol),
+    Uncertain,
 }
 
 impl From<RawLiteralData> for RawAtom {
