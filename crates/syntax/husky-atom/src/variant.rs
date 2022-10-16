@@ -75,6 +75,7 @@ impl From<RawSuffixOpr> for HuskyAtomVariant {
 impl From<SpecialToken> for HuskyAtomVariant {
     fn from(special: SpecialToken) -> Self {
         match special {
+            SpecialToken::BinaryOpr(opr) => opr.into(),
             SpecialToken::DoubleColon
             | SpecialToken::Colon
             | SpecialToken::Vertical
@@ -89,13 +90,11 @@ impl From<SpecialToken> for HuskyAtomVariant {
             | SpecialToken::RCurl
             | SpecialToken::RBox
             | SpecialToken::RPar
-            | SpecialToken::Sub
             | SpecialToken::Minus
             | SpecialToken::FieldAccess => {
                 p!(special);
                 panic!()
             }
-            SpecialToken::Assign => BinaryOpr::Assign(None).into(),
             SpecialToken::AddAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Add)).into(),
             SpecialToken::SubAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Sub)).into(),
             SpecialToken::MulAssign => BinaryOpr::Assign(Some(PureBinaryOpr::Mul)).into(),
@@ -110,14 +109,11 @@ impl From<SpecialToken> for HuskyAtomVariant {
             SpecialToken::Neq => BinaryOpr::Pure(PureBinaryOpr::Neq).into(),
             SpecialToken::Eq => BinaryOpr::Pure(PureBinaryOpr::Eq).into(),
             SpecialToken::Shl => BinaryOpr::Pure(PureBinaryOpr::Shl).into(),
-            SpecialToken::Add => BinaryOpr::Pure(PureBinaryOpr::Add).into(),
-            SpecialToken::Star => BinaryOpr::Pure(PureBinaryOpr::Mul).into(),
-            SpecialToken::Div => BinaryOpr::Pure(PureBinaryOpr::Div).into(),
-            SpecialToken::Power => BinaryOpr::Pure(PureBinaryOpr::Power).into(),
-            SpecialToken::And => BinaryOpr::Pure(PureBinaryOpr::And).into(),
             SpecialToken::BitNot => PrefixOpr::BitNot.into(),
             SpecialToken::DoubleExclamation => PrefixOpr::Move.into(),
-            SpecialToken::Modulo => BinaryOpr::Pure(PureBinaryOpr::RemEuclid).into(),
+            SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::RemEuclid)) => {
+                BinaryOpr::Pure(PureBinaryOpr::RemEuclid).into()
+            }
             SpecialToken::Incr => HuskyAtomVariant::Suffix(RawSuffixOpr::Incr),
             SpecialToken::Decr => HuskyAtomVariant::Suffix(RawSuffixOpr::Decr),
             SpecialToken::Comma => HuskyAtomVariant::ListItem,

@@ -104,7 +104,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                     BinaryOpr::Pure(PureBinaryOpr::Greater).into(),
                 ))
             }
-            SpecialToken::Sub => {
+            SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Sub)) => {
                 self.stack.push(HuskyAtom::new(
                     self.token_stream.text_range(text_start),
                     BinaryOpr::Pure(PureBinaryOpr::Sub).into(),

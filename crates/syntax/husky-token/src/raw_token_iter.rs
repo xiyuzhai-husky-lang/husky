@@ -314,7 +314,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
             '=' => match self.peek_char() {
                 '=' => self.pass_two(SpecialToken::Eq),
                 '>' => self.pass_two(SpecialToken::HeavyArrow),
-                _ => (1, SpecialToken::Assign),
+                _ => (1, SpecialToken::BinaryOpr(BinaryOpr::Assign(None))),
             },
             ':' => match self.peek_char() {
                 '=' => self.pass_two(SpecialToken::DeriveAssign),
@@ -330,7 +330,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
             ',' => (1, SpecialToken::Comma),
             '@' => (1, SpecialToken::At),
             '&' => match self.peek_char() {
-                '&' => self.pass_two(SpecialToken::And),
+                '&' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::And))),
                 '=' => self.pass_two(SpecialToken::BitAndAssign),
                 _ => (1, SpecialToken::Ambersand),
             },
@@ -342,7 +342,10 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
             '~' => (1, SpecialToken::BitNot),
             '.' => (1, SpecialToken::FieldAccess),
             ';' => (1, SpecialToken::Semicolon),
-            '%' => (1, SpecialToken::Modulo),
+            '%' => (
+                1,
+                SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::RemEuclid)),
+            ),
             '-' => match self.peek_char() {
                 '=' => self.pass_two(SpecialToken::SubAssign),
                 '-' => self.pass_two(SpecialToken::Decr),
@@ -360,20 +363,31 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                 _ => (1, SpecialToken::RAngle),
             },
             '*' => match self.peek_char() {
-                '*' => self.pass_two(SpecialToken::Power),
+                '*' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Pure(
+                    PureBinaryOpr::Power,
+                ))),
                 '=' => self.pass_two(SpecialToken::MulAssign),
-                _ => (1, SpecialToken::Star),
+                _ => (
+                    1,
+                    SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Mul)),
+                ),
             },
             '/' => match self.peek_char() {
                 '/' => return None,
                 '>' => self.pass_two(SpecialToken::XmlKet),
                 '=' => self.pass_two(SpecialToken::DivAssign),
-                _ => (1, SpecialToken::Div),
+                _ => (
+                    1,
+                    SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Div)),
+                ),
             },
             '+' => match self.peek_char() {
                 '+' => self.pass_two(SpecialToken::Incr),
                 '=' => self.pass_two(SpecialToken::AddAssign),
-                _ => (1, SpecialToken::Add),
+                _ => (
+                    1,
+                    SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Add)),
+                ),
             },
             '!' => match self.peek_char() {
                 '=' => self.pass_two(SpecialToken::Neq),

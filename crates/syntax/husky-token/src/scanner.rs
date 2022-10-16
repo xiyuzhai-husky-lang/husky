@@ -87,7 +87,9 @@ impl<'token> TokenScanner<'token> {
             RawTokenKind::SubOrMinus => (
                 TokenScannerAction::Push,
                 match self.right_convexity() {
-                    Convexity::Convex => TokenKind::Special(SpecialToken::Sub),
+                    Convexity::Convex => TokenKind::Special(SpecialToken::BinaryOpr(
+                        BinaryOpr::Pure(PureBinaryOpr::Sub),
+                    )),
                     Convexity::Concave => TokenKind::Special(SpecialToken::Minus),
                     Convexity::Any => todo!(),
                 },

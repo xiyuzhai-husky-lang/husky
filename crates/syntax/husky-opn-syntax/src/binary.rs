@@ -14,6 +14,14 @@ impl Into<RawOpnVariant> for BinaryOpr {
 }
 
 impl BinaryOpr {
+    pub fn code(self) -> &'static str {
+        match self {
+            BinaryOpr::Pure(_) => todo!(),
+            BinaryOpr::Assign(_) => todo!(),
+            BinaryOpr::ScopeResolution => todo!(),
+        }
+    }
+
     pub fn spaced_code(self) -> &'static str {
         match self {
             BinaryOpr::Pure(pure_binary_opr) => pure_binary_opr.spaced_husky_code(),

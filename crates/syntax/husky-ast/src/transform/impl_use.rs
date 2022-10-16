@@ -9,7 +9,9 @@ impl<'a> AstTransformer<'a> {
         if token_group.len() <= 1 {
             return err!("expect route after keyword `use`", token_group.text_range());
         }
-        if token_group.last().unwrap().kind == TokenKind::Special(SpecialToken::Star) {
+        if token_group.last().unwrap().kind
+            == TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Mul)))
+        {
             // use all
             must_be!(
                 token_group.len() >= 4,
