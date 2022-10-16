@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use husky_entity_kind::TyKind;
 use husky_entity_route::EntityRoutePtr;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::PackageQueryGroup;
 use husky_trace_protocol::Label;
@@ -18,7 +18,7 @@ use crate::{
 };
 
 pub trait ComptimeQueryGroup: PackageQueryGroup + ResolveLinkage {
-    fn target_entrance(&self) -> FilePtr {
+    fn target_entrance(&self) -> FileItd {
         self.opt_target_entrance().unwrap()
     }
     fn register_to_label_converter(

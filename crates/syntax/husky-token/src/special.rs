@@ -36,8 +36,8 @@ impl SpecialToken {
     pub fn code(&self) -> &'static str {
         match self {
             SpecialToken::BinaryOpr(opr) => opr.code(),
-            SpecialToken::Bra(_) => todo!(),
-            SpecialToken::Ket(_) => todo!(),
+            SpecialToken::Bra(bra) => bra.bra_code(),
+            SpecialToken::Ket(ket) => ket.ket_code(),
             SpecialToken::LAngle => "<",
             SpecialToken::RAngle => ">",
             SpecialToken::DeriveAssign => "?=",

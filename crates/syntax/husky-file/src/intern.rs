@@ -2,13 +2,13 @@ use std::path::{Path, PathBuf};
 
 use interner::{DefaultInternedPtr, Interner};
 
-pub type FilePtr = DefaultInternedPtr<Path, PathBuf>;
-pub type FileInterner = Interner<FilePtr>;
+pub type FileItd = DefaultInternedPtr<Path, PathBuf>;
+pub type FileInterner = Interner<FileItd>;
 
 pub trait AllocateUniqueFile {
     fn file_interner(&self) -> &FileInterner;
 
-    fn intern_file(&self, path: PathBuf) -> FilePtr {
+    fn intern_file(&self, path: PathBuf) -> FileItd {
         self.file_interner()
             .intern(match std::fs::canonicalize(path.clone()) {
                 Ok(path) => path,

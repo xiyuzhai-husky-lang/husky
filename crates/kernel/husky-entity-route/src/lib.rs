@@ -12,7 +12,7 @@ pub use husky_entity_kind::EntityKind;
 pub use intern::{EntityRouteInterner, EntityRoutePtr, InternEntityRoute};
 pub use menu::*;
 
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_text::{TextRange, TextRanged};
 use husky_word::{ContextualIdentifier, CustomIdentifier, Identifier, RootBuiltinIdentifier};
 use thin_vec::{thin_vec, ThinVec};
@@ -94,7 +94,7 @@ pub enum EntityRouteVariant {
         ident: RootBuiltinIdentifier,
     },
     Package {
-        main: FilePtr,
+        main: FileItd,
         ident: CustomIdentifier,
     },
     Child {
@@ -112,18 +112,18 @@ pub enum EntityRouteVariant {
         ident: CustomIdentifier,
         husky_entity_kind: EntityKind,
         // ad hoc, replace this with the type/trait it is associated to
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
     },
     ThisType {
         // ad hoc, replace this with the type/trait it is associated to
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
     },
 }
 
 impl EntityRoute {
-    pub fn package(main: FilePtr, ident: CustomIdentifier) -> Self {
+    pub fn package(main: FileItd, ident: CustomIdentifier) -> Self {
         EntityRoute {
             variant: EntityRouteVariant::Package { main, ident },
             temporal_arguments: Default::default(),

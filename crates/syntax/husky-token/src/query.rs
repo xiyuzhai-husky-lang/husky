@@ -1,18 +1,20 @@
 use crate::{raw_token_iter::RawTokenIter, *};
 
 use husky_dev_utils::dev_src;
-use husky_file::{FileError, FileErrorKind, FileResultArc};
+use husky_file::{FileError, FileErrorKind, FileItd, FileResultArc};
+use husky_print_utils::p;
 use husky_word::InternWord;
 #[salsa::query_group(TokenQueryGroupStorage)]
 pub trait TokenizedTextQueryGroup: husky_file::FileQueryGroup + Tokenize {
-    fn tokenized_text(&self, id: husky_file::FilePtr) -> FileResultArc<TokenizedText>;
+    fn tokenized_text(&self, id: FileItd) -> FileResultArc<TokenizedText>;
 }
 
 fn tokenized_text(
     this: &dyn TokenizedTextQueryGroup,
-    id: husky_file::FilePtr,
+    file: FileItd,
 ) -> FileResultArc<TokenizedText> {
-    if let Some(text) = this.raw_text(id) {
+    p!(file);
+    if let Some(text) = this.raw_text(file) {
         return Ok(TokenizedText::parse(this.word_itr(), text.as_str()));
     } else {
         Err(FileError {

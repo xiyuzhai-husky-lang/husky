@@ -22,7 +22,7 @@ use std::sync::Arc;
 pub(crate) struct RustCodeGenerator<'a> {
     db: &'a dyn RustCodeGenQueryGroup,
     result: String,
-    target_entrance: FilePtr,
+    target_entrance: FileItd,
     entity_route_uses: LocalStack<EntityRoutePtr>,
     context: RustCodeGenContext,
 }
@@ -48,7 +48,7 @@ impl<'a> RustCodeGenerator<'a> {
 
     pub(crate) fn new_lib(
         db: &'a dyn RustCodeGenQueryGroup,
-        target_entrance: FilePtr,
+        target_entrance: FileItd,
         use_crate_all: bool,
     ) -> Self {
         let mut symbols = LocalStack::new();

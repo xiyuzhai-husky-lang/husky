@@ -6,7 +6,7 @@ use path_slash::PathExt;
 
 pub fn cargo_toml_content(
     db: &dyn RustCodeGenQueryGroup,
-    target_entrance: FilePtr,
+    target_entrance: FileItd,
     husky_dir: &Path,
 ) -> String {
     let package = db.package(target_entrance).unwrap();

@@ -21,7 +21,7 @@ use husky_entity_semantics::EntityRouteStore;
 use husky_feature_eval::*;
 use husky_feature_eval::{EvalFeature, Session};
 use husky_feature_gen::FeatureInterner;
-use husky_file::{FilePtr, FileQueryGroup};
+use husky_file::{FileItd, FileQueryGroup};
 use husky_linkage_table::LinkageTable;
 use husky_print_utils::*;
 use husky_vm::{__Linkage, __StaticLinkageKey};
@@ -62,7 +62,7 @@ pub struct HuskyDevRuntime {
     file_interner: Arc<husky_file::FileInterner>,
     word_interner: Arc<husky_word::WordInterner>,
     entity_route_interner: Arc<husky_entity_route::EntityRouteInterner>,
-    live_docs: ASafeRwLock<IndexMap<FilePtr, ASafeRwLock<String>>>,
+    live_docs: ASafeRwLock<IndexMap<FileItd, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
 }

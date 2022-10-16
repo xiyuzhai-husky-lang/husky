@@ -6,7 +6,7 @@ use husky_word::Paradigm;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct MainDefn {
     pub defn_repr: DefinitionRepr,
-    pub file: FilePtr,
+    pub file: FileItd,
 }
 
 impl EntityDefnVariant {
@@ -17,7 +17,7 @@ impl EntityDefnVariant {
         ty: RangedEntityRoute,
         children: Option<AstIter>,
         arena: &RawExprArena,
-        file: FilePtr,
+        file: FileItd,
     ) -> SemanticResult<EntityDefnVariant> {
         Ok(EntityDefnVariant::Feature {
             defn_repr: parse_definition_repr(db, paradigm, route, ty, arena, children, file)?,

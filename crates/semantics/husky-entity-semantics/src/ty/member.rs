@@ -38,7 +38,7 @@ impl EntityDefnVariant {
     pub(crate) fn collect_other_ty_members(
         db: &dyn EntityDefnQueryGroup,
         arena: &RawExprArena,
-        file: FilePtr,
+        file: FileItd,
         ty_route: EntityRoutePtr,
         children: &mut Peekable<AstIter>,
         members: &mut IdentDict<Arc<EntityDefn>>,

@@ -18,7 +18,7 @@ use contains_eval_ref::*;
 use eval_context::*;
 use husky_defn_head::*;
 use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_init_syntax::*;
 use husky_liason_semantics::*;
 use husky_loop_syntax::*;
@@ -37,9 +37,9 @@ use vec_like::VecSet;
 
 #[salsa::query_group(RustGenQueryStorage)]
 pub trait RustCodeGenQueryGroup: PackageQueryGroup + HuskyLayoutQueryGroup {
-    fn rust_lib_rs_content(&self, target_entrance: FilePtr) -> Arc<String>;
-    fn rust_registration_rs_content(&self, target_entrance: FilePtr) -> Arc<String>;
-    fn rust_init_rs_content(&self, target_entrance: FilePtr) -> Arc<String>;
+    fn rust_lib_rs_content(&self, target_entrance: FileItd) -> Arc<String>;
+    fn rust_registration_rs_content(&self, target_entrance: FileItd) -> Arc<String>;
+    fn rust_init_rs_content(&self, target_entrance: FileItd) -> Arc<String>;
     fn rust_mod_rs_content(&self, module: EntityRoutePtr) -> Arc<String>;
     fn entity_route_variant_contains_eval_ref(&self, entity_route: EntityRoutePtr) -> bool;
     fn entity_route_contains_eval_ref(&self, entity_route: EntityRoutePtr) -> bool;

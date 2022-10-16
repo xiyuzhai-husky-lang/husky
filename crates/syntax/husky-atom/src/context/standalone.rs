@@ -1,7 +1,7 @@
 use super::*;
 
 pub struct AtomContextStandalone<'a> {
-    pub opt_file: Option<FilePtr>,
+    pub opt_file: Option<FileItd>,
     pub db: &'a dyn EntitySyntaxQueryGroup,
     pub opt_this_ty: Option<EntityRoutePtr>,
     pub opt_this_contract: Option<ParameterModifier>,
@@ -46,7 +46,7 @@ impl<'a> AtomContext<'a> for AtomContextStandalone<'a> {
         todo!()
     }
 
-    fn file(&self) -> FilePtr {
+    fn file(&self) -> FileItd {
         self.opt_file.unwrap()
     }
 }

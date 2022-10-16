@@ -10,7 +10,7 @@ pub use xml::*;
 
 use std::sync::Arc;
 
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_infer_qualified_ty::LazyExprQualifiedTy;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
@@ -22,7 +22,7 @@ use husky_word::CustomIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LazyExpr {
-    pub file: FilePtr,
+    pub file: FileItd,
     pub range: TextRange,
     pub qualified_ty: LazyExprQualifiedTy,
     pub contract: LazyContract,
@@ -38,7 +38,7 @@ impl TextRanged for LazyExpr {
 }
 
 impl FileRanged for LazyExpr {
-    fn file(&self) -> FilePtr {
+    fn file(&self) -> FileItd {
         self.file
     }
 }

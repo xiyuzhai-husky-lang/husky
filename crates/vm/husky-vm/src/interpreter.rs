@@ -2,7 +2,7 @@ mod exec;
 mod query;
 
 use husky_entity_route::EntityRoutePtr;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_print_utils::ps;
 use husky_text::TextRange;
 use husky_word::{CustomIdentifier, Identifier};
@@ -18,7 +18,7 @@ pub struct Interpreter<'a, 'eval: 'a> {
     pub(crate) history: History<'eval>,
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
-    variable_mutations: IndexMap<VMStackIdx, (Identifier, FilePtr, TextRange, EntityRoutePtr)>,
+    variable_mutations: IndexMap<VMStackIdx, (Identifier, FileItd, TextRange, EntityRoutePtr)>,
     vm_config: &'a VMConfig,
 }
 
@@ -112,7 +112,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         stack_idx: VMStackIdx,
         varname: Identifier,
-        file: FilePtr,
+        file: FileItd,
         range: TextRange,
         ty: EntityRoutePtr,
     ) {

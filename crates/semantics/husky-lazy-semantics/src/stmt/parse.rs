@@ -2,7 +2,7 @@ use crate::*;
 use husky_ast::*;
 use husky_context_impls::ReturnContext;
 use husky_entity_route::RangedEntityRoute;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
 use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
 use husky_opn_semantics::ImplicitConversion;
@@ -15,14 +15,14 @@ use std::{iter::Peekable, sync::Arc};
 pub(super) struct LazyStmtParser<'a> {
     pub(super) db: &'a dyn InferQueryGroup,
     pub(super) arena: &'a RawExprArena,
-    pub(super) file: FilePtr,
+    pub(super) file: FileItd,
     entity_route_sheet: Arc<EntityRouteSheet>,
     contract_sheet: Arc<ContractSheet>,
     qualified_ty_sheet: Arc<QualifiedTySheet>,
 }
 
 impl<'a> LazyStmtParser<'a> {
-    pub(super) fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena, file: FilePtr) -> Self {
+    pub(super) fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena, file: FileItd) -> Self {
         Self {
             db,
             arena,
@@ -280,7 +280,7 @@ impl<'a> LazyExprParser<'a> for LazyStmtParser<'a> {
         self.db
     }
 
-    fn file(&self) -> FilePtr {
+    fn file(&self) -> FileItd {
         self.file
     }
 }

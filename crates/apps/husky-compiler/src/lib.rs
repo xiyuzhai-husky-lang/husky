@@ -12,7 +12,7 @@ use husky_compile_dir::{getx_child_dir, mkdir};
 use husky_comptime::*;
 use husky_diagnostics::HuskyDiagnosticQuery;
 use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_io_utils::diff_write;
 use husky_linkage_table::LinkageTableConfig;
 use husky_path_utils::collect_package_dirs;

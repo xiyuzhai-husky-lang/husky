@@ -7,7 +7,7 @@ use crate::{error::*, *};
 use husky_dev_utils::dev_src;
 use husky_entity_kind::MemberKind;
 use husky_entity_route::*;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_static_defn::*;
 use husky_text::{RangedCustomIdentifier, TextRanged};
 use husky_token::{SpecialToken, Token, TokenGroupIter, TokenKind};
@@ -70,7 +70,7 @@ impl SubrouteTable {
 
     pub fn parse(
         db: &dyn EntitySyntaxSalsaQueryGroup,
-        file: FilePtr,
+        file: FileItd,
         route: EntityRoutePtr,
         husky_entity_kind: EntityKind,
         token_groups: TokenGroupIter,

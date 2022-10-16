@@ -1,5 +1,5 @@
 use crate::*;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_text::TextRange;
 use std::sync::Arc;
 
@@ -8,7 +8,7 @@ pub struct ProcConditionFlowBranch {
     pub variant: ProcConditionFlowBranchVariant,
     pub stmts: Arc<Vec<Arc<ProcStmt>>>,
     pub range: TextRange,
-    pub file: FilePtr,
+    pub file: FileItd,
     pub idx: u8,
 }
 

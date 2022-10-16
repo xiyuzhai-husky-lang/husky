@@ -9,7 +9,7 @@ pub use pattern_branch::*;
 use super::parser::EagerParser;
 use super::*;
 use crate::*;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_text::RangedCustomIdentifier;
 use husky_text::TextRange;
 use husky_vm::{InstructionId, InstructionSource};
@@ -17,7 +17,7 @@ use std::sync::Arc;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FuncStmt {
-    pub file: FilePtr,
+    pub file: FileItd,
     pub range: TextRange,
     pub indent: fold::Indent,
     pub variant: FuncStmtVariant,
@@ -30,7 +30,7 @@ impl TextRanged for FuncStmt {
     }
 }
 impl FileRanged for FuncStmt {
-    fn file(&self) -> FilePtr {
+    fn file(&self) -> FileItd {
         self.file
     }
 }
@@ -71,7 +71,7 @@ pub fn parse_func_stmts(
     db: &dyn InferQueryGroup,
     arena: &RawExprArena,
     iter: AstIter,
-    file: FilePtr,
+    file: FileItd,
 ) -> SemanticResultArc<Vec<Arc<FuncStmt>>> {
     EagerParser::new(db, arena, file).parse_func_stmts(iter)
 }

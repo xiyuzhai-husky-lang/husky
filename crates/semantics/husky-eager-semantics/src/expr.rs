@@ -3,7 +3,7 @@ mod parser;
 
 use crate::*;
 use husky_ast::{RawExprArena, RawExprIdx};
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_infer_qualified_ty::EagerExprQualifiedTy;
 use husky_primitive_literal_syntax::RawLiteralData;
 use infer_contract::EagerContract;
@@ -20,7 +20,7 @@ use husky_word::CustomIdentifier;
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct EagerExpr {
-    pub file: FilePtr,
+    pub file: FileItd,
     pub range: TextRange,
     pub qualified_ty: EagerExprQualifiedTy,
     pub implicit_conversion: ImplicitConversion,
@@ -53,7 +53,7 @@ impl TextRanged for EagerExpr {
     }
 }
 impl FileRanged for EagerExpr {
-    fn file(&self) -> FilePtr {
+    fn file(&self) -> FileItd {
         self.file
     }
 }
@@ -147,7 +147,7 @@ impl std::fmt::Debug for EagerExprVariant {
 pub fn parse_eager_expr(
     db: &dyn InferQueryGroup,
     arena: &RawExprArena,
-    file: FilePtr,
+    file: FileItd,
     raw_expr_idx: RawExprIdx,
 ) -> SemanticResultArc<EagerExpr> {
     EagerParser::new(db, arena, file).parse_eager_expr(raw_expr_idx, None)

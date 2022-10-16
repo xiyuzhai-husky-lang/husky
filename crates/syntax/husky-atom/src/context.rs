@@ -9,7 +9,7 @@ use husky_defn_head::{Parameter, SpatialParameter, SpatialParameterVariant};
 use husky_entity_kind::TyKind;
 use husky_entity_route::{EntityRouteVariant, *};
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResult};
-use husky_file::{FilePtr, FileSalsaQuery};
+use husky_file::{FileItd, FileSalsaQuery};
 use husky_print_utils::p;
 use husky_static_defn::{StaticParameter, StaticSpatialParameter};
 use husky_text::*;
@@ -34,9 +34,9 @@ pub struct AtomContextState {
 }
 
 pub trait AtomContext<'a> {
-    fn file(&self) -> FilePtr;
+    fn file(&self) -> FileItd;
     fn entity_syntax_db(&self) -> &'a dyn EntitySyntaxQueryGroup;
-    fn opt_target_entrance(&self) -> Option<FilePtr> {
+    fn opt_target_entrance(&self) -> Option<FileItd> {
         FileSalsaQuery::opt_target_entrance(self.entity_syntax_db())
     }
     fn opt_this_ty(&self) -> Option<EntityRoutePtr>;

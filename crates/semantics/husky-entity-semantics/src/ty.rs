@@ -12,7 +12,7 @@ use husky_atom::{
     AtomContext,
 };
 use husky_entity_route::{EntityRoute, EntityRoutePtr, EntityRouteVariant};
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_print_utils::{msg_once, p};
 use husky_semantics_error::SemanticResult;
 use husky_text::*;
@@ -28,7 +28,7 @@ impl EntityDefnVariant {
         head: &Ast,
         children: AstIter,
         arena: &RawExprArena,
-        file: FilePtr,
+        file: FileItd,
     ) -> SemanticResult<EntityDefnVariant> {
         let (kind, generic_parameters) = match head.variant {
             AstVariant::TypeDefnHead {
@@ -235,7 +235,7 @@ impl EntityDefnVariant {
 
     fn collect_variants(
         db: &dyn EntityDefnQueryGroup,
-        file: FilePtr,
+        file: FileItd,
         ty_route: EntityRoutePtr,
         children: &mut Peekable<AstIter>,
     ) -> SemanticResult<IdentDict<Arc<EntityDefn>>> {
@@ -276,7 +276,7 @@ impl EntityDefnVariant {
     fn visualizer_from_ast(
         db: &dyn EntityDefnQueryGroup,
         arena: &RawExprArena,
-        file: FilePtr,
+        file: FileItd,
         ty_route: EntityRoutePtr,
         children: &mut Peekable<AstIter>,
     ) -> Arc<Visualizer> {

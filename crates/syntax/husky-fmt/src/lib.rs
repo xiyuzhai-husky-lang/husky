@@ -12,13 +12,13 @@ use formatter::Formatter;
 pub trait FmtQuery: husky_ast::AstQueryGroup {
     fn fmt_text(
         &self,
-        id: husky_file::FilePtr,
+        id: husky_file::FileItd,
     ) -> husky_entity_syntax::EntitySyntaxResultArc<String>;
 }
 
 fn fmt_text(
     db: &dyn FmtQuery,
-    file: husky_file::FilePtr,
+    file: husky_file::FileItd,
 ) -> husky_entity_syntax::EntitySyntaxResultArc<String> {
     let ast_text = db.ast_text(file)?;
     let mut formatter = Formatter::new(

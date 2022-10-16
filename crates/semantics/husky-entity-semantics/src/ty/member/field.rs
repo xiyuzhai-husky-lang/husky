@@ -31,7 +31,7 @@ impl EntityDefnVariant {
     pub(crate) fn ty_field_from_ast(
         db: &dyn EntityDefnQueryGroup,
         arena: &RawExprArena,
-        file: FilePtr,
+        file: FileItd,
         ty_route: EntityRoutePtr,
         ast: &Ast,
         children: Option<AstIter>,
@@ -94,7 +94,7 @@ impl EntityDefnVariant {
     pub(crate) fn collect_original_fields(
         db: &dyn EntityDefnQueryGroup,
         arena: &RawExprArena,
-        file: FilePtr,
+        file: FileItd,
         ty_route: EntityRoutePtr,
         children: &mut Peekable<AstIter>,
         members: &mut IdentDict<Arc<EntityDefn>>,

@@ -4,7 +4,7 @@ use crate::*;
 use husky_ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
 use husky_entity_kind::TyKind;
 use husky_entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_infer_entity_route::InferEntityRoute;
 use husky_infer_qualified_ty::{InferQualifiedTy, LazyExprQualifier};
 use husky_print_utils::p;
@@ -19,7 +19,7 @@ use husky_semantics_error::*;
 
 pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedTy {
     fn arena(&self) -> &'a RawExprArena;
-    fn file(&self) -> FilePtr;
+    fn file(&self) -> FileItd;
     fn db(&self) -> &dyn InferQueryGroup;
 
     fn parse_lazy_expr(

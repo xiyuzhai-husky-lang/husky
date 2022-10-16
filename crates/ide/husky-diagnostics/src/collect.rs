@@ -1,5 +1,5 @@
 use husky_entity_route::EntityRoutePtr;
-use husky_file::FilePtr;
+use husky_file::FileItd;
 
 use crate::*;
 
@@ -43,7 +43,7 @@ fn collect_entity_syntax_errors(
 
 fn collect_module_lex_errors(
     db: &dyn DiagnosticSalsaQuery,
-    file: FilePtr,
+    file: FileItd,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let tokenized_text = db.tokenized_text(file).unwrap();
@@ -52,7 +52,7 @@ fn collect_module_lex_errors(
 
 fn collect_module_ast_errors(
     db: &dyn DiagnosticSalsaQuery,
-    file: FilePtr,
+    file: FileItd,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let ast_text = db.ast_text(file).unwrap();
@@ -69,7 +69,7 @@ fn collect_module_ast_errors(
 
 fn collect_module_infer_ty_errors(
     db: &dyn DiagnosticSalsaQuery,
-    file: FilePtr,
+    file: FileItd,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let ty_sheet = db.entity_route_sheet(file).unwrap();
@@ -80,7 +80,7 @@ fn collect_module_infer_ty_errors(
 
 fn collect_module_infer_contract_errors(
     db: &dyn DiagnosticSalsaQuery,
-    file: FilePtr,
+    file: FileItd,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let contract_sheet = db.contract_sheet(file).unwrap();
@@ -91,7 +91,7 @@ fn collect_module_infer_contract_errors(
 
 fn collect_module_infer_qualified_ty_errors(
     db: &dyn DiagnosticSalsaQuery,
-    file: FilePtr,
+    file: FileItd,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let qualified_ty_sheet = db.qualified_ty_sheet(file).unwrap();

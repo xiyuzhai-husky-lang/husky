@@ -3,7 +3,7 @@ use fold::Transformer;
 use fold::{FoldableList, FoldableStorage};
 use husky_display_utils::HuskyDisplayConfig;
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_text::{HuskyText, TextQueryGroup};
 use husky_token::AbsSemanticToken;
 use idx_arena::map::ArenaKeyQuery;
@@ -15,7 +15,7 @@ use upcast::Upcast;
 pub trait AstSalsaQueryGroup:
     EntitySyntaxQueryGroup + Upcast<dyn EntitySyntaxQueryGroup> + TextQueryGroup
 {
-    fn ast_text(&self, file: FilePtr) -> EntitySyntaxResultArc<AstText>;
+    fn ast_text(&self, file: FileItd) -> EntitySyntaxResultArc<AstText>;
 
     fn root_symbols(&self) -> Arc<Vec<Symbol>>;
 }
@@ -58,7 +58,7 @@ pub trait AstQueryGroup: AstSalsaQueryGroup {
     }
 }
 
-fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> EntitySyntaxResultArc<AstText> {
+fn ast_text(this: &dyn AstSalsaQueryGroup, id: FileItd) -> EntitySyntaxResultArc<AstText> {
     let tokenized_text = this.tokenized_text(id)?;
     let mut parser = AstTransformer::new(this, this.module(id)?)?;
     parser.transform_all_recr(tokenized_text.iter());
@@ -67,7 +67,7 @@ fn ast_text(this: &dyn AstSalsaQueryGroup, id: FilePtr) -> EntitySyntaxResultArc
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct AstText {
-    pub file: FilePtr,
+    pub file: FileItd,
     pub arena: RawExprArena,
     pub folded_results: FoldableList<AstResult<Ast>>,
     pub semantic_tokens: Vec<AbsSemanticToken>,

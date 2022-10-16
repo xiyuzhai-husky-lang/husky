@@ -18,11 +18,11 @@ impl InternWord for HuskyDevRuntime {
 }
 
 impl LiveFiles for HuskyDevRuntime {
-    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_file::FilePtr, ASafeRwLock<String>>> {
+    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_file::FileItd, ASafeRwLock<String>>> {
         &self.live_docs
     }
 
-    fn did_change_source(&mut self, id: husky_file::FilePtr) {
+    fn did_change_source(&mut self, id: husky_file::FileItd) {
         husky_file::FileContentQuery.in_db_mut(self).invalidate(&id);
     }
 }

@@ -1,6 +1,6 @@
 use husky_comptime::{ComptimeOps, EntitySyntaxQueryGroup, HuskyComptime};
 use husky_display_utils::{compare_saved_data, HuskyDisplay};
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_root_static_defn::__resolve_root_defn;
 use husky_test_utils::TestResult;
 use std::path::Path;
@@ -8,7 +8,7 @@ use std::path::Path;
 pub fn test_all_source_files<T>(
     package_dir: &Path,
     extension: &str,
-    f: impl Fn(&HuskyComptime, FilePtr) -> T,
+    f: impl Fn(&HuskyComptime, FileItd) -> T,
 ) -> TestResult
 where
     T: HuskyDisplay,
@@ -27,7 +27,7 @@ where
 pub fn print_all_source_files_analysis(
     package_dir: &Path,
     title: &str,
-    f: impl Fn(&HuskyComptime, FilePtr) -> String,
+    f: impl Fn(&HuskyComptime, FileItd) -> String,
 ) {
     let mut comptime = HuskyComptime::new_default(package_dir.to_owned(), __resolve_root_defn);
     comptime.load_package();

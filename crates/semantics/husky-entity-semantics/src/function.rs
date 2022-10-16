@@ -9,7 +9,7 @@ impl EntityDefnVariant {
         ast: &Ast,
         children: AstIter,
         arena: &RawExprArena,
-        file: FilePtr,
+        file: FileItd,
     ) -> SemanticResult<EntityDefnVariant> {
         match ast.variant {
             AstVariant::CallFormDefnHead {

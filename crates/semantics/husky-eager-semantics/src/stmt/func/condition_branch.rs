@@ -1,4 +1,4 @@
-use husky_file::FilePtr;
+use husky_file::FileItd;
 use husky_text::TextRange;
 
 use crate::*;
@@ -8,7 +8,7 @@ pub struct FuncConditionFlowBranch {
     pub variant: FuncConditionFlowBranchVariant,
     pub stmts: Arc<Vec<Arc<FuncStmt>>>,
     pub range: TextRange,
-    pub file: FilePtr,
+    pub file: FileItd,
     pub idx: u8,
 }
 
