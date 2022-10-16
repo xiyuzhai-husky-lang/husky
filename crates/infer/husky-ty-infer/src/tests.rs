@@ -10,7 +10,7 @@ use husky_token::*;
 
 #[test]
 fn test_infer_ty_works() {
-    expect_test::<String, _>("", debug_infer_ty);
+    // expect_test::<String, _>("", debug_infer_ty);
 
     fn debug_infer_ty(text: &str) -> String {
         let mut db = TyInferTestsDb::new();
