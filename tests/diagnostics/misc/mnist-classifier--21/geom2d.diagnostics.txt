@@ -1,1 +1,1 @@
-2:8..2:13	Ast Error: expect type
+[2:8, 2:13)	Ast Error: expect type

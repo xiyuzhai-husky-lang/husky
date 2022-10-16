@@ -1,1 +1,1 @@
-17:9..17:13	Ast Error: expect `:` but get nothing instead
+[17:9, 17:13)	Ast Error: expect `:` but get nothing instead

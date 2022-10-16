@@ -1,1 +1,1 @@
-16:40..16:42	Infer Error: no field `ha` in type `ConcaveComponent`
+[16:40, 16:42)	Infer Error: no field `ha` in type `ConcaveComponent`

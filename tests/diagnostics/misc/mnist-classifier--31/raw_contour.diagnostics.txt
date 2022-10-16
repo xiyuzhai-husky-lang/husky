@@ -1,2 +1,2 @@
-58:13..58:29	Infer Error: expect `i32` but get `b32` instead
-124:31..124:43	Infer Error: Unrecognized identifier `BinaryGrid28`
+[58:13, 58:29)	Infer Error: expect `i32` but get `b32` instead
+[124:31, 124:43)	Infer Error: Unrecognized identifier `BinaryGrid28`
