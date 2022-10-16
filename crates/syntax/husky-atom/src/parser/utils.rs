@@ -96,7 +96,7 @@ macro_rules! deprecated_try_eat {
     }};
 
     ($parser:expr, "(") => {{
-        deprecated_try_eat!($parser, SpecialToken::LPar)
+        deprecated_try_eat!($parser, SpecialToken::Bra(Bracket::Par))
     }};
 
     ($parser:expr, "<") => {{
@@ -281,11 +281,11 @@ macro_rules! deprecated_eat {
     }};
 
     ($parser:expr, "(") => {{
-        deprecated_eat!($parser, special, SpecialToken::LPar)
+        deprecated_eat!($parser, special, SpecialToken::Bra(Bracket::Par))
     }};
 
     ($parser:expr, "{") => {{
-        deprecated_eat!($parser, special, SpecialToken::LCurl)
+        deprecated_eat!($parser, special, SpecialToken::Bra(Bracket::Curl))
     }};
 
     ($parser:expr, ":") => {{
@@ -488,28 +488,32 @@ where
 
 #[macro_export]
 macro_rules! deprecated_thin_comma_list {
-    ($parser:expr, $first_patt:ident?, $second_patt:ident!, $terminator:ident) => {{
+    ($parser:expr, $patt:ident!, ")") => {{
+        deprecated_thin_comma_list!($parser, $patt!, SpecialToken::Ket(Bracket::Par))
+    }};
+
+    ($parser:expr, $first_patt:ident?, $second_patt:ident!, $terminator:expr) => {{
         let mut firsts = thin_vec![];
         let mut seconds = thin_vec![];
         let mut done = false;
         while let Some(item) = try_get!($parser, $first_patt?) {
             firsts.push(item);
             if !deprecated_try_eat!($parser, SpecialToken::Comma) {
-                deprecated_eat!($parser, special, SpecialToken::$terminator);
+                deprecated_eat!($parser, special, $terminator);
                 done = true;
                 break;
             }
         }
-        if !done && !deprecated_try_eat!($parser, SpecialToken::$terminator) {
+        if !done && !deprecated_try_eat!($parser, $terminator) {
             seconds.push($parser.$second_patt()?);
             loop {
                 if deprecated_try_eat!($parser, SpecialToken::Comma) {
-                    if deprecated_try_eat!($parser, SpecialToken::$terminator) {
+                    if deprecated_try_eat!($parser, $terminator) {
                         break;
                     }
                     seconds.push($parser.$second_patt()?);
                 } else {
-                    deprecated_eat!($parser, special, SpecialToken::$terminator);
+                    deprecated_eat!($parser, special, $terminator);
                     break;
                 }
             }
@@ -517,18 +521,18 @@ macro_rules! deprecated_thin_comma_list {
         (firsts, seconds)
     }};
 
-    ($parser:expr, $patt:ident, $terminator:ident) => {{
+    ($parser:expr, $patt:ident, $terminator:expr) => {{
         let mut args = thin_vec![];
-        if !deprecated_try_eat!($parser, SpecialToken::$terminator) {
+        if !deprecated_try_eat!($parser, $terminator) {
             args.push(get!($parser, $patt?));
             loop {
                 if deprecated_try_eat!($parser, SpecialToken::Comma) {
-                    if deprecated_try_eat!($parser, SpecialToken::$terminator) {
+                    if deprecated_try_eat!($parser, $terminator) {
                         break;
                     }
                     args.push(get!($parser, $patt?));
                 } else {
-                    deprecated_eat!($parser, special, SpecialToken::$terminator);
+                    deprecated_eat!($parser, special, $terminator);
                     break;
                 }
             }
@@ -536,18 +540,18 @@ macro_rules! deprecated_thin_comma_list {
         args
     }};
 
-    ($parser:expr, $patt:ident!, $terminator:ident) => {{
+    ($parser:expr, $patt:ident!, $terminator:expr) => {{
         let mut args = thin_vec![];
-        if !deprecated_try_eat!($parser, SpecialToken::$terminator) {
+        if !deprecated_try_eat!($parser, $terminator) {
             args.push($parser.$patt()?);
             loop {
                 if deprecated_try_eat!($parser, SpecialToken::Comma) {
-                    if deprecated_try_eat!($parser, SpecialToken::$terminator) {
+                    if deprecated_try_eat!($parser, $terminator) {
                         break;
                     }
                     args.push($parser.$patt()?);
                 } else {
-                    deprecated_eat!($parser, special, SpecialToken::$terminator);
+                    deprecated_eat!($parser, special, $terminator);
                     break;
                 }
             }
@@ -555,24 +559,20 @@ macro_rules! deprecated_thin_comma_list {
         args
     }};
 
-    ($parser:expr, $patt:ident!+, $terminator:ident) => {{
+    ($parser:expr, $patt:ident!+, $terminator:expr) => {{
         let mut items = thin_vec![];
         items.push($parser.$patt()?);
         loop {
             if !deprecated_try_eat!($parser, SpecialToken::Comma) {
-                deprecated_eat!($parser, special, SpecialToken::$terminator);
+                deprecated_eat!($parser, special, $terminator);
                 break;
             }
-            if deprecated_try_eat!($parser, SpecialToken::$terminator) {
+            if deprecated_try_eat!($parser, $terminator) {
                 break;
             }
             items.push($parser.$patt()?);
         }
         items
-    }};
-
-    ($parser:expr, $patt:ident!, ")") => {{
-        deprecated_thin_comma_list!($parser, $patt!, RPar)
     }};
 }
 

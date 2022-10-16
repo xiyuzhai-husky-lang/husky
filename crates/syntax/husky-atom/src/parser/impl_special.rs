@@ -48,16 +48,10 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                 self.token_stream.text_range(text_start),
                 PrefixOpr::Not.into(),
             )),
-            SpecialToken::LPar => Ok(self
+            SpecialToken::Bra(bra) => Ok(self
                 .stack
-                .start_list(Bracket::Par, self.token_stream.text_range(text_start))),
-            SpecialToken::LBox => Ok(self
-                .stack
-                .start_list(Bracket::Box, self.token_stream.text_range(text_start))),
-            SpecialToken::LCurl => Ok(self
-                .stack
-                .start_list(Bracket::Curl, self.token_stream.text_range(text_start))),
-            SpecialToken::RPar => {
+                .start_list(bra, self.token_stream.text_range(text_start))),
+            SpecialToken::Ket(Bracket::Par) => {
                 if deprecated_try_eat!(self, SpecialToken::BinaryOpr(BinaryOpr::Curry)) {
                     let output = deprecated_get!(self, ty?);
                     self.stack.make_func_type(
@@ -74,14 +68,8 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                     )
                 }
             }
-            SpecialToken::RBox => self.stack.end_list_or_make_type(
-                Bracket::Box,
-                ListEndAttr::None,
-                self.token_stream.text_range(text_start),
-                self.atom_context,
-            ),
-            SpecialToken::RCurl => self.stack.end_list_or_make_type(
-                Bracket::Curl,
+            SpecialToken::Ket(ket) => self.stack.end_list_or_make_type(
+                ket,
                 ListEndAttr::None,
                 self.token_stream.text_range(text_start),
                 self.atom_context,
@@ -135,7 +123,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                     if let Some(generic_arguments) = deprecated_try_get!(self, angled_generics?) {
                         match self.token_stream.next() {
                             Some(token) => match token.kind {
-                                TokenKind::Special(SpecialToken::LPar) => {
+                                TokenKind::Special(SpecialToken::Bra(Bracket::Par)) => {
                                     self.token_stream.text_range(text_start);
                                 }
                                 _ => todo!(),

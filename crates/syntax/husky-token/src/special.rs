@@ -3,15 +3,11 @@ use husky_opn_syntax::{BinaryOpr, Bracket, PureBinaryOpr};
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SpecialToken {
     BinaryOpr(BinaryOpr),
+    Bra(Bracket),
+    Ket(Bracket),
     LAngle,            // <
     RAngle,            // >
     DeriveAssign,      // ?=
-    LCurl,             // {
-    RCurl,             // }
-    LBox,              // [
-    RBox,              //]
-    LPar,              // (
-    RPar,              // )
     Minus,             // -
     DoubleVertical,    // ||
     BitNot,            // ~
@@ -40,15 +36,11 @@ impl SpecialToken {
     pub fn code(&self) -> &'static str {
         match self {
             SpecialToken::BinaryOpr(opr) => opr.code(),
+            SpecialToken::Bra(_) => todo!(),
+            SpecialToken::Ket(_) => todo!(),
             SpecialToken::LAngle => "<",
             SpecialToken::RAngle => ">",
             SpecialToken::DeriveAssign => "?=",
-            SpecialToken::LCurl => "{",
-            SpecialToken::RCurl => "}",
-            SpecialToken::LBox => "[",
-            SpecialToken::RBox => "]",
-            SpecialToken::LPar => "(",
-            SpecialToken::RPar => ")",
             SpecialToken::Minus => "-",
             SpecialToken::DoubleVertical => "||",
             SpecialToken::BitNot => "~",
@@ -68,12 +60,10 @@ impl SpecialToken {
         }
     }
 
-    pub fn opt_bra(&self) -> Option<Bracket> {
+    pub fn opt_bra(self) -> Option<Bracket> {
         match self {
             SpecialToken::LAngle => Some(Bracket::Angle),
-            SpecialToken::LCurl => Some(Bracket::Curl),
-            SpecialToken::LBox => Some(Bracket::Box),
-            SpecialToken::LPar => Some(Bracket::Par),
+            SpecialToken::Bra(bracket) => Some(bracket),
             _ => None,
         }
     }
@@ -109,22 +99,22 @@ macro_rules! special_token {
         SpecialToken::Shr
     }};
     ("{") => {{
-        SpecialToken::LCurl
+        SpecialToken::Bra(Bracket::Curl)
     }};
     ("}") => {{
-        SpecialToken::RCurl
+        SpecialToken::Ket(Bracket::Curl)
     }};
     ("[") => {{
-        SpecialToken::LBox
+        SpecialToken::Bra(Bracket::Box)
     }};
     ("]") => {{
-        SpecialToken::RBox
+        SpecialToken::Ket(Bracket::Box)
     }};
     ("(") => {{
-        SpecialToken::LPar
+        SpecialToken::Bra(Bracket::Par)
     }};
     (")") => {{
-        SpecialToken::RPar
+        SpecialToken::Ket(Bracket::Par)
     }};
     ("+") => {{
         SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Add))

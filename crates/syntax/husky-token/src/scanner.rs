@@ -194,9 +194,7 @@ impl<'token> TokenScanner<'token> {
                                         fn bind_to_last_line(kind: TokenKind) -> bool {
                                             match kind {
                                                 TokenKind::Special(special) => match special {
-                                                    SpecialToken::RCurl => true,
-                                                    SpecialToken::RBox => true,
-                                                    SpecialToken::RPar => true,
+                                                    SpecialToken::Ket(_) => true,
                                                     _ => false,
                                                 },
                                                 _ => false,

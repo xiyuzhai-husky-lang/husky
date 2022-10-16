@@ -36,7 +36,7 @@ impl<'a> AstTransformer<'a> {
                         });
                         self.parse_feature_defn_head(paradigm, token_group)
                     }
-                    TokenKind::Special(SpecialToken::LPar) => {
+                    TokenKind::Special(SpecialToken::Bra(Bracket::Par)) => {
                         self.call_defn_head(token_group, None, enter_block)
                     }
                     _ => {
