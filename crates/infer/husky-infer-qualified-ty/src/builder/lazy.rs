@@ -280,7 +280,9 @@ impl<'a> QualifiedTySheetBuilder<'a> {
             RawOpnVariant::Prefix(_) => self.lazy_prefix(raw_expr_idx, opds),
             RawOpnVariant::Suffix(suffix_opr) => self.lazy_suffix(raw_expr_idx, suffix_opr, opds),
             RawOpnVariant::List(list_opr) => self.lazy_paradigm_list(raw_expr_idx, list_opr, opds),
-            RawOpnVariant::Field(field_ident) => self.lazy_field(raw_expr_idx, *field_ident, opds),
+            RawOpnVariant::Field(field_ident) => {
+                self.lazy_field(raw_expr_idx, derived_not_none!(field_ident)?, opds)
+            }
         }
     }
 

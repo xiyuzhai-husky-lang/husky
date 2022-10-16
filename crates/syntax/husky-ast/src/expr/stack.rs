@@ -161,10 +161,10 @@ impl<'a> ExprStack<'a> {
 
     pub(crate) fn accept_field_access(
         &mut self,
-        field_ident: RangedCustomIdentifier,
+        opt_field_ident: Option<RangedCustomIdentifier>,
         end: TextPosition,
     ) {
-        self.synthesize_field_access(field_ident, end)
+        self.synthesize_field_access(opt_field_ident, end)
     }
 
     pub(crate) fn accept_atom_expr(&mut self, expr: RawExpr) {
@@ -345,10 +345,14 @@ impl<'a> ExprStack<'a> {
         self.synthesize_opn(suffix.into(), Default::default(), 1, range)
     }
 
-    fn synthesize_field_access(&mut self, field_ident: RangedCustomIdentifier, end: TextPosition) {
+    fn synthesize_field_access(
+        &mut self,
+        opt_field_ident: Option<RangedCustomIdentifier>,
+        end: TextPosition,
+    ) {
         let range = (self.exprs.last().unwrap().range.start..end).into();
         self.synthesize_opn(
-            RawOpnVariant::Field(field_ident),
+            RawOpnVariant::Field(opt_field_ident),
             Default::default(),
             1,
             range,

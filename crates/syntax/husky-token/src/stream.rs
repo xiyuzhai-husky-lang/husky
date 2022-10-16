@@ -96,6 +96,16 @@ impl<'a> TokenStream<'a> {
             None
         }
     }
+
+    pub fn is_next_ident(&self) -> bool {
+        match self.peek() {
+            Some(token) => match token.kind {
+                TokenKind::Identifier(_) => true,
+                _ => false,
+            },
+            None => true,
+        }
+    }
 }
 
 impl<'a> From<&'a [Token]> for TokenStream<'a> {

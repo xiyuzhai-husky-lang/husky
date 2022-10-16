@@ -417,10 +417,20 @@ impl<'a> EntityRouteSheetBuilder<'a> {
 
     fn infer_field_access(
         &mut self,
-        field_ident: RangedCustomIdentifier,
+        opt_field_ident: Option<RangedCustomIdentifier>,
         opd: RawExprIdx,
     ) -> InferResult<EntityRoutePtr> {
         let opd_ty = derived_not_none!(self.infer_expr(opd, None))?;
+        let field_ident = opt_field_ident.ok_or({
+            let start = self.arena[opd].range.text_end();
+            InferError {
+                variant: InferErrorVariant::Original {
+                    message: format!("expect field ident"),
+                    range: (start..(start.to_right(1))).into(),
+                },
+                dev_src: dev_src!(),
+            }
+        })?;
         derived_unwrap!(self.db.ty_decl(opd_ty.intrinsic())).field_ty_result(field_ident)
     }
 

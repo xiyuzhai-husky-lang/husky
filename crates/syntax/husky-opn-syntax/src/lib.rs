@@ -16,7 +16,7 @@ pub enum RawOpnVariant {
     Prefix(PrefixOpr),
     Suffix(RawSuffixOpr),
     List(ListOpr),
-    Field(RangedCustomIdentifier),
+    Field(Option<RangedCustomIdentifier>),
 }
 
 impl std::fmt::Debug for RawOpnVariant {
@@ -38,9 +38,8 @@ impl std::fmt::Debug for RawOpnVariant {
                 f.write_str("List ")?;
                 arg0.fmt(f)
             }
-            RawOpnVariant::Field(field_ident) => {
-                f.write_str("FieldAccess .")?;
-                field_ident.ident.fmt(f)
+            RawOpnVariant::Field(opt_field_ident) => {
+                write!(f, "Field {:?}", opt_field_ident)
             }
         }
     }
