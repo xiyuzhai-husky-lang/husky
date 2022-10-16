@@ -13,7 +13,7 @@ impl CompilerInstance {
         let target_entrance = comptime.unique_main_file();
         let all_diagnostics = comptime.all_diagnostics();
         if all_diagnostics.len() > 0 {
-            panic!("{:?}", all_diagnostics);
+            panic!("{:#?}", all_diagnostics);
         }
         let package = comptime.package(target_entrance).unwrap();
         let rust_dir = self.getx_rust_gen_cache_dir(&package);

@@ -25,11 +25,16 @@ pub trait HuskyDiagnosticQuery: DiagnosticSalsaQuery {
         }
     }
 
-    fn all_diagnostics(&self) -> Vec<Diagnostic> {
+    fn all_diagnostics(&self) -> Vec<(EntityRoutePtr, Diagnostic)> {
         let mut diagnostics = vec![];
         for module in self.all_modules() {
             let diagnostics_reserve = self.diagnostics_reserve(module);
-            diagnostics.extend(diagnostics_reserve.data().iter().map(|d| d.clone()));
+            diagnostics.extend(
+                diagnostics_reserve
+                    .data()
+                    .iter()
+                    .map(|d| (module, d.clone())),
+            );
         }
         diagnostics
     }

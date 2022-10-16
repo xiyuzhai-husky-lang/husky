@@ -312,9 +312,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
     fn next_special_aux(&mut self, j_start: usize, c_start: char) -> Option<(usize, RawTokenKind)> {
         let (len, special) = match c_start {
             '=' => match self.peek_char() {
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
-                    PureBinaryOpr::Eq,
-                )))),
+                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Eq))),
                 _ => (1, SpecialToken::BinaryOpr(BinaryOpr::Assign(None))),
             },
             ':' => match self.peek_char() {
@@ -360,9 +358,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                 _ => return Some((1, RawTokenKind::SubOrMinus)),
             },
             '<' => match self.peek_char() {
-                '<' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
-                    PureBinaryOpr::Shl,
-                )))),
+                '<' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Shl))),
                 '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Leq))),
                 _ => (1, SpecialToken::LAngle),
             },

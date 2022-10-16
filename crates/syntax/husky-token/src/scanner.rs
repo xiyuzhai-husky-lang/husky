@@ -91,12 +91,7 @@ impl<'token> TokenScanner<'token> {
                     Convexity::Convex => TokenKind::Special(SpecialToken::BinaryOpr(
                         BinaryOpr::Pure(PureBinaryOpr::Sub),
                     )),
-                    Convexity::Concave => TokenKind::Special(SpecialToken::Minus),
-                    Convexity::Any => {
-                        p!(token.range);
-                        p!(self.tokens);
-                        todo!()
-                    }
+                    Convexity::Concave | Convexity::Any => TokenKind::Special(SpecialToken::Minus),
                 },
             ),
             RawTokenKind::Literal(lit) => match self.tokens.last().map(|t| t.kind) {
