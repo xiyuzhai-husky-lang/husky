@@ -9,7 +9,7 @@ impl<'a> TyInferContext<'a> {
     pub(crate) fn infer(&mut self) -> TyInferResult<Ty> {
         match self.normalized_expr() {
             NormalizedExpr::Atom(atom) => self.infer_atom(atom),
-            NormalizedExpr::Opn { opn_kind, opds } => self.infer_opr_opn(opds),
+            NormalizedExpr::Opn { opn_kind, opds } => self.infer_opn(opn_kind, opds),
         }
     }
 
@@ -33,7 +33,14 @@ impl<'a> TyInferContext<'a> {
         }
     }
 
-    fn infer_opr_opn(&mut self, opds: RawExprRange) -> TyInferResult<Ty> {
+    fn infer_opn(&mut self, opn_kind: NormalizedOpnKind, opds: RawExprRange) -> TyInferResult<Ty> {
+        match opn_kind {
+            NormalizedOpnKind::ApplyMethod {
+                opt_trait_entity,
+                method_ident,
+            } => todo!(),
+            NormalizedOpnKind::ScopeResolution => todo!(),
+        }
         let this_ty = self.infer_subexpr(opds.start);
         p!(this_ty);
         todo!()
