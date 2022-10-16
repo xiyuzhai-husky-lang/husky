@@ -13,7 +13,6 @@ fn tokenized_text(
     this: &dyn TokenizedTextQueryGroup,
     file: FileItd,
 ) -> FileResultArc<TokenizedText> {
-    p!(file);
     if let Some(text) = this.raw_text(file) {
         return Ok(TokenizedText::parse(this.word_itr(), text.as_str()));
     } else {
