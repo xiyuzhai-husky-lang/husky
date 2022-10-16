@@ -162,7 +162,10 @@ impl<'a> AstTransformer<'a> {
                 ..
             }
             | AstContext::Visual => {
-                if token_group.len() > 2 && token_group[1].kind == SpecialToken::Assign.into() {
+                if token_group.len() > 2
+                    && token_group[1].kind
+                        == SpecialToken::BinaryOpr(BinaryOpr::Assign(None)).into()
+                {
                     // declarative initialization
                     let varname =
                         identify_token!(self, token_group[0], SemanticTokenKind::Variable);
@@ -245,7 +248,7 @@ impl<'a> AstTransformer<'a> {
         expect_at_least!(tokens, kw_range, 3);
         let varname = identify_token!(self, &tokens[0], SemanticTokenKind::Variable);
         self.symbols.push(Symbol::variable(varname));
-        expect_token_kind!(tokens[1], SpecialToken::Assign);
+        expect_token_kind!(tokens[1], SpecialToken::BinaryOpr(BinaryOpr::Assign(None)));
         let initial_value = self.parse_expr(&tokens[2..])?;
         Ok(RawStmtVariant::Init {
             init_kind: kind,

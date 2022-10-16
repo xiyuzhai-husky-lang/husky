@@ -44,60 +44,65 @@ impl<'a> AstTransformer<'a> {
         } else {
             return err!(format!("expect type"), parser.token_stream.next_range());
         };
-        let field_kind =
-            if deprecated_try_eat!(parser, token_kind, TokenKind::Special(SpecialToken::Assign)) {
-                self.update_struct_item_context(StructItemContext::DefaultField, token_group)?;
-                enter_block(self);
-                self.context.set(AstContext::Stmt {
-                    paradigm: Paradigm::EagerFunctional,
-                    return_context: Some(RawReturnContext {
-                        opt_return_ty: Some(field_ty),
-                        kind: RawReturnContextKind::Normal,
-                    }),
-                });
-                self.opt_this_liason.set(Some(ParameterModifier::None));
-                if token_stream.is_empty() {
-                    return err!(
-                        format!("expect expr but got nothing"),
-                        token_stream.next_range()
-                    );
-                }
-                let mut parser = AtomParser::new(self, &mut token_stream);
-                let atoms = parser.parse_all_remaining_atoms()?;
-                AstFieldKind::StructDefault {
-                    default: self.parse_expr_from_atoms(atoms)?,
-                }
-            } else if deprecated_try_eat!(
-                parser,
-                token_kind,
-                TokenKind::Special(SpecialToken::DeriveAssign)
-            ) {
-                self.update_struct_item_context(StructItemContext::DerivedEagerField, token_group)?;
-                enter_block(self);
-                self.context.set(AstContext::Stmt {
-                    paradigm: Paradigm::EagerFunctional,
-                    return_context: Some(RawReturnContext {
-                        opt_return_ty: Some(field_ty),
-                        kind: RawReturnContextKind::Normal,
-                    }),
-                });
-                self.opt_this_liason.set(Some(ParameterModifier::None));
-                if token_stream.is_empty() {
-                    return err!(
-                        format!("expect expr but got nothing"),
-                        token_stream.next_range()
-                    );
-                }
-                let mut parser = AtomParser::new(self, &mut token_stream);
-                let atoms = parser.parse_all_remaining_atoms()?;
-                AstFieldKind::StructDerivedEager {
-                    derivation: self.parse_expr_from_atoms(atoms)?,
-                }
-            } else {
-                end!(parser);
-                self.update_struct_item_context(StructItemContext::OriginalField, token_group)?;
-                AstFieldKind::StructOriginal
-            };
+        let field_kind = if deprecated_try_eat!(
+            parser,
+            token_kind,
+            TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::Pure(
+                PureBinaryOpr::Assign
+            )))
+        ) {
+            self.update_struct_item_context(StructItemContext::DefaultField, token_group)?;
+            enter_block(self);
+            self.context.set(AstContext::Stmt {
+                paradigm: Paradigm::EagerFunctional,
+                return_context: Some(RawReturnContext {
+                    opt_return_ty: Some(field_ty),
+                    kind: RawReturnContextKind::Normal,
+                }),
+            });
+            self.opt_this_liason.set(Some(ParameterModifier::None));
+            if token_stream.is_empty() {
+                return err!(
+                    format!("expect expr but got nothing"),
+                    token_stream.next_range()
+                );
+            }
+            let mut parser = AtomParser::new(self, &mut token_stream);
+            let atoms = parser.parse_all_remaining_atoms()?;
+            AstFieldKind::StructDefault {
+                default: self.parse_expr_from_atoms(atoms)?,
+            }
+        } else if deprecated_try_eat!(
+            parser,
+            token_kind,
+            TokenKind::Special(SpecialToken::DeriveAssign)
+        ) {
+            self.update_struct_item_context(StructItemContext::DerivedEagerField, token_group)?;
+            enter_block(self);
+            self.context.set(AstContext::Stmt {
+                paradigm: Paradigm::EagerFunctional,
+                return_context: Some(RawReturnContext {
+                    opt_return_ty: Some(field_ty),
+                    kind: RawReturnContextKind::Normal,
+                }),
+            });
+            self.opt_this_liason.set(Some(ParameterModifier::None));
+            if token_stream.is_empty() {
+                return err!(
+                    format!("expect expr but got nothing"),
+                    token_stream.next_range()
+                );
+            }
+            let mut parser = AtomParser::new(self, &mut token_stream);
+            let atoms = parser.parse_all_remaining_atoms()?;
+            AstFieldKind::StructDerivedEager {
+                derivation: self.parse_expr_from_atoms(atoms)?,
+            }
+        } else {
+            end!(parser);
+            self.update_struct_item_context(StructItemContext::OriginalField, token_group)?;
+            AstFieldKind::StructOriginal
+        };
         Ok(AstVariant::FieldDefnHead {
             liason: field_liason,
             ranged_ident: ident,

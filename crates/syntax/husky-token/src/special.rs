@@ -1,7 +1,8 @@
-use husky_opn_syntax::Bracket;
+use husky_opn_syntax::{BinaryOpr, Bracket, PureBinaryOpr};
 
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SpecialToken {
+    BinaryOpr(BinaryOpr),
     LAngle,            // <
     Leq,               // <=
     RAngle,            // >
@@ -16,16 +17,9 @@ pub enum SpecialToken {
     RBox,              //]
     LPar,              // (
     RPar,              //)
-    Add,               // +
-    Sub,               // -
     Minus,             // -
-    Star,              // *
-    Div,               // /
-    Power,             // **
-    And,               // &&
     DoubleVertical,    // ||
     BitNot,            // ~
-    Modulo,            // %
     FieldAccess,       // .
     LightArrow,        // ->
     HeavyArrow,        // =>
@@ -36,7 +30,6 @@ pub enum SpecialToken {
     Incr,              // ++
     Decr,              // --
     Vertical,          // |
-    Assign,            // =
     AddAssign,         // +=
     SubAssign,         // -=
     MulAssign,         // *=
@@ -60,6 +53,7 @@ impl std::fmt::Display for SpecialToken {
 impl SpecialToken {
     pub fn code(&self) -> &'static str {
         match self {
+            SpecialToken::BinaryOpr(opr) => opr.code(),
             SpecialToken::LAngle => "<",
             SpecialToken::Leq => "<=",
             SpecialToken::RAngle => ">",
@@ -74,16 +68,10 @@ impl SpecialToken {
             SpecialToken::RBox => "]",
             SpecialToken::LPar => "(",
             SpecialToken::RPar => ")",
-            SpecialToken::Add => "+",
-            SpecialToken::Sub => "-",
             SpecialToken::Minus => "-",
-            SpecialToken::Star => "*",
-            SpecialToken::Div => "/",
-            SpecialToken::Power => "**",
-            SpecialToken::And => "&&",
+            SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Mul)) => "*",
             SpecialToken::DoubleVertical => "||",
             SpecialToken::BitNot => "~",
-            SpecialToken::Modulo => "%",
             SpecialToken::FieldAccess => ".",
             SpecialToken::LightArrow => "->",
             SpecialToken::HeavyArrow => "=>",
@@ -94,7 +82,6 @@ impl SpecialToken {
             SpecialToken::Incr => "++",
             SpecialToken::Decr => "--",
             SpecialToken::Vertical => "|",
-            SpecialToken::Assign => "=",
             SpecialToken::AddAssign => "+=",
             SpecialToken::SubAssign => "-=",
             SpecialToken::MulAssign => "*=",
@@ -169,7 +156,7 @@ macro_rules! special_token {
         SpecialToken::RPar
     }};
     ("+") => {{
-        SpecialToken::Add
+        SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Add))
     }};
     ("-") => {{
         SpecialToken::SubOrMinus
@@ -178,13 +165,13 @@ macro_rules! special_token {
         SpecialToken::Star
     }};
     ("/") => {{
-        SpecialToken::Div
+        SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Div))
     }};
     ("**") => {{
-        SpecialToken::Power
+        SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Power))
     }};
     ("&&") => {{
-        SpecialToken::And
+        SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::And))
     }};
     ("||") => {{
         SpecialToken::DoubleVertical
@@ -193,7 +180,7 @@ macro_rules! special_token {
         SpecialToken::BitNot
     }};
     ("%") => {{
-        SpecialToken::Modulo
+        SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::RemEuclid))
     }};
     (".") => {{
         SpecialToken::MemberAccess
@@ -226,7 +213,7 @@ macro_rules! special_token {
         SpecialToken::Vertical
     }};
     ("=") => {{
-        SpecialToken::Assign
+        SpecialToken::BinaryOpr(BinaryOpr::Assign(None))
     }};
     ("+=") => {{
         SpecialToken::AddAssign
