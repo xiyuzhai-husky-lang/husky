@@ -30,9 +30,9 @@ pub trait HuskyCompletionQuery: AstQueryGroup + InferEntityRouteQueryGroup {
                     let ty_decl = self.ty_decl(ty.intrinsic()).ok()?;
                     Some(field_completion_response(&ty_decl))
                 }
-                _ => todo!(),
+                _ => None,
             },
-            _ => todo!(),
+            _ => None,
         }
     }
 }
