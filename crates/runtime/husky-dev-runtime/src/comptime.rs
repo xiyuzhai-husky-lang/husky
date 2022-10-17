@@ -5,7 +5,7 @@ use husky_linkage_table::LinkageTable;
 use husky_static_defn::ResolveStaticRootDefn;
 use upcast::Upcast;
 
-impl AllocateUniqueFile for HuskyDevRuntime {
+impl InternFile for HuskyDevRuntime {
     fn file_interner(&self) -> &husky_file::FileInterner {
         &self.file_interner
     }

@@ -77,6 +77,7 @@ impl TextLen for char {
     }
 }
 
+#[cfg(feature = "lsp_support")]
 pub(crate) fn offset(line_map: &LineMap, position: lsp_types::Position) -> usize {
     let line_col = LineCol {
         line: position.line as usize,
@@ -145,6 +146,7 @@ impl LineMap {
         }
     }
 
+    #[cfg(feature = "lsp_support")]
     pub(crate) fn string_range(line_map: &LineMap, range: lsp_types::Range) -> URange {
         let start = offset(line_map, range.start);
         let end = offset(line_map, range.end);

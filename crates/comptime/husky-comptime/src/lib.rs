@@ -13,7 +13,7 @@ pub use husky_diagnostics::DiagnosticSalsaQuery;
 pub use husky_entity_route::{EntityRoute, InternEntityRoute};
 pub use husky_entity_semantics::EntityDefnQueryGroup;
 pub use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};
-pub use husky_file::{AllocateUniqueFile, FileQueryGroup, FileSalsaQuery, LiveFiles};
+pub use husky_file::{FileQueryGroup, FileSalsaQuery, InternFile, LiveFiles};
 pub use husky_fmt::FmtQuery;
 pub use husky_hover_contents::HuskyHoverContentsQuery;
 pub use husky_infer_entity_route::*;

@@ -49,6 +49,10 @@ impl<T> IdxArena<T> {
     pub fn len(&self) -> usize {
         self.data.len()
     }
+
+    pub fn data(&self) -> &[T] {
+        &self.data
+    }
 }
 
 pub fn len<T>(range: &ArenaRange<T>) -> usize {

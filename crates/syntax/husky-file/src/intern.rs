@@ -1,11 +1,13 @@
 use std::path::{Path, PathBuf};
 
 use interner::{DefaultInternedPtr, Interner};
+#[cfg(feature = "lsp_support")]
+use lsp_types::Url;
 
 pub type FileItd = DefaultInternedPtr<Path, PathBuf>;
 pub type FileInterner = Interner<FileItd>;
 
-pub trait AllocateUniqueFile {
+pub trait InternFile {
     fn file_interner(&self) -> &FileInterner;
 
     fn intern_file(&self, path: PathBuf) -> FileItd {
@@ -14,6 +16,11 @@ pub trait AllocateUniqueFile {
                 Ok(path) => path,
                 Err(_) => path,
             })
+    }
+
+    #[cfg(feature = "lsp_support")]
+    fn it_url(&self, url: &Url) -> Result<FileItd, ()> {
+        Ok(self.intern_file(url.to_file_path()?))
     }
 }
 

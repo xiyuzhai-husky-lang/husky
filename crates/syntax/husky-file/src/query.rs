@@ -8,7 +8,7 @@ use indexmap::IndexMap;
 use itertools::Itertools;
 use sync_utils::{ASafeRwLock, SafeRwLock};
 
-pub trait LiveFiles: AllocateUniqueFile {
+pub trait LiveFiles: InternFile {
     fn get_live_files(&self) -> &ASafeRwLock<IndexMap<FileItd, ASafeRwLock<String>>>;
     fn did_change_source(&mut self, id: FileItd);
 
@@ -20,6 +20,7 @@ pub trait LiveFiles: AllocateUniqueFile {
         self.did_change_source(id);
     }
 
+    #[cfg(feature = "lsp_support")]
     fn apply_live_file_changes(
         &mut self,
         path: PathBuf,
@@ -138,6 +139,7 @@ pub trait FileQueryGroup: FileSalsaQuery {
         }
     }
 
+    #[cfg(feature = "lsp_support")]
     fn url(&self, id: FileItd) -> lsp_types::Url {
         return url_from_abs_path(&id);
 

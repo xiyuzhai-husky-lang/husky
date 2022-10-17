@@ -103,7 +103,7 @@ impl<'a> TokenStream<'a> {
                 TokenKind::Identifier(_) => true,
                 _ => false,
             },
-            None => true,
+            None => false,
         }
     }
 }

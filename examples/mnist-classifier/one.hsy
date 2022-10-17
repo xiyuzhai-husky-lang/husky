@@ -74,7 +74,7 @@ def is_one -> ?MnistLabel:
                 MnistLabel::One,
                 2,
                 long_vertical_dp.norm(),
-                long_vertical_dp.x / long_vertical_dp.y.
+                long_vertical_dp.x / long_vertical_dp.y
             )?
         if hat be some:
             narrow_down(
