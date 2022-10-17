@@ -102,6 +102,14 @@ impl AstText {
         }
         summary
     }
+
+    pub fn find_last_expr_before(&self, pos: TextPosition) -> Option<&RawExpr> {
+        self.arena
+            .data()
+            .iter()
+            .filter(|expr| expr.range.end <= pos)
+            .max_by_key(|expr| expr.range.end)
+    }
 }
 
 impl ArenaKeyQuery<RawExpr> for AstText {

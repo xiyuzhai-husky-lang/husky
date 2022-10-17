@@ -1,4 +1,7 @@
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
+use husky_file::{FileItd, InternFile};
+#[cfg(feature = "lsp_support")]
+use lsp_types::TextDocumentPositionParams;
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 
@@ -10,6 +13,41 @@ use crate::*;
 pub struct TextPosition {
     pub row: Row,
     pub col: Column,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct FilePosition {
+    file: FileItd,
+    pos: TextPosition,
+}
+
+impl FilePosition {
+    pub fn file(&self) -> FileItd {
+        self.file
+    }
+
+    pub fn pos(&self) -> TextPosition {
+        self.pos
+    }
+}
+
+#[cfg(feature = "lsp_support")]
+impl From<lsp_types::Position> for TextPosition {
+    fn from(pos: lsp_types::Position) -> Self {
+        Self {
+            row: Row(pos.line),
+            col: Column(pos.character),
+        }
+    }
+}
+
+#[cfg(feature = "lsp_support")]
+impl FilePosition {
+    pub fn from_proto(db: &dyn InternFile, doc_pos: &TextDocumentPositionParams) -> Self {
+        let file = db.it_url(&doc_pos.text_document.uri).expect("todo");
+        let pos: TextPosition = doc_pos.position.into();
+        Self { file, pos }
+    }
 }
 
 impl HuskyDisplay for TextPosition {

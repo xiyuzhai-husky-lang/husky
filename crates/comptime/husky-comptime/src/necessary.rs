@@ -28,7 +28,7 @@ impl salsa::ParallelDatabase for HuskyComptime {
     }
 }
 
-impl AllocateUniqueFile for HuskyComptime {
+impl InternFile for HuskyComptime {
     fn file_interner(&self) -> &husky_file::FileInterner {
         &self.file_interner
     }

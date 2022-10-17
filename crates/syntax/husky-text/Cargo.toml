@@ -16,3 +16,6 @@ husky-display-utils = { path = "../../utils/husky-display-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-file = { path = "../husky-file" }
 husky-word = { path = "../../kernel/husky-word" }
+
+[features]
+lsp_support = []

@@ -1,5 +1,6 @@
 use crate::line_map::LineMap;
 
+#[cfg(feature = "lsp_support")]
 pub(crate) fn apply_document_changes(
     old_text: &mut String,
     content_changes: Vec<lsp_types::TextDocumentContentChangeEvent>,

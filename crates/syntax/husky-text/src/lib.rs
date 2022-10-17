@@ -10,7 +10,7 @@ mod tests;
 use std::{iter::Enumerate, ops::Deref, str::Chars, sync::Arc};
 
 pub use indent::TextIndent;
-pub use position::TextPosition;
+pub use position::{FilePosition, TextPosition};
 pub use range::*;
 pub type CharIter<'token_line> = std::iter::Peekable<Enumerate<Chars<'token_line>>>;
 pub use column::Column;

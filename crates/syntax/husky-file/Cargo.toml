@@ -12,7 +12,7 @@ doctest = false
 [dependencies]
 rustc-hash = "1.1.0"
 itertools = "^0.10.3"
-lsp-types = { version = "0.93", features = ["proposed"] }
+lsp-types = { version = "0.93", features = ["proposed"], optional = true }
 indexmap = "1.8.1"
 salsa = "0.17.0-pre.2"
 interner = { path = "../../abstraction/interner" }
@@ -22,3 +22,6 @@ husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-word = { path = "../../kernel/husky-word" }
+
+[features]
+lsp_support = ["dep:lsp-types"]

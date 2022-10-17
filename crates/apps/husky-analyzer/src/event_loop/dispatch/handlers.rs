@@ -3,6 +3,7 @@ use crate::{convert::from_lsp_types, lsp_ext::PositionOrRange, *};
 type HuskyComptimeSnapshot = salsa::Snapshot<husky_comptime::HuskyComptime>;
 
 use husky_comptime::*;
+use husky_text::{FilePosition, TextPosition};
 use husky_token::AbsSemanticToken;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,
@@ -107,7 +108,9 @@ pub(crate) fn handle_completion(
     comptime: HuskyComptimeSnapshot,
     params: lsp_types::CompletionParams,
 ) -> Result<Option<lsp_types::CompletionResponse>> {
-    Ok(comptime.completion())
+    let position = FilePosition::from_proto(&*comptime, &params.text_document_position);
+    let completion_trigger_character = params.context.and_then(|ctx| ctx.trigger_character);
+    Ok(comptime.completion(position, completion_trigger_character))
 }
 
 pub(crate) fn handle_completion_resolve(
