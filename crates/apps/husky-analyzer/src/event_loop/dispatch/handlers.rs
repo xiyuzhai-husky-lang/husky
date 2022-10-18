@@ -3,7 +3,8 @@ use crate::{convert::from_lsp_types, lsp_ext::PositionOrRange, *};
 type HuskyComptimeSnapshot = salsa::Snapshot<husky_comptime::HuskyComptime>;
 
 use husky_comptime::*;
-use husky_text::{FilePosition, TextPosition};
+use husky_hover::HoverResult;
+use husky_text::{FilePosition, FileRange, TextPosition, TextRange};
 use husky_token::AbsSemanticToken;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,
@@ -146,22 +147,14 @@ pub(crate) fn handle_decl_help(
 pub(crate) fn handle_hover(
     comptime: HuskyComptimeSnapshot,
     params: lsp_ext::HoverParams,
-) -> Result<Option<lsp_ext::Hover>> {
+) -> Result<Option<HoverResult>> {
+    let file = comptime.it_url(&params.text_document.uri).expect("todo");
     let range = match params.position {
         PositionOrRange::Position(position) => lsp_types::Range::new(position, position),
         PositionOrRange::Range(range) => range,
     };
-    if let Some(hover_contents) = comptime.hover_contents() {
-        Ok(Some(lsp_ext::Hover {
-            hover: lsp_types::Hover {
-                contents: hover_contents,
-                range: Some(range),
-            },
-            actions: vec![],
-        }))
-    } else {
-        Ok(None)
-    }
+    let range: TextRange = range.into();
+    Ok(comptime.opt_hover_result(FileRange::new(file, range)))
 }
 
 pub(crate) fn handle_prepare_rename(

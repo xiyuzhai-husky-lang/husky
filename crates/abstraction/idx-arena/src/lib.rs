@@ -53,6 +53,18 @@ impl<T> IdxArena<T> {
     pub fn data(&self) -> &[T] {
         &self.data
     }
+
+    pub fn enum_iter<'a>(&'a self) -> impl Iterator<Item = (ArenaIdx<T>, &'a T)> + 'a {
+        self.data.iter().enumerate().map(|(i, t)| {
+            (
+                ArenaIdx {
+                    raw: i,
+                    phantom: PhantomData,
+                },
+                t,
+            )
+        })
+    }
 }
 
 pub fn len<T>(range: &ArenaRange<T>) -> usize {
