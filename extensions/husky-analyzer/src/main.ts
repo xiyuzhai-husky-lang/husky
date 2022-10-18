@@ -117,7 +117,7 @@ function renderHoverActions(
                 (group.title ? group.title + " " : "") +
                 group.commands.map(renderCommand).join(" | ")
         )
-        .join("___");
+        .join("\n___\n");
 
     const result = new vscode.MarkdownString(text);
     result.isTrusted = true;
