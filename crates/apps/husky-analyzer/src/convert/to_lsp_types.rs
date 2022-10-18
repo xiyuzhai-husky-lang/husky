@@ -47,6 +47,7 @@ pub(crate) fn url_from_abs_path(path: &Path) -> lsp_types::Url {
     url[driver_letter_range].make_ascii_lowercase();
     lsp_types::Url::parse(&url).unwrap()
 }
+
 impl From<lsp_ext::SnippetWorkspaceEdit> for lsp_types::WorkspaceEdit {
     fn from(snippet_workspace_edit: lsp_ext::SnippetWorkspaceEdit) -> lsp_types::WorkspaceEdit {
         lsp_types::WorkspaceEdit {

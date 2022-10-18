@@ -1,6 +1,8 @@
 mod error;
 mod intern;
 mod line_map;
+#[cfg(feature = "lsp_support")]
+mod lsp_support;
 mod query;
 mod utils;
 

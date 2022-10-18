@@ -1,11 +1,40 @@
 use std::path::{Path, PathBuf};
 
-use interner::{DefaultInternedPtr, Interner};
+use interner::{DefaultInternedPtr, Interner, IsInternPtr};
 #[cfg(feature = "lsp_support")]
 use lsp_types::Url;
 
-pub type FileItd = DefaultInternedPtr<Path, PathBuf>;
+type FileItdInner = DefaultInternedPtr<Path, PathBuf>;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct FileItd(FileItdInner);
 pub type FileInterner = Interner<FileItd>;
+
+impl IsInternPtr for FileItd {
+    type T = <FileItdInner as IsInternPtr>::T;
+
+    type Owned = <FileItdInner as IsInternPtr>::Owned;
+
+    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
+        Self(<FileItdInner as IsInternPtr>::new_intern_ptr(id, target))
+    }
+
+    fn new_itr() -> Interner<Self> {
+        Interner::new_empty()
+    }
+}
+impl std::ops::Deref for FileItd {
+    type Target = Path;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl std::borrow::Borrow<Path> for FileItd {
+    fn borrow(&self) -> &Path {
+        &self.0
+    }
+}
 
 pub trait InternFile {
     fn file_interner(&self) -> &FileInterner;
