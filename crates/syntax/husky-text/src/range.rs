@@ -19,15 +19,42 @@ pub struct TextRange {
     pub end: TextPosition,
 }
 
+#[cfg(feature = "lsp_support")]
+impl From<lsp_types::Range> for TextRange {
+    fn from(range: lsp_types::Range) -> Self {
+        Self {
+            start: range.start.into(),
+            end: range.end.into(),
+        }
+    }
+}
+
 impl TextRange {
     pub fn closed_end(&self) -> TextPosition {
         self.end.to_left(1)
     }
 }
 
+#[derive(Debug)]
 pub struct FileRange {
     file: FileItd,
     range: TextRange,
+}
+
+impl FileRange {
+    pub fn file(&self) -> FileItd {
+        self.file
+    }
+
+    pub fn range(&self) -> TextRange {
+        self.range
+    }
+}
+
+impl TextRanged for FileRange {
+    fn text_range(&self) -> TextRange {
+        self.range
+    }
 }
 
 pub trait FileRanged: TextRanged {

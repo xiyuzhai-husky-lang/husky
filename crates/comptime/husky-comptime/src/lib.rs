@@ -15,7 +15,7 @@ pub use husky_entity_semantics::EntityDefnQueryGroup;
 pub use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};
 pub use husky_file::{FileQueryGroup, FileSalsaQuery, InternFile, LiveFiles};
 pub use husky_fmt::FmtQuery;
-pub use husky_hover_contents::HuskyHoverContentsQuery;
+pub use husky_hover::HuskyHoverContentsQuery;
 pub use husky_infer_entity_route::*;
 pub use husky_infer_qualified_ty::*;
 pub use husky_linkage_table::ResolveLinkage;

@@ -1,6 +1,6 @@
 use husky_completion::HuskyCompletionQuery;
 use husky_diagnostics::{Diagnostic, HuskyDiagnosticQuery};
-use husky_hover_contents::HuskyHoverContentsQuery;
+use husky_hover::HuskyHoverContentsQuery;
 
 use crate::*;
 

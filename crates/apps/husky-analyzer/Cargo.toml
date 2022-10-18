@@ -41,5 +41,6 @@ husky-file = { path = "../../syntax/husky-file", features = ["lsp_support"] }
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 husky-token = { path = "../../syntax/husky-token" }
 husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
+husky-hover = { path = "../../ide/husky-hover" }
 husky-text = { path = "../../syntax/husky-text", features = ["lsp_support"] }
 winapi = "0.3.9"

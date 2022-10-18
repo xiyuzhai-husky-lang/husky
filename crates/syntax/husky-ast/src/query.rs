@@ -110,6 +110,15 @@ impl AstText {
             .filter(|expr| expr.range.end <= pos)
             .max_by_key(|expr| expr.range.end)
     }
+    pub fn find_first_expr_with_end_after(
+        &self,
+        pos: TextPosition,
+    ) -> Option<(RawExprIdx, &RawExpr)> {
+        self.arena
+            .enum_iter()
+            .filter(|(_, expr)| expr.range.end >= pos)
+            .next()
+    }
 }
 
 impl ArenaKeyQuery<RawExpr> for AstText {

@@ -48,7 +48,7 @@ husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 # ide
-husky-hover-contents = { path = "../../ide/husky-hover-contents" }
+husky-hover = { path = "../../ide/husky-hover" }
 husky-completion = { path = "../../ide/husky-completion" }
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # comptime

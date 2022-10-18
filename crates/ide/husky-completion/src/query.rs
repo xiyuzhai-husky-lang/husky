@@ -1,4 +1,4 @@
-use husky_ast::{AstQueryGroup, RawExprVariant};
+use husky_ast::{RawExprVariant};
 use husky_entity_kind::FieldKind;
 use husky_infer_entity_route::InferEntityRouteQueryGroup;
 use husky_opn_syntax::RawOpnVariant;
@@ -9,7 +9,7 @@ use lsp_types::{
     CompletionItem, CompletionItemKind, CompletionItemLabelDetails, CompletionResponse,
 };
 
-pub trait HuskyCompletionQuery: AstQueryGroup + InferEntityRouteQueryGroup {
+pub trait HuskyCompletionQuery: InferEntityRouteQueryGroup {
     fn completion(
         &self,
         fpos: FilePosition,
