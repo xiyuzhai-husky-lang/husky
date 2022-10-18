@@ -1,6 +1,6 @@
-mod action;
 mod config;
 mod db;
+mod ir;
 mod navigation;
 mod runnable;
 

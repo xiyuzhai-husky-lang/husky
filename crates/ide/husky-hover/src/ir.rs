@@ -6,14 +6,14 @@ use husky_text::{FilePosition, TextRange};
 use crate::*;
 
 #[derive(Debug, Clone)]
-pub enum HoverAction {
+pub enum HoverActionIR {
     Runnable(Runnable),
     Implementation(FilePosition),
     Reference(FilePosition),
     GoToType(Vec<HoverGotoTypeData>),
 }
 
-impl HoverAction {
+impl HoverActionIR {
     fn goto_type_from_targets(db: &dyn HoverDb, targets: Vec<EntityRoutePtr>) -> Self {
         let targets = targets
             .into_iter()
@@ -29,7 +29,7 @@ impl HoverAction {
                 // } )
             })
             .collect();
-        HoverAction::GoToType(targets)
+        HoverActionIR::GoToType(targets)
     }
 }
 
@@ -59,14 +59,14 @@ impl std::fmt::Debug for NavigationTarget {
 }
 
 impl<'a> dyn HoverDb + 'a {
-    fn prepare_hover_actions(&self, actions: &[HoverAction]) -> Vec<CommandLinkGroup> {
+    fn prepare_hover_actions(&self, actions: &[HoverActionIR]) -> Vec<CommandLinkGroup> {
         actions
             .iter()
             .filter_map(|it| match it {
-                HoverAction::Implementation(position) => self.show_impl_command_link(position),
-                HoverAction::Reference(position) => self.show_ref_command_link(position),
-                HoverAction::Runnable(r) => self.runnable_action_links(r.clone()),
-                HoverAction::GoToType(targets) => self.goto_type_action_links(targets),
+                HoverActionIR::Implementation(position) => self.show_impl_command_link(position),
+                HoverActionIR::Reference(position) => self.show_ref_command_link(position),
+                HoverActionIR::Runnable(r) => self.runnable_action_links(r.clone()),
+                HoverActionIR::GoToType(targets) => self.goto_type_action_links(targets),
             })
             .collect()
     }
