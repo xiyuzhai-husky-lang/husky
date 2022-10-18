@@ -20,17 +20,20 @@ pub trait HoverDb: InferEntityRouteQueryGroup {
                 }),
                 range: Some(frange.text_range().into()),
             },
-            actions: vec![CommandLinkGroup {
-                title: Some(format!("title")),
-                commands: vec![CommandLink {
-                    command: lsp_types::Command {
-                        command: format!("command"),
-                        title: format!("title"),
-                        arguments: None,
-                    },
-                    tooltip: Some(format!("tooltip")),
-                }],
-            }],
+            actions: vec![
+                CommandLinkGroup {
+                    title: Some(format!("FirstCommandLinkeGroup")),
+                    commands: vec![CommandLink {
+                        command: lsp_types::Command {
+                            command: format!("FirstCommandLinkeGroupFirstCommand"),
+                            title: format!("FirstCommand"),
+                            arguments: None,
+                        },
+                        tooltip: Some(format!("tooltip")),
+                    }],
+                },
+                CommandLinkGroup::new_goto_types(),
+            ],
         })
     }
 

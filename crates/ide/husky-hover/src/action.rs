@@ -58,19 +58,19 @@ impl std::fmt::Debug for NavigationTarget {
     }
 }
 
-fn prepare_hover_actions(db: &dyn HoverDb, actions: &[HoverAction]) -> Vec<CommandLinkGroup> {
-    actions
-        .iter()
-        .filter_map(|it| match it {
-            HoverAction::Implementation(position) => db.show_impl_command_link(position),
-            HoverAction::Reference(position) => db.show_ref_command_link(position),
-            HoverAction::Runnable(r) => db.runnable_action_links(r.clone()),
-            HoverAction::GoToType(targets) => db.goto_type_action_links(targets),
-        })
-        .collect()
-}
-
 impl<'a> dyn HoverDb + 'a {
+    fn prepare_hover_actions(&self, actions: &[HoverAction]) -> Vec<CommandLinkGroup> {
+        actions
+            .iter()
+            .filter_map(|it| match it {
+                HoverAction::Implementation(position) => self.show_impl_command_link(position),
+                HoverAction::Reference(position) => self.show_ref_command_link(position),
+                HoverAction::Runnable(r) => self.runnable_action_links(r.clone()),
+                HoverAction::GoToType(targets) => self.goto_type_action_links(targets),
+            })
+            .collect()
+    }
+
     fn show_impl_command_link(&self, position: &FilePosition) -> Option<CommandLinkGroup> {
         todo!()
         // if self
