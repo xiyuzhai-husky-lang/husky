@@ -1,6 +1,14 @@
+mod action;
+mod config;
+mod navigation;
 mod query;
+mod runnable;
 
+pub use config::*;
+pub use navigation::*;
 pub use query::*;
+pub use runnable::*;
+
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
@@ -25,4 +33,10 @@ pub struct CommandLinkGroup {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
     pub commands: Vec<CommandLink>,
+}
+
+impl CommandLink {
+    pub(crate) fn show_references() -> Self {
+        todo!()
+    }
 }

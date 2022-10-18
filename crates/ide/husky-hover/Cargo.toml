@@ -12,3 +12,6 @@ husky-text = { path = "../../syntax/husky-text" }
 husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-ast = { path = "../../syntax/husky-ast" }
+husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-documentation = { path = "../../ide/husky-documentation" }
