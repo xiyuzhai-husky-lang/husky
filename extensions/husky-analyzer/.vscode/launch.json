@@ -6,11 +6,11 @@
     "configurations": [
         {
             "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+            "type": "extensionHost",
             "name": "Launch Extension",
             "outFiles": ["${workspaceFolder}/out/**/*.js"],
-            "preLaunchTask": "npm",
-            "request": "launch",
-            "type": "pwa-extensionHost"
+            "preLaunchTask": "${defaultBuildTask}",
+            "request": "launch"
         }
         // {
         //     "type": "pwa-chrome",

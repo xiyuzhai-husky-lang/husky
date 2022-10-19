@@ -1,7 +1,14 @@
 {
-    "name": "husky_analyzer",
-    "version": "1.0.0",
-    "repository": "https://github.com/xiyuzhai/husky",
+    "name": "husky-analyzer",
+    "displayName": "husky-analyzer",
+    "description": "Husky language support for Visual Studio Code",
+    "private": true,
+    "version": "0.1.0-dev",
+    "publisher": "husky-lang",
+    "repository": {
+        "url": "https://github.com/xiyuzhai/husky",
+        "type": "git"
+    },
     "author": "Xiyu Zhai",
     "license": "MIT",
     "scripts": {
@@ -13,21 +20,149 @@
     },
     "main": "./out/main",
     "activationEvents": [
-        "onLanguage:husky",
-        "onCommand:husky_analyzer.sayHello",
-        "onCommand:husky_analyzer.refresh"
+        "onLanguage:husky"
     ],
     "contributes": {
         "commands": [
             {
-                "command": "husky_analyzer.sayHello",
-                "title": "Say Hello",
-                "category": "Husky Language Server"
+                "command": "husky-analyzer.analyzerStatus",
+                "title": "Status",
+                "category": "husky-analyzer"
             },
             {
-                "command": "husky_analyzer.refresh",
-                "title": "Refresh",
-                "category": "Husky Language Server"
+                "command": "husky-analyzer.cancelFlycheck",
+                "title": "Cancel running flychecks",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.copyRunCommandLine",
+                "title": "Copy Run Command Line",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.debug",
+                "title": "Debug",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.expandMacro",
+                "title": "Expand macro recursively",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.joinLines",
+                "title": "Join lines",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.matchingBrace",
+                "title": "Find matching brace",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.memoryUsage",
+                "title": "Memory Usage (Clears Database)",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.moveItemDown",
+                "title": "Move item down",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.moveItemUp",
+                "title": "Move item up",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.newDebugConfig",
+                "title": "Generate launch configuration",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.peekTests",
+                "title": "Peek related tests",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.openDocs",
+                "title": "Open docs under cursor",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.openCorgiToml",
+                "title": "Open Corgi.toml",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.parentModule",
+                "title": "Locate parent module",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.onEnter",
+                "title": "Enhanced enter key",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.reload",
+                "title": "Restart server",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.reloadWorkspace",
+                "title": "Reload workspace",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.run",
+                "title": "Run",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.serverVersion",
+                "title": "Show RA Version",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.shuffleCrateGraph",
+                "title": "Shuffle Crate Graph",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.ssr",
+                "title": "Structural Search Replace",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.syntaxTree",
+                "title": "Show Syntax Tree",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.viewHir",
+                "title": "View Hir",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.viewFileText",
+                "title": "View File Text (as seen by the server)",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.viewItemTree",
+                "title": "Debug ItemTree",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.viewCrateGraph",
+                "title": "View Crate Graph",
+                "category": "husky-analyzer"
+            },
+            {
+                "command": "husky-analyzer.viewFullCrateGraph",
+                "title": "View Crate Graph (Full)",
+                "category": "husky-analyzer"
             }
         ],
         "languages": [
@@ -48,42 +183,6 @@
                 "language": "husky",
                 "scopeName": "source.husky",
                 "path": "./syntaxes/husky.tmLanguage.json"
-            }
-        ],
-        "problemMatchers": [
-            {
-                "name": "huskyc",
-                "owner": "huskyc",
-                "source": "huskyc",
-                "fileLocation": [
-                    "autoDetect",
-                    "${workspaceRoot}"
-                ],
-                "pattern": "$huskyc"
-            },
-            {
-                "name": "huskyc-json",
-                "owner": "huskyc",
-                "source": "huskyc",
-                "fileLocation": [
-                    "autoDetect",
-                    "${workspaceRoot}"
-                ],
-                "pattern": "$huskyc-json"
-            },
-            {
-                "name": "huskyc-watch",
-                "owner": "huskyc",
-                "source": "huskyc",
-                "fileLocation": [
-                    "autoDetect",
-                    "${workspaceRoot}"
-                ],
-                "background": {
-                    "beginsPattern": "^\\[Running\\b",
-                    "endsPattern": "^\\[Finished running\\b"
-                },
-                "pattern": "$huskyc"
             }
         ],
         "colors": [
@@ -380,27 +479,7 @@
         "menus": {
             "commandPalette": [
                 {
-                    "command": "husky-analyzer.syntaxTree",
-                    "when": "inHuskyProject"
-                },
-                {
-                    "command": "husky-analyzer.viewHir",
-                    "when": "inHuskyProject"
-                },
-                {
-                    "command": "husky-analyzer.viewFileText",
-                    "when": "inHuskyProject"
-                },
-                {
-                    "command": "husky-analyzer.expandMacro",
-                    "when": "inHuskyProject"
-                },
-                {
-                    "command": "husky-analyzer.matchingBrace",
-                    "when": "inHuskyProject"
-                },
-                {
-                    "command": "husky-analyzer.parentModule",
+                    "command": "husky-analyzer.analyzerStatus",
                     "when": "inHuskyProject"
                 },
                 {
@@ -408,23 +487,23 @@
                     "when": "inHuskyProject"
                 },
                 {
-                    "command": "husky-analyzer.run",
-                    "when": "inHuskyProject"
-                },
-                {
-                    "command": "husky-analyzer.debug",
-                    "when": "inHuskyProject"
-                },
-                {
-                    "command": "husky-analyzer.newDebugConfig",
-                    "when": "inHuskyProject"
-                },
-                {
-                    "command": "husky-analyzer.analyzerStatus",
-                    "when": "inHuskyProject"
-                },
-                {
                     "command": "husky-analyzer.memoryUsage",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.onEnter",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.openCorgiToml",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.openDocs",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.parentModule",
                     "when": "inHuskyProject"
                 },
                 {
@@ -436,11 +515,7 @@
                     "when": "inHuskyProject"
                 },
                 {
-                    "command": "husky-analyzer.onEnter",
-                    "when": "inHuskyProject"
-                },
-                {
-                    "command": "husky-analyzer.ssr",
+                    "command": "husky-analyzer.run",
                     "when": "inHuskyProject"
                 },
                 {
@@ -448,15 +523,19 @@
                     "when": "inHuskyProject"
                 },
                 {
-                    "command": "husky-analyzer.toggleInlayHints",
+                    "command": "husky-analyzer.ssr",
                     "when": "inHuskyProject"
                 },
                 {
-                    "command": "husky-analyzer.openDocs",
+                    "command": "husky-analyzer.syntaxTree",
                     "when": "inHuskyProject"
                 },
                 {
-                    "command": "husky-analyzer.openCargoToml",
+                    "command": "husky-analyzer.viewHir",
+                    "when": "inHuskyProject"
+                },
+                {
+                    "command": "husky-analyzer.viewFileText",
                     "when": "inHuskyProject"
                 }
             ],
