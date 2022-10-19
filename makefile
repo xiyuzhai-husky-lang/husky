@@ -7,7 +7,7 @@ include examples/makefile
 update-python-requirements:
 	pipreqs ./ --force
 
-vscode: cargo-test test-analyzer
+vscode:
 	scripts/vscode_prepublish.sh
 	rsync -a extensions/husky-analyzer ~/.vscode/extensions/
 	cargo install --path crates/apps/husky-analyzer --bin husky-analyzer-server
