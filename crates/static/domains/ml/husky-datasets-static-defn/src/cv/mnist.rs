@@ -22,7 +22,7 @@ use test::*;
 use val::*;
 use xrng::permutation_from_seed;
 
-pub static MNIST_SCOPE_DATA: &EntityStaticDefn = &EntityStaticDefn {
+pub static MNIST_MOD: &EntityStaticDefn = &EntityStaticDefn {
     name: "mnist",
     items: &[
         &NEW_BINARY_DATASET_SCOPE_DATA,
