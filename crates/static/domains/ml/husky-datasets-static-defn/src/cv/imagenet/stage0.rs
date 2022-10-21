@@ -9,7 +9,7 @@ pub static NEW_HUSKY_DATASET_DEFN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         parameters: &[],
         variadic_template: StaticVariadicParameterDecl::None,
-        output_ty: "Dataset<domains::ml::datasets::cv::imagenet::LazyImage, domains::ml::datasets::cv::imagenet::stage0::HuskyOrOther>",
+        output_ty: "Dataset<domains::ml::datasets::cv::imagenet::LazyImage256, domains::ml::datasets::cv::imagenet::stage0::HuskyOrOther>",
         output_liason: OutputModifier::Transfer,
         linkage: transfer_linkage!(
             |_, _| __Register::new_box(new_husky_dataset, &__DATASET_VTABLE),
