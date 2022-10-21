@@ -10,6 +10,7 @@ mod try_fat_pointer;
 mod try_fn;
 mod try_monad;
 mod try_mut_ref;
+mod try_profile;
 mod try_random;
 mod try_rayon;
 mod try_ref;

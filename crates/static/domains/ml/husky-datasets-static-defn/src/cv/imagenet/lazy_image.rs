@@ -1,12 +1,23 @@
 use super::*;
+use std::sync::Mutex;
 
-pub struct LazyImage {}
+pub struct LazyImage256 {
+    data: LazyImage256Inner,
+}
 
-pub static LAZY_IMAGE_DEFN: EntityStaticDefn = EntityStaticDefn {
-    name: "LazyImage",
+impl LazyImage256 {
+    pub fn inner(&self) -> &LazyImage256Inner {
+        todo!()
+    }
+}
+
+pub type LazyImage256Inner = [[[u8; 3]; 256]; 256];
+
+pub static LAZY_IMAGE256_DEFN: EntityStaticDefn = EntityStaticDefn {
+    name: "LazyImage256",
     items: &[],
     variant: EntityStaticDefnVariant::Ty {
-        base_route: "domains::ml::datasets::cv::imagenet::LazyImage",
+        base_route: "domains::ml::datasets::cv::imagenet::LazyImage256",
         spatial_parameters: &[],
         trait_impls: &[],
         ty_members: &[],

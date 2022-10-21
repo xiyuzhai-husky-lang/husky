@@ -21,6 +21,7 @@ members = [
     "crates/try",
     "crates/utils/*",
     "crates/vm/*",
+    "crates/benchmarks/*"
 ]
 exclude = ["crates/gui"]
 
