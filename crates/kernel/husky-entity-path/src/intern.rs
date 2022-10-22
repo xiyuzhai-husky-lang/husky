@@ -10,9 +10,6 @@ pub trait InternEntityPath {
     fn it_entity_path(&self, pth: EntityPath) -> EntityPathItd {
         self.entity_path_itr().intern(pth)
     }
-    fn it_root_entity_path(&self, ident: Identifier) -> EntityPathItd {
-        self.it_entity_path(EntityPath::root(ident))
-    }
 }
 
 impl InternEntityPath for EntityPathInterner {
