@@ -9,15 +9,27 @@ use husky_term::TermDb;
 use husky_token::*;
 
 #[test]
+fn test_fake_decl() {
+    expect_test::<String, _>("fake-decl", debug_fake_decl);
+
+    fn debug_fake_decl(text: &str) -> String {
+        let mut db = TyInferTestsDb::new();
+        let (arena, expr) = db.parse_raw_expr_from_text(text);
+        let mut sheet = TyInferSheet::new(&arena);
+        let term_menu = db.term_menu();
+        let mut ctx = TyInferContext::new(&db, &mut sheet, &arena, expr, &term_menu);
+        let term = ctx.term_result().unwrap();
+        format!("{:?}", db.decl(term.path()))
+    }
+}
+
+#[test]
 fn test_infer_ty_works() {
     // expect_test::<String, _>("", debug_infer_ty);
 
     fn debug_infer_ty(text: &str) -> String {
         let mut db = TyInferTestsDb::new();
-        let tokens = db.tokenize_line(text);
-        let mut arena = RawExprArena::new();
-        let mut symbol_ctx = db.fake_symbol_ctx();
-        let expr = parse_raw_expr(&mut symbol_ctx, &mut arena, &tokens);
+        let (arena, expr) = db.parse_raw_expr_from_text(text);
         let mut sheet = TyInferSheet::new(&arena);
         let term_menu = db.term_menu();
         TyInferContext::new(&db, &mut sheet, &arena, expr, &term_menu).run();

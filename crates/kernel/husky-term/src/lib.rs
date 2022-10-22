@@ -9,6 +9,7 @@ mod decl;
 mod error;
 mod intern;
 mod menu;
+mod path;
 mod subentity;
 #[cfg(test)]
 mod tests;
