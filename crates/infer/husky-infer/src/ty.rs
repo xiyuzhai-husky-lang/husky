@@ -5,7 +5,7 @@ use husky_print_utils::p;
 use husky_symbol_syntax::SymbolKind;
 use husky_term::Ty;
 
-impl<'a> TyInferContext<'a> {
+impl<'a> InferContext<'a> {
     pub(crate) fn infer(&mut self) -> InferResult<Ty> {
         match self.normalized_expr() {
             NormalizedExpr::Atom(atom) => self.infer_atom(atom),

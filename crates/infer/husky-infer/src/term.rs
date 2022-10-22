@@ -3,7 +3,7 @@ use husky_expr_syntax::{RawAtom, RawExprIdx, RawExprVariant};
 use husky_symbol_syntax::SymbolKind;
 use husky_term::TermItd;
 
-impl<'a> TyInferContext<'a> {
+impl<'a> InferContext<'a> {
     pub(crate) fn term_result<'b>(&'b mut self) -> Result<TermItd, ()> {
         match self.cached_term_result() {
             Some(term_result) => match term_result {
@@ -28,7 +28,7 @@ impl<'a> TyInferContext<'a> {
             RawExprVariant::Atom(ref atom) => match atom {
                 RawAtom::Literal(_) => todo!(),
                 RawAtom::Symbol(symbol) => match symbol.kind {
-                    SymbolKind::EntityPath(_) => todo!(),
+                    SymbolKind::EntityPath(path) => self.entity_path_term(path),
                     SymbolKind::LocalVariable { init_range } => todo!(),
                     SymbolKind::FrameVariable { init_range } => todo!(),
                     SymbolKind::Unrecognized => Err(InferError::Derived),

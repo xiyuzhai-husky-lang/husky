@@ -13,6 +13,7 @@ thin-vec = { path = "../../../forks/thin-vec" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
 # syntax
 husky-text = { path = "../../syntax/husky-text" }

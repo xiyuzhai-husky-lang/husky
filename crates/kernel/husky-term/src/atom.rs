@@ -125,3 +125,9 @@ impl TermAtom {
         self.ty_itd
     }
 }
+
+impl<'a> TermContext<'a> {
+    pub fn entity_path_term(&self, path: EntityPathItd) -> TermItd {
+        todo!()
+    }
+}

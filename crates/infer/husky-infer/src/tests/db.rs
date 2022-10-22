@@ -12,6 +12,7 @@ use husky_term::{InternTerm, TermDbStorage};
 use husky_word::{InternWord, RootBuiltinIdentifier, WordInterner};
 use salsa::Database;
 use std::collections::HashMap;
+use upcast::Upcast;
 
 #[salsa::database(TermDbStorage, SymbolDbStorage, InferDbStorage, EntityPathDbStorage)]
 pub(crate) struct InferTestsDb {
@@ -20,6 +21,12 @@ pub(crate) struct InferTestsDb {
     entity_path_itr: EntityPathInterner,
     word_itr: WordInterner,
     entity_tys: HashMap<EntityPathItd, Ty>,
+}
+
+impl Upcast<dyn TermDb> for InferTestsDb {
+    fn upcast(&self) -> &(dyn TermDb + 'static) {
+        self
+    }
 }
 
 impl InferTestsDb {

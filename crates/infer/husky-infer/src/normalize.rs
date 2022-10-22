@@ -23,7 +23,7 @@ pub(crate) enum NormalizedOpnKind {
 
 pub struct TraitEntity(TermItd);
 
-impl<'a> TyInferContext<'a> {
+impl<'a> InferContext<'a> {
     pub(crate) fn normalized_expr(&self) -> NormalizedExpr<'a> {
         match self.expr().variant {
             RawExprVariant::Atom(ref atom) => NormalizedExpr::Atom(atom),

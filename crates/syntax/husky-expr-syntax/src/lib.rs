@@ -11,6 +11,7 @@ mod variant;
 pub use atom::*;
 pub use automata::*;
 pub use error::*;
+use husky_entity_path::EntityPathItd;
 use husky_term::TermItd;
 use optional::Optioned;
 pub use variant::*;
@@ -33,7 +34,7 @@ pub struct RawExpr {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BaseScopeResult {
     None,
-    Some(TermItd),
+    Some(EntityPathItd),
     Uncertain,
 }
 
@@ -63,7 +64,7 @@ impl RawExprVariant {
             RawExprVariant::Atom(ref atom) => match atom {
                 RawAtom::Literal(_) => BaseScopeResult::None,
                 RawAtom::Symbol(symbol) => match symbol.kind {
-                    SymbolKind::EntityPath(_) => todo!(),
+                    SymbolKind::EntityPath(path) => BaseScopeResult::Some(path),
                     SymbolKind::Unrecognized => BaseScopeResult::Uncertain,
                     _ => BaseScopeResult::None,
                 },

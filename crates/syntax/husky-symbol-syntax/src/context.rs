@@ -19,10 +19,14 @@ impl<'a> SymbolContext<'a> {
     }
 
     pub fn resolve_ident(&self, ident: Identifier) -> Symbol {
-        // ad hoc
-        Symbol {
-            ident,
-            kind: SymbolKind::Unrecognized,
+        if let Some(symbol) = self.symbols.find(|symbol| symbol.ident == ident) {
+            *symbol
+        } else {
+            // ad hoc
+            Symbol {
+                ident,
+                kind: SymbolKind::Unrecognized,
+            }
         }
     }
 }

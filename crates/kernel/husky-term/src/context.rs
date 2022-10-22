@@ -2,12 +2,13 @@ use std::sync::Arc;
 
 use crate::*;
 
-pub(crate) struct TermContext<'a> {
+pub struct TermContext<'a> {
     db: &'a dyn TermDb,
     menu: &'a TermMenu,
 }
 
 impl<'a> TermContext<'a> {
+    #[inline(always)]
     pub fn new(db: &'a dyn TermDb, menu: &'a TermMenu) -> Self {
         Self { db, menu }
     }
