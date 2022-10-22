@@ -2,8 +2,8 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu0 {
-    sort: TermPtr,
-    universe1: TermPtr,
+    sort: TermItd,
+    universe1: TermItd,
 }
 
 impl TermMenu0 {
@@ -13,11 +13,11 @@ impl TermMenu0 {
         TermMenu0 { sort, universe1 }
     }
 
-    pub fn sort(&self) -> TermPtr {
+    pub fn sort(&self) -> TermItd {
         self.sort
     }
 
-    pub fn universe1(&self) -> TermPtr {
+    pub fn universe1(&self) -> TermItd {
         self.universe1
     }
 }

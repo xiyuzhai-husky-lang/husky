@@ -3,12 +3,12 @@ use husky_word::Identifier;
 
 #[derive(PartialEq, Eq, Hash)]
 pub struct TermSubentity {
-    parent: TermPtr,
+    parent: TermItd,
     ident: Identifier,
 }
 
 impl TermSubentity {
-    pub(crate) fn new(db: &dyn TermDb, parent: TermPtr, ident: &str) -> TermPtr {
+    pub(crate) fn new(db: &dyn TermDb, parent: TermItd, ident: &str) -> TermItd {
         db.it_term(
             TermSubentity {
                 parent,

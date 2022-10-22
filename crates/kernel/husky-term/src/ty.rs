@@ -5,7 +5,7 @@ use std::ops::Deref;
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct Ty(TermPtr);
+pub struct Ty(TermItd);
 
 impl std::ops::Deref for Ty {
     type Target = Term;
@@ -16,7 +16,7 @@ impl std::ops::Deref for Ty {
 }
 
 impl Ty {
-    pub(crate) fn new(term: TermPtr) -> TermResult<Self> {
+    pub(crate) fn new(term: TermItd) -> TermResult<Self> {
         if let Some(ty_itd) = term.ty_itd() {
             Self::check_is_category(ty_itd.term())?
         } else {
@@ -25,7 +25,7 @@ impl Ty {
         Ok(Self(term))
     }
 
-    fn check_is_category(term: TermPtr) -> TermResult<()> {
+    fn check_is_category(term: TermItd) -> TermResult<()> {
         match term.deref() {
             Term::Application(app) => match app.m().deref() {
                 Term::Atom(a) => match a.variant() {
@@ -56,7 +56,7 @@ impl Ty {
         }
     }
 
-    pub fn term(self) -> TermPtr {
+    pub fn term(self) -> TermItd {
         self.0
     }
 

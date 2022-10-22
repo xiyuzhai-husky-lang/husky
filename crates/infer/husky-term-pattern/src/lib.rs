@@ -14,7 +14,7 @@ use unresolved::*;
 
 pub enum TermPattern<'a> {
     Unresolved(UnresolvedTerm),
-    Resolved(TermPtr),
+    Resolved(TermItd),
     Application(TermApplicationPattern<'a>),
     Curry(TermCurryPattern<'a>),
 }

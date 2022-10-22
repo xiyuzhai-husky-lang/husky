@@ -2,11 +2,11 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu3 {
-    i32_literal_0: TermPtr,
-    i32_literal_1: TermPtr,
-    i64_literal_0: TermPtr,
-    i64_literal_1: TermPtr,
-    core: TermPtr,
+    i32_literal_0: TermItd,
+    i32_literal_1: TermItd,
+    i64_literal_0: TermItd,
+    i64_literal_1: TermItd,
+    core: TermItd,
     parent: TermMenu2,
 }
 
@@ -33,7 +33,7 @@ impl TermMenu3 {
         }
     }
 
-    pub fn core(&self) -> TermPtr {
+    pub fn core(&self) -> TermItd {
         self.core
     }
 }

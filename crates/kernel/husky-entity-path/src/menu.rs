@@ -14,6 +14,14 @@ pub struct EntityPathMenu {
     parent: EntityPathMenu3,
 }
 
+impl std::ops::Deref for EntityPathMenu {
+    type Target = EntityPathMenu3;
+
+    fn deref(&self) -> &Self::Target {
+        &self.parent
+    }
+}
+
 impl EntityPathMenu {
     pub(crate) fn new(db: &dyn EntityPathDb) -> Self {
         let menu0 = EntityPathMenu0::new(db);

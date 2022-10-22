@@ -1,8 +1,8 @@
 use crate::*;
-use husky_entity_path::EntityPathPtr;
+use husky_entity_path::EntityPathItd;
 use husky_expr_syntax::*;
 use husky_opn_syntax::{BinaryOpr, PureBinaryOpr, RawOpnVariant};
-use husky_term::TermPtr;
+use husky_term::TermItd;
 use husky_word::{Identifier, InternWord};
 
 pub(crate) enum NormalizedExpr<'a> {
@@ -21,7 +21,7 @@ pub(crate) enum NormalizedOpnKind {
     ScopeResolution,
 }
 
-pub struct TraitEntity(TermPtr);
+pub struct TraitEntity(TermItd);
 
 impl<'a> TyInferContext<'a> {
     pub(crate) fn normalized_expr(&self) -> NormalizedExpr<'a> {

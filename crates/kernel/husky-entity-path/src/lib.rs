@@ -12,7 +12,7 @@ use optional::Optioned;
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub struct EntityPath {
-    opt_parent: Optioned<EntityPathPtr>,
+    opt_parent: Optioned<EntityPathItd>,
     ident: Identifier,
 }
 

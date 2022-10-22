@@ -1,11 +1,11 @@
 use crate::*;
 use husky_expr_syntax::{RawExprArena, RawExprIdx, RawExprMap};
-use husky_term::{TermPtr, Ty};
+use husky_term::{TermItd, Ty};
 
 #[derive(Debug)]
 pub struct TyInferSheet {
     ty_results: RawExprMap<InferResult<Ty>>,
-    term_results: RawExprMap<InferResult<TermPtr>>,
+    term_results: RawExprMap<InferResult<TermItd>>,
 }
 
 impl TyInferSheet {
@@ -23,15 +23,15 @@ impl TyInferSheet {
     pub(crate) fn insert_term_infer_result(
         &mut self,
         expr: RawExprIdx,
-        term: InferResult<TermPtr>,
+        term: InferResult<TermItd>,
     ) {
         todo!()
     }
-    pub(crate) fn cached_term(&self, expr: RawExprIdx) -> Option<&InferResult<TermPtr>> {
+    pub(crate) fn cached_term(&self, expr: RawExprIdx) -> Option<&InferResult<TermItd>> {
         self.term_results.get(expr)
     }
 
-    pub(crate) fn cache_term(&mut self, expr: RawExprIdx, term_result: InferResult<TermPtr>) {
+    pub(crate) fn cache_term(&mut self, expr: RawExprIdx, term_result: InferResult<TermItd>) {
         self.term_results.insert_new(expr, term_result)
     }
 }

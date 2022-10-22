@@ -4,7 +4,7 @@ use super::*;
 pub struct EntityPathMenu1 {
     parent: EntityPathMenu0,
     // modules
-    core_marker: EntityPathPtr,
+    core_marker: EntityPathItd,
 }
 
 impl EntityPathMenu1 {
