@@ -1,9 +1,9 @@
 use crate::Term;
-use interner::{DefaultInternedPtr, Interner};
+use interner::{DefaultItd, Interner};
 
 pub type TermInterner = Interner<TermItd>;
 
-pub type TermItd = DefaultInternedPtr<Term, Term>;
+pub type TermItd = DefaultItd<Term, Term>;
 
 pub fn new_term_itr() -> TermInterner {
     TermInterner::new_empty()

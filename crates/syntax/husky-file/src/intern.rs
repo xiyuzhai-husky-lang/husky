@@ -1,10 +1,10 @@
 use std::path::{Path, PathBuf};
 
-use interner::{DefaultInternedPtr, Interner, IsInternPtr};
+use interner::{DefaultItd, Interner, IsInternPtr};
 #[cfg(feature = "lsp_support")]
 use lsp_types::Url;
 
-type FileItdInner = DefaultInternedPtr<Path, PathBuf>;
+type FileItdInner = DefaultItd<Path, PathBuf>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct FileItd(FileItdInner);

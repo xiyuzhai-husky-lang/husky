@@ -26,7 +26,7 @@ pub trait IsInternPtr:
     }
 }
 
-impl<T, Q> Noned for DefaultInternedPtr<T, Q>
+impl<T, Q> Noned for DefaultItd<T, Q>
 where
     T: 'static + ?Sized,
     Q: Sized,
@@ -43,7 +43,7 @@ where
     }
 }
 
-pub struct DefaultInternedPtr<T, Q>
+pub struct DefaultItd<T, Q>
 where
     T: 'static + ?Sized,
     Q: Sized,
@@ -52,7 +52,7 @@ where
     phantom: PhantomData<Q>,
 }
 
-impl<T, Q> DefaultInternedPtr<T, Q>
+impl<T, Q> DefaultItd<T, Q>
 where
     T: 'static + ?Sized,
     Q: Sized,
@@ -74,15 +74,15 @@ where
     }
 }
 
-impl<T: 'static + ?Sized, Q> PartialEq for DefaultInternedPtr<T, Q> {
+impl<T: 'static + ?Sized, Q> PartialEq for DefaultItd<T, Q> {
     fn eq(&self, other: &Self) -> bool {
         (self.target() as *const T) == (other.target() as *const T)
     }
 }
 
-impl<T: 'static + ?Sized, Q> Eq for DefaultInternedPtr<T, Q> {}
+impl<T: 'static + ?Sized, Q> Eq for DefaultItd<T, Q> {}
 
-impl<T: 'static + ?Sized, Q> OptEq for DefaultInternedPtr<T, Q> {
+impl<T: 'static + ?Sized, Q> OptEq for DefaultItd<T, Q> {
     fn opt_eq(&self, other: &Self) -> bool {
         match (self.target, other.target) {
             (None, None) => true,
@@ -94,13 +94,13 @@ impl<T: 'static + ?Sized, Q> OptEq for DefaultInternedPtr<T, Q> {
     }
 }
 
-impl<T: 'static + ?Sized, Q> Hash for DefaultInternedPtr<T, Q> {
+impl<T: 'static + ?Sized, Q> Hash for DefaultItd<T, Q> {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         (self.target.map(|t| t as *const T)).hash(state);
     }
 }
 
-impl<T: 'static + ?Sized, Q> Clone for DefaultInternedPtr<T, Q> {
+impl<T: 'static + ?Sized, Q> Clone for DefaultItd<T, Q> {
     fn clone(&self) -> Self {
         Self {
             target: self.target,
@@ -109,12 +109,12 @@ impl<T: 'static + ?Sized, Q> Clone for DefaultInternedPtr<T, Q> {
     }
 }
 
-impl<T: 'static + ?Sized, Q> Copy for DefaultInternedPtr<T, Q> {}
+impl<T: 'static + ?Sized, Q> Copy for DefaultItd<T, Q> {}
 
-unsafe impl<T: 'static + ?Sized, Q> std::marker::Sync for DefaultInternedPtr<T, Q> {}
-unsafe impl<T: 'static + ?Sized, Q> std::marker::Send for DefaultInternedPtr<T, Q> {}
+unsafe impl<T: 'static + ?Sized, Q> std::marker::Sync for DefaultItd<T, Q> {}
+unsafe impl<T: 'static + ?Sized, Q> std::marker::Send for DefaultItd<T, Q> {}
 
-impl<T: 'static + ?Sized, Q> std::fmt::Debug for DefaultInternedPtr<T, Q>
+impl<T: 'static + ?Sized, Q> std::fmt::Debug for DefaultItd<T, Q>
 where
     T: 'static + Debug,
 {
@@ -123,7 +123,7 @@ where
     }
 }
 
-impl<T: 'static + ?Sized, Q> Deref for DefaultInternedPtr<T, Q> {
+impl<T: 'static + ?Sized, Q> Deref for DefaultItd<T, Q> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
@@ -131,13 +131,13 @@ impl<T: 'static + ?Sized, Q> Deref for DefaultInternedPtr<T, Q> {
     }
 }
 
-impl<T: 'static + ?Sized, Q> Borrow<T> for DefaultInternedPtr<T, Q> {
+impl<T: 'static + ?Sized, Q> Borrow<T> for DefaultItd<T, Q> {
     fn borrow(&self) -> &T {
         self.target()
     }
 }
 
-impl<T, Q> IsInternPtr for DefaultInternedPtr<T, Q>
+impl<T, Q> IsInternPtr for DefaultItd<T, Q>
 where
     T: 'static + Debug + Hash + Eq + ?Sized,
     Q: 'static + Hash + Eq + Send + Sync + Debug + Borrow<T>,

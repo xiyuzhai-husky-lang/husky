@@ -3,7 +3,7 @@ mod internal;
 mod pool;
 mod ptr;
 
-pub use ptr::{DefaultInternedPtr, IsInternPtr};
+pub use ptr::{DefaultItd, IsInternPtr};
 
 use std::{borrow::Borrow, fmt::Debug, hash::Hash, marker::PhantomData};
 use sync_utils::SafeRwLock;
