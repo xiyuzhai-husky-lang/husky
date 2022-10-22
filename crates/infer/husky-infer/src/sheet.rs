@@ -3,12 +3,12 @@ use husky_expr_syntax::{RawExprArena, RawExprIdx, RawExprMap};
 use husky_term::{TermItd, Ty};
 
 #[derive(Debug)]
-pub struct TyInferSheet {
+pub struct InferSheet {
     ty_results: RawExprMap<InferResult<Ty>>,
     term_results: RawExprMap<InferResult<TermItd>>,
 }
 
-impl TyInferSheet {
+impl InferSheet {
     pub(crate) fn new(arena: &RawExprArena) -> Self {
         Self {
             ty_results: RawExprMap::new(arena),

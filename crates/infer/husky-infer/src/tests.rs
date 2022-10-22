@@ -15,9 +15,9 @@ fn test_fake_decl() {
     fn debug_fake_decl(text: &str) -> String {
         let db = InferTestsDb::new();
         let (arena, expr) = db.parse_raw_expr_from_text(text);
-        let mut sheet = TyInferSheet::new(&arena);
+        let mut sheet = InferSheet::new(&arena);
         let term_menu = db.term_menu();
-        let mut ctx = TyInferContext::new(&db, &mut sheet, &arena, expr, &term_menu);
+        let mut ctx = InferContext::new(&db, &mut sheet, &arena, expr, &term_menu);
         let term = ctx.term_result().unwrap();
         format!("{:?}", db.decl(term.path()))
     }
@@ -30,9 +30,9 @@ fn test_infer_ty_works() {
     fn debug_infer_ty(text: &str) -> String {
         let db = InferTestsDb::new();
         let (arena, expr) = db.parse_raw_expr_from_text(text);
-        let mut sheet = TyInferSheet::new(&arena);
+        let mut sheet = InferSheet::new(&arena);
         let term_menu = db.term_menu();
-        TyInferContext::new(&db, &mut sheet, &arena, expr, &term_menu).run();
+        InferContext::new(&db, &mut sheet, &arena, expr, &term_menu).run();
         format!(
             r#"raw expr arena:
 {}

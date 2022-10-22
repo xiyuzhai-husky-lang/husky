@@ -11,7 +11,7 @@ use husky_entity_path::EntityPathItd;
 use husky_text::TextRange;
 use husky_word::*;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct Symbol {
     pub ident: Identifier,
     pub kind: SymbolKind,
