@@ -8,8 +8,11 @@ pub struct EntityPathMenu1 {
 }
 
 impl EntityPathMenu1 {
-    pub(crate) fn new(db: &dyn EntityPathDb, menu0: &EntityPathMenu0) -> Self {
-        todo!()
+    pub(crate) fn new(db: &dyn EntityPathDb, menu0: EntityPathMenu0) -> Self {
+        Self {
+            parent: menu0,
+            core_marker: todo!(),
+        }
     }
 }
 
