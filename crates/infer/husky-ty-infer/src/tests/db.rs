@@ -2,6 +2,7 @@ use super::*;
 use husky_entity_path::{
     new_entity_path_itr, EntityPath, EntityPathInterner, EntityPathPtr, InternEntityPath,
 };
+use husky_expr_syntax::RawExprIdx;
 use husky_symbol_syntax::{SymbolContext, SymbolDb, SymbolDbStorage, SymbolQueries};
 use husky_term::{new_term_itr, AskDecl, TermDb, TermInterner, Ty};
 use husky_term::{InternTerm, TermDbStorage};
@@ -21,6 +22,14 @@ pub(crate) struct TyInferTestsDb {
 impl TyInferTestsDb {
     pub(super) fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
         SymbolContext::new(self)
+    }
+
+    pub(super) fn parse_raw_expr_from_text(&self, text: &str) -> (RawExprArena, RawExprIdx) {
+        let tokens = self.tokenize_line(text);
+        let mut arena = RawExprArena::new();
+        let mut symbol_ctx = self.fake_symbol_ctx();
+        let expr = parse_raw_expr(&mut symbol_ctx, &mut arena, &tokens);
+        (arena, expr)
     }
 }
 

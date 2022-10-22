@@ -1,9 +1,11 @@
 use thiserror::Error;
 
 #[derive(Error, Debug)]
-pub enum TyInferError {
+pub enum InferError {
     #[error("ident unrecognized")]
     IdentUnrecognized,
+    #[error("derived")]
+    Derived,
 }
 
-pub type TyInferResult<T> = Result<T, TyInferError>;
+pub type InferResult<T> = Result<T, InferError>;

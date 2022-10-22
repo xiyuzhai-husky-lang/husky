@@ -6,25 +6,25 @@ use husky_symbol_syntax::SymbolKind;
 use husky_term::Ty;
 
 impl<'a> TyInferContext<'a> {
-    pub(crate) fn infer(&mut self) -> TyInferResult<Ty> {
+    pub(crate) fn infer(&mut self) -> InferResult<Ty> {
         match self.normalized_expr() {
             NormalizedExpr::Atom(atom) => self.infer_atom(atom),
             NormalizedExpr::Opn { opn_kind, opds } => self.infer_opn(opn_kind, opds),
         }
     }
 
-    fn infer_subexpr(&mut self, subexpr: RawExprIdx) -> TyInferResult<Ty> {
+    fn infer_subexpr(&mut self, subexpr: RawExprIdx) -> InferResult<Ty> {
         self.subexpr_context(subexpr).infer()
     }
 
-    fn infer_atom(&self, atom: &RawAtom) -> TyInferResult<Ty> {
+    fn infer_atom(&self, atom: &RawAtom) -> InferResult<Ty> {
         match atom {
             RawAtom::Literal(literal) => Ok(self.infer_literal(literal)),
             RawAtom::Symbol(symbol) => match symbol.kind {
                 SymbolKind::EntityPath(_) => todo!(),
                 SymbolKind::LocalVariable { init_range } => todo!(),
                 SymbolKind::FrameVariable { init_range } => todo!(),
-                SymbolKind::Unrecognized => Err(TyInferError::IdentUnrecognized),
+                SymbolKind::Unrecognized => Err(InferError::IdentUnrecognized),
                 SymbolKind::ThisValue => todo!(),
                 SymbolKind::ThisMethod => todo!(),
                 SymbolKind::ThisField => todo!(),
@@ -33,7 +33,7 @@ impl<'a> TyInferContext<'a> {
         }
     }
 
-    fn infer_opn(&mut self, opn_kind: NormalizedOpnKind, opds: RawExprRange) -> TyInferResult<Ty> {
+    fn infer_opn(&mut self, opn_kind: NormalizedOpnKind, opds: RawExprRange) -> InferResult<Ty> {
         match opn_kind {
             NormalizedOpnKind::ApplyMethod {
                 opt_trait_entity,
