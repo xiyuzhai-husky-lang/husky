@@ -7,7 +7,7 @@ pub struct EntityPathMenu3 {
 
 impl EntityPathMenu3 {
     pub(crate) fn new(db: &dyn EntityPathDb, menu2: EntityPathMenu2) -> Self {
-        todo!()
+        Self { parent: menu2 }
     }
 }
 

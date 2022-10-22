@@ -2,13 +2,16 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityPathMenu2 {
-    parent: EntityPathMenu1,
     core_marker_sized: EntityPathItd,
+    parent: EntityPathMenu1,
 }
 
 impl EntityPathMenu2 {
     pub(crate) fn new(db: &dyn EntityPathDb, menu1: EntityPathMenu1) -> Self {
-        todo!()
+        Self {
+            core_marker_sized: menu1.core_marker().child(db, "Sized"),
+            parent: menu1,
+        }
     }
 }
 
