@@ -5,7 +5,7 @@ use ordered_float::OrderedFloat;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-pub struct TermLiteral(TermPtr);
+pub struct TermLiteral(TermItd);
 
 impl std::ops::Deref for TermLiteral {
     type Target = Term;
@@ -44,14 +44,14 @@ impl TermLiteral {
         }
     }
 
-    pub fn i32_literal(db: &dyn TermDb, i: i32, menu2: &TermMenu2) -> TermPtr {
+    pub fn i32_literal(db: &dyn TermDb, i: i32, menu2: &TermMenu2) -> TermItd {
         db.it_term(Term::Atom(TermAtom::new_literal(
             TermLiteralData::I32(i),
             menu2.i32(),
         )))
     }
 
-    pub fn i64_literal(db: &dyn TermDb, i: i64, menu2: &TermMenu2) -> TermPtr {
+    pub fn i64_literal(db: &dyn TermDb, i: i64, menu2: &TermMenu2) -> TermItd {
         db.it_term(Term::Atom(TermAtom::new_literal(
             TermLiteralData::I64(i),
             menu2.i64(),

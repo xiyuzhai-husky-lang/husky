@@ -6,7 +6,7 @@ use crate::*;
 pub enum TermVariableVariant {}
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-pub struct TermVariable(TermPtr);
+pub struct TermVariable(TermItd);
 
 impl TermVariable {
     pub fn ty(&self) -> Ty {

@@ -4,7 +4,7 @@ use crate::*;
 
 pub(crate) enum TermCow {
     Owned(Term),
-    Ptr(TermPtr),
+    Ptr(TermItd),
 }
 
 impl std::fmt::Debug for TermCow {
@@ -19,8 +19,8 @@ impl From<Term> for TermCow {
     }
 }
 
-impl From<TermPtr> for TermCow {
-    fn from(ptr: TermPtr) -> Self {
+impl From<TermItd> for TermCow {
+    fn from(ptr: TermItd) -> Self {
         Self::Ptr(ptr)
     }
 }

@@ -8,7 +8,7 @@ use std::ops::Deref;
 
 pub use category::*;
 pub use entity::*;
-use husky_entity_path::EntityPathPtr;
+use husky_entity_path::EntityPathItd;
 pub use literal::*;
 pub use universe::*;
 pub use variable::*;
@@ -34,7 +34,7 @@ pub enum TermAtomVariant {
         variable_variant: TermVariableVariant,
     },
     Entity {
-        path: EntityPathPtr,
+        path: EntityPathItd,
     },
     Category(TermCategory),
     Universe(TermUniverse),

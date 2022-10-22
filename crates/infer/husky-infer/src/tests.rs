@@ -13,7 +13,7 @@ fn test_fake_decl() {
     expect_test::<String, _>("fake-decl", debug_fake_decl);
 
     fn debug_fake_decl(text: &str) -> String {
-        let mut db = TyInferTestsDb::new();
+        let db = InferTestsDb::new();
         let (arena, expr) = db.parse_raw_expr_from_text(text);
         let mut sheet = TyInferSheet::new(&arena);
         let term_menu = db.term_menu();
@@ -28,7 +28,7 @@ fn test_infer_ty_works() {
     // expect_test::<String, _>("", debug_infer_ty);
 
     fn debug_infer_ty(text: &str) -> String {
-        let mut db = TyInferTestsDb::new();
+        let db = InferTestsDb::new();
         let (arena, expr) = db.parse_raw_expr_from_text(text);
         let mut sheet = TyInferSheet::new(&arena);
         let term_menu = db.term_menu();

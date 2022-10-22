@@ -3,7 +3,7 @@ use optional::{Noned, OptEq};
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
-pub struct TermNamespace(TermPtr);
+pub struct TermNamespace(TermItd);
 
 impl Noned for TermNamespace {
     fn is_none(&self) -> bool {
@@ -11,7 +11,7 @@ impl Noned for TermNamespace {
     }
 
     fn get_none() -> Self {
-        Self(TermPtr::get_none())
+        Self(TermItd::get_none())
     }
 }
 

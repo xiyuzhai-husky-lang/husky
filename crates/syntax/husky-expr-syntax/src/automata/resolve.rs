@@ -1,7 +1,7 @@
 use super::*;
 use husky_print_utils::p;
 use husky_symbol_syntax::Symbol;
-use husky_term::TermPtr;
+use husky_term::TermItd;
 use husky_token::{Convexity, SpecialToken};
 
 impl<'a> Automata<'a> {
@@ -73,11 +73,11 @@ impl<'a> Automata<'a> {
         self.ctx.resolve_ident(ident).into()
     }
 
-    fn resolve_previous_entity(&self) -> Option<TermPtr> {
+    fn resolve_previous_entity(&self) -> Option<TermItd> {
         self.stack.top_expr().map(|expr| self.resolve_entity(expr))
     }
 
-    fn resolve_entity(&self, expr: &RawExpr) -> TermPtr {
+    fn resolve_entity(&self, expr: &RawExpr) -> TermItd {
         match expr.variant {
             RawExprVariant::Atom(ref atom) => match atom {
                 RawAtom::Literal(_) => todo!(),

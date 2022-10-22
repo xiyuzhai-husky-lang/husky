@@ -1,8 +1,8 @@
 use crate::*;
-use husky_entity_path::EntityPathPtr;
+use husky_entity_path::EntityPathItd;
 
 impl Term {
-    pub fn path(&self) -> EntityPathPtr {
+    pub fn path(&self) -> EntityPathItd {
         todo!()
     }
 }

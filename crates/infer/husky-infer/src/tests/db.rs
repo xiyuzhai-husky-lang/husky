@@ -1,27 +1,37 @@
 use super::*;
 use husky_entity_path::{
-    new_entity_path_itr, EntityPath, EntityPathInterner, EntityPathPtr, InternEntityPath,
+    new_entity_path_itr, EntityPath, EntityPathDb, EntityPathDbStorage, EntityPathInterner,
+    EntityPathItd, InternEntityPath,
 };
 use husky_expr_syntax::RawExprIdx;
-use husky_symbol_syntax::{SymbolContext, SymbolDb, SymbolDbStorage, SymbolQueries};
+use husky_symbol_syntax::{
+    Symbol, SymbolContext, SymbolDb, SymbolDbStorage, SymbolKind, SymbolQueries,
+};
 use husky_term::{new_term_itr, AskDecl, TermDb, TermInterner, Ty};
 use husky_term::{InternTerm, TermDbStorage};
-use husky_word::{InternWord, WordInterner};
+use husky_word::{InternWord, RootBuiltinIdentifier, WordInterner};
 use salsa::Database;
 use std::collections::HashMap;
 
-#[salsa::database(TermDbStorage, SymbolDbStorage, TyInferDbStorage)]
-pub(crate) struct TyInferTestsDb {
+#[salsa::database(TermDbStorage, SymbolDbStorage, InferDbStorage, EntityPathDbStorage)]
+pub(crate) struct InferTestsDb {
     storage: salsa::Storage<Self>,
     term_itr: TermInterner,
     entity_path_itr: EntityPathInterner,
     word_itr: WordInterner,
-    entity_tys: HashMap<EntityPathPtr, Ty>,
+    entity_tys: HashMap<EntityPathItd, Ty>,
 }
 
-impl TyInferTestsDb {
-    pub(super) fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
-        SymbolContext::new(self)
+impl InferTestsDb {
+    pub fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
+        let mut ctx = SymbolContext::new(self);
+        let entity_path_menu = self.entity_path_menu();
+        ctx.define_symbol(Symbol {
+            ident: RootBuiltinIdentifier::Core.into(),
+            kind: SymbolKind::EntityPath(entity_path_menu.core()),
+        });
+        /* do something with ctx */
+        ctx
     }
 
     pub(super) fn parse_raw_expr_from_text(&self, text: &str) -> (RawExprArena, RawExprIdx) {
@@ -33,29 +43,29 @@ impl TyInferTestsDb {
     }
 }
 
-impl Database for TyInferTestsDb {}
+impl Database for InferTestsDb {}
 
-impl InternTerm for TyInferTestsDb {
+impl InternTerm for InferTestsDb {
     fn term_itr(&self) -> &TermInterner {
         &self.term_itr
     }
 }
 
-impl InternEntityPath for TyInferTestsDb {
+impl InternEntityPath for InferTestsDb {
     fn entity_path_itr(&self) -> &husky_entity_path::EntityPathInterner {
         &self.entity_path_itr
     }
 }
 
-impl InternWord for TyInferTestsDb {
+impl InternWord for InferTestsDb {
     fn word_itr(&self) -> &husky_word::WordInterner {
         &self.word_itr
     }
 }
 
-impl SymbolQueries for TyInferTestsDb {}
+impl SymbolQueries for InferTestsDb {}
 
-impl AskDecl for TyInferTestsDb {
+impl AskDecl for InferTestsDb {
     fn ask_namespace_decl(
         &self,
         namespace: husky_term::TermNamespace,
@@ -68,7 +78,7 @@ impl AskDecl for TyInferTestsDb {
     }
 }
 
-impl TyInferTestsDb {
+impl InferTestsDb {
     pub(crate) fn new() -> Self {
         let mut db = Self {
             storage: Default::default(),
@@ -114,8 +124,8 @@ impl TyInferTestsDb {
     }
 }
 
-impl TyInferQueries for TyInferTestsDb {
-    fn infer_entity_ty(&self, entity: EntityPathPtr) -> Ty {
+impl TyInferQueries for InferTestsDb {
+    fn infer_entity_ty(&self, entity: EntityPathItd) -> Ty {
         self.entity_tys[&entity]
     }
 }

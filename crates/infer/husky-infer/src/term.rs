@@ -1,10 +1,10 @@
 use crate::*;
 use husky_expr_syntax::{RawAtom, RawExprIdx, RawExprVariant};
 use husky_symbol_syntax::SymbolKind;
-use husky_term::TermPtr;
+use husky_term::TermItd;
 
 impl<'a> TyInferContext<'a> {
-    pub(crate) fn term_result<'b>(&'b mut self) -> Result<TermPtr, ()> {
+    pub(crate) fn term_result<'b>(&'b mut self) -> Result<TermItd, ()> {
         match self.cached_term_result() {
             Some(term_result) => match term_result {
                 Ok(t) => Ok(*t),
@@ -22,7 +22,7 @@ impl<'a> TyInferContext<'a> {
         }
     }
 
-    fn infer_term(&mut self) -> InferResult<TermPtr> {
+    fn infer_term(&mut self) -> InferResult<TermItd> {
         let expr = self.expr();
         match expr.variant {
             RawExprVariant::Atom(ref atom) => match atom {

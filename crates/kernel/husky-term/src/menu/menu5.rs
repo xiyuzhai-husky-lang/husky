@@ -3,33 +3,33 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu5 {
     // Add	The addition operator +.
-    core_ops_add: TermPtr,
+    core_ops_add: TermItd,
     // AddAssign	The addition assignment operator +=.
-    core_ops_add_assign: TermPtr,
+    core_ops_add_assign: TermItd,
     // BitAnd	The bitwise AND operator &.
-    core_ops_bit_and: TermPtr,
+    core_ops_bit_and: TermItd,
     // BitAndAssign	The bitwise AND assignment operator &=.
-    core_ops_bit_and_assign: TermPtr,
+    core_ops_bit_and_assign: TermItd,
     // BitOr	The bitwise OR operator |.
-    core_ops_bit_or: TermPtr,
+    core_ops_bit_or: TermItd,
     // BitOrAssign	The bitwise OR assignment operator |=.
-    core_ops_bit_or_assign: TermPtr,
+    core_ops_bit_or_assign: TermItd,
     // BitXor	The bitwise XOR operator ^.
-    core_ops_bit_xor: TermPtr,
+    core_ops_bit_xor: TermItd,
     // BitXorAssign	The bitwise XOR assignment operator ^=.
-    core_ops_bit_xor_assign: TermPtr,
+    core_ops_bit_xor_assign: TermItd,
     // Div	The division operator /.
-    core_ops_div: TermPtr,
+    core_ops_div: TermItd,
     // DivAssign	The division assignment operator /=.
-    core_ops_div_assign: TermPtr,
+    core_ops_div_assign: TermItd,
     // Mul	The multiplication operator *.
-    core_ops_mul: TermPtr,
+    core_ops_mul: TermItd,
     // MulAssign	The multiplication assignment operator *=.
-    core_ops_mul_assign: TermPtr,
+    core_ops_mul_assign: TermItd,
     // Neg	The unary negation operator -.
-    core_ops_neg: TermPtr,
+    core_ops_neg: TermItd,
     // Not	The unary logical negation operator !.
-    core_ops_not: TermPtr,
+    core_ops_not: TermItd,
     parent: TermMenu4,
 }
 
@@ -65,62 +65,62 @@ impl TermMenu5 {
 
     // Add	The addition operator +.
 
-    pub fn core_ops_add(&self) -> TermPtr {
+    pub fn core_ops_add(&self) -> TermItd {
         self.core_ops_add
     }
 
     // AddAssign	The addition assignment operator +=.
 
-    pub fn core_ops_add_assign(&self) -> TermPtr {
+    pub fn core_ops_add_assign(&self) -> TermItd {
         self.core_ops_add_assign
     }
 
     // BitAnd	The bitwise AND operator &.
-    pub fn core_ops_bit_and(&self) -> TermPtr {
+    pub fn core_ops_bit_and(&self) -> TermItd {
         self.core_ops_bit_and
     }
     // BitAndAssign	The bitwise AND assignment operator &=.
-    pub fn core_ops_bit_and_assign(&self) -> TermPtr {
+    pub fn core_ops_bit_and_assign(&self) -> TermItd {
         self.core_ops_bit_and_assign
     }
     // BitOr	The bitwise OR operator |.
-    pub fn core_ops_bit_or(&self) -> TermPtr {
+    pub fn core_ops_bit_or(&self) -> TermItd {
         self.core_ops_bit_or
     }
     // BitOrAssign	The bitwise OR assignment operator |=.
-    pub fn core_ops_bit_or_assign(&self) -> TermPtr {
+    pub fn core_ops_bit_or_assign(&self) -> TermItd {
         self.core_ops_bit_or_assign
     }
     // BitXor	The bitwise XOR operator ^.
-    pub fn core_ops_bit_xor(&self) -> TermPtr {
+    pub fn core_ops_bit_xor(&self) -> TermItd {
         self.core_ops_bit_xor
     }
     // BitXorAssign	The bitwise XOR assignment operator ^=.
-    pub fn core_ops_bit_xor_assign(&self) -> TermPtr {
+    pub fn core_ops_bit_xor_assign(&self) -> TermItd {
         self.core_ops_bit_or_assign
     }
     // Div	The division operator /.
-    pub fn core_ops_div(&self) -> TermPtr {
+    pub fn core_ops_div(&self) -> TermItd {
         self.core_ops_div
     }
     // DivAssign	The division assignment operator /=.
-    pub fn core_ops_div_assign(&self) -> TermPtr {
+    pub fn core_ops_div_assign(&self) -> TermItd {
         self.core_ops_div_assign
     }
     // Mul	The multiplication operator *.
-    pub fn core_ops_mul(&self) -> TermPtr {
+    pub fn core_ops_mul(&self) -> TermItd {
         self.core_ops_mul
     }
     // MulAssign	The multiplication assignment operator *=.
-    pub fn core_ops_mul_assign(&self) -> TermPtr {
+    pub fn core_ops_mul_assign(&self) -> TermItd {
         self.core_ops_mul_assign
     }
     // Neg	The unary negation operator -.
-    pub fn core_ops_neg(&self) -> TermPtr {
+    pub fn core_ops_neg(&self) -> TermItd {
         self.core_ops_neg
     }
     // Not	The unary logical negation operator !.
-    pub fn core_ops_not(&self) -> TermPtr {
+    pub fn core_ops_not(&self) -> TermItd {
         self.core_ops_not
     }
 }

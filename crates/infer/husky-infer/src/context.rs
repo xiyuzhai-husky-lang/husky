@@ -1,6 +1,6 @@
 use crate::*;
 use husky_expr_syntax::{RawExpr, RawExprArena, RawExprIdx, RawExprVariant};
-use husky_term::{TermMenu, TermPtr, Ty};
+use husky_term::{TermItd, TermMenu, Ty};
 use husky_word::InternWord;
 
 pub(crate) struct TyInferContext<'a> {
@@ -60,14 +60,14 @@ impl<'a> TyInferContext<'a> {
         self.term_menu
     }
 
-    fn infer_entity_ty(&self, entity: husky_entity_path::EntityPathPtr) -> husky_term::Ty {
+    fn infer_entity_ty(&self, entity: husky_entity_path::EntityPathItd) -> husky_term::Ty {
         self.db.entity_ty(entity)
     }
 
-    pub(crate) fn cached_term_result(&self) -> Option<&InferResult<TermPtr>> {
+    pub(crate) fn cached_term_result(&self) -> Option<&InferResult<TermItd>> {
         self.sheet.cached_term(self.expr)
     }
-    pub(crate) fn cache_term_result(&mut self, term_result: InferResult<TermPtr>) {
+    pub(crate) fn cache_term_result(&mut self, term_result: InferResult<TermItd>) {
         self.sheet.cache_term(self.expr, term_result)
     }
 }

@@ -5,11 +5,11 @@ use RootBuiltinIdentifier::*;
 use crate::*;
 
 impl Term {
-    pub(crate) fn std(db: &dyn TermDb, menu2: &TermMenu2) -> TermPtr {
+    pub(crate) fn std(db: &dyn TermDb, menu2: &TermMenu2) -> TermItd {
         Self::root_builtin_entity(db, Std, todo!())
     }
 
-    pub(crate) fn core(db: &dyn TermDb, menu2: &TermMenu2) -> TermPtr {
+    pub(crate) fn core(db: &dyn TermDb, menu2: &TermMenu2) -> TermItd {
         Self::root_builtin_entity(db, Core, menu2.module())
     }
 
@@ -17,7 +17,7 @@ impl Term {
         db: &dyn TermDb,
         ident: RootBuiltinIdentifier,
         ty: Ty,
-    ) -> TermPtr {
+    ) -> TermItd {
         db.it_term(
             TermAtom {
                 variant: TermAtomVariant::Entity {

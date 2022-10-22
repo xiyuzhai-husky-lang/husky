@@ -22,7 +22,7 @@ count-todo:
 update-expect:
 	UPDATE_EXPECT=1 cargo test --package husky-token -j 1 -- --nocapture
 	UPDATE_EXPECT=1 cargo test --package husky-expr-syntax -j 1 -- --nocapture
-	UPDATE_EXPECT=1 cargo test --package husky-ty-infer -j 1 -- --nocapture
+	UPDATE_EXPECT=1 cargo test --package husky-infer -j 1 -- --nocapture
 
 ubuntu-setup:
 	scripts/ubuntu_setup.sh

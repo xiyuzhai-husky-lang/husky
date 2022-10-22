@@ -3,7 +3,7 @@ mod root;
 
 pub use namespace::*;
 
-use husky_entity_path::EntityPathPtr;
+use husky_entity_path::EntityPathItd;
 
 use husky_word::{Identifier, RootBuiltinIdentifier};
 use optional::Optioned;
@@ -12,7 +12,7 @@ use crate::{Term, TermDb, Ty};
 
 // #[derive(Debug, PartialEq, Eq, Hash)]
 // pub struct TermEntity {
-//     path: EntityPathPtr,
+//     path: EntityPathItd,
 //     ty: Ty,
 // }
 
@@ -21,7 +21,7 @@ use crate::{Term, TermDb, Ty};
 //         self.ty
 //     }
 
-//     pub fn path(&self) -> EntityPathPtr {
+//     pub fn path(&self) -> EntityPathItd {
 //         self.path
 //     }
 // }

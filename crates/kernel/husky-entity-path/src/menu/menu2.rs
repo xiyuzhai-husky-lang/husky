@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityPathMenu2 {
     parent: EntityPathMenu1,
-    core_marker_sized: EntityPathPtr,
+    core_marker_sized: EntityPathItd,
 }
 
 impl EntityPathMenu2 {

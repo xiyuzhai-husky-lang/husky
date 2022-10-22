@@ -2,7 +2,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu4 {
-    core_ops: TermPtr,
+    core_ops: TermItd,
     parent: TermMenu3,
 }
 
@@ -22,7 +22,7 @@ impl TermMenu4 {
         }
     }
 
-    pub fn core_ops(&self) -> TermPtr {
+    pub fn core_ops(&self) -> TermItd {
         self.core_ops
     }
 }
