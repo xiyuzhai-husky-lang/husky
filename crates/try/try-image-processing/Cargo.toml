@@ -1,0 +1,22 @@
+[package]
+name = "try-image-processing"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+
+[dependencies]
+show-image = "0.13.1"
+image = { version = "0.24.1" }
+clap = { version = "4.0.18", features = ["derive"] }
+
+[dev-dependencies]
+
+[[bin]]
+name = "try-image-processing-main"
+path = "src/bin/main.rs"
+
+[[bin]]
+name = "digitize"
+path = "src/bin/digitize.rs"

@@ -26,3 +26,9 @@ update-expect:
 
 ubuntu-setup:
 	scripts/ubuntu_setup.sh
+
+test-digitize:
+	cargo run --bin digitize -- data/typical-huskies0/n02109961_57.JPEG
+
+test-digitize-ultraman:
+	cargo run --bin digitize -- data/ultraman/leo/images.jpeg
