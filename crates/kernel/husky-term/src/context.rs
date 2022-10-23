@@ -1,3 +1,4 @@
+use husky_entity_path::EntityPathItd;
 use std::sync::Arc;
 
 use crate::*;
@@ -20,6 +21,14 @@ impl<'a> TermContext<'a> {
         Self {
             db: provider.term_db(),
             menu: provider.term_menu(),
+        }
+    }
+
+    pub fn entity_ty(&self, entity_path: EntityPathItd) -> TermResult<Ty> {
+        let decl = self.db.ask_decl(entity_path)?;
+        match entity_path.opt_parent() {
+            Some(_) => todo!(),
+            None => todo!(),
         }
     }
 }

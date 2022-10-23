@@ -62,4 +62,8 @@ impl AskDecl for TermTestsDb {
     fn ask_ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl> {
         Ok(self.ty_decls[&ty].clone())
     }
+
+    fn ask_decl(&self, entity_path: EntityPathItd) -> TermResultArc<Decl> {
+        todo!()
+    }
 }

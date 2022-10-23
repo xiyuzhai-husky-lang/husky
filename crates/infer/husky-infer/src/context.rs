@@ -78,6 +78,6 @@ impl<'a> InferContext<'a> {
     }
 
     pub(crate) fn entity_path_term(&self, path: EntityPathItd) -> InferResult<TermItd> {
-        Ok(self.term_ctx().entity_path_term(path))
+        self.term_ctx().entity_path_term(path).map_err(|e| e.into())
     }
 }

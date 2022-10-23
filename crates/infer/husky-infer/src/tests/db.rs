@@ -7,11 +7,11 @@ use husky_expr_syntax::RawExprIdx;
 use husky_symbol_syntax::{
     Symbol, SymbolContext, SymbolDb, SymbolDbStorage, SymbolKind, SymbolQueries,
 };
-use husky_term::{new_term_itr, AskDecl, TermDb, TermInterner, Ty};
+use husky_term::{new_term_itr, AskDecl, Decl, TermDb, TermError, TermInterner, TermResultArc, Ty};
 use husky_term::{InternTerm, TermDbStorage};
 use husky_word::{InternWord, RootBuiltinIdentifier, WordInterner};
 use salsa::Database;
-use std::collections::HashMap;
+use std::{collections::HashMap, sync::Arc};
 use upcast::Upcast;
 
 #[salsa::database(TermDbStorage, SymbolDbStorage, InferDbStorage, EntityPathDbStorage)]
@@ -21,6 +21,7 @@ pub(crate) struct InferTestsDb {
     entity_path_itr: EntityPathInterner,
     word_itr: WordInterner,
     entity_tys: HashMap<EntityPathItd, Ty>,
+    decls: HashMap<EntityPathItd, Arc<Decl>>,
 }
 
 impl Upcast<dyn TermDb> for InferTestsDb {
@@ -76,12 +77,18 @@ impl AskDecl for InferTestsDb {
     fn ask_namespace_decl(
         &self,
         namespace: husky_term::TermNamespace,
-    ) -> husky_term::TermResultArc<husky_term::NamespaceDecl> {
+    ) -> TermResultArc<husky_term::NamespaceDecl> {
         todo!()
     }
 
-    fn ask_ty_decl(&self, ty: Ty) -> husky_term::TermResultArc<husky_term::TyDecl> {
+    fn ask_ty_decl(&self, ty: Ty) -> TermResultArc<husky_term::TyDecl> {
         todo!()
+    }
+
+    fn ask_decl(&self, entity_path: EntityPathItd) -> TermResultArc<husky_term::Decl> {
+        self.decls
+            .get(&entity_path)
+            .map_or(Err(TermError::NoDeclForEntityPath), |decl| Ok(decl.clone()))
     }
 }
 
@@ -93,6 +100,7 @@ impl InferTestsDb {
             entity_path_itr: Default::default(),
             word_itr: Default::default(),
             entity_tys: Default::default(),
+            decls: Default::default(),
         };
         db.init();
         db

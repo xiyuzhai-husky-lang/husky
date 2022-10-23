@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_path::EntityPathItd;
-use husky_term::{TermDb, Ty};
+use husky_term::{Decl, TermDb, Ty};
 use husky_word::InternWord;
 use std::sync::Arc;
 use upcast::Upcast;

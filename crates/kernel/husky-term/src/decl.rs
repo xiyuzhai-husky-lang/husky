@@ -4,6 +4,13 @@ use husky_word::IdentPairDict;
 pub trait AskDecl {
     fn ask_namespace_decl(&self, namespace: TermNamespace) -> TermResultArc<NamespaceDecl>;
     fn ask_ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl>;
+    fn ask_decl(&self, entity_path: EntityPathItd) -> TermResultArc<Decl>;
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum Decl {
+    Module,
+    Ty(TyDecl),
 }
 
 #[derive(Debug, PartialEq, Eq)]
