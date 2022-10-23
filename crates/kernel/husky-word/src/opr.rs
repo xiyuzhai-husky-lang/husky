@@ -10,9 +10,9 @@ pub enum WordOpr {
     Be,
 }
 
-impl From<WordOpr> for WordPtr {
+impl From<WordOpr> for Word {
     fn from(ident: WordOpr) -> Self {
-        WordPtr::Opr(ident)
+        Word::Opr(ident)
     }
 }
 

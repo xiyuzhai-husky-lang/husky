@@ -269,7 +269,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
         }
     }
 
-    fn take_buffer_word(&mut self) -> husky_word::WordPtr {
+    fn take_buffer_word(&mut self) -> husky_word::Word {
         let word = self.word_interner.intern(std::mem::take(&mut self.buffer));
         self.buffer.clear();
         word
