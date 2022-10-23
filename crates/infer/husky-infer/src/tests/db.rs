@@ -1,13 +1,16 @@
 use super::*;
 use husky_entity_path::{
     new_entity_path_itr, EntityPath, EntityPathDb, EntityPathDbStorage, EntityPathInterner,
-    EntityPathItd, InternEntityPath,
+    EntityPathItd, EntityPathMenu, InternEntityPath,
 };
 use husky_expr_syntax::RawExprIdx;
 use husky_symbol_syntax::{
     Symbol, SymbolContext, SymbolDb, SymbolDbStorage, SymbolKind, SymbolQueries,
 };
-use husky_term::{new_term_itr, AskDecl, Decl, TermDb, TermError, TermInterner, TermResultArc, Ty};
+use husky_term::{
+    new_term_itr, AskDecl, Decl, TermDb, TermError, TermInterner, TermMenu, TermResult,
+    TermResultArc, Ty, TyDecl,
+};
 use husky_term::{InternTerm, TermDbStorage};
 use husky_word::{InternWord, RootBuiltinIdentifier, WordInterner};
 use salsa::Database;
@@ -81,11 +84,11 @@ impl AskDecl for InferTestsDb {
         todo!()
     }
 
-    fn ask_ty_decl(&self, ty: Ty) -> TermResultArc<husky_term::TyDecl> {
+    fn ask_ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl> {
         todo!()
     }
 
-    fn ask_decl(&self, entity_path: EntityPathItd) -> TermResultArc<husky_term::Decl> {
+    fn ask_decl(&self, entity_path: EntityPathItd) -> TermResultArc<Decl> {
         self.decls
             .get(&entity_path)
             .map_or(Err(TermError::NoDeclForEntityPath), |decl| Ok(decl.clone()))
@@ -107,35 +110,38 @@ impl InferTestsDb {
     }
 
     fn init(&mut self) {
+        let entity_path_menu = self.entity_path_menu();
         let term_menu = self.term_menu();
-        assert!(self
-            .entity_tys
-            .insert(
-                self.it_entity_path(EntityPath::root(self.it_ident("i32"))),
-                term_menu.i32(),
-            )
-            .is_none());
-        assert!(self
-            .entity_tys
-            .insert(
-                self.it_entity_path(EntityPath::root(self.it_ident("i64"))),
-                term_menu.i64(),
-            )
-            .is_none());
-        assert!(self
-            .entity_tys
-            .insert(
-                self.it_entity_path(EntityPath::root(self.it_ident("f32"))),
-                term_menu.f32(),
-            )
-            .is_none());
-        assert!(self
-            .entity_tys
-            .insert(
-                self.it_entity_path(EntityPath::root(self.it_ident("f64"))),
-                term_menu.f64(),
-            )
-            .is_none());
+        self.init_entity_tys(&entity_path_menu, &term_menu);
+        self.init_decls(&entity_path_menu)
+    }
+
+    fn init_entity_tys(&mut self, entity_path_menu: &EntityPathMenu, term_menu: &TermMenu) {
+        self.entity_tys.extend([
+            (entity_path_menu.i32(), term_menu.ty0()),
+            (entity_path_menu.i64(), term_menu.ty0()),
+            (entity_path_menu.b32(), term_menu.ty0()),
+            (entity_path_menu.b64(), term_menu.ty0()),
+            (entity_path_menu.f32(), term_menu.ty0()),
+            (entity_path_menu.f64(), term_menu.ty0()),
+        ]);
+    }
+
+    fn init_decls(&mut self, entity_path_menu: &EntityPathMenu) {
+        self.decls.extend(
+            [
+                (entity_path_menu.core(), Decl::Module),
+                (entity_path_menu.std(), Decl::Module),
+                // (entity_path_menu.i32(), Decl::Module),
+                // (entity_path_menu.i64(), term_menu.ty0()),
+                // (entity_path_menu.b32(), term_menu.ty0()),
+                // (entity_path_menu.b64(), term_menu.ty0()),
+                // (entity_path_menu.f32(), term_menu.ty0()),
+                // (entity_path_menu.f64(), term_menu.ty0()),
+            ]
+            .into_iter()
+            .map(|(entity_path, decl)| (entity_path, Arc::new(decl))),
+        );
     }
 }
 

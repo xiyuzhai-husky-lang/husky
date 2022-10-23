@@ -26,10 +26,13 @@ impl<'a> TermContext<'a> {
 
     pub fn entity_ty(&self, entity_path: EntityPathItd) -> TermResult<Ty> {
         let decl = self.db.ask_decl(entity_path)?;
-        match entity_path.opt_parent() {
+        Ok(match entity_path.opt_parent() {
             Some(_) => todo!(),
-            None => todo!(),
-        }
+            None => match *decl {
+                Decl::Module => self.menu.module(),
+                Decl::Ty(_) => todo!(),
+            },
+        })
     }
 }
 

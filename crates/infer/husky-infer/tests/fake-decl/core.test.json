@@ -1,5 +1,6 @@
 [
-    {
-        "input": "core"
-    }
+  {
+    "input": "core",
+    "output": "Ok(Module)"
+  }
 ]
