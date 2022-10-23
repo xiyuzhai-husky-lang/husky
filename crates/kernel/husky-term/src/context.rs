@@ -30,7 +30,13 @@ impl<'a> TermContext<'a> {
             Some(_) => todo!(),
             None => match *decl {
                 Decl::Module => self.menu.module(),
-                Decl::Ty(_) => todo!(),
+                Decl::Ty(ref ty_decl) => {
+                    if ty_decl.parameters().len() == 0 {
+                        self.menu.ty0()
+                    } else {
+                        todo!()
+                    }
+                }
             },
         })
     }

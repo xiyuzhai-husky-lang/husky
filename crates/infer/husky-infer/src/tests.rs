@@ -9,10 +9,10 @@ use husky_term::TermDb;
 use husky_token::*;
 
 #[test]
-fn test_fake_decl() {
-    expect_test::<String, _>("fake-decl", debug_fake_decl);
+fn test_decl() {
+    expect_test::<String, _>("decl", debug_decl);
 
-    fn debug_fake_decl(text: &str) -> String {
+    fn debug_decl(text: &str) -> String {
         let db = InferTestsDb::new();
         let (arena, expr) = db.parse_raw_expr_from_text(text);
         let mut sheet = InferSheet::new(&arena);

@@ -21,15 +21,26 @@ pub struct NamespaceDecl {
 #[derive(Debug, PartialEq, Eq)]
 pub struct TyDecl {
     ty_family: TyFamily,
+    parameters: Vec<Parameter>,
 }
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct Parameter {/*todo */}
 
 impl TyDecl {
     pub fn new(ty_family: TyFamily) -> Self {
-        Self { ty_family }
+        Self {
+            ty_family,
+            parameters: vec![],
+        }
     }
 
     pub fn ty_family(&self) -> TyFamily {
         self.ty_family
+    }
+
+    pub fn parameters(&self) -> &[Parameter] {
+        &self.parameters
     }
 }
 
