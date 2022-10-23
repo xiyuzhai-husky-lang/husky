@@ -2,5 +2,9 @@
   {
     "input": "core",
     "output": "Ok(Module)"
+  },
+  {
+    "input": "std",
+    "output": "Ok(Module)"
   }
 ]

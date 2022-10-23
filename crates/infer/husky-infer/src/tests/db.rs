@@ -1,3 +1,6 @@
+mod init;
+mod trivia;
+
 use super::*;
 use husky_entity_path::{
     new_entity_path_itr, EntityPath, EntityPathDb, EntityPathDbStorage, EntityPathInterner,
@@ -25,17 +28,26 @@ pub(crate) struct InferTestsDb {
     word_itr: WordInterner,
     entity_tys: HashMap<EntityPathItd, Ty>,
     decls: HashMap<EntityPathItd, Arc<Decl>>,
-}
-
-impl Upcast<dyn TermDb> for InferTestsDb {
-    fn upcast(&self) -> &(dyn TermDb + 'static) {
-        self
-    }
+    prelude_symbols: Vec<Symbol>,
 }
 
 impl InferTestsDb {
+    pub(crate) fn new() -> Self {
+        let mut db = Self {
+            storage: Default::default(),
+            term_itr: Default::default(),
+            entity_path_itr: Default::default(),
+            word_itr: Default::default(),
+            entity_tys: Default::default(),
+            decls: Default::default(),
+            prelude_symbols: Default::default(),
+        };
+        db.init();
+        db
+    }
+
     pub fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
-        let mut ctx = SymbolContext::new(self);
+        let mut ctx = SymbolContext::new(self, &self.prelude_symbols);
         let entity_path_menu = self.entity_path_menu();
         ctx.define_symbol(Symbol {
             ident: RootBuiltinIdentifier::Core.into(),
@@ -54,27 +66,11 @@ impl InferTestsDb {
     }
 }
 
-impl Database for InferTestsDb {}
-
-impl InternTerm for InferTestsDb {
-    fn term_itr(&self) -> &TermInterner {
-        &self.term_itr
+impl TyInferQueries for InferTestsDb {
+    fn infer_entity_ty(&self, entity: EntityPathItd) -> Ty {
+        self.entity_tys[&entity]
     }
 }
-
-impl InternEntityPath for InferTestsDb {
-    fn entity_path_itr(&self) -> &husky_entity_path::EntityPathInterner {
-        &self.entity_path_itr
-    }
-}
-
-impl InternWord for InferTestsDb {
-    fn word_itr(&self) -> &husky_word::WordInterner {
-        &self.word_itr
-    }
-}
-
-impl SymbolQueries for InferTestsDb {}
 
 impl AskDecl for InferTestsDb {
     fn ask_namespace_decl(
@@ -92,61 +88,5 @@ impl AskDecl for InferTestsDb {
         self.decls
             .get(&entity_path)
             .map_or(Err(TermError::NoDeclForEntityPath), |decl| Ok(decl.clone()))
-    }
-}
-
-impl InferTestsDb {
-    pub(crate) fn new() -> Self {
-        let mut db = Self {
-            storage: Default::default(),
-            term_itr: Default::default(),
-            entity_path_itr: Default::default(),
-            word_itr: Default::default(),
-            entity_tys: Default::default(),
-            decls: Default::default(),
-        };
-        db.init();
-        db
-    }
-
-    fn init(&mut self) {
-        let entity_path_menu = self.entity_path_menu();
-        let term_menu = self.term_menu();
-        self.init_entity_tys(&entity_path_menu, &term_menu);
-        self.init_decls(&entity_path_menu)
-    }
-
-    fn init_entity_tys(&mut self, entity_path_menu: &EntityPathMenu, term_menu: &TermMenu) {
-        self.entity_tys.extend([
-            (entity_path_menu.i32(), term_menu.ty0()),
-            (entity_path_menu.i64(), term_menu.ty0()),
-            (entity_path_menu.b32(), term_menu.ty0()),
-            (entity_path_menu.b64(), term_menu.ty0()),
-            (entity_path_menu.f32(), term_menu.ty0()),
-            (entity_path_menu.f64(), term_menu.ty0()),
-        ]);
-    }
-
-    fn init_decls(&mut self, entity_path_menu: &EntityPathMenu) {
-        self.decls.extend(
-            [
-                (entity_path_menu.core(), Decl::Module),
-                (entity_path_menu.std(), Decl::Module),
-                // (entity_path_menu.i32(), Decl::Module),
-                // (entity_path_menu.i64(), term_menu.ty0()),
-                // (entity_path_menu.b32(), term_menu.ty0()),
-                // (entity_path_menu.b64(), term_menu.ty0()),
-                // (entity_path_menu.f32(), term_menu.ty0()),
-                // (entity_path_menu.f64(), term_menu.ty0()),
-            ]
-            .into_iter()
-            .map(|(entity_path, decl)| (entity_path, Arc::new(decl))),
-        );
-    }
-}
-
-impl TyInferQueries for InferTestsDb {
-    fn infer_entity_ty(&self, entity: EntityPathItd) -> Ty {
-        self.entity_tys[&entity]
     }
 }

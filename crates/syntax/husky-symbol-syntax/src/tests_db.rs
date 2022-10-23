@@ -21,7 +21,7 @@ impl SymbolTestsDb {
     }
 
     pub fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
-        let mut ctx = SymbolContext::new(self);
+        let mut ctx = SymbolContext::new(self, &[]);
         /* do something with ctx */
         ctx
     }
