@@ -1,5 +1,5 @@
+use husky_entity_path::EntityPathItd;
 use std::sync::Arc;
-
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone)]
@@ -13,7 +13,7 @@ pub enum TermError {
     #[error("monad is not input")]
     MonadIsNotInput,
     #[error("no decl for entity path")]
-    NoDeclForEntityPath,
+    NoDeclForEntityPath { entity_path: EntityPathItd },
     // #[error("data store disconnected")]
     // Disconnect(#[from] io::Error),
     // #[error("the data for key `{0}` is not available")]

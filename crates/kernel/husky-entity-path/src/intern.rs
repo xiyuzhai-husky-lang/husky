@@ -3,8 +3,29 @@ use husky_word::Identifier;
 use interner::{DefaultItd, Interner, IsInternPtr};
 use optional::{Noned, OptEq};
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(PartialEq, Eq, Clone, Copy, Hash)]
 pub struct EntityPathItd(DefaultItd<EntityPath, EntityPath>);
+
+impl std::fmt::Debug for EntityPathItd {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("`")?;
+        std::fmt::Display::fmt(self, f)?;
+        f.write_str("`")
+    }
+}
+
+impl std::fmt::Display for EntityPathItd {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self.opt_parent.into_option() {
+            Some(parent) => {
+                parent.fmt(f)?;
+                "::".fmt(f)?
+            }
+            None => (),
+        }
+        self.ident.fmt(f)
+    }
+}
 
 impl EntityPathItd {
     pub(crate) fn child(self, db: &dyn EntityPathDb, ident: &str) -> Self {

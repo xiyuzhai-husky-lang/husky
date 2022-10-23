@@ -85,8 +85,9 @@ impl AskDecl for InferTestsDb {
     }
 
     fn ask_decl(&self, entity_path: EntityPathItd) -> TermResultArc<Decl> {
-        self.decls
-            .get(&entity_path)
-            .map_or(Err(TermError::NoDeclForEntityPath), |decl| Ok(decl.clone()))
+        self.decls.get(&entity_path).map_or(
+            Err(TermError::NoDeclForEntityPath { entity_path }),
+            |decl| Ok(decl.clone()),
+        )
     }
 }

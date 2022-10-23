@@ -1,3 +1,5 @@
+use husky_term::TyFamily;
+
 use super::*;
 
 impl InferTestsDb {
@@ -25,12 +27,30 @@ impl InferTestsDb {
             [
                 (entity_path_menu.core(), Decl::Module),
                 (entity_path_menu.std(), Decl::Module),
-                // (entity_path_menu.i32(), Decl::Module),
-                // (entity_path_menu.i64(), term_menu.ty0()),
-                // (entity_path_menu.b32(), term_menu.ty0()),
-                // (entity_path_menu.b64(), term_menu.ty0()),
-                // (entity_path_menu.f32(), term_menu.ty0()),
-                // (entity_path_menu.f64(), term_menu.ty0()),
+                (
+                    entity_path_menu.i32(),
+                    Decl::Ty(TyDecl::new(TyFamily::Physical)),
+                ),
+                (
+                    entity_path_menu.i64(),
+                    Decl::Ty(TyDecl::new(TyFamily::Physical)),
+                ),
+                (
+                    entity_path_menu.b32(),
+                    Decl::Ty(TyDecl::new(TyFamily::Physical)),
+                ),
+                (
+                    entity_path_menu.b64(),
+                    Decl::Ty(TyDecl::new(TyFamily::Physical)),
+                ),
+                (
+                    entity_path_menu.f64(),
+                    Decl::Ty(TyDecl::new(TyFamily::Physical)),
+                ),
+                (
+                    entity_path_menu.f64(),
+                    Decl::Ty(TyDecl::new(TyFamily::Physical)),
+                ),
             ]
             .into_iter()
             .map(|(entity_path, decl)| (entity_path, Arc::new(decl))),
@@ -46,6 +66,30 @@ impl InferTestsDb {
             Symbol {
                 ident: RootBuiltinIdentifier::Std.into(),
                 kind: SymbolKind::EntityPath(entity_path_menu.std()),
+            },
+            Symbol {
+                ident: RootBuiltinIdentifier::I32.into(),
+                kind: SymbolKind::EntityPath(entity_path_menu.i32()),
+            },
+            Symbol {
+                ident: RootBuiltinIdentifier::I64.into(),
+                kind: SymbolKind::EntityPath(entity_path_menu.i64()),
+            },
+            Symbol {
+                ident: RootBuiltinIdentifier::B32.into(),
+                kind: SymbolKind::EntityPath(entity_path_menu.i32()),
+            },
+            Symbol {
+                ident: RootBuiltinIdentifier::B64.into(),
+                kind: SymbolKind::EntityPath(entity_path_menu.i64()),
+            },
+            Symbol {
+                ident: RootBuiltinIdentifier::F32.into(),
+                kind: SymbolKind::EntityPath(entity_path_menu.i32()),
+            },
+            Symbol {
+                ident: RootBuiltinIdentifier::F64.into(),
+                kind: SymbolKind::EntityPath(entity_path_menu.i64()),
             },
         ])
     }
