@@ -127,7 +127,13 @@ impl TermAtom {
 }
 
 impl<'a> TermContext<'a> {
-    pub fn entity_path_term(&self, path: EntityPathItd) -> TermItd {
-        todo!()
+    pub fn entity_path_term(&self, path: EntityPathItd) -> TermResult<TermItd> {
+        Ok(self.it_term(
+            TermAtom {
+                variant: TermAtomVariant::Entity { path },
+                ty_itd: Some(self.entity_ty(path)?),
+            }
+            .into(),
+        ))
     }
 }

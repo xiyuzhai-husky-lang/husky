@@ -23,4 +23,9 @@ impl EntityPath {
             ident,
         }
     }
+
+    #[inline(always)]
+    pub fn opt_parent(&self) -> Option<EntityPathItd> {
+        self.opt_parent.into_option()
+    }
 }

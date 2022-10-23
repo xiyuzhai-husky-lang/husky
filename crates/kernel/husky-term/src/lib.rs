@@ -33,6 +33,7 @@ pub use trait_impl::*;
 pub use ty::Ty;
 
 use cow::TermCow;
+use husky_entity_path::EntityPathItd;
 use optional::Optioned;
 #[cfg(test)]
 use tests::*;

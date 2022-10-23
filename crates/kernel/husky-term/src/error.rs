@@ -12,6 +12,8 @@ pub enum TermError {
     UniverseOverflow,
     #[error("monad is not input")]
     MonadIsNotInput,
+    #[error("no decl for entity path")]
+    NoDeclForEntityPath,
     // #[error("data store disconnected")]
     // Disconnect(#[from] io::Error),
     // #[error("the data for key `{0}` is not available")]
