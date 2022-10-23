@@ -2,29 +2,29 @@ use crate::{ident::ContextualIdentifier, *};
 use interner::{Interner, IsInternPtr};
 use std::{borrow::Borrow, ops::Deref};
 
-pub type WordInterner = Interner<WordPtr>;
+pub type WordInterner = Interner<Word>;
 
-impl Deref for WordPtr {
+impl Deref for Word {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
         match self {
-            WordPtr::Keyword(keyword) => keyword.deref(),
-            WordPtr::Identifier(ident) => ident.deref(),
-            WordPtr::Opr(opr) => opr.deref(),
-            WordPtr::Decorator(decorator) => decorator.deref(),
-            WordPtr::Pattern(patt) => patt.deref(),
+            Word::Keyword(keyword) => keyword.deref(),
+            Word::Identifier(ident) => ident.deref(),
+            Word::Opr(opr) => opr.deref(),
+            Word::Decorator(decorator) => decorator.deref(),
+            Word::Pattern(patt) => patt.deref(),
         }
     }
 }
 
-impl Borrow<str> for WordPtr {
+impl Borrow<str> for Word {
     fn borrow(&self) -> &str {
         self.deref()
     }
 }
 
-impl IsInternPtr for WordPtr {
+impl IsInternPtr for Word {
     type T = str;
 
     type Owned = String;
@@ -123,15 +123,58 @@ fn new_word_itr() -> WordInterner {
 
 pub trait InternWord {
     fn word_itr(&self) -> &WordInterner;
-    fn it_word(&self, word: &str) -> WordPtr {
+    fn it_word(&self, word: &str) -> Word {
         self.word_itr().intern_borrowed(word)
     }
     fn it_ident(&self, word: &str) -> Identifier {
+        assert!(is_valid_ident(word));
         self.word_itr().intern_borrowed(word).ident()
     }
     fn custom_ident(&self, word: &str) -> CustomIdentifier {
         self.it_word(word).opt_custom().unwrap()
     }
+}
+
+fn is_valid_ident(word: &str) -> bool {
+    let mut chars = word.chars();
+    if let Some(start) = chars.next() {
+        if !(start.is_alphabetic() || start == '_') {
+            return false;
+        }
+    }
+    for c in chars {
+        if !(c.is_alphanumeric() || c == '_') {
+            return false;
+        }
+    }
+    true
+}
+
+#[test]
+fn test_is_valid_ident() {
+    assert_eq!(is_valid_ident("a"), true);
+    assert_eq!(is_valid_ident("b"), true);
+    assert_eq!(is_valid_ident("c"), true);
+    assert_eq!(is_valid_ident("d"), true);
+    assert_eq!(is_valid_ident("e"), true);
+    assert_eq!(is_valid_ident("g"), true);
+    assert_eq!(is_valid_ident("h"), true);
+    assert_eq!(is_valid_ident("i"), true);
+    assert_eq!(is_valid_ident("j"), true);
+    assert_eq!(is_valid_ident("a1"), true);
+    assert_eq!(is_valid_ident("a2"), true);
+    assert_eq!(is_valid_ident("a3"), true);
+    assert_eq!(is_valid_ident("_a1"), true);
+    assert_eq!(is_valid_ident("_1"), true);
+    assert_eq!(is_valid_ident("_"), true);
+    assert_eq!(is_valid_ident("9"), false);
+    assert_eq!(is_valid_ident("9a"), false);
+    assert_eq!(is_valid_ident(" "), false);
+    assert_eq!(is_valid_ident("*"), false);
+    assert_eq!(is_valid_ident("&"), false);
+    assert_eq!(is_valid_ident(":"), false);
+    assert_eq!(is_valid_ident("{"), false);
+    assert_eq!(is_valid_ident("}"), false);
 }
 
 impl InternWord for WordInterner {

@@ -34,8 +34,8 @@ impl Decorator {
     }
 }
 
-impl Into<WordPtr> for Decorator {
-    fn into(self) -> WordPtr {
-        WordPtr::Decorator(self)
+impl Into<Word> for Decorator {
+    fn into(self) -> Word {
+        Word::Decorator(self)
     }
 }

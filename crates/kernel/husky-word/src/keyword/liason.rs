@@ -11,7 +11,7 @@ impl From<LiasonKeyword> for Keyword {
     }
 }
 
-impl From<LiasonKeyword> for WordPtr {
+impl From<LiasonKeyword> for Word {
     fn from(ty: LiasonKeyword) -> Self {
         Self::Keyword(ty.into())
     }

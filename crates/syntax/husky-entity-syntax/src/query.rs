@@ -7,7 +7,7 @@ use husky_file::FileItd;
 use husky_path_utils::*;
 use husky_print_utils::msg_once;
 use husky_static_defn::*;
-use husky_word::{dash_to_snake, CustomIdentifier, Identifier, RootBuiltinIdentifier, WordPtr};
+use husky_word::{dash_to_snake, CustomIdentifier, Identifier, RootBuiltinIdentifier, Word};
 use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;
 
@@ -366,7 +366,7 @@ pub trait EntitySyntaxQueryGroup:
         } else if path_has_file_name(&path, "main.hsy") {
             if let Some(pack_name) = path_parent_file_name_str(&path) {
                 let snake_name = dash_to_snake(&pack_name);
-                if let WordPtr::Identifier(Identifier::Custom(ident)) =
+                if let Word::Identifier(Identifier::Custom(ident)) =
                     self.word_itr().intern(snake_name)
                 {
                     Ok(self.intern_entity_route(EntityRoute::package(file, ident)))
@@ -383,15 +383,15 @@ pub trait EntitySyntaxQueryGroup:
             )?)?;
             let word = self.it_word(path.file_stem().unwrap().to_str().unwrap());
             match word {
-                WordPtr::Keyword(kw) => Err(derived_error!(format!(
+                Word::Keyword(kw) => Err(derived_error!(format!(
                     "expect custom identifier for module name, but got keyword {} instead",
                     kw.as_str()
                 ))),
-                WordPtr::Opr(word_opr) => Err(derived_error!(format!(
+                Word::Opr(word_opr) => Err(derived_error!(format!(
                     "expect custom identifier for module name, but got word operator {} instead",
                     word_opr.as_str()
                 ))),
-                WordPtr::Identifier(ident) => match ident {
+                Word::Identifier(ident) => match ident {
                     Identifier::Root(_) => todo!(),
                     Identifier::Custom(ident) => Ok(self.intern_entity_route(EntityRoute {
                         variant: EntityRouteVariant::Child { parent, ident },
@@ -400,8 +400,8 @@ pub trait EntitySyntaxQueryGroup:
                     })),
                     Identifier::Contextual(_) => todo!(),
                 },
-                WordPtr::Decorator(_) => todo!(),
-                WordPtr::Pattern(_) => todo!(),
+                Word::Decorator(_) => todo!(),
+                Word::Pattern(_) => todo!(),
             }
         } else {
             Err(derived_error!(format!(

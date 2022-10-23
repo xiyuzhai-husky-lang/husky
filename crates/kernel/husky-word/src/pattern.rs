@@ -8,9 +8,9 @@ pub enum WordPattern {
     None,
 }
 
-impl From<WordPattern> for WordPtr {
+impl From<WordPattern> for Word {
     fn from(ident: WordPattern) -> Self {
-        WordPtr::Pattern(ident)
+        Word::Pattern(ident)
     }
 }
 
