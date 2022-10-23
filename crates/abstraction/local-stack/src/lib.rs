@@ -1,25 +1,47 @@
+mod find;
+
+use find::Find;
 use std::ops::Deref;
 
 #[derive(Debug)]
-pub struct LocalStack<T> {
+pub struct LocalStack<T, Prelude = ()> {
+    prelude: Prelude,
     stack: Vec<T>,
     local_indices: Vec<usize>,
 }
 
+#[test]
+fn test_size() {
+    struct A {
+        a: (),
+    };
+
+    assert_eq!(std::mem::size_of::<A>(), 0);
+}
+
 impl<T> Default for LocalStack<T> {
     fn default() -> Self {
-        Self {
-            stack: Default::default(),
-            local_indices: Default::default(),
-        }
+        Self::new_empty()
     }
 }
 
-impl<T> LocalStack<T> {
-    pub fn new() -> LocalStack<T> {
+impl<T, Prelude> LocalStack<T, Prelude> {
+    pub fn new_empty() -> Self
+    where
+        Prelude: Default,
+    {
         Self {
             stack: Vec::new(),
             local_indices: vec![0],
+            prelude: Default::default(),
+        }
+    }
+
+    pub fn new(prelude: Prelude) -> Self {
+        Self {
+            stack: Vec::new(),
+            local_indices: vec![0],
+            prelude,
         }
     }
 
@@ -40,20 +62,26 @@ impl<T> LocalStack<T> {
         self.stack.truncate(block_index);
     }
 
-    pub fn locals(&self) -> &[T] {
-        &self.stack[(*self.local_indices.last().unwrap())..(self.stack.len())]
-    }
+    // pub fn locals(&self) -> &[T] {
+    //     &self.stack[(*self.local_indices.last().unwrap())..(self.stack.len())]
+    // }
 
-    pub fn for_all_local(&self, f: impl Fn(&T) -> bool) -> bool {
-        self.locals().iter().all(f)
-    }
+    // pub fn for_all_local(&self, f: impl Fn(&T) -> bool) -> bool {
+    //     self.locals().iter().all(f)
+    // }
 
-    pub fn for_any_local(&self, f: impl Fn(&T) -> bool) -> bool {
-        self.locals().iter().any(f)
-    }
+    // pub fn for_any_local(&self, f: impl Fn(&T) -> bool) -> bool {
+    //     self.locals().iter().any(f)
+    // }
 
-    pub fn find(&self, f: impl Fn(&T) -> bool) -> Option<&T> {
-        self.stack.iter().rev().find(|item| f(*item))
+    pub fn find_last(&self, f: impl Fn(&T) -> bool) -> Option<&T>
+    where
+        Prelude: Find<T>,
+    {
+        if let Some(t) = self.stack.iter().rev().find(|item| f(*item)) {
+            return Some(t);
+        }
+        self.prelude.find_last(f)
     }
 }
 

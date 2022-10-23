@@ -1,3 +1,7 @@
+mod error;
+
+pub use error::*;
+
 use crate::*;
 use husky_expr_syntax::{RawAtom, RawExprIdx, RawExprVariant};
 use husky_symbol_syntax::SymbolKind;
@@ -31,7 +35,9 @@ impl<'a> InferContext<'a> {
                     SymbolKind::EntityPath(path) => self.entity_path_term(path),
                     SymbolKind::LocalVariable { init_range } => todo!(),
                     SymbolKind::FrameVariable { init_range } => todo!(),
-                    SymbolKind::Unrecognized => Err(InferError::Derived),
+                    SymbolKind::Unrecognized => Err(
+                        DerivedInferError::InferTermUnrecogizedSymbol { symbol: *symbol }.into(),
+                    ),
                     SymbolKind::ThisValue => todo!(),
                     SymbolKind::ThisMethod => todo!(),
                     SymbolKind::ThisField => todo!(),
