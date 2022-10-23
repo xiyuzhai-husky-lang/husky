@@ -2,22 +2,22 @@ use crate::*;
 use husky_expr_syntax::{RawAtom, RawExprIdx, RawExprVariant};
 use husky_symbol_syntax::SymbolKind;
 use husky_term::TermItd;
+use wild_utils::arb_ref;
 
 impl<'a> InferContext<'a> {
-    pub(crate) fn term_result<'b>(&'b mut self) -> Result<TermItd, ()> {
-        match self.cached_term_result() {
+    pub(crate) fn term_result<'b>(&'b mut self) -> Result<TermItd, &'b InferError> {
+        match unsafe { arb_ref(self) }.cached_term_result() {
             Some(term_result) => match term_result {
                 Ok(t) => Ok(*t),
-                Err(_) => Err(()),
+                Err(e) => Err(e),
             },
             None => {
                 let term_result = self.infer_term();
-                let term = match term_result {
-                    Ok(term) => Ok(term),
-                    Err(_) => Err(()),
-                };
                 self.cache_term_result(term_result);
-                term
+                match self.cached_term_result().unwrap() {
+                    Ok(t) => Ok(*t),
+                    Err(e) => Err(e),
+                }
             }
         }
     }

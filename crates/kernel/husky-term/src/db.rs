@@ -10,6 +10,7 @@ pub trait TermDb: InternTerm + AskDecl + InternEntityPath + InternWord {
     fn term_menu(&self) -> Arc<TermMenu>;
     fn namespace_decl(&self, namespace: TermNamespace) -> TermResultArc<NamespaceDecl>;
     fn ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl>;
+    fn decl(&self, entity_path: EntityPathItd) -> TermResultArc<Decl>;
 }
 
 fn namespace_decl(db: &dyn TermDb, namespace: TermNamespace) -> TermResultArc<NamespaceDecl> {
@@ -18,4 +19,8 @@ fn namespace_decl(db: &dyn TermDb, namespace: TermNamespace) -> TermResultArc<Na
 
 fn ty_decl(db: &dyn TermDb, ty: Ty) -> TermResultArc<TyDecl> {
     db.ask_ty_decl(ty)
+}
+
+fn decl(db: &dyn TermDb, entity_path: EntityPathItd) -> TermResultArc<Decl> {
+    db.ask_decl(entity_path)
 }
