@@ -24,3 +24,21 @@ mod try_xxhash;
 
 use husky_check_utils::*;
 use husky_print_utils::*;
+
+struct X {
+    a: i32,
+    b: i32,
+}
+
+fn f() {
+    let mut x = X {
+        a: todo!(),
+        b: todo!(),
+    };
+    let b = &mut x.a;
+    {
+        let a = &mut x.b;
+        *a = 1;
+    }
+    *b = 1;
+}
