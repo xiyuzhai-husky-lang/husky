@@ -15,6 +15,7 @@ pub enum VariableQualifier {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum VariableState {
     Intact,
+    Borrowed,
     Outdated,
     Destruct,
     Moved,
@@ -38,5 +39,19 @@ impl VariableResource {
 impl ResourceStack {
     pub fn variable_state(&self, idx: VariableIdx) -> &VariableState {
         &self[idx].state
+    }
+}
+
+impl ResourceStack {
+    pub(crate) fn new_borrow(&mut self, variable: VariableIdx, borrower: LifetimeIdx) {
+        let variable_state = &mut self[variable].state;
+        match variable_state {
+            VariableState::Intact | VariableState::Borrowed => {
+                *variable_state = VariableState::Borrowed
+            }
+            VariableState::Outdated => todo!(),
+            VariableState::Destruct => todo!(),
+            VariableState::Moved => todo!(),
+        }
     }
 }

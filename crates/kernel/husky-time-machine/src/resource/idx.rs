@@ -2,12 +2,16 @@ use std::fmt::Pointer;
 
 use super::*;
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ResourceIdx {
     Variable(VariableIdx),
     Lifetime(LifetimeIdx),
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct VariableIdx(usize);
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct LifetimeIdx(usize);
 
 impl ResourceStack {
@@ -32,6 +36,15 @@ impl std::ops::Index<VariableIdx> for ResourceStack {
     fn index(&self, index: VariableIdx) -> &Self::Output {
         match self.0[index.0] {
             Resource::Variable(ref v) => v,
+            Resource::Lifetime(_) => unreachable!(),
+        }
+    }
+}
+
+impl std::ops::IndexMut<VariableIdx> for ResourceStack {
+    fn index_mut(&mut self, index: VariableIdx) -> &mut Self::Output {
+        match self.0[index.0] {
+            Resource::Variable(ref mut v) => v,
             Resource::Lifetime(_) => unreachable!(),
         }
     }

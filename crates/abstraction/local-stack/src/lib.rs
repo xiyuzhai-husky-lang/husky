@@ -92,3 +92,17 @@ impl<T> Deref for LocalStack<T> {
         &self.stack
     }
 }
+
+impl<T> std::ops::Index<usize> for LocalStack<T> {
+    type Output = T;
+
+    fn index(&self, index: usize) -> &Self::Output {
+        &self.stack[index]
+    }
+}
+
+impl<T> std::ops::IndexMut<usize> for LocalStack<T> {
+    fn index_mut(&mut self, index: usize) -> &mut Self::Output {
+        &mut self.stack[index]
+    }
+}
