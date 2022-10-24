@@ -16,7 +16,7 @@ fn it_works() {
     let lifetime1 = time_machine.new_lifetime();
     assert_eq!(
         time_machine.variable_state(immutable0),
-        VariableState::Intact
+        &VariableState::Intact
     );
     assert_eq!(
         time_machine.lifetime_state(lifetime1),
