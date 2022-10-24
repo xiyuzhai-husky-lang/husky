@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VariableResource {
     qual: VariableQualifier,
     state: VariableState,
@@ -12,11 +12,11 @@ pub enum VariableQualifier {
     Mutable,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum VariableState {
     Intact,
-    Invalid,
-    PartiallyMoved,
+    Outdated,
+    Destruct,
     Moved,
 }
 
@@ -36,7 +36,7 @@ impl VariableResource {
 }
 
 impl ResourceStack {
-    pub fn variable_state(&self, idx: VariableIdx) -> VariableState {
-        self[idx].state
+    pub fn variable_state(&self, idx: VariableIdx) -> &VariableState {
+        &self[idx].state
     }
 }

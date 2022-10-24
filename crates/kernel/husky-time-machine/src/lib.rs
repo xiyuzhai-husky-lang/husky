@@ -26,7 +26,7 @@ impl TimeMachine {
         self.stack.new_lifetime()
     }
 
-    pub fn variable_state(&self, idx: VariableIdx) -> VariableState {
+    pub fn variable_state(&self, idx: VariableIdx) -> &VariableState {
         self.stack.variable_state(idx)
     }
 
