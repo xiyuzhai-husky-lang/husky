@@ -22,4 +22,5 @@ fn it_works() {
         time_machine.lifetime_state(lifetime1),
         LifetimeState::Intact
     );
+    time_machine.new_borrow(immutable0, lifetime1);
 }
