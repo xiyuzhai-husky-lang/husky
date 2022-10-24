@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 thiserror = "1.0.37"
-textwrap = "0.15.1"
+textwrap = "0.16.0"
 salsa = "0.17.0-pre.2"
 #abstraction
 upcast = { path = "../../abstraction/upcast" }
