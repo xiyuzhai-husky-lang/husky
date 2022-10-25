@@ -30,3 +30,7 @@ __c_code_gen_test__
 /build
 /lean_packages/*
 !/lean_packages/manifest.json
+
+.DS_Store
+docs/Husky Tutorials.docx
+

@@ -40,12 +40,12 @@ use tests::*;
 
 #[derive(PartialEq, Eq, Hash)]
 pub enum Term {
-    Atom(TermAtom),
-    Curry(TermCurry),
-    Abstraction(TermAbstraction),
-    Application(TermApplication),
-    Subentity(TermSubentity),
-    TraitImpl(TermTraitImpl),
+    Atom(TermAtom), // literal: 1,1.0, true, false; variable, entityPath
+    Curry(TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
+    Abstraction(TermAbstraction), // lambda x => expr
+    Application(TermApplication), // f x, apply a function to term
+    Subentity(TermSubentity), // ::
+    TraitImpl(TermTraitImpl), // A as trait
 }
 
 impl std::fmt::Debug for Term {
