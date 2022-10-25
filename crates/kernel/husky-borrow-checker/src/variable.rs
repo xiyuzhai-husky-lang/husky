@@ -1,7 +1,8 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct VariableResource {
+pub struct VariableEntry {
+    idx: VariableIdx,
     qual: VariableQualifier,
     state: VariableState,
 }
@@ -27,23 +28,42 @@ impl Default for VariableState {
     }
 }
 
-impl VariableResource {
-    pub fn new(qual: VariableQualifier) -> Self {
+impl VariableEntry {
+    pub fn new(idx: VariableIdx, qual: VariableQualifier) -> Self {
         Self {
+            idx,
             qual,
             state: VariableState::default(),
         }
     }
 }
 
-impl ResourceStack {
-    pub fn variable_state(&self, idx: VariableIdx) -> &VariableState {
-        &self[idx].state
+impl<'a> std::ops::Index<VariableIdx> for BorrowChecker<'a> {
+    type Output = VariableEntry;
+
+    fn index(&self, index: VariableIdx) -> &Self::Output {
+        self.variables
+            .iter()
+            .find(|entry| entry.idx == index)
+            .unwrap()
     }
 }
 
-impl ResourceStack {
-    pub(crate) fn new_borrow(&mut self, variable: VariableIdx, borrower: LifetimeIdx) {
+impl<'a> std::ops::IndexMut<VariableIdx> for BorrowChecker<'a> {
+    fn index_mut(&mut self, index: VariableIdx) -> &mut Self::Output {
+        self.variables
+            .iter_mut()
+            .find(|entry| entry.idx == index)
+            .unwrap()
+    }
+}
+
+impl<'a> BorrowChecker<'a> {
+    pub fn variable_state(&self, idx: VariableIdx) -> &VariableState {
+        &self[idx].state
+    }
+
+    pub fn new_borrow(&mut self, variable: VariableIdx, borrower: LifetimeIdx) {
         let variable_state = &mut self[variable].state;
         match variable_state {
             VariableState::Intact | VariableState::Borrowed => {
