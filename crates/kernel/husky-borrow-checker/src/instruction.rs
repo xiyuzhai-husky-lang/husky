@@ -51,7 +51,10 @@ impl<'a> BorrowChecker<'a> {
 
     pub fn exec(&mut self, instrn: &BorrowInstruction) -> BorrowResult<()> {
         match instrn.variant {
-            BorrowInstructionVariant::Init(idx) => todo!(),
+            BorrowInstructionVariant::Init(idx) => match idx{
+                BorrowIdx::Variable(idx) => Ok(self.init_variable(idx)),
+                BorrowIdx::Lifetime(idx) => Ok(self.init_lifetime(idx)),
+            },
             BorrowInstructionVariant::Block(_) => todo!(),
             BorrowInstructionVariant::Loop(_) => todo!(),
         }

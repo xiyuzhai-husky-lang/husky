@@ -34,4 +34,8 @@ impl<'a> BorrowChecker<'a> {
     pub fn lifetime_state(&self, idx: LifetimeIdx) -> Option<LifetimeState> {
         self[idx].log.last().map(|(_, state)| *state)
     }
+
+    pub (crate) fn init_lifetime(&mut self,idx: LifetimeIdx) {
+        self.lifetimes.push(LifetimeEntry { idx, log: Default::default()})
+    }
 }
