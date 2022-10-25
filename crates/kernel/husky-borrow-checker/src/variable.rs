@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VariableEntry {
     idx: VariableIdx,
-    qual: VariableQualifier,
+    // qual: VariableQualifier,
     state: VariableState,
 }
 
@@ -28,15 +28,15 @@ impl Default for VariableState {
     }
 }
 
-impl VariableEntry {
-    pub fn new(idx: VariableIdx, qual: VariableQualifier) -> Self {
-        Self {
-            idx,
-            qual,
-            state: VariableState::default(),
-        }
-    }
-}
+// impl VariableEntry {
+//     pub fn new(idx: VariableIdx, qual: VariableQualifier) -> Self {
+//         Self {
+//             idx,
+//             // qual,
+//             state: VariableState::default(),
+//         }
+//     }
+// }
 
 impl<'a> std::ops::Index<VariableIdx> for BorrowChecker<'a> {
     type Output = VariableEntry;
@@ -74,4 +74,8 @@ impl<'a> BorrowChecker<'a> {
             VariableState::Moved => todo!(),
         }
     }
+    pub (crate) fn init_variable(&mut self,idx: VariableIdx) {
+        self.variables.push(VariableEntry { idx , state: Default::default() })
+    }
 }
+
