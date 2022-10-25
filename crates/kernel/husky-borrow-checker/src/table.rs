@@ -1,11 +1,11 @@
 use crate::*;
 
-pub struct Dependency {
-    kind: DependencyKind,
+pub struct Borrow {
+    kind: BorrowKind,
     relevant: bool,
 }
 
-pub enum DependencyKind {
+pub enum BorrowKind {
     Borrow {
         dependee: VariableIdx,
         dependant: LifetimeIdx,
@@ -14,19 +14,19 @@ pub enum DependencyKind {
         dependee: VariableIdx,
         dependant: LifetimeIdx,
     },
-    TypeVariance {
+    Indirect {
         dependee: LifetimeIdx,
-        dependant: ResourceIdx,
+        dependant: SymbolIdx,
     },
 }
 
 #[derive(Default)]
-pub struct DependencyList(Vec<Dependency>);
+pub struct BorrowTable(Vec<Borrow>);
 
-impl DependencyList {
+impl BorrowTable {
     pub(crate) fn new_borrow(&mut self, variable: VariableIdx, borrower: LifetimeIdx) {
-        self.0.push(Dependency {
-            kind: DependencyKind::Borrow {
+        self.0.push(Borrow {
+            kind: BorrowKind::Borrow {
                 dependee: variable,
                 dependant: borrower,
             },

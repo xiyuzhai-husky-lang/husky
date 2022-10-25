@@ -83,6 +83,10 @@ impl<T, Prelude> LocalStack<T, Prelude> {
         }
         self.prelude.find_last(f)
     }
+
+    pub fn iter_mut(&mut self) -> impl Iterator<Item = &mut T> {
+        self.stack.iter_mut()
+    }
 }
 
 impl<T> Deref for LocalStack<T> {
