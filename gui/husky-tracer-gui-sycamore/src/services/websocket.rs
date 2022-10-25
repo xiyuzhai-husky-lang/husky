@@ -26,7 +26,7 @@ impl std::fmt::Debug for WebsocketService {
 
 impl WebsocketService {
     pub fn new() -> (Self, Receiver<HuskyTracerServerMessage>) {
-        let ws = WebSocket::open("ws://127.0.0.1:51617/query").unwrap();
+        let ws = WebSocket::open("ws://localhost:51617/query").unwrap();
 
         let (mut write, mut read) = ws.split();
 
