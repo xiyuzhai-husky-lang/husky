@@ -10,6 +10,7 @@
 \usepackage{diagbox}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{hyperref}
 \usepackage{enumerate}
 \theoremstyle{definition}
 \newtheorem*{defn}{Definition}
@@ -35,7 +36,15 @@
 \tableofcontents
 \section{Introduction}
 
-The husky project is currently a project in computer vision, which starts five years ago even before my PhD.
+The husky project (\url{https://github.com/ancient-software/husky}) is currently a project in computer vision, which starts five years ago even before my PhD.
+
+(Pdf of lecture note: \url{https://github.com/ancient-software/husky/blob/main/sparks/impress/lecture1.pdf})
+
+(Latex Source of lecture note: \url{https://github.com/ancient-software/husky/blob/main/sparks/impress/lecture1.tex})
+
+Warning: this is work in progress. It shall take a long time to complete this note.
+
+\subsection{Composition}
 
 It comprises mainly of two parts:
 \begin{enumerate}[(1)]
@@ -57,6 +66,84 @@ It comprises mainly of two parts:
 	todo: explain why this is difficult for previous experts in the field.
 \end{rmk}
 
+\subsection{Difference}
+
+\paragraph{Traditional Computer Vision.} 
+Handcrafted feature descriptors such as SIFT and SURF are fed to traditional
+machine learning classification algorithms such as Support Vector Machines and k-Nearest Neighbours to solve the aforementioned CV problems.
+
+Computation: matrix (mostly)
+
+Biggest problem: doesn't work well for large datasets.
+
+
+\paragraph{Deep Learning.}  End to end training.
+
+Computation: matrix
+
+Biggest problem: doesn't explain well, totally not scientific.
+
+\paragraph{Husky.} Interactively construct features that is interpretable and efficient, first purely by hand then automate more and more in the process. Feature is no longer just a map from input to a vector space, it's a map from input to a type, which encodes information in an domain specific, interpretable and efficient way.
+
+For image classification, the training process is replaced by the following iterative developing process (with labeling being part of it)
+
+\begin{itemize}
+	\item Replace the goal of finding an all-powerful classifier by finding for each class a one-vs-all classifier.
+
+	\begin{rmk}
+		When the number of classes is really large, we will use LSH(locally sensitive hashing)-like schemes. But for imagenet, this is not necessary.
+	\end{rmk}
+	\item For each class, try to represent the one-vs-all classifier by a cascade, i.e. a sequence  of partial classifiers together with a one-vs-all classifier in the end.
+
+	todo: explain partial classifier
+	\item Partial classifiers are first constructed by hand interactively. Constantly interact with the debugger.
+\end{itemize}
+
+This process maps to a drastically different set of requirements on development tools:
+\begin{itemize}
+	\item Require the ability to easily write system level programming because we are not using matrices
+
+	\begin{rmk}
+		This rules out python.
+	\end{rmk}
+	\item Incrementally compute the features in a functional way, i.e. instant response even for imagenent
+
+	\begin{rmk}
+		This rules out every existing language, especially those requiring long compilation time like C++/Rust/Zig. But python and julia are kindof okay because they can run in a notebook environment. The only problem is that notebook is procedural, not functional, can't scale every well.
+	\end{rmk}
+	\item One-click visualization of one or more features (possibly restricted to a branch or a datapoint)
+
+	\begin{rmk}
+		This rules out every existing language.
+	\end{rmk}
+	\item Higher order functions for automation: one expr for constructing and training a model
+
+	\begin{rmk}
+		This rules out every existing language.
+	\end{rmk}
+	\item Automatic memory
+
+	\begin{rmk}
+		This rules out every existing language except Rust.
+	\end{rmk}
+	\item Automatic lazy value cache management across domains
+
+	\begin{rmk}
+		This rules out every existing language. Haskell has features that sounds similar, but isn't good enough.
+	\end{rmk}
+	\item Rigorous type system to avoid distracting programmer from the task at hand
+
+	\begin{rmk}
+		This rules out python.
+	\end{rmk}
+\end{itemize}
+
+
+So that's why I feel it necessary to develop a new language.
+
+\subsection{Future}
+
+
 The future is going to be like:
 
 \begin{itemize}
@@ -75,6 +162,8 @@ The future is going to be like:
 	\item I will raise funding for NLP and theorem proving, in 5 to 30 years will replace large language models (transformers, etc)
 \end{itemize}
 
+\subsection{Now}
+
 The current state of the project is
 \begin{itemize}
 	\item theoretical stuffs are clear (nothing changes significantly from two years ago); mathematically I'm fully convinced that things will work. However, to be convincing for other people with less mathematical maturity, this is probably not enough. But it doesn't really matter because I'm going to be the one who can make essential contribution to the project due to the complexity of things.
@@ -92,6 +181,16 @@ The current state of the project is
 \begin{rmk}
 	todo: explain what percentage means
 \end{rmk}
+\end{itemize}
+
+\subsection{Past}
+
+It initially is very different, the path is
+\begin{itemize}
+	\item deep learning theory
+	\item algorithm + machine learning
+	\item geometric algorithm
+	\item programming language
 \end{itemize}
 
 \section{Inference Process for Image Classification}
