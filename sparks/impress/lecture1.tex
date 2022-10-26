@@ -1,0 +1,106 @@
+%:
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\usepackage{diagbox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{eg}{Example}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{corol}{Corollary}
+\newtheorem{ex}{Exercise}[section]
+{\theoremstyle{plain}
+\newtheorem*{rmk}{Remark}
+\newtheorem*{rmks}{Remarks}
+\newtheorem*{lt}{Last time}
+}
+\newtheorem*{lem}{Lemma}
+\usepackage{color}
+\usepackage{CJK}
+\title{Lecture Note on the Husky Project}
+\author{Xiyu Zhai}
+\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Introduction}
+
+The husky project is currently a project in computer vision, which starts five years ago even before my PhD.
+
+It comprises mainly of two parts:
+\begin{enumerate}[(1)]
+	\item a new machine learning framework with new algorithms and ways of feature constructions that are geometrically more appropriate for shape analysis;
+
+	\begin{rmk}
+	todo: explain what is geometrically appropriate
+	\end{rmk}
+	\item a new programming language that is critical for interactively implementing and improving efficient and fully interpretable models.
+
+	\begin{rmk}
+		PL is generalizable to other domains, like NLP, Theorem Proving, Robotics, RL, Computer Graphics, etc. I'm in the way of overhauling the type system to introduce Monad for NLP and Robotics and RL and Prop for theorem proving.
+
+		As a result, this PL is an extremely ambitious project that must have all good things from languages in different domains, C++/Rust/Zig from system level programming
+	\end{rmk}
+\end{enumerate}
+
+\begin{rmk}
+	todo: explain why this is difficult for previous experts in the field.
+\end{rmk}
+
+The future is going to be like:
+
+\begin{itemize}
+	\item in two years, imagenet is done in husky by myself, totally interpretable and as accurate and 100 times faster for inference; the development only requires a moderate computer and it doesn't need GPU for training and inference.
+
+	Rougly speaking, it's going to be like:
+		\begin{itemize}
+			\item 4 months recognise husky
+			\item 4 months recognise 9 more classes
+			\item 4 months recognise 90 more with automation
+			\item 4 months recognise 900 more with much better automation
+			\item 8 months for improvement on all fronts
+		\end{itemize}
+	\item gains popularity because husky doesn't require GPU and is a new programming language that is much more easier to make right than python, and can publish papers because people are convinced.
+	\item husky applies to Computer Graphics(GAN, etcs.), RL, Robotics
+	\item I will raise funding for NLP and theorem proving, in 5 to 30 years will replace large language models (transformers, etc)
+\end{itemize}
+
+The current state of the project is
+\begin{itemize}
+	\item theoretical stuffs are clear (nothing changes significantly from two years ago); mathematically I'm fully convinced that things will work. However, to be convincing for other people with less mathematical maturity, this is probably not enough. But it doesn't really matter because I'm going to be the one who can make essential contribution to the project due to the complexity of things.
+	\item a minimal (barely) working version of language is there, for which I wrote many code in the last two years.
+	\begin{itemize}
+		\item first year work C++
+		\item second year Rust
+	\end{itemize}
+	\item have only spent very limited time in actually making it work
+	\begin{itemize}
+		\item using the C++ version a model for mnist which is 97\% accuracy for half of the data 
+		\item Mnist using the latest version in progress. Not in a hurry, because people aren't convinced by Mnist no matter how good the result is. Will do it when I have the mood.
+		\item Imagenet in progress, 
+	\end{itemize}
+\begin{rmk}
+	todo: explain what percentage means
+\end{rmk}
+\end{itemize}
+
+\section{Inference Process for Image Classification}
+\subsection{Mnist}
+\subsection{Imagenet(tentative)}
+
+\section{Theoretical Framework: Nontrival Machine Learning}
+
+\begin{eg}
+	[Linear Classification]
+\end{eg}
+\end{document}
