@@ -12,6 +12,7 @@
 \usepackage{amsthm}
 \usepackage{hyperref}
 \usepackage{enumerate}
+\usepackage{mathrsfs}
 \theoremstyle{definition}
 \newtheorem*{defn}{Definition}
 \newtheorem*{prop}{Proposition}
@@ -44,15 +45,141 @@ The husky project (\url{https://github.com/ancient-software/husky}) is currently
 
 Warning: this is work in progress. It shall take a long time to complete this note.
 
+\subsection{Motivation}
+
+\begin{eg}
+	[Linear Classification]
+
+	$f_0(x)=w_0^\top x$.
+
+	This is easy.
+
+	Just linear algebra.
+
+	Mathematically speaking, no interesting mathematical structure is involved.
+\end{eg}
+
+Let $\Gamma$ be a set, let $X, W$ be input space and parameter space (can be $\mathbb{R}^n, \mathbb{R}^m$ respectively) and consider $F:X\times W\times\Gamma\to Y$ such that the ground truth $f_0$ is given by 
+\begin{equation}
+	f_0(x)= \sup_{\gamma\in \Gamma}F(x; w_0, \gamma)
+\end{equation}
+where fixed unknown parameter $w_0\in W$ and $F$ is easy to compute.
+
+(It's more proper to write in dependent type: $F: (x: X)\to (w: W) \to \Gamma(x, w)$ to mean that $\Gamma$ is dependent on preceding $x,w$.)
+
+If we only care about whether $f_0$ is above a certain threshold $v_0$, then
+\begin{equation}
+	f_0(x) > v_0\Leftrightarrow\exists \gamma\in \Gamma, F(x; w_0, \gamma) > v_0
+\end{equation}
+which can be seen as "NP"-problem.
+
+We can make everything boolean by setting
+\begin{equation}
+	f_0(x) := \exists\gamma \in \Gamma, F(x;w_0, \gamma)
+\end{equation}
+
+We can make this harder by considering
+\begin{equation}
+	f_0(x) := \forall \gamma_1\in \Gamma, \exists \gamma_2\in \Gamma, F(x;w_0, \gamma_1, \gamma_2)
+\end{equation}
+and maybe even harder to include the problem of Go game.
+
+There are two difficulties:
+\begin{itemize}
+	\item statistical one. $w_0$ is unknown
+	\item computational one. How to get an efficient approximation of $f_0$ because its original mathematical form is not obviously computable.
+\end{itemize}
+
+When $f(\gamma_0,x,w_0)$ is $\epsilon$-continuous for any $\gamma_0, w_0$, so is $f_0$, then $f_0\in$, so we can put $f_0$ in some continuous function class, then we can apply traditional machine learning or deep learning to it.
+
+In fact, machine learning can still be applied even if the original problem doesn't really have any statistical element, i.e. $W$ is univalent. This is basically what AlphaGo does. It's a way of approximate a function so that it's accurate with high probability.
+
+The problem with this approach is that it's not optimal, overly complicated, leads to blackbox. For domain specific $F$, there might be better ways.
+
+
+The project is now about finding these better ways for those $F$ in computer vision.
+
+\begin{eg}
+	[Mnist]
+\end{eg}
+
+\begin{eg}
+	[Imagenet]
+
+	Computer Graphics.
+\end{eg}
+
+Let's see how mathematicians handle similar conditions.
+
+\begin{eg}
+	[Group isomorphism]
+
+	\begin{defn}[Group]
+		A group is a set $G$ together with a multiplication $M: G\times G\to G$ such that
+		\begin{enumerate}[(1)]
+			\item identity
+			\item inverse
+			\item associative
+		\end{enumerate}
+	\end{defn}
+\end{eg}
+
+Fix a finite group $G_0$, let $X=\mathcal{G}$ be a set of finite group, let $W$ be univalent, and $\gamma$ consider
+\begin{equation}
+	F(x; w_0, \gamma) := \gamma: x \to G_0\text{ is a group isomorphism}
+\end{equation}
+
+todo: explain various ways to approximate $F$.
+
+\begin{eg}
+	[Topological Space]
+
+	\begin{defn}[Topological Space]
+		A topological space is a set $X$ together with a set of subsets (called open sets) $\tau$ such that
+		\begin{itemize}
+			\item $\emptyset, X\in \tau$
+			\item $\forall U_1, U_2\in \tau$, $U_1\cap U_2\in \tau$
+			\item $\forall \{U_i:i\in I\}\subset \tau$, $\bigcup_{i\in I}U_i\in \tau$
+		\end{itemize}
+	\end{defn}
+
+	\begin{defn}[Cech Cohomology of Constant Real Valued Sheaf]
+		Let $X$ be a topological space, for each open set $U$, let $\mathscr{F}(U)$ be the set of real valued constant functions on $U$.
+
+		Let $\mathcal{U}$ be a finite open cover of $X$ ($\mathcal{U}$ contains a finite number of open sets and their union is $X$).
+
+		For $I\subset \{1,\cdots,n\}$ define $U_I=\cap_{i\in I} U_i$, then the Cech complex is defined by
+
+		\begin{equation}
+			0\to \prod_{|I|=1} \mathscr{F}(U_I)\to
+			\prod_{|I|=2} \mathscr{F}(U_I)\to
+			\cdots \to 
+			\prod_{|I|=i} \mathscr{F}(U_I)\to\cdots
+		\end{equation}
+	\end{defn}
+
+	The maps are defined as follows. The map from $\mathscr{F}(U_I)\to \mathscr{F}(U_J)$ is 0 unless $I\subset J$, i.e., $J=I\cup \{j\}$. If $j$ is the $k$th element of $J$, then the map is $(-1)^{k-1}$ times the restriction map $\text{res}_{U_I,U_J}$.
+
+	Define $H^i_{\mathcal{U}}(X, \mathscr{F})$ to be the $i$th cohomology group of the complex. (todo: explain this)
+
+	todo: explain example
+
+	$0\to \mathbb{R}^2\to \mathbb{R}^2\to 0$
+
+	$H^0_{\mathcal{U}_k}=H^1_{\mathcal{U}_k}=\mathbb{R}$, which agrees with the singular cohomology.
+\end{eg}
+
 \subsection{Composition}
 
-It comprises mainly of two parts:
+It currently comprises mainly of three parts (three totally different fields):
 \begin{enumerate}[(1)]
-	\item a new machine learning framework with new algorithms and ways of feature constructions that are geometrically more appropriate for shape analysis;
+	\item new algorithms and ways of feature constructions that are geometrically more appropriate for shape analysis;
 
 	\begin{rmk}
 	todo: explain what is geometrically appropriate
 	\end{rmk}
+	\item a new machine learning framework
+
 	\item a new programming language that is critical for interactively implementing and improving efficient and fully interpretable models.
 
 	\begin{rmk}
@@ -67,6 +194,9 @@ It comprises mainly of two parts:
 \end{rmk}
 
 \subsection{Difference}
+
+\paragraph{Pattern Theory}
+\url{https://en.wikipedia.org/wiki/Pattern_theory}
 
 \paragraph{Traditional Computer Vision.} 
 Handcrafted feature descriptors such as SIFT and SURF are fed to traditional
@@ -85,6 +215,8 @@ Biggest problem: doesn't explain well, totally not scientific.
 
 \paragraph{Husky.} Interactively construct features that is interpretable and efficient, first purely by hand then automate more and more in the process. Feature is no longer just a map from input to a vector space, it's a map from input to a type, which encodes information in an domain specific, interpretable and efficient way.
 
+\url{https://en.wikipedia.org/wiki/Fock_space}
+
 For image classification, the training process is replaced by the following iterative developing process (with labeling being part of it)
 
 \begin{itemize}
@@ -99,7 +231,15 @@ For image classification, the training process is replaced by the following iter
 	\item Partial classifiers are first constructed by hand interactively. Constantly interact with the debugger.
 \end{itemize}
 
-This process maps to a drastically different set of requirements on development tools:
+The core advantages are
+\begin{itemize}
+	\item The training process doesn't require GPU and is inherent cheap to compute, everyone with a normal computer can do it.
+	\item Agile. For any small change, the result is instantaneously updated and one can reason why it behaves that way. In contrast, in deep learning or tradition
+\end{itemize}
+
+its inference is much faster and less memory demanding because everything is interpretable so there are more chances for optimization and.
+
+However, this process maps to a drastically different set of requirements on development tools which is too advanced for existing programming languages to handle:
 \begin{itemize}
 	\item Require the ability to easily write system level programming because we are not using matrices
 
@@ -121,7 +261,7 @@ This process maps to a drastically different set of requirements on development 
 	\begin{rmk}
 		This rules out every existing language.
 	\end{rmk}
-	\item Automatic memory
+	\item Automatic memory management.
 
 	\begin{rmk}
 		This rules out every existing language except Rust.
@@ -135,6 +275,11 @@ This process maps to a drastically different set of requirements on development 
 
 	\begin{rmk}
 		This rules out python.
+	\end{rmk}
+	\item Being friendly to customized compilation, with targets being possibly embedded device.
+
+	\begin{rmk}
+		This rules out python, julia.
 	\end{rmk}
 \end{itemize}
 
@@ -194,12 +339,37 @@ It initially is very different, the path is
 \end{itemize}
 
 \section{Inference Process for Image Classification}
+\subsection{Domain Specific Definitions}
+
+Given an input space $X$, a label space $Y$, an unknown function $f: X\to Y$, we want to approximate it with high accuracy.
+
+\begin{rmk}
+We can possibly collect data on demand or have everything ready at the beginning. For inference purpose, we really don't need to care.
+\end{rmk}
+
+\begin{defn}[Feature]
+	A feature is map from $X$ to a type $S$.
+\end{defn}
+
+\begin{rmk}
+	A type, rougly speaking, is a set with a specific computer representation for its elements.
+\end{rmk}
+
+\begin{rmk}
+	In traditional computer vision, and 
+\end{rmk}
+
+\begin{rmk}
+	In the current implementation, features are computed lazily and there is a global sheet caching (selectively) the values computed. The language allows custom computational implementation for different compilation targets based on the semantic information provided by the code. We will revisit this topic in greater details in later sections.
+\end{rmk}
+
+\begin{defn}[Option]
+	Given a type $T$, Option T means $T\sqcup \{\text{Null}\}$ roughly speaking.
+\end{defn}
 \subsection{Mnist}
+
+see \url{https://github.com/ancient-software/husky/blob/main/sparks/impress/vision_a_programming_approach.md}
 \subsection{Imagenet(tentative)}
 
-\section{Theoretical Framework: Nontrival Machine Learning}
-
-\begin{eg}
-	[Linear Classification]
-\end{eg}
+todo
 \end{document}
