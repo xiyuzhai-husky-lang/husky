@@ -154,7 +154,7 @@ Xena Project <https://github.com/ImperialCollegeLondon/formalising-mathematics/>
 
 Metamath Zero <https://github.com/digama0/mm0#metamath-zero/>
 
-##### gui
+##### functional
 
 Roc <https://github.com/roc-lang/roc/>
 
