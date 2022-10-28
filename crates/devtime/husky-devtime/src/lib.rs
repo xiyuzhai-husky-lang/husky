@@ -105,13 +105,10 @@ impl HuskyDevtime {
         }
         let key = SubtracesKey::new(trace.raw_data.kind, trace_id, opt_sample_id);
         if self.state.subtrace_ids_map.get(&key).is_none() {
-            if let Some(subtraces) = self.gen_subtraces(trace_id) {
-                self.state
-                    .subtrace_ids_map
-                    .insert_new(key.clone(), subtraces.clone());
-            } else {
-                todo!()
-            }
+            let subtrace_ids = self.gen_subtraces(trace_id).unwrap();
+            self.state
+                .subtrace_ids_map
+                .insert_new(key.clone(), subtrace_ids);
         }
         HuskyDevtimeUpdateM::Ok(())
     }

@@ -29,7 +29,7 @@ pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a
         scope,
         (if let Some((canvas_value, figure_control_data)) = opt_canvas_and_control_data.cget() {
             match *canvas_value {
-                FigureCanvasData::Mutations { ref mutations } => {
+                FigureCanvasData::Specific(SpecificFigureCanvasData::Mutations { ref mutations }) => {
                     view! {
                         scope,
                         MutationsControl {

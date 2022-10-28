@@ -37,7 +37,7 @@ impl StatusChange {
             match c {
                 'T' => {
                     // 't'
-                    // log::info!("active trace is {:?}", ctx.opt_active_trace());
+                    log::info!("active trace is {:?}", ctx.opt_active_trace());
                     log::info!("restriction is {:?}", ctx.presentation_signal.get())
                 }
                 'C' => {

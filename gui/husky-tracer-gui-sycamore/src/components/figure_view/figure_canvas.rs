@@ -32,6 +32,18 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                     scope,
                 }
             }
+            FigureCanvasValue::Graphics2d { graphics2d_data } => {
+                view! {
+                    scope,
+                    Graphics2dCanvas {
+                        dimension: props.dimension,
+                        image_layers: graphics2d_data.image_layers(),
+                        shapes: graphics2d_data.shapes(),
+                        xrange: graphics2d_data.xrange,
+                        yrange: graphics2d_data.yrange,
+                    }
+                }
+            }
             // FigureCanvasValue::Plot2d {
             //     plot_kind,
             //     ref point_groups,

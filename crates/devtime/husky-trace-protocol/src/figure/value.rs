@@ -9,6 +9,9 @@ pub enum FigureCanvasValue {
     Primitive {
         value: PrimitiveValueData,
     },
+    Graphics2d {
+        graphics2d_data: &'static Graphics2dCanvasData,
+    },
     GenericF32 {
         partitioned_samples: &'static [(Partition, Vec<(SampleId, f32)>)],
         image_layers: Vec<&'static ImageLayerData>,
@@ -107,16 +110,15 @@ impl FigureCanvasValue {
 
     fn new_generic_piece(data_itd: &FigureCanvasDataItd) -> Self {
         match data_itd.generic {
-            FigureCanvasData::Primitive { value } => FigureCanvasValue::Primitive { value: *value },
-            FigureCanvasData::Plot2d {
+            GenericFigureCanvasData::Unit => todo!(),
+            GenericFigureCanvasData::Plot2d {
                 plot_kind,
                 point_groups,
                 xrange,
                 yrange,
             } => todo!(),
-            FigureCanvasData::Graphics2d { graphics2d_data } => todo!(),
-            FigureCanvasData::Mutations { mutations } => todo!(),
-            FigureCanvasData::GenericGraphics2d {
+            GenericFigureCanvasData::Graphics2d { graphics2d_data } => todo!(),
+            GenericFigureCanvasData::GenericGraphics2d {
                 partitioned_samples,
             } => FigureCanvasValue::GenericGraphics2d {
                 partitioned_samples: partitioned_samples
@@ -134,51 +136,40 @@ impl FigureCanvasValue {
                     })
                     .collect(),
                 specific: match data_itd.specific {
-                    FigureCanvasData::Graphics2d { graphics2d_data } => {
+                    SpecificFigureCanvasData::Graphics2d { graphics2d_data } => {
                         Graphics2dCanvasValue::new(graphics2d_data)
                     }
                     _ => unreachable!(),
                 },
             },
-            FigureCanvasData::GenericF32 {
+            GenericFigureCanvasData::GenericF32 {
                 partitioned_samples,
             } => FigureCanvasValue::GenericF32 {
                 partitioned_samples,
                 image_layers: vec![],
                 shapes: vec![],
             },
-            FigureCanvasData::GenericI32 {
+            GenericFigureCanvasData::GenericI32 {
                 partitioned_samples,
             } => FigureCanvasValue::GenericI32 {
                 partitioned_samples,
                 image_layers: vec![],
                 shapes: vec![],
             },
-            FigureCanvasData::EvalError { message } => todo!(),
+            GenericFigureCanvasData::EvalError { message } => todo!(),
         }
     }
 
     fn new_specific_piece(data_itd: &FigureCanvasDataItd) -> Self {
         match data_itd.specific {
-            FigureCanvasData::Primitive { value } => FigureCanvasValue::Primitive { value: *value },
-            FigureCanvasData::Plot2d {
-                plot_kind,
-                point_groups,
-                xrange,
-                yrange,
-            } => todo!(),
-            FigureCanvasData::Graphics2d { graphics2d_data } => todo!(),
-            FigureCanvasData::Mutations { mutations } => todo!(),
-            FigureCanvasData::GenericGraphics2d {
-                partitioned_samples,
-            } => todo!(),
-            FigureCanvasData::GenericF32 {
-                partitioned_samples,
-            } => todo!(),
-            FigureCanvasData::GenericI32 {
-                partitioned_samples,
-            } => todo!(),
-            FigureCanvasData::EvalError { message } => todo!(),
+            SpecificFigureCanvasData::Primitive { value } => {
+                FigureCanvasValue::Primitive { value: *value }
+            }
+            SpecificFigureCanvasData::Graphics2d { graphics2d_data } => {
+                FigureCanvasValue::Graphics2d { graphics2d_data }
+            }
+            SpecificFigureCanvasData::Mutations { mutations } => todo!(),
+            SpecificFigureCanvasData::EvalError { message } => todo!(),
         }
     }
 
@@ -205,6 +196,7 @@ impl FigureCanvasValue {
                     image_layers.extend(specific.image_layers().into_iter());
                     shapes.extend(specific.shapes().into_iter())
                 }
+                FigureCanvasValue::Graphics2d { graphics2d_data } => todo!(),
             },
             FigureCanvasValue::GenericI32 {
                 partitioned_samples,
@@ -240,7 +232,9 @@ impl FigureCanvasValue {
                     }
                     particular0.add(particular1)
                 }
+                FigureCanvasValue::Graphics2d { graphics2d_data } => todo!(),
             },
+            FigureCanvasValue::Graphics2d { graphics2d_data } => todo!(),
         }
     }
 }

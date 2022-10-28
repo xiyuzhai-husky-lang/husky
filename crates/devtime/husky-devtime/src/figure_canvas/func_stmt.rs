@@ -12,11 +12,13 @@ impl HuskyDevtime {
         match stmt.variant {
             FuncStmtVariant::Init {
                 ref initial_value, ..
-            } => self.eager_expr_figure(initial_value, history),
+            } => self.eager_expr_figure(initial_value, history).into(),
             FuncStmtVariant::Require { .. } | FuncStmtVariant::Assert { .. } => {
                 FigureCanvasData::void()
             }
-            FuncStmtVariant::Return { ref result, .. } => self.eager_expr_figure(result, history),
+            FuncStmtVariant::Return { ref result, .. } => {
+                self.eager_expr_figure(result, history).into()
+            }
             FuncStmtVariant::ConditionFlow { .. } => todo!(),
             FuncStmtVariant::Match { .. } => todo!(),
         }

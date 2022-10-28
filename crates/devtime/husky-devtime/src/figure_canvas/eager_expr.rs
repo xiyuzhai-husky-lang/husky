@@ -5,11 +5,11 @@ impl HuskyDevtime {
         &self,
         expr: &EagerExpr,
         history: &History<'static>,
-    ) -> FigureCanvasData {
+    ) -> SpecificFigureCanvasData {
         if let Some(entry) = history.get(expr) {
             match entry {
                 HistoryEntry::PureExpr { result, .. } => match result {
-                    Ok(output) => FigureCanvasData::new_specific(
+                    Ok(output) => SpecificFigureCanvasData::new(
                         self.visualize_temp_value(
                             output,
                             expr.intrinsic_ty(),
@@ -18,7 +18,7 @@ impl HuskyDevtime {
                         )
                         .unwrap(),
                     ),
-                    Err(_) => FigureCanvasData::void(),
+                    Err(_) => SpecificFigureCanvasData::void(),
                 },
                 HistoryEntry::Exec { .. } => todo!(),
                 HistoryEntry::Loop { .. } => panic!(),
@@ -27,7 +27,7 @@ impl HuskyDevtime {
                 HistoryEntry::PatternMatching { .. } => todo!(),
             }
         } else {
-            FigureCanvasData::void()
+            SpecificFigureCanvasData::void()
         }
     }
 }
