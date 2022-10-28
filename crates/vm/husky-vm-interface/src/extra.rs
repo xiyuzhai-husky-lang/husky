@@ -189,16 +189,18 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn intrinsic_clone(&self) -> __Register<'eval> {
-        match self.data_kind {
-            __RegisterDataKind::PrimitiveValue => self.verbatim_copy(),
-            __RegisterDataKind::EvalRef
-            | __RegisterDataKind::TempRef
-            | __RegisterDataKind::Box
-            | __RegisterDataKind::TempMut => self.clone_ptr_into_box(),
-            __RegisterDataKind::Moved => panic!("moved"),
-            __RegisterDataKind::SomeNone => todo!(),
-            __RegisterDataKind::Unreturned => panic!("unreturned"),
+    pub fn intrinsic_clone(&self) -> __Register<'eval> {
+        unsafe {
+            match self.data_kind {
+                __RegisterDataKind::PrimitiveValue => self.verbatim_copy(),
+                __RegisterDataKind::EvalRef
+                | __RegisterDataKind::TempRef
+                | __RegisterDataKind::Box
+                | __RegisterDataKind::TempMut => self.clone_ptr_into_box(),
+                __RegisterDataKind::Moved => panic!("moved"),
+                __RegisterDataKind::SomeNone => todo!(),
+                __RegisterDataKind::Unreturned => panic!("unreturned"),
+            }
         }
     }
 
