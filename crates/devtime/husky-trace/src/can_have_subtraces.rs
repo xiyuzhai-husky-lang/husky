@@ -23,8 +23,15 @@ impl TraceVariant {
             TraceVariant::LoopFrame { .. }
             | TraceVariant::Main(_)
             | TraceVariant::Module { .. }
-            | TraceVariant::EntityFeature { .. }
             | TraceVariant::FeatureBranch(_) => true,
+            TraceVariant::EntityFeature { repr, .. } => match repr {
+                FeatureRepr::Value { .. } => false,
+                FeatureRepr::LazyExpr(_) => false,
+                FeatureRepr::LazyBody(_) => true,
+                FeatureRepr::FuncBody(_) => true,
+                FeatureRepr::ProcBody(_) => true,
+                FeatureRepr::TargetInput { .. } => false,
+            },
             TraceVariant::FeatureExpr(expr) => match expr.variant {
                 FeatureLazyExprVariant::Literal(_)
                 | FeatureLazyExprVariant::PrimitiveBinaryOpr { .. }
