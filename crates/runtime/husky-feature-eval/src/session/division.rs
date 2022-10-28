@@ -51,8 +51,9 @@ impl<'eval> Division<'eval> {
     where
         'eval: 'static,
     {
+        let value = value.intrinsic_clone();
         self.sheets[sample_id.0]
-            .cache(EvalKey::Feature(feature), Ok(value.clone()))
+            .cache(EvalKey::Feature(feature), Ok(value))
             .unwrap()
     }
 }
