@@ -140,9 +140,9 @@ impl DeveloperGuiContext {
         let generic_value = generic_value
             .generic()
             .unwrap_or(&GenericFigureCanvasData::Unit);
-        let specific_value = self.figure_canvases.borrow(file!(), line!())[&specific_key]
-            .specific()
-            .unwrap();
+        let specific_value = self.figure_canvases.borrow(file!(), line!())[&specific_key];
+        log::info!("specific_value = {specific_value:?}");
+        let specific_value = specific_value.specific().unwrap();
         match specific_value {
             SpecificFigureCanvasData::Mutations { mutations } => todo!(),
             SpecificFigureCanvasData::EvalError { message } => todo!(),

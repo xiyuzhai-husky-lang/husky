@@ -1,17 +1,17 @@
 use super::*;
 
-impl<'a> TraceLineBuilder<'a> {
-    pub(crate) fn feature_branch_tokens(&mut self, branch: &FeatureLazyBranch) {
+impl<'a> TraceLineGenerator<'a> {
+    pub(crate) fn gen_feature_branch(&mut self, branch: &FeatureLazyBranch) {
         match branch.variant {
             FeatureLazyBranchVariant::If { ref condition } => {
-                self.gen_keyword_token("if ", None, None);
-                self.gen_feature_expr_tokens(condition, ExprTokenConfig::branch())
+                self.render_keyword_token("if ", None, None);
+                self.gen_feature_expr(condition, ExprTokenConfig::branch())
             }
             FeatureLazyBranchVariant::Elif { ref condition } => {
-                self.gen_keyword_token("elif ", None, None);
-                self.gen_feature_expr_tokens(condition, ExprTokenConfig::branch())
+                self.render_keyword_token("elif ", None, None);
+                self.gen_feature_expr(condition, ExprTokenConfig::branch())
             }
-            FeatureLazyBranchVariant::Else => self.gen_keyword_token("else ", None, None),
+            FeatureLazyBranchVariant::Else => self.render_keyword_token("else ", None, None),
         }
     }
 }

@@ -3,7 +3,7 @@ use husky_text::{Row, TextPosition, TextRange, TextRanged};
 
 use super::*;
 
-impl<'a> TraceLineBuilder<'a> {
+impl<'a> TraceLineGenerator<'a> {
     pub(super) fn gen_mod(&mut self) {
         self.push_token(
             TraceTokenData {
@@ -15,7 +15,7 @@ impl<'a> TraceLineBuilder<'a> {
         )
     }
 
-    pub(super) fn gen_ident_token(
+    pub(super) fn render_ident_token(
         &mut self,
         name: &str,
         opt_associated_trace_id: Option<TraceId>,
@@ -31,7 +31,7 @@ impl<'a> TraceLineBuilder<'a> {
         )
     }
 
-    pub(super) fn gen_keyword_token(
+    pub(super) fn render_keyword_token(
         &mut self,
         name: &str,
         opt_associated_trace_id: Option<TraceId>,
@@ -47,7 +47,7 @@ impl<'a> TraceLineBuilder<'a> {
         )
     }
 
-    pub(super) fn gen_special_token(
+    pub(super) fn render_special_token(
         &mut self,
         name: &str,
         opt_associated_trace_id: Option<TraceId>,
