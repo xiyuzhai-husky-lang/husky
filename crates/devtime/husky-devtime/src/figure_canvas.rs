@@ -40,19 +40,21 @@ impl HuskyDevtime {
             TraceVariant::ProcStmt {
                 ref stmt,
                 ref history,
-            } => self.proc_stmt_figure(stmt, history),
+            } => self.proc_stmt_figure(stmt, history).into(),
             TraceVariant::EagerExpr {
                 ref expr,
                 ref history,
-            } => self.eager_expr_figure(expr, history),
+            } => self.eager_expr_figure(expr, history).into(),
             TraceVariant::CallHead { .. } => FigureCanvasData::void(),
             TraceVariant::LoopFrame {
                 ref loop_frame_data,
                 ..
-            } => self.loop_frame_mutations_figure(
-                trace.raw_data.opt_parent_id.unwrap(),
-                &loop_frame_data.mutations,
-            ),
+            } => self
+                .loop_frame_mutations_figure(
+                    trace.raw_data.opt_parent_id.unwrap(),
+                    &loop_frame_data.mutations,
+                )
+                .into(),
             TraceVariant::FuncBranch {
                 ref stmt,
                 branch_idx,
@@ -85,7 +87,7 @@ impl HuskyDevtime {
                     ..
                 }) => {
                     if *branch_entered == Some(branch_idx) {
-                        self.mutations_figure(mutations)
+                        self.mutations_figure(mutations).into()
                     } else {
                         FigureCanvasData::void()
                     }
@@ -97,7 +99,7 @@ impl HuskyDevtime {
                 ref argument,
                 ref history,
                 ..
-            } => self.eager_expr_figure(argument, history),
+            } => self.eager_expr_figure(argument, history).into(),
         })
     }
 }

@@ -5,7 +5,7 @@ impl HuskyDevtime {
         &self,
         stmt: &ProcStmt,
         history: &History<'static>,
-    ) -> FigureCanvasData {
+    ) -> SpecificFigureCanvasData {
         match stmt.variant {
             ProcStmtVariant::Init {
                 ref initial_value, ..
@@ -21,7 +21,7 @@ impl HuskyDevtime {
                         }
                     }
                 } else {
-                    FigureCanvasData::void()
+                    SpecificFigureCanvasData::void()
                 }
             }
             ProcStmtVariant::Return { ref result, .. } => self.eager_expr_figure(result, history),
@@ -35,10 +35,10 @@ impl HuskyDevtime {
                         _ => panic!(),
                     }
                 } else {
-                    FigureCanvasData::void()
+                    SpecificFigureCanvasData::void()
                 }
             }
-            ProcStmtVariant::Break => FigureCanvasData::void(),
+            ProcStmtVariant::Break => SpecificFigureCanvasData::void(),
             ProcStmtVariant::Match { .. } => todo!(),
         }
     }
@@ -47,7 +47,7 @@ impl HuskyDevtime {
         &self,
         loop_trace_id: TraceId,
         frame_mutations: &[MutationData],
-    ) -> FigureCanvasData {
+    ) -> SpecificFigureCanvasData {
         let loop_trace = self.trace(loop_trace_id);
         let mutations = match loop_trace.variant {
             TraceVariant::ProcStmt {
@@ -79,7 +79,7 @@ impl HuskyDevtime {
                                     }
                                 },
                                 before: None,
-                                after: FigureCanvasData::new_specific(
+                                after: SpecificFigureCanvasData::new(
                                     self.visualize_temp_value(
                                         &stack_snapshot[mutation_data.varidx()].snapshot(),
                                         mutation_data.ty,
@@ -97,11 +97,14 @@ impl HuskyDevtime {
             },
             _ => panic!(),
         };
-        FigureCanvasData::Mutations { mutations }
+        SpecificFigureCanvasData::Mutations { mutations }
     }
 
-    pub fn mutations_figure(&self, mutations: &[MutationData<'static>]) -> FigureCanvasData {
-        FigureCanvasData::Mutations {
+    pub fn mutations_figure(
+        &self,
+        mutations: &[MutationData<'static>],
+    ) -> SpecificFigureCanvasData {
+        SpecificFigureCanvasData::Mutations {
             mutations: mutations
                 .iter()
                 .enumerate()
@@ -124,7 +127,7 @@ impl HuskyDevtime {
                 MutationDataVariant::Block { varname, .. } => varname.as_str().to_string(),
             },
             before: if let Some(before) = mutation_data.before.as_ref() {
-                Some(FigureCanvasData::new_specific(
+                Some(SpecificFigureCanvasData::new(
                     self.visualize_temp_value(
                         before,
                         mutation_data.ty,
@@ -136,7 +139,7 @@ impl HuskyDevtime {
             } else {
                 None
             },
-            after: FigureCanvasData::new_specific(
+            after: SpecificFigureCanvasData::new(
                 self.visualize_temp_value(
                     &mutation_data.after,
                     mutation_data.ty,

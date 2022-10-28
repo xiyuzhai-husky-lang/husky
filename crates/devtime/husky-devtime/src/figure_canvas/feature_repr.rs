@@ -14,7 +14,7 @@ impl HuskyDevtime {
                 .runtime()
                 .visualize_feature(repr.clone(), self.state.presentation.sample_id())
             {
-                Ok(data) => Ok(FigureCanvasData::new_specific(data)),
+                Ok(data) => Ok(SpecificFigureCanvasData::new(data).into()),
                 Err(_) => Ok(FigureCanvasData::void()),
             }
         } else {
@@ -36,7 +36,7 @@ impl HuskyDevtime {
             VisualTy::B64 => todo!(),
             VisualTy::Integer => {
                 let ref this = self;
-                Ok(FigureCanvasData::GenericI32 {
+                Ok(GenericFigureCanvasData::GenericI32 {
                     partitioned_samples: this.feature_repr_partitioned_samples(
                         repr,
                         |visual_data| match visual_data {
@@ -49,9 +49,10 @@ impl HuskyDevtime {
                             }
                         },
                     )?,
-                })
+                }
+                .into())
             }
-            VisualTy::Float => Ok(FigureCanvasData::GenericF32 {
+            VisualTy::Float => Ok(GenericFigureCanvasData::GenericF32 {
                 partitioned_samples: self.feature_repr_partitioned_samples(
                     repr,
                     |visual_data| match visual_data {
@@ -61,15 +62,17 @@ impl HuskyDevtime {
                         _ => panic!(),
                     },
                 )?,
-            }),
+            }
+            .into()),
             VisualTy::Point2d => todo!(),
             VisualTy::Shape2d | VisualTy::Region2d | VisualTy::Image2d | VisualTy::Graphics2d => {
-                Ok(FigureCanvasData::GenericGraphics2d {
+                Ok(GenericFigureCanvasData::GenericGraphics2d {
                     partitioned_samples: self
                         .feature_repr_partitioned_samples(repr, |visual_data| {
                             Graphics2dCanvasData::from_visual_data(visual_data)
                         })?,
-                })
+                }
+                .into())
             }
             VisualTy::Dataset => todo!(),
             VisualTy::Plot2d => todo!(),

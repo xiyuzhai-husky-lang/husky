@@ -135,26 +135,15 @@ impl DeveloperGuiContext {
             FigureCanvasKey::from_trace_data(self.trace_data(trace_id), presentation, true);
         let generic_key =
             FigureCanvasKey::from_trace_data(self.trace_data(trace_id), presentation, false);
-        let generic_value = self.figure_canvases.borrow(file!(), line!())[&generic_key];
-        let specific_value = self.figure_canvases.borrow(file!(), line!())[&specific_key];
+        let generic_value = self.figure_canvases.borrow(file!(), line!())[&generic_key]
+            .generic()
+            .unwrap();
+        let specific_value = self.figure_canvases.borrow(file!(), line!())[&specific_key]
+            .specific()
+            .unwrap();
         match specific_value {
-            FigureCanvasData::Plot2d {
-                plot_kind,
-                point_groups,
-                xrange,
-                yrange,
-            } => todo!(),
-            FigureCanvasData::Mutations { mutations } => todo!(),
-            FigureCanvasData::GenericGraphics2d {
-                partitioned_samples,
-            } => todo!(),
-            FigureCanvasData::GenericF32 {
-                partitioned_samples,
-            } => todo!(),
-            FigureCanvasData::GenericI32 {
-                partitioned_samples,
-            } => todo!(),
-            FigureCanvasData::EvalError { message } => todo!(),
+            SpecificFigureCanvasData::Mutations { mutations } => todo!(),
+            SpecificFigureCanvasData::EvalError { message } => todo!(),
             _ => (),
         }
         FigureCanvasDataItd {
