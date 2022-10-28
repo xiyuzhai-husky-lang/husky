@@ -13,7 +13,7 @@ impl HuskyDevtime {
             FeatureRepr::LazyBody(block) => Some(self.feature_lazy_block_subtraces(parent, block)),
             FeatureRepr::FuncBody(block) => self.feature_func_block_subtraces(parent, block),
             FeatureRepr::ProcBody(block) => self.feature_proc_block_subtraces(parent, block),
-            FeatureRepr::TargetInput { .. } => todo!(),
+            FeatureRepr::TargetInput { .. } => None,
         }
     }
 

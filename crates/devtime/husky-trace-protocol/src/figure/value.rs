@@ -100,7 +100,7 @@ impl FigureCanvasValue {
     fn new_piece(presentation_kind: PresentationKind, data_itd: &FigureCanvasDataItd) -> Self {
         match presentation_kind {
             PresentationKind::Generic => Self::new_generic_piece(data_itd),
-            PresentationKind::Specific => todo!(),
+            PresentationKind::Specific => Self::new_specific_piece(data_itd),
             PresentationKind::Panic => todo!(),
         }
     }
@@ -154,6 +154,30 @@ impl FigureCanvasValue {
                 image_layers: vec![],
                 shapes: vec![],
             },
+            FigureCanvasData::EvalError { message } => todo!(),
+        }
+    }
+
+    fn new_specific_piece(data_itd: &FigureCanvasDataItd) -> Self {
+        match data_itd.specific {
+            FigureCanvasData::Primitive { value } => FigureCanvasValue::Primitive { value: *value },
+            FigureCanvasData::Plot2d {
+                plot_kind,
+                point_groups,
+                xrange,
+                yrange,
+            } => todo!(),
+            FigureCanvasData::Graphics2d { graphics2d_data } => todo!(),
+            FigureCanvasData::Mutations { mutations } => todo!(),
+            FigureCanvasData::GenericGraphics2d {
+                partitioned_samples,
+            } => todo!(),
+            FigureCanvasData::GenericF32 {
+                partitioned_samples,
+            } => todo!(),
+            FigureCanvasData::GenericI32 {
+                partitioned_samples,
+            } => todo!(),
             FigureCanvasData::EvalError { message } => todo!(),
         }
     }
