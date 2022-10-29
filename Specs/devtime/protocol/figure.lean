@@ -1,4 +1,4 @@
-structure FigureCanvasElementStorage
+structure FigureCanvasElementArena
 
 structure FigureCanvasElementIdx
 

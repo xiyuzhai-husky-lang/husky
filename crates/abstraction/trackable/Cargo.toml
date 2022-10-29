@@ -7,3 +7,4 @@ edition = "2021"
 [dependencies]
 monad = { path = "../../abstraction/monad" }
 vec-like = { path = "../../abstraction/vec-like" }
+idx-arena = { path = "../../abstraction/idx-arena" }
