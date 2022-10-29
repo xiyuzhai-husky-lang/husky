@@ -1,6 +1,7 @@
 #![feature(try_trait_v2)]
 
 mod atom;
+mod idx_arena;
 mod map;
 mod monads;
 mod set;

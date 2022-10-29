@@ -1,53 +1,55 @@
-use std::{cell::Cell, marker::PhantomData};
+mod pool;
 
-use thiserror::Error;
+use pool::*;
+use std::{borrow::Borrow, cell::Cell, marker::PhantomData};
 
-pub struct RefArena<T> {
-    data: Cell<Vec<T>>,
+pub struct RefArena<T, const N: usize> {
+    pools: Cell<Vec<RefArenaPool<T, N>>>,
 }
 
-impl<T> RefArena<T> {
-    pub fn new(capacity: usize) -> Self {
-        let mut data = vec![];
-        data.reserve_exact(capacity);
-        assert_eq!(data.capacity(), 2);
+impl<T, const PoolCapacity: usize> RefArena<T, PoolCapacity> {
+    pub fn new() -> Self {
+        assert!(PoolCapacity > 0);
         Self {
-            data: Cell::new(data),
+            pools: Cell::new(vec![RefArenaPool::new()]),
         }
     }
 
-    pub fn alloc<'a>(&'a self, t: T) -> RefArenaResult<&'a T> {
-        let data: &mut Vec<_> = unsafe { &mut *self.data.as_ptr() };
-        assert_eq!(data.capacity(), 2);
-        if data.len() == data.capacity() {
-            return Err(RefArenaError::RefArenaIsFull);
-        }
-        data.push(t);
-        Ok(unsafe { wild_utils::arb_ref(data.last().unwrap()) })
+    pub fn alloc<'a>(&'a self, t: T) -> &'a T {
+        let data: &mut Vec<_> = unsafe { &mut *self.pools.as_ptr() };
+        let ptr = match data.last_mut().unwrap().alloc(t) {
+            Ok(ptr) => ptr,
+            Err(RefArenaPoolError::RefArenaIsFull(t)) => {
+                data.push(RefArenaPool::new());
+                unsafe { data.last_mut().unwrap().alloc(t).unwrap_unchecked() }
+            }
+        };
+        unsafe { wild_utils::arb_ref(&*ptr) }
     }
 
     pub fn reset(&mut self) {
-        self.data.get_mut().clear();
+        self.pools.get_mut().clear();
     }
 }
 
-#[derive(Error, Debug, PartialEq, Eq, Clone)]
-pub enum RefArenaError {
-    #[error("ref arena is full")]
-    RefArenaIsFull,
-}
-
-pub type RefArenaResult<T> = Result<T, RefArenaError>;
-
 #[test]
 fn it_works() {
-    let arena = RefArena::<i32>::new(2);
+    let mut arena = RefArena::<i32, 2>::new();
     let a = arena.alloc(1);
-    assert_eq!(a, Ok(&1));
+    assert_eq!(a, &1);
     let b = arena.alloc(2);
-    assert_eq!(b, Ok(&2));
+    assert_eq!(b, &2);
     let c = arena.alloc(3);
-    assert_eq!(a, Ok(&1));
-    assert_eq!(b, Ok(&2));
-    assert_eq!(c, Err(RefArenaError::RefArenaIsFull));
+    assert_eq!(a, &1);
+    assert_eq!(b, &2);
+    assert_eq!(c, &3);
+    assert_eq!(arena.pools.get_mut().len(), 2);
+}
+
+#[test]
+fn it_works2() {
+    let mut arena = RefArena::<i32, 2>::new();
+    for i in 0..10000 {
+        assert_eq!(arena.alloc(i), &i)
+    }
 }
