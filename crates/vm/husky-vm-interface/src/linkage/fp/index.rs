@@ -224,7 +224,6 @@ macro_rules! index_temp_mut_fp {
             values: &mut [__Register<'eval>],
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
-            println!("here index_temp_mut_fp");
             let index_value: usize = values[1].downcast_i32() as usize;
             let this_value: &mut $Type = values[0].downcast_temp_mut(&$TYPE_VTABLE);
             __Register::new_temp_mut::<$INTRINSIC_ELEMENT_TY>(
@@ -243,7 +242,6 @@ macro_rules! index_temp_mut_fp {
             values: &mut [__Register<'eval>],
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
-            println!("here index_temp_mut_fp");
             let index_value: usize = values[1].downcast_i32() as usize;
             let this_value: &mut $Type = values[0].downcast_temp_mut(&$TYPE_VTABLE);
             __Register::new_opt_temp_mut::<$INTRINSIC_ELEMENT_TY>(
@@ -288,7 +286,6 @@ macro_rules! index_temp_mut_fp {
             values: &mut [__Register<'eval>],
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
         ) -> __Register<'eval> {
-            println!("here index_temp_mut_fp");
             panic!("can't mutate immutable")
         }
         __ResolvedLinkage {
