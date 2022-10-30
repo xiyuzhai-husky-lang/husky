@@ -2,7 +2,7 @@ structure FigureCanvasElementArena
 
 structure FigureCanvasElementIdx
 
-inductive FigureCanvasElement
+inductive FigureCanvasAtom
 
 structure MutationCanvasData where
   before: Option FigureCanvasElementIdx

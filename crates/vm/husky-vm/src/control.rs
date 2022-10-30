@@ -8,10 +8,16 @@ pub enum VMControl<'eval> {
     Err(__VMError),
 }
 
+impl<'eval> Default for VMControl<'eval> {
+    fn default() -> Self {
+        VMControl::None
+    }
+}
+
 impl<'eval> From<__VMResult<()>> for VMControl<'eval> {
     fn from(result: __VMResult<()>) -> Self {
         match result {
-            Ok(_) => Self::None,
+            Ok(_) => Default::default(),
             Err(e) => Self::Err(e),
         }
     }

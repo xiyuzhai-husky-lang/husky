@@ -6,9 +6,7 @@ use husky_vm_primitive_value::PrimitiveValueData;
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum FigureCanvasValue {
-    Primitive {
-        value: PrimitiveValueData,
-    },
+    None,
     Graphics2d {
         graphics2d_data: &'static Graphics2dCanvasData,
     },
@@ -28,13 +26,13 @@ pub enum FigureCanvasValue {
     },
 }
 
-impl Signalable for FigureCanvasValue {}
-
-impl FigureCanvasValue {
-    fn void() -> Self {
-        FigureCanvasValue::Primitive { value: ().into() }
+impl Default for FigureCanvasValue {
+    fn default() -> Self {
+        FigureCanvasValue::None
     }
 }
+
+impl Signalable for FigureCanvasValue {}
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Graphics2dCanvasValue {
@@ -91,7 +89,7 @@ impl FigureCanvasValue {
             all_figures.insert(0, active_figure)
         }
         if all_figures.len() == 0 {
-            return Self::void();
+            return Default::default();
         }
         let mut value = Self::new_piece(presentation_kind, &all_figures[0]);
         for other in all_figures[1..].iter() {
@@ -110,7 +108,7 @@ impl FigureCanvasValue {
 
     fn new_generic_piece(data_itd: &FigureCanvasDataItd) -> Self {
         match data_itd.generic {
-            GenericFigureCanvasData::Unit => todo!(),
+            GenericFigureCanvasData::None => todo!(),
             GenericFigureCanvasData::Plot2d {
                 plot_kind,
                 point_groups,
@@ -136,9 +134,11 @@ impl FigureCanvasValue {
                     })
                     .collect(),
                 specific: match data_itd.specific {
-                    SpecificFigureCanvasData::Graphics2d { graphics2d_data } => {
-                        Graphics2dCanvasValue::new(graphics2d_data)
-                    }
+                    SpecificFigureCanvasData::Atom(atom) => match atom {
+                        FigureCanvasAtom::Void => todo!(),
+                        FigureCanvasAtom::Primitive(_) => todo!(),
+                        FigureCanvasAtom::Graphics2d(data) => Graphics2dCanvasValue::new(data),
+                    },
                     _ => unreachable!(),
                 },
             },
@@ -162,12 +162,13 @@ impl FigureCanvasValue {
 
     fn new_specific_piece(data_itd: &FigureCanvasDataItd) -> Self {
         match data_itd.specific {
-            SpecificFigureCanvasData::Primitive { value } => {
-                FigureCanvasValue::Primitive { value: *value }
-            }
-            SpecificFigureCanvasData::Graphics2d { graphics2d_data } => {
-                FigureCanvasValue::Graphics2d { graphics2d_data }
-            }
+            SpecificFigureCanvasData::Atom(atom) => match atom {
+                FigureCanvasAtom::Void => FigureCanvasValue::None,
+                FigureCanvasAtom::Primitive(_) => FigureCanvasValue::None,
+                FigureCanvasAtom::Graphics2d(graphics2d_data) => {
+                    FigureCanvasValue::Graphics2d { graphics2d_data }
+                }
+            },
             SpecificFigureCanvasData::Mutations { mutations } => todo!(),
             SpecificFigureCanvasData::EvalError { message } => todo!(),
         }
@@ -175,13 +176,13 @@ impl FigureCanvasValue {
 
     fn merge(&mut self, other: FigureCanvasValue) {
         match self {
-            FigureCanvasValue::Primitive { .. } => *self = other,
+            FigureCanvasValue::None => *self = other,
             FigureCanvasValue::GenericF32 {
                 partitioned_samples,
                 image_layers,
                 shapes,
             } => match other {
-                FigureCanvasValue::Primitive { value } => todo!(),
+                FigureCanvasValue::None => (),
                 FigureCanvasValue::GenericF32 {
                     partitioned_samples,
                     image_layers,
@@ -207,7 +208,7 @@ impl FigureCanvasValue {
                 partitioned_samples: partitioned_samples0,
                 specific: particular0,
             } => match other {
-                FigureCanvasValue::Primitive { .. } => (),
+                FigureCanvasValue::None => (),
                 FigureCanvasValue::GenericF32 { .. } => (),
                 FigureCanvasValue::GenericI32 { .. } => (),
                 FigureCanvasValue::GenericGraphics2d {

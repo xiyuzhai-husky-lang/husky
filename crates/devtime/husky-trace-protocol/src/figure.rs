@@ -1,8 +1,11 @@
+mod canvas_element;
+mod client;
 mod control;
 mod graphics2d;
 mod value;
 mod visual;
 
+pub use canvas_element::*;
 pub use control::*;
 pub use graphics2d::*;
 pub use value::*;
@@ -49,31 +52,34 @@ impl From<SpecificFigureCanvasData> for FigureCanvasData {
 
 impl FigureCanvasData {
     pub fn void() -> Self {
-        GenericFigureCanvasData::Unit.into()
+        GenericFigureCanvasData::None.into()
     }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 #[serde(tag = "kind")]
 pub enum SpecificFigureCanvasData {
-    Primitive {
-        value: PrimitiveValueData,
-    },
-    Graphics2d {
-        graphics2d_data: Graphics2dCanvasData,
-    },
-    Mutations {
-        mutations: Vec<MutationFigureData>,
-    },
-    EvalError {
-        message: String,
-    },
+    Atom(FigureCanvasAtom),
+    Mutations { mutations: Vec<MutationFigureData> },
+    EvalError { message: String },
+}
+
+impl SpecificFigureCanvasData {
+    pub fn new_atom(visual_data: VisualData) -> Self {
+        SpecificFigureCanvasData::Atom(FigureCanvasAtom::new(visual_data))
+    }
+}
+
+impl Default for SpecificFigureCanvasData {
+    fn default() -> Self {
+        SpecificFigureCanvasData::Atom(Default::default())
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 #[serde(tag = "kind")]
 pub enum GenericFigureCanvasData {
-    Unit,
+    None,
     Plot2d {
         plot_kind: Plot2dKind,
         point_groups: Vec<Point2dGroup>,
@@ -103,8 +109,8 @@ impl Signalable for SpecificFigureCanvasData {}
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct MutationFigureData {
     pub name: String,
-    pub before: Option<SpecificFigureCanvasData>,
-    pub after: SpecificFigureCanvasData,
+    pub before: Option<FigureCanvasAtom>,
+    pub after: FigureCanvasAtom,
     pub idx: usize,
 }
 
@@ -131,9 +137,7 @@ impl<'a> ContainsShapes<'a> for FigureCanvasDataItd {
 impl<'a> ContainsImageLayers<'a> for &'a SpecificFigureCanvasData {
     fn image_layers(&self) -> Vec<&'a ImageLayerData> {
         match self {
-            SpecificFigureCanvasData::Graphics2d { graphics2d_data } => {
-                graphics2d_data.image_layers()
-            }
+            SpecificFigureCanvasData::Atom(atom) => atom.image_layers(),
             SpecificFigureCanvasData::Mutations { mutations } => todo!(),
             _ => vec![],
         }
@@ -142,101 +146,13 @@ impl<'a> ContainsImageLayers<'a> for &'a SpecificFigureCanvasData {
 impl<'a> ContainsShapes<'a> for &'a SpecificFigureCanvasData {
     fn shapes(&self) -> Vec<&'a Shape2dData> {
         match self {
-            SpecificFigureCanvasData::Graphics2d { graphics2d_data } => graphics2d_data.shapes(),
+            SpecificFigureCanvasData::Atom(atom) => atom.shapes(),
             SpecificFigureCanvasData::Mutations { mutations } => todo!(),
             _ => vec![],
         }
     }
 }
 impl GenericFigureCanvasData {}
-impl SpecificFigureCanvasData {
-    pub fn new(visual_data: VisualData) -> Self {
-        log::info!("deprecated");
-        match visual_data {
-            VisualData::BinaryImage28 { padded_rows } => SpecificFigureCanvasData::Graphics2d {
-                graphics2d_data: Graphics2dCanvasData {
-                    image_layers: vec![ImageLayerData::binary_image28(&padded_rows)],
-                    shapes: Vec::new(),
-                    xrange: (0.0, 28.0),
-                    yrange: (0.0, 28.0),
-                },
-            },
-            VisualData::Primitive { value } => SpecificFigureCanvasData::Primitive { value },
-            VisualData::BinaryGrid28 { ref padded_rows } => SpecificFigureCanvasData::Graphics2d {
-                graphics2d_data: Graphics2dCanvasData {
-                    image_layers: vec![],
-                    shapes: vec![Shape2dData::laser_grid28(padded_rows)],
-                    xrange: (0.0, 28.0),
-                    yrange: (0.0, 28.0),
-                },
-            },
-            VisualData::Contour { points } => SpecificFigureCanvasData::Graphics2d {
-                graphics2d_data: Graphics2dCanvasData {
-                    image_layers: vec![],
-                    shapes: vec![Shape2dData::Contour { points }],
-                    xrange: (0.0, 28.0),
-                    yrange: (0.0, 28.0),
-                },
-            },
-            VisualData::Group(mut visuals) => {
-                if visuals.len() == 0 {
-                    return SpecificFigureCanvasData::void();
-                }
-                if visuals.len() == 1 {
-                    return Self::new(visuals.pop().unwrap());
-                }
-                match visuals[0].world() {
-                    VisualWorld::Primitive => Self::new_specific_primitive_group(visuals),
-                    VisualWorld::Graphics2d => Self::new_graphics2d_group(visuals),
-                    VisualWorld::Graphics3d => todo!(),
-                }
-            }
-            VisualData::LineSegment { start, end } => SpecificFigureCanvasData::Graphics2d {
-                graphics2d_data: Graphics2dCanvasData {
-                    image_layers: vec![],
-                    shapes: vec![Shape2dData::LineSegment { start, end }],
-                    xrange: (0.0, 28.0),
-                    yrange: (0.0, 28.0),
-                },
-            },
-        }
-    }
-
-    pub fn new_graphics2d_group(visuals: Vec<VisualData>) -> Self {
-        let mut image_layers = Vec::new();
-        let mut shapes = Vec::new();
-        for visual_data in visuals {
-            match visual_data {
-                VisualData::BinaryImage28 { ref padded_rows } => {
-                    image_layers.push(ImageLayerData::binary_image28(padded_rows))
-                }
-                VisualData::BinaryGrid28 { .. }
-                | VisualData::Contour { .. }
-                | VisualData::Group(_)
-                | VisualData::LineSegment { .. } => shapes.push(visual_data.into()),
-                VisualData::Primitive { .. } => panic!(),
-            }
-        }
-        SpecificFigureCanvasData::Graphics2d {
-            graphics2d_data: Graphics2dCanvasData {
-                image_layers,
-                shapes,
-                xrange: (0.0, 28.0),
-                yrange: (0.0, 28.0),
-            },
-        }
-    }
-
-    pub fn new_specific_primitive_group(_visuals: Vec<VisualData>) -> Self {
-        Self::void()
-    }
-
-    pub fn void() -> Self {
-        Self::Primitive {
-            value: PrimitiveValueData::Void(()),
-        }
-    }
-}
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub enum Plot2dKind {
