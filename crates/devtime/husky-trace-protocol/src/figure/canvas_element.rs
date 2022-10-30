@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub enum FigureCanvasAtom {
-    Void,
+    Unit,
     Primitive(PrimitiveValueData),
     Graphics2d(Graphics2dCanvasData),
 }
@@ -87,14 +87,14 @@ impl FigureCanvasAtom {
 
 impl Default for FigureCanvasAtom {
     fn default() -> Self {
-        FigureCanvasAtom::Void
+        FigureCanvasAtom::Unit
     }
 }
 
 impl<'a> ContainsImageLayers<'a> for &'a FigureCanvasAtom {
     fn image_layers(&self) -> Vec<&'a ImageLayerData> {
         match self {
-            FigureCanvasAtom::Void => todo!(),
+            FigureCanvasAtom::Unit => todo!(),
             FigureCanvasAtom::Primitive(_) => todo!(),
             FigureCanvasAtom::Graphics2d(data) => data.image_layers(),
         }
@@ -104,7 +104,7 @@ impl<'a> ContainsImageLayers<'a> for &'a FigureCanvasAtom {
 impl<'a> ContainsShapes<'a> for &'a FigureCanvasAtom {
     fn shapes(&self) -> Vec<&'a Shape2dData> {
         match self {
-            FigureCanvasAtom::Void => todo!(),
+            FigureCanvasAtom::Unit => todo!(),
             FigureCanvasAtom::Primitive(_) => todo!(),
             FigureCanvasAtom::Graphics2d(data) => data.shapes(),
         }

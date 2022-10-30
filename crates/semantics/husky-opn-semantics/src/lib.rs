@@ -33,7 +33,7 @@ pub enum ImplicitConversion {
 
 impl Default for ImplicitConversion {
     fn default() -> Self {
-        Default::default()
+        ImplicitConversion::None
     }
 }
 

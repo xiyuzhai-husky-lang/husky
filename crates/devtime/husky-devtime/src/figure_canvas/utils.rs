@@ -33,13 +33,13 @@ impl HuskyDevtime {
         )
     }
 
-    pub fn visualize_control(&self, control: &ControlSnapshot) -> FigureCanvasData {
+    pub fn visualize_control(&self, control: &ControlSnapshot) -> SpecificFigureCanvasData {
         // self.eval_time().visualize_feature(this, sample_id)
         match control {
-            ControlSnapshot::None => FigureCanvasData::void(),
+            ControlSnapshot::None => Default::default(),
             ControlSnapshot::Return(_) => todo!(),
             ControlSnapshot::Break => todo!(),
-            ControlSnapshot::Err(e) => FigureCanvasData::void(),
+            ControlSnapshot::Err(e) => Default::default(),
         }
     }
 
@@ -64,11 +64,12 @@ impl HuskyDevtime {
         // todo: clean all this trouble
         let f = |(sample_id, e): (SampleId, __VMError)| -> __VMError { (sample_id.0, e).into() };
         if !self.state.figure_canvases.contains(&key) {
-            self.state.figure_canvases.insert_new(
-                key.clone(),
-                self.gen_figure_content_data(trace_id, is_specific)
-                    .map_err(f)?,
-            )?
+            todo!()
+            // self.state.figure_canvases.insert_new(
+            //     key.clone(),
+            //     self.gen_figure_content_data(trace_id, is_specific)
+            //         .map_err(f)?,
+            // )?
         }
         HuskyDevtimeUpdateM::Ok(())
     }

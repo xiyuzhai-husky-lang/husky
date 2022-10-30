@@ -7,8 +7,8 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Launch",
-            "program": "${workspaceFolder}/target/debug/husky-debugger",
+            "name": "mnist-compiled",
+            "program": "${workspaceFolder}/target/debug/husky-developer",
             "args": ["run" ,"examples/mnist-classifier"],
             "cwd": "${workspaceFolder}"
         },

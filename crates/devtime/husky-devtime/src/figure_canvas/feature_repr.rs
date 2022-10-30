@@ -4,33 +4,28 @@ use husky_vm_primitive_value::PrimitiveValueData;
 use super::*;
 
 impl HuskyDevtime {
-    pub(crate) fn feature_repr_figure(
+    pub(crate) fn feature_repr_specific_figure(
         &self,
         repr: &FeatureRepr,
-        is_specific: bool,
-    ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
-        if is_specific {
-            match self
-                .runtime()
-                .visualize_feature(repr.clone(), self.state.presentation.sample_id())
-            {
-                Ok(data) => Ok(SpecificFigureCanvasData::new_atom(data).into()),
-                Err(_) => Ok(FigureCanvasData::void()),
-            }
-        } else {
-            self.feature_repr_generic_figure(repr)
+    ) -> Result<SpecificFigureCanvasData, (SampleId, __VMError)> {
+        match self
+            .runtime()
+            .visualize_feature(repr.clone(), self.state.presentation.sample_id())
+        {
+            Ok(data) => Ok(SpecificFigureCanvasData::new_atom(data).into()),
+            Err(_) => Ok(todo!()),
         }
     }
 
-    fn feature_repr_generic_figure(
+    pub(super) fn feature_repr_generic_figure(
         &self,
         repr: &FeatureRepr,
-    ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
+    ) -> Result<GenericFigureCanvasData, (SampleId, __VMError)> {
         // const COLUMN_HEIGHT: u32 = 5;
         let ty = repr.ty();
         let visualizer = self.runtime().visualizer(ty.intrinsic());
         match visualizer.visual_ty {
-            VisualTy::Void => Ok(FigureCanvasData::void()),
+            VisualTy::Void => Ok(GenericFigureCanvasData::Unit),
             VisualTy::Bool => todo!(),
             VisualTy::B32 => todo!(),
             VisualTy::B64 => todo!(),
