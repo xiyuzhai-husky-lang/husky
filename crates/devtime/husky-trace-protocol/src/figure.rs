@@ -1,3 +1,4 @@
+mod canvas;
 mod canvas_element;
 mod client;
 mod control;
@@ -5,6 +6,7 @@ mod graphics2d;
 mod value;
 mod visual;
 
+pub use canvas::*;
 pub use canvas_element::*;
 pub use control::*;
 pub use graphics2d::*;
@@ -14,29 +16,6 @@ pub use visual::*;
 use super::*;
 use husky_signal::Signalable;
 use husky_vm_primitive_value::PrimitiveValueData;
-
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
-pub enum FigureCanvasData {
-    Generic(GenericFigureCanvasData),
-    Specific(SpecificFigureCanvasData),
-}
-
-impl FigureCanvasData {
-    pub fn generic(&self) -> Option<&GenericFigureCanvasData> {
-        match self {
-            FigureCanvasData::Generic(generic) => Some(generic),
-            FigureCanvasData::Specific(_) => None,
-        }
-    }
-    pub fn specific(&self) -> Option<&SpecificFigureCanvasData> {
-        match self {
-            FigureCanvasData::Generic(_) => None,
-            FigureCanvasData::Specific(specific) => Some(specific),
-        }
-    }
-}
-
-impl Signalable for FigureCanvasData {}
 
 impl From<GenericFigureCanvasData> for FigureCanvasData {
     fn from(value: GenericFigureCanvasData) -> Self {
@@ -50,60 +29,6 @@ impl From<SpecificFigureCanvasData> for FigureCanvasData {
     }
 }
 
-impl FigureCanvasData {
-    pub fn void() -> Self {
-        GenericFigureCanvasData::None.into()
-    }
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
-#[serde(tag = "kind")]
-pub enum SpecificFigureCanvasData {
-    Atom(FigureCanvasAtom),
-    Mutations { mutations: Vec<MutationFigureData> },
-    EvalError { message: String },
-}
-
-impl SpecificFigureCanvasData {
-    pub fn new_atom(visual_data: VisualData) -> Self {
-        SpecificFigureCanvasData::Atom(FigureCanvasAtom::new(visual_data))
-    }
-}
-
-impl Default for SpecificFigureCanvasData {
-    fn default() -> Self {
-        SpecificFigureCanvasData::Atom(Default::default())
-    }
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
-#[serde(tag = "kind")]
-pub enum GenericFigureCanvasData {
-    None,
-    Plot2d {
-        plot_kind: Plot2dKind,
-        point_groups: Vec<Point2dGroup>,
-        xrange: (f32, f32),
-        yrange: (f32, f32),
-    },
-    Graphics2d {
-        graphics2d_data: Graphics2dCanvasData,
-    },
-    GenericGraphics2d {
-        partitioned_samples: Vec<(Partition, Vec<(SampleId, Graphics2dCanvasData)>)>,
-    },
-    GenericF32 {
-        partitioned_samples: Vec<(Partition, Vec<(SampleId, f32)>)>,
-    },
-    GenericI32 {
-        partitioned_samples: Vec<(Partition, Vec<(SampleId, i32)>)>,
-    },
-    EvalError {
-        message: String,
-    },
-}
-
-impl Signalable for GenericFigureCanvasData {}
 impl Signalable for SpecificFigureCanvasData {}
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]

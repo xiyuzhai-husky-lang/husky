@@ -1,11 +1,17 @@
 use super::*;
 
 impl HuskyDevtime {
-    pub(crate) fn feature_expr_figure(
+    pub(crate) fn feature_expr_specific_figure(
         &self,
         expr: &Arc<FeatureLazyExpr>,
-        is_specific: bool,
-    ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
-        self.feature_repr_figure(&expr.clone().into(), is_specific)
+    ) -> Result<SpecificFigureCanvasData, (SampleId, __VMError)> {
+        self.feature_repr_specific_figure(&expr.clone().into())
+    }
+
+    pub(crate) fn feature_expr_generic_figure(
+        &self,
+        expr: &Arc<FeatureLazyExpr>,
+    ) -> Result<GenericFigureCanvasData, (SampleId, __VMError)> {
+        self.feature_repr_generic_figure(&expr.clone().into())
     }
 }

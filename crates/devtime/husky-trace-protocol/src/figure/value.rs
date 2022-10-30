@@ -108,7 +108,7 @@ impl FigureCanvasValue {
 
     fn new_generic_piece(data_itd: &FigureCanvasDataItd) -> Self {
         match data_itd.generic {
-            GenericFigureCanvasData::None => todo!(),
+            GenericFigureCanvasData::Unit => todo!(),
             GenericFigureCanvasData::Plot2d {
                 plot_kind,
                 point_groups,
@@ -135,7 +135,7 @@ impl FigureCanvasValue {
                     .collect(),
                 specific: match data_itd.specific {
                     SpecificFigureCanvasData::Atom(atom) => match atom {
-                        FigureCanvasAtom::Void => todo!(),
+                        FigureCanvasAtom::Unit => todo!(),
                         FigureCanvasAtom::Primitive(_) => todo!(),
                         FigureCanvasAtom::Graphics2d(data) => Graphics2dCanvasValue::new(data),
                     },
@@ -163,7 +163,7 @@ impl FigureCanvasValue {
     fn new_specific_piece(data_itd: &FigureCanvasDataItd) -> Self {
         match data_itd.specific {
             SpecificFigureCanvasData::Atom(atom) => match atom {
-                FigureCanvasAtom::Void => FigureCanvasValue::None,
+                FigureCanvasAtom::Unit => FigureCanvasValue::None,
                 FigureCanvasAtom::Primitive(_) => FigureCanvasValue::None,
                 FigureCanvasAtom::Graphics2d(graphics2d_data) => {
                     FigureCanvasValue::Graphics2d { graphics2d_data }

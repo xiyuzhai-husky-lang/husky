@@ -8,14 +8,12 @@ impl HuskyDevtime {
         &self,
         stmt: &FuncStmt,
         history: &History<'static>,
-    ) -> FigureCanvasData {
+    ) -> SpecificFigureCanvasData {
         match stmt.variant {
             FuncStmtVariant::Init {
                 ref initial_value, ..
             } => self.eager_expr_figure(initial_value, history).into(),
-            FuncStmtVariant::Require { .. } | FuncStmtVariant::Assert { .. } => {
-                FigureCanvasData::void()
-            }
+            FuncStmtVariant::Require { .. } | FuncStmtVariant::Assert { .. } => Default::default(),
             FuncStmtVariant::Return { ref result, .. } => {
                 self.eager_expr_figure(result, history).into()
             }

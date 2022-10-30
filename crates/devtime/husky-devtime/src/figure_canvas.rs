@@ -15,24 +15,116 @@ use husky_text::TextQueryGroup;
 use husky_vm::{History, HistoryEntry, MutationData, MutationDataVariant};
 
 impl HuskyDevtime {
-    pub fn gen_figure_content_data(
+    pub fn gen_trace_generic_figure(
         &self,
         trace_id: TraceId,
-        is_specific: bool,
-    ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
+    ) -> Result<GenericFigureCanvasData, (SampleId, __VMError)> {
         let trace = self.trace(trace_id);
         Ok(match trace.variant {
-            TraceVariant::Main(_) | TraceVariant::Module { .. } => FigureCanvasData::void(),
-            TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_figure(stmt, is_specific)?,
-            TraceVariant::FeatureBranch(_) => FigureCanvasData::void(),
+            TraceVariant::Main(_) | TraceVariant::Module { .. } => Default::default(),
+            TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_generic_figure(stmt)?,
+            TraceVariant::FeatureBranch(_) => Default::default(),
             TraceVariant::EntityFeature { ref repr, .. } => {
-                self.feature_repr_figure(repr, is_specific)?
+                self.feature_repr_generic_figure(repr)?
             }
-            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_figure(expr, is_specific)?,
+            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_generic_figure(expr)?,
             TraceVariant::FeatureCallArgument {
                 argument: ref input,
                 ..
-            } => self.feature_expr_figure(input, is_specific)?,
+            } => self.feature_expr_generic_figure(input)?,
+            TraceVariant::FuncStmt {
+                ref stmt,
+                ref history,
+            } => todo!(),
+            // self.func_stmt_generic_figure(stmt, history),
+            TraceVariant::ProcStmt {
+                ref stmt,
+                ref history,
+            } => todo!(),
+            // self.proc_stmt_figure(stmt, history).into(),
+            TraceVariant::EagerExpr {
+                ref expr,
+                ref history,
+            } => todo!(),
+            // self.eager_expr_figure(expr, history).into(),
+            TraceVariant::CallHead { .. } => Default::default(),
+            TraceVariant::LoopFrame {
+                ref loop_frame_data,
+                ..
+            } => todo!(),
+            // self
+            //     .loop_frame_mutations_figure(
+            //         trace.raw_data.opt_parent_id.unwrap(),
+            //         &loop_frame_data.mutations,
+            //     )
+            //     .into(),
+            TraceVariant::FuncBranch {
+                ref stmt,
+                branch_idx,
+                ref history,
+                ..
+            } => todo!(),
+            // match history.get(stmt) {
+            //     Some(HistoryEntry::ControlFlow {
+            //         opt_branch_entered: branch_entered,
+            //         control,
+            //         ..
+            //     }) => {
+            //         if *branch_entered == Some(branch_idx) {
+            //             self.visualize_control(control)
+            //         } else {
+            //             FigureCanvasData::void()
+            //         }
+            //     }
+            //     None => Default::default(),
+            //     _ => panic!(),
+            // },
+            TraceVariant::ProcBranch {
+                ref stmt,
+                branch_idx,
+                ref history,
+                ..
+            } => todo!(),
+            // match history.get(stmt) {
+            //     Some(HistoryEntry::ControlFlow {
+            //         opt_branch_entered: branch_entered,
+            //         mutations,
+            //         ..
+            //     }) => {
+            //         if *branch_entered == Some(branch_idx) {
+            //             self.mutations_figure(mutations).into()
+            //         } else {
+            //             FigureCanvasData::void()
+            //         }
+            //     }
+            //     None => Default::default(),
+            //     _ => panic!(),
+            // },
+            TraceVariant::EagerCallArgument {
+                ref argument,
+                ref history,
+                ..
+            } => todo!(),
+            //  self.eager_expr_figure(argument, history).into(),
+        })
+    }
+
+    pub fn gen_trace_specific_figure(
+        &self,
+        trace_id: TraceId,
+    ) -> Result<SpecificFigureCanvasData, (SampleId, __VMError)> {
+        let trace = self.trace(trace_id);
+        Ok(match trace.variant {
+            TraceVariant::Main(_) | TraceVariant::Module { .. } => Default::default(),
+            TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_specific_figure(stmt)?,
+            TraceVariant::FeatureBranch(_) => Default::default(),
+            TraceVariant::EntityFeature { ref repr, .. } => {
+                self.feature_repr_specific_figure(repr)?
+            }
+            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_specific_figure(expr)?,
+            TraceVariant::FeatureCallArgument { ref argument, .. } => {
+                self.feature_expr_specific_figure(argument)?
+            }
             TraceVariant::FuncStmt {
                 ref stmt,
                 ref history,
@@ -45,7 +137,7 @@ impl HuskyDevtime {
                 ref expr,
                 ref history,
             } => self.eager_expr_figure(expr, history).into(),
-            TraceVariant::CallHead { .. } => FigureCanvasData::void(),
+            TraceVariant::CallHead { .. } => Default::default(),
             TraceVariant::LoopFrame {
                 ref loop_frame_data,
                 ..
@@ -69,10 +161,10 @@ impl HuskyDevtime {
                     if *branch_entered == Some(branch_idx) {
                         self.visualize_control(control)
                     } else {
-                        FigureCanvasData::void()
+                        Default::default()
                     }
                 }
-                None => FigureCanvasData::void(),
+                None => Default::default(),
                 _ => panic!(),
             },
             TraceVariant::ProcBranch {
@@ -89,10 +181,10 @@ impl HuskyDevtime {
                     if *branch_entered == Some(branch_idx) {
                         self.mutations_figure(mutations).into()
                     } else {
-                        FigureCanvasData::void()
+                        Default::default()
                     }
                 }
-                None => FigureCanvasData::void(),
+                None => Default::default(),
                 _ => panic!(),
             },
             TraceVariant::EagerCallArgument {

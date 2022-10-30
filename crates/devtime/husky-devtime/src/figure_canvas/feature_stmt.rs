@@ -1,25 +1,45 @@
 use super::*;
 
 impl HuskyDevtime {
-    pub(crate) fn feature_stmt_figure(
+    pub(crate) fn feature_stmt_specific_figure(
         &self,
         stmt: &FeatureLazyStmt,
-        is_specific: bool,
-    ) -> Result<FigureCanvasData, (SampleId, __VMError)> {
+    ) -> Result<SpecificFigureCanvasData, (SampleId, __VMError)> {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { ref value, .. } => {
-                self.feature_expr_figure(value, is_specific)
+                self.feature_expr_specific_figure(value)
             }
-            FeatureLazyStmtVariant::Assert { .. } => Ok(FigureCanvasData::void()),
+            FeatureLazyStmtVariant::Assert { .. } => Ok(Default::default()),
             FeatureLazyStmtVariant::Return { ref result } => {
-                self.feature_expr_figure(result, is_specific)
+                self.feature_expr_specific_figure(result)
             }
             FeatureLazyStmtVariant::ReturnUnveil { ref result, .. } => {
-                self.feature_expr_figure(result, is_specific)
+                self.feature_expr_specific_figure(result)
             }
             FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
             FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
-            FeatureLazyStmtVariant::Require { .. } => Ok(FigureCanvasData::void()),
+            FeatureLazyStmtVariant::Require { .. } => Ok(Default::default()),
+        }
+    }
+
+    pub(crate) fn feature_stmt_generic_figure(
+        &self,
+        stmt: &FeatureLazyStmt,
+    ) -> Result<GenericFigureCanvasData, (SampleId, __VMError)> {
+        match stmt.variant {
+            FeatureLazyStmtVariant::Init { ref value, .. } => {
+                self.feature_expr_generic_figure(value)
+            }
+            FeatureLazyStmtVariant::Assert { .. } => Ok(Default::default()),
+            FeatureLazyStmtVariant::Return { ref result } => {
+                self.feature_expr_generic_figure(result)
+            }
+            FeatureLazyStmtVariant::ReturnUnveil { ref result, .. } => {
+                self.feature_expr_generic_figure(result)
+            }
+            FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
+            FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
+            FeatureLazyStmtVariant::Require { .. } => Ok(Default::default()),
         }
     }
 }
