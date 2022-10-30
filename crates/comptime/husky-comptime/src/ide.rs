@@ -1,5 +1,5 @@
 use husky_completion::HuskyCompletionQuery;
-use husky_diagnostics::{Diagnostic, HuskyDiagnosticQuery};
+use husky_diagnostics::HuskyDiagnosticQuery;
 use husky_hover::HoverDb;
 
 use crate::*;

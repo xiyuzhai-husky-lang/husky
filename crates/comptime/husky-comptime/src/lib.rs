@@ -31,14 +31,10 @@ pub use ops::ComptimeOps;
 pub use query::*;
 
 use husky_check_utils::*;
-use husky_entity_kind::TyKind;
-use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityRouteStore;
 use husky_file::FileItd;
 use husky_linkage_table::LinkageTable;
-use husky_print_utils::*;
 use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
-use husky_word::RootBuiltinIdentifier;
 use indexmap::IndexMap;
 use std::{fmt, path::PathBuf, sync::Arc};
 use sync_utils::ASafeRwLock;

@@ -35,7 +35,6 @@ husky-atom = { path = "../husky-atom" }
 husky-defn-head = { path = "../husky-defn-head" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
-# husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
 husky-pattern-syntax = { path = "../husky-pattern-syntax" }
 husky-opn-syntax = { path = "../husky-opn-syntax" }
 husky-init-syntax = { path = "../husky-init-syntax" }

@@ -19,7 +19,7 @@ impl<This, T> std::ops::Try for TrackableApplyChangeM<This, T> {
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            TrackableApplyChangeM::Ok { this, cont } => std::ops::ControlFlow::Continue(cont),
+            TrackableApplyChangeM::Ok { cont, .. } => std::ops::ControlFlow::Continue(cont),
         }
     }
 }
