@@ -1,4 +1,5 @@
 use crate::*;
+use serde::{Deserialize, Serialize};
 
 pub struct TrackableMap<K, V>
 where
@@ -8,6 +9,8 @@ where
     entries: Vec<(K, V)>,
     old_len: usize,
 }
+
+#[derive(Debug, Serialize, Deserialize)]
 pub enum TrackableMapChange<K, V> {
     None,
     Append { new_entries: Vec<(K, V)> },

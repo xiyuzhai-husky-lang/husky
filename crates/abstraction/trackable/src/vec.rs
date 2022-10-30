@@ -1,4 +1,5 @@
 use crate::*;
+use serde::{Deserialize, Serialize};
 use vec_like::VecSet;
 
 pub trait TrackClone {
@@ -50,19 +51,17 @@ pub struct TrackableVecState {
     elems_modified: VecSet<usize>,
 }
 
-pub enum TrackableVecChange<E>
-where
-    E: TrackClone,
-{
+#[derive(Debug, Serialize, Deserialize)]
+pub enum TrackableVecChange<E> {
     None,
-    Append { new_entries: Vec<E::CloneOutput> },
+    Append { new_entries: Vec<E> },
 }
 
 impl<E> TrackableVecChange<E>
 where
     E: TrackClone,
 {
-    pub fn opt_new_entries(self) -> Option<Vec<E::CloneOutput>> {
+    pub fn opt_new_entries(self) -> Option<Vec<E>> {
         match self {
             TrackableVecChange::None => None,
             TrackableVecChange::Append { new_entries } => Some(new_entries),
@@ -74,7 +73,7 @@ impl<E> Trackable for TrackableVec<E>
 where
     E: TrackClone,
 {
-    type Change = TrackableVecChange<E>;
+    type Change = TrackableVecChange<E::CloneOutput>;
 
     fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
         if self.state.elems_modified.len() > 0 {

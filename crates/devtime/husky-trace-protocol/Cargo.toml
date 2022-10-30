@@ -14,6 +14,9 @@ smallvec = { version = "1.9.0", features = ["serde"] }
 vec-like = { path = "../../abstraction/vec-like" }
 husky-signal = { path = "../../abstraction/husky-signal" }
 ref-arena = { path = "../../abstraction/ref-arena" }
+trackable = { path = "../../abstraction/trackable" }
+monad = { path = "../../abstraction/monad" }
+# vm
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value", features = [
     "serde_support"
 ] }
@@ -27,5 +30,3 @@ husky-feature-protocol = { path = "../../runtime/husky-feature-protocol" }
 [dependencies.web-sys]
 version = "0.3.57"
 features = ['ImageData']
-
-[features]

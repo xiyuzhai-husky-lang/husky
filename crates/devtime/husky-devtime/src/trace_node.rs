@@ -12,6 +12,15 @@ pub enum TraceNode {
     },
 }
 
+//implement
+impl AsTraceNode for TraceNode {
+    type Sketch = TraceSketch;
+
+    fn trace_data(&self) -> &TraceData {
+        todo!()
+    }
+}
+
 impl TrackClone for TraceNode {
     type CloneOutput = TraceNodeData;
 

@@ -1,3 +1,5 @@
+use serde::{Deserialize, Serialize};
+
 use crate::{Trackable, TrackableMakeChangeM, TrackableTakeChangeM};
 
 #[derive(Default)]
@@ -6,6 +8,7 @@ pub struct TrackableAtom<V> {
     changed: bool,
 }
 
+#[derive(Debug, Serialize, Deserialize)]
 pub enum TrackableAtomChange<V> {
     Some(V),
     None,

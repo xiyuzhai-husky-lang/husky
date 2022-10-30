@@ -13,7 +13,7 @@ impl HuskyDevtime {
             trace.raw_data.opt_parent_id,
             trace.raw_data.kind,
             trace.raw_data.id,
-            &self.state.presentation,
+            self.state.presentation(),
         );
         if let Some(control) = self.state.figure_controls.get(&key) {
             control.clone()
@@ -101,7 +101,7 @@ impl HuskyDevtime {
         if let Some(active_trace_id) = self.opt_active_trace_id() {
             self.update_figure_control(active_trace_id)?;
         }
-        for pin in self.state.presentation.pins().to_vec().into_iter() {
+        for pin in self.state.presentation().pins().to_vec().into_iter() {
             self.update_figure_control(pin)?;
         }
         HuskyDevtimeUpdateM::Ok(())
@@ -138,7 +138,7 @@ impl HuskyDevtime {
             trace_raw_data.opt_parent_id,
             trace_raw_data.kind,
             trace_raw_data.id,
-            &self.state.presentation,
+            self.state.presentation(),
         )
     }
 }

@@ -132,9 +132,9 @@ impl DeveloperGuiContext {
         presentation: &Presentation,
     ) -> FigureCanvasDataItd {
         let specific_key =
-            FigureCanvasKey::from_trace_data(self.trace_data(trace_id), presentation, true);
+            SpecificFigureCanvasKey::from_trace_data(self.trace_data(trace_id), presentation);
         let generic_key =
-            FigureCanvasKey::from_trace_data(self.trace_data(trace_id), presentation, false);
+            GenericFigureCanvasKey::from_trace_data(self.trace_data(trace_id), presentation);
         let generic_value = self.figure_canvases.borrow(file!(), line!())[&generic_key];
         // ad hoc
         let generic_value = generic_value

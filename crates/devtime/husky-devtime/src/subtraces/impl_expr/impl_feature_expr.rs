@@ -33,7 +33,7 @@ impl HuskyDevtime {
                         ),
                         Some(this.runtime.eval_feature_expr(
                             argument,
-                            this.state.presentation.opt_sample_id().unwrap(),
+                            this.state.presentation().opt_sample_id().unwrap(),
                         )),
                     )
                 },
