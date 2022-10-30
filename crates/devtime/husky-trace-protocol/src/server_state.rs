@@ -106,7 +106,9 @@ impl<T> std::ops::Try for ServerTraceStateUpdateM<T> {
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
-        todo!()
+        match self {
+            ServerTraceStateUpdateM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
+        }
     }
 }
 
