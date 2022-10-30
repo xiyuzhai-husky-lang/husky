@@ -8,35 +8,45 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 salsa = "0.17.0-pre.2"
+# utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+sync-utils = { path = "../../utils/husky-sync-utils" }
+# abstraction
 upcast = { path = "../../abstraction/upcast" }
 vec-like = { path = "../../abstraction/vec-like" }
 avec = { path = "../../abstraction/avec" }
 map-collect = { path = "../../abstraction/map-collect" }
-sync-utils = { path = "../../utils/husky-sync-utils" }
+fold = { path = "../../abstraction/fold" }
+# syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
-husky-vm = { path = "../../vm/husky-vm" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+husky-defn-head = { path = "../../syntax/husky-defn-head" }
+husky-atom = { path = "../../syntax/husky-atom" }
+# vm
+husky-vm = { path = "../../vm/husky-vm" }
+# kernel
 husky-word = { path = "../../kernel/husky-word" }
-fold = { path = "../../abstraction/fold" }
 husky-entity-route = { path = "../../kernel/husky-entity-route" }
+# semantics
 husky-semantics-error = { path = "../../semantics/husky-semantics-error" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
+husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
+# infer
 husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
 infer-contract = { path = "../../infer/husky-infer-contract" }
 infer-decl = { path = "../../infer/husky-infer-decl" }
 infer-total = { path = "../../infer/total" }
-husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
-husky-defn-head = { path = "../../syntax/husky-defn-head" }
+# static
 husky-static-defn = { path = "../../static/husky-static-defn" }
-husky-atom = { path = "../../syntax/husky-atom" }
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
-husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
+# forks
 thin-vec = { path = "../../../forks/thin-vec" }
+# devtime
 husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
