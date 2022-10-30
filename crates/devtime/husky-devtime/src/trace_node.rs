@@ -17,7 +17,10 @@ impl AsTraceNode for TraceNode {
     type Sketch = TraceSketch;
 
     fn trace_data(&self) -> &TraceData {
-        todo!()
+        match self {
+            TraceNode::Uninitialized => unreachable!(),
+            TraceNode::Initialized { trace, .. } => &trace.raw_data,
+        }
     }
 }
 
@@ -52,13 +55,6 @@ impl TraceNode {
         match self {
             TraceNode::Uninitialized => unreachable!(),
             TraceNode::Initialized { expanded, .. } => *expanded,
-        }
-    }
-
-    pub(crate) fn trace_data(&self) -> &TraceData {
-        match self {
-            TraceNode::Uninitialized => unreachable!(),
-            TraceNode::Initialized { trace, .. } => &trace.raw_data,
         }
     }
 
