@@ -3,8 +3,7 @@ use std::{
     sync::atomic::{AtomicUsize, Ordering},
 };
 
-use husky_file::FileItd;
-use husky_text::{FileRange, FileRanged, TextRange};
+use husky_text::FileRanged;
 
 static NEXT_VM_INSTRUCTION_ID: AtomicUsize = AtomicUsize::new(0);
 

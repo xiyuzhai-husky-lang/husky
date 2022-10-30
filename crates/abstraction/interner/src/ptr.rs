@@ -1,4 +1,4 @@
-use std::{borrow::Borrow, ffi::c_void, fmt::Debug, hash::Hash, marker::PhantomData, ops::Deref};
+use std::{borrow::Borrow, fmt::Debug, hash::Hash, marker::PhantomData, ops::Deref};
 
 use optional::{Noned, OptEq};
 
@@ -146,7 +146,7 @@ where
 
     type Owned = Q;
 
-    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
+    fn new_intern_ptr(_: usize, target: &'static Self::T) -> Self {
         Self {
             target: Some(target),
             phantom: PhantomData,

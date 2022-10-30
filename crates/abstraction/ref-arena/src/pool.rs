@@ -2,10 +2,10 @@ use thiserror::Error;
 
 pub struct RefArenaPool<T, const N: usize>(Vec<T>);
 
-impl<T, const Capacity: usize> RefArenaPool<T, Capacity> {
+impl<T, const CAPACITY: usize> RefArenaPool<T, CAPACITY> {
     pub fn new() -> Self {
         let mut inner = vec![];
-        inner.reserve_exact(Capacity);
+        inner.reserve_exact(CAPACITY);
         Self(inner)
     }
 

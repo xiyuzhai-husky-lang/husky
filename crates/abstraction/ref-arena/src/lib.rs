@@ -1,15 +1,15 @@
 mod pool;
 
 use pool::*;
-use std::{borrow::Borrow, cell::Cell, marker::PhantomData};
+use std::cell::Cell;
 
 pub struct RefArena<T, const N: usize> {
     pools: Cell<Vec<RefArenaPool<T, N>>>,
 }
 
-impl<T, const PoolCapacity: usize> RefArena<T, PoolCapacity> {
+impl<T, const POOL_CAPACITY: usize> RefArena<T, POOL_CAPACITY> {
     pub fn new() -> Self {
-        assert!(PoolCapacity > 0);
+        assert!(POOL_CAPACITY > 0);
         Self {
             pools: Cell::new(vec![RefArenaPool::new()]),
         }
@@ -48,7 +48,7 @@ fn it_works() {
 
 #[test]
 fn it_works2() {
-    let mut arena = RefArena::<i32, 2>::new();
+    let arena = RefArena::<i32, 2>::new();
     for i in 0..10000 {
         assert_eq!(arena.alloc(i), &i)
     }
