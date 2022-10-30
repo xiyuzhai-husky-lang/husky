@@ -33,7 +33,7 @@ pub enum ImplicitConversion {
 
 impl Default for ImplicitConversion {
     fn default() -> Self {
-        Self::None
+        Default::default()
     }
 }
 
@@ -59,7 +59,7 @@ impl ImplicitConversion {
                     false => todo!(),
                 }
             }
-            Self::None
+            Default::default()
         } else {
             Default::default()
         }

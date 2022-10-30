@@ -14,7 +14,7 @@ impl HuskyDevtime {
                 .runtime()
                 .visualize_feature(repr.clone(), self.state.presentation.sample_id())
             {
-                Ok(data) => Ok(SpecificFigureCanvasData::new(data).into()),
+                Ok(data) => Ok(SpecificFigureCanvasData::new_atom(data).into()),
                 Err(_) => Ok(FigureCanvasData::void()),
             }
         } else {

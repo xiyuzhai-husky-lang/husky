@@ -21,7 +21,7 @@ impl HuskyDevtime {
                         }
                     }
                 } else {
-                    SpecificFigureCanvasData::void()
+                    Default::default()
                 }
             }
             ProcStmtVariant::Return { ref result, .. } => self.eager_expr_figure(result, history),
@@ -35,10 +35,10 @@ impl HuskyDevtime {
                         _ => panic!(),
                     }
                 } else {
-                    SpecificFigureCanvasData::void()
+                    Default::default()
                 }
             }
-            ProcStmtVariant::Break => SpecificFigureCanvasData::void(),
+            ProcStmtVariant::Break => Default::default(),
             ProcStmtVariant::Match { .. } => todo!(),
         }
     }
@@ -79,7 +79,7 @@ impl HuskyDevtime {
                                     }
                                 },
                                 before: None,
-                                after: SpecificFigureCanvasData::new(
+                                after: FigureCanvasAtom::new(
                                     self.visualize_temp_value(
                                         &stack_snapshot[mutation_data.varidx()].snapshot(),
                                         mutation_data.ty,
@@ -127,7 +127,7 @@ impl HuskyDevtime {
                 MutationDataVariant::Block { varname, .. } => varname.as_str().to_string(),
             },
             before: if let Some(before) = mutation_data.before.as_ref() {
-                Some(SpecificFigureCanvasData::new(
+                Some(FigureCanvasAtom::new(
                     self.visualize_temp_value(
                         before,
                         mutation_data.ty,
@@ -139,7 +139,7 @@ impl HuskyDevtime {
             } else {
                 None
             },
-            after: SpecificFigureCanvasData::new(
+            after: FigureCanvasAtom::new(
                 self.visualize_temp_value(
                     &mutation_data.after,
                     mutation_data.ty,
