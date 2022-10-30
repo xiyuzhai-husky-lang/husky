@@ -10,7 +10,7 @@ impl HuskyDevtime {
     ) -> Result<SpecificFigureCanvasData, (SampleId, __VMError)> {
         match self
             .runtime()
-            .visualize_feature(repr.clone(), self.state.presentation.sample_id())
+            .visualize_feature(repr.clone(), self.state.presentation().sample_id())
         {
             Ok(data) => Ok(SpecificFigureCanvasData::new_atom(data).into()),
             Err(_) => Ok(todo!()),
@@ -84,7 +84,7 @@ impl HuskyDevtime {
     ) -> Result<Vec<(Partition, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
         let session = self.runtime().session();
         let dev_division = session.dev();
-        let presentation = &self.state.presentation;
+        let presentation = self.state.presentation();
         let mut sampler = PartitionedSampler::<T>::new(presentation.partitions());
         for labeled_data in dev_division.each_labeled_data() {
             let label = labeled_data.label;

@@ -1,20 +1,19 @@
-use std::ops::FromResidual;
-
 use husky_compiler::{CompileHuskyR, CompilerInstance};
-use husky_devtime::DevtimeHotReloadR;
+use husky_devtime::{DevtimeHotReloadR, HuskyDevtimeStateChange};
 use relative_path::RelativePathBuf;
+use std::ops::FromResidual;
 
 use crate::*;
 
 #[must_use]
 pub enum DebuggerHotReloadM {
-    Ok(InitData),
+    Ok(HuskyDevtimeStateChange),
 }
 
 pub struct DebuggerHotReloadR;
 
 impl std::ops::Try for DebuggerHotReloadM {
-    type Output = InitData;
+    type Output = HuskyDevtimeStateChange;
 
     type Residual = DebuggerHotReloadR;
 
@@ -24,7 +23,7 @@ impl std::ops::Try for DebuggerHotReloadM {
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            DebuggerHotReloadM::Ok(init_data) => std::ops::ControlFlow::Continue(init_data),
+            DebuggerHotReloadM::Ok(change) => std::ops::ControlFlow::Continue(change),
         }
     }
 }

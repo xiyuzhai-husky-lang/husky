@@ -12,7 +12,7 @@ impl HuskyDevtime {
         range: TextRange,
     ) -> __VMResult<VisualData> {
         let eval_time = self.runtime();
-        let sample_id = self.state.presentation.opt_sample_id().unwrap();
+        let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let feature = self
             .runtime()
             .feature_interner()
@@ -45,40 +45,66 @@ impl HuskyDevtime {
 
     pub(crate) fn update_figure_canvases(&mut self) -> HuskyDevtimeUpdateM<()> {
         if let Some(active_trace_id) = self.opt_active_trace_id() {
-            self.update_figure_canvas(active_trace_id, true)?;
-            self.update_figure_canvas(active_trace_id, false)?;
+            self.update_figure_canvas(active_trace_id)?;
         }
-        for pin in self.state.presentation.pins().to_vec().into_iter() {
-            self.update_figure_canvas(pin, true)?;
-            self.update_figure_canvas(pin, false)?;
+        for pin in self.state.presentation().pins().to_vec().into_iter() {
+            self.update_figure_canvas(pin)?;
+        }
+        HuskyDevtimeUpdateM::Ok(())
+    }
+    fn update_figure_canvas(&mut self, trace_id: TraceId) -> HuskyDevtimeUpdateM<()> {
+        self.update_trace_generic_figure_canvas(trace_id)?;
+        self.update_trace_specific_figure_canvas(trace_id)
+    }
+
+    fn update_trace_generic_figure_canvas(&mut self, trace_id: TraceId) -> HuskyDevtimeUpdateM<()> {
+        if let Some(key) = self.gen_generic_figure_canvas_key(trace_id) {
+            // todo: clean all this trouble
+            let f =
+                |(sample_id, e): (SampleId, __VMError)| -> __VMError { (sample_id.0, e).into() };
+            if !self.state.generic_figure_canvases.contains(&key) {
+                todo!()
+                // self.state.figure_canvases.insert_new(
+                //     key.clone(),
+                //     self.gen_figure_content_data(trace_id, is_specific)
+                //         .map_err(f)?,
+                // )?
+            }
         }
         HuskyDevtimeUpdateM::Ok(())
     }
 
-    fn update_figure_canvas(
+    fn update_trace_specific_figure_canvas(
         &mut self,
         trace_id: TraceId,
-        is_specific: bool,
     ) -> HuskyDevtimeUpdateM<()> {
-        let key: FigureCanvasKey = self.gen_figure_canvas_key(trace_id, is_specific);
-        // todo: clean all this trouble
-        let f = |(sample_id, e): (SampleId, __VMError)| -> __VMError { (sample_id.0, e).into() };
-        if !self.state.figure_canvases.contains(&key) {
-            todo!()
-            // self.state.figure_canvases.insert_new(
-            //     key.clone(),
-            //     self.gen_figure_content_data(trace_id, is_specific)
-            //         .map_err(f)?,
-            // )?
+        if let Some(key) = self.gen_specific_figure_canvas_key(trace_id) {
+            // todo: clean all this trouble
+            let f =
+                |(sample_id, e): (SampleId, __VMError)| -> __VMError { (sample_id.0, e).into() };
+            if !self.state.specific_figure_canvases.contains(&key) {
+                todo!()
+                // self.state.figure_canvases.insert_new(
+                //     key.clone(),
+                //     self.gen_figure_content_data(trace_id, is_specific)
+                //         .map_err(f)?,
+                // )?
+            }
         }
         HuskyDevtimeUpdateM::Ok(())
     }
 
-    fn gen_figure_canvas_key(&self, trace_id: TraceId, is_specific: bool) -> FigureCanvasKey {
-        FigureCanvasKey::from_trace_data(
+    fn gen_generic_figure_canvas_key(&self, trace_id: TraceId) -> Option<GenericFigureCanvasKey> {
+        GenericFigureCanvasKey::from_trace_data(
             &self.trace(trace_id).raw_data,
-            &self.state.presentation,
-            is_specific,
+            &self.state.presentation(),
+        )
+    }
+
+    fn gen_specific_figure_canvas_key(&self, trace_id: TraceId) -> Option<SpecificFigureCanvasKey> {
+        SpecificFigureCanvasKey::from_trace_data(
+            &self.trace(trace_id).raw_data,
+            self.state.presentation(),
         )
     }
 }

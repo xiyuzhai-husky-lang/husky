@@ -37,7 +37,7 @@ impl HuskyDevtime {
     ) -> Option<Vec<TraceId>> {
         let instruction_sheet: &InstructionSheet = &feature_block.instruction_sheet;
         let mut arguments = vec![];
-        let sample_id = self.state.presentation.opt_sample_id()?;
+        let sample_id = self.state.presentation().opt_sample_id()?;
         if let Some(ref this_repr) = feature_block.opt_this {
             arguments.push(
                 self.runtime()
@@ -45,7 +45,7 @@ impl HuskyDevtime {
                     .unwrap(),
             )
         }
-        let sample_id = self.state.presentation.opt_sample_id().unwrap();
+        let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let eval_time = self.runtime();
         let evaluator: FeatureEvaluator<'_, 'static> = eval_time.evaluator(sample_id);
         let stack = arguments.into_iter().into();
@@ -68,7 +68,7 @@ impl HuskyDevtime {
     ) -> Option<Vec<TraceId>> {
         let instruction_sheet: &InstructionSheet = &feature_block.instruction_sheet;
         let mut arguments = vec![];
-        let sample_id = self.state.presentation.opt_sample_id()?;
+        let sample_id = self.state.presentation().opt_sample_id()?;
         if let Some(ref this_repr) = feature_block.opt_this {
             arguments.push(
                 self.runtime()
@@ -76,7 +76,7 @@ impl HuskyDevtime {
                     .unwrap(),
             )
         }
-        let sample_id = self.state.presentation.opt_sample_id().unwrap();
+        let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let eval_time = self.runtime();
         let evaluator: FeatureEvaluator<'_, 'static> = eval_time.evaluator(sample_id);
         let stack = arguments.into_iter().into();

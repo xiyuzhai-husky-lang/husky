@@ -15,7 +15,7 @@ pub enum HuskyDevtimeTakeChangeM<T> {
 impl<T> Monad for HuskyDevtimeTakeChangeM<T> {}
 
 impl HuskyDevtime {
-    pub(crate) fn take_change(&mut self) -> HuskyDevtimeTakeChangeM<DevtimeStateChange> {
+    pub(crate) fn take_change(&mut self) -> HuskyDevtimeTakeChangeM<HuskyDevtimeStateChange> {
         HuskyDevtimeTakeChangeM::Ok(self.state.take_change()?)
     }
 }
@@ -35,7 +35,7 @@ impl<T> FromResidual<TrackableApplyChangeR<TrackableVec<TraceNode>>>
 }
 
 impl FromResidual<TrackableTakeChangeR<HuskyDevtimeState>>
-    for HuskyDevtimeTakeChangeM<DevtimeStateChange>
+    for HuskyDevtimeTakeChangeM<HuskyDevtimeStateChange>
 {
     fn from_residual(residual: TrackableTakeChangeR<HuskyDevtimeState>) -> Self {
         todo!()
@@ -50,6 +50,12 @@ impl<T> FromResidual<HuskyDevtimeTakeChangeR> for HuskyDevtimeTakeChangeM<T> {
 
 impl<T> FromResidual<HuskyDevtimeUpdateR> for HuskyDevtimeTakeChangeM<T> {
     fn from_residual(residual: HuskyDevtimeUpdateR) -> Self {
+        todo!()
+    }
+}
+
+impl<T> FromResidual<TrackableMakeChangeR<HuskyDevtimeState>> for HuskyDevtimeTakeChangeM<T> {
+    fn from_residual(residual: TrackableMakeChangeR<HuskyDevtimeState>) -> Self {
         todo!()
     }
 }

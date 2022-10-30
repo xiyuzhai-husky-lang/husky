@@ -40,9 +40,9 @@ impl HuskyDevtime {
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
-                    self.state
-                        .presentation
-                        .update(|restriction| restriction.set_specific(SampleId(*sample_id)));
+                    self.state.update_presentation(|presentation| {
+                        presentation.set_specific(SampleId(*sample_id))
+                    });
                     self.update()
                 }
             },
@@ -59,6 +59,13 @@ impl HuskyDevtime {
 
 impl<T> FromResidual<Result<std::convert::Infallible, __VMError>> for HuskyDevtimeUpdateM<T> {
     fn from_residual(residual: Result<std::convert::Infallible, __VMError>) -> Self {
+        todo!()
+    }
+}
+
+// todo: refine this
+impl<T> FromResidual<ServerTraceStateUpdateR<T>> for HuskyDevtimeUpdateM<T> {
+    fn from_residual(residual: ServerTraceStateUpdateR<T>) -> Self {
         todo!()
     }
 }
@@ -81,11 +88,29 @@ impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Presentation>>> for Husk
     }
 }
 
-impl<T> FromResidual<TrackableMakeChangeR<TrackableMap<FigureCanvasKey, FigureCanvasData>>>
-    for HuskyDevtimeUpdateM<T>
+impl<T>
+    FromResidual<
+        TrackableMakeChangeR<TrackableMap<GenericFigureCanvasKey, GenericFigureCanvasData>>,
+    > for HuskyDevtimeUpdateM<T>
 {
     fn from_residual(
-        residual: TrackableMakeChangeR<TrackableMap<FigureCanvasKey, FigureCanvasData>>,
+        residual: TrackableMakeChangeR<
+            TrackableMap<GenericFigureCanvasKey, GenericFigureCanvasData>,
+        >,
+    ) -> Self {
+        todo!()
+    }
+}
+
+impl<T>
+    FromResidual<
+        TrackableMakeChangeR<TrackableMap<SpecificFigureCanvasKey, SpecificFigureCanvasData>>,
+    > for HuskyDevtimeUpdateM<T>
+{
+    fn from_residual(
+        residual: TrackableMakeChangeR<
+            TrackableMap<SpecificFigureCanvasKey, SpecificFigureCanvasData>,
+        >,
     ) -> Self {
         todo!()
     }

@@ -28,9 +28,9 @@ pub enum HuskyTracerGuiMessageVariant {
         needs_figure_canvases: bool,
         needs_figure_controls: bool,
     },
-    Trace {
-        id: TraceId,
-    },
+    // Trace {
+    //     id: TraceId,
+    // },
     SetRestriction {
         restriction: Presentation,
         needs_figure_canvases: bool,
@@ -38,9 +38,9 @@ pub enum HuskyTracerGuiMessageVariant {
         needs_stalks: bool,
         needs_statss: bool,
     },
-    TraceStalk {
-        trace_id: TraceId,
-    },
+    // TraceStalk {
+    //     trace_id: TraceId,
+    // },
     UpdateFigureControlData {
         trace_id: TraceId,
         figure_control_data: FigureControlData,

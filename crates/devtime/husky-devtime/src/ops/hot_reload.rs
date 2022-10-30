@@ -6,7 +6,7 @@ use std::time::Instant;
 
 #[must_use]
 pub enum HuskyDevtimeHotReloadM {
-    Ok(InitData),
+    Ok(HuskyDevtimeStateChange),
 }
 
 impl Monad for HuskyDevtimeHotReloadM {}
@@ -22,7 +22,7 @@ impl HuskyDevtime {
         self.gen_root_traces();
         self.mimic_old_state(old_state);
         self.update()?;
-        HuskyDevtimeHotReloadM::Ok(self.take_init_data()?)
+        HuskyDevtimeHotReloadM::Ok(self.take_change()?)
     }
 
     fn gen_root_traces(&mut self) {
@@ -117,43 +117,8 @@ impl HuskyDevtime {
         old_state: &HuskyDevtimeOldState,
     ) -> HuskyDevtimeUpdateM<()> {
         self.state
-            .presentation
-            .set(old_state.mimic_presentation(&self.state.trace_nodes));
+            .set_presentation(old_state.mimic_presentation(&self.state.trace_nodes));
         HuskyDevtimeUpdateM::Ok(())
-    }
-
-    fn take_init_data(&mut self) -> HuskyDevtimeTakeChangeM<InitData> {
-        // ignored
-        let _staged_change = self.take_change()?;
-        // ad hoc
-        let init_data = InitData {
-            presentation: self.presentation().clone(),
-            trace_init_data: TraceInitData {
-                trace_nodes: self.all_trace_nodes(),
-                subtrace_ids_map: self
-                    .state
-                    .subtrace_ids_map
-                    .iter()
-                    .map(|(k, v)| (k.clone(), v.clone()))
-                    .collect(),
-                trace_stalks: self
-                    .state
-                    .trace_stalks
-                    .iter()
-                    .map(|(k, v)| (k.clone(), v.clone()))
-                    .collect(),
-                trace_statss: self
-                    .state
-                    .trace_statss
-                    .iter()
-                    .map(|(k, v)| (k.clone(), v.clone()))
-                    .collect(),
-                root_trace_ids: self.root_traces(),
-            },
-            figure_canvases: self.state.figure_canvases.to_vec(),
-            figure_controls: self.state.figure_controls.to_vec(),
-        };
-        HuskyDevtimeTakeChangeM::Ok(init_data)
     }
 }
 
@@ -184,7 +149,7 @@ impl std::ops::FromResidual<HuskyRuntimeHotReloadR> for HuskyDevtimeHotReloadM {
 }
 
 impl std::ops::Try for HuskyDevtimeHotReloadM {
-    type Output = InitData;
+    type Output = HuskyDevtimeStateChange;
 
     type Residual = DevtimeHotReloadR;
 
@@ -194,7 +159,7 @@ impl std::ops::Try for HuskyDevtimeHotReloadM {
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            HuskyDevtimeHotReloadM::Ok(init_data) => std::ops::ControlFlow::Continue(init_data),
+            HuskyDevtimeHotReloadM::Ok(change) => std::ops::ControlFlow::Continue(change),
         }
     }
 }

@@ -3,13 +3,13 @@ use husky_entity_route::EntityRoutePtr;
 
 impl HuskyDevtime {
     pub fn trace_stalk(&self, trace_id: TraceId) -> &TraceStalk {
-        let sample_id = self.state.presentation.opt_sample_id().unwrap();
+        let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);
         &self.state.trace_stalks[&key]
     }
 
     pub(crate) fn gen_trace_stalk(&mut self, trace_id: TraceId) -> HuskyDevtimeUpdateM<()> {
-        let sample_id = self.state.presentation.opt_sample_id().unwrap();
+        let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);
         if !self.state.trace_stalks.contains(&key) {
             self.state
@@ -65,7 +65,7 @@ impl HuskyDevtime {
     }
 
     pub(crate) fn update_trace_stalks(&mut self) -> HuskyDevtimeUpdateM<()> {
-        if let Some(sample_id) = self.state.presentation.opt_sample_id() {
+        if let Some(sample_id) = self.state.presentation().opt_sample_id() {
             // ad hoc
             for root_trace_id in self.root_traces() {
                 self.gen_trace_stalks_within_trace(sample_id, root_trace_id)?
