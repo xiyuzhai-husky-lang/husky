@@ -6,6 +6,10 @@ Make programming great again!
 
 :warning: this repo is still under heavy construction: documentation is still serious lacking, number of todos are above 900, and rustc warnings are everywhere!
 
+## Zulip
+
+https://husky-lang.zulipchat.com
+
 ## Introduction
 
 Husky is **a programming language designed for many difficult tasks which haven't yet been seen as programmable at all**. For example, we aims towards using Husky for writing a strongly explainable and efficient classifier for image recognition tasks at any scale. Husky can actually do well in traditional programming domains, but the current focus is on exploring the boundary of programming.
