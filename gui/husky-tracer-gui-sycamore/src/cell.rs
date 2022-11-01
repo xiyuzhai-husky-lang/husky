@@ -1,16 +1,41 @@
-use std::cell::{Cell, Ref, RefCell as StdRefCell, RefMut};
+use std::cell::{Cell, Ref, RefCell, RefMut};
 
-#[derive(Debug, Default)]
-pub struct RefCell<T> {
-    last_borrow_mut: Cell<Option<(&'static str, u32)>>,
-    cell: StdRefCell<T>,
+pub struct OptionCell<T>(Cell<Option<T>>);
+
+impl<T> Default for OptionCell<T> {
+    fn default() -> Self {
+        Self(Default::default())
+    }
 }
 
-impl<T> RefCell<T> {
-    pub fn new(value: T) -> RefCell<T> {
+impl<T> OptionCell<T> {
+    pub fn is_some(&self) -> bool {
+        let t = self.0.take();
+        let is_some = t.is_some();
+        self.0.set(t);
+        is_some
+    }
+
+    pub fn set(&self, t: T) {
+        self.0.set(Some(t))
+    }
+
+    pub fn pop(&self) -> Option<T> {
+        self.0.take()
+    }
+}
+
+#[derive(Debug, Default)]
+pub struct InformativeRefCell<T> {
+    last_borrow_mut: Cell<Option<(&'static str, u32)>>,
+    cell: RefCell<T>,
+}
+
+impl<T> InformativeRefCell<T> {
+    pub fn new(value: T) -> InformativeRefCell<T> {
         Self {
             last_borrow_mut: Cell::new(None),
-            cell: StdRefCell::new(value),
+            cell: RefCell::new(value),
         }
     }
     pub fn borrow(&self, file: &'static str, line: u32) -> Ref<'_, T> {

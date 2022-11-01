@@ -9,7 +9,7 @@ impl DeveloperGuiContext {
     pub(super) fn toggle_shown(&'static self, trace_id: TraceId) {
         let shown_signal = self.shown_signal(trace_id);
         shown_signal.set(!shown_signal.cget());
-        self.ws.send_message(
+        self.ws.try_apply_change(
             HuskyTracerGuiMessageVariant::ToggleShow { trace_id },
             false,
             || (),

@@ -6,7 +6,7 @@ mod init;
 mod services;
 mod utils;
 
-use cell::RefCell;
+use cell::InformativeRefCell;
 use components::*;
 use context::*;
 use husky_trace_protocol::*;

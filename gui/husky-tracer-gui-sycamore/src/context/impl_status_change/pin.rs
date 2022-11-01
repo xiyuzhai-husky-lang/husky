@@ -11,14 +11,14 @@ impl DeveloperGuiContext {
             !pinned && self.needs_figure_controls(Some(trace_id), &presentation);
         let needs_response = needs_figure_canvases || needs_figure_controls;
 
-        self.ws.send_message(
+        self.ws.try_apply_change(
             HuskyTracerGuiMessageVariant::TogglePin {
                 trace_id,
                 needs_figure_canvases,
                 needs_figure_controls,
             },
             needs_response,
-            || self.did_toggle_pin(trace_id),
+            move || self.did_toggle_pin(trace_id),
         )
     }
 }

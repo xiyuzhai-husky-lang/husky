@@ -17,7 +17,7 @@ impl DeveloperGuiContext {
         let needs_figure_controls =
             self.needs_figure_controls(Some(new_active_trace_id), &presentation);
         let needs_response = needs_figure_canvases || needs_figure_controls;
-        self.ws.send_message(
+        self.ws.try_apply_change(
             HuskyTracerGuiMessageVariant::Activate {
                 trace_id: new_active_trace_id,
                 needs_figure_canvases,

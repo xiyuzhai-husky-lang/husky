@@ -11,7 +11,7 @@ pub enum FigureCanvasValue {
         data: PrimitiveValueData,
     },
     Graphics2d {
-        graphics2d_data: &'static Graphics2dCanvasData,
+        value: Graphics2dCanvasValue,
     },
     GenericF32 {
         partitioned_samples: &'static [(Partition, Vec<(SampleId, f32)>)],
@@ -139,7 +139,20 @@ impl FigureCanvasValue {
                     .collect(),
                 specific: match data_itd.specific {
                     SpecificFigureCanvasData::Atom(atom) => match atom {
-                        FigureCanvasAtom::Primitive(_) => todo!(),
+                        FigureCanvasAtom::Primitive(data) => match data {
+                            PrimitiveValueData::I32(_) => todo!(),
+                            PrimitiveValueData::I64(_) => todo!(),
+                            PrimitiveValueData::F32(_) => todo!(),
+                            PrimitiveValueData::B32(_) => todo!(),
+                            PrimitiveValueData::B64(_) => todo!(),
+                            PrimitiveValueData::Bool(_) => todo!(),
+                            PrimitiveValueData::Unit => Graphics2dCanvasValue {
+                                image_layers: vec![],
+                                shapes: vec![],
+                                xrange: (28., 28.), // ad hoc
+                                yrange: (28., 28.), // ad hoc
+                            },
+                        },
                         FigureCanvasAtom::Graphics2d(data) => Graphics2dCanvasValue::new(data),
                     },
                     _ => unreachable!(),
@@ -171,9 +184,9 @@ impl FigureCanvasValue {
                     PrimitiveValueData::Unit => FigureCanvasValue::Unit,
                     _ => FigureCanvasValue::NonUnitPrimitive { data: *data },
                 },
-                FigureCanvasAtom::Graphics2d(graphics2d_data) => {
-                    FigureCanvasValue::Graphics2d { graphics2d_data }
-                }
+                FigureCanvasAtom::Graphics2d(graphics2d_data) => FigureCanvasValue::Graphics2d {
+                    value: Graphics2dCanvasValue::new(graphics2d_data),
+                },
             },
             SpecificFigureCanvasData::Mutations { mutations } => todo!(),
             SpecificFigureCanvasData::EvalError { message } => todo!(),
@@ -205,7 +218,7 @@ impl FigureCanvasValue {
                     image_layers.extend(specific.image_layers().into_iter());
                     shapes.extend(specific.shapes().into_iter())
                 }
-                FigureCanvasValue::Graphics2d { graphics2d_data } => todo!(),
+                FigureCanvasValue::Graphics2d { value } => todo!(),
             },
             FigureCanvasValue::GenericI32 {
                 partitioned_samples,
@@ -242,9 +255,27 @@ impl FigureCanvasValue {
                     }
                     particular0.add(particular1)
                 }
-                FigureCanvasValue::Graphics2d { graphics2d_data } => todo!(),
+                FigureCanvasValue::Graphics2d { value } => todo!(),
             },
-            FigureCanvasValue::Graphics2d { graphics2d_data } => todo!(),
+            FigureCanvasValue::Graphics2d { value: value0 } => match other {
+                FigureCanvasValue::Unit => (),
+                FigureCanvasValue::NonUnitPrimitive { data } => todo!(),
+                FigureCanvasValue::Graphics2d { value: value1 } => value0.add(value1),
+                FigureCanvasValue::GenericF32 {
+                    partitioned_samples,
+                    image_layers,
+                    shapes,
+                } => todo!(),
+                FigureCanvasValue::GenericI32 {
+                    partitioned_samples,
+                    image_layers,
+                    shapes,
+                } => todo!(),
+                FigureCanvasValue::GenericGraphics2d {
+                    partitioned_samples,
+                    specific,
+                } => todo!(),
+            },
         }
     }
 }

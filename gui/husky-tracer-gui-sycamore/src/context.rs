@@ -31,20 +31,21 @@ pub struct DeveloperGuiContext {
     pub(crate) window_inner_width: &'static Signal<f64>,
     pub(crate) dialog_opened: &'static Signal<bool>,
     // trace
-    trace_nodes: RefCell<Vec<TraceNodeState>>,
-    subtrace_ids_map: RefCell<HashMap<SubtracesKey, &'static [TraceId]>>,
-    trace_stalks: RefCell<HashMap<TraceStalkKey, &'static TraceStalk>>,
-    trace_statss: RefCell<HashMap<TraceStatsKey, Option<&'static TraceStats>>>,
+    trace_nodes: InformativeRefCell<Vec<TraceNodeState>>,
+    subtrace_ids_map: InformativeRefCell<HashMap<SubtracesKey, &'static [TraceId]>>,
+    trace_stalks: InformativeRefCell<HashMap<TraceStalkKey, &'static TraceStalk>>,
+    trace_statss: InformativeRefCell<HashMap<TraceStatsKey, Option<&'static TraceStats>>>,
     root_trace_ids_signal: &'static Signal<Vec<TraceId>>,
     trace_listing: &'static Signal<Vec<TraceId>>,
     // figure
     specific_figure_canvases:
-        RefCell<HashMap<SpecificFigureCanvasKey, &'static SpecificFigureCanvasData>>,
+        InformativeRefCell<HashMap<SpecificFigureCanvasKey, &'static SpecificFigureCanvasData>>,
     generic_figure_canvases:
-        RefCell<HashMap<GenericFigureCanvasKey, &'static GenericFigureCanvasData>>,
+        InformativeRefCell<HashMap<GenericFigureCanvasKey, &'static GenericFigureCanvasData>>,
     // todo
     // figure_canvas_atoms: &'static FigureCanvasAtomArena,
-    figure_controls: RefCell<HashMap<FigureControlKey, &'static Signal<FigureControlData>>>,
+    figure_controls:
+        InformativeRefCell<HashMap<FigureControlKey, &'static Signal<FigureControlData>>>,
     presentation_signal: &'static Signal<Presentation>,
 }
 
