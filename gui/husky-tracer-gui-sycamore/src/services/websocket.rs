@@ -98,7 +98,15 @@ impl WebsocketService {
         request_id
     }
 
-    pub fn send_message(&self, variant: HuskyTracerGuiMessageVariant, needs_response: bool) {
+    pub fn send_message(
+        &self,
+        variant: HuskyTracerGuiMessageVariant,
+        needs_response: bool,
+        action_if_response_is_not_needed: impl FnOnce(),
+    ) {
+        if !needs_response {
+            action_if_response_is_not_needed()
+        }
         let request = HuskyTracerGuiMessage {
             opt_request_id: if needs_response {
                 Some(self.issue_request_id())

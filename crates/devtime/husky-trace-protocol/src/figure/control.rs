@@ -5,13 +5,13 @@ use husky_signal::Signalable;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub enum FigureControlData {
-    None,
-    Mutation { opt_mutation_selection: Option<u8> },
+    Unit,
+    Mutations { opt_mutation_selection: Option<u8> },
 }
 
 impl Default for FigureControlData {
     fn default() -> Self {
-        FigureControlData::None
+        FigureControlData::Unit
     }
 }
 
@@ -25,7 +25,7 @@ impl Signalable for FigureControlData {}
 
 impl FigureControlData {
     pub fn mutations_default(mutations_len: usize) -> Self {
-        FigureControlData::Mutation {
+        FigureControlData::Mutations {
             opt_mutation_selection: if mutations_len > 0 { Some(0) } else { None },
         }
     }

@@ -20,40 +20,9 @@ impl DeveloperGuiContext {
                 needs_stalks,
                 needs_statss,
             },
-            if needs_response {
-                Some(Box::new(move |message| match message.variant {
-                    HuskyTracerServerMessageVariant::SetRestriction {
-                        new_figure_canvases,
-                        new_figure_controls,
-                        new_trace_stalks,
-                        new_trace_statss,
-                    } => {
-                        self.receive_figure_canvases(
-                            self.scope,
-                            new_figure_canvases
-                                .into_iter()
-                                .map(|(k, v)| (k, self.alloc_value(v))),
-                        );
-                        self.receive_figure_controls(self.scope, new_figure_controls.into_iter());
-                        self.receive_trace_stalks(
-                            new_trace_stalks
-                                .into_iter()
-                                .map(|(k, v)| (k, self.alloc_value(v))),
-                        );
-                        self.receive_trace_stats(
-                            new_trace_statss
-                                .into_iter()
-                                .map(|(k, v)| (k, v.map(|v| self.alloc_value(v)))),
-                        );
-                        self.set_presentation(new_restriction)
-                    }
-                    _ => panic!(),
-                }))
-            } else {
-                self.set_presentation(new_restriction);
-                None
-            },
-        );
+            needs_response,
+            || self.set_presentation(new_restriction),
+        )
     }
 
     // pub(super) fn set_restriction_from_dialog(&'static self) {

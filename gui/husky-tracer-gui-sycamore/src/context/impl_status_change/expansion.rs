@@ -23,10 +23,8 @@ impl DeveloperGuiContext {
             self.ws.send_message(
                 HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id },
                 needs_response,
-            );
-            if !needs_response {
-                expansion.set(true)
-            }
+                || expansion.set(true),
+            )
         }
     }
 }
