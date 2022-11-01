@@ -38,8 +38,11 @@ impl DeveloperGuiContext {
     fn send_init_request(&'static self) {
         let mut gui_message_sender = self.ws.gui_message_sender.clone();
         let request_id = self.ws.issue_request_id();
-        self.ws
-            .send_message(HuskyTracerGuiMessageVariant::HotReloadRequest, true);
+        self.ws.send_message(
+            HuskyTracerGuiMessageVariant::HotReloadRequest,
+            true,
+            || unreachable!(),
+        );
     }
 
     fn receive_init_data<'a>(&'static self, init_data: ()) {

@@ -18,9 +18,7 @@ impl DeveloperGuiContext {
                 needs_figure_controls,
             },
             needs_response,
-        );
-        if !needs_response {
-            self.did_toggle_pin(trace_id)
-        }
+            || self.did_toggle_pin(trace_id),
+        )
     }
 }
