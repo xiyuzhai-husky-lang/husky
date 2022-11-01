@@ -47,7 +47,6 @@ impl StatusChange {
                     log::info!("opt active trace id is \n:{:?}", ctx.opt_active_trace_id());
                 }
                 'F' => {
-                    todo!()
                     // log::info!(
                     //     "figure canvases: {:#?}",
                     //     ctx.figure_canvases.borrow(file!(), line!())
