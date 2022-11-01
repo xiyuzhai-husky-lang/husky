@@ -27,8 +27,8 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
     view! {
         scope,
         (match *props.value.get() {
-            FigureCanvasValue::Unit => todo!(),
-            FigureCanvasValue::NonUnitPrimitive { .. } => {
+            FigureCanvasValue::Unit
+            | FigureCanvasValue::NonUnitPrimitive { .. } => {
                 view! {
                     scope,
                 }

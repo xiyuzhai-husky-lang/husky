@@ -22,6 +22,18 @@ impl DeveloperGuiContext {
         data.into_iter().map(|(k, v)| (k, self.alloc_value(v)))
     }
 
+    pub(super) fn alloc_key_opt_value_pairs<K, V>(
+        &self,
+        data: Vec<(K, Option<V>)>,
+    ) -> impl Iterator<Item = (K, Option<&'static V>)> + '_
+    where
+        K: 'static,
+        V: 'static,
+    {
+        data.into_iter()
+            .map(|(k, v)| (k, v.map(|v| self.alloc_value(v))))
+    }
+
     pub(super) fn alloc_key_signal_pairs<K, V>(
         &self,
         data: Vec<(K, V)>,

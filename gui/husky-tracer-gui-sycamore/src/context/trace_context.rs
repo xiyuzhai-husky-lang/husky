@@ -54,7 +54,8 @@ impl DeveloperGuiContext {
             .map(|id| *id)
     }
 
-    pub(super) fn update_trace_listing(&self, opt_sample_id: Option<SampleId>) {
+    pub(super) fn update_trace_listing(&self) {
+        let opt_sample_id = self.presentation_signal.get().opt_sample_id();
         let mut trace_listing: Vec<TraceId> = vec![];
         for trace_id in &*self.root_trace_ids_signal.get() {
             self.update_trace_listing_dfs(*trace_id, opt_sample_id, &mut trace_listing);

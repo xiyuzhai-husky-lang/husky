@@ -112,7 +112,7 @@ impl FigureCanvasValue {
 
     fn new_generic_piece(data_itd: &FigureCanvasDataItd) -> Self {
         match data_itd.generic {
-            GenericFigureCanvasData::Unit => todo!(),
+            GenericFigureCanvasData::Unit => FigureCanvasValue::Unit,
             GenericFigureCanvasData::Plot2d {
                 plot_kind,
                 point_groups,

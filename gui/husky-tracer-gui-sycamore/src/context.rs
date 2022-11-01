@@ -1,7 +1,8 @@
 mod figure_context;
-mod impl_init;
 mod impl_status_change;
+mod init;
 mod presentation;
+mod process_change;
 mod trace_context;
 mod utils;
 
@@ -41,11 +42,10 @@ pub struct DeveloperGuiContext {
         RefCell<HashMap<SpecificFigureCanvasKey, &'static SpecificFigureCanvasData>>,
     generic_figure_canvases:
         RefCell<HashMap<GenericFigureCanvasKey, &'static GenericFigureCanvasData>>,
-    figure_canvas_atoms: &'static FigureCanvasAtomArena,
+    // todo
+    // figure_canvas_atoms: &'static FigureCanvasAtomArena,
     figure_controls: RefCell<HashMap<FigureControlKey, &'static Signal<FigureControlData>>>,
     presentation_signal: &'static Signal<Presentation>,
-    // global control
-    pub(crate) presentation_locked_signal: Signal<bool>,
 }
 
 impl DeveloperGuiContext {
@@ -97,11 +97,10 @@ impl DeveloperGuiContext {
             // figure
             specific_figure_canvases: Default::default(),
             generic_figure_canvases: Default::default(),
-            figure_canvas_atoms: todo!(),
+            // figure_canvas_atoms: todo!(),
             figure_controls: Default::default(),
             // user state
             presentation_signal,
-            presentation_locked_signal: Default::default(),
         }
     }
 }

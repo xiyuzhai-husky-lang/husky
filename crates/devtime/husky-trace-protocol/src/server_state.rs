@@ -49,18 +49,17 @@ impl<TraceNode: AsTraceNode> Default for ServerTraceState<TraceNode> {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ServerTraceStateChange {
-    pub(crate) restriction: <TrackableAtom<Presentation> as Trackable>::Change,
-    pub(crate) trace_nodes: TrackableVecChange<TraceNodeData>,
-    pub(crate) generic_figure_canvases:
+    pub trace_nodes: TrackableVecChange<TraceNodeData>,
+    pub generic_figure_canvases:
         <TrackableMap<GenericFigureCanvasKey, GenericFigureCanvasData> as Trackable>::Change,
-    pub(crate) specific_figure_canvases:
+    pub specific_figure_canvases:
         <TrackableMap<SpecificFigureCanvasKey, SpecificFigureCanvasData> as Trackable>::Change,
-    pub(crate) figure_controls:
-        <TrackableMap<FigureControlKey, FigureControlData> as Trackable>::Change,
-    pub(crate) trace_stalks: <TrackableMap<TraceStalkKey, TraceStalk> as Trackable>::Change,
-    pub(crate) trace_statss: <TrackableMap<TraceStatsKey, Option<TraceStats>> as Trackable>::Change,
-    root_traces: <TrackableVecSimple<TraceId> as Trackable>::Change,
-    pub(crate) subtrace_ids_map: <TrackableMap<SubtracesKey, Vec<TraceId>> as Trackable>::Change,
+    pub figure_controls: <TrackableMap<FigureControlKey, FigureControlData> as Trackable>::Change,
+    pub trace_stalks: <TrackableMap<TraceStalkKey, TraceStalk> as Trackable>::Change,
+    pub trace_statss: <TrackableMap<TraceStatsKey, Option<TraceStats>> as Trackable>::Change,
+    pub root_traces: <TrackableVecSimple<TraceId> as Trackable>::Change,
+    pub subtrace_ids_map: <TrackableMap<SubtracesKey, Vec<TraceId>> as Trackable>::Change,
+    pub restriction: <TrackableAtom<Presentation> as Trackable>::Change,
 }
 
 // implementation details
