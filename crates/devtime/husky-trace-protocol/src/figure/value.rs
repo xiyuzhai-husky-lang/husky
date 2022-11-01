@@ -53,8 +53,6 @@ impl Graphics2dCanvasValue {
         if self.yrange != other.yrange {
             todo!()
         }
-        log::info!("self.shapes.len() = {:?}", self.shapes.len());
-        log::info!("other.shapes.len() = {:?}", other.shapes.len());
         self.image_layers.extend(other.image_layers.into_iter());
         self.shapes.extend(other.shapes.into_iter())
     }
