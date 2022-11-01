@@ -38,23 +38,20 @@ impl DeveloperGuiContext {
     fn send_init_request(&'static self) {
         let mut gui_message_sender = self.ws.gui_message_sender.clone();
         let request_id = self.ws.issue_request_id();
-        self.ws.send_message(
-            HuskyTracerGuiMessageVariant::HotReloadRequest,
-            true,
-            || unreachable!(),
-        );
+        self.ws
+            .try_apply_change(HuskyTracerGuiMessageVariant::HotReloadRequest, true, || ());
     }
 
-    fn spawn_listening(&'static self, mut read: Receiver<HuskyTracerServerMessage>) {
-        spawn_local({
-            async move {
-                while let Some(notif) = read.next().await {
-                    self.handle_server_notification(notif)
-                }
-                log::debug!("WebSocket Closed");
-            }
-        });
-    }
+    // fn spawn_listening(&'static self, mut read: Receiver<HuskyTracerServerMessage>) {
+    //     spawn_local({
+    //         async move {
+    //             while let Some(notif) = read.next().await {
+    //                 self.handle_server_notification(notif)
+    //             }
+    //             log::debug!("WebSocket Closed");
+    //         }
+    //     });
+    // }
 
     pub(super) fn handle_server_message_str(&'static self, server_message_str: &str) {
         self.handle_server_notification(serde_json::from_str(server_message_str).unwrap())

@@ -20,7 +20,7 @@ impl DeveloperGuiContext {
                 .subtrace_ids_map
                 .borrow(file!(), line!())
                 .contains_key(&key);
-            self.ws.send_message(
+            self.ws.try_apply_change(
                 HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id },
                 needs_response,
                 || expansion.set(true),

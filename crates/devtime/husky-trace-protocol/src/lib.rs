@@ -1,5 +1,4 @@
 #![feature(try_trait_v2)]
-mod client_state;
 mod figure;
 mod gui_message;
 mod init;
@@ -9,7 +8,6 @@ mod server_message;
 mod server_state;
 mod trace;
 
-pub use client_state::*;
 pub use figure::*;
 pub use gui_message::*;
 pub use init::*;

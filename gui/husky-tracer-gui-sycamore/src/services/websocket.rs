@@ -1,6 +1,6 @@
-use std::{cell::Cell, collections::HashMap};
+use std::{borrow::Borrow, cell::Cell, collections::HashMap};
 
-use crate::*;
+use crate::{cell::OptionCell, *};
 use futures::{
     channel::mpsc::{Receiver, Sender},
     stream::SplitStream,
@@ -12,7 +12,7 @@ use wasm_bindgen_futures::spawn_local;
 #[derive(Clone)]
 pub struct WebsocketService {
     pub gui_message_sender: Sender<String>,
-    // pub(super) call_backs: Rc<RefCell<HashMap<usize, Box<dyn FnOnce(HuskyTracerServerMessage)>>>>,
+    pub(super) opt_callback: Rc<OptionCell<Box<dyn FnOnce()>>>,
     next_request_id: Cell<usize>,
 }
 
@@ -40,6 +40,7 @@ impl WebsocketService {
         });
         let this = Self {
             gui_message_sender,
+            opt_callback: Default::default(),
             next_request_id: Cell::new(0),
         };
         (this, read)
@@ -76,6 +77,9 @@ impl WebsocketService {
                         }
                     };
                     ctx.process_change(server_message.change);
+                    if let Some(request_id) = server_message.opt_request_id {
+                        self.opt_callback.pop().expect("not none")()
+                    }
                 }
                 log::debug!("WebSocket Closed");
             }
@@ -88,14 +92,28 @@ impl WebsocketService {
         request_id
     }
 
-    pub fn send_message(
+    pub(crate) fn try_apply_change(
         &self,
         variant: HuskyTracerGuiMessageVariant,
         needs_response: bool,
-        action_if_response_is_not_needed: impl FnOnce(),
+        f: impl FnOnce() + 'static,
+    ) {
+        if self.opt_callback.is_some() {
+            return;
+        }
+        self.send_message(variant, needs_response, f)
+    }
+
+    fn send_message(
+        &self,
+        variant: HuskyTracerGuiMessageVariant,
+        needs_response: bool,
+        f: impl FnOnce() + 'static,
     ) {
         if !needs_response {
-            action_if_response_is_not_needed()
+            f()
+        } else {
+            self.opt_callback.set(Box::new(f));
         }
         let request = HuskyTracerGuiMessage {
             opt_request_id: if needs_response {

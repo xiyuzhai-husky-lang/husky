@@ -12,7 +12,7 @@ impl DeveloperGuiContext {
         let needs_statss = self.needs_statss(&new_restriction);
         let needs_response =
             needs_figure_canvases || needs_figure_controls || needs_stalks || needs_statss;
-        self.ws.send_message(
+        self.ws.try_apply_change(
             HuskyTracerGuiMessageVariant::SetRestriction {
                 restriction: new_restriction.clone(),
                 needs_figure_canvases,
