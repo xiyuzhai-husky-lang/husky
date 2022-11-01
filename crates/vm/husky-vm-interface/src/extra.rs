@@ -296,7 +296,7 @@ impl<'eval> From<PrimitiveValueData> for __Register<'eval> {
             PrimitiveValueData::B32(_) => todo!(),
             PrimitiveValueData::B64(_) => todo!(),
             PrimitiveValueData::Bool(_) => todo!(),
-            PrimitiveValueData::Void(_) => todo!(),
+            PrimitiveValueData::Unit => todo!(),
         }
     }
 }

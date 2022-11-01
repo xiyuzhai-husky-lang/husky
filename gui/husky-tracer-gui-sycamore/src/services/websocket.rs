@@ -12,7 +12,7 @@ use wasm_bindgen_futures::spawn_local;
 #[derive(Clone)]
 pub struct WebsocketService {
     pub gui_message_sender: Sender<String>,
-    pub(super) call_backs: Rc<RefCell<HashMap<usize, Box<dyn FnOnce(HuskyTracerServerMessage)>>>>,
+    // pub(super) call_backs: Rc<RefCell<HashMap<usize, Box<dyn FnOnce(HuskyTracerServerMessage)>>>>,
     next_request_id: Cell<usize>,
 }
 
@@ -44,7 +44,7 @@ impl WebsocketService {
         let this = Self {
             gui_message_sender,
             next_request_id: Cell::new(0),
-            call_backs: Rc::new(RefCell::new(HashMap::new())),
+            // call_backs: Rc::new(RefCell::new(HashMap::new())),
         };
         spawn_local({
             let this = this.clone();
@@ -72,11 +72,13 @@ impl WebsocketService {
                             continue;
                         }
                     };
+                    todo!("process change");
                     if let Some(request_id) = server_message.opt_request_id {
-                        this.call_backs
-                            .borrow_mut(file!(), line!())
-                            .remove(&request_id)
-                            .unwrap()(server_message);
+                        todo!()
+                        // this.call_backs
+                        //     .borrow_mut(file!(), line!())
+                        //     .remove(&request_id)
+                        //     .unwrap()(server_message);
                     } else {
                         server_notification_sender
                             .send(server_message)
@@ -96,19 +98,13 @@ impl WebsocketService {
         request_id
     }
 
-    pub fn send_message(
-        &self,
-        variant: HuskyTracerGuiMessageVariant,
-        opt_call_back: Option<Box<dyn FnOnce(HuskyTracerServerMessage)>>,
-    ) {
+    pub fn send_message(&self, variant: HuskyTracerGuiMessageVariant, needs_response: bool) {
         let request = HuskyTracerGuiMessage {
-            opt_request_id: opt_call_back.map(|call_back| {
-                let request_id = self.issue_request_id();
-                self.call_backs
-                    .borrow_mut(file!(), line!())
-                    .insert(request_id, call_back);
-                request_id
-            }),
+            opt_request_id: if needs_response {
+                Some(self.issue_request_id())
+            } else {
+                None
+            },
             variant,
         };
         spawn_local({

@@ -17,30 +17,10 @@ impl DeveloperGuiContext {
                 needs_figure_canvases,
                 needs_figure_controls,
             },
-            if needs_response {
-                Some(Box::new(move |response| match response.variant {
-                    HuskyTracerServerMessageVariant::TogglePin {
-                        new_figure_canvases,
-                        new_figure_controls,
-                    } => {
-                        self.receive_figure_canvases(
-                            self.scope,
-                            new_figure_canvases
-                                .into_iter()
-                                .map(|(k, v)| (k, self.alloc_value(v))),
-                        );
-                        self.receive_figure_controls(self.scope, new_figure_controls.into_iter());
-                        self.did_toggle_pin(trace_id);
-                    }
-                    HuskyTracerServerMessageVariant::TogglePinWithError { .. } => todo!(),
-                    _ => panic!("unexpected response {:?}", response),
-                }))
-            } else {
-                {
-                    self.did_toggle_pin(trace_id);
-                    None
-                }
-            },
-        )
+            needs_response,
+        );
+        if !needs_response {
+            self.did_toggle_pin(trace_id)
+        }
     }
 }

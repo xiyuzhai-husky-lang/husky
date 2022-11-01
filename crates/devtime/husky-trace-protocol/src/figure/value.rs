@@ -6,7 +6,10 @@ use husky_vm_primitive_value::PrimitiveValueData;
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum FigureCanvasValue {
-    None,
+    Unit,
+    NonUnitPrimitive {
+        data: PrimitiveValueData,
+    },
     Graphics2d {
         graphics2d_data: &'static Graphics2dCanvasData,
     },
@@ -28,7 +31,7 @@ pub enum FigureCanvasValue {
 
 impl Default for FigureCanvasValue {
     fn default() -> Self {
-        FigureCanvasValue::None
+        FigureCanvasValue::Unit
     }
 }
 
@@ -93,7 +96,8 @@ impl FigureCanvasValue {
         }
         let mut value = Self::new_piece(presentation_kind, &all_figures[0]);
         for other in all_figures[1..].iter() {
-            value.merge(Self::new_piece(presentation_kind, other))
+            let new_piece = Self::new_piece(presentation_kind, other);
+            value.merge(new_piece)
         }
         value
     }
@@ -135,7 +139,6 @@ impl FigureCanvasValue {
                     .collect(),
                 specific: match data_itd.specific {
                     SpecificFigureCanvasData::Atom(atom) => match atom {
-                        FigureCanvasAtom::Unit => todo!(),
                         FigureCanvasAtom::Primitive(_) => todo!(),
                         FigureCanvasAtom::Graphics2d(data) => Graphics2dCanvasValue::new(data),
                     },
@@ -162,9 +165,12 @@ impl FigureCanvasValue {
 
     fn new_specific_piece(data_itd: &FigureCanvasDataItd) -> Self {
         match data_itd.specific {
+            SpecificFigureCanvasData::Unit => FigureCanvasValue::Unit,
             SpecificFigureCanvasData::Atom(atom) => match atom {
-                FigureCanvasAtom::Unit => FigureCanvasValue::None,
-                FigureCanvasAtom::Primitive(_) => FigureCanvasValue::None,
+                FigureCanvasAtom::Primitive(data) => match data {
+                    PrimitiveValueData::Unit => FigureCanvasValue::Unit,
+                    _ => FigureCanvasValue::NonUnitPrimitive { data: *data },
+                },
                 FigureCanvasAtom::Graphics2d(graphics2d_data) => {
                     FigureCanvasValue::Graphics2d { graphics2d_data }
                 }
@@ -176,13 +182,15 @@ impl FigureCanvasValue {
 
     fn merge(&mut self, other: FigureCanvasValue) {
         match self {
-            FigureCanvasValue::None => *self = other,
+            FigureCanvasValue::Unit => *self = other,
+            FigureCanvasValue::NonUnitPrimitive { data } => todo!(),
             FigureCanvasValue::GenericF32 {
                 partitioned_samples,
                 image_layers,
                 shapes,
             } => match other {
-                FigureCanvasValue::None => (),
+                FigureCanvasValue::Unit => (),
+                FigureCanvasValue::NonUnitPrimitive { data } => todo!(),
                 FigureCanvasValue::GenericF32 {
                     partitioned_samples,
                     image_layers,
@@ -208,7 +216,8 @@ impl FigureCanvasValue {
                 partitioned_samples: partitioned_samples0,
                 specific: particular0,
             } => match other {
-                FigureCanvasValue::None => (),
+                FigureCanvasValue::Unit => (),
+                FigureCanvasValue::NonUnitPrimitive { data } => todo!(),
                 FigureCanvasValue::GenericF32 { .. } => (),
                 FigureCanvasValue::GenericI32 { .. } => (),
                 FigureCanvasValue::GenericGraphics2d {

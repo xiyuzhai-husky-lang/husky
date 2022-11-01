@@ -64,7 +64,7 @@ impl Graphics2dCanvasData {
                 yrange: (0.0, 28.0),
             },
             VisualData::Primitive {
-                value: PrimitiveValueData::Void(()),
+                value: PrimitiveValueData::Unit,
             } => Graphics2dCanvasData {
                 image_layers: vec![],
                 shapes: vec![],

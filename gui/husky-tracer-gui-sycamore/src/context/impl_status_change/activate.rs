@@ -25,10 +25,7 @@ impl DeveloperGuiContext {
             },
             if needs_response {
                 Some(Box::new(move |response| match response.variant {
-                    HuskyTracerServerMessageVariant::Activate {
-                        new_figure_canvases,
-                        new_figure_controls,
-                    } => {
+                    HuskyTracerServerMessageVariant::Activate => {
                         self.receive_figure_canvases(
                             self.scope,
                             new_figure_canvases

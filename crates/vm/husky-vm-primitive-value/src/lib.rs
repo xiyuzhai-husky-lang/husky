@@ -10,7 +10,7 @@ pub enum PrimitiveValueData {
     B32(u32),
     B64(u64),
     Bool(bool),
-    Void(()),
+    Unit,
 }
 
 impl PartialEq for PrimitiveValueData {
@@ -21,7 +21,7 @@ impl PartialEq for PrimitiveValueData {
             (Self::B32(l0), Self::B32(r0)) => l0 == r0,
             (Self::B64(l0), Self::B64(r0)) => l0 == r0,
             (Self::Bool(l0), Self::Bool(r0)) => l0 == r0,
-            (Self::Void(l0), Self::Void(r0)) => l0 == r0,
+            (Self::Unit, Self::Unit) => true,
             _ => false,
         }
     }
@@ -39,7 +39,7 @@ impl std::hash::Hash for PrimitiveValueData {
             PrimitiveValueData::B32(b) => b.hash(state),
             PrimitiveValueData::B64(b) => b.hash(state),
             PrimitiveValueData::Bool(b) => b.hash(state),
-            PrimitiveValueData::Void(_) => todo!(),
+            PrimitiveValueData::Unit => todo!(),
         }
     }
 }
@@ -47,7 +47,7 @@ impl Eq for PrimitiveValueData {}
 
 impl From<()> for PrimitiveValueData {
     fn from(_: ()) -> Self {
-        Self::Void(())
+        Self::Unit
     }
 }
 

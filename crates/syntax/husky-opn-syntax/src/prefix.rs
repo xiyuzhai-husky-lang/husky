@@ -25,7 +25,7 @@ impl PrefixOpr {
     //                 PrimitiveValueData::B32(_) => todo!(),
     //                 PrimitiveValueData::B64(_) => todo!(),
     //                 PrimitiveValueData::Bool(_) => todo!(),
-    //                 PrimitiveValueData::Void(_) => panic!(),
+    //                 PrimitiveValueData::Unit => panic!(),
     //             },
     //             PrefixOpr::Not => match opd {
     //                 PrimitiveValueData::I32(i) => i == 0,
@@ -34,7 +34,7 @@ impl PrefixOpr {
     //                 PrimitiveValueData::B32(b) => b == 0,
     //                 PrimitiveValueData::B64(b) => b == 0,
     //                 PrimitiveValueData::Bool(b) => !b,
-    //                 PrimitiveValueData::Void(_) => panic!(),
+    //                 PrimitiveValueData::Unit => panic!(),
     //             }
     //             .into(),
     //             PrefixOpr::BitNot => match opd {

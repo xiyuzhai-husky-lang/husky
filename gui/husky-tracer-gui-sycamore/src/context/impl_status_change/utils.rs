@@ -22,21 +22,23 @@ impl DeveloperGuiContext {
 
     fn needs_figure_canvas(&self, trace_id: TraceId, restriction: &Presentation) -> bool {
         let trace = self.trace_data(trace_id);
-        let key = self.new_figure_canvas_key(trace, restriction, true);
-        if !self
-            .figure_canvases
-            .borrow(file!(), line!())
-            .contains_key(&key)
-        {
-            return true;
+        if let Some(key) = SpecificFigureCanvasKey::from_trace_data(trace, restriction) {
+            if !self
+                .specific_figure_canvases
+                .borrow(file!(), line!())
+                .contains_key(&key)
+            {
+                return true;
+            }
         }
-        let key = self.new_figure_canvas_key(trace, restriction, false);
-        if !self
-            .figure_canvases
-            .borrow(file!(), line!())
-            .contains_key(&key)
-        {
-            return true;
+        if let Some(key) = GenericFigureCanvasKey::from_trace_data(trace, restriction) {
+            if !self
+                .generic_figure_canvases
+                .borrow(file!(), line!())
+                .contains_key(&key)
+            {
+                return true;
+            }
         }
         false
     }

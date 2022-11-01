@@ -10,6 +10,6 @@ impl DeveloperGuiContext {
         let shown_signal = self.shown_signal(trace_id);
         shown_signal.set(!shown_signal.cget());
         self.ws
-            .send_message(HuskyTracerGuiMessageVariant::ToggleShow { trace_id }, None)
+            .send_message(HuskyTracerGuiMessageVariant::ToggleShow { trace_id }, false)
     }
 }

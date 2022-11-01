@@ -3,52 +3,76 @@ use vec_like::VecSet;
 use super::*;
 
 impl DeveloperGuiContext {
-    pub(super) fn receive_figure_canvases(
-        &self,
-        scope: Scope<'static>,
-        new_figure_canvases: impl Iterator<Item = (FigureCanvasKey, &'static FigureCanvasData)>,
-    ) {
-        let mut figure_canvases = self.figure_canvases.borrow_mut(file!(), line!());
-        for (key, data) in new_figure_canvases {
-            insert_new!(figure_canvases, key, data);
-        }
-    }
-    pub(super) fn receive_figure_controls(
-        &self,
-        scope: Scope<'static>,
-        new_figure_controls: impl Iterator<Item = (FigureControlKey, FigureControlData)>,
-    ) {
-        let mut figure_controls = self.figure_controls.borrow_mut(file!(), line!());
-        for (key, data) in new_figure_controls {
-            assert!(figure_controls
-                .insert(key, create_signal(scope, data))
-                .is_none());
-        }
-    }
+    // pub(super) fn receive_figure_canvases(
+    //     &self,
+    //     scope: Scope<'static>,
+    //     new_figure_canvases: impl Iterator<Item = (FigureCanvasKey, &'static FigureCanvasData)>,
+    // ) {
+    //     let mut figure_canvases = self.figure_canvases.borrow_mut(file!(), line!());
+    //     for (key, data) in new_figure_canvases {
+    //         insert_new!(figure_canvases, key, data);
+    //     }
+    // }
+    // pub(super) fn receive_figure_controls(
+    //     &self,
+    //     scope: Scope<'static>,
+    //     new_figure_controls: impl Iterator<Item = (FigureControlKey, FigureControlData)>,
+    // ) {
+    //     let mut figure_controls = self.figure_controls.borrow_mut(file!(), line!());
+    //     for (key, data) in new_figure_controls {
+    //         assert!(figure_controls
+    //             .insert(key, create_signal(scope, data))
+    //             .is_none());
+    //     }
+    // }
 
-    pub(crate) fn new_figure_canvas_key(
+    // pub(crate) fn new_figure_canvas_key(
+    //     &self,
+    //     trace: &TraceData,
+    //     presentation: &Presentation,
+    //     is_specific: bool,
+    // ) -> FigureCanvasKey {
+    //     FigureCanvasKey::new(trace.kind, trace.id, presentation, is_specific)
+    // }
+
+    fn generic_figure_canvas_data(
         &self,
         trace: &TraceData,
         presentation: &Presentation,
-        is_specific: bool,
-    ) -> FigureCanvasKey {
-        FigureCanvasKey::new(trace.kind, trace.id, presentation, is_specific)
-    }
-
-    pub(crate) fn figure_canvas_data(
-        &self,
-        trace: &TraceData,
-        presentation: &Presentation,
-    ) -> &'static FigureCanvasData {
-        let figure_canvas_key =
-            self.new_figure_canvas_key(trace, presentation, presentation.is_specific());
-        let figure_canvases_borrowed = self.figure_canvases.borrow(file!(), line!());
-        if let Some(figure_canvas_data) = figure_canvases_borrowed.get(&figure_canvas_key) {
+    ) -> &'static GenericFigureCanvasData {
+        let key = match GenericFigureCanvasKey::from_trace_data(trace, presentation) {
+            Some(key) => key,
+            None => return &GenericFigureCanvasData::Unit,
+        };
+        let figure_canvases_borrowed = self.generic_figure_canvases.borrow(file!(), line!());
+        if let Some(figure_canvas_data) = figure_canvases_borrowed.get(&key) {
             figure_canvas_data
         } else {
+            // ad hoc
             log::info!("presentation = {presentation:?}");
-            log::info!("figure canvases: {figure_canvases_borrowed:?}");
-            log::info!("no entry with key {figure_canvas_key:?}");
+            log::info!("generic figure canvases: {figure_canvases_borrowed:?}");
+            log::info!("no entry with key {key:?}");
+            panic!()
+        }
+    }
+
+    fn specific_figure_canvas_data(
+        &self,
+        trace: &TraceData,
+        presentation: &Presentation,
+    ) -> &'static SpecificFigureCanvasData {
+        let key = match SpecificFigureCanvasKey::from_trace_data(trace, presentation) {
+            Some(key) => key,
+            None => return &SpecificFigureCanvasData::Unit,
+        };
+        let figure_canvases_borrowed = self.specific_figure_canvases.borrow(file!(), line!());
+        if let Some(figure_canvas_data) = figure_canvases_borrowed.get(&key) {
+            figure_canvas_data
+        } else {
+            // ad hoc
+            log::info!("presentation = {presentation:?}");
+            log::info!("specific figure canvases: {figure_canvases_borrowed:?}");
+            log::info!("no entry with key {key:?}");
             panic!()
         }
     }
@@ -135,14 +159,10 @@ impl DeveloperGuiContext {
             SpecificFigureCanvasKey::from_trace_data(self.trace_data(trace_id), presentation);
         let generic_key =
             GenericFigureCanvasKey::from_trace_data(self.trace_data(trace_id), presentation);
-        let generic_value = self.figure_canvases.borrow(file!(), line!())[&generic_key];
-        // ad hoc
-        let generic_value = generic_value
-            .generic()
-            .unwrap_or(&GenericFigureCanvasData::Unit);
-        let specific_value = self.figure_canvases.borrow(file!(), line!())[&specific_key];
-        log::info!("specific_value = {specific_value:?}");
-        let specific_value = specific_value.specific().unwrap();
+        let generic_value =
+            generic_key.map(|key| self.generic_figure_canvases.borrow(file!(), line!())[&key]);
+        let specific_value =
+            specific_key.map(|key| self.specific_figure_canvases.borrow(file!(), line!())[&key]);
         FigureCanvasDataItd {
             generic: generic_value,
             specific: specific_value,

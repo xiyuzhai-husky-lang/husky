@@ -17,25 +17,23 @@ use super::*;
 use husky_signal::Signalable;
 use husky_vm_primitive_value::PrimitiveValueData;
 
-impl From<GenericFigureCanvasData> for FigureCanvasData {
-    fn from(value: GenericFigureCanvasData) -> Self {
-        FigureCanvasData::Generic(value)
-    }
-}
+// impl From<GenericFigureCanvasData> for FigureCanvasData {
+//     fn from(value: GenericFigureCanvasData) -> Self {
+//         FigureCanvasData::Generic(value)
+//     }
+// }
 
-impl From<SpecificFigureCanvasData> for FigureCanvasData {
-    fn from(value: SpecificFigureCanvasData) -> Self {
-        FigureCanvasData::Specific(value)
-    }
-}
-
-impl Signalable for SpecificFigureCanvasData {}
+// impl From<SpecificFigureCanvasData> for FigureCanvasData {
+//     fn from(value: SpecificFigureCanvasData) -> Self {
+//         FigureCanvasData::Specific(value)
+//     }
+// }
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct MutationFigureData {
     pub name: String,
     pub before: Option<FigureCanvasAtom>,
-    pub after: FigureCanvasAtom,
+    pub after: Option<FigureCanvasAtom>,
     pub idx: usize,
 }
 
