@@ -9,7 +9,7 @@ impl HuskyDevtime {
         if let Some(entry) = history.get(expr) {
             match entry {
                 HistoryEntry::PureExpr { result, .. } => match result {
-                    Ok(output) => SpecificFigureCanvasData::new_atom(
+                    Ok(output) => SpecificFigureCanvasData::from_visual_data(
                         self.visualize_temp_value(
                             output,
                             expr.intrinsic_ty(),

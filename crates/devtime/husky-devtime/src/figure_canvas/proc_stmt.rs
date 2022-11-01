@@ -127,7 +127,7 @@ impl HuskyDevtime {
                 MutationDataVariant::Block { varname, .. } => varname.as_str().to_string(),
             },
             before: if let Some(before) = mutation_data.before.as_ref() {
-                Some(FigureCanvasAtom::new(
+                FigureCanvasAtom::new(
                     self.visualize_temp_value(
                         before,
                         mutation_data.ty,
@@ -135,7 +135,7 @@ impl HuskyDevtime {
                         mutation_data.range,
                     )
                     .unwrap(),
-                ))
+                )
             } else {
                 None
             },
@@ -147,8 +147,7 @@ impl HuskyDevtime {
                     mutation_data.range,
                 )
                 .unwrap(),
-            )
-            .into(),
+            ),
             idx,
         }
     }

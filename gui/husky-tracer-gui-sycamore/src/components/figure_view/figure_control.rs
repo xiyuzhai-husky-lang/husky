@@ -18,17 +18,16 @@ pub fn FigureControl<'a, G: Html>(scope: Scope<'a>, props: FigureControlProps<'a
             .opt_active_trace_id()
             .map(|active_trace_id| {
                 let active_trace = ctx.trace_data(active_trace_id);
-                let canvas_value =
-                    ctx.figure_canvas_data(&active_trace, &presentation_signal.get());
+                let canvas_data = ctx.figure_canvas_data(&active_trace, &presentation_signal.get());
                 let control_data =
                     ctx.figure_control_data(&active_trace, &presentation_signal.get());
-                (canvas_value, control_data)
+                (canvas_data, control_data)
             })
     });
     view! {
         scope,
-        (if let Some((canvas_value, figure_control_data)) = opt_canvas_and_control_data.cget() {
-            match *canvas_value {
+        (if let Some((canvas_data, figure_control_data)) = opt_canvas_and_control_data.cget() {
+            match *canvas_data {
                 FigureCanvasData::Specific(SpecificFigureCanvasData::Mutations { ref mutations }) => {
                     view! {
                         scope,

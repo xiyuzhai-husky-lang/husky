@@ -1,10 +1,15 @@
 mod pool;
 
 use pool::*;
-use std::cell::Cell;
+use std::{cell::Cell, marker::PhantomData};
 
 pub struct RefArena<T, const N: usize> {
     pools: Cell<Vec<RefArenaPool<T, N>>>,
+}
+
+pub struct RefArenaIdx<T, const POOL_CAPACITY: usize> {
+    raw: usize,
+    phantom: PhantomData<[T; POOL_CAPACITY]>,
 }
 
 impl<T, const POOL_CAPACITY: usize> RefArena<T, POOL_CAPACITY> {
@@ -25,6 +30,16 @@ impl<T, const POOL_CAPACITY: usize> RefArena<T, POOL_CAPACITY> {
             }
         };
         unsafe { wild_utils::arb_ref(&*ptr) }
+    }
+
+    pub fn alloc_idx(&mut self, t: T) -> RefArenaIdx<T, POOL_CAPACITY> {
+        let pools = self.pools.get_mut();
+        let raw = POOL_CAPACITY * (pools.len() - 1) + pools.last_mut().unwrap().len();
+        self.alloc(t);
+        RefArenaIdx {
+            raw,
+            phantom: PhantomData,
+        }
     }
 
     pub fn reset(&mut self) {

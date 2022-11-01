@@ -1,15 +1,19 @@
+use ref_arena::{RefArena, RefArenaIdx};
+
 use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub enum FigureCanvasAtom {
-    Unit,
     Primitive(PrimitiveValueData),
     Graphics2d(Graphics2dCanvasData),
 }
 
+pub type FigureCanvasAtomIdx = RefArenaIdx<FigureCanvasAtom, 100>;
+pub type FigureCanvasAtomArena = RefArena<FigureCanvasAtom, 100>;
+
 impl FigureCanvasAtom {
-    pub fn new(visual_data: VisualData) -> Self {
-        match visual_data {
+    pub fn new(visual_data: VisualData) -> Option<Self> {
+        Some(match visual_data {
             VisualData::BinaryImage28 { padded_rows } => {
                 FigureCanvasAtom::Graphics2d(Graphics2dCanvasData {
                     image_layers: vec![ImageLayerData::binary_image28(&padded_rows)],
@@ -41,7 +45,7 @@ impl FigureCanvasAtom {
                     return Self::new(visuals.pop().unwrap());
                 }
                 match visuals[0].world() {
-                    VisualWorld::Primitive => Self::new_specific_primitive_group(visuals),
+                    VisualWorld::Primitive => Self::new_specific_primitive_group(visuals)?,
                     VisualWorld::Graphics2d => Self::new_graphics2d_group(visuals),
                     VisualWorld::Graphics3d => todo!(),
                 }
@@ -54,7 +58,7 @@ impl FigureCanvasAtom {
                     yrange: (0.0, 28.0),
                 })
             }
-        }
+        })
     }
 
     pub fn new_graphics2d_group(visuals: Vec<VisualData>) -> Self {
@@ -80,21 +84,14 @@ impl FigureCanvasAtom {
         })
     }
 
-    pub fn new_specific_primitive_group(_visuals: Vec<VisualData>) -> Self {
-        Default::default()
-    }
-}
-
-impl Default for FigureCanvasAtom {
-    fn default() -> Self {
-        FigureCanvasAtom::Unit
+    pub fn new_specific_primitive_group(_visuals: Vec<VisualData>) -> Option<Self> {
+        None
     }
 }
 
 impl<'a> ContainsImageLayers<'a> for &'a FigureCanvasAtom {
     fn image_layers(&self) -> Vec<&'a ImageLayerData> {
         match self {
-            FigureCanvasAtom::Unit => todo!(),
             FigureCanvasAtom::Primitive(_) => todo!(),
             FigureCanvasAtom::Graphics2d(data) => data.image_layers(),
         }
@@ -104,7 +101,6 @@ impl<'a> ContainsImageLayers<'a> for &'a FigureCanvasAtom {
 impl<'a> ContainsShapes<'a> for &'a FigureCanvasAtom {
     fn shapes(&self) -> Vec<&'a Shape2dData> {
         match self {
-            FigureCanvasAtom::Unit => todo!(),
             FigureCanvasAtom::Primitive(_) => todo!(),
             FigureCanvasAtom::Graphics2d(data) => data.shapes(),
         }

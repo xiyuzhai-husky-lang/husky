@@ -16,6 +16,10 @@ impl<T, const CAPACITY: usize> RefArenaPool<T, CAPACITY> {
         self.0.push(t);
         Ok(self.0.last().unwrap())
     }
+
+    pub(crate) fn len(&self) -> usize {
+        self.0.len()
+    }
 }
 
 pub type RefArenaPoolResult<T> = Result<*const T, RefArenaPoolError<T>>;

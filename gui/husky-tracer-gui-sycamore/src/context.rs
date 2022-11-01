@@ -37,7 +37,11 @@ pub struct DeveloperGuiContext {
     root_trace_ids_signal: &'static Signal<Vec<TraceId>>,
     trace_listing: &'static Signal<Vec<TraceId>>,
     // figure
-    figure_canvases: RefCell<HashMap<FigureCanvasKey, &'static FigureCanvasData>>,
+    specific_figure_canvases:
+        RefCell<HashMap<SpecificFigureCanvasKey, &'static SpecificFigureCanvasData>>,
+    generic_figure_canvases:
+        RefCell<HashMap<GenericFigureCanvasKey, &'static GenericFigureCanvasData>>,
+    figure_canvas_atoms: &'static FigureCanvasAtomArena,
     figure_controls: RefCell<HashMap<FigureControlKey, &'static Signal<FigureControlData>>>,
     presentation_signal: &'static Signal<Presentation>,
     // global control
@@ -91,7 +95,9 @@ impl DeveloperGuiContext {
             root_trace_ids_signal: create_signal(scope, vec![]),
             trace_listing: create_signal(scope, vec![]),
             // figure
-            figure_canvases: Default::default(),
+            specific_figure_canvases: Default::default(),
+            generic_figure_canvases: Default::default(),
+            figure_canvas_atoms: todo!(),
             figure_controls: Default::default(),
             // user state
             presentation_signal,
