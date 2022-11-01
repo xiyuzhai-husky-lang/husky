@@ -25,16 +25,13 @@ impl std::fmt::Debug for WebsocketService {
 }
 
 impl WebsocketService {
-    pub fn new() -> (Self, Receiver<HuskyTracerServerMessage>) {
+    pub fn new() -> (Self, SplitStream<WebSocket>) {
         let ws = WebSocket::open("ws://localhost:51617/query").unwrap();
 
         let (mut write, mut read) = ws.split();
 
         let (mut gui_message_sender, mut gui_message_receiver) =
             futures::channel::mpsc::channel::<String>(1000);
-
-        let (mut server_notification_sender, mut server_notification_receiver) =
-            futures::channel::mpsc::channel::<HuskyTracerServerMessage>(100);
 
         spawn_local(async move {
             while let Some(s) = gui_message_receiver.next().await {
@@ -44,10 +41,16 @@ impl WebsocketService {
         let this = Self {
             gui_message_sender,
             next_request_id: Cell::new(0),
-            // call_backs: Rc::new(RefCell::new(HashMap::new())),
         };
+        (this, read)
+    }
+
+    pub(crate) fn init(
+        &'static self,
+        mut read: SplitStream<WebSocket>,
+        ctx: &'static DeveloperGuiContext,
+    ) {
         spawn_local({
-            let this = this.clone();
             async move {
                 while let Some(msg) = read.next().await {
                     let server_message: HuskyTracerServerMessage = match msg {
@@ -72,24 +75,11 @@ impl WebsocketService {
                             continue;
                         }
                     };
-                    todo!("process change");
-                    if let Some(request_id) = server_message.opt_request_id {
-                        todo!()
-                        // this.call_backs
-                        //     .borrow_mut(file!(), line!())
-                        //     .remove(&request_id)
-                        //     .unwrap()(server_message);
-                    } else {
-                        server_notification_sender
-                            .send(server_message)
-                            .await
-                            .unwrap()
-                    }
+                    ctx.process_change(server_message.change);
                 }
                 log::debug!("WebSocket Closed");
             }
         });
-        (this, server_notification_receiver)
     }
 
     pub fn issue_request_id(&self) -> usize {

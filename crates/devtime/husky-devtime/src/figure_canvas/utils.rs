@@ -63,12 +63,9 @@ impl HuskyDevtime {
             let f =
                 |(sample_id, e): (SampleId, __VMError)| -> __VMError { (sample_id.0, e).into() };
             if !self.state.generic_figure_canvases.contains(&key) {
-                todo!()
-                // self.state.figure_canvases.insert_new(
-                //     key.clone(),
-                //     self.gen_figure_content_data(trace_id, is_specific)
-                //         .map_err(f)?,
-                // )?
+                self.state
+                    .generic_figure_canvases
+                    .insert_new(key, self.gen_trace_generic_figure(trace_id).map_err(f)?)?
             }
         }
         HuskyDevtimeUpdateM::Ok(())
@@ -83,12 +80,9 @@ impl HuskyDevtime {
             let f =
                 |(sample_id, e): (SampleId, __VMError)| -> __VMError { (sample_id.0, e).into() };
             if !self.state.specific_figure_canvases.contains(&key) {
-                todo!()
-                // self.state.figure_canvases.insert_new(
-                //     key.clone(),
-                //     self.gen_figure_content_data(trace_id, is_specific)
-                //         .map_err(f)?,
-                // )?
+                self.state
+                    .specific_figure_canvases
+                    .insert_new(key, self.gen_trace_specific_figure(trace_id).map_err(f)?)?
             }
         }
         HuskyDevtimeUpdateM::Ok(())

@@ -1,8 +1,7 @@
 use super::*;
 
 impl DeveloperGuiContext {
-    pub(super) fn init_presentation(&self, presentation: Presentation) {
-        self.presentation_locked_signal.set(true);
+    pub(super) fn set_presentation(&self, presentation: Presentation) {
         self.presentation_signal.set(presentation);
     }
 
@@ -12,7 +11,6 @@ impl DeveloperGuiContext {
 
     pub(super) fn did_lock_restriction(&mut self, presentation: Presentation) {
         self.presentation_signal.set(presentation);
-        self.presentation_locked_signal.set(true);
     }
 
     pub(super) fn opt_active_trace_id(&self) -> Option<TraceId> {
@@ -21,10 +19,6 @@ impl DeveloperGuiContext {
 
     pub(crate) fn presentation_signal(&self) -> &'static ReadSignal<Presentation> {
         self.presentation_signal
-    }
-
-    pub(crate) fn set_presentation(&self, presentation: Presentation) {
-        self.presentation_signal.set(presentation)
     }
 }
 

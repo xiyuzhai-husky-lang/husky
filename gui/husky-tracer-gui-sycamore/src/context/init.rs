@@ -6,10 +6,10 @@ use super::impl_status_change::StatusChange;
 use super::*;
 
 impl DeveloperGuiContext {
-    pub(super) fn init<'a>(&'static self, read: Receiver<HuskyTracerServerMessage>) {
+    pub(super) fn init<'a>(&'static self, read: SplitStream<WebSocket>) {
+        self.ws.init(read, self);
         self.add_event_listeners_to_dialogues();
         self.send_init_request();
-        self.spawn_listening(read)
     }
 
     fn add_event_listeners_to_dialogues(&'static self) {
@@ -43,47 +43,6 @@ impl DeveloperGuiContext {
             true,
             || unreachable!(),
         );
-    }
-
-    fn receive_init_data<'a>(&'static self, init_data: ()) {
-        todo!()
-        // // order matters
-        // *self.trace_nodes.borrow_mut(file!(), line!()) = init_data
-        //     .trace_init_data
-        //     .trace_nodes
-        //     .into_iter()
-        //     .map(|trace_node| TraceNodeState::from_data(self.scope, trace_node))
-        //     .collect();
-        // *self.subtrace_ids_map.borrow_mut(file!(), line!()) = init_data
-        //     .trace_init_data
-        //     .subtrace_ids_map
-        //     .into_iter()
-        //     .map(|(k, v)| (k, self.alloc_value(v) as &'static [TraceId]))
-        //     .collect();
-        // *self.trace_stalks.borrow_mut(file!(), line!()) = init_data
-        //     .trace_init_data
-        //     .trace_stalks
-        //     .into_iter()
-        //     .map(|(k, v)| (k, self.alloc_value(v)))
-        //     .collect();
-        // *self.trace_statss.borrow_mut(file!(), line!()) = init_data
-        //     .trace_init_data
-        //     .trace_statss
-        //     .into_iter()
-        //     .map(|(k, v)| (k, v.map(|v| self.alloc_value(v))))
-        //     .collect();
-        // *self.figure_canvases.borrow_mut(file!(), line!()) = self
-        //     .alloc_key_value_pairs(init_data.figure_canvases)
-        //     .collect();
-        // *self.figure_controls.borrow_mut(file!(), line!()) = self
-        //     .alloc_key_signal_pairs(init_data.figure_controls)
-        //     .collect();
-        // // global control
-        // self.init_presentation(init_data.presentation.clone());
-        // // root traces
-        // self.root_trace_ids_signal
-        //     .set(init_data.trace_init_data.root_trace_ids);
-        // self.update_trace_listing(init_data.presentation.opt_sample_id());
     }
 
     fn spawn_listening(&'static self, mut read: Receiver<HuskyTracerServerMessage>) {
