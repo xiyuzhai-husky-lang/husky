@@ -67,7 +67,7 @@ pub trait ComptimeQueryGroup: PackageQueryGroup + ResolveLinkage {
         let intrinsic_ty = ty.intrinsic();
         match intrinsic_ty {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
-                RootBuiltinIdentifier::Void => todo!(),
+                RootBuiltinIdentifier::Void => return "()".to_owned(),
                 RootBuiltinIdentifier::I32 => match value.data_kind() {
                     __RegisterDataKind::Moved => todo!(),
                     __RegisterDataKind::SomeNone => todo!(),
