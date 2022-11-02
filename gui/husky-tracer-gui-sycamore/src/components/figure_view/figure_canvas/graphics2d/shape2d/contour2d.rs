@@ -31,8 +31,8 @@ pub fn Contour2d<'a, G: Html>(scope: Scope<'a>, props: Contour2dProps<'a>) -> Vi
                     LineSegment2d {
                         start: *from,
                         end: *to,
-                        line_width: 0.05,
-                        fill: "red".into()
+                        line_width: 0.15,
+                        fill: "rgb(255,20,20)".into()
                     }
                 }
             ).collect()

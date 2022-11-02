@@ -1,6 +1,8 @@
 mod figure_canvas;
 mod figure_control;
 
+use std::borrow::Borrow;
+
 use super::*;
 use figure_canvas::*;
 use figure_control::*;
@@ -35,22 +37,34 @@ pub fn FigureView<'a, G: Html>(scope: Scope<'a>, props: FigureViewProps<'a>) -> 
     let content_dimension = memo!(scope, move || props.content_dimension(), props);
     let title_dimension = memo!(scope, move || props.title_dimension(), props);
     let ctx = use_dev_context(scope);
+    let presentation_signal = ctx.presentation_signal();
+    let opt_control_data = memo!(scope, move || {
+        presentation_signal
+            .get()
+            .opt_active_trace_id()
+            .map(|active_trace_id| {
+                let active_trace = ctx.trace_data(active_trace_id);
+                ctx.figure_control_data(&active_trace, &presentation_signal.get())
+            })
+    });
     let figure_canvas_value_signal = memo!(scope, move || {
-        let presentation = &ctx.presentation_signal().get();
+        let presentation = presentation_signal.get();
         let opt_active_figure_not_pinned = presentation
             .opt_active_trace_id()
             .map(|trace_id| {
                 if presentation.is_pinned(trace_id) {
                     None
                 } else {
-                    Some(ctx.figure_canvas_data_itd(trace_id, presentation))
+                    Some(ctx.figure_canvas_data_itd(trace_id, &presentation))
                 }
             })
             .flatten();
+        let opt_control_data = opt_control_data.get().as_ref().map(|s| s.get());
         let value = FigureCanvasValue::new(
             presentation.kind(),
             opt_active_figure_not_pinned,
-            ctx.figure_canvas_data_itds(presentation),
+            ctx.figure_canvas_data_itds(&presentation),
+            opt_control_data.as_ref(),
         );
         value
     });

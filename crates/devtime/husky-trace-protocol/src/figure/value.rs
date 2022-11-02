@@ -82,10 +82,11 @@ impl Graphics2dCanvasValue {
 }
 
 impl FigureCanvasValue {
-    pub fn new(
+    pub fn new<C: AsRef<FigureControlData>>(
         presentation_kind: PresentationKind,
         opt_active_figure_not_pinned: Option<FigureCanvasDataItd>,
         pinned_figures: Vec<FigureCanvasDataItd>,
+        opt_control: Option<&C>,
     ) -> Self {
         let mut all_figures = pinned_figures;
         if let Some(active_figure) = opt_active_figure_not_pinned {
@@ -94,18 +95,22 @@ impl FigureCanvasValue {
         if all_figures.len() == 0 {
             return Default::default();
         }
-        let mut value = Self::new_piece(presentation_kind, &all_figures[0]);
+        let mut value = Self::new_piece(presentation_kind, &all_figures[0], opt_control);
         for other in all_figures[1..].iter() {
-            let new_piece = Self::new_piece(presentation_kind, other);
+            let new_piece = Self::new_piece(presentation_kind, other, opt_control);
             value.merge(new_piece)
         }
         value
     }
 
-    fn new_piece(presentation_kind: PresentationKind, data_itd: &FigureCanvasDataItd) -> Self {
+    fn new_piece<C: AsRef<FigureControlData>>(
+        presentation_kind: PresentationKind,
+        data_itd: &FigureCanvasDataItd,
+        opt_control: Option<&C>,
+    ) -> Self {
         match presentation_kind {
             PresentationKind::Generic => Self::new_generic_piece(data_itd),
-            PresentationKind::Specific => Self::new_specific_piece(data_itd),
+            PresentationKind::Specific => Self::new_specific_piece(data_itd, opt_control),
             PresentationKind::Panic => todo!(),
         }
     }
@@ -176,7 +181,10 @@ impl FigureCanvasValue {
         }
     }
 
-    fn new_specific_piece(data_itd: &FigureCanvasDataItd) -> Self {
+    fn new_specific_piece<C: AsRef<FigureControlData>>(
+        data_itd: &FigureCanvasDataItd,
+        opt_control: Option<&C>,
+    ) -> Self {
         match data_itd.specific {
             SpecificFigureCanvasData::Unit => FigureCanvasValue::Unit,
             SpecificFigureCanvasData::Atom(atom) => match atom {
@@ -188,7 +196,20 @@ impl FigureCanvasValue {
                     value: Graphics2dCanvasValue::new(graphics2d_data),
                 },
             },
-            SpecificFigureCanvasData::Mutations { mutations } => todo!(),
+            SpecificFigureCanvasData::Mutations { mutations } => {
+                match opt_control.unwrap().as_ref() {
+                    FigureControlData::Unit => unreachable!(),
+                    FigureControlData::Mutations {
+                        opt_mutation_selection,
+                    } => {
+                        if let Some(mutation_selection) = opt_mutation_selection {
+                            todo!()
+                        } else {
+                            todo!()
+                        }
+                    }
+                }
+            }
             SpecificFigureCanvasData::EvalError { message } => todo!(),
         }
     }
@@ -196,7 +217,7 @@ impl FigureCanvasValue {
     fn merge(&mut self, other: FigureCanvasValue) {
         match self {
             FigureCanvasValue::Unit => *self = other,
-            FigureCanvasValue::NonUnitPrimitive { data } => todo!(),
+            FigureCanvasValue::NonUnitPrimitive { data } => (), // ad hoc
             FigureCanvasValue::GenericF32 {
                 partitioned_samples,
                 image_layers,
