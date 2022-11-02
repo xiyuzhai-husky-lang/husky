@@ -78,31 +78,7 @@ impl DeveloperGuiContext {
         self.presentation_signal.set(presentation)
     }
 
-    pub(crate) fn figure_canvas_value_signal<'a>(
-        &'static self,
-        scope: Scope<'a>,
-    ) -> &'a ReadSignal<FigureCanvasValue> {
-        memo!(scope, move || {
-            let presentation = &self.presentation_signal.get();
-            let opt_active_figure_not_pinned = presentation
-                .opt_active_trace_id()
-                .map(|trace_id| {
-                    if presentation.is_pinned(trace_id) {
-                        None
-                    } else {
-                        Some(self.figure_canvas_data_itd(trace_id, presentation))
-                    }
-                })
-                .flatten();
-            FigureCanvasValue::new(
-                presentation.kind(),
-                opt_active_figure_not_pinned,
-                self.figure_canvas_data_itds(presentation),
-            )
-        })
-    }
-
-    fn figure_canvas_data_itds(
+    pub(crate) fn figure_canvas_data_itds(
         &'static self,
         presentation: &Presentation,
     ) -> Vec<FigureCanvasDataItd> {
@@ -113,7 +89,7 @@ impl DeveloperGuiContext {
             .collect()
     }
 
-    fn figure_canvas_data_itd(
+    pub(crate) fn figure_canvas_data_itd(
         &'static self,
         trace_id: TraceId,
         presentation: &Presentation,
