@@ -149,8 +149,8 @@ impl FigureCanvasValue {
                             PrimitiveValueData::Unit => Graphics2dCanvasValue {
                                 image_layers: vec![],
                                 shapes: vec![],
-                                xrange: (28., 28.), // ad hoc
-                                yrange: (28., 28.), // ad hoc
+                                xrange: (0., 28.), // ad hoc
+                                yrange: (0., 28.), // ad hoc
                             },
                         },
                         FigureCanvasAtom::Graphics2d(data) => Graphics2dCanvasValue::new(data),

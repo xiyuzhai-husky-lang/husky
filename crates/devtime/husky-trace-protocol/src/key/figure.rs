@@ -75,11 +75,12 @@ impl SpecificFigureCanvasKey {
             | TraceKind::FuncBranch
             | TraceKind::ProcBranch
             | TraceKind::EagerExpr
-            | TraceKind::LoopFrame => Some(SpecificFigureCanvasKey {
+            | TraceKind::LoopFrame
+            | TraceKind::EagerCallArgument => Some(SpecificFigureCanvasKey {
                 trace_id,
                 sample_id: presentation.sample_id(),
             }),
-            TraceKind::Module | TraceKind::CallHead | TraceKind::EagerCallArgument => None,
+            TraceKind::Module | TraceKind::CallHead => None,
         }
     }
 }

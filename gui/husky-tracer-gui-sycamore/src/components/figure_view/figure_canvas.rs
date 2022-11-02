@@ -40,8 +40,8 @@ pub fn FigureCanvas<'a, G: Html>(scope: Scope<'a>, props: FigureCanvasProps<'a>)
                         dimension: props.dimension,
                         image_layers: value.image_layers(),
                         shapes: value.shapes(),
-                        xrange: (28., 28.), // ad hoc
-                        yrange: (28., 28.), // ad hoc
+                        xrange: (0., 28.), // ad hoc
+                        yrange: (0., 28.), // ad hoc
                     }
                 }
             }
