@@ -187,15 +187,7 @@ impl FigureCanvasValue {
     ) -> Self {
         match data_itd.specific {
             SpecificFigureCanvasData::Unit => FigureCanvasValue::Unit,
-            SpecificFigureCanvasData::Atom(atom) => match atom {
-                FigureCanvasAtom::Primitive(data) => match data {
-                    PrimitiveValueData::Unit => FigureCanvasValue::Unit,
-                    _ => FigureCanvasValue::NonUnitPrimitive { data: *data },
-                },
-                FigureCanvasAtom::Graphics2d(graphics2d_data) => FigureCanvasValue::Graphics2d {
-                    value: Graphics2dCanvasValue::new(graphics2d_data),
-                },
-            },
+            SpecificFigureCanvasData::Atom(atom) => Self::new_specific_opt_atom_piece(Some(atom)),
             SpecificFigureCanvasData::Mutations { mutations } => {
                 match opt_control.unwrap().as_ref() {
                     FigureControlData::Unit => unreachable!(),
@@ -203,14 +195,32 @@ impl FigureCanvasValue {
                         opt_mutation_selection,
                     } => {
                         if let Some(mutation_selection) = opt_mutation_selection {
-                            todo!()
+                            Self::new_specific_opt_atom_piece(
+                                mutations[*mutation_selection as usize].after.as_ref(),
+                            )
                         } else {
-                            todo!()
+                            Default::default()
                         }
                     }
                 }
             }
             SpecificFigureCanvasData::EvalError { message } => todo!(),
+        }
+    }
+
+    fn new_specific_opt_atom_piece(opt_atom: Option<&'static FigureCanvasAtom>) -> Self {
+        if let Some(atom) = opt_atom {
+            match atom {
+                FigureCanvasAtom::Primitive(data) => match data {
+                    PrimitiveValueData::Unit => Default::default(),
+                    _ => FigureCanvasValue::NonUnitPrimitive { data: *data },
+                },
+                FigureCanvasAtom::Graphics2d(graphics2d_data) => FigureCanvasValue::Graphics2d {
+                    value: Graphics2dCanvasValue::new(graphics2d_data),
+                },
+            }
+        } else {
+            Default::default()
         }
     }
 
