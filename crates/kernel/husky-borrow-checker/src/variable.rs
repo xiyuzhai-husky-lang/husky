@@ -72,7 +72,15 @@ impl VariableStack {
     }
 
     pub(crate) fn set_outdated(&mut self, variable: VariableIdx, timer: &Timer) {
-        timer.set(&mut self[variable].db, VariableState::Outdated)
+        self.set_state(variable, timer, VariableState::Outdated)
+    }
+
+    pub(crate) fn set_moved(&mut self, variable: VariableIdx, timer: &Timer) {
+        self.set_state(variable, timer, VariableState::Moved)
+    }
+
+    fn set_state(&mut self, variable: VariableIdx, timer: &Timer, state: VariableState) {
+        timer.set(&mut self[variable].db, state)
     }
 }
 
