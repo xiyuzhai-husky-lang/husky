@@ -40,7 +40,8 @@ husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-vm-binding = { path = "../../vm/husky-vm-binding" }
 husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
 husky-rust-code-repr = { path = "../husky-rust-code-repr", features = [
-    "entity_route"
+    "entity_route",
+    "registration"
 ] }
 husky-write-utils = { path = "../../utils/husky-write-utils" }
 husky-layout = { path = "../../comptime/husky-layout" }
