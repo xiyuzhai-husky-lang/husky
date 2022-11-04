@@ -8,19 +8,25 @@ serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 salsa = "0.17.0-pre.2"
 lsp-types = { version = "0.93", features = ["proposed"] }
+# abstraction
+reserve = { path = "../../abstraction/reserve" }
+# infer
+infer-total = { path = "../../infer/total" }
+husky-infer-error = { path = "../../infer/husky-infer-error" }
+# kernel
+husky-entity-route = { path = "../../kernel/husky-entity-route" }
+# semantics
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+husky-semantics-error = { path = "../../semantics/husky-semantics-error" }
+# syntax
+husky-file = { path = "../../syntax/husky-file" }
+husky-text = { path = "../../syntax/husky-text" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-token = { path = "../../syntax/husky-token" }
+# utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-display-utils = { path = "../../utils/husky-display-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
-reserve = { path = "../../abstraction/reserve" }
-husky-file = { path = "../../syntax/husky-file" }
-husky-text = { path = "../../syntax/husky-text" }
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
-husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
-husky-ast = { path = "../../syntax/husky-ast" }
-infer-total = { path = "../../infer/total" }
-husky-infer-error = { path = "../../infer/husky-infer-error" }
-husky-token = { path = "../../syntax/husky-token" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-husky-semantics-error = { path = "../../semantics/husky-semantics-error" }
