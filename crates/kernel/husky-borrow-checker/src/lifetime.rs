@@ -43,14 +43,14 @@ impl<'a> std::ops::Index<LifetimeIdx> for BorrowChecker<'a> {
 }
 
 impl LifetimeStack {
-    pub(crate) fn new_use(&mut self, lifetime: LifetimeIdx, timer: &Timer) -> BorrowResult<()> {
+    pub(crate) fn new_borrow(&mut self, lifetime: LifetimeIdx, timer: &Timer) -> BorrowResult<()> {
         timer.update(&mut self[lifetime].db, |state| match state {
             LifetimeState::Uninitialized | LifetimeState::Intact => Ok(LifetimeState::Intact),
             LifetimeState::Outdated => Err(BorrowError::InvalidLifetime),
         })
     }
 
-    pub(crate) fn outdate(&mut self, lifetime: LifetimeIdx, timer: &Timer) {
+    pub(crate) fn set_outdated(&mut self, lifetime: LifetimeIdx, timer: &Timer) {
         timer.set(&mut self[lifetime].db, LifetimeState::Outdated)
     }
 }
