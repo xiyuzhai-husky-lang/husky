@@ -42,6 +42,12 @@ impl<'a> BorrowChecker<'a> {
         variable: VariableIdx,
         borrower: LifetimeIdx,
     ) -> BorrowResult<()> {
+        match self.variable_state(variable) {
+            VariableState::Intact | VariableState::Borrowed => (),
+            VariableState::MutBorrowed => self.outdate_dependants(variable.into()),
+            VariableState::Outdated => Err(BorrowError::BorrowOutdatedVariable)?,
+            VariableState::Moved => Err(BorrowError::BorrowMovedVariable)?,
+        }
         self.variables.new_borrow(variable, &self.timer);
         self.lifetimes.new_use(borrower, &self.timer)
     }
@@ -52,12 +58,12 @@ impl<'a> BorrowChecker<'a> {
         lifetime: LifetimeIdx,
     ) -> BorrowResult<()> {
         match self.variable_state(variable) {
-            VariableState::Intact => todo!(),
-            VariableState::Borrowed => self.outdate_dependants(variable.into()),
-            VariableState::MutBorrowed => todo!(),
-            VariableState::Outdated => todo!(),
-            VariableState::Destruct => todo!(),
-            VariableState::Moved => todo!(),
+            VariableState::Intact => (),
+            VariableState::Borrowed | VariableState::MutBorrowed => {
+                self.outdate_dependants(variable.into())
+            }
+            VariableState::Outdated => Err(BorrowError::BorrowOutdatedVariable)?,
+            VariableState::Moved => Err(BorrowError::BorrowMovedVariable)?,
         }
         self.variables.new_borrow_mut(variable, &self.timer);
         self.lifetimes.new_use(lifetime, &self.timer)
@@ -72,12 +78,10 @@ impl<'a> BorrowChecker<'a> {
     fn outdate(&mut self, object: BorrowObject) {
         match object {
             BorrowObject::Variable(variable) => match self.variable_state(variable) {
-                VariableState::Intact | VariableState::Borrowed => {
+                VariableState::Intact | VariableState::Borrowed | VariableState::MutBorrowed => {
                     self.variables.outdate(variable, &self.timer)
                 }
-                VariableState::MutBorrowed => todo!(),
                 VariableState::Outdated | VariableState::Moved => return,
-                VariableState::Destruct => todo!(),
             },
             BorrowObject::Lifetime(lifetime) => self.lifetimes.outdate(lifetime, &self.timer),
         }

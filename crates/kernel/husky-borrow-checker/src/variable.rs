@@ -22,7 +22,6 @@ pub enum VariableState {
     Borrowed,
     MutBorrowed,
     Outdated,
-    Destruct,
     Moved,
 }
 
@@ -63,16 +62,7 @@ impl<'a> std::ops::Index<VariableIdx> for BorrowChecker<'a> {
 impl VariableStack {
     pub(crate) fn new_borrow(&mut self, variable: VariableIdx, timer: &Timer) {
         let db = &mut self[variable].db;
-        let variable_state = db.now();
-        match db.now() {
-            VariableState::Intact | VariableState::Borrowed => {
-                timer.set(db, VariableState::Borrowed)
-            }
-            VariableState::MutBorrowed => todo!(),
-            VariableState::Outdated => todo!(),
-            VariableState::Destruct => todo!(),
-            VariableState::Moved => todo!(),
-        }
+        timer.set(db, VariableState::Borrowed)
     }
 
     pub(crate) fn new_borrow_mut(&mut self, variable: VariableIdx, timer: &Timer) {
