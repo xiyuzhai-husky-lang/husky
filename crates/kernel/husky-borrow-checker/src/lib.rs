@@ -1,32 +1,37 @@
-mod action;
 mod error;
 mod instruction;
 mod lifetime;
+mod simulate;
 mod table;
 #[cfg(test)]
 mod tests;
+mod time;
 mod variable;
 
 pub use error::*;
+use husky_print_utils::p;
 pub use instruction::*;
 
-use action::*;
 use husky_symbol_registry::*;
 use lifetime::*;
 use local_stack::LocalStack;
+use simulate::*;
 use table::*;
+use time::*;
 use variable::*;
 
 pub struct BorrowChecker<'a> {
-    borrows: &'a BorrowTable,
-    variables: LocalStack<VariableEntry>,
-    lifetimes: LocalStack<LifetimeEntry>,
+    timer: Timer,
+    dependencies: &'a DependencyTable,
+    variables: VariableStack,
+    lifetimes: LifetimeStack,
 }
 
 impl<'a> BorrowChecker<'a> {
-    pub fn new(borrows: &'a BorrowTable) -> Self {
+    pub fn new(borrows: &'a DependencyTable) -> Self {
         Self {
-            borrows,
+            timer: Default::default(),
+            dependencies: borrows,
             variables: Default::default(),
             lifetimes: Default::default(),
         }
