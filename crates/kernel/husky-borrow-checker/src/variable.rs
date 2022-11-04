@@ -1,10 +1,13 @@
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, Default)]
+pub struct VariableStack(LocalStack<VariableEntry>);
+
+#[derive(Debug)]
 pub struct VariableEntry {
     idx: VariableIdx,
     // qual: VariableQualifier,
-    state: VariableState,
+    db: TimeDb<VariableState>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -28,54 +31,55 @@ impl Default for VariableState {
     }
 }
 
-// impl VariableEntry {
-//     pub fn new(idx: VariableIdx, qual: VariableQualifier) -> Self {
-//         Self {
-//             idx,
-//             // qual,
-//             state: VariableState::default(),
-//         }
-//     }
-// }
+impl<'a> std::ops::Index<VariableIdx> for VariableStack {
+    type Output = VariableEntry;
+
+    fn index(&self, index: VariableIdx) -> &Self::Output {
+        self.0
+            .iter()
+            .find(|entry| entry.idx == index)
+            .expect("variable not found")
+    }
+}
+
+impl<'a> std::ops::IndexMut<VariableIdx> for VariableStack {
+    fn index_mut(&mut self, index: VariableIdx) -> &mut Self::Output {
+        self.0
+            .iter_mut()
+            .find(|entry| entry.idx == index)
+            .expect("variable not found")
+    }
+}
 
 impl<'a> std::ops::Index<VariableIdx> for BorrowChecker<'a> {
     type Output = VariableEntry;
 
     fn index(&self, index: VariableIdx) -> &Self::Output {
-        self.variables
-            .iter()
-            .find(|entry| entry.idx == index)
-            .unwrap()
-    }
-}
-
-impl<'a> std::ops::IndexMut<VariableIdx> for BorrowChecker<'a> {
-    fn index_mut(&mut self, index: VariableIdx) -> &mut Self::Output {
-        self.variables
-            .iter_mut()
-            .find(|entry| entry.idx == index)
-            .unwrap()
+        &self.variables[index]
     }
 }
 
 impl<'a> BorrowChecker<'a> {
     pub fn variable_state(&self, idx: VariableIdx) -> &VariableState {
-        &self[idx].state
+        self[idx].db.now().unwrap()
     }
 
     pub fn new_borrow(&mut self, variable: VariableIdx, borrower: LifetimeIdx) {
-        let variable_state = &mut self[variable].state;
-        match variable_state {
+        let db = &mut self.variables[variable].db;
+        let variable_state = db.now().expect("todo");
+        match db.now().expect("todo") {
             VariableState::Intact | VariableState::Borrowed => {
-                *variable_state = VariableState::Borrowed
+                self.timer.set(db, VariableState::Borrowed)
             }
             VariableState::Outdated => todo!(),
             VariableState::Destruct => todo!(),
             VariableState::Moved => todo!(),
         }
     }
-    pub (crate) fn init_variable(&mut self,idx: VariableIdx) {
-        self.variables.push(VariableEntry { idx , state: Default::default() })
+    pub(crate) fn init_variable(&mut self, idx: VariableIdx) {
+        self.variables.0.push(VariableEntry {
+            idx,
+            db: self.timer.new_db(),
+        })
     }
 }
-
