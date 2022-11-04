@@ -20,6 +20,7 @@ pub enum VariableQualifier {
 pub enum VariableState {
     Intact,
     Borrowed,
+    MutBorrowed,
     Outdated,
     Destruct,
     Moved,
@@ -67,22 +68,33 @@ impl VariableStack {
             VariableState::Intact | VariableState::Borrowed => {
                 timer.set(db, VariableState::Borrowed)
             }
+            VariableState::MutBorrowed => todo!(),
             VariableState::Outdated => todo!(),
             VariableState::Destruct => todo!(),
             VariableState::Moved => todo!(),
         }
     }
+
+    pub(crate) fn new_borrow_mut(&mut self, variable: VariableIdx, timer: &Timer) {
+        let db = &mut self[variable].db;
+        let variable_state = db.now();
+        timer.set(&mut self[variable].db, VariableState::MutBorrowed)
+    }
+
+    pub(crate) fn outdate(&mut self, variable: VariableIdx, timer: &Timer) {
+        timer.set(&mut self[variable].db, VariableState::Outdated)
+    }
 }
 
 impl<'a> BorrowChecker<'a> {
-    pub fn variable_state(&self, idx: VariableIdx) -> &VariableState {
-        self[idx].db.now()
+    pub fn variable_state(&self, variable: VariableIdx) -> &VariableState {
+        self[variable].db.now()
     }
 
-    pub(crate) fn init_variable(&mut self, idx: VariableIdx) {
+    pub(crate) fn init_variable(&mut self, variable: VariableIdx) {
         // variable state is always initialized
         self.variables.0.push(VariableEntry {
-            idx,
+            idx: variable,
             db: self.timer.new_db(),
         })
     }
