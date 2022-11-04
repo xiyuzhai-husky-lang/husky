@@ -35,7 +35,7 @@ TODO
 What will probably work is,
 
 ```sh
-git clone https://github.com/ancient-software/husky
+git clone https://github.com/husky-lang-org/husky
 cd husky
 ```
 

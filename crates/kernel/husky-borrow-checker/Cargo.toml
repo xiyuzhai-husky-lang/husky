@@ -5,5 +5,8 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+thiserror = "1.0.37"
 local-stack = { path = "../../abstraction/local-stack" }
 husky-symbol-registry = { path = "../../kernel/husky-symbol-registry" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }

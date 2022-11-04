@@ -1,41 +1,72 @@
 use super::*;
 
+#[derive(Debug, Default)]
+pub struct LifetimeStack(LocalStack<LifetimeEntry>);
+
+#[derive(Debug)]
 pub struct LifetimeEntry {
     idx: LifetimeIdx,
-    log: LifetimeLog,
+    db: TimeDb<LifetimeState>,
 }
-
-pub type LifetimeLog = Vec<(usize, LifetimeState)>;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LifetimeState {
+    Uninitialized,
     Intact,
-    Invalid,
+    Outdated,
 }
 
+impl Default for LifetimeState {
+    fn default() -> Self {
+        LifetimeState::Uninitialized
+    }
+}
+
+impl<'a> std::ops::Index<LifetimeIdx> for LifetimeStack {
+    type Output = LifetimeEntry;
+
+    fn index(&self, index: LifetimeIdx) -> &Self::Output {
+        self.0.iter().find(|entry| entry.idx == index).unwrap()
+    }
+}
+impl<'a> std::ops::IndexMut<LifetimeIdx> for LifetimeStack {
+    fn index_mut(&mut self, index: LifetimeIdx) -> &mut Self::Output {
+        self.0.iter_mut().find(|entry| entry.idx == index).unwrap()
+    }
+}
 impl<'a> std::ops::Index<LifetimeIdx> for BorrowChecker<'a> {
     type Output = LifetimeEntry;
 
     fn index(&self, index: LifetimeIdx) -> &Self::Output {
-        self.lifetimes
-            .iter()
-            .find(|entry| entry.idx == index)
-            .unwrap()
+        &self.lifetimes[index]
     }
 }
 
-impl LifetimeEntry {
-    pub fn new(idx: LifetimeIdx) -> Self {
-        Self { idx, log: vec![] }
+impl LifetimeStack {
+    pub(crate) fn new_borrow(&mut self, lifetime: LifetimeIdx, timer: &Timer) -> BorrowResult<()> {
+        timer.update(&mut self[lifetime].db, |state| match state {
+            LifetimeState::Uninitialized | LifetimeState::Intact => Ok(LifetimeState::Intact),
+            LifetimeState::Outdated => Err(BorrowError::InvalidLifetime),
+        })
+    }
+
+    pub(crate) fn set_outdated(&mut self, lifetime: LifetimeIdx, timer: &Timer) {
+        timer.set(&mut self[lifetime].db, LifetimeState::Outdated)
     }
 }
 
 impl<'a> BorrowChecker<'a> {
-    pub fn lifetime_state(&self, idx: LifetimeIdx) -> Option<LifetimeState> {
-        self[idx].log.last().map(|(_, state)| *state)
+    pub fn lifetime_state(&self, idx: LifetimeIdx) -> LifetimeState {
+        *self[idx].db.now()
     }
 
-    pub (crate) fn init_lifetime(&mut self,idx: LifetimeIdx) {
-        self.lifetimes.push(LifetimeEntry { idx, log: Default::default()})
+    pub(crate) fn push_lifetime(&mut self, idx: LifetimeIdx) {
+        self.lifetimes.0.push({
+            let idx = idx;
+            LifetimeEntry {
+                idx,
+                db: self.timer.new_db(),
+            }
+        })
     }
 }
