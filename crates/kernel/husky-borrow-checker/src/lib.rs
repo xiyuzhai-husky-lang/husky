@@ -49,7 +49,7 @@ impl<'a> BorrowChecker<'a> {
             VariableState::Moved => Err(BorrowError::BorrowMovedVariable)?,
         }
         self.variables.new_borrow(variable, &self.timer);
-        self.lifetimes.new_use(borrower, &self.timer)
+        self.lifetimes.new_borrow(borrower, &self.timer)
     }
 
     pub(crate) fn sim_borrow_mut(
@@ -66,7 +66,7 @@ impl<'a> BorrowChecker<'a> {
             VariableState::Moved => Err(BorrowError::BorrowMovedVariable)?,
         }
         self.variables.new_borrow_mut(variable, &self.timer);
-        self.lifetimes.new_use(lifetime, &self.timer)
+        self.lifetimes.new_borrow(lifetime, &self.timer)
     }
 
     fn outdate_dependants(&mut self, dependee: BorrowObject) {
@@ -79,11 +79,14 @@ impl<'a> BorrowChecker<'a> {
         match object {
             BorrowObject::Variable(variable) => match self.variable_state(variable) {
                 VariableState::Intact | VariableState::Borrowed | VariableState::MutBorrowed => {
-                    self.variables.outdate(variable, &self.timer)
+                    self.variables.set_outdated(variable, &self.timer)
                 }
                 VariableState::Outdated | VariableState::Moved => return,
             },
-            BorrowObject::Lifetime(lifetime) => self.lifetimes.outdate(lifetime, &self.timer),
+            BorrowObject::Lifetime(lifetime) => match self.lifetime_state(lifetime) {
+                LifetimeState::Uninitialized | LifetimeState::Outdated => return,
+                LifetimeState::Intact => self.lifetimes.set_outdated(lifetime, &self.timer),
+            },
         }
         self.outdate_dependants(object)
     }

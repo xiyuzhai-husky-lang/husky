@@ -71,7 +71,7 @@ impl VariableStack {
         timer.set(&mut self[variable].db, VariableState::MutBorrowed)
     }
 
-    pub(crate) fn outdate(&mut self, variable: VariableIdx, timer: &Timer) {
+    pub(crate) fn set_outdated(&mut self, variable: VariableIdx, timer: &Timer) {
         timer.set(&mut self[variable].db, VariableState::Outdated)
     }
 }
