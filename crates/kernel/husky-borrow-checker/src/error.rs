@@ -1,9 +1,9 @@
 use thiserror::Error;
 
-#[derive(Error, Debug)]
+#[derive(Error, Debug, PartialEq, Eq)]
 pub enum BorrowError {
     #[error("borrow for invalid lifetime")]
-    BorrowForInvalidLifetime,
+    InvalidLifetime,
 }
 
 pub type BorrowResult<T> = Result<T, BorrowError>;
