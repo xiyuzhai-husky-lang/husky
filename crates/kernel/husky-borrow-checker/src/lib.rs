@@ -35,4 +35,13 @@ impl<'a> BorrowChecker<'a> {
             lifetimes: Default::default(),
         }
     }
+
+    pub(crate) fn new_borrow(
+        &mut self,
+        variable: VariableIdx,
+        borrower: LifetimeIdx,
+    ) -> BorrowResult<()> {
+        self.variables.new_borrow(variable, &self.timer);
+        self.lifetimes.new_borrow(borrower, &self.timer)
+    }
 }
