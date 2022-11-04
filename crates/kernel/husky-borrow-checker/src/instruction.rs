@@ -5,18 +5,18 @@ pub struct BorrowInstruction {
 }
 
 impl BorrowInstruction {
-    pub fn init<Idx>(idx: Idx) -> Self
+    pub fn push<Idx>(idx: Idx) -> Self
     where
         Idx: Into<BorrowIdx>,
     {
         Self {
-            variant: BorrowInstructionVariant::Init(idx.into()),
+            variant: BorrowInstructionVariant::Push(idx.into()),
         }
     }
 }
 
 pub enum BorrowInstructionVariant {
-    Init(BorrowIdx),
+    Push(BorrowIdx),
     Block(BorrowBlock),
     Loop(BorrowBlock),
 }
@@ -51,9 +51,9 @@ impl<'a> BorrowChecker<'a> {
 
     pub fn exec(&mut self, instrn: &BorrowInstruction) -> BorrowResult<()> {
         match instrn.variant {
-            BorrowInstructionVariant::Init(idx) => match idx{
+            BorrowInstructionVariant::Push(idx) => match idx {
                 BorrowIdx::Variable(idx) => Ok(self.init_variable(idx)),
-                BorrowIdx::Lifetime(idx) => Ok(self.init_lifetime(idx)),
+                BorrowIdx::Lifetime(idx) => Ok(self.push_lifetime(idx)),
             },
             BorrowInstructionVariant::Block(_) => todo!(),
             BorrowInstructionVariant::Loop(_) => todo!(),

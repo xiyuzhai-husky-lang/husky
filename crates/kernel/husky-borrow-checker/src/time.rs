@@ -5,14 +5,8 @@ pub struct Time(usize);
 pub struct TimeDb<T>(Vec<(Time, T)>);
 
 impl<T> TimeDb<T> {
-    pub(crate) fn new_uninitialized() -> Self {
-        Self(Default::default())
-    }
-}
-
-impl<T> TimeDb<T> {
-    pub fn now(&self) -> Option<&T> {
-        self.0.last().map(|(_, t)| t)
+    pub fn now(&self) -> &T {
+        &self.0.last().unwrap().1
     }
 }
 
@@ -28,6 +22,15 @@ impl Timer {
 
     pub(crate) fn set<T>(&self, db: &mut TimeDb<T>, t: T) {
         db.0.push((self.current(), t))
+    }
+
+    pub(crate) fn update<T, E>(
+        &self,
+        db: &mut TimeDb<T>,
+        f: impl Fn(&T) -> Result<T, E>,
+    ) -> Result<(), E> {
+        let t = f(db.now())?;
+        Ok(db.0.push((self.current(), t)))
     }
 
     pub(crate) fn new_db<T>(&self) -> TimeDb<T>

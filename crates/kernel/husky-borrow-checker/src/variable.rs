@@ -59,24 +59,28 @@ impl<'a> std::ops::Index<VariableIdx> for BorrowChecker<'a> {
     }
 }
 
-impl<'a> BorrowChecker<'a> {
-    pub fn variable_state(&self, idx: VariableIdx) -> &VariableState {
-        self[idx].db.now().unwrap()
-    }
-
-    pub fn new_borrow(&mut self, variable: VariableIdx, borrower: LifetimeIdx) {
-        let db = &mut self.variables[variable].db;
-        let variable_state = db.now().expect("todo");
-        match db.now().expect("todo") {
+impl VariableStack {
+    pub(crate) fn new_borrow(&mut self, variable: VariableIdx, timer: &Timer) {
+        let db = &mut self[variable].db;
+        let variable_state = db.now();
+        match db.now() {
             VariableState::Intact | VariableState::Borrowed => {
-                self.timer.set(db, VariableState::Borrowed)
+                timer.set(db, VariableState::Borrowed)
             }
             VariableState::Outdated => todo!(),
             VariableState::Destruct => todo!(),
             VariableState::Moved => todo!(),
         }
     }
+}
+
+impl<'a> BorrowChecker<'a> {
+    pub fn variable_state(&self, idx: VariableIdx) -> &VariableState {
+        self[idx].db.now()
+    }
+
     pub(crate) fn init_variable(&mut self, idx: VariableIdx) {
+        // variable state is always initialized
         self.variables.0.push(VariableEntry {
             idx,
             db: self.timer.new_db(),

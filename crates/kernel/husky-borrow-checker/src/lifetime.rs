@@ -11,8 +11,15 @@ pub struct LifetimeEntry {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum LifetimeState {
+    Uninitialized,
     Intact,
     Invalid,
+}
+
+impl Default for LifetimeState {
+    fn default() -> Self {
+        LifetimeState::Uninitialized
+    }
 }
 
 impl<'a> std::ops::Index<LifetimeIdx> for LifetimeStack {
@@ -22,7 +29,11 @@ impl<'a> std::ops::Index<LifetimeIdx> for LifetimeStack {
         self.0.iter().find(|entry| entry.idx == index).unwrap()
     }
 }
-
+impl<'a> std::ops::IndexMut<LifetimeIdx> for LifetimeStack {
+    fn index_mut(&mut self, index: LifetimeIdx) -> &mut Self::Output {
+        self.0.iter_mut().find(|entry| entry.idx == index).unwrap()
+    }
+}
 impl<'a> std::ops::Index<LifetimeIdx> for BorrowChecker<'a> {
     type Output = LifetimeEntry;
 
@@ -31,21 +42,27 @@ impl<'a> std::ops::Index<LifetimeIdx> for BorrowChecker<'a> {
     }
 }
 
-impl LifetimeEntry {
-    pub fn new(idx: LifetimeIdx) -> Self {
-        Self {
-            idx,
-            db: TimeDb::new_uninitialized(),
-        }
+impl LifetimeStack {
+    pub(crate) fn new_borrow(&mut self, lifetime: LifetimeIdx, timer: &Timer) -> BorrowResult<()> {
+        timer.update(&mut self[lifetime].db, |state| match state {
+            LifetimeState::Uninitialized | LifetimeState::Intact => Ok(LifetimeState::Intact),
+            LifetimeState::Invalid => Err(BorrowError::BorrowForInvalidLifetime),
+        })
     }
 }
 
 impl<'a> BorrowChecker<'a> {
-    pub fn lifetime_state(&self, idx: LifetimeIdx) -> Option<LifetimeState> {
-        self[idx].db.now().copied()
+    pub fn lifetime_state(&self, idx: LifetimeIdx) -> LifetimeState {
+        *self[idx].db.now()
     }
 
-    pub(crate) fn init_lifetime(&mut self, idx: LifetimeIdx) {
-        self.lifetimes.0.push(LifetimeEntry::new(idx))
+    pub(crate) fn push_lifetime(&mut self, idx: LifetimeIdx) {
+        self.lifetimes.0.push({
+            let idx = idx;
+            LifetimeEntry {
+                idx,
+                db: self.timer.new_db(),
+            }
+        })
     }
 }
