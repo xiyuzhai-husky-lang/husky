@@ -94,3 +94,23 @@ fn new_borrow_err() {
         Err(BorrowError::InvalidLifetime)
     );
 }
+
+#[test]
+fn move_err() {
+    let mut symbol_registry = SymbolRegistry::default();
+    let x = symbol_registry.new_variable();
+    let a = symbol_registry.new_lifetime();
+    let mut dependencies = DependencyTable::default();
+    dependencies.add_borrow(x, a);
+    let mut borrow_checker = BorrowChecker::new(&dependencies);
+    borrow_checker.exec(&BorrowInstruction::push(x));
+    borrow_checker.exec(&BorrowInstruction::push(a));
+    assert_eq!(borrow_checker.variable_state(x), &VariableState::Intact);
+    assert_eq!(
+        borrow_checker.lifetime_state(a),
+        LifetimeState::Uninitialized
+    );
+    assert_eq!(borrow_checker.sim_borrow(x, a), Ok(()));
+    borrow_checker.sim_move(x);
+    assert_eq!(borrow_checker.lifetime_state(a), LifetimeState::Outdated);
+}
