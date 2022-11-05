@@ -19,7 +19,7 @@ pub enum VariableQualifier {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum VariableState {
     Intact,
-    Borrowed,
+    ConstBorrowed,
     MutBorrowed,
     Outdated,
     Moved,
@@ -60,15 +60,12 @@ impl<'a> std::ops::Index<VariableIdx> for BorrowChecker<'a> {
 }
 
 impl VariableStack {
-    pub(crate) fn new_borrow(&mut self, variable: VariableIdx, timer: &Timer) {
-        let db = &mut self[variable].db;
-        timer.set(db, VariableState::Borrowed)
+    pub(crate) fn set_const_borrowed(&mut self, variable: VariableIdx, timer: &Timer) {
+        self.set_state(variable, timer, VariableState::ConstBorrowed)
     }
 
-    pub(crate) fn new_borrow_mut(&mut self, variable: VariableIdx, timer: &Timer) {
-        let db = &mut self[variable].db;
-        let variable_state = db.now();
-        timer.set(&mut self[variable].db, VariableState::MutBorrowed)
+    pub(crate) fn set_mut_borrowed(&mut self, variable: VariableIdx, timer: &Timer) {
+        self.set_state(variable, timer, VariableState::MutBorrowed)
     }
 
     pub(crate) fn set_outdated(&mut self, variable: VariableIdx, timer: &Timer) {
