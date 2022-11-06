@@ -57,7 +57,7 @@ impl<'a> TermContext<'a> {
 pub trait ProvideTermContext<'a> {
     fn term_db(&self) -> &'a dyn TermDb;
     fn term_menu(&self) -> &'a TermMenu;
-    fn curry(&self, curry_kind: TermCurryKind, x: Ty, y: Ty) -> TermResult<Ty> {
+    fn curry(&self, curry_kind: TermCurryVariant, x: Ty, y: Ty) -> TermResult<Ty> {
         let ctx = TermContext::from_provider(self);
         ctx.curry(curry_kind, x, y)
     }
