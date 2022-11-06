@@ -3,16 +3,13 @@ use crate::*;
 use husky_entity_route::EntityRoutePtr;
 use husky_semantics_error::*;
 use husky_vm::EntityUid;
-use infer_total::InferQueryGroup;
 use std::sync::Arc;
 use sync_utils::ASafeRwLock;
 use upcast::Upcast;
 use utils::module_contains_features;
 
 #[salsa::query_group(EntityQueryGroupStorage)]
-pub trait EntityDefnQueryGroup:
-    InferQueryGroup + husky_ast::AstQueryGroup + Upcast<dyn InferQueryGroup> + StoreEntityRoute
-{
+pub trait EntityDefnQueryGroup: husky_ast::AstQueryGroup + StoreEntityRoute {
     fn main_defn(&self, target_entrance: husky_file::FileItd) -> SemanticResultArc<MainDefn>;
     fn entity_defn(&self, route: EntityRoutePtr) -> SemanticResultArc<EntityDefn>;
     fn member_defn(&self, route: EntityRoutePtr) -> Arc<EntityDefn>;

@@ -44,27 +44,28 @@ impl<'a> TraceLineGenerator<'a> {
         ident: Identifier,
         parameters: &[Parameter],
     ) {
-        self.render_keyword_token(routine_keyword, None, None);
-        self.render_ident_token(ident.as_str(), None, None);
-        self.render_special_token("(", None, None);
-        for i in 0..parameters.len() {
-            let parameter = &parameters[i];
-            match parameter.liason() {
-                ParameterModifier::None => (),
-                ParameterModifier::Owned => todo!(),
-                ParameterModifier::OwnedMut => todo!(),
-                ParameterModifier::MemberAccess => todo!(),
-                ParameterModifier::EvalRef => todo!(),
-                ParameterModifier::TempRef => todo!(),
-                ParameterModifier::TempRefMut => todo!(),
-            }
-            self.render_ident_token(parameter.ident().as_str(), None, None);
-            self.render_special_token(": ", None, None);
-            self.gen_route_token(text.ranged(parameter.raw_ty_range()), None, None);
-            if i < parameters.len() - 1 {
-                self.render_special_token(", ", None, None);
-            }
-        }
-        self.render_special_token("):", None, None);
+        todo!()
+        // self.render_keyword_token(routine_keyword, None, None);
+        // self.render_ident_token(ident.as_str(), None, None);
+        // self.render_special_token("(", None, None);
+        // for i in 0..parameters.len() {
+        //     let parameter = &parameters[i];
+        //     match parameter.liason() {
+        //         ParameterModifier::None => (),
+        //         ParameterModifier::Owned => todo!(),
+        //         ParameterModifier::OwnedMut => todo!(),
+        //         ParameterModifier::MemberAccess => todo!(),
+        //         ParameterModifier::EvalRef => todo!(),
+        //         ParameterModifier::TempRef => todo!(),
+        //         ParameterModifier::TempRefMut => todo!(),
+        //     }
+        //     self.render_ident_token(parameter.ident().as_str(), None, None);
+        //     self.render_special_token(": ", None, None);
+        //     self.gen_route_token(text.ranged(parameter.raw_ty_range()), None, None);
+        //     if i < parameters.len() - 1 {
+        //         self.render_special_token(", ", None, None);
+        //     }
+        // }
+        // self.render_special_token("):", None, None);
     }
 }

@@ -17,7 +17,6 @@ use husky_print_utils::{msg_once, p};
 use husky_semantics_error::SemanticResult;
 use husky_text::*;
 use husky_word::{CustomIdentifier, IdentDict};
-use infer_decl::MemberIdx;
 use std::{iter::Peekable, sync::Arc};
 use vec_like::VecMap;
 
@@ -280,44 +279,45 @@ impl EntityDefnVariant {
         ty_route: EntityRoutePtr,
         children: &mut Peekable<AstIter>,
     ) -> Arc<Visualizer> {
-        let item = if let Some(_) = children.peek() {
-            children.next().unwrap()
-        } else {
-            return Visualizer::void();
-        };
-        let ref ast = item.value.as_ref().unwrap();
-        match ast.variant {
-            AstVariant::Visual => {
-                let stmts = parse_lazy_stmts(
-                    db.upcast(),
-                    arena,
-                    item.opt_children.clone().unwrap(),
-                    file,
-                    RangedEntityRoute {
-                        route: RootBuiltinIdentifier::VisualType.into(),
-                        range: Default::default(),
-                    },
-                )
-                .unwrap();
-                Arc::new(Visualizer {
-                    visual_ty: VisualTy::from_stmts(db, &stmts),
-                    variant: VisualizerVariant::Custom { stmts },
-                })
-            }
-            _ => Visualizer::void(),
-        }
+        todo!()
+        // let item = if let Some(_) = children.peek() {
+        //     children.next().unwrap()
+        // } else {
+        //     return Visualizer::void();
+        // };
+        // let ref ast = item.value.as_ref().unwrap();
+        // match ast.variant {
+        //     AstVariant::Visual => {
+        //         let stmts = parse_lazy_stmts(
+        //             db.upcast(),
+        //             arena,
+        //             item.opt_children.clone().unwrap(),
+        //             file,
+        //             RangedEntityRoute {
+        //                 route: RootBuiltinIdentifier::VisualType.into(),
+        //                 range: Default::default(),
+        //             },
+        //         )
+        //         .unwrap();
+        //         Arc::new(Visualizer {
+        //             visual_ty: VisualTy::from_stmts(db, &stmts),
+        //             variant: VisualizerVariant::Custom { stmts },
+        //         })
+        //     }
+        //     _ => Visualizer::void(),
+        // }
     }
 }
 
 impl EntityDefn {
-    pub fn method(&self, member_idx: MemberIdx) -> &Arc<EntityDefn> {
-        match self.variant {
-            EntityDefnVariant::Ty { ref members, .. } => &members[member_idx.0 as usize],
-            EntityDefnVariant::EnumVariant { .. } => todo!(),
-            EntityDefnVariant::Builtin => todo!(),
-            _ => panic!(),
-        }
-    }
+    // pub fn method(&self, member_idx: MemberIdx) -> &Arc<EntityDefn> {
+    //     match self.variant {
+    //         EntityDefnVariant::Ty { ref members, .. } => &members[member_idx.0 as usize],
+    //         EntityDefnVariant::EnumVariant { .. } => todo!(),
+    //         EntityDefnVariant::Builtin => todo!(),
+    //         _ => panic!(),
+    //     }
+    // }
     pub fn field(&self, field_ident: CustomIdentifier) -> &Arc<EntityDefn> {
         match self.variant {
             EntityDefnVariant::Ty { ref ty_members, .. } => {

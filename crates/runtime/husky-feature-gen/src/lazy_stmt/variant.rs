@@ -1,5 +1,6 @@
+use std::convert::Infallible;
+
 use husky_ast::RawReturnContext;
-use husky_context_impls::ReturnContext;
 
 use super::*;
 
@@ -14,13 +15,13 @@ pub enum FeatureLazyStmtVariant {
     },
     Require {
         condition: Arc<FeatureLazyExpr>,
-        return_context: ReturnContext,
+        return_context: Infallible,
     },
     Return {
         result: Arc<FeatureLazyExpr>,
     },
     ReturnUnveil {
-        return_context: ReturnContext,
+        return_context: Infallible,
         result: Arc<FeatureLazyExpr>,
         implicit_conversion: ImplicitConversion,
     },

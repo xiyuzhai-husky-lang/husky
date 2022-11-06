@@ -1,6 +1,5 @@
 use crate::*;
 use husky_entity_route::SpatialArgument;
-use husky_instantiate::InstantiationContext;
 use husky_word::RootBuiltinIdentifier;
 mod impl_entity;
 mod impl_expr;
@@ -57,39 +56,40 @@ pub(crate) fn entity_immediate_link_dependees(
     db: &dyn RustCodeGenQueryGroup,
     entity_route: EntityRoutePtr,
 ) -> Arc<VecSet<EntityRoutePtr>> {
-    if entity_route.spatial_arguments.len() > 0 {
-        let entity_defn = db.entity_defn(entity_route).unwrap();
-        let spatial_parameters = entity_defn.spatial_parameters();
-        let ctx = InstantiationContext {
-            db: db.upcast(),
-            spatial_parameters,
-            spatial_arguments: &entity_route.spatial_arguments,
-        };
-        use husky_instantiate::Instantiable;
-        let mut set: VecSet<_> = db
-            .entity_immediate_link_dependees(db.base_route(entity_route))
-            .iter()
-            .map(|entity_route| {
-                entity_route
-                    .instantiate(&ctx)
-                    .take_entity_route()
-                    .intrinsic()
-            })
-            .collect();
-        for spatial_argument in &entity_route.spatial_arguments {
-            match spatial_argument {
-                SpatialArgument::Const(_) => (),
-                SpatialArgument::EntityRoute(route) => set.insert(route.intrinsic()),
-            }
-        }
-        Arc::new(set)
-    } else {
-        LinkageCollector {
-            db,
-            linkages: Default::default(),
-        }
-        .produce_from_entity_defn(entity_route)
-    }
+    todo!()
+    // if entity_route.spatial_arguments.len() > 0 {
+    //     let entity_defn = db.entity_defn(entity_route).unwrap();
+    //     let spatial_parameters = entity_defn.spatial_parameters();
+    //     let ctx = InstantiationContext {
+    //         db: db.upcast(),
+    //         spatial_parameters,
+    //         spatial_arguments: &entity_route.spatial_arguments,
+    //     };
+    //     use husky_instantiate::Instantiable;
+    //     let mut set: VecSet<_> = db
+    //         .entity_immediate_link_dependees(db.base_route(entity_route))
+    //         .iter()
+    //         .map(|entity_route| {
+    //             entity_route
+    //                 .instantiate(&ctx)
+    //                 .take_entity_route()
+    //                 .intrinsic()
+    //         })
+    //         .collect();
+    //     for spatial_argument in &entity_route.spatial_arguments {
+    //         match spatial_argument {
+    //             SpatialArgument::Const(_) => (),
+    //             SpatialArgument::EntityRoute(route) => set.insert(route.intrinsic()),
+    //         }
+    //     }
+    //     Arc::new(set)
+    // } else {
+    //     LinkageCollector {
+    //         db,
+    //         linkages: Default::default(),
+    //     }
+    //     .produce_from_entity_defn(entity_route)
+    // }
 }
 
 pub(crate) fn entity_link_dependees(

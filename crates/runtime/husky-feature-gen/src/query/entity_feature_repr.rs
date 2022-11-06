@@ -16,10 +16,11 @@ pub(super) fn entity_feature_repr(
 
 impl FeatureRepr {
     pub fn input(db: &dyn FeatureGenQueryGroup) -> Self {
-        FeatureRepr::TargetInput {
-            ty: db.target_input_ty().unwrap(),
-            feature: db.feature_interner().intern(Feature::Input {}),
-            main_file: db.target_entrance(),
-        }
+        todo!()
+        // FeatureRepr::TargetInput {
+        //     ty: db.target_input_ty().unwrap(),
+        //     feature: db.feature_interner().intern(Feature::Input {}),
+        //     main_file: db.target_entrance(),
+        // }
     }
 }

@@ -111,55 +111,56 @@ impl<'a> RustCodeGenerator<'a> {
         output: EntityRoutePtr,
         stmts: &[Arc<ProcStmt>],
     ) {
-        let needs_eval_context: bool = self.db.needs_eval_context(base_route);
-        let needs_eval_ref = (needs_eval_context
-            || self.db.entity_route_variant_contains_eval_ref(base_route))
-            && !self
-                .db
-                .entity_route_variant_contains_eval_ref(base_route.parent());
-        self.write("\n");
-        self.indent(indent);
-        self.write("pub(crate) fn ");
-        let ident = base_route.ident();
-        self.write(&ident);
-        if needs_eval_ref {
-            self.write("<'eval>")
-        }
-        self.write("(");
-        for (i, parameter) in parameters.iter().enumerate() {
-            if i > 0 {
-                self.write(", ");
-            }
-            self.write(&parameter.ident());
-            self.write(": ");
-            match parameter.liason() {
-                ParameterModifier::None => {
-                    if !self.db.is_copyable(parameter.ty()).unwrap() {
-                        self.write("&")
-                    }
-                }
-                ParameterModifier::EvalRef => self.write("&'eval "),
-                ParameterModifier::Owned => todo!(),
-                ParameterModifier::TempRefMut => todo!(),
-                ParameterModifier::OwnedMut => todo!(),
-                ParameterModifier::MemberAccess => todo!(),
-                ParameterModifier::TempRef => todo!(),
-            }
-            self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
-        }
-        msg_once!("todo: keyword arguments, variadics");
-        if needs_eval_context {
-            if parameters.len() > 0 {
-                self.write(", ")
-            }
-            self.write("__ctx: &dyn __EvalContext<'eval>");
-        }
-        self.write(") -> ");
-        self.gen_entity_route(output, EntityRouteRole::Decl);
-        self.write(" {\n");
-        self.gen_proc_stmts(stmts);
-        self.indent(indent);
-        self.write("}\n");
+        todo!()
+        // let needs_eval_context: bool = self.db.needs_eval_context(base_route);
+        // let needs_eval_ref = (needs_eval_context
+        //     || self.db.entity_route_variant_contains_eval_ref(base_route))
+        //     && !self
+        //         .db
+        //         .entity_route_variant_contains_eval_ref(base_route.parent());
+        // self.write("\n");
+        // self.indent(indent);
+        // self.write("pub(crate) fn ");
+        // let ident = base_route.ident();
+        // self.write(&ident);
+        // if needs_eval_ref {
+        //     self.write("<'eval>")
+        // }
+        // self.write("(");
+        // for (i, parameter) in parameters.iter().enumerate() {
+        //     if i > 0 {
+        //         self.write(", ");
+        //     }
+        //     self.write(&parameter.ident());
+        //     self.write(": ");
+        //     match parameter.liason() {
+        //         ParameterModifier::None => {
+        //             if !self.db.is_copyable(parameter.ty()).unwrap() {
+        //                 self.write("&")
+        //             }
+        //         }
+        //         ParameterModifier::EvalRef => self.write("&'eval "),
+        //         ParameterModifier::Owned => todo!(),
+        //         ParameterModifier::TempRefMut => todo!(),
+        //         ParameterModifier::OwnedMut => todo!(),
+        //         ParameterModifier::MemberAccess => todo!(),
+        //         ParameterModifier::TempRef => todo!(),
+        //     }
+        //     self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
+        // }
+        // msg_once!("todo: keyword arguments, variadics");
+        // if needs_eval_context {
+        //     if parameters.len() > 0 {
+        //         self.write(", ")
+        //     }
+        //     self.write("__ctx: &dyn __EvalContext<'eval>");
+        // }
+        // self.write(") -> ");
+        // self.gen_entity_route(output, EntityRouteRole::Decl);
+        // self.write(" {\n");
+        // self.gen_proc_stmts(stmts);
+        // self.indent(indent);
+        // self.write("}\n");
     }
 
     pub(super) fn gen_func_defn(

@@ -2,7 +2,6 @@ use crate::*;
 use husky_comptime::ComptimeQueryGroup;
 use husky_file::FileItd;
 use husky_package_semantics::PackageQueryGroup;
-use infer_decl::DeclQueryGroup;
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
 pub trait InstructionGenQueryGroup: ComptimeQueryGroup {
@@ -124,11 +123,12 @@ fn dataset_config_instruction_sheet(
 }
 
 fn enum_literal_to_i32(db: &dyn InstructionGenQueryGroup, route: EntityRoutePtr) -> i32 {
-    let ty_decl = db.ty_decl(route.parent()).unwrap();
-    ty_decl
-        .variants
-        .position(route.ident().custom())
-        .unwrap()
-        .try_into()
-        .unwrap()
+    todo!()
+    // let ty_decl = db.ty_decl(route.parent()).unwrap();
+    // ty_decl
+    //     .variants
+    //     .position(route.ident().custom())
+    //     .unwrap()
+    //     .try_into()
+    //     .unwrap()
 }

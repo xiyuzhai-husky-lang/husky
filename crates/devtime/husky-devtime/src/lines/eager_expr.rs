@@ -92,21 +92,22 @@ impl<'a> TraceLineGenerator<'a> {
                         Some(expr.range.closed_end()),
                     );
                 }
-                EagerOpnVariant::TypeCall { ranged_ty, .. } => {
-                    let text = self.runtime.text(expr.file).unwrap();
-                    self.gen_route_token(
-                        text.ranged(ranged_ty.range),
-                        None,
-                        Some(expr.range.start),
-                    );
-                    self.render_special_token("(", None, None);
-                    for i in 0..opds.len() {
-                        if i > 0 {
-                            self.render_special_token(", ", None, None)
-                        }
-                        self.gen_eager_expr_tokens(&opds[i], history, config.subexpr());
-                    }
-                    self.render_special_token(")", None, Some(expr.range.closed_end()));
+                EagerOpnVariant::TypeCall { .. } => {
+                    todo!()
+                    // let text = self.runtime.text(expr.file).unwrap();
+                    // self.gen_route_token(
+                    //     text.ranged(ranged_ty.range),
+                    //     None,
+                    //     Some(expr.range.start),
+                    // );
+                    // self.render_special_token("(", None, None);
+                    // for i in 0..opds.len() {
+                    //     if i > 0 {
+                    //         self.render_special_token(", ", None, None)
+                    //     }
+                    //     self.gen_eager_expr_tokens(&opds[i], history, config.subexpr());
+                    // }
+                    // self.render_special_token(")", None, Some(expr.range.closed_end()));
                 }
                 EagerOpnVariant::NewVecFromList => todo!(),
                 EagerOpnVariant::ValueCall => todo!(),

@@ -8,7 +8,6 @@ use husky_package_semantics::PackageQueryGroup;
 use husky_trace_protocol::Label;
 use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 use husky_word::RootBuiltinIdentifier;
-use infer_decl::TyDecl;
 
 use crate::{
     utils::{
@@ -24,35 +23,36 @@ pub trait ComptimeQueryGroup: PackageQueryGroup + ResolveLinkage {
     fn register_to_label_converter(
         &self,
     ) -> for<'eval> fn(&__Register<'eval>) -> __RegisterDowncastResult<Label> {
-        let target_output_ty = self.target_output_ty().unwrap();
-        let target_output_ty_intrinsic = target_output_ty.intrinsic();
+        todo!()
+        // let target_output_ty = self.target_output_ty().unwrap();
+        // let target_output_ty_intrinsic = target_output_ty.intrinsic();
 
-        if target_output_ty_intrinsic == RootBuiltinIdentifier::I32.into() {
-            convert_i32_register_to_label
-        } else {
-            let target_output_ty_intrinsic_decl = self.ty_decl(target_output_ty_intrinsic).unwrap();
-            match target_output_ty_intrinsic_decl.ty_kind {
-                TyKind::Enum => convert_enum_register_to_label,
-                TyKind::Record => todo!(),
-                TyKind::Struct => todo!(),
-                TyKind::Primitive => todo!(),
-                TyKind::Vec => todo!(),
-                TyKind::Slice => todo!(),
-                TyKind::CyclicSlice => todo!(),
-                TyKind::Array => todo!(),
-                TyKind::Tuple => todo!(),
-                TyKind::Mor => todo!(),
-                TyKind::ThickFp => todo!(),
-                TyKind::AssociatedAny => todo!(),
-                TyKind::ThisAny => todo!(),
-                TyKind::TargetOutputAny => todo!(),
-                TyKind::SpatialPlaceholderAny => todo!(),
-                TyKind::BoxAny => todo!(),
-                TyKind::HigherKind => todo!(),
-                TyKind::Ref => todo!(),
-                TyKind::Option => todo!(),
-            }
-        }
+        // if target_output_ty_intrinsic == RootBuiltinIdentifier::I32.into() {
+        //     convert_i32_register_to_label
+        // } else {
+        //     let target_output_ty_intrinsic_decl = self.ty_decl(target_output_ty_intrinsic).unwrap();
+        //     match target_output_ty_intrinsic_decl.ty_kind {
+        //         TyKind::Enum => convert_enum_register_to_label,
+        //         TyKind::Record => todo!(),
+        //         TyKind::Struct => todo!(),
+        //         TyKind::Primitive => todo!(),
+        //         TyKind::Vec => todo!(),
+        //         TyKind::Slice => todo!(),
+        //         TyKind::CyclicSlice => todo!(),
+        //         TyKind::Array => todo!(),
+        //         TyKind::Tuple => todo!(),
+        //         TyKind::Mor => todo!(),
+        //         TyKind::ThickFp => todo!(),
+        //         TyKind::AssociatedAny => todo!(),
+        //         TyKind::ThisAny => todo!(),
+        //         TyKind::TargetOutputAny => todo!(),
+        //         TyKind::SpatialPlaceholderAny => todo!(),
+        //         TyKind::BoxAny => todo!(),
+        //         TyKind::HigherKind => todo!(),
+        //         TyKind::Ref => todo!(),
+        //         TyKind::Option => todo!(),
+        //     }
+        // }
     }
 
     // ad hoc loc
@@ -118,32 +118,33 @@ pub trait ComptimeQueryGroup: PackageQueryGroup + ResolveLinkage {
                 RootBuiltinIdentifier::Option => todo!(),
             },
             EntityRoutePtr::Custom(_) => {
-                let ty_decl: Arc<TyDecl> = self.ty_decl(intrinsic_ty).unwrap();
-                match ty_decl.ty_kind {
-                    TyKind::Enum => {
-                        let value: &__VirtualEnum = value.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
-                        let enum_variant_decl = &ty_decl.variants.data()[value.kind_idx as usize];
-                        format!("{}::{}", intrinsic_ty.ident(), enum_variant_decl.ident)
-                    }
-                    TyKind::Record => todo!(),
-                    TyKind::Struct => "{ ... }".to_string(),
-                    TyKind::Primitive => todo!(),
-                    TyKind::Vec => "[ ... ]".to_string(),
-                    TyKind::Array => todo!(),
-                    TyKind::Slice => todo!(),
-                    TyKind::CyclicSlice => "[ ... ]".to_string(),
-                    TyKind::Tuple => todo!(),
-                    TyKind::Mor => todo!(),
-                    TyKind::ThickFp => todo!(),
-                    TyKind::AssociatedAny => todo!(),
-                    TyKind::ThisAny => todo!(),
-                    TyKind::SpatialPlaceholderAny => todo!(),
-                    TyKind::BoxAny => todo!(),
-                    TyKind::HigherKind => todo!(),
-                    TyKind::Ref => todo!(),
-                    TyKind::Option => todo!(),
-                    TyKind::TargetOutputAny => todo!(),
-                }
+                todo!()
+                // let ty_decl: Arc<TyDecl> = self.ty_decl(intrinsic_ty).unwrap();
+                // match ty_decl.ty_kind {
+                //     TyKind::Enum => {
+                //         let value: &__VirtualEnum = value.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
+                //         let enum_variant_decl = &ty_decl.variants.data()[value.kind_idx as usize];
+                //         format!("{}::{}", intrinsic_ty.ident(), enum_variant_decl.ident)
+                //     }
+                //     TyKind::Record => todo!(),
+                //     TyKind::Struct => "{ ... }".to_string(),
+                //     TyKind::Primitive => todo!(),
+                //     TyKind::Vec => "[ ... ]".to_string(),
+                //     TyKind::Array => todo!(),
+                //     TyKind::Slice => todo!(),
+                //     TyKind::CyclicSlice => "[ ... ]".to_string(),
+                //     TyKind::Tuple => todo!(),
+                //     TyKind::Mor => todo!(),
+                //     TyKind::ThickFp => todo!(),
+                //     TyKind::AssociatedAny => todo!(),
+                //     TyKind::ThisAny => todo!(),
+                //     TyKind::SpatialPlaceholderAny => todo!(),
+                //     TyKind::BoxAny => todo!(),
+                //     TyKind::HigherKind => todo!(),
+                //     TyKind::Ref => todo!(),
+                //     TyKind::Option => todo!(),
+                //     TyKind::TargetOutputAny => todo!(),
+                // }
             }
         }
     }
