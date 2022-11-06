@@ -7,27 +7,37 @@ edition = "2021"
 salsa = "0.17.0-pre.2"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-sync-utils = { path = "../../utils/husky-sync-utils" }
+# abstraction
 fold = { path = "../../abstraction/fold" }
 upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
-husky-file = { path = "../../syntax/husky-file" }
-husky-text = { path = "../../syntax/husky-text" }
+# comptime
+husky-comptime = { path = "../../comptime/husky-comptime" }
+# devtime
+husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+# kernel
 husky-entity-route = { path = "../../kernel/husky-entity-route" }
-husky-vm = { path = "../../vm/husky-vm" }
 husky-word = { path = "../../kernel/husky-word" }
+# runtime
+husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
+husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
+# semantics
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
-husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
+# stacic
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
+# syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
-husky-comptime = { path = "../../comptime/husky-comptime" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-text = { path = "../../syntax/husky-text" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+# utils
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+sync-utils = { path = "../../utils/husky-sync-utils" }
+# vm
+husky-vm = { path = "../../vm/husky-vm" }
