@@ -15,35 +15,42 @@ map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
 monad = { path = "../../abstraction/monad" }
 trackable = { path = "../../abstraction/trackable" }
+# comptime
+husky-comptime = { path = "../../comptime/husky-comptime" }
+# devtime
+husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace = { path = "../../devtime/husky-trace" }
+# kernel
+husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-word = { path = "../../kernel/husky-word" }
+# runtime
+husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
+husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
+husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
+# semantics
+husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
+husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
+husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
+husky-pattern-semantics = { path = "../../semantics/husky-pattern-semantics" }
+# static
+husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
+# syntax
+husky-file = { path = "../../syntax/husky-file" }
+husky-text = { path = "../../syntax/husky-text" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-defn-head = { path = "../../syntax/husky-defn-head" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
+husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
-# syntax
-husky-file = { path = "../../syntax/husky-file" }
-husky-text = { path = "../../syntax/husky-text" }
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+# vm
 husky-vm = { path = "../../vm/husky-vm" }
-husky-word = { path = "../../kernel/husky-word" }
-husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
-husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
-husky-comptime = { path = "../../comptime/husky-comptime" }
-husky-ast = { path = "../../syntax/husky-ast" }
-husky-defn-head = { path = "../../syntax/husky-defn-head" }
-husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
-husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
-husky-trace = { path = "../../devtime/husky-trace" }
-husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
 husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
-husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
-husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
-husky-pattern-semantics = { path = "../../semantics/husky-pattern-semantics" }
