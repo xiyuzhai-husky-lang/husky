@@ -38,11 +38,6 @@ husky-fmt = { path = "../../syntax/husky-fmt" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-atom = { path = "../../syntax/husky-atom" }
 # infer
-infer-decl = { path = "../../infer/husky-infer-decl" }
-husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
-infer-contract = { path = "../../infer/husky-infer-contract" }
-husky-infer-qualified-ty = { path = "../../infer/husky-infer-qualified-ty" }
-infer-total = { path = "../../infer/total" }
 # semantics
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }

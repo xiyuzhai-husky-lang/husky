@@ -35,7 +35,6 @@ husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
-infer-decl = { path = "../../infer/husky-infer-decl" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
@@ -54,5 +53,4 @@ husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-data-viewer = { path = "../husky-data-viewer" }
 husky-pattern-semantics = { path = "../../semantics/husky-pattern-semantics" }
 husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
-husky-context-impls = { path = "../../impls/husky-context-impls" }
 husky-feature-protocol = { path = "../../runtime/husky-feature-protocol" }

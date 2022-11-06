@@ -11,8 +11,7 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 # abstraction
 reserve = { path = "../../abstraction/reserve" }
 # infer
-infer-total = { path = "../../infer/total" }
-husky-infer-error = { path = "../../infer/husky-infer-error" }
+husky-term-infer = { path = "../../infer/husky-term-infer" }
 # kernel
 husky-entity-route = { path = "../../kernel/husky-entity-route" }
 # semantics

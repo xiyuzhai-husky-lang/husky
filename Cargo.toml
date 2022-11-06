@@ -6,7 +6,6 @@ members = [
     "crates/comptime/*",
     "crates/ide/*",
     "crates/infer/*",
-    "crates/impls/*",
     "crates/kernel/*",
     "crates/runtime/*",
     "crates/semantics/*",

@@ -36,8 +36,4 @@ husky-semantics-error = { path = "../../semantics/husky-semantics-error" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
 # infer
-husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
-infer-decl = { path = "../../infer/husky-infer-decl" }
-infer-total = { path = "../../infer/total" }
-infer-contract = { path = "../../infer/husky-infer-contract" }
-husky-infer-qualified-ty = { path = "../../infer/husky-infer-qualified-ty" }
+husky-term-infer = { path = "../../infer/husky-term-infer" }

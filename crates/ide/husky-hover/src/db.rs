@@ -1,14 +1,14 @@
 use crate::*;
 use husky_ast::RawExprVariant;
-use husky_infer_entity_route::InferEntityRouteQueryGroup;
 use husky_print_utils::ep;
+use husky_term_infer::TermInferDb;
 use husky_text::{FilePosition, FileRange, RangeInfo, TextRanged};
 use lsp_types::{Hover, HoverContents, MarkupContent, MarkupKind};
 use serde::{Deserialize, Serialize};
 
-pub trait HoverDb: InferEntityRouteQueryGroup {
+pub trait HoverDb: TermInferDb {
     fn opt_hover_result(&self, frange: FileRange) -> Option<HoverResult> {
-        let entity_route_sheet = self.entity_route_sheet(frange.file()).expect("todo");
+        let entity_route_sheet = self.term_sheet(frange.file()).expect("todo");
         let (idx, expr) = entity_route_sheet
             .ast_text
             .find_first_expr_with_end_after(frange.text_start())?;

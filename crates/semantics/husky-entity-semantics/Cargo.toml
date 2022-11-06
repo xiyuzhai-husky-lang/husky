@@ -39,10 +39,7 @@ husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 # infer
-husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
-infer-contract = { path = "../../infer/husky-infer-contract" }
-infer-decl = { path = "../../infer/husky-infer-decl" }
-infer-total = { path = "../../infer/total" }
+husky-term-infer = { path = "../../infer/husky-term-infer" }
 # static
 husky-static-defn = { path = "../../static/husky-static-defn" }
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }

@@ -35,7 +35,6 @@ husky-test-utils = { path = "../../utils/husky-test-utils" }
 husky-display-utils = { path = "../../utils/husky-display-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
-husky-compile-test = { path = "../../comptime/husky-compile-test" }
 husky-entity-route = { path = "../../kernel/husky-entity-route" }
 husky-file = { path = "../../syntax/husky-file", features = ["lsp_support"] }
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
