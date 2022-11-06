@@ -1,5 +1,4 @@
 use husky_dev_utils::DevSource;
-use husky_infer_error::InferError;
 use std::sync::Arc;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -12,28 +11,6 @@ pub struct SemanticError {
 pub enum SemanticErrorVariant {
     Derived { message: String },
     Original { message: String },
-}
-
-impl SemanticError {
-    pub fn from_infer_error(error: InferError, dev_src: DevSource) -> SemanticError {
-        Self {
-            variant: SemanticErrorVariant::Derived {
-                message: format!("{:?}", error),
-            },
-            dev_src,
-        }
-    }
-}
-
-impl From<InferError> for SemanticError {
-    fn from(e: InferError) -> Self {
-        Self {
-            variant: SemanticErrorVariant::Derived {
-                message: format!("{:?}", e),
-            },
-            dev_src: e.dev_src,
-        }
-    }
 }
 
 pub type SemanticResult<T> = Result<T, SemanticError>;

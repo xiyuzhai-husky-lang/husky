@@ -1,149 +1,148 @@
 use std::sync::Arc;
 
 use crate::*;
-use husky_ast::{RawExprArena, RawExprIdx, RawExprRange, RawExprVariant};
 use husky_entity_kind::TyKind;
 use husky_entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
+use husky_expr_syntax::*;
 use husky_file::FileItd;
-use husky_infer_entity_route::InferEntityRoute;
-use husky_infer_qualified_ty::{InferQualifiedTy, LazyExprQualifier};
 use husky_print_utils::p;
+use husky_term_infer::TermInferDb;
 use husky_text::RangedCustomIdentifier;
 use husky_word::RootBuiltinIdentifier;
-use infer_contract::{InferContract, LazyContract};
 
 use super::*;
 use husky_semantics_error::*;
 
 // todo: opt_expectation
 
-pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedTy {
+pub trait LazyExprParser<'a> {
     fn arena(&self) -> &'a RawExprArena;
     fn file(&self) -> FileItd;
-    fn db(&self) -> &dyn InferQueryGroup;
+    fn db(&self) -> &dyn TermInferDb;
 
     fn parse_lazy_expr(
         &mut self,
         idx: RawExprIdx,
         opt_expectation: Option<EntityRoutePtr>,
     ) -> SemanticResult<Arc<LazyExpr>> {
-        let raw_expr = &self.arena()[idx];
-        let kind: LazyExprVariant = match raw_expr.variant {
-            RawExprVariant::Variable {
-                varname,
-                init_range,
-            } => {
-                let variable_qt = self
-                    .lazy_variable_qualified_ty(varname.into(), init_range)
-                    .unwrap();
-                let contract = self.lazy_expr_contract(idx).unwrap();
-                LazyExprVariant::Variable {
-                    varname,
-                    binding: variable_qt.qual.binding(contract),
-                }
-            }
-            RawExprVariant::Unrecognized(ident) => {
-                err!(format!(
-                    "unrecognized identifier {} at {:?}",
-                    ident,
-                    raw_expr.range()
-                ))
-            }
-            RawExprVariant::Entity {
-                route: entity_route,
-                kind,
-                ..
-            } => match kind {
-                EntityKind::Module => todo!(),
-                EntityKind::EnumVariant => match entity_route {
-                    EntityRoutePtr::Root(RootBuiltinIdentifier::True) => {
-                        LazyExprVariant::PrimitiveLiteral(RawLiteralData::Bool(true))
-                    }
-                    EntityRoutePtr::Root(RootBuiltinIdentifier::False) => {
-                        LazyExprVariant::PrimitiveLiteral(RawLiteralData::Bool(false))
-                    }
-                    EntityRoutePtr::Custom(_) => LazyExprVariant::EnumLiteral { entity_route },
-                    _ => todo!(),
-                },
-                EntityKind::Type(_) => todo!(),
-                EntityKind::Trait => todo!(),
-                EntityKind::Function { .. } => {
-                    todo!()
-                }
-                EntityKind::Feature => LazyExprVariant::EntityFeature { entity_route },
-                EntityKind::Member(_) => todo!(),
-                EntityKind::Main => panic!(),
-            },
-            RawExprVariant::PrimitiveLiteral(value) => LazyExprVariant::PrimitiveLiteral(value),
-            RawExprVariant::Bracketed(bracketed_expr) => {
-                LazyExprVariant::Bracketed(self.parse_lazy_expr(bracketed_expr, opt_expectation)?)
-            }
-            RawExprVariant::Opn {
-                opn_variant: ref opr,
-                ref opds,
-                ..
-            } => self.parse_opn(idx, opr, opds)?,
-            RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::ThisValue {
-                opt_this_ty,
-                opt_this_liason,
-            } => LazyExprVariant::ThisValue {
-                binding: {
-                    let this_contract = self.lazy_expr_contract(idx).unwrap();
-                    let this_qual = LazyExprQualifier::parameter_use_lazy_qualifier(
-                        opt_this_liason.unwrap(),
-                        self.decl_db().is_copyable(opt_this_ty.unwrap()).unwrap(),
-                        this_contract,
-                    )
-                    .unwrap();
-                    let this_qt = LazyExprQualifiedTy::new(this_qual, opt_this_ty.unwrap());
-                    this_qt.binding(self.decl_db(), this_contract)
-                },
-            },
-            RawExprVariant::ThisField {
-                field_ident,
-                opt_this_ty,
-                opt_this_liason,
-                field_liason,
-                opt_field_ty,
-            } => {
-                let field_contract = self.lazy_expr_contract(idx).unwrap();
-                let field_qt = self.lazy_expr_qualified_ty(idx).unwrap();
-                let this_contract = LazyContract::member_self_lazy_contract(
-                    field_liason,
-                    field_contract,
-                    opt_field_ty.unwrap().route,
-                )?;
-                let this_qual = LazyExprQualifier::parameter_use_lazy_qualifier(
-                    opt_this_liason.unwrap(),
-                    self.decl_db().is_copyable(opt_this_ty.unwrap())?,
-                    this_contract,
-                    // raw_expr.range,
-                )
-                .unwrap();
-                let this_qt = LazyExprQualifiedTy::new(this_qual, opt_this_ty.unwrap());
-                LazyExprVariant::ThisField {
-                    field_ident,
-                    this_ty: opt_this_ty.unwrap(),
-                    this_binding: this_qt.binding(self.decl_db(), this_contract),
-                    field_binding: { field_qt.binding(self.decl_db(), field_contract) },
-                }
-            }
-            RawExprVariant::FrameVariable { .. } => todo!(),
-        };
-        let qualified_ty = self.lazy_expr_qualified_ty(idx)?;
-        Ok(Arc::new(LazyExpr {
-            range: raw_expr.range().clone(),
-            qualified_ty,
-            variant: kind,
-            file: self.file(),
-            contract: self.lazy_expr_contract(idx).unwrap(),
-            instruction_id: Default::default(),
-            implicit_conversion: ImplicitConversion::from_opt_expectation(
-                opt_expectation,
-                &qualified_ty,
-            ),
-        }))
+        todo!()
+        // let raw_expr = &self.arena()[idx];
+        // let kind: LazyExprVariant = match raw_expr.variant {
+        //     RawExprVariant::Variable {
+        //         varname,
+        //         init_range,
+        //     } => {
+        //         let variable_qt = self
+        //             .lazy_variable_qualified_ty(varname.into(), init_range)
+        //             .unwrap();
+        //         let contract = self.lazy_expr_contract(idx).unwrap();
+        //         LazyExprVariant::Variable {
+        //             varname,
+        //             binding: variable_qt.qual.binding(contract),
+        //         }
+        //     }
+        //     RawExprVariant::Unrecognized(ident) => {
+        //         err!(format!(
+        //             "unrecognized identifier {} at {:?}",
+        //             ident,
+        //             raw_expr.range()
+        //         ))
+        //     }
+        //     RawExprVariant::Entity {
+        //         route: entity_route,
+        //         kind,
+        //         ..
+        //     } => match kind {
+        //         EntityKind::Module => todo!(),
+        //         EntityKind::EnumVariant => match entity_route {
+        //             EntityRoutePtr::Root(RootBuiltinIdentifier::True) => {
+        //                 LazyExprVariant::PrimitiveLiteral(RawLiteralData::Bool(true))
+        //             }
+        //             EntityRoutePtr::Root(RootBuiltinIdentifier::False) => {
+        //                 LazyExprVariant::PrimitiveLiteral(RawLiteralData::Bool(false))
+        //             }
+        //             EntityRoutePtr::Custom(_) => LazyExprVariant::EnumLiteral { entity_route },
+        //             _ => todo!(),
+        //         },
+        //         EntityKind::Type(_) => todo!(),
+        //         EntityKind::Trait => todo!(),
+        //         EntityKind::Function { .. } => {
+        //             todo!()
+        //         }
+        //         EntityKind::Feature => LazyExprVariant::EntityFeature { entity_route },
+        //         EntityKind::Member(_) => todo!(),
+        //         EntityKind::Main => panic!(),
+        //     },
+        //     RawExprVariant::PrimitiveLiteral(value) => LazyExprVariant::PrimitiveLiteral(value),
+        //     RawExprVariant::Bracketed(bracketed_expr) => {
+        //         LazyExprVariant::Bracketed(self.parse_lazy_expr(bracketed_expr, opt_expectation)?)
+        //     }
+        //     RawExprVariant::Opn {
+        //         opn_variant: ref opr,
+        //         ref opds,
+        //         ..
+        //     } => self.parse_opn(idx, opr, opds)?,
+        //     RawExprVariant::Lambda(_, _) => todo!(),
+        //     RawExprVariant::ThisValue {
+        //         opt_this_ty,
+        //         opt_this_liason,
+        //     } => LazyExprVariant::ThisValue {
+        //         binding: {
+        //             let this_contract = self.lazy_expr_contract(idx).unwrap();
+        //             let this_qual = LazyExprQualifier::parameter_use_lazy_qualifier(
+        //                 opt_this_liason.unwrap(),
+        //                 self.decl_db().is_copyable(opt_this_ty.unwrap()).unwrap(),
+        //                 this_contract,
+        //             )
+        //             .unwrap();
+        //             let this_qt = LazyExprQualifiedTy::new(this_qual, opt_this_ty.unwrap());
+        //             this_qt.binding(self.decl_db(), this_contract)
+        //         },
+        //     },
+        //     RawExprVariant::ThisField {
+        //         field_ident,
+        //         opt_this_ty,
+        //         opt_this_liason,
+        //         field_liason,
+        //         opt_field_ty,
+        //     } => {
+        //         let field_contract = self.lazy_expr_contract(idx).unwrap();
+        //         let field_qt = self.lazy_expr_qualified_ty(idx).unwrap();
+        //         let this_contract = LazyContract::member_self_lazy_contract(
+        //             field_liason,
+        //             field_contract,
+        //             opt_field_ty.unwrap().route,
+        //         )?;
+        //         let this_qual = LazyExprQualifier::parameter_use_lazy_qualifier(
+        //             opt_this_liason.unwrap(),
+        //             self.decl_db().is_copyable(opt_this_ty.unwrap())?,
+        //             this_contract,
+        //             // raw_expr.range,
+        //         )
+        //         .unwrap();
+        //         let this_qt = LazyExprQualifiedTy::new(this_qual, opt_this_ty.unwrap());
+        //         LazyExprVariant::ThisField {
+        //             field_ident,
+        //             this_ty: opt_this_ty.unwrap(),
+        //             this_binding: this_qt.binding(self.decl_db(), this_contract),
+        //             field_binding: { field_qt.binding(self.decl_db(), field_contract) },
+        //         }
+        //     }
+        //     RawExprVariant::FrameVariable { .. } => todo!(),
+        // };
+        // let qualified_ty = self.lazy_expr_qualified_ty(idx)?;
+        // Ok(Arc::new(LazyExpr {
+        //     range: raw_expr.range().clone(),
+        //     qualified_ty,
+        //     variant: kind,
+        //     file: self.file(),
+        //     contract: self.lazy_expr_contract(idx).unwrap(),
+        //     instruction_id: Default::default(),
+        //     implicit_conversion: ImplicitConversion::from_opt_expectation(
+        //         opt_expectation,
+        //         &qualified_ty,
+        //     ),
+        // }))
     }
 
     fn parse_opn(
@@ -336,16 +335,17 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         idx: RawExprIdx,
         raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
-        let this = self.parse_lazy_expr(idx, None)?;
-        let field_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
-        let field_qt = self.lazy_expr_qualified_ty(raw_expr_idx).unwrap();
-        Ok(LazyExprVariant::Opn {
-            opn_kind: LazyOpnKind::Field {
-                field_ident,
-                field_binding: field_qt.binding(self.decl_db(), field_contract),
-            },
-            opds: vec![this],
-        })
+        todo!()
+        // let this = self.parse_lazy_expr(idx, None)?;
+        // let field_contract = self.lazy_expr_contract(raw_expr_idx).unwrap();
+        // let field_qt = self.lazy_expr_qualified_ty(raw_expr_idx).unwrap();
+        // Ok(LazyExprVariant::Opn {
+        //     opn_kind: LazyOpnKind::Field {
+        //         field_ident,
+        //         field_binding: field_qt.binding(self.decl_db(), field_contract),
+        //     },
+        //     opds: vec![this],
+        // })
     }
 
     fn parse_new_vec_from_list(&mut self, opds: RawExprRange) -> SemanticResult<LazyExprVariant> {
@@ -360,77 +360,78 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
     }
 
     fn parse_function_call(&mut self, opds: &RawExprRange) -> SemanticResult<LazyExprVariant> {
-        let call = &self.arena()[opds.start];
-        match call.variant {
-            RawExprVariant::Entity { route, kind, .. } => {
-                let arguments: Vec<_> = ((opds.start + 1)..opds.end)
-                    .map(|raw| self.parse_lazy_expr(raw, None))
-                    .collect::<SemanticResult<_>>()?;
-                let opn_kind = match kind {
-                    EntityKind::Module => todo!(),
-                    EntityKind::Type(ty_kind) => match ty_kind {
-                        TyKind::Enum => todo!(),
-                        TyKind::Record => LazyOpnKind::RecordCall(RangedEntityRoute {
-                            route,
-                            range: call.range(),
-                        }),
-                        TyKind::Struct => LazyOpnKind::StructCall(RangedEntityRoute {
-                            route,
-                            range: call.range(),
-                        }),
-                        TyKind::Primitive => todo!(),
-                        TyKind::Vec => todo!(),
-                        TyKind::Array => todo!(),
-                        TyKind::Slice => todo!(),
-                        TyKind::CyclicSlice => todo!(),
-                        TyKind::Tuple => todo!(),
-                        TyKind::Mor => todo!(),
-                        TyKind::ThickFp => todo!(),
-                        TyKind::AssociatedAny => todo!(),
-                        TyKind::TargetOutputAny => todo!(),
-                        TyKind::ThisAny => todo!(),
-                        TyKind::SpatialPlaceholderAny => todo!(),
-                        TyKind::BoxAny => todo!(),
-                        TyKind::HigherKind => todo!(),
-                        TyKind::Ref => todo!(),
-                        TyKind::Option => todo!(),
-                    },
-                    EntityKind::Trait => todo!(),
-                    EntityKind::Function {
-                        requires_lazy: is_lazy,
-                    } => {
-                        if is_lazy {
-                            LazyOpnKind::FunctionModelCall(RangedEntityRoute {
-                                route,
-                                range: call.range(),
-                            })
-                        } else {
-                            LazyOpnKind::FunctionRoutineCall(RangedEntityRoute {
-                                route,
-                                range: call.range(),
-                            })
-                        }
-                    }
-                    EntityKind::Feature => todo!(),
-                    EntityKind::EnumVariant => todo!(),
-                    EntityKind::Member(_) => todo!(),
-                    EntityKind::Main => panic!(),
-                };
-                Ok(LazyExprVariant::Opn {
-                    opn_kind,
-                    opds: arguments,
-                })
-            }
-            RawExprVariant::Variable { .. } => todo!(),
-            RawExprVariant::Unrecognized(_) => panic!(),
-            RawExprVariant::PrimitiveLiteral(_) => todo!(),
-            RawExprVariant::Bracketed(_) => todo!(),
-            RawExprVariant::Opn { .. } => todo!(),
-            RawExprVariant::Lambda(_, _) => todo!(),
-            RawExprVariant::ThisValue { .. } => todo!(),
-            RawExprVariant::ThisField { .. } => todo!(),
-            RawExprVariant::FrameVariable { .. } => todo!(),
-        }
+        todo!()
+        // let call = &self.arena()[opds.start];
+        // match call.variant {
+        //     RawExprVariant::Entity { route, kind, .. } => {
+        //         let arguments: Vec<_> = ((opds.start + 1)..opds.end)
+        //             .map(|raw| self.parse_lazy_expr(raw, None))
+        //             .collect::<SemanticResult<_>>()?;
+        //         let opn_kind = match kind {
+        //             EntityKind::Module => todo!(),
+        //             EntityKind::Type(ty_kind) => match ty_kind {
+        //                 TyKind::Enum => todo!(),
+        //                 TyKind::Record => LazyOpnKind::RecordCall(RangedEntityRoute {
+        //                     route,
+        //                     range: call.range(),
+        //                 }),
+        //                 TyKind::Struct => LazyOpnKind::StructCall(RangedEntityRoute {
+        //                     route,
+        //                     range: call.range(),
+        //                 }),
+        //                 TyKind::Primitive => todo!(),
+        //                 TyKind::Vec => todo!(),
+        //                 TyKind::Array => todo!(),
+        //                 TyKind::Slice => todo!(),
+        //                 TyKind::CyclicSlice => todo!(),
+        //                 TyKind::Tuple => todo!(),
+        //                 TyKind::Mor => todo!(),
+        //                 TyKind::ThickFp => todo!(),
+        //                 TyKind::AssociatedAny => todo!(),
+        //                 TyKind::TargetOutputAny => todo!(),
+        //                 TyKind::ThisAny => todo!(),
+        //                 TyKind::SpatialPlaceholderAny => todo!(),
+        //                 TyKind::BoxAny => todo!(),
+        //                 TyKind::HigherKind => todo!(),
+        //                 TyKind::Ref => todo!(),
+        //                 TyKind::Option => todo!(),
+        //             },
+        //             EntityKind::Trait => todo!(),
+        //             EntityKind::Function {
+        //                 requires_lazy: is_lazy,
+        //             } => {
+        //                 if is_lazy {
+        //                     LazyOpnKind::FunctionModelCall(RangedEntityRoute {
+        //                         route,
+        //                         range: call.range(),
+        //                     })
+        //                 } else {
+        //                     LazyOpnKind::FunctionRoutineCall(RangedEntityRoute {
+        //                         route,
+        //                         range: call.range(),
+        //                     })
+        //                 }
+        //             }
+        //             EntityKind::Feature => todo!(),
+        //             EntityKind::EnumVariant => todo!(),
+        //             EntityKind::Member(_) => todo!(),
+        //             EntityKind::Main => panic!(),
+        //         };
+        //         Ok(LazyExprVariant::Opn {
+        //             opn_kind,
+        //             opds: arguments,
+        //         })
+        //     }
+        //     RawExprVariant::Variable { .. } => todo!(),
+        //     RawExprVariant::Unrecognized(_) => panic!(),
+        //     RawExprVariant::PrimitiveLiteral(_) => todo!(),
+        //     RawExprVariant::Bracketed(_) => todo!(),
+        //     RawExprVariant::Opn { .. } => todo!(),
+        //     RawExprVariant::Lambda(_, _) => todo!(),
+        //     RawExprVariant::ThisValue { .. } => todo!(),
+        //     RawExprVariant::ThisField { .. } => todo!(),
+        //     RawExprVariant::FrameVariable { .. } => todo!(),
+        // }
     }
 
     fn parse_method_call(
@@ -440,29 +441,30 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         inputs: RawExprRange,
         method_ident: RangedCustomIdentifier,
     ) -> SemanticResult<LazyExprVariant> {
-        let this = self.parse_lazy_expr(this_idx, None)?;
-        let output_binding = {
-            let output_contract = self.lazy_expr_contract(idx).unwrap();
-            let output_qt = self.lazy_expr_qualified_ty(idx).unwrap();
-            output_qt.binding(self.decl_db(), output_contract)
-        };
-        let inputs = inputs
-            .map(|idx| self.parse_lazy_expr(idx, None))
-            .collect::<SemanticResult<Vec<_>>>()?;
-        let mut opds = vec![this];
-        opds.extend(inputs);
-        Ok(LazyExprVariant::Opn {
-            opn_kind: LazyOpnKind::MethodCall {
-                method_ident,
-                method_route: self
-                    .entity_route_sheet()
-                    .opt_method_call_route(this_idx)
-                    .unwrap()
-                    .unwrap(),
-                output_binding,
-            },
-            opds,
-        })
+        todo!()
+        // let this = self.parse_lazy_expr(this_idx, None)?;
+        // let output_binding = {
+        //     let output_contract = self.lazy_expr_contract(idx).unwrap();
+        //     let output_qt = self.lazy_expr_qualified_ty(idx).unwrap();
+        //     output_qt.binding(self.decl_db(), output_contract)
+        // };
+        // let inputs = inputs
+        //     .map(|idx| self.parse_lazy_expr(idx, None))
+        //     .collect::<SemanticResult<Vec<_>>>()?;
+        // let mut opds = vec![this];
+        // opds.extend(inputs);
+        // Ok(LazyExprVariant::Opn {
+        //     opn_kind: LazyOpnKind::MethodCall {
+        //         method_ident,
+        //         method_route: self
+        //             .entity_route_sheet()
+        //             .opt_method_call_route(this_idx)
+        //             .unwrap()
+        //             .unwrap(),
+        //         output_binding,
+        //     },
+        //     opds,
+        // })
     }
 
     fn parse_index(
@@ -470,17 +472,18 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
         idx: RawExprIdx,
         opds: RawExprRange,
     ) -> SemanticResult<LazyExprVariant> {
-        Ok(LazyExprVariant::Opn {
-            opn_kind: LazyOpnKind::Index {
-                element_binding: {
-                    let element_contract = self.lazy_expr_contract(idx).unwrap();
-                    let element_qt = self.lazy_expr_qualified_ty(idx).unwrap();
-                    element_qt.binding(self.decl_db(), element_contract)
-                },
-            },
-            opds: opds
-                .map(|raw| self.parse_lazy_expr(raw, None))
-                .collect::<SemanticResult<_>>()?,
-        })
+        todo!()
+        // Ok(LazyExprVariant::Opn {
+        //     opn_kind: LazyOpnKind::Index {
+        //         element_binding: {
+        //             let element_contract = self.lazy_expr_contract(idx).unwrap();
+        //             let element_qt = self.lazy_expr_qualified_ty(idx).unwrap();
+        //             element_qt.binding(self.decl_db(), element_contract)
+        //         },
+        //     },
+        //     opds: opds
+        //         .map(|raw| self.parse_lazy_expr(raw, None))
+        //         .collect::<SemanticResult<_>>()?,
+        // })
     }
 }

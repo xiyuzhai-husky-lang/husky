@@ -1,14 +1,15 @@
 mod branch;
 mod parse;
 
-use std::sync::Arc;
+use std::{convert::Infallible, sync::Arc};
 
 pub use branch::*;
 use husky_ast::*;
-use husky_context_impls::ReturnContext;
 use husky_entity_route::RangedEntityRoute;
+use husky_expr_syntax::RawExprArena;
 use husky_opn_semantics::ImplicitConversion;
 use husky_semantics_error::SemanticResultArc;
+use husky_term_infer::TermInferDb;
 use husky_vm::{InstructionId, InstructionSource};
 
 use parse::LazyStmtParser;
@@ -64,12 +65,12 @@ pub enum LazyStmtVariant {
     },
     Require {
         condition: Arc<LazyExpr>,
-        return_context: ReturnContext,
+        return_context: Infallible,
     },
     ReturnUnveil {
         result: Arc<LazyExpr>,
         implicit_conversion: ImplicitConversion, // first unveil, then implicitly convert
-        return_context: ReturnContext,
+        return_context: Infallible,
     },
     Return {
         result: Arc<LazyExpr>,
@@ -103,7 +104,7 @@ impl std::fmt::Debug for LazyStmtVariant {
 }
 
 pub fn parse_lazy_stmts(
-    db: &dyn InferQueryGroup,
+    db: &dyn TermInferDb,
     arena: &RawExprArena,
     iter: AstIter,
     file: FileItd,

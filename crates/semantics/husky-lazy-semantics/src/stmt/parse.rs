@@ -1,35 +1,29 @@
 use crate::*;
 use husky_ast::*;
-use husky_context_impls::ReturnContext;
 use husky_entity_route::RangedEntityRoute;
+use husky_expr_syntax::{RawExprArena, RawExprVariant};
 use husky_file::FileItd;
-use husky_infer_entity_route::{EntityRouteSheet, InferEntityRoute};
-use husky_infer_qualified_ty::{InferQualifiedTy, QualifiedTySheet};
 use husky_opn_semantics::ImplicitConversion;
 use husky_semantics_error::*;
+use husky_term_infer::{TermInferDb, TermSheet};
 use husky_word::{CustomIdentifier, IdentPairDict, RootBuiltinIdentifier};
 use husky_xml_syntax::XmlTagKind;
-use infer_contract::{ContractSheet, InferContract};
 use std::{iter::Peekable, sync::Arc};
 
 pub(super) struct LazyStmtParser<'a> {
-    pub(super) db: &'a dyn InferQueryGroup,
+    pub(super) db: &'a dyn TermInferDb,
     pub(super) arena: &'a RawExprArena,
     pub(super) file: FileItd,
-    entity_route_sheet: Arc<EntityRouteSheet>,
-    contract_sheet: Arc<ContractSheet>,
-    qualified_ty_sheet: Arc<QualifiedTySheet>,
+    term_sheet: Arc<TermSheet>,
 }
 
 impl<'a> LazyStmtParser<'a> {
-    pub(super) fn new(db: &'a dyn InferQueryGroup, arena: &'a RawExprArena, file: FileItd) -> Self {
+    pub(super) fn new(db: &'a dyn TermInferDb, arena: &'a RawExprArena, file: FileItd) -> Self {
         Self {
             db,
             arena,
             file,
-            entity_route_sheet: db.entity_route_sheet(file).unwrap(),
-            contract_sheet: db.contract_sheet(file).unwrap(),
-            qualified_ty_sheet: db.qualified_ty_sheet(file).unwrap(),
+            term_sheet: db.term_sheet(file).unwrap(),
         }
     }
 
@@ -38,115 +32,110 @@ impl<'a> LazyStmtParser<'a> {
         iter: AstIter,
         output_ty: RangedEntityRoute,
     ) -> SemanticResultArc<Vec<Arc<LazyStmt>>> {
-        let mut stmts = Vec::new();
-        let mut iter = iter.peekable();
-        while let Some(item) = iter.next() {
-            match item.value.as_ref().unwrap().variant {
-                AstVariant::Use { .. } => todo!(),
-                AstVariant::Stmt(ref stmt) => {
-                    let variant = match stmt.variant {
-                        RawStmtVariant::Loop(_) => panic!(),
-                        RawStmtVariant::IfElseBranch {
-                            condition_branch_kind,
-                        } => self.parse_condition_flow(
-                            not_none!(item.opt_children),
-                            &mut iter,
-                            condition_branch_kind,
-                            output_ty,
-                        )?,
-                        RawStmtVariant::MatchBranch { .. } => panic!(),
-                        RawStmtVariant::Exec { .. } => todo!(),
-                        RawStmtVariant::Init {
-                            varname,
-                            initial_value,
-                            init_kind: kind,
-                        } => {
-                            let initial_value = self.parse_lazy_expr(initial_value, None)?;
-                            if kind != InitKind::Decl {
-                                todo!()
-                            }
-                            LazyStmtVariant::Init {
-                                varname,
-                                value: initial_value,
-                            }
-                        }
-                        RawStmtVariant::Return {
-                            result,
-                            return_context,
-                        } => match self.arena[result].variant {
-                            RawExprVariant::Opn {
-                                opn_variant: RawOpnVariant::Suffix(RawSuffixOpr::Unveil),
-                                ref opds,
-                            } => {
-                                let result = self.parse_lazy_expr(opds.start, None)?;
-                                let implicit_conversion = ImplicitConversion::from_opt_expectation(
-                                    Some(
-                                        self.db.opt_ty(
-                                            self.db
-                                                .implement_target(return_context.return_ty())
-                                                .unwrap(),
-                                        ),
-                                    ),
-                                    &result.qualified_ty,
-                                );
-                                LazyStmtVariant::ReturnUnveil {
-                                    result,
-                                    implicit_conversion,
-                                    return_context: ReturnContext::from_raw(
-                                        self.db.upcast(),
-                                        return_context,
-                                    ),
-                                }
-                            }
-                            _ => LazyStmtVariant::Return {
-                                result: self.parse_lazy_expr(
-                                    result,
-                                    Some(
-                                        self.db
-                                            .implement_target(return_context.return_ty())
-                                            .unwrap(),
-                                    ),
-                                )?,
-                            },
-                        },
-                        RawStmtVariant::Assert(condition) => LazyStmtVariant::Assert {
-                            condition: self.parse_lazy_expr(
-                                condition,
-                                Some(RootBuiltinIdentifier::Bool.into()),
-                            )?,
-                        },
-                        RawStmtVariant::Require {
-                            condition,
-                            return_context,
-                        } => LazyStmtVariant::Require {
-                            condition: self.parse_lazy_expr(
-                                condition,
-                                Some(RootBuiltinIdentifier::Bool.into()),
-                            )?,
-                            return_context: ReturnContext::from_raw(
-                                self.db.upcast(),
-                                return_context,
-                            ),
-                        },
-                        RawStmtVariant::Break => todo!(),
-                        RawStmtVariant::Match { .. } => panic!(),
-                        RawStmtVariant::ReturnXml(ref raw_xml_expr) => LazyStmtVariant::ReturnXml {
-                            xml_expr: self.parse_xml_expr(raw_xml_expr)?,
-                        },
-                    };
-                    stmts.push(Arc::new(LazyStmt {
-                        file: self.file,
-                        range: stmt.range,
-                        indent: item.indent,
-                        variant,
-                        instruction_id: Default::default(),
-                        output_ty,
-                    }))
-                }
-                _ => panic!("Unexpected"),
-            }
-        }
-        Ok(Arc::new(stmts))
+        todo!()
+        // let mut stmts = Vec::new();
+        // let mut iter = iter.peekable();
+        // while let Some(item) = iter.next() {
+        //     match item.value.as_ref().unwrap().variant {
+        //         AstVariant::Use { .. } => todo!(),
+        //         AstVariant::Stmt(ref stmt) => {
+        //             let variant = match stmt.variant {
+        //                 RawStmtVariant::Loop(_) => panic!(),
+        //                 RawStmtVariant::IfElseBranch {
+        //                     condition_branch_kind,
+        //                 } => self.parse_condition_flow(
+        //                     not_none!(item.opt_children),
+        //                     &mut iter,
+        //                     condition_branch_kind,
+        //                     output_ty,
+        //                 )?,
+        //                 RawStmtVariant::MatchBranch { .. } => panic!(),
+        //                 RawStmtVariant::Exec { .. } => todo!(),
+        //                 RawStmtVariant::Init {
+        //                     varname,
+        //                     initial_value,
+        //                     init_kind: kind,
+        //                 } => {
+        //                     let initial_value = self.parse_lazy_expr(initial_value, None)?;
+        //                     if kind != InitKind::Decl {
+        //                         todo!()
+        //                     }
+        //                     LazyStmtVariant::Init {
+        //                         varname,
+        //                         value: initial_value,
+        //                     }
+        //                 }
+        //                 RawStmtVariant::Return {
+        //                     result,
+        //                     return_context,
+        //                 } => match self.arena[result].variant {
+        //                     RawExprVariant::Opn {
+        //                         opn_variant: RawOpnVariant::Suffix(RawSuffixOpr::Unveil),
+        //                         ref opds,
+        //                     } => {
+        //                         let result = self.parse_lazy_expr(opds.start, None)?;
+        //                         let implicit_conversion = ImplicitConversion::from_opt_expectation(
+        //                             Some(
+        //                                 self.db.opt_ty(
+        //                                     self.db
+        //                                         .implement_target(return_context.return_ty())
+        //                                         .unwrap(),
+        //                                 ),
+        //                             ),
+        //                             &result.qualified_ty,
+        //                         );
+        //                         LazyStmtVariant::ReturnUnveil {
+        //                             result,
+        //                             implicit_conversion,
+        //                             return_context: todo!(),
+        //                         }
+        //                     }
+        //                     _ => LazyStmtVariant::Return {
+        //                         result: self.parse_lazy_expr(
+        //                             result,
+        //                             Some(
+        //                                 self.db
+        //                                     .implement_target(return_context.return_ty())
+        //                                     .unwrap(),
+        //                             ),
+        //                         )?,
+        //                     },
+        //                 },
+        //                 RawStmtVariant::Assert(condition) => LazyStmtVariant::Assert {
+        //                     condition: self.parse_lazy_expr(
+        //                         condition,
+        //                         Some(RootBuiltinIdentifier::Bool.into()),
+        //                     )?,
+        //                 },
+        //                 RawStmtVariant::Require {
+        //                     condition,
+        //                     return_context,
+        //                 } => LazyStmtVariant::Require {
+        //                     condition: self.parse_lazy_expr(
+        //                         condition,
+        //                         Some(RootBuiltinIdentifier::Bool.into()),
+        //                     )?,
+        //                     return_context: todo!(),
+        //                 },
+        //                 RawStmtVariant::Break => todo!(),
+        //                 RawStmtVariant::Match { .. } => panic!(),
+        //                 RawStmtVariant::ReturnXml(ref raw_xml_expr) => LazyStmtVariant::ReturnXml {
+        //                     xml_expr: self.parse_xml_expr(raw_xml_expr)?,
+        //                 },
+        //             };
+        //             stmts.push(Arc::new(LazyStmt {
+        //                 file: self.file,
+        //                 range: stmt.range,
+        //                 indent: item.indent,
+        //                 variant,
+        //                 instruction_id: Default::default(),
+        //                 output_ty,
+        //             }))
+        //         }
+        //         _ => panic!("Unexpected"),
+        //     }
+        // }
+        // Ok(Arc::new(stmts))
     }
 
     fn parse_xml_expr(&mut self, raw_xml_expr: &RawXmlExpr) -> SemanticResultArc<XmlExpr> {
@@ -249,34 +238,12 @@ impl<'a> LazyStmtParser<'a> {
     }
 }
 
-impl<'a> InferEntityRoute for LazyStmtParser<'a> {
-    fn decl_db(&self) -> &dyn infer_decl::DeclQueryGroup {
-        self.db.upcast()
-    }
-
-    fn entity_route_sheet(&self) -> &EntityRouteSheet {
-        &self.entity_route_sheet
-    }
-}
-
-impl<'a> InferContract for LazyStmtParser<'a> {
-    fn contract_sheet(&self) -> &ContractSheet {
-        &self.contract_sheet
-    }
-}
-
-impl<'a> InferQualifiedTy for LazyStmtParser<'a> {
-    fn qualified_ty_sheet(&self) -> &husky_infer_qualified_ty::QualifiedTySheet {
-        &self.qualified_ty_sheet
-    }
-}
-
 impl<'a> LazyExprParser<'a> for LazyStmtParser<'a> {
     fn arena(&self) -> &'a RawExprArena {
         self.arena
     }
 
-    fn db(&self) -> &'a dyn InferQueryGroup {
+    fn db(&self) -> &'a dyn TermInferDb {
         self.db
     }
 

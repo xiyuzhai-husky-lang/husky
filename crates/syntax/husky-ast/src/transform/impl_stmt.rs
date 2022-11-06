@@ -5,7 +5,6 @@ use husky_atom::context::{Symbol, SymbolKind};
 use husky_init_syntax::InitKind;
 use husky_text::{TextRange, TextRanged};
 use husky_token::*;
-use husky_word::Paradigm;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_stmt_with_keyword(
@@ -258,154 +257,156 @@ impl<'a> AstTransformer<'a> {
     }
 
     fn parse_for_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
-        expect_block_head!(token_group);
-        let expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
-        let expr = &self.arena[expr];
-        match expr.variant {
-            RawExprVariant::Opn {
-                opn_variant: ref opr,
-                ref opds,
-            } => match opr {
-                RawOpnVariant::Binary(binary) => match binary {
-                    BinaryOpr::Assign(_) => todo!(),
-                    BinaryOpr::Pure(pure_binary) => {
-                        let lopd_idx = opds.start;
-                        let ropd_idx = opds.end - 1;
-                        let lopd = &self.arena[lopd_idx];
-                        let ropd = &self.arena[ropd_idx];
-                        let (frame_var, kind) = if let RawExprVariant::Unrecognized(frame_var) =
-                            lopd.variant
-                        {
-                            let frame_var = RangedCustomIdentifier {
-                                ident: frame_var,
-                                range: lopd.range,
-                            };
-                            (
-                                frame_var,
-                                RawLoopKind::for_loop_with_default_initial(
-                                    frame_var,
-                                    *pure_binary,
-                                    opds.end - 1,
-                                    expr.range(),
-                                )?
-                                .into(),
-                            )
-                        } else if let RawExprVariant::Unrecognized(frame_var) = ropd.variant {
-                            let frame_var = RangedCustomIdentifier {
-                                ident: frame_var,
-                                range: ropd.range,
-                            };
-                            (
-                                frame_var,
-                                RawLoopKind::for_loop_with_default_final(
-                                    opds.start,
-                                    *pure_binary,
-                                    frame_var,
-                                    expr.range(),
-                                )?
-                                .into(),
-                            )
-                        } else {
-                            let final_comparison = pure_binary;
-                            match lopd.variant {
-                                RawExprVariant::Opn {
-                                    ref opn_variant,
-                                    ref opds,
-                                } => {
-                                    let llopd_idx = opds.start;
-                                    let lropd_idx = opds.end - 1;
-                                    let lropd = &self.arena[lropd_idx];
-                                    let initial_comparison = match opn_variant {
-                                        RawOpnVariant::Binary(binary) => match binary {
-                                            BinaryOpr::Pure(pure_binary_opr) => pure_binary_opr,
-                                            BinaryOpr::Assign(_) => {
-                                                return err!(
-                                                    format!("expect comparison"),
-                                                    lopd.range
-                                                )
-                                            }
-                                            BinaryOpr::ScopeResolution => todo!(),
-                                            BinaryOpr::Curry => todo!(),
-                                            BinaryOpr::As => todo!(),
-                                        },
-                                        _ => return err!(format!("expect comparison"), lopd.range),
-                                    };
-                                    let frame_var = if let RawExprVariant::Unrecognized(frame_var) =
-                                        lropd.variant
-                                    {
-                                        RangedCustomIdentifier {
-                                            ident: frame_var,
-                                            range: lropd.range,
-                                        }
-                                    } else {
-                                        err!("expect unused", expr.range())?
-                                    };
-                                    (
-                                        frame_var,
-                                        RawLoopKind::for_loop(
-                                            llopd_idx,
-                                            *initial_comparison,
-                                            frame_var,
-                                            *final_comparison,
-                                            ropd_idx,
-                                        )?
-                                        .into(),
-                                    )
-                                }
-                                _ => err!("expect opn expr", expr.range())?,
-                            }
-                        };
-                        self.insert_abs_semantic_token(AbsSemanticToken::new(
-                            SemanticTokenKind::FrameVariable,
-                            frame_var.range,
-                        ));
-                        self.symbols.push(Symbol {
-                            init_ident: frame_var,
-                            kind: SymbolKind::FrameVariable {
-                                init_range: frame_var.range,
-                            },
-                        });
-                        Ok(kind)
-                    }
-                    BinaryOpr::ScopeResolution => todo!(),
-                    BinaryOpr::Curry => todo!(),
-                    BinaryOpr::As => todo!(),
-                },
-                RawOpnVariant::Prefix(_)
-                | RawOpnVariant::Suffix(_)
-                | RawOpnVariant::List(_)
-                | RawOpnVariant::Field(_) => {
-                    todo!()
-                }
-            },
-            _ => todo!(),
-        }
+        todo!()
+        // expect_block_head!(token_group);
+        // let expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
+        // let expr = &self.arena[expr];
+        // match expr.variant {
+        //     RawExprVariant::Opn {
+        //         opn_variant: ref opr,
+        //         ref opds,
+        //     } => match opr {
+        //         RawOpnVariant::Binary(binary) => match binary {
+        //             BinaryOpr::Assign(_) => todo!(),
+        //             BinaryOpr::Pure(pure_binary) => {
+        //                 let lopd_idx = opds.start;
+        //                 let ropd_idx = opds.end - 1;
+        //                 let lopd = &self.arena[lopd_idx];
+        //                 let ropd = &self.arena[ropd_idx];
+        //                 let (frame_var, kind) = if let RawExprVariant::Unrecognized(frame_var) =
+        //                     lopd.variant
+        //                 {
+        //                     let frame_var = RangedCustomIdentifier {
+        //                         ident: frame_var,
+        //                         range: lopd.range,
+        //                     };
+        //                     (
+        //                         frame_var,
+        //                         RawLoopKind::for_loop_with_default_initial(
+        //                             frame_var,
+        //                             *pure_binary,
+        //                             opds.end - 1,
+        //                             expr.range(),
+        //                         )?
+        //                         .into(),
+        //                     )
+        //                 } else if let RawExprVariant::Unrecognized(frame_var) = ropd.variant {
+        //                     let frame_var = RangedCustomIdentifier {
+        //                         ident: frame_var,
+        //                         range: ropd.range,
+        //                     };
+        //                     (
+        //                         frame_var,
+        //                         RawLoopKind::for_loop_with_default_final(
+        //                             opds.start,
+        //                             *pure_binary,
+        //                             frame_var,
+        //                             expr.range(),
+        //                         )?
+        //                         .into(),
+        //                     )
+        //                 } else {
+        //                     let final_comparison = pure_binary;
+        //                     match lopd.variant {
+        //                         RawExprVariant::Opn {
+        //                             ref opn_variant,
+        //                             ref opds,
+        //                         } => {
+        //                             let llopd_idx = opds.start;
+        //                             let lropd_idx = opds.end - 1;
+        //                             let lropd = &self.arena[lropd_idx];
+        //                             let initial_comparison = match opn_variant {
+        //                                 RawOpnVariant::Binary(binary) => match binary {
+        //                                     BinaryOpr::Pure(pure_binary_opr) => pure_binary_opr,
+        //                                     BinaryOpr::Assign(_) => {
+        //                                         return err!(
+        //                                             format!("expect comparison"),
+        //                                             lopd.range
+        //                                         )
+        //                                     }
+        //                                     BinaryOpr::ScopeResolution => todo!(),
+        //                                     BinaryOpr::Curry => todo!(),
+        //                                     BinaryOpr::As => todo!(),
+        //                                 },
+        //                                 _ => return err!(format!("expect comparison"), lopd.range),
+        //                             };
+        //                             let frame_var = if let RawExprVariant::Unrecognized(frame_var) =
+        //                                 lropd.variant
+        //                             {
+        //                                 RangedCustomIdentifier {
+        //                                     ident: frame_var,
+        //                                     range: lropd.range,
+        //                                 }
+        //                             } else {
+        //                                 err!("expect unused", expr.range())?
+        //                             };
+        //                             (
+        //                                 frame_var,
+        //                                 RawLoopKind::for_loop(
+        //                                     llopd_idx,
+        //                                     *initial_comparison,
+        //                                     frame_var,
+        //                                     *final_comparison,
+        //                                     ropd_idx,
+        //                                 )?
+        //                                 .into(),
+        //                             )
+        //                         }
+        //                         _ => err!("expect opn expr", expr.range())?,
+        //                     }
+        //                 };
+        //                 self.insert_abs_semantic_token(AbsSemanticToken::new(
+        //                     SemanticTokenKind::FrameVariable,
+        //                     frame_var.range,
+        //                 ));
+        //                 self.symbols.push(Symbol {
+        //                     init_ident: frame_var,
+        //                     kind: SymbolKind::FrameVariable {
+        //                         init_range: frame_var.range,
+        //                     },
+        //                 });
+        //                 Ok(kind)
+        //             }
+        //             BinaryOpr::ScopeResolution => todo!(),
+        //             BinaryOpr::Curry => todo!(),
+        //             BinaryOpr::As => todo!(),
+        //         },
+        //         RawOpnVariant::Prefix(_)
+        //         | RawOpnVariant::Suffix(_)
+        //         | RawOpnVariant::List(_)
+        //         | RawOpnVariant::Field(_) => {
+        //             todo!()
+        //         }
+        //     },
+        //     _ => todo!(),
+        // }
     }
 
     fn parse_forext_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
-        expect_block_head!(token_group);
-        let idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
-        let expr = &self.arena[idx];
-        Ok(match expr.variant {
-            RawExprVariant::Opn {
-                opn_variant: RawOpnVariant::Binary(BinaryOpr::Pure(comparison)),
-                ref opds,
-            } => {
-                let lopd_idx = opds.start;
-                let ropd_idx = opds.end - 1;
-                let lopd = &self.arena[lopd_idx];
-                let frame_var = RangedCustomIdentifier {
-                    ident: match lopd.variant {
-                        RawExprVariant::Variable { varname, .. } => varname,
-                        _ => err!(format!("expect variable"), expr.range)?,
-                    },
-                    range: lopd.range,
-                };
-                RawLoopKind::forext_loop(frame_var, comparison, ropd_idx, token_group.text_range())?
-                    .into()
-            }
-            _ => todo!(),
-        })
+        todo!()
+        // expect_block_head!(token_group);
+        // let idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
+        // let expr = &self.arena[idx];
+        // Ok(match expr.variant {
+        //     RawExprVariant::Opn {
+        //         opn_variant: RawOpnVariant::Binary(BinaryOpr::Pure(comparison)),
+        //         ref opds,
+        //     } => {
+        //         let lopd_idx = opds.start;
+        //         let ropd_idx = opds.end - 1;
+        //         let lopd = &self.arena[lopd_idx];
+        //         let frame_var = RangedCustomIdentifier {
+        //             ident: match lopd.variant {
+        //                 RawExprVariant::Variable { varname, .. } => varname,
+        //                 _ => err!(format!("expect variable"), expr.range)?,
+        //             },
+        //             range: lopd.range,
+        //         };
+        //         RawLoopKind::forext_loop(frame_var, comparison, ropd_idx, token_group.text_range())?
+        //             .into()
+        //     }
+        //     _ => todo!(),
+        // })
     }
 
     fn parse_while_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {

@@ -4,6 +4,8 @@ mod parse;
 mod pattern_branch;
 
 pub use condition_branch::*;
+use husky_expr_syntax::RawExprArena;
+use husky_term_infer::TermInferDb;
 pub use loop_kind::*;
 pub use pattern_branch::*;
 
@@ -75,7 +77,7 @@ pub enum ProcStmtVariant {
 }
 
 pub fn parse_proc_stmts(
-    db: &dyn InferQueryGroup,
+    db: &dyn TermInferDb,
     arena: &RawExprArena,
     iter: AstIter,
     file: FileItd,

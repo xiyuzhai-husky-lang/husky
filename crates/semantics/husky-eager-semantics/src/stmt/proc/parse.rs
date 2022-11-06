@@ -1,6 +1,9 @@
 use std::iter::Peekable;
 
+use husky_entity_path::InternEntityPath;
+use husky_expr_syntax::RawExprIdx;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
+use husky_word::InternWord;
 
 use super::{parser::EagerParser, *};
 use crate::*;
@@ -269,41 +272,42 @@ impl<'a> EagerParser<'a> {
         match_expr: RawExprIdx,
         match_contract: MatchLiason,
     ) -> SemanticResult<ProcStmtVariant> {
-        let match_expr = self.parse_eager_expr(match_expr, None)?;
-        Ok(ProcStmtVariant::Match {
-            branches: children
-                .map(|item| {
-                    let value = item.value.as_ref().unwrap();
-                    match value.variant {
-                        AstVariant::Stmt(RawStmt {
-                            variant:
-                                RawStmtVariant::MatchBranch {
-                                    ref pattern_branch_variant,
-                                },
-                            range,
-                        }) => Ok(Arc::new(match pattern_branch_variant {
-                            RawPatternBranchVariant::Case { pattern } => ProcStmtPatternBranch {
-                                variant: ProcStmtPatternBranchVariant::Case {
-                                    pattern: self
-                                        .parse_proc_pattern(pattern, match_expr.intrinsic_ty())?,
-                                },
-                                stmts: self.parse_proc_stmts(item.opt_children.clone().unwrap())?,
-                                range,
-                                file: self.file,
-                            },
-                            RawPatternBranchVariant::Default => ProcStmtPatternBranch {
-                                variant: ProcStmtPatternBranchVariant::Default,
-                                stmts: self.parse_proc_stmts(item.opt_children.clone().unwrap())?,
-                                range,
-                                file: self.file,
-                            },
-                        })),
-                        _ => panic!(),
-                    }
-                })
-                .collect::<SemanticResult<Vec<_>>>()?,
-            match_expr,
-        })
+        todo!()
+        // let match_expr = self.parse_eager_expr(match_expr, None)?;
+        // Ok(ProcStmtVariant::Match {
+        //     branches: children
+        //         .map(|item| {
+        //             let value = item.value.as_ref().unwrap();
+        //             match value.variant {
+        //                 AstVariant::Stmt(RawStmt {
+        //                     variant:
+        //                         RawStmtVariant::MatchBranch {
+        //                             ref pattern_branch_variant,
+        //                         },
+        //                     range,
+        //                 }) => Ok(Arc::new(match pattern_branch_variant {
+        //                     RawPatternBranchVariant::Case { pattern } => ProcStmtPatternBranch {
+        //                         variant: ProcStmtPatternBranchVariant::Case {
+        //                             pattern: self
+        //                                 .parse_proc_pattern(pattern, match_expr.intrinsic_ty())?,
+        //                         },
+        //                         stmts: self.parse_proc_stmts(item.opt_children.clone().unwrap())?,
+        //                         range,
+        //                         file: self.file,
+        //                     },
+        //                     RawPatternBranchVariant::Default => ProcStmtPatternBranch {
+        //                         variant: ProcStmtPatternBranchVariant::Default,
+        //                         stmts: self.parse_proc_stmts(item.opt_children.clone().unwrap())?,
+        //                         range,
+        //                         file: self.file,
+        //                     },
+        //                 })),
+        //                 _ => panic!(),
+        //             }
+        //         })
+        //         .collect::<SemanticResult<Vec<_>>>()?,
+        //     match_expr,
+        // })
     }
 
     fn parse_proc_pattern(
@@ -326,5 +330,19 @@ impl<'a> EagerParser<'a> {
             RawPatternVariant::None => todo!(),
         };
         Ok(ProcStmtPattern { ty, variant })
+    }
+}
+
+impl<'a> ParseEagerExpr<'a> for EagerParser<'a> {
+    fn arena(&self) -> &'a RawExprArena {
+        todo!()
+    }
+
+    fn file(&self) -> FileItd {
+        todo!()
+    }
+
+    fn target_entrance(&self) -> FileItd {
+        todo!()
     }
 }

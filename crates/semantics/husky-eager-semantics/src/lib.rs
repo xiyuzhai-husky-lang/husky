@@ -12,5 +12,4 @@ use husky_opn_semantics::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
 use husky_semantics_error::*;
-use infer_total::InferQueryGroup;
 use std::sync::Arc;

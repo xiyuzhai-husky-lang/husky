@@ -6,7 +6,7 @@ use husky_pattern_syntax::RawPattern;
 pub use loop_kind::{RawBoundary, RawLoopKind};
 pub use match_stmt::*;
 
-use crate::{expr::RawExprIdx, *};
+use crate::*;
 use husky_text::{TextRange, TextRanged};
 
 #[derive(Debug, PartialEq, Eq, Clone)]

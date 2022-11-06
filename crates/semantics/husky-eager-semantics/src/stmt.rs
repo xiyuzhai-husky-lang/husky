@@ -6,7 +6,7 @@ pub use func::*;
 pub(crate) use parser::*;
 pub use proc::*;
 
-use crate::expr::EagerExprParser;
+use crate::expr::ParseEagerExpr;
 use crate::*;
 use husky_ast::*;
 use husky_entity_route::EntityRoutePtr;
