@@ -9,7 +9,7 @@ use husky_term::TermItd;
 use wild_utils::arb_ref;
 
 impl<'a> InferContext<'a> {
-    pub(crate) fn term_result<'b>(&'b mut self) -> Result<TermItd, &'b InferError> {
+    pub(crate) fn term_result<'b>(&'b mut self) -> Result<TermItd, &'b TermInferError> {
         match unsafe { arb_ref(self) }.cached_term_result() {
             Some(term_result) => match term_result {
                 Ok(t) => Ok(*t),
@@ -26,7 +26,7 @@ impl<'a> InferContext<'a> {
         }
     }
 
-    fn infer_term(&mut self) -> InferResult<TermItd> {
+    fn infer_term(&mut self) -> TermInferResult<TermItd> {
         let expr = self.expr();
         match expr.variant {
             RawExprVariant::Atom(ref atom) => match atom {
@@ -36,7 +36,8 @@ impl<'a> InferContext<'a> {
                     SymbolKind::LocalVariable { init_range } => todo!(),
                     SymbolKind::FrameVariable { init_range } => todo!(),
                     SymbolKind::Unrecognized => Err(
-                        DerivedInferError::InferTermUnrecogizedSymbol { symbol: *symbol }.into(),
+                        DerivedTermInferError::InferTermUnrecogizedSymbol { symbol: *symbol }
+                            .into(),
                     ),
                     SymbolKind::ThisValue => todo!(),
                     SymbolKind::ThisMethod => todo!(),

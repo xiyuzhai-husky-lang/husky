@@ -2,14 +2,12 @@ mod opn;
 mod parser;
 
 use crate::*;
-use husky_ast::{RawExprArena, RawExprIdx};
+use husky_expr_syntax::*;
 use husky_file::FileItd;
-use husky_infer_qualified_ty::EagerExprQualifiedTy;
 use husky_primitive_literal_syntax::RawLiteralData;
-use infer_contract::EagerContract;
-use infer_total::InferQueryGroup;
+use husky_term_infer::TermInferDb;
 pub use opn::*;
-pub(crate) use parser::EagerExprParser;
+pub(crate) use parser::ParseEagerExpr;
 use std::sync::Arc;
 
 use husky_entity_route::EntityRoutePtr;
@@ -22,9 +20,8 @@ use husky_word::CustomIdentifier;
 pub struct EagerExpr {
     pub file: FileItd,
     pub range: TextRange,
-    pub qualified_ty: EagerExprQualifiedTy,
+    pub qualified_ty: (),
     pub implicit_conversion: ImplicitConversion,
-    pub contract: EagerContract,
     pub variant: EagerExprVariant,
     pub instruction_id: InstructionId,
 }
@@ -43,7 +40,8 @@ impl std::fmt::Debug for EagerExpr {
 
 impl EagerExpr {
     pub fn intrinsic_ty(&self) -> EntityRoutePtr {
-        self.qualified_ty.intrinsic_ty()
+        todo!()
+        // self.qualified_ty.intrinsic_ty()
     }
 }
 
@@ -145,10 +143,11 @@ impl std::fmt::Debug for EagerExprVariant {
 }
 
 pub fn parse_eager_expr(
-    db: &dyn InferQueryGroup,
+    db: &dyn TermInferDb,
     arena: &RawExprArena,
     file: FileItd,
     raw_expr_idx: RawExprIdx,
 ) -> SemanticResultArc<EagerExpr> {
-    EagerParser::new(db, arena, file).parse_eager_expr(raw_expr_idx, None)
+    todo!()
+    // EagerParser::new(db, arena, file).parse_eager_expr(raw_expr_idx, None)
 }

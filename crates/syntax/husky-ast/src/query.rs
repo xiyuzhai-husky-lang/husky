@@ -124,7 +124,7 @@ impl AstText {
 impl ArenaKeyQuery<RawExpr> for AstText {
     fn write_key(&self, config: HuskyDisplayConfig, raw_expr_idx: RawExprIdx, result: &mut String) {
         let expr = &self.arena[raw_expr_idx];
-        let range = expr.range();
+        let range = expr.text_range();
         if config.colored {
             result.push_str(husky_print_utils::GREEN);
         }

@@ -1,7 +1,7 @@
 use husky_entity_route::EntityRoutePtr;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_primitive_literal_syntax::RawLiteralData;
-use infer_total::InferQueryGroup;
+use husky_term_infer::TermInferDb;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct PurePattern {
@@ -19,7 +19,7 @@ pub enum PurePatternVariant {
 }
 
 impl PurePattern {
-    pub fn from_raw(db: &dyn InferQueryGroup, raw_patt: &RawPattern, ty: EntityRoutePtr) -> Self {
+    pub fn from_raw(db: &dyn TermInferDb, raw_patt: &RawPattern, ty: EntityRoutePtr) -> Self {
         let variant = match raw_patt.variant {
             RawPatternVariant::PrimitiveLiteral(data) => PurePatternVariant::PrimitiveLiteral(data),
             RawPatternVariant::OneOf { ref subpatterns } => PurePatternVariant::OneOf {

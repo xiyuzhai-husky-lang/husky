@@ -5,13 +5,11 @@ mod xml;
 use husky_opn_semantics::ImplicitConversion;
 use husky_pattern_semantics::PurePattern;
 use husky_primitive_literal_syntax::RawLiteralData;
-use infer_contract::LazyContract;
 pub use xml::*;
 
 use std::sync::Arc;
 
 use husky_file::FileItd;
-use husky_infer_qualified_ty::LazyExprQualifiedTy;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
@@ -24,8 +22,7 @@ use husky_word::CustomIdentifier;
 pub struct LazyExpr {
     pub file: FileItd,
     pub range: TextRange,
-    pub qualified_ty: LazyExprQualifiedTy,
-    pub contract: LazyContract,
+    pub qualified_ty: (),
     pub variant: LazyExprVariant,
     pub instruction_id: InstructionId,
     pub implicit_conversion: ImplicitConversion,
@@ -45,7 +42,8 @@ impl FileRanged for LazyExpr {
 
 impl LazyExpr {
     pub fn intrinsic_ty(&self) -> EntityRoutePtr {
-        self.qualified_ty.intrinsic_ty()
+        todo!()
+        // self.qualified_ty.intrinsic_ty()
     }
 }
 

@@ -1,22 +1,22 @@
 use husky_entity_route::EntityRoutePtr;
-use infer_decl::DeclQueryGroup;
 
 #[salsa::query_group(HuskyLayoutQueryGroupStorage)]
-pub trait HuskyLayoutQueryGroup: DeclQueryGroup {
+pub trait HuskyLayoutQueryGroup {
     fn reg_memory_kind(&self, ty: EntityRoutePtr) -> RegMemoryKind;
 }
 
 fn reg_memory_kind(db: &dyn HuskyLayoutQueryGroup, ty: EntityRoutePtr) -> RegMemoryKind {
-    let ty = ty.intrinsic();
-    if ty.is_primitive() {
-        RegMemoryKind::Direct
-    } else {
-        if db.is_copyable(ty).unwrap() {
-            RegMemoryKind::BoxCopyable
-        } else {
-            RegMemoryKind::BoxNonCopyable
-        }
-    }
+    todo!()
+    // let ty = ty.intrinsic();
+    // if ty.is_primitive() {
+    //     RegMemoryKind::Direct
+    // } else {
+    //     if db.is_copyable(ty).unwrap() {
+    //         RegMemoryKind::BoxCopyable
+    //     } else {
+    //         RegMemoryKind::BoxNonCopyable
+    //     }
+    // }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

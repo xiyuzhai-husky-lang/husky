@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::RawExprVariant;
+use husky_expr_syntax::*;
 use husky_print_utils::ep;
 use husky_term_infer::TermInferDb;
 use husky_text::{FilePosition, FileRange, RangeInfo, TextRanged};
@@ -10,7 +10,7 @@ pub trait HoverDb: TermInferDb {
     fn opt_hover_result(&self, frange: FileRange) -> Option<HoverResult> {
         let entity_route_sheet = self.term_sheet(frange.file()).expect("todo");
         let (idx, expr) = entity_route_sheet
-            .ast_text
+            .ast_text()
             .find_first_expr_with_end_after(frange.text_start())?;
         Some(HoverResult {
             hover: lsp_types::Hover {
