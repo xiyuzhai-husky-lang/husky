@@ -15,29 +15,30 @@ impl<'a> RustCodeGenerator<'a> {
     }
 
     fn gen_type_call_linkage(&mut self, entity_route: EntityRoutePtr) {
-        self.write("\n    (\n");
-        self.write(&format!(
-            r#"        __StaticLinkageKey::TypeCall {{
-            ty: "{}"
-        }},
-"#,
-            entity_route
-        ));
-        let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
-        self.gen_transfer_linkage(
-            false, // ad hoc
-            None,
-            |this| {
-                this.gen_entity_route(entity_route, EntityRouteRole::Caller);
-                this.write("::__call__")
-            },
-            |this| {
-                this.gen_entity_route(entity_route, EntityRouteRole::StaticCallRoute);
-                this.write("::__call__")
-            },
-            &call_form_decl,
-        );
-        self.write("\n    ),");
+        todo!()
+        //         self.write("\n    (\n");
+        //         self.write(&format!(
+        //             r#"        __StaticLinkageKey::TypeCall {{
+        //             ty: "{}"
+        //         }},
+        // "#,
+        //             entity_route
+        //         ));
+        //         let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
+        //         self.gen_transfer_linkage(
+        //             false, // ad hoc
+        //             None,
+        //             |this| {
+        //                 this.gen_entity_route(entity_route, EntityRouteRole::Caller);
+        //                 this.write("::__call__")
+        //             },
+        //             |this| {
+        //                 this.gen_entity_route(entity_route, EntityRouteRole::StaticCallRoute);
+        //                 this.write("::__call__")
+        //             },
+        //             &call_form_decl,
+        //         );
+        //         self.write("\n    ),");
     }
 
     fn gen_member_access_linkages(

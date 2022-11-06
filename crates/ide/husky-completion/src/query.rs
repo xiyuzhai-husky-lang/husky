@@ -8,7 +8,7 @@ use lsp_types::{
     CompletionItem, CompletionItemKind, CompletionItemLabelDetails, CompletionResponse,
 };
 
-pub trait HuskyCompletionQuery: TermInferDb {
+pub trait HuskyCompletionQuery {
     fn completion(
         &self,
         fpos: FilePosition,

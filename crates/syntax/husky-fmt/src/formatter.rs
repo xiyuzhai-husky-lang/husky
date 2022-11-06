@@ -16,7 +16,7 @@ use husky_word::{Paradigm, RootBuiltinIdentifier};
 
 pub struct Formatter<'a> {
     db: &'a dyn EntitySyntaxQueryGroup,
-    arena: &'a husky_ast::RawExprArena,
+    arena: &'a RawExprArena,
     indent: fold::Indent,
     result: String,
     context: LocalValue<AstContext>,
@@ -25,7 +25,7 @@ pub struct Formatter<'a> {
 impl<'a> Formatter<'a> {
     pub(crate) fn new(
         db: &'a dyn EntitySyntaxQueryGroup,
-        arena: &'a husky_ast::RawExprArena,
+        arena: &'a RawExprArena,
         context: AstContext,
     ) -> Self {
         Self {
@@ -288,72 +288,72 @@ impl<'a> Formatter<'a> {
     }
 
     fn fmt_expr(&mut self, expr: &RawExpr) {
-        match expr.variant {
-            RawExprVariant::Variable { varname, .. } => self.write(&varname),
-            RawExprVariant::Unrecognized(varname) => self.write(&varname),
-            RawExprVariant::PrimitiveLiteral(literal) => match literal {
-                RawLiteralData::Integer(i) => self.write(&i.to_string()),
-                RawLiteralData::I32(i) => self.write(&i.to_string()),
-                RawLiteralData::Float(f) => self.write(&f.to_string()),
-                RawLiteralData::F32(f) => self.write(&f.to_string()),
-                RawLiteralData::Void => todo!(),
-                RawLiteralData::I64(_) => todo!(),
-                RawLiteralData::F64(_) => todo!(),
-                RawLiteralData::Bits(_) => todo!(),
-                RawLiteralData::B32(_) => todo!(),
-                RawLiteralData::B64(_) => todo!(),
-                RawLiteralData::Bool(_) => todo!(),
-            },
-            RawExprVariant::Bracketed(raw_expr_idx) => {
-                self.write("(");
-                self.fmt_expr(&self.arena[raw_expr_idx]);
-                self.write(")");
-            }
-            RawExprVariant::Opn {
-                opn_variant: ref opr,
-                ref opds,
-            } => match opr {
-                RawOpnVariant::Binary(opr) => {
-                    let opds = &self.arena[opds];
-                    self.fmt_expr(&opds[0]);
-                    self.write(opr.spaced_code());
-                    self.fmt_expr(&opds[1]);
-                }
-                RawOpnVariant::Prefix(_) => todo!(),
-                RawOpnVariant::Suffix(_) => todo!(),
-                RawOpnVariant::List(opr) => match opr {
-                    ListOpr::NewTuple => todo!(),
-                    ListOpr::NewVec => todo!(),
-                    ListOpr::NewDict => todo!(),
-                    ListOpr::FunctionCall => todo!(),
-                    ListOpr::Index => todo!(),
-                    ListOpr::ModuloIndex => todo!(),
-                    ListOpr::StructInit => todo!(),
-                    ListOpr::MethodCall { .. } => todo!(),
-                },
-                RawOpnVariant::Field(_) => todo!(),
-            },
-            RawExprVariant::Entity { .. } => todo!(),
-            RawExprVariant::Lambda(ref inputs, expr) => {
-                self.write("|");
-                self.join(
-                    inputs,
-                    |this, (ident, ty)| {
-                        this.fmt_ident((*ident).ident.into());
-                        if let Some(ty) = ty {
-                            this.write(": ");
-                            this.fmt_ty(ty.route)
-                        }
-                    },
-                    ", ",
-                );
-                self.write("| ");
-                self.fmt_expr(&self.arena[expr])
-            }
-            RawExprVariant::ThisValue { .. } => todo!(),
-            RawExprVariant::FrameVariable { .. } => todo!(),
-            RawExprVariant::ThisField { .. } => todo!(),
-        }
+        // match expr.variant {
+        //     RawExprVariant::Variable { varname, .. } => self.write(&varname),
+        //     RawExprVariant::Unrecognized(varname) => self.write(&varname),
+        //     RawExprVariant::PrimitiveLiteral(literal) => match literal {
+        //         RawLiteralData::Integer(i) => self.write(&i.to_string()),
+        //         RawLiteralData::I32(i) => self.write(&i.to_string()),
+        //         RawLiteralData::Float(f) => self.write(&f.to_string()),
+        //         RawLiteralData::F32(f) => self.write(&f.to_string()),
+        //         RawLiteralData::Void => todo!(),
+        //         RawLiteralData::I64(_) => todo!(),
+        //         RawLiteralData::F64(_) => todo!(),
+        //         RawLiteralData::Bits(_) => todo!(),
+        //         RawLiteralData::B32(_) => todo!(),
+        //         RawLiteralData::B64(_) => todo!(),
+        //         RawLiteralData::Bool(_) => todo!(),
+        //     },
+        //     RawExprVariant::Bracketed(raw_expr_idx) => {
+        //         self.write("(");
+        //         self.fmt_expr(&self.arena[raw_expr_idx]);
+        //         self.write(")");
+        //     }
+        //     RawExprVariant::Opn {
+        //         opn_variant: ref opr,
+        //         ref opds,
+        //     } => match opr {
+        //         RawOpnVariant::Binary(opr) => {
+        //             let opds = &self.arena[opds];
+        //             self.fmt_expr(&opds[0]);
+        //             self.write(opr.spaced_code());
+        //             self.fmt_expr(&opds[1]);
+        //         }
+        //         RawOpnVariant::Prefix(_) => todo!(),
+        //         RawOpnVariant::Suffix(_) => todo!(),
+        //         RawOpnVariant::List(opr) => match opr {
+        //             ListOpr::NewTuple => todo!(),
+        //             ListOpr::NewVec => todo!(),
+        //             ListOpr::NewDict => todo!(),
+        //             ListOpr::FunctionCall => todo!(),
+        //             ListOpr::Index => todo!(),
+        //             ListOpr::ModuloIndex => todo!(),
+        //             ListOpr::StructInit => todo!(),
+        //             ListOpr::MethodCall { .. } => todo!(),
+        //         },
+        //         RawOpnVariant::Field(_) => todo!(),
+        //     },
+        //     RawExprVariant::Entity { .. } => todo!(),
+        //     RawExprVariant::Lambda(ref inputs, expr) => {
+        //         self.write("|");
+        //         self.join(
+        //             inputs,
+        //             |this, (ident, ty)| {
+        //                 this.fmt_ident((*ident).ident.into());
+        //                 if let Some(ty) = ty {
+        //                     this.write(": ");
+        //                     this.fmt_ty(ty.route)
+        //                 }
+        //             },
+        //             ", ",
+        //         );
+        //         self.write("| ");
+        //         self.fmt_expr(&self.arena[expr])
+        //     }
+        //     RawExprVariant::ThisValue { .. } => todo!(),
+        //     RawExprVariant::FrameVariable { .. } => todo!(),
+        //     RawExprVariant::ThisField { .. } => todo!(),
+        // }
     }
 
     fn join<T>(&mut self, items: &[T], f: fn(&mut Self, item: &T), separator: &'static str) {

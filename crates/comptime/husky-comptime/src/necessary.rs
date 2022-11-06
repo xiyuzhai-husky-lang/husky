@@ -2,7 +2,6 @@ use crate::*;
 use husky_entity_semantics::{EntityRouteStore, StoreEntityRoute};
 use husky_linkage_table::{LinkageTable, ResolveLinkage};
 use husky_static_defn::ResolveStaticRootDefn;
-use infer_total::InferQueryGroup;
 use upcast::Upcast;
 
 impl fmt::Debug for HuskyComptime {
@@ -71,12 +70,6 @@ impl EntitySyntaxQueryGroup for HuskyComptime {}
 
 impl AstQueryGroup for HuskyComptime {}
 
-impl Upcast<dyn InferQueryGroup> for HuskyComptime {
-    fn upcast(&self) -> &(dyn infer_total::InferQueryGroup + 'static) {
-        self
-    }
-}
-
 impl Upcast<dyn husky_entity_semantics::EntityDefnQueryGroup> for HuskyComptime {
     fn upcast(&self) -> &(dyn husky_entity_semantics::EntityDefnQueryGroup + 'static) {
         self
@@ -94,16 +87,6 @@ impl Upcast<dyn husky_entity_syntax::EntitySyntaxQueryGroup> for HuskyComptime {
         self
     }
 }
-
-impl Upcast<dyn DeclQueryGroup> for HuskyComptime {
-    fn upcast(&self) -> &(dyn DeclQueryGroup + 'static) {
-        self
-    }
-}
-
-impl infer_contract::InferContractQueryGroup for HuskyComptime {}
-
-impl infer_total::InferQueryGroup for HuskyComptime {}
 
 impl ResolveLinkage for HuskyComptime {
     fn linkage_table(&self) -> &LinkageTable {

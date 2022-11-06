@@ -72,10 +72,11 @@ fn collect_module_infer_ty_errors(
     file: FileItd,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
-    let ty_sheet = db.entity_route_sheet(file).unwrap();
-    for error in ty_sheet.original_errors() {
-        diagnostics.push(error.into());
-    }
+    todo!()
+    // let ty_sheet = db.entity_route_sheet(file).unwrap();
+    // for error in ty_sheet.original_errors() {
+    //     diagnostics.push(error.into());
+    // }
 }
 
 fn collect_module_infer_contract_errors(
@@ -83,10 +84,11 @@ fn collect_module_infer_contract_errors(
     file: FileItd,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
-    let contract_sheet = db.contract_sheet(file).unwrap();
-    for error in contract_sheet.errors() {
-        diagnostics.push(error.into());
-    }
+    todo!()
+    // let contract_sheet = db.contract_sheet(file).unwrap();
+    // for error in contract_sheet.errors() {
+    //     diagnostics.push(error.into());
+    // }
 }
 
 fn collect_module_infer_qualified_ty_errors(
@@ -94,8 +96,9 @@ fn collect_module_infer_qualified_ty_errors(
     file: FileItd,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
-    let qualified_ty_sheet = db.qualified_ty_sheet(file).unwrap();
-    for error in qualified_ty_sheet.original_errors() {
-        diagnostics.push(error.into());
-    }
+    todo!()
+    // let qualified_ty_sheet = db.qualified_ty_sheet(file).unwrap();
+    // for error in qualified_ty_sheet.original_errors() {
+    //     diagnostics.push(error.into());
+    // }
 }

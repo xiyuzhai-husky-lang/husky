@@ -17,7 +17,6 @@ use husky_opn_syntax::*;
 use husky_print_utils::*;
 use husky_vm::InstructionSheet;
 use husky_word::*;
-use infer_decl::DeclQueryGroup;
 use std::sync::Arc;
 
 pub fn new_visual_instruction_sheet(

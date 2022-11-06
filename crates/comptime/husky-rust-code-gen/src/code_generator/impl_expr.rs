@@ -3,12 +3,10 @@ use fold::Indent;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use husky_entity_kind::FieldKind;
 use husky_entity_semantics::FieldDefnVariant;
-use husky_infer_qualified_ty::EagerExprQualifier;
 use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_vm_binding::Binding;
 use husky_word::RootBuiltinIdentifier;
-use infer_decl::{CallFormDecl, VariadicParametersDecl};
 
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_expr(&mut self, indent: Indent, expr: &EagerExpr) {
@@ -99,23 +97,21 @@ impl<'a> RustCodeGenerator<'a> {
                     self.gen_suffix_opr(opr)
                 }
                 EagerOpnVariant::RoutineCall(routine) => {
-                    self.gen_entity_route(routine.route, EntityRouteRole::Caller);
-                    self.write("(");
-                    self.gen_arguments(indent, opds);
-                    if self.db.needs_eval_context(routine.route) {
-                        if opds.len() > 0 {
-                            self.write(", ")
-                        }
-                        self.write("__ctx")
-                    }
-                    self.write(")");
+                    todo!()
+                    // self.gen_entity_route(routine.route, EntityRouteRole::Caller);
+                    // self.write("(");
+                    // self.gen_arguments(indent, opds);
+                    // if self.db.needs_eval_context(routine.route) {
+                    //     if opds.len() > 0 {
+                    //         self.write(", ")
+                    //     }
+                    //     self.write("__ctx")
+                    // }
+                    // self.write(")");
                 }
-                EagerOpnVariant::TypeCall {
-                    ranged_ty,
-                    ref ty_decl,
-                    ..
-                } => {
-                    self.gen_type_call_opn(indent, ranged_ty.route, opds, ty_decl);
+                EagerOpnVariant::TypeCall { .. } => {
+                    todo!()
+                    // self.gen_type_call_opn(indent, ranged_ty.route, opds, ty_decl);
                 }
                 EagerOpnVariant::Field {
                     field_ident,
@@ -140,62 +136,63 @@ impl<'a> RustCodeGenerator<'a> {
                     output_binding,
                     ..
                 } => {
-                    let call_form_decl = self.db.entity_call_form_decl(*method_route).unwrap();
-                    match call_form_decl.output.liason() {
-                        OutputModifier::Transfer => {
-                            self.gen_expr(indent, &opds[0]);
-                            self.write(".");
-                            self.write(&method_ident.ident);
-                            // ad hoc
-                            if method_ident.ident.as_str() == "pop_with_largest_opt_f32" {
-                                let elem_ty = method_route.parent().entity_route_argument(0);
-                                if self.db.is_copyable(elem_ty).unwrap() {
-                                    self.write("_copyable")
-                                } else {
-                                    self.write("_borrow")
-                                }
-                            }
-                            self.write("(");
-                            self.gen_arguments(indent, &opds[1..]);
-                            if self.db.needs_eval_context(*method_route) {
-                                if opds.len() > 1 {
-                                    self.write(", ")
-                                }
-                                self.write("__ctx")
-                            }
-                            self.write(")");
-                        }
-                        OutputModifier::MemberAccess { .. } => match output_binding {
-                            Binding::EvalRef | Binding::TempRef => {
-                                self.gen_expr(indent, &opds[0]);
-                                self.write(".");
-                                self.write(&method_ident.ident);
-                                self.write("(");
-                                self.gen_arguments(indent, &opds[1..]);
-                                self.write(")");
-                            }
-                            Binding::Copy => {
-                                self.write("*");
-                                self.gen_expr(indent, &opds[0]);
-                                self.write(".");
-                                self.write(&method_ident.ident);
-                                self.write("(");
-                                self.gen_arguments(indent, &opds[1..]);
-                                self.write(")");
-                            }
-                            Binding::TempMut => {
-                                self.gen_expr(indent, &opds[0]);
-                                self.write(".");
-                                self.write(&method_ident.ident);
-                                self.write("_mut");
-                                self.write("(");
-                                self.gen_arguments(indent, &opds[1..]);
-                                self.write(")");
-                            }
-                            Binding::Move => todo!(),
-                            Binding::DerefCopy => todo!(),
-                        },
-                    }
+                    todo!()
+                    // let call_form_decl = self.db.entity_call_form_decl(*method_route).unwrap();
+                    // match call_form_decl.output.liason() {
+                    //     OutputModifier::Transfer => {
+                    //         self.gen_expr(indent, &opds[0]);
+                    //         self.write(".");
+                    //         self.write(&method_ident.ident);
+                    //         // ad hoc
+                    //         if method_ident.ident.as_str() == "pop_with_largest_opt_f32" {
+                    //             let elem_ty = method_route.parent().entity_route_argument(0);
+                    //             if self.db.is_copyable(elem_ty).unwrap() {
+                    //                 self.write("_copyable")
+                    //             } else {
+                    //                 self.write("_borrow")
+                    //             }
+                    //         }
+                    //         self.write("(");
+                    //         self.gen_arguments(indent, &opds[1..]);
+                    //         if self.db.needs_eval_context(*method_route) {
+                    //             if opds.len() > 1 {
+                    //                 self.write(", ")
+                    //             }
+                    //             self.write("__ctx")
+                    //         }
+                    //         self.write(")");
+                    //     }
+                    //     OutputModifier::MemberAccess { .. } => match output_binding {
+                    //         Binding::EvalRef | Binding::TempRef => {
+                    //             self.gen_expr(indent, &opds[0]);
+                    //             self.write(".");
+                    //             self.write(&method_ident.ident);
+                    //             self.write("(");
+                    //             self.gen_arguments(indent, &opds[1..]);
+                    //             self.write(")");
+                    //         }
+                    //         Binding::Copy => {
+                    //             self.write("*");
+                    //             self.gen_expr(indent, &opds[0]);
+                    //             self.write(".");
+                    //             self.write(&method_ident.ident);
+                    //             self.write("(");
+                    //             self.gen_arguments(indent, &opds[1..]);
+                    //             self.write(")");
+                    //         }
+                    //         Binding::TempMut => {
+                    //             self.gen_expr(indent, &opds[0]);
+                    //             self.write(".");
+                    //             self.write(&method_ident.ident);
+                    //             self.write("_mut");
+                    //             self.write("(");
+                    //             self.gen_arguments(indent, &opds[1..]);
+                    //             self.write(")");
+                    //         }
+                    //         Binding::Move => todo!(),
+                    //         Binding::DerefCopy => todo!(),
+                    //     },
+                    // }
                 }
                 EagerOpnVariant::Index { .. } => {
                     self.gen_expr(indent, &opds[0]);
@@ -272,268 +269,268 @@ impl<'a> RustCodeGenerator<'a> {
             ImplicitConversion::ConvertToBool => todo!(),
         }
     }
-    fn gen_type_call_opn(
-        &mut self,
-        indent: Indent,
-        ty: EntityRoutePtr,
-        opds: &Vec<Arc<EagerExpr>>,
-        ty_decl: &Arc<infer_decl::TyDecl>,
-    ) {
-        let type_call = ty_decl.opt_type_call.as_ref().unwrap();
-        self.exec_within_context(
-            RustCodeGenContext::ThisFieldWithPrefix { prefix: "self." },
-            |this| {
-                if type_call.keyword_parameters.len() > 0 {
-                    this.gen_type_call_opn_with_keyword_parameters(indent, ty, opds, type_call)
-                } else {
-                    this.gen_type_call_opn_without_keyword_parameters(indent, ty, opds, type_call)
-                }
-            },
-        )
-    }
+    // fn gen_type_call_opn(
+    //     &mut self,
+    //     indent: Indent,
+    //     ty: EntityRoutePtr,
+    //     opds: &Vec<Arc<EagerExpr>>,
+    //     ty_decl: &Arc<infer_decl::TyDecl>,
+    // ) {
+    //     let type_call = ty_decl.opt_type_call.as_ref().unwrap();
+    //     self.exec_within_context(
+    //         RustCodeGenContext::ThisFieldWithPrefix { prefix: "self." },
+    //         |this| {
+    //             if type_call.keyword_parameters.len() > 0 {
+    //                 this.gen_type_call_opn_with_keyword_parameters(indent, ty, opds, type_call)
+    //             } else {
+    //                 this.gen_type_call_opn_without_keyword_parameters(indent, ty, opds, type_call)
+    //             }
+    //         },
+    //     )
+    // }
 
-    fn gen_type_call_opn_without_keyword_parameters(
-        &mut self,
-        indent: Indent,
-        ty: EntityRoutePtr,
-        opds: &Vec<Arc<EagerExpr>>,
-        type_call: &CallFormDecl,
-    ) {
-        self.gen_entity_route(ty, EntityRouteRole::Caller);
-        self.write("::");
-        self.write("__call__(");
-        self.gen_arguments(indent, opds);
-        msg_once!("variadics");
-        match type_call.variadic_parameters {
-            VariadicParametersDecl::None => (),
-            VariadicParametersDecl::RepeatSingle { .. } => {
-                if type_call.primary_parameters.len() + type_call.keyword_parameters.len() > 0 {
-                    self.write(", ")
-                }
-                self.write("vec![]")
-            }
-        }
-        self.write(")");
-    }
+    // fn gen_type_call_opn_without_keyword_parameters(
+    //     &mut self,
+    //     indent: Indent,
+    //     ty: EntityRoutePtr,
+    //     opds: &Vec<Arc<EagerExpr>>,
+    //     type_call: &CallFormDecl,
+    // ) {
+    //     self.gen_entity_route(ty, EntityRouteRole::Caller);
+    //     self.write("::");
+    //     self.write("__call__(");
+    //     self.gen_arguments(indent, opds);
+    //     msg_once!("variadics");
+    //     match type_call.variadic_parameters {
+    //         VariadicParametersDecl::None => (),
+    //         VariadicParametersDecl::RepeatSingle { .. } => {
+    //             if type_call.primary_parameters.len() + type_call.keyword_parameters.len() > 0 {
+    //                 self.write(", ")
+    //             }
+    //             self.write("vec![]")
+    //         }
+    //     }
+    //     self.write(")");
+    // }
 
-    fn gen_type_call_opn_with_keyword_parameters(
-        &mut self,
-        indent: Indent,
-        ty: EntityRoutePtr,
-        opds: &Vec<Arc<EagerExpr>>,
-        type_call: &CallFormDecl,
-    ) {
-        self.write("{\n");
-        self.indent(indent + 8);
-        let ty_defn = self.db.entity_defn(ty).unwrap();
-        let ty_members = match ty_defn.variant {
-            EntityDefnVariant::Ty { ref ty_members, .. } => ty_members,
-            _ => panic!(),
-        };
-        for (_i, (parameter, expr)) in
-            std::iter::zip(type_call.primary_parameters.iter(), opds.iter()).enumerate()
-        {
-            self.write("let __this_");
-            self.write(&parameter.ident);
-            self.write(": ");
-            self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
-            self.write(" = ");
-            self.gen_binding(expr);
-            self.gen_expr(indent, expr);
-            self.write(";");
-            self.newline_indented(indent + 8);
-        }
-        for (i, parameter) in type_call.keyword_parameters.iter().enumerate() {
-            self.write("let __this_");
-            self.write(&parameter.ident);
-            match ty_members.data()[type_call.primary_parameters.len() + i].variant {
-                EntityDefnVariant::TyField {
-                    ref field_variant, ..
-                } => match field_variant {
-                    FieldDefnVariant::StructDefault { default } => {
-                        self.write(": ");
-                        self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
-                        self.write(" = ");
-                        self.exec_within_context(
-                            RustCodeGenContext::ThisFieldWithPrefix { prefix: "__this_" },
-                            |this| this.gen_expr(indent + 4, default),
-                        );
-                        self.write(";");
-                    }
-                    _ => panic!(),
-                },
-                _ => panic!(),
-            }
-            self.newline_indented(indent + 8);
-        }
-        self.gen_entity_route(ty, EntityRouteRole::Caller);
-        self.write("::");
-        self.write("__call__(");
-        for (i, parameter) in type_call.primary_parameters.iter().enumerate() {
-            if i > 0 {
-                self.write(", ")
-            }
-            self.write("__this_");
-            self.write(&parameter.ident)
-        }
-        for (i, parameter) in type_call.keyword_parameters.iter().enumerate() {
-            if i + type_call.primary_parameters.len() > 0 {
-                self.write(", ")
-            }
-            self.write("__this_");
-            self.write(&parameter.ident)
-        }
-        msg_once!("keyword arguments and more on variadics");
-        match type_call.variadic_parameters {
-            VariadicParametersDecl::None => (),
-            VariadicParametersDecl::RepeatSingle { .. } => {
-                if type_call.primary_parameters.len() + type_call.keyword_parameters.len() > 0 {
-                    self.write(", ")
-                }
-                self.write("vec![]")
-            }
-        }
-        self.write(")");
-        self.newline_indented(indent + 4);
-        self.write("}");
-    }
+    // fn gen_type_call_opn_with_keyword_parameters(
+    //     &mut self,
+    //     indent: Indent,
+    //     ty: EntityRoutePtr,
+    //     opds: &Vec<Arc<EagerExpr>>,
+    //     type_call: &CallFormDecl,
+    // ) {
+    //     self.write("{\n");
+    //     self.indent(indent + 8);
+    //     let ty_defn = self.db.entity_defn(ty).unwrap();
+    //     let ty_members = match ty_defn.variant {
+    //         EntityDefnVariant::Ty { ref ty_members, .. } => ty_members,
+    //         _ => panic!(),
+    //     };
+    //     for (_i, (parameter, expr)) in
+    //         std::iter::zip(type_call.primary_parameters.iter(), opds.iter()).enumerate()
+    //     {
+    //         self.write("let __this_");
+    //         self.write(&parameter.ident);
+    //         self.write(": ");
+    //         self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
+    //         self.write(" = ");
+    //         self.gen_binding(expr);
+    //         self.gen_expr(indent, expr);
+    //         self.write(";");
+    //         self.newline_indented(indent + 8);
+    //     }
+    //     for (i, parameter) in type_call.keyword_parameters.iter().enumerate() {
+    //         self.write("let __this_");
+    //         self.write(&parameter.ident);
+    //         match ty_members.data()[type_call.primary_parameters.len() + i].variant {
+    //             EntityDefnVariant::TyField {
+    //                 ref field_variant, ..
+    //             } => match field_variant {
+    //                 FieldDefnVariant::StructDefault { default } => {
+    //                     self.write(": ");
+    //                     self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
+    //                     self.write(" = ");
+    //                     self.exec_within_context(
+    //                         RustCodeGenContext::ThisFieldWithPrefix { prefix: "__this_" },
+    //                         |this| this.gen_expr(indent + 4, default),
+    //                     );
+    //                     self.write(";");
+    //                 }
+    //                 _ => panic!(),
+    //             },
+    //             _ => panic!(),
+    //         }
+    //         self.newline_indented(indent + 8);
+    //     }
+    //     self.gen_entity_route(ty, EntityRouteRole::Caller);
+    //     self.write("::");
+    //     self.write("__call__(");
+    //     for (i, parameter) in type_call.primary_parameters.iter().enumerate() {
+    //         if i > 0 {
+    //             self.write(", ")
+    //         }
+    //         self.write("__this_");
+    //         self.write(&parameter.ident)
+    //     }
+    //     for (i, parameter) in type_call.keyword_parameters.iter().enumerate() {
+    //         if i + type_call.primary_parameters.len() > 0 {
+    //             self.write(", ")
+    //         }
+    //         self.write("__this_");
+    //         self.write(&parameter.ident)
+    //     }
+    //     msg_once!("keyword arguments and more on variadics");
+    //     match type_call.variadic_parameters {
+    //         VariadicParametersDecl::None => (),
+    //         VariadicParametersDecl::RepeatSingle { .. } => {
+    //             if type_call.primary_parameters.len() + type_call.keyword_parameters.len() > 0 {
+    //                 self.write(", ")
+    //             }
+    //             self.write("vec![]")
+    //         }
+    //     }
+    //     self.write(")");
+    //     self.newline_indented(indent + 4);
+    //     self.write("}");
+    // }
 
-    pub(super) fn gen_feature_return(
-        &mut self,
-        indent: Indent,
-        result: &EagerExpr,
-        output_ty: EntityRoutePtr,
-    ) {
-        let mangled_intrinsic_ty_vtable =
-            self.db.mangled_intrinsic_ty_vtable(result.intrinsic_ty());
-        match result.qualified_ty.qual() {
-            EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
-                self.write(
-                    r#"__ctx
-        .cache_feature(
-            __feature,
-            Ok(__Register::new_box::<"#,
-                );
-                self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
-                self.write(">(");
-                self.gen_expr(indent, result);
-                self.write(&format!(
-                    r#", &__registration__::{mangled_intrinsic_ty_vtable})),
-        )
-        .unwrap()
-        .downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
-                    match output_ty.is_option() {
-                        true => "opt_",
-                        false => "",
-                    }
-                ));
-            }
-            EagerExprQualifier::EvalRef => {
-                self.write(
-                    r#"__ctx
-        .cache_feature(
-            __feature,
-            Ok(__Register::new_eval_ref::<"#,
-                );
-                self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
-                self.write(r#">(&("#);
-                self.gen_expr(indent, result);
-                self.write(&format!(
-                    r#"), &__registration__::{mangled_intrinsic_ty_vtable}).into()),
-        )
-        .unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
-                    match output_ty.is_option() {
-                        true => "opt_",
-                        false => "",
-                    }
-                ));
-            }
-            EagerExprQualifier::PureRef
-            | EagerExprQualifier::TempRef
-            | EagerExprQualifier::TempRefMut => panic!(),
-        }
-    }
+    // pub(super) fn gen_feature_return(
+    //     &mut self,
+    //     indent: Indent,
+    //     result: &EagerExpr,
+    //     output_ty: EntityRoutePtr,
+    // ) {
+    //     let mangled_intrinsic_ty_vtable =
+    //         self.db.mangled_intrinsic_ty_vtable(result.intrinsic_ty());
+    //     match result.qualified_ty.qual() {
+    //         EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
+    //             self.write(
+    //                 r#"__ctx
+    //     .cache_feature(
+    //         __feature,
+    //         Ok(__Register::new_box::<"#,
+    //             );
+    //             self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+    //             self.write(">(");
+    //             self.gen_expr(indent, result);
+    //             self.write(&format!(
+    //                 r#", &__registration__::{mangled_intrinsic_ty_vtable})),
+    //     )
+    //     .unwrap()
+    //     .downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
+    //                 match output_ty.is_option() {
+    //                     true => "opt_",
+    //                     false => "",
+    //                 }
+    //             ));
+    //         }
+    //         EagerExprQualifier::EvalRef => {
+    //             self.write(
+    //                 r#"__ctx
+    //     .cache_feature(
+    //         __feature,
+    //         Ok(__Register::new_eval_ref::<"#,
+    //             );
+    //             self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+    //             self.write(r#">(&("#);
+    //             self.gen_expr(indent, result);
+    //             self.write(&format!(
+    //                 r#"), &__registration__::{mangled_intrinsic_ty_vtable}).into()),
+    //     )
+    //     .unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
+    //                 match output_ty.is_option() {
+    //                     true => "opt_",
+    //                     false => "",
+    //                 }
+    //             ));
+    //         }
+    //         EagerExprQualifier::PureRef
+    //         | EagerExprQualifier::TempRef
+    //         | EagerExprQualifier::TempRefMut => panic!(),
+    //     }
+    // }
 
-    pub(super) fn gen_lazy_field_return(
-        &mut self,
-        indent: Indent,
-        result: &EagerExpr,
-        output_ty: EntityRoutePtr,
-    ) {
-        let mangled_intrinsic_ty_vtable =
-            self.db.mangled_intrinsic_ty_vtable(result.intrinsic_ty());
-        match result.qualified_ty.qual() {
-            EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
-                self.write(
-                    r#"__ctx.cache_lazy_field(
-        self as *const _ as *const std::ffi::c_void,
-        __uid,
-        Ok(__Register::new_box::<"#,
-                );
-                self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
-                self.write(r#">("#);
-                self.gen_expr(indent, result);
-                self.write(format!(
-                    r#", &__registration__::{mangled_intrinsic_ty_vtable}))
-    ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
-                    match output_ty.is_option() {
-                        true => "opt_",
-                        false => "",
-                    }
-                ));
-            }
-            EagerExprQualifier::EvalRef => {
-                self.write(format!(
-                    r#"__ctx.cache_lazy_field(
-        self as *const _ as *const std::ffi::c_void,
-        __uid,
-        Ok(__Register::new_{}eval_ref::<"#,
-                    match output_ty.is_option() {
-                        true => "opt_",
-                        false => "",
-                    }
-                ));
-                self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
-                self.write(r#">(&("#);
-                self.gen_expr(indent, result);
-                self.write(format!(
-                    r#"), &__registration__::{mangled_intrinsic_ty_vtable})).into()
-    ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
-                    match output_ty.is_option() {
-                        true => "opt_",
-                        false => "",
-                    }
-                ));
-            }
-            EagerExprQualifier::PureRef
-            | EagerExprQualifier::TempRef
-            | EagerExprQualifier::TempRefMut => panic!(),
-        }
-    }
+    // pub(super) fn gen_lazy_field_return(
+    //     &mut self,
+    //     indent: Indent,
+    //     result: &EagerExpr,
+    //     output_ty: EntityRoutePtr,
+    // ) {
+    //     let mangled_intrinsic_ty_vtable =
+    //         self.db.mangled_intrinsic_ty_vtable(result.intrinsic_ty());
+    //     match result.qualified_ty.qual() {
+    //         EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
+    //             self.write(
+    //                 r#"__ctx.cache_lazy_field(
+    //     self as *const _ as *const std::ffi::c_void,
+    //     __uid,
+    //     Ok(__Register::new_box::<"#,
+    //             );
+    //             self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+    //             self.write(r#">("#);
+    //             self.gen_expr(indent, result);
+    //             self.write(format!(
+    //                 r#", &__registration__::{mangled_intrinsic_ty_vtable}))
+    // ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
+    //                 match output_ty.is_option() {
+    //                     true => "opt_",
+    //                     false => "",
+    //                 }
+    //             ));
+    //         }
+    //         EagerExprQualifier::EvalRef => {
+    //             self.write(format!(
+    //                 r#"__ctx.cache_lazy_field(
+    //     self as *const _ as *const std::ffi::c_void,
+    //     __uid,
+    //     Ok(__Register::new_{}eval_ref::<"#,
+    //                 match output_ty.is_option() {
+    //                     true => "opt_",
+    //                     false => "",
+    //                 }
+    //             ));
+    //             self.gen_entity_route(output_ty.intrinsic(), EntityRouteRole::Decl);
+    //             self.write(r#">(&("#);
+    //             self.gen_expr(indent, result);
+    //             self.write(format!(
+    //                 r#"), &__registration__::{mangled_intrinsic_ty_vtable})).into()
+    // ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
+    //                 match output_ty.is_option() {
+    //                     true => "opt_",
+    //                     false => "",
+    //                 }
+    //             ));
+    //         }
+    //         EagerExprQualifier::PureRef
+    //         | EagerExprQualifier::TempRef
+    //         | EagerExprQualifier::TempRefMut => panic!(),
+    //     }
+    // }
 
-    fn gen_arguments(&mut self, indent: Indent, exprs: &[Arc<EagerExpr>]) {
-        for (i, expr) in exprs.iter().enumerate() {
-            if i > 0 {
-                self.write(", ");
-            }
-            self.gen_binding(expr);
-            self.gen_expr(indent, expr)
-        }
-    }
+    // fn gen_arguments(&mut self, indent: Indent, exprs: &[Arc<EagerExpr>]) {
+    //     for (i, expr) in exprs.iter().enumerate() {
+    //         if i > 0 {
+    //             self.write(", ");
+    //         }
+    //         self.gen_binding(expr);
+    //         self.gen_expr(indent, expr)
+    //     }
+    // }
 
-    pub(super) fn gen_binding(&mut self, expr: &EagerExpr) {
-        match expr.qualified_ty.binding(self.db.upcast(), expr.contract) {
-            Binding::EvalRef | Binding::TempRef => {
-                if expr.qualified_ty.option_level() == 0 {
-                    self.write("&")
-                }
-            }
-            Binding::TempMut => self.write("&mut "),
-            Binding::Move => (),
-            Binding::Copy => (),
-            Binding::DerefCopy => self.write("*"),
-        }
-    }
+    // pub(super) fn gen_binding(&mut self, expr: &EagerExpr) {
+    //     match expr.qualified_ty.binding(self.db.upcast(), expr.contract) {
+    //         Binding::EvalRef | Binding::TempRef => {
+    //             if expr.qualified_ty.option_level() == 0 {
+    //                 self.write("&")
+    //             }
+    //         }
+    //         Binding::TempMut => self.write("&mut "),
+    //         Binding::Move => (),
+    //         Binding::Copy => (),
+    //         Binding::DerefCopy => self.write("*"),
+    //     }
+    // }
 
     fn gen_primitive_literal(&mut self, v: RawLiteralData) {
         match v {

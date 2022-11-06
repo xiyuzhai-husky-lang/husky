@@ -75,7 +75,8 @@ impl TraceVariant {
                     ..
                 } => match opn_variant {
                     EagerOpnVariant::RoutineCall(ranged_route) => !ranged_route.route.is_builtin(),
-                    EagerOpnVariant::TypeCall { ranged_ty, .. } => !ranged_ty.route.is_builtin(),
+                    EagerOpnVariant::TypeCall { .. } => todo!(),
+                    // !ranged_ty.route.is_builtin(),
                     EagerOpnVariant::Field { .. } => false,
                     EagerOpnVariant::Binary { .. }
                     | EagerOpnVariant::Prefix { .. }

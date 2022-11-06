@@ -57,22 +57,23 @@ fn feature_stmt_opt_stats<'eval>(
     partitions: &Partitions,
     stmt: &FeatureLazyStmt,
 ) -> __VMResult<Option<TraceStats>> {
-    match stmt.variant {
-        FeatureLazyStmtVariant::Init { .. } | FeatureLazyStmtVariant::Assert { .. } => Ok(None),
-        FeatureLazyStmtVariant::Require { return_context, .. }
-        | FeatureLazyStmtVariant::ReturnUnveil { return_context, .. } => feature_opt_stats(
-            db,
-            partitions,
-            return_context.return_ty(),
-            |sample_id| db.eval_feature_stmt(stmt, sample_id),
-            stmt.opt_arrival_indicator.as_ref(),
-        ),
-        FeatureLazyStmtVariant::Return { ref result } => {
-            feature_expr_opt_stats(db, partitions, result)
-        }
-        FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
-        FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
-    }
+    todo!()
+    // match stmt.variant {
+    //     FeatureLazyStmtVariant::Init { .. } | FeatureLazyStmtVariant::Assert { .. } => Ok(None),
+    //     FeatureLazyStmtVariant::Require { return_context, .. }
+    //     | FeatureLazyStmtVariant::ReturnUnveil { return_context, .. } => feature_opt_stats(
+    //         db,
+    //         partitions,
+    //         return_context.return_ty(),
+    //         |sample_id| db.eval_feature_stmt(stmt, sample_id),
+    //         stmt.opt_arrival_indicator.as_ref(),
+    //     ),
+    //     FeatureLazyStmtVariant::Return { ref result } => {
+    //         feature_expr_opt_stats(db, partitions, result)
+    //     }
+    //     FeatureLazyStmtVariant::ReturnXml { .. } => todo!(),
+    //     FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
+    // }
 }
 
 fn feature_branch_opt_stats<'eval>(
@@ -126,54 +127,55 @@ fn feature_opt_stats<'eval>(
     compute_value: impl Fn(SampleId) -> __VMResult<__Register<'eval>>,
     opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
 ) -> __VMResult<Option<TraceStats>> {
-    let target_output_ty = db.target_output_ty().unwrap();
-    // todo check this could cause some problem
-    if !db.is_implicitly_castable(feature_ty, target_output_ty) {
-        return Ok(None);
-    }
-    let mut dev_samples = 0;
-    let mut dev_arrivals = 0;
-    let mut dev_unreturneds = 0;
-    let mut dev_nones = 0;
-    let mut dev_trues = 0;
-    let mut dev_falses = 0;
-    let mut dev_partition_noness = partitions.init_partition_values();
-    let convert_register_to_label = db.register_to_label_converter();
-    for labeled_data in db.session().dev().each_labeled_data() {
-        if dev_samples >= MAX_SAMPING_SIZE {
-            break;
-        }
-        dev_samples += 1;
-        let sample_id = labeled_data.sample_id;
-        if !db
-            .eval_opt_domain_indicator_cached(opt_arrival_indicator, sample_id)
-            .map_err(|e| -> __VMError { (sample_id.0, e).into() })?
-        {
-            continue;
-        }
-        dev_arrivals += 1;
-        let value = compute_value(sample_id)
-            .map_err(|e| -> __VMError { (labeled_data.sample_id.0, e).into() })?;
-        match convert_register_to_label(&value) {
-            __RegisterDowncastResult::Value(prediction) => match prediction == labeled_data.label {
-                true => dev_trues += 1,
-                false => dev_falses += 1,
-            },
-            __RegisterDowncastResult::None { .. } => {
-                dev_nones += 1;
-                let idx = partitions.partition_idx(labeled_data.label);
-                dev_partition_noness[idx].1 += 1;
-            }
-            __RegisterDowncastResult::Unreturned => dev_unreturneds += 1,
-        }
-    }
-    Ok(Some(TraceStats::Classification {
-        dev_samples,
-        dev_arrivals,
-        dev_unreturneds,
-        dev_nones,
-        dev_trues,
-        dev_falses,
-        dev_partition_noness,
-    }))
+    todo!()
+    // let target_output_ty = db.target_output_ty().unwrap();
+    // // todo check this could cause some problem
+    // if !db.is_implicitly_castable(feature_ty, target_output_ty) {
+    //     return Ok(None);
+    // }
+    // let mut dev_samples = 0;
+    // let mut dev_arrivals = 0;
+    // let mut dev_unreturneds = 0;
+    // let mut dev_nones = 0;
+    // let mut dev_trues = 0;
+    // let mut dev_falses = 0;
+    // let mut dev_partition_noness = partitions.init_partition_values();
+    // let convert_register_to_label = db.register_to_label_converter();
+    // for labeled_data in db.session().dev().each_labeled_data() {
+    //     if dev_samples >= MAX_SAMPING_SIZE {
+    //         break;
+    //     }
+    //     dev_samples += 1;
+    //     let sample_id = labeled_data.sample_id;
+    //     if !db
+    //         .eval_opt_domain_indicator_cached(opt_arrival_indicator, sample_id)
+    //         .map_err(|e| -> __VMError { (sample_id.0, e).into() })?
+    //     {
+    //         continue;
+    //     }
+    //     dev_arrivals += 1;
+    //     let value = compute_value(sample_id)
+    //         .map_err(|e| -> __VMError { (labeled_data.sample_id.0, e).into() })?;
+    //     match convert_register_to_label(&value) {
+    //         __RegisterDowncastResult::Value(prediction) => match prediction == labeled_data.label {
+    //             true => dev_trues += 1,
+    //             false => dev_falses += 1,
+    //         },
+    //         __RegisterDowncastResult::None { .. } => {
+    //             dev_nones += 1;
+    //             let idx = partitions.partition_idx(labeled_data.label);
+    //             dev_partition_noness[idx].1 += 1;
+    //         }
+    //         __RegisterDowncastResult::Unreturned => dev_unreturneds += 1,
+    //     }
+    // }
+    // Ok(Some(TraceStats::Classification {
+    //     dev_samples,
+    //     dev_arrivals,
+    //     dev_unreturneds,
+    //     dev_nones,
+    //     dev_trues,
+    //     dev_falses,
+    //     dev_partition_noness,
+    // }))
 }

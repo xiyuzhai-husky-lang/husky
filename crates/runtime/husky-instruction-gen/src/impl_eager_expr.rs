@@ -11,7 +11,6 @@ use husky_vm_primitive_opr_linkage::{
     resolve_primitive_assign_binary_opr_linkage, resolve_primitive_prefix_opr_linkage,
     resolve_primitive_pure_binary_opr_linkage, resolve_primitive_suffix_opr_linkage,
 };
-use infer_decl::TyDecl;
 use map_collect::MapCollect;
 
 impl<'a> InstructionSheetBuilder<'a> {
@@ -101,25 +100,26 @@ impl<'a> InstructionSheetBuilder<'a> {
                                 discard,
                             }
                         } else {
-                            let this_ty_decl = self.db.ty_decl(this_ty).unwrap();
-                            let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
-                            match field_decl.field_kind {
-                                FieldKind::StructRegular
-                                | FieldKind::StructDefault
-                                | FieldKind::StructDerived => {
-                                    InstructionVariant::VirtualStructField {
-                                        field_idx: this_ty_decl
-                                            .field_idx(field_ident.ident)
-                                            .try_into()
-                                            .unwrap(),
-                                        field_binding,
-                                        field_ty: expr.intrinsic_ty(),
-                                    }
-                                }
-                                FieldKind::StructMemo => todo!(),
-                                FieldKind::RecordRegular => todo!(),
-                                FieldKind::RecordProperty => todo!(),
-                            }
+                            todo!()
+                            // let this_ty_decl = self.db.ty_decl(this_ty).unwrap();
+                            // let field_decl = this_ty_decl.field_decl(field_ident).unwrap();
+                            // match field_decl.field_kind {
+                            //     FieldKind::StructRegular
+                            //     | FieldKind::StructDefault
+                            //     | FieldKind::StructDerived => {
+                            //         InstructionVariant::VirtualStructField {
+                            //             field_idx: this_ty_decl
+                            //                 .field_idx(field_ident.ident)
+                            //                 .try_into()
+                            //                 .unwrap(),
+                            //             field_binding,
+                            //             field_ty: expr.intrinsic_ty(),
+                            //         }
+                            //     }
+                            //     FieldKind::StructMemo => todo!(),
+                            //     FieldKind::RecordRegular => todo!(),
+                            //     FieldKind::RecordProperty => todo!(),
+                            // }
                         },
                         expr.clone(),
                     ))
@@ -242,23 +242,24 @@ impl<'a> InstructionSheetBuilder<'a> {
                             discard,
                         }
                     } else {
-                        let this_ty_decl = self.db.ty_decl(*this_ty).unwrap();
-                        let field_decl = this_ty_decl.field_decl(*field_ident).unwrap();
-                        match field_decl.field_kind {
-                            FieldKind::StructRegular
-                            | FieldKind::StructDefault
-                            | FieldKind::StructDerived => InstructionVariant::VirtualStructField {
-                                field_idx: this_ty_decl
-                                    .field_idx(field_ident.ident)
-                                    .try_into()
-                                    .unwrap(),
-                                field_binding: *field_binding,
-                                field_ty: expr.intrinsic_ty(),
-                            },
-                            FieldKind::StructMemo => todo!(),
-                            FieldKind::RecordRegular => todo!(),
-                            FieldKind::RecordProperty => todo!(),
-                        }
+                        todo!()
+                        // let this_ty_decl = self.db.ty_decl(*this_ty).unwrap();
+                        // let field_decl = this_ty_decl.field_decl(*field_ident).unwrap();
+                        // match field_decl.field_kind {
+                        //     FieldKind::StructRegular
+                        //     | FieldKind::StructDefault
+                        //     | FieldKind::StructDerived => InstructionVariant::VirtualStructField {
+                        //         field_idx: this_ty_decl
+                        //             .field_idx(field_ident.ident)
+                        //             .try_into()
+                        //             .unwrap(),
+                        //         field_binding: *field_binding,
+                        //         field_ty: expr.intrinsic_ty(),
+                        //     },
+                        //     FieldKind::StructMemo => todo!(),
+                        //     FieldKind::RecordRegular => todo!(),
+                        //     FieldKind::RecordProperty => todo!(),
+                        // }
                     },
                     expr.clone(),
                 ));
@@ -282,91 +283,89 @@ impl<'a> InstructionSheetBuilder<'a> {
                 assert!(!discard);
                 self.compile_element_access(expr.clone(), opds, *element_binding)
             }
-            EagerOpnVariant::TypeCall {
-                ranged_ty,
-                ref ty_decl,
-            } => {
+            EagerOpnVariant::TypeCall => {
                 // no discard
-                assert!(!discard);
-                let ty_defn = self.db.entity_defn(ranged_ty.route).unwrap();
-                let instruction_variant = match ty_defn.variant {
-                    EntityDefnVariant::Ty {
-                        ty_kind: kind,
-                        ref ty_members,
-                        ..
-                    } => {
-                        self.context.enter();
-                        self.context
-                            .set(InstructionGenContext::NewVirtualStruct { output_stack_idx });
-                        for (i, ty_member) in ty_members.iter().enumerate() {
-                            match ty_member.variant {
-                                EntityDefnVariant::TyField {
-                                    ref field_variant, ..
-                                } => match field_variant {
-                                    FieldDefnVariant::StructOriginal => (),
-                                    FieldDefnVariant::StructDefault { default } => {
-                                        msg_once!("handle keyword arguments");
-                                        self.compile_eager_expr(
-                                            default,
-                                            output_stack_idx + i,
-                                            false,
-                                        )
-                                    }
-                                    FieldDefnVariant::StructDerivedEager { derivation } => self
-                                        .compile_eager_expr(
-                                            derivation,
-                                            output_stack_idx + i,
-                                            false,
-                                        ),
-                                    FieldDefnVariant::StructDerivedLazy { .. } => break,
-                                    FieldDefnVariant::RecordOriginal
-                                    | FieldDefnVariant::RecordDerived { .. } => panic!(),
-                                },
-                                _ => break,
-                            }
-                        }
-                        self.context.exit();
-                        if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
-                            match linkage {
-                                __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
-                                    output_ty: expr.intrinsic_ty(),
-                                    nargs: opds.len().try_into().unwrap(),
-                                    resolved_linkage: linkage,
-                                    discard,
-                                },
-                                __Linkage::Member(_) => todo!(),
-                                __Linkage::Model(_) => todo!(),
-                            }
-                        } else {
-                            match kind {
-                                TyKind::Enum => todo!(),
-                                TyKind::Record => todo!(),
-                                TyKind::Struct => InstructionVariant::NewVirtualStruct {
-                                    ty: ranged_ty.route,
-                                    fields: ty_decl.eager_fields().map(|decl| decl.ident).collect(),
-                                },
-                                TyKind::Primitive => todo!(),
-                                TyKind::Vec => todo!(),
-                                TyKind::Array => todo!(),
-                                TyKind::Slice => todo!(),
-                                TyKind::CyclicSlice => todo!(),
-                                TyKind::Tuple => todo!(),
-                                TyKind::Mor => todo!(),
-                                TyKind::ThickFp => todo!(),
-                                TyKind::AssociatedAny => todo!(),
-                                TyKind::ThisAny => todo!(),
-                                TyKind::SpatialPlaceholderAny => todo!(),
-                                TyKind::BoxAny => todo!(),
-                                TyKind::HigherKind => todo!(),
-                                TyKind::Ref => todo!(),
-                                TyKind::Option => todo!(),
-                                TyKind::TargetOutputAny => todo!(),
-                            }
-                        }
-                    }
-                    _ => panic!(),
-                };
-                self.push_instruction(Instruction::new(instruction_variant, expr.clone()))
+                todo!()
+                // assert!(!discard);
+                // let ty_defn = self.db.entity_defn(ranged_ty.route).unwrap();
+                // let instruction_variant = match ty_defn.variant {
+                //     EntityDefnVariant::Ty {
+                //         ty_kind: kind,
+                //         ref ty_members,
+                //         ..
+                //     } => {
+                //         self.context.enter();
+                //         self.context
+                //             .set(InstructionGenContext::NewVirtualStruct { output_stack_idx });
+                //         for (i, ty_member) in ty_members.iter().enumerate() {
+                //             match ty_member.variant {
+                //                 EntityDefnVariant::TyField {
+                //                     ref field_variant, ..
+                //                 } => match field_variant {
+                //                     FieldDefnVariant::StructOriginal => (),
+                //                     FieldDefnVariant::StructDefault { default } => {
+                //                         msg_once!("handle keyword arguments");
+                //                         self.compile_eager_expr(
+                //                             default,
+                //                             output_stack_idx + i,
+                //                             false,
+                //                         )
+                //                     }
+                //                     FieldDefnVariant::StructDerivedEager { derivation } => self
+                //                         .compile_eager_expr(
+                //                             derivation,
+                //                             output_stack_idx + i,
+                //                             false,
+                //                         ),
+                //                     FieldDefnVariant::StructDerivedLazy { .. } => break,
+                //                     FieldDefnVariant::RecordOriginal
+                //                     | FieldDefnVariant::RecordDerived { .. } => panic!(),
+                //                 },
+                //                 _ => break,
+                //             }
+                //         }
+                //         self.context.exit();
+                //         if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
+                //             match linkage {
+                //                 __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
+                //                     output_ty: expr.intrinsic_ty(),
+                //                     nargs: opds.len().try_into().unwrap(),
+                //                     resolved_linkage: linkage,
+                //                     discard,
+                //                 },
+                //                 __Linkage::Member(_) => todo!(),
+                //                 __Linkage::Model(_) => todo!(),
+                //             }
+                //         } else {
+                //             match kind {
+                //                 TyKind::Enum => todo!(),
+                //                 TyKind::Record => todo!(),
+                //                 TyKind::Struct => InstructionVariant::NewVirtualStruct {
+                //                     ty: ranged_ty.route,
+                //                     fields: ty_decl.eager_fields().map(|decl| decl.ident).collect(),
+                //                 },
+                //                 TyKind::Primitive => todo!(),
+                //                 TyKind::Vec => todo!(),
+                //                 TyKind::Array => todo!(),
+                //                 TyKind::Slice => todo!(),
+                //                 TyKind::CyclicSlice => todo!(),
+                //                 TyKind::Tuple => todo!(),
+                //                 TyKind::Mor => todo!(),
+                //                 TyKind::ThickFp => todo!(),
+                //                 TyKind::AssociatedAny => todo!(),
+                //                 TyKind::ThisAny => todo!(),
+                //                 TyKind::SpatialPlaceholderAny => todo!(),
+                //                 TyKind::BoxAny => todo!(),
+                //                 TyKind::HigherKind => todo!(),
+                //                 TyKind::Ref => todo!(),
+                //                 TyKind::Option => todo!(),
+                //                 TyKind::TargetOutputAny => todo!(),
+                //             }
+                //         }
+                //     }
+                //     _ => panic!(),
+                // };
+                // self.push_instruction(Instruction::new(instruction_variant, expr.clone()))
             }
             EagerOpnVariant::NewVecFromList => {
                 // no discard
@@ -406,105 +405,106 @@ impl<'a> InstructionSheetBuilder<'a> {
         expr: &Arc<EagerExpr>,
         discard: bool,
     ) {
-        let this_ty = opds[0].intrinsic_ty();
-        let ins_variant = InstructionVariant::CallRoutine {
-            resolved_linkage: match opr {
-                EagerSuffixOpr::Incr | EagerSuffixOpr::Decr | EagerSuffixOpr::AsTy(_) => {
-                    match this_ty {
-                        EntityRoutePtr::Root(root_identifier) => {
-                            resolve_primitive_suffix_opr_linkage(opr, root_identifier).transfer()
-                        }
-                        EntityRoutePtr::Custom(_) => {
-                            let ty_decl: Arc<TyDecl> = self.db.ty_decl(this_ty).unwrap();
-                            match ty_decl.ty_kind {
-                                TyKind::Enum => match opr {
-                                    EagerSuffixOpr::Incr => todo!(),
-                                    EagerSuffixOpr::Decr => todo!(),
-                                    EagerSuffixOpr::AsTy(as_ty) => match as_ty.route {
-                                        EntityRoutePtr::Root(root_identifier) => {
-                                            match root_identifier {
-                                                RootBuiltinIdentifier::Void => todo!(),
-                                                RootBuiltinIdentifier::I32 => transfer_linkage!(
-                                                    |args, _| {
-                                                        let enum_value: &__VirtualEnum = args[0]
-                                                            .downcast_temp_ref(
-                                                                &__VIRTUAL_ENUM_VTABLE,
-                                                            );
-                                                        enum_value.kind_idx.to_register()
-                                                    },
-                                                    none
-                                                )
-                                                .transfer(),
-                                                RootBuiltinIdentifier::I64 => todo!(),
-                                                RootBuiltinIdentifier::F32 => todo!(),
-                                                RootBuiltinIdentifier::F64 => todo!(),
-                                                RootBuiltinIdentifier::B32 => todo!(),
-                                                RootBuiltinIdentifier::B64 => todo!(),
-                                                RootBuiltinIdentifier::Bool => todo!(),
-                                                RootBuiltinIdentifier::True => todo!(),
-                                                RootBuiltinIdentifier::False => todo!(),
-                                                RootBuiltinIdentifier::Vec => todo!(),
-                                                RootBuiltinIdentifier::Tuple => todo!(),
-                                                RootBuiltinIdentifier::Debug => todo!(),
-                                                RootBuiltinIdentifier::Std => todo!(),
-                                                RootBuiltinIdentifier::Core => todo!(),
-                                                RootBuiltinIdentifier::Mor => todo!(),
-                                                RootBuiltinIdentifier::ThickFp => todo!(),
-                                                RootBuiltinIdentifier::Fn => todo!(),
-                                                RootBuiltinIdentifier::FnMut => todo!(),
-                                                RootBuiltinIdentifier::FnOnce => todo!(),
-                                                RootBuiltinIdentifier::Array => todo!(),
-                                                RootBuiltinIdentifier::Domains => todo!(),
-                                                RootBuiltinIdentifier::DatasetType => todo!(),
-                                                RootBuiltinIdentifier::VisualType => todo!(),
-                                                RootBuiltinIdentifier::TypeType => todo!(),
-                                                RootBuiltinIdentifier::Trait => todo!(),
-                                                RootBuiltinIdentifier::Module => todo!(),
-                                                RootBuiltinIdentifier::CloneTrait => todo!(),
-                                                RootBuiltinIdentifier::CopyTrait => todo!(),
-                                                RootBuiltinIdentifier::PartialEqTrait => todo!(),
-                                                RootBuiltinIdentifier::EqTrait => todo!(),
-                                                RootBuiltinIdentifier::Ref => todo!(),
-                                                RootBuiltinIdentifier::RefMut => todo!(),
-                                                RootBuiltinIdentifier::Option => todo!(),
-                                            }
-                                        }
-                                        EntityRoutePtr::Custom(_) => todo!(),
-                                    },
-                                    EagerSuffixOpr::BePattern(_) => todo!(),
-                                    EagerSuffixOpr::Unveil => todo!(),
-                                },
-                                TyKind::Record => todo!(),
-                                TyKind::Struct => todo!(),
-                                TyKind::Primitive => todo!(),
-                                TyKind::Vec => todo!(),
-                                TyKind::Array => todo!(),
-                                TyKind::Slice => todo!(),
-                                TyKind::CyclicSlice => todo!(),
-                                TyKind::Tuple => todo!(),
-                                TyKind::Mor => todo!(),
-                                TyKind::ThickFp => todo!(),
-                                TyKind::AssociatedAny => todo!(),
-                                TyKind::ThisAny => todo!(),
-                                TyKind::SpatialPlaceholderAny => todo!(),
-                                TyKind::BoxAny => todo!(),
-                                TyKind::HigherKind => todo!(),
-                                TyKind::Ref => todo!(),
-                                TyKind::Option => todo!(),
-                                TyKind::TargetOutputAny => todo!(),
-                            }
-                        }
-                    }
-                }
-                EagerSuffixOpr::BePattern(_) => todo!(),
-                EagerSuffixOpr::Unveil => todo!(),
-            },
-            nargs: 1,
-            output_ty: expr.intrinsic_ty(),
-            discard,
-        };
-        let instruction = Instruction::new(ins_variant, expr.clone());
-        self.push_instruction(instruction)
+        todo!()
+        // let this_ty = opds[0].intrinsic_ty();
+        // let ins_variant = InstructionVariant::CallRoutine {
+        //     resolved_linkage: match opr {
+        //         EagerSuffixOpr::Incr | EagerSuffixOpr::Decr | EagerSuffixOpr::AsTy(_) => {
+        //             match this_ty {
+        //                 EntityRoutePtr::Root(root_identifier) => {
+        //                     resolve_primitive_suffix_opr_linkage(opr, root_identifier).transfer()
+        //                 }
+        //                 EntityRoutePtr::Custom(_) => {
+        //                     let ty_decl: Arc<TyDecl> = self.db.ty_decl(this_ty).unwrap();
+        //                     match ty_decl.ty_kind {
+        //                         TyKind::Enum => match opr {
+        //                             EagerSuffixOpr::Incr => todo!(),
+        //                             EagerSuffixOpr::Decr => todo!(),
+        //                             EagerSuffixOpr::AsTy(as_ty) => match as_ty.route {
+        //                                 EntityRoutePtr::Root(root_identifier) => {
+        //                                     match root_identifier {
+        //                                         RootBuiltinIdentifier::Void => todo!(),
+        //                                         RootBuiltinIdentifier::I32 => transfer_linkage!(
+        //                                             |args, _| {
+        //                                                 let enum_value: &__VirtualEnum = args[0]
+        //                                                     .downcast_temp_ref(
+        //                                                         &__VIRTUAL_ENUM_VTABLE,
+        //                                                     );
+        //                                                 enum_value.kind_idx.to_register()
+        //                                             },
+        //                                             none
+        //                                         )
+        //                                         .transfer(),
+        //                                         RootBuiltinIdentifier::I64 => todo!(),
+        //                                         RootBuiltinIdentifier::F32 => todo!(),
+        //                                         RootBuiltinIdentifier::F64 => todo!(),
+        //                                         RootBuiltinIdentifier::B32 => todo!(),
+        //                                         RootBuiltinIdentifier::B64 => todo!(),
+        //                                         RootBuiltinIdentifier::Bool => todo!(),
+        //                                         RootBuiltinIdentifier::True => todo!(),
+        //                                         RootBuiltinIdentifier::False => todo!(),
+        //                                         RootBuiltinIdentifier::Vec => todo!(),
+        //                                         RootBuiltinIdentifier::Tuple => todo!(),
+        //                                         RootBuiltinIdentifier::Debug => todo!(),
+        //                                         RootBuiltinIdentifier::Std => todo!(),
+        //                                         RootBuiltinIdentifier::Core => todo!(),
+        //                                         RootBuiltinIdentifier::Mor => todo!(),
+        //                                         RootBuiltinIdentifier::ThickFp => todo!(),
+        //                                         RootBuiltinIdentifier::Fn => todo!(),
+        //                                         RootBuiltinIdentifier::FnMut => todo!(),
+        //                                         RootBuiltinIdentifier::FnOnce => todo!(),
+        //                                         RootBuiltinIdentifier::Array => todo!(),
+        //                                         RootBuiltinIdentifier::Domains => todo!(),
+        //                                         RootBuiltinIdentifier::DatasetType => todo!(),
+        //                                         RootBuiltinIdentifier::VisualType => todo!(),
+        //                                         RootBuiltinIdentifier::TypeType => todo!(),
+        //                                         RootBuiltinIdentifier::Trait => todo!(),
+        //                                         RootBuiltinIdentifier::Module => todo!(),
+        //                                         RootBuiltinIdentifier::CloneTrait => todo!(),
+        //                                         RootBuiltinIdentifier::CopyTrait => todo!(),
+        //                                         RootBuiltinIdentifier::PartialEqTrait => todo!(),
+        //                                         RootBuiltinIdentifier::EqTrait => todo!(),
+        //                                         RootBuiltinIdentifier::Ref => todo!(),
+        //                                         RootBuiltinIdentifier::RefMut => todo!(),
+        //                                         RootBuiltinIdentifier::Option => todo!(),
+        //                                     }
+        //                                 }
+        //                                 EntityRoutePtr::Custom(_) => todo!(),
+        //                             },
+        //                             EagerSuffixOpr::BePattern(_) => todo!(),
+        //                             EagerSuffixOpr::Unveil => todo!(),
+        //                         },
+        //                         TyKind::Record => todo!(),
+        //                         TyKind::Struct => todo!(),
+        //                         TyKind::Primitive => todo!(),
+        //                         TyKind::Vec => todo!(),
+        //                         TyKind::Array => todo!(),
+        //                         TyKind::Slice => todo!(),
+        //                         TyKind::CyclicSlice => todo!(),
+        //                         TyKind::Tuple => todo!(),
+        //                         TyKind::Mor => todo!(),
+        //                         TyKind::ThickFp => todo!(),
+        //                         TyKind::AssociatedAny => todo!(),
+        //                         TyKind::ThisAny => todo!(),
+        //                         TyKind::SpatialPlaceholderAny => todo!(),
+        //                         TyKind::BoxAny => todo!(),
+        //                         TyKind::HigherKind => todo!(),
+        //                         TyKind::Ref => todo!(),
+        //                         TyKind::Option => todo!(),
+        //                         TyKind::TargetOutputAny => todo!(),
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //         EagerSuffixOpr::BePattern(_) => todo!(),
+        //         EagerSuffixOpr::Unveil => todo!(),
+        //     },
+        //     nargs: 1,
+        //     output_ty: expr.intrinsic_ty(),
+        //     discard,
+        // };
+        // let instruction = Instruction::new(ins_variant, expr.clone());
+        // self.push_instruction(instruction)
     }
 
     fn compile_binary_opn(
@@ -674,16 +674,17 @@ impl<'a> InstructionSheetBuilder<'a> {
                 __Linkage::Model(_) => todo!(),
             }
         } else {
-            let method_uid = self.db.entity_uid(method_route);
-            let call_form_decl = self.db.entity_call_form_decl(method_route).unwrap();
-            InstructionVariant::CallInterpreted {
-                routine_uid: method_uid,
-                nargs: (call_form_decl.primary_parameters.len() + 1)
-                    .try_into()
-                    .unwrap(),
-                output_ty,
-                discard,
-            }
+            todo!()
+            // let method_uid = self.db.entity_uid(method_route);
+            // let call_form_decl = self.db.entity_call_form_decl(method_route).unwrap();
+            // InstructionVariant::CallInterpreted {
+            //     routine_uid: method_uid,
+            //     nargs: (call_form_decl.primary_parameters.len() + 1)
+            //         .try_into()
+            //         .unwrap(),
+            //     output_ty,
+            //     discard,
+            // }
         }
     }
 }

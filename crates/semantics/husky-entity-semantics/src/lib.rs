@@ -34,6 +34,8 @@ use husky_entity_kind::*;
 use husky_entity_route::{EntityRoute, EntityRouteVariant};
 use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
 use husky_entity_syntax::EntitySource;
+use husky_expr_syntax::*;
+use husky_expr_syntax::*;
 use husky_file::FileItd;
 use husky_lazy_semantics::parse_lazy_stmts;
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
@@ -447,32 +449,33 @@ pub(crate) fn main_defn(
     this: &dyn EntityDefnQueryGroup,
     target_entrance: husky_file::FileItd,
 ) -> SemanticResultArc<MainDefn> {
-    let ast_text = this.ast_text(target_entrance).unwrap();
-    for item in ast_text.folded_results.iter() {
-        match item.value.as_ref().unwrap().variant {
-            AstVariant::MainDefnHead => {
-                let ty = RangedEntityRoute {
-                    route: this.target_output_ty().unwrap(),
-                    range: Default::default(),
-                };
-                return Ok(Arc::new(MainDefn {
-                    defn_repr: DefinitionRepr::LazyBlock {
-                        stmts: parse_lazy_stmts(
-                            this.upcast(),
-                            &ast_text.arena,
-                            not_none!(item.opt_children),
-                            target_entrance,
-                            ty,
-                        )?,
-                        ty,
-                    },
-                    file: target_entrance,
-                }));
-            }
-            _ => (),
-        }
-    }
-    err!("main not found")
+    todo!()
+    // let ast_text = this.ast_text(target_entrance).unwrap();
+    // for item in ast_text.folded_results.iter() {
+    //     match item.value.as_ref().unwrap().variant {
+    //         AstVariant::MainDefnHead => {
+    //             let ty = RangedEntityRoute {
+    //                 route: this.target_output_ty().unwrap(),
+    //                 range: Default::default(),
+    //             };
+    //             return Ok(Arc::new(MainDefn {
+    //                 defn_repr: DefinitionRepr::LazyBlock {
+    //                     stmts: parse_lazy_stmts(
+    //                         this.upcast(),
+    //                         &ast_text.arena,
+    //                         not_none!(item.opt_children),
+    //                         target_entrance,
+    //                         ty,
+    //                     )?,
+    //                     ty,
+    //                 },
+    //                 file: target_entrance,
+    //             }));
+    //         }
+    //         _ => (),
+    //     }
+    // }
+    // err!("main not found")
 }
 
 pub(crate) fn entity_defn(

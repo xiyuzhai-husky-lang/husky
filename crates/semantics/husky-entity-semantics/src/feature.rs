@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{AstIter, RawExprArena};
+use husky_ast::AstIter;
 use husky_semantics_error::SemanticResult;
 use husky_word::Paradigm;
 

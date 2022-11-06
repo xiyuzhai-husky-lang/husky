@@ -24,7 +24,8 @@ impl<'a> LinkageCollector<'a> {
                     EagerOpnVariant::Prefix { .. } => (),
                     EagerOpnVariant::Suffix { .. } => (),
                     EagerOpnVariant::RoutineCall(routine) => self.insert(routine.route),
-                    EagerOpnVariant::TypeCall { ranged_ty, .. } => self.insert(ranged_ty.route),
+                    EagerOpnVariant::TypeCall { .. } => todo!(),
+                    // self.insert(ranged_ty.route),
                     EagerOpnVariant::Field {
                         field_kind,
                         field_ident,

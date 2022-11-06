@@ -53,18 +53,19 @@ fn dataset_config_from_ast_text(
     ast_text: &AstText,
     file: FileItd,
 ) -> SemanticResult<DatasetConfig> {
-    for item in ast_text.folded_results.iter() {
-        match item.value.as_ref().unwrap().variant {
-            AstVariant::DatasetConfigDefnHead => {
-                return Ok(DatasetConfig::new(parse_func_stmts(
-                    this.upcast(),
-                    &ast_text.arena,
-                    not_none!(item.opt_children),
-                    file,
-                )?))
-            }
-            _ => (),
-        }
-    }
-    err!("dataset config not found")
+    todo!()
+    // for item in ast_text.folded_results.iter() {
+    //     match item.value.as_ref().unwrap().variant {
+    //         AstVariant::DatasetConfigDefnHead => {
+    //             return Ok(DatasetConfig::new(parse_func_stmts(
+    //                 this.upcast(),
+    //                 &ast_text.arena,
+    //                 not_none!(item.opt_children),
+    //                 file,
+    //             )?))
+    //         }
+    //         _ => (),
+    //     }
+    // }
+    // err!("dataset config not found")
 }

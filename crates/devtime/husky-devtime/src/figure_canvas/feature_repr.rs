@@ -180,45 +180,46 @@ impl HuskyDevtime {
         sample_id: SampleId,
         partitions: &Partitions,
     ) -> __VMResult<bool> {
-        let trace = self.trace(trace_id);
-        let (value, ty) = match trace.variant {
-            TraceVariant::Main(ref repr) => {
-                (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
-            }
-            TraceVariant::EntityFeature { ref repr, .. } => {
-                (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
-            }
-            TraceVariant::FeatureStmt(ref stmt) => (
-                self.runtime.eval_feature_stmt(stmt, sample_id)?,
-                stmt.return_ty,
-            ),
-            TraceVariant::FeatureBranch(ref branch) => (
-                self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
-                branch.block.return_ty.route,
-            ),
-            TraceVariant::FeatureExpr(_) => todo!(),
-            TraceVariant::FeatureCallArgument { .. } => todo!(),
-            TraceVariant::FuncStmt { .. } => todo!(),
-            TraceVariant::ProcStmt { .. } => todo!(),
-            TraceVariant::ProcBranch { .. } => todo!(),
-            TraceVariant::FuncBranch { .. } => todo!(),
-            TraceVariant::LoopFrame { .. } => todo!(),
-            TraceVariant::EagerExpr { .. } => todo!(),
-            TraceVariant::EagerCallArgument { .. } => todo!(),
-            TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
-        };
-        assert!(ty == self.runtime().target_output_ty().unwrap());
-        let label_downcast_result = self.runtime().register_to_label_converter()(&value);
-        let true_label = self.runtime.session().dev().label(sample_id);
-        match label_downcast_result {
-            __RegisterDowncastResult::Value(predicted_label) => Ok(predicted_label != true_label),
-            __RegisterDowncastResult::None { number_of_somes } => {
-                if number_of_somes != 0 {
-                    todo!()
-                }
-                Ok(partitions.is_nondefault(true_label))
-            }
-            __RegisterDowncastResult::Unreturned => Ok(false),
-        }
+        todo!()
+        // let trace = self.trace(trace_id);
+        // let (value, ty) = match trace.variant {
+        //     TraceVariant::Main(ref repr) => {
+        //         (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
+        //     }
+        //     TraceVariant::EntityFeature { ref repr, .. } => {
+        //         (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
+        //     }
+        //     TraceVariant::FeatureStmt(ref stmt) => (
+        //         self.runtime.eval_feature_stmt(stmt, sample_id)?,
+        //         stmt.return_ty,
+        //     ),
+        //     TraceVariant::FeatureBranch(ref branch) => (
+        //         self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
+        //         branch.block.return_ty.route,
+        //     ),
+        //     TraceVariant::FeatureExpr(_) => todo!(),
+        //     TraceVariant::FeatureCallArgument { .. } => todo!(),
+        //     TraceVariant::FuncStmt { .. } => todo!(),
+        //     TraceVariant::ProcStmt { .. } => todo!(),
+        //     TraceVariant::ProcBranch { .. } => todo!(),
+        //     TraceVariant::FuncBranch { .. } => todo!(),
+        //     TraceVariant::LoopFrame { .. } => todo!(),
+        //     TraceVariant::EagerExpr { .. } => todo!(),
+        //     TraceVariant::EagerCallArgument { .. } => todo!(),
+        //     TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
+        // };
+        // assert!(ty == self.runtime().target_output_ty().unwrap());
+        // let label_downcast_result = self.runtime().register_to_label_converter()(&value);
+        // let true_label = self.runtime.session().dev().label(sample_id);
+        // match label_downcast_result {
+        //     __RegisterDowncastResult::Value(predicted_label) => Ok(predicted_label != true_label),
+        //     __RegisterDowncastResult::None { number_of_somes } => {
+        //         if number_of_somes != 0 {
+        //             todo!()
+        //         }
+        //         Ok(partitions.is_nondefault(true_label))
+        //     }
+        //     __RegisterDowncastResult::Unreturned => Ok(false),
+        // }
     }
 }

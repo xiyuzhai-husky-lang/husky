@@ -255,32 +255,33 @@ impl<'a> FeatureExprBuilder<'a> {
         method_route: EntityRoutePtr,
         opds: &[Arc<LazyExpr>],
     ) -> (FeatureLazyExprVariant, FeaturePtr) {
-        let opds = opds
-            .iter()
-            .map(|opd| self.new_expr(opd.clone()))
-            .collect::<Vec<_>>();
-        let feature = self.feature_interner.intern(Feature::MethodCall {
-            method_ident: method_ident.ident,
-            opds: opds.iter().map(|opd| opd.feature).collect(),
-        });
-        let this_expr = &opds[0].expr;
-        let this_ty_defn = self.db.entity_defn(this_expr.intrinsic_ty()).unwrap();
-        let member_idx = self.db.member_idx(method_route);
-        let method_defn = this_ty_defn.method(member_idx);
-        let kind = match method_defn.variant {
-            EntityDefnVariant::Method { .. } => FeatureLazyExprVariant::RoutineCall {
-                opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
-                opt_linkage: self.db.method_linkage(method_route),
-                opds,
-                has_this: true,
-                routine_defn: method_defn.clone(),
-            },
-            _ => panic!(
-                "unexpected entity variant {:?} for method `{method_route}`",
-                method_defn.variant
-            ),
-        };
-        (kind, feature)
+        todo!()
+        // let opds = opds
+        //     .iter()
+        //     .map(|opd| self.new_expr(opd.clone()))
+        //     .collect::<Vec<_>>();
+        // let feature = self.feature_interner.intern(Feature::MethodCall {
+        //     method_ident: method_ident.ident,
+        //     opds: opds.iter().map(|opd| opd.feature).collect(),
+        // });
+        // let this_expr = &opds[0].expr;
+        // let this_ty_defn = self.db.entity_defn(this_expr.intrinsic_ty()).unwrap();
+        // let member_idx = self.db.member_idx(method_route);
+        // let method_defn = this_ty_defn.method(member_idx);
+        // let kind = match method_defn.variant {
+        //     EntityDefnVariant::Method { .. } => FeatureLazyExprVariant::RoutineCall {
+        //         opt_instruction_sheet: self.db.method_opt_instruction_sheet(method_route),
+        //         opt_linkage: self.db.method_linkage(method_route),
+        //         opds,
+        //         has_this: true,
+        //         routine_defn: method_defn.clone(),
+        //     },
+        //     _ => panic!(
+        //         "unexpected entity variant {:?} for method `{method_route}`",
+        //         method_defn.variant
+        //     ),
+        // };
+        // (kind, feature)
     }
 
     pub(super) fn compile_field_access(
@@ -289,132 +290,133 @@ impl<'a> FeatureExprBuilder<'a> {
         this: FeatureRepr,
         field_binding: Binding,
     ) -> (FeatureLazyExprVariant, FeaturePtr) {
-        let this_ty = this.ty();
-        let this_ty_decl = self.db.ty_decl(this_ty.intrinsic()).unwrap();
-        let field_kind = this_ty_decl.field_kind(field_ident.ident);
-        match field_kind {
-            FieldKind::StructRegular | FieldKind::StructDefault | FieldKind::StructDerived => {
-                let feature = self.feature_interner.intern(Feature::FieldAccess {
-                    this: this.feature(),
-                    field_ident: field_ident.ident,
-                });
-                (
-                    FeatureLazyExprVariant::StructOriginalField {
-                        field_ident,
-                        field_idx: this_ty_decl
-                            .field_idx(field_ident.ident)
-                            .try_into()
-                            .unwrap(),
-                        field_binding,
-                        opt_linkage: self.db.field_linkage_resolved(
-                            this_ty.intrinsic(),
-                            field_ident.ident,
-                            field_binding,
-                        ),
-                        this,
-                    },
-                    feature,
-                )
-            }
-            FieldKind::StructMemo { .. } => {
-                let this_ty = this.ty();
-                let this_ty_defn = self.db.entity_defn(this_ty).unwrap();
-                let lazy_field_route = self.db.subroute(this_ty, field_ident.ident, thin_vec![]);
-                let field_uid = self.db.entity_uid(lazy_field_route);
-                match this_ty_defn.variant {
-                    EntityDefnVariant::Ty { ref ty_members, .. } => {
-                        match ty_members.get_entry(field_ident.ident).unwrap().variant {
-                            EntityDefnVariant::TyField {
-                                ref field_variant, ..
-                            } => match field_variant {
-                                FieldDefnVariant::StructDerivedLazy { ref defn_repr } => {
-                                    let repr = FeatureRepr::from_defn(
-                                        self.db,
-                                        Some(this.clone().into()),
-                                        defn_repr,
-                                        self.db.feature_interner(),
-                                    );
-                                    let feature = repr.feature();
-                                    let feature_expr_kind =
-                                        FeatureLazyExprVariant::StructDerivedLazyField {
-                                            this,
-                                            field_ident,
-                                            field_uid,
-                                            repr,
-                                        };
-                                    (feature_expr_kind, feature)
-                                }
-                                _ => {
-                                    panic!()
-                                }
-                            },
-                            _ => panic!(),
-                        }
-                    }
-                    _ => panic!(),
-                }
-            }
-            FieldKind::RecordRegular => {
-                let repr = self
-                    .db
-                    .record_field_repr(this.clone().into(), field_ident.ident);
-                let feature = repr.feature();
-                (
-                    FeatureLazyExprVariant::RecordOriginalField {
-                        this,
-                        field_ident,
-                        repr,
-                    },
-                    feature,
-                )
-            }
-            FieldKind::RecordProperty => {
-                let this_ty_defn = self.db.entity_defn(this.ty()).unwrap();
-                let field_uid =
-                    self.db
-                        .entity_uid(self.db.intern_entity_route(EntityRoute::subroute(
-                            this.ty(),
-                            field_ident.ident,
-                            thin_vec![],
-                        )));
-                match this_ty_defn.variant {
-                    EntityDefnVariant::Ty { ref ty_members, .. } => {
-                        match ty_members.get_entry(field_ident.ident).unwrap().variant {
-                            EntityDefnVariant::TyField {
-                                ref field_variant, ..
-                            } => match field_variant {
-                                FieldDefnVariant::RecordDerived { defn_repr } => {
-                                    let repr = FeatureRepr::from_defn(
-                                        self.db,
-                                        Some(this.clone().into()),
-                                        defn_repr,
-                                        self.db.feature_interner(),
-                                    );
-                                    let feature =
-                                        self.db.feature_interner().intern(Feature::FieldAccess {
-                                            this: this.feature(),
-                                            field_ident: field_ident.ident,
-                                        });
-                                    let feature_expr_kind =
-                                        FeatureLazyExprVariant::RecordDerivedField {
-                                            this,
-                                            field_ident,
-                                            field_uid,
-                                            repr,
-                                        };
-                                    (feature_expr_kind, feature)
-                                }
-                                _ => {
-                                    panic!()
-                                }
-                            },
-                            _ => panic!(),
-                        }
-                    }
-                    _ => panic!(),
-                }
-            }
-        }
+        todo!()
+        // let this_ty = this.ty();
+        // let this_ty_decl = self.db.ty_decl(this_ty.intrinsic()).unwrap();
+        // let field_kind = this_ty_decl.field_kind(field_ident.ident);
+        // match field_kind {
+        //     FieldKind::StructRegular | FieldKind::StructDefault | FieldKind::StructDerived => {
+        //         let feature = self.feature_interner.intern(Feature::FieldAccess {
+        //             this: this.feature(),
+        //             field_ident: field_ident.ident,
+        //         });
+        //         (
+        //             FeatureLazyExprVariant::StructOriginalField {
+        //                 field_ident,
+        //                 field_idx: this_ty_decl
+        //                     .field_idx(field_ident.ident)
+        //                     .try_into()
+        //                     .unwrap(),
+        //                 field_binding,
+        //                 opt_linkage: self.db.field_linkage_resolved(
+        //                     this_ty.intrinsic(),
+        //                     field_ident.ident,
+        //                     field_binding,
+        //                 ),
+        //                 this,
+        //             },
+        //             feature,
+        //         )
+        //     }
+        //     FieldKind::StructMemo { .. } => {
+        //         let this_ty = this.ty();
+        //         let this_ty_defn = self.db.entity_defn(this_ty).unwrap();
+        //         let lazy_field_route = self.db.subroute(this_ty, field_ident.ident, thin_vec![]);
+        //         let field_uid = self.db.entity_uid(lazy_field_route);
+        //         match this_ty_defn.variant {
+        //             EntityDefnVariant::Ty { ref ty_members, .. } => {
+        //                 match ty_members.get_entry(field_ident.ident).unwrap().variant {
+        //                     EntityDefnVariant::TyField {
+        //                         ref field_variant, ..
+        //                     } => match field_variant {
+        //                         FieldDefnVariant::StructDerivedLazy { ref defn_repr } => {
+        //                             let repr = FeatureRepr::from_defn(
+        //                                 self.db,
+        //                                 Some(this.clone().into()),
+        //                                 defn_repr,
+        //                                 self.db.feature_interner(),
+        //                             );
+        //                             let feature = repr.feature();
+        //                             let feature_expr_kind =
+        //                                 FeatureLazyExprVariant::StructDerivedLazyField {
+        //                                     this,
+        //                                     field_ident,
+        //                                     field_uid,
+        //                                     repr,
+        //                                 };
+        //                             (feature_expr_kind, feature)
+        //                         }
+        //                         _ => {
+        //                             panic!()
+        //                         }
+        //                     },
+        //                     _ => panic!(),
+        //                 }
+        //             }
+        //             _ => panic!(),
+        //         }
+        //     }
+        //     FieldKind::RecordRegular => {
+        //         let repr = self
+        //             .db
+        //             .record_field_repr(this.clone().into(), field_ident.ident);
+        //         let feature = repr.feature();
+        //         (
+        //             FeatureLazyExprVariant::RecordOriginalField {
+        //                 this,
+        //                 field_ident,
+        //                 repr,
+        //             },
+        //             feature,
+        //         )
+        //     }
+        //     FieldKind::RecordProperty => {
+        //         let this_ty_defn = self.db.entity_defn(this.ty()).unwrap();
+        //         let field_uid =
+        //             self.db
+        //                 .entity_uid(self.db.intern_entity_route(EntityRoute::subroute(
+        //                     this.ty(),
+        //                     field_ident.ident,
+        //                     thin_vec![],
+        //                 )));
+        //         match this_ty_defn.variant {
+        //             EntityDefnVariant::Ty { ref ty_members, .. } => {
+        //                 match ty_members.get_entry(field_ident.ident).unwrap().variant {
+        //                     EntityDefnVariant::TyField {
+        //                         ref field_variant, ..
+        //                     } => match field_variant {
+        //                         FieldDefnVariant::RecordDerived { defn_repr } => {
+        //                             let repr = FeatureRepr::from_defn(
+        //                                 self.db,
+        //                                 Some(this.clone().into()),
+        //                                 defn_repr,
+        //                                 self.db.feature_interner(),
+        //                             );
+        //                             let feature =
+        //                                 self.db.feature_interner().intern(Feature::FieldAccess {
+        //                                     this: this.feature(),
+        //                                     field_ident: field_ident.ident,
+        //                                 });
+        //                             let feature_expr_kind =
+        //                                 FeatureLazyExprVariant::RecordDerivedField {
+        //                                     this,
+        //                                     field_ident,
+        //                                     field_uid,
+        //                                     repr,
+        //                                 };
+        //                             (feature_expr_kind, feature)
+        //                         }
+        //                         _ => {
+        //                             panic!()
+        //                         }
+        //                     },
+        //                     _ => panic!(),
+        //                 }
+        //             }
+        //             _ => panic!(),
+        //         }
+        //     }
+        // }
     }
 
     fn compile_index(

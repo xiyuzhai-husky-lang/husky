@@ -1,6 +1,5 @@
 use crate::*;
 use husky_print_utils::*;
-use infer_decl::{MemberDecl, TyDecl, TyMemberDecl};
 
 macro_rules! informative_assert_eq {
     ($this: expr, $left_key: expr, $left: expr, $right_key: expr, $right: expr) => {
@@ -21,113 +20,114 @@ macro_rules! informative_assert_eq {
 
 impl EntityDefn {
     pub(crate) fn verify(&self, db: &dyn EntityDefnQueryGroup) {
-        match self.variant {
-            EntityDefnVariant::Ty { .. } => {
-                self.verify_consistency_with_ty_decl(&db.ty_decl(self.base_route).unwrap())
-            }
-            _ => (),
-        }
+        todo!()
+        // match self.variant {
+        //     EntityDefnVariant::Ty { .. } => {
+        //         self.verify_consistency_with_ty_decl(&db.ty_decl(self.base_route).unwrap())
+        //     }
+        //     _ => (),
+        // }
     }
 
-    fn verify_consistency_with_ty_decl(&self, ty_decl: &TyDecl) {
-        match self.variant {
-            EntityDefnVariant::Ty {
-                ref ty_members,
-                ref members,
-                ..
-            } => {
-                assert_eq!(ty_members.len(), ty_decl.ty_members.len());
-                for i in 0..ty_members.len() {
-                    ty_members.data()[i]
-                        .verify_consistency_with_ty_member_decl(&ty_decl.ty_members.data()[i])
-                }
-                informative_assert_eq!(
-                    self,
-                    members.len(),
-                    members
-                        .iter()
-                        .map(|member| member.base_route)
-                        .collect::<Vec<_>>(),
-                    ty_decl.members.len(),
-                    ty_decl
-                        .members
-                        .iter()
-                        .map(|member| member.info())
-                        .collect::<Vec<_>>()
-                );
-                for i in 0..members.len() {
-                    members[i].verify_consistency_with_member_decl(&ty_decl.members[i])
-                }
-            }
-            _ => panic!(),
-        }
-    }
+    // fn verify_consistency_with_ty_decl(&self, ty_decl: &TyDecl) {
+    //     match self.variant {
+    //         EntityDefnVariant::Ty {
+    //             ref ty_members,
+    //             ref members,
+    //             ..
+    //         } => {
+    //             assert_eq!(ty_members.len(), ty_decl.ty_members.len());
+    //             for i in 0..ty_members.len() {
+    //                 ty_members.data()[i]
+    //                     .verify_consistency_with_ty_member_decl(&ty_decl.ty_members.data()[i])
+    //             }
+    //             informative_assert_eq!(
+    //                 self,
+    //                 members.len(),
+    //                 members
+    //                     .iter()
+    //                     .map(|member| member.base_route)
+    //                     .collect::<Vec<_>>(),
+    //                 ty_decl.members.len(),
+    //                 ty_decl
+    //                     .members
+    //                     .iter()
+    //                     .map(|member| member.info())
+    //                     .collect::<Vec<_>>()
+    //             );
+    //             for i in 0..members.len() {
+    //                 members[i].verify_consistency_with_member_decl(&ty_decl.members[i])
+    //             }
+    //         }
+    //         _ => panic!(),
+    //     }
+    // }
 
-    pub fn verify_consistency_with_ty_member_decl(&self, ty_decl: &TyMemberDecl) {
-        match self.variant {
-            EntityDefnVariant::Method { .. } => match ty_decl {
-                TyMemberDecl::Method(method_decl) => method_decl
-                    .opt_route
-                    .unwrap()
-                    .verify_consistency_with_base_route(self.base_route),
-                TyMemberDecl::Field(_) => panic!(),
-                TyMemberDecl::Call(_) => panic!(),
-            },
-            EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::TyField { field_ty, .. } => match ty_decl {
-                TyMemberDecl::Field(field_decl) => {
-                    field_decl.ty.verify_consistency_with_base_route(field_ty);
-                    assert_eq!(self.ident, field_decl.ident.into())
-                }
-                _ => panic!(),
-            },
-            EntityDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
-            EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
-            EntityDefnVariant::Func { .. } => msg_once!("todo"),
-            EntityDefnVariant::Proc { .. } => msg_once!("todo"),
-            _ => panic!("unexpected EntityDefnVariant {:?}", self.variant),
-        }
-    }
+    // pub fn verify_consistency_with_ty_member_decl(&self, ty_decl: &TyMemberDecl) {
+    //     match self.variant {
+    //         EntityDefnVariant::Method { .. } => match ty_decl {
+    //             TyMemberDecl::Method(method_decl) => method_decl
+    //                 .opt_route
+    //                 .unwrap()
+    //                 .verify_consistency_with_base_route(self.base_route),
+    //             TyMemberDecl::Field(_) => panic!(),
+    //             TyMemberDecl::Call(_) => panic!(),
+    //         },
+    //         EntityDefnVariant::Builtin => todo!(),
+    //         EntityDefnVariant::TyField { field_ty, .. } => match ty_decl {
+    //             TyMemberDecl::Field(field_decl) => {
+    //                 field_decl.ty.verify_consistency_with_base_route(field_ty);
+    //                 assert_eq!(self.ident, field_decl.ident.into())
+    //             }
+    //             _ => panic!(),
+    //         },
+    //         EntityDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
+    //         EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
+    //         EntityDefnVariant::Func { .. } => msg_once!("todo"),
+    //         EntityDefnVariant::Proc { .. } => msg_once!("todo"),
+    //         _ => panic!("unexpected EntityDefnVariant {:?}", self.variant),
+    //     }
+    // }
 
-    pub fn verify_consistency_with_member_decl(&self, member_decl: &MemberDecl) {
-        match self.variant {
-            EntityDefnVariant::Method {
-                method_defn_kind, ..
-            } => match method_defn_kind {
-                MethodDefnKind::TypeMethod { .. } => match member_decl {
-                    MemberDecl::TypeMethod(decl) => decl
-                        .opt_route
-                        .unwrap()
-                        .verify_consistency_with_base_route(self.base_route),
-                    _ => panic!(),
-                },
-                MethodDefnKind::TraitMethod { .. } => todo!(),
-                MethodDefnKind::TraitMethodImpl { .. } => match member_decl {
-                    MemberDecl::TraitMethodImpl { method, .. } => method
-                        .opt_route
-                        .unwrap()
-                        .verify_consistency_with_base_route(self.base_route),
-                    _ => panic!(),
-                },
-            },
-            EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::TyField { field_ty, .. } => match member_decl {
-                MemberDecl::TypeField(field_decl) => {
-                    field_decl.ty.verify_consistency_with_base_route(field_ty);
-                    assert_eq!(self.ident, field_decl.ident.into())
-                }
-                _ => panic!(),
-            },
-            EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => match member_decl {
-                MemberDecl::TraitAssociatedTypeImpl { ty: decl_ty, .. } => {
-                    decl_ty.verify_consistency_with_base_route(ty)
-                }
-                _ => panic!(),
-            },
-            EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
-            EntityDefnVariant::Func { .. } => msg_once!("todo"),
-            EntityDefnVariant::Proc { .. } => msg_once!("todo"),
-            _ => panic!(),
-        }
-    }
+    // pub fn verify_consistency_with_member_decl(&self, member_decl: &MemberDecl) {
+    //     match self.variant {
+    //         EntityDefnVariant::Method {
+    //             method_defn_kind, ..
+    //         } => match method_defn_kind {
+    //             MethodDefnKind::TypeMethod { .. } => match member_decl {
+    //                 MemberDecl::TypeMethod(decl) => decl
+    //                     .opt_route
+    //                     .unwrap()
+    //                     .verify_consistency_with_base_route(self.base_route),
+    //                 _ => panic!(),
+    //             },
+    //             MethodDefnKind::TraitMethod { .. } => todo!(),
+    //             MethodDefnKind::TraitMethodImpl { .. } => match member_decl {
+    //                 MemberDecl::TraitMethodImpl { method, .. } => method
+    //                     .opt_route
+    //                     .unwrap()
+    //                     .verify_consistency_with_base_route(self.base_route),
+    //                 _ => panic!(),
+    //             },
+    //         },
+    //         EntityDefnVariant::Builtin => todo!(),
+    //         EntityDefnVariant::TyField { field_ty, .. } => match member_decl {
+    //             MemberDecl::TypeField(field_decl) => {
+    //                 field_decl.ty.verify_consistency_with_base_route(field_ty);
+    //                 assert_eq!(self.ident, field_decl.ident.into())
+    //             }
+    //             _ => panic!(),
+    //         },
+    //         EntityDefnVariant::TraitAssociatedTypeImpl { ty, .. } => match member_decl {
+    //             MemberDecl::TraitAssociatedTypeImpl { ty: decl_ty, .. } => {
+    //                 decl_ty.verify_consistency_with_base_route(ty)
+    //             }
+    //             _ => panic!(),
+    //         },
+    //         EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
+    //         EntityDefnVariant::Func { .. } => msg_once!("todo"),
+    //         EntityDefnVariant::Proc { .. } => msg_once!("todo"),
+    //         _ => panic!(),
+    //     }
+    // }
 }

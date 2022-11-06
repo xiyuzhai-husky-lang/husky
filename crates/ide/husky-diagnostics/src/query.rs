@@ -2,14 +2,13 @@ use husky_ast::AstQueryGroup;
 use husky_entity_route::EntityRoutePtr;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
-use infer_total::InferQueryGroup;
 use reserve::Reserve;
 
 use crate::*;
 
 #[salsa::query_group(DiagnosticSalsaQueryGroupStorage)]
 pub trait DiagnosticSalsaQuery:
-    EntitySyntaxQueryGroup + AstQueryGroup + InferQueryGroup + EntityDefnQueryGroup
+    EntitySyntaxQueryGroup + AstQueryGroup + EntityDefnQueryGroup
 {
     fn diagnostics_reserve(&self, module: EntityRoutePtr) -> Arc<DiagnosticReserve>;
 }

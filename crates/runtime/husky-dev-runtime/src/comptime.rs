@@ -48,12 +48,6 @@ impl EntitySyntaxQueryGroup for HuskyDevRuntime {}
 
 impl AstQueryGroup for HuskyDevRuntime {}
 
-impl Upcast<dyn InferQueryGroup> for HuskyDevRuntime {
-    fn upcast(&self) -> &(dyn infer_total::InferQueryGroup + 'static) {
-        self
-    }
-}
-
 impl Upcast<dyn husky_entity_semantics::EntityDefnQueryGroup> for HuskyDevRuntime {
     fn upcast(&self) -> &(dyn husky_entity_semantics::EntityDefnQueryGroup + 'static) {
         self
@@ -71,16 +65,6 @@ impl Upcast<dyn husky_entity_syntax::EntitySyntaxQueryGroup> for HuskyDevRuntime
         self
     }
 }
-
-impl Upcast<dyn DeclQueryGroup> for HuskyDevRuntime {
-    fn upcast(&self) -> &(dyn DeclQueryGroup + 'static) {
-        self
-    }
-}
-
-impl infer_contract::InferContractQueryGroup for HuskyDevRuntime {}
-
-impl infer_total::InferQueryGroup for HuskyDevRuntime {}
 
 impl ResolveLinkage for HuskyDevRuntime {
     fn linkage_table(&self) -> &LinkageTable {

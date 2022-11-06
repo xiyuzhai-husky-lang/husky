@@ -12,7 +12,6 @@ use husky_ast::{AstError, AstErrorVariant};
 use husky_dev_utils::DevSource;
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use husky_entity_syntax::{EntitySyntaxError, EntitySyntaxErrorKind};
-use husky_infer_error::{InferError, InferErrorVariant};
 use husky_print_utils::p;
 use husky_semantics_error::{SemanticError, SemanticErrorVariant};
 use husky_text::TextRange;
@@ -50,22 +49,22 @@ impl From<&AstError> for Diagnostic {
     }
 }
 
-impl From<&InferError> for Diagnostic {
-    fn from(error: &InferError) -> Self {
-        match error.variant {
-            InferErrorVariant::Derived { .. } => {
-                p!(error);
-                panic!()
-            }
-            InferErrorVariant::Original { ref message, range } => Self {
-                severity: DiagnosticSeverity::Error,
-                range: range.clone(),
-                message: format!("Infer Error: {}", message),
-                dev_src: error.dev_src.clone(),
-            },
-        }
-    }
-}
+// impl From<&InferError> for Diagnostic {
+//     fn from(error: &InferError) -> Self {
+//         match error.variant {
+//             InferErrorVariant::Derived { .. } => {
+//                 p!(error);
+//                 panic!()
+//             }
+//             InferErrorVariant::Original { ref message, range } => Self {
+//                 severity: DiagnosticSeverity::Error,
+//                 range: range.clone(),
+//                 message: format!("Infer Error: {}", message),
+//                 dev_src: error.dev_src.clone(),
+//             },
+//         }
+//     }
+// }
 
 impl From<&LexError> for Diagnostic {
     fn from(error: &LexError) -> Self {
