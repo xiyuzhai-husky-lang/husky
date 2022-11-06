@@ -10,6 +10,6 @@ husky-text = { path = "../../syntax/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
-infer-decl = { path = "../../infer/husky-infer-decl" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+# infer
+husky-term-infer = { path = "../../infer/husky-term-infer" }

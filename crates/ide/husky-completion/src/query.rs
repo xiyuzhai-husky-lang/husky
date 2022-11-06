@@ -1,6 +1,6 @@
-use husky_ast::{RawExprVariant};
+use husky_ast::RawExprVariant;
 use husky_entity_kind::FieldKind;
-use husky_infer_entity_route::InferEntityRouteQueryGroup;
+use husky_infer_entity_route::TermInferDb;
 use husky_opn_syntax::RawOpnVariant;
 use husky_print_utils::{ep, p};
 use husky_text::FilePosition;
@@ -9,7 +9,7 @@ use lsp_types::{
     CompletionItem, CompletionItemKind, CompletionItemLabelDetails, CompletionResponse,
 };
 
-pub trait HuskyCompletionQuery: InferEntityRouteQueryGroup {
+pub trait HuskyCompletionQuery: TermInferDb {
     fn completion(
         &self,
         fpos: FilePosition,

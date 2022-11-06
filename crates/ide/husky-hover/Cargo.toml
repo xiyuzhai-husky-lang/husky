@@ -8,10 +8,15 @@ edition = "2021"
 lsp-types = { version = "0.93", features = ["proposed"] }
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-husky-text = { path = "../../syntax/husky-text" }
-husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
+# utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-ast = { path = "../../syntax/husky-ast" }
+# kernel
 husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-text = { path = "../../syntax/husky-text" }
+# syntax
+husky-ast = { path = "../../syntax/husky-ast" }
 husky-file = { path = "../../syntax/husky-file" }
+# infer
+husky-term-infer = { path = "../../infer/husky-term-infer" }
+# ide
 husky-documentation = { path = "../../ide/husky-documentation" }

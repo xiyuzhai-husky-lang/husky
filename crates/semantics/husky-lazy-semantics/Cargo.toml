@@ -21,11 +21,6 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-token = { path = "../../syntax/husky-token" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 husky-semantics-error = { path = "../husky-semantics-error" }
-infer-total = { path = "../../infer/total" }
-husky-infer-entity-route = { path = "../../infer/husky-infer-entity-route" }
-infer-contract = { path = "../../infer/husky-infer-contract" }
-infer-decl = { path = "../../infer/husky-infer-decl" }
-husky-infer-qualified-ty = { path = "../../infer/husky-infer-qualified-ty" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
@@ -34,4 +29,3 @@ husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-pattern-semantics = { path = "../../semantics/husky-pattern-semantics" }
 husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
-husky-context-impls = { path = "../../impls/husky-context-impls" }

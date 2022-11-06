@@ -7,5 +7,4 @@ edition = "2021"
 [dependencies]
 husky-entity-route = { path = "../../kernel/husky-entity-route" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
-infer-total = { path = "../../infer/total" }
 husky-pattern-syntax = { path = "../../syntax/husky-pattern-syntax" }
