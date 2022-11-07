@@ -6,7 +6,7 @@ pub struct TermPatternInterner {
     patterns: Vec<TermPattern>,
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TermPatternItd {
     Resolved(TermItd),
     Unresolved(UnresolvedTermIdx),
@@ -63,6 +63,9 @@ impl TermPattern {
 }
 
 impl TermPatternInterner {
+    pub(crate) fn new() -> Self {
+        Self { patterns: vec![] }
+    }
     pub(crate) fn it(&mut self, patt: TermPattern) -> TermPatternItd {
         match patt {
             TermPattern::Resolved(term) => TermPatternItd::Resolved(term),
@@ -72,9 +75,14 @@ impl TermPatternInterner {
     }
 
     fn alloc(&mut self, patt: TermPattern) -> TermPatternIdx {
-        let max_dependee_idx = patt.max_dependee_idx(self);
-
-        todo!();
+        if let Some(max_dependee_idx) = patt.max_dependee_idx(self) {
+            let start = max_dependee_idx.0;
+            for (i, patt1) in self.patterns[start..].iter().enumerate() {
+                if patt1 == &patt {
+                    return TermPatternIdx(start + i);
+                }
+            }
+        }
         let raw = self.patterns.len();
         self.patterns.push(patt);
         TermPatternIdx(raw)
@@ -97,4 +105,9 @@ fn test_option_max_works() {
 }
 
 #[test]
-fn intern_works() {}
+fn intern_works() {
+    // let db = TermPatternTestsDb::new();
+    let mut interner = TermPatternInterner::new();
+
+    // HELP ME
+}

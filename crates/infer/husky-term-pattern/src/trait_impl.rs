@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct TermTraitImplPattern {
     ty: TermPatternItd,
     trai: TermPatternItd,

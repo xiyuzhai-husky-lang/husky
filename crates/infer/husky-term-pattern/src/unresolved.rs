@@ -1,4 +1,4 @@
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct UnresolvedTermIdx(usize);
 
 pub struct UnresolvedTermRegistry {
