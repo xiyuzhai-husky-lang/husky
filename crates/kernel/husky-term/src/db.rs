@@ -6,7 +6,7 @@ use husky_word::InternWord;
 use crate::*;
 
 #[salsa::query_group(TermDbStorage)]
-pub trait TermDb: InternTerm + AskDecl + InternEntityPath + InternWord {
+pub trait TermDb: InternTerm + InternEntityPath + InternWord + AskDecl {
     fn term_menu(&self) -> Arc<TermMenu>;
     fn namespace_decl(&self, namespace: TermNamespace) -> TermResultArc<NamespaceDecl>;
     fn ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl>;

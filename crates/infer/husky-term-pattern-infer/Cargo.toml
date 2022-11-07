@@ -7,9 +7,21 @@ edition = "2021"
 [dependencies]
 thiserror = "1.0.37"
 salsa = "0.17.0-pre.2"
+# abstraction
+upcast = { path = "../../abstraction/upcast" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+# kernel
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-term = { path = "../../kernel/husky-term" }
+husky-word = { path = "../../kernel/husky-word" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 husky-file = { path = "../../syntax/husky-file" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
+husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
+husky-text = { path = "../../syntax/husky-text" }
 # infer
 husky-term-pattern = { path = "../../infer/husky-term-pattern" }
