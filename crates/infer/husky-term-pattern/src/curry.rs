@@ -1,7 +1,7 @@
 use crate::*;
 
-pub struct TermCurryPattern<'a> {
+pub struct TermCurryPattern {
     curry_kind: TermCurryVariant,
-    x: &'a TermPattern<'a>,
-    y: &'a TermPattern<'a>,
+    x: TermPatternIdx,
+    y: TermPatternIdx,
 }

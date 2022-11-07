@@ -1,6 +1,6 @@
 use super::*;
 use husky_word::Identifier;
-use interner::{DefaultItd, Interner, IsInternPtr};
+use interner::{DefaultItd, Interned, Interner};
 use optional::{Noned, OptEq};
 
 #[derive(PartialEq, Eq, Clone, Copy, Hash)]
@@ -33,7 +33,7 @@ impl EntityPathItd {
     }
 }
 
-impl IsInternPtr for EntityPathItd {
+impl Interned for EntityPathItd {
     type T = EntityPath;
 
     type Owned = EntityPath;

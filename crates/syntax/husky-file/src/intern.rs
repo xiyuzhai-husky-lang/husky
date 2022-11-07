@@ -1,6 +1,6 @@
 use std::path::{Path, PathBuf};
 
-use interner::{DefaultItd, Interner, IsInternPtr};
+use interner::{DefaultItd, Interned, Interner};
 #[cfg(feature = "lsp_support")]
 use lsp_types::Url;
 
@@ -10,13 +10,13 @@ type FileItdInner = DefaultItd<Path, PathBuf>;
 pub struct FileItd(FileItdInner);
 pub type FileInterner = Interner<FileItd>;
 
-impl IsInternPtr for FileItd {
-    type T = <FileItdInner as IsInternPtr>::T;
+impl Interned for FileItd {
+    type T = <FileItdInner as Interned>::T;
 
-    type Owned = <FileItdInner as IsInternPtr>::Owned;
+    type Owned = <FileItdInner as Interned>::Owned;
 
     fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
-        Self(<FileItdInner as IsInternPtr>::new_intern_ptr(id, target))
+        Self(<FileItdInner as Interned>::new_intern_ptr(id, target))
     }
 
     fn new_itr() -> Interner<Self> {

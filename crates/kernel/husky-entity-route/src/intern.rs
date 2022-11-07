@@ -1,7 +1,7 @@
 use crate::*;
 use core::hash::Hash;
 use husky_print_utils::{msg_once, p};
-use interner::{Interner, IsInternPtr};
+use interner::{Interned, Interner};
 use paste::paste;
 use std::{borrow::Borrow, ops::Deref};
 
@@ -268,7 +268,7 @@ impl Borrow<EntityRoute> for EntityRoutePtr {
     }
 }
 
-impl IsInternPtr for EntityRoutePtr {
+impl Interned for EntityRoutePtr {
     type T = EntityRoute;
 
     type Owned = EntityRoute;

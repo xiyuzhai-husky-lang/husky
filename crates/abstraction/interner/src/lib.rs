@@ -3,7 +3,7 @@ mod internal;
 mod pool;
 mod ptr;
 
-pub use ptr::{DefaultItd, IsInternPtr};
+pub use ptr::{DefaultItd, Interned};
 
 use std::borrow::Borrow;
 use sync_utils::SafeRwLock;
@@ -12,13 +12,13 @@ use internal::InternerInternal;
 
 pub trait Internable {}
 
-pub struct Interner<Ptr: IsInternPtr> {
+pub struct Interner<Ptr: Interned> {
     internal: SafeRwLock<InternerInternal<Ptr>>,
 }
 
 impl<Ptr> Default for Interner<Ptr>
 where
-    Ptr: IsInternPtr,
+    Ptr: Interned,
 {
     fn default() -> Self {
         Ptr::new_itr()
@@ -39,7 +39,7 @@ where
 //     }
 // }
 
-impl<Ptr: IsInternPtr> Interner<Ptr> {
+impl<Ptr: Interned> Interner<Ptr> {
     pub fn new_empty() -> Self {
         Self {
             internal: SafeRwLock::new(InternerInternal::default()),

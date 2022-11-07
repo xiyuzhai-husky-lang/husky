@@ -4,7 +4,7 @@ use optional::{Noned, OptEq};
 
 use crate::Interner;
 
-pub trait IsInternPtr:
+pub trait Interned:
     'static
     + Debug
     + Hash
@@ -137,7 +137,7 @@ impl<T: 'static + ?Sized, Q> Borrow<T> for DefaultItd<T, Q> {
     }
 }
 
-impl<T, Q> IsInternPtr for DefaultItd<T, Q>
+impl<T, Q> Interned for DefaultItd<T, Q>
 where
     T: 'static + Debug + Hash + Eq + ?Sized,
     Q: 'static + Hash + Eq + Send + Sync + Debug + Borrow<T>,

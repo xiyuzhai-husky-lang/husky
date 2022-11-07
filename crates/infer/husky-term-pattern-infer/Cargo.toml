@@ -5,3 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+# syntax
+husky-ast = { path = "../../syntax/husky-ast" }
+# infer
+husky-term-pattern = { path = "../../infer/husky-term-pattern" }
