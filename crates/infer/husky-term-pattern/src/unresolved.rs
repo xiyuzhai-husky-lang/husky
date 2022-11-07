@@ -6,3 +6,11 @@ pub struct UnresolvedTermRegistry {
 }
 
 pub struct UnresolvedTerm {}
+
+impl UnresolvedTermRegistry {
+    fn issue(&mut self, term: UnresolvedTerm) -> UnresolvedTermIdx {
+        let raw = self.terms.len();
+        self.terms.push(term);
+        UnresolvedTermIdx(raw)
+    }
+}

@@ -2,7 +2,7 @@ use husky_term::TyFamily;
 
 use super::*;
 
-impl InferTestsDb {
+impl TermInferTestsDb {
     pub(super) fn init(&mut self) {
         let entity_path_menu = self.entity_path_menu();
         let term_menu = self.term_menu();

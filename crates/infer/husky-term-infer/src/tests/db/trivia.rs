@@ -1,29 +1,29 @@
 use super::*;
 
-impl Upcast<dyn TermDb> for InferTestsDb {
+impl Upcast<dyn TermDb> for TermInferTestsDb {
     fn upcast(&self) -> &(dyn TermDb + 'static) {
         self
     }
 }
 
-impl Database for InferTestsDb {}
+impl Database for TermInferTestsDb {}
 
-impl InternTerm for InferTestsDb {
+impl InternTerm for TermInferTestsDb {
     fn term_itr(&self) -> &TermInterner {
         &self.term_itr
     }
 }
 
-impl InternEntityPath for InferTestsDb {
+impl InternEntityPath for TermInferTestsDb {
     fn entity_path_itr(&self) -> &husky_entity_path::EntityPathInterner {
         &self.entity_path_itr
     }
 }
 
-impl InternWord for InferTestsDb {
+impl InternWord for TermInferTestsDb {
     fn word_itr(&self) -> &husky_word::WordInterner {
         &self.word_itr
     }
 }
 
-impl SymbolQueries for InferTestsDb {}
+impl SymbolQueries for TermInferTestsDb {}
