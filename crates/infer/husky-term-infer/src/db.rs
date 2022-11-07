@@ -6,7 +6,7 @@ use husky_word::InternWord;
 use std::sync::Arc;
 use upcast::Upcast;
 
-#[salsa::query_group(InferDbStorage)]
+#[salsa::query_group(TermInferDbStorage)]
 pub trait TermInferDb: TyInferQueries + TermDb + Upcast<dyn TermDb> + InternWord {
     fn entity_ty(&self, entity: EntityPathItd) -> Ty;
 

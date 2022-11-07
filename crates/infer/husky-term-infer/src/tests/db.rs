@@ -20,7 +20,12 @@ use salsa::Database;
 use std::{collections::HashMap, sync::Arc};
 use upcast::Upcast;
 
-#[salsa::database(TermDbStorage, SymbolDbStorage, InferDbStorage, EntityPathDbStorage)]
+#[salsa::database(
+    TermDbStorage,
+    SymbolDbStorage,
+    TermInferDbStorage,
+    EntityPathDbStorage
+)]
 pub(crate) struct TermInferTestsDb {
     storage: salsa::Storage<Self>,
     term_itr: TermInterner,

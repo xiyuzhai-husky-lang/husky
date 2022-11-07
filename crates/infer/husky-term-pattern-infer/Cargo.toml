@@ -5,7 +5,11 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+thiserror = "1.0.37"
+salsa = "0.17.0-pre.2"
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
+husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
+husky-file = { path = "../../syntax/husky-file" }
 # infer
 husky-term-pattern = { path = "../../infer/husky-term-pattern" }
