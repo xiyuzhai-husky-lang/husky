@@ -1,6 +1,6 @@
 use crate::*;
 
 pub struct TermApplicationPattern {
-    m: TermPatternIdx,
-    n: TermPatternIdx,
+    m: TermPatternItd,
+    n: TermPatternItd,
 }
