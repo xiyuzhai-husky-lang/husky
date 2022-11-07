@@ -19,9 +19,9 @@ pub struct TermPatternInferEntry {
 }
 
 impl TermPatternInferSheet {
-    pub(crate) fn new(ast_text: Arc<AstText>) -> Self {
+    pub(crate) fn new(db: &dyn TermPatternInferDb) -> Self {
         Self {
-            ast_text,
+            ast_text: todo!(),
             term_pattern_interner: todo!(),
             expr_results: todo!(),
         }

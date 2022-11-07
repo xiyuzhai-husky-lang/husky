@@ -6,6 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 thiserror = "1.0.37"
+textwrap = "0.16.0"
 salsa = "0.17.0-pre.2"
 # abstraction
 upcast = { path = "../../abstraction/upcast" }
@@ -24,5 +25,9 @@ husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-text = { path = "../../syntax/husky-text" }
+husky-token = { path = "../../syntax/husky-token" }
 # infer
 husky-term-pattern = { path = "../../infer/husky-term-pattern" }
+
+[dev-dependencies]
+husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }

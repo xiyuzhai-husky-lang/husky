@@ -6,7 +6,7 @@ use husky_token::Tokenize;
 
 #[test]
 fn it_works() {
-    expect_test::<String, _>("", test_parse_raw_exprs_debug);
+    expect_test::<String, _>("", &test_parse_raw_exprs_debug);
 
     fn test_parse_raw_exprs_debug(text: &str) -> String {
         let mut db = SymbolTestsDb::new();
