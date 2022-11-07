@@ -9,6 +9,7 @@ thiserror = "1.0.37"
 salsa = "0.17.0-pre.2"
 # abstraction
 upcast = { path = "../../abstraction/upcast" }
+error-lineage = { path = "../../abstraction/error-lineage" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 # kernel
