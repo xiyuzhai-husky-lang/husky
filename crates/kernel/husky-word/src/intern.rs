@@ -1,5 +1,5 @@
 use crate::{ident::ContextualIdentifier, *};
-use interner::{Interner, IsInternPtr};
+use interner::{Interned, Interner};
 use std::{borrow::Borrow, ops::Deref};
 
 pub type WordInterner = Interner<Word>;
@@ -24,7 +24,7 @@ impl Borrow<str> for Word {
     }
 }
 
-impl IsInternPtr for Word {
+impl Interned for Word {
     type T = str;
 
     type Owned = String;

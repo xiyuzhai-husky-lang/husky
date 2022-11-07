@@ -1,6 +1,6 @@
 use crate::*;
 
-pub struct TermTraitImplPattern<'a> {
-    ty: &'a TermPattern<'a>,
-    trai: &'a TermPattern<'a>,
+pub struct TermTraitImplPattern {
+    ty: TermPatternIdx,
+    trai: TermPatternIdx,
 }

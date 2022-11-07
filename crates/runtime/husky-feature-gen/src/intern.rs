@@ -1,5 +1,5 @@
 use husky_feature_protocol::FeatureId;
-use interner::IsInternPtr;
+use interner::Interned;
 
 use crate::*;
 
@@ -38,7 +38,7 @@ impl std::borrow::Borrow<Feature> for FeaturePtr {
     }
 }
 
-impl IsInternPtr for FeaturePtr {
+impl Interned for FeaturePtr {
     type T = Feature;
 
     type Owned = Feature;

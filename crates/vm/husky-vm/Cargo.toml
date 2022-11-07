@@ -28,6 +28,7 @@ husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
     "binding",
     "extra",
     "thin_fp",
+    "linkage_macro"
 ] }
 husky-vm-binding = { path = "../husky-vm-binding" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }

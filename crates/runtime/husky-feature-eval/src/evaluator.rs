@@ -15,7 +15,7 @@ mod sheet;
 pub use config::*;
 use husky_ast::AstQueryGroup;
 pub use indicator::FeatureEvalIndicator;
-use interner::IsInternPtr;
+use interner::Interned;
 pub use sheet::*;
 
 use crate::*;
