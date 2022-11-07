@@ -38,9 +38,11 @@ impl<'a> TermPatternInferContext<'a> {
             RawAtom::Symbol(symbol) => match symbol.kind {
                 SymbolKind::EntityPath(_) => todo!(),
                 SymbolKind::LocalVariable { init_range } => todo!(),
-                SymbolKind::FrameVariable { init_range } => todo!(),
+                SymbolKind::FrameVariable { .. } => Ok(self.term_menu().i32()),
                 SymbolKind::Unrecognized => {
-                    self.err_original(OriginalTermPatternInferError::IdentUnrecognized)?
+                    self.err_original(OriginalTermPatternInferError::IdentUnrecognized {
+                        ident: symbol.ident,
+                    })?
                 }
                 SymbolKind::ThisValue => todo!(),
                 SymbolKind::ThisMethod => todo!(),

@@ -22,7 +22,7 @@ struct Expect<Input, Output> {
 
 pub fn expect_test<Input, Output>(
     relative_folder_path: &str,
-    f: fn(&<Input as Deref>::Target) -> Output,
+    f: &impl Fn(&<Input as Deref>::Target) -> Output,
 ) where
     Input: for<'a> Deserialize<'a>
         + Serialize
