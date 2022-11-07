@@ -1,16 +1,16 @@
 mod context;
-mod db;
 mod error;
 mod normalize;
+mod query;
 mod sheet;
 #[cfg(test)]
 mod tests;
 
-pub use db::*;
 pub use error::*;
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_print_utils::p;
 use husky_symbol_syntax::SymbolKind;
+pub use query::*;
 pub use sheet::*;
 
 use context::*;

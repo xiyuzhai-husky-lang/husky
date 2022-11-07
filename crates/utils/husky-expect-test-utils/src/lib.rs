@@ -48,9 +48,13 @@ pub fn expect_test<Input, Output>(
         } else {
             let file_stem = subpath.file_name().unwrap().to_str().unwrap();
             let splits: Vec<_> = file_stem.split(".").collect();
-            assert_eq!(splits.len(), 3);
             assert_eq!(splits[1], "test");
+            // ad hoc
+            if splits[2] == "md" {
+                continue;
+            }
             assert_eq!(splits[2], "json");
+            assert_eq!(splits.len(), 3);
             test_paths.push(subpath)
         }
     }

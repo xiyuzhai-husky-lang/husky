@@ -6,7 +6,6 @@ use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermPatternInferSheet {
-    ast_text: Arc<AstText>,
     term_pattern_interner: TermPatternInterner,
     expr_results: RawExprMap<TermPatternInferEntry>,
 }
@@ -19,11 +18,10 @@ pub struct TermPatternInferEntry {
 }
 
 impl TermPatternInferSheet {
-    pub(crate) fn new(db: &dyn TermPatternInferDb) -> Self {
+    pub(crate) fn new(arena: &RawExprArena) -> Self {
         Self {
-            ast_text: todo!(),
-            term_pattern_interner: todo!(),
-            expr_results: todo!(),
+            term_pattern_interner: Default::default(),
+            expr_results: RawExprMap::new(arena),
         }
     }
 
