@@ -1,4 +1,5 @@
 use crate::*;
+use error_lineage::ErrorLineage;
 use husky_term::TermError;
 use husky_text::TextRange;
 use thiserror::Error;
@@ -9,6 +10,17 @@ pub enum TermPatternInferErrorSource {
     Original(#[from] OriginalTermPatternInferError),
     #[error("`{0}`")]
     Derived(#[from] DerivedTermPatternInferError),
+}
+
+impl ErrorLineage for TermPatternInferError {
+    fn opt_parent(&self) -> Option<&dyn ErrorLineage> {
+        match self.source {
+            TermPatternInferErrorSource::Original(_) => None,
+            TermPatternInferErrorSource::Derived(ref error) => match error {
+                DerivedTermPatternInferError::Haha => todo!(),
+            },
+        }
+    }
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -29,7 +41,10 @@ pub enum OriginalTermPatternInferError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum DerivedTermPatternInferError {}
+pub enum DerivedTermPatternInferError {
+    #[error("haha")]
+    Haha,
+}
 
 impl<'a> TermPatternInferContext<'a> {
     pub(crate) fn map_original<T, E>(&self, result: Result<T, E>) -> TermPatternInferResult<T>
