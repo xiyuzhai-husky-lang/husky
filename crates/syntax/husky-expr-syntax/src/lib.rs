@@ -1,12 +1,13 @@
 mod atom;
 mod automata;
+mod block;
 mod error;
 mod opn;
 mod parser;
 mod precedence;
 #[cfg(test)]
 mod tests;
-mod variant;
+mod variable;
 
 pub use atom::*;
 pub use automata::*;
@@ -14,7 +15,7 @@ pub use error::*;
 use husky_entity_path::EntityPathItd;
 use husky_term::TermItd;
 use optional::Optioned;
-pub use variant::*;
+pub use variable::*;
 
 use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;

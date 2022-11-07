@@ -7,4 +7,5 @@ pub enum RawVariableKind {
     Normal { init_range: TextRange },
     ThisField,
     Unrecognized,
+    Block,
 }

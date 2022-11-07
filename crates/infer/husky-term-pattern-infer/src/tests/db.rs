@@ -24,7 +24,7 @@ use upcast::Upcast;
 #[salsa::database(
     TermDbStorage,
     SymbolDbStorage,
-    TermPatternInferDbStorage,
+    TermPatternInferQueryGroupStorage,
     EntityPathDbStorage
 )]
 pub struct TermPatternInferTestsDb {

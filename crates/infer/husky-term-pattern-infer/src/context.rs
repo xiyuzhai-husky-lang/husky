@@ -5,7 +5,7 @@ use husky_term::{Term, TermAtom, TermContext, TermItd, TermMenu, Ty};
 use husky_word::InternWord;
 
 pub(crate) struct TermPatternInferContext<'a> {
-    db: &'a dyn TermPatternInferDb,
+    db: &'a dyn TermPatternInferQueryGroup,
     sheet: &'a mut TermPatternInferSheet,
     expr_arena: &'a RawExprArena,
     expr: RawExprIdx,
@@ -20,7 +20,7 @@ impl<'a> InternWord for TermPatternInferContext<'a> {
 
 impl<'a> TermPatternInferContext<'a> {
     pub(crate) fn new(
-        db: &'a dyn TermPatternInferDb,
+        db: &'a dyn TermPatternInferQueryGroup,
         sheet: &'a mut TermPatternInferSheet,
         expr_arena: &'a RawExprArena,
         expr: RawExprIdx,
