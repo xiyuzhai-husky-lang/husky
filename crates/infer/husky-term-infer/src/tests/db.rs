@@ -21,7 +21,7 @@ use std::{collections::HashMap, sync::Arc};
 use upcast::Upcast;
 
 #[salsa::database(TermDbStorage, SymbolDbStorage, InferDbStorage, EntityPathDbStorage)]
-pub(crate) struct InferTestsDb {
+pub(crate) struct TermInferTestsDb {
     storage: salsa::Storage<Self>,
     term_itr: TermInterner,
     entity_path_itr: EntityPathInterner,
@@ -31,7 +31,7 @@ pub(crate) struct InferTestsDb {
     prelude_symbols: Vec<Symbol>,
 }
 
-impl InferTestsDb {
+impl TermInferTestsDb {
     pub(crate) fn new() -> Self {
         let mut db = Self {
             storage: Default::default(),
@@ -66,13 +66,13 @@ impl InferTestsDb {
     }
 }
 
-impl TyInferQueries for InferTestsDb {
+impl TyInferQueries for TermInferTestsDb {
     fn infer_entity_ty(&self, entity: EntityPathItd) -> Ty {
         self.entity_tys[&entity]
     }
 }
 
-impl AskDecl for InferTestsDb {
+impl AskDecl for TermInferTestsDb {
     fn ask_namespace_decl(
         &self,
         namespace: husky_term::TermNamespace,

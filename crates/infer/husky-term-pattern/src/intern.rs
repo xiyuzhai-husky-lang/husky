@@ -1,3 +1,5 @@
+use std::borrow::{Borrow, Cow};
+
 use crate::*;
 
 pub struct TermPatternInterner {
@@ -11,8 +13,54 @@ pub enum TermPatternItd {
     Composite(TermPatternIdx),
 }
 
-#[derive(Debug, Clone, Copy)]
+pub enum TermPatternRef<'a> {
+    Owned(TermPattern),
+    Borrowed(&'a TermPattern),
+}
+
+impl<'a> Borrow<TermPattern> for TermPatternRef<'a> {
+    fn borrow(&self) -> &TermPattern {
+        match self {
+            TermPatternRef::Owned(patt) => patt,
+            TermPatternRef::Borrowed(patt) => patt,
+        }
+    }
+}
+
+impl<'a> std::ops::Deref for TermPatternRef<'a> {
+    type Target = TermPattern;
+
+    fn deref(&self) -> &Self::Target {
+        self.borrow()
+    }
+}
+
+impl TermPatternItd {
+    fn opt_patt_idx(self) -> Option<TermPatternIdx> {
+        match self {
+            TermPatternItd::Resolved(_) | TermPatternItd::Unresolved(_) => None,
+            TermPatternItd::Composite(idx) => Some(idx),
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub struct TermPatternIdx(usize);
+
+impl TermPattern {
+    fn max_dependee_idx(&self, itr: &TermPatternInterner) -> Option<TermPatternIdx> {
+        match self {
+            TermPattern::Resolved(_) | TermPattern::Unresolved(_) => unreachable!(),
+            TermPattern::Application(app) => app.m().opt_patt_idx().max(app.n().opt_patt_idx()),
+            TermPattern::Curry(curry) => curry.x().opt_patt_idx().max(curry.y().opt_patt_idx()),
+            TermPattern::Subentity(subentity) => subentity.parent().opt_patt_idx(),
+            TermPattern::TraitImpl(trait_impl) => trait_impl
+                .ty()
+                .opt_patt_idx()
+                .max(trait_impl.trai().opt_patt_idx()),
+        }
+    }
+}
 
 impl TermPatternInterner {
     pub(crate) fn it(&mut self, patt: TermPattern) -> TermPatternItd {
@@ -24,8 +72,29 @@ impl TermPatternInterner {
     }
 
     fn alloc(&mut self, patt: TermPattern) -> TermPatternIdx {
+        let max_dependee_idx = patt.max_dependee_idx(self);
+
+        todo!();
         let raw = self.patterns.len();
         self.patterns.push(patt);
         TermPatternIdx(raw)
     }
+
+    fn get<'a>(&'a self, itd: TermPatternItd) -> TermPatternRef {
+        match itd {
+            TermPatternItd::Resolved(term) => TermPatternRef::Owned(TermPattern::Resolved(term)),
+            TermPatternItd::Unresolved(term) => {
+                TermPatternRef::Owned(TermPattern::Unresolved(term))
+            }
+            TermPatternItd::Composite(idx) => TermPatternRef::Borrowed(&self.patterns[idx.0]),
+        }
+    }
 }
+
+#[test]
+fn test_option_max_works() {
+    assert!(None < Some(1))
+}
+
+#[test]
+fn intern_works() {}
