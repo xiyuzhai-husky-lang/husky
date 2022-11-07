@@ -2,14 +2,14 @@ mod application;
 mod context;
 mod curry;
 mod db;
-mod storage;
+mod intern;
 mod subentity;
 mod trait_impl;
 mod unresolved;
 
 pub use context::*;
 pub use db::*;
-pub use storage::*;
+pub use intern::*;
 
 use application::*;
 use curry::*;
@@ -20,7 +20,7 @@ use unresolved::*;
 
 pub enum TermPattern {
     Resolved(TermItd),
-    Unresolved(UnresolvedTerm),
+    Unresolved(UnresolvedTermIdx),
     Application(TermApplicationPattern),
     Curry(TermCurryPattern),
     Subentity(TermSubentityPattern), // ::
