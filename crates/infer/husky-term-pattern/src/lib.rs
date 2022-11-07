@@ -18,6 +18,7 @@ use subentity::*;
 use trait_impl::*;
 use unresolved::*;
 
+#[derive(Debug, PartialEq, Eq)]
 pub enum TermPattern {
     Resolved(TermItd),
     Unresolved(UnresolvedTermIdx),
