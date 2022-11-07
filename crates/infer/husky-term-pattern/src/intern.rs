@@ -2,6 +2,7 @@ use std::borrow::{Borrow, Cow};
 
 use crate::*;
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct TermPatternInterner {
     patterns: Vec<TermPattern>,
 }
