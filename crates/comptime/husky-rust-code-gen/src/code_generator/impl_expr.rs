@@ -568,7 +568,7 @@ impl<'a> RustCodeGenerator<'a> {
                 self.write("u64")
             }
             RawLiteralData::Bool(b) => self.result.push_str(&b.to_string()),
-            RawLiteralData::Void => self.result.push_str("()"),
+            RawLiteralData::Unit => self.result.push_str("()"),
         }
     }
 

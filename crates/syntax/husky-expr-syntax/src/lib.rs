@@ -47,31 +47,25 @@ impl TextRanged for RawExpr {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum RawExprVariant {
-    Atom(RawAtom),
-    Bracketed(RawExprIdx),
+    Atom(RawAtomExpr),
     Opn {
         opn_variant: RawOpnVariant,
         opds: RawExprRange,
     },
-    Lambda(
-        Vec<(RangedCustomIdentifier, Option<RawExprIdx>)>,
-        RawExprIdx,
-    ),
 }
 
 impl RawExprVariant {
     fn base_scope_result(&self, arena: &RawExprArena) -> BaseScopeResult {
         match self {
             RawExprVariant::Atom(ref atom) => match atom {
-                RawAtom::Literal(_) => BaseScopeResult::None,
-                RawAtom::Symbol(symbol) => match symbol.kind {
+                RawAtomExpr::Literal(_) => BaseScopeResult::None,
+                RawAtomExpr::Symbol(symbol) => match symbol.kind {
                     SymbolKind::EntityPath(path) => BaseScopeResult::Some(path),
                     SymbolKind::Unrecognized => BaseScopeResult::Uncertain,
                     _ => BaseScopeResult::None,
                 },
-                RawAtom::Uncertain => BaseScopeResult::Uncertain,
+                RawAtomExpr::Uncertain => BaseScopeResult::Uncertain,
             },
-            RawExprVariant::Bracketed(_) => todo!(),
             RawExprVariant::Opn { opn_variant, opds } => match opn_variant {
                 RawOpnVariant::Binary(BinaryOpr::ScopeResolution) => {
                     arena[opds.start + 1].base_scope_result()
@@ -79,13 +73,12 @@ impl RawExprVariant {
                 RawOpnVariant::Binary(BinaryOpr::As) => todo!(),
                 _ => BaseScopeResult::None,
             },
-            RawExprVariant::Lambda(_, _) => todo!(),
         }
     }
 }
 
-impl From<RawAtom> for RawExprVariant {
-    fn from(atom: RawAtom) -> Self {
+impl From<RawAtomExpr> for RawExprVariant {
+    fn from(atom: RawAtomExpr) -> Self {
         RawExprVariant::Atom(atom)
     }
 }

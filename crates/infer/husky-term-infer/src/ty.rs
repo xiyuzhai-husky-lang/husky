@@ -1,5 +1,5 @@
 use crate::*;
-use husky_expr_syntax::{RawAtom, RawExprIdx, RawExprRange};
+use husky_expr_syntax::{RawAtomExpr, RawExprIdx, RawExprRange};
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_print_utils::p;
 use husky_symbol_syntax::SymbolKind;
@@ -17,10 +17,10 @@ impl<'a> InferContext<'a> {
         self.subexpr_context(subexpr).infer()
     }
 
-    fn infer_atom(&self, atom: &RawAtom) -> TermInferResult<Ty> {
+    fn infer_atom(&self, atom: &RawAtomExpr) -> TermInferResult<Ty> {
         match atom {
-            RawAtom::Literal(literal) => Ok(self.infer_literal(literal)),
-            RawAtom::Symbol(symbol) => match symbol.kind {
+            RawAtomExpr::Literal(literal) => Ok(self.infer_literal(literal)),
+            RawAtomExpr::Symbol(symbol) => match symbol.kind {
                 SymbolKind::EntityPath(_) => todo!(),
                 SymbolKind::LocalVariable { init_range } => todo!(),
                 SymbolKind::FrameVariable { init_range } => todo!(),
@@ -29,7 +29,7 @@ impl<'a> InferContext<'a> {
                 SymbolKind::ThisMethod => todo!(),
                 SymbolKind::ThisField => todo!(),
             },
-            RawAtom::Uncertain => todo!(),
+            RawAtomExpr::Uncertain => todo!(),
         }
     }
 
@@ -53,7 +53,7 @@ impl<'a> InferContext<'a> {
     fn infer_literal(&self, literal: &RawLiteralData) -> Ty {
         let term_menu = self.term_menu();
         match literal {
-            RawLiteralData::Void => todo!(),
+            RawLiteralData::Unit => todo!(),
             RawLiteralData::Integer(_) => term_menu.i32(),
             RawLiteralData::I32(_) => todo!(),
             RawLiteralData::I64(_) => todo!(),

@@ -16,7 +16,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-route = { path = "../../kernel/husky-entity-route" }
 husky-text = { path = "../../syntax/husky-text" }
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 thin-vec = { path = "../../../forks/thin-vec" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 

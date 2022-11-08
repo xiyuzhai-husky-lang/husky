@@ -155,6 +155,7 @@ pub trait LazyExprParser<'a> {
             RawOpnVariant::Binary(opr) => self.parse_binary_opr(*opr, opds),
             RawOpnVariant::Prefix(_) => todo!(),
             RawOpnVariant::Suffix(opr) => self.parse_suffix_opr(opr, opds.start),
+            RawOpnVariant::CurlBracketed => todo!(),
             RawOpnVariant::List(opr) => match opr {
                 ListOpr::NewTuple => todo!(),
                 ListOpr::NewVec => self.parse_new_vec_from_list(opds.clone()),
@@ -173,6 +174,7 @@ pub trait LazyExprParser<'a> {
             RawOpnVariant::Field(field_ident) => {
                 self.parse_field_access(field_ident.unwrap(), opds.start, idx)
             }
+            RawOpnVariant::Abstraction => todo!(),
         }
     }
 

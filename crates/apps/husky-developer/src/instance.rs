@@ -11,7 +11,7 @@ pub(crate) struct HuskyDebuggerInstance {
 impl HuskyDebuggerInstance {
     pub fn new(config: HuskyDebuggerConfig) -> Self {
         let package_dir: &Path = &config.package_dir;
-        let mut devtime = HuskyDevtime::new(config.runtime());
+        let mut devtime = Debugtime::new(config.runtime());
         if let Some(specific_sample_id) = config.opt_sample_id {
             todo!()
             // devtime
