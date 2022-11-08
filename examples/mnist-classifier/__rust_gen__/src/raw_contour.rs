@@ -42,6 +42,48 @@ impl<'eval> RawContour<'eval> {
             .unwrap()
             .downcast_eval_ref(&__registration__::__LINE_SEGMENT_SKETCH_VTABLE);
     }
+    pub(crate) fn bounding_box(
+        &'eval self,
+        __ctx: &dyn __EvalContext<'eval>,
+    ) -> &'eval crate::geom2d::BoundingBox {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::raw_contour::RawContour::bounding_box"
+        );
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__BOUNDING_BOX_VTABLE);
+        }
+        let start_point = &self.points[(0) as usize];
+        let mut xmin = start_point.x;
+        let mut xmax = start_point.x;
+        let mut ymin = start_point.y;
+        let mut ymax = start_point.y;
+        for i in 0..self.points.ilen() {
+            let point = &self.points[(i) as usize];
+            xmin = xmin.min(point.x);
+            xmax = xmax.max(point.x);
+            ymin = ymin.min(point.y);
+            ymax = ymax.max(point.y);
+        }
+        __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<crate::geom2d::BoundingBox>(
+                    crate::geom2d::BoundingBox::__call__(
+                        crate::geom2d::ClosedRange::__call__(xmin, xmax),
+                        crate::geom2d::ClosedRange::__call__(ymin, ymax),
+                    ),
+                    &__registration__::__BOUNDING_BOX_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__BOUNDING_BOX_VTABLE)
+    }
     pub(crate) fn displacement(&self, start: i32, end: i32) -> crate::geom2d::Vector2d {
         let N = self.points.ilen();
         let ct_start = &self.points[(start.rem_euclid(N)) as usize];
