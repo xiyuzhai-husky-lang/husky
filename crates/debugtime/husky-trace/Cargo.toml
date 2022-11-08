@@ -15,7 +15,7 @@ avec = { path = "../../abstraction/avec" }
 # comptime
 husky-comptime = { path = "../../comptime/husky-comptime" }
 # devtime
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 # kernel
 husky-entity-route = { path = "../../kernel/husky-entity-route" }
 husky-word = { path = "../../kernel/husky-word" }
