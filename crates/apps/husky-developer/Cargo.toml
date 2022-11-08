@@ -25,9 +25,33 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 colored = "2.0.0"
 xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
 relative-path = "1.7.2"
+# abstraction
 map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
 monad = { path = "../../abstraction/monad" }
+# apps
+husky-compiler = { path = "../../apps/husky-compiler" }
+# comptime
+husky-comptime = { path = "../../comptime/husky-comptime" }
+husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
+# devtime
+husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace = { path = "../../devtime/husky-trace" }
+husky-devtime = { path = "../../devtime/husky-devtime" }
+# ide
+husky-diagnostics = { path = "../../ide/husky-diagnostics" }
+# kernel
+husky-entity-route = { path = "../../kernel/husky-entity-route" }
+# runtime
+husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
+husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
+# static
+husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
+# syntax
+husky-file = { path = "../../syntax/husky-file" }
+husky-token = { path = "../../syntax/husky-token" }
+husky-text = { path = "../../syntax/husky-text" }
+# utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
@@ -35,20 +59,7 @@ husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-io-utils = { path = "../../utils/husky-io-utils" }
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
-husky-file = { path = "../../syntax/husky-file" }
-husky-diagnostics = { path = "../../ide/husky-diagnostics" }
-husky-token = { path = "../../syntax/husky-token" }
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
-husky-text = { path = "../../syntax/husky-text" }
-husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
-husky-comptime = { path = "../../comptime/husky-comptime" }
-husky-trace = { path = "../../devtime/husky-trace" }
-husky-devtime = { path = "../../devtime/husky-devtime" }
-husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
-husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
+# vm
 husky-vm = { path = "../../vm/husky-vm" }
-husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
-husky-compiler = { path = "../../apps/husky-compiler" }
 
 [features]
