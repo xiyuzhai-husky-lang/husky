@@ -55,7 +55,7 @@ husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 husky-instruction-gen = { path = "../../runtime/husky-instruction-gen" }
 husky-data-viewer = { path = "../../runtime/husky-data-viewer" }
 # devtime
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
 # static
 husky-datasets-interface = { path = "../../static/domains/ml/husky-datasets-interface" }

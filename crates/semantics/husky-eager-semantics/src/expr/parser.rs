@@ -166,6 +166,7 @@ pub trait ParseEagerExpr<'a> {
             RawOpnVariant::Binary(opr) => self.parse_binary_opr(*opr, opds),
             RawOpnVariant::Prefix(opr) => self.parse_prefix_opr(*opr, opds),
             RawOpnVariant::Suffix(opr) => self.parse_suffix_opr(opr, opds),
+            RawOpnVariant::CurlBracketed => todo!(),
             RawOpnVariant::List(opr) => match opr {
                 ListOpr::NewTuple => todo!(),
                 ListOpr::NewVec => self.parse_new_vec_from_list(idx, opds.clone()),
@@ -184,6 +185,7 @@ pub trait ParseEagerExpr<'a> {
             RawOpnVariant::Field(field_ident) => {
                 self.parse_field_access(field_ident.unwrap(), opds, idx)
             }
+            RawOpnVariant::Abstraction => todo!(),
         }
     }
 

@@ -7,14 +7,19 @@ use std::sync::Arc;
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermPatternInferSheet {
     term_pattern_interner: TermPatternInterner,
-    expr_results: RawExprMap<TermPatternInferEntry>,
+    expr_results: RawExprMap<ExprTermPatternInferEntry>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct TermPatternInferEntry {
-    opt_term: Option<TermPatternInferResult<TermPatternItd>>,
+pub struct ExprTermPatternInferEntry {
+    const_expr: TermPatternInferResult<Option<ConstExprPatternItd>>,
     ty: TermPatternInferResult<TermPatternItd>,
-    expectation: Option<TermPatternItd>,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct ExprTermPatternInferResult {
+    pub(crate) const_expr: TermPatternInferResult<Option<ConstExprPattern>>,
+    pub(crate) ty: TermPatternInferResult<TermPatternItd>,
 }
 
 impl TermPatternInferSheet {
@@ -25,19 +30,17 @@ impl TermPatternInferSheet {
         }
     }
 
-    pub(crate) fn insert_result(
-        &mut self,
-        expr: RawExprIdx,
-        opt_term: Option<TermPatternInferResult<TermPatternItd>>,
-        ty: TermPatternInferResult<TermPatternItd>,
-        expectation: Option<TermPatternItd>,
-    ) {
+    pub(crate) fn term_itr_mut(&mut self) -> &mut TermPatternInterner {
+        &mut self.term_pattern_interner
+    }
+
+    pub(crate) fn insert_result(&mut self, expr: RawExprIdx, result: ExprTermPatternInferResult) {
+        let const_expr = todo!();
         self.expr_results.insert_new(
             expr,
-            TermPatternInferEntry {
-                opt_term,
-                ty,
-                expectation,
+            ExprTermPatternInferEntry {
+                const_expr,
+                ty: todo!(),
             },
         )
     }
@@ -49,14 +52,12 @@ impl TermPatternInferSheet {
     ) {
         todo!()
     }
-    pub(crate) fn expr_opt_term(
+
+    pub(crate) fn const_expr(
         &self,
         expr: RawExprIdx,
-    ) -> Option<&TermPatternInferResult<TermPatternItd>> {
-        self.expr_results
-            .get(expr)
-            .map(|entry| entry.opt_term.as_ref())
-            .flatten()
+    ) -> &TermPatternInferResult<Option<ConstExprPatternItd>> {
+        &self.expr_results.get(expr).unwrap().const_expr
     }
 }
 

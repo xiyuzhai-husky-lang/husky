@@ -2,8 +2,8 @@
 members = [
     "crates/abstraction/*",
     "crates/apps/*",
-    "crates/commands/*",
     "crates/comptime/*",
+    "crates/devtools/*",
     "crates/ide/*",
     "crates/infer/*",
     "crates/kernel/*",
@@ -16,7 +16,7 @@ members = [
     "crates/static/husky-static-defn",
     "crates/static/husky-static-visualizer",
     "crates/syntax/*",
-    "crates/devtime/*",
+    "crates/debugtime/*",
     "crates/try/*",
     "crates/utils/*",
     "crates/vm/*",
