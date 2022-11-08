@@ -11,7 +11,7 @@ fn test_infer_ty_works() {
         let (arena, expr) = db.parse_raw_expr_from_text(text);
         let mut sheet = TermPatternInferSheet::new(&arena);
         let term_menu = db.term_menu();
-        TermPatternInferContext::new(&db, &mut sheet, &arena, expr, &term_menu).run();
+        TermPatternInferContext::new(&db, &arena, expr, &term_menu).write_inference(&mut sheet);
         format!(
             r#"raw expr arena:
 {}

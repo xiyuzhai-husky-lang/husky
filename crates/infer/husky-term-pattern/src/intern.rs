@@ -14,6 +14,18 @@ pub enum TermPatternItd {
     Composite(TermPatternIdx),
 }
 
+impl From<TermItd> for TermPatternItd {
+    fn from(term: TermItd) -> Self {
+        TermPatternItd::Resolved(term)
+    }
+}
+
+impl From<UnresolvedTermIdx> for TermPatternItd {
+    fn from(term: UnresolvedTermIdx) -> Self {
+        TermPatternItd::Unresolved(term)
+    }
+}
+
 pub enum TermPatternRef<'a> {
     Owned(TermPattern),
     Borrowed(&'a TermPattern),

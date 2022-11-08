@@ -10,13 +10,6 @@ pub struct TermPatternInferSheet {
     expr_results: RawExprMap<TermPatternInferEntry>,
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct TermPatternInferEntry {
-    opt_term: Option<TermPatternInferResult<TermPatternItd>>,
-    ty: TermPatternInferResult<TermPatternItd>,
-    expectation: Option<TermPatternItd>,
-}
-
 impl TermPatternInferSheet {
     pub(crate) fn new(arena: &RawExprArena) -> Self {
         Self {
@@ -30,14 +23,12 @@ impl TermPatternInferSheet {
         expr: RawExprIdx,
         opt_term: Option<TermPatternInferResult<TermPatternItd>>,
         ty: TermPatternInferResult<TermPatternItd>,
-        expectation: Option<TermPatternItd>,
     ) {
         self.expr_results.insert_new(
             expr,
             TermPatternInferEntry {
-                opt_term,
-                ty,
-                expectation,
+                expr_term_pattern: opt_term,
+                ty_term_pattern: ty,
             },
         )
     }
@@ -55,7 +46,7 @@ impl TermPatternInferSheet {
     ) -> Option<&TermPatternInferResult<TermPatternItd>> {
         self.expr_results
             .get(expr)
-            .map(|entry| entry.opt_term.as_ref())
+            .map(|entry| entry.expr_term_pattern.as_ref())
             .flatten()
     }
 }
