@@ -9,7 +9,7 @@ pub fn convert_primitive_literal_to_value(
     ty: EntityRoutePtr,
 ) -> PrimitiveValueData {
     match literal {
-        RawLiteralData::Void => todo!(),
+        RawLiteralData::Unit => todo!(),
         RawLiteralData::Integer(i) => match ty {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
                 RootBuiltinIdentifier::I32 => PrimitiveValueData::I32(i as i32),
@@ -45,7 +45,7 @@ pub fn convert_primitive_literal_to_register(
 ) -> __Register<'static> {
     // literal is guaranteed to be not nan
     match literal {
-        RawLiteralData::Void => todo!(),
+        RawLiteralData::Unit => todo!(),
         RawLiteralData::Integer(i) => match ty {
             EntityRoutePtr::Root(root_identifier) => match root_identifier {
                 RootBuiltinIdentifier::I32 => (i as i32).to_register(),

@@ -65,7 +65,7 @@ impl AtomParserPattern for UsizeLiteralPattern {
             }) = parser.token_stream.next()
             {
                 match data {
-                    RawLiteralData::Void => todo!(),
+                    RawLiteralData::Unit => todo!(),
                     RawLiteralData::I32(i) => {
                         if *i < 0 {
                             None
@@ -141,7 +141,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
         }) = self.token_stream.next()
         {
             match data {
-                RawLiteralData::Void => todo!(),
+                RawLiteralData::Unit => todo!(),
                 RawLiteralData::I32(i) => {
                     if *i < 0 {
                         None
