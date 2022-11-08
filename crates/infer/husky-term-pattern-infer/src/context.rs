@@ -2,11 +2,11 @@ use crate::*;
 use husky_entity_path::EntityPathItd;
 use husky_expr_syntax::{RawExpr, RawExprArena, RawExprIdx, RawExprVariant};
 use husky_term::{Term, TermAtom, TermContext, TermItd, TermMenu, Ty};
+use husky_term_pattern::TermPatternItd;
 use husky_word::InternWord;
 
 pub(crate) struct TermPatternInferContext<'a> {
     db: &'a dyn TermPatternInferQueryGroup,
-    sheet: &'a mut TermPatternInferSheet,
     expr_arena: &'a RawExprArena,
     expr: RawExprIdx,
     term_menu: &'a TermMenu,
@@ -21,40 +21,43 @@ impl<'a> InternWord for TermPatternInferContext<'a> {
 impl<'a> TermPatternInferContext<'a> {
     pub(crate) fn new(
         db: &'a dyn TermPatternInferQueryGroup,
-        sheet: &'a mut TermPatternInferSheet,
         expr_arena: &'a RawExprArena,
         expr: RawExprIdx,
         term_menu: &'a TermMenu,
     ) -> Self {
         Self {
             db,
-            sheet,
             expr_arena,
             expr,
             term_menu,
         }
     }
 
-    pub(crate) fn subexpr_context<'b>(
-        &'b mut self,
-        subexpr: RawExprIdx,
-    ) -> TermPatternInferContext<'b>
-    where
-        'a: 'b,
-    {
+    pub(crate) fn write_inference(self, sheet: &mut TermPatternInferSheet) {
+        if let Some(subexprs) = self.subexprs() {
+            for subexpr in subexprs {
+                self.subexpr_context(subexpr).write_inference(sheet)
+            }
+        }
+        let ty = self.infer_term_pattern();
+        todo!()
+        // self.sheet.insert_ty_infer_result(self.expr, ty)
+    }
+
+    fn subexpr_context(&self, subexpr: RawExprIdx) -> Self {
         Self {
             db: self.db,
-            sheet: unsafe { &mut *(self.sheet as *mut _) },
             expr_arena: self.expr_arena,
             expr: subexpr,
             term_menu: self.term_menu,
         }
     }
 
-    pub(crate) fn run(mut self) {
-        let ty = self.infer();
-        todo!()
-        // self.sheet.insert_ty_infer_result(self.expr, ty)
+    fn subexprs(&self) -> Option<RawExprRange> {
+        match self.expr().variant {
+            RawExprVariant::Atom(_) => None,
+            RawExprVariant::Opn { ref opds, .. } => Some(opds.clone()),
+        }
     }
 
     pub(crate) fn expr(&self) -> &'a RawExpr {
