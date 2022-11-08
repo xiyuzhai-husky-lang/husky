@@ -10,13 +10,14 @@ mod unresolved;
 pub use context::*;
 pub use db::*;
 pub use intern::*;
+pub use unresolved::*;
 
 use application::*;
 use curry::*;
+use husky_expr_syntax::RawExprIdx;
 use husky_term::*;
 use subentity::*;
 use trait_impl::*;
-use unresolved::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TermPattern {

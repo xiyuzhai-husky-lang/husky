@@ -1,3 +1,5 @@
+use std::sync::Arc;
+
 use crate::*;
 use error_lineage::ErrorLineage;
 use husky_term::TermError;
@@ -17,15 +19,42 @@ impl ErrorLineage for TermPatternInferError {
         match self.source {
             TermPatternInferErrorSource::Original(_) => None,
             TermPatternInferErrorSource::Derived(ref error) => match error {
-                DerivedTermPatternInferError::Haha => todo!(),
+                DerivedTermPatternInferError::TermPatternInferError(ref error) => {
+                    Some(error.as_ref())
+                }
             },
         }
+    }
+
+    fn is_original(&self) -> bool {
+        match self.source {
+            TermPatternInferErrorSource::Original(_) => true,
+            TermPatternInferErrorSource::Derived(_) => false,
+        }
+    }
+}
+
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[error("`{0}")]
+pub struct TermPatternInferError(Arc<TermPatternInferErrorInternal>);
+
+impl TermPatternInferError {
+    fn new(source: TermPatternInferErrorSource, range: TextRange) -> Self {
+        TermPatternInferError(Arc::new(TermPatternInferErrorInternal { source, range }))
+    }
+}
+
+impl std::ops::Deref for TermPatternInferError {
+    type Target = TermPatternInferErrorInternal;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
     }
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[error("`{source}` at {range}")]
-pub struct TermPatternInferError {
+pub struct TermPatternInferErrorInternal {
     source: TermPatternInferErrorSource,
     range: TextRange,
 }
@@ -42,8 +71,8 @@ pub enum OriginalTermPatternInferError {
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedTermPatternInferError {
-    #[error("haha")]
-    Haha,
+    #[error("derived from `{0}`")]
+    TermPatternInferError(#[from] Box<TermPatternInferError>),
 }
 
 impl<'a> TermPatternInferContext<'a> {
@@ -51,19 +80,34 @@ impl<'a> TermPatternInferContext<'a> {
     where
         E: Into<OriginalTermPatternInferError>,
     {
-        result.map_err(|e| TermPatternInferError {
-            source: todo!(),
-            range: self.range(),
-        })
+        result.map_err(|error| self.error_original(error))
     }
+
     pub(crate) fn err_original<T, E>(&self, error: E) -> TermPatternInferResult<T>
     where
         E: Into<OriginalTermPatternInferError>,
     {
-        Err(TermPatternInferError {
-            source: TermPatternInferErrorSource::Original(error.into()),
-            range: self.range(),
-        })
+        Err(self.error_original(error))
+    }
+
+    pub(crate) fn error_original<E>(&self, error: E) -> TermPatternInferError
+    where
+        E: Into<OriginalTermPatternInferError>,
+    {
+        TermPatternInferError::new(
+            TermPatternInferErrorSource::Original(error.into()),
+            self.range(),
+        )
+    }
+
+    pub(crate) fn err_derived<T, E>(&self, error: E) -> TermPatternInferResult<T>
+    where
+        E: Into<DerivedTermPatternInferError>,
+    {
+        Err(TermPatternInferError::new(
+            TermPatternInferErrorSource::Derived(error.into()),
+            self.range(),
+        ))
     }
 
     fn range(&self) -> TextRange {
