@@ -2,7 +2,7 @@ use ordered_float::OrderedFloat;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum RawLiteralData {
-    Void,
+    Unit,
     Integer(i64),
     I32(i32),
     I64(i64),
@@ -18,7 +18,7 @@ pub enum RawLiteralData {
 impl RawLiteralData {
     pub fn negative(self) -> Option<RawLiteralData> {
         match self {
-            RawLiteralData::Void => None,
+            RawLiteralData::Unit => None,
             RawLiteralData::Integer(i) => Some(RawLiteralData::Integer(-i)),
             RawLiteralData::I32(i) => Some(RawLiteralData::I32(-i)),
             RawLiteralData::I64(i) => Some(RawLiteralData::I64(-i)),
@@ -36,7 +36,7 @@ impl RawLiteralData {
 impl std::fmt::Display for RawLiteralData {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            RawLiteralData::Void => "void".fmt(formatter),
+            RawLiteralData::Unit => "void".fmt(formatter),
             RawLiteralData::Integer(i) => i.fmt(formatter),
             RawLiteralData::I32(i) => i.fmt(formatter),
             RawLiteralData::I64(i) => i.fmt(formatter),
@@ -54,7 +54,7 @@ impl std::fmt::Display for RawLiteralData {
 impl Into<String> for RawLiteralData {
     fn into(self) -> String {
         match self {
-            RawLiteralData::Void => "void".to_string(),
+            RawLiteralData::Unit => "void".to_string(),
             RawLiteralData::Integer(i) => format!("{i}"),
             RawLiteralData::I32(i) => format!("{i}i32"),
             RawLiteralData::I64(i) => format!("{i}i64"),

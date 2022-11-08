@@ -53,7 +53,7 @@ impl<'a> InferContext<'a> {
     fn infer_literal(&self, literal: &RawLiteralData) -> Ty {
         let term_menu = self.term_menu();
         match literal {
-            RawLiteralData::Void => todo!(),
+            RawLiteralData::Unit => todo!(),
             RawLiteralData::Integer(_) => term_menu.i32(),
             RawLiteralData::I32(_) => todo!(),
             RawLiteralData::I64(_) => todo!(),

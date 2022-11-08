@@ -54,7 +54,7 @@ impl<'a> TermPatternInferContext<'a> {
     fn infer_literal(&self, literal: &RawLiteralData) -> TermPatternInferResult<TermPatternItd> {
         let term_menu = self.term_menu();
         match literal {
-            RawLiteralData::Void => todo!(),
+            RawLiteralData::Unit => todo!(),
             RawLiteralData::Integer(_) => todo!(),
             RawLiteralData::I32(_) => todo!(),
             RawLiteralData::I64(_) => todo!(),
