@@ -1,5 +1,5 @@
 use husky_compiler::{CompileHuskyR, CompilerInstance};
-use husky_devtime::{DevtimeHotReloadR, HuskyDevtimeStateChange};
+use husky_debugtime::{DevtimeHotReloadR, HuskyDevtimeStateChange};
 use relative_path::RelativePathBuf;
 use std::ops::FromResidual;
 

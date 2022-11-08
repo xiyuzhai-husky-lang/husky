@@ -1,5 +1,5 @@
 [package]
-name = "husky-devtime"
+name = "husky-debugtime"
 version = "0.0.0"
 edition = "2021"
 

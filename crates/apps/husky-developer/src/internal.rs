@@ -1,4 +1,4 @@
-use husky_devtime::HuskyDevtime;
+use husky_debugtime::HuskyDevtime;
 
 use crate::HuskyDebuggerConfig;
 
