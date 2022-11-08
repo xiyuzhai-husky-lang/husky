@@ -32,3 +32,9 @@ test-digitize:
 
 test-digitize-ultraman:
 	cargo run --bin digitize -- data/ultraman/leo/images.jpeg
+
+install-devtools:
+	cargo install --path crates/devtools/cargo-organise
+
+organise: install-devtools
+	cargo organise
