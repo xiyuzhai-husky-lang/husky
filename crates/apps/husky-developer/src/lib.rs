@@ -12,7 +12,7 @@ pub use error::{DebuggerError, DebuggerResult};
 
 use futures::executor::ThreadPool;
 use gui::handle_query;
-use husky_debugtime::HuskyDevtime;
+use husky_debugtime::Debugtime;
 use husky_path_utils::collect_package_dirs;
 use husky_print_utils::*;
 use husky_root_static_defn::__StaticLinkageKey;

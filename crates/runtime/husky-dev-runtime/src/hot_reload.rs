@@ -8,7 +8,7 @@ pub enum HuskyRuntimeHotReloadM {
 
 impl Monad for HuskyRuntimeHotReloadM {}
 
-impl HuskyDevRuntime {
+impl DevRuntime {
     pub fn hot_reload(&mut self) -> HuskyRuntimeHotReloadM {
         CompilerInstance::new(
             RelativePathBuf::from_path(&self.config.comptime.package_dir).unwrap(),

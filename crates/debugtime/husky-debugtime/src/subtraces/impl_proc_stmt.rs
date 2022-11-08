@@ -1,6 +1,6 @@
 use super::*;
 
-impl HuskyDevtime {
+impl Debugtime {
     pub(crate) fn loop_subtraces(
         &mut self,
         parent: &Trace,
@@ -13,7 +13,7 @@ impl HuskyDevtime {
         let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let evaluator = self.runtime().evaluator(sample_id);
         let frames = exec_loop_debug(
-            &self.runtime() as &HuskyDevRuntime,
+            &self.runtime() as &DevRuntime,
             unsafe { evaluator.some_ctx() },
             loop_kind,
             &body_instruction_sheet,

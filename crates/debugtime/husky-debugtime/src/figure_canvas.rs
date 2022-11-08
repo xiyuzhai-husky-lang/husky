@@ -14,7 +14,7 @@ use husky_feature_gen::{FeatureLazyExpr, FeatureLazyStmt, FeatureLazyStmtVariant
 use husky_text::TextQueryGroup;
 use husky_vm::{History, HistoryEntry, MutationData, MutationDataVariant};
 
-impl HuskyDevtime {
+impl Debugtime {
     pub fn gen_trace_generic_figure(
         &self,
         trace_id: TraceId,

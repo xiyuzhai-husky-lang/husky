@@ -1,6 +1,6 @@
 use super::*;
 use husky_check_utils::should_eq;
-use husky_debugtime::{DevtimeHotReloadR, HuskyDevtimeStateChange, HuskyDevtimeTakeChangeR};
+use husky_debugtime::{DebugtimeStateChange, DebugtimeTakeChangeR, DevtimeHotReloadR};
 use monad::Monad;
 use std::panic::catch_unwind;
 use std::path::PathBuf;
@@ -26,8 +26,8 @@ impl<T> std::ops::FromResidual<DebuggerHotReloadR> for HandleGuiMessageM<T> {
     }
 }
 
-impl<T> std::ops::FromResidual<HuskyDevtimeTakeChangeR> for HandleGuiMessageM<T> {
-    fn from_residual(residual: HuskyDevtimeTakeChangeR) -> Self {
+impl<T> std::ops::FromResidual<DebugtimeTakeChangeR> for HandleGuiMessageM<T> {
+    fn from_residual(residual: DebugtimeTakeChangeR) -> Self {
         todo!()
     }
 }
@@ -128,7 +128,7 @@ impl HuskyDebuggerInternal {
     fn handle_gui_message(
         &mut self,
         request: &HuskyTracerGuiMessage,
-    ) -> HandleGuiMessageM<Option<(HuskyDevtimeStateChange, HuskyTracerServerMessageVariant)>> {
+    ) -> HandleGuiMessageM<Option<(DebugtimeStateChange, HuskyTracerServerMessageVariant)>> {
         use husky_vm::__VMErrorVariant;
 
         if let Some(request_id) = request.opt_request_id {
@@ -240,7 +240,7 @@ impl HuskyDebuggerInternal {
         needs_figure_canvases: bool,
         needs_figure_controls: bool,
         request: &HuskyTracerGuiMessage,
-    ) -> HandleGuiMessageM<Option<(HuskyDevtimeStateChange, HuskyTracerServerMessageVariant)>> {
+    ) -> HandleGuiMessageM<Option<(DebugtimeStateChange, HuskyTracerServerMessageVariant)>> {
         HandleGuiMessageM::Ok(match self.devtime.activate_trace(trace_id).result()? {
             Ok(change) => {
                 let needs_response = needs_figure_canvases || needs_figure_controls;
@@ -264,7 +264,7 @@ impl HuskyDebuggerInternal {
         needs_figure_canvases: bool,
         needs_figure_controls: bool,
         request: &HuskyTracerGuiMessage,
-    ) -> HandleGuiMessageM<Option<(HuskyDevtimeStateChange, HuskyTracerServerMessageVariant)>> {
+    ) -> HandleGuiMessageM<Option<(DebugtimeStateChange, HuskyTracerServerMessageVariant)>> {
         HandleGuiMessageM::Ok(match self.devtime.toggle_pin(trace_id).result()? {
             Ok(change) => {
                 let needs_response = needs_figure_canvases || needs_figure_controls;
@@ -286,7 +286,7 @@ impl HuskyDebuggerInternal {
         needs_figure_controls: bool,
         needs_stalks: bool,
         needs_statss: bool,
-    ) -> HandleGuiMessageM<Option<(HuskyDevtimeStateChange, HuskyTracerServerMessageVariant)>> {
+    ) -> HandleGuiMessageM<Option<(DebugtimeStateChange, HuskyTracerServerMessageVariant)>> {
         HandleGuiMessageM::Ok(
             match self
                 .devtime

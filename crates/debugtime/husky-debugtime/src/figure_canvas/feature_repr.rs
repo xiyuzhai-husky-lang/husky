@@ -3,7 +3,7 @@ use husky_vm_primitive_value::PrimitiveValueData;
 
 use super::*;
 
-impl HuskyDevtime {
+impl Debugtime {
     pub(crate) fn feature_repr_specific_figure(
         &self,
         repr: &FeatureRepr,

@@ -5,38 +5,38 @@ use std::{ops::FromResidual, time::Instant};
 use trackable::{TrackableAtom, TrackableMakeChangeR, TrackableMap, TrackableVec};
 
 #[must_use]
-pub(crate) enum HuskyDevtimeUpdateM<T> {
+pub(crate) enum DebugtimeUpdateM<T> {
     Ok(T),
     OtherworldlyErr(__VMError),
 }
 
-pub enum HuskyDevtimeUpdateR {
+pub enum DebugtimeUpdateR {
     OtherworldlyErr(__VMError),
 }
 
-impl<T> Monad for HuskyDevtimeUpdateM<T> {}
+impl<T> Monad for DebugtimeUpdateM<T> {}
 
-impl<T> HuskyDevtimeUpdateM<T> {
-    pub(crate) fn result(self) -> HuskyDevtimeUpdateM<__VMResult<T>> {
+impl<T> DebugtimeUpdateM<T> {
+    pub(crate) fn result(self) -> DebugtimeUpdateM<__VMResult<T>> {
         match self {
-            HuskyDevtimeUpdateM::Ok(output) => HuskyDevtimeUpdateM::Ok(Ok(output)),
-            HuskyDevtimeUpdateM::OtherworldlyErr(_) => todo!(),
+            DebugtimeUpdateM::Ok(output) => DebugtimeUpdateM::Ok(Ok(output)),
+            DebugtimeUpdateM::OtherworldlyErr(_) => todo!(),
         }
     }
 }
-impl<T> HuskyDevtimeTakeChangeM<T> {
-    pub fn result(self) -> HuskyDevtimeTakeChangeM<__VMResult<T>> {
+impl<T> DebugtimeTakeChangeM<T> {
+    pub fn result(self) -> DebugtimeTakeChangeM<__VMResult<T>> {
         match self {
-            HuskyDevtimeTakeChangeM::Ok(t) => HuskyDevtimeTakeChangeM::Ok(Ok(t)),
-            HuskyDevtimeTakeChangeM::OtherworldlyErr(e) => HuskyDevtimeTakeChangeM::Ok(Err(e)),
+            DebugtimeTakeChangeM::Ok(t) => DebugtimeTakeChangeM::Ok(Ok(t)),
+            DebugtimeTakeChangeM::OtherworldlyErr(e) => DebugtimeTakeChangeM::Ok(Err(e)),
         }
     }
 }
 
-impl HuskyDevtime {
-    pub(crate) fn update(&mut self) -> HuskyDevtimeUpdateM<()> {
+impl Debugtime {
+    pub(crate) fn update(&mut self) -> DebugtimeUpdateM<()> {
         match self.try_update().result()? {
-            Ok(()) => HuskyDevtimeUpdateM::Ok(()),
+            Ok(()) => DebugtimeUpdateM::Ok(()),
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
@@ -49,7 +49,7 @@ impl HuskyDevtime {
         }
     }
 
-    fn try_update(&mut self) -> HuskyDevtimeUpdateM<()> {
+    fn try_update(&mut self) -> DebugtimeUpdateM<()> {
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
         self.update_trace_stalks()?;
@@ -57,32 +57,32 @@ impl HuskyDevtime {
     }
 }
 
-impl<T> FromResidual<Result<std::convert::Infallible, __VMError>> for HuskyDevtimeUpdateM<T> {
+impl<T> FromResidual<Result<std::convert::Infallible, __VMError>> for DebugtimeUpdateM<T> {
     fn from_residual(residual: Result<std::convert::Infallible, __VMError>) -> Self {
         todo!()
     }
 }
 
 // todo: refine this
-impl<T> FromResidual<ServerTraceStateUpdateR<T>> for HuskyDevtimeUpdateM<T> {
+impl<T> FromResidual<ServerTraceStateUpdateR<T>> for DebugtimeUpdateM<T> {
     fn from_residual(residual: ServerTraceStateUpdateR<T>) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<HuskyDevtimeUpdateR> for HuskyDevtimeUpdateM<T> {
-    fn from_residual(residual: HuskyDevtimeUpdateR) -> Self {
+impl<T> FromResidual<DebugtimeUpdateR> for DebugtimeUpdateM<T> {
+    fn from_residual(residual: DebugtimeUpdateR) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<TrackableMakeChangeR<TrackableVec<TraceNode>>> for HuskyDevtimeUpdateM<T> {
+impl<T> FromResidual<TrackableMakeChangeR<TrackableVec<TraceNode>>> for DebugtimeUpdateM<T> {
     fn from_residual(residual: TrackableMakeChangeR<TrackableVec<TraceNode>>) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Presentation>>> for HuskyDevtimeUpdateM<T> {
+impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Presentation>>> for DebugtimeUpdateM<T> {
     fn from_residual(residual: TrackableMakeChangeR<TrackableAtom<Presentation>>) -> Self {
         todo!()
     }
@@ -91,7 +91,7 @@ impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Presentation>>> for Husk
 impl<T>
     FromResidual<
         TrackableMakeChangeR<TrackableMap<GenericFigureCanvasKey, GenericFigureCanvasData>>,
-    > for HuskyDevtimeUpdateM<T>
+    > for DebugtimeUpdateM<T>
 {
     fn from_residual(
         residual: TrackableMakeChangeR<
@@ -105,7 +105,7 @@ impl<T>
 impl<T>
     FromResidual<
         TrackableMakeChangeR<TrackableMap<SpecificFigureCanvasKey, SpecificFigureCanvasData>>,
-    > for HuskyDevtimeUpdateM<T>
+    > for DebugtimeUpdateM<T>
 {
     fn from_residual(
         residual: TrackableMakeChangeR<
@@ -117,7 +117,7 @@ impl<T>
 }
 
 impl<T> FromResidual<TrackableMakeChangeR<TrackableMap<FigureControlKey, FigureControlData>>>
-    for HuskyDevtimeUpdateM<T>
+    for DebugtimeUpdateM<T>
 {
     fn from_residual(
         residual: TrackableMakeChangeR<TrackableMap<FigureControlKey, FigureControlData>>,
@@ -126,20 +126,20 @@ impl<T> FromResidual<TrackableMakeChangeR<TrackableMap<FigureControlKey, FigureC
     }
 }
 
-impl<T> std::ops::Try for HuskyDevtimeUpdateM<T> {
+impl<T> std::ops::Try for DebugtimeUpdateM<T> {
     type Output = T;
 
-    type Residual = HuskyDevtimeUpdateR;
+    type Residual = DebugtimeUpdateR;
 
     fn from_output(output: Self::Output) -> Self {
-        HuskyDevtimeUpdateM::Ok(output)
+        DebugtimeUpdateM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            HuskyDevtimeUpdateM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
-            HuskyDevtimeUpdateM::OtherworldlyErr(e) => {
-                std::ops::ControlFlow::Break(HuskyDevtimeUpdateR::OtherworldlyErr(e))
+            DebugtimeUpdateM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
+            DebugtimeUpdateM::OtherworldlyErr(e) => {
+                std::ops::ControlFlow::Break(DebugtimeUpdateR::OtherworldlyErr(e))
             }
         }
     }

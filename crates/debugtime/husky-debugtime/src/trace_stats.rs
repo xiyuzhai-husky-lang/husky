@@ -1,14 +1,14 @@
-use crate::{ops::HuskyDevtimeTakeChangeM, *};
+use crate::{ops::DebugtimeTakeChangeM, *};
 
-impl HuskyDevtime {
-    pub(crate) fn update_trace_statss(&mut self) -> HuskyDevtimeUpdateM<()> {
+impl Debugtime {
+    pub(crate) fn update_trace_statss(&mut self) -> DebugtimeUpdateM<()> {
         for root_trace_id in self.root_traces() {
             self.update_trace_statss_within_trace(root_trace_id)?;
         }
-        HuskyDevtimeUpdateM::Ok(())
+        DebugtimeUpdateM::Ok(())
     }
 
-    fn update_trace_statss_within_trace(&mut self, trace_id: TraceId) -> HuskyDevtimeUpdateM<()> {
+    fn update_trace_statss_within_trace(&mut self, trace_id: TraceId) -> DebugtimeUpdateM<()> {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
@@ -28,14 +28,10 @@ impl HuskyDevtime {
                 self.update_trace_statss_within_trace(subtrace_id)?
             }
         }
-        HuskyDevtimeUpdateM::Ok(())
+        DebugtimeUpdateM::Ok(())
     }
 
-    fn gen_trace_stats(
-        &mut self,
-        trace_id: TraceId,
-        key: TraceStatsKey,
-    ) -> HuskyDevtimeUpdateM<()> {
+    fn gen_trace_stats(&mut self, trace_id: TraceId, key: TraceStatsKey) -> DebugtimeUpdateM<()> {
         let (opt_stats, result) = self
             .trace(trace_id)
             .variant
@@ -45,18 +41,18 @@ impl HuskyDevtime {
         self.updating_t(result)
     }
 
-    fn updating_t(&self, result: __VMResult<()>) -> HuskyDevtimeUpdateM<()> {
+    fn updating_t(&self, result: __VMResult<()>) -> DebugtimeUpdateM<()> {
         match result {
-            Ok(()) => HuskyDevtimeUpdateM::Ok(()),
+            Ok(()) => DebugtimeUpdateM::Ok(()),
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
                     if self.state.presentation().is_generic()
                         || self.state.presentation().sample_id() != SampleId(*sample_id)
                     {
-                        HuskyDevtimeUpdateM::OtherworldlyErr(e)
+                        DebugtimeUpdateM::OtherworldlyErr(e)
                     } else {
-                        HuskyDevtimeUpdateM::Ok(())
+                        DebugtimeUpdateM::Ok(())
                     }
                 }
             },

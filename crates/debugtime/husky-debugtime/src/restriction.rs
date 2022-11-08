@@ -1,6 +1,6 @@
 use crate::*;
 
-impl HuskyDevtime {
+impl Debugtime {
     pub fn presentation(&self) -> &Presentation {
         self.state.presentation()
     }
@@ -8,7 +8,7 @@ impl HuskyDevtime {
     pub fn set_restriction(
         &mut self,
         restriction: Presentation,
-    ) -> HuskyDevtimeTakeChangeM<HuskyDevtimeStateChange> {
+    ) -> DebugtimeTakeChangeM<DebugtimeStateChange> {
         self.state.set_presentation(restriction)?;
         self.update()?;
         self.take_change()
