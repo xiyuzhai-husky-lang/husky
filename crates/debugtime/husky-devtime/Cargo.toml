@@ -18,8 +18,8 @@ trackable = { path = "../../abstraction/trackable" }
 # comptime
 husky-comptime = { path = "../../comptime/husky-comptime" }
 # devtime
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
-husky-trace = { path = "../../devtime/husky-trace" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
+husky-trace = { path = "../../debugtime/husky-trace" }
 # kernel
 husky-entity-route = { path = "../../kernel/husky-entity-route" }
 husky-word = { path = "../../kernel/husky-word" }

@@ -47,4 +47,4 @@ husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # devtime
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }

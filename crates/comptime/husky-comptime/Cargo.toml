@@ -53,7 +53,7 @@ husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
 # vm
 husky-vm = { path = "../../vm/husky-vm" }
 # devtime
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 # static
 husky-static-defn = { path = "../../static/husky-static-defn" }
 __husky = { path = "../../static/__husky" }

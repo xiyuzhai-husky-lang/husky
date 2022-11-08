@@ -35,9 +35,9 @@ husky-compiler = { path = "../../apps/husky-compiler" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 # devtime
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
-husky-trace = { path = "../../devtime/husky-trace" }
-husky-devtime = { path = "../../devtime/husky-devtime" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
+husky-trace = { path = "../../debugtime/husky-trace" }
+husky-devtime = { path = "../../debugtime/husky-devtime" }
 # ide
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # kernel
