@@ -1,7 +1,7 @@
 use crate::*;
 
 impl<'a> TermPatternInferContext<'a> {
-    pub(crate) fn infer_ty_term_pattern(&self) -> TermPatternInferResult<TermPatternItd> {
+    pub(crate) fn infer_ty(&self) -> TermPatternInferResult<TermPatternItd> {
         match self.expr().variant {
             RawExprVariant::Atom(ref atom) => self.infer_atom_ty_term_pattern(atom),
             RawExprVariant::Opn {
