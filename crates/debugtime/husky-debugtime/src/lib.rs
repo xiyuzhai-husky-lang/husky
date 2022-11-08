@@ -39,15 +39,15 @@ use trace_node::*;
 use upcast::Upcast;
 use vec_like::VecSet;
 
-pub struct HuskyDevtime {
-    runtime: HuskyDevRuntime,
-    state: HuskyDevtimeState,
+pub struct Debugtime {
+    runtime: DevRuntime,
+    state: DebugtimeState,
 }
 
-impl HuskyDevtime {
+impl Debugtime {
     pub fn new(runtime_config: RuntimeConfig) -> Self {
         let mut devtime = Self {
-            runtime: HuskyDevRuntime::new(runtime_config),
+            runtime: DevRuntime::new(runtime_config),
             state: Default::default(),
         };
         assert!(devtime.state.presentation().opt_sample_id().is_none());
@@ -62,7 +62,7 @@ impl HuskyDevtime {
     pub fn activate_trace(
         &mut self,
         trace_id: TraceId,
-    ) -> HuskyDevtimeTakeChangeM<HuskyDevtimeStateChange> {
+    ) -> DebugtimeTakeChangeM<DebugtimeStateChange> {
         self.state.activate_trace(trace_id);
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
@@ -77,7 +77,7 @@ impl HuskyDevtime {
             .collect()
     }
 
-    pub fn runtime(&self) -> &HuskyDevRuntime {
+    pub fn runtime(&self) -> &DevRuntime {
         &self.runtime
     }
 
@@ -90,11 +90,11 @@ impl HuskyDevtime {
     }
 
     // move this to somewhere proper
-    pub(crate) fn update_subtraces(&mut self, trace_id: TraceId) -> HuskyDevtimeUpdateM<()> {
+    pub(crate) fn update_subtraces(&mut self, trace_id: TraceId) -> DebugtimeUpdateM<()> {
         let trace = &self.trace(trace_id);
         let opt_sample_id = self.state.presentation().opt_sample_id();
         if !trace.raw_data.has_subtraces(opt_sample_id.is_some()) {
-            return HuskyDevtimeUpdateM::Ok(());
+            return DebugtimeUpdateM::Ok(());
         }
         let key = SubtracesKey::new(trace.raw_data.kind, trace_id, opt_sample_id);
         if self.state.subtrace_ids_map.get(&key).is_none() {
@@ -103,7 +103,7 @@ impl HuskyDevtime {
                 .subtrace_ids_map
                 .insert_new(key.clone(), subtrace_ids);
         }
-        HuskyDevtimeUpdateM::Ok(())
+        DebugtimeUpdateM::Ok(())
     }
 
     pub(crate) fn subtraces(&self, trace_id: TraceId) -> Vec<TraceId> {
@@ -181,7 +181,7 @@ impl HuskyDevtime {
     pub fn toggle_expansion(
         &mut self,
         trace_id: TraceId,
-    ) -> HuskyDevtimeTakeChangeM<HuskyDevtimeStateChange> {
+    ) -> DebugtimeTakeChangeM<DebugtimeStateChange> {
         self.state
             .trace_nodes
             .apply_update_elem(trace_id.raw(), |node| node.toggle_expansion())?;
@@ -194,11 +194,11 @@ impl HuskyDevtime {
         self.state.trace_nodes[trace_id.raw()].expanded()
     }
 
-    pub fn toggle_show(&mut self, trace_id: TraceId) -> HuskyDevtimeTakeChangeM<()> {
+    pub fn toggle_show(&mut self, trace_id: TraceId) -> DebugtimeTakeChangeM<()> {
         self.state
             .trace_nodes
             .apply_update_elem(trace_id.raw(), |node| node.toggle_shown())?;
-        HuskyDevtimeTakeChangeM::Ok(())
+        DebugtimeTakeChangeM::Ok(())
     }
 
     pub fn trace(&self, trace_id: TraceId) -> &Trace {

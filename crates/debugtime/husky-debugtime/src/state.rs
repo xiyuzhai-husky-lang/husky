@@ -8,8 +8,8 @@ use trackable::{
     TrackableTakeChangeM, TrackableVec, TrackableVecSimple,
 };
 
-pub type HuskyDevtimeState = ServerTraceState<TraceNode>;
+pub type DebugtimeState = ServerTraceState<TraceNode>;
 
-pub type HuskyDevtimeOldState = ServerTraceOldState<TraceNode>;
+pub type DebugtimeOldState = ServerTraceOldState<TraceNode>;
 
-pub type HuskyDevtimeStateChange = ServerTraceStateChange;
+pub type DebugtimeStateChange = ServerTraceStateChange;

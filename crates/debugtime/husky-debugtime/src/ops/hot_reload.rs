@@ -5,24 +5,24 @@ use monad::MonadT;
 use std::time::Instant;
 
 #[must_use]
-pub enum HuskyDevtimeHotReloadM {
-    Ok(HuskyDevtimeStateChange),
+pub enum DebugtimeHotReloadM {
+    Ok(DebugtimeStateChange),
 }
 
-impl Monad for HuskyDevtimeHotReloadM {}
+impl Monad for DebugtimeHotReloadM {}
 
-impl<T> MonadT<HuskyDevtimeUpdateM<T>> for HuskyDevtimeHotReloadM {}
-impl<T> MonadT<HuskyDevtimeTakeChangeM<T>> for HuskyDevtimeHotReloadM {}
-impl MonadT<HuskyRuntimeHotReloadM> for HuskyDevtimeHotReloadM {}
+impl<T> MonadT<DebugtimeUpdateM<T>> for DebugtimeHotReloadM {}
+impl<T> MonadT<DebugtimeTakeChangeM<T>> for DebugtimeHotReloadM {}
+impl MonadT<HuskyRuntimeHotReloadM> for DebugtimeHotReloadM {}
 
-impl HuskyDevtime {
-    pub fn hot_reload(&mut self) -> HuskyDevtimeHotReloadM {
+impl Debugtime {
+    pub fn hot_reload(&mut self) -> DebugtimeHotReloadM {
         self.runtime.hot_reload()?;
         let old_state = self.clear()?;
         self.gen_root_traces();
         self.mimic_old_state(old_state);
         self.update()?;
-        HuskyDevtimeHotReloadM::Ok(self.take_change()?)
+        DebugtimeHotReloadM::Ok(self.take_change()?)
     }
 
     fn gen_root_traces(&mut self) {
@@ -74,28 +74,25 @@ impl HuskyDevtime {
         self.state.set_root_traces(root_traces);
     }
 
-    fn mimic_old_state(&mut self, mut old_state: HuskyDevtimeOldState) -> HuskyDevtimeUpdateM<()> {
+    fn mimic_old_state(&mut self, mut old_state: DebugtimeOldState) -> DebugtimeUpdateM<()> {
         // order matters
         self.mimic_old_expansions(&mut old_state)?;
         old_state.fix();
         self.mimic_old_presentation(&old_state)
     }
 
-    fn mimic_old_expansions(
-        &mut self,
-        old_state: &mut HuskyDevtimeOldState,
-    ) -> HuskyDevtimeUpdateM<()> {
+    fn mimic_old_expansions(&mut self, old_state: &mut DebugtimeOldState) -> DebugtimeUpdateM<()> {
         self.mimic_old_expansions_dfs(0, old_state)
     }
 
     fn mimic_old_expansions_dfs(
         &mut self,
         start: usize,
-        old_state: &mut HuskyDevtimeOldState,
-    ) -> HuskyDevtimeUpdateM<()> {
+        old_state: &mut DebugtimeOldState,
+    ) -> DebugtimeUpdateM<()> {
         let end = self.state.trace_nodes.len();
         if start >= end {
-            return HuskyDevtimeUpdateM::Ok(());
+            return DebugtimeUpdateM::Ok(());
         }
         for idx in start..end {
             let trace_node = &self.state.trace_nodes[idx];
@@ -112,54 +109,51 @@ impl HuskyDevtime {
         self.mimic_old_expansions_dfs(end, old_state)
     }
 
-    fn mimic_old_presentation(
-        &mut self,
-        old_state: &HuskyDevtimeOldState,
-    ) -> HuskyDevtimeUpdateM<()> {
+    fn mimic_old_presentation(&mut self, old_state: &DebugtimeOldState) -> DebugtimeUpdateM<()> {
         self.state
             .set_presentation(old_state.mimic_presentation(&self.state.trace_nodes));
-        HuskyDevtimeUpdateM::Ok(())
+        DebugtimeUpdateM::Ok(())
     }
 }
 
 pub struct DevtimeHotReloadR;
 
-impl std::ops::FromResidual<DevtimeHotReloadR> for HuskyDevtimeHotReloadM {
+impl std::ops::FromResidual<DevtimeHotReloadR> for DebugtimeHotReloadM {
     fn from_residual(residual: DevtimeHotReloadR) -> Self {
         unreachable!()
     }
 }
 
-impl std::ops::FromResidual<HuskyDevtimeUpdateR> for HuskyDevtimeHotReloadM {
-    fn from_residual(residual: HuskyDevtimeUpdateR) -> Self {
+impl std::ops::FromResidual<DebugtimeUpdateR> for DebugtimeHotReloadM {
+    fn from_residual(residual: DebugtimeUpdateR) -> Self {
         unreachable!()
     }
 }
 
-impl std::ops::FromResidual<HuskyDevtimeTakeChangeR> for HuskyDevtimeHotReloadM {
-    fn from_residual(residual: HuskyDevtimeTakeChangeR) -> Self {
+impl std::ops::FromResidual<DebugtimeTakeChangeR> for DebugtimeHotReloadM {
+    fn from_residual(residual: DebugtimeTakeChangeR) -> Self {
         unreachable!()
     }
 }
 
-impl std::ops::FromResidual<HuskyRuntimeHotReloadR> for HuskyDevtimeHotReloadM {
+impl std::ops::FromResidual<HuskyRuntimeHotReloadR> for DebugtimeHotReloadM {
     fn from_residual(residual: HuskyRuntimeHotReloadR) -> Self {
         todo!()
     }
 }
 
-impl std::ops::Try for HuskyDevtimeHotReloadM {
-    type Output = HuskyDevtimeStateChange;
+impl std::ops::Try for DebugtimeHotReloadM {
+    type Output = DebugtimeStateChange;
 
     type Residual = DevtimeHotReloadR;
 
     fn from_output(output: Self::Output) -> Self {
-        HuskyDevtimeHotReloadM::Ok(output)
+        DebugtimeHotReloadM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            HuskyDevtimeHotReloadM::Ok(change) => std::ops::ControlFlow::Continue(change),
+            DebugtimeHotReloadM::Ok(change) => std::ops::ControlFlow::Continue(change),
         }
     }
 }

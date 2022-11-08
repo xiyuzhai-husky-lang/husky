@@ -1,8 +1,8 @@
 use crate::*;
 
-impl HuskyDevtime {
-    // ad hoc, use HuskyDevtimeClearM
-    pub(super) fn clear(&mut self) -> HuskyDevtimeUpdateM<HuskyDevtimeOldState> {
-        HuskyDevtimeUpdateM::Ok(self.state.clear_pop()?)
+impl Debugtime {
+    // ad hoc, use DebugtimeClearM
+    pub(super) fn clear(&mut self) -> DebugtimeUpdateM<DebugtimeOldState> {
+        DebugtimeUpdateM::Ok(self.state.clear_pop()?)
     }
 }

@@ -5,7 +5,7 @@ use husky_vm::HistoryEntry;
 
 use super::*;
 
-impl HuskyDevtime {
+impl Debugtime {
     #[inline(always)]
     pub fn figure_control(&mut self, trace_id: TraceId) -> FigureControlData {
         let trace = self.trace(trace_id);
@@ -97,17 +97,17 @@ impl HuskyDevtime {
         }
     }
 
-    pub(crate) fn update_figure_controls(&mut self) -> HuskyDevtimeUpdateM<()> {
+    pub(crate) fn update_figure_controls(&mut self) -> DebugtimeUpdateM<()> {
         if let Some(active_trace_id) = self.opt_active_trace_id() {
             self.update_figure_control(active_trace_id)?;
         }
         for pin in self.state.presentation().pins().to_vec().into_iter() {
             self.update_figure_control(pin)?;
         }
-        HuskyDevtimeUpdateM::Ok(())
+        DebugtimeUpdateM::Ok(())
     }
 
-    pub(crate) fn update_figure_control(&mut self, trace_id: TraceId) -> HuskyDevtimeUpdateM<()> {
+    pub(crate) fn update_figure_control(&mut self, trace_id: TraceId) -> DebugtimeUpdateM<()> {
         let key = self.gen_figure_control_key(trace_id);
         if !self.state.figure_controls.contains(&key) {
             let figure_control_data = self.gen_figure_control_data(trace_id);
@@ -115,14 +115,14 @@ impl HuskyDevtime {
                 .figure_controls
                 .insert_new(key, figure_control_data.clone());
         }
-        HuskyDevtimeUpdateM::Ok(())
+        DebugtimeUpdateM::Ok(())
     }
 
     pub fn set_figure_control(
         &mut self,
         trace_id: TraceId,
         new_figure_control_data: FigureControlData,
-    ) -> HuskyDevtimeTakeChangeM<()> {
+    ) -> DebugtimeTakeChangeM<()> {
         todo!()
         // let key = self.gen_figure_control_key(trace_id);
         // DevtimeStageChangeM::Ok(

@@ -49,8 +49,8 @@ use variant::*;
     husky_rust_code_gen::RustGenQueryStorage,
     husky_layout::HuskyLayoutQueryGroupStorage
 )]
-pub struct HuskyDevRuntime {
-    storage: salsa::Storage<HuskyDevRuntime>,
+pub struct DevRuntime {
+    storage: salsa::Storage<DevRuntime>,
     feature_interner: FeatureInterner,
     variant: HuskyRuntimeVariant,
     config: RuntimeConfig,
@@ -69,8 +69,8 @@ pub struct RuntimeConfig {
     pub comptime: ComptimeConfig,
 }
 
-impl HuskyDevRuntime {
-    pub fn new(config: RuntimeConfig) -> HuskyDevRuntime {
+impl DevRuntime {
+    pub fn new(config: RuntimeConfig) -> DevRuntime {
         let mut runtime = Self {
             storage: Default::default(),
             variant: HuskyRuntimeVariant::None,

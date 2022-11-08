@@ -1,5 +1,5 @@
 use husky_compiler::{CompileHuskyR, CompilerInstance};
-use husky_debugtime::{DevtimeHotReloadR, HuskyDevtimeStateChange};
+use husky_debugtime::{DebugtimeStateChange, DevtimeHotReloadR};
 use relative_path::RelativePathBuf;
 use std::ops::FromResidual;
 
@@ -7,13 +7,13 @@ use crate::*;
 
 #[must_use]
 pub enum DebuggerHotReloadM {
-    Ok(HuskyDevtimeStateChange),
+    Ok(DebugtimeStateChange),
 }
 
 pub struct DebuggerHotReloadR;
 
 impl std::ops::Try for DebuggerHotReloadM {
-    type Output = HuskyDevtimeStateChange;
+    type Output = DebugtimeStateChange;
 
     type Residual = DebuggerHotReloadR;
 

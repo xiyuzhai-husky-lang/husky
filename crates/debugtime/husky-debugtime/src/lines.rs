@@ -13,7 +13,7 @@ use husky_text::Row;
 
 use super::*;
 
-impl HuskyDevtime {
+impl Debugtime {
     pub(crate) fn trace_lines(
         &mut self,
         indent: Indent,
@@ -24,7 +24,7 @@ impl HuskyDevtime {
     }
 }
 pub struct TraceLineGenerator<'a> {
-    devtime: &'a mut HuskyDevtime,
+    devtime: &'a mut Debugtime,
     trace_variant: &'a TraceVariant,
     has_parent: bool,
     lines: Vec<TraceLineData>,
@@ -33,7 +33,7 @@ pub struct TraceLineGenerator<'a> {
 
 impl<'a> TraceLineGenerator<'a> {
     pub(super) fn new(
-        devtime: &'a mut HuskyDevtime,
+        devtime: &'a mut Debugtime,
         indent: Indent,
         trace_variant: &'a TraceVariant,
         has_parent: bool,
@@ -53,7 +53,7 @@ impl<'a> TraceLineGenerator<'a> {
 }
 
 impl<'a> std::ops::Deref for TraceLineGenerator<'a> {
-    type Target = HuskyDevtime;
+    type Target = Debugtime;
 
     fn deref(&self) -> &Self::Target {
         self.devtime
