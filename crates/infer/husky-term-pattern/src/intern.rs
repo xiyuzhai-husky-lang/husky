@@ -5,6 +5,7 @@ use crate::*;
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct TermPatternInterner {
     patterns: Vec<TermPattern>,
+    unresolved_registry: UnresolvedTermRegistry,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -76,15 +77,18 @@ impl TermPattern {
 }
 
 impl TermPatternInterner {
-    pub(crate) fn new() -> Self {
-        Self { patterns: vec![] }
-    }
-    pub(crate) fn it(&mut self, patt: TermPattern) -> TermPatternItd {
+    #[inline(always)]
+    pub fn it(&mut self, patt: TermPattern) -> TermPatternItd {
         match patt {
             TermPattern::Resolved(term) => TermPatternItd::Resolved(term),
-            TermPattern::Unresolved(term) => todo!(),
+            TermPattern::Unresolved(term) => TermPatternItd::Unresolved(term),
             _ => TermPatternItd::Composite(self.alloc(patt)),
         }
+    }
+
+    pub fn it_unresolved(&mut self, term: UnresolvedTerm) -> TermPatternItd {
+        let term = self.unresolved_registry.issue(term);
+        self.it(TermPattern::Unresolved(term))
     }
 
     fn alloc(&mut self, patt: TermPattern) -> TermPatternIdx {
@@ -120,7 +124,7 @@ fn test_option_max_works() {
 #[test]
 fn intern_works() {
     // let db = TermPatternTestsDb::new();
-    let mut interner = TermPatternInterner::new();
+    let mut interner = TermPatternInterner::default();
 
     // HELP ME
 }
