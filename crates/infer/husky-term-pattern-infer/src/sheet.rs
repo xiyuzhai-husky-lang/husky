@@ -21,16 +21,11 @@ impl TermPatternInferSheet {
     pub(crate) fn insert_result(
         &mut self,
         expr: RawExprIdx,
-        opt_term: Option<TermPatternInferResult<TermPatternItd>>,
+        const_expr: TermPatternInferResult<Option<ConstExprPattern>>,
         ty: TermPatternInferResult<TermPatternItd>,
     ) {
-        self.expr_results.insert_new(
-            expr,
-            TermPatternInferEntry {
-                expr_term_pattern: opt_term,
-                ty_term_pattern: ty,
-            },
-        )
+        self.expr_results
+            .insert_new(expr, TermPatternInferEntry { const_expr, ty })
     }
 
     pub(crate) fn insert_term_infer_result(
@@ -40,14 +35,12 @@ impl TermPatternInferSheet {
     ) {
         todo!()
     }
-    pub(crate) fn expr_opt_term(
+
+    pub(crate) fn const_expr(
         &self,
         expr: RawExprIdx,
-    ) -> Option<&TermPatternInferResult<TermPatternItd>> {
-        self.expr_results
-            .get(expr)
-            .map(|entry| entry.expr_term_pattern.as_ref())
-            .flatten()
+    ) -> &TermPatternInferResult<Option<ConstExprPattern>> {
+        &self.expr_results.get(expr).unwrap().const_expr
     }
 }
 
