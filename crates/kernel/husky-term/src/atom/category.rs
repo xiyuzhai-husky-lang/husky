@@ -9,10 +9,7 @@ pub enum TermCategory {
 
 impl Into<TermAtom> for TermCategory {
     fn into(self) -> TermAtom {
-        TermAtom {
-            variant: TermAtomVariant::Category(self),
-            ty_itd: None,
-        }
+        TermAtom::Category(self)
     }
 }
 

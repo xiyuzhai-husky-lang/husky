@@ -15,12 +15,16 @@ impl Interned for FileItd {
 
     type Owned = <FileItdInner as Interned>::Owned;
 
-    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
-        Self(<FileItdInner as Interned>::new_intern_ptr(id, target))
+    fn new_interned(id: usize, target: &'static Self::T) -> Self {
+        Self(<FileItdInner as Interned>::new_interned(id, target))
     }
 
     fn new_itr() -> Interner<Self> {
         Interner::new_empty()
+    }
+
+    fn opt_atom_itd(t: &Self::T) -> Option<Self> {
+        None
     }
 }
 impl std::ops::Deref for FileItd {

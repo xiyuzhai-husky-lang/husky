@@ -273,12 +273,17 @@ impl Interned for EntityRoutePtr {
 
     type Owned = EntityRoute;
 
-    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
+    fn new_interned(id: usize, target: &'static Self::T) -> Self {
         Self::Custom(target)
     }
 
     fn new_itr() -> Interner<Self> {
         new_entity_route_interner()
+    }
+
+    fn opt_atom_itd(t: &Self::T) -> Option<Self> {
+        // can be improved here
+        None
     }
 }
 

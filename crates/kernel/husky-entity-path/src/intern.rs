@@ -38,12 +38,16 @@ impl Interned for EntityPathItd {
 
     type Owned = EntityPath;
 
-    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
-        Self(DefaultItd::new_intern_ptr(id, target))
+    fn new_interned(id: usize, target: &'static Self::T) -> Self {
+        Self(DefaultItd::new_interned(id, target))
     }
 
     fn new_itr() -> Interner<Self> {
         Interner::new_empty()
+    }
+
+    fn opt_atom_itd(t: &Self::T) -> Option<Self> {
+        None
     }
 }
 

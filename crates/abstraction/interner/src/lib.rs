@@ -39,7 +39,7 @@ where
 //     }
 // }
 
-impl<Ptr: Interned> Interner<Ptr> {
+impl<Itd: Interned> Interner<Itd> {
     pub fn new_empty() -> Self {
         Self {
             internal: SafeRwLock::new(InternerInternal::default()),
@@ -48,20 +48,23 @@ impl<Ptr: Interned> Interner<Ptr> {
 
     pub fn new_from<I: 'static>(ids: &[I]) -> Self
     where
-        Ptr: for<'a> From<&'a I>,
+        Itd: for<'a> From<&'a I>,
     {
         Self {
             internal: SafeRwLock::new(InternerInternal::new_from(ids)),
         }
     }
 
-    pub fn new(ids: &[Ptr]) -> Self {
+    pub fn new(ids: &[Itd]) -> Self {
         Self {
             internal: SafeRwLock::new(InternerInternal::new(ids)),
         }
     }
 
-    pub fn intern(&self, owned: Ptr::Owned) -> Ptr {
+    pub fn intern(&self, owned: Itd::Owned) -> Itd {
+        if let Some(itd) = Itd::opt_atom_itd(owned.borrow()) {
+            return itd;
+        }
         let result = match self
             .internal
             .read(|internal| internal.ids.get(owned.borrow()).map(|id| *id))
@@ -73,9 +76,9 @@ impl<Ptr: Interned> Interner<Ptr> {
                         Some(ptr) => *ptr, // this step is lest the value has changed
                         None => {
                             let id = internal.things.len();
-                            let owned: &Ptr::Owned = unsafe { &*internal.things.alloc(owned) };
-                            let ptr: *const Ptr::T = owned.borrow();
-                            let itd: Ptr = Ptr::new_intern_ptr(id, unsafe { &*ptr });
+                            let owned: &Itd::Owned = unsafe { &*internal.things.alloc(owned) };
+                            let ptr: *const Itd::T = owned.borrow();
+                            let itd: Itd = Itd::new_interned(id, unsafe { &*ptr });
                             internal.ids.insert(unsafe { &*ptr }, itd);
                             itd
                         }
@@ -85,10 +88,13 @@ impl<Ptr: Interned> Interner<Ptr> {
         return result;
     }
 
-    pub fn intern_borrowed(&self, t: &Ptr::T) -> Ptr
+    pub fn intern_borrowed(&self, t: &Itd::T) -> Itd
     where
-        Ptr::Owned: for<'a> From<&'a Ptr::T>,
+        Itd::Owned: for<'a> From<&'a Itd::T>,
     {
+        if let Some(itd) = Itd::opt_atom_itd(&t) {
+            return itd;
+        }
         let result = match self
             .internal
             .read(|internal| internal.ids.get(t).map(|id| *id))
@@ -99,9 +105,9 @@ impl<Ptr: Interned> Interner<Ptr> {
                     Some(ptr) => *ptr, // this step is lest the value has changed
                     None => {
                         let id = internal.things.len();
-                        let owned: &Ptr::Owned = unsafe { &*internal.things.alloc(t.into()) };
-                        let ptr: *const Ptr::T = owned.borrow();
-                        let ptr = Ptr::new_intern_ptr(id, unsafe { &*ptr });
+                        let owned: &Itd::Owned = unsafe { &*internal.things.alloc(t.into()) };
+                        let ptr: *const Itd::T = owned.borrow();
+                        let ptr = Itd::new_interned(id, unsafe { &*ptr });
                         internal.ids.insert(unsafe { &*ptr.raw() }, ptr);
                         ptr
                     }
@@ -111,9 +117,9 @@ impl<Ptr: Interned> Interner<Ptr> {
         return result;
     }
 
-    pub fn id_iter(&self) -> impl Iterator<Item = Ptr> {
+    pub fn id_iter(&self) -> impl Iterator<Item = Itd> {
         self.internal
-            .read(|internal| internal.id_iter().collect::<Vec<Ptr>>())
+            .read(|internal| internal.id_iter().collect::<Vec<Itd>>())
             .into_iter()
     }
 }
