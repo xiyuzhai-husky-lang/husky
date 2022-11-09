@@ -60,8 +60,36 @@ pub enum TermRef<'a> {
     TraitImpl(&'a TermTraitImpl), // A as trait
 }
 
+impl<'a> std::fmt::Display for TermRef<'a> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            TermRef::Atom(a) => a.fmt(f),
+            TermRef::Curry(c) => c.fmt(f),
+            TermRef::Abstraction(a) => a.fmt(f),
+            TermRef::Application(a) => a.fmt(f),
+            TermRef::Subentity(_) => todo!(),
+            TermRef::TraitImpl(_) => todo!(),
+            TermRef::Null => unreachable!(),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TermItd(TermRef<'static>);
+
+impl std::ops::Deref for TermItd {
+    type Target = TermRef<'static>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl std::fmt::Display for TermItd {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.0.fmt(f)
+    }
+}
 
 #[cfg(target_arch = "x86_64")]
 impl std::hash::Hash for TermItd {

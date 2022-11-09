@@ -1,21 +1,22 @@
 use crate::*;
 use husky_entity_path::EntityPathItd;
 
-impl Term {
+impl<'a> TermRef<'a> {
     pub fn path(&self) -> EntityPathItd {
         match self {
-            Term::Atom(atom) => match atom {
+            TermRef::Atom(atom) => match atom {
                 TermAtom::Literal(_) => todo!(),
                 TermAtom::Variable { variable_variant } => todo!(),
                 TermAtom::Entity { path } => *path,
                 TermAtom::Category(_) => todo!(),
                 TermAtom::Universe(_) => todo!(),
             },
-            Term::Curry(_) => todo!(),
-            Term::Abstraction(_) => todo!(),
-            Term::Application(_) => todo!(),
-            Term::Subentity(_) => todo!(),
-            Term::TraitImpl(_) => todo!(),
+            TermRef::Curry(_) => todo!(),
+            TermRef::Abstraction(_) => todo!(),
+            TermRef::Application(_) => todo!(),
+            TermRef::Subentity(_) => todo!(),
+            TermRef::TraitImpl(_) => todo!(),
+            TermRef::Null => unreachable!(),
         }
     }
 }

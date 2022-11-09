@@ -19,7 +19,7 @@ impl Internable for HuskyFile {
     type Interned = FileItd;
 
     fn new_itr() -> Interner<Self> {
-        todo!()
+        Interner::new_empty()
     }
 
     fn try_direct(&self) -> Option<Self::Interned> {

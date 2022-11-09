@@ -15,6 +15,8 @@ pub use variable::*;
 
 use crate::*;
 
+// HELP: make Debug occupy less lines
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TermAtom {
     Literal(TermLiteralData),
