@@ -12,7 +12,7 @@ mod tests;
 use husky_comptime::EntityRoute;
 use husky_comptime::*;
 use husky_eager_semantics::*;
-use husky_entity_route::{EntityRoutePtr, EntityRouteVariant};
+use husky_entity_route::{EntityRouteItd, EntityRouteVariant};
 use husky_entity_semantics::*;
 use husky_feature_eval::EvalFeature;
 use husky_feature_gen::*;
@@ -35,12 +35,12 @@ pub struct Trace {
 pub enum TraceVariant {
     Main(FeatureRepr),
     Module {
-        route: EntityRoutePtr,
+        route: EntityRouteItd,
         file: FileItd,
         range: TextRange,
     },
     EntityFeature {
-        route: EntityRoutePtr,
+        route: EntityRouteItd,
         repr: FeatureRepr,
     },
     FeatureStmt(Arc<FeatureLazyStmt>),

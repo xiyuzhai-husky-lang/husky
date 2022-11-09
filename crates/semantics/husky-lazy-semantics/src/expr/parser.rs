@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use crate::*;
 use husky_entity_kind::TyKind;
-use husky_entity_route::{EntityKind, EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityKind, EntityRouteItd, RangedEntityRoute};
 use husky_expr_syntax::*;
 use husky_file::FileItd;
 use husky_print_utils::p;
@@ -23,7 +23,7 @@ pub trait LazyExprParser<'a> {
     fn parse_lazy_expr(
         &mut self,
         idx: RawExprIdx,
-        opt_expectation: Option<EntityRoutePtr>,
+        opt_expectation: Option<EntityRouteItd>,
     ) -> SemanticResult<Arc<LazyExpr>> {
         todo!()
         // let raw_expr = &self.arena()[idx];
@@ -205,19 +205,19 @@ pub trait LazyExprParser<'a> {
     fn infer_pure_binary_opr_type(
         &self,
         pure_binary_opr: PureBinaryOpr,
-        lopd_ty: EntityRoutePtr,
-        ropd_ty: EntityRoutePtr,
-    ) -> SemanticResult<EntityRoutePtr> {
+        lopd_ty: EntityRouteItd,
+        ropd_ty: EntityRouteItd,
+    ) -> SemanticResult<EntityRouteItd> {
         match lopd_ty {
-            EntityRoutePtr::Root(lopd_root_ty) => match ropd_ty {
-                EntityRoutePtr::Root(ropd_root_ty) => self.infer_root_pure_binary_opr_type(
+            EntityRouteItd::Root(lopd_root_ty) => match ropd_ty {
+                EntityRouteItd::Root(ropd_root_ty) => self.infer_root_pure_binary_opr_type(
                     pure_binary_opr,
                     lopd_root_ty,
                     ropd_root_ty,
                 ),
-                EntityRoutePtr::Custom(_) => todo!(),
+                EntityRouteItd::Custom(_) => todo!(),
             },
-            EntityRoutePtr::Custom(_) => {
+            EntityRouteItd::Custom(_) => {
                 self.infer_custom_pure_binary_opr_type(pure_binary_opr, lopd_ty, ropd_ty)
             }
         }
@@ -228,7 +228,7 @@ pub trait LazyExprParser<'a> {
         pure_binary_opr: PureBinaryOpr,
         lopd_root_ty: RootBuiltinIdentifier,
         ropd_root_ty: RootBuiltinIdentifier,
-    ) -> SemanticResult<EntityRoutePtr> {
+    ) -> SemanticResult<EntityRouteItd> {
         Ok(match pure_binary_opr {
             PureBinaryOpr::Less
             | PureBinaryOpr::Leq
@@ -278,9 +278,9 @@ pub trait LazyExprParser<'a> {
     fn infer_custom_pure_binary_opr_type(
         &self,
         pure_binary_opr: PureBinaryOpr,
-        lopd_ty: EntityRoutePtr,
-        ropd_ty: EntityRoutePtr,
-    ) -> SemanticResult<EntityRoutePtr> {
+        lopd_ty: EntityRouteItd,
+        ropd_ty: EntityRouteItd,
+    ) -> SemanticResult<EntityRouteItd> {
         match pure_binary_opr {
             PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
                 if lopd_ty.deref_route() == ropd_ty.deref_route() {

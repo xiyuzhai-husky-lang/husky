@@ -1,32 +1,39 @@
 use std::path::{Path, PathBuf};
 
-use interner::{DefaultItd, Interned, Interner};
+use interner::{DefaultItd, Internable, Interner};
 #[cfg(feature = "lsp_support")]
 use lsp_types::Url;
 
-type FileItdInner = DefaultItd<Path, PathBuf>;
+pub struct HuskyFile(PathBuf);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct FileItd(FileItdInner);
-pub type FileInterner = Interner<FileItd>;
+pub struct FileItd(&'static PathBuf);
+pub type FileInterner = Interner<HuskyFile>;
 
-impl Interned for FileItd {
-    type T = <FileItdInner as Interned>::T;
+impl Internable for HuskyFile {
+    type Borrowed<'a> = &'a Path;
 
-    type Owned = <FileItdInner as Interned>::Owned;
+    type BorrowedRaw = *const Path;
 
-    fn new_interned(id: usize, target: &'static Self::T) -> Self {
-        Self(<FileItdInner as Interned>::new_interned(id, target))
+    type Interned = FileItd;
+
+    fn borrow<'a>(&'a self) -> Self::Borrowed<'a> {
+        todo!()
     }
 
     fn new_itr() -> Interner<Self> {
-        Interner::new_empty()
+        todo!()
     }
 
-    fn opt_atom_itd(t: &Self::T) -> Option<Self> {
-        None
+    fn try_direct(&self) -> Option<Self::Interned> {
+        todo!()
+    }
+
+    fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
+        todo!()
     }
 }
+
 impl std::ops::Deref for FileItd {
     type Target = Path;
 
@@ -45,10 +52,10 @@ pub trait InternFile {
 
     fn intern_file(&self, path: PathBuf) -> FileItd {
         self.file_interner()
-            .intern(match std::fs::canonicalize(path.clone()) {
+            .intern(HuskyFile(match std::fs::canonicalize(path.clone()) {
                 Ok(path) => path,
                 Err(_) => path,
-            })
+            }))
     }
 
     #[cfg(feature = "lsp_support")]
@@ -68,4 +75,10 @@ fn test_intern_file() {
     let path = &*interner.intern("haha".into());
     let path1: PathBuf = "haha".into();
     should_eq!(path, &path1);
+}
+
+impl From<&str> for HuskyFile {
+    fn from(value: &str) -> Self {
+        todo!()
+    }
 }

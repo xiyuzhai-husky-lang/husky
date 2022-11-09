@@ -7,7 +7,7 @@ use husky_vm::{InstructionSheet, __Linkage};
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FeatureProcBody {
     pub opt_this: Option<FeatureRepr>,
-    pub feature: FeaturePtr,
+    pub feature: FeatureItd,
     pub file: FileItd,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,

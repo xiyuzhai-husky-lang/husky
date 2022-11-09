@@ -1,4 +1,4 @@
-use husky_entity_route::{EntityKind, EntityRoutePtr};
+use husky_entity_route::{EntityKind, EntityRouteItd};
 use husky_expr_syntax::*;
 use husky_file::FileItd;
 use husky_primitive_literal_syntax::RawLiteralData;
@@ -20,7 +20,7 @@ pub trait ParseEagerExpr<'a> {
     fn parse_eager_expr(
         &mut self,
         idx: RawExprIdx,
-        opt_expectation: Option<EntityRoutePtr>,
+        opt_expectation: Option<EntityRouteItd>,
     ) -> SemanticResult<Arc<EagerExpr>> {
         todo!()
         /*

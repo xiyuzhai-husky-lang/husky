@@ -50,31 +50,32 @@ impl TermApplication {
     // }
 
     pub fn new(m: TermItd, n: TermItd) -> TermResult<Self> {
-        if m.ty_itd().is_none() {
-            match m.deref() {
-                Term::Atom(a) => match a {
-                    TermAtom::Category(category_kind) => match n.deref() {
-                        Term::Atom(b) => match b {
-                            TermAtom::Literal(_) => todo!(),
-                            TermAtom::Variable { variable_variant } => todo!(),
-                            TermAtom::Entity { .. } => todo!(),
-                            TermAtom::Category(category_kind) => todo!(),
-                            TermAtom::Universe(_) => Ok(Self { m, n, ty_itd: None }),
-                        },
-                        Term::Curry(_) => todo!(),
-                        Term::Abstraction(_) => todo!(),
-                        Term::Application(_) => todo!(),
-                        Term::Subentity(_) => todo!(),
-                        Term::TraitImpl(_) => todo!(),
-                    },
-                    TermAtom::Universe(_) => todo!(),
-                    _ => unreachable!(),
-                },
-                _ => unreachable!(),
-            }
-        } else {
-            todo!()
-        }
+        todo!()
+        // if m.ty_itd().is_none() {
+        //     match m.deref() {
+        //         Term::Atom(a) => match a {
+        //             TermAtom::Category(category_kind) => match n.deref() {
+        //                 Term::Atom(b) => match b {
+        //                     TermAtom::Literal(_) => todo!(),
+        //                     TermAtom::Variable { variable_variant } => todo!(),
+        //                     TermAtom::Entity { .. } => todo!(),
+        //                     TermAtom::Category(category_kind) => todo!(),
+        //                     TermAtom::Universe(_) => Ok(Self { m, n, ty_itd: None }),
+        //                 },
+        //                 Term::Curry(_) => todo!(),
+        //                 Term::Abstraction(_) => todo!(),
+        //                 Term::Application(_) => todo!(),
+        //                 Term::Subentity(_) => todo!(),
+        //                 Term::TraitImpl(_) => todo!(),
+        //             },
+        //             TermAtom::Universe(_) => todo!(),
+        //             _ => unreachable!(),
+        //         },
+        //         _ => unreachable!(),
+        //     }
+        // } else {
+        //     todo!()
+        // }
     }
 }
 

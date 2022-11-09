@@ -32,7 +32,7 @@ impl EntityDefnVariant {
         db: &dyn EntityDefnQueryGroup,
         arena: &RawExprArena,
         file: FileItd,
-        ty_route: EntityRoutePtr,
+        ty_route: EntityRouteItd,
         ast: &Ast,
         children: Option<AstIter>,
     ) -> SemanticResult<Self> {
@@ -96,7 +96,7 @@ impl EntityDefnVariant {
         db: &dyn EntityDefnQueryGroup,
         arena: &RawExprArena,
         file: FileItd,
-        ty_route: EntityRoutePtr,
+        ty_route: EntityRouteItd,
         children: &mut Peekable<AstIter>,
         members: &mut IdentDict<Arc<EntityDefn>>,
     ) -> SemanticResult<()> {

@@ -2,7 +2,7 @@ use crate::*;
 
 pub fn module_defn(
     db: &dyn EntityDefnQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
     file: FileItd,
 ) -> SemanticResultArc<EntityDefn> {
     let opt_main_defn = if file.ends_with("main.hsy") {
@@ -25,7 +25,7 @@ pub fn module_defn(
 
 pub fn module_items(
     db: &dyn EntityDefnQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
 ) -> SemanticResult<Avec<EntityDefn>> {
     let subroute_table = db.subroute_table(entity_route).unwrap();
     Ok(Arc::new(

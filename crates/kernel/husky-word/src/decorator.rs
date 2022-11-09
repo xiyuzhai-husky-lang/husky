@@ -34,8 +34,8 @@ impl Decorator {
     }
 }
 
-impl Into<Word> for Decorator {
-    fn into(self) -> Word {
-        Word::Decorator(self)
+impl Into<WordItd> for Decorator {
+    fn into(self) -> WordItd {
+        WordItd::Decorator(self)
     }
 }

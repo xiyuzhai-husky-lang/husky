@@ -1,12 +1,12 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 
 impl Debugtime {
     pub(super) fn module_subtraces(
         &mut self,
         trace: &Trace,
-        module: EntityRoutePtr,
+        module: EntityRouteItd,
     ) -> Vec<TraceId> {
         let mut subtrace_ids = vec![];
         let module_file = self.runtime().module_file(module).unwrap();

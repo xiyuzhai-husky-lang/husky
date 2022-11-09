@@ -35,7 +35,7 @@ pub struct AstTransformer<'a> {
     arena: RawExprArena,
     symbols: LocalStack<Symbol>,
     context: LocalValue<AstContext>,
-    opt_base_ty: LocalValue<Option<EntityRoutePtr>>,
+    opt_base_ty: LocalValue<Option<EntityRouteItd>>,
     opt_this_liason: LocalValue<Option<ParameterModifier>>,
     pub(crate) folded_results: FoldableList<AstResult<Ast>>,
     abs_semantic_tokens: Vec<AbsSemanticToken>,
@@ -46,7 +46,7 @@ pub struct AstTransformer<'a> {
 impl<'a> AstTransformer<'a> {
     pub(crate) fn new(
         db: &'a dyn AstSalsaQueryGroup,
-        module: EntityRoutePtr,
+        module: EntityRouteItd,
     ) -> EntitySyntaxResult<Self> {
         let module_file = db.module_file(module)?;
         return Ok(Self {
@@ -70,7 +70,7 @@ impl<'a> AstTransformer<'a> {
 
         fn module_symbols(
             db: &dyn AstSalsaQueryGroup,
-            module: EntityRoutePtr,
+            module: EntityRouteItd,
         ) -> LocalStack<Symbol> {
             let mut symbols = LocalStack::new();
             let subroute_table = db.subroute_table(module).unwrap();

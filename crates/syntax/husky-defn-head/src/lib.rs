@@ -6,7 +6,7 @@ use husky_liason_semantics::{MemberModifier, ParameterModifier, RangedParameterL
 pub use spatial::*;
 use thin_vec::thin_vec;
 
-use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRouteItd, RangedEntityRoute};
 use husky_text::{RangedCustomIdentifier, TextRange};
 use husky_word::{CustomIdentifier, RootBuiltinIdentifier};
 
@@ -15,7 +15,7 @@ pub struct Parameter {
     ranged_ident: RangedCustomIdentifier,
     ranged_liason: RangedParameterLiason,
     ranged_book_ty: RangedEntityRoute,
-    ty: EntityRoutePtr,
+    ty: EntityRouteItd,
 }
 
 impl Parameter {
@@ -38,8 +38,8 @@ impl Parameter {
     fn synthesize_ty(
         db: &dyn EntitySyntaxQueryGroup,
         liason: ParameterModifier,
-        raw_ty: EntityRoutePtr,
-    ) -> EntityRoutePtr {
+        raw_ty: EntityRouteItd,
+    ) -> EntityRouteItd {
         match liason {
             ParameterModifier::None => raw_ty,
             ParameterModifier::Owned => raw_ty,
@@ -69,7 +69,7 @@ impl Parameter {
         self.ranged_ident.ident
     }
 
-    pub fn raw_ty(&self) -> EntityRoutePtr {
+    pub fn raw_ty(&self) -> EntityRouteItd {
         self.ranged_book_ty.route
     }
 
@@ -77,7 +77,7 @@ impl Parameter {
         self.ranged_book_ty.range
     }
 
-    pub fn ty(&self) -> EntityRoutePtr {
+    pub fn ty(&self) -> EntityRouteItd {
         self.ty
     }
 
@@ -85,7 +85,7 @@ impl Parameter {
         db: &dyn EntitySyntaxQueryGroup,
         ranged_ident: RangedCustomIdentifier,
         modifier: MemberModifier,
-        member_ty: EntityRoutePtr,
+        member_ty: EntityRouteItd,
     ) -> Self {
         should!(ranged_ident
             .ident

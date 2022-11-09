@@ -1,4 +1,4 @@
-use husky_entity_route::{CanonicalTyKind, EntityRoutePtr};
+use husky_entity_route::{CanonicalTyKind, EntityRouteItd};
 use husky_text::TextRange;
 use husky_word::LiasonKeyword;
 
@@ -14,7 +14,7 @@ pub enum ParameterModifier {
 }
 
 impl ParameterModifier {
-    pub fn is_compatible(self, ty: EntityRoutePtr) -> bool {
+    pub fn is_compatible(self, ty: EntityRouteItd) -> bool {
         match self {
             ParameterModifier::None => true,
             ParameterModifier::Owned => true,

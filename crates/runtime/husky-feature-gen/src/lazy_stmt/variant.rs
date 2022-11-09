@@ -55,7 +55,7 @@ impl std::fmt::Debug for FeatureLazyStmtVariant {
 }
 
 impl FeatureLazyStmtVariant {
-    pub(super) fn opt_feature(&self, feature_interner: &FeatureInterner) -> Option<FeaturePtr> {
+    pub(super) fn opt_feature(&self, feature_interner: &FeatureInterner) -> Option<FeatureItd> {
         match self {
             FeatureLazyStmtVariant::Init { .. } => None,
             FeatureLazyStmtVariant::Assert { condition } => {

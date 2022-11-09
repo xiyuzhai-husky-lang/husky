@@ -18,7 +18,7 @@ pub enum FeatureLazyBranchVariant {
 #[derive(PartialEq, Eq, Clone)]
 pub struct FeatureDomainIndicator {
     pub variant: FeatureArrivalIndicatorVariant,
-    pub feature: FeaturePtr,
+    pub feature: FeatureItd,
 }
 
 impl std::fmt::Debug for FeatureDomainIndicator {

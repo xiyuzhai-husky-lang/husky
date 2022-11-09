@@ -45,8 +45,8 @@ pub enum AstVariant {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum UseVariant {
-    Route { route: EntityRoutePtr },
-    All { parent: EntityRoutePtr },
+    Route { route: EntityRouteItd },
+    All { parent: EntityRouteItd },
 }
 
 impl From<RawStmt> for Ast {

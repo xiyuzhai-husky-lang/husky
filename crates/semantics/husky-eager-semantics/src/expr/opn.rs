@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_kind::FieldKind;
-use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRouteItd, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
 use husky_vm::Binding;
 use std::sync::Arc;
@@ -21,7 +21,7 @@ pub enum EagerOpnVariant {
     TypeCall,
     NewVecFromList,
     Field {
-        this_ty: EntityRoutePtr,
+        this_ty: EntityRouteItd,
         field_ident: RangedCustomIdentifier,
         field_liason: MemberModifier,
         field_binding: Binding,
@@ -29,7 +29,7 @@ pub enum EagerOpnVariant {
     },
     MethodCall {
         method_ident: RangedCustomIdentifier,
-        method_route: EntityRoutePtr,
+        method_route: EntityRouteItd,
         output_binding: Binding,
     },
     Index {

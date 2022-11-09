@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_opn_semantics::EagerSuffixOpr;
 use husky_vm_interface::*;
 use husky_word::RootBuiltinIdentifier;
@@ -116,7 +116,7 @@ pub fn resolve_primitive_suffix_opr_linkage(
         EagerSuffixOpr::AsTy(as_ty) => match this_ty {
             RootBuiltinIdentifier::Void => todo!(),
             RootBuiltinIdentifier::I32 => match as_ty.route {
-                EntityRoutePtr::Root(root_identifier) => match root_identifier {
+                EntityRouteItd::Root(root_identifier) => match root_identifier {
                     RootBuiltinIdentifier::Void => todo!(),
                     RootBuiltinIdentifier::I32 => todo!(),
                     RootBuiltinIdentifier::I64 => todo!(),
@@ -161,13 +161,13 @@ pub fn resolve_primitive_suffix_opr_linkage(
                     RootBuiltinIdentifier::RefMut => todo!(),
                     RootBuiltinIdentifier::Option => todo!(),
                 },
-                EntityRoutePtr::Custom(_) => todo!(),
+                EntityRouteItd::Custom(_) => todo!(),
             },
             RootBuiltinIdentifier::I64 => todo!(),
             RootBuiltinIdentifier::F32 => todo!(),
             RootBuiltinIdentifier::F64 => todo!(),
             RootBuiltinIdentifier::B32 => match as_ty.route {
-                EntityRoutePtr::Root(root_identifier) => match root_identifier {
+                EntityRouteItd::Root(root_identifier) => match root_identifier {
                     RootBuiltinIdentifier::Void => todo!(),
                     RootBuiltinIdentifier::I32 => transfer_linkage!(
                         |args, _| (args[0].downcast_b32() as i32).to_register(),
@@ -206,7 +206,7 @@ pub fn resolve_primitive_suffix_opr_linkage(
                     RootBuiltinIdentifier::RefMut => todo!(),
                     RootBuiltinIdentifier::Option => todo!(),
                 },
-                EntityRoutePtr::Custom(_) => todo!(),
+                EntityRouteItd::Custom(_) => todo!(),
             },
             RootBuiltinIdentifier::B64 => todo!(),
             RootBuiltinIdentifier::Bool => todo!(),

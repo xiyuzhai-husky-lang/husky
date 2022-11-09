@@ -1,6 +1,6 @@
 use fold::Indent;
 use husky_eager_semantics::{FuncStmt, ProcStmt};
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_entity_semantics::DefinitionRepr;
 
 use super::*;
@@ -8,7 +8,7 @@ use super::*;
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_feature_defn(
         &mut self,
-        feature_route: EntityRoutePtr,
+        feature_route: EntityRouteItd,
         defn_repr: &DefinitionRepr,
     ) {
         match defn_repr {
@@ -25,8 +25,8 @@ impl<'a> RustCodeGenerator<'a> {
 
     pub(super) fn gen_feature_func_block_defn(
         &mut self,
-        feature_route: EntityRoutePtr,
-        output_ty: EntityRoutePtr,
+        feature_route: EntityRouteItd,
+        output_ty: EntityRouteItd,
         stmts: &[Arc<FuncStmt>],
     ) {
         self.write("pub(crate) fn ");
@@ -65,8 +65,8 @@ impl<'a> RustCodeGenerator<'a> {
 
     pub(super) fn gen_feature_proc_block_defn(
         &mut self,
-        feature_route: EntityRoutePtr,
-        output_ty: EntityRoutePtr,
+        feature_route: EntityRouteItd,
+        output_ty: EntityRouteItd,
         stmts: &[Arc<ProcStmt>],
     ) {
         self.write("pub(crate) fn ");
@@ -106,9 +106,9 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_proc_defn(
         &mut self,
         indent: Indent,
-        base_route: EntityRoutePtr,
+        base_route: EntityRouteItd,
         parameters: &[Parameter],
-        output: EntityRoutePtr,
+        output: EntityRouteItd,
         stmts: &[Arc<ProcStmt>],
     ) {
         todo!()
@@ -166,9 +166,9 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_func_defn(
         &mut self,
         indent: Indent,
-        base_route: EntityRoutePtr,
+        base_route: EntityRouteItd,
         parameters: &[Parameter],
-        output: EntityRoutePtr,
+        output: EntityRouteItd,
         stmts: &[Arc<FuncStmt>],
     ) {
         let needs_eval_context: bool = self.db.needs_eval_context(base_route);

@@ -1,12 +1,12 @@
 use crate::*;
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use vec_like::VecPairMap;
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub enum TraceSketch {
     Main,
-    Module(EntityRoutePtr),
-    EntityFeature(EntityRoutePtr),
+    Module(EntityRouteItd),
+    EntityFeature(EntityRouteItd),
 }
 
 impl AsTraceSketch for TraceSketch {

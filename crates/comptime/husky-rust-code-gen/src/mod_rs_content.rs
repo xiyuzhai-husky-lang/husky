@@ -3,7 +3,7 @@ use code_generator::RustCodeGenerator;
 
 pub(crate) fn rust_mod_rs_content(
     db: &dyn RustCodeGenQueryGroup,
-    module: EntityRoutePtr,
+    module: EntityRouteItd,
 ) -> Arc<String> {
     let mut generator = RustCodeGenerator::new(db, module);
     let entity_defn = db.entity_defn(module).unwrap();

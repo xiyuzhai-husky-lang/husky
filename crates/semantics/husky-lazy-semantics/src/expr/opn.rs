@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRouteItd, RangedEntityRoute};
 use husky_text::RangedCustomIdentifier;
 use husky_vm::*;
 
@@ -7,7 +7,7 @@ use husky_vm::*;
 pub enum LazyOpnKind {
     Binary {
         opr: PureBinaryOpr,
-        this: EntityRoutePtr,
+        this: EntityRouteItd,
     },
     Prefix(PrefixOpr),
     FunctionModelCall(RangedEntityRoute),
@@ -21,7 +21,7 @@ pub enum LazyOpnKind {
     },
     MethodCall {
         method_ident: RangedCustomIdentifier,
-        method_route: EntityRoutePtr,
+        method_route: EntityRouteItd,
         output_binding: Binding,
     },
     Index {

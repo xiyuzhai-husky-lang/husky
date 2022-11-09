@@ -5,14 +5,14 @@ use std::fmt::Write;
 
 pub(crate) fn mangled_intrinsic_ty(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
 ) -> Arc<String> {
     db.mangled_ty(entity_route.intrinsic())
 }
 
 pub(crate) fn mangled_ty(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
 ) -> Arc<String> {
     msg_once!("ad hoc");
     Arc::new(if entity_route.spatial_arguments.len() > 0 {
@@ -30,19 +30,19 @@ pub(crate) fn mangled_ty(
 
 pub(crate) fn mangled_intrinsic_ty_vtable(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
 ) -> Arc<String> {
     db.mangled_ty_vtable(entity_route.intrinsic())
 }
 pub(crate) fn mangled_ty_vtable(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
 ) -> Arc<String> {
     Arc::new(match entity_route {
-        EntityRoutePtr::Root(_) => {
+        EntityRouteItd::Root(_) => {
             format!("__{}_VTABLE", entity_route.ident().as_str().to_uppercase())
         }
-        EntityRoutePtr::Custom(_) => format!(
+        EntityRouteItd::Custom(_) => format!(
             "__{}_VTABLE",
             &db.mangled_ty(entity_route).to_case(Case::UpperSnake)
         ),

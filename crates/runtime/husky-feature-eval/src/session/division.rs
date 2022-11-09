@@ -44,7 +44,7 @@ impl<'eval> Division<'eval> {
 
     pub fn cache_temp_value(
         &self,
-        feature: FeaturePtr,
+        feature: FeatureItd,
         sample_id: SampleId,
         value: &__Register<'static>,
     ) -> __Register<'static>
