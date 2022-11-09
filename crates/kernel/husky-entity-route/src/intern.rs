@@ -8,13 +8,9 @@ use std::{borrow::Borrow, ops::Deref};
 pub type EntityRouteInterner = Interner<EntityRoute>;
 
 impl Internable for EntityRoute {
-    type Borrowed<'a> = &'a EntityRoute;
+    type Ref<'a> = &'a EntityRoute;
 
     type Interned = EntityRouteItd;
-
-    fn borrow<'a>(&'a self) -> Self::Borrowed<'a> {
-        todo!()
-    }
 
     fn new_itr() -> Interner<Self> {
         EntityRouteInterner::new_from::<RootBuiltinIdentifier>(&[
@@ -54,7 +50,7 @@ impl Internable for EntityRoute {
         None
     }
 
-    fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
+    fn itd_to_borrowed(itd: Self::Interned) -> Self::Ref<'static> {
         macro_rules! match_root {
             ($x:ident => $($reserved:ident),*) => {{
                  paste! {
@@ -90,12 +86,20 @@ impl Internable for EntityRoute {
         }
     }
 
-    fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a> {
+    fn as_ref<'a>(&'a self) -> Self::Ref<'a> {
         self
     }
 
     fn new_itd(&'static self, id: usize) -> Self::Interned {
         EntityRouteItd::Custom(self)
+    }
+
+    fn try_direct_from_ref<'a>(r: Self::Ref<'a>) -> Option<Self::Interned> {
+        todo!()
+    }
+
+    unsafe fn cast_to_static_ref<'a>(r: Self::Ref<'a>) -> Self::Ref<'static> {
+        todo!()
     }
 }
 

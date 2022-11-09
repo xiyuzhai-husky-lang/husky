@@ -40,7 +40,7 @@ use optional::Optioned;
 use tests::*;
 
 #[derive(PartialEq, Eq, Hash)]
-pub enum TermOwned {
+pub enum Term {
     Atom(TermAtom),               // literal: 1,1.0, true, false; variable, entityPath
     Curry(TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Abstraction(TermAbstraction), // lambda x => expr
@@ -50,7 +50,7 @@ pub enum TermOwned {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TermBorrowed<'a> {
+pub enum TermRef<'a> {
     Null,
     Atom(TermAtom),       // literal: 1,1.0, true, false; variable, entityPath
     Curry(&'a TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
@@ -60,66 +60,98 @@ pub enum TermBorrowed<'a> {
     TraitImpl(&'a TermTraitImpl), // A as trait
 }
 
-#[test]
-fn test_term_itd_size() {
-    assert_eq!(std::mem::size_of::<TermItd>(), 24)
-}
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct TermItd(TermBorrowed<'static>);
+pub struct TermItd(TermRef<'static>);
 
+#[cfg(target_arch = "x86_64")]
 impl std::hash::Hash for TermItd {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        // HELP
         unsafe { std::mem::transmute::<Self, [u8; 24]>(*self) }.hash(state)
     }
 }
 
+#[cfg(target_arch = "x86")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "mips")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "powerpc")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "powerpc64")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "arm")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "aarch64")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
 impl TermItd {
-    fn borrowed(self) -> TermBorrowed<'static> {
+    fn borrowed(self) -> TermRef<'static> {
         self.0
     }
 }
 
-impl std::fmt::Debug for TermOwned {
+impl std::fmt::Debug for Term {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "Term(\"{}\")", self)
     }
 }
 
-impl TermOwned {
-    pub fn ty_itd(&self) -> Option<Ty> {
-        match self {
-            TermOwned::Atom(a) => None,
-            TermOwned::Curry(c) => Some(c.ty()),
-            TermOwned::Abstraction(_) => todo!(),
-            TermOwned::Application(a) => a.ty_itd(),
-            TermOwned::Subentity(_) => todo!(),
-            TermOwned::TraitImpl(_) => todo!(),
-        }
-    }
-
+impl Term {
     pub fn universe(&self) -> TermUniverse {
         match self {
-            TermOwned::Atom(a) => a.universe(),
-            TermOwned::Curry(_) => todo!(),
-            TermOwned::Abstraction(_) => todo!(),
-            TermOwned::Application(_) => todo!(),
-            TermOwned::Subentity(_) => todo!(),
-            TermOwned::TraitImpl(_) => todo!(),
+            Term::Atom(a) => a.universe(),
+            Term::Curry(_) => todo!(),
+            Term::Abstraction(_) => todo!(),
+            Term::Application(_) => todo!(),
+            Term::Subentity(_) => todo!(),
+            Term::TraitImpl(_) => todo!(),
         }
     }
 }
 
-impl std::fmt::Display for TermOwned {
+impl std::fmt::Display for Term {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            TermOwned::Atom(a) => a.fmt(f),
-            TermOwned::Curry(c) => c.fmt(f),
-            TermOwned::Abstraction(a) => a.fmt(f),
-            TermOwned::Application(a) => a.fmt(f),
-            TermOwned::Subentity(_) => todo!(),
-            TermOwned::TraitImpl(_) => todo!(),
+            Term::Atom(a) => a.fmt(f),
+            Term::Curry(c) => c.fmt(f),
+            Term::Abstraction(a) => a.fmt(f),
+            Term::Application(a) => a.fmt(f),
+            Term::Subentity(_) => todo!(),
+            Term::TraitImpl(_) => todo!(),
         }
     }
 }

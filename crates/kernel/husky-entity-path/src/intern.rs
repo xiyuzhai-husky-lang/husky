@@ -37,31 +37,35 @@ impl EntityPathItd {
 }
 
 impl Internable for EntityPath {
-    type Borrowed<'a> = &'a EntityPath;
+    type Ref<'a> = &'a EntityPath;
 
     type Interned = EntityPathItd;
 
-    fn borrow<'a>(&'a self) -> Self::Borrowed<'a> {
-        todo!()
-    }
-
     fn new_itr() -> Interner<Self> {
-        todo!()
+        EntityPathInterner::new_empty()
     }
 
     fn try_direct(&self) -> Option<Self::Interned> {
-        todo!()
+        None
     }
 
-    fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
+    fn itd_to_borrowed(itd: Self::Interned) -> Self::Ref<'static> {
         itd.0.deref_static()
     }
 
-    fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a> {
-        todo!()
+    fn as_ref<'a>(&'a self) -> Self::Ref<'a> {
+        self
     }
 
     fn new_itd(&'static self, id: usize) -> Self::Interned {
+        EntityPathItd(InternedRefWrapper::new(self))
+    }
+
+    fn try_direct_from_ref<'a>(r: Self::Ref<'a>) -> Option<Self::Interned> {
+        todo!()
+    }
+
+    unsafe fn cast_to_static_ref<'a>(r: Self::Ref<'a>) -> Self::Ref<'static> {
         todo!()
     }
 }
@@ -123,13 +127,4 @@ impl InternEntityPath for EntityPathInterner {
     fn entity_path_itr(&self) -> &EntityPathInterner {
         self
     }
-}
-
-pub fn new_entity_path_itr() -> EntityPathInterner {
-    EntityPathInterner::new_empty()
-}
-
-#[test]
-fn it_works() {
-    let itr = new_entity_path_itr();
 }

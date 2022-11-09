@@ -25,13 +25,9 @@ impl Borrow<str> for WordItd {
 }
 
 impl Internable for Word {
-    type Borrowed<'a> = WordBorrowed<'a>;
+    type Ref<'a> = WordRef<'a>;
 
     type Interned = WordItd;
-
-    fn borrow<'a>(&'a self) -> Self::Borrowed<'a> {
-        todo!()
-    }
 
     fn new_itr() -> Interner<Self> {
         WordInterner::new(&[
@@ -116,22 +112,26 @@ impl Internable for Word {
         ])
     }
 
-    fn try_direct(&self) -> Option<Self::Interned> {
-        None
+    fn itd_to_borrowed(itd: Self::Interned) -> Self::Ref<'static> {
+        WordRef(itd.as_str())
     }
 
-    fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
-        WordBorrowed(itd.as_str())
-    }
-
-    fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a> {
-        WordBorrowed(&self.0)
+    fn as_ref<'a>(&'a self) -> Self::Ref<'a> {
+        WordRef(&self.0)
     }
 
     fn new_itd(&'static self, id: usize) -> Self::Interned {
         WordItd::Identifier(Identifier::Custom(CustomIdentifier(
             InternedRefWrapper::new(&self.0),
         )))
+    }
+
+    fn try_direct_from_ref<'a>(r: Self::Ref<'a>) -> Option<Self::Interned> {
+        None
+    }
+
+    unsafe fn cast_to_static_ref<'a>(r: Self::Ref<'a>) -> Self::Ref<'static> {
+        WordRef(&*(r.0 as *const _))
     }
 }
 
@@ -154,10 +154,10 @@ impl Internable for Word {
 // }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct WordBorrowed<'a>(&'a str);
+pub struct WordRef<'a>(&'a str);
 
-impl<'a> From<WordBorrowed<'a>> for Word {
-    fn from(value: WordBorrowed) -> Self {
+impl<'a> From<WordRef<'a>> for Word {
+    fn from(value: WordRef) -> Self {
         Word(value.0.into())
     }
 }
@@ -172,11 +172,11 @@ pub trait InternWord {
     fn word_itr(&self) -> &WordInterner;
     fn it_word(&self, word: &str) -> WordItd {
         assert!(is_valid_word(word));
-        self.word_itr().intern_borrowed(WordBorrowed(word))
+        self.word_itr().intern_borrowed(WordRef(word))
     }
     fn it_ident(&self, word: &str) -> Identifier {
         assert!(is_valid_word(word));
-        self.word_itr().intern_borrowed(WordBorrowed(word)).ident()
+        self.word_itr().intern_borrowed(WordRef(word)).ident()
     }
     fn custom_ident(&self, word: &str) -> CustomIdentifier {
         self.it_word(word).opt_custom().unwrap()

@@ -10,18 +10,21 @@ use sync_utils::SafeRwLock;
 use internal::InternerInternal;
 
 pub trait Internable: Sized + 'static {
-    type Borrowed<'a>: Copy + Eq + std::hash::Hash;
+    type Ref<'a>: Copy + Eq + std::hash::Hash;
     type Interned: Copy;
-    fn borrow<'a>(&'a self) -> Self::Borrowed<'a>;
     fn new_itr() -> Interner<Self>;
-    fn try_direct(&self) -> Option<Self::Interned>;
-    fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static>;
-    fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a>;
-    unsafe fn to_borrowed_static(&self) -> Self::Borrowed<'static> {
-        let this: &'static Self = &*unsafe { self as *const _ };
-        this.to_borrowed()
+    fn try_direct(&self) -> Option<Self::Interned> {
+        Self::try_direct_from_ref(self.as_ref())
     }
-    fn new_itd(&'static self, id: usize) -> Self::Interned;
+    fn try_direct_from_ref<'a>(r: Self::Ref<'a>) -> Option<Self::Interned>;
+    fn itd_to_borrowed(itd: Self::Interned) -> Self::Ref<'static>;
+    unsafe fn cast_to_static_ref<'a>(r: Self::Ref<'a>) -> Self::Ref<'static>;
+    fn as_ref<'a>(&'a self) -> Self::Ref<'a>;
+    unsafe fn to_borrowed_static(&self) -> Self::Ref<'static> {
+        let this: &'static Self = &*unsafe { self as *const _ };
+        this.as_ref()
+    }
+    fn new_itd(&'static self, idx: usize) -> Self::Interned;
 }
 
 pub trait InternBorrowedRaw: Copy + std::hash::Hash {}
@@ -74,26 +77,26 @@ impl<T: Internable> Interner<T> {
         }
     }
 
-    pub fn intern(&self, owned: T) -> T::Interned {
-        if let Some(itd) = owned.try_direct() {
+    pub fn intern(&self, t: T) -> T::Interned {
+        if let Some(itd) = t.try_direct() {
             return itd;
         }
         let result = match self.internal.read(|internal| {
             internal
                 .itds
-                .get(&unsafe { owned.to_borrowed_static() })
+                .get(&unsafe { t.to_borrowed_static() })
                 .map(|id| *id)
         }) {
             Some(id) => id,
             None => {
                 self.internal.write(|internal| {
-                    match internal.itds.get(&unsafe { owned.to_borrowed_static() }) {
+                    match internal.itds.get(&unsafe { t.to_borrowed_static() }) {
                         Some(ptr) => *ptr, // this step is lest the value has changed
                         None => {
-                            let id = internal.things.len();
-                            let owned: &'static T = unsafe { &*internal.things.alloc(owned) };
-                            internal.itds.insert(owned.to_borrowed(), owned.new_itd(id));
-                            owned.new_itd(id)
+                            let idx = internal.things.len();
+                            let t: &'static T = unsafe { &*internal.things.alloc(t) };
+                            internal.itds.insert(t.as_ref(), t.new_itd(idx));
+                            t.new_itd(idx)
                         }
                     }
                 })
@@ -102,34 +105,35 @@ impl<T: Internable> Interner<T> {
         return result;
     }
 
-    pub fn intern_borrowed<'a>(&self, t: T::Borrowed<'a>) -> T::Interned
+    pub fn intern_borrowed<'a>(&self, r: T::Ref<'a>) -> T::Interned
     where
-        T: for<'b> From<T::Borrowed<'b>>,
+        T: for<'b> From<T::Ref<'b>>,
     {
-        todo!()
-        // if let Some(itd) = Itd::opt_atom_itd(t) {
-        //     return itd;
-        // }
-        // let result = match self
-        //     .internal
-        //     .read(|internal| internal.ids.get(&t).map(|id| *id))
-        // {
-        //     Some(ptr) => ptr,
-        //     None => {
-        //         self.internal.write(|internal| match internal.ids.get(&t) {
-        //             Some(ptr) => *ptr, // this step is lest the value has changed
-        //             None => {
-        //                 let id = internal.things.len();
-        //                 let owned: &Itd::Owned = unsafe { &*internal.things.alloc(t.into()) };
-        //                 let ptr: *const Itd::Ref = owned.borrow();
-        //                 let ptr = Itd::new_interned(id, unsafe { &*ptr });
-        //                 internal.ids.insert(unsafe { &*ptr.raw() }, ptr);
-        //                 ptr
-        //             }
-        //         })
-        //     }
-        // };
-        // return result;
+        if let Some(itd) = T::try_direct_from_ref(r) {
+            return itd;
+        }
+        let result = match self.internal.read(|internal| {
+            internal
+                .itds
+                .get(&unsafe { T::cast_to_static_ref(r) })
+                .map(|id| *id)
+        }) {
+            Some(ptr) => ptr,
+            None => {
+                self.internal.write(|internal| {
+                    match internal.itds.get(&unsafe { T::cast_to_static_ref(r) }) {
+                        Some(ptr) => *ptr, // this step is lest the value has changed
+                        None => {
+                            let idx = internal.things.len();
+                            let t: &'static T = unsafe { &*internal.things.alloc(r.into()) };
+                            internal.itds.insert(t.as_ref(), t.new_itd(idx));
+                            t.new_itd(idx)
+                        }
+                    }
+                })
+            }
+        };
+        return result;
     }
 
     pub fn id_iter(&self) -> impl Iterator<Item = T::Interned> {

@@ -15,7 +15,7 @@ pub enum Decl {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct NamespaceDecl {
-    members: IdentPairDict<TermOwned>,
+    members: IdentPairDict<Term>,
 }
 
 #[derive(Debug, PartialEq, Eq)]

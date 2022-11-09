@@ -4,7 +4,7 @@ use RootBuiltinIdentifier::*;
 
 use crate::*;
 
-impl TermOwned {
+impl Term {
     pub(crate) fn std(db: &dyn TermDb, menu2: &TermMenu2) -> TermItd {
         Self::root_builtin_entity(db, Std, todo!())
     }

@@ -62,13 +62,9 @@ impl std::borrow::Borrow<Feature> for FeatureItd {
 pub type FeatureInterner = interner::Interner<Feature>;
 
 impl Internable for Feature {
-    type Borrowed<'a> = &'a Feature;
+    type Ref<'a> = &'a Feature;
 
     type Interned = FeatureItd;
-
-    fn borrow<'a>(&'a self) -> Self::Borrowed<'a> {
-        todo!()
-    }
 
     fn new_itr() -> interner::Interner<Self> {
         todo!()
@@ -78,15 +74,23 @@ impl Internable for Feature {
         todo!()
     }
 
-    fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
+    fn itd_to_borrowed(itd: Self::Interned) -> Self::Ref<'static> {
         todo!()
     }
 
-    fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a> {
+    fn as_ref<'a>(&'a self) -> Self::Ref<'a> {
         todo!()
     }
 
     fn new_itd(&'static self, id: usize) -> Self::Interned {
+        todo!()
+    }
+
+    fn try_direct_from_ref<'a>(r: Self::Ref<'a>) -> Option<Self::Interned> {
+        todo!()
+    }
+
+    unsafe fn cast_to_static_ref<'a>(r: Self::Ref<'a>) -> Self::Ref<'static> {
         todo!()
     }
 }
