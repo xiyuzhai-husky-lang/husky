@@ -27,8 +27,6 @@ impl Borrow<str> for WordItd {
 impl Internable for Word {
     type Borrowed<'a> = WordBorrowed<'a>;
 
-    type BorrowedRaw = *const str;
-
     type Interned = WordItd;
 
     fn borrow<'a>(&'a self) -> Self::Borrowed<'a> {

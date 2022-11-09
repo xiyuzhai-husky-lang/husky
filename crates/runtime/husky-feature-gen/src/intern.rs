@@ -62,8 +62,6 @@ impl std::borrow::Borrow<Feature> for FeatureItd {
 pub type FeatureInterner = interner::Interner<Feature>;
 
 impl Internable for Feature {
-    type BorrowedRaw = *const Feature;
-
     type Borrowed<'a> = &'a Feature;
 
     type Interned = FeatureItd;

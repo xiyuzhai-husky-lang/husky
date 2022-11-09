@@ -2,11 +2,11 @@ use std::ops::Deref;
 
 use super::*;
 use husky_word::Identifier;
-use interner::{DefaultItd, Internable, Interner};
+use interner::{Internable, InternedRefWrapper, Interner};
 use optional::{Noned, OptEq};
 
 #[derive(PartialEq, Eq, Clone, Copy, Hash)]
-pub struct EntityPathItd(DefaultItd<EntityPath, EntityPath>);
+pub struct EntityPathItd(InternedRefWrapper<EntityPath>);
 pub type EntityPathInterner = Interner<EntityPath>;
 
 impl std::fmt::Debug for EntityPathItd {
@@ -39,8 +39,6 @@ impl EntityPathItd {
 impl Internable for EntityPath {
     type Borrowed<'a> = &'a EntityPath;
 
-    type BorrowedRaw = *const EntityPath;
-
     type Interned = EntityPathItd;
 
     fn borrow<'a>(&'a self) -> Self::Borrowed<'a> {
@@ -56,7 +54,7 @@ impl Internable for EntityPath {
     }
 
     fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
-        itd.0.borrow_static()
+        itd.0.deref_static()
     }
 
     fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a> {
@@ -104,7 +102,7 @@ impl Noned for EntityPathItd {
     }
 
     fn get_none() -> Self {
-        Self(DefaultItd::get_none())
+        Self(InternedRefWrapper::get_none())
     }
 }
 

@@ -1,32 +1,12 @@
 use crate::*;
-use interner::{DefaultItd, Internable, Interner};
+use interner::{Internable, Interner};
 use optional::{Noned, OptEq};
 use std::borrow::Borrow;
 
-pub type TermItd = TermBorrowed<'static>;
+pub type TermInterner = Interner<TermOwned>;
 
-impl<'a> Noned for TermBorrowed<'a> {
-    fn is_none(&self) -> bool {
-        self == &TermBorrowed::Null
-    }
-
-    fn get_none() -> Self {
-        TermBorrowed::Null
-    }
-}
-
-impl OptEq for TermItd {
-    fn opt_eq(&self, other: &Self) -> bool {
-        self == other
-    }
-}
-
-pub type TermInterner = Interner<Term>;
-
-impl Internable for Term {
-    type BorrowedRaw = TermBorrowedRaw;
-
-    type Borrowed<'a> = TermBorrowed<'a>;
+impl Internable for TermOwned {
+    type Borrowed<'a> = Term<'a>;
 
     type Interned = TermItd;
 
@@ -40,7 +20,7 @@ impl Internable for Term {
 
     fn try_direct(&self) -> Option<Self::Interned> {
         match self {
-            Term::Atom(atom) => Some(TermBorrowed::Atom(*atom)),
+            TermOwned::Atom(atom) => Some(TermItd::Atom(*atom)),
             _ => None,
         }
     }
@@ -65,7 +45,7 @@ pub fn new_term_itr() -> TermInterner {
 pub trait InternTerm {
     fn term_itr(&self) -> &TermInterner;
 
-    fn it_term(&self, term: Term) -> TermItd {
+    fn it_term(&self, term: TermOwned) -> TermItd {
         self.term_itr().intern(term)
     }
 }

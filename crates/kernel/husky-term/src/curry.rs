@@ -133,8 +133,8 @@ fn test_curry() {
     assert_eq!(bool_to_bool.to_string(), "bool -> bool");
 }
 
-impl Into<Term> for TermCurry {
-    fn into(self) -> Term {
-        Term::Curry(self)
+impl Into<TermOwned> for TermCurry {
+    fn into(self) -> TermOwned {
+        TermOwned::Curry(self)
     }
 }

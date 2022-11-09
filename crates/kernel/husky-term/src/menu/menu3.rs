@@ -20,7 +20,7 @@ impl TermMenu3 {
         let menu1 = TermMenu1::new(db, menu0);
         let menu2 = TermMenu2::new(db, menu1);
         TermMenu3 {
-            core: Term::core(db, &menu2),
+            core: TermOwned::core(db, &menu2),
             parent: menu2,
         }
     }

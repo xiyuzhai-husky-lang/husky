@@ -1,11 +1,7 @@
-// #![feature(box_syntax)]
-mod basic;
 mod internal;
 mod pool;
-mod ptr;
 mod wrapper;
 
-pub use ptr::DefaultItd;
 pub use wrapper::InternedRefWrapper;
 
 use std::borrow::Borrow;
@@ -14,7 +10,6 @@ use sync_utils::SafeRwLock;
 use internal::InternerInternal;
 
 pub trait Internable: Sized + 'static {
-    type BorrowedRaw: Eq + std::hash::Hash;
     type Borrowed<'a>: Copy + Eq + std::hash::Hash;
     type Interned: Copy;
     fn borrow<'a>(&'a self) -> Self::Borrowed<'a>;

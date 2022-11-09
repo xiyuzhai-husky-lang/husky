@@ -8,8 +8,6 @@ use std::{borrow::Borrow, ops::Deref};
 pub type EntityRouteInterner = Interner<EntityRoute>;
 
 impl Internable for EntityRoute {
-    type BorrowedRaw = *const EntityRoute;
-
     type Borrowed<'a> = &'a EntityRoute;
 
     type Interned = EntityRouteItd;
