@@ -3,8 +3,8 @@ mod trivia;
 
 use super::*;
 use husky_entity_path::{
-    new_entity_path_itr, EntityPath, EntityPathDb, EntityPathDbStorage, EntityPathInterner,
-    EntityPathItd, EntityPathMenu, InternEntityPath,
+    EntityPath, EntityPathDb, EntityPathDbStorage, EntityPathInterner, EntityPathItd,
+    EntityPathMenu, InternEntityPath,
 };
 use husky_expr_syntax::RawExprIdx;
 use husky_symbol_syntax::{

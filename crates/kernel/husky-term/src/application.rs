@@ -6,18 +6,18 @@ use crate::*;
 pub struct TermApplication {
     m: TermItd,
     n: TermItd,
-    ty_itd: Option<Ty>,
 }
 
-impl Into<TermOwned> for TermApplication {
-    fn into(self) -> TermOwned {
-        TermOwned::Application(self)
+impl Into<Term> for TermApplication {
+    fn into(self) -> Term {
+        Term::Application(self)
     }
 }
 
 impl TermApplication {
     pub fn ty_itd(&self) -> Option<Ty> {
-        self.ty_itd
+        // TODO: delete this
+        None
     }
 
     pub fn m(&self) -> TermItd {
@@ -50,7 +50,9 @@ impl TermApplication {
     // }
 
     pub fn new(m: TermItd, n: TermItd) -> TermResult<Self> {
-        todo!()
+        // ad hoc
+        // TODO: add type checking
+        Ok(Self { m, n })
         // if m.ty_itd().is_none() {
         //     match m.deref() {
         //         Term::Atom(a) => match a {
@@ -85,7 +87,6 @@ impl<'a> TermContext<'a> {
             TermApplication {
                 m: self.it_term(TermCategory::Sort.into()),
                 n: self.it_term(universe.into()),
-                ty_itd: None,
             }
             .into(),
         )

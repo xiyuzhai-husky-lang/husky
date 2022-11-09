@@ -13,8 +13,8 @@ impl Into<TermAtom> for TermCategory {
     }
 }
 
-impl Into<TermOwned> for TermCategory {
-    fn into(self) -> TermOwned {
-        TermOwned::Atom(self.into())
+impl Into<Term> for TermCategory {
+    fn into(self) -> Term {
+        Term::Atom(self.into())
     }
 }

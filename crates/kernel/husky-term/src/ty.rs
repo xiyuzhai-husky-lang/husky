@@ -9,7 +9,8 @@ pub struct Ty(TermItd);
 
 impl Ty {
     pub(crate) fn new(term: TermItd) -> TermResult<Self> {
-        todo!()
+        // TODO: type checking
+        Ok(Ty(term))
         // if let Some(ty_itd) = term.ty_itd() {
         //     Self::check_is_category(ty_itd.term())?
         // } else {
@@ -45,7 +46,7 @@ impl Ty {
 
     fn check_ty_itd(ty: Ty) -> TermResult<()> {
         match ty.term().borrowed() {
-            TermBorrowed::Atom(a) => todo!(),
+            TermRef::Atom(a) => todo!(),
             _ => return Err(TermError::TermIsNotTy),
         }
     }
@@ -104,11 +105,11 @@ impl Ty {
     }
 
     fn root_builtin_ty(db: &dyn TermDb, ident: RootBuiltinIdentifier, menu1: &TermMenu1) -> Ty {
-        Ty::new(TermOwned::root_builtin_entity(db, ident, menu1.ty0())).unwrap()
+        Ty::new(Term::root_builtin_entity(db, ident, menu1.ty0())).unwrap()
     }
 }
 
-impl TermOwned {
+impl Term {
     // #[inline(always)]
     // pub(crate) fn ty_term(&self) -> TermCow {
     //     match self {

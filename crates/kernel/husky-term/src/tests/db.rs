@@ -1,6 +1,6 @@
 use std::{collections::HashMap, sync::Arc};
 
-use husky_entity_path::{new_entity_path_itr, EntityPathInterner, InternEntityPath};
+use husky_entity_path::{EntityPathInterner, InternEntityPath};
 use husky_word::{InternWord, WordInterner};
 
 use crate::*;
@@ -18,7 +18,7 @@ impl TermTestsDb {
     pub fn new() -> Self {
         Self {
             storage: Default::default(),
-            entity_path_itr: new_entity_path_itr(),
+            entity_path_itr: Default::default(),
             term_itr: Default::default(),
             word_itr: Default::default(),
             ty_decls: Default::default(),

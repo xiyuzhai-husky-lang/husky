@@ -19,8 +19,8 @@ impl TermSubentity {
     }
 }
 
-impl Into<TermOwned> for TermSubentity {
-    fn into(self) -> TermOwned {
-        TermOwned::Subentity(self)
+impl Into<Term> for TermSubentity {
+    fn into(self) -> Term {
+        Term::Subentity(self)
     }
 }

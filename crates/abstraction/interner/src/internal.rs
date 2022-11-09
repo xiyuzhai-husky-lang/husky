@@ -4,7 +4,7 @@ use crate::{pool::Pool, *};
 
 pub struct InternerInternal<T: Internable> {
     pub(crate) things: Pool<T, 10000>,
-    pub(crate) itds: HashMap<T::Borrowed<'static>, T::Interned>,
+    pub(crate) itds: HashMap<T::Ref<'static>, T::Interned>,
 }
 impl<T: Internable> Default for InternerInternal<T> {
     fn default() -> Self {
@@ -24,8 +24,8 @@ impl<T: Internable> InternerInternal<T> {
     where
         T::Interned: for<'a> From<&'a I>,
     {
-        let ids = HashMap::<T::Borrowed<'static>, T::Interned>::from_iter(ids.iter().map(
-            |id| -> (T::Borrowed<'static>, T::Interned) {
+        let ids = HashMap::<T::Ref<'static>, T::Interned>::from_iter(ids.iter().map(
+            |id| -> (T::Ref<'static>, T::Interned) {
                 let id: T::Interned = id.into();
                 (T::itd_to_borrowed(id), id)
             },
@@ -35,7 +35,7 @@ impl<T: Internable> InternerInternal<T> {
     }
 
     pub fn new(ids: &[T::Interned]) -> Self {
-        let ids = HashMap::<T::Borrowed<'static>, T::Interned>::from_iter(
+        let ids = HashMap::<T::Ref<'static>, T::Interned>::from_iter(
             ids.iter()
                 .map(|id: &T::Interned| (T::itd_to_borrowed(*id), *id)),
         );

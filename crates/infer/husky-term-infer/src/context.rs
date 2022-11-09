@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::EntityPathItd;
 use husky_expr_syntax::{RawExpr, RawExprArena, RawExprIdx, RawExprVariant};
-use husky_term::{TermAtom, TermContext, TermItd, TermMenu, TermOwned, Ty};
+use husky_term::{Term, TermAtom, TermContext, TermItd, TermMenu, Ty};
 use husky_word::InternWord;
 
 pub(crate) struct InferContext<'a> {
