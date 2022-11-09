@@ -60,13 +60,18 @@ pub enum TermBorrowed<'a> {
     TraitImpl(&'a TermTraitImpl), // A as trait
 }
 
+#[test]
+fn test_term_itd_size() {
+    assert_eq!(std::mem::size_of::<TermItd>(), 24)
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TermItd(TermBorrowed<'static>);
 
 impl std::hash::Hash for TermItd {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         // HELP
-        todo!()
+        unsafe { std::mem::transmute::<Self, [u8; 24]>(*self) }.hash(state)
     }
 }
 
