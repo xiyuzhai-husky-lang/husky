@@ -115,10 +115,14 @@ impl<'a> TermPatternInferContext<'a> {
         match literal {
             RawLiteralData::Unit => todo!(),
             RawLiteralData::Integer(_) => {
-                let a = term_itr.it_unresolved(todo!());
+                let term = term_itr.it_unresolved(UnresolvedTerm::IntegerLiteral(self.expr_idx()));
+                let ty = term_itr.it_unresolved(UnresolvedTerm::IntegerType(term));
                 ExprTermPatternInferResult {
-                    const_expr: todo!(),
-                    ty: todo!(),
+                    const_expr: Ok(Some(ConstExprPattern {
+                        term: term.into(),
+                        opt_substitution_ctx: None,
+                    })),
+                    ty: Ok(ty.into()),
                 }
             }
             RawLiteralData::I32(_) => todo!(),
