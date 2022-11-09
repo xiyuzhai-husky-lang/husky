@@ -4,7 +4,7 @@ use crate::*;
 
 pub(crate) fn needs_eval_context(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
 ) -> bool {
     let entity_link_dependees = db.entity_link_dependees(entity_route);
     for link_route in entity_link_dependees.iter() {

@@ -1,4 +1,4 @@
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::{TextRange, TextRanged};
 
@@ -12,7 +12,7 @@ pub struct RawPattern {
 pub enum RawPatternVariant {
     PrimitiveLiteral(RawLiteralData),
     OneOf { subpatterns: Vec<RawPattern> },
-    EnumLiteral(EntityRoutePtr),
+    EnumLiteral(EntityRouteItd),
     Some,
     None,
 }
@@ -31,7 +31,7 @@ impl RawPattern {
         }
     }
 
-    pub fn enum_literal(value: EntityRoutePtr, range: TextRange) -> Self {
+    pub fn enum_literal(value: EntityRouteItd, range: TextRange) -> Self {
         Self {
             variant: RawPatternVariant::EnumLiteral(value),
             range,

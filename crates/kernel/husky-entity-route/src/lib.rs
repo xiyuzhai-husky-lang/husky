@@ -9,7 +9,7 @@ mod verifiy;
 
 pub use canonical::*;
 pub use husky_entity_kind::EntityKind;
-pub use intern::{EntityRouteInterner, EntityRoutePtr, InternEntityRoute};
+pub use intern::{EntityRouteInterner, EntityRouteItd, InternEntityRoute};
 pub use menu::*;
 
 use husky_file::FileItd;
@@ -26,7 +26,7 @@ pub struct EntityRoute {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct RangedEntityRoute {
-    pub route: EntityRoutePtr,
+    pub route: EntityRouteItd,
     pub range: TextRange,
 }
 
@@ -52,11 +52,11 @@ pub enum TemporalArgument {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum SpatialArgument {
     Const(usize),
-    EntityRoute(EntityRoutePtr),
+    EntityRoute(EntityRouteItd),
 }
 
 impl SpatialArgument {
-    pub fn take_entity_route(&self) -> EntityRoutePtr {
+    pub fn take_entity_route(&self) -> EntityRouteItd {
         match self {
             SpatialArgument::Const(_) => panic!(),
             SpatialArgument::EntityRoute(scope) => *scope,
@@ -70,8 +70,8 @@ impl From<usize> for SpatialArgument {
     }
 }
 
-impl From<EntityRoutePtr> for SpatialArgument {
-    fn from(entity_route: EntityRoutePtr) -> Self {
+impl From<EntityRouteItd> for SpatialArgument {
+    fn from(entity_route: EntityRouteItd) -> Self {
         SpatialArgument::EntityRoute(entity_route)
     }
 }
@@ -98,12 +98,12 @@ pub enum EntityRouteVariant {
         ident: CustomIdentifier,
     },
     Child {
-        parent: EntityRoutePtr,
+        parent: EntityRouteItd,
         ident: CustomIdentifier,
     },
     TypeAsTraitMember {
-        ty: EntityRoutePtr,
-        trai: EntityRoutePtr,
+        ty: EntityRouteItd,
+        trai: EntityRouteItd,
         ident: CustomIdentifier,
     },
     TargetInputValue,
@@ -149,7 +149,7 @@ impl EntityRoute {
     }
 
     pub fn subroute(
-        parent: EntityRoutePtr,
+        parent: EntityRouteItd,
         ident: CustomIdentifier,
         spatial_arguments: ThinVec<SpatialArgument>,
     ) -> EntityRoute {
@@ -184,11 +184,11 @@ impl EntityRoute {
         }
     }
 
-    pub fn vec(element: EntityRoutePtr) -> Self {
+    pub fn vec(element: EntityRouteItd) -> Self {
         Self::new_root(RootBuiltinIdentifier::Vec, thin_vec![element.into()])
     }
 
-    pub fn array(element: EntityRoutePtr, size: usize) -> Self {
+    pub fn array(element: EntityRouteItd, size: usize) -> Self {
         Self::new_root(
             RootBuiltinIdentifier::Array,
             thin_vec![element.into(), size.into()],
@@ -225,11 +225,11 @@ impl EntityRoute {
         }
     }
 
-    pub fn parent(&self) -> EntityRoutePtr {
+    pub fn parent(&self) -> EntityRouteItd {
         self.opt_parent().unwrap()
     }
 
-    pub fn opt_parent(&self) -> Option<EntityRoutePtr> {
+    pub fn opt_parent(&self) -> Option<EntityRouteItd> {
         match self.variant {
             EntityRouteVariant::Root { .. }
             | EntityRouteVariant::TargetInputValue { .. }
@@ -242,7 +242,7 @@ impl EntityRoute {
         }
     }
 
-    pub fn entity_route_argument(&self, idx: usize) -> EntityRoutePtr {
+    pub fn entity_route_argument(&self, idx: usize) -> EntityRouteItd {
         self.spatial_arguments[idx].take_entity_route()
     }
 }

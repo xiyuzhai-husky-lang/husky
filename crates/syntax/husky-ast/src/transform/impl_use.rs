@@ -75,7 +75,7 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
-    pub(super) fn use_all(&mut self, parent: EntityRoutePtr, range: TextRange) -> AstResult<()> {
+    pub(super) fn use_all(&mut self, parent: EntityRouteItd, range: TextRange) -> AstResult<()> {
         self.symbols.extend(
             self.db
                 .subroute_table(parent)
@@ -99,7 +99,7 @@ impl<'a> AstTransformer<'a> {
         Ok(())
     }
 
-    fn use_route(&mut self, route: EntityRoutePtr, range: TextRange) -> AstResult<()> {
+    fn use_route(&mut self, route: EntityRouteItd, range: TextRange) -> AstResult<()> {
         if route.spatial_arguments.len() != 0 {
             todo!()
         }

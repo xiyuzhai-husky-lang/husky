@@ -20,7 +20,7 @@ pub use virtual_cyclic_slice::*;
 pub use virtual_struct::*;
 pub use virtual_vec::*;
 
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_vm_interface::*;
 // pub use binding::*;
 // use husky_trace_protocol::*;

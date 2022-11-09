@@ -4,7 +4,7 @@ use husky_word::RootBuiltinIdentifier;
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_entity_route(&mut self, entity_route: EntityRoutePtr, role: EntityRouteRole) {
+    pub(super) fn gen_entity_route(&mut self, entity_route: EntityRouteItd, role: EntityRouteRole) {
         todo!()
         // if let Some(_) = self
         //     .entity_route_uses

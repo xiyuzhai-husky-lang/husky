@@ -1,7 +1,7 @@
 use crate::*;
 use husky_word::Identifier;
 
-#[derive(PartialEq, Eq, Hash)]
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub struct TermSubentity {
     parent: TermItd,
     ident: Identifier,

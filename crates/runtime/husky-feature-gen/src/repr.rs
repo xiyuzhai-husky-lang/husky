@@ -10,10 +10,10 @@ use crate::*;
 pub enum FeatureRepr {
     Value {
         value: __Register<'static>,
-        ty: EntityRoutePtr,
+        ty: EntityRouteItd,
         file: FileItd,
         range: TextRange,
-        feature: FeaturePtr,
+        feature: FeatureItd,
     },
     LazyExpr(Arc<FeatureLazyExpr>),
     LazyBody(Arc<FeatureLazyBody>),
@@ -21,8 +21,8 @@ pub enum FeatureRepr {
     ProcBody(Arc<FeatureProcBody>),
     TargetInput {
         main_file: FileItd,
-        ty: EntityRoutePtr,
-        feature: FeaturePtr,
+        ty: EntityRouteItd,
+        feature: FeatureItd,
     },
 }
 
@@ -49,7 +49,7 @@ impl FeatureRepr {
         }
     }
 
-    pub fn ty(&self) -> EntityRoutePtr {
+    pub fn ty(&self) -> EntityRouteItd {
         match self {
             FeatureRepr::Value { ty, .. } => *ty,
             FeatureRepr::LazyExpr(expr) => expr.expr.intrinsic_ty(),
@@ -59,7 +59,7 @@ impl FeatureRepr {
             FeatureRepr::TargetInput { ty, .. } => *ty,
         }
     }
-    pub fn feature(&self) -> FeaturePtr {
+    pub fn feature(&self) -> FeatureItd {
         match self {
             FeatureRepr::Value { feature, .. } => *feature,
             FeatureRepr::LazyExpr(expr) => expr.feature,

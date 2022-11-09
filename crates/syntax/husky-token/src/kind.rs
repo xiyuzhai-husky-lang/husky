@@ -1,5 +1,5 @@
 pub use crate::*;
-use husky_word::{Decorator, Identifier, Keyword, Word, WordOpr, WordPattern};
+use husky_word::{Decorator, Identifier, Keyword, WordItd, WordOpr, WordPattern};
 
 #[derive(PartialEq, Eq, Clone, Copy)]
 pub enum TokenKind {
@@ -110,14 +110,14 @@ impl std::hash::Hash for TokenKind {
         core::mem::discriminant(self).hash(state);
     }
 }
-impl From<Word> for TokenKind {
-    fn from(word: Word) -> Self {
+impl From<WordItd> for TokenKind {
+    fn from(word: WordItd) -> Self {
         match word {
-            Word::Keyword(keyword) => TokenKind::Keyword(keyword),
-            Word::Identifier(ident) => TokenKind::Identifier(ident),
-            Word::Opr(word_opr) => TokenKind::WordOpr(word_opr),
-            Word::Decorator(decorator) => TokenKind::Decorator(decorator),
-            Word::Pattern(patt) => TokenKind::WordPattern(patt),
+            WordItd::Keyword(keyword) => TokenKind::Keyword(keyword),
+            WordItd::Identifier(ident) => TokenKind::Identifier(ident),
+            WordItd::Opr(word_opr) => TokenKind::WordOpr(word_opr),
+            WordItd::Decorator(decorator) => TokenKind::Decorator(decorator),
+            WordItd::Pattern(patt) => TokenKind::WordPattern(patt),
         }
     }
 }

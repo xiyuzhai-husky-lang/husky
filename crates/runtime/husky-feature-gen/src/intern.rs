@@ -1,5 +1,5 @@
 use husky_feature_protocol::FeatureId;
-use interner::Interned;
+use interner::Internable;
 
 use crate::*;
 
@@ -8,11 +8,11 @@ pub trait InternFeature {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct FeaturePtr {
+pub struct FeatureItd {
     id: FeatureId,
 }
 
-impl FeaturePtr {
+impl FeatureItd {
     pub unsafe fn from_raw(raw: usize) -> Self {
         Self {
             id: FeatureId::new(raw),
@@ -24,7 +24,7 @@ impl FeaturePtr {
     }
 }
 
-impl std::ops::Deref for FeaturePtr {
+impl std::ops::Deref for FeatureItd {
     type Target = Feature;
 
     fn deref(&self) -> &Self::Target {
@@ -32,31 +32,55 @@ impl std::ops::Deref for FeaturePtr {
     }
 }
 
-impl std::borrow::Borrow<Feature> for FeaturePtr {
+impl std::borrow::Borrow<Feature> for FeatureItd {
     fn borrow(&self) -> &Feature {
         unreachable!()
     }
 }
 
-impl Interned for FeaturePtr {
-    type T = Feature;
+// impl Interned for FeaturePtr {
+//     type Ref = Feature;
 
-    type Owned = Feature;
+//     type Owned = Feature;
 
-    fn new_interned(id: usize, feature: &'static Self::T) -> Self {
-        Self {
-            id: FeatureId::new(id),
-        }
+//     fn new_interned(id: usize, feature: &'static Self::Ref) -> Self {
+//         Self {
+//             id: FeatureId::new(id),
+//         }
+//     }
+
+//     fn new_itr() -> interner::Interner<Self> {
+//         FeatureInterner::new(&[])
+//     }
+
+//     fn opt_atom_itd(t: &Self::Ref) -> Option<Self> {
+//         // can be improved here
+//         None
+//     }
+// }
+
+pub type FeatureInterner = interner::Interner<Feature>;
+
+impl Internable for Feature {
+    type BorrowedRaw = *const Feature;
+
+    type Borrowed<'a> = &'a Feature;
+
+    type Interned = FeatureItd;
+
+    fn borrow<'a>(&'a self) -> Self::Borrowed<'a> {
+        todo!()
     }
 
     fn new_itr() -> interner::Interner<Self> {
-        FeatureInterner::new(&[])
+        todo!()
     }
 
-    fn opt_atom_itd(t: &Self::T) -> Option<Self> {
-        // can be improved here
-        None
+    fn try_direct(&self) -> Option<Self::Interned> {
+        todo!()
+    }
+
+    fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
+        todo!()
     }
 }
-
-pub type FeatureInterner = interner::Interner<FeaturePtr>;

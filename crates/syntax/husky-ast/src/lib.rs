@@ -24,7 +24,7 @@ use husky_check_utils::*;
 use husky_defn_head::*;
 use husky_dev_utils::*;
 use husky_entity_kind::*;
-use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRouteItd, RangedEntityRoute};
 use husky_expr_syntax::*;
 use husky_file::FileItd;
 use husky_init_syntax::InitKind;

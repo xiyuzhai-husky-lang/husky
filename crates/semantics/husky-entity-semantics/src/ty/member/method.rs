@@ -4,9 +4,9 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum MethodDefnKind {
-    TypeMethod { ty: EntityRoutePtr },
-    TraitMethod { trai: EntityRoutePtr },
-    TraitMethodImpl { trai: EntityRoutePtr },
+    TypeMethod { ty: EntityRouteItd },
+    TraitMethod { trai: EntityRouteItd },
+    TraitMethodImpl { trai: EntityRouteItd },
 }
 
 impl MethodDefnKind {

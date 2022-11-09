@@ -7,51 +7,45 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct Ty(TermItd);
 
-impl std::ops::Deref for Ty {
-    type Target = Term;
-
-    fn deref(&self) -> &Self::Target {
-        &*self.0
-    }
-}
-
 impl Ty {
     pub(crate) fn new(term: TermItd) -> TermResult<Self> {
-        if let Some(ty_itd) = term.ty_itd() {
-            Self::check_is_category(ty_itd.term())?
-        } else {
-            Self::check_is_category(term)?
-        }
-        Ok(Self(term))
+        todo!()
+        // if let Some(ty_itd) = term.ty_itd() {
+        //     Self::check_is_category(ty_itd.term())?
+        // } else {
+        //     Self::check_is_category(term)?
+        // }
+        // Ok(Self(term))
     }
 
     fn check_is_category(term: TermItd) -> TermResult<()> {
-        match term.deref() {
-            Term::Application(app) => match app.m().deref() {
-                Term::Atom(a) => match a {
-                    TermAtom::Literal(_) => todo!(),
-                    TermAtom::Variable { variable_variant } => todo!(),
-                    TermAtom::Entity { .. } => todo!(),
-                    TermAtom::Category(category_kind) => match category_kind {
-                        TermCategory::Type => todo!(),
-                        TermCategory::Sort => Ok(()),
-                        TermCategory::Term => todo!(),
-                    },
-                    TermAtom::Universe(_) => todo!(),
-                },
-                Term::Curry(_) => todo!(),
-                Term::Abstraction(_) => todo!(),
-                Term::Application(_) => todo!(),
-                Term::Subentity(_) => todo!(),
-                Term::TraitImpl(_) => todo!(),
-            },
-            _ => Err(todo!()),
-        }
+        todo!()
+        // match term.deref() {
+        //     Term::Application(app) => match app.m().deref() {
+        //         Term::Atom(a) => match a {
+        //             TermAtom::Literal(_) => todo!(),
+        //             TermAtom::Variable { variable_variant } => todo!(),
+        //             TermAtom::Entity { .. } => todo!(),
+        //             TermAtom::Category(category_kind) => match category_kind {
+        //                 TermCategory::Type => todo!(),
+        //                 TermCategory::Sort => Ok(()),
+        //                 TermCategory::Term => todo!(),
+        //             },
+        //             TermAtom::Universe(_) => todo!(),
+        //         },
+        //         Term::Curry(_) => todo!(),
+        //         Term::Abstraction(_) => todo!(),
+        //         Term::Application(_) => todo!(),
+        //         Term::Subentity(_) => todo!(),
+        //         Term::TraitImpl(_) => todo!(),
+        //     },
+        //     _ => Err(todo!()),
+        // }
     }
 
     fn check_ty_itd(ty: Ty) -> TermResult<()> {
-        match ty.term().deref() {
-            Term::Atom(a) => todo!(),
+        match ty.term() {
+            TermBorrowed::Atom(a) => todo!(),
             _ => return Err(TermError::TermIsNotTy),
         }
     }

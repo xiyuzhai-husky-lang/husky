@@ -2,7 +2,7 @@ use super::*;
 
 pub(super) fn entity_feature_repr(
     db: &dyn FeatureGenQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
 ) -> FeatureRepr {
     let entity_defn = db.entity_defn(entity_route).unwrap();
     match entity_defn.variant {

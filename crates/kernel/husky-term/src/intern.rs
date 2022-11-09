@@ -1,22 +1,17 @@
 use crate::*;
-use interner::{DefaultItd, Interned, Interner};
+use interner::{DefaultItd, Internable, Interner};
 use optional::{Noned, OptEq};
 use std::borrow::Borrow;
 
-#[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
-pub enum TermItd {
-    Atom(TermAtom),
-    Interned(DefaultItd<Term, Term>),
-    Null,
-}
+pub type TermItd = TermBorrowed<'static>;
 
-impl Noned for TermItd {
+impl<'a> Noned for TermBorrowed<'a> {
     fn is_none(&self) -> bool {
-        self == &TermItd::Null
+        self == &TermBorrowed::Null
     }
 
     fn get_none() -> Self {
-        TermItd::Null
+        TermBorrowed::Null
     }
 }
 
@@ -26,46 +21,31 @@ impl OptEq for TermItd {
     }
 }
 
-impl Interned for TermItd {
-    type T = Term;
+pub type TermInterner = Interner<Term>;
 
-    type Owned = Term;
+impl Internable for Term {
+    type BorrowedRaw = TermBorrowedRaw;
 
-    fn new_interned(id: usize, target: &'static Self::T) -> Self {
+    type Borrowed<'a> = TermBorrowed<'a>;
+
+    type Interned = TermItd;
+
+    fn borrow<'a>(&'a self) -> Self::Borrowed<'a> {
         todo!()
     }
 
     fn new_itr() -> Interner<Self> {
-        Interner::new(&[])
+        todo!()
     }
 
-    fn opt_atom_itd(t: &Self::T) -> Option<Self> {
-        match t {
-            Term::Atom(atom) => Some(TermItd::Atom(*atom)),
-            _ => None,
-        }
+    fn try_direct(&self) -> Option<Self::Interned> {
+        todo!()
     }
-}
 
-impl Borrow<Term> for TermItd {
-    fn borrow(&self) -> &Term {
+    fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
         todo!()
     }
 }
-
-impl std::ops::Deref for TermItd {
-    type Target = Term;
-
-    fn deref(&self) -> &Self::Target {
-        match self {
-            TermItd::Atom(_) => todo!(),
-            TermItd::Interned(_) => todo!(),
-            TermItd::Null => todo!(),
-        }
-    }
-}
-
-pub type TermInterner = Interner<TermItd>;
 
 pub fn new_term_itr() -> TermInterner {
     TermInterner::new_empty()

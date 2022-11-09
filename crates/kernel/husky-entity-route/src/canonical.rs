@@ -1,4 +1,4 @@
-use crate::EntityRoutePtr;
+use crate::EntityRouteItd;
 
 // todo: mutable ref
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -7,11 +7,11 @@ pub struct CanonicalTy {
     // ?[]?f32 option_level = 1
     option_level: u8,
     qual: CanonicalQualifier,
-    intrinsic_ty: EntityRoutePtr,
+    intrinsic_ty: EntityRouteItd,
 }
 
-impl From<EntityRoutePtr> for CanonicalTy {
-    fn from(route: EntityRoutePtr) -> Self {
+impl From<EntityRouteItd> for CanonicalTy {
+    fn from(route: EntityRouteItd) -> Self {
         route.canonicalize()
     }
 }
@@ -39,10 +39,10 @@ impl std::fmt::Display for CanonicalTyKind {
 
 impl CanonicalTy {
     #[inline(always)]
-    pub fn intrinsic_ty(self) -> EntityRoutePtr {
+    pub fn intrinsic_ty(self) -> EntityRouteItd {
         self.intrinsic_ty
     }
-    pub fn new(option_level: u8, qual: CanonicalQualifier, intrinsic_ty: EntityRoutePtr) -> Self {
+    pub fn new(option_level: u8, qual: CanonicalQualifier, intrinsic_ty: EntityRouteItd) -> Self {
         assert!(intrinsic_ty.is_intrinsic());
         Self {
             option_level,

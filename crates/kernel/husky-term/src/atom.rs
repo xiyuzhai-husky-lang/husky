@@ -49,9 +49,9 @@ impl std::fmt::Display for TermAtom {
 }
 
 impl TermAtom {
-    pub(crate) fn ty_term(&self) -> TermCow {
-        todo!()
-    }
+    // pub(crate) fn ty_term(&self) -> TermCow {
+    //     todo!()
+    // }
 
     pub fn universe(&self) -> TermUniverse {
         todo!()

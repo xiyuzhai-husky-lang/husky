@@ -17,14 +17,14 @@ use husky_opn_semantics::ImplicitConversion;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_vm_primitive_value::PrimitiveValueData;
 use husky_xml_syntax::XmlTagKind;
-pub use intern::{FeatureInterner, FeaturePtr, InternFeature};
+pub use intern::{FeatureInterner, FeatureItd, InternFeature};
 pub use lazy_branch::*;
 pub use lazy_expr::*;
 pub use lazy_stmt::{FeatureLazyStmt, FeatureLazyStmtVariant};
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
 pub use repr::*;
 
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
@@ -38,112 +38,112 @@ use temp::*;
 pub struct FeatureSymbol {
     varname: CustomIdentifier,
     value: Arc<FeatureLazyExpr>,
-    feature: FeaturePtr,
+    feature: FeatureItd,
 }
 
 #[derive(Debug, Hash, PartialEq, Eq, Clone)]
 pub enum Feature {
     Input, // ad hoc: needs to include task config
     PrimitiveLiteral(PrimitiveValueData),
-    EnumLiteral(EntityRoutePtr),
+    EnumLiteral(EntityRouteItd),
     Assert {
-        condition: FeaturePtr,
+        condition: FeatureItd,
     },
     Require {
-        condition: FeaturePtr,
+        condition: FeatureItd,
     },
     ReturnUnveil {
-        result: FeaturePtr,
+        result: FeatureItd,
         implicit_conversion: ImplicitConversion,
     },
-    Cascade(Vec<FeaturePtr>),
+    Cascade(Vec<FeatureItd>),
     PrimitiveBinaryOpr {
         opr: PureBinaryOpr,
-        lopd: FeaturePtr,
-        ropd: FeaturePtr,
+        lopd: FeatureItd,
+        ropd: FeatureItd,
     },
     CustomBinaryOpr {
         opr: PureBinaryOpr,
-        lopd: FeaturePtr,
-        ropd: FeaturePtr,
+        lopd: FeatureItd,
+        ropd: FeatureItd,
     },
     FunctionCall {
-        func: EntityRoutePtr,
+        func: EntityRouteItd,
         uid: EntityUid,
-        inputs: Vec<FeaturePtr>,
+        inputs: Vec<FeatureItd>,
     },
     Branches {
         branches: Vec<BranchedFeature>,
     },
     FieldAccess {
-        this: FeaturePtr,
+        this: FeatureItd,
         field_ident: CustomIdentifier,
     },
     Index {
-        opds: Vec<FeaturePtr>,
+        opds: Vec<FeatureItd>,
     },
     IndexFixed {
-        this: FeaturePtr,
+        this: FeatureItd,
         index: usize,
     },
     CyclicIndexFixed {
-        this: FeaturePtr,
+        this: FeatureItd,
         index: i32,
     },
     MethodCall {
         method_ident: CustomIdentifier,
-        opds: Vec<FeaturePtr>,
+        opds: Vec<FeatureItd>,
     },
     EntityFeature {
-        route: EntityRoutePtr,
+        route: EntityRouteItd,
         uid: EntityUid,
     },
     RecordTypeCall {
-        ty: EntityRoutePtr,
+        ty: EntityRouteItd,
         uid: EntityUid,
-        opds: Vec<FeaturePtr>,
+        opds: Vec<FeatureItd>,
     },
     XmlFromValue {
-        value: FeaturePtr,
+        value: FeatureItd,
     },
     XmlFromTag {
         tag_kind: XmlTagKind,
-        props: IdentPairDict<FeaturePtr>,
+        props: IdentPairDict<FeatureItd>,
     },
     Temp {
         uid: TempFeatureUid,
     },
     ArrivalAfterStmtNotReturn {
-        stmt: FeaturePtr,
+        stmt: FeatureItd,
         // without opt_stmt_arrival_indicator, there will be clash
-        opt_stmt_arrival_indicator: Option<FeaturePtr>,
+        opt_stmt_arrival_indicator: Option<FeatureItd>,
     },
     ArrivalAfterConditionNotMet {
-        opt_parent: Option<FeaturePtr>,
-        condition: FeaturePtr,
+        opt_parent: Option<FeatureItd>,
+        condition: FeatureItd,
     },
     ArrivalIfConditionMet {
-        opt_parent: Option<FeaturePtr>,
-        condition: FeaturePtr,
+        opt_parent: Option<FeatureItd>,
+        condition: FeatureItd,
     },
     NewVecFromList {
-        elements: Vec<FeaturePtr>,
+        elements: Vec<FeatureItd>,
     },
-    PurePatternPrimitiveLiteral(FeaturePtr),
+    PurePatternPrimitiveLiteral(FeatureItd),
     PurePatternOneOf {
-        subpatterns: Vec<FeaturePtr>,
+        subpatterns: Vec<FeatureItd>,
     },
-    PurePatternEnumLiteral(FeaturePtr),
+    PurePatternEnumLiteral(FeatureItd),
     PurePatternSome,
     PurePatternNone,
     BePattern {
-        this: FeaturePtr,
-        expr_pattern: FeaturePtr,
+        this: FeatureItd,
+        expr_pattern: FeatureItd,
     },
 }
 
 impl Feature {
-    pub fn intern_block(interner: &FeatureInterner, stmts: &[Arc<FeatureLazyStmt>]) -> FeaturePtr {
+    pub fn intern_block(interner: &FeatureInterner, stmts: &[Arc<FeatureLazyStmt>]) -> FeatureItd {
         let stmt_features: Vec<_> = stmts.iter().filter_map(|stmt| stmt.opt_feature).collect();
         if stmt_features.len() == 1 {
             stmt_features[0]
@@ -152,7 +152,7 @@ impl Feature {
         }
     }
 
-    pub fn intern_expr_pattern(interner: &FeatureInterner, patt: &PurePattern) -> FeaturePtr {
+    pub fn intern_expr_pattern(interner: &FeatureInterner, patt: &PurePattern) -> FeatureItd {
         match patt.variant {
             PurePatternVariant::PrimitiveLiteral(_) => todo!(),
             PurePatternVariant::OneOf { .. } => todo!(),
@@ -165,8 +165,8 @@ impl Feature {
 
 #[derive(Debug, Hash, PartialEq, Eq, Clone)]
 pub struct BranchedFeature {
-    condition: Option<FeaturePtr>,
-    block: FeaturePtr,
+    condition: Option<FeatureItd>,
+    block: FeatureItd,
 }
 
 impl From<&Feature> for Feature {

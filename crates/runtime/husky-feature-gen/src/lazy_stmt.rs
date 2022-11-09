@@ -14,12 +14,12 @@ pub struct FeatureLazyStmt {
     pub indent: fold::Indent,
     pub variant: FeatureLazyStmtVariant,
     pub opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
-    pub opt_feature: Option<FeaturePtr>,
+    pub opt_feature: Option<FeatureItd>,
     pub file: FileItd,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     pub stmt: Arc<LazyStmt>,
-    pub return_ty: EntityRoutePtr,
+    pub return_ty: EntityRouteItd,
 }
 
 impl std::fmt::Debug for FeatureLazyStmt {

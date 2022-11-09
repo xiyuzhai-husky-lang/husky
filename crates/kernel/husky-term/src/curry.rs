@@ -65,21 +65,22 @@ impl TermCurry {
 
 impl<'a> TermContext<'a> {
     pub(crate) fn curry(&self, curry_kind: TermCurryVariant, x: Ty, y: Ty) -> TermResult<Ty> {
-        if self.ty_family(x)? == TyFamily::Monadic {
-            return Err(TermError::MonadIsNotInput);
-        }
-        msg_once!("check compatibility of y");
-        Ty::new(
-            self.it_term(
-                TermCurry {
-                    curry_variant: curry_kind,
-                    x,
-                    y,
-                    ty: Ty::new(self.sort(x.universe().max(y.universe())))?,
-                }
-                .into(),
-            ),
-        )
+        todo!()
+        // if self.ty_family(x)? == TyFamily::Monadic {
+        //     return Err(TermError::MonadIsNotInput);
+        // }
+        // msg_once!("check compatibility of y");
+        // Ty::new(
+        //     self.it_term(
+        //         TermCurry {
+        //             curry_variant: curry_kind,
+        //             x,
+        //             y,
+        //             ty: Ty::new(self.sort(x.universe().max(y.universe())))?,
+        //         }
+        //         .into(),
+        //     ),
+        // )
     }
 }
 

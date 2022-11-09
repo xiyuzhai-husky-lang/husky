@@ -14,14 +14,14 @@ pub enum DefinitionRepr {
         ty: RangedEntityRoute,
     },
     FuncBlock {
-        route: EntityRoutePtr,
+        route: EntityRouteItd,
         file: FileItd,
         range: TextRange,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
         return_ty: RangedEntityRoute,
     },
     ProcBlock {
-        route: EntityRoutePtr,
+        route: EntityRouteItd,
         file: FileItd,
         range: TextRange,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
@@ -32,7 +32,7 @@ pub enum DefinitionRepr {
 pub(crate) fn parse_definition_repr(
     db: &dyn EntityDefnQueryGroup,
     paradigm: Paradigm,
-    route: EntityRoutePtr,
+    route: EntityRouteItd,
     return_ty: RangedEntityRoute,
     arena: &RawExprArena,
     children: Option<AstIter>,

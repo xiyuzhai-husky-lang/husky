@@ -4,7 +4,7 @@ use husky_dev_utils::DevSource;
 impl EntityDefnVariant {
     pub(super) fn collect_trait_impls(
         db: &dyn EntityDefnQueryGroup,
-        this_ty: EntityRoutePtr,
+        this_ty: EntityRouteItd,
         file: FileItd,
         range: TextRange,
     ) -> Vec<Arc<TraitImplDefn>> {
@@ -13,7 +13,7 @@ impl EntityDefnVariant {
 
     fn implicit_trait_impls(
         db: &dyn EntityDefnQueryGroup,
-        this_ty: EntityRoutePtr,
+        this_ty: EntityRouteItd,
         file: FileItd,
         range: TextRange,
     ) -> Vec<Arc<TraitImplDefn>> {

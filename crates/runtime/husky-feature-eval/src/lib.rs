@@ -2,7 +2,7 @@ mod evaluator;
 mod session;
 
 pub use evaluator::*;
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_trace_protocol::{SampleId, VisualData};
 pub use session::*;
 

@@ -19,7 +19,8 @@ fn test_decl() {
         let term_menu = db.term_menu();
         let mut ctx = InferContext::new(&db, &mut sheet, &arena, expr, &term_menu);
         let term = ctx.term_result().unwrap();
-        format!("{:?}", db.decl(term.path()))
+        todo!()
+        // format!("{:?}", db.decl(term.path()))
     }
 }
 
