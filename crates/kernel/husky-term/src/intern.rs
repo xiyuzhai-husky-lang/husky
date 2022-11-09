@@ -6,7 +6,7 @@ use std::borrow::Borrow;
 pub type TermInterner = Interner<TermOwned>;
 
 impl Internable for TermOwned {
-    type Borrowed<'a> = Term<'a>;
+    type Borrowed<'a> = TermBorrowed<'a>;
 
     type Interned = TermItd;
 
@@ -20,7 +20,7 @@ impl Internable for TermOwned {
 
     fn try_direct(&self) -> Option<Self::Interned> {
         match self {
-            TermOwned::Atom(atom) => Some(TermItd::Atom(*atom)),
+            TermOwned::Atom(atom) => Some(TermItd(TermBorrowed::Atom(*atom))),
             _ => None,
         }
     }
@@ -52,6 +52,6 @@ pub trait InternTerm {
 
 impl From<i32> for TermItd {
     fn from(value: i32) -> Self {
-        TermItd::Atom(value.into())
+        TermItd(TermBorrowed::Atom(value.into()))
     }
 }

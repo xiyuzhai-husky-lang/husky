@@ -44,8 +44,8 @@ impl Ty {
     }
 
     fn check_ty_itd(ty: Ty) -> TermResult<()> {
-        match ty.term() {
-            TermItd::Atom(a) => todo!(),
+        match ty.term().borrowed() {
+            TermBorrowed::Atom(a) => todo!(),
             _ => return Err(TermError::TermIsNotTy),
         }
     }

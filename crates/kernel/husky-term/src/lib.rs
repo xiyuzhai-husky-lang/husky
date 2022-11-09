@@ -50,7 +50,7 @@ pub enum TermOwned {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum Term<'a> {
+pub enum TermBorrowed<'a> {
     Null,
     Atom(TermAtom),       // literal: 1,1.0, true, false; variable, entityPath
     Curry(&'a TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
@@ -60,17 +60,21 @@ pub enum Term<'a> {
     TraitImpl(&'a TermTraitImpl), // A as trait
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TermItd {
-    Atom(TermAtom),
-    Curry(InternedRefWrapper<TermCurry>), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
-    Abstraction(InternedRefWrapper<TermAbstraction>), // lambda x => expr
-    Application(InternedRefWrapper<TermApplication>), // f x, apply a function to term
-    Subentity(InternedRefWrapper<TermSubentity>), // ::
-    TraitImpl(InternedRefWrapper<TermTraitImpl>), // A as trait
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct TermItd(TermBorrowed<'static>);
+
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
 }
 
-impl InternBorrowedRaw for TermItd {}
+impl TermItd {
+    fn borrowed(self) -> TermBorrowed<'static> {
+        self.0
+    }
+}
 
 impl std::fmt::Debug for TermOwned {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
