@@ -52,14 +52,14 @@ impl TermApplication {
     pub fn new(m: TermItd, n: TermItd) -> TermResult<Self> {
         if m.ty_itd().is_none() {
             match m.deref() {
-                Term::Atom(a) => match a.variant() {
-                    TermAtomVariant::Category(category_kind) => match n.deref() {
-                        Term::Atom(b) => match b.variant() {
-                            TermAtomVariant::Literal(_) => todo!(),
-                            TermAtomVariant::Variable { variable_variant } => todo!(),
-                            TermAtomVariant::Entity { .. } => todo!(),
-                            TermAtomVariant::Category(category_kind) => todo!(),
-                            TermAtomVariant::Universe(_) => Ok(Self { m, n, ty_itd: None }),
+                Term::Atom(a) => match a {
+                    TermAtom::Category(category_kind) => match n.deref() {
+                        Term::Atom(b) => match b {
+                            TermAtom::Literal(_) => todo!(),
+                            TermAtom::Variable { variable_variant } => todo!(),
+                            TermAtom::Entity { .. } => todo!(),
+                            TermAtom::Category(category_kind) => todo!(),
+                            TermAtom::Universe(_) => Ok(Self { m, n, ty_itd: None }),
                         },
                         Term::Curry(_) => todo!(),
                         Term::Abstraction(_) => todo!(),
@@ -67,7 +67,7 @@ impl TermApplication {
                         Term::Subentity(_) => todo!(),
                         Term::TraitImpl(_) => todo!(),
                     },
-                    TermAtomVariant::Universe(_) => todo!(),
+                    TermAtom::Universe(_) => todo!(),
                     _ => unreachable!(),
                 },
                 _ => unreachable!(),

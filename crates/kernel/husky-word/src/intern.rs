@@ -29,12 +29,16 @@ impl Interned for Word {
 
     type Owned = String;
 
-    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
+    fn new_interned(id: usize, target: &'static Self::T) -> Self {
         Self::Identifier(Identifier::Custom(CustomIdentifier(target)))
     }
 
     fn new_itr() -> Interner<Self> {
         new_word_itr()
+    }
+
+    fn opt_atom_itd(t: &Self::T) -> Option<Self> {
+        None
     }
 }
 

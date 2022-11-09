@@ -28,16 +28,16 @@ impl Ty {
     fn check_is_category(term: TermItd) -> TermResult<()> {
         match term.deref() {
             Term::Application(app) => match app.m().deref() {
-                Term::Atom(a) => match a.variant() {
-                    TermAtomVariant::Literal(_) => todo!(),
-                    TermAtomVariant::Variable { variable_variant } => todo!(),
-                    TermAtomVariant::Entity { .. } => todo!(),
-                    TermAtomVariant::Category(category_kind) => match category_kind {
+                Term::Atom(a) => match a {
+                    TermAtom::Literal(_) => todo!(),
+                    TermAtom::Variable { variable_variant } => todo!(),
+                    TermAtom::Entity { .. } => todo!(),
+                    TermAtom::Category(category_kind) => match category_kind {
                         TermCategory::Type => todo!(),
                         TermCategory::Sort => Ok(()),
                         TermCategory::Term => todo!(),
                     },
-                    TermAtomVariant::Universe(_) => todo!(),
+                    TermAtom::Universe(_) => todo!(),
                 },
                 Term::Curry(_) => todo!(),
                 Term::Abstraction(_) => todo!(),

@@ -43,7 +43,7 @@ impl Interned for FeaturePtr {
 
     type Owned = Feature;
 
-    fn new_intern_ptr(id: usize, feature: &'static Self::T) -> Self {
+    fn new_interned(id: usize, feature: &'static Self::T) -> Self {
         Self {
             id: FeatureId::new(id),
         }
@@ -51,6 +51,11 @@ impl Interned for FeaturePtr {
 
     fn new_itr() -> interner::Interner<Self> {
         FeatureInterner::new(&[])
+    }
+
+    fn opt_atom_itd(t: &Self::T) -> Option<Self> {
+        // can be improved here
+        None
     }
 }
 

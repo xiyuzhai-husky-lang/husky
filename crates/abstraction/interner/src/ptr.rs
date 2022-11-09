@@ -19,7 +19,8 @@ pub trait Interned:
     type T: 'static + Hash + Eq + ?Sized;
     type Owned: 'static + Hash + Eq + Send + Sync + Debug + Borrow<Self::T>;
 
-    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self;
+    fn opt_atom_itd(t: &Self::T) -> Option<Self>;
+    fn new_interned(id: usize, target: &'static Self::T) -> Self;
     fn new_itr() -> Interner<Self>;
     fn raw(self) -> *const Self::T {
         self.deref()
@@ -146,7 +147,7 @@ where
 
     type Owned = Q;
 
-    fn new_intern_ptr(_: usize, target: &'static Self::T) -> Self {
+    fn new_interned(_: usize, target: &'static Self::T) -> Self {
         Self {
             target: Some(target),
             phantom: PhantomData,
@@ -155,5 +156,9 @@ where
 
     fn new_itr() -> Interner<Self> {
         Interner::new_empty()
+    }
+
+    fn opt_atom_itd(t: &Self::T) -> Option<Self> {
+        None
     }
 }
