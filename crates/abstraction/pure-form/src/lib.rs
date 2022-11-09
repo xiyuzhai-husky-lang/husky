@@ -1,4 +1,4 @@
-pub trait PureForm<T> {
+pub trait PureForm {
     type PureForm<'a>: Copy;
 }
 

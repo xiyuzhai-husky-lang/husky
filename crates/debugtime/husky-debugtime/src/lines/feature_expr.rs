@@ -47,7 +47,7 @@ impl<'a> TraceLineGenerator<'a> {
                 self.gen_feature_expr(&opds[1], config.subexpr())
             }
             FeatureLazyExprVariant::Variable { varname, .. } => {
-                self.render_ident_token(varname.0, opt_assoc, Some(expr.expr.range.start))
+                self.render_ident_token(varname.as_str(), opt_assoc, Some(expr.expr.range.start))
             }
             FeatureLazyExprVariant::RoutineCall {
                 opds: ref feature_opds,
@@ -68,7 +68,7 @@ impl<'a> TraceLineGenerator<'a> {
                     LazyOpnKind::MethodCall { method_ident, .. } => {
                         self.gen_feature_expr(&feature_opds[0], config.subexpr());
                         self.render_special_token(".", None, Some(method_ident.range.start));
-                        self.render_ident_token(method_ident.ident.0, None, None);
+                        self.render_ident_token(method_ident.ident.as_str(), None, None);
                         self.render_special_token("(", None, None);
                         for i in 1..opds.len() {
                             if i > 1 {

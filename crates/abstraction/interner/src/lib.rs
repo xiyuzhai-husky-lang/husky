@@ -3,8 +3,10 @@ mod basic;
 mod internal;
 mod pool;
 mod ptr;
+mod wrapper;
 
 pub use ptr::DefaultItd;
+pub use wrapper::InternedRefWrapper;
 
 use std::borrow::Borrow;
 use sync_utils::SafeRwLock;
@@ -21,7 +23,8 @@ pub trait Internable: Sized + 'static {
     fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static>;
     fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a>;
     unsafe fn to_borrowed_static(&self) -> Self::Borrowed<'static> {
-        todo!()
+        let this: &'static Self = &*unsafe { self as *const _ };
+        this.to_borrowed()
     }
     fn new_itd(&'static self, id: usize) -> Self::Interned;
 }
@@ -70,10 +73,7 @@ impl<T: Internable> Interner<T> {
         }
     }
 
-    pub fn new(ids: &[T::Interned]) -> Self
-    where
-        T::Interned: Into<T::Borrowed<'static>>,
-    {
+    pub fn new(ids: &[T::Interned]) -> Self {
         Self {
             internal: SafeRwLock::new(InternerInternal::new(ids)),
         }
