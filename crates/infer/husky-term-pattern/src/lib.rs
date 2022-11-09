@@ -28,3 +28,11 @@ pub enum TermPattern {
     Subentity(TermSubentityPattern), // ::
     TraitImpl(TermTraitImplPattern), // A as trait
 }
+
+// HELP: write more
+
+impl From<UnresolvedTermIdx> for TermPattern {
+    fn from(term: UnresolvedTermIdx) -> Self {
+        TermPattern::Unresolved(term)
+    }
+}

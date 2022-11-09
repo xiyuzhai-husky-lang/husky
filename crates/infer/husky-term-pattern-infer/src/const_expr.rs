@@ -6,10 +6,22 @@ pub struct ConstExprPatternItd {
     opt_substitution_ctx_idx: Option<TermSubstitutionContextIdx>,
 }
 
+impl ConstExprPatternItd {
+    pub(crate) fn new(patt: ConstExprPattern) -> Self {
+        if let Some(_) = patt.opt_substitution_ctx {
+            todo!()
+        }
+        Self {
+            term: patt.term,
+            opt_substitution_ctx_idx: None,
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct ConstExprPattern {
-    term: TermPatternItd,
-    opt_substitution_ctx: Option<TermSubstitutionContext>,
+    pub(crate) term: TermPatternItd,
+    pub(crate) opt_substitution_ctx: Option<TermSubstitutionContext>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

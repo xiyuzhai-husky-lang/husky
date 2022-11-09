@@ -15,6 +15,10 @@ pub enum TermPatternItd {
     Composite(TermPatternIdx),
 }
 
+// HELP
+
+// impl std::fmt::Debug for
+
 impl From<TermItd> for TermPatternItd {
     fn from(term: TermItd) -> Self {
         TermPatternItd::Resolved(term)
@@ -86,9 +90,8 @@ impl TermPatternInterner {
         }
     }
 
-    pub fn it_unresolved(&mut self, term: UnresolvedTerm) -> TermPatternItd {
-        let term = self.unresolved_registry.issue(term);
-        self.it(TermPattern::Unresolved(term))
+    pub fn it_unresolved(&mut self, term: UnresolvedTerm) -> UnresolvedTermIdx {
+        self.unresolved_registry.issue(term)
     }
 
     fn alloc(&mut self, patt: TermPattern) -> TermPatternIdx {
