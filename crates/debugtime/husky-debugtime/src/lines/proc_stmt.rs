@@ -19,7 +19,7 @@ impl<'a> TraceLineGenerator<'a> {
                     None,
                     None,
                 );
-                self.render_ident_token(varname.ident.0, None, None);
+                self.render_ident_token(varname.ident.as_str(), None, None);
                 self.render_special_token(" = ", None, None);
                 self.gen_eager_expr_tokens(initial_value, history, ExprTokenConfig::stmt())
             }
@@ -77,7 +77,11 @@ impl<'a> TraceLineGenerator<'a> {
             } => {
                 self.render_keyword_token("for ", None, None);
                 self.initial_boundary_tokens(initial_boundary, history);
-                self.render_ident_token(frame_var.ident.0, None, Some(frame_var.range.start));
+                self.render_ident_token(
+                    frame_var.ident.as_str(),
+                    None,
+                    Some(frame_var.range.start),
+                );
                 self.final_boundary_tokens(final_boundary, history);
                 self.render_special_token(":", None, None);
             }
@@ -87,7 +91,11 @@ impl<'a> TraceLineGenerator<'a> {
                 ..
             } => {
                 self.render_keyword_token("forext ", None, None);
-                self.render_ident_token(frame_var.ident.0, None, Some(frame_var.range.start));
+                self.render_ident_token(
+                    frame_var.ident.as_str(),
+                    None,
+                    Some(frame_var.range.start),
+                );
                 self.final_boundary_tokens(final_boundary, history);
                 self.render_special_token(":", None, None);
             }

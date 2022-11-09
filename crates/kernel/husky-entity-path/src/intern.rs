@@ -2,11 +2,11 @@ use std::ops::Deref;
 
 use super::*;
 use husky_word::Identifier;
-use interner::{DefaultItd, Internable, Interner};
+use interner::{Internable, InternedRefWrapper, Interner};
 use optional::{Noned, OptEq};
 
 #[derive(PartialEq, Eq, Clone, Copy, Hash)]
-pub struct EntityPathItd(DefaultItd<EntityPath, EntityPath>);
+pub struct EntityPathItd(InternedRefWrapper<EntityPath>);
 pub type EntityPathInterner = Interner<EntityPath>;
 
 impl std::fmt::Debug for EntityPathItd {
@@ -37,26 +37,36 @@ impl EntityPathItd {
 }
 
 impl Internable for EntityPath {
-    type Borrowed<'a> = &'a EntityPath;
-
-    type BorrowedRaw = *const EntityPath;
+    type Ref<'a> = &'a EntityPath;
 
     type Interned = EntityPathItd;
 
-    fn borrow<'a>(&'a self) -> Self::Borrowed<'a> {
-        todo!()
-    }
-
     fn new_itr() -> Interner<Self> {
-        todo!()
+        EntityPathInterner::new_empty()
     }
 
     fn try_direct(&self) -> Option<Self::Interned> {
+        None
+    }
+
+    fn itd_to_borrowed(itd: Self::Interned) -> Self::Ref<'static> {
+        itd.0.deref_static()
+    }
+
+    fn as_ref<'a>(&'a self) -> Self::Ref<'a> {
+        self
+    }
+
+    fn new_itd(&'static self, id: usize) -> Self::Interned {
+        EntityPathItd(InternedRefWrapper::new(self))
+    }
+
+    fn try_direct_from_ref<'a>(r: Self::Ref<'a>) -> Option<Self::Interned> {
         todo!()
     }
 
-    fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
-        itd.0.borrow_static()
+    unsafe fn cast_to_static_ref<'a>(r: Self::Ref<'a>) -> Self::Ref<'static> {
+        todo!()
     }
 }
 //     type Ref = EntityPath;
@@ -96,7 +106,7 @@ impl Noned for EntityPathItd {
     }
 
     fn get_none() -> Self {
-        Self(DefaultItd::get_none())
+        Self(InternedRefWrapper::get_none())
     }
 }
 
@@ -117,13 +127,4 @@ impl InternEntityPath for EntityPathInterner {
     fn entity_path_itr(&self) -> &EntityPathInterner {
         self
     }
-}
-
-pub fn new_entity_path_itr() -> EntityPathInterner {
-    EntityPathInterner::new_empty()
-}
-
-#[test]
-fn it_works() {
-    let itr = new_entity_path_itr();
 }

@@ -4,7 +4,7 @@ impl<'a> TraceLineGenerator<'a> {
     pub(crate) fn feature_stmt_tokens(&mut self, stmt: &FeatureLazyStmt) {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { varname, ref value } => {
-                self.render_ident_token(varname.0, None, None);
+                self.render_ident_token(varname.as_str(), None, None);
                 self.render_special_token(" = ", None, None);
                 self.gen_feature_expr(value, ExprTokenConfig::stmt())
             }

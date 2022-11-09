@@ -13,6 +13,10 @@ pub trait TermDb: InternTerm + InternEntityPath + InternWord + AskDecl {
     fn decl(&self, entity_path: EntityPathItd) -> TermResultArc<Decl>;
 }
 
+fn term_menu(db: &dyn TermDb) -> Arc<TermMenu> {
+    TermMenu::new(db)
+}
+
 fn namespace_decl(db: &dyn TermDb, namespace: TermNamespace) -> TermResultArc<NamespaceDecl> {
     db.ask_namespace_decl(namespace)
 }

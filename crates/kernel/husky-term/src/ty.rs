@@ -9,7 +9,8 @@ pub struct Ty(TermItd);
 
 impl Ty {
     pub(crate) fn new(term: TermItd) -> TermResult<Self> {
-        todo!()
+        // TODO: type checking
+        Ok(Ty(term))
         // if let Some(ty_itd) = term.ty_itd() {
         //     Self::check_is_category(ty_itd.term())?
         // } else {
@@ -44,8 +45,8 @@ impl Ty {
     }
 
     fn check_ty_itd(ty: Ty) -> TermResult<()> {
-        match ty.term() {
-            TermBorrowed::Atom(a) => todo!(),
+        match ty.term().borrowed() {
+            TermRef::Atom(a) => todo!(),
             _ => return Err(TermError::TermIsNotTy),
         }
     }

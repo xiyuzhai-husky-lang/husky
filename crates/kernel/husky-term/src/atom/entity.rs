@@ -37,7 +37,8 @@ fn display_term() {
     use crate::tests::TermTestsDb;
     let db = TermTestsDb::new();
     let menu = db.term_menu();
-    assert_eq!(menu.void().to_string(), "void");
+    todo!();
+    assert_eq!(menu.unit().to_string(), "void");
     assert_eq!(menu.i32().to_string(), "i32");
     assert_eq!(menu.i64().to_string(), "i64");
     assert_eq!(menu.f32().to_string(), "f32");
