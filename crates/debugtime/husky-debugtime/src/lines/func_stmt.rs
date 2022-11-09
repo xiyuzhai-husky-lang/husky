@@ -7,7 +7,7 @@ impl<'a> TraceLineGenerator<'a> {
                 varname,
                 ref initial_value,
             } => {
-                self.render_ident_token(varname.ident.0, None, None);
+                self.render_ident_token(varname.ident.as_str(), None, None);
                 self.render_special_token(" = ", None, None);
                 self.gen_eager_expr_tokens(initial_value, history, ExprTokenConfig::stmt())
             }

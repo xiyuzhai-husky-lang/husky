@@ -14,7 +14,7 @@ pub struct TermCurry {
     curry_variant: TermCurryVariant,
     x: Ty,
     y: Ty,
-    ty: Ty,
+    // ty: Ty,
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
@@ -57,30 +57,26 @@ impl TermCurry {
     pub fn y(&self) -> Ty {
         self.y
     }
-
-    pub fn ty(&self) -> Ty {
-        self.ty
-    }
 }
 
 impl<'a> TermContext<'a> {
     pub(crate) fn curry(&self, curry_kind: TermCurryVariant, x: Ty, y: Ty) -> TermResult<Ty> {
-        todo!()
+        // TODO: check type
+        Ty::new(
+            self.it_term(
+                TermCurry {
+                    curry_variant: curry_kind,
+                    x,
+                    y,
+                    // ty: Ty::new(self.sort(x.universe().max(y.universe())))?,
+                }
+                .into(),
+            ),
+        )
         // if self.ty_family(x)? == TyFamily::Monadic {
         //     return Err(TermError::MonadIsNotInput);
         // }
         // msg_once!("check compatibility of y");
-        // Ty::new(
-        //     self.it_term(
-        //         TermCurry {
-        //             curry_variant: curry_kind,
-        //             x,
-        //             y,
-        //             ty: Ty::new(self.sort(x.universe().max(y.universe())))?,
-        //         }
-        //         .into(),
-        //     ),
-        // )
     }
 }
 

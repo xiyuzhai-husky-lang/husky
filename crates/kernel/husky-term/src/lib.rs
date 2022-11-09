@@ -26,7 +26,7 @@ pub use db::*;
 pub use decl::*;
 pub use error::*;
 pub use intern::*;
-use interner::InternBorrowedRaw;
+use interner::{InternBorrowedRaw, InternedRefWrapper};
 pub use menu::*;
 pub use subentity::*;
 pub use trai::*;
@@ -50,7 +50,7 @@ pub enum Term {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TermBorrowed<'a> {
+pub enum TermRef<'a> {
     Null,
     Atom(TermAtom),       // literal: 1,1.0, true, false; variable, entityPath
     Curry(&'a TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
@@ -60,17 +60,69 @@ pub enum TermBorrowed<'a> {
     TraitImpl(&'a TermTraitImpl), // A as trait
 }
 
-#[derive(PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TermBorrowedRaw {
-    Atom(TermAtom),
-    Curry(*const TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
-    Abstraction(*const TermAbstraction), // lambda x => expr
-    Application(*const TermApplication), // f x, apply a function to term
-    Subentity(*const TermSubentity), // ::
-    TraitImpl(*const TermTraitImpl), // A as trait
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct TermItd(TermRef<'static>);
+
+#[cfg(target_arch = "x86_64")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        unsafe { std::mem::transmute::<Self, [u8; 24]>(*self) }.hash(state)
+    }
 }
 
-impl InternBorrowedRaw for TermBorrowedRaw {}
+#[cfg(target_arch = "x86")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "mips")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "powerpc")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "powerpc64")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "arm")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "aarch64")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+impl TermItd {
+    fn borrowed(self) -> TermRef<'static> {
+        self.0
+    }
+}
 
 impl std::fmt::Debug for Term {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -79,17 +131,6 @@ impl std::fmt::Debug for Term {
 }
 
 impl Term {
-    pub fn ty_itd(&self) -> Option<Ty> {
-        match self {
-            Term::Atom(a) => None,
-            Term::Curry(c) => Some(c.ty()),
-            Term::Abstraction(_) => todo!(),
-            Term::Application(a) => a.ty_itd(),
-            Term::Subentity(_) => todo!(),
-            Term::TraitImpl(_) => todo!(),
-        }
-    }
-
     pub fn universe(&self) -> TermUniverse {
         match self {
             Term::Atom(a) => a.universe(),

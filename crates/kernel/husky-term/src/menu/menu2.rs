@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu2 {
     parent: TermMenu1,
-    void: Ty,
+    uid: Ty,
     i32: Ty,
     i64: Ty,
     f32: Ty,
@@ -37,7 +37,7 @@ impl TermMenu2 {
         let module = Ty::module(db, &menu1);
         TermMenu2 {
             parent: menu1,
-            void,
+            uid: void,
             i32,
             i64,
             f32,
@@ -53,8 +53,8 @@ impl TermMenu2 {
     pub fn i32(&self) -> Ty {
         self.i32
     }
-    pub fn void(&self) -> Ty {
-        self.void
+    pub fn unit(&self) -> Ty {
+        self.uid
     }
     pub fn i64(&self) -> Ty {
         self.i64

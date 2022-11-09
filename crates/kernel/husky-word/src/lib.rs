@@ -29,13 +29,40 @@ pub enum WordItd {
     Pattern(WordPattern),
 }
 
+impl WordItd {
+    pub fn as_str(self) -> &'static str {
+        match self {
+            WordItd::Keyword(kw) => kw.as_str(),
+            WordItd::Identifier(ident) => ident.as_str(),
+            WordItd::Opr(opr) => opr.as_str(),
+            WordItd::Decorator(dec) => dec.as_str(),
+            WordItd::Pattern(patt) => patt.as_str(),
+        }
+    }
+}
+
 #[derive(Clone, Debug, Eq, PartialEq, Hash)]
 pub struct Word(String);
 
 impl Word {
     pub fn new(s: String) -> Self {
-        todo!()
+        assert!(is_valid_word(&s));
+        Word(s)
     }
+}
+fn is_valid_word(word: &str) -> bool {
+    let mut chars = word.chars();
+    if let Some(start) = chars.next() {
+        if !(start.is_alphabetic() || start == '_') {
+            return false;
+        }
+    }
+    for c in chars {
+        if !(c.is_alphanumeric() || c == '_') {
+            return false;
+        }
+    }
+    true
 }
 
 impl WordItd {

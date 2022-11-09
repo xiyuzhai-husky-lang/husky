@@ -1,11 +1,11 @@
-use interner::{DefaultItd, Interner};
+use interner::{InternedRefWrapper, Interner};
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq, Hash)]
 pub struct TermCurryContext {
     function: (),
     idx: usize,
 }
 
-pub type TermCurryContextItd = DefaultItd<TermCurryContext, TermCurryContext>;
+pub type TermCurryContextItd = InternedRefWrapper<TermCurryContext>;
 
 pub type TermCurryContextInterner = Interner<TermCurryContextItd>;

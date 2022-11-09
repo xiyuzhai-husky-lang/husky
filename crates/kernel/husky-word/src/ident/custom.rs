@@ -1,9 +1,10 @@
 use super::*;
 use core::hash::Hash;
+use interner::InternedRefWrapper;
 use std::{borrow::Borrow, fmt::Display, ops::Deref};
 
-#[derive(Debug, Copy, Clone)]
-pub struct CustomIdentifier(pub &'static str);
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub struct CustomIdentifier(pub(crate) InternedRefWrapper<str>);
 impl From<CustomIdentifier> for Identifier {
     fn from(ident: CustomIdentifier) -> Self {
         Self::Custom(ident)
@@ -44,27 +45,13 @@ impl CustomIdentifier {
     }
 
     pub fn as_str(&self) -> &'static str {
-        self.0
+        self.0.deref_static()
     }
 }
 
 impl Display for CustomIdentifier {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
-        f.write_str(self.0)
-    }
-}
-
-impl PartialEq for CustomIdentifier {
-    fn eq(&self, other: &Self) -> bool {
-        (self.0 as *const str) == (other.0 as *const str)
-    }
-}
-
-impl Eq for CustomIdentifier {}
-
-impl Hash for CustomIdentifier {
-    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        (self.0 as *const str).hash(state);
+        f.write_str(self.0.deref_static())
     }
 }
 
@@ -72,7 +59,7 @@ impl Deref for CustomIdentifier {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
-        self.0
+        self.0.deref_static()
     }
 }
 
