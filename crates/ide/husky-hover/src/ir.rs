@@ -1,5 +1,5 @@
 use husky_documentation::Documentation;
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_file::FileItd;
 use husky_text::{FilePosition, TextRange};
 
@@ -14,7 +14,7 @@ pub enum HoverActionIR {
 }
 
 impl HoverActionIR {
-    fn goto_type_from_targets(db: &dyn HoverDb, targets: Vec<EntityRoutePtr>) -> Self {
+    fn goto_type_from_targets(db: &dyn HoverDb, targets: Vec<EntityRouteItd>) -> Self {
         let targets = targets
             .into_iter()
             .filter_map(|target| {

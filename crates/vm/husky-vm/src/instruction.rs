@@ -12,7 +12,7 @@ pub use sheet::InstructionSheet;
 
 use crate::*;
 use avec::Avec;
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_text::{FileRanged, TextRange};
 use husky_word::{CustomIdentifier, Identifier};
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
@@ -57,13 +57,13 @@ pub enum InstructionVariant {
         stack_idx: VMStackIdx,
         binding: Binding,
         range: TextRange,
-        ty: EntityRoutePtr,
+        ty: EntityRouteItd,
         varname: Identifier,
         explicit: bool,
     },
     PushLiteralValue {
         value: __Register<'static>,
-        ty: EntityRoutePtr,
+        ty: EntityRouteItd,
         explicit: bool,
     },
     WrapInSome {
@@ -72,22 +72,22 @@ pub enum InstructionVariant {
     CallRoutine {
         resolved_linkage: __ResolvedLinkage,
         nargs: u8,
-        output_ty: EntityRoutePtr,
+        output_ty: EntityRouteItd,
         discard: bool,
     },
     CallInterpreted {
         routine_uid: EntityUid,
         nargs: u8,
-        output_ty: EntityRoutePtr,
+        output_ty: EntityRouteItd,
         discard: bool,
     },
     VirtualStructField {
         field_idx: u8,
         field_binding: Binding,
-        field_ty: EntityRoutePtr,
+        field_ty: EntityRouteItd,
     },
     NewVirtualStruct {
-        ty: EntityRoutePtr,
+        ty: EntityRouteItd,
         fields: Vec<CustomIdentifier>,
     },
     Loop {
@@ -95,7 +95,7 @@ pub enum InstructionVariant {
         loop_kind: VMLoopKind,
     },
     Return {
-        output_ty: EntityRoutePtr,
+        output_ty: EntityRouteItd,
     },
     BreakIfFalse,
     Break,
@@ -109,11 +109,11 @@ pub enum InstructionVariant {
     },
     EntityFeature {
         feature_uid: EntityUid,
-        ty: EntityRoutePtr,
+        ty: EntityRouteItd,
     },
     PushEntityFp {
         opt_linkage: Option<__Linkage>,
-        ty: EntityRoutePtr,
+        ty: EntityRouteItd,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
 }

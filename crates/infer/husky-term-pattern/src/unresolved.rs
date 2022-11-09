@@ -1,4 +1,6 @@
+use husky_entity_path::EntityPathItd;
 use husky_expr_syntax::RawExprIdx;
+use husky_word::Identifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct UnresolvedTermIdx(usize);
@@ -8,13 +10,40 @@ pub struct UnresolvedTermRegistry {
     terms: Vec<UnresolvedTerm>,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq)]
 pub enum UnresolvedTerm {
-    Implicit,
+    ImplicitArgument {
+        scope: EntityPathItd,
+        param_ident: Identifier,
+    },
     IntegerLiteral(RawExprIdx),
     IntegerType(UnresolvedTermIdx),
     FloatLiteral(RawExprIdx),
     FloatType(UnresolvedTermIdx),
+}
+
+// HELP
+
+impl std::fmt::Debug for UnresolvedTerm {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::ImplicitArgument { scope, param_ident } => {
+                write!(
+                    f,
+                    "ImplicitArgument {{ scope: {:?}, param_ident: \"{}\"}}",
+                    scope, param_ident
+                )
+            }
+            Self::IntegerLiteral(arg0) => {
+                write!(f, "IntegerLiteral({:?})", arg0)
+            }
+            Self::IntegerType(arg0) => {
+                write!(f, "IntegerType({:?})", arg0)
+            }
+            Self::FloatLiteral(arg0) => f.debug_tuple("FloatLiteral").field(arg0).finish(),
+            Self::FloatType(arg0) => f.debug_tuple("FloatType").field(arg0).finish(),
+        }
+    }
 }
 
 impl UnresolvedTermRegistry {

@@ -12,7 +12,7 @@ use husky_word::{CustomIdentifier, WordOpr, WordPattern};
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum HuskyAtomVariant {
     EntityRoute {
-        route: EntityRoutePtr,
+        route: EntityRouteItd,
         kind: EntityKind,
     },
     Variable {
@@ -24,12 +24,12 @@ pub enum HuskyAtomVariant {
         init_range: TextRange,
     },
     ThisValue {
-        opt_this_ty: Option<EntityRoutePtr>,
+        opt_this_ty: Option<EntityRouteItd>,
         opt_this_liason: Option<ParameterModifier>,
     },
     ThisField {
         field_ident: RangedCustomIdentifier,
-        opt_this_ty: Option<EntityRoutePtr>,
+        opt_this_ty: Option<EntityRouteItd>,
         opt_this_liason: Option<ParameterModifier>,
         opt_field_ty: Option<RangedEntityRoute>,
         field_liason: MemberModifier,

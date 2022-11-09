@@ -5,10 +5,7 @@ pub struct TermUniverse(u8);
 
 impl Into<TermAtom> for TermUniverse {
     fn into(self) -> TermAtom {
-        TermAtom {
-            variant: TermAtomVariant::Universe(self),
-            ty_itd: None,
-        }
+        TermAtom::Universe(self)
     }
 }
 
@@ -62,14 +59,14 @@ impl std::fmt::Display for TermUniverse {
 impl Term {
     pub(crate) fn as_universe(self: &Term) -> TermResult<TermUniverse> {
         match self {
-            Term::Atom(a) => match a.variant {
-                TermAtomVariant::Literal(_) => todo!(),
-                TermAtomVariant::Variable {
+            Term::Atom(a) => match a {
+                TermAtom::Literal(_) => todo!(),
+                TermAtom::Variable {
                     ref variable_variant,
                 } => todo!(),
-                TermAtomVariant::Entity { .. } => todo!(),
-                TermAtomVariant::Category(category_kind) => todo!(),
-                TermAtomVariant::Universe(u) => Ok(u),
+                TermAtom::Entity { .. } => todo!(),
+                TermAtom::Category(category_kind) => todo!(),
+                TermAtom::Universe(u) => Ok(*u),
             },
             Term::Curry(_) => todo!(),
             Term::Abstraction(_) => todo!(),

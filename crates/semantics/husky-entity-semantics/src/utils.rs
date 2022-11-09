@@ -2,7 +2,7 @@ use crate::*;
 
 pub(crate) fn module_contains_features(
     db: &dyn EntityDefnQueryGroup,
-    module_route: EntityRoutePtr,
+    module_route: EntityRouteItd,
 ) -> bool {
     let subentity_defns = db.subentity_defns(module_route).unwrap();
     for subentity_defn in &*subentity_defns {

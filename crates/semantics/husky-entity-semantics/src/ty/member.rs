@@ -24,7 +24,7 @@ pub fn collect_all_members(
     Arc::new(members)
 }
 
-pub fn member_defn(db: &dyn EntityDefnQueryGroup, member_route: EntityRoutePtr) -> Arc<EntityDefn> {
+pub fn member_defn(db: &dyn EntityDefnQueryGroup, member_route: EntityRouteItd) -> Arc<EntityDefn> {
     todo!()
     // let ty = member_route.parent();
     // let ty_defn = db.entity_defn(ty).unwrap();
@@ -40,7 +40,7 @@ impl EntityDefnVariant {
         db: &dyn EntityDefnQueryGroup,
         arena: &RawExprArena,
         file: FileItd,
-        ty_route: EntityRoutePtr,
+        ty_route: EntityRouteItd,
         children: &mut Peekable<AstIter>,
         members: &mut IdentDict<Arc<EntityDefn>>,
     ) -> SemanticResult<()> {

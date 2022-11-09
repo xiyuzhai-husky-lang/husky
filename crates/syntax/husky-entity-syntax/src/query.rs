@@ -7,7 +7,9 @@ use husky_file::FileItd;
 use husky_path_utils::*;
 use husky_print_utils::msg_once;
 use husky_static_defn::*;
-use husky_word::{dash_to_snake, CustomIdentifier, Identifier, RootBuiltinIdentifier, Word};
+use husky_word::{
+    dash_to_snake, CustomIdentifier, Identifier, RootBuiltinIdentifier, Word, WordItd,
+};
 use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;
 
@@ -18,25 +20,25 @@ use std::{path::PathBuf, sync::Arc};
 pub trait EntitySyntaxSalsaQueryGroup:
     husky_token::TokenizedTextQueryGroup + InternEntityRoute + ResolveStaticRootDefn
 {
-    fn subroute_table(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResultArc<SubrouteTable>;
+    fn subroute_table(&self, entity_route: EntityRouteItd) -> EntitySyntaxResultArc<SubrouteTable>;
 
-    fn subentity_routes(&self, entity_route: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
+    fn subentity_routes(&self, entity_route: EntityRouteItd) -> Arc<Vec<EntityRouteItd>>;
     fn subentity_kinded_routes(
         &self,
-        entity_route: EntityRoutePtr,
-    ) -> Arc<Vec<(EntityKind, EntityRoutePtr)>>;
+        entity_route: EntityRouteItd,
+    ) -> Arc<Vec<(EntityKind, EntityRouteItd)>>;
 
-    fn husky_entity_kind(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntityKind>;
+    fn husky_entity_kind(&self, entity_route: EntityRouteItd) -> EntitySyntaxResult<EntityKind>;
 
-    fn entity_source(&self, entity_route: EntityRoutePtr) -> EntitySyntaxResult<EntitySource>;
+    fn entity_source(&self, entity_route: EntityRouteItd) -> EntitySyntaxResult<EntitySource>;
 
-    fn submodules(&self, module: EntityRoutePtr) -> Arc<Vec<EntityRoutePtr>>;
+    fn submodules(&self, module: EntityRouteItd) -> Arc<Vec<EntityRouteItd>>;
 
     fn entity_route_menu(&self) -> Arc<EntityRouteMenu>;
 }
 
 fn entity_route_menu(db: &dyn EntitySyntaxSalsaQueryGroup) -> Arc<EntityRouteMenu> {
-    let std_mod = EntityRoutePtr::Root(RootBuiltinIdentifier::Std);
+    let std_mod = EntityRouteItd::Root(RootBuiltinIdentifier::Std);
     let std_ops_mod = db.subroute(std_mod, db.it_word("ops").custom(), thin_vec![]);
     let std_ops_index_trai = db.subroute(std_ops_mod, db.it_word("Index").custom(), thin_vec![]);
     let std_slice_mod = db.subroute(std_mod, db.it_word("slice").custom(), thin_vec![]);
@@ -46,11 +48,11 @@ fn entity_route_menu(db: &dyn EntitySyntaxSalsaQueryGroup) -> Arc<EntityRouteMen
         thin_vec![],
     );
     Arc::new(EntityRouteMenu {
-        clone_trait: EntityRoutePtr::Root(RootBuiltinIdentifier::CloneTrait),
-        copy_trait: EntityRoutePtr::Root(RootBuiltinIdentifier::CopyTrait),
-        void_type: EntityRoutePtr::Root(RootBuiltinIdentifier::Void),
-        i32_ty: EntityRoutePtr::Root(RootBuiltinIdentifier::I32),
-        vec_ty: EntityRoutePtr::Root(RootBuiltinIdentifier::Vec),
+        clone_trait: EntityRouteItd::Root(RootBuiltinIdentifier::CloneTrait),
+        copy_trait: EntityRouteItd::Root(RootBuiltinIdentifier::CopyTrait),
+        void_type: EntityRouteItd::Root(RootBuiltinIdentifier::Void),
+        i32_ty: EntityRouteItd::Root(RootBuiltinIdentifier::I32),
+        vec_ty: EntityRouteItd::Root(RootBuiltinIdentifier::Vec),
         std_mod,
         std_ops_mod,
         std_ops_index_trai,
@@ -60,7 +62,7 @@ fn entity_route_menu(db: &dyn EntitySyntaxSalsaQueryGroup) -> Arc<EntityRouteMen
 
 fn subroute_table(
     db: &dyn EntitySyntaxSalsaQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
 ) -> EntitySyntaxResultArc<SubrouteTable> {
     let husky_entity_kind = db.husky_entity_kind(entity_route)?;
     match db.husky_entity_kind(entity_route)? {
@@ -108,8 +110,8 @@ fn subroute_table(
 
 fn subentity_routes(
     db: &dyn EntitySyntaxSalsaQueryGroup,
-    entity_route: EntityRoutePtr,
-) -> Arc<Vec<EntityRoutePtr>> {
+    entity_route: EntityRouteItd,
+) -> Arc<Vec<EntityRouteItd>> {
     Arc::new(db.subroute_table(entity_route).map_or(Vec::new(), |table| {
         table.subroute_iter(db, entity_route).collect()
     }))
@@ -117,8 +119,8 @@ fn subentity_routes(
 
 fn subentity_kinded_routes(
     db: &dyn EntitySyntaxSalsaQueryGroup,
-    entity_route: EntityRoutePtr,
-) -> Arc<Vec<(EntityKind, EntityRoutePtr)>> {
+    entity_route: EntityRouteItd,
+) -> Arc<Vec<(EntityKind, EntityRouteItd)>> {
     Arc::new(db.subroute_table(entity_route).map_or(Vec::new(), |table| {
         table
             .subentity_kinded_route_iter(db, entity_route)
@@ -128,8 +130,8 @@ fn subentity_kinded_routes(
 
 fn submodules(
     db: &dyn EntitySyntaxSalsaQueryGroup,
-    module: EntityRoutePtr,
-) -> Arc<Vec<EntityRoutePtr>> {
+    module: EntityRouteItd,
+) -> Arc<Vec<EntityRouteItd>> {
     Arc::new(
         db.subroute_table(module)
             .unwrap()
@@ -140,7 +142,7 @@ fn submodules(
 
 fn husky_entity_kind(
     db: &dyn EntitySyntaxSalsaQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
 ) -> EntitySyntaxResult<EntityKind> {
     entity_kind_from_entity_route_kind(db, &entity_route.variant)
 }
@@ -209,7 +211,7 @@ fn entity_kind_from_entity_route_kind(
 
 fn entity_source(
     db: &dyn EntitySyntaxSalsaQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
 ) -> EntitySyntaxResult<EntitySource> {
     if entity_route.canonicalize().kind() != CanonicalTyKind::Intrinsic {
         panic!("expect intrinsic, but get `{}`", entity_route)
@@ -234,7 +236,7 @@ fn entity_source(
         }),
         EntityRouteVariant::ThisType { file, range } => Ok(EntitySource::ThisType { file, range }),
         EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match trai {
-            EntityRoutePtr::Root(root_ident) => match root_ident {
+            EntityRouteItd::Root(root_ident) => match root_ident {
                 RootBuiltinIdentifier::CloneTrait => {
                     msg_once!("ad hoc");
                     Ok(EntitySource::StaticTypeAsTraitMember)
@@ -242,7 +244,7 @@ fn entity_source(
                 }
                 _ => todo!(),
             },
-            EntityRoutePtr::Custom(_) => match trai.variant {
+            EntityRouteItd::Custom(_) => match trai.variant {
                 EntityRouteVariant::ThisType { file, range } => {
                     let ty_source = db.entity_source(ty).unwrap();
                     match ty_source {
@@ -287,10 +289,10 @@ pub trait EntitySyntaxQueryGroup:
 {
     fn subroute_result(
         &self,
-        parent_entity_route: EntityRoutePtr,
+        parent_entity_route: EntityRouteItd,
         ident: CustomIdentifier,
         generics: ThinVec<SpatialArgument>,
-    ) -> EntitySyntaxResult<EntityRoutePtr> {
+    ) -> EntitySyntaxResult<EntityRouteItd> {
         let parent_subscope_table = self.subroute_table(parent_entity_route)?;
         if parent_subscope_table.has_subscope(ident, &generics) {
             Ok(self.intern_entity_route(EntityRoute::subroute(
@@ -307,7 +309,7 @@ pub trait EntitySyntaxQueryGroup:
         }
     }
 
-    fn all_modules(&self) -> Vec<EntityRoutePtr> {
+    fn all_modules(&self) -> Vec<EntityRouteItd> {
         self.all_target_entrances()
             .iter()
             .map(|id| self.collect_modules(*id))
@@ -326,11 +328,11 @@ pub trait EntitySyntaxQueryGroup:
             .collect()
     }
 
-    fn module_iter(&self) -> std::vec::IntoIter<EntityRoutePtr> {
+    fn module_iter(&self) -> std::vec::IntoIter<EntityRouteItd> {
         self.all_modules().into_iter()
     }
 
-    fn collect_modules(&self, file: FileItd) -> Vec<EntityRoutePtr> {
+    fn collect_modules(&self, file: FileItd) -> Vec<EntityRouteItd> {
         if let Ok(module) = self.module(file) {
             let mut modules = vec![module];
             self.subroute_table(module).ok().map(|table| {
@@ -359,15 +361,15 @@ pub trait EntitySyntaxQueryGroup:
             .collect()
     }
 
-    fn module(&self, file: FileItd) -> EntitySyntaxResult<EntityRoutePtr> {
+    fn module(&self, file: FileItd) -> EntitySyntaxResult<EntityRouteItd> {
         let path: PathBuf = file.to_path_buf();
         if !self.file_exists(file) {
             Err(derived_error!(format!("file doesn't exist")))?
         } else if path_has_file_name(&path, "main.hsy") {
             if let Some(pack_name) = path_parent_file_name_str(&path) {
                 let snake_name = dash_to_snake(&pack_name);
-                if let Word::Identifier(Identifier::Custom(ident)) =
-                    self.word_itr().intern(snake_name)
+                if let WordItd::Identifier(Identifier::Custom(ident)) =
+                    self.word_itr().intern(Word::new(snake_name))
                 {
                     Ok(self.intern_entity_route(EntityRoute::package(file, ident)))
                 } else {
@@ -383,15 +385,15 @@ pub trait EntitySyntaxQueryGroup:
             )?)?;
             let word = self.it_word(path.file_stem().unwrap().to_str().unwrap());
             match word {
-                Word::Keyword(kw) => Err(derived_error!(format!(
+                WordItd::Keyword(kw) => Err(derived_error!(format!(
                     "expect custom identifier for module name, but got keyword {} instead",
                     kw.as_str()
                 ))),
-                Word::Opr(word_opr) => Err(derived_error!(format!(
+                WordItd::Opr(word_opr) => Err(derived_error!(format!(
                     "expect custom identifier for module name, but got word operator {} instead",
                     word_opr.as_str()
                 ))),
-                Word::Identifier(ident) => match ident {
+                WordItd::Identifier(ident) => match ident {
                     Identifier::Root(_) => todo!(),
                     Identifier::Custom(ident) => Ok(self.intern_entity_route(EntityRoute {
                         variant: EntityRouteVariant::Child { parent, ident },
@@ -400,8 +402,8 @@ pub trait EntitySyntaxQueryGroup:
                     })),
                     Identifier::Contextual(_) => todo!(),
                 },
-                Word::Decorator(_) => todo!(),
-                Word::Pattern(_) => todo!(),
+                WordItd::Decorator(_) => todo!(),
+                WordItd::Pattern(_) => todo!(),
             }
         } else {
             Err(derived_error!(format!(
@@ -411,7 +413,7 @@ pub trait EntitySyntaxQueryGroup:
         }
     }
 
-    fn module_file(&self, module: EntityRoutePtr) -> EntitySyntaxResult<FileItd> {
+    fn module_file(&self, module: EntityRouteItd) -> EntitySyntaxResult<FileItd> {
         Ok(match self.entity_source(module)? {
             EntitySource::StaticModuleItem(_) => panic!(),
             EntitySource::WithinModule { file, .. } => file,

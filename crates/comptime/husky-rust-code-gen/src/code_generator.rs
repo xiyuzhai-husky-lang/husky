@@ -23,12 +23,12 @@ pub(crate) struct RustCodeGenerator<'a> {
     db: &'a dyn RustCodeGenQueryGroup,
     result: String,
     target_entrance: FileItd,
-    entity_route_uses: LocalStack<EntityRoutePtr>,
+    entity_route_uses: LocalStack<EntityRouteItd>,
     context: RustCodeGenContext,
 }
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(crate) fn new(db: &'a dyn RustCodeGenQueryGroup, module: EntityRoutePtr) -> Self {
+    pub(crate) fn new(db: &'a dyn RustCodeGenQueryGroup, module: EntityRouteItd) -> Self {
         let target_entrance = db
             .module_target_entrance(db.module_file(module).unwrap())
             .unwrap();

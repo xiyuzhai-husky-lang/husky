@@ -123,7 +123,7 @@ fn feature_expr_opt_stats<'eval>(
 fn feature_opt_stats<'eval>(
     db: &dyn EvalFeature,
     partitions: &Partitions,
-    feature_ty: EntityRoutePtr,
+    feature_ty: EntityRouteItd,
     compute_value: impl Fn(SampleId) -> __VMResult<__Register<'eval>>,
     opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
 ) -> __VMResult<Option<TraceStats>> {

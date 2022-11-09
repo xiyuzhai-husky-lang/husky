@@ -15,7 +15,6 @@ mod sheet;
 pub use config::*;
 use husky_ast::AstQueryGroup;
 pub use indicator::FeatureEvalIndicator;
-use interner::Interned;
 pub use sheet::*;
 
 use crate::*;
@@ -52,7 +51,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
 
     fn opt_cached_feature(&self, feature: usize) -> Option<__VMResult<__Register<'eval>>> {
         self.sheet
-            .cached_value(EvalKey::Feature(unsafe { FeaturePtr::from_raw(feature) }))
+            .cached_value(EvalKey::Feature(unsafe { FeatureItd::from_raw(feature) }))
     }
 
     fn cache_feature(
@@ -61,7 +60,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         self.sheet.cache(
-            EvalKey::Feature(unsafe { FeaturePtr::from_raw(feature) }),
+            EvalKey::Feature(unsafe { FeatureItd::from_raw(feature) }),
             value,
         )
     }

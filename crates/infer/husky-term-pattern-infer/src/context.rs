@@ -59,7 +59,7 @@ impl<'a> TermPatternInferContext<'a> {
         term_itr: &mut TermPatternInterner,
     ) -> ExprTermPatternInferResult {
         match atom {
-            RawAtomExpr::Literal(literal) => self.infer_literal(literal, term_itr),
+            RawAtomExpr::Literal(literal) => self.infer_literal(*literal, term_itr),
             RawAtomExpr::Symbol(symbol) => match symbol.kind {
                 SymbolKind::EntityPath(_) => todo!(),
                 SymbolKind::LocalVariable { init_range } => todo!(),
@@ -108,20 +108,30 @@ impl<'a> TermPatternInferContext<'a> {
 
     fn infer_literal(
         &self,
-        literal: &RawLiteralData,
+        literal: RawLiteralData,
         term_itr: &mut TermPatternInterner,
     ) -> ExprTermPatternInferResult {
         let term_menu = self.term_menu();
         match literal {
             RawLiteralData::Unit => todo!(),
             RawLiteralData::Integer(_) => {
-                let a = term_itr.it_unresolved(todo!());
+                let term = term_itr.it_unresolved(UnresolvedTerm::IntegerLiteral(self.expr_idx()));
+                let ty = term_itr.it_unresolved(UnresolvedTerm::IntegerType(term));
                 ExprTermPatternInferResult {
-                    const_expr: todo!(),
-                    ty: todo!(),
+                    const_expr: Ok(Some(ConstExprPattern {
+                        term: term.into(),
+                        opt_substitution_ctx: None,
+                    })),
+                    ty: Ok(ty.into()),
                 }
             }
-            RawLiteralData::I32(_) => todo!(),
+            RawLiteralData::I32(i) => ExprTermPatternInferResult {
+                const_expr: Ok(Some(ConstExprPattern {
+                    term: TermPatternItd::Resolved(i.into()),
+                    opt_substitution_ctx: None,
+                })),
+                ty: Ok(self.term_menu.i32().term().into()),
+            },
             RawLiteralData::I64(_) => todo!(),
             RawLiteralData::Float(_) => todo!(),
             RawLiteralData::F32(_) => todo!(),

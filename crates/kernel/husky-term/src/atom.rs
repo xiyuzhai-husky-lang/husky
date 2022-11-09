@@ -15,20 +15,8 @@ pub use variable::*;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Hash)]
-pub struct TermAtom {
-    variant: TermAtomVariant,
-    ty_itd: Option<Ty>,
-}
-
-impl Into<Term> for TermAtom {
-    fn into(self) -> Term {
-        Term::Atom(self)
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Hash)]
-pub enum TermAtomVariant {
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum TermAtom {
     Literal(TermLiteralData),
     Variable {
         variable_variant: TermVariableVariant,
@@ -40,100 +28,90 @@ pub enum TermAtomVariant {
     Universe(TermUniverse),
 }
 
+impl Into<Term> for TermAtom {
+    fn into(self) -> Term {
+        Term::Atom(self)
+    }
+}
+
 impl std::fmt::Display for TermAtom {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self.variant {
-            TermAtomVariant::Literal(ref l) => l.fmt(f),
-            TermAtomVariant::Variable {
+        match self {
+            TermAtom::Literal(ref l) => l.fmt(f),
+            TermAtom::Variable {
                 ref variable_variant,
             } => variable_variant.fmt(f),
-            TermAtomVariant::Entity { path } => path.fmt(f),
-            TermAtomVariant::Category(category_kind) => todo!(),
-            TermAtomVariant::Universe(_) => todo!(),
+            TermAtom::Entity { path } => path.fmt(f),
+            TermAtom::Category(category_kind) => todo!(),
+            TermAtom::Universe(_) => todo!(),
         }
     }
 }
 
 impl TermAtom {
-    pub(crate) fn ty_term(&self) -> TermCow {
-        todo!()
-    }
-
-    pub(crate) fn variant(&self) -> &TermAtomVariant {
-        &self.variant
-    }
+    // pub(crate) fn ty_term(&self) -> TermCow {
+    //     todo!()
+    // }
 
     pub fn universe(&self) -> TermUniverse {
-        if let Some(ty_itd) = self.ty_itd {
-            match ty_itd.term().deref() {
-                Term::Application(app) => match app.m().deref() {
-                    Term::Atom(m) => match m.variant() {
-                        TermAtomVariant::Literal(_) => todo!(),
-                        TermAtomVariant::Variable { variable_variant } => todo!(),
-                        TermAtomVariant::Entity { path } => todo!(),
-                        TermAtomVariant::Category(category_kind) => match category_kind {
-                            TermCategory::Type => todo!(),
-                            TermCategory::Sort => return app.n().as_universe().unwrap(),
-                            TermCategory::Term => todo!(),
-                        },
-                        TermAtomVariant::Universe(_) => todo!(),
-                    },
-                    Term::Curry(_) => todo!(),
-                    Term::Abstraction(_) => todo!(),
-                    Term::Application(_) => todo!(),
-                    Term::Subentity(_) => todo!(),
-                    Term::TraitImpl(_) => todo!(),
-                },
-                _ => (),
-            }
-            TermUniverse::zero()
-        } else {
-            match self.variant {
-                TermAtomVariant::Literal(_) => todo!(),
-                TermAtomVariant::Variable {
-                    ref variable_variant,
-                } => todo!(),
-                TermAtomVariant::Entity { path } => todo!(),
-                TermAtomVariant::Category(category_kind) => todo!(),
-                TermAtomVariant::Universe(_) => todo!(),
-            }
-        }
+        todo!()
+        // if let Some(ty_itd) = self.ty_itd {
+        //     match ty_itd.term().deref() {
+        //         Term::Application(app) => match app.m().deref() {
+        //             Term::Atom(m) => match m.variant() {
+        //                 TermAtom::Literal(_) => todo!(),
+        //                 TermAtom::Variable { variable_variant } => todo!(),
+        //                 TermAtom::Entity { path } => todo!(),
+        //                 TermAtom::Category(category_kind) => match category_kind {
+        //                     TermCategory::Type => todo!(),
+        //                     TermCategory::Sort => return app.n().as_universe().unwrap(),
+        //                     TermCategory::Term => todo!(),
+        //                 },
+        //                 TermAtom::Universe(_) => todo!(),
+        //             },
+        //             Term::Curry(_) => todo!(),
+        //             Term::Abstraction(_) => todo!(),
+        //             Term::Application(_) => todo!(),
+        //             Term::Subentity(_) => todo!(),
+        //             Term::TraitImpl(_) => todo!(),
+        //         },
+        //         _ => (),
+        //     }
+        //     TermUniverse::zero()
+        // } else {
+        //     match self.kind {
+        //         TermAtom::Literal(_) => todo!(),
+        //         TermAtom::Variable {
+        //             ref variable_variant,
+        //         } => todo!(),
+        //         TermAtom::Entity { path } => todo!(),
+        //         TermAtom::Category(category_kind) => todo!(),
+        //         TermAtom::Universe(_) => todo!(),
+        //     }
+        // }
     }
 
-    pub(crate) fn new_literal(data: TermLiteralData, ty: Ty) -> Self {
-        Self {
-            variant: TermAtomVariant::Literal(data),
-            ty_itd: Some(ty),
-        }
+    pub(crate) fn new_literal(data: TermLiteralData) -> Self {
+        TermAtom::Literal(data)
     }
 
     pub(crate) fn new_universe(i: u8) -> Self {
-        Self {
-            variant: TermAtomVariant::Universe(TermUniverse::new(i)),
-            ty_itd: None,
-        }
+        TermAtom::Universe(TermUniverse::new(i))
     }
 
     pub(crate) fn new_category(category_kind: TermCategory) -> Self {
-        Self {
-            variant: TermAtomVariant::Category(category_kind),
-            ty_itd: None,
-        }
-    }
-
-    pub(crate) fn ty_itd(&self) -> Option<Ty> {
-        self.ty_itd
+        TermAtom::Category(category_kind)
     }
 }
 
 impl<'a> TermContext<'a> {
     pub fn entity_path_term(&self, path: EntityPathItd) -> TermResult<TermItd> {
-        Ok(self.it_term(
-            TermAtom {
-                variant: TermAtomVariant::Entity { path },
-                ty_itd: Some(self.entity_ty(path)?),
-            }
-            .into(),
-        ))
+        Ok(self.it_term(TermAtom::Entity { path }.into()))
+    }
+}
+
+impl From<i32> for TermAtom {
+    fn from(value: i32) -> Self {
+        TermAtom::Literal(value.into())
     }
 }

@@ -35,12 +35,13 @@ impl TermPatternInferSheet {
     }
 
     pub(crate) fn insert_result(&mut self, expr: RawExprIdx, result: ExprTermPatternInferResult) {
-        let const_expr = todo!();
         self.expr_results.insert_new(
             expr,
             ExprTermPatternInferEntry {
-                const_expr,
-                ty: todo!(),
+                const_expr: result.const_expr.map(|const_expr| {
+                    const_expr.map(|const_expr| ConstExprPatternItd::new(const_expr))
+                }),
+                ty: result.ty,
             },
         )
     }

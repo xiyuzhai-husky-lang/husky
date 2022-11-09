@@ -5,7 +5,7 @@ use husky_word::IdentPairDict;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureXmlExpr {
     pub variant: FeatureXmlExprVariant,
-    pub feature: FeaturePtr,
+    pub feature: FeatureItd,
     pub eval_id: FeatureEvalId,
     pub xml_expr: Arc<XmlExpr>,
 }
@@ -72,7 +72,7 @@ pub enum FeatureXmlExprVariant {
 }
 
 impl FeatureXmlExprVariant {
-    pub fn feature(&self, feature_interner: &FeatureInterner) -> FeaturePtr {
+    pub fn feature(&self, feature_interner: &FeatureInterner) -> FeatureItd {
         match self {
             FeatureXmlExprVariant::Value(value) => feature_interner.intern(Feature::XmlFromValue {
                 value: value.feature,

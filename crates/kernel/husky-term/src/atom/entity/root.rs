@@ -19,11 +19,8 @@ impl Term {
         ty: Ty,
     ) -> TermItd {
         db.it_term(
-            TermAtom {
-                variant: TermAtomVariant::Entity {
-                    path: db.it_entity_path(EntityPath::root(ident.into())),
-                },
-                ty_itd: Some(ty),
+            TermAtom::Entity {
+                path: db.it_entity_path(EntityPath::root(ident.into())),
             }
             .into(),
         )

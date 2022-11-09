@@ -35,7 +35,7 @@ pub use snapshot::StackSnapshot;
 pub use stack::*;
 pub use stack_idx::*;
 
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_loop_syntax::*;
 use husky_vm_register_method::*;
 use husky_word::CustomIdentifier;

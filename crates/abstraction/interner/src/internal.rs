@@ -2,45 +2,48 @@ use std::collections::HashMap;
 
 use crate::{pool::Pool, *};
 
-pub struct InternerInternal<Ptr: Interned> {
-    pub(crate) things: Pool<Ptr::Owned, 10000>,
-    pub(crate) ids: HashMap<&'static Ptr::T, Ptr>,
+pub struct InternerInternal<T: Internable> {
+    pub(crate) things: Pool<T, 10000>,
+    pub(crate) itds: HashMap<T::Borrowed<'static>, T::Interned>,
 }
-impl<Ptr: Interned> Default for InternerInternal<Ptr> {
+impl<T: Internable> Default for InternerInternal<T> {
     fn default() -> Self {
         Self {
             things: Default::default(),
-            ids: Default::default(),
+            itds: Default::default(),
         }
     }
 }
 
-impl<Ptr: Interned> InternerInternal<Ptr> {
-    pub fn id_iter<'a>(&'a self) -> impl Iterator<Item = Ptr> + 'a {
-        self.ids.iter().map(|(_, id)| *id)
+impl<T: Internable> InternerInternal<T> {
+    pub fn id_iter<'a>(&'a self) -> impl Iterator<Item = T::Interned> + 'a {
+        self.itds.iter().map(|(_, itd)| *itd)
     }
 
     pub fn new_from<I: 'static>(ids: &[I]) -> Self
     where
-        Ptr: for<'a> From<&'a I>,
+        T::Interned: for<'a> From<&'a I>,
     {
-        let ids = HashMap::<&'static Ptr::T, Ptr>::from_iter(ids.iter().map(
-            |id| -> (&'static Ptr::T, Ptr) {
-                let id: Ptr = id.into();
-                (unsafe { &*id.raw() }, id)
+        let ids = HashMap::<T::Borrowed<'static>, T::Interned>::from_iter(ids.iter().map(
+            |id| -> (T::Borrowed<'static>, T::Interned) {
+                let id: T::Interned = id.into();
+                (T::itd_to_borrowed(id), id)
             },
         ));
         let things = Default::default();
-        Self { things, ids }
+        Self { things, itds: ids }
     }
 
-    pub fn new(ids: &[Ptr]) -> Self {
-        let ids = HashMap::<&'static Ptr::T, Ptr>::from_iter(
-            ids.iter().map(|id: &Ptr| (unsafe { &*id.raw() }, *id)),
+    pub fn new(ids: &[T::Interned]) -> Self
+    where
+        T::Interned: Into<T::Borrowed<'static>>,
+    {
+        let ids = HashMap::<T::Borrowed<'static>, T::Interned>::from_iter(
+            ids.iter().map(|id: &T::Interned| ((*id).into(), *id)),
         );
         Self {
             things: Default::default(),
-            ids,
+            itds: ids,
         }
     }
 }

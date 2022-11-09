@@ -21,7 +21,7 @@ pub use b32::*;
 pub use domains::*;
 pub use eq::*;
 pub use etc::*;
-pub use husky_entity_route::EntityRoutePtr as __EntityRoutePtr;
+pub use husky_entity_route::EntityRouteItd as __EntityRoutePtr;
 pub use serde::Serialize as __Serialize;
 pub use serde_json::value::Value as __JsonValue;
 pub use std::sync::Arc as __Arc;

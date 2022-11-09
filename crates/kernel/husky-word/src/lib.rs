@@ -21,7 +21,7 @@ use std::sync::Arc;
 use vec_like::{VecMap, VecPairMap};
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
-pub enum Word {
+pub enum WordItd {
     Keyword(Keyword),
     Identifier(Identifier),
     Opr(WordOpr),
@@ -29,10 +29,19 @@ pub enum Word {
     Pattern(WordPattern),
 }
 
+#[derive(Clone, Debug, Eq, PartialEq, Hash)]
+pub struct Word(String);
+
 impl Word {
+    pub fn new(s: String) -> Self {
+        todo!()
+    }
+}
+
+impl WordItd {
     pub fn opt_ident(self) -> Option<Identifier> {
         match self {
-            Word::Identifier(ident) => Some(ident),
+            WordItd::Identifier(ident) => Some(ident),
             _ => None,
         }
     }
@@ -55,57 +64,57 @@ impl Word {
     }
 }
 
-impl From<Keyword> for Word {
+impl From<Keyword> for WordItd {
     fn from(keyword: Keyword) -> Self {
         Self::Keyword(keyword)
     }
 }
 
-impl From<TyKeyword> for Word {
+impl From<TyKeyword> for WordItd {
     fn from(ty: TyKeyword) -> Self {
         Self::Keyword(ty.into())
     }
 }
 
-impl From<ConfigKeyword> for Word {
+impl From<ConfigKeyword> for WordItd {
     fn from(func: ConfigKeyword) -> Self {
         Self::Keyword(func.into())
     }
 }
 
-impl From<Paradigm> for Word {
+impl From<Paradigm> for WordItd {
     fn from(func: Paradigm) -> Self {
         Self::Keyword(func.into())
     }
 }
 
-impl From<StmtKeyword> for Word {
+impl From<StmtKeyword> for WordItd {
     fn from(stmt: StmtKeyword) -> Self {
         Self::Keyword(stmt.into())
     }
 }
 
-impl From<Identifier> for Word {
+impl From<Identifier> for WordItd {
     fn from(ident: Identifier) -> Self {
         Self::Identifier(ident)
     }
 }
 
-impl From<RootBuiltinIdentifier> for Word {
+impl From<RootBuiltinIdentifier> for WordItd {
     fn from(ident: RootBuiltinIdentifier) -> Self {
-        Word::Identifier(Identifier::Root(ident))
+        WordItd::Identifier(Identifier::Root(ident))
     }
 }
 
-impl From<CustomIdentifier> for Word {
+impl From<CustomIdentifier> for WordItd {
     fn from(ident: CustomIdentifier) -> Self {
-        Word::Identifier(Identifier::Custom(ident))
+        WordItd::Identifier(Identifier::Custom(ident))
     }
 }
 
-impl From<ContextualIdentifier> for Word {
+impl From<ContextualIdentifier> for WordItd {
     fn from(ident: ContextualIdentifier) -> Self {
-        Word::Identifier(Identifier::Contextual(ident))
+        WordItd::Identifier(Identifier::Contextual(ident))
     }
 }
 

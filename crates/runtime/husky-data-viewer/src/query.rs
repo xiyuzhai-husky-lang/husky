@@ -1,17 +1,17 @@
 use crate::*;
 use husky_comptime::*;
 use husky_entity_kind::TyKind;
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_vm_binding::Binding;
 use husky_word::RootBuiltinIdentifier;
 use std::sync::Arc;
 
 #[salsa::query_group(HuskyDataViewerQueryGroupStorage)]
 pub trait HuskyDataViewerQueryGroup: ComptimeQueryGroup {
-    fn ty_data_viewer(&self, ty: EntityRoutePtr) -> Arc<HuskyDataViewer>;
+    fn ty_data_viewer(&self, ty: EntityRouteItd) -> Arc<HuskyDataViewer>;
 }
 
-fn ty_data_viewer(db: &dyn HuskyDataViewerQueryGroup, ty: EntityRoutePtr) -> Arc<HuskyDataViewer> {
+fn ty_data_viewer(db: &dyn HuskyDataViewerQueryGroup, ty: EntityRouteItd) -> Arc<HuskyDataViewer> {
     todo!()
     // let ty_decl: Arc<TyDecl> = db.ty_decl(ty).unwrap();
     // let comptime = db;

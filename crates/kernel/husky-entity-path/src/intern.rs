@@ -1,10 +1,13 @@
+use std::ops::Deref;
+
 use super::*;
 use husky_word::Identifier;
-use interner::{DefaultItd, Interned, Interner};
+use interner::{DefaultItd, Internable, Interner};
 use optional::{Noned, OptEq};
 
 #[derive(PartialEq, Eq, Clone, Copy, Hash)]
 pub struct EntityPathItd(DefaultItd<EntityPath, EntityPath>);
+pub type EntityPathInterner = Interner<EntityPath>;
 
 impl std::fmt::Debug for EntityPathItd {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -33,19 +36,45 @@ impl EntityPathItd {
     }
 }
 
-impl Interned for EntityPathItd {
-    type T = EntityPath;
+impl Internable for EntityPath {
+    type Borrowed<'a> = &'a EntityPath;
 
-    type Owned = EntityPath;
+    type BorrowedRaw = *const EntityPath;
 
-    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
-        Self(DefaultItd::new_intern_ptr(id, target))
+    type Interned = EntityPathItd;
+
+    fn borrow<'a>(&'a self) -> Self::Borrowed<'a> {
+        todo!()
     }
 
     fn new_itr() -> Interner<Self> {
-        Interner::new_empty()
+        todo!()
+    }
+
+    fn try_direct(&self) -> Option<Self::Interned> {
+        todo!()
+    }
+
+    fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
+        itd.0.borrow_static()
     }
 }
+//     type Ref = EntityPath;
+
+//     type Owned = EntityPath;
+
+//     fn new_interned(id: usize, target: &'static Self::Ref) -> Self {
+//         Self(DefaultItd::new_interned(id, target))
+//     }
+
+//     fn new_itr() -> Interner<Self> {
+//         Interner::new_empty()
+//     }
+
+//     fn opt_atom_itd(t: &Self::Ref) -> Option<Self> {
+//         None
+//     }
+// }
 
 impl std::borrow::Borrow<EntityPath> for EntityPathItd {
     fn borrow(&self) -> &EntityPath {
@@ -76,8 +105,6 @@ impl OptEq for EntityPathItd {
         self.0.opt_eq(&other.0)
     }
 }
-
-pub type EntityPathInterner = Interner<EntityPathItd>;
 
 pub trait InternEntityPath {
     fn entity_path_itr(&self) -> &EntityPathInterner;

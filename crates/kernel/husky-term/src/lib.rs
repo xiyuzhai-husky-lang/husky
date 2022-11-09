@@ -26,13 +26,14 @@ pub use db::*;
 pub use decl::*;
 pub use error::*;
 pub use intern::*;
+use interner::InternBorrowedRaw;
 pub use menu::*;
 pub use subentity::*;
 pub use trai::*;
 pub use trait_impl::*;
 pub use ty::Ty;
 
-use cow::TermCow;
+// use cow::TermCow;
 use husky_entity_path::EntityPathItd;
 use optional::Optioned;
 #[cfg(test)]
@@ -40,13 +41,36 @@ use tests::*;
 
 #[derive(PartialEq, Eq, Hash)]
 pub enum Term {
-    Atom(TermAtom), // literal: 1,1.0, true, false; variable, entityPath
+    Atom(TermAtom),               // literal: 1,1.0, true, false; variable, entityPath
     Curry(TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Abstraction(TermAbstraction), // lambda x => expr
     Application(TermApplication), // f x, apply a function to term
     Subentity(TermSubentity), // ::
     TraitImpl(TermTraitImpl), // A as trait
 }
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum TermBorrowed<'a> {
+    Null,
+    Atom(TermAtom),       // literal: 1,1.0, true, false; variable, entityPath
+    Curry(&'a TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
+    Abstraction(&'a TermAbstraction), // lambda x => expr
+    Application(&'a TermApplication), // f x, apply a function to term
+    Subentity(&'a TermSubentity), // ::
+    TraitImpl(&'a TermTraitImpl), // A as trait
+}
+
+#[derive(PartialEq, Eq, Clone, Copy, Hash)]
+pub enum TermBorrowedRaw {
+    Atom(TermAtom),
+    Curry(*const TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
+    Abstraction(*const TermAbstraction), // lambda x => expr
+    Application(*const TermApplication), // f x, apply a function to term
+    Subentity(*const TermSubentity), // ::
+    TraitImpl(*const TermTraitImpl), // A as trait
+}
+
+impl InternBorrowedRaw for TermBorrowedRaw {}
 
 impl std::fmt::Debug for Term {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -57,7 +81,7 @@ impl std::fmt::Debug for Term {
 impl Term {
     pub fn ty_itd(&self) -> Option<Ty> {
         match self {
-            Term::Atom(a) => a.ty_itd(),
+            Term::Atom(a) => None,
             Term::Curry(c) => Some(c.ty()),
             Term::Abstraction(_) => todo!(),
             Term::Application(a) => a.ty_itd(),

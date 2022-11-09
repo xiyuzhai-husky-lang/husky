@@ -8,7 +8,7 @@ use husky_eager_semantics::{
     Boundary, EagerExpr, EagerExprVariant, EagerOpnVariant, FuncStmt, FuncStmtVariant, LoopVariant,
     ProcStmt, ProcStmtVariant,
 };
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_opn_semantics::EagerSuffixOpr;
 use husky_word::RootBuiltinIdentifier;
 
@@ -262,7 +262,7 @@ impl<'a> RustCodeGenerator<'a> {
 
     fn gen_condition(&mut self, indent: Indent, condition: &EagerExpr) {
         match condition.intrinsic_ty() {
-            EntityRoutePtr::Root(builtin_ident) => match builtin_ident {
+            EntityRouteItd::Root(builtin_ident) => match builtin_ident {
                 RootBuiltinIdentifier::Void => todo!(),
                 RootBuiltinIdentifier::I32
                 | RootBuiltinIdentifier::I64
@@ -301,7 +301,7 @@ impl<'a> RustCodeGenerator<'a> {
                 RootBuiltinIdentifier::Option => todo!(),
                 RootBuiltinIdentifier::VisualType => todo!(),
             },
-            EntityRoutePtr::Custom(_) => panic!(),
+            EntityRouteItd::Custom(_) => panic!(),
         }
     }
 }

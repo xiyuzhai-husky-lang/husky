@@ -7,11 +7,11 @@ mod impl_stmt;
 
 pub(crate) struct LinkageCollector<'a> {
     db: &'a dyn RustCodeGenQueryGroup,
-    linkages: VecSet<EntityRoutePtr>,
+    linkages: VecSet<EntityRouteItd>,
 }
 
 impl<'a> LinkageCollector<'a> {
-    pub(crate) fn insert(&mut self, entity_route: EntityRoutePtr) {
+    pub(crate) fn insert(&mut self, entity_route: EntityRouteItd) {
         match entity_route.variant {
             EntityRouteVariant::TypeAsTraitMember { trai, .. } => {
                 if trai == self.db.entity_route_menu().clone_trait {
@@ -44,8 +44,8 @@ impl<'a> LinkageCollector<'a> {
 
     fn produce_from_entity_defn(
         mut self,
-        entity_route: EntityRoutePtr,
-    ) -> Arc<VecSet<EntityRoutePtr>> {
+        entity_route: EntityRouteItd,
+    ) -> Arc<VecSet<EntityRouteItd>> {
         let defn = self.db.entity_defn(entity_route).unwrap();
         self.collect_from_entity_defn(&defn);
         Arc::new(self.linkages)
@@ -54,8 +54,8 @@ impl<'a> LinkageCollector<'a> {
 
 pub(crate) fn entity_immediate_link_dependees(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route: EntityRoutePtr,
-) -> Arc<VecSet<EntityRoutePtr>> {
+    entity_route: EntityRouteItd,
+) -> Arc<VecSet<EntityRouteItd>> {
     todo!()
     // if entity_route.spatial_arguments.len() > 0 {
     //     let entity_defn = db.entity_defn(entity_route).unwrap();
@@ -94,15 +94,15 @@ pub(crate) fn entity_immediate_link_dependees(
 
 pub(crate) fn entity_link_dependees(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route: EntityRoutePtr,
-) -> Arc<VecSet<EntityRoutePtr>> {
+    entity_route: EntityRouteItd,
+) -> Arc<VecSet<EntityRouteItd>> {
     let mut dependees = (*db.entity_immediate_link_dependees(entity_route)).clone();
     visit_all(db, &mut dependees, 0);
     return Arc::new(dependees);
 
     fn visit_all(
         db: &dyn RustCodeGenQueryGroup,
-        dependees: &mut VecSet<EntityRoutePtr>,
+        dependees: &mut VecSet<EntityRouteItd>,
         start: usize,
     ) {
         let len0 = dependees.len();

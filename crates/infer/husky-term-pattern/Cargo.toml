@@ -8,5 +8,6 @@ edition = "2021"
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # syntax
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }

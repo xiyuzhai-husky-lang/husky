@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use husky_entity_kind::TyKind;
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_file::FileItd;
 use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::PackageQueryGroup;
@@ -56,7 +56,7 @@ pub trait ComptimeQueryGroup: PackageQueryGroup + ResolveLinkage {
     }
 
     // ad hoc loc
-    fn print_short<'eval>(&self, value: &__Register<'eval>, ty: EntityRoutePtr) -> String {
+    fn print_short<'eval>(&self, value: &__Register<'eval>, ty: EntityRouteItd) -> String {
         if value.data_kind() == __RegisterDataKind::SomeNone {
             if unsafe { value.data().as_number_of_somes } > 0 {
                 todo!()
@@ -66,7 +66,7 @@ pub trait ComptimeQueryGroup: PackageQueryGroup + ResolveLinkage {
         }
         let intrinsic_ty = ty.intrinsic();
         match intrinsic_ty {
-            EntityRoutePtr::Root(root_identifier) => match root_identifier {
+            EntityRouteItd::Root(root_identifier) => match root_identifier {
                 RootBuiltinIdentifier::Void => return "()".to_owned(),
                 RootBuiltinIdentifier::I32 => match value.data_kind() {
                     __RegisterDataKind::Moved => todo!(),
@@ -117,7 +117,7 @@ pub trait ComptimeQueryGroup: PackageQueryGroup + ResolveLinkage {
                 RootBuiltinIdentifier::RefMut => todo!(),
                 RootBuiltinIdentifier::Option => todo!(),
             },
-            EntityRoutePtr::Custom(_) => {
+            EntityRouteItd::Custom(_) => {
                 todo!()
                 // let ty_decl: Arc<TyDecl> = self.ty_decl(intrinsic_ty).unwrap();
                 // match ty_decl.ty_kind {

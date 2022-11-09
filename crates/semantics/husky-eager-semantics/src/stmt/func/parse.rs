@@ -193,7 +193,7 @@ impl<'a> EagerParser<'a> {
     fn parse_func_pattern(
         &mut self,
         raw_pattern: &RawPattern,
-        ty: EntityRoutePtr,
+        ty: EntityRouteItd,
     ) -> SemanticResult<FuncStmtPattern> {
         let variant = match raw_pattern.variant {
             RawPatternVariant::PrimitiveLiteral(data) => {
