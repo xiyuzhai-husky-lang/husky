@@ -19,6 +19,11 @@ pub trait Internable: Sized + 'static {
     fn new_itr() -> Interner<Self>;
     fn try_direct(&self) -> Option<Self::Interned>;
     fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static>;
+    fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a>;
+    unsafe fn to_borrowed_static(&self) -> Self::Borrowed<'static> {
+        todo!()
+    }
+    fn new_itd(&'static self, id: usize) -> Self::Interned;
 }
 
 pub trait InternBorrowedRaw: Copy + std::hash::Hash {}
@@ -75,31 +80,31 @@ impl<T: Internable> Interner<T> {
     }
 
     pub fn intern(&self, owned: T) -> T::Interned {
-        todo!()
-        // if let Some(itd) = Itd::opt_atom_itd(owned.borrow()) {
-        //     return itd;
-        // }
-        // let result = match self
-        //     .internal
-        //     .read(|internal| internal.ids.get(owned.borrow()).map(|id| *id))
-        // {
-        //     Some(id) => id,
-        //     None => {
-        //         self.internal
-        //             .write(|internal| match internal.ids.get(owned.borrow()) {
-        //                 Some(ptr) => *ptr, // this step is lest the value has changed
-        //                 None => {
-        //                     let id = internal.things.len();
-        //                     let owned: &Itd::Owned = unsafe { &*internal.things.alloc(owned) };
-        //                     let ptr: Itd::Raw = Itd::owned_to_raw(owned);
-        //                     let itd: Itd = Itd::new_interned(id, unsafe { &*ptr });
-        //                     internal.ids.insert(unsafe { &*ptr }, itd);
-        //                     itd
-        //                 }
-        //             })
-        //     }
-        // };
-        // return result;
+        if let Some(itd) = owned.try_direct() {
+            return itd;
+        }
+        let result = match self.internal.read(|internal| {
+            internal
+                .itds
+                .get(&unsafe { owned.to_borrowed_static() })
+                .map(|id| *id)
+        }) {
+            Some(id) => id,
+            None => {
+                self.internal.write(|internal| {
+                    match internal.itds.get(&unsafe { owned.to_borrowed_static() }) {
+                        Some(ptr) => *ptr, // this step is lest the value has changed
+                        None => {
+                            let id = internal.things.len();
+                            let owned: &'static T = unsafe { &*internal.things.alloc(owned) };
+                            internal.itds.insert(owned.to_borrowed(), owned.new_itd(id));
+                            owned.new_itd(id)
+                        }
+                    }
+                })
+            }
+        };
+        return result;
     }
 
     pub fn intern_borrowed<'a>(&self, t: T::Borrowed<'a>) -> T::Interned
