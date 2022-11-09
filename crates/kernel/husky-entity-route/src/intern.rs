@@ -19,11 +19,41 @@ impl Internable for EntityRoute {
     }
 
     fn new_itr() -> Interner<Self> {
-        todo!()
+        EntityRouteInterner::new_from::<RootBuiltinIdentifier>(&[
+            RootBuiltinIdentifier::Void,
+            RootBuiltinIdentifier::I32,
+            RootBuiltinIdentifier::I64,
+            RootBuiltinIdentifier::F32,
+            RootBuiltinIdentifier::F64,
+            RootBuiltinIdentifier::B32,
+            RootBuiltinIdentifier::B64,
+            RootBuiltinIdentifier::Bool,
+            RootBuiltinIdentifier::True,
+            RootBuiltinIdentifier::False,
+            RootBuiltinIdentifier::Vec,
+            RootBuiltinIdentifier::Tuple,
+            RootBuiltinIdentifier::Debug,
+            RootBuiltinIdentifier::Std,
+            RootBuiltinIdentifier::Core,
+            RootBuiltinIdentifier::ThickFp,
+            RootBuiltinIdentifier::Fn,
+            RootBuiltinIdentifier::FnMut,
+            RootBuiltinIdentifier::FnOnce,
+            RootBuiltinIdentifier::Array,
+            RootBuiltinIdentifier::Domains,
+            RootBuiltinIdentifier::DatasetType,
+            RootBuiltinIdentifier::TypeType,
+            RootBuiltinIdentifier::Module,
+            RootBuiltinIdentifier::CloneTrait,
+            RootBuiltinIdentifier::CopyTrait,
+            RootBuiltinIdentifier::PartialEqTrait,
+            RootBuiltinIdentifier::EqTrait,
+        ])
     }
 
     fn try_direct(&self) -> Option<Self::Interned> {
-        todo!()
+        // can be improved
+        None
     }
 
     fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
@@ -60,6 +90,14 @@ impl Internable for EntityRoute {
             ),
             EntityRouteItd::Custom(scope) => scope,
         }
+    }
+
+    fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a> {
+        todo!()
+    }
+
+    fn new_itd(&'static self, id: usize) -> Self::Interned {
+        todo!()
     }
 }
 
@@ -380,42 +418,4 @@ impl InternEntityRoute for EntityRouteInterner {
     fn entity_route_interner(&self) -> &EntityRouteInterner {
         self
     }
-}
-
-fn new_entity_route_interner() -> EntityRouteInterner {
-    EntityRouteInterner::new_from::<RootBuiltinIdentifier>(&[
-        RootBuiltinIdentifier::Void,
-        RootBuiltinIdentifier::I32,
-        RootBuiltinIdentifier::I64,
-        RootBuiltinIdentifier::F32,
-        RootBuiltinIdentifier::F64,
-        RootBuiltinIdentifier::B32,
-        RootBuiltinIdentifier::B64,
-        RootBuiltinIdentifier::Bool,
-        RootBuiltinIdentifier::True,
-        RootBuiltinIdentifier::False,
-        RootBuiltinIdentifier::Vec,
-        RootBuiltinIdentifier::Tuple,
-        RootBuiltinIdentifier::Debug,
-        RootBuiltinIdentifier::Std,
-        RootBuiltinIdentifier::Core,
-        RootBuiltinIdentifier::ThickFp,
-        RootBuiltinIdentifier::Fn,
-        RootBuiltinIdentifier::FnMut,
-        RootBuiltinIdentifier::FnOnce,
-        RootBuiltinIdentifier::Array,
-        RootBuiltinIdentifier::Domains,
-        RootBuiltinIdentifier::DatasetType,
-        RootBuiltinIdentifier::TypeType,
-        RootBuiltinIdentifier::Module,
-        RootBuiltinIdentifier::CloneTrait,
-        RootBuiltinIdentifier::CopyTrait,
-        RootBuiltinIdentifier::PartialEqTrait,
-        RootBuiltinIdentifier::EqTrait,
-    ])
-}
-
-#[test]
-fn test_new_entity_route_interner() {
-    let _interner = new_entity_route_interner();
 }

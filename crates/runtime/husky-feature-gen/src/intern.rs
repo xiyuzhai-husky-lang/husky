@@ -83,4 +83,12 @@ impl Internable for Feature {
     fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
         todo!()
     }
+
+    fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a> {
+        todo!()
+    }
+
+    fn new_itd(&'static self, id: usize) -> Self::Interned {
+        todo!()
+    }
 }

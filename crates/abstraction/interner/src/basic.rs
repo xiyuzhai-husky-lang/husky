@@ -27,6 +27,14 @@ where
     fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
         itd.0
     }
+
+    fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a> {
+        todo!()
+    }
+
+    fn new_itd(&'static self, id: usize) -> Self::Interned {
+        todo!()
+    }
 }
 
 #[derive(Debug)]
