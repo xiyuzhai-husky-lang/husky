@@ -1,7 +1,7 @@
 use crate::*;
 
-impl EntityRoutePtr {
-    pub fn verify_consistency_with_base_route(self, base_route: EntityRoutePtr) {
+impl EntityRouteItd {
+    pub fn verify_consistency_with_base_route(self, base_route: EntityRouteItd) {
         match base_route.variant {
             EntityRouteVariant::Any { .. } => return,
             _ => assert_eq!(

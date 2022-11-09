@@ -4,7 +4,7 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_ty_linkages(
         &mut self,
         opt_type_call: &Option<Arc<husky_entity_semantics::TypeCallDefn>>,
-        ty: EntityRoutePtr,
+        ty: EntityRouteItd,
         members: &Arc<Vec<Arc<EntityDefn>>>,
     ) {
         if let Some(_) = opt_type_call {
@@ -14,7 +14,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.gen_member_access_linkages(members, ty);
     }
 
-    fn gen_type_call_linkage(&mut self, entity_route: EntityRoutePtr) {
+    fn gen_type_call_linkage(&mut self, entity_route: EntityRouteItd) {
         todo!()
         //         self.write("\n    (\n");
         //         self.write(&format!(
@@ -44,7 +44,7 @@ impl<'a> RustCodeGenerator<'a> {
     fn gen_member_access_linkages(
         &mut self,
         members: &Arc<Vec<Arc<EntityDefn>>>,
-        ty: EntityRoutePtr,
+        ty: EntityRouteItd,
     ) {
         // todo: use decl rather than defn
         for member in members.iter() {
@@ -80,8 +80,8 @@ impl<'a> RustCodeGenerator<'a> {
         field_variant: &FieldDefnVariant,
         member: &Arc<EntityDefn>,
         liason: MemberModifier,
-        ty: EntityRoutePtr,
-        field_ty: EntityRoutePtr,
+        ty: EntityRouteItd,
+        field_ty: EntityRouteItd,
     ) {
         match field_variant {
             FieldDefnVariant::StructOriginal

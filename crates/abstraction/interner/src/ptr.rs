@@ -4,28 +4,6 @@ use optional::{Noned, OptEq};
 
 use crate::Interner;
 
-pub trait Interned:
-    'static
-    + Debug
-    + Hash
-    + PartialEq
-    + Eq
-    + Send
-    + Sync
-    + Copy
-    + Deref<Target = Self::T>
-    + Borrow<Self::T>
-{
-    type T: 'static + Hash + Eq + ?Sized;
-    type Owned: 'static + Hash + Eq + Send + Sync + Debug + Borrow<Self::T>;
-
-    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self;
-    fn new_itr() -> Interner<Self>;
-    fn raw(self) -> *const Self::T {
-        self.deref()
-    }
-}
-
 impl<T, Q> Noned for DefaultItd<T, Q>
 where
     T: 'static + ?Sized,
@@ -69,14 +47,14 @@ where
     //     self.target() as *const T as *const c_void
     // }
 
-    fn target(self) -> &'static T {
+    pub fn borrow_static(self) -> &'static T {
         self.target.unwrap()
     }
 }
 
 impl<T: 'static + ?Sized, Q> PartialEq for DefaultItd<T, Q> {
     fn eq(&self, other: &Self) -> bool {
-        (self.target() as *const T) == (other.target() as *const T)
+        (self.borrow_static() as *const T) == (other.borrow_static() as *const T)
     }
 }
 
@@ -119,7 +97,7 @@ where
     T: 'static + Debug,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("{:?}", self.target()))
+        f.write_fmt(format_args!("{:?}", self.borrow_static()))
     }
 }
 
@@ -127,33 +105,42 @@ impl<T: 'static + ?Sized, Q> Deref for DefaultItd<T, Q> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
-        self.target()
+        self.borrow_static()
     }
 }
 
 impl<T: 'static + ?Sized, Q> Borrow<T> for DefaultItd<T, Q> {
     fn borrow(&self) -> &T {
-        self.target()
+        self.borrow_static()
     }
 }
 
-impl<T, Q> Interned for DefaultItd<T, Q>
-where
-    T: 'static + Debug + Hash + Eq + ?Sized,
-    Q: 'static + Hash + Eq + Send + Sync + Debug + Borrow<T>,
-{
-    type T = T;
+// impl<T, Q> Interned for DefaultItd<T >
+// where
+//     T: 'static + Debug + Hash + Eq + ?Sized,
+//     Q: 'static + Hash + Eq + Send + Sync + Debug + Borrow<T>,
+// {
+//     type Ref<'a> = &'a T;
+//     type Raw = *const T;
 
-    type Owned = Q;
+//     type Owned = Q;
 
-    fn new_intern_ptr(_: usize, target: &'static Self::T) -> Self {
-        Self {
-            target: Some(target),
-            phantom: PhantomData,
-        }
-    }
+//     fn new_interned(_: usize, target: Self::Ref<'static>) -> Self {
+//         Self {
+//             target: Some(target),
+//             phantom: PhantomData,
+//         }
+//     }
 
-    fn new_itr() -> Interner<Self> {
-        Interner::new_empty()
-    }
-}
+//     fn new_itr() -> Interner<Self> {
+//         Interner::new_empty()
+//     }
+
+//     fn opt_atom_itd<'a>(t: Self::Ref<'a>) -> Option<Self> {
+//         None
+//     }
+
+//     fn raw(self) -> Self::Raw {
+//         self.target.unwrap()
+//     }
+// }

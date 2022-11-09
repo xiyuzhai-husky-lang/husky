@@ -32,7 +32,7 @@ use husky_defn_head::*;
 use husky_eager_semantics::*;
 use husky_entity_kind::*;
 use husky_entity_route::{EntityRoute, EntityRouteVariant};
-use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRouteItd, RangedEntityRoute};
 use husky_entity_syntax::EntitySource;
 use husky_expr_syntax::*;
 use husky_expr_syntax::*;
@@ -75,7 +75,7 @@ pub struct EntityDefn {
     pub ident: Identifier,
     pub variant: EntityDefnVariant,
     pub subentities: Arc<Vec<Arc<EntityDefn>>>,
-    pub base_route: EntityRoutePtr,
+    pub base_route: EntityRouteItd,
     pub file: FileItd,
     pub range: TextRange,
 }
@@ -90,7 +90,7 @@ impl EntityDefn {
     pub fn from_static(
         db: &dyn EntityDefnQueryGroup,
         symbol_context: &mut dyn AtomContext,
-        route: EntityRoutePtr,
+        route: EntityRouteItd,
         static_entity_defn: &'static EntityStaticDefn,
     ) -> Arc<Self> {
         let variant = EntityDefnVariant::from_static(db, symbol_context, static_entity_defn);
@@ -112,7 +112,7 @@ impl EntityDefn {
     pub fn from_generic(
         db: &dyn EntityDefnQueryGroup,
         ident: CustomIdentifier,
-        route: EntityRoutePtr,
+        route: EntityRouteItd,
         file: FileItd,
         range: TextRange,
     ) -> Arc<Self> {
@@ -138,7 +138,7 @@ impl EntityDefn {
         db: &dyn EntityDefnQueryGroup,
         ident: Identifier,
         variant: EntityDefnVariant,
-        base_route: EntityRoutePtr,
+        base_route: EntityRouteItd,
         file: FileItd,
         range: TextRange,
     ) -> Arc<EntityDefn> {
@@ -161,7 +161,7 @@ impl EntityDefn {
         }
     }
 
-    pub fn trait_impl(&self, trai: EntityRoutePtr) -> Option<&Arc<TraitImplDefn>> {
+    pub fn trait_impl(&self, trai: EntityRouteItd) -> Option<&Arc<TraitImplDefn>> {
         match self.variant {
             EntityDefnVariant::Ty {
                 ref trait_impls, ..
@@ -276,14 +276,14 @@ pub enum EntityDefnVariant {
     },
     Builtin,
     TyField {
-        field_ty: EntityRoutePtr,
+        field_ty: EntityRouteItd,
         field_variant: FieldDefnVariant,
         liason: MemberModifier,
         opt_linkage: Option<__Linkage>,
     },
     TraitAssociatedTypeImpl {
-        trai: EntityRoutePtr,
-        ty: EntityRoutePtr,
+        trai: EntityRouteItd,
+        ty: EntityRouteItd,
     },
     TraitAssociatedConstSizeImpl {
         value: usize,
@@ -480,7 +480,7 @@ pub(crate) fn main_defn(
 
 pub(crate) fn entity_defn(
     db: &dyn EntityDefnQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
 ) -> SemanticResultArc<EntityDefn> {
     let source = db.entity_source(entity_route).unwrap();
     match source {
@@ -604,10 +604,10 @@ pub(crate) fn entity_defn(
         },
         EntitySource::StaticTypeAsTraitMember => match entity_route.variant {
             EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match trai {
-                EntityRoutePtr::Root(RootBuiltinIdentifier::CloneTrait) => {
+                EntityRouteItd::Root(RootBuiltinIdentifier::CloneTrait) => {
                     msg_once!("this is a temporary ugly solution");
                     let clone_trait_defn = db
-                        .entity_defn(EntityRoutePtr::Root(RootBuiltinIdentifier::CloneTrait))
+                        .entity_defn(EntityRouteItd::Root(RootBuiltinIdentifier::CloneTrait))
                         .unwrap();
                     Ok(clone_trait_defn.trait_member_defn(ident).unwrap().clone())
                 }
@@ -645,7 +645,7 @@ pub(crate) fn entity_defn(
 
 pub(crate) fn subentity_defns(
     this: &dyn EntityDefnQueryGroup,
-    scope_id: EntityRoutePtr,
+    scope_id: EntityRouteItd,
 ) -> SemanticResultArc<Vec<Arc<EntityDefn>>> {
     let mut defns = Vec::new();
     for defn_result in this
@@ -661,7 +661,7 @@ pub(crate) fn subentity_defns(
 
 pub(crate) fn entity_defn_uid(
     db: &dyn EntityDefnQueryGroup,
-    entity_route: EntityRoutePtr,
+    entity_route: EntityRouteItd,
 ) -> EntityDefnUid {
     let _defn = db.entity_defn(entity_route);
     EntityDefnUid::new()

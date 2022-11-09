@@ -52,7 +52,7 @@ impl Visualizer {
 
     pub fn from_static(
         db: &dyn EntityDefnQueryGroup,
-        ty: EntityRoutePtr,
+        ty: EntityRouteItd,
         static_visualizer: StaticVisualizer,
     ) -> Arc<Self> {
         Arc::new(Self {
@@ -66,14 +66,14 @@ impl Visualizer {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum VisualizerVariant {
-    Group { element_ty: EntityRoutePtr },
+    Group { element_ty: EntityRouteItd },
     Custom { stmts: Avec<LazyStmt> },
     Static { fp: StaticVisualizerFp },
     Void,
     Any,
 }
 
-pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> Arc<Visualizer> {
+pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRouteItd) -> Arc<Visualizer> {
     assert!(ty.is_intrinsic());
     let ty_defn = db.entity_defn(ty).unwrap();
     if ty.spatial_arguments.len() == 0 {
@@ -155,7 +155,7 @@ pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> A
     // })
 }
 
-pub(crate) fn visual_ty(db: &dyn EntityDefnQueryGroup, ty: EntityRoutePtr) -> VisualTy {
+pub(crate) fn visual_ty(db: &dyn EntityDefnQueryGroup, ty: EntityRouteItd) -> VisualTy {
     db.visualizer(ty).visual_ty
 }
 
@@ -180,7 +180,7 @@ impl VisualTy {
 
     pub(crate) fn from_static(
         db: &dyn EntityDefnQueryGroup,
-        ty: EntityRoutePtr,
+        ty: EntityRouteItd,
         static_visual_ty: StaticVisualTy,
     ) -> Self {
         match static_visual_ty {

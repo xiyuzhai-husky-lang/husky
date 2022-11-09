@@ -13,7 +13,7 @@ use husky_file::FileItd;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 use husky_text::{FileRanged, RangedCustomIdentifier, TextRange, TextRanged};
 use husky_vm::*;
 use husky_word::CustomIdentifier;
@@ -41,7 +41,7 @@ impl FileRanged for LazyExpr {
 }
 
 impl LazyExpr {
-    pub fn intrinsic_ty(&self) -> EntityRoutePtr {
+    pub fn intrinsic_ty(&self) -> EntityRouteItd {
         todo!()
         // self.qualified_ty.intrinsic_ty()
     }
@@ -61,7 +61,7 @@ pub enum LazyExprVariant {
     },
     PrimitiveLiteral(RawLiteralData),
     EnumLiteral {
-        entity_route: EntityRoutePtr,
+        entity_route: EntityRouteItd,
     },
     Bracketed(Arc<LazyExpr>),
     Opn {
@@ -69,7 +69,7 @@ pub enum LazyExprVariant {
         opds: Vec<Arc<LazyExpr>>,
     },
     Lambda(
-        Vec<(CustomIdentifier, Option<EntityRoutePtr>)>,
+        Vec<(CustomIdentifier, Option<EntityRouteItd>)>,
         Box<LazyExpr>,
     ),
     ThisValue {
@@ -77,12 +77,12 @@ pub enum LazyExprVariant {
     },
     ThisField {
         field_ident: RangedCustomIdentifier,
-        this_ty: EntityRoutePtr,
+        this_ty: EntityRouteItd,
         this_binding: Binding,
         field_binding: Binding,
     },
     EntityFeature {
-        entity_route: EntityRoutePtr,
+        entity_route: EntityRouteItd,
     },
     BePattern {
         this: Arc<LazyExpr>,

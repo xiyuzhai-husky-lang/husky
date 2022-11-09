@@ -7,7 +7,7 @@ use super::*;
 #[derive(Debug, Clone)]
 pub struct FeatureLazyBody {
     pub symbols: Vec<FeatureSymbol>,
-    pub feature: FeaturePtr,
+    pub feature: FeatureItd,
     pub file: FileItd,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
@@ -82,7 +82,7 @@ impl<'eval> FeatureLazyBody {
         })
     }
 
-    pub(crate) fn stmt_features(&self) -> Vec<FeaturePtr> {
+    pub(crate) fn stmt_features(&self) -> Vec<FeatureItd> {
         self.stmts
             .iter()
             .filter_map(|stmt| stmt.opt_feature)

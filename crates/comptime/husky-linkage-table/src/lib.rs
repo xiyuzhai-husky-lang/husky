@@ -10,7 +10,7 @@ pub use key::*;
 pub use table::*;
 
 use husky_check_utils::*;
-use husky_entity_route::{EntityRoutePtr, SpatialArgument};
+use husky_entity_route::{EntityRouteItd, SpatialArgument};
 use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
 use husky_print_utils::p;
 use husky_static_defn::EntityStaticDefnVariant;
@@ -26,7 +26,7 @@ use upcast::Upcast;
 pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup> {
     fn linkage_table(&self) -> &LinkageTable;
 
-    fn index_linkage(&self, opd_tys: Vec<EntityRoutePtr>) -> __Linkage {
+    fn index_linkage(&self, opd_tys: Vec<EntityRouteItd>) -> __Linkage {
         if let Some(linkage) = self
             .linkage_table()
             .element_access(opd_tys.map(|ty| self.entity_uid(*ty)))
@@ -60,7 +60,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
 
     fn field_linkage(
         &self,
-        this_ty: EntityRoutePtr,
+        this_ty: EntityRouteItd,
         field_ident: CustomIdentifier,
     ) -> Option<__Linkage> {
         if !this_ty.is_intrinsic() {
@@ -82,7 +82,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
 
     fn field_linkage_resolved(
         &self,
-        this_ty: EntityRoutePtr,
+        this_ty: EntityRouteItd,
         field_ident: CustomIdentifier,
         field_binding: Binding,
     ) -> Option<__ResolvedLinkage> {
@@ -90,7 +90,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
             .map(|linkage| linkage.bind(field_binding))
     }
 
-    fn method_linkage(&self, method_route: EntityRoutePtr) -> Option<__Linkage> {
+    fn method_linkage(&self, method_route: EntityRouteItd) -> Option<__Linkage> {
         opt_linkage_wrapper(
             &self.linkage_table().config,
             || {
@@ -178,7 +178,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         )
     }
 
-    fn routine_linkage(&self, routine: EntityRoutePtr) -> Option<__Linkage> {
+    fn routine_linkage(&self, routine: EntityRouteItd) -> Option<__Linkage> {
         opt_linkage_wrapper(
             &self.linkage_table().config,
             || match self.entity_source(routine).unwrap() {
@@ -206,7 +206,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         )
     }
 
-    fn type_call_linkage(&self, ty: EntityRoutePtr) -> Option<__Linkage> {
+    fn type_call_linkage(&self, ty: EntityRouteItd) -> Option<__Linkage> {
         opt_linkage_wrapper(
             &self.linkage_table().config,
             || {
@@ -228,7 +228,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         )
     }
 
-    fn feature_eager_block_linkage(&self, route: EntityRoutePtr) -> Option<__Linkage> {
+    fn feature_eager_block_linkage(&self, route: EntityRouteItd) -> Option<__Linkage> {
         opt_linkage_wrapper(
             &self.linkage_table().config,
             || {

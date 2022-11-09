@@ -1,36 +1,92 @@
 use crate::*;
 use core::hash::Hash;
 use husky_print_utils::{msg_once, p};
-use interner::{Interned, Interner};
+use interner::{Internable, Interner};
 use paste::paste;
 use std::{borrow::Borrow, ops::Deref};
 
-pub type EntityRouteInterner = Interner<EntityRoutePtr>;
+pub type EntityRouteInterner = Interner<EntityRoute>;
+
+impl Internable for EntityRoute {
+    type BorrowedRaw = *const EntityRoute;
+
+    type Borrowed<'a> = &'a EntityRoute;
+
+    type Interned = EntityRouteItd;
+
+    fn borrow<'a>(&'a self) -> Self::Borrowed<'a> {
+        todo!()
+    }
+
+    fn new_itr() -> Interner<Self> {
+        todo!()
+    }
+
+    fn try_direct(&self) -> Option<Self::Interned> {
+        todo!()
+    }
+
+    fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
+        macro_rules! match_root {
+            ($x:ident => $($reserved:ident),*) => {{
+                 paste! {
+                    $(
+                        const [<$reserved:upper _ROUTE>]: &EntityRoute = &EntityRoute {
+                            variant: EntityRouteVariant::Root {
+                                ident: RootBuiltinIdentifier::$reserved,
+                            },
+                            temporal_arguments: thin_vec![],
+                            spatial_arguments: thin_vec![],
+                        };
+                    )*
+
+                    match $x {
+                        $(
+                            RootBuiltinIdentifier::$reserved => [<$reserved:upper _ROUTE>],
+                        )*
+                    }
+                }
+            }}
+        }
+
+        match itd {
+            EntityRouteItd::Root(ident) => match_root!(
+                ident => Void, I32, I64, F32, F64, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Mor, ThickFp, Fn,
+                FnMut, FnOnce, Array, Domains, DatasetType, VisualType, TypeType, Trait, Module,
+                CloneTrait,
+                CopyTrait,
+                PartialEqTrait,
+                EqTrait, Ref, RefMut, Option
+            ),
+            EntityRouteItd::Custom(scope) => scope,
+        }
+    }
+}
 
 #[derive(Clone, Copy)]
-pub enum EntityRoutePtr {
+pub enum EntityRouteItd {
     Root(RootBuiltinIdentifier),
     Custom(&'static EntityRoute),
 }
 
-impl EntityRoutePtr {
+impl EntityRouteItd {
     pub fn custom(&self) -> Option<&'static EntityRoute> {
         match self {
-            EntityRoutePtr::Root(_) => None,
-            EntityRoutePtr::Custom(scope) => Some(scope),
+            EntityRouteItd::Root(_) => None,
+            EntityRouteItd::Custom(scope) => Some(scope),
         }
     }
 
     pub fn root(self) -> RootBuiltinIdentifier {
         match self {
-            EntityRoutePtr::Root(root_identifier) => root_identifier,
+            EntityRouteItd::Root(root_identifier) => root_identifier,
             _ => panic!(),
         }
     }
 
     pub fn is_primitive(self) -> bool {
         match self {
-            EntityRoutePtr::Root(root_identifier) => match root_identifier {
+            EntityRouteItd::Root(root_identifier) => match root_identifier {
                 RootBuiltinIdentifier::Void
                 | RootBuiltinIdentifier::I32
                 | RootBuiltinIdentifier::I64
@@ -57,7 +113,7 @@ impl EntityRoutePtr {
                 RootBuiltinIdentifier::Option => todo!(),
                 _ => panic!(),
             },
-            EntityRoutePtr::Custom(_) => false,
+            EntityRouteItd::Custom(_) => false,
         }
     }
 
@@ -65,7 +121,7 @@ impl EntityRoutePtr {
         format!("{:?}", self)
     }
 
-    pub fn intrinsic(self) -> EntityRoutePtr {
+    pub fn intrinsic(self) -> EntityRouteItd {
         match self.variant {
             EntityRouteVariant::Root {
                 ident: RootBuiltinIdentifier::Ref | RootBuiltinIdentifier::Option,
@@ -98,7 +154,7 @@ impl EntityRoutePtr {
         }
     }
 
-    pub fn deref_route(self) -> EntityRoutePtr {
+    pub fn deref_route(self) -> EntityRouteItd {
         match self.variant {
             EntityRouteVariant::Root {
                 ident: RootBuiltinIdentifier::Ref,
@@ -186,19 +242,27 @@ impl EntityRoutePtr {
     }
 }
 
-impl std::fmt::Display for EntityRoutePtr {
+impl std::ops::Deref for EntityRouteItd {
+    type Target = EntityRoute;
+
+    fn deref(&self) -> &Self::Target {
+        EntityRoute::itd_to_borrowed(*self)
+    }
+}
+
+impl std::fmt::Display for EntityRouteItd {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         (**self).root_fmt(f)
     }
 }
 
-impl std::fmt::Debug for EntityRoutePtr {
+impl std::fmt::Debug for EntityRouteItd {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         (**self).root_fmt(f)
     }
 }
 
-impl PartialEq for EntityRoutePtr {
+impl PartialEq for EntityRouteItd {
     fn eq(&self, other: &Self) -> bool {
         match (self, other) {
             (Self::Root(l), Self::Root(r)) => l == r,
@@ -210,85 +274,25 @@ impl PartialEq for EntityRoutePtr {
     }
 }
 
-impl Eq for EntityRoutePtr {}
+impl Eq for EntityRouteItd {}
 
-impl Hash for EntityRoutePtr {
+impl Hash for EntityRouteItd {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         core::mem::discriminant(self).hash(state);
         match self {
-            EntityRoutePtr::Root(ident) => ident.hash(state),
-            EntityRoutePtr::Custom(scope) => (*scope as *const EntityRoute).hash(state),
+            EntityRouteItd::Root(ident) => ident.hash(state),
+            EntityRouteItd::Custom(scope) => (*scope as *const EntityRoute).hash(state),
         }
     }
 }
 
-impl Deref for EntityRoutePtr {
-    type Target = EntityRoute;
-
-    fn deref(&self) -> &Self::Target {
-        macro_rules! match_root {
-            ($x:ident => $($reserved:ident),*) => {{
-                 paste! {
-                    $(
-                        const [<$reserved:upper _ROUTE>]: &EntityRoute = &EntityRoute {
-                            variant: EntityRouteVariant::Root {
-                                ident: RootBuiltinIdentifier::$reserved,
-                            },
-                            temporal_arguments: thin_vec![],
-                            spatial_arguments: thin_vec![],
-                        };
-                    )*
-
-                    match $x {
-                        $(
-                            RootBuiltinIdentifier::$reserved => [<$reserved:upper _ROUTE>],
-                        )*
-                    }
-                }
-            }}
-        }
-
-        match self {
-            EntityRoutePtr::Root(ident) => match_root!(
-                ident => Void, I32, I64, F32, F64, B32, B64, Bool, True, False, Vec, Tuple, Debug, Std, Core, Mor, ThickFp, Fn,
-                FnMut, FnOnce, Array, Domains, DatasetType, VisualType, TypeType, Trait, Module,
-                CloneTrait,
-                CopyTrait,
-                PartialEqTrait,
-                EqTrait, Ref, RefMut, Option
-            ),
-            EntityRoutePtr::Custom(scope) => scope,
-        }
-    }
-}
-
-impl Borrow<EntityRoute> for EntityRoutePtr {
-    fn borrow(&self) -> &EntityRoute {
-        self.deref()
-    }
-}
-
-impl Interned for EntityRoutePtr {
-    type T = EntityRoute;
-
-    type Owned = EntityRoute;
-
-    fn new_intern_ptr(id: usize, target: &'static Self::T) -> Self {
-        Self::Custom(target)
-    }
-
-    fn new_itr() -> Interner<Self> {
-        new_entity_route_interner()
-    }
-}
-
-impl From<RootBuiltinIdentifier> for EntityRoutePtr {
+impl From<RootBuiltinIdentifier> for EntityRouteItd {
     fn from(ident: RootBuiltinIdentifier) -> Self {
         Self::Root(ident)
     }
 }
 
-impl From<&RootBuiltinIdentifier> for EntityRoutePtr {
+impl From<&RootBuiltinIdentifier> for EntityRouteItd {
     fn from(ident: &RootBuiltinIdentifier) -> Self {
         Self::Root(*ident)
     }
@@ -302,15 +306,15 @@ impl From<&EntityRoute> for EntityRoute {
 
 pub trait InternEntityRoute {
     fn entity_route_interner(&self) -> &EntityRouteInterner;
-    fn intern_entity_route(&self, entity_route: EntityRoute) -> EntityRoutePtr {
+    fn intern_entity_route(&self, entity_route: EntityRoute) -> EntityRouteItd {
         self.entity_route_interner().intern(entity_route)
     }
 
     fn route_call(
         &self,
-        route: EntityRoutePtr,
+        route: EntityRouteItd,
         spatial_arguments: ThinVec<SpatialArgument>,
-    ) -> EntityRoutePtr {
+    ) -> EntityRouteItd {
         let mut generics = route.spatial_arguments.clone();
         generics.extend(spatial_arguments);
         self.intern_entity_route(EntityRoute {
@@ -320,16 +324,16 @@ pub trait InternEntityRoute {
         })
     }
 
-    fn opt_ty(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+    fn opt_ty(&self, ty: EntityRouteItd) -> EntityRouteItd {
         self.route_call(RootBuiltinIdentifier::Option.into(), thin_vec![ty.into()])
     }
 
     fn subroute(
         &self,
-        parent: EntityRoutePtr,
+        parent: EntityRouteItd,
         ident: CustomIdentifier,
         spatial_arguments: ThinVec<SpatialArgument>,
-    ) -> EntityRoutePtr {
+    ) -> EntityRouteItd {
         self.intern_entity_route(EntityRoute {
             variant: EntityRouteVariant::Child { parent, ident },
             temporal_arguments: Default::default(),
@@ -337,7 +341,7 @@ pub trait InternEntityRoute {
         })
     }
 
-    fn base_route(&self, route: EntityRoutePtr) -> EntityRoutePtr {
+    fn base_route(&self, route: EntityRouteItd) -> EntityRouteItd {
         self.intern_entity_route(EntityRoute {
             variant: route.variant.clone(),
             temporal_arguments: Default::default(),
@@ -347,11 +351,11 @@ pub trait InternEntityRoute {
 
     fn ty_as_trai_subroute(
         &self,
-        ty: EntityRoutePtr,
-        trai: EntityRoutePtr,
+        ty: EntityRouteItd,
+        trai: EntityRouteItd,
         ident: CustomIdentifier,
         spatial_arguments: ThinVec<SpatialArgument>,
-    ) -> EntityRoutePtr {
+    ) -> EntityRouteItd {
         self.intern_entity_route(EntityRoute {
             variant: EntityRouteVariant::TypeAsTraitMember { ty, trai, ident },
             temporal_arguments: Default::default(),
@@ -359,15 +363,15 @@ pub trait InternEntityRoute {
         })
     }
 
-    fn option(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+    fn option(&self, ty: EntityRouteItd) -> EntityRouteItd {
         self.route_call(RootBuiltinIdentifier::Option.into(), thin_vec![ty.into()])
     }
 
-    fn reference(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+    fn reference(&self, ty: EntityRouteItd) -> EntityRouteItd {
         self.route_call(RootBuiltinIdentifier::Ref.into(), thin_vec![ty.into()])
     }
 
-    fn vec(&self, ty: EntityRoutePtr) -> EntityRoutePtr {
+    fn vec(&self, ty: EntityRouteItd) -> EntityRouteItd {
         self.route_call(RootBuiltinIdentifier::Vec.into(), thin_vec![ty.into()])
     }
 }

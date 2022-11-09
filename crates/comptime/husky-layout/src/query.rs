@@ -1,11 +1,11 @@
-use husky_entity_route::EntityRoutePtr;
+use husky_entity_route::EntityRouteItd;
 
 #[salsa::query_group(HuskyLayoutQueryGroupStorage)]
 pub trait HuskyLayoutQueryGroup {
-    fn reg_memory_kind(&self, ty: EntityRoutePtr) -> RegMemoryKind;
+    fn reg_memory_kind(&self, ty: EntityRouteItd) -> RegMemoryKind;
 }
 
-fn reg_memory_kind(db: &dyn HuskyLayoutQueryGroup, ty: EntityRoutePtr) -> RegMemoryKind {
+fn reg_memory_kind(db: &dyn HuskyLayoutQueryGroup, ty: EntityRouteItd) -> RegMemoryKind {
     todo!()
     // let ty = ty.intrinsic();
     // if ty.is_primitive() {

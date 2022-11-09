@@ -10,7 +10,7 @@ pub use xml::*;
 use husky_vm::{InstructionSource, __Linkage, __Register, __RegistrableSafe, __VirtualEnum};
 
 use husky_entity_route::EntityRouteVariant;
-use husky_entity_route::{EntityRoutePtr, RangedEntityRoute};
+use husky_entity_route::{EntityRouteItd, RangedEntityRoute};
 use husky_entity_semantics::*;
 use husky_lazy_semantics::*;
 use husky_vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
@@ -22,7 +22,7 @@ use crate::{eval_id::FeatureEvalId, *};
 #[derive(Clone)]
 pub struct FeatureLazyExpr {
     pub variant: FeatureLazyExprVariant,
-    pub feature: FeaturePtr,
+    pub feature: FeatureItd,
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
     pub opt_domain_indicator: Option<Arc<FeatureDomainIndicator>>,

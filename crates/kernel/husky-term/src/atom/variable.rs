@@ -2,7 +2,7 @@ use husky_word::Identifier;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TermVariableVariant {}
 
 #[derive(Debug, PartialEq, Eq, Hash)]
