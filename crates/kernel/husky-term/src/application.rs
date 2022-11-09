@@ -9,9 +9,9 @@ pub struct TermApplication {
     ty_itd: Option<Ty>,
 }
 
-impl Into<Term> for TermApplication {
-    fn into(self) -> Term {
-        Term::Application(self)
+impl Into<TermOwned> for TermApplication {
+    fn into(self) -> TermOwned {
+        TermOwned::Application(self)
     }
 }
 

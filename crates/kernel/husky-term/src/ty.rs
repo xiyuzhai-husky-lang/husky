@@ -45,7 +45,7 @@ impl Ty {
 
     fn check_ty_itd(ty: Ty) -> TermResult<()> {
         match ty.term() {
-            TermBorrowed::Atom(a) => todo!(),
+            TermItd::Atom(a) => todo!(),
             _ => return Err(TermError::TermIsNotTy),
         }
     }
@@ -104,11 +104,11 @@ impl Ty {
     }
 
     fn root_builtin_ty(db: &dyn TermDb, ident: RootBuiltinIdentifier, menu1: &TermMenu1) -> Ty {
-        Ty::new(Term::root_builtin_entity(db, ident, menu1.ty0())).unwrap()
+        Ty::new(TermOwned::root_builtin_entity(db, ident, menu1.ty0())).unwrap()
     }
 }
 
-impl Term {
+impl TermOwned {
     // #[inline(always)]
     // pub(crate) fn ty_term(&self) -> TermCow {
     //     match self {

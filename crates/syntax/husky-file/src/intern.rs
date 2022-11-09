@@ -3,7 +3,7 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use interner::{DefaultItd, Internable, InternedRefWrapper, Interner};
+use interner::{Internable, InternedRefWrapper, Interner};
 #[cfg(feature = "lsp_support")]
 use lsp_types::Url;
 
@@ -15,8 +15,6 @@ pub type FileInterner = Interner<HuskyFile>;
 
 impl Internable for HuskyFile {
     type Borrowed<'a> = &'a Path;
-
-    type BorrowedRaw = *const Path;
 
     type Interned = FileItd;
 

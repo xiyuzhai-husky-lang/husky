@@ -26,7 +26,7 @@ pub use db::*;
 pub use decl::*;
 pub use error::*;
 pub use intern::*;
-use interner::InternBorrowedRaw;
+use interner::{InternBorrowedRaw, InternedRefWrapper};
 pub use menu::*;
 pub use subentity::*;
 pub use trai::*;
@@ -40,7 +40,7 @@ use optional::Optioned;
 use tests::*;
 
 #[derive(PartialEq, Eq, Hash)]
-pub enum Term {
+pub enum TermOwned {
     Atom(TermAtom),               // literal: 1,1.0, true, false; variable, entityPath
     Curry(TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Abstraction(TermAbstraction), // lambda x => expr
@@ -50,7 +50,7 @@ pub enum Term {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TermBorrowed<'a> {
+pub enum Term<'a> {
     Null,
     Atom(TermAtom),       // literal: 1,1.0, true, false; variable, entityPath
     Curry(&'a TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
@@ -60,57 +60,57 @@ pub enum TermBorrowed<'a> {
     TraitImpl(&'a TermTraitImpl), // A as trait
 }
 
-#[derive(PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TermBorrowedRaw {
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum TermItd {
     Atom(TermAtom),
-    Curry(*const TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
-    Abstraction(*const TermAbstraction), // lambda x => expr
-    Application(*const TermApplication), // f x, apply a function to term
-    Subentity(*const TermSubentity), // ::
-    TraitImpl(*const TermTraitImpl), // A as trait
+    Curry(InternedRefWrapper<TermCurry>), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
+    Abstraction(InternedRefWrapper<TermAbstraction>), // lambda x => expr
+    Application(InternedRefWrapper<TermApplication>), // f x, apply a function to term
+    Subentity(InternedRefWrapper<TermSubentity>), // ::
+    TraitImpl(InternedRefWrapper<TermTraitImpl>), // A as trait
 }
 
-impl InternBorrowedRaw for TermBorrowedRaw {}
+impl InternBorrowedRaw for TermItd {}
 
-impl std::fmt::Debug for Term {
+impl std::fmt::Debug for TermOwned {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "Term(\"{}\")", self)
     }
 }
 
-impl Term {
+impl TermOwned {
     pub fn ty_itd(&self) -> Option<Ty> {
         match self {
-            Term::Atom(a) => None,
-            Term::Curry(c) => Some(c.ty()),
-            Term::Abstraction(_) => todo!(),
-            Term::Application(a) => a.ty_itd(),
-            Term::Subentity(_) => todo!(),
-            Term::TraitImpl(_) => todo!(),
+            TermOwned::Atom(a) => None,
+            TermOwned::Curry(c) => Some(c.ty()),
+            TermOwned::Abstraction(_) => todo!(),
+            TermOwned::Application(a) => a.ty_itd(),
+            TermOwned::Subentity(_) => todo!(),
+            TermOwned::TraitImpl(_) => todo!(),
         }
     }
 
     pub fn universe(&self) -> TermUniverse {
         match self {
-            Term::Atom(a) => a.universe(),
-            Term::Curry(_) => todo!(),
-            Term::Abstraction(_) => todo!(),
-            Term::Application(_) => todo!(),
-            Term::Subentity(_) => todo!(),
-            Term::TraitImpl(_) => todo!(),
+            TermOwned::Atom(a) => a.universe(),
+            TermOwned::Curry(_) => todo!(),
+            TermOwned::Abstraction(_) => todo!(),
+            TermOwned::Application(_) => todo!(),
+            TermOwned::Subentity(_) => todo!(),
+            TermOwned::TraitImpl(_) => todo!(),
         }
     }
 }
 
-impl std::fmt::Display for Term {
+impl std::fmt::Display for TermOwned {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Term::Atom(a) => a.fmt(f),
-            Term::Curry(c) => c.fmt(f),
-            Term::Abstraction(a) => a.fmt(f),
-            Term::Application(a) => a.fmt(f),
-            Term::Subentity(_) => todo!(),
-            Term::TraitImpl(_) => todo!(),
+            TermOwned::Atom(a) => a.fmt(f),
+            TermOwned::Curry(c) => c.fmt(f),
+            TermOwned::Abstraction(a) => a.fmt(f),
+            TermOwned::Application(a) => a.fmt(f),
+            TermOwned::Subentity(_) => todo!(),
+            TermOwned::TraitImpl(_) => todo!(),
         }
     }
 }
