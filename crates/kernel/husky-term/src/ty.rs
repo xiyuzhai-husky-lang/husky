@@ -135,6 +135,6 @@ impl Term {
 
 impl std::fmt::Display for Ty {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.deref().fmt(f)
+        self.0.fmt(f)
     }
 }

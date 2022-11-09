@@ -31,7 +31,6 @@ impl std::ops::Deref for TermMenu {
 impl TermMenu {
     pub(crate) fn new(db: &dyn TermDb) -> Arc<TermMenu> {
         let menu0 = TermMenu0::new(db);
-        todo!();
         let menu1 = TermMenu1::new(db, menu0);
         let menu2 = TermMenu2::new(db, menu1);
         let menu3 = TermMenu3::new(db, menu2);
