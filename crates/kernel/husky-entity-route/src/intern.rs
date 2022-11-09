@@ -93,11 +93,11 @@ impl Internable for EntityRoute {
     }
 
     fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a> {
-        todo!()
+        self
     }
 
     fn new_itd(&'static self, id: usize) -> Self::Interned {
-        todo!()
+        EntityRouteItd::Custom(self)
     }
 }
 

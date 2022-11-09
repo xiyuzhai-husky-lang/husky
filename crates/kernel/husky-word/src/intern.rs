@@ -1,5 +1,5 @@
 use crate::{ident::ContextualIdentifier, *};
-use interner::{Internable, Interner};
+use interner::{Internable, InternedRefWrapper, Interner};
 use std::{borrow::Borrow, ops::Deref};
 
 pub type WordInterner = Interner<Word>;
@@ -36,7 +36,86 @@ impl Internable for Word {
     }
 
     fn new_itr() -> Interner<Self> {
-        todo!()
+        WordInterner::new(&[
+            ConfigKeyword::Task.into(),
+            Keyword::Use.into(),
+            Keyword::Mod.into(),
+            Keyword::Main.into(),
+            Keyword::Visual.into(),
+            LiasonKeyword::Mut.into(),
+            Paradigm::LazyFunctional.into(),
+            Paradigm::EagerProcedural.into(),
+            Paradigm::EagerFunctional.into(),
+            TyKeyword::Struct.into(),
+            TyKeyword::Enum.into(),
+            TyKeyword::Record.into(),
+            StmtKeyword::Let.into(),
+            StmtKeyword::Var.into(),
+            StmtKeyword::If.into(),
+            StmtKeyword::Elif.into(),
+            StmtKeyword::Else.into(),
+            StmtKeyword::Match.into(),
+            StmtKeyword::Case.into(),
+            StmtKeyword::DeFault.into(),
+            StmtKeyword::For.into(),
+            StmtKeyword::ForExt.into(),
+            StmtKeyword::While.into(),
+            StmtKeyword::Do.into(),
+            StmtKeyword::Break.into(),
+            StmtKeyword::Return.into(),
+            StmtKeyword::Assert.into(),
+            StmtKeyword::Require.into(),
+            RootBuiltinIdentifier::Debug.into(),
+            RootBuiltinIdentifier::Std.into(),
+            RootBuiltinIdentifier::Core.into(),
+            RootBuiltinIdentifier::Debug.into(),
+            RootBuiltinIdentifier::Void.into(),
+            RootBuiltinIdentifier::I32.into(),
+            RootBuiltinIdentifier::I64.into(),
+            RootBuiltinIdentifier::F32.into(),
+            RootBuiltinIdentifier::F64.into(),
+            RootBuiltinIdentifier::B32.into(),
+            RootBuiltinIdentifier::B64.into(),
+            RootBuiltinIdentifier::Bool.into(),
+            RootBuiltinIdentifier::True.into(),
+            RootBuiltinIdentifier::False.into(),
+            RootBuiltinIdentifier::Vec.into(),
+            RootBuiltinIdentifier::Array.into(),
+            RootBuiltinIdentifier::Tuple.into(),
+            RootBuiltinIdentifier::Mor.into(),
+            RootBuiltinIdentifier::ThickFp.into(),
+            RootBuiltinIdentifier::Fn.into(),
+            RootBuiltinIdentifier::FnMut.into(),
+            RootBuiltinIdentifier::FnOnce.into(),
+            RootBuiltinIdentifier::Domains.into(),
+            RootBuiltinIdentifier::DatasetType.into(),
+            RootBuiltinIdentifier::VisualType.into(),
+            RootBuiltinIdentifier::CloneTrait.into(),
+            RootBuiltinIdentifier::CopyTrait.into(),
+            RootBuiltinIdentifier::PartialEqTrait.into(),
+            RootBuiltinIdentifier::EqTrait.into(),
+            RootBuiltinIdentifier::TypeType.into(),
+            RootBuiltinIdentifier::Trait.into(),
+            RootBuiltinIdentifier::Module.into(),
+            RootBuiltinIdentifier::Ref.into(),
+            RootBuiltinIdentifier::RefMut.into(),
+            RootBuiltinIdentifier::Option.into(),
+            ContextualIdentifier::Crate.into(),
+            ContextualIdentifier::CrateInputValue.into(),
+            ContextualIdentifier::TargetOutputType.into(),
+            ContextualIdentifier::ThisValue.into(),
+            ContextualIdentifier::ThisType.into(),
+            WordOpr::And.into(),
+            WordOpr::Or.into(),
+            WordOpr::As.into(),
+            WordOpr::Be.into(),
+            Decorator::Pub.into(),
+            Decorator::Private.into(),
+            Decorator::Async.into(),
+            Decorator::Static.into(),
+            WordPattern::Some.into(),
+            WordPattern::None.into(),
+        ])
     }
 
     fn try_direct(&self) -> Option<Self::Interned> {
@@ -44,15 +123,17 @@ impl Internable for Word {
     }
 
     fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
-        todo!()
+        WordBorrowed(itd.as_str())
     }
 
     fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a> {
-        todo!()
+        WordBorrowed(&self.0)
     }
 
     fn new_itd(&'static self, id: usize) -> Self::Interned {
-        todo!()
+        WordItd::Identifier(Identifier::Custom(CustomIdentifier(
+            InternedRefWrapper::new(&self.0),
+        )))
     }
 }
 
@@ -74,89 +155,6 @@ impl Internable for Word {
 //     }
 // }
 
-fn new_word_itr() -> WordInterner {
-    WordInterner::new(&[
-        ConfigKeyword::Task.into(),
-        Keyword::Use.into(),
-        Keyword::Mod.into(),
-        Keyword::Main.into(),
-        Keyword::Visual.into(),
-        LiasonKeyword::Mut.into(),
-        Paradigm::LazyFunctional.into(),
-        Paradigm::EagerProcedural.into(),
-        Paradigm::EagerFunctional.into(),
-        TyKeyword::Struct.into(),
-        TyKeyword::Enum.into(),
-        TyKeyword::Record.into(),
-        StmtKeyword::Let.into(),
-        StmtKeyword::Var.into(),
-        StmtKeyword::If.into(),
-        StmtKeyword::Elif.into(),
-        StmtKeyword::Else.into(),
-        StmtKeyword::Match.into(),
-        StmtKeyword::Case.into(),
-        StmtKeyword::DeFault.into(),
-        StmtKeyword::For.into(),
-        StmtKeyword::ForExt.into(),
-        StmtKeyword::While.into(),
-        StmtKeyword::Do.into(),
-        StmtKeyword::Break.into(),
-        StmtKeyword::Return.into(),
-        StmtKeyword::Assert.into(),
-        StmtKeyword::Require.into(),
-        RootBuiltinIdentifier::Debug.into(),
-        RootBuiltinIdentifier::Std.into(),
-        RootBuiltinIdentifier::Core.into(),
-        RootBuiltinIdentifier::Debug.into(),
-        RootBuiltinIdentifier::Void.into(),
-        RootBuiltinIdentifier::I32.into(),
-        RootBuiltinIdentifier::I64.into(),
-        RootBuiltinIdentifier::F32.into(),
-        RootBuiltinIdentifier::F64.into(),
-        RootBuiltinIdentifier::B32.into(),
-        RootBuiltinIdentifier::B64.into(),
-        RootBuiltinIdentifier::Bool.into(),
-        RootBuiltinIdentifier::True.into(),
-        RootBuiltinIdentifier::False.into(),
-        RootBuiltinIdentifier::Vec.into(),
-        RootBuiltinIdentifier::Array.into(),
-        RootBuiltinIdentifier::Tuple.into(),
-        RootBuiltinIdentifier::Mor.into(),
-        RootBuiltinIdentifier::ThickFp.into(),
-        RootBuiltinIdentifier::Fn.into(),
-        RootBuiltinIdentifier::FnMut.into(),
-        RootBuiltinIdentifier::FnOnce.into(),
-        RootBuiltinIdentifier::Domains.into(),
-        RootBuiltinIdentifier::DatasetType.into(),
-        RootBuiltinIdentifier::VisualType.into(),
-        RootBuiltinIdentifier::CloneTrait.into(),
-        RootBuiltinIdentifier::CopyTrait.into(),
-        RootBuiltinIdentifier::PartialEqTrait.into(),
-        RootBuiltinIdentifier::EqTrait.into(),
-        RootBuiltinIdentifier::TypeType.into(),
-        RootBuiltinIdentifier::Trait.into(),
-        RootBuiltinIdentifier::Module.into(),
-        RootBuiltinIdentifier::Ref.into(),
-        RootBuiltinIdentifier::RefMut.into(),
-        RootBuiltinIdentifier::Option.into(),
-        ContextualIdentifier::Crate.into(),
-        ContextualIdentifier::CrateInputValue.into(),
-        ContextualIdentifier::TargetOutputType.into(),
-        ContextualIdentifier::ThisValue.into(),
-        ContextualIdentifier::ThisType.into(),
-        WordOpr::And.into(),
-        WordOpr::Or.into(),
-        WordOpr::As.into(),
-        WordOpr::Be.into(),
-        Decorator::Pub.into(),
-        Decorator::Private.into(),
-        Decorator::Async.into(),
-        Decorator::Static.into(),
-        WordPattern::Some.into(),
-        WordPattern::None.into(),
-    ])
-}
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct WordBorrowed<'a>(&'a str);
 
@@ -166,11 +164,11 @@ impl<'a> From<WordBorrowed<'a>> for Word {
     }
 }
 
-impl From<WordItd> for WordBorrowed<'static> {
-    fn from(value: WordItd) -> Self {
-        todo!()
-    }
-}
+// impl From<WordItd> for WordBorrowed<'static> {
+//     fn from(value: WordItd) -> Self {
+//         todo!()
+//     }
+// }
 
 pub trait InternWord {
     fn word_itr(&self) -> &WordInterner;
@@ -185,21 +183,6 @@ pub trait InternWord {
     fn custom_ident(&self, word: &str) -> CustomIdentifier {
         self.it_word(word).opt_custom().unwrap()
     }
-}
-
-fn is_valid_word(word: &str) -> bool {
-    let mut chars = word.chars();
-    if let Some(start) = chars.next() {
-        if !(start.is_alphabetic() || start == '_') {
-            return false;
-        }
-    }
-    for c in chars {
-        if !(c.is_alphanumeric() || c == '_') {
-            return false;
-        }
-    }
-    true
 }
 
 #[test]

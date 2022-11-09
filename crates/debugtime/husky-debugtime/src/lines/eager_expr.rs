@@ -15,9 +15,11 @@ impl<'a> TraceLineGenerator<'a> {
             None
         };
         match expr.variant {
-            EagerExprVariant::Variable { varname, .. } => {
-                self.render_ident_token(varname.0, associated_trace_id, Some(expr.range.start))
-            }
+            EagerExprVariant::Variable { varname, .. } => self.render_ident_token(
+                varname.as_str(),
+                associated_trace_id,
+                Some(expr.range.start),
+            ),
             EagerExprVariant::PrimitiveLiteral(value) => {
                 self.gen_literal_token(value, Some(expr.range.start))
             }
@@ -62,12 +64,12 @@ impl<'a> TraceLineGenerator<'a> {
                 EagerOpnVariant::Field { field_ident, .. } => {
                     self.gen_eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.render_special_token(".", None, Some(field_ident.range.start.to_left(1)));
-                    self.render_ident_token(field_ident.ident.0, associated_trace_id, None);
+                    self.render_ident_token(field_ident.ident.as_str(), associated_trace_id, None);
                 }
                 EagerOpnVariant::MethodCall { method_ident, .. } => {
                     self.gen_eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.render_special_token(".", None, Some(method_ident.range.start.to_left(1)));
-                    self.render_ident_token(method_ident.ident.0, associated_trace_id, None);
+                    self.render_ident_token(method_ident.ident.as_str(), associated_trace_id, None);
                     self.render_special_token("(", None, None);
                     for i in 1..opds.len() {
                         if i > 1 {
@@ -116,9 +118,11 @@ impl<'a> TraceLineGenerator<'a> {
             EagerExprVariant::ThisValue { .. } => {
                 self.render_ident_token("this", None, Some(expr.range.start))
             }
-            EagerExprVariant::ThisField { field_ident, .. } => {
-                self.render_ident_token(field_ident.ident.0, None, Some(field_ident.range.start))
-            }
+            EagerExprVariant::ThisField { field_ident, .. } => self.render_ident_token(
+                field_ident.ident.as_str(),
+                None,
+                Some(field_ident.range.start),
+            ),
             EagerExprVariant::EnumKindLiteral(_) => todo!(),
             EagerExprVariant::EntityFeature { .. } => {
                 let text = self.runtime.text(expr.file).unwrap();

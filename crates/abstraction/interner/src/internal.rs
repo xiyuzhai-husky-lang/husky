@@ -34,12 +34,10 @@ impl<T: Internable> InternerInternal<T> {
         Self { things, itds: ids }
     }
 
-    pub fn new(ids: &[T::Interned]) -> Self
-    where
-        T::Interned: Into<T::Borrowed<'static>>,
-    {
+    pub fn new(ids: &[T::Interned]) -> Self {
         let ids = HashMap::<T::Borrowed<'static>, T::Interned>::from_iter(
-            ids.iter().map(|id: &T::Interned| ((*id).into(), *id)),
+            ids.iter()
+                .map(|id: &T::Interned| (T::itd_to_borrowed(*id), *id)),
         );
         Self {
             things: Default::default(),

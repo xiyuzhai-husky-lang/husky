@@ -35,11 +35,14 @@ impl Internable for Term {
     }
 
     fn new_itr() -> Interner<Self> {
-        todo!()
+        Interner::new_empty()
     }
 
     fn try_direct(&self) -> Option<Self::Interned> {
-        todo!()
+        match self {
+            Term::Atom(atom) => Some(TermBorrowed::Atom(*atom)),
+            _ => None,
+        }
     }
 
     fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {

@@ -1,13 +1,16 @@
-use std::path::{Path, PathBuf};
+use std::{
+    ops::Deref,
+    path::{Path, PathBuf},
+};
 
-use interner::{DefaultItd, Internable, Interner};
+use interner::{DefaultItd, Internable, InternedRefWrapper, Interner};
 #[cfg(feature = "lsp_support")]
 use lsp_types::Url;
 
 pub struct HuskyFile(PathBuf);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct FileItd(&'static PathBuf);
+pub struct FileItd(InternedRefWrapper<Path>);
 pub type FileInterner = Interner<HuskyFile>;
 
 impl Internable for HuskyFile {
@@ -26,7 +29,7 @@ impl Internable for HuskyFile {
     }
 
     fn try_direct(&self) -> Option<Self::Interned> {
-        todo!()
+        None
     }
 
     fn itd_to_borrowed(itd: Self::Interned) -> Self::Borrowed<'static> {
@@ -34,24 +37,19 @@ impl Internable for HuskyFile {
     }
 
     fn to_borrowed<'a>(&'a self) -> Self::Borrowed<'a> {
-        todo!()
+        self.0.deref()
     }
 
     fn new_itd(&'static self, id: usize) -> Self::Interned {
-        todo!()
+        FileItd(InternedRefWrapper::new(&self.0))
     }
 }
 
-impl std::ops::Deref for FileItd {
+impl Deref for FileItd {
     type Target = Path;
 
     fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl std::borrow::Borrow<Path> for FileItd {
-    fn borrow(&self) -> &Path {
-        &self.0
+        self.0.deref()
     }
 }
 
@@ -87,6 +85,6 @@ fn test_intern_file() {
 
 impl From<&str> for HuskyFile {
     fn from(value: &str) -> Self {
-        todo!()
+        HuskyFile(value.into())
     }
 }

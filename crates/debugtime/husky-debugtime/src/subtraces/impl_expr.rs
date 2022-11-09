@@ -22,18 +22,23 @@ impl Debugtime {
             let mut func_input_values = vec![];
             subtraces.push(self.new_call_head_trace(parent, routine_defn.clone()));
             let argnames: Vec<&'static str> = match routine_defn.variant {
-                EntityDefnVariant::Func { ref parameters, .. } => {
-                    parameters.iter().map(|param| param.ident().0).collect()
-                }
-                EntityDefnVariant::Proc { ref parameters, .. } => {
-                    parameters.iter().map(|param| param.ident().0).collect()
-                }
-                EntityDefnVariant::Function { ref parameters, .. } => {
-                    parameters.iter().map(|param| param.ident().0).collect()
-                }
+                EntityDefnVariant::Func { ref parameters, .. } => parameters
+                    .iter()
+                    .map(|param| param.ident().as_str())
+                    .collect(),
+                EntityDefnVariant::Proc { ref parameters, .. } => parameters
+                    .iter()
+                    .map(|param| param.ident().as_str())
+                    .collect(),
+                EntityDefnVariant::Function { ref parameters, .. } => parameters
+                    .iter()
+                    .map(|param| param.ident().as_str())
+                    .collect(),
                 EntityDefnVariant::Method { ref parameters, .. } => {
-                    let mut argnames: Vec<_> =
-                        parameters.iter().map(|param| param.ident().0).collect();
+                    let mut argnames: Vec<_> = parameters
+                        .iter()
+                        .map(|param| param.ident().as_str())
+                        .collect();
                     argnames.insert(0, "this");
                     argnames
                 }

@@ -74,7 +74,7 @@ impl From<i32> for {tyname} {{
     ) {
         self.write("#[derive(Debug, Clone, PartialEq)]\n");
         self.result += "pub(crate) struct ";
-        self.result += tyname.0;
+        self.result += tyname.as_str();
         let ty_contains_eval_ref = self.db.entity_route_variant_contains_eval_ref(base_route);
         if ty_contains_eval_ref {
             self.write("<'eval>")
