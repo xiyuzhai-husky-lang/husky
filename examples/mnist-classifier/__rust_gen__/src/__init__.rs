@@ -205,6 +205,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         lazy_field_linkage!(raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE, line_segment_sketch)
     ),
     (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::raw_contour::RawContour",
+            field_ident: "bounding_box",
+        },
+        lazy_field_linkage!(raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, geom2d::BoundingBox, __registration__::__BOUNDING_BOX_VTABLE, bounding_box)
+    ),
+    (
         __StaticLinkageKey::TypeCall {
             ty: "[]?&mnist_classifier::raw_contour::RawContour"
         },
@@ -663,6 +670,52 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         lazy_field_linkage!(line_segment_sketch::LineSegmentSketch<'eval>, __registration__::__LINE_SEGMENT_SKETCH_VTABLE, geom2d::BoundingBox, __registration__::__BOUNDING_BOX_VTABLE, bounding_box)
     ),
     (
+        __StaticLinkageKey::TypeCall {
+            ty: "mnist_classifier::geom2d::BoundingBox"
+        },
+
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let xrange: geom2d::ClosedRange = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__CLOSED_RANGE_VTABLE);
+                    let yrange: geom2d::ClosedRange = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CLOSED_RANGE_VTABLE);
+                    __Register::new_box::<geom2d::BoundingBox>(geom2d::BoundingBox::__call__(xrange, yrange), &__registration__::__BOUNDING_BOX_VTABLE)
+                }
+                __wrapper
+            },
+            some base geom2d::BoundingBox::__call__ as fn(geom2d::ClosedRange, geom2d::ClosedRange) -> geom2d::BoundingBox
+        ),
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::geom2d::BoundingBox",
+            field_ident: "xrange",
+        },
+        eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            BoxNonCopyable,
+            geom2d::BoundingBox, __registration__::__BOUNDING_BOX_VTABLE, geom2d::ClosedRange, __registration__::__CLOSED_RANGE_VTABLE,
+            xrange
+        )
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::geom2d::BoundingBox",
+            field_ident: "yrange",
+        },
+        eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            BoxNonCopyable,
+            geom2d::BoundingBox, __registration__::__BOUNDING_BOX_VTABLE, geom2d::ClosedRange, __registration__::__CLOSED_RANGE_VTABLE,
+            yrange
+        )
+    ),
+    (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::raw_contour::get_pixel_pair",
         },
@@ -1070,52 +1123,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             Direct,
             geom2d::ClosedRange, __registration__::__CLOSED_RANGE_VTABLE, f32, __registration__::__F32_VTABLE,
             max
-        )
-    ),
-    (
-        __StaticLinkageKey::TypeCall {
-            ty: "mnist_classifier::geom2d::BoundingBox"
-        },
-
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let xrange: geom2d::ClosedRange = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__CLOSED_RANGE_VTABLE);
-                    let yrange: geom2d::ClosedRange = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CLOSED_RANGE_VTABLE);
-                    __Register::new_box::<geom2d::BoundingBox>(geom2d::BoundingBox::__call__(xrange, yrange), &__registration__::__BOUNDING_BOX_VTABLE)
-                }
-                __wrapper
-            },
-            some base geom2d::BoundingBox::__call__ as fn(geom2d::ClosedRange, geom2d::ClosedRange) -> geom2d::BoundingBox
-        ),
-    ),
-    (
-        __StaticLinkageKey::StructField {
-            this_ty: "mnist_classifier::geom2d::BoundingBox",
-            field_ident: "xrange",
-        },
-        eager_field_linkage!(
-            immutable,
-            Intrinsic,
-            BoxNonCopyable,
-            geom2d::BoundingBox, __registration__::__BOUNDING_BOX_VTABLE, geom2d::ClosedRange, __registration__::__CLOSED_RANGE_VTABLE,
-            xrange
-        )
-    ),
-    (
-        __StaticLinkageKey::StructField {
-            this_ty: "mnist_classifier::geom2d::BoundingBox",
-            field_ident: "yrange",
-        },
-        eager_field_linkage!(
-            immutable,
-            Intrinsic,
-            BoxNonCopyable,
-            geom2d::BoundingBox, __registration__::__BOUNDING_BOX_VTABLE, geom2d::ClosedRange, __registration__::__CLOSED_RANGE_VTABLE,
-            yrange
         )
     ),
     (
@@ -2452,6 +2459,38 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some base geom2d::RelativeBoundingBox::ymax as fn(&'static geom2d::RelativeBoundingBox) -> f32
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::ymax" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::BoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__BOUNDING_BOX_VTABLE);
+                    __this.ymax().to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::BoundingBox::ymax as fn(&'static geom2d::BoundingBox) -> f32
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::ymin" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::BoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__BOUNDING_BOX_VTABLE);
+                    __this.ymin().to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::BoundingBox::ymin as fn(&'static geom2d::BoundingBox) -> f32
         ),
     ),
     (
