@@ -1,0 +1,82 @@
+# Husky工程
+
+Husky工程是关于新一代的AI和新一代的编程。
+具体地说，我们正在实现在计算机视觉领域用更强大高效的模型取代深度学习，辅助把事情拓展到其它领域。
+
+## 不同AI方法之间的比较
+
+### 传统特征工程
+
+传统特征工程是先用专家设计特征，然后用向量的形式提供给机器，机器运行传统的机器学习训练程序，得到最终的模型。
+
+优点有：
+
+- 简单
+
+- Todo
+
+缺点有：
+
+- 过于简单
+
+- 只允许向量形式的特征，难以用简单清晰的方式表达几何上准确的特征。
+
+### 专家系统
+
+专家系统是Todo
+
+优点有：
+
+- Todo
+
+缺点有：
+
+- Todo
+
+### 贝叶斯方法
+
+贝叶斯方法是Todo
+
+优点有：
+
+- 可以用简单清晰的方式严谨的表达模型
+
+- Todo
+
+缺点有：
+
+- Todo
+
+### 深度学习
+
+深度学习是TODO
+
+优点有：
+
+- Todo
+
+缺点有
+
+- Todo
+
+### Husky
+
+与以上诸多方法主要不同在于
+
+- 不预先限制推理时计算的形式
+
+- 从最开始就考虑推理时的计算效率
+
+- 尽可能用完全可解释而且高效的程序解决问题
+
+- 利用新一代编程工具实现"Human in the loop"
+
+- 数学上更正确
+
+## Motivation
+
+Observation: The most natural hypothesis class can be statistically simple but computationally hard.
+
+Give examples in MNIST
+
+DL and Traditional machine learning deal with statistical and computational challenge using the same
