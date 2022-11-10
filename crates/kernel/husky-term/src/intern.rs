@@ -66,3 +66,93 @@ impl From<i32> for TermItd {
         TermItd(TermRef::Atom(value.into()))
     }
 }
+
+impl From<i64> for TermItd {
+    fn from(value: i64) -> Self {
+        TermItd(TermRef::Atom(value.into()))
+    }
+}
+
+#[derive(PartialEq, Eq, Clone, Copy)]
+pub struct TermItd(TermRef<'static>);
+
+impl std::ops::Deref for TermItd {
+    type Target = TermRef<'static>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl std::fmt::Debug for TermItd {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:?}", self.0)
+    }
+}
+
+impl std::fmt::Display for TermItd {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.0)
+    }
+}
+
+#[cfg(target_arch = "x86_64")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        unsafe { std::mem::transmute::<Self, [u8; 24]>(*self) }.hash(state)
+    }
+}
+
+#[cfg(target_arch = "x86")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "mips")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "powerpc")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "powerpc64")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "arm")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+#[cfg(target_arch = "aarch64")]
+impl std::hash::Hash for TermItd {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        // HELP
+        todo!()
+    }
+}
+
+impl TermItd {
+    pub(crate) fn borrowed(self) -> TermRef<'static> {
+        self.0
+    }
+}

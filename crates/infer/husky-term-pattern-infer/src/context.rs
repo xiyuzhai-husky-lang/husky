@@ -73,12 +73,10 @@ impl<'a> TermPatternInferContext<'a> {
                             ident: symbol.ident,
                         });
                     ExprTermPatternInferResult {
-                        const_expr: self.err_derived(
-                            DerivedTermPatternInferError::TermPatternInferError(Box::new(
-                                error.clone(),
-                            )),
-                        ),
-                        ty: Err(error),
+                        const_expr: Err(error.clone()),
+                        ty: self.err_derived(DerivedTermPatternInferError::TermPatternInferError(
+                            Box::new(error),
+                        )),
                     }
                 }
                 SymbolKind::ThisValue => todo!(),
@@ -132,7 +130,13 @@ impl<'a> TermPatternInferContext<'a> {
                 })),
                 ty: Ok(self.term_menu.i32().term().into()),
             },
-            RawLiteralData::I64(_) => todo!(),
+            RawLiteralData::I64(i) => ExprTermPatternInferResult {
+                const_expr: Ok(Some(ConstExprPattern {
+                    term: TermPatternItd::Resolved(i.into()),
+                    opt_substitution_ctx: None,
+                })),
+                ty: Ok(self.term_menu.i32().term().into()),
+            },
             RawLiteralData::Float(_) => todo!(),
             RawLiteralData::F32(_) => todo!(),
             RawLiteralData::F64(_) => todo!(),

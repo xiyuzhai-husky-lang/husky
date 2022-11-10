@@ -80,3 +80,9 @@ impl From<i32> for TermLiteralData {
         TermLiteralData::I32(value)
     }
 }
+
+impl From<i64> for TermLiteralData {
+    fn from(value: i64) -> Self {
+        TermLiteralData::I64(value)
+    }
+}
