@@ -2,13 +2,13 @@
 
 ## nonnegative integer
 
-input
+`input`
 
 ```python
 1
 ```
 
-output
+`output`
 
 ```rust
 Literal::Integer(1)

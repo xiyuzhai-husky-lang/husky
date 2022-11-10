@@ -117,3 +117,9 @@ impl From<i32> for TermAtom {
         TermAtom::Literal(value.into())
     }
 }
+
+impl From<i64> for TermAtom {
+    fn from(value: i64) -> Self {
+        TermAtom::Literal(value.into())
+    }
+}
