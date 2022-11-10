@@ -11,6 +11,23 @@ struct RawContour:
     func line_segment_sketch -> LineSegmentSketch:
         LineSegmentSketch::new(this, 1.4)
 
+    proc bounding_box -> BoundingBox:
+        let start_point = points[0]
+        var xmin = start_point.x
+        var xmax = start_point.x
+        var ymin = start_point.y
+        var ymax = start_point.y
+        for i < points.ilen():
+            let point = points[i]
+            xmin = xmin.min(point.x)
+            xmax = xmax.max(point.x)
+            ymin = ymin.min(point.y)
+            ymax = ymax.max(point.y)
+        return BoundingBox(
+            ClosedRange(xmin, xmax), 
+            ClosedRange(ymin, ymax),
+        )
+
     func displacement(start: i32, end: i32) -> Vector2d:
         N = this.points.ilen()
         ct_start = this.points[start%N]
