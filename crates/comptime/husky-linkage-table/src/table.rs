@@ -31,7 +31,9 @@ impl std::fmt::Debug for LinkageTable {
 
 impl LinkageTableInternal {
     fn new(db: &dyn ResolveLinkage, package_dir: &Path) -> Self {
-        let library = get_library(package_dir).unwrap();
+        let Some(library) = get_library(package_dir) else {
+            panic!("package at {package_dir:?} doesn't have a compiled dynamic library")
+        };
         let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = unsafe {
             library
                 .get::<GetLinkagesFromCDylib>(b"get_linkages")
@@ -53,9 +55,17 @@ type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkag
 fn get_library(package_dir: &Path) -> Option<Library> {
     use convert_case::*;
     #[cfg(target_os = "linux")]
+    static DYLIB_PREFIX: &'static str = "lib";
+    #[cfg(target_os = "linux")]
     static DYLIB_EXTENSION: &'static str = "so";
     #[cfg(target_os = "macos")]
+    static DYLIB_PREFIX: &'static str = "lib";
+    #[cfg(target_os = "macos")]
     static DYLIB_EXTENSION: &'static str = "dylib";
+    #[cfg(target_os = "windows")]
+    static DYLIB_PREFIX: &'static str = "";
+    #[cfg(target_os = "windows")]
+    static DYLIB_EXTENSION: &'static str = "dll";
     let package_name = package_dir
         .file_name()
         .unwrap()
@@ -64,7 +74,7 @@ fn get_library(package_dir: &Path) -> Option<Library> {
         .with_boundaries(&[Boundary::Hyphen])
         .to_case(Case::Snake);
     let library_release_path = package_dir.join(format!(
-        "__rust_gen__/target/release/lib{}.{DYLIB_EXTENSION}",
+        "__rust_gen__/target/release/{DYLIB_PREFIX}{}.{DYLIB_EXTENSION}",
         package_name
     ));
     if library_release_path.exists() {

@@ -372,6 +372,43 @@ pub static __LINE_SEGMENT_SKETCH_VTABLE: __RegisterTyVTable = __RegisterTyVTable
     typename_str_hash_u64: 6800712277405564928,
     typename_str: "LineSegmentSketch",
 };
+type BoundingBox = crate::geom2d::BoundingBox;
+
+// BoundingBox
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __bounding_box_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<BoundingBox>::into_raw(Box::new((*(data as *mut BoundingBox)).clone())) as *mut std::ffi::c_void
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __bounding_box_drop(data: *mut std::ffi::c_void) {
+    drop(Box::from_raw(data as *mut BoundingBox))
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __bounding_box_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const BoundingBox) == *(other as *const std::ffi::c_void as *const BoundingBox)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __bounding_box_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<BoundingBox>(&__BOUNDING_BOX_VTABLE) = registers[1].downcast_move(&__BOUNDING_BOX_VTABLE)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub static __BOUNDING_BOX_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+    primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __bounding_box_clone,
+    drop: __bounding_box_drop,
+    eq: __bounding_box_eq,
+    assign: __bounding_box_assign,
+    typename_str_hash_u64: 13416477031724448479,
+    typename_str: "BoundingBox",
+};
 type Direction = crate::raw_contour::Direction;
 
 // Direction
@@ -556,43 +593,6 @@ pub static __CLOSED_RANGE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     assign: __closed_range_assign,
     typename_str_hash_u64: 2752559105620249054,
     typename_str: "ClosedRange",
-};
-type BoundingBox = crate::geom2d::BoundingBox;
-
-// BoundingBox
-#[rustfmt::skip]
-#[no_mangle]
-pub unsafe extern "C" fn __bounding_box_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
-    Box::<BoundingBox>::into_raw(Box::new((*(data as *mut BoundingBox)).clone())) as *mut std::ffi::c_void
-}
-#[rustfmt::skip]
-#[no_mangle]
-pub unsafe extern "C" fn __bounding_box_drop(data: *mut std::ffi::c_void) {
-    drop(Box::from_raw(data as *mut BoundingBox))
-}
-#[rustfmt::skip]
-#[no_mangle]
-pub unsafe extern "C" fn __bounding_box_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
-    *(this as *const std::ffi::c_void as *const BoundingBox) == *(other as *const std::ffi::c_void as *const BoundingBox)
-}
-#[rustfmt::skip]
-#[no_mangle]
-pub unsafe extern "C" fn __bounding_box_assign(registers: *mut __Register) {
-    let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<BoundingBox>(&__BOUNDING_BOX_VTABLE) = registers[1].downcast_move(&__BOUNDING_BOX_VTABLE)
-}
-#[rustfmt::skip]
-#[no_mangle]
-pub static __BOUNDING_BOX_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
-    primitive_value_to_bool: None,
-    primitive_ref_to_bool: None,
-    primitive_value_to_box: None,
-    clone: __bounding_box_clone,
-    drop: __bounding_box_drop,
-    eq: __bounding_box_eq,
-    assign: __bounding_box_assign,
-    typename_str_hash_u64: 13416477031724448479,
-    typename_str: "BoundingBox",
 };
 type RelativeBoundingBox = crate::geom2d::RelativeBoundingBox;
 
