@@ -1,22 +1,34 @@
-# Work in Progress
+# The Husky Programming Language (Work In Progress)
 
-The Husky Programming Language
+The Husky programming language is designed for next generation computing, a vast generalization of current AI and software.
 
-Make programming great again!
+It combines strengths from various languages in different domains, like Rust, C/C++, python, Lean4 so that it serves as an amazing tool with a **uniformed** and much more **ergonomic** developing experience for all the following tasks
 
-:warning: this repo is still under heavy construction: documentation is still serious lacking, number of todos are above 900, and rustc warnings are everywhere!
+- system level programming like Rust and C/C++ and Zig
+- web/native frontend development like JavaScript/TypeScript
+- parser/compiler like Ocaml/Haskell
+- game development
+- formal verification and theorem proving like Coq/Lean
+- machine learning and data science as we know it today like python
+- IDE extension client like JavaScript/TypeScript
+- scientific computing like Mathematica, python, Matlab and Julia
+
+But even more importantly, it is **powerful enough for many difficult tasks which haven't yet been seen as programmable at all**, including
+
+- fully explainable model image classification that is as accurate as deep learning with much better efficiency and robustness, see [vision a programming approach](impress/vision_a_programming_approach.md) for details
+- fully explainable, effective and efficient natural language processing (TBA)
+- fully explainable, effective and efficient reinforcement learning (TBA)
+- ...
+
+It achieves this "seemingly ambitious" goal via the followings:
+
+- a powerful type system. The type system is powerful enough to express both system-level details and mathematical rigor (inspired mostly by Rust and Lean4).
+- ascension mechanism for human in-the-loop. It allows one to effortlessly switch back and forth between human programming(software engineering) and machine automation(AI). Software engineering and AI is seen as special cases of a general process that combines human intelligence, data, and machine computing into making a useful program. For details, see [todo](impress/ascension.md)
+- first class support
 
 ## Zulip
 
-https://husky-lang.zulipchat.com
-
-## Introduction
-
-Husky is **a programming language designed for many difficult tasks which haven't yet been seen as programmable at all**. For example, we aims towards using Husky for writing a strongly explainable and efficient classifier for image recognition tasks at any scale. Husky can actually do well in traditional programming domains, but the current focus is on exploring the boundary of programming.
-
-The major advancement is the language frontend. In a long time, Husky will rely on Rust/Zig/C/Cpp for compilation so that we don't need to spend too much time in dealing with IRGen.
-
-For a quick review of core ideas in computer vision, see [vision-a programming approach](impress/vision_a_programming_approach.md).
+<https://husky-lang.zulipchat.com>
 
 ## Get Started
 
@@ -53,23 +65,7 @@ make mnist-compiled
 ```
 
 then in browser open `localhost:8080`.
-
-## Motivation
-
-### A Bright Future of AI
-
-The core belief is the existence of a strongly explainable program (as explainable as the software we wrote) for a range of AI problems, including computer vision, natural language processing. And Husky is designed to be the language to write that program.
-
-Now "explainability" is important for two reasons:
-
-- allows people to collaborate
-- allows task specific optimization
-
-In fact, a truly explainable AI can be compared with software developed by humans:
-
-datasets -- tests
-training -- development
-inference -- runtime
+## Showcase
 
 ## Designs
 
@@ -126,82 +122,11 @@ Usually devs are designed for procedural languages, because functional ones don'
 
 TODO
 
-## About Development
+## Resources
 
-This project was created by and is currently maintained solo by Xiyu Zhai, a Phd in MIT EECS, whose primary background is actually in pure math and has just programmed intensively for the last two years. So please help, smart people!
-
-It was created as a language to implement certain ideas for efficient image classification, which is hard to do in existing languages. Originally it was written in C++, and had gone through many versions that were influenced heavily by C++. However, the lacking of clean pattern matching (like Rust enum) and memory safety and many other things matching make development hard. Then, a Rust version was created from scratch and despite of the learning curve, the development is quite smooth and the design of language is becoming very similar to Rust. Still, value binding is syntactically similar to that of C++ because of succinctness, whereas semantically safety is still guaranteed, just like in Rust.
-
-## Khala Links
-
-### Talks
-
-#### language talks
-
-"Outperforming Imperative with Pure Functional Languages" by Richard Feldman <https://www.youtube.com/watch?v=vzfy4EKwG_Y/>
-
-### Repositories
-
-#### language repos
-
-Interesting new languages
-
-##### system-level
-
-Zig <https://github.com/ziglang/zig.git/>
-
-##### theorem proving
-
-Lean 4 <https://github.com/leanprover/lean4/>
-
-Xena Project <https://github.com/ImperialCollegeLondon/formalising-mathematics/>
-
-Metamath Zero <https://github.com/digama0/mm0#metamath-zero/>
-
-##### functional
-
-Roc <https://github.com/roc-lang/roc/>
-
-##### computer graphics
-
-Taichi <https://github.com/taichi-dev/taichi/>
-
-### ml frameworks
-
-Google Jax <https://github.com/google/jax/>
-
-Torch Quantum <https://github.com/mit-han-lab/torchquantum/>
-
-## Zulip
-
-Rust <https://rust-lang.zulipchat.com/>
-
-Lean <https://leanprover.zulipchat.com/>
-
-## Youtube Channels
-
-### programming
-
-Rust <https://www.youtube.com/c/RustVideos/>
-
-Niko Matsakis <https://www.youtube.com/user/nikomatsakis/>
-
-Healthy Software Developer <https://www.youtube.com/c/JaymeEdwardsMedia/>
-
-Jon Gjengset <https://www.youtube.com/c/JonGjengset/>
-
-ThePrimeagen <https://www.youtube.com/c/ThePrimeagen/>
-
-### huskies
-
-Gone to the Snow Dogs <https://www.youtube.com/gttsd/>
-
-Maya Husky <https://www.youtube.com/c/MayaHusky/>
-
-K'eyush The Stunt Dog <https://www.youtube.com/c/KeyushTheStuntDog/>
-
-Gohan The Husky <https://www.youtube.com/c/GohanTheHusky/>
-
-Skaya Siberian <https://www.youtube.com/c/SkayaSiberian/>
-
-Sixty Formula <https://www.youtube.com/c/SixtyFormula/>
+- the Husky Book: TODO
+- the Husky Development Book: TODO
+- the Husky Machine Learning Book: TODO
+- the Husky Frontend Book: TODO
+- the Husky Theorem Proving Book: TODO
+- the Husky Formal Verification Book: TODO
