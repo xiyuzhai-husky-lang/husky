@@ -29,6 +29,8 @@ It achieves this "seemingly ambitious" goal via the followings:
 - a truly powerful type system, inspired mostly by Rust, C++, Haskell, Ocaml and Lean4. The type system is powerful enough to express both system-level details and mathematical rigor.
 - ascension mechanism for human in-the-loop, inspired by python deep learning frameworks and scientific computing languages including Mathematica, Matlab, Julia, etc. It allows one to effortlessly switch back and forth between human programming(software engineering) and machine automation(AI). Software engineering and AI is seen as special cases of a general process that combines human intelligence, data, and machine computing into making a useful program. For details, see [todo](impress/ascension.md)
 - first class support for debugging, visualization and human computer interaction, inspired by JSX and TSX. This is critical for many things (todo). For details see [todo](impress/notebook.md)
+- agile compilation and evalution
+- support multiparadigm in a clean way. The high level code is always functional, procedural ... TODO
 - commitment to a good ecosystem, inspired by Cargo. Corgi/Documentation/Rigor.Security.
 
 ## Development History
