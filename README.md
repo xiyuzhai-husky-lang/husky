@@ -4,6 +4,8 @@
 
 Husky is a programming language designed for **next generation computing**, which vastly generalizes nowadays AI and software, which **combines good designs from various current languages and promises killer applications beyond people's imagination**.
 
+## New Sheriff in Town
+
 It serves as an amazing tool with a **uniformed** and much more **ergonomic** developing experience for all the following tasks
 
 - system level programming like Rust and C/C++ and Zig
@@ -28,13 +30,6 @@ It achieves this "seemingly ambitious" goal via the followings:
 - ascension mechanism for human in-the-loop, inspired by python deep learning frameworks and scientific computing languages including Mathematica, Matlab, Julia, etc. It allows one to effortlessly switch back and forth between human programming(software engineering) and machine automation(AI). Software engineering and AI is seen as special cases of a general process that combines human intelligence, data, and machine computing into making a useful program. For details, see [todo](impress/ascension.md)
 - first class support for debugging, visualization and human computer interaction, inspired by JSX and TSX. This is critical for many things (todo). For details see [todo](impress/notebook.md)
 - commitment to a good ecosystem, inspired by Cargo. Corgi/Documentation/Rigor.Security.
-
-## Important Differences
-
-As a new sheriff in the town, Husky is different mostly distinctively in the following aspects
-
-- todo
-- todo
 
 ## Development History
 
