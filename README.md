@@ -166,3 +166,14 @@ TODO
 - the Husky Frontend Book: TODO
 - the Husky Theorem Proving Book: TODO
 - the Husky Formal Verification Book: TODO
+
+## Source Code Organization
+
+The Husky source code is organized as follows:
+
+| Directory         | Contents                                                           |
+| -                 | -                                                                  |
+| `crates/`         | source code for language implementation in Rust                    |
+| `library/`        | source code for official library packages                          |
+| `Specs/`          | source code for language specification in Lean4                    |
+| `docs/`           | documentation                                                      |
