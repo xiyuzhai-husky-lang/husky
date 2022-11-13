@@ -9,7 +9,7 @@ use husky_entity_syntax::EntitySource;
 pub use key::*;
 pub use table::*;
 
-use husky_check_utils::*;
+
 use husky_entity_route::{EntityRouteItd, SpatialArgument};
 use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
 use husky_print_utils::p;

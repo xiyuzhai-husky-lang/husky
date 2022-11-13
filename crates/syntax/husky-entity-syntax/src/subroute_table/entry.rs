@@ -20,7 +20,7 @@ impl SubrouteEntry {
     pub fn from_token_group(
         db: &dyn EntitySyntaxSalsaQueryGroup,
         file: FileItd,
-        parent_entity_kind: EntityKind,
+        _parent_entity_kind: EntityKind,
         token_group_index: usize,
         token_group: &[Token],
     ) -> EntitySyntaxResult<Option<SubrouteEntry>> {
@@ -115,7 +115,7 @@ impl SubrouteEntry {
     pub fn submodule(
         db: &dyn EntitySyntaxSalsaQueryGroup,
         file: FileItd,
-        token_group_index: usize,
+        _token_group_index: usize,
         token_group: &[Token],
     ) -> EntitySyntaxResult<Option<SubrouteEntry>> {
         let ident = match token_group[1].kind {

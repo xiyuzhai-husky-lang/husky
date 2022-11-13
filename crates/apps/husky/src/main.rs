@@ -32,6 +32,6 @@ enum HuskyCommands {
 }
 
 fn main() {
-    let cli = HuskyCli::parse();
+    let _cli = HuskyCli::parse();
     todo!()
 }

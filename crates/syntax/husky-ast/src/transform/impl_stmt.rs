@@ -1,7 +1,7 @@
 mod impl_match;
 
 use crate::{stmt::*, *};
-use husky_atom::context::{Symbol, SymbolKind};
+use husky_atom::context::{Symbol};
 use husky_init_syntax::InitKind;
 use husky_text::{TextRange, TextRanged};
 use husky_token::*;
@@ -256,7 +256,7 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    fn parse_for_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
+    fn parse_for_loop(&mut self, _token_group: &[Token]) -> AstResult<RawStmtVariant> {
         todo!()
         // expect_block_head!(token_group);
         // let expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
@@ -382,7 +382,7 @@ impl<'a> AstTransformer<'a> {
         // }
     }
 
-    fn parse_forext_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
+    fn parse_forext_loop(&mut self, _token_group: &[Token]) -> AstResult<RawStmtVariant> {
         todo!()
         // expect_block_head!(token_group);
         // let idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;

@@ -120,13 +120,13 @@ impl Internable for Word {
         WordRef(&self.0)
     }
 
-    fn new_itd(&'static self, id: usize) -> Self::Interned {
+    fn new_itd(&'static self, _id: usize) -> Self::Interned {
         WordItd::Identifier(Identifier::Custom(CustomIdentifier(
             InternedRefWrapper::new(&self.0),
         )))
     }
 
-    fn try_direct_from_ref<'a>(r: Self::Ref<'a>) -> Option<Self::Interned> {
+    fn try_direct_from_ref<'a>(_r: Self::Ref<'a>) -> Option<Self::Interned> {
         None
     }
 

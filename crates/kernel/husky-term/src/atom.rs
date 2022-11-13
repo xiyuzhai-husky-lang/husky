@@ -4,7 +4,7 @@ mod literal;
 mod universe;
 mod variable;
 
-use std::ops::Deref;
+
 
 pub use category::*;
 pub use entity::*;
@@ -44,7 +44,7 @@ impl std::fmt::Display for TermAtom {
                 ref variable_variant,
             } => variable_variant.fmt(f),
             TermAtom::Entity { path } => path.fmt(f),
-            TermAtom::Category(category_kind) => todo!(),
+            TermAtom::Category(_category_kind) => todo!(),
             TermAtom::Universe(_) => todo!(),
         }
     }

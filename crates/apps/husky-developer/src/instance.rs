@@ -1,5 +1,5 @@
-use husky_compiler::CompilerInstance;
-use relative_path::RelativePathBuf;
+
+
 
 use super::*;
 
@@ -10,9 +10,9 @@ pub(crate) struct HuskyDebuggerInstance {
 
 impl HuskyDebuggerInstance {
     pub fn new(config: HuskyDebuggerConfig) -> Self {
-        let package_dir: &Path = &config.package_dir;
-        let mut devtime = Debugtime::new(config.runtime());
-        if let Some(specific_sample_id) = config.opt_sample_id {
+        let _package_dir: &Path = &config.package_dir;
+        let devtime = Debugtime::new(config.runtime());
+        if let Some(_specific_sample_id) = config.opt_sample_id {
             todo!()
             // devtime
             //     .set_restriction(Restriction::new_specific(specific_sample_id))
@@ -41,7 +41,7 @@ impl HuskyDebuggerInstance {
         }
     }
 
-    async fn has_root_error(&self, specific_sample_id: SampleId) -> bool {
+    async fn has_root_error(&self, _specific_sample_id: SampleId) -> bool {
         todo!()
         // let mut error_flag = false;
         // let internal = &mut self.internal.lock().unwrap();

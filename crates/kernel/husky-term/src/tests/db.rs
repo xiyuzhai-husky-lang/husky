@@ -27,7 +27,7 @@ impl TermTestsDb {
     }
 
     fn init(mut self) -> Self {
-        use TyFamily::*;
+        
         let menu = self.term_menu();
         self.ty_decls.extend(menu.primitive_ty_decls());
         self
@@ -55,7 +55,7 @@ impl InternWord for TermTestsDb {
 }
 
 impl AskDecl for TermTestsDb {
-    fn ask_namespace_decl(&self, namespace: TermNamespace) -> TermResultArc<NamespaceDecl> {
+    fn ask_namespace_decl(&self, _namespace: TermNamespace) -> TermResultArc<NamespaceDecl> {
         todo!()
     }
 
@@ -63,7 +63,7 @@ impl AskDecl for TermTestsDb {
         Ok(self.ty_decls[&ty].clone())
     }
 
-    fn ask_decl(&self, entity_path: EntityPathItd) -> TermResultArc<Decl> {
+    fn ask_decl(&self, _entity_path: EntityPathItd) -> TermResultArc<Decl> {
         todo!()
     }
 }

@@ -16,7 +16,7 @@ impl<'a> AstTransformer<'a> {
         if token_group.len() < 3 {
             return err!("expect `case <pattern>:`", token_group.text_range());
         }
-        let (pattern, other_atoms) = self
+        let (pattern, _other_atoms) = self
             .parse_atoms(&token_group[1..(token_group.len() - 1)], |mut parser| {
                 parser.parse_pattern()
             })?;

@@ -53,8 +53,8 @@ impl<'a> LinkageCollector<'a> {
 }
 
 pub(crate) fn entity_immediate_link_dependees(
-    db: &dyn RustCodeGenQueryGroup,
-    entity_route: EntityRouteItd,
+    _db: &dyn RustCodeGenQueryGroup,
+    _entity_route: EntityRouteItd,
 ) -> Arc<VecSet<EntityRouteItd>> {
     todo!()
     // if entity_route.spatial_arguments.len() > 0 {

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_print_utils::*;
+
 
 macro_rules! informative_assert_eq {
     ($this: expr, $left_key: expr, $left: expr, $right_key: expr, $right: expr) => {
@@ -19,7 +19,7 @@ macro_rules! informative_assert_eq {
 }
 
 impl EntityDefn {
-    pub(crate) fn verify(&self, db: &dyn EntityDefnQueryGroup) {
+    pub(crate) fn verify(&self, _db: &dyn EntityDefnQueryGroup) {
         todo!()
         // match self.variant {
         //     EntityDefnVariant::Ty { .. } => {

@@ -35,9 +35,9 @@ use husky_entity_route::{EntityRoute, EntityRouteVariant};
 use husky_entity_route::{EntityRouteItd, RangedEntityRoute};
 use husky_entity_syntax::EntitySource;
 use husky_expr_syntax::*;
-use husky_expr_syntax::*;
+
 use husky_file::FileItd;
-use husky_lazy_semantics::parse_lazy_stmts;
+
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
 use husky_liason_semantics::*;
 use husky_print_utils::{msg_once, p};
@@ -437,7 +437,7 @@ impl EntityDefnVariant {
                 EntityDefnVariant::ty_field_from_static(symbol_context, static_defn)
             }
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
-            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: _ } => todo!(),
             EntityStaticDefnVariant::EnumVariant => EntityDefnVariant::EnumVariant {
                 enum_variant_defn_variant: EnumVariantDefnVariant::Constant,
             },
@@ -446,8 +446,8 @@ impl EntityDefnVariant {
 }
 
 pub(crate) fn main_defn(
-    this: &dyn EntityDefnQueryGroup,
-    target_entrance: husky_file::FileItd,
+    _this: &dyn EntityDefnQueryGroup,
+    _target_entrance: husky_file::FileItd,
 ) -> SemanticResultArc<MainDefn> {
     todo!()
     // let ast_text = this.ast_text(target_entrance).unwrap();
@@ -568,7 +568,7 @@ pub(crate) fn entity_defn(
                         file,
                     )?,
                 ),
-                AstVariant::Submodule { ident, source_file } => todo!(),
+                AstVariant::Submodule { ident: _, source_file: _ } => todo!(),
                 AstVariant::Visual => todo!(),
             };
             Ok(EntityDefn::new(

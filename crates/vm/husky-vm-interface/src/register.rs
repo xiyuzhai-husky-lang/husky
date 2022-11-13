@@ -384,7 +384,7 @@ impl<'eval> __Register<'eval> {
         t
     }
 
-    pub unsafe fn downcast_temp<T>(&mut self, target_ty_vtable: &__RegisterTyVTable) -> T {
+    pub unsafe fn downcast_temp<T>(&mut self, _target_ty_vtable: &__RegisterTyVTable) -> T {
         todo!()
     }
 
@@ -479,7 +479,7 @@ impl<'eval> __Register<'eval> {
         })
     }
 
-    pub unsafe fn downcast_temp_mut<T>(&mut self, target_ty_vtable: &__RegisterTyVTable) -> &mut T {
+    pub unsafe fn downcast_temp_mut<T>(&mut self, _target_ty_vtable: &__RegisterTyVTable) -> &mut T {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => &mut *(&mut self.data as *mut _ as *mut T),
             __RegisterDataKind::Box => todo!(),

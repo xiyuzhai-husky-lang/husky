@@ -1,18 +1,18 @@
-use husky_entity_kind::FieldKind;
-use husky_expr_syntax::*;
-use husky_opn_syntax::RawOpnVariant;
-use husky_print_utils::{ep, p};
-use husky_term_infer::TermInferDb;
+
+
+
+
+
 use husky_text::FilePosition;
 use lsp_types::{
-    CompletionItem, CompletionItemKind, CompletionItemLabelDetails, CompletionResponse,
+    CompletionResponse,
 };
 
 pub trait HuskyCompletionQuery {
     fn completion(
         &self,
-        fpos: FilePosition,
-        completion_trigger_character: Option<String>,
+        _fpos: FilePosition,
+        _completion_trigger_character: Option<String>,
     ) -> Option<CompletionResponse> {
         todo!()
         // let term_sheet = self.term_sheet(fpos.file()).expect("todo");

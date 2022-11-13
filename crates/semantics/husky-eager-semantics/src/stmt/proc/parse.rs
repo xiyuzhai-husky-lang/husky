@@ -1,9 +1,9 @@
 use std::iter::Peekable;
 
-use husky_entity_path::InternEntityPath;
+
 use husky_expr_syntax::RawExprIdx;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
-use husky_word::InternWord;
+
 
 use super::{parser::EagerParser, *};
 use crate::*;
@@ -138,7 +138,7 @@ impl<'a> EagerParser<'a> {
                     idx: 0,
                 }))
             }
-            RawConditionBranchKind::Elif { condition } => todo!(),
+            RawConditionBranchKind::Elif { condition: _ } => todo!(),
             RawConditionBranchKind::Else => todo!(),
         }
         while let Some(item) = iter.peek() {
@@ -267,10 +267,10 @@ impl<'a> EagerParser<'a> {
 
     fn parse_proc_match(
         &mut self,
-        stmt: &RawStmt,
-        children: AstIter,
-        match_expr: RawExprIdx,
-        match_contract: MatchLiason,
+        _stmt: &RawStmt,
+        _children: AstIter,
+        _match_expr: RawExprIdx,
+        _match_contract: MatchLiason,
     ) -> SemanticResult<ProcStmtVariant> {
         todo!()
         // let match_expr = self.parse_eager_expr(match_expr, None)?;

@@ -68,9 +68,9 @@ fn collect_module_ast_errors(
 }
 
 fn collect_module_infer_ty_errors(
-    db: &dyn DiagnosticSalsaQuery,
-    file: FileItd,
-    diagnostics: &mut Vec<Diagnostic>,
+    _db: &dyn DiagnosticSalsaQuery,
+    _file: FileItd,
+    _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
     // let ty_sheet = db.entity_route_sheet(file).unwrap();
@@ -80,9 +80,9 @@ fn collect_module_infer_ty_errors(
 }
 
 fn collect_module_infer_contract_errors(
-    db: &dyn DiagnosticSalsaQuery,
-    file: FileItd,
-    diagnostics: &mut Vec<Diagnostic>,
+    _db: &dyn DiagnosticSalsaQuery,
+    _file: FileItd,
+    _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
     // let contract_sheet = db.contract_sheet(file).unwrap();
@@ -92,9 +92,9 @@ fn collect_module_infer_contract_errors(
 }
 
 fn collect_module_infer_qualified_ty_errors(
-    db: &dyn DiagnosticSalsaQuery,
-    file: FileItd,
-    diagnostics: &mut Vec<Diagnostic>,
+    _db: &dyn DiagnosticSalsaQuery,
+    _file: FileItd,
+    _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
     // let qualified_ty_sheet = db.qualified_ty_sheet(file).unwrap();

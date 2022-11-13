@@ -11,14 +11,14 @@ type b64 = u64;
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __void_primitive_value_to_bool(data: __RegisterData) -> bool {
-    let data = data.as_void;
+    let _data = data.as_void;
     false
 }
 
 #[rustfmt::skip]
 #[no_mangle]
 pub unsafe extern "C" fn __void_primitive_ref_to_bool(data_ptr: *mut std::ffi::c_void) -> bool {
-    let data = unsafe { *(data_ptr as *const void) };
+    let _data = unsafe { *(data_ptr as *const void) };
     false
 }
 

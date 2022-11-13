@@ -12,7 +12,7 @@ pub struct XmlValue {
 }
 
 impl Serialize for XmlValue {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    fn serialize<S>(&self, _serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
     {
@@ -56,7 +56,7 @@ impl Into<VisualData> for XmlValue {
         match self.tag_kind.as_str() {
             "Contour" => {
                 should_eq!(data.len(), 1);
-                let (ident, value) = data.pop().unwrap();
+                let (_ident, value) = data.pop().unwrap();
                 let points: Vec<Point2dData> = serde_json::from_value(value).unwrap();
                 VisualData::Contour { points }
             }

@@ -28,7 +28,7 @@ pub enum SpatialParameterVariant {
 }
 
 impl SpatialParameter {
-    pub fn from_static(db: &dyn EntitySyntaxQueryGroup, _: &StaticSpatialParameter) -> Self {
+    pub fn from_static(_db: &dyn EntitySyntaxQueryGroup, _: &StaticSpatialParameter) -> Self {
         todo!()
     }
 }

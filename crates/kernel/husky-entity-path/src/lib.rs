@@ -6,7 +6,7 @@ mod menu;
 pub use db::*;
 pub use menu::*;
 
-use husky_word::{Identifier, RootBuiltinIdentifier};
+use husky_word::{Identifier};
 pub use intern::*;
 use optional::Optioned;
 

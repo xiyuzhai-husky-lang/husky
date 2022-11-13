@@ -1,7 +1,7 @@
 use crate::*;
 use interner::{Internable, Interner};
-use optional::{Noned, OptEq};
-use std::borrow::Borrow;
+
+
 
 pub type TermInterner = Interner<Term>;
 
@@ -21,7 +21,7 @@ impl Internable for Term {
         }
     }
 
-    fn itd_to_borrowed(itd: Self::Interned) -> Self::Ref<'static> {
+    fn itd_to_borrowed(_itd: Self::Interned) -> Self::Ref<'static> {
         todo!()
     }
 
@@ -36,15 +36,15 @@ impl Internable for Term {
         }
     }
 
-    fn new_itd(&'static self, id: usize) -> Self::Interned {
+    fn new_itd(&'static self, _id: usize) -> Self::Interned {
         TermItd(self.as_ref())
     }
 
-    fn try_direct_from_ref<'a>(r: Self::Ref<'a>) -> Option<Self::Interned> {
+    fn try_direct_from_ref<'a>(_r: Self::Ref<'a>) -> Option<Self::Interned> {
         todo!()
     }
 
-    unsafe fn cast_to_static_ref<'a>(r: Self::Ref<'a>) -> Self::Ref<'static> {
+    unsafe fn cast_to_static_ref<'a>(_r: Self::Ref<'a>) -> Self::Ref<'static> {
         todo!()
     }
 }

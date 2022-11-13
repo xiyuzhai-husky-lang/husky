@@ -1,13 +1,13 @@
 use crate::*;
-use husky_expr_syntax::*;
-use husky_print_utils::ep;
-use husky_term_infer::TermInferDb;
-use husky_text::{FilePosition, FileRange, RangeInfo, TextRanged};
-use lsp_types::{Hover, HoverContents, MarkupContent, MarkupKind};
-use serde::{Deserialize, Serialize};
+
+
+
+use husky_text::{FilePosition, FileRange, RangeInfo};
+
+
 
 pub trait HoverDb {
-    fn opt_hover_result(&self, frange: FileRange) -> Option<HoverResult> {
+    fn opt_hover_result(&self, _frange: FileRange) -> Option<HoverResult> {
         todo!()
         // let entity_route_sheet = self.term_sheet(frange.file()).expect("todo");
         // let (idx, expr) = entity_route_sheet
@@ -40,7 +40,7 @@ pub trait HoverDb {
 
     fn goto_implementation(
         &self,
-        position: FilePosition,
+        _position: FilePosition,
     ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
         unimplemented!()
     }

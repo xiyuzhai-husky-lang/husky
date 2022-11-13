@@ -1,11 +1,11 @@
 use std::sync::Arc;
 
 use crate::*;
-use husky_entity_kind::TyKind;
-use husky_entity_route::{EntityKind, EntityRouteItd, RangedEntityRoute};
+
+use husky_entity_route::{EntityRouteItd};
 use husky_expr_syntax::*;
 use husky_file::FileItd;
-use husky_print_utils::p;
+
 use husky_term_infer::TermInferDb;
 use husky_text::RangedCustomIdentifier;
 use husky_word::RootBuiltinIdentifier;
@@ -22,8 +22,8 @@ pub trait LazyExprParser<'a> {
 
     fn parse_lazy_expr(
         &mut self,
-        idx: RawExprIdx,
-        opt_expectation: Option<EntityRouteItd>,
+        _idx: RawExprIdx,
+        _opt_expectation: Option<EntityRouteItd>,
     ) -> SemanticResult<Arc<LazyExpr>> {
         todo!()
         // let raw_expr = &self.arena()[idx];
@@ -333,9 +333,9 @@ pub trait LazyExprParser<'a> {
 
     fn parse_field_access(
         &mut self,
-        field_ident: RangedCustomIdentifier,
-        idx: RawExprIdx,
-        raw_expr_idx: RawExprIdx,
+        _field_ident: RangedCustomIdentifier,
+        _idx: RawExprIdx,
+        _raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
         todo!()
         // let this = self.parse_lazy_expr(idx, None)?;
@@ -361,7 +361,7 @@ pub trait LazyExprParser<'a> {
         })
     }
 
-    fn parse_function_call(&mut self, opds: &RawExprRange) -> SemanticResult<LazyExprVariant> {
+    fn parse_function_call(&mut self, _opds: &RawExprRange) -> SemanticResult<LazyExprVariant> {
         todo!()
         // let call = &self.arena()[opds.start];
         // match call.variant {
@@ -438,10 +438,10 @@ pub trait LazyExprParser<'a> {
 
     fn parse_method_call(
         &mut self,
-        idx: RawExprIdx,
-        this_idx: RawExprIdx,
-        inputs: RawExprRange,
-        method_ident: RangedCustomIdentifier,
+        _idx: RawExprIdx,
+        _this_idx: RawExprIdx,
+        _inputs: RawExprRange,
+        _method_ident: RangedCustomIdentifier,
     ) -> SemanticResult<LazyExprVariant> {
         todo!()
         // let this = self.parse_lazy_expr(this_idx, None)?;
@@ -471,8 +471,8 @@ pub trait LazyExprParser<'a> {
 
     fn parse_index(
         &mut self,
-        idx: RawExprIdx,
-        opds: RawExprRange,
+        _idx: RawExprIdx,
+        _opds: RawExprRange,
     ) -> SemanticResult<LazyExprVariant> {
         todo!()
         // Ok(LazyExprVariant::Opn {

@@ -1,9 +1,9 @@
 mod impl_resolved_linkage;
 mod impl_ty_linkage_entries;
 
-use husky_entity_route::{CanonicalQualifier, CanonicalTyKind};
+
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant};
-use husky_layout::RegMemoryKind;
+
 use husky_word::RootBuiltinIdentifier;
 
 use super::*;
@@ -36,7 +36,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         );
     }
 
-    fn gen_linkage_entry(&mut self, entity_route: EntityRouteItd, entity_defn: &EntityDefn) {
+    fn gen_linkage_entry(&mut self, _entity_route: EntityRouteItd, _entity_defn: &EntityDefn) {
         todo!()
         //     if self.db.is_defn_static(entity_route)
         //         && !self.db.contains_spatial_parameters(entity_route)
@@ -123,7 +123,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //     }
     }
 
-    fn gen_method_linkage_entry(&mut self, entity_route: EntityRouteItd) {
+    fn gen_method_linkage_entry(&mut self, _entity_route: EntityRouteItd) {
         todo!()
         //     self.write(
         //         r#"

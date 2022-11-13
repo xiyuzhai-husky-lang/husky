@@ -42,7 +42,7 @@ impl<'a> AtomContext<'a> for AtomContextStandalone<'a> {
 
     fn rollback(&mut self, _state: AtomContextState) {}
 
-    fn push_symbol(&mut self, new_symbol: Symbol) {
+    fn push_symbol(&mut self, _new_symbol: Symbol) {
         todo!()
     }
 

@@ -24,7 +24,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
             }
             match IdentDict::from_vec(spatial_parameters) {
                 Ok(spatial_parameters) => Ok(spatial_parameters),
-                Err(repeat) => todo!(),
+                Err(_repeat) => todo!(),
             }
         } else {
             Ok(Default::default())

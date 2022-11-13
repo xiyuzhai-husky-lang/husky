@@ -149,7 +149,7 @@ where
         }
     }
 
-    pub fn apply_set_elem(&mut self, index: usize, elem: E) -> TrackableApplyChangeM<Self, ()> {
+    pub fn apply_set_elem(&mut self, _index: usize, _elem: E) -> TrackableApplyChangeM<Self, ()> {
         assert!(self.synced());
         todo!()
     }

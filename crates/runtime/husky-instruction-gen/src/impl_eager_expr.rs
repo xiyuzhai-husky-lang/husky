@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_kind::{FieldKind, TyKind};
+
 use husky_linkage_table::ResolveLinkage;
 use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
@@ -9,7 +9,7 @@ use husky_vm::{
 };
 use husky_vm_primitive_opr_linkage::{
     resolve_primitive_assign_binary_opr_linkage, resolve_primitive_prefix_opr_linkage,
-    resolve_primitive_pure_binary_opr_linkage, resolve_primitive_suffix_opr_linkage,
+    resolve_primitive_pure_binary_opr_linkage,
 };
 use map_collect::MapCollect;
 
@@ -400,10 +400,10 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_suffix(
         &mut self,
-        opr: &EagerSuffixOpr,
-        opds: &[Arc<EagerExpr>],
-        expr: &Arc<EagerExpr>,
-        discard: bool,
+        _opr: &EagerSuffixOpr,
+        _opds: &[Arc<EagerExpr>],
+        _expr: &Arc<EagerExpr>,
+        _discard: bool,
     ) {
         todo!()
         // let this_ty = opds[0].intrinsic_ty();
@@ -579,7 +579,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                         PureBinaryOpr::Sub => todo!(),
                     },
                     BinaryOpr::Assign(opt_binary_opr) => {
-                        if let Some(binary_opr) = opt_binary_opr {
+                        if let Some(_binary_opr) = opt_binary_opr {
                             todo!()
                         } else {
                             InstructionVariant::CallRoutine {

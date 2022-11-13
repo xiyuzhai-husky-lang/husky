@@ -14,7 +14,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.gen_member_access_linkages(members, ty);
     }
 
-    fn gen_type_call_linkage(&mut self, entity_route: EntityRouteItd) {
+    fn gen_type_call_linkage(&mut self, _entity_route: EntityRouteItd) {
         todo!()
         //         self.write("\n    (\n");
         //         self.write(&format!(
@@ -124,7 +124,7 @@ impl<'a> RustCodeGenerator<'a> {
                 DefinitionRepr::LazyExpr { .. } => (),
                 DefinitionRepr::LazyBlock { .. } => (),
                 DefinitionRepr::FuncBlock {
-                    route, return_ty, ..
+                     return_ty, ..
                 } => {
                     let field_ident = member.ident.as_str();
                     self.write(&format!(
@@ -154,7 +154,7 @@ impl<'a> RustCodeGenerator<'a> {
                     );
                 }
                 DefinitionRepr::ProcBlock {
-                    route, return_ty, ..
+                     return_ty, ..
                 } => {
                     let field_ident = member.ident.as_str();
                     self.write(&format!(

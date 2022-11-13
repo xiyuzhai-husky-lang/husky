@@ -204,8 +204,8 @@ impl EntityDefn {
             EntityDefnVariant::Trait { .. } => todo!(),
             EntityDefnVariant::Function { ref source, .. } => match source {
                 CallFormSource::Func { stmts } => extract_func_stmts_dependees(stmts, &mut builder),
-                CallFormSource::Proc { stmts } => todo!(),
-                CallFormSource::Lazy { stmts } => todo!(),
+                CallFormSource::Proc { stmts: _ } => todo!(),
+                CallFormSource::Lazy { stmts: _ } => todo!(),
                 CallFormSource::Static(_) => (),
             },
             EntityDefnVariant::TargetInput { .. } => todo!(),
@@ -230,7 +230,7 @@ impl EntityDefn {
         ) {
             match defn_repr {
                 DefinitionRepr::LazyExpr { ref expr } => extract_lazy_expr_dependees(expr, builder),
-                DefinitionRepr::LazyBlock { stmts, ty } => {
+                DefinitionRepr::LazyBlock { stmts, ty: _ } => {
                     extract_lazy_stmts_dependees(stmts, builder)
                 }
                 DefinitionRepr::FuncBlock { stmts, route, .. } => {
@@ -261,7 +261,7 @@ impl EntityDefn {
                     LazyStmtVariant::ReturnUnveil { ref result, .. } => {
                         extract_lazy_expr_dependees(result, builder)
                     }
-                    LazyStmtVariant::ConditionFlow { ref branches, ty } => {
+                    LazyStmtVariant::ConditionFlow { ref branches, ty: _ } => {
                         for branch in branches {
                             match branch.variant {
                                 LazyConditionBranchVariant::If { ref condition } => {
@@ -456,7 +456,7 @@ impl EntityDefn {
 
         fn extract_enum_variant_dependees(
             variant_defn: &EntityDefn,
-            builder: &mut DependeeMapBuilder,
+            _builder: &mut DependeeMapBuilder,
         ) {
             match variant_defn.variant {
                 EntityDefnVariant::EnumVariant {
@@ -469,7 +469,7 @@ impl EntityDefn {
             }
         }
 
-        fn extract_member_dependees(member_defn: &EntityDefn, builder: &mut DependeeMapBuilder) {
+        fn extract_member_dependees(member_defn: &EntityDefn, _builder: &mut DependeeMapBuilder) {
             match member_defn.variant {
                 EntityDefnVariant::Module { .. } => unreachable!(),
                 EntityDefnVariant::Feature { .. } => todo!(),
@@ -480,7 +480,7 @@ impl EntityDefn {
                 EntityDefnVariant::Builtin => todo!(),
                 EntityDefnVariant::TyField { .. } => todo!(),
                 EntityDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
-                EntityDefnVariant::TraitAssociatedConstSizeImpl { value } => todo!(),
+                EntityDefnVariant::TraitAssociatedConstSizeImpl { value: _ } => todo!(),
                 EntityDefnVariant::Method { .. } => todo!(),
                 EntityDefnVariant::Trait { .. } => todo!(),
                 EntityDefnVariant::Function { .. } => todo!(),
@@ -489,7 +489,7 @@ impl EntityDefn {
             }
         }
 
-        fn extract_method_dependees(method_defn: &EntityDefn, builder: &mut DependeeMapBuilder) {
+        fn extract_method_dependees(_method_defn: &EntityDefn, _builder: &mut DependeeMapBuilder) {
             todo!()
             // for input_placeholder in method_defn.parameters.iter() {
             //     builder.push(input_placeholder.ranged_ty.route)

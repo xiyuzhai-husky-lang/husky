@@ -268,16 +268,16 @@ impl EntityDefnVariant {
         Ok(variants)
     }
 
-    pub fn method(&self, member_idx: usize) -> &Arc<EntityDefn> {
+    pub fn method(&self, _member_idx: usize) -> &Arc<EntityDefn> {
         todo!()
     }
 
     fn visualizer_from_ast(
-        db: &dyn EntityDefnQueryGroup,
-        arena: &RawExprArena,
-        file: FileItd,
-        ty_route: EntityRouteItd,
-        children: &mut Peekable<AstIter>,
+        _db: &dyn EntityDefnQueryGroup,
+        _arena: &RawExprArena,
+        _file: FileItd,
+        _ty_route: EntityRouteItd,
+        _children: &mut Peekable<AstIter>,
     ) -> Arc<Visualizer> {
         todo!()
         // let item = if let Some(_) = children.peek() {
@@ -343,10 +343,10 @@ pub enum EnumVariantDefnVariant {
 
 impl EntityDefnVariant {
     pub fn enum_variant(
-        db: &dyn EntityDefnQueryGroup,
-        ident: RangedCustomIdentifier,
+        _db: &dyn EntityDefnQueryGroup,
+        _ident: RangedCustomIdentifier,
         enum_variant_kind: EnumVariantKind,
-        children: Option<AstIter>,
+        _children: Option<AstIter>,
     ) -> EntityDefnVariant {
         EntityDefnVariant::EnumVariant {
             enum_variant_defn_variant: match enum_variant_kind {
