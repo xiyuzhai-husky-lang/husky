@@ -58,6 +58,7 @@ pub fn expect_test<Input, Output>(
             test_paths.push(subpath)
         }
     }
+
     for test_path in test_paths {
         let mut expects = match deserialize_from_file(&test_path) {
             Ok::<Vec<Expect<Input, Output>>, _>(expects) => expects,
@@ -161,6 +162,5 @@ where
         return Err(DesIoError::NotValidFile(path.to_owned()));
     }
     let content = read_to_string(&path)?;
-    let value = serde_json::from_str(&content)?;
-    Ok(serde_json::from_value(value)?)
+    Ok(serde_json::from_str(&content)?)
 }
