@@ -1,4 +1,4 @@
-use std::borrow::{Borrow, Cow};
+use std::borrow::{Borrow};
 
 use crate::*;
 
@@ -66,7 +66,7 @@ impl TermPatternItd {
 pub struct TermPatternIdx(usize);
 
 impl TermPattern {
-    fn max_dependee_idx(&self, itr: &TermPatternInterner) -> Option<TermPatternIdx> {
+    fn max_dependee_idx(&self, _itr: &TermPatternInterner) -> Option<TermPatternIdx> {
         match self {
             TermPattern::Resolved(_) | TermPattern::Unresolved(_) => unreachable!(),
             TermPattern::Application(app) => app.m().opt_patt_idx().max(app.n().opt_patt_idx()),

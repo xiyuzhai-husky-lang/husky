@@ -4,7 +4,7 @@ type HuskyComptimeSnapshot = salsa::Snapshot<husky_comptime::HuskyComptime>;
 
 use husky_comptime::*;
 use husky_hover::HoverResult;
-use husky_text::{FilePosition, FileRange, TextPosition, TextRange};
+use husky_text::{FilePosition, FileRange, TextRange};
 use husky_token::AbsSemanticToken;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,

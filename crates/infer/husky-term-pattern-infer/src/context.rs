@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::EntityPathItd;
 use husky_expr_syntax::{RawExpr, RawExprArena, RawExprIdx, RawExprVariant};
-use husky_term::{Term, TermAtom, TermContext, TermItd, TermMenu, Ty};
+use husky_term::{TermContext, TermItd, TermMenu};
 use husky_term_pattern::TermPatternItd;
 use husky_word::InternWord;
 
@@ -62,7 +62,7 @@ impl<'a> TermPatternInferContext<'a> {
             RawAtomExpr::Literal(literal) => self.infer_literal(*literal, term_itr),
             RawAtomExpr::Symbol(symbol) => match symbol.kind {
                 SymbolKind::EntityPath(_) => todo!(),
-                SymbolKind::LocalVariable { init_range } => todo!(),
+                SymbolKind::LocalVariable { init_range: _ } => todo!(),
                 SymbolKind::FrameVariable { .. } => ExprTermPatternInferResult {
                     const_expr: Ok(None),
                     ty: Ok(self.term_menu().i32().term().into()),
@@ -90,7 +90,7 @@ impl<'a> TermPatternInferContext<'a> {
     fn infer_opn_ty_term_pattern(
         &self,
         opn_variant: &RawOpnVariant,
-        opds: &RawExprRange,
+        _opds: &RawExprRange,
     ) -> ExprTermPatternInferResult {
         match opn_variant {
             RawOpnVariant::Binary(_) => todo!(),
@@ -109,7 +109,7 @@ impl<'a> TermPatternInferContext<'a> {
         literal: RawLiteralData,
         term_itr: &mut TermPatternInterner,
     ) -> ExprTermPatternInferResult {
-        let term_menu = self.term_menu();
+        let _term_menu = self.term_menu();
         match literal {
             RawLiteralData::Unit => todo!(),
             RawLiteralData::Integer(_) => {

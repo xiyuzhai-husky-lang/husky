@@ -16,7 +16,7 @@ use husky_expr_syntax::*;
 use husky_file::*;
 use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;
-use husky_print_utils::p;
+
 use husky_symbol_syntax::SymbolKind;
 use husky_term::*;
 use husky_term_pattern::*;

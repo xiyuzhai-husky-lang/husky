@@ -18,11 +18,11 @@ impl<'eval> LoadSample<'eval> for MnistValLoader {
         10000
     }
 
-    fn load<'a>(&'a self, sample_id: SampleId) -> LabeledData<'eval> {
+    fn load<'a>(&'a self, _sample_id: SampleId) -> LabeledData<'eval> {
         todo!()
     }
 
-    fn label<'a>(&'a self, idx: SampleId) -> Label {
+    fn label<'a>(&'a self, _idx: SampleId) -> Label {
         todo!()
     }
 }

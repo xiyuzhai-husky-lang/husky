@@ -2,7 +2,7 @@ use crate::*;
 use husky_ast::AstText;
 use husky_expr_syntax::RawExprMap;
 use husky_term_pattern::*;
-use std::sync::Arc;
+
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermPatternInferSheet {
@@ -48,8 +48,8 @@ impl TermPatternInferSheet {
 
     pub(crate) fn insert_term_infer_result(
         &mut self,
-        expr: RawExprIdx,
-        term: TermPatternInferResult<TermItd>,
+        _expr: RawExprIdx,
+        _term: TermPatternInferResult<TermItd>,
     ) {
         todo!()
     }
@@ -67,7 +67,7 @@ impl TermPatternInferSheet {
         todo!()
     }
 
-    pub fn expr_ty_result(&self, expr: RawExprIdx) -> &TermPatternInferResult<Ty> {
+    pub fn expr_ty_result(&self, _expr: RawExprIdx) -> &TermPatternInferResult<Ty> {
         todo!()
     }
 }

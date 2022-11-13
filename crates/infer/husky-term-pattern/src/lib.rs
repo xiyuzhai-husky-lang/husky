@@ -14,7 +14,7 @@ pub use unresolved::*;
 
 use application::*;
 use curry::*;
-use husky_expr_syntax::RawExprIdx;
+
 use husky_term::*;
 use subentity::*;
 use trait_impl::*;

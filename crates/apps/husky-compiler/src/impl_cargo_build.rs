@@ -10,7 +10,7 @@ impl Monad for CargoBuildM {}
 pub struct CargoBuildR;
 
 impl std::ops::FromResidual<CargoBuildR> for CargoBuildM {
-    fn from_residual(residual: CargoBuildR) -> Self {
+    fn from_residual(_residual: CargoBuildR) -> Self {
         todo!()
     }
 }
@@ -20,7 +20,7 @@ impl std::ops::Try for CargoBuildM {
 
     type Residual = CargoBuildR;
 
-    fn from_output(output: Self::Output) -> Self {
+    fn from_output(_output: Self::Output) -> Self {
         todo!()
     }
 
