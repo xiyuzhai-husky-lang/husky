@@ -1,3 +1,6 @@
+#![doc = include_str!("../README.md")]
+// #![deny(unsafe_code, missing_docs, clippy::unwrap_used)]
+
 mod abstraction;
 mod application;
 mod atom;
