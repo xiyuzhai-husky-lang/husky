@@ -177,3 +177,7 @@ The Husky source code is organized as follows:
 | `library/`        | source code for official library packages                          |
 | `Specs/`          | source code for language specification in Lean4                    |
 | `docs/`           | documentation                                                      |
+| `examples/`       | examples of husky                                                  |
+| `extensions/`     |                                                                    |
+| `forks/`          | forks of some 3rd party dependencies                               |
+| `gui/`            | various frontend                                                   |
