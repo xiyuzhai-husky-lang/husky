@@ -90,7 +90,7 @@ cd husky
 then in one terminal do
 
 ```sh
-cd gui/gui/husky-tracer-gui-sycamore
+cd gui/husky-tracer-gui-sycamore
 trunk serve
 ```
 
