@@ -103,7 +103,7 @@ impl Debugtime {
             }
             if sampler.process(&labeled_data, || {
                 let visual_data = self.runtime().visualize_feature(repr.clone(), sample_id)?;
-                Ok((transform_visual_data(visual_data)))
+                Ok(transform_visual_data(visual_data))
             })? {
                 break;
             }

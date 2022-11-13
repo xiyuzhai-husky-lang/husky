@@ -165,29 +165,26 @@ impl HuskyDebuggerInternal {
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
                 let change = match self.devtime.toggle_expansion(trace_id).result()? {
                     Ok(change) => change,
-                    Err(e) => {
-                        match e.variant() {
-                            __VMErrorVariant::Normal => todo!(),
-                            __VMErrorVariant::FromBatch { sample_id } => {
-                                assert!(
-                                    self.devtime.presentation().is_generic()
-                                        || self.devtime.presentation().sample_id()
-                                            != SampleId(*sample_id)
-                                );
-                                p!(
-                                    self.devtime.presentation().sample_id(),
-                                    SampleId(*sample_id)
-                                );
-                                todo!()
-                            }
+                    Err(e) => match e.variant() {
+                        __VMErrorVariant::Normal => todo!(),
+                        __VMErrorVariant::FromBatch { sample_id } => {
+                            assert!(
+                                self.devtime.presentation().is_generic()
+                                    || self.devtime.presentation().sample_id()
+                                        != SampleId(*sample_id)
+                            );
+                            p!(
+                                self.devtime.presentation().sample_id(),
+                                SampleId(*sample_id)
+                            );
+                            todo!()
                         }
-                        todo!()
-                    }
+                    },
                 };
                 Some((change, HuskyTracerServerMessageVariant::ToggleExpansion))
             }
             HuskyTracerGuiMessageVariant::ToggleShow { trace_id } => {
-                self.devtime.toggle_show(trace_id);
+                self.devtime.toggle_show(trace_id)?;
                 None
             }
             // HuskyTracerGuiMessageVariant::Trace { id } => {
@@ -218,7 +215,7 @@ impl HuskyDebuggerInternal {
                 ref figure_control_data,
             } => {
                 self.devtime
-                    .set_figure_control(trace_id, figure_control_data.clone());
+                    .set_figure_control(trace_id, figure_control_data.clone())?;
                 None
             }
             HuskyTracerGuiMessageVariant::TogglePin {
