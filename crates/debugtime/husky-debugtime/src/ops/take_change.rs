@@ -27,7 +27,7 @@ pub enum DebugtimeTakeChangeR {
 }
 
 impl<T> FromResidual<TrackableApplyChangeR<TrackableVec<TraceNode>>> for DebugtimeTakeChangeM<T> {
-    fn from_residual(residual: TrackableApplyChangeR<TrackableVec<TraceNode>>) -> Self {
+    fn from_residual(_residual: TrackableApplyChangeR<TrackableVec<TraceNode>>) -> Self {
         todo!()
     }
 }
@@ -35,25 +35,25 @@ impl<T> FromResidual<TrackableApplyChangeR<TrackableVec<TraceNode>>> for Debugti
 impl FromResidual<TrackableTakeChangeR<DebugtimeState>>
     for DebugtimeTakeChangeM<DebugtimeStateChange>
 {
-    fn from_residual(residual: TrackableTakeChangeR<DebugtimeState>) -> Self {
+    fn from_residual(_residual: TrackableTakeChangeR<DebugtimeState>) -> Self {
         todo!()
     }
 }
 
 impl<T> FromResidual<DebugtimeTakeChangeR> for DebugtimeTakeChangeM<T> {
-    fn from_residual(residual: DebugtimeTakeChangeR) -> Self {
+    fn from_residual(_residual: DebugtimeTakeChangeR) -> Self {
         todo!()
     }
 }
 
 impl<T> FromResidual<DebugtimeUpdateR> for DebugtimeTakeChangeM<T> {
-    fn from_residual(residual: DebugtimeUpdateR) -> Self {
+    fn from_residual(_residual: DebugtimeUpdateR) -> Self {
         todo!()
     }
 }
 
 impl<T> FromResidual<TrackableMakeChangeR<DebugtimeState>> for DebugtimeTakeChangeM<T> {
-    fn from_residual(residual: TrackableMakeChangeR<DebugtimeState>) -> Self {
+    fn from_residual(_residual: TrackableMakeChangeR<DebugtimeState>) -> Self {
         todo!()
     }
 }
@@ -61,7 +61,7 @@ impl<T> FromResidual<TrackableMakeChangeR<DebugtimeState>> for DebugtimeTakeChan
 impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Presentation>>>
     for DebugtimeTakeChangeM<T>
 {
-    fn from_residual(residual: TrackableMakeChangeR<TrackableAtom<Presentation>>) -> Self {
+    fn from_residual(_residual: TrackableMakeChangeR<TrackableAtom<Presentation>>) -> Self {
         todo!()
     }
 }

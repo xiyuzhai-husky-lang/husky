@@ -120,8 +120,8 @@ impl Debugtime {
 
     pub fn set_figure_control(
         &mut self,
-        trace_id: TraceId,
-        new_figure_control_data: FigureControlData,
+        _trace_id: TraceId,
+        _new_figure_control_data: FigureControlData,
     ) -> DebugtimeTakeChangeM<()> {
         todo!()
         // let key = self.gen_figure_control_key(trace_id);

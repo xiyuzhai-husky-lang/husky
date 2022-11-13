@@ -44,9 +44,9 @@ impl TraceNode {
         match self {
             TraceNode::Uninitialized => (),
             TraceNode::Initialized {
-                trace,
+                trace: _,
                 expanded,
-                shown,
+                shown: _,
             } => *expanded = !*expanded,
         }
     }
@@ -77,8 +77,8 @@ impl TraceNode {
             TraceNode::Uninitialized => unreachable!(),
             TraceNode::Initialized {
                 trace,
-                expanded,
-                shown,
+                expanded: _,
+                shown: _,
             } => trace,
         }
     }

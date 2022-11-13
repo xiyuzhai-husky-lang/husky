@@ -82,7 +82,7 @@ impl Debugtime {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
-        let trace_stalk_key = TraceStalkKey::from_trace_data(sample_id, trace_raw_data);
+        let _trace_stalk_key = TraceStalkKey::from_trace_data(sample_id, trace_raw_data);
         let associated_trace_ids = trace_raw_data.associated_trace_ids();
         self.gen_trace_stalk(trace_id)?;
         for associated_trace_id in associated_trace_ids {
