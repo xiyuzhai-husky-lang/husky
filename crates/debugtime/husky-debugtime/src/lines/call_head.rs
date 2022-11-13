@@ -39,10 +39,10 @@ impl<'a> TraceLineGenerator<'a> {
     }
     pub(super) fn gen_call_head_lines_aux<'eval>(
         &mut self,
-        text: &HuskyText,
-        routine_keyword: &'static str,
-        ident: Identifier,
-        parameters: &[Parameter],
+        _text: &HuskyText,
+        _routine_keyword: &'static str,
+        _ident: Identifier,
+        _parameters: &[Parameter],
     ) {
         todo!()
         // self.render_keyword_token(routine_keyword, None, None);

@@ -1,4 +1,4 @@
-use husky_comptime::utils::__RegisterDowncastResult;
+
 use husky_vm_primitive_value::PrimitiveValueData;
 
 use super::*;
@@ -87,7 +87,7 @@ impl Debugtime {
         let presentation = self.state.presentation();
         let mut sampler = PartitionedSampler::<T>::new(presentation.partitions());
         for labeled_data in dev_division.each_labeled_data() {
-            let label = labeled_data.label;
+            let _label = labeled_data.label;
             let sample_id = labeled_data.sample_id;
             if !self.is_restriction_satisfied(presentation, sample_id)? {
                 continue;
@@ -121,7 +121,7 @@ impl Debugtime {
             Restriction::None => Ok(true),
             Restriction::Arrival {
                 trace_id,
-                feature_id,
+                feature_id: _,
                 arrival_restriction_kind,
             } => self.is_arrival_restriction_satisfied(
                 trace_id,
@@ -176,9 +176,9 @@ impl Debugtime {
 
     fn is_trace_striking_evil(
         &self,
-        trace_id: TraceId,
-        sample_id: SampleId,
-        partitions: &Partitions,
+        _trace_id: TraceId,
+        _sample_id: SampleId,
+        _partitions: &Partitions,
     ) -> __VMResult<bool> {
         todo!()
         // let trace = self.trace(trace_id);

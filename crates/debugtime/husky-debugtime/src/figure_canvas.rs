@@ -33,23 +33,23 @@ impl Debugtime {
                 ..
             } => self.feature_expr_generic_figure(input)?,
             TraceVariant::FuncStmt {
-                ref stmt,
-                ref history,
+                stmt: _,
+                history: _,
             } => todo!(),
             // self.func_stmt_generic_figure(stmt, history),
             TraceVariant::ProcStmt {
-                ref stmt,
-                ref history,
+                stmt: _,
+                history: _,
             } => todo!(),
             // self.proc_stmt_figure(stmt, history).into(),
             TraceVariant::EagerExpr {
-                ref expr,
-                ref history,
+                expr: _,
+                history: _,
             } => todo!(),
             // self.eager_expr_figure(expr, history).into(),
             TraceVariant::CallHead { .. } => Default::default(),
             TraceVariant::LoopFrame {
-                ref loop_frame_data,
+                
                 ..
             } => todo!(),
             // self
@@ -59,9 +59,9 @@ impl Debugtime {
             //     )
             //     .into(),
             TraceVariant::FuncBranch {
-                ref stmt,
-                branch_idx,
-                ref history,
+                
+                
+                
                 ..
             } => todo!(),
             // match history.get(stmt) {
@@ -80,9 +80,9 @@ impl Debugtime {
             //     _ => panic!(),
             // },
             TraceVariant::ProcBranch {
-                ref stmt,
-                branch_idx,
-                ref history,
+                
+                
+                
                 ..
             } => todo!(),
             // match history.get(stmt) {
@@ -101,8 +101,8 @@ impl Debugtime {
             //     _ => panic!(),
             // },
             TraceVariant::EagerCallArgument {
-                ref argument,
-                ref history,
+                
+                
                 ..
             } => todo!(),
             //  self.eager_expr_figure(argument, history).into(),

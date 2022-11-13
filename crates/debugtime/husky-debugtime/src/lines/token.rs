@@ -1,5 +1,5 @@
 use husky_entity_route::EntityRouteItd;
-use husky_text::{Row, TextPosition, TextRange, TextRanged};
+use husky_text::{TextPosition, TextRanged};
 
 use super::*;
 
@@ -127,7 +127,7 @@ impl<'a> TraceLineGenerator<'a> {
         );
     }
 
-    pub(super) fn gen_fade_token(&mut self, value: &str, opt_pos: Option<TextPosition>) {
+    pub(super) fn gen_fade_token(&mut self, _value: &str, opt_pos: Option<TextPosition>) {
         self.push_token(
             TraceTokenData {
                 kind: TraceTokenKind::Fade,
