@@ -3,7 +3,7 @@ mod root;
 
 pub use namespace::*;
 
-use crate::TermDb;
+
 
 // #[derive(Debug, PartialEq, Eq, Hash)]
 // pub struct TermEntity {
