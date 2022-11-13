@@ -3,17 +3,12 @@ mod trivia;
 
 use super::*;
 use husky_entity_path::{
-    EntityPathDb, EntityPathDbStorage, EntityPathInterner, EntityPathItd,
-    EntityPathMenu, InternEntityPath,
+    EntityPathDb, EntityPathDbStorage, EntityPathInterner, EntityPathItd, EntityPathMenu,
+    InternEntityPath,
 };
 use husky_expr_syntax::RawExprIdx;
-use husky_symbol_syntax::{
-    Symbol, SymbolContext, SymbolDbStorage, SymbolKind, SymbolQueries,
-};
-use husky_term::{
-    AskDecl, Decl, TermDb, TermInterner, TermMenu,
-    TermResultArc, Ty, TyDecl,
-};
+use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDbStorage, SymbolKind, SymbolQueries};
+use husky_term::{AskDecl, Decl, TermDb, TermInterner, TermMenu, TermResultArc, Ty, TyDecl};
 use husky_term::{InternTerm, TermDbStorage};
 use husky_token::*;
 use husky_word::{InternWord, RootBuiltinIdentifier, WordInterner};

@@ -1,12 +1,5 @@
-
-
-
-
-
 use husky_text::FilePosition;
-use lsp_types::{
-    CompletionResponse,
-};
+use lsp_types::CompletionResponse;
 
 pub trait HuskyCompletionQuery {
     fn completion(

@@ -1,7 +1,5 @@
 use std::convert::Infallible;
 
-
-
 use super::*;
 
 #[derive(PartialEq, Eq, Clone)]
@@ -36,7 +34,10 @@ pub enum FeatureLazyStmtVariant {
 impl std::fmt::Debug for FeatureLazyStmtVariant {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::Init { varname: _, value: _ } => f.debug_struct("Init").finish(),
+            Self::Init {
+                varname: _,
+                value: _,
+            } => f.debug_struct("Init").finish(),
             Self::Assert { condition: _ } => f.debug_struct("Assert").finish(),
             Self::Require {
                 condition: _,

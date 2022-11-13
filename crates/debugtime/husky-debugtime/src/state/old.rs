@@ -1,7 +1,6 @@
 use crate::*;
 use husky_entity_route::EntityRouteItd;
 
-
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub enum TraceSketch {
     Main,
@@ -15,14 +14,21 @@ impl AsTraceSketch for TraceSketch {
     fn new(node: &Self::Node) -> Option<Self> {
         match node.trace().variant {
             TraceVariant::Main(_) => Some(TraceSketch::Main),
-            TraceVariant::Module { route, file: _, range: _ } => Some(TraceSketch::Module(route)),
+            TraceVariant::Module {
+                route,
+                file: _,
+                range: _,
+            } => Some(TraceSketch::Module(route)),
             TraceVariant::EntityFeature { route, repr: _ } => {
                 Some(TraceSketch::EntityFeature(route))
             }
             TraceVariant::FeatureStmt(_) => None,
             TraceVariant::FeatureBranch(_) => None,
             TraceVariant::FeatureExpr(_) => None,
-            TraceVariant::FeatureCallArgument { name: _, argument: _ } => None,
+            TraceVariant::FeatureCallArgument {
+                name: _,
+                argument: _,
+            } => None,
             TraceVariant::FuncStmt { .. } => None,
             TraceVariant::ProcStmt { .. } => None,
             TraceVariant::ProcBranch { .. } => None,

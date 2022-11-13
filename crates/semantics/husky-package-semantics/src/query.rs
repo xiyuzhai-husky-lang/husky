@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_ast::{AstText};
+use husky_ast::AstText;
 
 use husky_entity_route::EntityRouteVariant;
 use husky_entity_semantics::EntityDefnQueryGroup;

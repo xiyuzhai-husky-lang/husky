@@ -2,7 +2,6 @@ use crate::*;
 use husky_ast::{Ast, AstIter};
 use husky_semantics_error::*;
 
-
 impl EntityDefnVariant {
     pub(crate) fn function(
         _db: &dyn EntityDefnQueryGroup,

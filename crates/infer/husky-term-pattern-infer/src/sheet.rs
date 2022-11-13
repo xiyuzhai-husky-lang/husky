@@ -3,7 +3,6 @@ use husky_ast::AstText;
 use husky_expr_syntax::RawExprMap;
 use husky_term_pattern::*;
 
-
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermPatternInferSheet {
     term_pattern_interner: TermPatternInterner,

@@ -4,7 +4,6 @@ mod wrapper;
 
 pub use wrapper::InternedRefWrapper;
 
-
 use sync_utils::SafeRwLock;
 
 use internal::InternerInternal;

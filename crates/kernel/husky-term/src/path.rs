@@ -6,7 +6,9 @@ impl<'a> TermRef<'a> {
         match self {
             TermRef::Atom(atom) => match atom {
                 TermAtom::Literal(_) => todo!(),
-                TermAtom::Variable { variable_variant: _ } => todo!(),
+                TermAtom::Variable {
+                    variable_variant: _,
+                } => todo!(),
                 TermAtom::Entity { path } => *path,
                 TermAtom::Category(_) => todo!(),
                 TermAtom::Universe(_) => todo!(),

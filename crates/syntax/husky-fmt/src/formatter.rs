@@ -10,7 +10,6 @@ use husky_expr_syntax::*;
 use husky_init_syntax::InitKind;
 use husky_liason_semantics::{MemberModifier, ParameterModifier};
 
-
 use husky_print_utils::msg_once;
 use husky_word::{Paradigm, RootBuiltinIdentifier};
 

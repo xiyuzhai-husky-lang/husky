@@ -1,7 +1,7 @@
 use crate::*;
 
 use monad::Monad;
-use std::{ops::FromResidual};
+use std::ops::FromResidual;
 use trackable::{TrackableAtom, TrackableMakeChangeR, TrackableMap, TrackableVec};
 
 #[must_use]

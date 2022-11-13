@@ -48,22 +48,14 @@ impl Debugtime {
             } => todo!(),
             // self.eager_expr_figure(expr, history).into(),
             TraceVariant::CallHead { .. } => Default::default(),
-            TraceVariant::LoopFrame {
-                
-                ..
-            } => todo!(),
+            TraceVariant::LoopFrame { .. } => todo!(),
             // self
             //     .loop_frame_mutations_figure(
             //         trace.raw_data.opt_parent_id.unwrap(),
             //         &loop_frame_data.mutations,
             //     )
             //     .into(),
-            TraceVariant::FuncBranch {
-                
-                
-                
-                ..
-            } => todo!(),
+            TraceVariant::FuncBranch { .. } => todo!(),
             // match history.get(stmt) {
             //     Some(HistoryEntry::ControlFlow {
             //         opt_branch_entered: branch_entered,
@@ -79,12 +71,7 @@ impl Debugtime {
             //     None => Default::default(),
             //     _ => panic!(),
             // },
-            TraceVariant::ProcBranch {
-                
-                
-                
-                ..
-            } => todo!(),
+            TraceVariant::ProcBranch { .. } => todo!(),
             // match history.get(stmt) {
             //     Some(HistoryEntry::ControlFlow {
             //         opt_branch_entered: branch_entered,
@@ -100,11 +87,7 @@ impl Debugtime {
             //     None => Default::default(),
             //     _ => panic!(),
             // },
-            TraceVariant::EagerCallArgument {
-                
-                
-                ..
-            } => todo!(),
+            TraceVariant::EagerCallArgument { .. } => todo!(),
             //  self.eager_expr_figure(argument, history).into(),
         })
     }

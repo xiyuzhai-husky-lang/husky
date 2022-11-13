@@ -261,7 +261,10 @@ impl EntityDefn {
                     LazyStmtVariant::ReturnUnveil { ref result, .. } => {
                         extract_lazy_expr_dependees(result, builder)
                     }
-                    LazyStmtVariant::ConditionFlow { ref branches, ty: _ } => {
+                    LazyStmtVariant::ConditionFlow {
+                        ref branches,
+                        ty: _,
+                    } => {
                         for branch in branches {
                             match branch.variant {
                                 LazyConditionBranchVariant::If { ref condition } => {

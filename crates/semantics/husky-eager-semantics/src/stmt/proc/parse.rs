@@ -1,9 +1,7 @@
 use std::iter::Peekable;
 
-
 use husky_expr_syntax::RawExprIdx;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
-
 
 use super::{parser::EagerParser, *};
 use crate::*;

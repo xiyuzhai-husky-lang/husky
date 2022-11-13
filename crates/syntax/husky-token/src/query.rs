@@ -1,4 +1,4 @@
-use crate::{*};
+use crate::*;
 
 use husky_dev_utils::dev_src;
 use husky_file::{FileError, FileErrorKind, FileItd, FileResultArc};

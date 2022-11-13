@@ -1,6 +1,6 @@
 use crate::*;
 use husky_expect_test_utils::expect_test;
-use husky_symbol_syntax::{SymbolTestsDb};
+use husky_symbol_syntax::SymbolTestsDb;
 
 use husky_token::Tokenize;
 

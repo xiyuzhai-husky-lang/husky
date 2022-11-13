@@ -4,8 +4,6 @@ use husky_feature_gen::{
 };
 use husky_vm::{GenericArgument, __Register, __VMError};
 
-
-
 impl TrainModel for DevRuntime {
     fn train(
         &self,

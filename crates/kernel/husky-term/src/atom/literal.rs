@@ -1,8 +1,4 @@
-
-
 use ordered_float::OrderedFloat;
-
-
 
 // #[derive(Debug, PartialEq, Eq, Hash)]
 // pub struct TermLiteral(TermItd);

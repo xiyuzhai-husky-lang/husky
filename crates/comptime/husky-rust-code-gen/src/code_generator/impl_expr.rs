@@ -130,12 +130,7 @@ impl<'a> RustCodeGenerator<'a> {
                         FieldKind::RecordProperty => todo!(),
                     }
                 }
-                EagerOpnVariant::MethodCall {
-                    
-                    
-                    
-                    ..
-                } => {
+                EagerOpnVariant::MethodCall { .. } => {
                     todo!()
                     // let call_form_decl = self.db.entity_call_form_decl(*method_route).unwrap();
                     // match call_form_decl.output.liason() {

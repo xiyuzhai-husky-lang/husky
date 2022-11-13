@@ -27,7 +27,6 @@ impl TermTestsDb {
     }
 
     fn init(mut self) -> Self {
-        
         let menu = self.term_menu();
         self.ty_decls.extend(menu.primitive_ty_decls());
         self

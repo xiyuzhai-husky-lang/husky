@@ -4,8 +4,6 @@ mod literal;
 mod universe;
 mod variable;
 
-
-
 pub use category::*;
 pub use entity::*;
 use husky_entity_path::EntityPathItd;

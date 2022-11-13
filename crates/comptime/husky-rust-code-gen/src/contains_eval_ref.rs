@@ -1,4 +1,3 @@
-
 use husky_entity_route::{EntityRoute, EntityRouteVariant, SpatialArgument};
 use husky_word::RootBuiltinIdentifier;
 

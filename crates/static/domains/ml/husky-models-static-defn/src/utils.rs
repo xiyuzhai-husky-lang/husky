@@ -1,5 +1,3 @@
-
-
 use husky_vm::{GenericArgument, __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 use ordered_float::NotNan;
 

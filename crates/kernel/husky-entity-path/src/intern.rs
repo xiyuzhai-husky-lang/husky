@@ -1,5 +1,3 @@
-
-
 use super::*;
 
 use interner::{Internable, InternedRefWrapper, Interner};
