@@ -32,7 +32,7 @@ pub enum CompileHuskyM {
 }
 
 impl std::ops::FromResidual<CompileHuskyR> for CompileHuskyM {
-    fn from_residual(residual: CompileHuskyR) -> Self {
+    fn from_residual(_residual: CompileHuskyR) -> Self {
         todo!()
     }
 }
@@ -40,7 +40,7 @@ impl std::ops::FromResidual<CompileHuskyR> for CompileHuskyM {
 impl Monad for CompileHuskyM {}
 
 impl std::ops::FromResidual<CargoBuildR> for CompileHuskyM {
-    fn from_residual(residual: CargoBuildR) -> Self {
+    fn from_residual(_residual: CargoBuildR) -> Self {
         todo!()
     }
 }
@@ -52,7 +52,7 @@ impl std::ops::Try for CompileHuskyM {
 
     type Residual = CompileHuskyR;
 
-    fn from_output(output: Self::Output) -> Self {
+    fn from_output(_output: Self::Output) -> Self {
         CompileHuskyM::Ok
     }
 

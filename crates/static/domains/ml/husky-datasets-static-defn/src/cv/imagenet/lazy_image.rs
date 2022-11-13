@@ -1,5 +1,5 @@
 use super::*;
-use std::sync::Mutex;
+
 
 pub struct LazyImage256 {
     data: LazyImage256Inner,
@@ -25,7 +25,7 @@ pub static LAZY_IMAGE256_DEFN: EntityStaticDefn = EntityStaticDefn {
         kind: TyKind::Struct,
         visualizer: StaticVisualizer {
             visual_ty: StaticVisualTy::Image2d,
-            fp: StaticVisualizerFp(|value| todo!()),
+            fp: StaticVisualizerFp(|_value| todo!()),
         },
         opt_type_call: None,
     },

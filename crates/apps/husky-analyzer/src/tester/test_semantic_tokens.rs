@@ -1,11 +1,11 @@
-use husky_comptime::*;
+
 use husky_display_utils::HuskyDisplay;
 use husky_test_utils::TestResult;
-use husky_token::AbsSemanticToken;
+
 use lsp_types::SemanticToken;
 use std::path::Path;
 
-pub(super) fn test_semantic_tokens(package_dir: &Path) -> TestResult {
+pub(super) fn test_semantic_tokens(_package_dir: &Path) -> TestResult {
     todo!()
     //     test_all_source_files(
     //         package_dir,
@@ -24,7 +24,7 @@ pub(super) fn test_semantic_tokens(package_dir: &Path) -> TestResult {
 pub struct SemanticTokenWrapper(SemanticToken);
 
 impl HuskyDisplay for SemanticTokenWrapper {
-    fn write_inherent(&self, config: husky_display_utils::HuskyDisplayConfig, result: &mut String) {
+    fn write_inherent(&self, _config: husky_display_utils::HuskyDisplayConfig, result: &mut String) {
         use std::fmt::Write;
         write!(result, "{:?}", self.0).unwrap();
     }
