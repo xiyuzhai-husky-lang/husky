@@ -1,8 +1,6 @@
 use crate::*;
 use interner::{Internable, Interner};
 
-
-
 pub type TermInterner = Interner<Term>;
 
 impl Internable for Term {

@@ -1,6 +1,5 @@
 use husky_entity_path::EntityPathItd;
 
-
 use crate::*;
 
 pub struct TermContext<'a> {

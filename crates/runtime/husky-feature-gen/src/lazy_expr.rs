@@ -192,8 +192,15 @@ impl std::fmt::Debug for FeatureLazyExprVariant {
             }
             FeatureLazyExprVariant::BePattern { .. } => f.debug_struct("BePattern").finish(),
             FeatureLazyExprVariant::Literal(_) => todo!(),
-            FeatureLazyExprVariant::PrimitiveBinaryOpr { opr: _, opds: _, linkage: _ } => todo!(),
-            FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr: _kind, opds: _ } => todo!(),
+            FeatureLazyExprVariant::PrimitiveBinaryOpr {
+                opr: _,
+                opds: _,
+                linkage: _,
+            } => todo!(),
+            FeatureLazyExprVariant::ShortCircuitBinaryOpr {
+                opr: _kind,
+                opds: _,
+            } => todo!(),
         }
     }
 }
@@ -218,9 +225,10 @@ impl FeatureLazyExprVariant {
             FeatureLazyExprVariant::NewVecFromList { .. } => "NewVecFromList",
             FeatureLazyExprVariant::CustomBinaryOpr { .. } => "CustomBinaryOpr",
             FeatureLazyExprVariant::BePattern { .. } => "BePattern",
-            FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr: _kind, opds: _ } => {
-                "ShortCircuitBinaryOpr"
-            }
+            FeatureLazyExprVariant::ShortCircuitBinaryOpr {
+                opr: _kind,
+                opds: _,
+            } => "ShortCircuitBinaryOpr",
         }
     }
 }

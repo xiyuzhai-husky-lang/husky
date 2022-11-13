@@ -3,7 +3,6 @@ mod method;
 
 pub use field::*;
 
-
 pub use method::*;
 
 use super::*;
@@ -24,7 +23,10 @@ pub fn collect_all_members(
     Arc::new(members)
 }
 
-pub fn member_defn(_db: &dyn EntityDefnQueryGroup, _member_route: EntityRouteItd) -> Arc<EntityDefn> {
+pub fn member_defn(
+    _db: &dyn EntityDefnQueryGroup,
+    _member_route: EntityRouteItd,
+) -> Arc<EntityDefn> {
     todo!()
     // let ty = member_route.parent();
     // let ty_defn = db.entity_defn(ty).unwrap();

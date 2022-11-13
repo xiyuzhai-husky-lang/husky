@@ -1,4 +1,4 @@
-use super::{*};
+use super::*;
 
 pub type JsonResult<T> = Result<T, String>;
 

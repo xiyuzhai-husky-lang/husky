@@ -1,6 +1,3 @@
-
-
-
 use std::path::Path;
 pub fn print_qualified_tys(_package_dir: &Path) {
     todo!()

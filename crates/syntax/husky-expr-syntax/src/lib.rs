@@ -14,12 +14,11 @@ pub use automata::*;
 pub use error::*;
 use husky_entity_path::EntityPathItd;
 
-
 pub use variable::*;
 
 use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;
-use husky_symbol_syntax::{SymbolKind};
+use husky_symbol_syntax::SymbolKind;
 use husky_text::*;
 
 use husky_word::*;

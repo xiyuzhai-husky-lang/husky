@@ -13,7 +13,6 @@ pub use husky_feature_gen::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, I
 pub use husky_instruction_gen::InstructionGenQueryGroup;
 pub use query::*;
 
-
 use husky_check_utils::*;
 use husky_compiler::CompilerInstance;
 use husky_diagnostics::HuskyDiagnosticQuery;
@@ -28,7 +27,7 @@ use husky_print_utils::*;
 use indexmap::IndexMap;
 
 use relative_path::RelativePathBuf;
-use std::{sync::Arc};
+use std::sync::Arc;
 use sync_utils::ASafeRwLock;
 use variant::*;
 

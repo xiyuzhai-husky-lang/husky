@@ -1,6 +1,5 @@
 use crate::*;
 
-
 impl EntityDefnVariant {
     pub(super) fn collect_trait_impls(
         db: &dyn EntityDefnQueryGroup,

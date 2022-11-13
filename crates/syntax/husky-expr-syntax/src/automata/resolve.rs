@@ -2,7 +2,7 @@ use super::*;
 
 use husky_symbol_syntax::Symbol;
 use husky_term::TermItd;
-use husky_token::{SpecialToken};
+use husky_token::SpecialToken;
 
 impl<'a> Automata<'a> {
     pub(crate) fn resolve_token(&self, token: &Token) -> ResolvedToken {

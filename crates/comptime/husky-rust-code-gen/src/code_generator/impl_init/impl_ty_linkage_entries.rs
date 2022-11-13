@@ -123,9 +123,7 @@ impl<'a> RustCodeGenerator<'a> {
             FieldDefnVariant::StructDerivedLazy { ref defn_repr } => match **defn_repr {
                 DefinitionRepr::LazyExpr { .. } => (),
                 DefinitionRepr::LazyBlock { .. } => (),
-                DefinitionRepr::FuncBlock {
-                     return_ty, ..
-                } => {
+                DefinitionRepr::FuncBlock { return_ty, .. } => {
                     let field_ident = member.ident.as_str();
                     self.write(&format!(
                         r#"
@@ -153,9 +151,7 @@ impl<'a> RustCodeGenerator<'a> {
     ),"#,
                     );
                 }
-                DefinitionRepr::ProcBlock {
-                     return_ty, ..
-                } => {
+                DefinitionRepr::ProcBlock { return_ty, .. } => {
                     let field_ident = member.ident.as_str();
                     self.write(&format!(
                         r#"

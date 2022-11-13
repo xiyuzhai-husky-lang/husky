@@ -27,7 +27,7 @@ use husky_file::FileItd;
 use husky_init_syntax::*;
 use husky_loop_syntax::*;
 use husky_opn_syntax::*;
-use husky_print_utils::{p};
+use husky_print_utils::p;
 use husky_text::{HuskyText, TextQueryGroup};
 use husky_trace::*;
 use husky_trace_protocol::*;
@@ -37,7 +37,6 @@ use monad::Monad;
 use std::sync::Arc;
 use trace_node::*;
 use upcast::Upcast;
-
 
 pub struct Debugtime {
     runtime: DevRuntime,

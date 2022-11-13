@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_print_utils::{msg_once};
+use husky_print_utils::msg_once;
 
 use husky_trace_protocol::TraceStats;
 use husky_vm::{__Register, __VMResult};

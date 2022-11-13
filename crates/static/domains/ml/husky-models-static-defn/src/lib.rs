@@ -23,6 +23,6 @@ use husky_vm::{
     __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE,
 };
 
-use std::{collections::HashMap};
+use std::collections::HashMap;
 
 static_mod! { models = { naive, normalize, boosting, narrow } }

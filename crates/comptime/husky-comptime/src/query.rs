@@ -1,6 +1,3 @@
-
-
-
 use husky_entity_route::EntityRouteItd;
 use husky_file::FileItd;
 use husky_linkage_table::ResolveLinkage;
@@ -9,12 +6,7 @@ use husky_trace_protocol::Label;
 use husky_vm::{__Register, __RegisterDataKind};
 use husky_word::RootBuiltinIdentifier;
 
-use crate::{
-    utils::{
-        __RegisterDowncastResult,
-    },
-    HuskyComptime,
-};
+use crate::{utils::__RegisterDowncastResult, HuskyComptime};
 
 pub trait ComptimeQueryGroup: PackageQueryGroup + ResolveLinkage {
     fn target_entrance(&self) -> FileItd {

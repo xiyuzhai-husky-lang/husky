@@ -1,6 +1,5 @@
 use super::*;
 
-
 pub struct LazyImage256 {
     data: LazyImage256Inner,
 }

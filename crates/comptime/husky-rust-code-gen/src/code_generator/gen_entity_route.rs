@@ -1,10 +1,13 @@
 use husky_entity_route::*;
 
-
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_entity_route(&mut self, _entity_route: EntityRouteItd, _role: EntityRouteRole) {
+    pub(super) fn gen_entity_route(
+        &mut self,
+        _entity_route: EntityRouteItd,
+        _role: EntityRouteRole,
+    ) {
         todo!()
         // if let Some(_) = self
         //     .entity_route_uses

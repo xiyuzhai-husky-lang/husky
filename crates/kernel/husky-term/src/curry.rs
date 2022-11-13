@@ -2,10 +2,6 @@ mod context;
 
 pub use context::*;
 
-
-
-
-
 use crate::*;
 
 /// representing term `x -> y`

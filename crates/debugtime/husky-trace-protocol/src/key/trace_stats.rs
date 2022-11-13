@@ -1,5 +1,3 @@
-
-
 use smallvec::SmallVec;
 
 use super::*;

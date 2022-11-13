@@ -1,13 +1,11 @@
 use super::*;
 
-
 use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
 use husky_vm::{Binding, __root::__NEQ_LINKAGE};
 use husky_vm::{__Linkage, __root::__EQ_LINKAGE};
 use husky_vm_primitive_opr_linkage::resolve_primitive_pure_binary_opr_linkage;
 use map_collect::MapCollect;
-
 
 impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn compile_opn(

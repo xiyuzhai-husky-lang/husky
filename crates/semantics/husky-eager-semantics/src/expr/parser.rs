@@ -1,14 +1,10 @@
-use husky_entity_route::{EntityRouteItd};
+use husky_entity_route::EntityRouteItd;
 use husky_expr_syntax::*;
 use husky_file::FileItd;
 
-
 use husky_text::RangedCustomIdentifier;
 
-
-
 use crate::*;
-
 
 use super::EagerOpnVariant;
 

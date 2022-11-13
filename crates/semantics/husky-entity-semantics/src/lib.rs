@@ -568,7 +568,10 @@ pub(crate) fn entity_defn(
                         file,
                     )?,
                 ),
-                AstVariant::Submodule { ident: _, source_file: _ } => todo!(),
+                AstVariant::Submodule {
+                    ident: _,
+                    source_file: _,
+                } => todo!(),
                 AstVariant::Visual => todo!(),
             };
             Ok(EntityDefn::new(

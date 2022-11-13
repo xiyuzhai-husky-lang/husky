@@ -1,4 +1,3 @@
-
 use husky_test_utils::TestResult;
 use std::path::Path;
 

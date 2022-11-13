@@ -2,8 +2,6 @@ use husky_documentation::Documentation;
 use husky_file::FileItd;
 use husky_text::TextRange;
 
-
-
 /// `NavigationTarget` represents an element in the editor's UI which you can
 /// click on to navigate to a particular piece of code.
 ///

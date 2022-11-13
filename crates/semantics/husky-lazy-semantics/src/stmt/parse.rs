@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::*;
 use husky_entity_route::RangedEntityRoute;
-use husky_expr_syntax::{RawExprArena};
+use husky_expr_syntax::RawExprArena;
 use husky_file::FileItd;
 
 use husky_semantics_error::*;

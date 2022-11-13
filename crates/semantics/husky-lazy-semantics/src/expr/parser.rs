@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use crate::*;
 
-use husky_entity_route::{EntityRouteItd};
+use husky_entity_route::EntityRouteItd;
 use husky_expr_syntax::*;
 use husky_file::FileItd;
 

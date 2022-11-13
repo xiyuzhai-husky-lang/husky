@@ -1,5 +1,3 @@
-
-
 use super::*;
 
 impl<'a> Automata<'a> {
@@ -41,7 +39,7 @@ impl<'a> Automata<'a> {
                         //     dev_src: dev_src!(),
                         // });
                     }
-                    OnStackOprVariant::ListStart {   .. } => {
+                    OnStackOprVariant::ListStart { .. } => {
                         todo!()
                         // return Err(AstError {
                         //     variant: AstErrorVariant::Original {
@@ -76,7 +74,11 @@ impl<'a> Automata<'a> {
         self.synthesize_opn(suffix.into(), 1, range)
     }
 
-    fn synthesize_field_access(&mut self, _field_ident: RangedCustomIdentifier, _end: TextPosition) {
+    fn synthesize_field_access(
+        &mut self,
+        _field_ident: RangedCustomIdentifier,
+        _end: TextPosition,
+    ) {
         todo!()
         // let range = (self.exprs.last().unwrap().range.start..end).into();
         // self.synthesize_opn(

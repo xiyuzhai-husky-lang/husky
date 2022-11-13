@@ -1,10 +1,6 @@
 use crate::*;
 
-
-
 use husky_text::{FilePosition, FileRange, RangeInfo};
-
-
 
 pub trait HoverDb {
     fn opt_hover_result(&self, _frange: FileRange) -> Option<HoverResult> {

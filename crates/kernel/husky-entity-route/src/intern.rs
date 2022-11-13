@@ -1,9 +1,8 @@
 use crate::*;
 use core::hash::Hash;
-use husky_print_utils::{msg_once};
+use husky_print_utils::msg_once;
 use interner::{Internable, Interner};
 use paste::paste;
-
 
 pub type EntityRouteInterner = Interner<EntityRoute>;
 

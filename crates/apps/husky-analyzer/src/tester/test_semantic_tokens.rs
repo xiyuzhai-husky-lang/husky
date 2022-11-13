@@ -1,4 +1,3 @@
-
 use husky_display_utils::HuskyDisplay;
 use husky_test_utils::TestResult;
 
@@ -24,7 +23,11 @@ pub(super) fn test_semantic_tokens(_package_dir: &Path) -> TestResult {
 pub struct SemanticTokenWrapper(SemanticToken);
 
 impl HuskyDisplay for SemanticTokenWrapper {
-    fn write_inherent(&self, _config: husky_display_utils::HuskyDisplayConfig, result: &mut String) {
+    fn write_inherent(
+        &self,
+        _config: husky_display_utils::HuskyDisplayConfig,
+        result: &mut String,
+    ) {
         use std::fmt::Write;
         write!(result, "{:?}", self.0).unwrap();
     }

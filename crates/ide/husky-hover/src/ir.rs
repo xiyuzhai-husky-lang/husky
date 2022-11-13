@@ -1,7 +1,6 @@
-
 use husky_entity_route::EntityRouteItd;
 
-use husky_text::{FilePosition};
+use husky_text::FilePosition;
 
 use crate::*;
 

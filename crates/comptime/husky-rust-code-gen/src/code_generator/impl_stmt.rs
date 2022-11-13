@@ -4,10 +4,7 @@ mod impl_match_pattern;
 
 use fold::Indent;
 
-use husky_eager_semantics::{
-    Boundary, EagerExpr, FuncStmt, LoopVariant,
-    ProcStmt,
-};
+use husky_eager_semantics::{Boundary, EagerExpr, FuncStmt, LoopVariant, ProcStmt};
 use husky_entity_route::EntityRouteItd;
 
 use husky_word::RootBuiltinIdentifier;

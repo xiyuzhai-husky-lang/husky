@@ -1,5 +1,3 @@
-
-
 use husky_vm::GenericArgument;
 use ordered_float::NotNan;
 
