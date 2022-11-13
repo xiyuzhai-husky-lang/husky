@@ -42,7 +42,7 @@ impl Debugtime {
                 __VMErrorVariant::FromBatch { sample_id } => {
                     self.state.update_presentation(|presentation| {
                         presentation.set_specific(SampleId(*sample_id))
-                    });
+                    })?;
                     self.update()
                 }
             },
@@ -76,6 +76,16 @@ impl<T> FromResidual<DebugtimeUpdateR> for DebugtimeUpdateM<T> {
     }
 }
 
+impl<T> FromResidual<TrackableMakeChangeR<TrackableMap<TraceStatsKey, Option<TraceStats>>>>
+    for DebugtimeUpdateM<T>
+{
+    fn from_residual(
+        _residual: TrackableMakeChangeR<TrackableMap<TraceStatsKey, Option<TraceStats>>>,
+    ) -> Self {
+        todo!()
+    }
+}
+
 impl<T> FromResidual<TrackableMakeChangeR<TrackableVec<TraceNode>>> for DebugtimeUpdateM<T> {
     fn from_residual(_residual: TrackableMakeChangeR<TrackableVec<TraceNode>>) -> Self {
         todo!()
@@ -88,6 +98,11 @@ impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Presentation>>> for Debu
     }
 }
 
+impl<T> FromResidual<TrackableMakeChangeR<DebugtimeState>> for DebugtimeUpdateM<T> {
+    fn from_residual(_residual: TrackableMakeChangeR<DebugtimeState>) -> Self {
+        todo!()
+    }
+}
 impl<T>
     FromResidual<
         TrackableMakeChangeR<TrackableMap<GenericFigureCanvasKey, GenericFigureCanvasData>>,

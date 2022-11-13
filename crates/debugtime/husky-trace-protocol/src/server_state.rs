@@ -117,6 +117,14 @@ impl<T> std::ops::FromResidual<ServerTraceStateUpdateR<T>> for ServerTraceStateU
     }
 }
 
+impl<T> std::ops::FromResidual<TrackableMakeChangeR<TrackableAtom<Presentation>>>
+    for ServerTraceStateUpdateM<T>
+{
+    fn from_residual(_residual: TrackableMakeChangeR<TrackableAtom<Presentation>>) -> Self {
+        todo!()
+    }
+}
+
 impl<TraceNode: AsTraceNode> ServerTraceState<TraceNode> {
     pub fn presentation(&self) -> &Presentation {
         &self.presentation
