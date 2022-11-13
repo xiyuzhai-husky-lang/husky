@@ -9,8 +9,8 @@ use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_expr_syntax::*;
 use husky_init_syntax::InitKind;
 use husky_liason_semantics::{MemberModifier, ParameterModifier};
-use husky_opn_syntax::{ListOpr, RawOpnVariant};
-use husky_primitive_literal_syntax::RawLiteralData;
+
+
 use husky_print_utils::msg_once;
 use husky_word::{Paradigm, RootBuiltinIdentifier};
 
@@ -287,7 +287,7 @@ impl<'a> Formatter<'a> {
         }
     }
 
-    fn fmt_expr(&mut self, expr: &RawExpr) {
+    fn fmt_expr(&mut self, _expr: &RawExpr) {
         // match expr.variant {
         //     RawExprVariant::Variable { varname, .. } => self.write(&varname),
         //     RawExprVariant::Unrecognized(varname) => self.write(&varname),

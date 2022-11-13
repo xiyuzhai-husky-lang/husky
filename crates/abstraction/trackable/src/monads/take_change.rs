@@ -36,7 +36,7 @@ where
     T: Trackable,
     S: Trackable,
 {
-    fn from_residual(residual: TrackableTakeChangeR<T>) -> Self {
+    fn from_residual(_residual: TrackableTakeChangeR<T>) -> Self {
         todo!()
     }
 }

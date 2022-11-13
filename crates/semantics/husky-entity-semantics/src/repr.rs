@@ -30,13 +30,13 @@ pub enum DefinitionRepr {
 }
 
 pub(crate) fn parse_definition_repr(
-    db: &dyn EntityDefnQueryGroup,
-    paradigm: Paradigm,
-    route: EntityRouteItd,
-    return_ty: RangedEntityRoute,
-    arena: &RawExprArena,
-    children: Option<AstIter>,
-    file: FileItd,
+    _db: &dyn EntityDefnQueryGroup,
+    _paradigm: Paradigm,
+    _route: EntityRouteItd,
+    _return_ty: RangedEntityRoute,
+    _arena: &RawExprArena,
+    _children: Option<AstIter>,
+    _file: FileItd,
 ) -> SemanticResult<Arc<DefinitionRepr>> {
     todo!()
     // Ok(Arc::new(match paradigm {

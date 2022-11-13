@@ -1,7 +1,7 @@
-use std::ops::Deref;
+
 
 use super::*;
-use husky_word::Identifier;
+
 use interner::{Internable, InternedRefWrapper, Interner};
 use optional::{Noned, OptEq};
 
@@ -57,15 +57,15 @@ impl Internable for EntityPath {
         self
     }
 
-    fn new_itd(&'static self, id: usize) -> Self::Interned {
+    fn new_itd(&'static self, _id: usize) -> Self::Interned {
         EntityPathItd(InternedRefWrapper::new(self))
     }
 
-    fn try_direct_from_ref<'a>(r: Self::Ref<'a>) -> Option<Self::Interned> {
+    fn try_direct_from_ref<'a>(_r: Self::Ref<'a>) -> Option<Self::Interned> {
         todo!()
     }
 
-    unsafe fn cast_to_static_ref<'a>(r: Self::Ref<'a>) -> Self::Ref<'static> {
+    unsafe fn cast_to_static_ref<'a>(_r: Self::Ref<'a>) -> Self::Ref<'static> {
         todo!()
     }
 }

@@ -1,4 +1,4 @@
-use husky_opn_syntax::{BinaryOpr, Bracket, PureBinaryOpr};
+use husky_opn_syntax::{BinaryOpr, Bracket};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SpecialToken {

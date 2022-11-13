@@ -1,13 +1,13 @@
 use super::*;
-use husky_entity_kind::FieldKind;
-use husky_entity_route::{EntityRoute, InternEntityRoute};
+
+
 use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
-use husky_vm::{Binding, InstructionSource, __root::__NEQ_LINKAGE};
+use husky_vm::{Binding, __root::__NEQ_LINKAGE};
 use husky_vm::{__Linkage, __root::__EQ_LINKAGE};
 use husky_vm_primitive_opr_linkage::resolve_primitive_pure_binary_opr_linkage;
 use map_collect::MapCollect;
-use thin_vec::thin_vec;
+
 
 impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn compile_opn(
@@ -251,9 +251,9 @@ impl<'a> FeatureExprBuilder<'a> {
 
     fn compile_method_call(
         &self,
-        method_ident: RangedCustomIdentifier,
-        method_route: EntityRouteItd,
-        opds: &[Arc<LazyExpr>],
+        _method_ident: RangedCustomIdentifier,
+        _method_route: EntityRouteItd,
+        _opds: &[Arc<LazyExpr>],
     ) -> (FeatureLazyExprVariant, FeatureItd) {
         todo!()
         // let opds = opds
@@ -286,9 +286,9 @@ impl<'a> FeatureExprBuilder<'a> {
 
     pub(super) fn compile_field_access(
         &self,
-        field_ident: RangedCustomIdentifier,
-        this: FeatureRepr,
-        field_binding: Binding,
+        _field_ident: RangedCustomIdentifier,
+        _this: FeatureRepr,
+        _field_binding: Binding,
     ) -> (FeatureLazyExprVariant, FeatureItd) {
         todo!()
         // let this_ty = this.ty();

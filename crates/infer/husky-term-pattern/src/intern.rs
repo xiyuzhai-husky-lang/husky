@@ -127,7 +127,7 @@ fn test_option_max_works() {
 #[test]
 fn intern_works() {
     // let db = TermPatternTestsDb::new();
-    let mut interner = TermPatternInterner::default();
+    let _interner = TermPatternInterner::default();
 
     // HELP ME
 }

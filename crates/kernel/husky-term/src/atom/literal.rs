@@ -1,8 +1,8 @@
-use std::ops::Deref;
+
 
 use ordered_float::OrderedFloat;
 
-use crate::*;
+
 
 // #[derive(Debug, PartialEq, Eq, Hash)]
 // pub struct TermLiteral(TermItd);
@@ -70,7 +70,7 @@ pub enum TermLiteralData {
 }
 
 impl std::fmt::Display for TermLiteralData {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }

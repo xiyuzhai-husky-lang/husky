@@ -100,7 +100,7 @@ impl<T> std::ops::Try for ServerTraceStateUpdateM<T> {
 
     type Residual = ServerTraceStateUpdateR<T>;
 
-    fn from_output(output: Self::Output) -> Self {
+    fn from_output(_output: Self::Output) -> Self {
         todo!()
     }
 
@@ -112,7 +112,7 @@ impl<T> std::ops::Try for ServerTraceStateUpdateM<T> {
 }
 
 impl<T> std::ops::FromResidual<ServerTraceStateUpdateR<T>> for ServerTraceStateUpdateM<T> {
-    fn from_residual(residual: ServerTraceStateUpdateR<T>) -> Self {
+    fn from_residual(_residual: ServerTraceStateUpdateR<T>) -> Self {
         todo!()
     }
 }

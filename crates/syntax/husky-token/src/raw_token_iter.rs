@@ -311,7 +311,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
         Some(RawToken::new(self.line_index, j_start, j_start + len, kind).into())
     }
 
-    fn next_special_aux(&mut self, j_start: usize, c_start: char) -> Option<(usize, RawTokenKind)> {
+    fn next_special_aux(&mut self, _j_start: usize, c_start: char) -> Option<(usize, RawTokenKind)> {
         let (len, special) = match c_start {
             '=' => match self.peek_char() {
                 '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Eq))),

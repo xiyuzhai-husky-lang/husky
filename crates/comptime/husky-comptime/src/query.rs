@@ -1,17 +1,17 @@
-use std::sync::Arc;
 
-use husky_entity_kind::TyKind;
+
+
 use husky_entity_route::EntityRouteItd;
 use husky_file::FileItd;
 use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::PackageQueryGroup;
 use husky_trace_protocol::Label;
-use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
+use husky_vm::{__Register, __RegisterDataKind};
 use husky_word::RootBuiltinIdentifier;
 
 use crate::{
     utils::{
-        __RegisterDowncastResult, convert_enum_register_to_label, convert_i32_register_to_label,
+        __RegisterDowncastResult,
     },
     HuskyComptime,
 };

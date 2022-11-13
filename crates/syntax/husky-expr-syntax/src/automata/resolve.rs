@@ -1,8 +1,8 @@
 use super::*;
-use husky_print_utils::p;
+
 use husky_symbol_syntax::Symbol;
 use husky_term::TermItd;
-use husky_token::{Convexity, SpecialToken};
+use husky_token::{SpecialToken};
 
 impl<'a> Automata<'a> {
     pub(crate) fn resolve_token(&self, token: &Token) -> ResolvedToken {
@@ -15,7 +15,7 @@ impl<'a> Automata<'a> {
     fn resolve_token_kind(&self, token: &Token) -> ResolvedTokenKind {
         match token.kind {
             TokenKind::Decorator(_) => todo!(),
-            TokenKind::Keyword(keyword) => todo!(),
+            TokenKind::Keyword(_keyword) => todo!(),
             TokenKind::Identifier(ident) => self.resolve_ident(ident),
             TokenKind::Special(special) => match special {
                 SpecialToken::BinaryOpr(opr) => ResolvedTokenKind::BinaryOpr(opr),

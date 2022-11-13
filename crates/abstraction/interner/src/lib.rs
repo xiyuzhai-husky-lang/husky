@@ -4,7 +4,7 @@ mod wrapper;
 
 pub use wrapper::InternedRefWrapper;
 
-use std::borrow::Borrow;
+
 use sync_utils::SafeRwLock;
 
 use internal::InternerInternal;

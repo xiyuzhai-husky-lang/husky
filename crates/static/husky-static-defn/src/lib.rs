@@ -108,7 +108,7 @@ impl EntityStaticDefnVariant {
             }
             EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
             EntityStaticDefnVariant::TyField { .. } => todo!(),
-            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty } => todo!(),
+            EntityStaticDefnVariant::TraitAssociatedTypeImpl { ty: _ } => todo!(),
             EntityStaticDefnVariant::EnumVariant => EntityKind::EnumVariant,
         }
     }

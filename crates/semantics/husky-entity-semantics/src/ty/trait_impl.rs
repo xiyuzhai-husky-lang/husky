@@ -1,5 +1,5 @@
 use crate::*;
-use husky_dev_utils::DevSource;
+
 
 impl EntityDefnVariant {
     pub(super) fn collect_trait_impls(
@@ -12,10 +12,10 @@ impl EntityDefnVariant {
     }
 
     fn implicit_trait_impls(
-        db: &dyn EntityDefnQueryGroup,
-        this_ty: EntityRouteItd,
-        file: FileItd,
-        range: TextRange,
+        _db: &dyn EntityDefnQueryGroup,
+        _this_ty: EntityRouteItd,
+        _file: FileItd,
+        _range: TextRange,
     ) -> Vec<Arc<TraitImplDefn>> {
         todo!()
         // let mut trait_impl_decls = Vec::<Arc<TraitImplDefn>>::new();

@@ -29,7 +29,7 @@ pub use db::*;
 pub use decl::*;
 pub use error::*;
 pub use intern::*;
-use interner::{InternBorrowedRaw, InternedRefWrapper};
+
 pub use menu::*;
 pub use subentity::*;
 pub use trai::*;
@@ -38,7 +38,7 @@ pub use ty::Ty;
 
 // use cow::TermCow;
 use husky_entity_path::EntityPathItd;
-use optional::Optioned;
+
 #[cfg(test)]
 use tests::*;
 

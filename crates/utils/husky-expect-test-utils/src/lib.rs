@@ -3,7 +3,7 @@ mod config;
 use colored::Colorize;
 use config::*;
 use husky_io_utils::diff_write;
-use husky_path_utils::*;
+
 use husky_print_utils::*;
 use serde::{Deserialize, Serialize};
 use std::{

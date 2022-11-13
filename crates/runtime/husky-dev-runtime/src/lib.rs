@@ -13,7 +13,7 @@ pub use husky_feature_gen::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, I
 pub use husky_instruction_gen::InstructionGenQueryGroup;
 pub use query::*;
 
-use convert_case::{Boundary, Case, Casing};
+
 use husky_check_utils::*;
 use husky_compiler::CompilerInstance;
 use husky_diagnostics::HuskyDiagnosticQuery;
@@ -24,11 +24,11 @@ use husky_feature_gen::FeatureInterner;
 use husky_file::{FileItd, FileQueryGroup};
 use husky_linkage_table::LinkageTable;
 use husky_print_utils::*;
-use husky_vm::{__Linkage, __StaticLinkageKey};
+
 use indexmap::IndexMap;
-use libloading::Library;
+
 use relative_path::RelativePathBuf;
-use std::{path::Path, sync::Arc};
+use std::{sync::Arc};
 use sync_utils::ASafeRwLock;
 use variant::*;
 
