@@ -13,5 +13,5 @@ pub struct HuskyCompilerCli {
 
 fn main() {
     let cli = HuskyCompilerCli::parse();
-    CompilerInstance::new(RelativePathBuf::from_path(cli.dir).unwrap()).compile_all();
+    let _ = CompilerInstance::new(RelativePathBuf::from_path(cli.dir).unwrap()).compile_all();
 }
