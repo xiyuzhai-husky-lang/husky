@@ -6,7 +6,7 @@ Husky is a programming language designed for **next generation computing**, whic
 
 ## New Sheriff in Town
 
-It serves as an amazing tool with a **uniformed** and much more **ergonomic** developing experience for all the following tasks
+It serves as a 🚀blazingly fast🚀 language with a **uniformed** and much more **ergonomic** developing experience for all the following tasks
 
 - system level programming like Rust and C/C++ and Zig
 - web/native frontend development like JavaScript/TypeScript
