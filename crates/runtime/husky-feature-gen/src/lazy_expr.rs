@@ -69,16 +69,16 @@ impl<'eval> Eq for FeatureLazyExpr {}
 pub enum FeatureLazyExprVariant {
     Literal(__Register<'static>),
     PrimitiveBinaryOpr {
-        opr: PureBinaryOpr,
+        opr: BinaryPureClosedOpr,
         opds: Vec<Arc<FeatureLazyExpr>>,
         linkage: __Linkage,
     },
     ShortCircuitBinaryOpr {
-        opr: PureBinaryOpr,
+        opr: BinaryPureClosedOpr,
         opds: Vec<Arc<FeatureLazyExpr>>,
     },
     CustomBinaryOpr {
-        opr: PureBinaryOpr,
+        opr: BinaryPureClosedOpr,
         opds: Vec<Arc<FeatureLazyExpr>>,
         opt_linkage: Option<__Linkage>,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,

@@ -37,8 +37,10 @@ IdxArena {
         },
         RawExpr {
             variant: Opn {
-                opn_variant: Binary Pure(
-                    Add,
+                opn_variant: Binary(
+                    PureClosed(
+                        Add,
+                    ),
                 ),
                 opds: 0..2,
             },
@@ -86,8 +88,10 @@ IdxArena {
         },
         RawExpr {
             variant: Opn {
-                opn_variant: Binary Pure(
-                    Sub,
+                opn_variant: Binary(
+                    PureClosed(
+                        Sub,
+                    ),
                 ),
                 opds: 0..2,
             },

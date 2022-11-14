@@ -1,4 +1,4 @@
-use husky_opn_syntax::{BinaryOpr, PureBinaryOpr};
+use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr};
 
 use super::*;
 
@@ -17,7 +17,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
             SpecialToken::DoubleVertical => self.stack.push(HuskyAtom::new(
                 self.token_stream.text_range(text_start),
                 if !self.stack.is_concave() {
-                     BinaryOpr::Pure(PureBinaryOpr::Or).into()
+                     BinaryOpr::ShortcuitLogic(BinaryShortcuitLogicOpr::Or).into()
                 } else {
                     HuskyAtomVariant::LambdaHead(Vec::new())
                 },
@@ -32,7 +32,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                 } else {
                     self.stack.push(HuskyAtom::new(
                         self.token_stream.text_range(text_start),
-                        BinaryOpr::Pure(PureBinaryOpr::BitOr).into(),
+                        BinaryOpr::PureClosed(BinaryPureClosedOpr::BitOr).into(),
                     ))
                 }
             }
@@ -41,7 +41,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                 if self.stack.is_concave() {
                     PrefixOpr::Shared.into()
                 } else {
-                    BinaryOpr::Pure(PureBinaryOpr::BitAnd).into()
+                    BinaryOpr::PureClosed(BinaryPureClosedOpr::BitAnd).into()
                 },
             )),
             SpecialToken::Exclamation => self.stack.push(HuskyAtom::new(
@@ -81,7 +81,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                             self.token_stream.next();
                             self.stack.push(HuskyAtom::new(
                                 self.token_stream.text_range(text_start),
-                                BinaryOpr::Pure(PureBinaryOpr::Shr).into(),
+                                BinaryOpr::PureClosed(BinaryPureClosedOpr::Shr).into(),
                             ))?;
                             return Ok(())
                         }
@@ -89,13 +89,13 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
                 }
                 self.stack.push(HuskyAtom::new(
                     self.token_stream.text_range(text_start),
-                    BinaryOpr::Pure(PureBinaryOpr::Greater).into(),
+                    BinaryOpr::Comparison(BinaryComparisonOpr::Greater).into(),
                 ))
             }
-            SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Sub)) => {
+            SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Sub)) => {
                 self.stack.push(HuskyAtom::new(
                     self.token_stream.text_range(text_start),
-                    BinaryOpr::Pure(PureBinaryOpr::Sub).into(),
+                    BinaryOpr::PureClosed(BinaryPureClosedOpr::Sub).into(),
                 ))
             }
             SpecialToken::Minus =>{

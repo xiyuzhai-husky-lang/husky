@@ -211,7 +211,7 @@ pub trait ParseEagerExpr<'a> {
     ) -> SemanticResult<EagerExprVariant> {
         todo!()
         // let (lopd_opt_expectation, ropd_opt_expectation) = match opr {
-        //     BinaryOpr::Pure(PureBinaryOpr::Eq) => {
+        //     BinaryOpr::PureClosed(BinaryPureClosedOpr::Eq) => {
         //         let lopd_raw_ty = self.expr_raw_ty(raw_opds.start).unwrap();
         //         let ropd_raw_ty = self.expr_raw_ty(raw_opds.start + 1).unwrap();
         //         if lopd_raw_ty == ropd_raw_ty {

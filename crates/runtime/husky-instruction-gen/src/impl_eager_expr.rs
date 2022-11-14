@@ -518,7 +518,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             EntityRouteItd::Root(_) => {
                 let ins_kind = InstructionVariant::CallRoutine {
                     resolved_linkage: match opr {
-                        BinaryOpr::Pure(pure_binary_opr) => {
+                        BinaryOpr::PureClosed(pure_binary_opr) => {
                             resolve_primitive_pure_binary_opr_linkage(
                                 opds[0].intrinsic_ty().root(),
                                 pure_binary_opr,
@@ -526,6 +526,8 @@ impl<'a> InstructionSheetBuilder<'a> {
                             )
                             .transfer()
                         }
+                        BinaryOpr::Comparison(_) => todo!(),
+                        BinaryOpr::ShortcuitLogic(_) => todo!(),
                         BinaryOpr::Assign(opt_binary_opr) => {
                             resolve_primitive_assign_binary_opr_linkage(
                                 opds[0].intrinsic_ty().root(),
@@ -547,37 +549,39 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             EntityRouteItd::Custom(_) => {
                 let ins_variant = match opr {
-                    BinaryOpr::Pure(pure_binary_opr) => match pure_binary_opr {
-                        PureBinaryOpr::Add => todo!(),
-                        PureBinaryOpr::And => todo!(),
-                        PureBinaryOpr::BitAnd => todo!(),
-                        PureBinaryOpr::BitOr => todo!(),
-                        PureBinaryOpr::BitXor => todo!(),
-                        PureBinaryOpr::Div => todo!(),
-                        PureBinaryOpr::Eq => InstructionVariant::CallRoutine {
-                            resolved_linkage: __EQ_LINKAGE.transfer(),
-                            nargs: 2,
-                            output_ty: expr.intrinsic_ty(),
-                            discard,
-                        },
-                        PureBinaryOpr::Geq => todo!(),
-                        PureBinaryOpr::Greater => todo!(),
-                        PureBinaryOpr::Leq => todo!(),
-                        PureBinaryOpr::Less => todo!(),
-                        PureBinaryOpr::Mul => todo!(),
-                        PureBinaryOpr::Neq => InstructionVariant::CallRoutine {
-                            resolved_linkage: __NEQ_LINKAGE.transfer(),
-                            nargs: 2,
-                            output_ty: expr.intrinsic_ty(),
-                            discard,
-                        },
-                        PureBinaryOpr::RemEuclid => todo!(),
-                        PureBinaryOpr::Or => todo!(),
-                        PureBinaryOpr::Power => todo!(),
-                        PureBinaryOpr::Shl => todo!(),
-                        PureBinaryOpr::Shr => todo!(),
-                        PureBinaryOpr::Sub => todo!(),
+                    BinaryOpr::PureClosed(pure_binary_opr) => match pure_binary_opr {
+                        BinaryPureClosedOpr::Add => todo!(),
+                        BinaryPureClosedOpr::BitAnd => todo!(),
+                        BinaryPureClosedOpr::BitOr => todo!(),
+                        BinaryPureClosedOpr::BitXor => todo!(),
+                        BinaryPureClosedOpr::Div => todo!(),
+                        BinaryPureClosedOpr::Mul => todo!(),
+                        BinaryPureClosedOpr::RemEuclid => todo!(),
+                        BinaryPureClosedOpr::Power => todo!(),
+                        BinaryPureClosedOpr::Shl => todo!(),
+                        BinaryPureClosedOpr::Shr => todo!(),
+                        BinaryPureClosedOpr::Sub => todo!(),
                     },
+                    BinaryOpr::Comparison(_) => todo!(),
+                    BinaryOpr::ShortcuitLogic(_) => todo!(),
+                    // BinaryShortcuitLogicOpr::And => todo!(),
+                    // BinaryComparisonOpr::Neq => InstructionVariant::CallRoutine {
+                    //     resolved_linkage: __NEQ_LINKAGE.transfer(),
+                    //     nargs: 2,
+                    //     output_ty: expr.intrinsic_ty(),
+                    //     discard,
+                    // },
+                    // BinaryShortcuitLogicOpr::Or => todo!(),
+                    // BinaryComparisonOpr::Eq => InstructionVariant::CallRoutine {
+                    //     resolved_linkage: __EQ_LINKAGE.transfer(),
+                    //     nargs: 2,
+                    //     output_ty: expr.intrinsic_ty(),
+                    //     discard,
+                    // },
+                    // BinaryComparisonOpr::Geq => todo!(),
+                    // BinaryComparisonOpr::Greater => todo!(),
+                    // BinaryComparisonOpr::Leq => todo!(),
+                    // BinaryComparisonOpr::Less => todo!(),
                     BinaryOpr::Assign(opt_binary_opr) => {
                         if let Some(_binary_opr) = opt_binary_opr {
                             todo!()

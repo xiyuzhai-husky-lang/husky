@@ -31,7 +31,9 @@ IdxArena {
         },
         RawExpr {
             variant: Opn {
-                opn_variant: Prefix Minus,
+                opn_variant: Prefix(
+                    Minus,
+                ),
                 opds: 0..1,
             },
             range: [1:1, 1:3),
@@ -72,7 +74,9 @@ IdxArena {
         },
         RawExpr {
             variant: Opn {
-                opn_variant: Prefix Not,
+                opn_variant: Prefix(
+                    Not,
+                ),
                 opds: 0..1,
             },
             range: [1:1, 1:3),

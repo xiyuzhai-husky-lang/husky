@@ -61,10 +61,6 @@ impl TermPatternInferSheet {
     pub fn ast_text(&self) -> &AstText {
         todo!()
     }
-
-    pub fn expr_ty_result(&self, _expr: RawExprIdx) -> &TermPatternInferResult<Ty> {
-        todo!()
-    }
 }
 
 impl InternTermPattern for TermPatternInferSheet {
@@ -74,5 +70,18 @@ impl InternTermPattern for TermPatternInferSheet {
 
     fn term_patt_itr_mut(&mut self) -> &mut TermPatternInterner {
         &mut self.term_patt_itr
+    }
+}
+
+impl<'a> TermPatternInferContext<'a> {
+    pub(crate) fn expr_ty_result(
+        &self,
+        sheet: &TermPatternInferSheet,
+        expr: RawExprIdx,
+    ) -> TermPatternInferResult<TermPatternItd> {
+        match sheet.expr_results[expr].ty {
+            Ok(ty) => Ok(ty),
+            Err(ref e) => self.err_derived(e.clone()),
+        }
     }
 }

@@ -117,7 +117,7 @@ macro_rules! special_token {
         SpecialToken::Ket(Bracket::Par)
     }};
     ("+") => {{
-        SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Add))
+        SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Add))
     }};
     ("-") => {{
         SpecialToken::SubOrMinus
@@ -126,13 +126,13 @@ macro_rules! special_token {
         SpecialToken::Star
     }};
     ("/") => {{
-        SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Div))
+        SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Div))
     }};
     ("**") => {{
-        SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Power))
+        SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Power))
     }};
     ("&&") => {{
-        SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::And))
+        SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::And))
     }};
     ("||") => {{
         SpecialToken::DoubleVertical
@@ -141,7 +141,7 @@ macro_rules! special_token {
         SpecialToken::BitNot
     }};
     ("%") => {{
-        SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::RemEuclid))
+        SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::RemEuclid))
     }};
     (".") => {{
         SpecialToken::MemberAccess

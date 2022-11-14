@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_route::{EntityKind, RangedEntityRoute};
 use husky_opn_syntax::{
-    BinaryOpr, Bracket, ListEndAttr, ListStartAttr, PrefixOpr, PureBinaryOpr, RawSuffixOpr,
+    BinaryOpr, BinaryPureClosedOpr, Bracket, ListEndAttr, ListStartAttr, PrefixOpr, RawSuffixOpr,
 };
 use husky_pattern_syntax::RawPattern;
 use husky_primitive_literal_syntax::RawLiteralData;
@@ -90,12 +90,12 @@ impl From<SpecialToken> for HuskyAtomVariant {
                 p!(special);
                 panic!()
             }
-            SpecialToken::LAngle => BinaryOpr::Pure(PureBinaryOpr::Less).into(),
+            SpecialToken::LAngle => BinaryOpr::Comparison(BinaryComparisonOpr::Less).into(),
             SpecialToken::RAngle => panic!("should check whether this is a `>>`"),
             SpecialToken::BitNot => PrefixOpr::BitNot.into(),
             SpecialToken::DoubleExclamation => PrefixOpr::Move.into(),
-            SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::RemEuclid)) => {
-                BinaryOpr::Pure(PureBinaryOpr::RemEuclid).into()
+            SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::RemEuclid)) => {
+                BinaryOpr::PureClosed(BinaryPureClosedOpr::RemEuclid).into()
             }
             SpecialToken::Incr => HuskyAtomVariant::Suffix(RawSuffixOpr::Incr),
             SpecialToken::Decr => HuskyAtomVariant::Suffix(RawSuffixOpr::Decr),
@@ -112,8 +112,12 @@ impl From<SpecialToken> for HuskyAtomVariant {
 impl From<WordOpr> for HuskyAtomVariant {
     fn from(word_opr: WordOpr) -> Self {
         match word_opr {
-            WordOpr::And => HuskyAtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::And)),
-            WordOpr::Or => HuskyAtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::Or)),
+            WordOpr::And => {
+                HuskyAtomVariant::Binary(BinaryOpr::ShortcuitLogic(BinaryShortcuitLogicOpr::And))
+            }
+            WordOpr::Or => {
+                HuskyAtomVariant::Binary(BinaryOpr::ShortcuitLogic(BinaryShortcuitLogicOpr::Or))
+            }
             WordOpr::As => panic!(),
             WordOpr::Be => todo!(),
         }

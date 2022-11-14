@@ -1,5 +1,5 @@
 use super::*;
-use husky_opn_syntax::{BinaryOpr, PureBinaryOpr};
+use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr};
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_word::WordPattern;
 
@@ -91,7 +91,9 @@ impl MatchPatternParser {
     fn next_pattern_opr(&mut self) -> Option<(PatternOpr, TextRange)> {
         let atom = self.peek_atom()?;
         let opr = match atom.variant {
-            HuskyAtomVariant::Binary(BinaryOpr::Pure(PureBinaryOpr::BitOr)) => PatternOpr::Or,
+            HuskyAtomVariant::Binary(BinaryOpr::PureClosed(BinaryPureClosedOpr::BitOr)) => {
+                PatternOpr::Or
+            }
             HuskyAtomVariant::ListItem => {
                 return None;
             }

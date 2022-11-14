@@ -49,7 +49,7 @@ impl<'a> TermPatternInferContext<'a> {
             RawExprVariant::Opn {
                 ref opn_variant,
                 ref opds,
-            } => self.infer_opn_ty(opn_variant, opds),
+            } => self.infer_opn_ty(opn_variant, opds, sheet),
         }
     }
 
@@ -75,7 +75,7 @@ impl<'a> TermPatternInferContext<'a> {
                     RawTermPatternInferEntry {
                         const_expr: Err(error.clone()),
                         ty: self.err_derived(DerivedTermPatternInferError::TermPatternInferError(
-                            Box::new(error),
+                            error,
                         )),
                     }
                 }
@@ -91,9 +91,10 @@ impl<'a> TermPatternInferContext<'a> {
         &self,
         opn_variant: &RawOpnVariant,
         opds: &RawExprRange,
+        sheet: &mut TermPatternInferSheet,
     ) -> RawTermPatternInferEntry {
         match opn_variant {
-            RawOpnVariant::Binary(opr) => self.infer_binary_opn(*opr, opds),
+            RawOpnVariant::Binary(opr) => self.infer_binary_opn(*opr, opds, sheet),
             RawOpnVariant::Prefix(_) => todo!(),
             RawOpnVariant::Suffix(_) => todo!(),
             RawOpnVariant::CurlBracketed => todo!(),
@@ -103,9 +104,25 @@ impl<'a> TermPatternInferContext<'a> {
         }
     }
 
-    fn infer_binary_opn(&self, opr: BinaryOpr, opds: &RawExprRange) -> RawTermPatternInferEntry {
-        // let this = self.
-        todo!()
+    fn infer_binary_opn(
+        &self,
+        opr: BinaryOpr,
+        opds: &RawExprRange,
+        sheet: &mut TermPatternInferSheet,
+    ) -> RawTermPatternInferEntry {
+        match opr {
+            BinaryOpr::Assign(_) => todo!(),
+            BinaryOpr::PureClosed(_) => RawTermPatternInferEntry {
+                // todo: if both operands are constant, make this constexpr?
+                const_expr: Ok(None),
+                ty: self.expr_ty_result(sheet, opds.start),
+            },
+            BinaryOpr::Comparison(_) => todo!(),
+            BinaryOpr::ShortcuitLogic(_) => todo!(),
+            BinaryOpr::ScopeResolution => todo!(),
+            BinaryOpr::Curry => todo!(),
+            BinaryOpr::As => todo!(),
+        }
     }
 
     fn infer_literal(

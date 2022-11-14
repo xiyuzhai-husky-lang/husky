@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
 use husky_opn_semantics::ImplicitConversion;
-use husky_opn_syntax::PureBinaryOpr;
+use husky_opn_syntax::BinaryPureClosedOpr;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_print_utils::{msg_once, p};
 use husky_text::FileRanged;
@@ -24,21 +24,22 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             } => self.eval_routine_call(&None, Some(linkage), opds),
             FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr, ref opds } => {
                 let lopd = self.eval_expr(&opds[0])?.to_bool();
-                match opr {
-                    PureBinaryOpr::And => {
-                        if !lopd {
-                            return Ok((false).to_register());
-                        }
-                        self.eval_expr(&opds[1])
-                    }
-                    PureBinaryOpr::Or => {
-                        if lopd {
-                            return Ok((true).to_register());
-                        }
-                        self.eval_expr(&opds[1])
-                    }
-                    _ => panic!(),
-                }
+                todo!()
+                // match opr {
+                //     BinaryShortcuitLogicOpr::And => {
+                //         if !lopd {
+                //             return Ok((false).to_register());
+                //         }
+                //         self.eval_expr(&opds[1])
+                //     }
+                //     BinaryShortcuitLogicOpr::Or => {
+                //         if lopd {
+                //             return Ok((true).to_register());
+                //         }
+                //         self.eval_expr(&opds[1])
+                //     }
+                //     _ => panic!(),
+                // }
             }
             FeatureLazyExprVariant::StructOriginalField {
                 ref this,
