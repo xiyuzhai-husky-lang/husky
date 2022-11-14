@@ -1,4 +1,4 @@
-# core
+# Core
 
 ## Test#0
 

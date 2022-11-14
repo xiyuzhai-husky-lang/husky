@@ -78,7 +78,7 @@ impl ExpectContent {
         let splits: Vec<_> = file_stem.split('.').collect();
         assert_eq!(splits.len(), 2);
         assert_eq!(splits[1], "test");
-        let title = splits[0].to_case(Case::Snake);
+        let title = splits[0].to_case(Case::Title);
         let mut result: String = format!("# {title}",);
         for (i, entry) in self.entries.iter().enumerate() {
             write!(
