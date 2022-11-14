@@ -28,16 +28,10 @@ use husky_word::Identifier;
 use raw_token_iter::*;
 use scanner::TokenScanner;
 
-#[derive(PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct Token {
     pub range: TextRange,
     pub kind: TokenKind,
-}
-
-impl std::fmt::Debug for Token {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "Token({:?}, {:?})", self.kind, self.range)
-    }
 }
 
 impl std::fmt::Display for Token {
