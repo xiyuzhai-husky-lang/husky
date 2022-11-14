@@ -1,4 +1,4 @@
-# primitive_literal
+# Primitive Literal
 
 ## Test#0
 
