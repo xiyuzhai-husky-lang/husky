@@ -2,6 +2,11 @@ use const_format::formatcp;
 use husky_control_flow_utils::require;
 use husky_path_utils::{Path, PathBuf};
 
+const TEST_INPUTS: &'static str = "test-inputs";
+const TEST_RESULTS: &'static str = "test-results";
+const JSON: &'static str = "json";
+const MD: &'static str = "md";
+
 pub(crate) fn collect_test_path_stems(relative_folder_path: &str) -> Vec<PathBuf> {
     let dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
     let tests_dir = dir.join("tests").join(relative_folder_path);
@@ -22,7 +27,7 @@ pub(crate) fn collect_test_path_stems(relative_folder_path: &str) -> Vec<PathBuf
 
 fn is_test_input(path: &Path) -> bool {
     let splits = split_file_name(path);
-    splits[1] == "test-inputs" && splits[2] == "json"
+    splits[1] == TEST_INPUTS && splits[2] == JSON
 }
 
 fn split_file_name(path: &Path) -> Vec<&str> {
@@ -33,11 +38,6 @@ fn split_file_name(path: &Path) -> Vec<&str> {
     }
     splitting
 }
-
-const TEST_INPUTS: &'static str = "test-inputs";
-const TEST_RESULTS: &'static str = "test-results";
-const JSON: &'static str = "json";
-const MD: &'static str = "md";
 
 fn is_splitting_valid(splitting: &[&str]) -> bool {
     require!(splitting.len() == 3);
@@ -58,6 +58,12 @@ impl ExpectInstance {
         self.test_path_stem()
             .with_extension(formatcp!("{TEST_RESULTS}.{MD}"))
     }
+
+    pub(crate) fn test_inputs_json_path(&self) -> PathBuf {
+        self.test_path_stem()
+            .with_extension(formatcp!("{TEST_INPUTS}.{JSON}"))
+    }
+
     pub(crate) fn test_results_json_path(&self) -> PathBuf {
         self.test_path_stem()
             .with_extension(formatcp!("{TEST_RESULTS}.{JSON}"))
