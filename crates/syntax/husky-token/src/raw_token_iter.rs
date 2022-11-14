@@ -107,6 +107,10 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                 while self.peek_char().is_digit(10) {
                     self.eat_char()
                 }
+                match self.peek_char() {
+                    'f' => todo!(),
+                    _ => (),
+                }
                 let len = self.buffer.len();
                 RawToken::new(
                     self.line_index,

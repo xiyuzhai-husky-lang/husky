@@ -6,7 +6,7 @@ use husky_expect_test_utils::*;
 
 #[test]
 fn test_infer_ty_works() {
-    expect_test::<String, _>("", &|text: &str| -> String {
+    expect_test_husky_to_rust("", &|text: &str| -> String {
         let db = TermPatternInferTestsDb::new();
         let (arena, expr) = db.parse_raw_expr_from_text(text);
         let mut sheet = TermPatternInferSheet::new(&arena);
