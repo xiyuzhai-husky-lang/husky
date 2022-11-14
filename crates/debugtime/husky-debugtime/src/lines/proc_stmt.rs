@@ -33,17 +33,18 @@ impl<'a> TraceLineGenerator<'a> {
                     EagerExprVariant::Opn {
                         ref opn_variant, ..
                     } => match opn_variant {
-                        EagerOpnVariant::Binary { opr } => match opr {
-                            BinaryOpr::Assign(_) => {
-                                if let Some(_) = history.register_result(expr) {
-                                    self.gen_fade_assign_token()
-                                }
-                            }
-                            BinaryOpr::Pure(_) => (),
-                            BinaryOpr::ScopeResolution => todo!(),
-                            BinaryOpr::Curry => todo!(),
-                            BinaryOpr::As => todo!(),
-                        },
+                        EagerOpnVariant::Binary { opr } => todo!(),
+                        // match opr {
+                        //     BinaryOpr::Assign(_) => {
+                        //         if let Some(_) = history.register_result(expr) {
+                        //             self.gen_fade_assign_token()
+                        //         }
+                        //     }
+                        //     BinaryOpr::PureClosed(_) => (),
+                        //     BinaryOpr::ScopeResolution => todo!(),
+                        //     BinaryOpr::Curry => todo!(),
+                        //     BinaryOpr::As => todo!(),
+                        // },
                         _ => (),
                     },
                     _ => panic!(),

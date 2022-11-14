@@ -10,7 +10,9 @@ impl<'a> AstTransformer<'a> {
             return err!("expect route after keyword `use`", token_group.text_range());
         }
         if token_group.last().unwrap().kind
-            == TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Mul)))
+            == TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::PureClosed(
+                BinaryPureClosedOpr::Mul,
+            )))
         {
             // use all
             must_be!(

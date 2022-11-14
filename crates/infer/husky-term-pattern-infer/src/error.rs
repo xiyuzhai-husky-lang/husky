@@ -19,9 +19,7 @@ impl ErrorLineage for TermPatternInferError {
         match self.source {
             TermPatternInferErrorSource::Original(_) => None,
             TermPatternInferErrorSource::Derived(ref error) => match error {
-                DerivedTermPatternInferError::TermPatternInferError(ref error) => {
-                    Some(error.as_ref())
-                }
+                DerivedTermPatternInferError::TermPatternInferError(ref error) => Some(error),
             },
         }
     }
@@ -37,6 +35,17 @@ impl ErrorLineage for TermPatternInferError {
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[error("`{0}")]
 pub struct TermPatternInferError(Arc<TermPatternInferErrorInternal>);
+
+// impl TermPatternInferError {
+//     pub(crate) fn derive(&self, ctx: &TermPatternInferContext) -> Self {
+//         Self::new(
+//             TermPatternInferErrorSource::Derived(
+//                 DerivedTermPatternInferError::TermPatternInferError(self.clone()),
+//             ),
+//             ctx.range(),
+//         )
+//     }
+// }
 
 impl TermPatternInferError {
     fn new(source: TermPatternInferErrorSource, range: TextRange) -> Self {
@@ -72,7 +81,7 @@ pub enum OriginalTermPatternInferError {
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedTermPatternInferError {
     #[error("derived from `{0}`")]
-    TermPatternInferError(#[from] Box<TermPatternInferError>),
+    TermPatternInferError(#[from] TermPatternInferError),
 }
 
 impl<'a> TermPatternInferContext<'a> {
@@ -110,7 +119,7 @@ impl<'a> TermPatternInferContext<'a> {
         ))
     }
 
-    fn range(&self) -> TextRange {
-        todo!()
+    pub(crate) fn range(&self) -> TextRange {
+        self.expr().range
     }
 }

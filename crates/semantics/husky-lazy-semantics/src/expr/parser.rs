@@ -187,11 +187,13 @@ pub trait LazyExprParser<'a> {
         let lopd = self.parse_lazy_expr(opds.start, None)?;
         let ropd = self.parse_lazy_expr(opds.start + 1, None)?;
         let opr = match opr {
-            BinaryOpr::Pure(opr) => opr,
+            BinaryOpr::PureClosed(opr) => opr,
             BinaryOpr::Assign(_) => todo!(),
             BinaryOpr::ScopeResolution => todo!(),
             BinaryOpr::Curry => todo!(),
             BinaryOpr::As => todo!(),
+            BinaryOpr::Comparison(_) => todo!(),
+            BinaryOpr::ShortcuitLogic(_) => todo!(),
         };
         Ok(LazyExprVariant::Opn {
             opn_kind: LazyOpnKind::Binary {
@@ -204,109 +206,112 @@ pub trait LazyExprParser<'a> {
 
     fn infer_pure_binary_opr_type(
         &self,
-        pure_binary_opr: PureBinaryOpr,
+        pure_binary_opr: BinaryPureClosedOpr,
         lopd_ty: EntityRouteItd,
         ropd_ty: EntityRouteItd,
     ) -> SemanticResult<EntityRouteItd> {
-        match lopd_ty {
-            EntityRouteItd::Root(lopd_root_ty) => match ropd_ty {
-                EntityRouteItd::Root(ropd_root_ty) => self.infer_root_pure_binary_opr_type(
-                    pure_binary_opr,
-                    lopd_root_ty,
-                    ropd_root_ty,
-                ),
-                EntityRouteItd::Custom(_) => todo!(),
-            },
-            EntityRouteItd::Custom(_) => {
-                self.infer_custom_pure_binary_opr_type(pure_binary_opr, lopd_ty, ropd_ty)
-            }
-        }
+        todo!()
+        // match lopd_ty {
+        //     EntityRouteItd::Root(lopd_root_ty) => match ropd_ty {
+        //         EntityRouteItd::Root(ropd_root_ty) => self.infer_root_pure_binary_opr_type(
+        //             pure_binary_opr,
+        //             lopd_root_ty,
+        //             ropd_root_ty,
+        //         ),
+        //         EntityRouteItd::Custom(_) => todo!(),
+        //     },
+        //     EntityRouteItd::Custom(_) => {
+        //         self.infer_custom_pure_binary_opr_type(pure_binary_opr, lopd_ty, ropd_ty)
+        //     }
+        // }
     }
 
     fn infer_root_pure_binary_opr_type(
         &self,
-        pure_binary_opr: PureBinaryOpr,
+        ord_cmp_opr: BinaryComparisonOpr,
         lopd_root_ty: RootBuiltinIdentifier,
         ropd_root_ty: RootBuiltinIdentifier,
     ) -> SemanticResult<EntityRouteItd> {
-        Ok(match pure_binary_opr {
-            PureBinaryOpr::Less
-            | PureBinaryOpr::Leq
-            | PureBinaryOpr::Greater
-            | PureBinaryOpr::Geq => {
-                if lopd_root_ty != ropd_root_ty {
-                    err!("expect use of \"<, <=, >, >=\" on same types")
-                }
-                match lopd_root_ty {
-                    RootBuiltinIdentifier::I32 | RootBuiltinIdentifier::F32 => (),
-                    _ => err!("expect use of \"<, <=, >, >=\" on i32 or f32"),
-                }
-                RootBuiltinIdentifier::Bool
-            }
-            PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
-                if lopd_root_ty != ropd_root_ty {
-                    err!("expect use of \"!=\" on same types")
-                }
-                RootBuiltinIdentifier::Bool
-            }
-            PureBinaryOpr::Shl => todo!(),
-            PureBinaryOpr::Shr => todo!(),
-            PureBinaryOpr::Add
-            | PureBinaryOpr::Sub
-            | PureBinaryOpr::Mul
-            | PureBinaryOpr::Div
-            | PureBinaryOpr::Power => {
-                if lopd_root_ty != ropd_root_ty {
-                    err!("expect use of \"+, -, *, /, **\" on same types")
-                }
-                match lopd_root_ty {
-                    RootBuiltinIdentifier::I32 | RootBuiltinIdentifier::F32 => (),
-                    _ => err!("expect use of \"+, -, *, /, **\" on i32 or f32"),
-                }
-                lopd_root_ty
-            }
-            PureBinaryOpr::And => todo!(),
-            PureBinaryOpr::BitAnd => todo!(),
-            PureBinaryOpr::Or => todo!(),
-            PureBinaryOpr::BitXor => todo!(),
-            PureBinaryOpr::BitOr => todo!(),
-            PureBinaryOpr::RemEuclid => todo!(),
-        }
-        .into())
+        todo!()
+        // Ok(match ord_cmp_opr {
+        //     BinaryComparisonOpr::Less
+        //     | BinaryComparisonOpr::Leq
+        //     | BinaryComparisonOpr::Greater
+        //     | BinaryComparisonOpr::Geq => {
+        //         if lopd_root_ty != ropd_root_ty {
+        //             err!("expect use of \"<, <=, >, >=\" on same types")
+        //         }
+        //         match lopd_root_ty {
+        //             RootBuiltinIdentifier::I32 | RootBuiltinIdentifier::F32 => (),
+        //             _ => err!("expect use of \"<, <=, >, >=\" on i32 or f32"),
+        //         }
+        //         RootBuiltinIdentifier::Bool
+        //     }
+        //     BinaryComparisonOpr::Eq | BinaryComparisonOpr::Neq => {
+        //         if lopd_root_ty != ropd_root_ty {
+        //             err!("expect use of \"!=\" on same types")
+        //         }
+        //         RootBuiltinIdentifier::Bool
+        //     }
+        //     BinaryPureClosedOpr::Shl => todo!(),
+        //     BinaryPureClosedOpr::Shr => todo!(),
+        //     BinaryPureClosedOpr::Add
+        //     | BinaryPureClosedOpr::Sub
+        //     | BinaryPureClosedOpr::Mul
+        //     | BinaryPureClosedOpr::Div
+        //     | BinaryPureClosedOpr::Power => {
+        //         if lopd_root_ty != ropd_root_ty {
+        //             err!("expect use of \"+, -, *, /, **\" on same types")
+        //         }
+        //         match lopd_root_ty {
+        //             RootBuiltinIdentifier::I32 | RootBuiltinIdentifier::F32 => (),
+        //             _ => err!("expect use of \"+, -, *, /, **\" on i32 or f32"),
+        //         }
+        //         lopd_root_ty
+        //     }
+        //     BinaryShortcuitLogicOpr::And => todo!(),
+        //     BinaryPureClosedOpr::BitAnd => todo!(),
+        //     BinaryShortcuitLogicOpr::Or => todo!(),
+        //     BinaryPureClosedOpr::BitXor => todo!(),
+        //     BinaryPureClosedOpr::BitOr => todo!(),
+        //     BinaryPureClosedOpr::RemEuclid => todo!(),
+        // }
+        // .into())
     }
 
     fn infer_custom_pure_binary_opr_type(
         &self,
-        pure_binary_opr: PureBinaryOpr,
+        pure_binary_opr: BinaryPureClosedOpr,
         lopd_ty: EntityRouteItd,
         ropd_ty: EntityRouteItd,
     ) -> SemanticResult<EntityRouteItd> {
-        match pure_binary_opr {
-            PureBinaryOpr::Eq | PureBinaryOpr::Neq => {
-                if lopd_ty.deref_route() == ropd_ty.deref_route() {
-                    Ok(RootBuiltinIdentifier::Bool.into())
-                } else {
-                    todo!()
-                }
-            }
-            PureBinaryOpr::Add => todo!(),
-            PureBinaryOpr::And => todo!(),
-            PureBinaryOpr::BitAnd => todo!(),
-            PureBinaryOpr::BitOr => todo!(),
-            PureBinaryOpr::BitXor => todo!(),
-            PureBinaryOpr::Div => todo!(),
-            PureBinaryOpr::Geq => todo!(),
-            PureBinaryOpr::Greater => todo!(),
-            PureBinaryOpr::Leq => todo!(),
-            PureBinaryOpr::Less => todo!(),
-            PureBinaryOpr::Mul => todo!(),
-            PureBinaryOpr::RemEuclid => todo!(),
-            PureBinaryOpr::Or => todo!(),
-            PureBinaryOpr::Power => todo!(),
-            PureBinaryOpr::Shl => todo!(),
-            PureBinaryOpr::Shr => todo!(),
-            PureBinaryOpr::Sub => todo!(),
-        }
+        todo!()
+        // match pure_binary_opr {
+        //     BinaryComparisonOpr::Eq | BinaryComparisonOpr::Neq => {
+        //         if lopd_ty.deref_route() == ropd_ty.deref_route() {
+        //             Ok(RootBuiltinIdentifier::Bool.into())
+        //         } else {
+        //             todo!()
+        //         }
+        //     }
+        //     BinaryPureClosedOpr::Add => todo!(),
+        //     BinaryShortcuitLogicOpr::And => todo!(),
+        //     BinaryPureClosedOpr::BitAnd => todo!(),
+        //     BinaryPureClosedOpr::BitOr => todo!(),
+        //     BinaryPureClosedOpr::BitXor => todo!(),
+        //     BinaryPureClosedOpr::Div => todo!(),
+        //     BinaryComparisonOpr::Geq => todo!(),
+        //     BinaryComparisonOpr::Greater => todo!(),
+        //     BinaryComparisonOpr::Leq => todo!(),
+        //     BinaryComparisonOpr::Less => todo!(),
+        //     BinaryPureClosedOpr::Mul => todo!(),
+        //     BinaryPureClosedOpr::RemEuclid => todo!(),
+        //     BinaryShortcuitLogicOpr::Or => todo!(),
+        //     BinaryPureClosedOpr::Power => todo!(),
+        //     BinaryPureClosedOpr::Shl => todo!(),
+        //     BinaryPureClosedOpr::Shr => todo!(),
+        //     BinaryPureClosedOpr::Sub => todo!(),
+        // }
     }
 
     fn parse_suffix_opr(

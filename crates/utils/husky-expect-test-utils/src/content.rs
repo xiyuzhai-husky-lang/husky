@@ -1,5 +1,11 @@
+use std::{
+    any::Any,
+    panic::{catch_unwind, RefUnwindSafe, UnwindSafe},
+};
+
 use crate::*;
 use convert_case::*;
+use husky_unwind_utils::catch_unwind_with_message;
 use thiserror::Error;
 
 pub(crate) struct ExpectContent {
@@ -40,20 +46,24 @@ impl ExpectContent {
         self.entries.iter_mut()
     }
 
-    pub(crate) fn update(&mut self, f: &impl Fn(&str) -> String) {
-        let result = self.try_update(f);
+    pub(crate) fn update(
+        &mut self,
+        f: &(impl Fn(&str) -> String + UnwindSafe + RefUnwindSafe),
+    ) -> UpdateExpectResult<()> {
+        let result = self.update_inner(f);
         self.save_to_file();
-        match result {
-            Ok(_) => (),
-            Err(e) => {
-                panic!("{e}")
-            }
-        }
+        result
     }
 
-    fn try_update(&mut self, f: &impl Fn(&str) -> String) -> UpdateExpectResult<()> {
+    fn update_inner(
+        &mut self,
+        f: &(impl Fn(&str) -> String + UnwindSafe + RefUnwindSafe),
+    ) -> UpdateExpectResult<()> {
         for expect in self.entries() {
-            let output = f(&expect.input);
+            let output = match catch_unwind_with_message(|| f(&expect.input)) {
+                Ok(output) => output,
+                Err(e) => return Err(UpdateExpectError::DerivedPanic(e)),
+            };
             if expect.output.as_ref() != Some(&output) {
                 match ask_is_input_output_okay(&expect.input, &output) {
                     true => expect.output = Some(output),
@@ -117,6 +127,8 @@ output
 pub enum UpdateExpectError {
     #[error("output not accepted")]
     OutputNotAccepted,
+    #[error("derived panic due to \"{0}\"")]
+    DerivedPanic(String),
 }
 
 pub type UpdateExpectResult<T> = Result<T, UpdateExpectError>;

@@ -84,3 +84,11 @@ impl<T, V> ArenaMap<T, V> {
         self.data[idx.raw] = Some(v)
     }
 }
+
+impl<T, V> std::ops::Index<ArenaIdx<T>> for ArenaMap<T, V> {
+    type Output = V;
+
+    fn index(&self, index: ArenaIdx<T>) -> &Self::Output {
+        self.get(index).unwrap()
+    }
+}

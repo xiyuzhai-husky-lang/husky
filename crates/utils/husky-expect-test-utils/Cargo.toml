@@ -14,3 +14,4 @@ convert_case = "0.6.0"
 husky-io-utils = { path = "../../utils/husky-io-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-unwind-utils = { path = "../../utils/husky-unwind-utils" }

@@ -108,7 +108,7 @@ macro_rules! deprecated_try_eat {
     }};
 
     ($parser:expr, "+") => {{
-        deprecated_try_eat!($parser, SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Add)))
+        deprecated_try_eat!($parser, SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Add)))
     }};
 
     ($parser:expr, "'") => {{

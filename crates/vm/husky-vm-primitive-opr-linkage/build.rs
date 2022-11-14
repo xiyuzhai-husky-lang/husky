@@ -20,50 +20,37 @@ use husky_opn_syntax::*;
 
 pub fn resolve_primitive_pure_binary_opr_linkage(
     lopd_ty: RootBuiltinIdentifier,
-    opr: PureBinaryOpr,
+    opr: BinaryPureClosedOpr,
     ropd_ty: RootBuiltinIdentifier,
 ) -> __Linkage {{
-    use PureBinaryOpr::*;
+    use BinaryPureClosedOpr::*;
     use RootBuiltinIdentifier::*;
     type b32 = u32;
     type b64 = u64;
 
     match (lopd_ty, opr, ropd_ty) {{"#
     )?;
-    use PureBinaryOpr::*;
+    use BinaryPureClosedOpr::*;
     use RootBuiltinIdentifier::*;
     static SUPPORTED_PURE_BINARY_OPNS: &'static [(
         RootBuiltinIdentifier,
-        PureBinaryOpr,
+        BinaryPureClosedOpr,
         RootBuiltinIdentifier,
     )] = &[
         // bool is not supported due to short-circuiting
         // i32
         (I32, Add, I32),
         (I32, Div, I32),
-        (I32, Eq, I32),
-        (I32, Greater, I32),
-        (I32, Geq, I32),
-        (I32, Less, I32),
-        (I32, Leq, I32),
         (I32, Mul, I32),
-        (I32, Neq, I32),
         (I32, Sub, I32),
         // b32
         (B32, BitAnd, B32),
         (B32, BitOr, B32),
-        (B32, Eq, B32),
-        (B32, Neq, B32),
         (B32, Shl, I32),
         (B32, Shr, I32),
         // f32
         (F32, Add, F32),
         (F32, Div, F32),
-        (F32, Eq, F32),
-        (F32, Greater, F32),
-        (F32, Geq, F32),
-        (F32, Less, F32),
-        (F32, Leq, F32),
         (F32, Mul, F32),
         (F32, Sub, F32),
     ];
@@ -108,7 +95,7 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
 
     static SUPPORTED_ASSIGN_BINARY_OPNS: &'static [(
         RootBuiltinIdentifier,
-        std::option::Option<PureBinaryOpr>,
+        std::option::Option<BinaryPureClosedOpr>,
         RootBuiltinIdentifier,
     )] = &[
         // bool
@@ -132,10 +119,10 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
 
 pub fn resolve_primitive_assign_binary_opr_linkage(
     lopd_ty: RootBuiltinIdentifier,
-    opt_opr: Option<PureBinaryOpr>,
+    opt_opr: Option<BinaryPureClosedOpr>,
     ropd_ty: RootBuiltinIdentifier,
 ) -> __Linkage {{
-    use PureBinaryOpr::*;
+    use BinaryPureClosedOpr::*;
     use RootBuiltinIdentifier::*;
     type b32 = u32;
     type b64 = u64;

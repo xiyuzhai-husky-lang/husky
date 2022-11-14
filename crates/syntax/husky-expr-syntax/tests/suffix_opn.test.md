@@ -31,7 +31,9 @@ IdxArena {
         },
         RawExpr {
             variant: Opn {
-                opn_variant: Suffix Incr,
+                opn_variant: Suffix(
+                    Incr,
+                ),
                 opds: 0..1,
             },
             range: [1:1, 1:4),
@@ -72,7 +74,9 @@ IdxArena {
         },
         RawExpr {
             variant: Opn {
-                opn_variant: Suffix Decr,
+                opn_variant: Suffix(
+                    Decr,
+                ),
                 opds: 0..1,
             },
             range: [1:1, 1:4),
