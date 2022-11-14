@@ -11,24 +11,26 @@ haha
 output
 
 ```husky
-Arena ([
-  #0: RawExpr {
-    variant: Atom(
-        Symbol(
-            Symbol {
-                ident: Custom(
-                    CustomIdentifier(
-                        "haha",
-                    ),
+IdxArena {
+    data: [
+        RawExpr {
+            variant: Atom(
+                Symbol(
+                    Symbol {
+                        ident: Custom(
+                            CustomIdentifier(
+                                "haha",
+                            ),
+                        ),
+                        kind: Unrecognized,
+                    },
                 ),
-                kind: Unrecognized,
-            },
-        ),
-    ),
-    range: [1:1, 1:5),
-    base_scope_result: Uncertain,
+            ),
+            range: [1:1, 1:5),
+            base_scope_result: Uncertain,
+        },
+    ],
 }
-])
 ```
 
 ## Test#1
@@ -42,24 +44,26 @@ bt
 output
 
 ```husky
-Arena ([
-  #0: RawExpr {
-    variant: Atom(
-        Symbol(
-            Symbol {
-                ident: Custom(
-                    CustomIdentifier(
-                        "bt",
-                    ),
+IdxArena {
+    data: [
+        RawExpr {
+            variant: Atom(
+                Symbol(
+                    Symbol {
+                        ident: Custom(
+                            CustomIdentifier(
+                                "bt",
+                            ),
+                        ),
+                        kind: Unrecognized,
+                    },
                 ),
-                kind: Unrecognized,
-            },
-        ),
-    ),
-    range: [1:1, 1:3),
-    base_scope_result: Uncertain,
+            ),
+            range: [1:1, 1:3),
+            base_scope_result: Uncertain,
+        },
+    ],
 }
-])
 ```
 
 ## Test#2
@@ -73,22 +77,24 @@ what
 output
 
 ```husky
-Arena ([
-  #0: RawExpr {
-    variant: Atom(
-        Symbol(
-            Symbol {
-                ident: Custom(
-                    CustomIdentifier(
-                        "what",
-                    ),
+IdxArena {
+    data: [
+        RawExpr {
+            variant: Atom(
+                Symbol(
+                    Symbol {
+                        ident: Custom(
+                            CustomIdentifier(
+                                "what",
+                            ),
+                        ),
+                        kind: Unrecognized,
+                    },
                 ),
-                kind: Unrecognized,
-            },
-        ),
-    ),
-    range: [1:1, 1:5),
-    base_scope_result: Uncertain,
+            ),
+            range: [1:1, 1:5),
+            base_scope_result: Uncertain,
+        },
+    ],
 }
-])
 ```
