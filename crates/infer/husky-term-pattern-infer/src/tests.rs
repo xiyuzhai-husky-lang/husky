@@ -13,9 +13,9 @@ fn test_infer_ty_works() {
         let term_menu = db.term_menu();
         TermPatternInferContext::new(&db, &arena, expr, &term_menu).write_inference(&mut sheet);
         format!(
-            r#"raw_expr_arena = {:?};
+            r#"raw_expr_arena = {:#?};
 
-ty_infer_sheet = {:?};"#,
+ty_infer_sheet = {:#?};"#,
             arena, sheet
         )
     });
