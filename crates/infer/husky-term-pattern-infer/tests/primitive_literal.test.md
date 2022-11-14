@@ -28,7 +28,7 @@ raw_expr_arena = IdxArena {
 };
 
 ty_infer_sheet = TermPatternInferSheet {
-    term_pattern_interner: TermPatternInterner {
+    term_patt_itr: TermPatternInterner {
         patterns: [],
         unresolved_registry: UnresolvedTermRegistry {
             terms: [
@@ -40,7 +40,7 @@ ty_infer_sheet = TermPatternInferSheet {
     expr_results: ArenaMap {
         data: [
             Some(
-                ExprTermPatternInferEntry {
+                TermPatternInferEntry {
                     const_expr: Ok(
                         Some(
                             ConstExprPatternItd {
@@ -95,7 +95,7 @@ raw_expr_arena = IdxArena {
 };
 
 ty_infer_sheet = TermPatternInferSheet {
-    term_pattern_interner: TermPatternInterner {
+    term_patt_itr: TermPatternInterner {
         patterns: [],
         unresolved_registry: UnresolvedTermRegistry {
             terms: [],
@@ -104,7 +104,7 @@ ty_infer_sheet = TermPatternInferSheet {
     expr_results: ArenaMap {
         data: [
             Some(
-                ExprTermPatternInferEntry {
+                TermPatternInferEntry {
                     const_expr: Ok(
                         Some(
                             ConstExprPatternItd {
@@ -155,7 +155,7 @@ raw_expr_arena = IdxArena {
 };
 
 ty_infer_sheet = TermPatternInferSheet {
-    term_pattern_interner: TermPatternInterner {
+    term_patt_itr: TermPatternInterner {
         patterns: [],
         unresolved_registry: UnresolvedTermRegistry {
             terms: [],
@@ -164,7 +164,7 @@ ty_infer_sheet = TermPatternInferSheet {
     expr_results: ArenaMap {
         data: [
             Some(
-                ExprTermPatternInferEntry {
+                TermPatternInferEntry {
                     const_expr: Ok(
                         Some(
                             ConstExprPatternItd {
@@ -217,7 +217,7 @@ raw_expr_arena = IdxArena {
 };
 
 ty_infer_sheet = TermPatternInferSheet {
-    term_pattern_interner: TermPatternInterner {
+    term_patt_itr: TermPatternInterner {
         patterns: [],
         unresolved_registry: UnresolvedTermRegistry {
             terms: [
@@ -235,7 +235,7 @@ ty_infer_sheet = TermPatternInferSheet {
     expr_results: ArenaMap {
         data: [
             Some(
-                ExprTermPatternInferEntry {
+                TermPatternInferEntry {
                     const_expr: Ok(
                         Some(
                             ConstExprPatternItd {
