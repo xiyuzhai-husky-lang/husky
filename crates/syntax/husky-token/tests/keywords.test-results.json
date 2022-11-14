@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "input": "def",
+    "output": "[\n    Token(\"def\", [1:1, 1:4)),\n]"
+  },
+  {
+    "input": "func",
+    "output": "[\n    Token(\"func\", [1:1, 1:5)),\n]"
+  },
+  {
+    "input": "proc",
+    "output": "[\n    Token(\"proc\", [1:1, 1:5)),\n]"
+  }
+]

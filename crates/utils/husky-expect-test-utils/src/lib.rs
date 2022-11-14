@@ -1,7 +1,7 @@
 mod ask;
 mod config;
 mod instance;
-mod path_stem;
+mod path;
 
 use ask::*;
 use colored::Colorize;
@@ -9,7 +9,7 @@ use config::*;
 use husky_io_utils::diff_write;
 use husky_print_utils::*;
 use instance::{ExpectInstance, UpdateExpectError};
-use path_stem::*;
+use path::*;
 use serde::{Deserialize, Serialize};
 use std::{
     fs::read_to_string,
@@ -48,8 +48,8 @@ use thiserror::Error;
 enum DesIoError {
     #[error("not valid file")]
     NotValidFile(PathBuf),
-    #[error("io")]
-    IO(#[from] std::io::Error),
+    #[error("io error: {e} for path {path:?}")]
+    IO { e: std::io::Error, path: PathBuf },
     #[error("serde json")]
     SerdeJson(#[from] serde_json::error::Error),
 }

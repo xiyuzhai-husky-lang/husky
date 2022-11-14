@@ -33,7 +33,7 @@ impl ExpectInstance {
             test_path_stem,
             entries: vec![],
         };
-        this.init();
+        this.init()?;
         Ok(this)
     }
 
