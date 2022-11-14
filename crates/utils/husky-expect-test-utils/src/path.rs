@@ -33,13 +33,13 @@ fn is_test_input(path: &Path) -> bool {
 fn split_file_name(path: &Path) -> Vec<&str> {
     let file_stem = path.file_name().unwrap().to_str().unwrap();
     let splitting: Vec<_> = file_stem.split(".").collect();
-    if !is_splitting_valid(&splitting) {
+    if !is_splitting_valid(path, &splitting) {
         panic!("{path:?}'s filename is not valid for testing")
     }
     splitting
 }
 
-fn is_splitting_valid(splitting: &[&str]) -> bool {
+fn is_splitting_valid(path: &Path, splitting: &[&str]) -> bool {
     require!(splitting.len() == 3);
     // todo: check case of splitting[0] is snake case
     if splitting[1] == TEST_INPUTS {
@@ -49,7 +49,11 @@ fn is_splitting_valid(splitting: &[&str]) -> bool {
     } else {
         return false;
     }
-    true
+    path.parent()
+        .unwrap()
+        .join(splitting[0])
+        .with_extension("test-inputs.json")
+        .exists()
 }
 use super::*;
 
