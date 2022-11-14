@@ -137,7 +137,17 @@ impl<'a> TermPatternInferContext<'a> {
                 })),
                 ty: Ok(self.term_menu.i32().term().into()),
             },
-            RawLiteralData::Float(_) => todo!(),
+            RawLiteralData::Float(_) => {
+                let term = term_itr.it_unresolved(UnresolvedTerm::FloatLiteral(self.expr_idx()));
+                let ty = term_itr.it_unresolved(UnresolvedTerm::FloatType(term));
+                ExprTermPatternInferResult {
+                    const_expr: Ok(Some(ConstExprPattern {
+                        term: term.into(),
+                        opt_substitution_ctx: None,
+                    })),
+                    ty: Ok(ty.into()),
+                }
+            }
             RawLiteralData::F32(_) => todo!(),
             RawLiteralData::F64(_) => todo!(),
             RawLiteralData::Bits(_) => todo!(),
