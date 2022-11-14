@@ -82,7 +82,7 @@ impl TermPattern {
 
 impl TermPatternInterner {
     #[inline(always)]
-    pub fn it(&mut self, patt: TermPattern) -> TermPatternItd {
+    fn it(&mut self, patt: TermPattern) -> TermPatternItd {
         match patt {
             TermPattern::Resolved(term) => TermPatternItd::Resolved(term),
             TermPattern::Unresolved(term) => TermPatternItd::Unresolved(term),
@@ -90,7 +90,7 @@ impl TermPatternInterner {
         }
     }
 
-    pub fn it_unresolved(&mut self, term: UnresolvedTerm) -> UnresolvedTermIdx {
+    fn it_unresolved(&mut self, term: UnresolvedTerm) -> UnresolvedTermIdx {
         self.unresolved_registry.issue(term)
     }
 
@@ -116,6 +116,17 @@ impl TermPatternInterner {
             }
             TermPatternItd::Composite(idx) => TermPatternRef::Borrowed(&self.patterns[idx.0]),
         }
+    }
+}
+
+pub trait InternTermPattern {
+    fn term_patt_itr(&self) -> &TermPatternInterner;
+    fn term_patt_itr_mut(&mut self) -> &mut TermPatternInterner;
+    fn it(&mut self, patt: TermPattern) -> TermPatternItd {
+        self.term_patt_itr_mut().it(patt)
+    }
+    fn it_unresolved(&mut self, term: UnresolvedTerm) -> UnresolvedTermIdx {
+        self.term_patt_itr_mut().it_unresolved(term)
     }
 }
 
