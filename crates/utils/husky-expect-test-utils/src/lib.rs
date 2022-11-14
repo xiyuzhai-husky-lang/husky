@@ -1,15 +1,15 @@
 mod ask;
 mod config;
-mod content;
-mod path;
+mod instance;
+mod path_stem;
 
 use ask::*;
 use colored::Colorize;
 use config::*;
-use content::{ExpectContent, UpdateExpectError};
 use husky_io_utils::diff_write;
 use husky_print_utils::*;
-use path::*;
+use instance::{ExpectInstance, UpdateExpectError};
+use path_stem::*;
 use serde::{Deserialize, Serialize};
 use std::{
     fs::read_to_string,
@@ -25,8 +25,8 @@ pub fn expect_test_husky_to_rust(
     f: &(impl Fn(&str) -> String + UnwindSafe + RefUnwindSafe),
 ) {
     let config = ExpectTestConfig::from_env();
-    for test_path in collect_test_paths(relative_test_dir) {
-        let mut expects = ExpectContent::extract_from_file(test_path)
+    for test_path_stem in collect_test_path_stems(relative_test_dir) {
+        let mut expects = ExpectInstance::extract_from_file(test_path_stem)
             .unwrap_or_else(|e| panic!("unable to parse results because due to {e}"));
         if config == ExpectTestConfig::UpdateExpect {
             match expects.update(f) {
@@ -53,3 +53,5 @@ enum DesIoError {
     #[error("serde json")]
     SerdeJson(#[from] serde_json::error::Error),
 }
+
+type DesIoResult<T> = Result<T, DesIoError>;
