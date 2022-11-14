@@ -1,12 +1,12 @@
 mod ask;
 mod config;
-mod entry;
+mod content;
 mod path;
 
 use ask::*;
 use colored::Colorize;
 use config::*;
-use entry::*;
+use content::ExpectContent;
 use husky_io_utils::diff_write;
 use husky_print_utils::*;
 use path::*;
@@ -21,37 +21,12 @@ use std::{
 pub fn expect_test_husky_to_rust(relative_test_dir: &str, f: &impl Fn(&str) -> String) {
     let config = ExpectTestConfig::from_env();
     for test_path in collect_test_paths(relative_test_dir) {
-        let mut expects = match Entry::extract_from_file(&test_path) {
-            Ok::<Vec<Entry>, _>(expects) => expects,
-            Err(e) => panic!("unable to parse results because due to {e} for {test_path:?}"),
-        };
+        let mut expects = ExpectContent::extract_from_file(test_path)
+            .unwrap_or_else(|e| panic!("unable to parse results because due to {e}"));
         if config == ExpectTestConfig::UpdateExpect {
-            for expect in expects.iter_mut() {
-                let output = f(&expect.input);
-                if expect.output.as_ref() != Some(&output) {
-                    match ask_is_input_output_okay(&expect.input, &output) {
-                        true => expect.output = Some(output),
-                        false => {
-                            diff_write(
-                                &test_path,
-                                &serde_json::to_string_pretty(&expects).unwrap(),
-                                true,
-                            );
-                            panic!("{RED}expect update not accepted{RESET}")
-                        }
-                    }
-                }
-            }
-            diff_write(
-                &test_path,
-                &serde_json::to_string_pretty(&expects).unwrap(),
-                true,
-            );
+            expects.update(f)
         } else {
-            for expect in expects.iter() {
-                let output = f(&expect.input);
-                assert_eq!(expect.output, Some(output))
-            }
+            expects.verify(f)
         }
     }
 }
