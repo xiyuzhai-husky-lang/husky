@@ -11,32 +11,34 @@ x++
 output
 
 ```husky
-Arena ([
-  #0: RawExpr {
-    variant: Atom(
-        Symbol(
-            Symbol {
-                ident: Custom(
-                    CustomIdentifier(
-                        "x",
-                    ),
+IdxArena {
+    data: [
+        RawExpr {
+            variant: Atom(
+                Symbol(
+                    Symbol {
+                        ident: Custom(
+                            CustomIdentifier(
+                                "x",
+                            ),
+                        ),
+                        kind: Unrecognized,
+                    },
                 ),
-                kind: Unrecognized,
+            ),
+            range: [1:1, 1:2),
+            base_scope_result: Uncertain,
+        },
+        RawExpr {
+            variant: Opn {
+                opn_variant: Suffix Incr,
+                opds: 0..1,
             },
-        ),
-    ),
-    range: [1:1, 1:2),
-    base_scope_result: Uncertain,
+            range: [1:1, 1:4),
+            base_scope_result: None,
+        },
+    ],
 }
-  #1: RawExpr {
-    variant: Opn {
-        opn_variant: Suffix Incr,
-        opds: 0..1,
-    },
-    range: [1:1, 1:4),
-    base_scope_result: None,
-}
-])
 ```
 
 ## Test#1
@@ -50,30 +52,32 @@ y--
 output
 
 ```husky
-Arena ([
-  #0: RawExpr {
-    variant: Atom(
-        Symbol(
-            Symbol {
-                ident: Custom(
-                    CustomIdentifier(
-                        "y",
-                    ),
+IdxArena {
+    data: [
+        RawExpr {
+            variant: Atom(
+                Symbol(
+                    Symbol {
+                        ident: Custom(
+                            CustomIdentifier(
+                                "y",
+                            ),
+                        ),
+                        kind: Unrecognized,
+                    },
                 ),
-                kind: Unrecognized,
+            ),
+            range: [1:1, 1:2),
+            base_scope_result: Uncertain,
+        },
+        RawExpr {
+            variant: Opn {
+                opn_variant: Suffix Decr,
+                opds: 0..1,
             },
-        ),
-    ),
-    range: [1:1, 1:2),
-    base_scope_result: Uncertain,
+            range: [1:1, 1:4),
+            base_scope_result: None,
+        },
+    ],
 }
-  #1: RawExpr {
-    variant: Opn {
-        opn_variant: Suffix Decr,
-        opds: 0..1,
-    },
-    range: [1:1, 1:4),
-    base_scope_result: None,
-}
-])
 ```
