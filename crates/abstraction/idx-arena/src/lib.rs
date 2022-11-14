@@ -20,7 +20,7 @@ where
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("Arena ([")?;
         for (i, v) in self.data.iter().enumerate() {
-            f.write_fmt(format_args!("\n  #{}: {:?}", i, &v))?
+            f.write_fmt(format_args!("\n  #{}: {:#?}", i, &v))?
         }
         if self.data.len() > 0 {
             f.write_str("\n")?

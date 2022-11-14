@@ -1,0 +1,73 @@
+
+input
+
+```husky
+-x
+```
+
+output
+
+```husky
+Arena ([
+  #0: RawExpr {
+    variant: Atom(
+        Symbol(
+            Symbol {
+                ident: Custom(
+                    CustomIdentifier(
+                        "x",
+                    ),
+                ),
+                kind: Unrecognized,
+            },
+        ),
+    ),
+    range: [1:2, 1:3),
+    base_scope_result: Uncertain,
+}
+  #1: RawExpr {
+    variant: Opn {
+        opn_variant: Prefix Minus,
+        opds: 0..1,
+    },
+    range: [1:1, 1:3),
+    base_scope_result: None,
+}
+])
+```
+input
+
+```husky
+!x
+```
+
+output
+
+```husky
+Arena ([
+  #0: RawExpr {
+    variant: Atom(
+        Symbol(
+            Symbol {
+                ident: Custom(
+                    CustomIdentifier(
+                        "x",
+                    ),
+                ),
+                kind: Unrecognized,
+            },
+        ),
+    ),
+    range: [1:2, 1:3),
+    base_scope_result: Uncertain,
+}
+  #1: RawExpr {
+    variant: Opn {
+        opn_variant: Prefix Not,
+        opds: 0..1,
+    },
+    range: [1:1, 1:3),
+    base_scope_result: None,
+}
+])
+```
