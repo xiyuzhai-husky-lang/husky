@@ -31,6 +31,8 @@ impl ExpectContent {
             &serde_json::to_string_pretty(&self.entries).unwrap(),
             true,
         );
+        let md_path = self.test_data_path.with_extension("md");
+        diff_write(&md_path, &self.to_markdown(), true);
     }
 
     fn entries<'a>(&'a mut self) -> impl Iterator<Item = &mut ExpectEntry> + 'a {
@@ -66,6 +68,37 @@ impl ExpectContent {
             let output = f(&expect.input);
             assert_eq!(expect.output, Some(output))
         }
+    }
+
+    fn to_markdown(&self) -> String {
+        use std::fmt::Write;
+        let mut result = String::new();
+        for entry in self.entries.iter() {
+            write!(
+                result,
+                r#"
+input
+
+```husky
+{}
+```"#,
+                entry.input
+            );
+            if let Some(ref output) = entry.output {
+                write!(
+                    result,
+                    r#"
+
+output
+
+```husky
+{}
+```"#,
+                    output
+                );
+            }
+        }
+        result
     }
 }
 

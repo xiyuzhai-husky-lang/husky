@@ -1,10 +1,10 @@
 [
   {
     "input": "x++",
-    "output": "Arena ([\n  #0: RawExpr { variant: Atom(Symbol(Symbol { ident: Custom(CustomIdentifier(\"x\")), kind: Unrecognized })), range: [1:1, 1:2), base_scope_result: Uncertain }\n  #1: RawExpr { variant: Opn { opn_variant: Suffix Incr, opds: 0..1 }, range: [1:1, 1:4), base_scope_result: None }\n])"
+    "output": "Arena ([\n  #0: RawExpr {\n    variant: Atom(\n        Symbol(\n            Symbol {\n                ident: Custom(\n                    CustomIdentifier(\n                        \"x\",\n                    ),\n                ),\n                kind: Unrecognized,\n            },\n        ),\n    ),\n    range: [1:1, 1:2),\n    base_scope_result: Uncertain,\n}\n  #1: RawExpr {\n    variant: Opn {\n        opn_variant: Suffix Incr,\n        opds: 0..1,\n    },\n    range: [1:1, 1:4),\n    base_scope_result: None,\n}\n])"
   },
   {
     "input": "y--",
-    "output": "Arena ([\n  #0: RawExpr { variant: Atom(Symbol(Symbol { ident: Custom(CustomIdentifier(\"y\")), kind: Unrecognized })), range: [1:1, 1:2), base_scope_result: Uncertain }\n  #1: RawExpr { variant: Opn { opn_variant: Suffix Decr, opds: 0..1 }, range: [1:1, 1:4), base_scope_result: None }\n])"
+    "output": "Arena ([\n  #0: RawExpr {\n    variant: Atom(\n        Symbol(\n            Symbol {\n                ident: Custom(\n                    CustomIdentifier(\n                        \"y\",\n                    ),\n                ),\n                kind: Unrecognized,\n            },\n        ),\n    ),\n    range: [1:1, 1:2),\n    base_scope_result: Uncertain,\n}\n  #1: RawExpr {\n    variant: Opn {\n        opn_variant: Suffix Decr,\n        opds: 0..1,\n    },\n    range: [1:1, 1:4),\n    base_scope_result: None,\n}\n])"
   }
 ]

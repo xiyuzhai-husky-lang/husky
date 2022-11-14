@@ -1,0 +1,85 @@
+
+input
+
+```husky
+haha
+```
+
+output
+
+```husky
+Arena ([
+  #0: RawExpr {
+    variant: Atom(
+        Symbol(
+            Symbol {
+                ident: Custom(
+                    CustomIdentifier(
+                        "haha",
+                    ),
+                ),
+                kind: Unrecognized,
+            },
+        ),
+    ),
+    range: [1:1, 1:5),
+    base_scope_result: Uncertain,
+}
+])
+```
+input
+
+```husky
+bt
+```
+
+output
+
+```husky
+Arena ([
+  #0: RawExpr {
+    variant: Atom(
+        Symbol(
+            Symbol {
+                ident: Custom(
+                    CustomIdentifier(
+                        "bt",
+                    ),
+                ),
+                kind: Unrecognized,
+            },
+        ),
+    ),
+    range: [1:1, 1:3),
+    base_scope_result: Uncertain,
+}
+])
+```
+input
+
+```husky
+what
+```
+
+output
+
+```husky
+Arena ([
+  #0: RawExpr {
+    variant: Atom(
+        Symbol(
+            Symbol {
+                ident: Custom(
+                    CustomIdentifier(
+                        "what",
+                    ),
+                ),
+                kind: Unrecognized,
+            },
+        ),
+    ),
+    range: [1:1, 1:5),
+    base_scope_result: Uncertain,
+}
+])
+```

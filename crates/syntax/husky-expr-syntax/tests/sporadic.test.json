@@ -1,14 +1,14 @@
 [
   {
     "input": "haha",
-    "output": "Arena ([\n  #0: RawExpr { variant: Atom(Symbol(Symbol { ident: Custom(CustomIdentifier(\"haha\")), kind: Unrecognized })), range: [1:1, 1:5), base_scope_result: Uncertain }\n])"
+    "output": "Arena ([\n  #0: RawExpr {\n    variant: Atom(\n        Symbol(\n            Symbol {\n                ident: Custom(\n                    CustomIdentifier(\n                        \"haha\",\n                    ),\n                ),\n                kind: Unrecognized,\n            },\n        ),\n    ),\n    range: [1:1, 1:5),\n    base_scope_result: Uncertain,\n}\n])"
   },
   {
     "input": "bt",
-    "output": "Arena ([\n  #0: RawExpr { variant: Atom(Symbol(Symbol { ident: Custom(CustomIdentifier(\"bt\")), kind: Unrecognized })), range: [1:1, 1:3), base_scope_result: Uncertain }\n])"
+    "output": "Arena ([\n  #0: RawExpr {\n    variant: Atom(\n        Symbol(\n            Symbol {\n                ident: Custom(\n                    CustomIdentifier(\n                        \"bt\",\n                    ),\n                ),\n                kind: Unrecognized,\n            },\n        ),\n    ),\n    range: [1:1, 1:3),\n    base_scope_result: Uncertain,\n}\n])"
   },
   {
     "input": "what",
-    "output": "Arena ([\n  #0: RawExpr { variant: Atom(Symbol(Symbol { ident: Custom(CustomIdentifier(\"what\")), kind: Unrecognized })), range: [1:1, 1:5), base_scope_result: Uncertain }\n])"
+    "output": "Arena ([\n  #0: RawExpr {\n    variant: Atom(\n        Symbol(\n            Symbol {\n                ident: Custom(\n                    CustomIdentifier(\n                        \"what\",\n                    ),\n                ),\n                kind: Unrecognized,\n            },\n        ),\n    ),\n    range: [1:1, 1:5),\n    base_scope_result: Uncertain,\n}\n])"
   }
 ]
