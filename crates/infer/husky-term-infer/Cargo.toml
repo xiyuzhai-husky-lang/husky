@@ -15,7 +15,7 @@ husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
-husky-file = { path = "../../syntax/husky-file" }
+husky-file = { path = "../../fs/husky-file" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
@@ -27,7 +27,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 
 [dev-dependencies]
-husky-token = { path = "../../syntax/husky-token" }
+husky-token = { path = "../../lex/husky-token" }
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

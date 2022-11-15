@@ -27,7 +27,7 @@ map-collect = { path = "../../abstraction/map-collect" }
 interner = { path = "../../abstraction/interner" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-vm = { path = "../../vm/husky-vm" }
-husky-file = { path = "../../syntax/husky-file" }
+husky-file = { path = "../../fs/husky-file" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
@@ -43,7 +43,7 @@ husky-primitive-literal-semantics = { path = "../../semantics/husky-primitive-li
 # static
 husky-static-defn = { path = "../../static/husky-static-defn" }
 # syntax
-husky-text = { path = "../../syntax/husky-text" }
+husky-text = { path = "../../lex/husky-text" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-instruction-gen = { path = "../husky-instruction-gen" }
