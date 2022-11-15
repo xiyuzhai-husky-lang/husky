@@ -23,6 +23,7 @@ husky-text = { path = "../../syntax/husky-text" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-token-syntax = { path = "../../syntax/husky-token-syntax" }
+husky-token-scanner = { path = "../../syntax/husky-token-scanner" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
