@@ -1,10 +1,10 @@
 use crate::*;
 use husky_ast::*;
-use husky_entity_route::RangedEntityRoute;
 use husky_expr_syntax::RawExprArena;
 use husky_file::FileItd;
 
 use husky_semantics_error::*;
+use husky_term::Ty;
 use husky_term_infer::{TermInferDb, TermSheet};
 use husky_word::{CustomIdentifier, IdentPairDict};
 use husky_xml_syntax::XmlTagKind;
@@ -30,7 +30,7 @@ impl<'a> LazyStmtParser<'a> {
     pub(super) fn parse_lazy_stmts(
         &mut self,
         _iter: AstIter,
-        _output_ty: RangedEntityRoute,
+        _output_ty: Ty,
     ) -> SemanticResultArc<Vec<Arc<LazyStmt>>> {
         todo!()
         // let mut stmts = Vec::new();
@@ -168,73 +168,74 @@ impl<'a> LazyStmtParser<'a> {
         children: AstIter,
         iter: &mut Peekable<AstIter>,
         condition_branch_kind: RawConditionBranchKind,
-        ty: RangedEntityRoute,
+        ty: Ty,
     ) -> SemanticResult<LazyStmtVariant> {
-        let mut branches = vec![];
-        match condition_branch_kind {
-            RawConditionBranchKind::If { condition } => {
-                branches.push(Arc::new(LazyConditionBranch {
-                    variant: LazyConditionBranchVariant::If {
-                        condition: self.parse_lazy_expr(condition, None)?,
-                    },
-                    stmts: self.parse_lazy_stmts(children, ty)?,
-                }))
-            }
-            RawConditionBranchKind::Elif { .. } => todo!(),
-            RawConditionBranchKind::Else => todo!(),
-        }
-        while let Some(item) = iter.peek() {
-            let item = match item.value.as_ref().unwrap().variant {
-                AstVariant::Stmt(RawStmt {
-                    variant:
-                        RawStmtVariant::IfElseBranch {
-                            condition_branch_kind: RawConditionBranchKind::If { .. },
-                            ..
-                        },
-                    ..
-                }) => break,
-                AstVariant::Stmt(RawStmt {
-                    variant:
-                        RawStmtVariant::IfElseBranch {
-                            condition_branch_kind,
-                            ..
-                        },
-                    ..
-                }) => {
-                    if matches!(condition_branch_kind, RawConditionBranchKind::If { .. }) {
-                        break;
-                    }
-                    iter.next().unwrap()
-                }
-                _ => break,
-            };
-            match item.value.as_ref().unwrap().variant {
-                AstVariant::Stmt(RawStmt {
-                    variant:
-                        RawStmtVariant::IfElseBranch {
-                            ref condition_branch_kind,
-                        },
-                    ..
-                }) => match condition_branch_kind {
-                    RawConditionBranchKind::If { .. } => panic!(),
-                    RawConditionBranchKind::Elif { .. } => {
-                        if branches.len() == 0 {
-                            todo!()
-                        }
-                        todo!()
-                    }
-                    RawConditionBranchKind::Else => {
-                        branches.push(Arc::new(LazyConditionBranch {
-                            variant: LazyConditionBranchVariant::Else,
-                            stmts: self.parse_lazy_stmts(not_none!(item.opt_children), ty)?,
-                        }));
-                        break;
-                    }
-                },
-                _ => panic!(),
-            }
-        }
-        Ok(LazyStmtVariant::ConditionFlow { branches, ty })
+        todo!()
+        // let mut branches = vec![];
+        // match condition_branch_kind {
+        //     RawConditionBranchKind::If { condition } => {
+        //         branches.push(Arc::new(LazyConditionBranch {
+        //             variant: LazyConditionBranchVariant::If {
+        //                 condition: self.parse_lazy_expr(condition, None)?,
+        //             },
+        //             stmts: self.parse_lazy_stmts(children, ty)?,
+        //         }))
+        //     }
+        //     RawConditionBranchKind::Elif { .. } => todo!(),
+        //     RawConditionBranchKind::Else => todo!(),
+        // }
+        // while let Some(item) = iter.peek() {
+        //     let item = match item.value.as_ref().unwrap().variant {
+        //         AstVariant::Stmt(RawStmt {
+        //             variant:
+        //                 RawStmtVariant::IfElseBranch {
+        //                     condition_branch_kind: RawConditionBranchKind::If { .. },
+        //                     ..
+        //                 },
+        //             ..
+        //         }) => break,
+        //         AstVariant::Stmt(RawStmt {
+        //             variant:
+        //                 RawStmtVariant::IfElseBranch {
+        //                     condition_branch_kind,
+        //                     ..
+        //                 },
+        //             ..
+        //         }) => {
+        //             if matches!(condition_branch_kind, RawConditionBranchKind::If { .. }) {
+        //                 break;
+        //             }
+        //             iter.next().unwrap()
+        //         }
+        //         _ => break,
+        //     };
+        //     match item.value.as_ref().unwrap().variant {
+        //         AstVariant::Stmt(RawStmt {
+        //             variant:
+        //                 RawStmtVariant::IfElseBranch {
+        //                     ref condition_branch_kind,
+        //                 },
+        //             ..
+        //         }) => match condition_branch_kind {
+        //             RawConditionBranchKind::If { .. } => panic!(),
+        //             RawConditionBranchKind::Elif { .. } => {
+        //                 if branches.len() == 0 {
+        //                     todo!()
+        //                 }
+        //                 todo!()
+        //             }
+        //             RawConditionBranchKind::Else => {
+        //                 branches.push(Arc::new(LazyConditionBranch {
+        //                     variant: LazyConditionBranchVariant::Else,
+        //                     stmts: self.parse_lazy_stmts(not_none!(item.opt_children), ty)?,
+        //                 }));
+        //                 break;
+        //             }
+        //         },
+        //         _ => panic!(),
+        //     }
+        // }
+        // Ok(LazyStmtVariant::ConditionFlow { branches, ty })
     }
 }
 

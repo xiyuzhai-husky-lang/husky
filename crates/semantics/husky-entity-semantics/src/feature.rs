@@ -12,15 +12,16 @@ pub struct MainDefn {
 impl EntityDefnVariant {
     pub(crate) fn feature(
         db: &dyn EntityDefnQueryGroup,
-        route: Ty,
+        entity_path: EntityPathItd,
         paradigm: Paradigm,
-        ty: RangedEntityRoute,
+        ty: Ty,
         children: Option<AstIter>,
         arena: &RawExprArena,
         file: FileItd,
     ) -> SemanticResult<EntityDefnVariant> {
-        Ok(EntityDefnVariant::Feature {
-            defn_repr: parse_definition_repr(db, paradigm, route, ty, arena, children, file)?,
-        })
+        todo!()
+        // Ok(EntityDefnVariant::Feature {
+        //     defn_repr: parse_definition_repr(db, paradigm, route, ty, arena, children, file)?,
+        // })
     }
 }

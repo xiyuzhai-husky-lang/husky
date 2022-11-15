@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_kind::FieldKind;
-use husky_entity_route::{RangedEntityRoute, Ty};
+use husky_term::Ty;
 use husky_text::RangedCustomIdentifier;
 use husky_vm::Binding;
 
@@ -15,7 +15,6 @@ pub enum EagerOpnVariant {
     Suffix {
         opr: EagerSuffixOpr,
     },
-    RoutineCall(RangedEntityRoute),
     ValueCall,
     TypeCall,
     NewVecFromList,

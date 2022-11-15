@@ -1,9 +1,9 @@
 mod exec;
 mod query;
 
-use husky_entity_route::Ty;
 use husky_file::FileItd;
 use husky_print_utils::ps;
+use husky_term::Ty;
 use husky_text::TextRange;
 use husky_word::{CustomIdentifier, Identifier};
 use indexmap::IndexMap;

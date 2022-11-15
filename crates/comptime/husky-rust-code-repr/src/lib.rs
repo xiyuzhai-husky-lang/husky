@@ -1,12 +1,12 @@
-#[cfg(feature = "entity_route")]
-pub mod entity_route;
+#[cfg(feature = "entity_path")]
+pub mod entity_path;
 #[cfg(feature = "query")]
 pub mod query;
 #[cfg(feature = "registration")]
 pub mod registration;
 
 use convert_case::{Case, Casing};
-// use husky_entity_route::*;
+// use husky_term::*;
 use std::fmt::Display;
 
 pub struct BuildCodeGenStart;

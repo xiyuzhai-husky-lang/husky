@@ -98,19 +98,19 @@ impl<'a> RustCodeGenerator<'a> {
                     self.gen_expr(indent, &opds[0]);
                     self.gen_suffix_opr(opr)
                 }
-                EagerOpnVariant::RoutineCall(_routine) => {
-                    todo!()
-                    // self.gen_entity_route(routine.route, EntityRouteRole::Caller);
-                    // self.write("(");
-                    // self.gen_arguments(indent, opds);
-                    // if self.db.needs_eval_context(routine.route) {
-                    //     if opds.len() > 0 {
-                    //         self.write(", ")
-                    //     }
-                    //     self.write("__ctx")
-                    // }
-                    // self.write(")");
-                }
+                // EagerOpnVariant::RoutineCall(_routine) => {
+                //     todo!()
+                //     // self.gen_entity_route(routine.route, EntityRouteRole::Caller);
+                //     // self.write("(");
+                //     // self.gen_arguments(indent, opds);
+                //     // if self.db.needs_eval_context(routine.route) {
+                //     //     if opds.len() > 0 {
+                //     //         self.write(", ")
+                //     //     }
+                //     //     self.write("__ctx")
+                //     // }
+                //     // self.write(")");
+                // }
                 EagerOpnVariant::TypeCall { .. } => {
                     todo!()
                     // self.gen_type_call_opn(indent, ranged_ty.route, opds, ty_decl);
@@ -231,28 +231,30 @@ impl<'a> RustCodeGenerator<'a> {
             EagerExprVariant::EnumKindLiteral(value) => {
                 self.gen_entity_route(value, EntityRouteRole::Other)
             }
-            EagerExprVariant::EntityFeature { route } => {
-                self.gen_entity_route(route, EntityRouteRole::Caller);
-                self.write("(__ctx)")
+            EagerExprVariant::EntityFeature { .. } => {
+                todo!()
+                // self.gen_entity_route(route, EntityRouteRole::Caller);
+                // self.write("(__ctx)")
             }
-            EagerExprVariant::EntityThickFp { route } => {
-                let ty = expr.intrinsic_ty();
-                self.write("ThickFp::");
-                // is self.db.needs_eval_context(ty) necessary?
-                let needs_eval_context =
-                    self.db.needs_eval_context(ty) || self.db.needs_eval_context(route);
-                if needs_eval_context {
-                    self.write("__new_ctx(")
-                } else {
-                    self.write("__new_base(")
-                }
-                self.gen_entity_route(route, EntityRouteRole::FpValue);
-                self.write(" as ");
-                self.gen_entity_route(
-                    ty,
-                    EntityRouteRole::StaticThinFpTyDecl { needs_eval_context },
-                );
-                self.write(")")
+            EagerExprVariant::EntityThickFp { .. } => {
+                todo!()
+                // let ty = expr.intrinsic_ty();
+                // self.write("ThickFp::");
+                // // is self.db.needs_eval_context(ty) necessary?
+                // let needs_eval_context =
+                //     self.db.needs_eval_context(ty) || self.db.needs_eval_context(route);
+                // if needs_eval_context {
+                //     self.write("__new_ctx(")
+                // } else {
+                //     self.write("__new_base(")
+                // }
+                // self.gen_entity_route(route, EntityRouteRole::FpValue);
+                // self.write(" as ");
+                // self.gen_entity_route(
+                //     ty,
+                //     EntityRouteRole::StaticThinFpTyDecl { needs_eval_context },
+                // );
+                // self.write(")")
             }
         }
 

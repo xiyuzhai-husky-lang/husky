@@ -21,59 +21,60 @@ impl Debugtime {
         repr: &FeatureRepr,
     ) -> Result<GenericFigureCanvasData, (SampleId, __VMError)> {
         // const COLUMN_HEIGHT: u32 = 5;
-        let ty = repr.ty();
-        let visualizer = self.runtime().visualizer(ty.intrinsic());
-        match visualizer.visual_ty {
-            VisualTy::Void => Ok(GenericFigureCanvasData::Unit),
-            VisualTy::Bool => todo!(),
-            VisualTy::B32 => todo!(),
-            VisualTy::B64 => todo!(),
-            VisualTy::Integer => {
-                let ref this = self;
-                Ok(GenericFigureCanvasData::GenericI32 {
-                    partitioned_samples: this.feature_repr_partitioned_samples(
-                        repr,
-                        |visual_data| match visual_data {
-                            VisualData::Primitive {
-                                value: PrimitiveValueData::I32(i),
-                            } => i,
-                            _ => {
-                                p!(visual_data);
-                                panic!()
-                            }
-                        },
-                    )?,
-                }
-                .into())
-            }
-            VisualTy::Float => Ok(GenericFigureCanvasData::GenericF32 {
-                partitioned_samples: self.feature_repr_partitioned_samples(
-                    repr,
-                    |visual_data| match visual_data {
-                        VisualData::Primitive {
-                            value: PrimitiveValueData::F32(f),
-                        } => f,
-                        _ => panic!(),
-                    },
-                )?,
-            }
-            .into()),
-            VisualTy::Point2d => todo!(),
-            VisualTy::Shape2d | VisualTy::Region2d | VisualTy::Image2d | VisualTy::Graphics2d => {
-                Ok(GenericFigureCanvasData::GenericGraphics2d {
-                    partitioned_samples: self
-                        .feature_repr_partitioned_samples(repr, |visual_data| {
-                            Graphics2dCanvasData::from_visual_data(visual_data)
-                        })?,
-                }
-                .into())
-            }
-            VisualTy::Dataset => todo!(),
-            VisualTy::Plot2d => todo!(),
-            VisualTy::Any => todo!(),
-            VisualTy::AnyGroup => todo!(),
-            VisualTy::ThickFp => todo!(),
-        }
+        todo!()
+        // let ty = repr.ty();
+        // let visualizer = self.runtime().visualizer(ty.intrinsic());
+        // match visualizer.visual_ty {
+        //     VisualTy::Void => Ok(GenericFigureCanvasData::Unit),
+        //     VisualTy::Bool => todo!(),
+        //     VisualTy::B32 => todo!(),
+        //     VisualTy::B64 => todo!(),
+        //     VisualTy::Integer => {
+        //         let ref this = self;
+        //         Ok(GenericFigureCanvasData::GenericI32 {
+        //             partitioned_samples: this.feature_repr_partitioned_samples(
+        //                 repr,
+        //                 |visual_data| match visual_data {
+        //                     VisualData::Primitive {
+        //                         value: PrimitiveValueData::I32(i),
+        //                     } => i,
+        //                     _ => {
+        //                         p!(visual_data);
+        //                         panic!()
+        //                     }
+        //                 },
+        //             )?,
+        //         }
+        //         .into())
+        //     }
+        //     VisualTy::Float => Ok(GenericFigureCanvasData::GenericF32 {
+        //         partitioned_samples: self.feature_repr_partitioned_samples(
+        //             repr,
+        //             |visual_data| match visual_data {
+        //                 VisualData::Primitive {
+        //                     value: PrimitiveValueData::F32(f),
+        //                 } => f,
+        //                 _ => panic!(),
+        //             },
+        //         )?,
+        //     }
+        //     .into()),
+        //     VisualTy::Point2d => todo!(),
+        //     VisualTy::Shape2d | VisualTy::Region2d | VisualTy::Image2d | VisualTy::Graphics2d => {
+        //         Ok(GenericFigureCanvasData::GenericGraphics2d {
+        //             partitioned_samples: self
+        //                 .feature_repr_partitioned_samples(repr, |visual_data| {
+        //                     Graphics2dCanvasData::from_visual_data(visual_data)
+        //                 })?,
+        //         }
+        //         .into())
+        //     }
+        //     VisualTy::Dataset => todo!(),
+        //     VisualTy::Plot2d => todo!(),
+        //     VisualTy::Any => todo!(),
+        //     VisualTy::AnyGroup => todo!(),
+        //     VisualTy::ThickFp => todo!(),
+        // }
     }
 
     fn feature_repr_partitioned_samples<T>(

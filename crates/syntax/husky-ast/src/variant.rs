@@ -1,3 +1,5 @@
+use husky_entity_path::EntityPathItd;
+
 use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AstVariant {
@@ -12,19 +14,19 @@ pub enum AstVariant {
         paradigm: Paradigm,
         spatial_parameters: IdentDict<SpatialParameter>,
         parameters: Arc<Vec<Parameter>>,
-        return_ty: RangedEntityRoute,
+        return_ty: RawExprIdx,
         output_liason: OutputModifier,
         opt_this_liason: Option<ParameterModifier>,
     },
     FeatureDefnHead {
         paradigm: Paradigm,
         ident: RangedCustomIdentifier,
-        return_ty: RangedEntityRoute,
+        return_ty: RawExprIdx,
     },
     FieldDefnHead {
         liason: MemberModifier,
         ranged_ident: RangedCustomIdentifier,
-        field_ty: RangedEntityRoute,
+        field_ty: RawExprIdx,
         ast_field_kind: AstFieldKind,
     },
     DatasetConfigDefnHead,
@@ -45,7 +47,7 @@ pub enum AstVariant {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum UseVariant {
-    Route { route: Ty },
+    Route { entity_path: EntityPathItd },
     All { parent: Ty },
 }
 

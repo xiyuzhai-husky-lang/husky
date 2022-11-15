@@ -27,20 +27,6 @@ impl AstError {
 
 pub type AstResultArc<T> = Result<Arc<T>, AstError>;
 
-impl From<AtomError> for AstError {
-    fn from(error: AtomError) -> Self {
-        Self {
-            variant: match error.variant {
-                AtomErrorVariant::Original { message, range } => {
-                    AstErrorVariant::Original { message, range }
-                }
-                AtomErrorVariant::Derived => AstErrorVariant::Derived,
-            },
-            dev_src: error.dev_src,
-        }
-    }
-}
-
 pub type AstResult<T> = Result<T, AstError>;
 
 macro_rules! error {

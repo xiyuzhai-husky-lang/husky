@@ -1,5 +1,5 @@
-use husky_entity_route::Ty;
 use husky_file::FileItd;
+use husky_term::Ty;
 
 use crate::*;
 
@@ -34,11 +34,12 @@ fn collect_entity_syntax_errors(
     parent: Ty,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
-    let table = db.subroute_table(parent).unwrap();
-    diagnostics.extend(table.error_iter().map(|e| e.into()));
-    for subroute in table.non_module_subroute_iter(db.upcast(), parent) {
-        collect_entity_syntax_errors(db, subroute, diagnostics)
-    }
+    todo!()
+    // let table = db.subroute_table(parent).unwrap();
+    // diagnostics.extend(table.error_iter().map(|e| e.into()));
+    // for subroute in table.non_module_subroute_iter(db.upcast(), parent) {
+    //     collect_entity_syntax_errors(db, subroute, diagnostics)
+    // }
 }
 
 fn collect_module_lex_errors(

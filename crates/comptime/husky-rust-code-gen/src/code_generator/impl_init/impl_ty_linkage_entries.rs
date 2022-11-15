@@ -22,18 +22,18 @@ impl<'a> RustCodeGenerator<'a> {
         //             ty: "{}"
         //         }},
         // "#,
-        //             entity_route
+        //             entity_path
         //         ));
-        //         let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
+        //         let call_form_decl = self.db.entity_call_form_decl(entity_path).unwrap();
         //         self.gen_transfer_linkage(
         //             false, // ad hoc
         //             None,
         //             |this| {
-        //                 this.gen_entity_route(entity_route, EntityRouteRole::Caller);
+        //                 this.gen_entity_route(entity_path, EntityRouteRole::Caller);
         //                 this.write("::__call__")
         //             },
         //             |this| {
-        //                 this.gen_entity_route(entity_route, EntityRouteRole::StaticCallRoute);
+        //                 this.gen_entity_route(entity_path, EntityRouteRole::StaticCallRoute);
         //                 this.write("::__call__")
         //             },
         //             &call_form_decl,

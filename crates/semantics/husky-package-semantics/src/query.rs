@@ -2,7 +2,6 @@ use crate::*;
 
 use husky_ast::AstText;
 
-use husky_entity_route::EntityRouteVariant;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_file::FileItd;
 use husky_semantics_error::*;
@@ -17,17 +16,18 @@ fn package(
     db: &dyn PackageQueryGroup,
     target_entrance: husky_file::FileItd,
 ) -> SemanticResultArc<Package> {
-    let module = db.module(target_entrance).unwrap();
-    let ident = match module.variant {
-        EntityRouteVariant::Package { ident, .. } => ident,
-        _ => panic!(),
-    };
-    Ok(Arc::new(Package {
-        ident,
-        subentities: db.subentity_defns(module)?,
-        main_defn: db.main_defn(target_entrance)?,
-        config: db.config(target_entrance)?,
-    }))
+    todo!()
+    // let module = db.module(target_entrance).unwrap();
+    // let ident = match module.variant {
+    //     EntityRouteVariant::Package { ident, .. } => ident,
+    //     _ => panic!(),
+    // };
+    // Ok(Arc::new(Package {
+    //     ident,
+    //     subentities: db.subentity_defns(module)?,
+    //     main_defn: db.main_defn(target_entrance)?,
+    //     config: db.config(target_entrance)?,
+    // }))
 }
 
 fn config(

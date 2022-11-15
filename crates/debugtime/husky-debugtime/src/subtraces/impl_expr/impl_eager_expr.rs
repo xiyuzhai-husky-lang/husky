@@ -31,69 +31,70 @@ impl Debugtime {
         opn_variant: &EagerOpnVariant,
         opds: &[Arc<EagerExpr>],
     ) -> Vec<TraceId> {
-        match opn_variant {
-            EagerOpnVariant::Binary { .. } => todo!(),
-            EagerOpnVariant::Prefix { .. } => todo!(),
-            EagerOpnVariant::Suffix { .. } => todo!(),
-            EagerOpnVariant::RoutineCall(route) => {
-                let routine_defn = self.runtime().entity_defn(route.route).unwrap();
-                let instruction_sheet = self
-                    .runtime()
-                    .entity_instruction_sheet(route.route)
-                    .unwrap();
-                self.routine_call_subtraces(
-                    parent,
-                    &instruction_sheet,
-                    &routine_defn,
-                    opds,
-                    |this, argument, ident| {
-                        (
-                            this.new_trace(
-                                Some(parent.id()),
-                                4,
-                                TraceVariant::EagerCallArgument {
-                                    argument: argument.clone(),
-                                    name: ident,
-                                    history: history.clone(),
-                                },
-                            ),
-                            history.register_result(argument),
-                        )
-                    },
-                )
-            }
-            EagerOpnVariant::TypeCall { .. } => todo!(),
-            EagerOpnVariant::Field { .. } => todo!(),
-            EagerOpnVariant::MethodCall { method_route, .. } => {
-                let routine_defn = self.runtime().entity_defn(*method_route).unwrap();
-                let instruction_sheet = self
-                    .runtime()
-                    .entity_instruction_sheet(*method_route)
-                    .unwrap();
-                self.routine_call_subtraces(
-                    parent,
-                    &instruction_sheet,
-                    &routine_defn,
-                    opds,
-                    |this, argument, name| {
-                        (
-                            this.new_trace(
-                                Some(parent.id()),
-                                4,
-                                TraceVariant::EagerCallArgument {
-                                    argument: argument.clone(),
-                                    name,
-                                    history: history.clone(),
-                                },
-                            ),
-                            history.register_result(argument),
-                        )
-                    },
-                )
-            }
-            EagerOpnVariant::Index { .. } => todo!(),
-            EagerOpnVariant::NewVecFromList => todo!(),
-            EagerOpnVariant::ValueCall => todo!(),
-        }
+        todo!()
+        // match opn_variant {
+        //     EagerOpnVariant::Binary { .. } => todo!(),
+        //     EagerOpnVariant::Prefix { .. } => todo!(),
+        //     EagerOpnVariant::Suffix { .. } => todo!(),
+        //     EagerOpnVariant::RoutineCall(route) => {
+        //         let routine_defn = self.runtime().entity_defn(route.route).unwrap();
+        //         let instruction_sheet = self
+        //             .runtime()
+        //             .entity_instruction_sheet(route.route)
+        //             .unwrap();
+        //         self.routine_call_subtraces(
+        //             parent,
+        //             &instruction_sheet,
+        //             &routine_defn,
+        //             opds,
+        //             |this, argument, ident| {
+        //                 (
+        //                     this.new_trace(
+        //                         Some(parent.id()),
+        //                         4,
+        //                         TraceVariant::EagerCallArgument {
+        //                             argument: argument.clone(),
+        //                             name: ident,
+        //                             history: history.clone(),
+        //                         },
+        //                     ),
+        //                     history.register_result(argument),
+        //                 )
+        //             },
+        //         )
+        //     }
+        //     EagerOpnVariant::TypeCall { .. } => todo!(),
+        //     EagerOpnVariant::Field { .. } => todo!(),
+        //     EagerOpnVariant::MethodCall { method_route, .. } => {
+        //         let routine_defn = self.runtime().entity_defn(*method_route).unwrap();
+        //         let instruction_sheet = self
+        //             .runtime()
+        //             .entity_instruction_sheet(*method_route)
+        //             .unwrap();
+        //         self.routine_call_subtraces(
+        //             parent,
+        //             &instruction_sheet,
+        //             &routine_defn,
+        //             opds,
+        //             |this, argument, name| {
+        //                 (
+        //                     this.new_trace(
+        //                         Some(parent.id()),
+        //                         4,
+        //                         TraceVariant::EagerCallArgument {
+        //                             argument: argument.clone(),
+        //                             name,
+        //                             history: history.clone(),
+        //                         },
+        //                     ),
+        //                     history.register_result(argument),
+        //                 )
+        //             },
+        //         )
+        //     }
+        //     EagerOpnVariant::Index { .. } => todo!(),
+        //     EagerOpnVariant::NewVecFromList => todo!(),
+        //     EagerOpnVariant::ValueCall => todo!(),
+        // }
     }
 }

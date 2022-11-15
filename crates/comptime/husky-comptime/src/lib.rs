@@ -10,7 +10,6 @@ pub use config::*;
 pub use husky_ast::{AstQueryGroup, AstSalsaQueryGroup};
 pub use husky_completion::HuskyCompletionQuery;
 pub use husky_diagnostics::DiagnosticSalsaQuery;
-pub use husky_entity_route::{EntityRoute, InternEntityRoute};
 pub use husky_entity_semantics::EntityDefnQueryGroup;
 pub use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};
 pub use husky_file::{FileQueryGroup, FileSalsaQuery, InternFile, LiveFiles};
@@ -51,7 +50,7 @@ pub struct HuskyComptime {
     storage: salsa::Storage<HuskyComptime>,
     file_interner: Arc<husky_file::FileInterner>,
     word_interner: Arc<husky_word::WordInterner>,
-    entity_route_interner: Arc<husky_entity_route::EntityRouteInterner>,
+    // entity_route_interner: Arc<husky_term::EntityRouteInterner>,
     live_docs: ASafeRwLock<IndexMap<FileItd, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
@@ -68,7 +67,7 @@ impl HuskyComptime {
             linkage_table: LinkageTable::new(config.linkage_table.clone()),
             entity_route_store: Default::default(),
             config,
-            entity_route_interner: Default::default(),
+            // entity_route_interner: Default::default(),
         };
         let target_entrance = comptime.intern_file(comptime.config.package_dir.join("main.hsy"));
         comptime.set_opt_target_entrance(Some(target_entrance));

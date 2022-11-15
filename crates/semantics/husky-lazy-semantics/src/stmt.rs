@@ -5,7 +5,6 @@ use std::{convert::Infallible, sync::Arc};
 
 pub use branch::*;
 use husky_ast::*;
-use husky_entity_route::RangedEntityRoute;
 use husky_expr_syntax::RawExprArena;
 use husky_opn_semantics::ImplicitConversion;
 use husky_semantics_error::SemanticResultArc;
@@ -25,7 +24,6 @@ pub struct LazyStmt {
     pub indent: fold::Indent,
     pub variant: LazyStmtVariant,
     pub instruction_id: InstructionId,
-    pub output_ty: RangedEntityRoute, // return type of the surrounding block
 }
 
 impl std::fmt::Debug for LazyStmt {
@@ -80,7 +78,6 @@ pub enum LazyStmtVariant {
     },
     ConditionFlow {
         branches: Vec<Arc<LazyConditionBranch>>,
-        ty: RangedEntityRoute,
     },
     Match {
         match_expr: Arc<LazyExpr>,
@@ -108,7 +105,6 @@ pub fn parse_lazy_stmts(
     arena: &RawExprArena,
     iter: AstIter,
     file: FileItd,
-    ty: RangedEntityRoute,
 ) -> SemanticResultArc<Vec<Arc<LazyStmt>>> {
-    LazyStmtParser::new(db, arena, file).parse_lazy_stmts(iter, ty)
+    LazyStmtParser::new(db, arena, file).parse_lazy_stmts(iter, todo!())
 }

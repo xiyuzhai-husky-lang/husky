@@ -1,6 +1,6 @@
-use husky_entity_route::Ty;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_primitive_literal_syntax::RawLiteralData;
+use husky_term::Ty;
 use husky_term_infer::TermInferDb;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]

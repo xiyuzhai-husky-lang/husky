@@ -79,29 +79,30 @@ fn feature_branch_opt_stats<'eval>(
     partitions: &Partitions,
     branch: &FeatureLazyBranch,
 ) -> __VMResult<Option<TraceStats>> {
-    msg_once!("consider whether condition is satisfied");
-    feature_opt_stats(
-        db,
-        partitions,
-        branch.block.return_ty.route,
-        |sample_id| -> __VMResult<__Register<'eval>> {
-            match branch.variant {
-                FeatureLazyBranchVariant::If { ref condition } => {
-                    if !db.eval_feature_expr(condition, sample_id)?.to_bool() {
-                        return Ok(__Register::unreturned());
-                    }
-                }
-                FeatureLazyBranchVariant::Elif { ref condition } => {
-                    if !db.eval_feature_expr(condition, sample_id)?.to_bool() {
-                        return Ok(__Register::unreturned());
-                    }
-                }
-                FeatureLazyBranchVariant::Else => (),
-            }
-            db.eval_feature_lazy_block(&branch.block, sample_id)
-        },
-        branch.opt_arrival_indicator.as_ref(),
-    )
+    todo!()
+    // msg_once!("consider whether condition is satisfied");
+    // feature_opt_stats(
+    //     db,
+    //     partitions,
+    //     branch.block.return_ty.route,
+    //     |sample_id| -> __VMResult<__Register<'eval>> {
+    //         match branch.variant {
+    //             FeatureLazyBranchVariant::If { ref condition } => {
+    //                 if !db.eval_feature_expr(condition, sample_id)?.to_bool() {
+    //                     return Ok(__Register::unreturned());
+    //                 }
+    //             }
+    //             FeatureLazyBranchVariant::Elif { ref condition } => {
+    //                 if !db.eval_feature_expr(condition, sample_id)?.to_bool() {
+    //                     return Ok(__Register::unreturned());
+    //                 }
+    //             }
+    //             FeatureLazyBranchVariant::Else => (),
+    //         }
+    //         db.eval_feature_lazy_block(&branch.block, sample_id)
+    //     },
+    //     branch.opt_arrival_indicator.as_ref(),
+    // )
 }
 
 fn feature_expr_opt_stats<'eval>(

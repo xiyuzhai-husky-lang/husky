@@ -27,11 +27,11 @@ husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
-husky-atom = { path = "../../syntax/husky-atom" }
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 # vm
 husky-vm = { path = "../../vm/husky-vm" }
 # kernel
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
 # semantics

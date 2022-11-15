@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_route::{EntityRoute, EntityRouteVariant};
+use husky_term::{EntityRoute, EntityRouteVariant};
 use husky_text::TextRanged;
 use husky_token::*;
 use husky_word::*;
@@ -63,7 +63,7 @@ impl<'a> AstTransformer<'a> {
                         self.context.set(AstContext::Stmt {
                             paradigm: Paradigm::EagerFunctional,
                             return_context: Some(RawReturnContext {
-                                opt_return_ty: Some(RangedEntityRoute {
+                                opt_return_ty: Some(Ty {
                                     route: RootBuiltinIdentifier::DatasetType.into(),
                                     range: Default::default(),
                                 }),
@@ -83,7 +83,7 @@ impl<'a> AstTransformer<'a> {
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
                     return_context: Some(RawReturnContext {
-                        opt_return_ty: Some(RangedEntityRoute {
+                        opt_return_ty: Some(Ty {
                             route: self.db.intern_entity_route(EntityRoute {
                                 variant: EntityRouteVariant::TargetOutputType,
                                 temporal_arguments: Default::default(),

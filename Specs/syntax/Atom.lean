@@ -20,7 +20,7 @@ inductive HuskyAtomVariant
         (field_ident: RangedCustomIdentifier)
         (opt_this_ty: Option EntityRoutePtr)
         (opt_this_liason: Option ParameterModifier)
-        (opt_field_ty: Option RangedEntityRoute)
+        (opt_field_ty: Option Ty)
         (field_liason: MemberModifier)
     | Unrecognized (ident : CustomIdentifier)
     | PrimitiveLiteral(data : RawLiteralData)
@@ -31,7 +31,7 @@ inductive HuskyAtomVariant
     | ListStart (bra : Bracket) (attr : ListStartAttr)
     | ListEnd (ket : Bracket) (attr : ListEndAttr)
     | ListItem
-    | LambdaHead (parameters : List RangedCustomIdentifier × (Option RangedEntityRoute))
+    | LambdaHead (parameters : List RangedCustomIdentifier × (Option Ty))
     | SilentEnd
     | Be
     | BePattern (patt : RawPattern)

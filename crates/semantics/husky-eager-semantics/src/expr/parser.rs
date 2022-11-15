@@ -1,6 +1,6 @@
-use husky_entity_route::Ty;
 use husky_expr_syntax::*;
 use husky_file::FileItd;
+use husky_term::Ty;
 
 use husky_text::RangedCustomIdentifier;
 
@@ -260,7 +260,6 @@ pub trait ParseEagerExpr<'a> {
         let opr = match raw_opr {
             RawSuffixOpr::Incr => EagerSuffixOpr::Incr,
             RawSuffixOpr::Decr => EagerSuffixOpr::Decr,
-            RawSuffixOpr::AsTy(ty) => EagerSuffixOpr::AsTy(ty.clone()),
             RawSuffixOpr::BePattern(_) => todo!(),
             RawSuffixOpr::Unveil => EagerSuffixOpr::Unveil,
         };
@@ -317,7 +316,7 @@ pub trait ParseEagerExpr<'a> {
         //             .map(|raw| self.parse_eager_expr(raw, None))
         //             .collect::<SemanticResult<_>>()?;
         //         Ok(EagerExprVariant::Opn {
-        //             opn_variant: EagerOpnVariant::RoutineCall(RangedEntityRoute {
+        //             opn_variant: EagerOpnVariant::RoutineCall(Ty {
         //                 route,
         //                 range: call.range(),
         //             }),
@@ -334,7 +333,7 @@ pub trait ParseEagerExpr<'a> {
         //             .collect::<SemanticResult<_>>()?;
         //         Ok(EagerExprVariant::Opn {
         //             opn_variant: EagerOpnVariant::TypeCall {
-        //                 ranged_ty: RangedEntityRoute {
+        //                 ranged_ty: Ty {
         //                     route,
         //                     range: call.range(),
         //                 },

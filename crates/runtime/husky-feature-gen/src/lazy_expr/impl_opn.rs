@@ -14,122 +14,123 @@ impl<'a> FeatureExprBuilder<'a> {
         opds: &[Arc<LazyExpr>],
         expr: &Arc<LazyExpr>,
     ) -> (FeatureLazyExprVariant, FeatureItd) {
-        match opn_kind {
-            LazyOpnKind::Binary { opr, this } => {
-                let lopd = self.new_expr(opds[0].clone());
-                let ropd = self.new_expr(opds[1].clone());
-                self.compile_binary_opn(this, lopd, opr, ropd)
-            }
-            LazyOpnKind::Prefix(_) => todo!(),
-            LazyOpnKind::FunctionModelCall(routine) => {
-                let uid = self.db.entity_uid(routine.route);
-                let opds = opds
-                    .iter()
-                    .map(|opd| self.new_expr(opd.clone()))
-                    .collect::<Vec<_>>();
-                let feature = self.feature_interner.intern(Feature::FunctionCall {
-                    func: routine.route,
-                    uid,
-                    inputs: opds.iter().map(|expr| expr.feature).collect(),
-                });
-                let model_defn = self.db.entity_defn(routine.route).unwrap();
-                let internal = match model_defn.variant {
-                    EntityDefnVariant::Function {
-                        source: CallFormSource::Static(__Linkage::Model(model)),
-                        ..
-                    } => self.db.train(model, self.opt_arrival_indicator, &opds),
-                    _ => todo!(),
-                };
-                let kind = FeatureLazyExprVariant::ModelCall {
-                    opds,
-                    has_this: false,
-                    model_defn,
-                    internal,
-                    opt_arrival_indicator: self
-                        .opt_arrival_indicator
-                        .map(|branch_indicator| branch_indicator.clone()),
-                };
-                (kind, feature)
-            }
-            LazyOpnKind::FunctionRoutineCall(routine) => {
-                let uid = self.db.entity_uid(routine.route);
-                let opds = opds
-                    .iter()
-                    .map(|opd| self.new_expr(opd.clone()))
-                    .collect::<Vec<_>>();
-                let feature = self.feature_interner.intern(Feature::FunctionCall {
-                    func: routine.route,
-                    uid,
-                    inputs: opds.iter().map(|expr| expr.feature).collect(),
-                });
-                let routine_defn = self.db.entity_defn(routine.route).unwrap();
-                let opt_linkage = self.db.routine_linkage(routine.route);
-                let kind = FeatureLazyExprVariant::RoutineCall {
-                    opt_linkage,
-                    opds,
-                    has_this: false,
-                    opt_instruction_sheet: self.db.entity_instruction_sheet(routine.route),
-                    routine_defn,
-                };
-                (kind, feature)
-            }
-            LazyOpnKind::Field {
-                field_ident,
-                field_binding,
-            } => self.compile_field_access(
-                field_ident,
-                FeatureLazyExpr::new(
-                    self.db,
-                    self.opt_this.clone(),
-                    opds[0].clone(),
-                    self.symbols,
-                    self.opt_arrival_indicator,
-                    self.feature_interner,
-                )
-                .into(),
-                field_binding,
-            ),
-            LazyOpnKind::MethodCall {
-                method_ident,
-                method_route,
-                ..
-            } => self.compile_method_call(method_ident, method_route, opds),
-            LazyOpnKind::Index { element_binding } => self.compile_index(opds, element_binding),
-            LazyOpnKind::StructCall(_) => todo!(),
-            LazyOpnKind::RecordCall(ty) => {
-                let uid = self.db.entity_uid(ty.route);
-                let opds = opds
-                    .iter()
-                    .map(|opd| self.new_expr(opd.clone()))
-                    .collect::<Vec<_>>();
-                let feature = self.feature_interner.intern(Feature::RecordTypeCall {
-                    ty: ty.route,
-                    uid,
-                    opds: opds.iter().map(|opd| opd.feature).collect(),
-                });
-                let kind = FeatureLazyExprVariant::NewRecord {
-                    ty,
-                    entity: self.db.entity_defn(ty.route).unwrap(),
-                    opds,
-                };
-                (kind, feature)
-            }
-            LazyOpnKind::NewVecFromList => {
-                let ty = expr.intrinsic_ty();
-                let elements = opds
-                    .iter()
-                    .map(|opd| self.new_expr(opd.clone()))
-                    .collect::<Vec<_>>();
-                let feature = self.feature_interner.intern(Feature::NewVecFromList {
-                    elements: elements.iter().map(|elem| elem.feature).collect(),
-                });
-                let kind = FeatureLazyExprVariant::NewVecFromList {
-                    elements,
-                    linkage: self.db.type_call_linkage(ty).unwrap(),
-                };
-                (kind, feature)
-            }
-        }
+        todo!()
+        // match opn_kind {
+        //     LazyOpnKind::Binary { opr, this } => {
+        //         let lopd = self.new_expr(opds[0].clone());
+        //         let ropd = self.new_expr(opds[1].clone());
+        //         self.compile_binary_opn(this, lopd, opr, ropd)
+        //     }
+        //     LazyOpnKind::Prefix(_) => todo!(),
+        //     LazyOpnKind::FunctionModelCall(routine) => {
+        //         let uid = self.db.entity_uid(routine.route);
+        //         let opds = opds
+        //             .iter()
+        //             .map(|opd| self.new_expr(opd.clone()))
+        //             .collect::<Vec<_>>();
+        //         let feature = self.feature_interner.intern(Feature::FunctionCall {
+        //             func: routine.route,
+        //             uid,
+        //             inputs: opds.iter().map(|expr| expr.feature).collect(),
+        //         });
+        //         let model_defn = self.db.entity_defn(routine.route).unwrap();
+        //         let internal = match model_defn.variant {
+        //             EntityDefnVariant::Function {
+        //                 source: CallFormSource::Static(__Linkage::Model(model)),
+        //                 ..
+        //             } => self.db.train(model, self.opt_arrival_indicator, &opds),
+        //             _ => todo!(),
+        //         };
+        //         let kind = FeatureLazyExprVariant::ModelCall {
+        //             opds,
+        //             has_this: false,
+        //             model_defn,
+        //             internal,
+        //             opt_arrival_indicator: self
+        //                 .opt_arrival_indicator
+        //                 .map(|branch_indicator| branch_indicator.clone()),
+        //         };
+        //         (kind, feature)
+        //     }
+        //     LazyOpnKind::FunctionRoutineCall(routine) => {
+        //         let uid = self.db.entity_uid(routine.route);
+        //         let opds = opds
+        //             .iter()
+        //             .map(|opd| self.new_expr(opd.clone()))
+        //             .collect::<Vec<_>>();
+        //         let feature = self.feature_interner.intern(Feature::FunctionCall {
+        //             func: routine.route,
+        //             uid,
+        //             inputs: opds.iter().map(|expr| expr.feature).collect(),
+        //         });
+        //         let routine_defn = self.db.entity_defn(routine.route).unwrap();
+        //         let opt_linkage = self.db.routine_linkage(routine.route);
+        //         let kind = FeatureLazyExprVariant::RoutineCall {
+        //             opt_linkage,
+        //             opds,
+        //             has_this: false,
+        //             opt_instruction_sheet: self.db.entity_instruction_sheet(routine.route),
+        //             routine_defn,
+        //         };
+        //         (kind, feature)
+        //     }
+        //     LazyOpnKind::Field {
+        //         field_ident,
+        //         field_binding,
+        //     } => self.compile_field_access(
+        //         field_ident,
+        //         FeatureLazyExpr::new(
+        //             self.db,
+        //             self.opt_this.clone(),
+        //             opds[0].clone(),
+        //             self.symbols,
+        //             self.opt_arrival_indicator,
+        //             self.feature_interner,
+        //         )
+        //         .into(),
+        //         field_binding,
+        //     ),
+        //     LazyOpnKind::MethodCall {
+        //         method_ident,
+        //         method_route,
+        //         ..
+        //     } => self.compile_method_call(method_ident, method_route, opds),
+        //     LazyOpnKind::Index { element_binding } => self.compile_index(opds, element_binding),
+        //     LazyOpnKind::StructCall(_) => todo!(),
+        //     LazyOpnKind::RecordCall(ty) => {
+        //         let uid = self.db.entity_uid(ty.route);
+        //         let opds = opds
+        //             .iter()
+        //             .map(|opd| self.new_expr(opd.clone()))
+        //             .collect::<Vec<_>>();
+        //         let feature = self.feature_interner.intern(Feature::RecordTypeCall {
+        //             ty: ty.route,
+        //             uid,
+        //             opds: opds.iter().map(|opd| opd.feature).collect(),
+        //         });
+        //         let kind = FeatureLazyExprVariant::NewRecord {
+        //             ty,
+        //             entity: self.db.entity_defn(ty.route).unwrap(),
+        //             opds,
+        //         };
+        //         (kind, feature)
+        //     }
+        //     LazyOpnKind::NewVecFromList => {
+        //         let ty = expr.intrinsic_ty();
+        //         let elements = opds
+        //             .iter()
+        //             .map(|opd| self.new_expr(opd.clone()))
+        //             .collect::<Vec<_>>();
+        //         let feature = self.feature_interner.intern(Feature::NewVecFromList {
+        //             elements: elements.iter().map(|elem| elem.feature).collect(),
+        //         });
+        //         let kind = FeatureLazyExprVariant::NewVecFromList {
+        //             elements,
+        //             linkage: self.db.type_call_linkage(ty).unwrap(),
+        //         };
+        //         (kind, feature)
+        //     }
+        // }
     }
 
     fn compile_binary_opn(
@@ -139,67 +140,68 @@ impl<'a> FeatureExprBuilder<'a> {
         opr: BinaryPureClosedOpr,
         ropd: Arc<FeatureLazyExpr>,
     ) -> (FeatureLazyExprVariant, FeatureItd) {
-        match this {
-            Ty::Root(RootBuiltinIdentifier::Void)
-            | Ty::Root(RootBuiltinIdentifier::I32)
-            | Ty::Root(RootBuiltinIdentifier::F32)
-            | Ty::Root(RootBuiltinIdentifier::F64)
-            | Ty::Root(RootBuiltinIdentifier::B32)
-            | Ty::Root(RootBuiltinIdentifier::B64) => {
-                let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
-                    opr,
-                    lopd: lopd.feature,
-                    ropd: ropd.feature,
-                });
-                (
-                    FeatureLazyExprVariant::PrimitiveBinaryOpr {
-                        opr,
-                        linkage: resolve_primitive_pure_binary_opr_linkage(
-                            lopd.expr.intrinsic_ty().root(),
-                            opr,
-                            ropd.expr.intrinsic_ty().root(),
-                        ),
-                        opds: vec![lopd, ropd],
-                    },
-                    feature,
-                )
-            }
-            Ty::Root(RootBuiltinIdentifier::Bool) => {
-                let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
-                    opr,
-                    lopd: lopd.feature,
-                    ropd: ropd.feature,
-                });
-                todo!()
-                // match opr {
-                //     BinaryShortcuitLogicOpr::And | BinaryShortcuitLogicOpr::Or => (
-                //         FeatureLazyExprVariant::ShortCircuitBinaryOpr {
-                //             opr,
-                //             opds: vec![lopd, ropd],
-                //         },
-                //         feature,
-                //     ),
-                //     BinaryPureClosedOpr::Add => todo!(),
-                //     BinaryPureClosedOpr::BitAnd => todo!(),
-                //     BinaryPureClosedOpr::BitOr => todo!(),
-                //     BinaryPureClosedOpr::BitXor => todo!(),
-                //     BinaryPureClosedOpr::Div => todo!(),
-                //     BinaryComparisonOpr::Eq => todo!(),
-                //     BinaryComparisonOpr::Geq => todo!(),
-                //     BinaryComparisonOpr::Greater => todo!(),
-                //     BinaryComparisonOpr::Leq => todo!(),
-                //     BinaryComparisonOpr::Less => todo!(),
-                //     BinaryPureClosedOpr::Mul => todo!(),
-                //     BinaryComparisonOpr::Neq => todo!(),
-                //     BinaryPureClosedOpr::RemEuclid => todo!(),
-                //     BinaryPureClosedOpr::Power => todo!(),
-                //     BinaryPureClosedOpr::Shl => todo!(),
-                //     BinaryPureClosedOpr::Shr => todo!(),
-                //     BinaryPureClosedOpr::Sub => todo!(),
-                // }
-            }
-            _ => self.compile_custom_binary_opn(lopd, opr, ropd),
-        }
+        todo!()
+        // match this {
+        //     Ty::Root(RootBuiltinIdentifier::Void)
+        //     | Ty::Root(RootBuiltinIdentifier::I32)
+        //     | Ty::Root(RootBuiltinIdentifier::F32)
+        //     | Ty::Root(RootBuiltinIdentifier::F64)
+        //     | Ty::Root(RootBuiltinIdentifier::B32)
+        //     | Ty::Root(RootBuiltinIdentifier::B64) => {
+        //         let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
+        //             opr,
+        //             lopd: lopd.feature,
+        //             ropd: ropd.feature,
+        //         });
+        //         (
+        //             FeatureLazyExprVariant::PrimitiveBinaryOpr {
+        //                 opr,
+        //                 linkage: resolve_primitive_pure_binary_opr_linkage(
+        //                     lopd.expr.intrinsic_ty().root(),
+        //                     opr,
+        //                     ropd.expr.intrinsic_ty().root(),
+        //                 ),
+        //                 opds: vec![lopd, ropd],
+        //             },
+        //             feature,
+        //         )
+        //     }
+        //     Ty::Root(RootBuiltinIdentifier::Bool) => {
+        //         let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
+        //             opr,
+        //             lopd: lopd.feature,
+        //             ropd: ropd.feature,
+        //         });
+        //         todo!()
+        //         // match opr {
+        //         //     BinaryShortcuitLogicOpr::And | BinaryShortcuitLogicOpr::Or => (
+        //         //         FeatureLazyExprVariant::ShortCircuitBinaryOpr {
+        //         //             opr,
+        //         //             opds: vec![lopd, ropd],
+        //         //         },
+        //         //         feature,
+        //         //     ),
+        //         //     BinaryPureClosedOpr::Add => todo!(),
+        //         //     BinaryPureClosedOpr::BitAnd => todo!(),
+        //         //     BinaryPureClosedOpr::BitOr => todo!(),
+        //         //     BinaryPureClosedOpr::BitXor => todo!(),
+        //         //     BinaryPureClosedOpr::Div => todo!(),
+        //         //     BinaryComparisonOpr::Eq => todo!(),
+        //         //     BinaryComparisonOpr::Geq => todo!(),
+        //         //     BinaryComparisonOpr::Greater => todo!(),
+        //         //     BinaryComparisonOpr::Leq => todo!(),
+        //         //     BinaryComparisonOpr::Less => todo!(),
+        //         //     BinaryPureClosedOpr::Mul => todo!(),
+        //         //     BinaryComparisonOpr::Neq => todo!(),
+        //         //     BinaryPureClosedOpr::RemEuclid => todo!(),
+        //         //     BinaryPureClosedOpr::Power => todo!(),
+        //         //     BinaryPureClosedOpr::Shl => todo!(),
+        //         //     BinaryPureClosedOpr::Shr => todo!(),
+        //         //     BinaryPureClosedOpr::Sub => todo!(),
+        //         // }
+        //     }
+        //     _ => self.compile_custom_binary_opn(lopd, opr, ropd),
+        // }
     }
 
     fn compile_custom_binary_opn(

@@ -1,4 +1,4 @@
-use husky_entity_route::RangedEntityRoute;
+use husky_term::Ty;
 
 use super::*;
 
@@ -53,14 +53,14 @@ impl<'a> TraceLineGenerator<'a> {
                         Some(expr.range.closed_end()),
                     );
                 }
-                EagerOpnVariant::RoutineCall(ranged_scope) => self.eager_routine_call_tokens(
-                    expr.file,
-                    *ranged_scope,
-                    opds,
-                    associated_trace_id,
-                    history,
-                    &config,
-                ),
+                // EagerOpnVariant::RoutineCall(ranged_scope) => self.eager_routine_call_tokens(
+                //     expr.file,
+                //     *ranged_scope,
+                //     opds,
+                //     associated_trace_id,
+                //     history,
+                //     &config,
+                // ),
                 EagerOpnVariant::Field { field_ident, .. } => {
                     self.gen_eager_expr_tokens(&opds[0], history, config.subexpr());
                     self.render_special_token(".", None, Some(field_ident.range.start.to_left(1)));
@@ -143,25 +143,26 @@ impl<'a> TraceLineGenerator<'a> {
     fn eager_routine_call_tokens(
         &mut self,
         file: FileItd,
-        ranged_scope: RangedEntityRoute,
+        ranged_scope: Ty,
         inputs: &[Arc<EagerExpr>],
         opt_associated_trace_id: Option<TraceId>,
         history: &Arc<History<'static>>,
         config: &ExprTokenConfig,
     ) {
-        let text = self.runtime().text(file).unwrap();
-        self.gen_route_token(
-            text.ranged(ranged_scope.range),
-            opt_associated_trace_id,
-            Some(ranged_scope.range.start),
-        );
-        self.render_special_token("(", None, None);
-        for (i, input) in inputs.iter().enumerate() {
-            if i > 0 {
-                self.render_special_token(", ", None, None);
-            }
-            self.gen_eager_expr_tokens(input, history, config.subexpr());
-        }
-        self.render_special_token(")", None, Some(ranged_scope.range.closed_end()));
+        todo!()
+        // let text = self.runtime().text(file).unwrap();
+        // self.gen_route_token(
+        //     text.ranged(ranged_scope.range),
+        //     opt_associated_trace_id,
+        //     Some(ranged_scope.range.start),
+        // );
+        // self.render_special_token("(", None, None);
+        // for (i, input) in inputs.iter().enumerate() {
+        //     if i > 0 {
+        //         self.render_special_token(", ", None, None);
+        //     }
+        //     self.gen_eager_expr_tokens(input, history, config.subexpr());
+        // }
+        // self.render_special_token(")", None, Some(ranged_scope.range.closed_end()));
     }
 }

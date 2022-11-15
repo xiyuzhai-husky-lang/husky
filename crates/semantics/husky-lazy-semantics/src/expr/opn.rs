@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_route::{RangedEntityRoute, Ty};
+use husky_term::Ty;
 use husky_text::RangedCustomIdentifier;
 use husky_vm::*;
 
@@ -10,11 +10,11 @@ pub enum LazyOpnKind {
         this: Ty,
     },
     Prefix(PrefixOpr),
-    FunctionModelCall(RangedEntityRoute),
-    FunctionRoutineCall(RangedEntityRoute),
-    StructCall(RangedEntityRoute),
+    FunctionModelCall,
+    FunctionRoutineCall,
+    StructCall,
     NewVecFromList,
-    RecordCall(RangedEntityRoute),
+    RecordCall,
     Field {
         field_ident: RangedCustomIdentifier,
         field_binding: Binding,

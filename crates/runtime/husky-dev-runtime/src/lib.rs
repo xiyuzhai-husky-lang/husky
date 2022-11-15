@@ -56,7 +56,7 @@ pub struct DevRuntime {
     // comptime
     file_interner: Arc<husky_file::FileInterner>,
     word_interner: Arc<husky_word::WordInterner>,
-    entity_route_interner: Arc<husky_entity_route::EntityRouteInterner>,
+    // entity_route_interner: Arc<husky_term::EntityRouteInterner>,
     live_docs: ASafeRwLock<IndexMap<FileItd, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
@@ -70,22 +70,23 @@ pub struct RuntimeConfig {
 
 impl DevRuntime {
     pub fn new(config: RuntimeConfig) -> DevRuntime {
-        let mut runtime = Self {
-            storage: Default::default(),
-            variant: HuskyRuntimeVariant::None,
-            feature_interner: Default::default(),
-            // comptime
-            file_interner: Default::default(),
-            word_interner: Default::default(),
-            live_docs: Default::default(),
-            linkage_table: LinkageTable::new(config.comptime.linkage_table.clone()),
-            entity_route_store: Default::default(),
-            entity_route_interner: Default::default(),
-            // config
-            config,
-        };
-        runtime.init();
-        runtime
+        todo!()
+        // let mut runtime = Self {
+        //     storage: Default::default(),
+        //     variant: HuskyRuntimeVariant::None,
+        //     feature_interner: Default::default(),
+        //     // comptime
+        //     file_interner: Default::default(),
+        //     word_interner: Default::default(),
+        //     live_docs: Default::default(),
+        //     linkage_table: LinkageTable::new(config.comptime.linkage_table.clone()),
+        //     entity_route_store: Default::default(),
+        //     entity_route_interner: Default::default(),
+        //     // config
+        //     config,
+        // };
+        // runtime.init();
+        // runtime
     }
 
     fn init(&mut self) {

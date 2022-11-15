@@ -13,6 +13,7 @@ mod visual;
 
 pub use block::*;
 pub use eval_id::*;
+use husky_entity_path::EntityPathItd;
 use husky_opn_semantics::ImplicitConversion;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_vm_primitive_value::PrimitiveValueData;
@@ -24,10 +25,10 @@ pub use lazy_stmt::{FeatureLazyStmt, FeatureLazyStmtVariant};
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
 pub use repr::*;
 
-use husky_entity_route::Ty;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
+use husky_term::Ty;
 use husky_text::*;
 use husky_vm::EntityUid;
 use husky_word::{CustomIdentifier, IdentPairDict};
@@ -95,7 +96,7 @@ pub enum Feature {
         opds: Vec<FeatureItd>,
     },
     EntityFeature {
-        route: Ty,
+        entity_path: EntityPathItd,
         uid: EntityUid,
     },
     RecordTypeCall {

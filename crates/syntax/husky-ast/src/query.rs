@@ -16,53 +16,35 @@ pub trait AstSalsaQueryGroup:
     EntitySyntaxQueryGroup + Upcast<dyn EntitySyntaxQueryGroup> + TextQueryGroup
 {
     fn ast_text(&self, file: FileItd) -> EntitySyntaxResultArc<AstText>;
-
-    fn root_symbols(&self) -> Arc<Vec<Symbol>>;
-}
-
-fn root_symbols(db: &dyn AstSalsaQueryGroup) -> Arc<Vec<Symbol>> {
-    Arc::new(
-        db.all_target_entrances()
-            .into_iter()
-            .map(|target_entrance| -> Symbol {
-                let module = db.module(target_entrance).unwrap();
-                Symbol {
-                    init_ident: RangedCustomIdentifier {
-                        ident: module.ident().custom(),
-                        range: Default::default(),
-                    },
-                    kind: SymbolKind::EntityRoute(module),
-                }
-            })
-            .collect::<Vec<_>>(),
-    )
 }
 
 pub trait AstQueryGroup: AstSalsaQueryGroup {
     fn parse_route_from_text(&self, text: &str) -> Ty {
-        let root_symbols = self.root_symbols();
-        let mut context = AtomContextStandalone {
-            db: self.upcast(),
-            opt_this_ty: None,
-            opt_this_contract: None,
-            symbols: (&root_symbols as &[_]).into(),
-            kind: AtomContextKind::Normal,
-            opt_file: None,
-        };
-        match context.parse_entity_route(text) {
-            Ok(route) => route,
-            Err(e) => {
-                panic!("can't parse entity route from text `{text}`,\n    due to error: {e:?}")
-            }
-        }
+        todo!()
+        // let root_symbols = self.root_symbols();
+        // let mut context = AtomContextStandalone {
+        //     db: self.upcast(),
+        //     opt_this_ty: None,
+        //     opt_this_contract: None,
+        //     symbols: (&root_symbols as &[_]).into(),
+        //     kind: AtomContextKind::Normal,
+        //     opt_file: None,
+        // };
+        // match context.parse_entity_route(text) {
+        //     Ok(route) => route,
+        //     Err(e) => {
+        //         panic!("can't parse entity route from text `{text}`,\n    due to error: {e:?}")
+        //     }
+        // }
     }
 }
 
 fn ast_text(this: &dyn AstSalsaQueryGroup, id: FileItd) -> EntitySyntaxResultArc<AstText> {
-    let tokenized_text = this.tokenized_text(id)?;
-    let mut parser = AstTransformer::new(this, this.module(id)?)?;
-    parser.transform_all_recr(tokenized_text.iter());
-    Ok(Arc::new(parser.finish()))
+    todo!()
+    // let tokenized_text = this.tokenized_text(id)?;
+    // let mut parser = AstTransformer::new(this, this.module(id)?)?;
+    // parser.transform_all_recr(tokenized_text.iter());
+    // Ok(Arc::new(parser.finish()))
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

@@ -68,73 +68,74 @@ impl<'a> std::ops::DerefMut for TraceLineGenerator<'a> {
 
 impl<'a> TraceLineGenerator<'a> {
     pub(super) fn gen(mut self) -> Vec<TraceLineData> {
-        match self.trace_variant {
-            TraceVariant::Main(_) => self.render_keyword_token("main", None, None),
-            TraceVariant::EntityFeature {
-                route, ref repr, ..
-            } => {
-                if let Some(token) = repr.opt_leading_keyword() {
-                    self.render_keyword_token(token, None, None);
-                    self.render_ident_token(route.ident().as_str(), None, None)
-                } else {
-                    self.render_keyword_token(route.ident().as_str(), None, None)
-                }
-            }
-            TraceVariant::Module { route, .. } => {
-                self.gen_mod();
-                self.render_ident_token(route.ident().as_str(), None, None)
-            }
-            TraceVariant::FeatureStmt(stmt) => self.feature_stmt_tokens(stmt),
-            TraceVariant::FeatureExpr(ref expr) => {
-                self.gen_feature_expr(expr, ExprTokenConfig::expr(false))
-            }
-            TraceVariant::FeatureBranch(branch) => self.gen_feature_branch(branch),
-            TraceVariant::FuncStmt {
-                ref stmt,
-                ref history,
-                ..
-            } => self.func_stmt_tokens(stmt, history),
-            TraceVariant::ProcStmt {
-                ref stmt,
-                ref history,
-            } => self.proc_stmt_tokens(stmt, history),
-            TraceVariant::EagerExpr {
-                ref expr,
-                ref history,
-            } => self.gen_eager_expr_tokens(expr, history, ExprTokenConfig::expr(self.has_parent)),
-            TraceVariant::CallHead { ref entity, .. } => self.gen_call_head_lines(entity),
-            TraceVariant::LoopFrame {
-                ref loop_frame_data,
-                ..
-            } => self.gen_loop_frame_tokens(loop_frame_data),
-            TraceVariant::FuncBranch {
-                stmt,
-                branch,
-                history,
-                ..
-            } => self.gen_func_branch_tokens(stmt, branch, history),
-            TraceVariant::ProcBranch {
-                stmt,
-                branch,
-                history,
-                ..
-            } => self.gen_proc_branch_tokens(stmt, branch, history),
-            TraceVariant::FeatureCallArgument { name, argument } => {
-                self.render_ident_token(name, None, None);
-                self.gen_assign_token();
-                self.gen_feature_expr(argument, ExprTokenConfig::expr(true))
-            }
-            TraceVariant::EagerCallArgument {
-                name,
-                ref argument,
-                ref history,
-            } => {
-                self.render_ident_token(name, None, None);
-                self.gen_assign_token();
-                self.gen_eager_expr_tokens(argument, history, ExprTokenConfig::expr(true));
-            }
-        }
-        self.lines
+        todo!()
+        // match self.trace_variant {
+        //     TraceVariant::Main(_) => self.render_keyword_token("main", None, None),
+        //     TraceVariant::EntityFeature {
+        //         route, ref repr, ..
+        //     } => {
+        //         if let Some(token) = repr.opt_leading_keyword() {
+        //             self.render_keyword_token(token, None, None);
+        //             self.render_ident_token(route.ident().as_str(), None, None)
+        //         } else {
+        //             self.render_keyword_token(route.ident().as_str(), None, None)
+        //         }
+        //     }
+        //     TraceVariant::Module { route, .. } => {
+        //         self.gen_mod();
+        //         self.render_ident_token(route.ident().as_str(), None, None)
+        //     }
+        //     TraceVariant::FeatureStmt(stmt) => self.feature_stmt_tokens(stmt),
+        //     TraceVariant::FeatureExpr(ref expr) => {
+        //         self.gen_feature_expr(expr, ExprTokenConfig::expr(false))
+        //     }
+        //     TraceVariant::FeatureBranch(branch) => self.gen_feature_branch(branch),
+        //     TraceVariant::FuncStmt {
+        //         ref stmt,
+        //         ref history,
+        //         ..
+        //     } => self.func_stmt_tokens(stmt, history),
+        //     TraceVariant::ProcStmt {
+        //         ref stmt,
+        //         ref history,
+        //     } => self.proc_stmt_tokens(stmt, history),
+        //     TraceVariant::EagerExpr {
+        //         ref expr,
+        //         ref history,
+        //     } => self.gen_eager_expr_tokens(expr, history, ExprTokenConfig::expr(self.has_parent)),
+        //     TraceVariant::CallHead { ref entity, .. } => self.gen_call_head_lines(entity),
+        //     TraceVariant::LoopFrame {
+        //         ref loop_frame_data,
+        //         ..
+        //     } => self.gen_loop_frame_tokens(loop_frame_data),
+        //     TraceVariant::FuncBranch {
+        //         stmt,
+        //         branch,
+        //         history,
+        //         ..
+        //     } => self.gen_func_branch_tokens(stmt, branch, history),
+        //     TraceVariant::ProcBranch {
+        //         stmt,
+        //         branch,
+        //         history,
+        //         ..
+        //     } => self.gen_proc_branch_tokens(stmt, branch, history),
+        //     TraceVariant::FeatureCallArgument { name, argument } => {
+        //         self.render_ident_token(name, None, None);
+        //         self.gen_assign_token();
+        //         self.gen_feature_expr(argument, ExprTokenConfig::expr(true))
+        //     }
+        //     TraceVariant::EagerCallArgument {
+        //         name,
+        //         ref argument,
+        //         ref history,
+        //     } => {
+        //         self.render_ident_token(name, None, None);
+        //         self.gen_assign_token();
+        //         self.gen_eager_expr_tokens(argument, history, ExprTokenConfig::expr(true));
+        //     }
+        // }
+        // self.lines
     }
 
     fn extend(&mut self, tokens: impl IntoIterator<Item = TraceTokenData>) {

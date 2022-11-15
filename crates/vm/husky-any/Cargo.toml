@@ -13,11 +13,15 @@ husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 vec-like = { path = "../../abstraction/vec-like" }
+# kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-text = { path = "../../syntax/husky-text" }
+# debugtime
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
+# forks
 thin-vec = { path = "../../../forks/thin-vec" }
+# vm
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 
 [build-dependencies]

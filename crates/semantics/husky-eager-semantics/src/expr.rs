@@ -2,6 +2,7 @@ mod opn;
 mod parser;
 
 use crate::*;
+use husky_entity_path::EntityPathItd;
 use husky_expr_syntax::*;
 use husky_file::FileItd;
 use husky_primitive_literal_syntax::RawLiteralData;
@@ -10,8 +11,8 @@ pub use opn::*;
 pub(crate) use parser::ParseEagerExpr;
 use std::sync::Arc;
 
-use husky_entity_route::Ty;
 use husky_semantics_error::SemanticResultArc;
+use husky_term::Ty;
 use husky_text::{FileRanged, RangedCustomIdentifier, TextRange, TextRanged};
 use husky_vm::{Binding, InstructionId, InstructionSource};
 use husky_word::CustomIdentifier;
@@ -87,55 +88,56 @@ pub enum EagerExprVariant {
     },
     Lambda(Vec<(CustomIdentifier, Option<Ty>)>, Box<EagerExpr>),
     EntityThickFp {
-        route: Ty,
+        entity_path: EntityPathItd,
     },
     EntityFeature {
-        route: Ty,
+        entity_path: EntityPathItd,
     },
 }
 
 impl std::fmt::Debug for EagerExprVariant {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            Self::Variable { varname, binding } => f
-                .debug_struct("Variable")
-                .field("varname", varname)
-                .field("binding", binding)
-                .finish(),
-            Self::ThisValue { binding } => f
-                .debug_struct("ThisValue")
-                .field("binding", binding)
-                .finish(),
-            Self::ThisField {
-                field_ident,
-                field_idx,
-                this_ty,
-                this_binding,
-                field_binding,
-            } => f
-                .debug_struct("ThisField")
-                .field("field_ident", field_ident)
-                .field("field_idx", field_idx)
-                .field("this_ty", this_ty)
-                .field("this_binding", this_binding)
-                .field("field_binding", field_binding)
-                .finish(),
-            Self::PrimitiveLiteral(arg0) => f.debug_tuple("PrimitiveLiteral").field(arg0).finish(),
-            Self::EnumKindLiteral(arg0) => f.debug_tuple("EnumKindLiteral").field(arg0).finish(),
-            Self::Bracketed(_) => f.write_str("Bracketed"),
-            Self::Opn { opn_variant, .. } => f
-                .debug_struct("Opn")
-                .field("opn_variant", opn_variant)
-                .finish(),
-            Self::Lambda(arg0, arg1) => f.debug_tuple("Lambda").field(arg0).field(arg1).finish(),
-            Self::EntityThickFp { route } => {
-                f.debug_struct("EntityFp").field("route", route).finish()
-            }
-            Self::EntityFeature { route } => f
-                .debug_struct("EntityFeature")
-                .field("route", route)
-                .finish(),
-        }
+        todo!()
+        // match self {
+        //     Self::Variable { varname, binding } => f
+        //         .debug_struct("Variable")
+        //         .field("varname", varname)
+        //         .field("binding", binding)
+        //         .finish(),
+        //     Self::ThisValue { binding } => f
+        //         .debug_struct("ThisValue")
+        //         .field("binding", binding)
+        //         .finish(),
+        //     Self::ThisField {
+        //         field_ident,
+        //         field_idx,
+        //         this_ty,
+        //         this_binding,
+        //         field_binding,
+        //     } => f
+        //         .debug_struct("ThisField")
+        //         .field("field_ident", field_ident)
+        //         .field("field_idx", field_idx)
+        //         .field("this_ty", this_ty)
+        //         .field("this_binding", this_binding)
+        //         .field("field_binding", field_binding)
+        //         .finish(),
+        //     Self::PrimitiveLiteral(arg0) => f.debug_tuple("PrimitiveLiteral").field(arg0).finish(),
+        //     Self::EnumKindLiteral(arg0) => f.debug_tuple("EnumKindLiteral").field(arg0).finish(),
+        //     Self::Bracketed(_) => f.write_str("Bracketed"),
+        //     Self::Opn { opn_variant, .. } => f
+        //         .debug_struct("Opn")
+        //         .field("opn_variant", opn_variant)
+        //         .finish(),
+        //     Self::Lambda(arg0, arg1) => f.debug_tuple("Lambda").field(arg0).field(arg1).finish(),
+        //     Self::EntityThickFp { route } => {
+        //         f.debug_struct("EntityFp").field("route", route).finish()
+        //     }
+        //     Self::EntityFeature { route } => f
+        //         .debug_struct("EntityFeature")
+        //         .field("route", route)
+        //         .finish(),
+        // }
     }
 }
 

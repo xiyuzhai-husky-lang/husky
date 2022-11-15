@@ -1,7 +1,7 @@
 use super::*;
 use crate::*;
 use husky_atom::context::{Symbol, SymbolKind};
-use husky_entity_route::{EntityRoute, EntityRouteVariant};
+use husky_term::{EntityRoute, EntityRouteVariant};
 use husky_text::TextRange;
 
 impl<'a> AstTransformer<'a> {
@@ -54,7 +54,7 @@ impl<'a> AstTransformer<'a> {
         } else {
             // use route
             let atoms = self.parse_atoms(&token_group[1..], |parser| parser.parse_all_atoms())?;
-            let route = if atoms.len() != 1 {
+            let entity_path = if atoms.len() != 1 {
                 todo!("expect one atom for entity route")
             } else {
                 match atoms[0].variant {
@@ -72,7 +72,7 @@ impl<'a> AstTransformer<'a> {
             };
             self.use_route(route, token_group.last().unwrap().range)?;
             Ok(AstVariant::Use {
-                use_variant: UseVariant::Route { route },
+                use_variant: UseVariant::Route { entity_path },
             })
         }
     }
@@ -101,7 +101,7 @@ impl<'a> AstTransformer<'a> {
         Ok(())
     }
 
-    fn use_route(&mut self, route: Ty, range: TextRange) -> AstResult<()> {
+    fn use_route(&mut self, entity_path: EntityPathItd, range: TextRange) -> AstResult<()> {
         if route.spatial_arguments.len() != 0 {
             todo!()
         }

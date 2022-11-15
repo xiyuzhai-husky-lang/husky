@@ -74,47 +74,48 @@ pub enum VisualizerVariant {
 }
 
 pub(crate) fn visualizer(db: &dyn EntityDefnQueryGroup, ty: Ty) -> Arc<Visualizer> {
-    assert!(ty.is_intrinsic());
-    let ty_defn = db.entity_defn(ty).unwrap();
-    if ty.spatial_arguments.len() == 0 {
-        match ty_defn.variant {
-            EntityDefnVariant::Ty { ref visualizer, .. } => visualizer.clone(),
-            EntityDefnVariant::Any => Visualizer::generic(),
-            _ => todo!(),
-        }
-    } else {
-        match ty_defn.variant {
-            EntityDefnVariant::Ty { ref visualizer, .. } => match visualizer.visual_ty {
-                VisualTy::AnyGroup => {
-                    let element_ty = ty.entity_route_argument(0);
-                    let visual_ty = match db.visualizer(element_ty.intrinsic()).visual_ty {
-                        VisualTy::Void => todo!(),
-                        VisualTy::Bool => todo!(),
-                        VisualTy::B32 => todo!(),
-                        VisualTy::B64 => todo!(),
-                        VisualTy::Integer => VisualTy::Plot2d,
-                        VisualTy::Float => todo!(),
-                        VisualTy::Point2d | VisualTy::Shape2d => VisualTy::Shape2d,
-                        VisualTy::Region2d => VisualTy::Region2d,
-                        VisualTy::Image2d => VisualTy::Image2d,
-                        VisualTy::Graphics2d => todo!(),
-                        VisualTy::Dataset => todo!(),
-                        VisualTy::Plot2d => todo!(),
-                        VisualTy::Any => VisualTy::AnyGroup,
-                        VisualTy::AnyGroup => todo!(),
-                        VisualTy::ThickFp => todo!(),
-                    };
-                    Arc::new(Visualizer {
-                        visual_ty,
-                        variant: VisualizerVariant::Group { element_ty },
-                    })
-                }
-                _ => panic!(),
-            },
-            EntityDefnVariant::Any => Visualizer::generic(),
-            _ => todo!(),
-        }
-    }
+    todo!()
+    // assert!(ty.is_intrinsic());
+    // let ty_defn = db.entity_defn(ty).unwrap();
+    // if ty.spatial_arguments.len() == 0 {
+    //     match ty_defn.variant {
+    //         EntityDefnVariant::Ty { ref visualizer, .. } => visualizer.clone(),
+    //         EntityDefnVariant::Any => Visualizer::generic(),
+    //         _ => todo!(),
+    //     }
+    // } else {
+    //     match ty_defn.variant {
+    //         EntityDefnVariant::Ty { ref visualizer, .. } => match visualizer.visual_ty {
+    //             VisualTy::AnyGroup => {
+    //                 let element_ty = ty.entity_route_argument(0);
+    //                 let visual_ty = match db.visualizer(element_ty.intrinsic()).visual_ty {
+    //                     VisualTy::Void => todo!(),
+    //                     VisualTy::Bool => todo!(),
+    //                     VisualTy::B32 => todo!(),
+    //                     VisualTy::B64 => todo!(),
+    //                     VisualTy::Integer => VisualTy::Plot2d,
+    //                     VisualTy::Float => todo!(),
+    //                     VisualTy::Point2d | VisualTy::Shape2d => VisualTy::Shape2d,
+    //                     VisualTy::Region2d => VisualTy::Region2d,
+    //                     VisualTy::Image2d => VisualTy::Image2d,
+    //                     VisualTy::Graphics2d => todo!(),
+    //                     VisualTy::Dataset => todo!(),
+    //                     VisualTy::Plot2d => todo!(),
+    //                     VisualTy::Any => VisualTy::AnyGroup,
+    //                     VisualTy::AnyGroup => todo!(),
+    //                     VisualTy::ThickFp => todo!(),
+    //                 };
+    //                 Arc::new(Visualizer {
+    //                     visual_ty,
+    //                     variant: VisualizerVariant::Group { element_ty },
+    //                 })
+    //             }
+    //             _ => panic!(),
+    //         },
+    //         EntityDefnVariant::Any => Visualizer::generic(),
+    //         _ => todo!(),
+    //     }
+    // }
 
     //     Visualizer {
     //         visual_ty: match opt_static_visual_ty {
@@ -183,37 +184,38 @@ impl VisualTy {
         ty: Ty,
         static_visual_ty: StaticVisualTy,
     ) -> Self {
-        match static_visual_ty {
-            StaticVisualTy::Void => VisualTy::Void,
-            StaticVisualTy::Bool => VisualTy::Bool,
-            StaticVisualTy::B32 => VisualTy::B32,
-            StaticVisualTy::B64 => VisualTy::B64,
-            StaticVisualTy::Integer => VisualTy::Integer,
-            StaticVisualTy::Float => VisualTy::Float,
-            StaticVisualTy::Point2d => VisualTy::Point2d,
-            StaticVisualTy::Shape2d => VisualTy::Shape2d,
-            StaticVisualTy::Region2d => VisualTy::Region2d,
-            StaticVisualTy::Image2d => VisualTy::Image2d,
-            StaticVisualTy::Graphics2d => VisualTy::Graphics2d,
-            StaticVisualTy::Group => match db.visualizer(ty.entity_route_argument(0)).visual_ty {
-                VisualTy::Void => todo!(),
-                VisualTy::Bool => todo!(),
-                VisualTy::B32 => todo!(),
-                VisualTy::B64 => todo!(),
-                VisualTy::Integer => VisualTy::Plot2d,
-                VisualTy::Float => todo!(),
-                VisualTy::Point2d | VisualTy::Shape2d => VisualTy::Shape2d,
-                VisualTy::Region2d => VisualTy::Region2d,
-                VisualTy::Image2d => VisualTy::Image2d,
-                VisualTy::Graphics2d => todo!(),
-                VisualTy::Dataset => todo!(),
-                VisualTy::Plot2d => todo!(),
-                VisualTy::Any => VisualTy::AnyGroup,
-                VisualTy::AnyGroup => todo!(),
-                VisualTy::ThickFp => todo!(),
-            },
-            StaticVisualTy::Dataset => todo!(),
-            StaticVisualTy::ThickFp => VisualTy::ThickFp,
-        }
+        todo!()
+        // match static_visual_ty {
+        //     StaticVisualTy::Void => VisualTy::Void,
+        //     StaticVisualTy::Bool => VisualTy::Bool,
+        //     StaticVisualTy::B32 => VisualTy::B32,
+        //     StaticVisualTy::B64 => VisualTy::B64,
+        //     StaticVisualTy::Integer => VisualTy::Integer,
+        //     StaticVisualTy::Float => VisualTy::Float,
+        //     StaticVisualTy::Point2d => VisualTy::Point2d,
+        //     StaticVisualTy::Shape2d => VisualTy::Shape2d,
+        //     StaticVisualTy::Region2d => VisualTy::Region2d,
+        //     StaticVisualTy::Image2d => VisualTy::Image2d,
+        //     StaticVisualTy::Graphics2d => VisualTy::Graphics2d,
+        //     StaticVisualTy::Group => match db.visualizer(ty.entity_route_argument(0)).visual_ty {
+        //         VisualTy::Void => todo!(),
+        //         VisualTy::Bool => todo!(),
+        //         VisualTy::B32 => todo!(),
+        //         VisualTy::B64 => todo!(),
+        //         VisualTy::Integer => VisualTy::Plot2d,
+        //         VisualTy::Float => todo!(),
+        //         VisualTy::Point2d | VisualTy::Shape2d => VisualTy::Shape2d,
+        //         VisualTy::Region2d => VisualTy::Region2d,
+        //         VisualTy::Image2d => VisualTy::Image2d,
+        //         VisualTy::Graphics2d => todo!(),
+        //         VisualTy::Dataset => todo!(),
+        //         VisualTy::Plot2d => todo!(),
+        //         VisualTy::Any => VisualTy::AnyGroup,
+        //         VisualTy::AnyGroup => todo!(),
+        //         VisualTy::ThickFp => todo!(),
+        //     },
+        //     StaticVisualTy::Dataset => todo!(),
+        //     StaticVisualTy::ThickFp => VisualTy::ThickFp,
+        // }
     }
 }

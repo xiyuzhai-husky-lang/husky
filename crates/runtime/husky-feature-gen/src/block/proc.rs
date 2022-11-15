@@ -1,7 +1,7 @@
 use super::*;
 use avec::Avec;
 use husky_eager_semantics::ProcStmt;
-use husky_entity_route::RangedEntityRoute;
+use husky_term::Ty;
 use husky_vm::{InstructionSheet, __Linkage};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -11,7 +11,7 @@ pub struct FeatureProcBody {
     pub file: FileItd,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
-    pub return_ty: RangedEntityRoute,
+    pub return_ty: Ty,
     pub stmts: Avec<ProcStmt>,
     pub instruction_sheet: Arc<InstructionSheet>,
     pub opt_linkage: Option<__Linkage>,

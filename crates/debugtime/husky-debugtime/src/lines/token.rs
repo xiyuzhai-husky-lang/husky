@@ -1,4 +1,4 @@
-use husky_entity_route::Ty;
+use husky_term::Ty;
 use husky_text::{TextPosition, TextRanged};
 
 use super::*;

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_route::Ty;
+use husky_term::Ty;
 
 impl Debugtime {
     pub fn trace_stalk(&self, trace_id: TraceId) -> &TraceStalk {

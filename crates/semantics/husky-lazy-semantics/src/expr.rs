@@ -13,7 +13,7 @@ use husky_file::FileItd;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 
-use husky_entity_route::Ty;
+use husky_term::Ty;
 use husky_text::{FileRanged, RangedCustomIdentifier, TextRange, TextRanged};
 use husky_vm::*;
 use husky_word::CustomIdentifier;
@@ -61,7 +61,7 @@ pub enum LazyExprVariant {
     },
     PrimitiveLiteral(RawLiteralData),
     EnumLiteral {
-        entity_route: Ty,
+        entity_path: Ty,
     },
     Bracketed(Arc<LazyExpr>),
     Opn {
@@ -79,7 +79,7 @@ pub enum LazyExprVariant {
         field_binding: Binding,
     },
     EntityFeature {
-        entity_route: Ty,
+        entity_path: Ty,
     },
     BePattern {
         this: Arc<LazyExpr>,
@@ -98,9 +98,9 @@ impl std::fmt::Debug for LazyExprVariant {
             LazyExprVariant::PrimitiveLiteral(arg0) => {
                 f.debug_tuple("PrimitiveLiteral").field(arg0).finish()
             }
-            LazyExprVariant::EnumLiteral { entity_route } => f
+            LazyExprVariant::EnumLiteral { entity_path } => f
                 .debug_struct("EnumLiteral")
-                .field("entity_route", entity_route)
+                .field("entity_path", entity_path)
                 .finish(),
             LazyExprVariant::Bracketed(_) => f.write_str("Bracketed"),
             LazyExprVariant::Opn { opn_kind, .. } => {
@@ -125,9 +125,9 @@ impl std::fmt::Debug for LazyExprVariant {
                 .field("this_binding", this_binding)
                 .field("field_binding", field_binding)
                 .finish(),
-            LazyExprVariant::EntityFeature { entity_route } => f
+            LazyExprVariant::EntityFeature { entity_path } => f
                 .debug_struct("EntityFeature")
-                .field("entity_route", entity_route)
+                .field("entity_path", entity_path)
                 .finish(),
             LazyExprVariant::BePattern { .. } => f.debug_struct("BePattern").finish(),
         }

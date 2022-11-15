@@ -11,10 +11,10 @@ use context::*;
 use fold::LocalValue;
 
 use husky_eager_semantics::*;
-use husky_entity_route::*;
 use husky_entity_semantics::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
+use husky_term::*;
 use husky_vm::InstructionSheet;
 use husky_word::*;
 use std::sync::Arc;

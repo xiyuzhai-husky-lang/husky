@@ -11,21 +11,21 @@ pub enum DefinitionRepr {
     },
     LazyBlock {
         stmts: Arc<Vec<Arc<LazyStmt>>>,
-        ty: RangedEntityRoute,
+        ty: Ty,
     },
     FuncBlock {
-        route: Ty,
+        entity_path: EntityPathItd,
         file: FileItd,
         range: TextRange,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
-        return_ty: RangedEntityRoute,
+        return_ty: Ty,
     },
     ProcBlock {
-        route: Ty,
+        entity_path: EntityPathItd,
         file: FileItd,
         range: TextRange,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
-        return_ty: RangedEntityRoute,
+        return_ty: Ty,
     },
 }
 
@@ -33,7 +33,7 @@ pub(crate) fn parse_definition_repr(
     _db: &dyn EntityDefnQueryGroup,
     _paradigm: Paradigm,
     _route: Ty,
-    _return_ty: RangedEntityRoute,
+    _return_ty: Ty,
     _arena: &RawExprArena,
     _children: Option<AstIter>,
     _file: FileItd,

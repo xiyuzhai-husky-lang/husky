@@ -1,4 +1,4 @@
-use husky_entity_route::*;
+use husky_term::*;
 
 use super::*;
 
@@ -7,11 +7,11 @@ impl<'a> RustCodeGenerator<'a> {
         todo!()
         // if let Some(_) = self
         //     .entity_route_uses
-        //     .find(|candidate| candidate.variant == entity_route.variant)
+        //     .find(|candidate| candidate.variant == entity_path.variant)
         // {
-        //     self.write(&entity_route.ident())
+        //     self.write(&entity_path.ident())
         // } else {
-        //     match entity_route.variant {
+        //     match entity_path.variant {
         //         EntityRouteVariant::Root { ident } => match ident {
         //             RootBuiltinIdentifier::Void => self.write("()"),
         //             RootBuiltinIdentifier::B32 => self.write("u32"),
@@ -22,25 +22,25 @@ impl<'a> RustCodeGenerator<'a> {
         //                     EntityRouteRole::StaticThinFpTyDecl { .. } => self.write("fn("),
         //                     _ => self.write("ThickFp<fn("),
         //                 }
-        //                 for i in 0..(entity_route.spatial_arguments.len() - 1) {
+        //                 for i in 0..(entity_path.spatial_arguments.len() - 1) {
         //                     if i > 0 {
         //                         self.write(", ")
         //                     }
-        //                     let argument_ty = entity_route.spatial_arguments[i].take_entity_route();
+        //                     let argument_ty = entity_path.spatial_arguments[i].take_entity_route();
         //                     if !self.db.is_copyable(argument_ty).unwrap() {
         //                         self.write("&")
         //                     }
         //                     self.gen_entity_route(argument_ty, EntityRouteRole::StaticDecl)
         //                 }
-        //                 if entity_route.ident().as_str() == "downmost" {
-        //                     p!(self.db.needs_eval_context(entity_route));
+        //                 if entity_path.ident().as_str() == "downmost" {
+        //                     p!(self.db.needs_eval_context(entity_path));
         //                     todo!()
         //                 }
         //                 match role {
         //                     EntityRouteRole::StaticThinFpTyDecl {
         //                         needs_eval_context: true,
         //                     } => {
-        //                         if entity_route.spatial_arguments.len() > 1 {
+        //                         if entity_path.spatial_arguments.len() > 1 {
         //                             self.write(", ")
         //                         }
         //                         self.write("&dyn __EvalContext<'static>")
@@ -48,7 +48,7 @@ impl<'a> RustCodeGenerator<'a> {
         //                     _ => (),
         //                 }
         //                 self.write(")");
-        //                 let output_ty = entity_route
+        //                 let output_ty = entity_path
         //                     .spatial_arguments
         //                     .last()
         //                     .unwrap()
@@ -78,7 +78,7 @@ impl<'a> RustCodeGenerator<'a> {
         //                     EntityRouteRole::FpValue => todo!(),
         //                 }
         //                 self.gen_entity_route(
-        //                     entity_route.entity_route_argument(0),
+        //                     entity_path.entity_route_argument(0),
         //                     role.argument_role(),
         //                 );
         //                 return;
@@ -102,7 +102,7 @@ impl<'a> RustCodeGenerator<'a> {
         //         }
         //         EntityRouteVariant::TargetInputValue => self.write("__input"),
         //         EntityRouteVariant::Any { .. } => {
-        //             p!(entity_route);
+        //             p!(entity_path);
         //             todo!()
         //         }
         //         EntityRouteVariant::ThisType { .. } => todo!(),
@@ -114,11 +114,11 @@ impl<'a> RustCodeGenerator<'a> {
         //     EntityRouteRole::Decl
         //     | EntityRouteRole::StaticThinFpTyDecl { .. }
         //     | EntityRouteRole::StaticDecl => {
-        //         self.db.entity_route_variant_contains_eval_ref(entity_route)
+        //         self.db.entity_route_variant_contains_eval_ref(entity_path)
         //     }
         //     _ => false,
         // };
-        // if needs_eval_ref || entity_route.spatial_arguments.len() > 0 {
+        // if needs_eval_ref || entity_path.spatial_arguments.len() > 0 {
         //     match role {
         //         EntityRouteRole::Caller | EntityRouteRole::StaticCallRoute => self.write("::"),
         //         _ => (),
@@ -133,14 +133,14 @@ impl<'a> RustCodeGenerator<'a> {
         //             _ => panic!(),
         //         }
         //     }
-        //     for i in 0..entity_route.spatial_arguments.len() {
+        //     for i in 0..entity_path.spatial_arguments.len() {
         //         if i > 0 || needs_eval_ref {
         //             self.write(", ")
         //         }
-        //         match entity_route.spatial_arguments[i] {
+        //         match entity_path.spatial_arguments[i] {
         //             SpatialArgument::Const(_) => todo!(),
-        //             SpatialArgument::EntityRoute(entity_route) => {
-        //                 self.gen_entity_route(entity_route, role.argument_role())
+        //             SpatialArgument::EntityRoute(entity_path) => {
+        //                 self.gen_entity_route(entity_path, role.argument_role())
         //             }
         //         }
         //     }

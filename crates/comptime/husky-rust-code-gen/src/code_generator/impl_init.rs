@@ -20,14 +20,15 @@ pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __Linkage)] {
 
 pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         );
-        let main_module = self.db.module(self.target_entrance).unwrap();
-        let entity_link_dependees = self.db.entity_link_dependees(main_module);
-        for entity_route in entity_link_dependees.iter() {
-            if !entity_route.contains_any() {
-                let entity_defn = self.db.entity_defn(*entity_route).unwrap();
-                self.gen_linkage_entry(*entity_route, &entity_defn);
-            }
-        }
+        todo!();
+        // let main_module = self.db.module(self.target_entrance).unwrap();
+        // let entity_link_dependees = self.db.entity_link_dependees(main_module);
+        // for entity_path in entity_link_dependees.iter() {
+        //     if !entity_path.contains_any() {
+        //         let entity_defn = self.db.entity_defn(*entity_path).unwrap();
+        //         self.gen_linkage_entry(*entity_path, &entity_defn);
+        //     }
+        // }
         self.write(
             r#"
 ];
@@ -37,8 +38,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
 
     fn gen_linkage_entry(&mut self, _entity_route: Ty, _entity_defn: &EntityDefn) {
         todo!()
-        //     if self.db.is_defn_static(entity_route)
-        //         && !self.db.contains_spatial_parameters(entity_route)
+        //     if self.db.is_defn_static(entity_path)
+        //         && !self.db.contains_spatial_parameters(entity_path)
         //     {
         //         return;
         //     }
@@ -56,23 +57,23 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //         },
         //         EntityDefnVariant::Function { .. } => todo!(),
         //         EntityDefnVariant::Method { .. } => {
-        //             self.gen_method_linkage_entry(entity_route);
+        //             self.gen_method_linkage_entry(entity_path);
         //         }
         //         EntityDefnVariant::Func { .. } => {
         //             self.write(&format!(
         //                 r#"
         // (
         //     __StaticLinkageKey::Routine {{
-        //         route: "{entity_route}",
+        //         route: "{entity_path}",
         //     }},"#,
         //             ));
-        //             let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
+        //             let call_form_decl = self.db.entity_call_form_decl(entity_path).unwrap();
         //             msg_once!("keyword_parameters");
         //             self.gen_transfer_linkage(
-        //                 self.db.needs_eval_context(entity_route),
+        //                 self.db.needs_eval_context(entity_path),
         //                 None,
-        //                 |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
-        //                 |this| this.gen_entity_route(entity_route, EntityRouteRole::StaticCallRoute),
+        //                 |this| this.gen_entity_route(entity_path, EntityRouteRole::Caller),
+        //                 |this| this.gen_entity_route(entity_path, EntityRouteRole::StaticCallRoute),
         //                 &call_form_decl,
         //             );
         //             self.write(
@@ -85,16 +86,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                 r#"
         // (
         //     __StaticLinkageKey::Routine {{
-        //         route: "{entity_route}",
+        //         route: "{entity_path}",
         //     }},"#,
         //             ));
-        //             let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
+        //             let call_form_decl = self.db.entity_call_form_decl(entity_path).unwrap();
         //             msg_once!("keyword_parameters");
         //             self.gen_transfer_linkage(
-        //                 self.db.needs_eval_context(entity_route),
+        //                 self.db.needs_eval_context(entity_path),
         //                 None,
-        //                 |this| this.gen_entity_route(entity_route, EntityRouteRole::Caller),
-        //                 |this| this.gen_entity_route(entity_route, EntityRouteRole::StaticCallRoute),
+        //                 |this| this.gen_entity_route(entity_path, EntityRouteRole::Caller),
+        //                 |this| this.gen_entity_route(entity_path, EntityRouteRole::StaticCallRoute),
         //                 &call_form_decl,
         //             );
         //             self.write(
@@ -109,7 +110,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //             ..
         //         } => match ty_kind {
         //             TyKind::Record => (),
-        //             _ => self.gen_ty_linkages(opt_type_call, entity_route, members),
+        //             _ => self.gen_ty_linkages(opt_type_call, entity_path, members),
         //         },
         //         EntityDefnVariant::Trait { .. } => todo!(),
         //         EntityDefnVariant::EnumVariant { .. } => todo!(),
@@ -128,13 +129,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //         r#"
         // ("#,
         //     );
-        //     match entity_route.variant {
+        //     match entity_path.variant {
         //         EntityRouteVariant::Child { parent, .. } => {
         //             self.write(&format!(
         //                 r#"
-        //     __StaticLinkageKey::Routine {{ route: "{entity_route}" }},"#,
+        //     __StaticLinkageKey::Routine {{ route: "{entity_path}" }},"#,
         //             ));
-        //             let call_form_decl = self.db.entity_call_form_decl(entity_route).unwrap();
+        //             let call_form_decl = self.db.entity_call_form_decl(entity_path).unwrap();
         //             let this_liason = call_form_decl.this_liason();
         //             match this_liason {
         //                 ParameterModifier::MemberAccess => {
@@ -142,8 +143,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                         r#"
         //     method_elem_linkage!("#
         //                     ));
-        //                     self.gen_entity_route(entity_route.parent(), EntityRouteRole::Decl);
-        //                     let method_name = entity_route.ident().as_str();
+        //                     self.gen_entity_route(entity_path.parent(), EntityRouteRole::Decl);
+        //                     let method_name = entity_path.ident().as_str();
         //                     let mangled_intrinsic_ty_vtable =
         //                         self.db.mangled_intrinsic_ty_vtable(parent);
         //                     let mangled_output_ty_vtable = self
@@ -155,8 +156,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                 }
         //                 _ => {
         //                     let method_name_extra =
-        //                         if entity_route.ident().as_str() == "pop_with_largest_opt_f32" {
-        //                             let elem_ty = entity_route.parent().entity_route_argument(0);
+        //                         if entity_path.ident().as_str() == "pop_with_largest_opt_f32" {
+        //                             let elem_ty = entity_path.parent().entity_route_argument(0);
         //                             if self.db.is_copyable(elem_ty).unwrap() {
         //                                 "_copyable"
         //                             } else {
@@ -166,16 +167,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                             ""
         //                         };
         //                     self.gen_transfer_linkage(
-        //                         self.db.needs_eval_context(entity_route),
-        //                         Some((this_liason, entity_route.parent())),
+        //                         self.db.needs_eval_context(entity_path),
+        //                         Some((this_liason, entity_path.parent())),
         //                         |this| {
-        //                             this.write(&format!("__this.{}", entity_route.ident().as_str()));
+        //                             this.write(&format!("__this.{}", entity_path.ident().as_str()));
         //                             // ad hoc
         //                             this.write(method_name_extra)
         //                         },
         //                         |this| {
         //                             this.gen_entity_route(
-        //                                 entity_route,
+        //                                 entity_path,
         //                                 EntityRouteRole::StaticCallRoute,
         //                             )
         //                         },
@@ -210,7 +211,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //     );
     }
 
-    fn gen_eager_feature_linkage_entry(&mut self, route: Ty, output_ty: Ty) {
+    fn gen_eager_feature_linkage_entry(&mut self, entity_path: EntityPathItd, output_ty: Ty) {
         self.write(&format!(
             r#"
     (

@@ -1,36 +1,35 @@
-use husky_entity_route::{EntityRoute, EntityRouteVariant, SpatialArgument};
 use husky_word::RootBuiltinIdentifier;
 
 use super::*;
 
 pub(super) fn entity_route_variant_contains_eval_ref(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route: Ty,
+    entity_path: Ty,
 ) -> bool {
-    let base_route = db.intern_entity_route(EntityRoute {
-        variant: entity_route.variant.clone(),
-        temporal_arguments: Default::default(),
-        spatial_arguments: Default::default(),
-    });
-    if entity_route.variant
-        == (EntityRouteVariant::Root {
-            ident: RootBuiltinIdentifier::Ref,
-        })
-    {
-        return true;
-    }
-    if entity_route.variant
-        == (EntityRouteVariant::Root {
-            ident: RootBuiltinIdentifier::Option,
-        })
-    {
-        return false;
-    }
-    let entity_route_menu = db.entity_route_menu();
-    if entity_route.variant == entity_route_menu.std_slice_cyclic_slice.variant {
-        return true;
-    }
-    let _husky_entity_kind = db.husky_entity_kind(base_route).unwrap();
+    // let base_route = db.intern_entity_route(EntityRoute {
+    //     variant: entity_path.variant.clone(),
+    //     temporal_arguments: Default::default(),
+    //     spatial_arguments: Default::default(),
+    // });
+    // if entity_path.variant
+    //     == (EntityRouteVariant::Root {
+    //         ident: RootBuiltinIdentifier::Ref,
+    //     })
+    // {
+    //     return true;
+    // }
+    // if entity_path.variant
+    //     == (EntityRouteVariant::Root {
+    //         ident: RootBuiltinIdentifier::Option,
+    //     })
+    // {
+    //     return false;
+    // }
+    // let entity_route_menu = db.entity_route_menu();
+    // if entity_path.variant == entity_route_menu.std_slice_cyclic_slice.variant {
+    //     return true;
+    // }
+    // let _husky_entity_kind = db.husky_entity_kind(base_route).unwrap();
     todo!()
     // match husky_entity_kind {
     //     EntityKind::Module => return false,
@@ -106,20 +105,21 @@ pub(super) fn entity_route_variant_contains_eval_ref(
 
 pub(super) fn entity_route_contains_eval_ref(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route: Ty,
+    entity_path: Ty,
 ) -> bool {
-    if db.entity_route_variant_contains_eval_ref(entity_route) {
-        return true;
-    }
-    for argument in entity_route.spatial_arguments.iter() {
-        match argument {
-            SpatialArgument::Const(_) => (),
-            SpatialArgument::EntityRoute(entity_route) => {
-                if db.entity_route_contains_eval_ref(*entity_route) {
-                    return true;
-                }
-            }
-        }
-    }
-    false
+    todo!()
+    // if db.entity_route_variant_contains_eval_ref(entity_path) {
+    //     return true;
+    // }
+    // for argument in entity_path.spatial_arguments.iter() {
+    //     match argument {
+    //         SpatialArgument::Const(_) => (),
+    //         SpatialArgument::EntityRoute(entity_path) => {
+    //             if db.entity_route_contains_eval_ref(*entity_path) {
+    //                 return true;
+    //             }
+    //         }
+    //     }
+    // }
+    // false
 }

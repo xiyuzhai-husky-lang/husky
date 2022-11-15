@@ -29,12 +29,6 @@ impl LiveFiles for DevRuntime {
 
 impl FileQueryGroup for DevRuntime {}
 
-impl InternEntityRoute for DevRuntime {
-    fn entity_route_interner(&self) -> &husky_entity_route::EntityRouteInterner {
-        &self.entity_route_interner
-    }
-}
-
 impl ResolveStaticRootDefn for DevRuntime {
     fn __root_defn_resolver(
         &self,

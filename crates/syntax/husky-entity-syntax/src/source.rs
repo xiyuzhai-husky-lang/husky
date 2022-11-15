@@ -1,6 +1,7 @@
-use husky_entity_route::Ty;
+use husky_entity_path::EntityPathItd;
 use husky_file::FileItd;
 use husky_static_defn::EntityStaticDefn;
+use husky_term::Ty;
 use husky_text::TextRange;
 use husky_word::CustomIdentifier;
 
@@ -24,7 +25,7 @@ pub enum EntitySource {
         ident: CustomIdentifier,
         file: FileItd,
         range: TextRange,
-        route: Ty,
+        entity_path: EntityPathItd,
     },
     ThisType {
         file: FileItd,
