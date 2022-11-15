@@ -515,7 +515,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         discard: bool,
     ) {
         match opds[0].intrinsic_ty() {
-            EntityRouteItd::Root(_) => {
+            Ty::Root(_) => {
                 let ins_kind = InstructionVariant::CallRoutine {
                     resolved_linkage: match opr {
                         BinaryOpr::PureClosed(pure_binary_opr) => {
@@ -547,7 +547,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 let instruction = Instruction::new(ins_kind, expr.clone());
                 self.push_instruction(instruction)
             }
-            EntityRouteItd::Custom(_) => {
+            Ty::Custom(_) => {
                 let ins_variant = match opr {
                     BinaryOpr::PureClosed(pure_binary_opr) => match pure_binary_opr {
                         BinaryPureClosedOpr::Add => todo!(),
@@ -614,7 +614,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         let this = &opds[0];
         let this_ty = this.intrinsic_ty();
         match this_ty {
-            EntityRouteItd::Root(_) => {
+            Ty::Root(_) => {
                 let instruction = Instruction::new(
                     InstructionVariant::CallRoutine {
                         resolved_linkage: resolve_primitive_prefix_opr_linkage(
@@ -630,7 +630,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 );
                 self.push_instruction(instruction)
             }
-            EntityRouteItd::Custom(_) => todo!(),
+            Ty::Custom(_) => todo!(),
         }
     }
 
@@ -654,8 +654,8 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn method_call_instruction_variant(
         &self,
-        method_route: EntityRouteItd,
-        output_ty: EntityRouteItd,
+        method_route: Ty,
+        output_ty: Ty,
         output_binding: Binding,
         nargs: u8,
         discard: bool,

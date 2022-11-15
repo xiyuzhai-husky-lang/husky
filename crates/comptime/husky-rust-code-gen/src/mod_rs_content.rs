@@ -1,10 +1,7 @@
 use crate::*;
 use code_generator::RustCodeGenerator;
 
-pub(crate) fn rust_mod_rs_content(
-    db: &dyn RustCodeGenQueryGroup,
-    module: EntityRouteItd,
-) -> Arc<String> {
+pub(crate) fn rust_mod_rs_content(db: &dyn RustCodeGenQueryGroup, module: Ty) -> Arc<String> {
     let mut generator = RustCodeGenerator::new(db, module);
     let entity_defn = db.entity_defn(module).unwrap();
     generator.write("use crate::*;\n\n");

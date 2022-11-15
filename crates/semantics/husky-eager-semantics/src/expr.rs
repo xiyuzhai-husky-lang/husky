@@ -10,7 +10,7 @@ pub use opn::*;
 pub(crate) use parser::ParseEagerExpr;
 use std::sync::Arc;
 
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_semantics_error::SemanticResultArc;
 use husky_text::{FileRanged, RangedCustomIdentifier, TextRange, TextRanged};
 use husky_vm::{Binding, InstructionId, InstructionSource};
@@ -39,7 +39,7 @@ impl std::fmt::Debug for EagerExpr {
 }
 
 impl EagerExpr {
-    pub fn intrinsic_ty(&self) -> EntityRouteItd {
+    pub fn intrinsic_ty(&self) -> Ty {
         todo!()
         // self.qualified_ty.intrinsic_ty()
     }
@@ -74,26 +74,23 @@ pub enum EagerExprVariant {
     ThisField {
         field_ident: RangedCustomIdentifier,
         field_idx: u8,
-        this_ty: EntityRouteItd,
+        this_ty: Ty,
         this_binding: Binding,
         field_binding: Binding,
     },
     PrimitiveLiteral(RawLiteralData),
-    EnumKindLiteral(EntityRouteItd),
+    EnumKindLiteral(Ty),
     Bracketed(Arc<EagerExpr>),
     Opn {
         opn_variant: EagerOpnVariant,
         opds: Vec<Arc<EagerExpr>>,
     },
-    Lambda(
-        Vec<(CustomIdentifier, Option<EntityRouteItd>)>,
-        Box<EagerExpr>,
-    ),
+    Lambda(Vec<(CustomIdentifier, Option<Ty>)>, Box<EagerExpr>),
     EntityThickFp {
-        route: EntityRouteItd,
+        route: Ty,
     },
     EntityFeature {
-        route: EntityRouteItd,
+        route: Ty,
     },
 }
 

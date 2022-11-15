@@ -1,5 +1,5 @@
 use husky_ast::AstQueryGroup;
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use reserve::Reserve;
@@ -10,7 +10,7 @@ use crate::*;
 pub trait DiagnosticSalsaQuery:
     EntitySyntaxQueryGroup + AstQueryGroup + EntityDefnQueryGroup
 {
-    fn diagnostics_reserve(&self, module: EntityRouteItd) -> Arc<DiagnosticReserve>;
+    fn diagnostics_reserve(&self, module: Ty) -> Arc<DiagnosticReserve>;
 }
 
 pub trait HuskyDiagnosticQuery: DiagnosticSalsaQuery {
@@ -24,7 +24,7 @@ pub trait HuskyDiagnosticQuery: DiagnosticSalsaQuery {
         }
     }
 
-    fn all_diagnostics(&self) -> Vec<(EntityRouteItd, Diagnostic)> {
+    fn all_diagnostics(&self) -> Vec<(Ty, Diagnostic)> {
         let mut diagnostics = vec![];
         for module in self.all_modules() {
             let diagnostics_reserve = self.diagnostics_reserve(module);
@@ -39,10 +39,7 @@ pub trait HuskyDiagnosticQuery: DiagnosticSalsaQuery {
     }
 }
 
-fn diagnostics_reserve(
-    this: &dyn DiagnosticSalsaQuery,
-    module: EntityRouteItd,
-) -> Arc<DiagnosticReserve> {
+fn diagnostics_reserve(this: &dyn DiagnosticSalsaQuery, module: Ty) -> Arc<DiagnosticReserve> {
     Arc::new(DiagnosticReserve::new(collect_module_diagnostics(
         this, module,
     )))

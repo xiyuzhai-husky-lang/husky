@@ -130,7 +130,7 @@ impl<'a> LinkageCollector<'a> {
 
     fn collect_from_feature_repr(
         &mut self,
-        opt_feature_route: Option<EntityRouteItd>,
+        opt_feature_route: Option<Ty>,
         feature_repr: &DefinitionRepr,
     ) {
         match feature_repr {

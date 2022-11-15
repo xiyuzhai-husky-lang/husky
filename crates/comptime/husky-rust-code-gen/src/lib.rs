@@ -17,7 +17,7 @@ use crate::registration_content::rust_registration_rs_content;
 use contains_eval_ref::*;
 use eval_context::*;
 use husky_defn_head::*;
-use husky_entity_route::{EntityRouteItd, EntityRouteVariant};
+use husky_entity_route::{EntityRouteVariant, Ty};
 use husky_file::FileItd;
 
 use husky_liason_semantics::*;
@@ -40,19 +40,16 @@ pub trait RustCodeGenQueryGroup: PackageQueryGroup + HuskyLayoutQueryGroup {
     fn rust_lib_rs_content(&self, target_entrance: FileItd) -> Arc<String>;
     fn rust_registration_rs_content(&self, target_entrance: FileItd) -> Arc<String>;
     fn rust_init_rs_content(&self, target_entrance: FileItd) -> Arc<String>;
-    fn rust_mod_rs_content(&self, module: EntityRouteItd) -> Arc<String>;
-    fn entity_route_variant_contains_eval_ref(&self, entity_route: EntityRouteItd) -> bool;
-    fn entity_route_contains_eval_ref(&self, entity_route: EntityRouteItd) -> bool;
-    fn is_defn_static(&self, entity_route: EntityRouteItd) -> bool;
-    fn contains_spatial_parameters(&self, entity_route: EntityRouteItd) -> bool;
-    fn entity_immediate_link_dependees(
-        &self,
-        entity_route: EntityRouteItd,
-    ) -> Arc<VecSet<EntityRouteItd>>;
-    fn entity_link_dependees(&self, entity_route: EntityRouteItd) -> Arc<VecSet<EntityRouteItd>>;
-    fn needs_eval_context(&self, entity_route: EntityRouteItd) -> bool;
-    fn mangled_intrinsic_ty(&self, entity_route: EntityRouteItd) -> Arc<String>;
-    fn mangled_intrinsic_ty_vtable(&self, entity_route: EntityRouteItd) -> Arc<String>;
-    fn mangled_ty(&self, entity_route: EntityRouteItd) -> Arc<String>;
-    fn mangled_ty_vtable(&self, entity_route: EntityRouteItd) -> Arc<String>;
+    fn rust_mod_rs_content(&self, module: Ty) -> Arc<String>;
+    fn entity_route_variant_contains_eval_ref(&self, entity_route: Ty) -> bool;
+    fn entity_route_contains_eval_ref(&self, entity_route: Ty) -> bool;
+    fn is_defn_static(&self, entity_route: Ty) -> bool;
+    fn contains_spatial_parameters(&self, entity_route: Ty) -> bool;
+    fn entity_immediate_link_dependees(&self, entity_route: Ty) -> Arc<VecSet<Ty>>;
+    fn entity_link_dependees(&self, entity_route: Ty) -> Arc<VecSet<Ty>>;
+    fn needs_eval_context(&self, entity_route: Ty) -> bool;
+    fn mangled_intrinsic_ty(&self, entity_route: Ty) -> Arc<String>;
+    fn mangled_intrinsic_ty_vtable(&self, entity_route: Ty) -> Arc<String>;
+    fn mangled_ty(&self, entity_route: Ty) -> Arc<String>;
+    fn mangled_ty_vtable(&self, entity_route: Ty) -> Arc<String>;
 }

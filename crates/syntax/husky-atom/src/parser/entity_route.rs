@@ -162,7 +162,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
         })
     }
 
-    fn normal_route(&mut self, route: EntityRouteItd) -> AtomResult<HuskyAtomVariant> {
+    fn normal_route(&mut self, route: Ty) -> AtomResult<HuskyAtomVariant> {
         let generic_arguments = self.generics(route)?;
         let mut route = self
             .atom_context
@@ -205,7 +205,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
         });
     }
 
-    pub(crate) fn ty(&mut self) -> AtomResult<Option<EntityRouteItd>> {
+    pub(crate) fn ty(&mut self) -> AtomResult<Option<Ty>> {
         Ok(
             if let Some(HuskyAtomVariant::EntityRoute { route, kind, .. }) = self.symbol()? {
                 if let EntityKind::Type(_) = kind {
@@ -237,7 +237,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
         )
     }
 
-    fn generics(&mut self, route: EntityRouteItd) -> AtomResult<ThinVec<SpatialArgument>> {
+    fn generics(&mut self, route: Ty) -> AtomResult<ThinVec<SpatialArgument>> {
         if route.spatial_arguments.len() > 0 {
             p!(route);
             todo!()
@@ -307,7 +307,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
         args.push(if deprecated_try_eat!(self, "->") {
             self.spatial_argument()?
         } else {
-            EntityRouteItd::Root(RootBuiltinIdentifier::Void).into()
+            Ty::Root(RootBuiltinIdentifier::Void).into()
         });
         Ok(args)
     }
@@ -338,7 +338,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
         })
     }
 
-    fn intern(&self, scope: EntityRoute) -> EntityRouteItd {
+    fn intern(&self, scope: EntityRoute) -> Ty {
         self.atom_context
             .entity_syntax_db()
             .intern_entity_route(scope)

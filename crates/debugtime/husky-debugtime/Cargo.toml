@@ -21,7 +21,7 @@ husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-trace = { path = "../../debugtime/husky-trace" }
 # kernel
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 # runtime
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }

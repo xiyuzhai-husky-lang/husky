@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 husky-pattern-syntax = { path = "../husky-pattern-syntax" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 thin-vec = { path = "../../../forks/thin-vec" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-text = { path = "../husky-text" }

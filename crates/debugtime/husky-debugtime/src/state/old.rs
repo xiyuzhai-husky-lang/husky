@@ -1,11 +1,11 @@
 use crate::*;
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub enum TraceSketch {
     Main,
-    Module(EntityRouteItd),
-    EntityFeature(EntityRouteItd),
+    Module(Ty),
+    EntityFeature(Ty),
 }
 
 impl AsTraceSketch for TraceSketch {

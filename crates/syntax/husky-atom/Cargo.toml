@@ -16,7 +16,7 @@ map-collect = { path = "../../abstraction/map-collect" }
 thin-vec = { path = "../../../forks/thin-vec" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 # semantics
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 # static

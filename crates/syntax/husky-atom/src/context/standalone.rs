@@ -3,7 +3,7 @@ use super::*;
 pub struct AtomContextStandalone<'a> {
     pub opt_file: Option<FileItd>,
     pub db: &'a dyn EntitySyntaxQueryGroup,
-    pub opt_this_ty: Option<EntityRouteItd>,
+    pub opt_this_ty: Option<Ty>,
     pub opt_this_contract: Option<ParameterModifier>,
     pub symbols: Cow<'a, [Symbol]>,
     pub kind: AtomContextKind<'a>,
@@ -14,7 +14,7 @@ impl<'a> AtomContext<'a> for AtomContextStandalone<'a> {
         self.db
     }
 
-    fn opt_this_ty(&self) -> Option<EntityRouteItd> {
+    fn opt_this_ty(&self) -> Option<Ty> {
         self.opt_this_ty
     }
 

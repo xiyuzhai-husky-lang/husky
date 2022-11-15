@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use crate::*;
 
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_expr_syntax::*;
 use husky_file::FileItd;
 
@@ -23,7 +23,7 @@ pub trait LazyExprParser<'a> {
     fn parse_lazy_expr(
         &mut self,
         _idx: RawExprIdx,
-        _opt_expectation: Option<EntityRouteItd>,
+        _opt_expectation: Option<Ty>,
     ) -> SemanticResult<Arc<LazyExpr>> {
         todo!()
         // let raw_expr = &self.arena()[idx];
@@ -207,20 +207,20 @@ pub trait LazyExprParser<'a> {
     fn infer_pure_binary_opr_type(
         &self,
         pure_binary_opr: BinaryPureClosedOpr,
-        lopd_ty: EntityRouteItd,
-        ropd_ty: EntityRouteItd,
-    ) -> SemanticResult<EntityRouteItd> {
+        lopd_ty: Ty,
+        ropd_ty: Ty,
+    ) -> SemanticResult<Ty> {
         todo!()
         // match lopd_ty {
-        //     EntityRouteItd::Root(lopd_root_ty) => match ropd_ty {
-        //         EntityRouteItd::Root(ropd_root_ty) => self.infer_root_pure_binary_opr_type(
+        //     Ty::Root(lopd_root_ty) => match ropd_ty {
+        //         Ty::Root(ropd_root_ty) => self.infer_root_pure_binary_opr_type(
         //             pure_binary_opr,
         //             lopd_root_ty,
         //             ropd_root_ty,
         //         ),
-        //         EntityRouteItd::Custom(_) => todo!(),
+        //         Ty::Custom(_) => todo!(),
         //     },
-        //     EntityRouteItd::Custom(_) => {
+        //     Ty::Custom(_) => {
         //         self.infer_custom_pure_binary_opr_type(pure_binary_opr, lopd_ty, ropd_ty)
         //     }
         // }
@@ -231,7 +231,7 @@ pub trait LazyExprParser<'a> {
         ord_cmp_opr: BinaryComparisonOpr,
         lopd_root_ty: RootBuiltinIdentifier,
         ropd_root_ty: RootBuiltinIdentifier,
-    ) -> SemanticResult<EntityRouteItd> {
+    ) -> SemanticResult<Ty> {
         todo!()
         // Ok(match ord_cmp_opr {
         //     BinaryComparisonOpr::Less
@@ -282,9 +282,9 @@ pub trait LazyExprParser<'a> {
     fn infer_custom_pure_binary_opr_type(
         &self,
         pure_binary_opr: BinaryPureClosedOpr,
-        lopd_ty: EntityRouteItd,
-        ropd_ty: EntityRouteItd,
-    ) -> SemanticResult<EntityRouteItd> {
+        lopd_ty: Ty,
+        ropd_ty: Ty,
+    ) -> SemanticResult<Ty> {
         todo!()
         // match pure_binary_opr {
         //     BinaryComparisonOpr::Eq | BinaryComparisonOpr::Neq => {

@@ -134,18 +134,18 @@ impl<'a> FeatureExprBuilder<'a> {
 
     fn compile_binary_opn(
         &self,
-        this: EntityRouteItd,
+        this: Ty,
         lopd: Arc<FeatureLazyExpr>,
         opr: BinaryPureClosedOpr,
         ropd: Arc<FeatureLazyExpr>,
     ) -> (FeatureLazyExprVariant, FeatureItd) {
         match this {
-            EntityRouteItd::Root(RootBuiltinIdentifier::Void)
-            | EntityRouteItd::Root(RootBuiltinIdentifier::I32)
-            | EntityRouteItd::Root(RootBuiltinIdentifier::F32)
-            | EntityRouteItd::Root(RootBuiltinIdentifier::F64)
-            | EntityRouteItd::Root(RootBuiltinIdentifier::B32)
-            | EntityRouteItd::Root(RootBuiltinIdentifier::B64) => {
+            Ty::Root(RootBuiltinIdentifier::Void)
+            | Ty::Root(RootBuiltinIdentifier::I32)
+            | Ty::Root(RootBuiltinIdentifier::F32)
+            | Ty::Root(RootBuiltinIdentifier::F64)
+            | Ty::Root(RootBuiltinIdentifier::B32)
+            | Ty::Root(RootBuiltinIdentifier::B64) => {
                 let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
                     opr,
                     lopd: lopd.feature,
@@ -164,7 +164,7 @@ impl<'a> FeatureExprBuilder<'a> {
                     feature,
                 )
             }
-            EntityRouteItd::Root(RootBuiltinIdentifier::Bool) => {
+            Ty::Root(RootBuiltinIdentifier::Bool) => {
                 let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
                     opr,
                     lopd: lopd.feature,
@@ -252,7 +252,7 @@ impl<'a> FeatureExprBuilder<'a> {
     fn compile_method_call(
         &self,
         _method_ident: RangedCustomIdentifier,
-        _method_route: EntityRouteItd,
+        _method_route: Ty,
         _opds: &[Arc<LazyExpr>],
     ) -> (FeatureLazyExprVariant, FeatureItd) {
         todo!()

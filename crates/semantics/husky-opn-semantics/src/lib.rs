@@ -1,4 +1,4 @@
-use husky_entity_route::{CanonicalTy, EntityRouteItd, RangedEntityRoute};
+use husky_entity_route::{CanonicalTy, RangedEntityRoute, Ty};
 use husky_pattern_semantics::PurePattern;
 use husky_print_utils::p;
 use std::borrow::Cow;
@@ -38,7 +38,7 @@ impl Default for ImplicitConversion {
 }
 
 impl ImplicitConversion {
-    pub fn from_opt_expectation(opt_expectation: Option<EntityRouteItd>, ty: &CanonicalTy) -> Self {
+    pub fn from_opt_expectation(opt_expectation: Option<Ty>, ty: &CanonicalTy) -> Self {
         if let Some(expectation) = opt_expectation {
             // todo: improve this
             let expectation = expectation.canonicalize();

@@ -11,7 +11,7 @@ use husky_atom::{
     context::{AtomContextKind, Symbol},
     AtomContext,
 };
-use husky_entity_route::{EntityRoute, EntityRouteItd, EntityRouteVariant};
+use husky_entity_route::{EntityRoute, EntityRouteVariant, Ty};
 use husky_file::FileItd;
 use husky_print_utils::{msg_once, p};
 use husky_semantics_error::SemanticResult;
@@ -23,7 +23,7 @@ use vec_like::VecMap;
 impl EntityDefnVariant {
     pub(crate) fn ty_from_ast(
         db: &dyn EntityDefnQueryGroup,
-        ty: EntityRouteItd,
+        ty: Ty,
         head: &Ast,
         children: AstIter,
         arena: &RawExprArena,
@@ -235,7 +235,7 @@ impl EntityDefnVariant {
     fn collect_variants(
         db: &dyn EntityDefnQueryGroup,
         file: FileItd,
-        ty_route: EntityRouteItd,
+        ty_route: Ty,
         children: &mut Peekable<AstIter>,
     ) -> SemanticResult<IdentDict<Arc<EntityDefn>>> {
         let mut variants = VecMap::default();
@@ -276,7 +276,7 @@ impl EntityDefnVariant {
         _db: &dyn EntityDefnQueryGroup,
         _arena: &RawExprArena,
         _file: FileItd,
-        _ty_route: EntityRouteItd,
+        _ty_route: Ty,
         _children: &mut Peekable<AstIter>,
     ) -> Arc<Visualizer> {
         todo!()

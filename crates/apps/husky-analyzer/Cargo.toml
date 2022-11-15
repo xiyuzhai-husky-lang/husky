@@ -30,8 +30,6 @@ lsp-server = "0.5.2"
 salsa = "0.17.0-pre.2"
 # comptime
 husky-comptime = { path = "../../comptime/husky-comptime" }
-# kernel
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
 # ide
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 husky-hover = { path = "../../ide/husky-hover" }

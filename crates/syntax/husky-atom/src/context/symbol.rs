@@ -19,7 +19,7 @@ impl Symbol {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SymbolKind {
-    EntityRoute(EntityRouteItd),
+    EntityRoute(Ty),
     Variable {
         init_range: TextRange,
     },
@@ -28,12 +28,12 @@ pub enum SymbolKind {
     },
     Unrecognized(CustomIdentifier),
     ThisValue {
-        opt_this_ty: Option<EntityRouteItd>,
+        opt_this_ty: Option<Ty>,
         opt_this_liason: Option<ParameterModifier>,
     },
     ThisMethod,
     ThisField {
-        opt_this_ty: Option<EntityRouteItd>,
+        opt_this_ty: Option<Ty>,
         opt_field_ty: Option<RangedEntityRoute>,
         field_liason: MemberModifier,
     },

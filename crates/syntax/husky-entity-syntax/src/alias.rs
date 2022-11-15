@@ -1,4 +1,4 @@
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_file::FileItd;
 use husky_token::TokenKind;
 use husky_word::{Identifier, Keyword};
@@ -33,7 +33,7 @@ impl EntityRouteAliasTable {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct EntityRouteAliasEntry {
     ident: Identifier,
-    scope_id: EntityRouteItd,
+    scope_id: Ty,
 }
 
 impl EntityRouteAliasEntry {

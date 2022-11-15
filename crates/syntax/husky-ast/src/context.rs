@@ -19,7 +19,7 @@ impl RawReturnContext {
         self.kind
     }
 
-    pub fn return_ty(&self) -> EntityRouteItd {
+    pub fn return_ty(&self) -> Ty {
         self.opt_return_ty.unwrap().route
     }
 }
@@ -34,7 +34,7 @@ pub enum RawReturnContextKind {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum AstContext {
     Package(FileItd),
-    Module(EntityRouteItd),
+    Module(Ty),
     Stmt {
         paradigm: Paradigm,
         return_context: Option<RawReturnContext>,
@@ -45,11 +45,11 @@ pub enum AstContext {
     },
     Visual,
     Struct {
-        opt_base_ty: Option<EntityRouteItd>,
+        opt_base_ty: Option<Ty>,
         item_context: StructItemContext,
     },
     Record,
-    Enum(EntityRouteItd),
+    Enum(Ty),
 }
 
 impl AstContext {
@@ -57,7 +57,7 @@ impl AstContext {
         self,
         db: &dyn EntitySyntaxQueryGroup,
         ident: CustomIdentifier,
-    ) -> Option<EntityRouteItd> {
+    ) -> Option<Ty> {
         Some(match self {
             AstContext::Package(main) => db.subroute(db.module(main).unwrap(), ident, thin_vec![]),
             AstContext::Module(route) => db.subroute(route, ident, thin_vec![]),

@@ -19,7 +19,7 @@ pub struct FeatureLazyStmt {
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     pub stmt: Arc<LazyStmt>,
-    pub return_ty: EntityRouteItd,
+    pub return_ty: Ty,
 }
 
 impl std::fmt::Debug for FeatureLazyStmt {

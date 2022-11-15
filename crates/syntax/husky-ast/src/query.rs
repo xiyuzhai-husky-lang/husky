@@ -39,7 +39,7 @@ fn root_symbols(db: &dyn AstSalsaQueryGroup) -> Arc<Vec<Symbol>> {
 }
 
 pub trait AstQueryGroup: AstSalsaQueryGroup {
-    fn parse_route_from_text(&self, text: &str) -> EntityRouteItd {
+    fn parse_route_from_text(&self, text: &str) -> Ty {
         let root_symbols = self.root_symbols();
         let mut context = AtomContextStandalone {
             db: self.upcast(),

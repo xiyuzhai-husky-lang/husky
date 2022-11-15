@@ -7,11 +7,11 @@ mod impl_stmt;
 
 pub(crate) struct LinkageCollector<'a> {
     db: &'a dyn RustCodeGenQueryGroup,
-    linkages: VecSet<EntityRouteItd>,
+    linkages: VecSet<Ty>,
 }
 
 impl<'a> LinkageCollector<'a> {
-    pub(crate) fn insert(&mut self, entity_route: EntityRouteItd) {
+    pub(crate) fn insert(&mut self, entity_route: Ty) {
         match entity_route.variant {
             EntityRouteVariant::TypeAsTraitMember { trai, .. } => {
                 if trai == self.db.entity_route_menu().clone_trait {
@@ -42,10 +42,7 @@ impl<'a> LinkageCollector<'a> {
         self.linkages.insert(entity_route.intrinsic())
     }
 
-    fn produce_from_entity_defn(
-        mut self,
-        entity_route: EntityRouteItd,
-    ) -> Arc<VecSet<EntityRouteItd>> {
+    fn produce_from_entity_defn(mut self, entity_route: Ty) -> Arc<VecSet<Ty>> {
         let defn = self.db.entity_defn(entity_route).unwrap();
         self.collect_from_entity_defn(&defn);
         Arc::new(self.linkages)
@@ -54,8 +51,8 @@ impl<'a> LinkageCollector<'a> {
 
 pub(crate) fn entity_immediate_link_dependees(
     _db: &dyn RustCodeGenQueryGroup,
-    _entity_route: EntityRouteItd,
-) -> Arc<VecSet<EntityRouteItd>> {
+    _entity_route: Ty,
+) -> Arc<VecSet<Ty>> {
     todo!()
     // if entity_route.spatial_arguments.len() > 0 {
     //     let entity_defn = db.entity_defn(entity_route).unwrap();
@@ -94,17 +91,13 @@ pub(crate) fn entity_immediate_link_dependees(
 
 pub(crate) fn entity_link_dependees(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route: EntityRouteItd,
-) -> Arc<VecSet<EntityRouteItd>> {
+    entity_route: Ty,
+) -> Arc<VecSet<Ty>> {
     let mut dependees = (*db.entity_immediate_link_dependees(entity_route)).clone();
     visit_all(db, &mut dependees, 0);
     return Arc::new(dependees);
 
-    fn visit_all(
-        db: &dyn RustCodeGenQueryGroup,
-        dependees: &mut VecSet<EntityRouteItd>,
-        start: usize,
-    ) {
+    fn visit_all(db: &dyn RustCodeGenQueryGroup, dependees: &mut VecSet<Ty>, start: usize) {
         let len0 = dependees.len();
         for subroute in dependees[start..]
             .iter()

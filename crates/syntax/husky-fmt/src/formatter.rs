@@ -4,7 +4,7 @@ use fold::LocalValue;
 use husky_ast::*;
 use husky_defn_head::Parameter;
 use husky_entity_kind::TyKind;
-use husky_entity_route::{EntityRoute, EntityRouteItd, EntityRouteVariant, RangedEntityRoute};
+use husky_entity_route::{EntityRoute, EntityRouteVariant, RangedEntityRoute, Ty};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_expr_syntax::*;
 use husky_init_syntax::InitKind;
@@ -172,7 +172,7 @@ impl<'a> Formatter<'a> {
                     self.fmt_parameter(parameter);
                 }
                 self.write(")");
-                if return_ty.route != EntityRouteItd::Root(RootBuiltinIdentifier::Void) {
+                if return_ty.route != Ty::Root(RootBuiltinIdentifier::Void) {
                     self.write(" -> ");
                     self.fmt_ty(return_ty.route);
                 }
@@ -222,10 +222,10 @@ impl<'a> Formatter<'a> {
         self.fmt_ty(parameter.raw_ty());
     }
 
-    fn fmt_ty(&mut self, ty: EntityRouteItd) {
+    fn fmt_ty(&mut self, ty: Ty) {
         match ty {
-            EntityRouteItd::Root(ident) => self.write(&ident),
-            EntityRouteItd::Custom(_) => todo!(),
+            Ty::Root(ident) => self.write(&ident),
+            Ty::Custom(_) => todo!(),
         }
     }
 

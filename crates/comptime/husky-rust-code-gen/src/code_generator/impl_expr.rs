@@ -79,7 +79,7 @@ impl<'a> RustCodeGenerator<'a> {
                 }
                 EagerOpnVariant::Prefix { opr, .. } => match opr {
                     PrefixOpr::Not => match opds[0].intrinsic_ty() {
-                        EntityRouteItd::Root(RootBuiltinIdentifier::Bool) => {
+                        Ty::Root(RootBuiltinIdentifier::Bool) => {
                             self.write("!");
                             self.gen_expr(indent, &opds[0]);
                         }

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 
 impl Debugtime {
     pub fn trace_stalk(&self, trace_id: TraceId) -> &TraceStalk {
@@ -117,7 +117,7 @@ impl Debugtime {
     fn trace_stalk_from_result(
         &self,
         result: __VMResult<__Register<'static>>,
-        ty: EntityRouteItd,
+        ty: Ty,
     ) -> TraceStalk {
         TraceStalk {
             extra_tokens: vec![
@@ -135,7 +135,7 @@ impl Debugtime {
     pub(crate) fn trace_token_from_result(
         &self,
         result: __VMResult<__Register<'static>>,
-        ty: EntityRouteItd,
+        ty: Ty,
     ) -> TraceTokenData {
         match result {
             Ok(value) => self.trace_token_from_value(value, ty),
@@ -150,7 +150,7 @@ impl Debugtime {
     pub(crate) fn trace_token_from_value(
         &self,
         value: __Register<'static>,
-        ty: EntityRouteItd,
+        ty: Ty,
     ) -> TraceTokenData {
         TraceTokenData {
             kind: TraceTokenKind::Fade,
