@@ -1,4 +1,3 @@
-use husky_entity_route::SpatialArgument;
 use thin_vec::ThinVec;
 
 use super::*;
@@ -13,8 +12,7 @@ pub enum ListOpr {
     ModuloIndex,
     StructInit,
     MethodCall {
-        ranged_ident: RangedCustomIdentifier,
-        generic_arguments: ThinVec<SpatialArgument>,
+        ranged_ident: RangedCustomIdentifier
     },
 }
 
@@ -30,7 +28,6 @@ pub enum ListStartAttr {
     Attach,
     MethodAttach {
         ranged_ident: RangedCustomIdentifier,
-        generic_arguments: ThinVec<SpatialArgument>,
     },
 }
 

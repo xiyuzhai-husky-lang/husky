@@ -1,6 +1,5 @@
 use std::borrow::Cow;
 
-use husky_entity_route::RangedEntityRoute;
 use husky_pattern_syntax::RawPattern;
 
 use super::*;
@@ -15,7 +14,6 @@ impl From<RawSuffixOpr> for RawOpnVariant {
 pub enum RawSuffixOpr {
     Incr,                    // ++
     Decr,                    // --
-    AsTy(RangedEntityRoute), // :
     BePattern(RawPattern),
     Unveil,
 }
@@ -25,7 +23,6 @@ impl RawSuffixOpr {
         match self {
             RawSuffixOpr::Incr => "++".into(),
             RawSuffixOpr::Decr => "--".into(),
-            RawSuffixOpr::AsTy(ty) => format!(" as {}", ty.route).into(),
             RawSuffixOpr::BePattern(_) => todo!(),
             RawSuffixOpr::Unveil => "?".into(),
         }

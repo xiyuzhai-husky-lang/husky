@@ -3,6 +3,7 @@ use super::*;
 use interner::{Internable, InternedRefWrapper, Interner};
 use optional::{Noned, OptEq};
 
+/// Interned EntityPath
 #[derive(PartialEq, Eq, Clone, Copy, Hash)]
 pub struct EntityPathItd(InternedRefWrapper<EntityPath>);
 pub type EntityPathInterner = Interner<EntityPath>;
