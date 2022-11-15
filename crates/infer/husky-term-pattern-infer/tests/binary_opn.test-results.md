@@ -62,10 +62,11 @@ ty_infer_sheet = TermPatternInferSheet {
             ],
         },
     },
+    var_results: {},
     expr_results: ArenaMap {
         data: [
             Some(
-                TermPatternInferEntry {
+                ExprTermPatternInferResults {
                     const_expr: Ok(
                         Some(
                             ConstExprPatternItd {
@@ -88,7 +89,7 @@ ty_infer_sheet = TermPatternInferSheet {
                 },
             ),
             Some(
-                TermPatternInferEntry {
+                ExprTermPatternInferResults {
                     const_expr: Ok(
                         Some(
                             ConstExprPatternItd {
@@ -111,7 +112,7 @@ ty_infer_sheet = TermPatternInferSheet {
                 },
             ),
             Some(
-                TermPatternInferEntry {
+                ExprTermPatternInferResults {
                     const_expr: Ok(
                         None,
                     ),
@@ -189,10 +190,11 @@ ty_infer_sheet = TermPatternInferSheet {
             ],
         },
     },
+    var_results: {},
     expr_results: ArenaMap {
         data: [
             Some(
-                TermPatternInferEntry {
+                ExprTermPatternInferResults {
                     const_expr: Ok(
                         Some(
                             ConstExprPatternItd {
@@ -211,7 +213,7 @@ ty_infer_sheet = TermPatternInferSheet {
                 },
             ),
             Some(
-                TermPatternInferEntry {
+                ExprTermPatternInferResults {
                     const_expr: Ok(
                         Some(
                             ConstExprPatternItd {
@@ -234,7 +236,7 @@ ty_infer_sheet = TermPatternInferSheet {
                 },
             ),
             Some(
-                TermPatternInferEntry {
+                ExprTermPatternInferResults {
                     const_expr: Ok(
                         None,
                     ),
@@ -320,10 +322,11 @@ ty_infer_sheet = TermPatternInferSheet {
             ],
         },
     },
+    var_results: {},
     expr_results: ArenaMap {
         data: [
             Some(
-                TermPatternInferEntry {
+                ExprTermPatternInferResults {
                     const_expr: Ok(
                         Some(
                             ConstExprPatternItd {
@@ -346,7 +349,7 @@ ty_infer_sheet = TermPatternInferSheet {
                 },
             ),
             Some(
-                TermPatternInferEntry {
+                ExprTermPatternInferResults {
                     const_expr: Ok(
                         Some(
                             ConstExprPatternItd {
@@ -369,7 +372,7 @@ ty_infer_sheet = TermPatternInferSheet {
                 },
             ),
             Some(
-                TermPatternInferEntry {
+                ExprTermPatternInferResults {
                     const_expr: Ok(
                         None,
                     ),
