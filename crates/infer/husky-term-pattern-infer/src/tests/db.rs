@@ -1,5 +1,6 @@
 mod init;
 mod trivia;
+mod var;
 
 use super::*;
 use husky_entity_path::{
@@ -22,7 +23,7 @@ use upcast::Upcast;
     TermPatternInferQueryGroupStorage,
     EntityPathDbStorage
 )]
-pub struct TermPatternInferTestsDb {
+pub struct TermPatternInferFakeDb {
     storage: salsa::Storage<Self>,
     term_itr: TermInterner,
     entity_path_itr: EntityPathInterner,
@@ -32,7 +33,7 @@ pub struct TermPatternInferTestsDb {
     prelude_symbols: Vec<Symbol>,
 }
 
-impl TermPatternInferTestsDb {
+impl TermPatternInferFakeDb {
     pub(super) fn new() -> Self {
         let mut db = Self {
             storage: Default::default(),
@@ -47,15 +48,12 @@ impl TermPatternInferTestsDb {
         db
     }
 
-    pub fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
-        let mut ctx = SymbolContext::new(self, &self.prelude_symbols);
-        let entity_path_menu = self.entity_path_menu();
-        ctx.define_symbol(Symbol {
-            ident: RootBuiltinIdentifier::Core.into(),
-            kind: SymbolKind::EntityPath(entity_path_menu.core()),
-        });
-        /* do something with ctx */
-        ctx
+    pub(crate) fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
+        SymbolContext::new(self, &self.prelude_symbols)
+    }
+
+    pub(crate) fn new_sheet(&self, arena: &RawExprArena) -> TermPatternInferSheet {
+        TermPatternInferSheet::new_test(arena, self.fake_var_results())
     }
 
     pub(super) fn parse_raw_expr_from_text(&self, text: &str) -> (RawExprArena, RawExprIdx) {
@@ -67,7 +65,7 @@ impl TermPatternInferTestsDb {
     }
 }
 
-impl AskDecl for TermPatternInferTestsDb {
+impl AskDecl for TermPatternInferFakeDb {
     fn ask_namespace_decl(
         &self,
         _namespace: husky_term::TermNamespace,

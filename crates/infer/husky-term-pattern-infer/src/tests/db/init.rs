@@ -1,6 +1,8 @@
+use husky_text::TextRange;
+
 use super::*;
 
-impl TermPatternInferTestsDb {
+impl TermPatternInferFakeDb {
     pub(super) fn init(&mut self) {
         let entity_path_menu = self.entity_path_menu();
         let term_menu = self.term_menu();
@@ -88,6 +90,12 @@ impl TermPatternInferTestsDb {
             Symbol {
                 ident: RootBuiltinIdentifier::F64.into(),
                 kind: SymbolKind::EntityPath(entity_path_menu.i64()),
+            },
+            Symbol {
+                ident: self.it_ident("x"),
+                kind: SymbolKind::LocalVariable {
+                    init_range: ((0, 0)..(0, 4)).into(),
+                },
             },
         ])
     }
