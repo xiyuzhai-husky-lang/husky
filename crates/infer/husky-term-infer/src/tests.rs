@@ -6,7 +6,7 @@ use husky_expect_test_utils::expect_test_husky_to_rust;
 use husky_expr_syntax::{parse_raw_expr, RawExprArena};
 use husky_print_utils::epin;
 use husky_term::TermDb;
-use husky_token_syntax::*;
+use husky_token::*;
 
 #[test]
 fn test_decl() {

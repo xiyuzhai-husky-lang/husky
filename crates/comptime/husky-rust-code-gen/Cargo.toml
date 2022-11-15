@@ -18,7 +18,7 @@ fold = { path = "../../abstraction/fold" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-file = { path = "../../syntax/husky-file" }
-husky-token-syntax = { path = "../../syntax/husky-token-syntax" }
+husky-token = { path = "../../syntax/husky-token" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }

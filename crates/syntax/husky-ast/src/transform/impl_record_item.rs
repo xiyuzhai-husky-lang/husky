@@ -1,5 +1,5 @@
 use crate::*;
-use husky_token_syntax::*;
+use husky_token::*;
 use husky_word::{Keyword, Paradigm};
 
 impl<'a> AstTransformer<'a> {

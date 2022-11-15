@@ -17,7 +17,7 @@ fold = { path = "../../abstraction/fold" }
 # syntax
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
-husky-token-syntax = { path = "../../syntax/husky-token-syntax" }
+husky-token = { path = "../../syntax/husky-token" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 # kernel
