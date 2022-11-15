@@ -2,8 +2,6 @@ mod convexity;
 mod error;
 mod kind;
 mod query;
-mod raw_token_iter;
-mod scanner;
 mod semantic_token;
 mod special;
 #[cfg(test)]
@@ -23,8 +21,6 @@ use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::{RangedCustomIdentifier, TextIndent, TextRange, TextRanged};
 use husky_word::Identifier;
-use raw_token_iter::*;
-use scanner::TokenScanner;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct Token {

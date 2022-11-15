@@ -25,9 +25,10 @@ fn tokenized_text(
 
 pub trait Tokenize: InternWord {
     fn tokenize_line(&self, line: &str) -> Vec<Token> {
-        let mut scanner = TokenScanner::new(self.word_itr());
-        scanner.scan_line(0, line);
-        scanner.finish_with_tokens()
+        todo!()
+        // let mut scanner = TokenScanner::new(self.word_itr());
+        // scanner.scan_line(0, line);
+        // scanner.finish_with_tokens()
     }
 }
 
