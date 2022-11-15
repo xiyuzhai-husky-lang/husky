@@ -39,10 +39,11 @@ ty_infer_sheet = TermPatternInferSheet {
             terms: [],
         },
     },
+    var_results: {},
     expr_results: ArenaMap {
         data: [
             Some(
-                TermPatternInferEntry {
+                ExprTermPatternInferResults {
                     const_expr: Err(
                         TermPatternInferError(
                             TermPatternInferErrorInternal {

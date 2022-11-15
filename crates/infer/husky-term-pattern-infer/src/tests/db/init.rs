@@ -91,12 +91,6 @@ impl TermPatternInferFakeDb {
                 ident: RootBuiltinIdentifier::F64.into(),
                 kind: SymbolKind::EntityPath(entity_path_menu.i64()),
             },
-            Symbol {
-                ident: self.it_ident("x"),
-                kind: SymbolKind::LocalVariable {
-                    init_range: ((0, 0)..(0, 4)).into(),
-                },
-            },
         ])
     }
 }

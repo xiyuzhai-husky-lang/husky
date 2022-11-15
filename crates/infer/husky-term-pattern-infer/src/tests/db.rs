@@ -53,7 +53,7 @@ impl TermPatternInferFakeDb {
     }
 
     pub(crate) fn new_sheet(&self, arena: &RawExprArena) -> TermPatternInferSheet {
-        TermPatternInferSheet::new_test(arena, self.fake_var_results())
+        TermPatternInferSheet::new_test(arena, Default::default())
     }
 
     pub(super) fn parse_raw_expr_from_text(&self, text: &str) -> (RawExprArena, RawExprIdx) {
