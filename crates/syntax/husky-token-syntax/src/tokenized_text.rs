@@ -120,10 +120,11 @@ impl fold::ItemToFold<URange> for TokenGroup {
 
 impl TokenizedText {
     pub(crate) fn parse(word_interner: &WordInterner, text: &str) -> Arc<Self> {
-        let mut token_scanner = TokenScanner::new(word_interner);
-        for (i, line) in text.lines().enumerate() {
-            token_scanner.scan_line(i, line)
-        }
-        token_scanner.gen_tokenized_text()
+        todo!()
+        // let mut token_scanner = TokenScanner::new(word_interner);
+        // for (i, line) in text.lines().enumerate() {
+        //     token_scanner.scan_line(i, line)
+        // }
+        // token_scanner.gen_tokenized_text()
     }
 }

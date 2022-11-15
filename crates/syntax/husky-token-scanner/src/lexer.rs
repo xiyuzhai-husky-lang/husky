@@ -19,7 +19,7 @@ impl RawToken {
     }
 }
 
-pub enum RawTokenKind {
+pub(crate) enum RawTokenKind {
     Certain(TokenKind),
     Literal(RawLiteralData),
     IllFormedLiteral(RawLiteralData),
