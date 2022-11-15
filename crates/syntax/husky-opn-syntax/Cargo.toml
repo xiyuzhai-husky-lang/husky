@@ -10,4 +10,4 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-term = { path = "../../kernel/husky-term" }
 thin-vec = { path = "../../../forks/thin-vec" }
 husky-word = { path = "../../kernel/husky-word" }
-husky-text = { path = "../husky-text" }
+husky-text = { path = "../../lex/husky-text" }

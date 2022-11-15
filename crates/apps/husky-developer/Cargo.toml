@@ -48,9 +48,9 @@ husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 # static
 husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
 # syntax
-husky-file = { path = "../../syntax/husky-file" }
-husky-token = { path = "../../syntax/husky-token" }
-husky-text = { path = "../../syntax/husky-text" }
+husky-file = { path = "../../fs/husky-file" }
+husky-token = { path = "../../lex/husky-token" }
+husky-text = { path = "../../lex/husky-text" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

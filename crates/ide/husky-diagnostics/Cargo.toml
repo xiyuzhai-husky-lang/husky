@@ -18,12 +18,12 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-semantics-error = { path = "../../semantics/husky-semantics-error" }
 # syntax
-husky-file = { path = "../../syntax/husky-file" }
-husky-text = { path = "../../syntax/husky-text" }
+husky-file = { path = "../../fs/husky-file" }
+husky-text = { path = "../../lex/husky-text" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-token = { path = "../../syntax/husky-token" }
-husky-token-scanner = { path = "../../syntax/husky-token-scanner" }
+husky-token = { path = "../../lex/husky-token" }
+husky-token-scanner = { path = "../../lex/husky-token-scanner" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

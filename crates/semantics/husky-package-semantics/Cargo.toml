@@ -16,8 +16,8 @@ fold = { path = "../../abstraction/fold" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
-husky-file = { path = "../../syntax/husky-file" }
-husky-text = { path = "../../syntax/husky-text" }
+husky-file = { path = "../../fs/husky-file" }
+husky-text = { path = "../../lex/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-semantics-error = { path = "../husky-semantics-error" }
 husky-eager-semantics = { path = "../husky-eager-semantics" }

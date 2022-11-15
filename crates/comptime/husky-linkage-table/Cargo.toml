@@ -25,7 +25,7 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
 thin-vec = { path = "../../../forks/thin-vec" }
-husky-file = { path = "../../syntax/husky-file" }
+husky-file = { path = "../../fs/husky-file" }
 __husky = { path = "../../static/__husky" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
     "binding"

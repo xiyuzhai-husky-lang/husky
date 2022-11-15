@@ -9,4 +9,4 @@ local-stack = { path = "../../abstraction/local-stack" }
 salsa = "0.17.0-pre.2"
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-word = { path = "../../kernel/husky-word" }
-husky-text = { path = "../../syntax/husky-text" }
+husky-text = { path = "../../lex/husky-text" }

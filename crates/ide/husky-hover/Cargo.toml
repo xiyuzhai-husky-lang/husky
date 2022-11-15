@@ -12,10 +12,10 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
-husky-text = { path = "../../syntax/husky-text" }
+husky-text = { path = "../../lex/husky-text" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-file = { path = "../../syntax/husky-file" }
+husky-file = { path = "../../fs/husky-file" }
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 # infer
 husky-term-infer = { path = "../../infer/husky-term-infer" }

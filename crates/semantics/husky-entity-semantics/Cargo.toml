@@ -23,8 +23,8 @@ fold = { path = "../../abstraction/fold" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
-husky-file = { path = "../../syntax/husky-file" }
-husky-text = { path = "../../syntax/husky-text" }
+husky-file = { path = "../../fs/husky-file" }
+husky-text = { path = "../../lex/husky-text" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }

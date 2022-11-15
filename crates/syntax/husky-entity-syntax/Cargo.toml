@@ -20,10 +20,10 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 # syntax
-husky-file = { path = "../../syntax/husky-file" }
-husky-text = { path = "../../syntax/husky-text" }
-husky-token = { path = "../../syntax/husky-token" }
-husky-token-text = { path = "../../syntax/husky-token-text" }
+husky-file = { path = "../../fs/husky-file" }
+husky-text = { path = "../../lex/husky-text" }
+husky-token = { path = "../../lex/husky-token" }
+husky-token-text = { path = "../../lex/husky-token-text" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 # kernel

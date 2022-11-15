@@ -6,13 +6,13 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 # syntax
-husky-token = { path = "../../syntax/husky-token" }
-husky-text = { path = "../../syntax/husky-text" }
-husky-file = { path = "../../syntax/husky-file" }
-husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
-husky-opn-syntax = { path = "../husky-opn-syntax" }
-husky-token-line = { path = "../../syntax/husky-token-line" }
-husky-token-storage = { path = "../../syntax/husky-token-storage" }
+husky-token = { path = "../../lex/husky-token" }
+husky-text = { path = "../../lex/husky-text" }
+husky-file = { path = "../../fs/husky-file" }
+husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-token-line = { path = "../../lex/husky-token-line" }
+husky-token-storage = { path = "../../lex/husky-token-storage" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 # utils
