@@ -10,7 +10,7 @@ use husky_word::Identifier;
 pub use intern::*;
 use optional::Optioned;
 
-// examples: std::ops::Add
+// EntityPath examples: std::ops::Add
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub struct EntityPath {

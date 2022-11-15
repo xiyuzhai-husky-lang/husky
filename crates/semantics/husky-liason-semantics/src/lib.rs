@@ -15,42 +15,43 @@ pub enum ParameterModifier {
 
 impl ParameterModifier {
     pub fn is_compatible(self, ty: Ty) -> bool {
-        match self {
-            ParameterModifier::None => true,
-            ParameterModifier::Owned => true,
-            ParameterModifier::OwnedMut => {
-                let canonical_ty = ty.canonicalize();
-                match canonical_ty.kind() {
-                    CanonicalTyKind::Intrinsic => true,
-                    CanonicalTyKind::Optional => todo!(),
-                    CanonicalTyKind::EvalRef => todo!(),
-                    CanonicalTyKind::OptionalEvalRef => todo!(),
-                    CanonicalTyKind::TempRefMut => todo!(),
-                }
-            }
-            ParameterModifier::MemberAccess => todo!(),
-            ParameterModifier::EvalRef => {
-                let canonical_ty = ty.canonicalize();
-                match canonical_ty.kind() {
-                    CanonicalTyKind::Intrinsic => false,
-                    CanonicalTyKind::Optional => todo!(),
-                    CanonicalTyKind::EvalRef => todo!(),
-                    CanonicalTyKind::OptionalEvalRef => todo!(),
-                    CanonicalTyKind::TempRefMut => todo!(),
-                }
-            }
-            ParameterModifier::TempRef => todo!(),
-            ParameterModifier::TempRefMut => {
-                let canonical_ty = ty.canonicalize();
-                match canonical_ty.kind() {
-                    CanonicalTyKind::Intrinsic => false,
-                    CanonicalTyKind::Optional => todo!(),
-                    CanonicalTyKind::EvalRef => todo!(),
-                    CanonicalTyKind::OptionalEvalRef => todo!(),
-                    CanonicalTyKind::TempRefMut => true,
-                }
-            }
-        }
+        todo!()
+        // match self {
+        //     ParameterModifier::None => true,
+        //     ParameterModifier::Owned => true,
+        //     ParameterModifier::OwnedMut => {
+        //         let canonical_ty = ty.canonicalize();
+        //         match canonical_ty.kind() {
+        //             CanonicalTyKind::Intrinsic => true,
+        //             CanonicalTyKind::Optional => todo!(),
+        //             CanonicalTyKind::EvalRef => todo!(),
+        //             CanonicalTyKind::OptionalEvalRef => todo!(),
+        //             CanonicalTyKind::TempRefMut => todo!(),
+        //         }
+        //     }
+        //     ParameterModifier::MemberAccess => todo!(),
+        //     ParameterModifier::EvalRef => {
+        //         let canonical_ty = ty.canonicalize();
+        //         match canonical_ty.kind() {
+        //             CanonicalTyKind::Intrinsic => false,
+        //             CanonicalTyKind::Optional => todo!(),
+        //             CanonicalTyKind::EvalRef => todo!(),
+        //             CanonicalTyKind::OptionalEvalRef => todo!(),
+        //             CanonicalTyKind::TempRefMut => todo!(),
+        //         }
+        //     }
+        //     ParameterModifier::TempRef => todo!(),
+        //     ParameterModifier::TempRefMut => {
+        //         let canonical_ty = ty.canonicalize();
+        //         match canonical_ty.kind() {
+        //             CanonicalTyKind::Intrinsic => false,
+        //             CanonicalTyKind::Optional => todo!(),
+        //             CanonicalTyKind::EvalRef => todo!(),
+        //             CanonicalTyKind::OptionalEvalRef => todo!(),
+        //             CanonicalTyKind::TempRefMut => true,
+        //         }
+        //     }
+        // }
     }
 }
 

@@ -37,7 +37,9 @@ It achieves this "seemingly ambitious" goal via the followings:
 
 ### Origin
 
-It started as a personal project of Xiyu Zhai, an EECS PhD. In his third year, he was stroke by some interesting ideas in computer vision which could probably be used to craft models that is far more superior than deep learning. But frustrated by the insufficiency of current languages for implementing these ideas, it appeared to him a new language should be created. A year was spent using C++ to write the first versions of Husky, which the design evolved rapidly. But C++ soon turned out to be an insufficient choice even for writing the compiler, as it lacks support for algebraic data type, memory safety and many other basic things, so another year was then spent to create a new version in Rust. In the process, Husky absorbs many good things from Rust, especially the design of `rust-analyzer` and `cargo`.
+It started as a personal project of Xiyu Zhai, an EECS PhD. In his third year, he was stroke by some interesting ideas in computer vision which could probably be used to craft models that is far more superior than deep learning. But frustrated by the insufficiency of current languages for implementing these ideas, it appeared to him a new language should be created. So the Husky language was born. 
+
+The first versions of Husky is writing with C++, which is abundant soon after a year due to the inefficiency in writing the compiler, as it lacks support for algebraic data type, memory safety and many other basic things. Soon after, a rust-based version was created. In the process, Husky absorbs many good things from Rust, especially the design of `rust-analyzer` and `cargo`.
 
 However, TODO
 
@@ -54,8 +56,9 @@ Contribution will be faithfully recorded. Those who made innovative contribution
 
 ### Husky Language User
 
-TODO
+After the husk language is completed, we can use Husky language to deal with all the task that deep learning can do. We are currently gathering strength to solve the basic problem in the CV task, ImageNet classification, which can be used as the basis for other tasks. 
 
+We divide 1000 categories of ImageNet into 100 subtasks, and each person is responsible for no more than 10 categories. Each task requires limited time and effort. In the process you will gain a deeper understanding of Husky's principles.
 ### Husky Language Developer
 
 TODO

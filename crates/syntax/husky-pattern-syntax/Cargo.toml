@@ -8,3 +8,4 @@ edition = "2021"
 husky-text = { path = "../husky-text" }
 husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
