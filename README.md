@@ -2,7 +2,7 @@
 
 (Work In Progress)
 
-Husky is a programming language designed for **next generation computing**, which vastly generalizes nowadays AI and software, which **combines good designs from various current languages and promises killer applications beyond people's imagination**.
+Husky is a programming language designed for **next generation computing**, which vastly generalizes nowadays AI and software. It **combines good designs from various current languages and promises killer applications beyond people's imagination**.
 
 ## New Sheriff in Town
 
