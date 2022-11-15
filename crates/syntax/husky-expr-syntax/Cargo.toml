@@ -20,7 +20,7 @@ husky-text = { path = "../../lex/husky-text" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-token = { path = "../../lex/husky-token" }
-husky-token-scanner = { path = "../../lex/husky-token-scanner" }
+husky-tokenize = { path = "../../lex/husky-tokenize" }
 husky-token-stream = { path = "../../lex/husky-token-stream" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 # utils

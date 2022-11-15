@@ -1,21 +1,17 @@
 [package]
-name = "husky-token-scanner"
+name = "husky-tokenize"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-# syntax
 husky-token = { path = "../../lex/husky-token" }
-husky-text = { path = "../../lex/husky-text" }
-husky-file = { path = "../../fs/husky-file" }
-husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-token-line = { path = "../../lex/husky-token-line" }
 husky-token-storage = { path = "../../lex/husky-token-storage" }
-# kernel
-husky-word = { path = "../../kernel/husky-word" }
-# utils
-wild-utils = { path = "../../utils/husky-wild-utils" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
+husky-text = { path = "../../lex/husky-text" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+husky-file = { path = "../../fs/husky-file" }
 husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
