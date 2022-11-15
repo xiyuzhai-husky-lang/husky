@@ -43,7 +43,10 @@ impl<'a> TermPatternInferContext<'a> {
         sheet.insert_result(self.expr_idx, result)
     }
 
-    pub(crate) fn infer(&self, sheet: &mut TermPatternInferSheet) -> RawTermPatternInferEntry {
+    pub(crate) fn infer(
+        &self,
+        sheet: &mut TermPatternInferSheet,
+    ) -> ExprTermPatternInferRawResults {
         match self.expr().variant {
             RawExprVariant::Atom(ref atom) => self.infer_atom(atom, sheet),
             RawExprVariant::Opn {
@@ -57,13 +60,16 @@ impl<'a> TermPatternInferContext<'a> {
         &self,
         atom: &RawAtomExpr,
         sheet: &mut TermPatternInferSheet,
-    ) -> RawTermPatternInferEntry {
+    ) -> ExprTermPatternInferRawResults {
         match atom {
             RawAtomExpr::Literal(literal) => self.infer_literal(*literal, sheet),
             RawAtomExpr::Symbol(symbol) => match symbol.kind {
                 SymbolKind::EntityPath(_) => todo!(),
-                SymbolKind::LocalVariable { init_range: _ } => todo!(),
-                SymbolKind::FrameVariable { .. } => RawTermPatternInferEntry {
+                SymbolKind::LocalVariable { init_range } => ExprTermPatternInferRawResults {
+                    const_expr: Ok(None),
+                    ty: self.var_ty_result(sheet, symbol.ident, init_range),
+                },
+                SymbolKind::FrameVariable { .. } => ExprTermPatternInferRawResults {
                     const_expr: Ok(None),
                     ty: Ok(self.term_menu().i32().term().into()),
                 },
@@ -72,7 +78,7 @@ impl<'a> TermPatternInferContext<'a> {
                         self.error_original(OriginalTermPatternInferError::IdentUnrecognized {
                             ident: symbol.ident,
                         });
-                    RawTermPatternInferEntry {
+                    ExprTermPatternInferRawResults {
                         const_expr: Err(error.clone()),
                         ty: self.err_derived(DerivedTermPatternInferError::TermPatternInferError(
                             error,
@@ -92,7 +98,7 @@ impl<'a> TermPatternInferContext<'a> {
         opn_variant: &RawOpnVariant,
         opds: &RawExprRange,
         sheet: &mut TermPatternInferSheet,
-    ) -> RawTermPatternInferEntry {
+    ) -> ExprTermPatternInferRawResults {
         match opn_variant {
             RawOpnVariant::Binary(opr) => self.infer_binary_opn(*opr, opds, sheet),
             RawOpnVariant::Prefix(_) => todo!(),
@@ -109,10 +115,10 @@ impl<'a> TermPatternInferContext<'a> {
         opr: BinaryOpr,
         opds: &RawExprRange,
         sheet: &mut TermPatternInferSheet,
-    ) -> RawTermPatternInferEntry {
+    ) -> ExprTermPatternInferRawResults {
         match opr {
             BinaryOpr::Assign(_) => todo!(),
-            BinaryOpr::PureClosed(_) => RawTermPatternInferEntry {
+            BinaryOpr::PureClosed(_) => ExprTermPatternInferRawResults {
                 // todo: if both operands are constant, make this constexpr?
                 const_expr: Ok(None),
                 ty: self.expr_ty_result(sheet, opds.start),
@@ -129,14 +135,14 @@ impl<'a> TermPatternInferContext<'a> {
         &self,
         literal: RawLiteralData,
         sheet: &mut TermPatternInferSheet,
-    ) -> RawTermPatternInferEntry {
+    ) -> ExprTermPatternInferRawResults {
         let _term_menu = self.term_menu();
         match literal {
             RawLiteralData::Unit => todo!(),
             RawLiteralData::Integer(_) => {
                 let term = sheet.it_unresolved(UnresolvedTerm::IntegerLiteral(self.expr_idx()));
                 let ty = sheet.it_unresolved(UnresolvedTerm::IntegerType(term));
-                RawTermPatternInferEntry {
+                ExprTermPatternInferRawResults {
                     const_expr: Ok(Some(ConstExprPattern {
                         term: term.into(),
                         opt_substitution_ctx: None,
@@ -144,14 +150,14 @@ impl<'a> TermPatternInferContext<'a> {
                     ty: Ok(ty.into()),
                 }
             }
-            RawLiteralData::I32(i) => RawTermPatternInferEntry {
+            RawLiteralData::I32(i) => ExprTermPatternInferRawResults {
                 const_expr: Ok(Some(ConstExprPattern {
                     term: TermPatternItd::Resolved(i.into()),
                     opt_substitution_ctx: None,
                 })),
                 ty: Ok(self.term_menu.i32().term().into()),
             },
-            RawLiteralData::I64(i) => RawTermPatternInferEntry {
+            RawLiteralData::I64(i) => ExprTermPatternInferRawResults {
                 const_expr: Ok(Some(ConstExprPattern {
                     term: TermPatternItd::Resolved(i.into()),
                     opt_substitution_ctx: None,
@@ -161,7 +167,7 @@ impl<'a> TermPatternInferContext<'a> {
             RawLiteralData::Float(_) => {
                 let term = sheet.it_unresolved(UnresolvedTerm::FloatLiteral(self.expr_idx()));
                 let ty = sheet.it_unresolved(UnresolvedTerm::FloatType(term));
-                RawTermPatternInferEntry {
+                ExprTermPatternInferRawResults {
                     const_expr: Ok(Some(ConstExprPattern {
                         term: term.into(),
                         opt_substitution_ctx: None,
