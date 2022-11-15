@@ -1,4 +1,4 @@
-use husky_token_syntax::Token;
+use husky_token::Token;
 pub struct TokenStorage(Vec<Token>);
 
 pub struct TokenRange(pub std::ops::Range<usize>);

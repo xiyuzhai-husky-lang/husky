@@ -7,9 +7,9 @@ use husky_dev_utils::dev_src;
 use husky_file::URange;
 use husky_opn_syntax::*;
 use husky_text::TextIndent;
-use husky_token_line::TokenGroup;
+use husky_token::*;
+use husky_token_line::TokenLine;
 use husky_token_storage::TokenRange;
-use husky_token_syntax::*;
 use husky_word::WordInterner;
 use raw::*;
 use std::{iter::Peekable, sync::Arc};
@@ -143,7 +143,7 @@ impl<'token> TokenScanner<'token> {
         &self.tokens[line.tokens.start]
     }
 
-    fn produce_line_groups(&mut self) -> Vec<TokenGroup> {
+    fn produce_line_groups(&mut self) -> Vec<TokenLine> {
         let mut line_groups = Vec::new();
         line_groups.reserve_exact(self.tokenized_lines.len());
         let mut line_iter = self
@@ -163,9 +163,9 @@ impl<'token> TokenScanner<'token> {
         &mut self,
         first_line: &TokenizedLine,
         line_iter: &mut Peekable<impl Iterator<Item = &'a TokenizedLine>>,
-    ) -> TokenGroup {
+    ) -> TokenLine {
         let group_indent = first_line.indent;
-        TokenGroup {
+        TokenLine {
             indent: group_indent,
             tokens: TokenRange(
                 first_line.tokens.start..{

@@ -27,7 +27,7 @@ sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-word = { path = "../../kernel/husky-word" }
-husky-token-syntax = { path = "../../syntax/husky-token-syntax" }
+husky-token = { path = "../../syntax/husky-token" }
 husky-token-text = { path = "../../syntax/husky-token-text" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }

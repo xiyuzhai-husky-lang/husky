@@ -19,7 +19,7 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-token-syntax = { path = "../../syntax/husky-token-syntax" }
+husky-token = { path = "../../syntax/husky-token" }
 husky-token-scanner = { path = "../../syntax/husky-token-scanner" }
 husky-token-stream = { path = "../../syntax/husky-token-stream" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }

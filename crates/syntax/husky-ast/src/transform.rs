@@ -21,7 +21,7 @@ use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};
 use husky_entity_syntax::EntitySyntaxResult;
 use husky_file::FileItd;
 use husky_text::TextRanged;
-use husky_token_syntax::*;
+use husky_token::*;
 use husky_token_text::TokenizedText;
 use husky_word::Keyword;
 

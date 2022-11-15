@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_token_syntax::Token;
+use husky_token::Token;
 
 impl<'a> AstTransformer<'a> {
     pub fn parse_expr(&mut self, tokens: &[Token]) -> AstResult<RawExprIdx> {

@@ -1,7 +1,7 @@
 use crate::*;
-use husky_token_syntax::*;
+use husky_token::*;
 
-use husky_token_syntax::identify_token;
+use husky_token::identify_token;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_enum_variant(&mut self, tokens: &[Token]) -> AstResult<AstVariant> {

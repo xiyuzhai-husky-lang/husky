@@ -1,6 +1,6 @@
 use husky_file::FileItd;
 use husky_term::Ty;
-use husky_token_syntax::TokenKind;
+use husky_token::TokenKind;
 use husky_word::{Identifier, Keyword};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -40,7 +40,7 @@ impl EntityRouteAliasEntry {
     pub fn parse(
         _file_id: FileItd,
         _token_group_index: usize,
-        token_group: &[husky_token_syntax::Token],
+        token_group: &[husky_token::Token],
     ) -> (Option<EntityRouteAliasEntry>, Option<ScopeAliasDefError>) {
         if token_group[0].kind == TokenKind::Keyword(Keyword::Use) {
             todo!()
