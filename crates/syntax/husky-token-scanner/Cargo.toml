@@ -1,0 +1,18 @@
+[package]
+name = "husky-token-scanner"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+# syntax
+husky-token-syntax = { path = "../../syntax/husky-token-syntax" }
+husky-text = { path = "../../syntax/husky-text" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
+husky-opn-syntax = { path = "../husky-opn-syntax" }
+# kernel
+husky-word = { path = "../../kernel/husky-word" }
+# utils
+wild-utils = { path = "../../utils/husky-wild-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }

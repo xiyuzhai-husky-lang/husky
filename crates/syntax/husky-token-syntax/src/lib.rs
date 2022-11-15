@@ -17,7 +17,7 @@ pub use kind::TokenKind;
 pub use query::*;
 pub use semantic_token::*;
 pub use special::SpecialToken;
-pub use tokenized_text::{TokenGroupIter, TokenizedText};
+pub use tokenized_text::{TokenGroup, TokenGroupIter, TokenizedText};
 
 use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;

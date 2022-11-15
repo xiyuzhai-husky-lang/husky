@@ -104,8 +104,8 @@ impl fold::FoldableStorage for TokenizedText {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenGroup {
-    pub(crate) indent: TextIndent,
-    pub(crate) tokens: URange,
+    pub indent: TextIndent,
+    pub tokens: URange,
 }
 
 impl fold::ItemToFold<URange> for TokenGroup {
