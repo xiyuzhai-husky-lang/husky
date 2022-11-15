@@ -24,7 +24,7 @@ husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
 husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }

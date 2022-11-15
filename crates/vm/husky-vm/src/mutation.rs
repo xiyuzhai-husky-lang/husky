@@ -1,4 +1,4 @@
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_file::FileItd;
 use husky_text::TextRange;
 use husky_word::Identifier;
@@ -10,7 +10,7 @@ pub struct MutationData<'eval> {
     pub file: FileItd,
     pub range: TextRange,
     pub kind: MutationDataVariant,
-    pub ty: EntityRouteItd,
+    pub ty: Ty,
     pub before: Option<__Register<'eval>>,
     pub after: __Register<'eval>,
 }

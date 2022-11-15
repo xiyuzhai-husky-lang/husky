@@ -5,13 +5,13 @@ use std::borrow::Cow;
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct DeprecatedVirtualStruct<'eval> {
-    ty: EntityRouteItd,
+    ty: Ty,
     fields: IdentPairDict<__Register<'eval>>,
 }
 
 impl<'eval> DeprecatedVirtualStruct<'eval> {
     pub fn new_struct(
-        ty: EntityRouteItd,
+        ty: Ty,
         arguments: impl Iterator<Item = __Register<'eval>>,
         field_liasons: &[CustomIdentifier],
     ) -> Self {

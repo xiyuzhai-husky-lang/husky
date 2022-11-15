@@ -10,7 +10,7 @@ pub use xml::*;
 use husky_vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
 
 use husky_entity_route::EntityRouteVariant;
-use husky_entity_route::{EntityRouteItd, RangedEntityRoute};
+use husky_entity_route::{RangedEntityRoute, Ty};
 use husky_entity_semantics::*;
 use husky_lazy_semantics::*;
 use husky_vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};

@@ -22,11 +22,7 @@ pub(crate) use __husky::registration::*;
         }
     }
 
-    fn might_gen_ty_registration(
-        &mut self,
-        entity_route: EntityRouteItd,
-        entity_defn: &EntityDefn,
-    ) {
+    fn might_gen_ty_registration(&mut self, entity_route: Ty, entity_defn: &EntityDefn) {
         if self.db.is_defn_static(entity_route)
             && !self.db.contains_spatial_parameters(entity_route)
         {
@@ -45,7 +41,7 @@ pub(crate) use __husky::registration::*;
         }
     }
 
-    fn gen_ty_registration(&mut self, entity_route: EntityRouteItd) {
+    fn gen_ty_registration(&mut self, entity_route: Ty) {
         let mangled_intrinsic_ty = self.db.mangled_intrinsic_ty(entity_route);
         let needs_eval_ref = self.db.entity_route_contains_eval_ref(entity_route);
         write!(

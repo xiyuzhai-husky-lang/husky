@@ -23,7 +23,7 @@ use thin_vec::{thin_vec, ThinVec};
 pub enum AtomContextKind<'a> {
     Normal,
     Trait {
-        this_trai: EntityRouteItd,
+        this_trai: Ty,
         member_kinds: &'a [(CustomIdentifier, MemberKind)],
     },
 }
@@ -39,7 +39,7 @@ pub trait AtomContext<'a> {
     fn opt_target_entrance(&self) -> Option<FileItd> {
         FileSalsaQuery::opt_target_entrance(self.entity_syntax_db())
     }
-    fn opt_this_ty(&self) -> Option<EntityRouteItd>;
+    fn opt_this_ty(&self) -> Option<Ty>;
     fn opt_this_liason(&self) -> Option<ParameterModifier>;
     fn symbols(&self) -> &[Symbol];
     fn kind(&self) -> AtomContextKind;
@@ -162,7 +162,7 @@ pub trait AtomContext<'a> {
             .find(|symbol| symbol.init_ident.ident == ident)
     }
 
-    fn entity_kind(&self, route: EntityRouteItd, range: TextRange) -> AtomResult<EntityKind> {
+    fn entity_kind(&self, route: Ty, range: TextRange) -> AtomResult<EntityKind> {
         let kind_result: EntitySyntaxResult<EntityKind> = match route.variant {
             EntityRouteVariant::Child {
                 parent,
@@ -202,7 +202,7 @@ pub trait AtomContext<'a> {
         }
     }
 
-    fn parse_entity_route(&mut self, text: &str) -> AtomResult<EntityRouteItd> {
+    fn parse_entity_route(&mut self, text: &str) -> AtomResult<Ty> {
         let tokens = self.entity_syntax_db().tokenize_line(text);
         let result = AtomParser::new(self.as_dyn_mut(), &mut (&tokens as &[_]).into())
             .parse_all_remaining_atoms()?;
@@ -242,7 +242,7 @@ pub trait AtomContext<'a> {
         )
     }
 
-    fn trai(&self) -> EntityRouteItd {
+    fn trai(&self) -> Ty {
         match self.kind() {
             AtomContextKind::Normal => panic!(),
             AtomContextKind::Trait {

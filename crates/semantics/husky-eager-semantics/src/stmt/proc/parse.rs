@@ -74,9 +74,7 @@ impl<'a> EagerParser<'a> {
                 discard: silent,
             } => {
                 let expr = self.parse_eager_expr(expr, None)?;
-                if !silent
-                    && expr.intrinsic_ty() != EntityRouteItd::Root(RootBuiltinIdentifier::Void)
-                {
+                if !silent && expr.intrinsic_ty() != Ty::Root(RootBuiltinIdentifier::Void) {
                     err!(format!(
                         "expect non-silent executed expression to be of type void, but got {:?} instead",
                         expr.intrinsic_ty()
@@ -233,11 +231,11 @@ impl<'a> EagerParser<'a> {
             RawLoopKind::While { condition } => {
                 let condition = self.parse_eager_expr(condition, None)?;
                 match condition.intrinsic_ty() {
-                    EntityRouteItd::Root(RootBuiltinIdentifier::Bool)
-                    | EntityRouteItd::Root(RootBuiltinIdentifier::I32)
-                    | EntityRouteItd::Root(RootBuiltinIdentifier::F32)
-                    | EntityRouteItd::Root(RootBuiltinIdentifier::B32)
-                    | EntityRouteItd::Root(RootBuiltinIdentifier::B64) => (),
+                    Ty::Root(RootBuiltinIdentifier::Bool)
+                    | Ty::Root(RootBuiltinIdentifier::I32)
+                    | Ty::Root(RootBuiltinIdentifier::F32)
+                    | Ty::Root(RootBuiltinIdentifier::B32)
+                    | Ty::Root(RootBuiltinIdentifier::B64) => (),
                     _ => todo!(),
                 }
                 ProcStmtVariant::Loop {
@@ -248,11 +246,11 @@ impl<'a> EagerParser<'a> {
             RawLoopKind::DoWhile { condition } => {
                 let condition = self.parse_eager_expr(condition, None)?;
                 match condition.intrinsic_ty() {
-                    EntityRouteItd::Root(RootBuiltinIdentifier::Bool)
-                    | EntityRouteItd::Root(RootBuiltinIdentifier::I32)
-                    | EntityRouteItd::Root(RootBuiltinIdentifier::F32)
-                    | EntityRouteItd::Root(RootBuiltinIdentifier::B32)
-                    | EntityRouteItd::Root(RootBuiltinIdentifier::B64) => (),
+                    Ty::Root(RootBuiltinIdentifier::Bool)
+                    | Ty::Root(RootBuiltinIdentifier::I32)
+                    | Ty::Root(RootBuiltinIdentifier::F32)
+                    | Ty::Root(RootBuiltinIdentifier::B32)
+                    | Ty::Root(RootBuiltinIdentifier::B64) => (),
                     _ => todo!(),
                 }
                 ProcStmtVariant::Loop {
@@ -311,7 +309,7 @@ impl<'a> EagerParser<'a> {
     fn parse_proc_pattern(
         &mut self,
         raw_pattern: &RawPattern,
-        ty: EntityRouteItd,
+        ty: Ty,
     ) -> SemanticResult<ProcStmtPattern> {
         let variant = match raw_pattern.variant {
             RawPatternVariant::PrimitiveLiteral(data) => {

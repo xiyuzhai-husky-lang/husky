@@ -23,7 +23,7 @@ husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 # ide
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # kernel
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 # semantics
 husky-semantics-error = { path = "../../semantics/husky-semantics-error" }

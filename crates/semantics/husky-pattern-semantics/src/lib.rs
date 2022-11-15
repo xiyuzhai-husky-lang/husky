@@ -1,11 +1,11 @@
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_term_infer::TermInferDb;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct PurePattern {
-    pub ty: EntityRouteItd,
+    pub ty: Ty,
     pub variant: PurePatternVariant,
 }
 
@@ -13,13 +13,13 @@ pub struct PurePattern {
 pub enum PurePatternVariant {
     PrimitiveLiteral(RawLiteralData),
     OneOf { subpatterns: Vec<PurePattern> },
-    EnumLiteral(EntityRouteItd),
+    EnumLiteral(Ty),
     Some,
     None,
 }
 
 impl PurePattern {
-    pub fn from_raw(db: &dyn TermInferDb, raw_patt: &RawPattern, ty: EntityRouteItd) -> Self {
+    pub fn from_raw(db: &dyn TermInferDb, raw_patt: &RawPattern, ty: Ty) -> Self {
         let variant = match raw_patt.variant {
             RawPatternVariant::PrimitiveLiteral(data) => PurePatternVariant::PrimitiveLiteral(data),
             RawPatternVariant::OneOf { ref subpatterns } => PurePatternVariant::OneOf {

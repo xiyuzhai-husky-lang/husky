@@ -33,7 +33,7 @@ husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 husky-vm = { path = "../../vm/husky-vm" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 # semantics
 husky-semantics-error = { path = "../../semantics/husky-semantics-error" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }

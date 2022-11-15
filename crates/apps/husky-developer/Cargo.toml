@@ -41,7 +41,7 @@ husky-debugtime = { path = "../../debugtime/husky-debugtime" }
 # ide
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # kernel
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 # runtime
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }

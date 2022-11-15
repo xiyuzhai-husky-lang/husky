@@ -1,4 +1,4 @@
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_text::{TextPosition, TextRanged};
 
 use super::*;
@@ -141,7 +141,7 @@ impl<'a> TraceLineGenerator<'a> {
     pub(super) fn gen_result_token(
         &mut self,
         result: __VMResult<__Register<'static>>,
-        intrinsic_ty: EntityRouteItd,
+        intrinsic_ty: Ty,
         opt_pos: Option<TextPosition>,
     ) {
         self.push_token(

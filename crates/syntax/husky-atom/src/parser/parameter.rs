@@ -75,7 +75,7 @@ impl<'a, 'b, 'c> AtomParser<'a, 'b, 'c> {
             deprecated_get!(self, ranged_ty?)
         } else {
             RangedEntityRoute {
-                route: EntityRouteItd::Root(RootBuiltinIdentifier::Void),
+                route: Ty::Root(RootBuiltinIdentifier::Void),
                 range: self.token_stream.next_range(),
             }
         })

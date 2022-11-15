@@ -42,7 +42,7 @@ husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 # static
 husky-static-defn = { path = "../../static/husky-static-defn" }
 # semantics

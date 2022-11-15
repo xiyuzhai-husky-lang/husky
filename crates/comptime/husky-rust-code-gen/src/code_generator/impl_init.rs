@@ -35,7 +35,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         );
     }
 
-    fn gen_linkage_entry(&mut self, _entity_route: EntityRouteItd, _entity_defn: &EntityDefn) {
+    fn gen_linkage_entry(&mut self, _entity_route: Ty, _entity_defn: &EntityDefn) {
         todo!()
         //     if self.db.is_defn_static(entity_route)
         //         && !self.db.contains_spatial_parameters(entity_route)
@@ -122,7 +122,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //     }
     }
 
-    fn gen_method_linkage_entry(&mut self, _entity_route: EntityRouteItd) {
+    fn gen_method_linkage_entry(&mut self, _entity_route: Ty) {
         todo!()
         //     self.write(
         //         r#"
@@ -210,11 +210,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //     );
     }
 
-    fn gen_eager_feature_linkage_entry(
-        &mut self,
-        route: EntityRouteItd,
-        output_ty: EntityRouteItd,
-    ) {
+    fn gen_eager_feature_linkage_entry(&mut self, route: Ty, output_ty: Ty) {
         self.write(&format!(
             r#"
     (
@@ -238,7 +234,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         );
     }
 
-    fn gen_index_linkage(&mut self, ty: EntityRouteItd, elem_ty: EntityRouteItd) {
+    fn gen_index_linkage(&mut self, ty: Ty, elem_ty: Ty) {
         msg_once!("todo: generic indexing");
         // ad hoc
         let mutability = match ty.variant {

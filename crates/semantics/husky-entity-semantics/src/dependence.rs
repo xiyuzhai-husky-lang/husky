@@ -6,11 +6,11 @@ use vec_like::{VecMap, VecPairMap};
 
 use crate::*;
 
-pub type DependeeMap = VecMap<EntityRouteItd, (EntityRouteItd, EntityDefnUid)>;
+pub type DependeeMap = VecMap<Ty, (Ty, EntityDefnUid)>;
 
 pub struct DependeeMapBuilder<'a> {
     db: &'a dyn EntityDefnQueryGroup,
-    map: VecMap<EntityRouteItd, (EntityRouteItd, EntityDefnUid)>,
+    map: VecMap<Ty, (Ty, EntityDefnUid)>,
 }
 
 impl<'a> DependeeMapBuilder<'a> {
@@ -21,7 +21,7 @@ impl<'a> DependeeMapBuilder<'a> {
         }
     }
 
-    fn push(&mut self, entity_route: EntityRouteItd) {
+    fn push(&mut self, entity_route: Ty) {
         let entity_route = entity_route.intrinsic();
         match entity_route.variant {
             EntityRouteVariant::Root { ident, .. } => {
@@ -58,7 +58,7 @@ impl<'a> DependeeMapBuilder<'a> {
 
 pub(crate) fn entity_immediate_dependees(
     db: &dyn EntityDefnQueryGroup,
-    entity_route: EntityRouteItd,
+    entity_route: Ty,
 ) -> SemanticResultArc<DependeeMap> {
     let defn = db.entity_defn(entity_route)?;
     Ok(Arc::new(defn.immediate_dependees(db)))
@@ -66,7 +66,7 @@ pub(crate) fn entity_immediate_dependees(
 
 pub(crate) fn entity_dependees(
     db: &dyn EntityDefnQueryGroup,
-    entity_route: EntityRouteItd,
+    entity_route: Ty,
 ) -> SemanticResultArc<DependeeMap> {
     let mut dependees = (*db.entity_immediate_dependees(entity_route)?).clone();
     visit_all(db, &mut dependees, 0)?;
@@ -92,10 +92,7 @@ pub(crate) fn entity_dependees(
 }
 
 impl EntityDefn {
-    fn immediate_dependees(
-        &self,
-        db: &dyn EntityDefnQueryGroup,
-    ) -> VecPairMap<EntityRouteItd, EntityDefnUid> {
+    fn immediate_dependees(&self, db: &dyn EntityDefnQueryGroup) -> VecPairMap<Ty, EntityDefnUid> {
         let mut builder = DependeeMapBuilder::new(db);
         match self.variant {
             EntityDefnVariant::Module {

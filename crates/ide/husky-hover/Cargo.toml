@@ -11,7 +11,7 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 # kernel
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 husky-text = { path = "../../syntax/husky-text" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }

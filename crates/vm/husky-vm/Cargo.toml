@@ -18,7 +18,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 avec = { path = "../../abstraction/avec" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-any = { path = "../husky-any" }
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }

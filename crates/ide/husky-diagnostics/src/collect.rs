@@ -1,11 +1,11 @@
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_file::FileItd;
 
 use crate::*;
 
 pub(crate) fn collect_module_diagnostics(
     db: &dyn DiagnosticSalsaQuery,
-    module: EntityRouteItd,
+    module: Ty,
 ) -> Vec<Diagnostic> {
     let mut diagnostics = Vec::new();
     let file = match db.module_file(module) {
@@ -23,7 +23,7 @@ pub(crate) fn collect_module_diagnostics(
 
 fn collect_module_entity_syntax_errors(
     db: &dyn DiagnosticSalsaQuery,
-    module: EntityRouteItd,
+    module: Ty,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     collect_entity_syntax_errors(db, module, diagnostics)
@@ -31,7 +31,7 @@ fn collect_module_entity_syntax_errors(
 
 fn collect_entity_syntax_errors(
     db: &dyn DiagnosticSalsaQuery,
-    parent: EntityRouteItd,
+    parent: Ty,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let table = db.subroute_table(parent).unwrap();

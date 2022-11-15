@@ -1,7 +1,7 @@
 mod exec;
 mod query;
 
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_file::FileItd;
 use husky_print_utils::ps;
 use husky_text::TextRange;
@@ -18,7 +18,7 @@ pub struct Interpreter<'a, 'eval: 'a> {
     pub(crate) history: History<'eval>,
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
-    variable_mutations: IndexMap<VMStackIdx, (Identifier, FileItd, TextRange, EntityRouteItd)>,
+    variable_mutations: IndexMap<VMStackIdx, (Identifier, FileItd, TextRange, Ty)>,
     vm_config: &'a VMConfig,
 }
 
@@ -92,7 +92,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         }
     }
 
-    fn push_new_virtual_struct(&mut self, ty: EntityRouteItd, fields: &[CustomIdentifier]) {
+    fn push_new_virtual_struct(&mut self, ty: Ty, fields: &[CustomIdentifier]) {
         let parameters = self.stack.drain(fields.len().try_into().unwrap());
         let value =
             unsafe { DeprecatedVirtualStruct::new_struct(ty, parameters, fields).__to_register() };
@@ -114,7 +114,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         varname: Identifier,
         file: FileItd,
         range: TextRange,
-        ty: EntityRouteItd,
+        ty: Ty,
     ) {
         self.variable_mutations
             .insert(stack_idx, (varname, file, range, ty));

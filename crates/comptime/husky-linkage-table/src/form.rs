@@ -4,19 +4,19 @@ use smallvec::SmallVec;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageForm {
     VecConstructor {
-        element_ty: EntityRouteItd,
+        element_ty: Ty,
     },
     TypeCall {
-        ty: EntityRouteItd,
+        ty: Ty,
     },
     Routine {
-        routine: EntityRouteItd,
+        routine: Ty,
     },
     Index {
-        opd_tys: SmallVec<[EntityRouteItd; 2]>,
+        opd_tys: SmallVec<[Ty; 2]>,
     },
     StructFieldAccess {
-        this_ty: EntityRouteItd,
+        this_ty: Ty,
         field_ident: CustomIdentifier,
     },
 }

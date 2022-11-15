@@ -13,7 +13,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-word = { path = "../../kernel/husky-word" }
 fold = { path = "../../abstraction/fold" }
 husky-vm = { path = "../../vm/husky-vm" }
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }

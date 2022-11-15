@@ -20,7 +20,7 @@ pub enum ProcStmtPatternBranchVariant {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ProcStmtPattern {
-    pub ty: EntityRouteItd,
+    pub ty: Ty,
     pub variant: ProcStmtPatternVariant,
 }
 
@@ -28,5 +28,5 @@ pub struct ProcStmtPattern {
 pub enum ProcStmtPatternVariant {
     PrimitiveLiteral(RawLiteralData),
     OneOf { subpatterns: Vec<ProcStmtPattern> },
-    EnumLiteral(EntityRouteItd),
+    EnumLiteral(Ty),
 }

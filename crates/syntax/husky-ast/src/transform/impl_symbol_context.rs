@@ -11,7 +11,7 @@ impl<'a> AtomContext<'a> for AstTransformer<'a> {
         self.db.upcast()
     }
 
-    fn opt_this_ty(&self) -> Option<EntityRouteItd> {
+    fn opt_this_ty(&self) -> Option<Ty> {
         self.opt_base_ty.value()
     }
 

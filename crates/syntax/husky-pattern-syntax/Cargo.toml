@@ -7,4 +7,4 @@ edition = "2021"
 [dependencies]
 husky-text = { path = "../husky-text" }
 husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }

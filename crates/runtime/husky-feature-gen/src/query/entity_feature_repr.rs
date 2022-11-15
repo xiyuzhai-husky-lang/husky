@@ -1,9 +1,6 @@
 use super::*;
 
-pub(super) fn entity_feature_repr(
-    db: &dyn FeatureGenQueryGroup,
-    entity_route: EntityRouteItd,
-) -> FeatureRepr {
+pub(super) fn entity_feature_repr(db: &dyn FeatureGenQueryGroup, entity_route: Ty) -> FeatureRepr {
     let entity_defn = db.entity_defn(entity_route).unwrap();
     match entity_defn.variant {
         EntityDefnVariant::Feature { ref defn_repr, .. } => {

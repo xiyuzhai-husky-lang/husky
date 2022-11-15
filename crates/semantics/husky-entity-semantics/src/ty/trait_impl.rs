@@ -3,7 +3,7 @@ use crate::*;
 impl EntityDefnVariant {
     pub(super) fn collect_trait_impls(
         db: &dyn EntityDefnQueryGroup,
-        this_ty: EntityRouteItd,
+        this_ty: Ty,
         file: FileItd,
         range: TextRange,
     ) -> Vec<Arc<TraitImplDefn>> {
@@ -12,7 +12,7 @@ impl EntityDefnVariant {
 
     fn implicit_trait_impls(
         _db: &dyn EntityDefnQueryGroup,
-        _this_ty: EntityRouteItd,
+        _this_ty: Ty,
         _file: FileItd,
         _range: TextRange,
     ) -> Vec<Arc<TraitImplDefn>> {

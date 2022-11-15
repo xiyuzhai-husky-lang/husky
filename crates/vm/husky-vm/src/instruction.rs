@@ -12,7 +12,7 @@ pub use sheet::InstructionSheet;
 
 use crate::*;
 use avec::Avec;
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_text::{FileRanged, TextRange};
 use husky_word::{CustomIdentifier, Identifier};
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
@@ -57,13 +57,13 @@ pub enum InstructionVariant {
         stack_idx: VMStackIdx,
         binding: Binding,
         range: TextRange,
-        ty: EntityRouteItd,
+        ty: Ty,
         varname: Identifier,
         explicit: bool,
     },
     PushLiteralValue {
         value: __Register<'static>,
-        ty: EntityRouteItd,
+        ty: Ty,
         explicit: bool,
     },
     WrapInSome {
@@ -72,22 +72,22 @@ pub enum InstructionVariant {
     CallRoutine {
         resolved_linkage: __ResolvedLinkage,
         nargs: u8,
-        output_ty: EntityRouteItd,
+        output_ty: Ty,
         discard: bool,
     },
     CallInterpreted {
         routine_uid: EntityUid,
         nargs: u8,
-        output_ty: EntityRouteItd,
+        output_ty: Ty,
         discard: bool,
     },
     VirtualStructField {
         field_idx: u8,
         field_binding: Binding,
-        field_ty: EntityRouteItd,
+        field_ty: Ty,
     },
     NewVirtualStruct {
-        ty: EntityRouteItd,
+        ty: Ty,
         fields: Vec<CustomIdentifier>,
     },
     Loop {
@@ -95,7 +95,7 @@ pub enum InstructionVariant {
         loop_kind: VMLoopKind,
     },
     Return {
-        output_ty: EntityRouteItd,
+        output_ty: Ty,
     },
     BreakIfFalse,
     Break,
@@ -109,11 +109,11 @@ pub enum InstructionVariant {
     },
     EntityFeature {
         feature_uid: EntityUid,
-        ty: EntityRouteItd,
+        ty: Ty,
     },
     PushEntityFp {
         opt_linkage: Option<__Linkage>,
-        ty: EntityRouteItd,
+        ty: Ty,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
 }

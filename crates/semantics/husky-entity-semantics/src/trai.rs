@@ -11,7 +11,7 @@ pub struct TraitDefn {}
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitImplDefn {
-    pub trai: EntityRouteItd,
+    pub trai: Ty,
     pub member_impls: Vec<Arc<EntityDefn>>,
     pub dev_src: DevSource,
 }
@@ -51,7 +51,7 @@ impl EntityDefn {
     pub fn trait_member_impl_from_static(
         db: &dyn EntityDefnQueryGroup,
         context: &mut dyn AtomContext,
-        trai: EntityRouteItd,
+        trai: Ty,
         static_trait_impl: &EntityStaticDefn,
     ) -> Arc<Self> {
         let variant =
@@ -83,7 +83,7 @@ impl EntityDefn {
 impl EntityDefnVariant {
     pub fn trait_member_impl_from_static(
         context: &mut dyn AtomContext,
-        trai: EntityRouteItd,
+        trai: Ty,
         static_defn: &EntityStaticDefn,
     ) -> Self {
         match static_defn.variant {

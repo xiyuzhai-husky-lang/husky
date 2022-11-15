@@ -4,7 +4,7 @@ mod main_feature_repr;
 use crate::{intern::InternFeature, record::*, visual::*, *};
 use entity_feature_repr::entity_feature_repr;
 use husky_data_viewer::HuskyDataViewerQueryGroup;
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_entity_semantics::{EntityDefnQueryGroup, EntityDefnVariant};
 use husky_instruction_gen::InstructionGenQueryGroup;
 use husky_package_semantics::*;
@@ -26,7 +26,7 @@ pub trait FeatureGenQueryGroup:
     + UnwindSafe
 {
     fn main_feature_repr(&'eval self, target_entrance: husky_file::FileItd) -> FeatureRepr;
-    fn entity_feature_repr(&self, entity_route: EntityRouteItd) -> FeatureRepr;
+    fn entity_feature_repr(&self, entity_route: Ty) -> FeatureRepr;
     fn record_field_repr(&self, this: FeatureRepr, field_ident: CustomIdentifier) -> FeatureRepr;
     fn visual_feature_lazy_block(&self, this: FeatureRepr) -> __VMResult<Arc<FeatureLazyBody>>;
 }

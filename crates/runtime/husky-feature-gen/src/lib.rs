@@ -24,7 +24,7 @@ pub use lazy_stmt::{FeatureLazyStmt, FeatureLazyStmtVariant};
 pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
 pub use repr::*;
 
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
@@ -45,7 +45,7 @@ pub struct FeatureSymbol {
 pub enum Feature {
     Input, // ad hoc: needs to include task config
     PrimitiveLiteral(PrimitiveValueData),
-    EnumLiteral(EntityRouteItd),
+    EnumLiteral(Ty),
     Assert {
         condition: FeatureItd,
     },
@@ -68,7 +68,7 @@ pub enum Feature {
         ropd: FeatureItd,
     },
     FunctionCall {
-        func: EntityRouteItd,
+        func: Ty,
         uid: EntityUid,
         inputs: Vec<FeatureItd>,
     },
@@ -95,11 +95,11 @@ pub enum Feature {
         opds: Vec<FeatureItd>,
     },
     EntityFeature {
-        route: EntityRouteItd,
+        route: Ty,
         uid: EntityUid,
     },
     RecordTypeCall {
-        ty: EntityRouteItd,
+        ty: Ty,
         uid: EntityUid,
         opds: Vec<FeatureItd>,
     },

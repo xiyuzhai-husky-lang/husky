@@ -1,6 +1,6 @@
 mod query;
 
-use husky_entity_route::EntityRouteItd;
+use husky_entity_route::Ty;
 use husky_vm_binding::Binding;
 use husky_word::{IdentPairDict, RootBuiltinIdentifier};
 pub use query::*;
@@ -13,18 +13,18 @@ pub enum HuskyDataViewer {
         ty: RootBuiltinIdentifier,
     },
     Struct {
-        fields: IdentPairDict<(__Linkage, EntityRouteItd)>,
+        fields: IdentPairDict<(__Linkage, Ty)>,
     },
     Vec {
         ilen: __ResolvedLinkage,
         index: __Linkage,
-        elem_ty: EntityRouteItd,
+        elem_ty: Ty,
     },
     CyclicSlice {
         start: __ResolvedLinkage,
         end: __ResolvedLinkage,
         index: __Linkage,
-        elem_ty: EntityRouteItd,
+        elem_ty: Ty,
     },
 }
 

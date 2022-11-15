@@ -111,7 +111,7 @@ impl AtomStack {
                 let ident = match attr {
                     ListStartAttr::None => RootBuiltinIdentifier::Tuple,
                     ListStartAttr::Attach => {
-                        generics.push(EntityRouteItd::Root(RootBuiltinIdentifier::Void).into());
+                        generics.push(Ty::Root(RootBuiltinIdentifier::Void).into());
                         self.func_generic(attr)?
                     }
                     ListStartAttr::MethodAttach { .. } => todo!(),
@@ -147,7 +147,7 @@ impl AtomStack {
                 let last_atom = self.atoms.pop().unwrap();
                 match last_atom.variant {
                     HuskyAtomVariant::EntityRoute {
-                        route: EntityRouteItd::Root(ident),
+                        route: Ty::Root(ident),
                         ..
                     } => match ident {
                         RootBuiltinIdentifier::ThickFp
@@ -210,7 +210,7 @@ impl AtomStack {
     pub(crate) fn make_func_type(
         &mut self,
         symbol_context: &mut dyn AtomContext,
-        output: EntityRouteItd,
+        output: Ty,
         mut tail: TextRange,
     ) -> AtomResult<()> {
         let (attr, mut generics) = self.pop_par_list_of_types(&mut tail)?;

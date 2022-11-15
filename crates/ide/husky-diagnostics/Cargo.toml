@@ -13,7 +13,7 @@ reserve = { path = "../../abstraction/reserve" }
 # infer
 husky-term-infer = { path = "../../infer/husky-term-infer" }
 # kernel
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 # semantics
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-semantics-error = { path = "../../semantics/husky-semantics-error" }

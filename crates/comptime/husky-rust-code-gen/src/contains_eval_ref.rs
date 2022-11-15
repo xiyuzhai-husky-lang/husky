@@ -5,7 +5,7 @@ use super::*;
 
 pub(super) fn entity_route_variant_contains_eval_ref(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route: EntityRouteItd,
+    entity_route: Ty,
 ) -> bool {
     let base_route = db.intern_entity_route(EntityRoute {
         variant: entity_route.variant.clone(),
@@ -106,7 +106,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
 
 pub(super) fn entity_route_contains_eval_ref(
     db: &dyn RustCodeGenQueryGroup,
-    entity_route: EntityRouteItd,
+    entity_route: Ty,
 ) -> bool {
     if db.entity_route_variant_contains_eval_ref(entity_route) {
         return true;

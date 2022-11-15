@@ -35,7 +35,7 @@ pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityK
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SubrouteTable {
-    pub route: EntityRouteItd,
+    pub route: Ty,
     pub husky_entity_kind: EntityKind,
     pub entries: Vec<SubrouteEntry>,
     pub errors: Vec<EntitySyntaxError>,
@@ -59,7 +59,7 @@ impl std::fmt::Display for SubrouteTable {
 }
 
 impl SubrouteTable {
-    pub fn new(route: EntityRouteItd, husky_entity_kind: EntityKind) -> Self {
+    pub fn new(route: Ty, husky_entity_kind: EntityKind) -> Self {
         Self {
             route,
             husky_entity_kind,
@@ -71,7 +71,7 @@ impl SubrouteTable {
     pub fn parse(
         db: &dyn EntitySyntaxSalsaQueryGroup,
         file: FileItd,
-        route: EntityRouteItd,
+        route: Ty,
         husky_entity_kind: EntityKind,
         token_groups: TokenGroupIter,
     ) -> Self {
@@ -176,8 +176,8 @@ impl SubrouteTable {
     pub fn subroute_iter<'a>(
         &'a self,
         db: &'a dyn EntitySyntaxSalsaQueryGroup,
-        parent_route: EntityRouteItd,
-    ) -> impl Iterator<Item = EntityRouteItd> + 'a {
+        parent_route: Ty,
+    ) -> impl Iterator<Item = Ty> + 'a {
         self.entries.iter().filter_map(move |entry| {
             entry
                 .ident
@@ -188,8 +188,8 @@ impl SubrouteTable {
     pub fn subentity_kinded_route_iter<'a>(
         &'a self,
         db: &'a dyn EntitySyntaxSalsaQueryGroup,
-        parent_route: EntityRouteItd,
-    ) -> impl Iterator<Item = (EntityKind, EntityRouteItd)> + 'a {
+        parent_route: Ty,
+    ) -> impl Iterator<Item = (EntityKind, Ty)> + 'a {
         self.entries.iter().filter_map(move |entry| {
             entry.ident.map(|ident| {
                 (
@@ -203,8 +203,8 @@ impl SubrouteTable {
     pub fn submodule_route_iter<'a>(
         &'a self,
         db: &'a dyn EntitySyntaxSalsaQueryGroup,
-        parent_route: EntityRouteItd,
-    ) -> impl Iterator<Item = EntityRouteItd> + 'a {
+        parent_route: Ty,
+    ) -> impl Iterator<Item = Ty> + 'a {
         self.entries
             .iter()
             .filter_map(move |entry| match entry.kind {
@@ -218,8 +218,8 @@ impl SubrouteTable {
     pub fn non_module_subroute_iter<'a>(
         &'a self,
         db: &'a dyn EntitySyntaxSalsaQueryGroup,
-        parent_route: EntityRouteItd,
-    ) -> impl Iterator<Item = EntityRouteItd> + 'a {
+        parent_route: Ty,
+    ) -> impl Iterator<Item = Ty> + 'a {
         self.entries
             .iter()
             .filter_map(move |entry| match entry.kind {
@@ -232,7 +232,7 @@ impl SubrouteTable {
 
     pub(crate) fn from_static(
         db: &dyn EntitySyntaxSalsaQueryGroup,
-        route: EntityRouteItd,
+        route: Ty,
         husky_entity_kind: EntityKind,
         data: &EntityStaticDefn,
     ) -> Self {

@@ -26,7 +26,7 @@ interner = { path = "../../abstraction/interner" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-file = { path = "../../syntax/husky-file" }
-husky-entity-route = { path = "../../kernel/husky-entity-route" }
+husky-term = { path = "../../kernel/husky-term" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-ast = { path = "../../syntax/husky-ast" }
