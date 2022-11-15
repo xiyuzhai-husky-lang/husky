@@ -32,8 +32,7 @@ mod tests {
         expect_test_husky_to_rust("", &tokenize_debug);
 
         fn tokenize_debug(text: &str) -> String {
-            todo!()
-            // format!("{:#?}", WordInterner::default().tokenize_line(text))
+            format!("{:#?}", WordInterner::default().tokenize_line(text))
         }
     }
 }
