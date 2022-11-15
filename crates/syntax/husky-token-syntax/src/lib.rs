@@ -1,21 +1,15 @@
 mod convexity;
-mod error;
 mod kind;
-mod query;
 mod semantic_token;
 mod special;
 #[cfg(test)]
 mod tests;
-mod tokenized_text;
 mod utils;
 
 pub use convexity::*;
-pub use error::*;
 pub use kind::TokenKind;
-pub use query::*;
 pub use semantic_token::*;
 pub use special::SpecialToken;
-pub use tokenized_text::{TokenGroup, TokenGroupIter, TokenizedText};
 
 use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;

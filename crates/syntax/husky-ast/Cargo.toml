@@ -31,6 +31,7 @@ husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-token-syntax = { path = "../../syntax/husky-token-syntax" }
+husky-token-text = { path = "../../syntax/husky-token-text" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }

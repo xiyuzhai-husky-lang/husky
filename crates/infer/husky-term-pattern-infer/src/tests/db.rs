@@ -57,11 +57,12 @@ impl TermPatternInferFakeDb {
     }
 
     pub(super) fn parse_raw_expr_from_text(&self, text: &str) -> (RawExprArena, RawExprIdx) {
-        let tokens = self.tokenize_line(text);
-        let mut arena = RawExprArena::new();
-        let mut symbol_ctx = self.fake_symbol_ctx();
-        let expr = parse_raw_expr(&mut symbol_ctx, &mut arena, &tokens);
-        (arena, expr)
+        todo!()
+        // let tokens = self.tokenize_line(text);
+        // let mut arena = RawExprArena::new();
+        // let mut symbol_ctx = self.fake_symbol_ctx();
+        // let expr = parse_raw_expr(&mut symbol_ctx, &mut arena, &tokens);
+        // (arena, expr)
     }
 }
 

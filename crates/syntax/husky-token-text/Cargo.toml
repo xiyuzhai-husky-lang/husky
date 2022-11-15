@@ -1,0 +1,28 @@
+[package]
+name = "husky-token-text"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+lsp-types = { version = "0.93", features = ["proposed"] }
+salsa = "0.17.0-pre.2"
+fold = { path = "../../abstraction/fold" }
+# syntax
+husky-token-syntax = { path = "../../syntax/husky-token-syntax" }
+husky-token-scanner = { path = "../../syntax/husky-token-scanner" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-text = { path = "../../syntax/husky-text" }
+husky-word = { path = "../../kernel/husky-word" }
+husky-entity-kind = { path = "../husky-entity-kind" }
+husky-primitive-literal-syntax = { path = "../husky-primitive-literal-syntax" }
+husky-opn-syntax = { path = "../husky-opn-syntax" }
+# utils
+husky-test-utils = { path = "../../utils/husky-test-utils" }
+husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
+wild-utils = { path = "../../utils/husky-wild-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }

@@ -1,10 +1,21 @@
-use crate::*;
+mod query;
+
+pub use query::*;
+
 use fold::{FoldableList, FoldingEnd};
 use husky_file::URange;
+use husky_text::TextIndent;
+use husky_token_scanner::LexError;
+use husky_token_syntax::Token;
 use husky_word::WordInterner;
 use lsp_types::FoldingRange;
 use std::fmt::Write;
 use std::sync::Arc;
+
+// pub(crate) fn gen_tokenized_text(mut self) -> Arc<TokenizedText> {
+//     let line_groups = self.produce_line_groups();
+//     Arc::new(TokenizedText::new(line_groups, self.tokens, self.errors))
+// }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenizedText {

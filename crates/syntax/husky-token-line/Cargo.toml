@@ -1,8 +1,9 @@
 [package]
-name = "husky-line-syntax"
+name = "husky-token-line"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+husky-token-storage = { path = "../../syntax/husky-token-storage" }
+husky-text = { path = "../../syntax/husky-text" }
