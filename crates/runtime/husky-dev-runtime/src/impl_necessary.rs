@@ -24,8 +24,9 @@ impl InterpreterQueryGroup for DevRuntime {
         &self,
         uid: husky_vm::EntityUid,
     ) -> Option<Arc<husky_vm::InstructionSheet>> {
-        let entity_route = self.entity_route_by_uid(uid);
-        self.entity_instruction_sheet(entity_route)
+        todo!()
+        // let entity_path = self.entity_route_by_uid(uid);
+        // self.entity_instruction_sheet(entity_path)
         // self.comptime.entity_opt_instruction_sheet_by_uid(uid)
     }
 }

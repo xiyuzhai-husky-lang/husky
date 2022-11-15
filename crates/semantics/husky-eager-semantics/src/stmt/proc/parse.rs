@@ -74,13 +74,14 @@ impl<'a> EagerParser<'a> {
                 discard: silent,
             } => {
                 let expr = self.parse_eager_expr(expr, None)?;
-                if !silent && expr.intrinsic_ty() != Ty::Root(RootBuiltinIdentifier::Void) {
-                    err!(format!(
-                        "expect non-silent executed expression to be of type void, but got {:?} instead",
-                        expr.intrinsic_ty()
-                    ))
-                }
-                Ok(ProcStmtVariant::Execute { expr })
+                todo!()
+                // if !silent && expr.intrinsic_ty() != Ty::Root(RootBuiltinIdentifier::Void) {
+                //     err!(format!(
+                //         "expect non-silent executed expression to be of type void, but got {:?} instead",
+                //         expr.intrinsic_ty()
+                //     ))
+                // }
+                // Ok(ProcStmtVariant::Execute { expr })
             }
             RawStmtVariant::Init {
                 varname,
@@ -230,33 +231,35 @@ impl<'a> EagerParser<'a> {
             }
             RawLoopKind::While { condition } => {
                 let condition = self.parse_eager_expr(condition, None)?;
-                match condition.intrinsic_ty() {
-                    Ty::Root(RootBuiltinIdentifier::Bool)
-                    | Ty::Root(RootBuiltinIdentifier::I32)
-                    | Ty::Root(RootBuiltinIdentifier::F32)
-                    | Ty::Root(RootBuiltinIdentifier::B32)
-                    | Ty::Root(RootBuiltinIdentifier::B64) => (),
-                    _ => todo!(),
-                }
-                ProcStmtVariant::Loop {
-                    loop_variant: LoopVariant::While { condition },
-                    stmts: self.parse_proc_stmts(children)?,
-                }
+                todo!()
+                // match condition.intrinsic_ty() {
+                //     Ty::Root(RootBuiltinIdentifier::Bool)
+                //     | Ty::Root(RootBuiltinIdentifier::I32)
+                //     | Ty::Root(RootBuiltinIdentifier::F32)
+                //     | Ty::Root(RootBuiltinIdentifier::B32)
+                //     | Ty::Root(RootBuiltinIdentifier::B64) => (),
+                //     _ => todo!(),
+                // }
+                // ProcStmtVariant::Loop {
+                //     loop_variant: LoopVariant::While { condition },
+                //     stmts: self.parse_proc_stmts(children)?,
+                // }
             }
             RawLoopKind::DoWhile { condition } => {
                 let condition = self.parse_eager_expr(condition, None)?;
-                match condition.intrinsic_ty() {
-                    Ty::Root(RootBuiltinIdentifier::Bool)
-                    | Ty::Root(RootBuiltinIdentifier::I32)
-                    | Ty::Root(RootBuiltinIdentifier::F32)
-                    | Ty::Root(RootBuiltinIdentifier::B32)
-                    | Ty::Root(RootBuiltinIdentifier::B64) => (),
-                    _ => todo!(),
-                }
-                ProcStmtVariant::Loop {
-                    loop_variant: LoopVariant::DoWhile { condition },
-                    stmts: self.parse_proc_stmts(children)?,
-                }
+                todo!()
+                // match condition.intrinsic_ty() {
+                //     Ty::Root(RootBuiltinIdentifier::Bool)
+                //     | Ty::Root(RootBuiltinIdentifier::I32)
+                //     | Ty::Root(RootBuiltinIdentifier::F32)
+                //     | Ty::Root(RootBuiltinIdentifier::B32)
+                //     | Ty::Root(RootBuiltinIdentifier::B64) => (),
+                //     _ => todo!(),
+                // }
+                // ProcStmtVariant::Loop {
+                //     loop_variant: LoopVariant::DoWhile { condition },
+                //     stmts: self.parse_proc_stmts(children)?,
+                // }
             }
         })
     }
@@ -321,7 +324,8 @@ impl<'a> EagerParser<'a> {
                     .map(|raw_pattern| self.parse_proc_pattern(raw_pattern, ty))
                     .collect::<SemanticResult<_>>()?,
             },
-            RawPatternVariant::EnumLiteral(route) => ProcStmtPatternVariant::EnumLiteral(route),
+            RawPatternVariant::EnumLiteral(route) => todo!(),
+            //  ProcStmtPatternVariant::EnumLiteral(route),
             RawPatternVariant::Some => todo!(),
             RawPatternVariant::None => todo!(),
         };

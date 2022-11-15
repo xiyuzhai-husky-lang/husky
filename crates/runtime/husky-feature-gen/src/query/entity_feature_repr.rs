@@ -1,14 +1,15 @@
 use super::*;
 
-pub(super) fn entity_feature_repr(db: &dyn FeatureGenQueryGroup, entity_route: Ty) -> FeatureRepr {
-    let entity_defn = db.entity_defn(entity_route).unwrap();
-    match entity_defn.variant {
-        EntityDefnVariant::Feature { ref defn_repr, .. } => {
-            FeatureRepr::from_defn(db, None, defn_repr, db.feature_interner())
-        }
-        EntityDefnVariant::TargetInput => FeatureRepr::input(db),
-        _ => todo!(),
-    }
+pub(super) fn entity_feature_repr(db: &dyn FeatureGenQueryGroup, entity_path: Ty) -> FeatureRepr {
+    todo!()
+    // let entity_defn = db.entity_defn(entity_path).unwrap();
+    // match entity_defn.variant {
+    //     EntityDefnVariant::Feature { ref defn_repr, .. } => {
+    //         FeatureRepr::from_defn(db, None, defn_repr, db.feature_interner())
+    //     }
+    //     EntityDefnVariant::TargetInput => FeatureRepr::input(db),
+    //     _ => todo!(),
+    // }
 }
 
 impl FeatureRepr {

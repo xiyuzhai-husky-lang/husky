@@ -2,9 +2,9 @@ use std::sync::Arc;
 
 use crate::*;
 
-use husky_entity_route::Ty;
 use husky_expr_syntax::*;
 use husky_file::FileItd;
+use husky_term::Ty;
 
 use husky_term_infer::TermInferDb;
 use husky_text::RangedCustomIdentifier;
@@ -49,19 +49,19 @@ pub trait LazyExprParser<'a> {
         //         ))
         //     }
         //     RawExprVariant::Entity {
-        //         route: entity_route,
+        //         route: entity_path,
         //         kind,
         //         ..
         //     } => match kind {
         //         EntityKind::Module => todo!(),
-        //         EntityKind::EnumVariant => match entity_route {
+        //         EntityKind::EnumVariant => match entity_path {
         //             EntityRoutePtr::Root(RootBuiltinIdentifier::True) => {
         //                 LazyExprVariant::PrimitiveLiteral(RawLiteralData::Bool(true))
         //             }
         //             EntityRoutePtr::Root(RootBuiltinIdentifier::False) => {
         //                 LazyExprVariant::PrimitiveLiteral(RawLiteralData::Bool(false))
         //             }
-        //             EntityRoutePtr::Custom(_) => LazyExprVariant::EnumLiteral { entity_route },
+        //             EntityRoutePtr::Custom(_) => LazyExprVariant::EnumLiteral { entity_path },
         //             _ => todo!(),
         //         },
         //         EntityKind::Type(_) => todo!(),
@@ -69,7 +69,7 @@ pub trait LazyExprParser<'a> {
         //         EntityKind::Function { .. } => {
         //             todo!()
         //         }
-        //         EntityKind::Feature => LazyExprVariant::EntityFeature { entity_route },
+        //         EntityKind::Feature => LazyExprVariant::EntityFeature { entity_path },
         //         EntityKind::Member(_) => todo!(),
         //         EntityKind::Main => panic!(),
         //     },
@@ -323,7 +323,6 @@ pub trait LazyExprParser<'a> {
         Ok(match opr {
             RawSuffixOpr::Incr => panic!(),
             RawSuffixOpr::Decr => panic!(),
-            RawSuffixOpr::AsTy(_) => todo!(),
             RawSuffixOpr::BePattern(raw_patt) => LazyExprVariant::BePattern {
                 patt: Arc::new(PurePattern::from_raw(
                     self.db(),
@@ -378,11 +377,11 @@ pub trait LazyExprParser<'a> {
         //             EntityKind::Module => todo!(),
         //             EntityKind::Type(ty_kind) => match ty_kind {
         //                 TyKind::Enum => todo!(),
-        //                 TyKind::Record => LazyOpnKind::RecordCall(RangedEntityRoute {
+        //                 TyKind::Record => LazyOpnKind::RecordCall(Ty {
         //                     route,
         //                     range: call.range(),
         //                 }),
-        //                 TyKind::Struct => LazyOpnKind::StructCall(RangedEntityRoute {
+        //                 TyKind::Struct => LazyOpnKind::StructCall(Ty {
         //                     route,
         //                     range: call.range(),
         //                 }),
@@ -408,12 +407,12 @@ pub trait LazyExprParser<'a> {
         //                 requires_lazy: is_lazy,
         //             } => {
         //                 if is_lazy {
-        //                     LazyOpnKind::FunctionModelCall(RangedEntityRoute {
+        //                     LazyOpnKind::FunctionModelCall(Ty {
         //                         route,
         //                         range: call.range(),
         //                     })
         //                 } else {
-        //                     LazyOpnKind::FunctionRoutineCall(RangedEntityRoute {
+        //                     LazyOpnKind::FunctionRoutineCall(Ty {
         //                         route,
         //                         range: call.range(),
         //                     })

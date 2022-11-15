@@ -34,7 +34,6 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-fmt = { path = "../../syntax/husky-fmt" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
-husky-atom = { path = "../../syntax/husky-atom" }
 # infer
 husky-term-infer = { path = "../../infer/husky-term-infer" }
 # semantics

@@ -1,4 +1,4 @@
-use husky_entity_route::RangedEntityRoute;
+use husky_term::Ty;
 
 use crate::lazy_branch::FeatureArrivalIndicatorVariant;
 
@@ -11,7 +11,7 @@ pub struct FeatureLazyBody {
     pub file: FileItd,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
-    pub return_ty: RangedEntityRoute,
+    pub return_ty: Ty,
     pub stmts: Vec<Arc<FeatureLazyStmt>>,
 }
 
@@ -37,7 +37,7 @@ impl<'eval> FeatureLazyBody {
         externals: &[FeatureSymbol],
         mut opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
         feature_interner: &FeatureInterner,
-        ty: RangedEntityRoute,
+        ty: Ty,
     ) -> Arc<FeatureLazyBody> {
         let mut symbols: Vec<FeatureSymbol> = externals.into();
         // for checking

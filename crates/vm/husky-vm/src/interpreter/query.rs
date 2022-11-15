@@ -9,7 +9,7 @@ pub trait InterpreterQueryGroup {
 //         &self,
 //         uid: husky_vm::EntityUid,
 //     ) -> Option<Arc<husky_vm::InstructionSheet>> {
-//         let entity_route = self.entity_route_by_uid(uid);
-//         self.entity_instruction_sheet(entity_route)
+//         let entity_path = self.entity_route_by_uid(uid);
+//         self.entity_instruction_sheet(entity_path)
 //     }
 // }

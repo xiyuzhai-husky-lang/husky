@@ -9,14 +9,14 @@ mod subtraces;
 #[cfg(test)]
 mod tests;
 
-use husky_comptime::EntityRoute;
 use husky_comptime::*;
 use husky_eager_semantics::*;
-use husky_entity_route::{EntityRouteVariant, Ty};
+use husky_entity_path::EntityPathItd;
 use husky_entity_semantics::*;
 use husky_feature_eval::EvalFeature;
 use husky_feature_gen::*;
 use husky_file::FileItd;
+use husky_term::Ty;
 use husky_text::TextRange;
 use husky_trace_protocol::*;
 use husky_vm::{History, HistoryEntry, InstructionSheet, LoopFrameData, VMConditionBranch};
@@ -35,12 +35,12 @@ pub struct Trace {
 pub enum TraceVariant {
     Main(FeatureRepr),
     Module {
-        route: Ty,
+        entity_path: EntityPathItd,
         file: FileItd,
         range: TextRange,
     },
     EntityFeature {
-        route: Ty,
+        entity_path: EntityPathItd,
         repr: FeatureRepr,
     },
     FeatureStmt(Arc<FeatureLazyStmt>),
@@ -94,14 +94,15 @@ pub enum TraceVariant {
 
 impl TraceVariant {
     pub fn input(db: &dyn FeatureGenQueryGroup) -> Self {
-        TraceVariant::EntityFeature {
-            route: db.intern_entity_route(EntityRoute {
-                variant: EntityRouteVariant::TargetInputValue,
-                temporal_arguments: Default::default(),
-                spatial_arguments: Default::default(),
-            }),
-            repr: FeatureRepr::input(db),
-        }
+        todo!()
+        // TraceVariant::EntityFeature {
+        //     entity_path: db.intern_entity_route(EntityRoute {
+        //         variant: EntityRouteVariant::TargetInputValue,
+        //         temporal_arguments: Default::default(),
+        //         spatial_arguments: Default::default(),
+        //     }),
+        //     repr: FeatureRepr::input(db),
+        // }
     }
 }
 

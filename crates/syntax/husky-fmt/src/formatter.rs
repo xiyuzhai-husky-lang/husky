@@ -4,11 +4,11 @@ use fold::LocalValue;
 use husky_ast::*;
 use husky_defn_head::Parameter;
 use husky_entity_kind::TyKind;
-use husky_entity_route::{EntityRoute, EntityRouteVariant, RangedEntityRoute, Ty};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_expr_syntax::*;
 use husky_init_syntax::InitKind;
 use husky_liason_semantics::{MemberModifier, ParameterModifier};
+use husky_term::Ty;
 
 use husky_print_utils::msg_once;
 use husky_word::{Paradigm, RootBuiltinIdentifier};
@@ -128,14 +128,15 @@ impl<'a> Formatter<'a> {
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
                     return_context: Some(RawReturnContext {
-                        opt_return_ty: Some(RangedEntityRoute {
-                            route: self.db.intern_entity_route(EntityRoute {
-                                variant: EntityRouteVariant::TargetOutputType,
-                                temporal_arguments: Default::default(),
-                                spatial_arguments: Default::default(),
-                            }),
-                            range: Default::default(),
-                        }),
+                        opt_return_ty: todo!(),
+                        //  Some(Ty {
+                        //     route: self.db.intern_entity_route(EntityRoute {
+                        //         variant: EntityRouteVariant::TargetOutputType,
+                        //         temporal_arguments: Default::default(),
+                        //         spatial_arguments: Default::default(),
+                        //     }),
+                        //     range: Default::default(),
+                        // }),
                         kind: RawReturnContextKind::Feature,
                     }),
                 });
@@ -172,10 +173,11 @@ impl<'a> Formatter<'a> {
                     self.fmt_parameter(parameter);
                 }
                 self.write(")");
-                if return_ty.route != Ty::Root(RootBuiltinIdentifier::Void) {
-                    self.write(" -> ");
-                    self.fmt_ty(return_ty.route);
-                }
+                todo!();
+                // if return_ty.route != Ty::Root(RootBuiltinIdentifier::Void) {
+                //     self.write(" -> ");
+                //     self.fmt_ty(return_ty.route);
+                // }
                 self.write(":");
             }
             AstVariant::FieldDefnHead {
@@ -184,14 +186,15 @@ impl<'a> Formatter<'a> {
                 field_ty,
                 ..
             } => {
-                match liason {
-                    MemberModifier::Immutable => (),
-                    MemberModifier::Mutable => todo!(),
-                    MemberModifier::Property => todo!(),
-                }
-                self.fmt_ident(ranged_ident.ident.into());
-                self.write(": ");
-                self.fmt_ty(field_ty.route)
+                todo!()
+                // match liason {
+                //     MemberModifier::Immutable => (),
+                //     MemberModifier::Mutable => todo!(),
+                //     MemberModifier::Property => todo!(),
+                // }
+                // self.fmt_ident(ranged_ident.ident.into());
+                // self.write(": ");
+                // self.fmt_ty(field_ty.route)
             }
             AstVariant::Stmt(ref stmt) => self.fmt_stmt(stmt),
             AstVariant::DatasetConfigDefnHead => todo!(),
@@ -223,10 +226,11 @@ impl<'a> Formatter<'a> {
     }
 
     fn fmt_ty(&mut self, ty: Ty) {
-        match ty {
-            Ty::Root(ident) => self.write(&ident),
-            Ty::Custom(_) => todo!(),
-        }
+        todo!()
+        // match ty {
+        //     Ty::Root(ident) => self.write(&ident),
+        //     Ty::Custom(_) => todo!(),
+        // }
     }
 
     fn fmt_stmt(&mut self, stmt: &husky_ast::RawStmt) {

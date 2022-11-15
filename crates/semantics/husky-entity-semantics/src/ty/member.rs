@@ -23,7 +23,10 @@ pub fn collect_all_members(
     Arc::new(members)
 }
 
-pub fn member_defn(_db: &dyn EntityDefnQueryGroup, _member_route: Ty) -> Arc<EntityDefn> {
+pub fn member_defn(
+    _db: &dyn EntityDefnQueryGroup,
+    _member_route: EntityPathItd,
+) -> Arc<EntityDefn> {
     todo!()
     // let ty = member_route.parent();
     // let ty_defn = db.entity_defn(ty).unwrap();

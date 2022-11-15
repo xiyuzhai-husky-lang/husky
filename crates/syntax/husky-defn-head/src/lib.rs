@@ -6,7 +6,7 @@ use husky_liason_semantics::{MemberModifier, ParameterModifier, RangedParameterL
 pub use spatial::*;
 use thin_vec::thin_vec;
 
-use husky_entity_route::{RangedEntityRoute, Ty};
+use husky_term::Ty;
 use husky_text::{RangedCustomIdentifier, TextRange};
 use husky_word::{CustomIdentifier, RootBuiltinIdentifier};
 
@@ -14,7 +14,7 @@ use husky_word::{CustomIdentifier, RootBuiltinIdentifier};
 pub struct Parameter {
     ranged_ident: RangedCustomIdentifier,
     ranged_liason: RangedParameterLiason,
-    ranged_book_ty: RangedEntityRoute,
+    // ranged_book_ty: Ty,
     ty: Ty,
 }
 
@@ -23,31 +23,33 @@ impl Parameter {
         db: &dyn EntitySyntaxQueryGroup,
         ranged_ident: RangedCustomIdentifier,
         ranged_liason: RangedParameterLiason,
-        ranged_raw_ty: RangedEntityRoute,
+        // ranged_raw_ty: Ty,
     ) -> Self {
-        let ty = Self::synthesize_ty(db, ranged_liason.liason, ranged_raw_ty.route);
-        assert!(ranged_liason.liason.is_compatible(ty));
-        Self {
-            ty,
-            ranged_ident,
-            ranged_liason,
-            ranged_book_ty: ranged_raw_ty,
-        }
+        todo!()
+        // let ty = Self::synthesize_ty(db, ranged_liason.liason, ranged_raw_ty.route);
+        // assert!(ranged_liason.liason.is_compatible(ty));
+        // Self {
+        //     ty,
+        //     ranged_ident,
+        //     ranged_liason,
+        //     // ranged_book_ty: ranged_raw_ty,
+        // }
     }
 
     fn synthesize_ty(db: &dyn EntitySyntaxQueryGroup, liason: ParameterModifier, raw_ty: Ty) -> Ty {
-        match liason {
-            ParameterModifier::None => raw_ty,
-            ParameterModifier::Owned => raw_ty,
-            ParameterModifier::OwnedMut => raw_ty,
-            ParameterModifier::MemberAccess => todo!(),
-            ParameterModifier::EvalRef => todo!(),
-            ParameterModifier::TempRef => todo!(),
-            ParameterModifier::TempRefMut => db.route_call(
-                RootBuiltinIdentifier::RefMut.into(),
-                thin_vec![raw_ty.into()],
-            ),
-        }
+        todo!()
+        // match liason {
+        //     ParameterModifier::None => raw_ty,
+        //     ParameterModifier::Owned => raw_ty,
+        //     ParameterModifier::OwnedMut => raw_ty,
+        //     ParameterModifier::MemberAccess => todo!(),
+        //     ParameterModifier::EvalRef => todo!(),
+        //     ParameterModifier::TempRef => todo!(),
+        //     ParameterModifier::TempRefMut => db.route_call(
+        //         RootBuiltinIdentifier::RefMut.into(),
+        //         thin_vec![raw_ty.into()],
+        //     ),
+        // }
     }
 
     pub fn liason(&self) -> ParameterModifier {
@@ -66,11 +68,13 @@ impl Parameter {
     }
 
     pub fn raw_ty(&self) -> Ty {
-        self.ranged_book_ty.route
+        todo!()
+        // self.ranged_book_ty.route
     }
 
     pub fn raw_ty_range(&self) -> TextRange {
-        self.ranged_book_ty.range
+        todo!()
+        // self.ranged_book_ty.range
     }
 
     pub fn ty(&self) -> Ty {
@@ -83,24 +87,25 @@ impl Parameter {
         modifier: MemberModifier,
         member_ty: Ty,
     ) -> Self {
-        should!(ranged_ident
-            .ident
-            .as_str()
-            .chars()
-            .next()
-            .unwrap()
-            .is_lowercase());
-        Parameter::new(
-            db,
-            ranged_ident,
-            RangedParameterLiason {
-                liason: ParameterModifier::from_field(modifier),
-                opt_range: None,
-            },
-            RangedEntityRoute {
-                route: member_ty,
-                range: Default::default(),
-            },
-        )
+        todo!()
+        // should!(ranged_ident
+        //     .ident
+        //     .as_str()
+        //     .chars()
+        //     .next()
+        //     .unwrap()
+        //     .is_lowercase());
+        // Parameter::new(
+        //     db,
+        //     ranged_ident,
+        //     RangedParameterLiason {
+        //         liason: ParameterModifier::from_field(modifier),
+        //         opt_range: None,
+        //     },
+        //     Ty {
+        //         route: member_ty,
+        //         range: Default::default(),
+        //     },
+        // )
     }
 }

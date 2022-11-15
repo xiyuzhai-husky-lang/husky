@@ -9,10 +9,9 @@ pub use xml::*;
 
 use husky_vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
 
-use husky_entity_route::EntityRouteVariant;
-use husky_entity_route::{RangedEntityRoute, Ty};
 use husky_entity_semantics::*;
 use husky_lazy_semantics::*;
+use husky_term::Ty;
 use husky_vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
 use husky_word::RootBuiltinIdentifier;
 use std::sync::Arc;
@@ -137,7 +136,7 @@ pub enum FeatureLazyExprVariant {
     },
     EvalInput,
     NewRecord {
-        ty: RangedEntityRoute,
+        ty: Ty,
         entity: Arc<EntityDefn>,
         opds: Vec<Arc<FeatureLazyExpr>>,
     },
@@ -263,105 +262,107 @@ struct FeatureExprBuilder<'a> {
 
 impl<'a> FeatureExprBuilder<'a> {
     fn new_expr(&self, expr: Arc<LazyExpr>) -> Arc<FeatureLazyExpr> {
-        let (kind, feature) = match expr.variant {
-            LazyExprVariant::Variable { varname, .. } => self
-                .symbols
-                .iter()
-                .rev()
-                .find_map(|symbol| {
-                    if symbol.varname == varname {
-                        Some((
-                            FeatureLazyExprVariant::Variable {
-                                varname,
-                                value: symbol.value.clone(),
-                            },
-                            symbol.feature,
-                        ))
-                    } else {
-                        None
-                    }
-                })
-                .unwrap(),
-            LazyExprVariant::PrimitiveLiteral(data) => (
-                FeatureLazyExprVariant::Literal(convert_primitive_literal_to_register(
-                    data,
-                    expr.intrinsic_ty(),
-                )),
-                self.feature_interner.intern(Feature::PrimitiveLiteral(
-                    convert_primitive_literal_to_value(data, expr.intrinsic_ty()),
-                )),
-            ),
-            LazyExprVariant::Bracketed(ref bracketed_expr) => {
-                return self.new_expr(bracketed_expr.clone())
-            }
-            LazyExprVariant::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
-            LazyExprVariant::Lambda(_, _) => todo!(),
-            LazyExprVariant::EnumLiteral { entity_route } => (
-                FeatureLazyExprVariant::Literal(
-                    __VirtualEnum {
-                        kind_idx: self.db.enum_literal_to_i32(entity_route),
-                    }
-                    .to_register(),
-                ),
-                self.feature_interner
-                    .intern(Feature::EnumLiteral(entity_route)),
-            ),
-            LazyExprVariant::ThisValue { .. } => (
-                FeatureLazyExprVariant::ThisValue {
-                    repr: self.opt_this.as_ref().unwrap().clone(),
-                },
-                self.opt_this.as_ref().unwrap().feature(),
-            ),
-            LazyExprVariant::ThisField {
-                field_ident,
-                field_binding,
-                ..
-            } => {
-                let this_repr = self.opt_this.clone().unwrap();
-                self.compile_field_access(field_ident, this_repr, field_binding)
-            }
-            LazyExprVariant::EntityFeature { entity_route } => match entity_route.variant {
-                EntityRouteVariant::Root { .. } | EntityRouteVariant::Package { .. } => panic!(),
-                EntityRouteVariant::Child { .. } => {
-                    let uid = self.db.entity_uid(entity_route);
-                    let feature = self.feature_interner.intern(Feature::EntityFeature {
-                        route: entity_route,
-                        uid,
-                    });
-                    let variant = FeatureLazyExprVariant::EntityFeature {
-                        repr: self.db.entity_feature_repr(entity_route),
-                    };
-                    (variant, feature)
-                }
-                EntityRouteVariant::TargetInputValue => {
-                    let feature = self.feature_interner.intern(Feature::Input);
-                    let variant = FeatureLazyExprVariant::EvalInput;
-                    (variant, feature)
-                }
-                EntityRouteVariant::Any { .. } => todo!(),
-                EntityRouteVariant::ThisType { .. } => todo!(),
-                EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
-                EntityRouteVariant::TargetOutputType => todo!(),
-            },
-            LazyExprVariant::BePattern { ref this, ref patt } => {
-                let this = self.new_expr(this.clone());
-                let feature = self.feature_interner.intern(Feature::BePattern {
-                    this: this.feature,
-                    expr_pattern: Feature::intern_expr_pattern(self.feature_interner, patt),
-                });
-                let variant = FeatureLazyExprVariant::BePattern {
-                    this,
-                    patt: patt.clone(),
-                };
-                (variant, feature)
-            }
-        };
-        Arc::new(FeatureLazyExpr {
-            variant: kind,
-            feature,
-            eval_id: Default::default(),
-            expr,
-            opt_domain_indicator: self.opt_arrival_indicator.map(|indi| indi.clone()),
-        })
+        todo!()
+        // let (kind, feature) = match expr.variant {
+        //     LazyExprVariant::Variable { varname, .. } => self
+        //         .symbols
+        //         .iter()
+        //         .rev()
+        //         .find_map(|symbol| {
+        //             if symbol.varname == varname {
+        //                 Some((
+        //                     FeatureLazyExprVariant::Variable {
+        //                         varname,
+        //                         value: symbol.value.clone(),
+        //                     },
+        //                     symbol.feature,
+        //                 ))
+        //             } else {
+        //                 None
+        //             }
+        //         })
+        //         .unwrap(),
+        //     LazyExprVariant::PrimitiveLiteral(data) => (
+        //         FeatureLazyExprVariant::Literal(convert_primitive_literal_to_register(
+        //             data,
+        //             expr.intrinsic_ty(),
+        //         )),
+        //         self.feature_interner.intern(Feature::PrimitiveLiteral(
+        //             convert_primitive_literal_to_value(data, expr.intrinsic_ty()),
+        //         )),
+        //     ),
+        //     LazyExprVariant::Bracketed(ref bracketed_expr) => {
+        //         return self.new_expr(bracketed_expr.clone())
+        //     }
+        //     LazyExprVariant::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
+        //     LazyExprVariant::Lambda(_, _) => todo!(),
+        //     LazyExprVariant::EnumLiteral { entity_path } => (
+        //         FeatureLazyExprVariant::Literal(
+        //             __VirtualEnum {
+        //                 kind_idx: self.db.enum_literal_to_i32(entity_path),
+        //             }
+        //             .to_register(),
+        //         ),
+        //         self.feature_interner
+        //             .intern(Feature::EnumLiteral(entity_path)),
+        //     ),
+        //     LazyExprVariant::ThisValue { .. } => (
+        //         FeatureLazyExprVariant::ThisValue {
+        //             repr: self.opt_this.as_ref().unwrap().clone(),
+        //         },
+        //         self.opt_this.as_ref().unwrap().feature(),
+        //     ),
+        //     LazyExprVariant::ThisField {
+        //         field_ident,
+        //         field_binding,
+        //         ..
+        //     } => {
+        //         let this_repr = self.opt_this.clone().unwrap();
+        //         self.compile_field_access(field_ident, this_repr, field_binding)
+        //     }
+        //     LazyExprVariant::EntityFeature { entity_path } => todo!(),
+        //     // match entity_path.variant {
+        //     //     EntityRouteVariant::Root { .. } | EntityRouteVariant::Package { .. } => panic!(),
+        //     //     EntityRouteVariant::Child { .. } => {
+        //     //         let uid = self.db.entity_uid(entity_path);
+        //     //         let feature = self.feature_interner.intern(Feature::EntityFeature {
+        //     //             route: entity_path,
+        //     //             uid,
+        //     //         });
+        //     //         let variant = FeatureLazyExprVariant::EntityFeature {
+        //     //             repr: self.db.entity_feature_repr(entity_path),
+        //     //         };
+        //     //         (variant, feature)
+        //     //     }
+        //     //     EntityRouteVariant::TargetInputValue => {
+        //     //         let feature = self.feature_interner.intern(Feature::Input);
+        //     //         let variant = FeatureLazyExprVariant::EvalInput;
+        //     //         (variant, feature)
+        //     //     }
+        //     //     EntityRouteVariant::Any { .. } => todo!(),
+        //     //     EntityRouteVariant::ThisType { .. } => todo!(),
+        //     //     EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
+        //     //     EntityRouteVariant::TargetOutputType => todo!(),
+        //     // },
+        //     LazyExprVariant::BePattern { ref this, ref patt } => {
+        //         let this = self.new_expr(this.clone());
+        //         let feature = self.feature_interner.intern(Feature::BePattern {
+        //             this: this.feature,
+        //             expr_pattern: Feature::intern_expr_pattern(self.feature_interner, patt),
+        //         });
+        //         let variant = FeatureLazyExprVariant::BePattern {
+        //             this,
+        //             patt: patt.clone(),
+        //         };
+        //         (variant, feature)
+        //     }
+        // };
+        // Arc::new(FeatureLazyExpr {
+        //     variant: kind,
+        //     feature,
+        //     eval_id: Default::default(),
+        //     expr,
+        //     opt_domain_indicator: self.opt_arrival_indicator.map(|indi| indi.clone()),
+        // })
     }
 }

@@ -11,11 +11,12 @@ macro_rules! batch_into {
 }
 
 pub(crate) fn send_updates(db: &HuskyComptime, comm: &ClientCommunicator) {
-    db.module_iter().for_each(|module| {
-        db.diagnostics_reserve(module).release(|diagnostics| {
-            if let Some(file) = db.module_file(module).ok() {
-                comm.send_diagnostics(db.url(file), batch_into!(diagnostics), None);
-            }
-        })
-    });
+    todo!()
+    // db.module_iter().for_each(|module| {
+    //     db.diagnostics_reserve(module).release(|diagnostics| {
+    //         if let Some(file) = db.module_file(module).ok() {
+    //             comm.send_diagnostics(db.url(file), batch_into!(diagnostics), None);
+    //         }
+    //     })
+    // });
 }

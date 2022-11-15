@@ -20,14 +20,13 @@ pub use virtual_cyclic_slice::*;
 pub use virtual_struct::*;
 pub use virtual_vec::*;
 
-use husky_entity_route::Ty;
 use husky_vm_interface::*;
 // pub use binding::*;
 // use husky_trace_protocol::*;
 // pub use husky_vm_interface::*;
 // pub use stack_idx::*;
 
-// use husky_entity_route::EntityRoutePtr;
+// use husky_term::EntityRoutePtr;
 // use husky_print_utils::p;
 // use serde::Serialize;
 // use std::{

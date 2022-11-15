@@ -1,7 +1,7 @@
 use husky_ast::AstQueryGroup;
-use husky_entity_route::Ty;
 use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_entity_syntax::EntitySyntaxQueryGroup;
+use husky_term::Ty;
 use reserve::Reserve;
 
 use crate::*;

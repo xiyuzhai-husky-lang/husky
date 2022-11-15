@@ -41,7 +41,7 @@ impl EntityDefnVariant {
         //                 spatial_parameters: Default::default(),
         //                 this_modifier: ParameterModifier::None,
         //                 parameters: Default::default(),
-        //                 output_ty: RangedEntityRoute {
+        //                 output_ty: Ty {
         //                     route: this_ty,
         //                     range,
         //                 },

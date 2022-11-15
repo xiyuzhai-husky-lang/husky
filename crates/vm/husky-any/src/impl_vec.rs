@@ -1,6 +1,6 @@
 use super::*;
-use husky_entity_route::make_route;
 use husky_print_utils::msg_once;
+use husky_term::make_route;
 use husky_word::RootBuiltinIdentifier;
 use thin_vec::thin_vec;
 

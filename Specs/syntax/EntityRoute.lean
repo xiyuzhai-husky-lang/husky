@@ -27,5 +27,5 @@ end SpatialArgument
 namespace EntityRouteVariant
 end EntityRouteVariant
 
-structure RangedEntityRoute
+structure Ty
   deriving DecidableEq

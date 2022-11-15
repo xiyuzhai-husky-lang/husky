@@ -1,5 +1,4 @@
-use husky_entity_kind::TyKind;
-use husky_entity_route::{EntityKind, RangedEntityRoute};
+use husky_entity_kind::{EntityKind, TyKind};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
 use husky_file::FileItd;
 use husky_static_defn::StaticSpatialParameter;
@@ -24,7 +23,7 @@ impl VecMapEntry<CustomIdentifier> for SpatialParameter {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum SpatialParameterVariant {
     Const,
-    Type { traits: Vec<RangedEntityRoute> },
+    Type {/* traits: Vec<Ty> */},
 }
 
 impl SpatialParameter {

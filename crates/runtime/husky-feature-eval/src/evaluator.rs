@@ -81,30 +81,32 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     }
 
     fn feature_ptr(&self, feature_route_text: &str) -> usize {
-        let route = self.db.parse_route_from_text(feature_route_text);
-        let uid = self.db.entity_uid(route);
-        unsafe {
-            self.db
-                .feature_interner()
-                .intern(Feature::EntityFeature { route, uid })
-                .id()
-                .raw()
-        }
+        todo!()
+        // let route = self.db.parse_route_from_text(feature_route_text);
+        // let uid = self.db.entity_uid(route);
+        // unsafe {
+        //     self.db
+        //         .feature_interner()
+        //         .intern(Feature::EntityFeature { route, uid })
+        //         .id()
+        //         .raw()
+        // }
     }
 
     fn eval_feature_from_uid(&self, uid_raw: u64) -> __VMResult<__Register<'eval>> {
-        let uid = unsafe { EntityUid::from_raw(uid_raw) };
-        let route = self.db.entity_route_by_uid(uid);
-        let feature = self
-            .db
-            .feature_interner()
-            .intern(Feature::EntityFeature { route, uid });
-        if let Some(result) = self.sheet.cached_value(EvalKey::Feature(feature)) {
-            result
-        } else {
-            let repr = self.db.entity_feature_repr(route);
-            self.eval_feature_repr_cached(&repr)
-        }
+        todo!()
+        // let uid = unsafe { EntityUid::from_raw(uid_raw) };
+        // let route = self.db.entity_route_by_uid(uid);
+        // let feature = self
+        //     .db
+        //     .feature_interner()
+        //     .intern(Feature::EntityFeature { route, uid });
+        // if let Some(result) = self.sheet.cached_value(EvalKey::Feature(feature)) {
+        //     result
+        // } else {
+        //     let repr = self.db.entity_feature_repr(route);
+        //     self.eval_feature_repr_cached(&repr)
+        // }
     }
 
     fn target_input(&self) -> &__Register<'eval> {

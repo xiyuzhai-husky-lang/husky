@@ -1,8 +1,8 @@
 use super::*;
 use crate::*;
-use husky_entity_route::RangedEntityRoute;
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind};
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
+use husky_term::Ty;
 use husky_text::RangedCustomIdentifier;
 
 impl<'a> TraceLineGenerator<'a> {
@@ -53,52 +53,54 @@ impl<'a> TraceLineGenerator<'a> {
                 opds: ref feature_opds,
                 ..
             } => match expr.expr.variant {
-                LazyExprVariant::Opn { opn_kind, ref opds } => match opn_kind {
-                    LazyOpnKind::FunctionRoutineCall(ranged_route) => self
-                        .feature_entity_call_tokens(
-                            expr.expr.file,
-                            ranged_route,
-                            feature_opds,
-                            opt_assoc,
-                            config,
-                            &expr.expr,
-                        ),
-                    LazyOpnKind::StructCall(_) => todo!(),
-                    LazyOpnKind::RecordCall(_) => todo!(),
-                    LazyOpnKind::MethodCall { method_ident, .. } => {
-                        self.gen_feature_expr(&feature_opds[0], config.subexpr());
-                        self.render_special_token(".", None, Some(method_ident.range.start));
-                        self.render_ident_token(method_ident.ident.as_str(), None, None);
-                        self.render_special_token("(", None, None);
-                        for i in 1..opds.len() {
-                            if i > 1 {
-                                self.render_special_token(", ", None, None)
-                            }
-                            self.gen_feature_expr(&feature_opds[i], config.subexpr());
-                        }
-                        self.render_special_token(")", None, None);
-                    }
-                    _ => panic!(),
-                },
+                LazyExprVariant::Opn { opn_kind, ref opds } => todo!(),
+                //  match opn_kind {
+                //     LazyOpnKind::FunctionRoutineCall(ranged_route) => self
+                //         .feature_entity_call_tokens(
+                //             expr.expr.file,
+                //             ranged_route,
+                //             feature_opds,
+                //             opt_assoc,
+                //             config,
+                //             &expr.expr,
+                //         ),
+                //     LazyOpnKind::StructCall(_) => todo!(),
+                //     LazyOpnKind::RecordCall(_) => todo!(),
+                //     LazyOpnKind::MethodCall { method_ident, .. } => {
+                //         self.gen_feature_expr(&feature_opds[0], config.subexpr());
+                //         self.render_special_token(".", None, Some(method_ident.range.start));
+                //         self.render_ident_token(method_ident.ident.as_str(), None, None);
+                //         self.render_special_token("(", None, None);
+                //         for i in 1..opds.len() {
+                //             if i > 1 {
+                //                 self.render_special_token(", ", None, None)
+                //             }
+                //             self.gen_feature_expr(&feature_opds[i], config.subexpr());
+                //         }
+                //         self.render_special_token(")", None, None);
+                //     }
+                //     _ => panic!(),
+                // },
                 _ => panic!(""),
             },
             FeatureLazyExprVariant::ModelCall { ref opds, .. } => match expr.expr.variant {
-                LazyExprVariant::Opn { opn_kind, .. } => match opn_kind {
-                    LazyOpnKind::FunctionModelCall(route) => self.feature_entity_call_tokens(
-                        expr.expr.file,
-                        route,
-                        opds,
-                        opt_assoc,
-                        config,
-                        &expr.expr,
-                    ),
-                    LazyOpnKind::StructCall(_) => todo!(),
-                    LazyOpnKind::RecordCall(_) => todo!(),
-                    LazyOpnKind::Field { .. } => todo!(),
-                    LazyOpnKind::MethodCall { .. } => todo!(),
-                    LazyOpnKind::Index { .. } => todo!(),
-                    _ => panic!(),
-                },
+                LazyExprVariant::Opn { opn_kind, .. } => todo!(),
+                // match opn_kind {
+                //     LazyOpnKind::FunctionModelCall(route) => self.feature_entity_call_tokens(
+                //         expr.expr.file,
+                //         route,
+                //         opds,
+                //         opt_assoc,
+                //         config,
+                //         &expr.expr,
+                //     ),
+                //     LazyOpnKind::StructCall(_) => todo!(),
+                //     LazyOpnKind::RecordCall(_) => todo!(),
+                //     LazyOpnKind::Field { .. } => todo!(),
+                //     LazyOpnKind::MethodCall { .. } => todo!(),
+                //     LazyOpnKind::Index { .. } => todo!(),
+                //     _ => panic!(),
+                // },
                 _ => panic!(),
             },
             FeatureLazyExprVariant::EntityFeature { .. } => {
@@ -211,26 +213,27 @@ impl<'a> TraceLineGenerator<'a> {
     fn feature_entity_call_tokens(
         &mut self,
         file: FileItd,
-        ranged_scope: RangedEntityRoute,
+        ranged_scope: Ty,
         inputs: &[Arc<FeatureLazyExpr>],
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
         expr: &LazyExpr,
     ) {
-        let text = self.runtime().text(file).unwrap();
-        self.gen_route_token(
-            text.ranged(ranged_scope.range),
-            opt_associated_trace_id,
-            Some(ranged_scope.range.start),
-        );
-        self.render_special_token("(", None, Some(expr.range.start));
-        for (i, input) in inputs.iter().enumerate() {
-            if i > 0 {
-                self.render_special_token(", ", None, None);
-            }
-            self.gen_feature_expr(input, config.subexpr());
-        }
-        self.render_special_token(")", None, Some(expr.range.end.to_left(1)))
+        todo!()
+        // let text = self.runtime().text(file).unwrap();
+        // self.gen_route_token(
+        //     text.ranged(ranged_scope.range),
+        //     opt_associated_trace_id,
+        //     Some(ranged_scope.range.start),
+        // );
+        // self.render_special_token("(", None, Some(expr.range.start));
+        // for (i, input) in inputs.iter().enumerate() {
+        //     if i > 0 {
+        //         self.render_special_token(", ", None, None);
+        //     }
+        //     self.gen_feature_expr(input, config.subexpr());
+        // }
+        // self.render_special_token(")", None, Some(expr.range.end.to_left(1)))
     }
 
     fn gen_be_pattern(

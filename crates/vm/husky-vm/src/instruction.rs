@@ -12,7 +12,6 @@ pub use sheet::InstructionSheet;
 
 use crate::*;
 use avec::Avec;
-use husky_entity_route::Ty;
 use husky_text::{FileRanged, TextRange};
 use husky_word::{CustomIdentifier, Identifier};
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};

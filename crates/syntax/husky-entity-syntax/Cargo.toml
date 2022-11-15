@@ -8,23 +8,31 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 salsa = "0.17.0-pre.2"
+# abstraction
+interner = { path = "../../abstraction/interner" }
+upcast = { path = "../../abstraction/upcast" }
+fold = { path = "../../abstraction/fold" }
+# utils
 husky-test-utils = { path = "../../utils/husky-test-utils" }
 husky-display-utils = { path = "../../utils/husky-display-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
-interner = { path = "../../abstraction/interner" }
-upcast = { path = "../../abstraction/upcast" }
-fold = { path = "../../abstraction/fold" }
+# syntax
 husky-file = { path = "../../syntax/husky-file" }
 husky-text = { path = "../../syntax/husky-text" }
-husky-word = { path = "../../kernel/husky-word" }
 husky-token = { path = "../../syntax/husky-token" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-term = { path = "../../kernel/husky-term" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+# kernel
+husky-word = { path = "../../kernel/husky-word" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-term = { path = "../../kernel/husky-term" }
+# static
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
-husky-vm = { path = "../../vm/husky-vm" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
+# vm
+husky-vm = { path = "../../vm/husky-vm" }
+# forks
 thin-vec = { path = "../../../forks/thin-vec" }

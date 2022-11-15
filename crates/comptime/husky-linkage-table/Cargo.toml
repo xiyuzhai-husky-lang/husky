@@ -20,6 +20,8 @@ sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+# kernel
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
 thin-vec = { path = "../../../forks/thin-vec" }

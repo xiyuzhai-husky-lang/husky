@@ -16,22 +16,30 @@ husky-check-utils = { path = "../../utils/husky-check-utils" }
 fold = { path = "../../abstraction/fold" }
 map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
-husky-file = { path = "../../syntax/husky-file" }
+# comptime
+husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
+husky-comptime = { path = "../../comptime/husky-comptime" }
+# kernel
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
+# semantics
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
 husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
-husky-term = { path = "../../kernel/husky-term" }
-husky-vm = { path = "../../vm/husky-vm" }
-husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
-husky-static-defn = { path = "../../static/husky-static-defn" }
-husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
-husky-ast = { path = "../../syntax/husky-ast" }
-husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-primitive-literal-semantics = { path = "../../semantics/husky-primitive-literal-semantics" }
-husky-vm-primitive-opr-linkage = { path = "../../vm/husky-vm-primitive-opr-linkage" }
+husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
+# static
+husky-static-defn = { path = "../../static/husky-static-defn" }
+# syntax
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+husky-file = { path = "../../syntax/husky-file" }
+husky-ast = { path = "../../syntax/husky-ast" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
-husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
+# vm
+husky-vm = { path = "../../vm/husky-vm" }
+husky-vm-primitive-opr-linkage = { path = "../../vm/husky-vm-primitive-opr-linkage" }
+# utils
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

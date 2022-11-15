@@ -18,7 +18,7 @@ impl salsa::ParallelDatabase for HuskyComptime {
             storage: self.storage.snapshot(),
             file_interner: self.file_interner.clone(),
             word_interner: self.word_interner.clone(),
-            entity_route_interner: self.entity_route_interner.clone(),
+            // entity_route_interner: self.entity_route_interner.clone(),
             live_docs: self.live_docs.clone(),
             linkage_table: self.linkage_table.clone(),
             entity_route_store: self.entity_route_store.clone(),
@@ -51,11 +51,11 @@ impl LiveFiles for HuskyComptime {
 
 impl FileQueryGroup for HuskyComptime {}
 
-impl InternEntityRoute for HuskyComptime {
-    fn entity_route_interner(&self) -> &husky_entity_route::EntityRouteInterner {
-        &self.entity_route_interner
-    }
-}
+// impl InternEntityRoute for HuskyComptime {
+//     fn entity_route_interner(&self) -> &husky_term::EntityRouteInterner {
+//         &self.entity_route_interner
+//     }
+// }
 
 impl ResolveStaticRootDefn for HuskyComptime {
     fn __root_defn_resolver(

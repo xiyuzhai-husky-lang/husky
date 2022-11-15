@@ -1,6 +1,6 @@
 mod query;
 
-use husky_entity_route::Ty;
+use husky_term::Ty;
 use husky_vm_binding::Binding;
 use husky_word::{IdentPairDict, RootBuiltinIdentifier};
 pub use query::*;

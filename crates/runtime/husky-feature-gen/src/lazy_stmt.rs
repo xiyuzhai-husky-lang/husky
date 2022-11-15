@@ -1,6 +1,6 @@
 mod variant;
 
-use husky_entity_route::RangedEntityRoute;
+use husky_term::Ty;
 pub use variant::*;
 
 use husky_file::FileItd;
@@ -61,116 +61,117 @@ impl FeatureLazyStmt {
         opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
+        todo!()
         // if lazy_stmt.range.start.line() == 36 {
         //     p!(opt_arrival_indicator);
         //     todo!()
         // }
-        let variant = match lazy_stmt.variant {
-            LazyStmtVariant::Init { varname, ref value } => {
-                let value = FeatureLazyExpr::new(
-                    db,
-                    opt_this.clone(),
-                    value.clone(),
-                    &symbols,
-                    opt_arrival_indicator.as_ref(),
-                    feature_interner,
-                );
-                symbols.push(FeatureSymbol {
-                    varname: varname.ident,
-                    value: value.clone(),
-                    feature: value.feature,
-                });
-                FeatureLazyStmtVariant::Init {
-                    varname: varname.ident,
-                    value,
-                }
-            }
-            LazyStmtVariant::Assert { ref condition } => {
-                let condition = FeatureLazyExpr::new(
-                    db,
-                    opt_this.clone(),
-                    condition.clone(),
-                    &symbols,
-                    opt_arrival_indicator.as_ref(),
-                    feature_interner,
-                );
-                FeatureLazyStmtVariant::Assert { condition }
-            }
-            LazyStmtVariant::Require {
-                ref condition,
-                return_context,
-            } => {
-                let condition = FeatureLazyExpr::new(
-                    db,
-                    opt_this.clone(),
-                    condition.clone(),
-                    &symbols,
-                    opt_arrival_indicator.as_ref(),
-                    feature_interner,
-                );
-                FeatureLazyStmtVariant::Require {
-                    condition,
-                    return_context,
-                }
-            }
-            LazyStmtVariant::Return { ref result } => FeatureLazyStmtVariant::Return {
-                result: FeatureLazyExpr::new(
-                    db,
-                    opt_this.clone(),
-                    result.clone(),
-                    &symbols,
-                    opt_arrival_indicator.as_ref(),
-                    feature_interner,
-                ),
-            },
-            LazyStmtVariant::ReturnUnveil {
-                ref result,
-                implicit_conversion,
-                return_context,
-            } => FeatureLazyStmtVariant::ReturnUnveil {
-                result: FeatureLazyExpr::new(
-                    db,
-                    opt_this.clone(),
-                    result.clone(),
-                    &symbols,
-                    opt_arrival_indicator.as_ref(),
-                    feature_interner,
-                ),
-                implicit_conversion,
-                return_context,
-            },
-            LazyStmtVariant::ReturnXml { ref xml_expr } => FeatureLazyStmtVariant::ReturnXml {
-                result: FeatureXmlExpr::new(
-                    db,
-                    opt_this.clone(),
-                    xml_expr.clone(),
-                    &symbols,
-                    opt_arrival_indicator.as_ref(),
-                    feature_interner,
-                ),
-            },
-            LazyStmtVariant::ConditionFlow { ref branches, ty } => Self::new_condition_flow(
-                branches,
-                db,
-                opt_this,
-                symbols,
-                ty,
-                opt_arrival_indicator.clone(),
-                feature_interner,
-            ),
-            LazyStmtVariant::Match { .. } => todo!(),
-        };
-        Arc::new(FeatureLazyStmt {
-            file: lazy_stmt.file,
-            range: lazy_stmt.range,
-            indent: lazy_stmt.indent,
-            opt_feature: variant.opt_feature(feature_interner),
-            variant,
-            eval_id: Default::default(),
-            opt_arrival_indicator: opt_arrival_indicator.map(|s| s.clone()),
-            stmt: lazy_stmt.clone(),
-            return_ty: lazy_stmt.output_ty.route, // needs to instantiate this
-        })
+        // let variant = match lazy_stmt.variant {
+        //     LazyStmtVariant::Init { varname, ref value } => {
+        //         let value = FeatureLazyExpr::new(
+        //             db,
+        //             opt_this.clone(),
+        //             value.clone(),
+        //             &symbols,
+        //             opt_arrival_indicator.as_ref(),
+        //             feature_interner,
+        //         );
+        //         symbols.push(FeatureSymbol {
+        //             varname: varname.ident,
+        //             value: value.clone(),
+        //             feature: value.feature,
+        //         });
+        //         FeatureLazyStmtVariant::Init {
+        //             varname: varname.ident,
+        //             value,
+        //         }
+        //     }
+        //     LazyStmtVariant::Assert { ref condition } => {
+        //         let condition = FeatureLazyExpr::new(
+        //             db,
+        //             opt_this.clone(),
+        //             condition.clone(),
+        //             &symbols,
+        //             opt_arrival_indicator.as_ref(),
+        //             feature_interner,
+        //         );
+        //         FeatureLazyStmtVariant::Assert { condition }
+        //     }
+        //     LazyStmtVariant::Require {
+        //         ref condition,
+        //         return_context,
+        //     } => {
+        //         let condition = FeatureLazyExpr::new(
+        //             db,
+        //             opt_this.clone(),
+        //             condition.clone(),
+        //             &symbols,
+        //             opt_arrival_indicator.as_ref(),
+        //             feature_interner,
+        //         );
+        //         FeatureLazyStmtVariant::Require {
+        //             condition,
+        //             return_context,
+        //         }
+        //     }
+        //     LazyStmtVariant::Return { ref result } => FeatureLazyStmtVariant::Return {
+        //         result: FeatureLazyExpr::new(
+        //             db,
+        //             opt_this.clone(),
+        //             result.clone(),
+        //             &symbols,
+        //             opt_arrival_indicator.as_ref(),
+        //             feature_interner,
+        //         ),
+        //     },
+        //     LazyStmtVariant::ReturnUnveil {
+        //         ref result,
+        //         implicit_conversion,
+        //         return_context,
+        //     } => FeatureLazyStmtVariant::ReturnUnveil {
+        //         result: FeatureLazyExpr::new(
+        //             db,
+        //             opt_this.clone(),
+        //             result.clone(),
+        //             &symbols,
+        //             opt_arrival_indicator.as_ref(),
+        //             feature_interner,
+        //         ),
+        //         implicit_conversion,
+        //         return_context,
+        //     },
+        //     LazyStmtVariant::ReturnXml { ref xml_expr } => FeatureLazyStmtVariant::ReturnXml {
+        //         result: FeatureXmlExpr::new(
+        //             db,
+        //             opt_this.clone(),
+        //             xml_expr.clone(),
+        //             &symbols,
+        //             opt_arrival_indicator.as_ref(),
+        //             feature_interner,
+        //         ),
+        //     },
+        //     LazyStmtVariant::ConditionFlow { ref branches, ty } => Self::new_condition_flow(
+        //         branches,
+        //         db,
+        //         opt_this,
+        //         symbols,
+        //         ty,
+        //         opt_arrival_indicator.clone(),
+        //         feature_interner,
+        //     ),
+        //     LazyStmtVariant::Match { .. } => todo!(),
+        // };
+        // Arc::new(FeatureLazyStmt {
+        //     file: lazy_stmt.file,
+        //     range: lazy_stmt.range,
+        //     indent: lazy_stmt.indent,
+        //     opt_feature: variant.opt_feature(feature_interner),
+        //     variant,
+        //     eval_id: Default::default(),
+        //     opt_arrival_indicator: opt_arrival_indicator.map(|s| s.clone()),
+        //     stmt: lazy_stmt.clone(),
+        //     return_ty: lazy_stmt.output_ty.route, // needs to instantiate this
+        // })
     }
 
     fn new_condition_flow(
@@ -178,7 +179,7 @@ impl FeatureLazyStmt {
         db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,
         symbols: &mut Vec<FeatureSymbol>,
-        ty: RangedEntityRoute,
+        ty: Ty,
         mut opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
         feature_interner: &FeatureInterner,
     ) -> FeatureLazyStmtVariant {

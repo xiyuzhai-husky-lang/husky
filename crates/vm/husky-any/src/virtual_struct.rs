@@ -1,4 +1,5 @@
 use super::*;
+use husky_term::Ty;
 use husky_word::{CustomIdentifier, IdentPairDict};
 use serde::Serialize;
 use std::borrow::Cow;

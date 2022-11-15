@@ -1,7 +1,7 @@
 use fold::Indent;
 use husky_eager_semantics::{FuncStmt, ProcStmt};
-use husky_entity_route::Ty;
 use husky_entity_semantics::DefinitionRepr;
+use husky_term::Ty;
 
 use super::*;
 

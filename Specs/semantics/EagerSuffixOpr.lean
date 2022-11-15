@@ -6,7 +6,7 @@ inductive PurePattern
 inductive EagerSuffixOpr
   | Incr                           -- ++
   | Decr                           -- --
-  | AsTy (ty : RangedEntityRoute)  -- :
+  | AsTy (ty : Ty)  -- :
   | BePattern (patt : PurePattern) -- be <patt>
   | Unveil                         -- ?
   deriving DecidableEq

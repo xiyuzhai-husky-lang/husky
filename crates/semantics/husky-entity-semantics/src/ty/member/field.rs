@@ -1,33 +1,6 @@
 use super::*;
 
 impl EntityDefnVariant {
-    pub(crate) fn ty_field_from_static(
-        symbol_context: &mut dyn AtomContext,
-        static_defn: &EntityStaticDefn,
-    ) -> Self {
-        match static_defn.variant {
-            EntityStaticDefnVariant::TyField {
-                field_kind,
-                liason,
-                field_ty,
-                linkage,
-            } => Self::TyField {
-                field_ty: symbol_context.parse_entity_route(field_ty).unwrap(),
-                liason,
-                field_variant: match field_kind {
-                    FieldKind::StructRegular => FieldDefnVariant::StructOriginal,
-                    FieldKind::StructDefault => todo!(),
-                    FieldKind::StructDerived => todo!(),
-                    FieldKind::StructMemo => todo!(),
-                    FieldKind::RecordRegular => todo!(),
-                    FieldKind::RecordProperty => todo!(),
-                },
-                opt_linkage: Some(linkage),
-            },
-            _ => todo!(),
-        }
-    }
-
     pub(crate) fn ty_field_from_ast(
         _db: &dyn EntityDefnQueryGroup,
         _arena: &RawExprArena,
@@ -108,36 +81,37 @@ impl EntityDefnVariant {
                     ranged_ident,
                     ..
                 } => {
-                    match field_kind {
-                        AstFieldKind::StructOriginal => (),
-                        AstFieldKind::RecordOriginal => (),
-                        _ => break,
-                    }
-                    members
-                        .insert_new(EntityDefn::new(
-                            db,
-                            ranged_ident.ident.into(),
-                            EntityDefnVariant::ty_field_from_ast(
-                                db,
-                                arena,
-                                file,
-                                ty_route,
-                                ast,
-                                child.opt_children.clone(),
-                            )?,
-                            db.intern_entity_route(EntityRoute {
-                                variant: EntityRouteVariant::Child {
-                                    parent: ty_route,
-                                    ident: ranged_ident.ident,
-                                },
-                                temporal_arguments: thin_vec![],
-                                spatial_arguments: thin_vec![],
-                            }),
-                            file,
-                            ast.range,
-                        ))
-                        .unwrap();
-                    children.next();
+                    todo!()
+                    // match field_kind {
+                    //     AstFieldKind::StructOriginal => (),
+                    //     AstFieldKind::RecordOriginal => (),
+                    //     _ => break,
+                    // }
+                    // members
+                    //     .insert_new(EntityDefn::new(
+                    //         db,
+                    //         ranged_ident.ident.into(),
+                    //         EntityDefnVariant::ty_field_from_ast(
+                    //             db,
+                    //             arena,
+                    //             file,
+                    //             ty_route,
+                    //             ast,
+                    //             child.opt_children.clone(),
+                    //         )?,
+                    //         db.intern_entity_route(EntityRoute {
+                    //             variant: EntityRouteVariant::Child {
+                    //                 parent: ty_route,
+                    //                 ident: ranged_ident.ident,
+                    //             },
+                    //             temporal_arguments: thin_vec![],
+                    //             spatial_arguments: thin_vec![],
+                    //         }),
+                    //         file,
+                    //         ast.range,
+                    //     ))
+                    //     .unwrap();
+                    // children.next();
                 }
                 _ => break,
             }

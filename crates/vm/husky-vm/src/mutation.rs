@@ -1,5 +1,5 @@
-use husky_entity_route::Ty;
 use husky_file::FileItd;
+use husky_term::Ty;
 use husky_text::TextRange;
 use husky_word::Identifier;
 

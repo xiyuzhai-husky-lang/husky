@@ -10,7 +10,7 @@ use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct RawReturnContext {
-    pub opt_return_ty: Option<RangedEntityRoute>,
+    pub opt_return_ty: Option<RawExprIdx>,
     pub kind: RawReturnContextKind,
 }
 
@@ -20,7 +20,8 @@ impl RawReturnContext {
     }
 
     pub fn return_ty(&self) -> Ty {
-        self.opt_return_ty.unwrap().route
+        todo!()
+        // self.opt_return_ty.unwrap().route
     }
 }
 
@@ -58,14 +59,15 @@ impl AstContext {
         db: &dyn EntitySyntaxQueryGroup,
         ident: CustomIdentifier,
     ) -> Option<Ty> {
-        Some(match self {
-            AstContext::Package(main) => db.subroute(db.module(main).unwrap(), ident, thin_vec![]),
-            AstContext::Module(route) => db.subroute(route, ident, thin_vec![]),
-            AstContext::Struct { opt_base_ty, .. } => db.subroute(opt_base_ty?, ident, thin_vec![]),
-            AstContext::Enum(_) => todo!(),
-            AstContext::Record => todo!(),
-            _ => return None,
-        })
+        todo!()
+        // Some(match self {
+        //     AstContext::Package(main) => db.subroute(db.module(main).unwrap(), ident, thin_vec![]),
+        //     AstContext::Module(route) => db.subroute(route, ident, thin_vec![]),
+        //     AstContext::Struct { opt_base_ty, .. } => db.subroute(opt_base_ty?, ident, thin_vec![]),
+        //     AstContext::Enum(_) => todo!(),
+        //     AstContext::Record => todo!(),
+        //     _ => return None,
+        // })
     }
 
     pub fn return_context(&self) -> Option<RawReturnContext> {

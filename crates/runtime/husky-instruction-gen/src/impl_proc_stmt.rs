@@ -183,18 +183,19 @@ impl<'a> InstructionSheetBuilder<'a> {
     }
 
     fn compile_boundary(&mut self, boundary: &Boundary, loop_stmt: &Arc<ProcStmt>) {
-        if let Some(ref bound) = boundary.opt_bound {
-            self.compile_eager_expr(bound, self.sheet.variable_stack.next_stack_idx(), false)
-        } else {
-            self.push_instruction(Instruction::new(
-                InstructionVariant::PushLiteralValue {
-                    value: 0i32.to_register(),
-                    explicit: false,
-                    ty: RootBuiltinIdentifier::I32.into(),
-                },
-                loop_stmt.clone(),
-            ))
-        }
+        todo!()
+        // if let Some(ref bound) = boundary.opt_bound {
+        //     self.compile_eager_expr(bound, self.sheet.variable_stack.next_stack_idx(), false)
+        // } else {
+        //     self.push_instruction(Instruction::new(
+        //         InstructionVariant::PushLiteralValue {
+        //             value: 0i32.to_register(),
+        //             explicit: false,
+        //             ty: RootBuiltinIdentifier::I32.into(),
+        //         },
+        //         loop_stmt.clone(),
+        //     ))
+        // }
     }
 
     fn compile_proc_condition_flow(
@@ -292,19 +293,20 @@ impl<'a> InstructionSheetBuilder<'a> {
     }
 
     fn gen_proc_case_pattern(&self, pattern: &ProcStmtPattern) -> VMPattern {
-        match pattern.variant {
-            ProcStmtPatternVariant::PrimitiveLiteral(data) => {
-                VMPattern::Primitive(convert_primitive_literal_to_register(data, pattern.ty))
-            }
-            ProcStmtPatternVariant::OneOf { ref subpatterns } => VMPattern::Or(
-                subpatterns
-                    .iter()
-                    .map(|subpattern| self.gen_proc_case_pattern(subpattern))
-                    .collect(),
-            ),
-            ProcStmtPatternVariant::EnumLiteral(route) => VMPattern::EnumKind {
-                kind_idx: self.db.enum_literal_to_i32(route),
-            },
-        }
+        todo!()
+        // match pattern.variant {
+        //     ProcStmtPatternVariant::PrimitiveLiteral(data) => {
+        //         VMPattern::Primitive(convert_primitive_literal_to_register(data, pattern.ty))
+        //     }
+        //     ProcStmtPatternVariant::OneOf { ref subpatterns } => VMPattern::Or(
+        //         subpatterns
+        //             .iter()
+        //             .map(|subpattern| self.gen_proc_case_pattern(subpattern))
+        //             .collect(),
+        //     ),
+        //     ProcStmtPatternVariant::EnumLiteral(route) => VMPattern::EnumKind {
+        //         kind_idx: self.db.enum_literal_to_i32(route),
+        //     },
+        // }
     }
 }

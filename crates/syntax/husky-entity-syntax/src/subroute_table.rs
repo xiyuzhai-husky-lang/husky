@@ -1,14 +1,15 @@
 mod entry;
 
 pub use entry::*;
+use husky_entity_path::EntityPathItd;
 use husky_opn_syntax::{BinaryOpr, Bracket};
 
 use crate::{error::*, *};
 use husky_dev_utils::dev_src;
-use husky_entity_kind::MemberKind;
-use husky_entity_route::*;
+use husky_entity_kind::{EntityKind, MemberKind};
 use husky_file::FileItd;
 use husky_static_defn::*;
+use husky_term::*;
 use husky_text::{RangedCustomIdentifier, TextRanged};
 use husky_token::{SpecialToken, Token, TokenGroupIter, TokenKind};
 use husky_word::Identifier;
@@ -35,7 +36,7 @@ pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityK
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SubrouteTable {
-    pub route: Ty,
+    pub entity_path: EntityPathItd,
     pub husky_entity_kind: EntityKind,
     pub entries: Vec<SubrouteEntry>,
     pub errors: Vec<EntitySyntaxError>,
@@ -59,9 +60,9 @@ impl std::fmt::Display for SubrouteTable {
 }
 
 impl SubrouteTable {
-    pub fn new(route: Ty, husky_entity_kind: EntityKind) -> Self {
+    pub fn new(entity_path: EntityPathItd, husky_entity_kind: EntityKind) -> Self {
         Self {
-            route,
+            entity_path,
             husky_entity_kind,
             entries: Vec::new(),
             errors: Vec::new(),
@@ -71,7 +72,7 @@ impl SubrouteTable {
     pub fn parse(
         db: &dyn EntitySyntaxSalsaQueryGroup,
         file: FileItd,
-        route: Ty,
+        entity_path: EntityPathItd,
         husky_entity_kind: EntityKind,
         token_groups: TokenGroupIter,
     ) -> Self {
@@ -94,7 +95,7 @@ impl SubrouteTable {
             })
             .collect();
         Self {
-            route,
+            entity_path,
             husky_entity_kind,
             entries,
             errors,
@@ -130,41 +131,42 @@ impl SubrouteTable {
     }
 
     pub fn husky_entity_kind(&self, ident: CustomIdentifier) -> EntitySyntaxResult<EntityKind> {
-        self.entries
-            .iter()
-            .find(|entry| {
-                if let Some(entry_ident) = entry.ident {
-                    entry_ident.ident == ident
-                } else {
-                    false
-                }
-            })
-            .map(|entry| entry.kind)
-            .ok_or(query_error!(format!(
-                "route `{:?}` has no subroute named `{}`",
-                self.route, ident
-            )))
+        todo!()
+        // self.entries
+        //     .iter()
+        //     .find(|entry| {
+        //         if let Some(entry_ident) = entry.ident {
+        //             entry_ident.ident == ident
+        //         } else {
+        //             false
+        //         }
+        //     })
+        //     .map(|entry| entry.kind)
+        //     .ok_or(query_error!(format!(
+        //         "route `{:?}` has no subroute named `{}`",
+        //         self.route, ident
+        //     )))
     }
 
-    pub fn has_subscope(
-        &self,
-        ident: CustomIdentifier,
-        generic_arguments: &[SpatialArgument],
-    ) -> bool {
-        if generic_arguments.len() > 0 {
-            todo!()
-        }
-        self.entries
-            .iter()
-            .find(|entry| {
-                if let Some(entry_ident) = entry.ident {
-                    entry_ident.ident == ident
-                } else {
-                    false
-                }
-            })
-            .is_some()
-    }
+    // pub fn has_subscope(
+    //     &self,
+    //     ident: CustomIdentifier,
+    //     generic_arguments: &[SpatialArgument],
+    // ) -> bool {
+    //     if generic_arguments.len() > 0 {
+    //         todo!()
+    //     }
+    //     self.entries
+    //         .iter()
+    //         .find(|entry| {
+    //             if let Some(entry_ident) = entry.ident {
+    //                 entry_ident.ident == ident
+    //             } else {
+    //                 false
+    //             }
+    //         })
+    //         .is_some()
+    // }
 
     pub fn entry_iter(&self) -> core::slice::Iter<SubrouteEntry> {
         self.entries.iter()
@@ -173,66 +175,66 @@ impl SubrouteTable {
         self.errors.iter()
     }
 
-    pub fn subroute_iter<'a>(
-        &'a self,
-        db: &'a dyn EntitySyntaxSalsaQueryGroup,
-        parent_route: Ty,
-    ) -> impl Iterator<Item = Ty> + 'a {
-        self.entries.iter().filter_map(move |entry| {
-            entry
-                .ident
-                .map(|ident| db.subroute(parent_route, ident.ident, thin_vec![]))
-        })
-    }
+    // pub fn subroute_iter<'a>(
+    //     &'a self,
+    //     db: &'a dyn EntitySyntaxSalsaQueryGroup,
+    //     parent: EntityPathItd,
+    // ) -> impl Iterator<Item = Ty> + 'a {
+    //     self.entries.iter().filter_map(move |entry| {
+    //         entry.ident.map(
+    //             |ident| todo!(), //  db.subroute(parent, ident.ident, thin_vec![])
+    //         )
+    //     })
+    // }
 
-    pub fn subentity_kinded_route_iter<'a>(
-        &'a self,
-        db: &'a dyn EntitySyntaxSalsaQueryGroup,
-        parent_route: Ty,
-    ) -> impl Iterator<Item = (EntityKind, Ty)> + 'a {
-        self.entries.iter().filter_map(move |entry| {
-            entry.ident.map(|ident| {
-                (
-                    entry.kind,
-                    db.subroute(parent_route, ident.ident, thin_vec![]),
-                )
-            })
-        })
-    }
+    // pub fn subentity_kinded_route_iter<'a>(
+    //     &'a self,
+    //     db: &'a dyn EntitySyntaxSalsaQueryGroup,
+    //     parent_route: Ty,
+    // ) -> impl Iterator<Item = (EntityKind, Ty)> + 'a {
+    //     self.entries.iter().filter_map(move |entry| {
+    //         entry.ident.map(|ident| {
+    //             (
+    //                 entry.kind,
+    //                 todo!(), // db.subroute(parent_route, ident.ident, thin_vec![]),
+    //             )
+    //         })
+    //     })
+    // }
 
-    pub fn submodule_route_iter<'a>(
-        &'a self,
-        db: &'a dyn EntitySyntaxSalsaQueryGroup,
-        parent_route: Ty,
-    ) -> impl Iterator<Item = Ty> + 'a {
-        self.entries
-            .iter()
-            .filter_map(move |entry| match entry.kind {
-                EntityKind::Module => entry
-                    .ident
-                    .map(|ident| db.subroute(parent_route, ident.ident, thin_vec![])),
-                _ => None,
-            })
-    }
+    // pub fn submodule_route_iter<'a>(
+    //     &'a self,
+    //     db: &'a dyn EntitySyntaxSalsaQueryGroup,
+    //     parent_route: Ty,
+    // ) -> impl Iterator<Item = Ty> + 'a {
+    //     self.entries
+    //         .iter()
+    //         .filter_map(move |entry| match entry.kind {
+    //             EntityKind::Module => entry
+    //                 .ident
+    //                 .map(|ident| db.subroute(parent_route, ident.ident, thin_vec![])),
+    //             _ => None,
+    //         })
+    // }
 
-    pub fn non_module_subroute_iter<'a>(
-        &'a self,
-        db: &'a dyn EntitySyntaxSalsaQueryGroup,
-        parent_route: Ty,
-    ) -> impl Iterator<Item = Ty> + 'a {
-        self.entries
-            .iter()
-            .filter_map(move |entry| match entry.kind {
-                EntityKind::Module => None,
-                _ => entry
-                    .ident
-                    .map(|ident| db.subroute(parent_route, ident.ident, thin_vec![])),
-            })
-    }
+    // pub fn non_module_subroute_iter<'a>(
+    //     &'a self,
+    //     db: &'a dyn EntitySyntaxSalsaQueryGroup,
+    //     parent_route: Ty,
+    // ) -> impl Iterator<Item = Ty> + 'a {
+    //     self.entries
+    //         .iter()
+    //         .filter_map(move |entry| match entry.kind {
+    //             EntityKind::Module => None,
+    //             _ => entry
+    //                 .ident
+    //                 .map(|ident| db.subroute(parent_route, ident.ident, thin_vec![])),
+    //         })
+    // }
 
     pub(crate) fn from_static(
         db: &dyn EntitySyntaxSalsaQueryGroup,
-        route: Ty,
+        entity_path: EntityPathItd,
         husky_entity_kind: EntityKind,
         data: &EntityStaticDefn,
     ) -> Self {
@@ -311,7 +313,7 @@ impl SubrouteTable {
             EntityStaticDefnVariant::EnumVariant => todo!(),
         }
         Self {
-            route,
+            entity_path: todo!(),
             husky_entity_kind,
             entries,
             errors: vec![],

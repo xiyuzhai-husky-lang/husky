@@ -1,7 +1,7 @@
 use crate::*;
 use husky_comptime::*;
 
-use husky_entity_route::Ty;
+use husky_term::Ty;
 
 use std::sync::Arc;
 
