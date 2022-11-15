@@ -1,15 +1,14 @@
 use crate::*;
 use husky_ast::{Ast, AstIter};
 use husky_semantics_error::*;
-use husky_word::Paradigm;
 
 impl EntityDefnVariant {
     pub(crate) fn function(
-        db: &dyn EntityDefnQueryGroup,
-        ast: &Ast,
-        children: AstIter,
-        arena: &RawExprArena,
-        file: FileItd,
+        _db: &dyn EntityDefnQueryGroup,
+        _ast: &Ast,
+        _children: AstIter,
+        _arena: &RawExprArena,
+        _file: FileItd,
     ) -> SemanticResult<EntityDefnVariant> {
         todo!()
         // match ast.variant {

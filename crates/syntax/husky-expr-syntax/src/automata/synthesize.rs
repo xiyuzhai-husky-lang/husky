@@ -1,5 +1,3 @@
-use thin_vec::ThinVec;
-
 use super::*;
 
 impl<'a> Automata<'a> {
@@ -15,8 +13,8 @@ impl<'a> Automata<'a> {
                     OnStackOprVariant::LambdaHead { inputs, start } => {
                         self.synthesize_lambda(inputs, start)
                     }
-                    OnStackOprVariant::ListItem(position) => {
-                        let (bra, start) = loop {
+                    OnStackOprVariant::ListItem(_position) => {
+                        let (_bra, _start) = loop {
                             if let Some(opr) = self.stack.pop_opr() {
                                 match opr.variant {
                                     OnStackOprVariant::ListStart { bra, start, .. } => {
@@ -41,7 +39,7 @@ impl<'a> Automata<'a> {
                         //     dev_src: dev_src!(),
                         // });
                     }
-                    OnStackOprVariant::ListStart { bra, start, .. } => {
+                    OnStackOprVariant::ListStart { .. } => {
                         todo!()
                         // return Err(AstError {
                         //     variant: AstErrorVariant::Original {
@@ -61,7 +59,7 @@ impl<'a> Automata<'a> {
 
     fn synthesize_binary(&mut self, binary: BinaryOpr) {
         use husky_text::TextRanged;
-        let len = self.stack.number_of_exprs();
+        let _len = self.stack.number_of_exprs();
         let range = self.stack.topk_exprs(2).text_range();
         self.synthesize_opn(binary.into(), 2, range)
     }
@@ -76,7 +74,11 @@ impl<'a> Automata<'a> {
         self.synthesize_opn(suffix.into(), 1, range)
     }
 
-    fn synthesize_field_access(&mut self, field_ident: RangedCustomIdentifier, end: TextPosition) {
+    fn synthesize_field_access(
+        &mut self,
+        _field_ident: RangedCustomIdentifier,
+        _end: TextPosition,
+    ) {
         todo!()
         // let range = (self.exprs.last().unwrap().range.start..end).into();
         // self.synthesize_opn(
@@ -88,7 +90,7 @@ impl<'a> Automata<'a> {
     }
 
     fn synthesize_opn(&mut self, opn_variant: RawOpnVariant, n_opds: usize, range: TextRange) {
-        let len = self.stack.number_of_exprs();
+        let _len = self.stack.number_of_exprs();
         let opds = self.arena.alloc(self.stack.drain_exprs(n_opds).into());
         self.stack.push_expr(RawExpr::new(
             RawExprVariant::Opn { opn_variant, opds },
@@ -99,8 +101,8 @@ impl<'a> Automata<'a> {
 
     fn synthesize_lambda(
         &mut self,
-        inputs: Vec<(RangedCustomIdentifier, Option<RawExprIdx>)>,
-        start: TextPosition,
+        _inputs: Vec<(RangedCustomIdentifier, Option<RawExprIdx>)>,
+        _start: TextPosition,
     ) {
         todo!()
         // let range = (start..self.exprs.last().unwrap().range.end).into();

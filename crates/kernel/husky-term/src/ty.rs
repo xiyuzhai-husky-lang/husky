@@ -1,6 +1,4 @@
-use husky_print_utils::p;
 use husky_word::RootBuiltinIdentifier::{self, *};
-use std::ops::Deref;
 
 use crate::*;
 
@@ -19,7 +17,7 @@ impl Ty {
         // Ok(Self(term))
     }
 
-    fn check_is_category(term: TermItd) -> TermResult<()> {
+    fn check_is_category(_term: TermItd) -> TermResult<()> {
         todo!()
         // match term.deref() {
         //     Term::Application(app) => match app.m().deref() {
@@ -46,7 +44,7 @@ impl Ty {
 
     fn check_ty_itd(ty: Ty) -> TermResult<()> {
         match ty.term().borrowed() {
-            TermRef::Atom(a) => todo!(),
+            TermRef::Atom(_a) => todo!(),
             _ => return Err(TermError::TermIsNotTy),
         }
     }

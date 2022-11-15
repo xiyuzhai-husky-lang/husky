@@ -1,8 +1,7 @@
 mod impl_func_stmt;
 mod impl_proc_stmt;
 
-use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
-use husky_word::Identifier;
+use husky_entity_semantics::EntityDefn;
 
 use super::*;
 

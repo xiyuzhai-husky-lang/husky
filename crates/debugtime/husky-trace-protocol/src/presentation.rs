@@ -3,7 +3,7 @@ mod partition;
 use husky_feature_protocol::FeatureId;
 use husky_signal::Signalable;
 pub use partition::*;
-use vec_like::{VecPairMap, VecSet};
+use vec_like::VecSet;
 
 use super::*;
 use serde::{Deserialize, Serialize};

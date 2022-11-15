@@ -74,7 +74,7 @@ impl Internable for Feature {
         todo!()
     }
 
-    fn itd_to_borrowed(itd: Self::Interned) -> Self::Ref<'static> {
+    fn itd_to_borrowed(_itd: Self::Interned) -> Self::Ref<'static> {
         todo!()
     }
 
@@ -82,15 +82,15 @@ impl Internable for Feature {
         todo!()
     }
 
-    fn new_itd(&'static self, id: usize) -> Self::Interned {
+    fn new_itd(&'static self, _id: usize) -> Self::Interned {
         todo!()
     }
 
-    fn try_direct_from_ref<'a>(r: Self::Ref<'a>) -> Option<Self::Interned> {
+    fn try_direct_from_ref<'a>(_r: Self::Ref<'a>) -> Option<Self::Interned> {
         todo!()
     }
 
-    unsafe fn cast_to_static_ref<'a>(r: Self::Ref<'a>) -> Self::Ref<'static> {
+    unsafe fn cast_to_static_ref<'a>(_r: Self::Ref<'a>) -> Self::Ref<'static> {
         todo!()
     }
 }

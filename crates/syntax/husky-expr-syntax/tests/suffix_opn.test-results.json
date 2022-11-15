@@ -1,0 +1,10 @@
+[
+  {
+    "input": "x++",
+    "output": "IdxArena {\n    data: [\n        RawExpr {\n            variant: Atom(\n                Symbol(\n                    Symbol {\n                        ident: Custom(\n                            CustomIdentifier(\n                                \"x\",\n                            ),\n                        ),\n                        kind: Unrecognized,\n                    },\n                ),\n            ),\n            range: [1:1, 1:2),\n            base_scope_result: Uncertain,\n        },\n        RawExpr {\n            variant: Opn {\n                opn_variant: Suffix(\n                    Incr,\n                ),\n                opds: 0..1,\n            },\n            range: [1:1, 1:4),\n            base_scope_result: None,\n        },\n    ],\n}"
+  },
+  {
+    "input": "y--",
+    "output": "IdxArena {\n    data: [\n        RawExpr {\n            variant: Atom(\n                Symbol(\n                    Symbol {\n                        ident: Custom(\n                            CustomIdentifier(\n                                \"y\",\n                            ),\n                        ),\n                        kind: Unrecognized,\n                    },\n                ),\n            ),\n            range: [1:1, 1:2),\n            base_scope_result: Uncertain,\n        },\n        RawExpr {\n            variant: Opn {\n                opn_variant: Suffix(\n                    Decr,\n                ),\n                opds: 0..1,\n            },\n            range: [1:1, 1:4),\n            base_scope_result: None,\n        },\n    ],\n}"
+  }
+]

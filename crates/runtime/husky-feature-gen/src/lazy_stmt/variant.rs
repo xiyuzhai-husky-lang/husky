@@ -1,7 +1,5 @@
 use std::convert::Infallible;
 
-use husky_ast::RawReturnContext;
-
 use super::*;
 
 #[derive(PartialEq, Eq, Clone)]
@@ -36,20 +34,23 @@ pub enum FeatureLazyStmtVariant {
 impl std::fmt::Debug for FeatureLazyStmtVariant {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::Init { varname, value } => f.debug_struct("Init").finish(),
-            Self::Assert { condition } => f.debug_struct("Assert").finish(),
+            Self::Init {
+                varname: _,
+                value: _,
+            } => f.debug_struct("Init").finish(),
+            Self::Assert { condition: _ } => f.debug_struct("Assert").finish(),
             Self::Require {
-                condition,
-                return_context,
+                condition: _,
+                return_context: _,
             } => f.debug_struct("Require").finish(),
-            Self::Return { result } => f.debug_struct("Return").finish(),
+            Self::Return { result: _ } => f.debug_struct("Return").finish(),
             Self::ReturnUnveil {
-                return_context,
-                result,
-                implicit_conversion,
+                return_context: _,
+                result: _,
+                implicit_conversion: _,
             } => f.debug_struct("ReturnUnveil").finish(),
-            Self::ReturnXml { result } => f.debug_struct("ReturnXml").finish(),
-            Self::ConditionFlow { branches } => f.debug_struct("ConditionFlow").finish(),
+            Self::ReturnXml { result: _ } => f.debug_struct("ReturnXml").finish(),
+            Self::ConditionFlow { branches: _ } => f.debug_struct("ConditionFlow").finish(),
         }
     }
 }

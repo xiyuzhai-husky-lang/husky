@@ -1,4 +1,3 @@
-use husky_entity_kind::{EntityKind, FieldKind};
 use husky_entity_route::{EntityRoute, EntityRouteVariant, SpatialArgument};
 use husky_word::RootBuiltinIdentifier;
 
@@ -31,7 +30,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
     if entity_route.variant == entity_route_menu.std_slice_cyclic_slice.variant {
         return true;
     }
-    let husky_entity_kind = db.husky_entity_kind(base_route).unwrap();
+    let _husky_entity_kind = db.husky_entity_kind(base_route).unwrap();
     todo!()
     // match husky_entity_kind {
     //     EntityKind::Module => return false,

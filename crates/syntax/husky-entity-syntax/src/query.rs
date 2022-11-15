@@ -235,7 +235,7 @@ fn entity_source(
             range,
         }),
         EntityRouteVariant::ThisType { file, range } => Ok(EntitySource::ThisType { file, range }),
-        EntityRouteVariant::TypeAsTraitMember { ty, trai, ident } => match trai {
+        EntityRouteVariant::TypeAsTraitMember { ty, trai, ident: _ } => match trai {
             EntityRouteItd::Root(root_ident) => match root_ident {
                 RootBuiltinIdentifier::CloneTrait => {
                     msg_once!("ad hoc");
@@ -245,7 +245,7 @@ fn entity_source(
                 _ => todo!(),
             },
             EntityRouteItd::Custom(_) => match trai.variant {
-                EntityRouteVariant::ThisType { file, range } => {
+                EntityRouteVariant::ThisType { file: _, range: _ } => {
                     let ty_source = db.entity_source(ty).unwrap();
                     match ty_source {
                         EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {

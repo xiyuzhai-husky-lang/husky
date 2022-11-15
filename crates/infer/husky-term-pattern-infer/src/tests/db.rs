@@ -3,17 +3,12 @@ mod trivia;
 
 use super::*;
 use husky_entity_path::{
-    EntityPath, EntityPathDb, EntityPathDbStorage, EntityPathInterner, EntityPathItd,
-    EntityPathMenu, InternEntityPath,
+    EntityPathDb, EntityPathDbStorage, EntityPathInterner, EntityPathItd, EntityPathMenu,
+    InternEntityPath,
 };
 use husky_expr_syntax::RawExprIdx;
-use husky_symbol_syntax::{
-    Symbol, SymbolContext, SymbolDb, SymbolDbStorage, SymbolKind, SymbolQueries,
-};
-use husky_term::{
-    new_term_itr, AskDecl, Decl, TermDb, TermError, TermInterner, TermMenu, TermResult,
-    TermResultArc, Ty, TyDecl,
-};
+use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDbStorage, SymbolKind, SymbolQueries};
+use husky_term::{AskDecl, Decl, TermDb, TermInterner, TermMenu, TermResultArc, Ty, TyDecl};
 use husky_term::{InternTerm, TermDbStorage};
 use husky_token::*;
 use husky_word::{InternWord, RootBuiltinIdentifier, WordInterner};
@@ -75,16 +70,16 @@ impl TermPatternInferTestsDb {
 impl AskDecl for TermPatternInferTestsDb {
     fn ask_namespace_decl(
         &self,
-        namespace: husky_term::TermNamespace,
+        _namespace: husky_term::TermNamespace,
     ) -> TermResultArc<husky_term::NamespaceDecl> {
         todo!()
     }
 
-    fn ask_ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl> {
+    fn ask_ty_decl(&self, _ty: Ty) -> TermResultArc<TyDecl> {
         todo!()
     }
 
-    fn ask_decl(&self, entity_path: EntityPathItd) -> TermResultArc<Decl> {
+    fn ask_decl(&self, _entity_path: EntityPathItd) -> TermResultArc<Decl> {
         todo!()
     }
 }

@@ -37,7 +37,7 @@ pub struct StaticVisualizer {
 pub struct StaticVisualizerFp(pub for<'eval> fn(&__Register<'eval>) -> __VMResult<VisualData>);
 
 impl std::fmt::Debug for StaticVisualizerFp {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }

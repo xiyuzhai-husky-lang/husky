@@ -108,7 +108,7 @@ macro_rules! deprecated_try_eat {
     }};
 
     ($parser:expr, "+") => {{
-        deprecated_try_eat!($parser, SpecialToken::BinaryOpr(BinaryOpr::Pure(PureBinaryOpr::Add)))
+        deprecated_try_eat!($parser, SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Add)))
     }};
 
     ($parser:expr, "'") => {{
@@ -451,7 +451,7 @@ where
     Item: AtomParserPattern,
     Terminator: AtomParserPattern,
 {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }

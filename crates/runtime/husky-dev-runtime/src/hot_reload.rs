@@ -25,7 +25,7 @@ impl std::ops::Try for HuskyRuntimeHotReloadM {
 
     type Residual = HuskyRuntimeHotReloadR;
 
-    fn from_output(output: Self::Output) -> Self {
+    fn from_output(_output: Self::Output) -> Self {
         todo!()
     }
 
@@ -37,7 +37,7 @@ impl std::ops::Try for HuskyRuntimeHotReloadM {
 }
 
 impl std::ops::FromResidual<HuskyRuntimeHotReloadR> for HuskyRuntimeHotReloadM {
-    fn from_residual(residual: HuskyRuntimeHotReloadR) -> Self {
+    fn from_residual(_residual: HuskyRuntimeHotReloadR) -> Self {
         todo!()
     }
 }

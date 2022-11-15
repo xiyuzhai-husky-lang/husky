@@ -2,9 +2,7 @@ use crate::*;
 use husky_feature_gen::{
     FeatureDomainIndicator, FeatureLazyExpr, FeatureLazyExprVariant, TrainModel,
 };
-use husky_vm::{GenericArgument, __Register, __VMError, __VMResult};
-use husky_vm::{__RegistrableSafe, __VirtualEnum};
-use std::time::Instant;
+use husky_vm::{GenericArgument, __Register, __VMError};
 
 impl TrainModel for DevRuntime {
     fn train(

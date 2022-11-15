@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
-use husky_print_utils::epin;
+
 use monad::MonadT;
 use std::time::Instant;
 
@@ -119,25 +119,25 @@ impl Debugtime {
 pub struct DevtimeHotReloadR;
 
 impl std::ops::FromResidual<DevtimeHotReloadR> for DebugtimeHotReloadM {
-    fn from_residual(residual: DevtimeHotReloadR) -> Self {
+    fn from_residual(_residual: DevtimeHotReloadR) -> Self {
         unreachable!()
     }
 }
 
 impl std::ops::FromResidual<DebugtimeUpdateR> for DebugtimeHotReloadM {
-    fn from_residual(residual: DebugtimeUpdateR) -> Self {
+    fn from_residual(_residual: DebugtimeUpdateR) -> Self {
         unreachable!()
     }
 }
 
 impl std::ops::FromResidual<DebugtimeTakeChangeR> for DebugtimeHotReloadM {
-    fn from_residual(residual: DebugtimeTakeChangeR) -> Self {
+    fn from_residual(_residual: DebugtimeTakeChangeR) -> Self {
         unreachable!()
     }
 }
 
 impl std::ops::FromResidual<HuskyRuntimeHotReloadR> for DebugtimeHotReloadM {
-    fn from_residual(residual: HuskyRuntimeHotReloadR) -> Self {
+    fn from_residual(_residual: HuskyRuntimeHotReloadR) -> Self {
         todo!()
     }
 }

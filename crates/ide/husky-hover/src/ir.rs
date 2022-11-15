@@ -1,7 +1,6 @@
-use husky_documentation::Documentation;
 use husky_entity_route::EntityRouteItd;
-use husky_file::FileItd;
-use husky_text::{FilePosition, TextRange};
+
+use husky_text::FilePosition;
 
 use crate::*;
 
@@ -14,10 +13,10 @@ pub enum HoverActionIR {
 }
 
 impl HoverActionIR {
-    fn goto_type_from_targets(db: &dyn HoverDb, targets: Vec<EntityRouteItd>) -> Self {
+    fn goto_type_from_targets(_db: &dyn HoverDb, targets: Vec<EntityRouteItd>) -> Self {
         let targets = targets
             .into_iter()
-            .filter_map(|target| {
+            .filter_map(|_target| {
                 todo!()
                 // Some(HoverGotoTypeData {
                 //     mod_path: render::path(
@@ -71,7 +70,7 @@ impl<'a> dyn HoverDb + 'a {
             .collect()
     }
 
-    fn show_impl_command_link(&self, position: &FilePosition) -> Option<CommandLinkGroup> {
+    fn show_impl_command_link(&self, _position: &FilePosition) -> Option<CommandLinkGroup> {
         todo!()
         // if self
         //     .hover_config()
@@ -95,7 +94,7 @@ impl<'a> dyn HoverDb + 'a {
         // None
     }
 
-    fn show_ref_command_link(&self, position: &FilePosition) -> Option<CommandLinkGroup> {
+    fn show_ref_command_link(&self, _position: &FilePosition) -> Option<CommandLinkGroup> {
         todo!()
         // if db.hover_config().hover_action_config().enable_references()
         //     && db.config.client_commands_config().show_reference()
@@ -125,7 +124,7 @@ impl<'a> dyn HoverDb + 'a {
         // None
     }
 
-    fn runnable_action_links(&self, runnable: Runnable) -> Option<CommandLinkGroup> {
+    fn runnable_action_links(&self, _runnable: Runnable) -> Option<CommandLinkGroup> {
         todo!()
         // let hover_actions_config = db.config.hover_actions();
         // if !hover_actions_config.runnable() {
@@ -164,7 +163,7 @@ impl<'a> dyn HoverDb + 'a {
 
     fn goto_type_action_links(
         &self,
-        nav_targets: &[HoverGotoTypeData],
+        _nav_targets: &[HoverGotoTypeData],
     ) -> Option<CommandLinkGroup> {
         todo!()
         // if !db.config.hover_actions().goto_type_def

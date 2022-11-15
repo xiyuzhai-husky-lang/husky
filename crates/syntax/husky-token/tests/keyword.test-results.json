@@ -1,0 +1,14 @@
+[
+  {
+    "input": "def",
+    "output": "[\n    Token {\n        range: [1:1, 1:4),\n        kind: Keyword(\n            Paradigm(\n                LazyFunctional,\n            ),\n        ),\n    },\n]"
+  },
+  {
+    "input": "func",
+    "output": "[\n    Token {\n        range: [1:1, 1:5),\n        kind: Keyword(\n            Paradigm(\n                EagerFunctional,\n            ),\n        ),\n    },\n]"
+  },
+  {
+    "input": "proc",
+    "output": "[\n    Token {\n        range: [1:1, 1:5),\n        kind: Keyword(\n            Paradigm(\n                EagerProcedural,\n            ),\n        ),\n    },\n]"
+  }
+]

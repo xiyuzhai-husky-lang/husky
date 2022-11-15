@@ -6,7 +6,7 @@ use husky_vm::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LazyOpnKind {
     Binary {
-        opr: PureBinaryOpr,
+        opr: BinaryPureClosedOpr,
         this: EntityRouteItd,
     },
     Prefix(PrefixOpr),

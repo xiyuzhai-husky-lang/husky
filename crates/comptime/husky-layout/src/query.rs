@@ -5,7 +5,7 @@ pub trait HuskyLayoutQueryGroup {
     fn reg_memory_kind(&self, ty: EntityRouteItd) -> RegMemoryKind;
 }
 
-fn reg_memory_kind(db: &dyn HuskyLayoutQueryGroup, ty: EntityRouteItd) -> RegMemoryKind {
+fn reg_memory_kind(_db: &dyn HuskyLayoutQueryGroup, _ty: EntityRouteItd) -> RegMemoryKind {
     todo!()
     // let ty = ty.intrinsic();
     // if ty.is_primitive() {

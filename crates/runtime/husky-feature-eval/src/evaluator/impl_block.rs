@@ -1,7 +1,7 @@
 use super::*;
 use crate::*;
-use husky_comptime::ResolveLinkage;
-use husky_print_utils::{msg_once, p};
+
+use husky_print_utils::msg_once;
 use husky_vm::__RegisterDataKind;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {

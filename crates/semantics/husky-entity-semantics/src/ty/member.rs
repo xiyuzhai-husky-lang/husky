@@ -2,8 +2,7 @@ mod field;
 mod method;
 
 pub use field::*;
-use husky_eager_semantics::{parse_func_stmts, parse_proc_stmts};
-use husky_word::Paradigm;
+
 pub use method::*;
 
 use super::*;
@@ -24,7 +23,10 @@ pub fn collect_all_members(
     Arc::new(members)
 }
 
-pub fn member_defn(db: &dyn EntityDefnQueryGroup, member_route: EntityRouteItd) -> Arc<EntityDefn> {
+pub fn member_defn(
+    _db: &dyn EntityDefnQueryGroup,
+    _member_route: EntityRouteItd,
+) -> Arc<EntityDefn> {
     todo!()
     // let ty = member_route.parent();
     // let ty_defn = db.entity_defn(ty).unwrap();
@@ -37,12 +39,12 @@ pub fn member_defn(db: &dyn EntityDefnQueryGroup, member_route: EntityRouteItd) 
 
 impl EntityDefnVariant {
     pub(crate) fn collect_other_ty_members(
-        db: &dyn EntityDefnQueryGroup,
-        arena: &RawExprArena,
-        file: FileItd,
-        ty_route: EntityRouteItd,
-        children: &mut Peekable<AstIter>,
-        members: &mut IdentDict<Arc<EntityDefn>>,
+        _db: &dyn EntityDefnQueryGroup,
+        _arena: &RawExprArena,
+        _file: FileItd,
+        _ty_route: EntityRouteItd,
+        _children: &mut Peekable<AstIter>,
+        _members: &mut IdentDict<Arc<EntityDefn>>,
     ) -> SemanticResult<()> {
         todo!()
         // while let Some(child) = children.peek() {

@@ -1,6 +1,6 @@
 use super::*;
 use husky_check_utils::should_eq;
-use husky_debugtime::{DebugtimeStateChange, DebugtimeTakeChangeR, DevtimeHotReloadR};
+use husky_debugtime::{DebugtimeStateChange, DebugtimeTakeChangeR};
 use monad::Monad;
 use std::panic::catch_unwind;
 use std::path::PathBuf;
@@ -21,13 +21,13 @@ impl<T> HandleGuiMessageM<T> {
 }
 
 impl<T> std::ops::FromResidual<DebuggerHotReloadR> for HandleGuiMessageM<T> {
-    fn from_residual(residual: DebuggerHotReloadR) -> Self {
+    fn from_residual(_residual: DebuggerHotReloadR) -> Self {
         todo!()
     }
 }
 
 impl<T> std::ops::FromResidual<DebugtimeTakeChangeR> for HandleGuiMessageM<T> {
-    fn from_residual(residual: DebugtimeTakeChangeR) -> Self {
+    fn from_residual(_residual: DebugtimeTakeChangeR) -> Self {
         todo!()
     }
 }
@@ -35,7 +35,7 @@ impl<T> std::ops::FromResidual<DebugtimeTakeChangeR> for HandleGuiMessageM<T> {
 pub struct HandleGuiMessageR;
 
 impl<T> std::ops::FromResidual<HandleGuiMessageR> for HandleGuiMessageM<T> {
-    fn from_residual(residual: HandleGuiMessageR) -> Self {
+    fn from_residual(_residual: HandleGuiMessageR) -> Self {
         unreachable!()
     }
 }
@@ -165,29 +165,26 @@ impl HuskyDebuggerInternal {
             HuskyTracerGuiMessageVariant::ToggleExpansion { trace_id } => {
                 let change = match self.devtime.toggle_expansion(trace_id).result()? {
                     Ok(change) => change,
-                    Err(e) => {
-                        match e.variant() {
-                            __VMErrorVariant::Normal => todo!(),
-                            __VMErrorVariant::FromBatch { sample_id } => {
-                                assert!(
-                                    self.devtime.presentation().is_generic()
-                                        || self.devtime.presentation().sample_id()
-                                            != SampleId(*sample_id)
-                                );
-                                p!(
-                                    self.devtime.presentation().sample_id(),
-                                    SampleId(*sample_id)
-                                );
-                                todo!()
-                            }
+                    Err(e) => match e.variant() {
+                        __VMErrorVariant::Normal => todo!(),
+                        __VMErrorVariant::FromBatch { sample_id } => {
+                            assert!(
+                                self.devtime.presentation().is_generic()
+                                    || self.devtime.presentation().sample_id()
+                                        != SampleId(*sample_id)
+                            );
+                            p!(
+                                self.devtime.presentation().sample_id(),
+                                SampleId(*sample_id)
+                            );
+                            todo!()
                         }
-                        todo!()
-                    }
+                    },
                 };
                 Some((change, HuskyTracerServerMessageVariant::ToggleExpansion))
             }
             HuskyTracerGuiMessageVariant::ToggleShow { trace_id } => {
-                self.devtime.toggle_show(trace_id);
+                self.devtime.toggle_show(trace_id)?;
                 None
             }
             // HuskyTracerGuiMessageVariant::Trace { id } => {
@@ -218,7 +215,7 @@ impl HuskyDebuggerInternal {
                 ref figure_control_data,
             } => {
                 self.devtime
-                    .set_figure_control(trace_id, figure_control_data.clone());
+                    .set_figure_control(trace_id, figure_control_data.clone())?;
                 None
             }
             HuskyTracerGuiMessageVariant::TogglePin {

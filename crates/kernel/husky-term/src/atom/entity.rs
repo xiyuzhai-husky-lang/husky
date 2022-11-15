@@ -3,13 +3,6 @@ mod root;
 
 pub use namespace::*;
 
-use husky_entity_path::EntityPathItd;
-
-use husky_word::{Identifier, RootBuiltinIdentifier};
-use optional::Optioned;
-
-use crate::{Term, TermDb, Ty};
-
 // #[derive(Debug, PartialEq, Eq, Hash)]
 // pub struct TermEntity {
 //     path: EntityPathItd,
@@ -35,6 +28,7 @@ use crate::{Term, TermDb, Ty};
 #[test]
 fn display_term() {
     use crate::tests::TermTestsDb;
+    use crate::TermDb;
     let db = TermTestsDb::new();
     let menu = db.term_menu();
     assert_eq!(menu.unit().to_string(), "void");

@@ -2,10 +2,6 @@ mod context;
 
 pub use context::*;
 
-use std::ops::Deref;
-
-use husky_print_utils::msg_once;
-
 use crate::*;
 
 /// representing term `x -> y`
@@ -84,8 +80,8 @@ impl std::fmt::Display for TermCurry {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.curry_variant() {
             curry::TermCurryVariant::Physical {
-                physical_curry_kind,
-                modifier,
+                physical_curry_kind: _,
+                modifier: _,
             } => todo!(),
             curry::TermCurryVariant::Conceptual => {
                 write!(f, "{} -> {}", self.x(), self.y())

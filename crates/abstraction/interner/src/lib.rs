@@ -4,7 +4,6 @@ mod wrapper;
 
 pub use wrapper::InternedRefWrapper;
 
-use std::borrow::Borrow;
 use sync_utils::SafeRwLock;
 
 use internal::InternerInternal;
@@ -21,7 +20,7 @@ pub trait Internable: Sized + 'static {
     unsafe fn cast_to_static_ref<'a>(r: Self::Ref<'a>) -> Self::Ref<'static>;
     fn as_ref<'a>(&'a self) -> Self::Ref<'a>;
     unsafe fn to_borrowed_static(&self) -> Self::Ref<'static> {
-        let this: &'static Self = &*unsafe { self as *const _ };
+        let this: &'static Self = unsafe { &*(self as *const _) };
         this.as_ref()
     }
     fn new_itd(&'static self, idx: usize) -> Self::Interned;

@@ -12,7 +12,7 @@ impl From<(usize, __VMError)> for __VMError {
                 message: e.message,
                 variant: __VMErrorVariant::FromBatch { sample_id },
             },
-            __VMErrorVariant::FromBatch { sample_id } => e,
+            __VMErrorVariant::FromBatch { sample_id: _ } => e,
         }
     }
 }
@@ -63,7 +63,7 @@ impl Default for __VMErrorVariant {
 }
 
 impl std::fmt::Display for __VMError {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }

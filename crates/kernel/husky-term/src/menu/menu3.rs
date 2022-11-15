@@ -15,7 +15,7 @@ impl std::ops::Deref for TermMenu3 {
 }
 
 impl TermMenu3 {
-    pub(crate) fn new(db: &dyn TermDb, menu2: TermMenu2) -> Self {
+    pub(crate) fn new(db: &dyn TermDb, _menu2: TermMenu2) -> Self {
         let menu0 = TermMenu0::new(db);
         let menu1 = TermMenu1::new(db, menu0);
         let menu2 = TermMenu2::new(db, menu1);

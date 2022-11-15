@@ -26,27 +26,27 @@ pub enum RawLoopKind {
 impl RawLoopKind {
     pub fn for_loop(
         initial_bound: RawExprIdx,
-        initial_comparison: PureBinaryOpr,
+        initial_comparison: BinaryComparisonOpr,
         frame_var: RangedCustomIdentifier,
-        final_comparison: PureBinaryOpr,
+        final_comparison: BinaryComparisonOpr,
         final_bound: RawExprIdx,
     ) -> AstResult<Self> {
         let (initial_boundary_kind, step) = match initial_comparison {
-            PureBinaryOpr::Geq => (BoundaryKind::UpperClosed, LoopStep(-1)),
-            PureBinaryOpr::Greater => (BoundaryKind::UpperOpen, LoopStep(-1)),
-            PureBinaryOpr::Leq => (BoundaryKind::LowerClosed, LoopStep(1)),
-            PureBinaryOpr::Less => (BoundaryKind::LowerOpen, LoopStep(1)),
+            BinaryComparisonOpr::Geq => (BoundaryKind::UpperClosed, LoopStep(-1)),
+            BinaryComparisonOpr::Greater => (BoundaryKind::UpperOpen, LoopStep(-1)),
+            BinaryComparisonOpr::Leq => (BoundaryKind::LowerClosed, LoopStep(1)),
+            BinaryComparisonOpr::Less => (BoundaryKind::LowerOpen, LoopStep(1)),
             _ => todo!(),
         };
         let final_boundary_kind = match final_comparison {
             // ... $frame_var >= $final_bound
-            PureBinaryOpr::Geq => BoundaryKind::LowerClosed,
+            BinaryComparisonOpr::Geq => BoundaryKind::LowerClosed,
             // ... $frame_var > $final_bound
-            PureBinaryOpr::Greater => BoundaryKind::LowerOpen,
+            BinaryComparisonOpr::Greater => BoundaryKind::LowerOpen,
             // ... $frame_var <= $final_bound
-            PureBinaryOpr::Leq => BoundaryKind::UpperClosed,
+            BinaryComparisonOpr::Leq => BoundaryKind::UpperClosed,
             // ... $frame_var < $final_bound
-            PureBinaryOpr::Less => BoundaryKind::UpperOpen,
+            BinaryComparisonOpr::Less => BoundaryKind::UpperOpen,
             _ => todo!(),
         };
         check_compatible(initial_boundary_kind, final_boundary_kind)?;
@@ -66,19 +66,19 @@ impl RawLoopKind {
 
     pub fn for_loop_with_default_initial(
         frame_var: RangedCustomIdentifier,
-        comparison: PureBinaryOpr,
+        comparison: BinaryComparisonOpr,
         final_bound: RawExprIdx,
         range: TextRange,
     ) -> AstResult<Self> {
         let final_boundary_kind = match comparison {
             // ill-formed: $frame_var >= $final_bound
-            PureBinaryOpr::Geq => err!("invalid form", range)?,
+            BinaryComparisonOpr::Geq => err!("invalid form", range)?,
             // ill-formed: $frame_var > $final_bound
-            PureBinaryOpr::Greater => err!("invalid form", range)?,
+            BinaryComparisonOpr::Greater => err!("invalid form", range)?,
             // well-formed: $frame_var <= $final_bound
-            PureBinaryOpr::Leq => BoundaryKind::UpperClosed,
+            BinaryComparisonOpr::Leq => BoundaryKind::UpperClosed,
             // well-formed: $frame_var < $final_bound
-            PureBinaryOpr::Less => BoundaryKind::UpperOpen,
+            BinaryComparisonOpr::Less => BoundaryKind::UpperOpen,
             _ => todo!(),
         };
         Ok(Self::For {
@@ -94,19 +94,19 @@ impl RawLoopKind {
 
     pub fn for_loop_with_default_final(
         initial_bound: RawExprIdx,
-        comparison: PureBinaryOpr,
+        comparison: BinaryComparisonOpr,
         frame_var: RangedCustomIdentifier,
         range: TextRange,
     ) -> AstResult<Self> {
         let initial_boundary_kind = match comparison {
             // well-formed: $initial_bound >= $frame_var
-            PureBinaryOpr::Geq => BoundaryKind::LowerClosed,
+            BinaryComparisonOpr::Geq => BoundaryKind::LowerClosed,
             // well-formed: $initial_bound > $frame_var
-            PureBinaryOpr::Greater => BoundaryKind::LowerOpen,
+            BinaryComparisonOpr::Greater => BoundaryKind::LowerOpen,
             // ill-formed: $initial_bound <= $frame_var
-            PureBinaryOpr::Leq => err!("invalid form", range)?,
+            BinaryComparisonOpr::Leq => err!("invalid form", range)?,
             // ill-formed: $initial_bound < $frame_var
-            PureBinaryOpr::Less => err!("invalid form", range)?,
+            BinaryComparisonOpr::Less => err!("invalid form", range)?,
             _ => return err!(format!("expect comparison"), range),
         };
         Ok(Self::For {
@@ -122,19 +122,19 @@ impl RawLoopKind {
 
     pub fn forext_loop(
         frame_var: RangedCustomIdentifier,
-        comparison: PureBinaryOpr,
+        comparison: BinaryComparisonOpr,
         bound: RawExprIdx,
         range: TextRange,
     ) -> AstResult<Self> {
         let (boundary_kind, step) = match comparison {
             // ... $frame_var >= $final_bound
-            PureBinaryOpr::Geq => (BoundaryKind::LowerClosed, LoopStep(-1)),
+            BinaryComparisonOpr::Geq => (BoundaryKind::LowerClosed, LoopStep(-1)),
             // ... $frame_var > $final_bound
-            PureBinaryOpr::Greater => (BoundaryKind::LowerOpen, LoopStep(-1)),
+            BinaryComparisonOpr::Greater => (BoundaryKind::LowerOpen, LoopStep(-1)),
             // ... $frame_var <= $final_bound
-            PureBinaryOpr::Leq => (BoundaryKind::UpperClosed, LoopStep(1)),
+            BinaryComparisonOpr::Leq => (BoundaryKind::UpperClosed, LoopStep(1)),
             // ... $frame_var < $final_bound
-            PureBinaryOpr::Less => (BoundaryKind::UpperOpen, LoopStep(1)),
+            BinaryComparisonOpr::Less => (BoundaryKind::UpperOpen, LoopStep(1)),
             _ => return err!(format!("expect comparison"), range),
         };
         Ok(Self::ForExt {

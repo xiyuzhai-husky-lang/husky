@@ -5,10 +5,10 @@ use husky_opn_syntax::*;
 
 pub fn resolve_primitive_pure_binary_opr_linkage(
     lopd_ty: RootBuiltinIdentifier,
-    opr: PureBinaryOpr,
+    opr: BinaryPureClosedOpr,
     ropd_ty: RootBuiltinIdentifier,
 ) -> __Linkage {
-    use PureBinaryOpr::*;
+    use BinaryPureClosedOpr::*;
     use RootBuiltinIdentifier::*;
     type b32 = u32;
     type b64 = u64;
@@ -22,32 +22,8 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             |arguments, _| (arguments[0].downcast_i32() / arguments[1].downcast_i32()).to_register(),
             none
         ),
-        (I32, Eq, I32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_i32() == arguments[1].downcast_i32()).to_register(),
-            none
-        ),
-        (I32, Greater, I32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_i32() > arguments[1].downcast_i32()).to_register(),
-            none
-        ),
-        (I32, Geq, I32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_i32() >= arguments[1].downcast_i32()).to_register(),
-            none
-        ),
-        (I32, Less, I32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_i32() < arguments[1].downcast_i32()).to_register(),
-            none
-        ),
-        (I32, Leq, I32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_i32() <= arguments[1].downcast_i32()).to_register(),
-            none
-        ),
         (I32, Mul, I32) => transfer_linkage!(
             |arguments, _| (arguments[0].downcast_i32() * arguments[1].downcast_i32()).to_register(),
-            none
-        ),
-        (I32, Neq, I32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_i32() != arguments[1].downcast_i32()).to_register(),
             none
         ),
         (I32, Sub, I32) => transfer_linkage!(
@@ -60,14 +36,6 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         ),
         (B32, BitOr, B32) => transfer_linkage!(
             |arguments, _| (arguments[0].downcast_b32() | arguments[1].downcast_b32()).to_register(),
-            none
-        ),
-        (B32, Eq, B32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_b32() == arguments[1].downcast_b32()).to_register(),
-            none
-        ),
-        (B32, Neq, B32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_b32() != arguments[1].downcast_b32()).to_register(),
             none
         ),
         (B32, Shl, I32) => transfer_linkage!(
@@ -84,26 +52,6 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         ),
         (F32, Div, F32) => transfer_linkage!(
             |arguments, _| (arguments[0].downcast_f32() / arguments[1].downcast_f32()).to_register(),
-            none
-        ),
-        (F32, Eq, F32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_f32() == arguments[1].downcast_f32()).to_register(),
-            none
-        ),
-        (F32, Greater, F32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_f32() > arguments[1].downcast_f32()).to_register(),
-            none
-        ),
-        (F32, Geq, F32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_f32() >= arguments[1].downcast_f32()).to_register(),
-            none
-        ),
-        (F32, Less, F32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_f32() < arguments[1].downcast_f32()).to_register(),
-            none
-        ),
-        (F32, Leq, F32) => transfer_linkage!(
-            |arguments, _| (arguments[0].downcast_f32() <= arguments[1].downcast_f32()).to_register(),
             none
         ),
         (F32, Mul, F32) => transfer_linkage!(
@@ -137,10 +85,10 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
 
 pub fn resolve_primitive_assign_binary_opr_linkage(
     lopd_ty: RootBuiltinIdentifier,
-    opt_opr: Option<PureBinaryOpr>,
+    opt_opr: Option<BinaryPureClosedOpr>,
     ropd_ty: RootBuiltinIdentifier,
 ) -> __Linkage {
-    use PureBinaryOpr::*;
+    use BinaryPureClosedOpr::*;
     use RootBuiltinIdentifier::*;
     type b32 = u32;
     type b64 = u64;

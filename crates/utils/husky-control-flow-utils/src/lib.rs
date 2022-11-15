@@ -6,3 +6,12 @@ macro_rules! loop_require {
         }
     };
 }
+
+#[macro_export]
+macro_rules! require {
+    ($condition: expr) => {
+        if !$condition {
+            return Default::default();
+        }
+    };
+}

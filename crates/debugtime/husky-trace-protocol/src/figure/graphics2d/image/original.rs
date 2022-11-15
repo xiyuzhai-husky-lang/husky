@@ -61,9 +61,9 @@ impl OriginalImageData {
                 }
             }
         } else {
-            for i1 in 0..dimension.height {
-                for j1 in 0..dimension.width {
-                    for c in 0..4 {
+            for _i1 in 0..dimension.height {
+                for _j1 in 0..dimension.width {
+                    for _c in 0..4 {
                         data.push(0)
                     }
                 }

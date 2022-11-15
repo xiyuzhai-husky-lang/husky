@@ -122,7 +122,7 @@ fn dataset_config_instruction_sheet(
     new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)
 }
 
-fn enum_literal_to_i32(db: &dyn InstructionGenQueryGroup, route: EntityRouteItd) -> i32 {
+fn enum_literal_to_i32(_db: &dyn InstructionGenQueryGroup, _route: EntityRouteItd) -> i32 {
     todo!()
     // let ty_decl = db.ty_decl(route.parent()).unwrap();
     // ty_decl

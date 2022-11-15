@@ -1,7 +1,7 @@
 use crate::*;
-use husky_entity_kind::EntityKind;
+
 use monad::Monad;
-use std::{ops::FromResidual, time::Instant};
+use std::ops::FromResidual;
 use trackable::{TrackableAtom, TrackableMakeChangeR, TrackableMap, TrackableVec};
 
 #[must_use]
@@ -42,7 +42,7 @@ impl Debugtime {
                 __VMErrorVariant::FromBatch { sample_id } => {
                     self.state.update_presentation(|presentation| {
                         presentation.set_specific(SampleId(*sample_id))
-                    });
+                    })?;
                     self.update()
                 }
             },
@@ -58,43 +58,58 @@ impl Debugtime {
 }
 
 impl<T> FromResidual<Result<std::convert::Infallible, __VMError>> for DebugtimeUpdateM<T> {
-    fn from_residual(residual: Result<std::convert::Infallible, __VMError>) -> Self {
+    fn from_residual(_residual: Result<std::convert::Infallible, __VMError>) -> Self {
         todo!()
     }
 }
 
 // todo: refine this
 impl<T> FromResidual<ServerTraceStateUpdateR<T>> for DebugtimeUpdateM<T> {
-    fn from_residual(residual: ServerTraceStateUpdateR<T>) -> Self {
+    fn from_residual(_residual: ServerTraceStateUpdateR<T>) -> Self {
         todo!()
     }
 }
 
 impl<T> FromResidual<DebugtimeUpdateR> for DebugtimeUpdateM<T> {
-    fn from_residual(residual: DebugtimeUpdateR) -> Self {
+    fn from_residual(_residual: DebugtimeUpdateR) -> Self {
+        todo!()
+    }
+}
+
+impl<T> FromResidual<TrackableMakeChangeR<TrackableMap<TraceStatsKey, Option<TraceStats>>>>
+    for DebugtimeUpdateM<T>
+{
+    fn from_residual(
+        _residual: TrackableMakeChangeR<TrackableMap<TraceStatsKey, Option<TraceStats>>>,
+    ) -> Self {
         todo!()
     }
 }
 
 impl<T> FromResidual<TrackableMakeChangeR<TrackableVec<TraceNode>>> for DebugtimeUpdateM<T> {
-    fn from_residual(residual: TrackableMakeChangeR<TrackableVec<TraceNode>>) -> Self {
+    fn from_residual(_residual: TrackableMakeChangeR<TrackableVec<TraceNode>>) -> Self {
         todo!()
     }
 }
 
 impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Presentation>>> for DebugtimeUpdateM<T> {
-    fn from_residual(residual: TrackableMakeChangeR<TrackableAtom<Presentation>>) -> Self {
+    fn from_residual(_residual: TrackableMakeChangeR<TrackableAtom<Presentation>>) -> Self {
         todo!()
     }
 }
 
+impl<T> FromResidual<TrackableMakeChangeR<DebugtimeState>> for DebugtimeUpdateM<T> {
+    fn from_residual(_residual: TrackableMakeChangeR<DebugtimeState>) -> Self {
+        todo!()
+    }
+}
 impl<T>
     FromResidual<
         TrackableMakeChangeR<TrackableMap<GenericFigureCanvasKey, GenericFigureCanvasData>>,
     > for DebugtimeUpdateM<T>
 {
     fn from_residual(
-        residual: TrackableMakeChangeR<
+        _residual: TrackableMakeChangeR<
             TrackableMap<GenericFigureCanvasKey, GenericFigureCanvasData>,
         >,
     ) -> Self {
@@ -108,7 +123,7 @@ impl<T>
     > for DebugtimeUpdateM<T>
 {
     fn from_residual(
-        residual: TrackableMakeChangeR<
+        _residual: TrackableMakeChangeR<
             TrackableMap<SpecificFigureCanvasKey, SpecificFigureCanvasData>,
         >,
     ) -> Self {
@@ -120,7 +135,7 @@ impl<T> FromResidual<TrackableMakeChangeR<TrackableMap<FigureControlKey, FigureC
     for DebugtimeUpdateM<T>
 {
     fn from_residual(
-        residual: TrackableMakeChangeR<TrackableMap<FigureControlKey, FigureControlData>>,
+        _residual: TrackableMakeChangeR<TrackableMap<FigureControlKey, FigureControlData>>,
     ) -> Self {
         todo!()
     }

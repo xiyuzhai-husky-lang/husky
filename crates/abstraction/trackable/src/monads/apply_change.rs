@@ -13,7 +13,7 @@ impl<This, T> std::ops::Try for TrackableApplyChangeM<This, T> {
 
     type Residual = TrackableApplyChangeR<This>;
 
-    fn from_output(output: Self::Output) -> Self {
+    fn from_output(_output: Self::Output) -> Self {
         todo!()
     }
 
@@ -27,7 +27,7 @@ impl<This, T> std::ops::Try for TrackableApplyChangeM<This, T> {
 impl<This, T> std::ops::FromResidual<TrackableApplyChangeR<This>>
     for TrackableApplyChangeM<This, T>
 {
-    fn from_residual(residual: TrackableApplyChangeR<This>) -> Self {
+    fn from_residual(_residual: TrackableApplyChangeR<This>) -> Self {
         todo!()
     }
 }

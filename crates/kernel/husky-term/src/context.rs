@@ -1,5 +1,4 @@
 use husky_entity_path::EntityPathItd;
-use std::sync::Arc;
 
 use crate::*;
 

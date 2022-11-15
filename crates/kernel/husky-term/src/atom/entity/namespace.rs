@@ -1,5 +1,3 @@
-use optional::{Noned, OptEq};
-
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]

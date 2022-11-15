@@ -5,7 +5,7 @@ use husky_semantics_error::*;
 use husky_vm::EntityUid;
 use std::sync::Arc;
 use sync_utils::ASafeRwLock;
-use upcast::Upcast;
+
 use utils::module_contains_features;
 
 #[salsa::query_group(EntityQueryGroupStorage)]

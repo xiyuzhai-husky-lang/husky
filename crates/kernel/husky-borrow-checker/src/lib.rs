@@ -9,13 +9,13 @@ mod time;
 mod variable;
 
 pub use error::*;
-use husky_print_utils::p;
+
 pub use instruction::*;
 
 use husky_symbol_registry::*;
 use lifetime::*;
 use local_stack::LocalStack;
-use simulate::*;
+
 use table::*;
 use time::*;
 use variable::*;

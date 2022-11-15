@@ -2,8 +2,8 @@ use show_image::{create_window, event, ImageInfo, ImageView};
 
 #[show_image::main]
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    const width: u32 = 1024;
-    const height: u32 = 1024;
+    let width: u32 = 1024;
+    let height: u32 = 1024;
     let pixel_data = new_512_colors_pixel_data();
     let image = ImageView::new(ImageInfo::rgb8(width, height), &pixel_data);
 
@@ -23,23 +23,19 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-fn new_trivial_pixel_data(width: u32, height: u32) -> Vec<u8> {
-    (0..(width * height * 3)).into_iter().map(|_| 255).collect()
-}
-
 fn new_512_colors_pixel_data() -> Vec<u8> {
-    const unit: usize = 2;
-    let l = unit * 64 * 8;
+    const UNIT: usize = 2;
+    let l = UNIT * 64 * 8;
     let mut pixel_data: Vec<u8> = (0..(l * l * 3)).into_iter().map(|_| 0).collect();
     for ir in 0..64 {
         for ig in 0..64 {
             for ib in 0..64 {
                 let iu = (ib / 8) * 64 + ir;
                 let ju = (ib % 8) * 64 + ig;
-                for di in 0..unit {
-                    for dj in 0..unit {
-                        let i = iu * unit + di;
-                        let j = ju * unit + dj;
+                for di in 0..UNIT {
+                    for dj in 0..UNIT {
+                        let i = iu * UNIT + di;
+                        let j = ju * UNIT + dj;
                         pixel_data[3 * (i * l + j) + 0] = (ir as u8) * 4;
                         pixel_data[3 * (i * l + j) + 1] = (ig as u8) * 4;
                         pixel_data[3 * (i * l + j) + 2] = (ib as u8) * 4;
