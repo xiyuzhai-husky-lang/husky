@@ -3,7 +3,7 @@ macro_rules! identify_token {
     ($this: expr, $token:expr, $semantic_token_kind: expr) => {{
         match $token.kind {
             TokenKind::Identifier(Identifier::Custom(ident)) => {
-                $this.push_abs_semantic_token(husky_token::AbsSemanticToken::new(
+                $this.push_abs_semantic_token(husky_token_syntax::AbsSemanticToken::new(
                     $semantic_token_kind,
                     $token.range,
                 ));

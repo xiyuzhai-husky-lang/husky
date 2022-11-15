@@ -1,6 +1,6 @@
 use crate::*;
 use husky_atom::context::{AtomContext, AtomContextKind, Symbol};
-use husky_token::AbsSemanticToken;
+use husky_token_syntax::AbsSemanticToken;
 
 impl<'a> AtomContext<'a> for AstTransformer<'a> {
     fn opt_target_entrance(&self) -> Option<FileItd> {

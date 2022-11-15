@@ -11,7 +11,7 @@ use husky_file::FileItd;
 use husky_static_defn::*;
 use husky_term::*;
 use husky_text::{RangedCustomIdentifier, TextRanged};
-use husky_token::{SpecialToken, Token, TokenGroupIter, TokenKind};
+use husky_token_syntax::{SpecialToken, Token, TokenGroupIter, TokenKind};
 use husky_word::Identifier;
 use husky_word::{CustomIdentifier, Decorator, Keyword};
 use thin_vec::thin_vec;

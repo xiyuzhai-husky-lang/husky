@@ -6,7 +6,7 @@ use std::{
 };
 
 use husky_print_utils::p;
-use husky_token::{AbsSemanticToken, SemanticTokenKind};
+use husky_token_syntax::{AbsSemanticToken, SemanticTokenKind};
 use lsp_types::SemanticToken;
 
 use crate::lsp_ext;

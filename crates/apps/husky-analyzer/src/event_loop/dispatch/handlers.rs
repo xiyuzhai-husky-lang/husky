@@ -5,7 +5,7 @@ type HuskyComptimeSnapshot = salsa::Snapshot<husky_comptime::HuskyComptime>;
 use husky_comptime::*;
 use husky_hover::HoverResult;
 use husky_text::{FilePosition, FileRange, TextRange};
-use husky_token::AbsSemanticToken;
+use husky_token_syntax::AbsSemanticToken;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,
     CallHierarchyOutgoingCall, CallHierarchyOutgoingCallsParams, CallHierarchyPrepareParams,
@@ -126,7 +126,7 @@ pub(crate) fn handle_folding_range(
     snapshot: HuskyComptimeSnapshot,
     params: FoldingRangeParams,
 ) -> Result<Option<Vec<FoldingRange>>> {
-    use husky_token::*;
+    use husky_token_syntax::*;
     if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
         let file = snapshot.intern_file(path);
         if let Ok(tokenized_text) = snapshot.tokenized_text(file) {

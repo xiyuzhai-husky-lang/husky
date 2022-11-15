@@ -2,7 +2,7 @@ use crate::*;
 use husky_expect_test_utils::expect_test_husky_to_rust;
 use husky_symbol_syntax::SymbolTestsDb;
 
-use husky_token::Tokenize;
+use husky_token_syntax::Tokenize;
 
 #[test]
 fn it_works() {

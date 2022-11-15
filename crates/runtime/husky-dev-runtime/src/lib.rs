@@ -37,7 +37,7 @@ use variant::*;
     husky_data_viewer::HuskyDataViewerQueryGroupStorage,
     // comptime
     husky_file::FileQueryStorage,
-    husky_token::TokenQueryGroupStorage,
+    husky_token_syntax::TokenQueryGroupStorage,
     husky_entity_syntax::ScopeQueryGroupStorage,
     husky_text::TextQueryGroupStorage,
     husky_ast::AstQueryGroupStorage,

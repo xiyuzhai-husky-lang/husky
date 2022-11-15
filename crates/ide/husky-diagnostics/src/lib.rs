@@ -15,7 +15,7 @@ use husky_entity_syntax::{EntitySyntaxError, EntitySyntaxErrorKind};
 use husky_print_utils::p;
 use husky_semantics_error::{SemanticError, SemanticErrorVariant};
 use husky_text::TextRange;
-use husky_token::LexError;
+use husky_token_syntax::LexError;
 use std::fmt::Write;
 use std::sync::Arc;
 
