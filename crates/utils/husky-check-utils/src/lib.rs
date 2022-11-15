@@ -1,3 +1,7 @@
+pub mod print_utils {
+    pub use husky_print_utils::*;
+}
+
 #[macro_export]
 macro_rules! repeat_less_than {
     ($n:expr) => {
@@ -24,21 +28,21 @@ macro_rules! should_eq {
                         r#"{}{}:{}{}{}
     {}{}{} (which is {:?}){}
         != {}{}{} (which is {:?}){}"#,
-                        husky_print_utils::GREEN,
+                        husky_check_utils::print_utils::GREEN,
                         file!(),
-                        husky_print_utils::YELLOW,
+                        husky_check_utils::print_utils::YELLOW,
                         line!(),
-                        husky_print_utils::RESET,
-                        husky_print_utils::CYAN,
+                        husky_check_utils::print_utils::RESET,
+                        husky_check_utils::print_utils::CYAN,
                         stringify!($a),
-                        husky_print_utils::YELLOW,
+                        husky_check_utils::print_utils::YELLOW,
                         &*left_val,
-                        husky_print_utils::RED,
-                        husky_print_utils::CYAN,
+                        husky_check_utils::print_utils::RED,
+                        husky_check_utils::print_utils::CYAN,
                         stringify!($b),
-                        husky_print_utils::YELLOW,
+                        husky_check_utils::print_utils::YELLOW,
                         &*right_val,
-                        husky_print_utils::RESET,
+                        husky_check_utils::print_utils::RESET,
                     );
                     panic!("");
                 }
@@ -54,21 +58,21 @@ macro_rules! should_eq {
                         r#"{}{}:{}{}{}
     {}{}{} (which is {:?}){}
         != {}{}{} (which is {:?}){}"#,
-                        husky_print_utils::GREEN,
+                        husky_check_utils::print_utils::GREEN,
                         file!(),
-                        husky_print_utils::YELLOW,
+                        husky_check_utils::print_utils::YELLOW,
                         line!(),
-                        husky_print_utils::RESET,
-                        husky_print_utils::CYAN,
+                        husky_check_utils::print_utils::RESET,
+                        husky_check_utils::print_utils::CYAN,
                         stringify!($a),
-                        husky_print_utils::YELLOW,
+                        husky_check_utils::print_utils::YELLOW,
                         &*left_val,
-                        husky_print_utils::RED,
-                        husky_print_utils::CYAN,
+                        husky_check_utils::print_utils::RED,
+                        husky_check_utils::print_utils::CYAN,
                         stringify!($b),
-                        husky_print_utils::YELLOW,
+                        husky_check_utils::print_utils::YELLOW,
                         &*right_val,
-                        husky_print_utils::RESET,
+                        husky_check_utils::print_utils::RESET,
                     );
                     panic!($($msg_fmt_args),*);
                 }
@@ -99,9 +103,9 @@ macro_rules! should {
             false => {
                 panic!(
                     "{}{}{}:{} should be true, but failed",
-                    husky_print_utils::GREEN,
+                    husky_check_utils::print_utils::GREEN,
                     file!(),
-                    husky_print_utils::RESET,
+                    husky_check_utils::print_utils::RESET,
                     line!()
                 );
             }

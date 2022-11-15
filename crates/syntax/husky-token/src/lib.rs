@@ -6,7 +6,6 @@ mod raw_token_iter;
 mod scanner;
 mod semantic_token;
 mod special;
-mod stream;
 #[cfg(test)]
 mod tests;
 mod tokenized_text;
@@ -18,7 +17,6 @@ pub use kind::TokenKind;
 pub use query::*;
 pub use semantic_token::*;
 pub use special::SpecialToken;
-pub use stream::*;
 pub use tokenized_text::{TokenGroupIter, TokenizedText};
 
 use husky_opn_syntax::*;
