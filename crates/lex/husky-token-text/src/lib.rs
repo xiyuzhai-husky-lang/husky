@@ -6,7 +6,7 @@ use fold::{FoldableList, FoldingEnd};
 use husky_file::URange;
 use husky_text::TextIndent;
 use husky_token::Token;
-use husky_token_scanner::LexError;
+use husky_tokenize::LexError;
 use husky_word::WordInterner;
 use lsp_types::FoldingRange;
 use std::fmt::Write;

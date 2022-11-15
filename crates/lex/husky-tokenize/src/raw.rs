@@ -1,7 +1,8 @@
 use crate::*;
 use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;
-use husky_text::{CharIter, TextRange};
+use husky_text::{CharIter, TextIndent, TextRange};
+use husky_token::{SpecialToken, TokenKind};
 use husky_word::{Word, WordInterner};
 use std::str::FromStr;
 

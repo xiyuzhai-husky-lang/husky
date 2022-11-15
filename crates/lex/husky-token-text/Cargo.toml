@@ -12,7 +12,7 @@ salsa = "0.17.0-pre.2"
 fold = { path = "../../abstraction/fold" }
 # syntax
 husky-token = { path = "../../lex/husky-token" }
-husky-token-scanner = { path = "../../lex/husky-token-scanner" }
+husky-tokenize = { path = "../../lex/husky-tokenize" }
 husky-file = { path = "../../fs/husky-file" }
 husky-text = { path = "../../lex/husky-text" }
 husky-word = { path = "../../kernel/husky-word" }

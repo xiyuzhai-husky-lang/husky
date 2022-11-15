@@ -1,8 +1,4 @@
-mod error;
-mod raw;
-
-pub use error::*;
-
+use crate::*;
 use husky_dev_utils::dev_src;
 use husky_file::URange;
 use husky_opn_syntax::*;
@@ -11,9 +7,7 @@ use husky_token::*;
 use husky_token_line::TokenLine;
 use husky_token_storage::TokenRange;
 use husky_word::WordInterner;
-use raw::*;
 use std::{iter::Peekable, sync::Arc};
-use wild_utils::ref_to_mut_ref;
 
 #[derive(PartialEq, Eq)]
 pub struct TokenizedLine {
@@ -31,7 +25,7 @@ impl std::fmt::Debug for TokenizedLine {
     }
 }
 
-pub(crate) struct TokenScanner<'lex> {
+pub struct TokenLexer<'lex> {
     word_interner: &'lex WordInterner,
     tokens: Vec<Token>,
     tokenized_lines: Vec<TokenizedLine>,
@@ -43,8 +37,8 @@ enum TokenScannerAction {
     ReplaceLast,
 }
 
-impl<'token> TokenScanner<'token> {
-    pub(crate) fn new(word_interner: &'token WordInterner) -> Self {
+impl<'token> TokenLexer<'token> {
+    pub fn new(word_interner: &'token WordInterner) -> Self {
         Self {
             word_interner,
             tokens: vec![],
@@ -53,11 +47,11 @@ impl<'token> TokenScanner<'token> {
         }
     }
 
-    pub(crate) fn finish_with_tokens(self) -> Vec<Token> {
+    pub fn finish_with_tokens(self) -> Vec<Token> {
         self.tokens
     }
 
-    pub(crate) fn scan_line(&mut self, line_index: usize, line: &str) {
+    pub fn scan_line(&mut self, line_index: usize, line: &str) {
         let start = self.tokens.len();
         let (indent, token_iter) = RawTokenIter::new(
             self.word_interner,
@@ -144,19 +138,20 @@ impl<'token> TokenScanner<'token> {
     }
 
     fn produce_line_groups(&mut self) -> Vec<TokenLine> {
-        let mut line_groups = Vec::new();
-        line_groups.reserve_exact(self.tokenized_lines.len());
-        let mut line_iter = self
-            .tokenized_lines
-            .iter()
-            .filter(|line| line.tokens.len() > 0)
-            .peekable();
-        while let Some(first_line) = line_iter.next() {
-            line_groups.push(
-                unsafe { ref_to_mut_ref(self) }.produce_line_group(first_line, &mut line_iter),
-            );
-        }
-        line_groups
+        todo!()
+        // let mut line_groups = Vec::new();
+        // line_groups.reserve_exact(self.tokenized_lines.len());
+        // let mut line_iter = self
+        //     .tokenized_lines
+        //     .iter()
+        //     .filter(|line| line.tokens.len() > 0)
+        //     .peekable();
+        // while let Some(first_line) = line_iter.next() {
+        //     line_groups.push(
+        //         unsafe { ref_to_mut_ref(self) }.produce_line_group(first_line, &mut line_iter),
+        //     );
+        // }
+        // line_groups
     }
 
     fn produce_line_group<'a>(
@@ -248,27 +243,8 @@ impl<'token> TokenScanner<'token> {
     }
 }
 
-impl<'lex> std::fmt::Debug for TokenScanner<'lex> {
+impl<'lex> std::fmt::Debug for TokenLexer<'lex> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("TokenScanner").finish()
-    }
-}
-
-#[cfg(test)]
-mod tests {
-
-    use crate::*;
-    use husky_expect_test_utils::*;
-
-    use husky_word::WordInterner;
-
-    #[test]
-    fn it_works() {
-        expect_test_husky_to_rust("", &tokenize_debug);
-
-        fn tokenize_debug(text: &str) -> String {
-            todo!()
-            // format!("{:#?}", WordInterner::default().tokenize_line(text))
-        }
     }
 }
