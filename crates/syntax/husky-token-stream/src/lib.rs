@@ -1,7 +1,7 @@
 use husky_check_utils::should;
 use husky_opn_syntax::Bracket;
 use husky_text::{TextPosition, TextRange};
-use husky_token::{Token, TokenKind};
+use husky_token_syntax::{Token, TokenKind};
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {

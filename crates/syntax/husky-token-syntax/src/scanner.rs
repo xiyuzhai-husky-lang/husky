@@ -32,12 +32,6 @@ pub(crate) struct TokenScanner<'lex> {
     errors: Vec<LexError>,
 }
 
-impl<'lex> std::fmt::Debug for TokenScanner<'lex> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("TokenScanner").finish()
-    }
-}
-
 enum TokenScannerAction {
     Push,
     ReplaceLast,
@@ -57,7 +51,7 @@ impl<'token> TokenScanner<'token> {
         self.tokens
     }
 
-    pub(crate) fn scan(&mut self, line_index: usize, line: &str) {
+    pub(crate) fn scan_line(&mut self, line_index: usize, line: &str) {
         let start = self.tokens.len();
         let (indent, token_iter) = RawTokenIter::new(
             self.word_interner,
@@ -246,5 +240,11 @@ impl<'token> TokenScanner<'token> {
     pub(crate) fn gen_tokenized_text(mut self) -> Arc<TokenizedText> {
         let line_groups = self.produce_line_groups();
         Arc::new(TokenizedText::new(line_groups, self.tokens, self.errors))
+    }
+}
+
+impl<'lex> std::fmt::Debug for TokenScanner<'lex> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("TokenScanner").finish()
     }
 }

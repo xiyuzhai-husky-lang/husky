@@ -19,8 +19,8 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-text = { path = "../../syntax/husky-text" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-token = { path = "../../syntax/husky-token" }
-husky-token-stream = { path = "../../syntax/husky-token-stream" }
+husky-token-syntax = { path = "../../syntax/husky-token-syntax" }
+husky-token-syntax-stream = { path = "../../syntax/husky-token-syntax-stream" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

@@ -1,7 +1,7 @@
 use super::*;
 use crate::*;
 use husky_entity_kind::TyKind;
-use husky_token::*;
+use husky_token_syntax::*;
 use husky_word::*;
 
 impl<'a> AstTransformer<'a> {

@@ -1,7 +1,7 @@
 use crate::*;
 use husky_term::{EntityRoute, EntityRouteVariant};
 use husky_text::TextRanged;
-use husky_token::*;
+use husky_token_syntax::*;
 use husky_word::*;
 
 impl<'a> AstTransformer<'a> {

@@ -1,5 +1,5 @@
 use super::*;
-use husky_token::*;
+use husky_token_syntax::*;
 use husky_word::Paradigm;
 
 impl<'a> AstTransformer<'a> {

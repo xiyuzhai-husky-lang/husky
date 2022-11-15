@@ -1,5 +1,5 @@
 use crate::*;
-use husky_token::AbsSemanticToken;
+use husky_token_syntax::AbsSemanticToken;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn push_abs_semantic_token(&mut self, new_token: AbsSemanticToken) {

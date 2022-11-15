@@ -18,8 +18,8 @@ pub use husky_hover::HoverDb;
 pub use husky_linkage_table::ResolveLinkage;
 pub use husky_package_semantics::PackageQueryGroup;
 pub use husky_rust_code_gen::RustCodeGenQueryGroup;
-pub use husky_token::Tokenize;
-pub use husky_token::TokenizedTextQueryGroup;
+pub use husky_token_syntax::Tokenize;
+pub use husky_token_syntax::TokenizedTextQueryGroup;
 pub use husky_word::InternWord;
 pub use ops::ComptimeOps;
 pub use query::*;
@@ -35,7 +35,7 @@ use sync_utils::ASafeRwLock;
 
 #[salsa::database(
     husky_file::FileQueryStorage,
-    husky_token::TokenQueryGroupStorage,
+    husky_token_syntax::TokenQueryGroupStorage,
     husky_entity_syntax::ScopeQueryGroupStorage,
     husky_text::TextQueryGroupStorage,
     husky_ast::AstQueryGroupStorage,

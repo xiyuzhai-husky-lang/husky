@@ -36,7 +36,7 @@ impl<'a> AstTransformer<'a> {
             .into_iter()
             .map(
                 |(ranged_ident, token_range)| -> AstResult<(CustomIdentifier, RawExprIdx)> {
-                    self.push_abs_semantic_token(husky_token::AbsSemanticToken::new(
+                    self.push_abs_semantic_token(husky_token_syntax::AbsSemanticToken::new(
                         SemanticTokenKind::Parameter,
                         ranged_ident.range,
                     ));

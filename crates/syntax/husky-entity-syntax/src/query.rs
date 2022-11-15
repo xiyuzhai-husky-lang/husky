@@ -19,7 +19,7 @@ use fold::FoldableStorage;
 use std::{path::PathBuf, sync::Arc};
 #[salsa::query_group(ScopeQueryGroupStorage)]
 pub trait EntitySyntaxSalsaQueryGroup:
-    husky_token::TokenizedTextQueryGroup + ResolveStaticRootDefn
+    husky_token_syntax::TokenizedTextQueryGroup + ResolveStaticRootDefn
 {
     fn subroute_table(&self, entity_path: EntityPathItd) -> EntitySyntaxResultArc<SubrouteTable>;
 

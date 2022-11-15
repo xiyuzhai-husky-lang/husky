@@ -5,7 +5,7 @@ use husky_display_utils::HuskyDisplayConfig;
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
 use husky_file::FileItd;
 use husky_text::{HuskyText, TextQueryGroup};
-use husky_token::AbsSemanticToken;
+use husky_token_syntax::AbsSemanticToken;
 use idx_arena::map::ArenaKeyQuery;
 use std::fmt::Write;
 use std::sync::Arc;
