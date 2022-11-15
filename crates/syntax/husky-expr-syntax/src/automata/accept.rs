@@ -7,7 +7,7 @@ impl<'a> Automata<'a> {
 
     pub(crate) fn accept_token(&mut self, token: ResolvedToken) -> ExprSyntaxResult<()> {
         match token.kind() {
-            ResolvedTokenKind::Atom(atom) => Ok(self.accept_atom(token.to_expr(self.arena))),
+            ResolvedTokenKind::Atom(_atom) => Ok(self.accept_atom(token.to_expr(self.arena))),
             ResolvedTokenKind::BinaryOpr(opr) => self.accept_binary_opr(*opr),
             ResolvedTokenKind::Prefix(opr) => Ok(self.accept_prefix_opr(*opr, token.text_start())),
             ResolvedTokenKind::Suffix(opr) => {

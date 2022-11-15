@@ -5,7 +5,7 @@ pub trait Find<T> {
 }
 
 impl<T> Find<T> for () {
-    fn find_last(&self, f: impl Fn(&T) -> bool) -> Option<&T> {
+    fn find_last(&self, _f: impl Fn(&T) -> bool) -> Option<&T> {
         None
     }
 }

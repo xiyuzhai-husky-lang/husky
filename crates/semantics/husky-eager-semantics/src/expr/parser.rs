@@ -1,14 +1,10 @@
-use husky_entity_route::{EntityKind, EntityRouteItd};
+use husky_entity_route::EntityRouteItd;
 use husky_expr_syntax::*;
 use husky_file::FileItd;
-use husky_primitive_literal_syntax::RawLiteralData;
-use husky_term_infer::TermInferDb;
+
 use husky_text::RangedCustomIdentifier;
-use husky_vm::*;
-use husky_word::RootBuiltinIdentifier;
 
 use crate::*;
-use husky_semantics_error::{derived_unwrap, err};
 
 use super::EagerOpnVariant;
 
@@ -19,8 +15,8 @@ pub trait ParseEagerExpr<'a> {
 
     fn parse_eager_expr(
         &mut self,
-        idx: RawExprIdx,
-        opt_expectation: Option<EntityRouteItd>,
+        _idx: RawExprIdx,
+        _opt_expectation: Option<EntityRouteItd>,
     ) -> SemanticResult<Arc<EagerExpr>> {
         todo!()
         /*
@@ -191,8 +187,8 @@ pub trait ParseEagerExpr<'a> {
 
     fn parse_new_vec_from_list(
         &mut self,
-        idx: RawExprIdx,
-        opds: RawExprRange,
+        _idx: RawExprIdx,
+        _opds: RawExprRange,
     ) -> SemanticResult<EagerExprVariant> {
         todo!()
         // let intrinsic_ty = self.eager_expr_qualified_ty(idx).unwrap().intrinsic_ty();
@@ -210,12 +206,12 @@ pub trait ParseEagerExpr<'a> {
 
     fn parse_binary_opr(
         &mut self,
-        opr: BinaryOpr,
-        raw_opds: &RawExprRange,
+        _opr: BinaryOpr,
+        _raw_opds: &RawExprRange,
     ) -> SemanticResult<EagerExprVariant> {
         todo!()
         // let (lopd_opt_expectation, ropd_opt_expectation) = match opr {
-        //     BinaryOpr::Pure(PureBinaryOpr::Eq) => {
+        //     BinaryOpr::PureClosed(BinaryPureClosedOpr::Eq) => {
         //         let lopd_raw_ty = self.expr_raw_ty(raw_opds.start).unwrap();
         //         let ropd_raw_ty = self.expr_raw_ty(raw_opds.start + 1).unwrap();
         //         if lopd_raw_ty == ropd_raw_ty {
@@ -276,9 +272,9 @@ pub trait ParseEagerExpr<'a> {
 
     fn parse_field_access(
         &mut self,
-        field_ident: RangedCustomIdentifier,
-        raw_opds: &RawExprRange,
-        raw_expr_idx: RawExprIdx,
+        _field_ident: RangedCustomIdentifier,
+        _raw_opds: &RawExprRange,
+        _raw_expr_idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
         todo!()
         // let this_idx = raw_opds.start;
@@ -300,7 +296,7 @@ pub trait ParseEagerExpr<'a> {
         // })
     }
 
-    fn parse_function_call(&mut self, opds: RawExprRange) -> SemanticResult<EagerExprVariant> {
+    fn parse_function_call(&mut self, _opds: RawExprRange) -> SemanticResult<EagerExprVariant> {
         todo!()
         // let call = &self.arena()[opds.start];
         // let input_opd_idx_range = (opds.start + 1)..opds.end;
@@ -359,10 +355,10 @@ pub trait ParseEagerExpr<'a> {
 
     fn parse_method_call(
         &mut self,
-        this_idx: RawExprIdx,
-        arguments: RawExprRange,
-        method_ident: RangedCustomIdentifier,
-        idx: RawExprIdx,
+        _this_idx: RawExprIdx,
+        _arguments: RawExprRange,
+        _method_ident: RangedCustomIdentifier,
+        _idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
         todo!()
         // let this = self.parse_eager_expr(this_idx, None)?;
@@ -402,8 +398,8 @@ pub trait ParseEagerExpr<'a> {
 
     fn parse_element_access(
         &mut self,
-        opds: RawExprRange,
-        idx: RawExprIdx,
+        _opds: RawExprRange,
+        _idx: RawExprIdx,
     ) -> SemanticResult<EagerExprVariant> {
         todo!()
         // Ok(EagerExprVariant::Opn {

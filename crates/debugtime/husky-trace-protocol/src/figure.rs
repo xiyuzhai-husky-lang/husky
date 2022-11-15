@@ -61,7 +61,7 @@ impl<'a> ContainsImageLayers<'a> for &'a SpecificFigureCanvasData {
     fn image_layers(&self) -> Vec<&'a ImageLayerData> {
         match self {
             SpecificFigureCanvasData::Atom(atom) => atom.image_layers(),
-            SpecificFigureCanvasData::Mutations { mutations } => todo!(),
+            SpecificFigureCanvasData::Mutations { mutations: _ } => todo!(),
             _ => vec![],
         }
     }
@@ -70,7 +70,7 @@ impl<'a> ContainsShapes<'a> for &'a SpecificFigureCanvasData {
     fn shapes(&self) -> Vec<&'a Shape2dData> {
         match self {
             SpecificFigureCanvasData::Atom(atom) => atom.shapes(),
-            SpecificFigureCanvasData::Mutations { mutations } => todo!(),
+            SpecificFigureCanvasData::Mutations { mutations: _ } => todo!(),
             _ => vec![],
         }
     }

@@ -33,37 +33,29 @@ impl Debugtime {
                 ..
             } => self.feature_expr_generic_figure(input)?,
             TraceVariant::FuncStmt {
-                ref stmt,
-                ref history,
+                stmt: _,
+                history: _,
             } => todo!(),
             // self.func_stmt_generic_figure(stmt, history),
             TraceVariant::ProcStmt {
-                ref stmt,
-                ref history,
+                stmt: _,
+                history: _,
             } => todo!(),
             // self.proc_stmt_figure(stmt, history).into(),
             TraceVariant::EagerExpr {
-                ref expr,
-                ref history,
+                expr: _,
+                history: _,
             } => todo!(),
             // self.eager_expr_figure(expr, history).into(),
             TraceVariant::CallHead { .. } => Default::default(),
-            TraceVariant::LoopFrame {
-                ref loop_frame_data,
-                ..
-            } => todo!(),
+            TraceVariant::LoopFrame { .. } => todo!(),
             // self
             //     .loop_frame_mutations_figure(
             //         trace.raw_data.opt_parent_id.unwrap(),
             //         &loop_frame_data.mutations,
             //     )
             //     .into(),
-            TraceVariant::FuncBranch {
-                ref stmt,
-                branch_idx,
-                ref history,
-                ..
-            } => todo!(),
+            TraceVariant::FuncBranch { .. } => todo!(),
             // match history.get(stmt) {
             //     Some(HistoryEntry::ControlFlow {
             //         opt_branch_entered: branch_entered,
@@ -79,12 +71,7 @@ impl Debugtime {
             //     None => Default::default(),
             //     _ => panic!(),
             // },
-            TraceVariant::ProcBranch {
-                ref stmt,
-                branch_idx,
-                ref history,
-                ..
-            } => todo!(),
+            TraceVariant::ProcBranch { .. } => todo!(),
             // match history.get(stmt) {
             //     Some(HistoryEntry::ControlFlow {
             //         opt_branch_entered: branch_entered,
@@ -100,11 +87,7 @@ impl Debugtime {
             //     None => Default::default(),
             //     _ => panic!(),
             // },
-            TraceVariant::EagerCallArgument {
-                ref argument,
-                ref history,
-                ..
-            } => todo!(),
+            TraceVariant::EagerCallArgument { .. } => todo!(),
             //  self.eager_expr_figure(argument, history).into(),
         })
     }

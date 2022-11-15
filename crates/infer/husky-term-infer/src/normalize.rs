@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::EntityPathItd;
 use husky_expr_syntax::*;
-use husky_opn_syntax::{BinaryOpr, PureBinaryOpr, RawOpnVariant};
+use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, RawOpnVariant};
 use husky_term::TermItd;
 use husky_word::{Identifier, InternWord};
 
@@ -46,35 +46,6 @@ impl<'a> InferContext<'a> {
     }
 
     fn resolve_binary_opr(&self, opr: BinaryOpr) -> NormalizedOpnKind {
-        match opr {
-            BinaryOpr::Pure(pure_opr) => match pure_opr {
-                PureBinaryOpr::Add => NormalizedOpnKind::ApplyMethod {
-                    opt_trait_entity: Some(TraitEntity(self.term_menu().core_ops_add())),
-                    method_ident: self.it_word("add").ident(),
-                },
-                PureBinaryOpr::And => todo!(),
-                PureBinaryOpr::BitAnd => todo!(),
-                PureBinaryOpr::BitOr => todo!(),
-                PureBinaryOpr::BitXor => todo!(),
-                PureBinaryOpr::Div => todo!(),
-                PureBinaryOpr::Eq => todo!(),
-                PureBinaryOpr::Geq => todo!(),
-                PureBinaryOpr::Greater => todo!(),
-                PureBinaryOpr::Leq => todo!(),
-                PureBinaryOpr::Less => todo!(),
-                PureBinaryOpr::Mul => todo!(),
-                PureBinaryOpr::Neq => todo!(),
-                PureBinaryOpr::Or => todo!(),
-                PureBinaryOpr::RemEuclid => todo!(),
-                PureBinaryOpr::Power => todo!(),
-                PureBinaryOpr::Shl => todo!(),
-                PureBinaryOpr::Shr => todo!(),
-                PureBinaryOpr::Sub => todo!(),
-            },
-            BinaryOpr::Assign(_) => todo!(),
-            BinaryOpr::ScopeResolution => NormalizedOpnKind::ScopeResolution,
-            BinaryOpr::Curry => todo!(),
-            BinaryOpr::As => todo!(),
-        }
+        panic!("deprecated")
     }
 }

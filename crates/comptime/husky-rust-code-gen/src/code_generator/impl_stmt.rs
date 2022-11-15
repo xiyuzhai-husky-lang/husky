@@ -3,13 +3,10 @@ mod impl_loop;
 mod impl_match_pattern;
 
 use fold::Indent;
-use husky_ast::RawReturnContextKind;
-use husky_eager_semantics::{
-    Boundary, EagerExpr, EagerExprVariant, EagerOpnVariant, FuncStmt, FuncStmtVariant, LoopVariant,
-    ProcStmt, ProcStmtVariant,
-};
+
+use husky_eager_semantics::{Boundary, EagerExpr, FuncStmt, LoopVariant, ProcStmt};
 use husky_entity_route::EntityRouteItd;
-use husky_opn_semantics::EagerSuffixOpr;
+
 use husky_word::RootBuiltinIdentifier;
 
 use super::*;
@@ -27,7 +24,7 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    fn gen_func_stmt(&mut self, stmt: &FuncStmt) {
+    fn gen_func_stmt(&mut self, _stmt: &FuncStmt) {
         todo!()
         // self.indent(stmt.indent);
         // match stmt.variant {
@@ -132,7 +129,7 @@ impl<'a> RustCodeGenerator<'a> {
         // self.newline();
     }
 
-    fn gen_proc_stmt(&mut self, stmt: &ProcStmt) {
+    fn gen_proc_stmt(&mut self, _stmt: &ProcStmt) {
         todo!()
         // self.indent(stmt.indent);
         // match stmt.variant {

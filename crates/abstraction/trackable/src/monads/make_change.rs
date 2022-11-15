@@ -49,7 +49,7 @@ impl<P, T> std::ops::Try for TrackableMakeChangeM<P, T> {
 }
 
 impl<P, Q, T> std::ops::FromResidual<TrackableMakeChangeR<P>> for TrackableMakeChangeM<Q, T> {
-    fn from_residual(residual: TrackableMakeChangeR<P>) -> Self {
+    fn from_residual(_residual: TrackableMakeChangeR<P>) -> Self {
         todo!()
     }
 }

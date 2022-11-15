@@ -3,10 +3,10 @@ use crate::*;
 #[test]
 fn new_resource_works() {
     let mut symbol_registry = SymbolRegistry::default();
-    let immutable0 = symbol_registry.new_variable();
-    let lifetime1 = symbol_registry.new_lifetime();
-    let mut borrow_table = DependencyTable::default();
-    let mut time_machine = BorrowChecker::new(&borrow_table);
+    let _immutable0 = symbol_registry.new_variable();
+    let _lifetime1 = symbol_registry.new_lifetime();
+    let borrow_table = DependencyTable::default();
+    let _time_machine = BorrowChecker::new(&borrow_table);
 }
 
 #[test]

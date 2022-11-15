@@ -18,7 +18,7 @@ pub struct LinkageTableInternal {
 }
 
 impl std::fmt::Debug for LinkageTable {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
         // self.internal.read(|internal| {
         //     f.debug_struct("LinkageTable")

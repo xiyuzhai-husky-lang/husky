@@ -1,5 +1,3 @@
-use std::ops::Deref;
-
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash)]
@@ -94,7 +92,7 @@ impl<'a> TermContext<'a> {
 }
 
 impl std::fmt::Display for TermApplication {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }

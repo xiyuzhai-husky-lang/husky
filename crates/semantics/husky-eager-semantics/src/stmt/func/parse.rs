@@ -10,7 +10,7 @@ use crate::*;
 impl<'a> EagerParser<'a> {
     pub(super) fn parse_func_stmts(
         &mut self,
-        iter: AstIter,
+        _iter: AstIter,
     ) -> SemanticResultArc<Vec<Arc<FuncStmt>>> {
         todo!()
         // let mut stmts = Vec::new();
@@ -79,10 +79,10 @@ impl<'a> EagerParser<'a> {
 
     fn parse_func_condition_flow(
         &mut self,
-        stmt: &RawStmt,
-        children: AstIter,
-        iter: &mut Peekable<AstIter>,
-        condition_branch_kind: RawConditionBranchKind,
+        _stmt: &RawStmt,
+        _children: AstIter,
+        _iter: &mut Peekable<AstIter>,
+        _condition_branch_kind: RawConditionBranchKind,
     ) -> SemanticResult<FuncStmtVariant> {
         todo!()
         // let mut branches = vec![];
@@ -153,8 +153,8 @@ impl<'a> EagerParser<'a> {
 
     fn parse_func_match(
         &mut self,
-        children: AstIter,
-        match_expr: RawExprIdx,
+        _children: AstIter,
+        _match_expr: RawExprIdx,
     ) -> SemanticResult<FuncStmtVariant> {
         todo!()
         // let match_expr = self.parse_eager_expr(match_expr, None)?;

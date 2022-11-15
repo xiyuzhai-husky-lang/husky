@@ -1,6 +1,8 @@
-use std::path::PathBuf;
+mod demo;
 
 use clap::{Parser, Subcommand};
+use demo::*;
+use std::path::PathBuf;
 
 #[derive(Parser)]
 #[clap(name = "husky-developer")]
@@ -29,9 +31,19 @@ enum HuskyCommands {
         #[clap(value_parser)]
         packages_dir: PathBuf,
     },
+    /// demonstrate examples
+    Demo {
+        #[clap(subcommand)]
+        target: HuskyDemoTarget,
+    },
 }
 
 fn main() {
     let cli = HuskyCli::parse();
-    todo!()
+    match cli.command {
+        HuskyCommands::Debug { package_dir } => todo!(),
+        HuskyCommands::Test { packages_dir } => todo!(),
+        HuskyCommands::Fmt { packages_dir } => todo!(),
+        HuskyCommands::Demo { target } => demo(target),
+    }
 }

@@ -47,7 +47,7 @@ pub fn eval_fast<'temp, 'eval: 'temp>(
     opt_instrn_sheet: Option<&InstructionSheet>,
     opt_linkage: Option<__Linkage>,
     args: impl Iterator<Item = __VMResult<__Register<'eval>>>, // including this value
-    kwargs: impl Iterator<Item = (CustomIdentifier, __VMResult<__Register<'eval>>)>,
+    _kwargs: impl Iterator<Item = (CustomIdentifier, __VMResult<__Register<'eval>>)>,
     nargs: u8,
     vm_config: &'temp VMConfig,
 ) -> __VMResult<__Register<'eval>> {

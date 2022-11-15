@@ -6,7 +6,7 @@ Husky is a programming language designed for **next generation computing**, whic
 
 ## New Sheriff in Town
 
-It serves as an amazing tool with a **uniformed** and much more **ergonomic** developing experience for all the following tasks
+It serves as a 🚀blazingly fast🚀 language with a **uniformed** and much more **ergonomic** developing experience for all the following tasks
 
 - system level programming like Rust and C/C++ and Zig
 - web/native frontend development like JavaScript/TypeScript
@@ -90,7 +90,7 @@ cd husky
 then in one terminal do
 
 ```sh
-cd gui/gui/husky-tracer-gui-sycamore
+cd gui/husky-tracer-gui-sycamore
 trunk serve
 ```
 
@@ -177,3 +177,7 @@ The Husky source code is organized as follows:
 | `library/`        | source code for official library packages                          |
 | `Specs/`          | source code for language specification in Lean4                    |
 | `docs/`           | documentation                                                      |
+| `examples/`       | examples of husky                                                  |
+| `extensions/`     |                                                                    |
+| `forks/`          | forks of some 3rd party dependencies                               |
+| `gui/`            | various frontend                                                   |

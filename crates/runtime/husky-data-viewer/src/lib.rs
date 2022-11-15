@@ -29,7 +29,7 @@ pub enum HuskyDataViewer {
 }
 
 impl HuskyDataViewer {
-    pub fn print<'eval>(&self, value: &__Register<'eval>) -> String {
+    pub fn print<'eval>(&self, _value: &__Register<'eval>) -> String {
         todo!()
     }
 

@@ -3,7 +3,7 @@ use husky_entity_semantics::CallFormSource;
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_parameter(&mut self, parameter: &Parameter) {
+    pub(super) fn gen_parameter(&mut self, _parameter: &Parameter) {
         todo!()
         // self.write(&parameter.ident());
         // self.write(": ");

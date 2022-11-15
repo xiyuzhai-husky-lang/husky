@@ -39,7 +39,7 @@ impl Debugtime {
             ControlSnapshot::None => Default::default(),
             ControlSnapshot::Return(_) => todo!(),
             ControlSnapshot::Break => todo!(),
-            ControlSnapshot::Err(e) => Default::default(),
+            ControlSnapshot::Err(_e) => Default::default(),
         }
     }
 

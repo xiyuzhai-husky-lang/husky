@@ -1,13 +1,11 @@
 use super::*;
-use husky_entity_kind::FieldKind;
-use husky_entity_route::{EntityRoute, InternEntityRoute};
+
 use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
-use husky_vm::{Binding, InstructionSource, __root::__NEQ_LINKAGE};
+use husky_vm::{Binding, __root::__NEQ_LINKAGE};
 use husky_vm::{__Linkage, __root::__EQ_LINKAGE};
 use husky_vm_primitive_opr_linkage::resolve_primitive_pure_binary_opr_linkage;
 use map_collect::MapCollect;
-use thin_vec::thin_vec;
 
 impl<'a> FeatureExprBuilder<'a> {
     pub(super) fn compile_opn(
@@ -138,7 +136,7 @@ impl<'a> FeatureExprBuilder<'a> {
         &self,
         this: EntityRouteItd,
         lopd: Arc<FeatureLazyExpr>,
-        opr: PureBinaryOpr,
+        opr: BinaryPureClosedOpr,
         ropd: Arc<FeatureLazyExpr>,
     ) -> (FeatureLazyExprVariant, FeatureItd) {
         match this {
@@ -172,32 +170,33 @@ impl<'a> FeatureExprBuilder<'a> {
                     lopd: lopd.feature,
                     ropd: ropd.feature,
                 });
-                match opr {
-                    PureBinaryOpr::And | PureBinaryOpr::Or => (
-                        FeatureLazyExprVariant::ShortCircuitBinaryOpr {
-                            opr,
-                            opds: vec![lopd, ropd],
-                        },
-                        feature,
-                    ),
-                    PureBinaryOpr::Add => todo!(),
-                    PureBinaryOpr::BitAnd => todo!(),
-                    PureBinaryOpr::BitOr => todo!(),
-                    PureBinaryOpr::BitXor => todo!(),
-                    PureBinaryOpr::Div => todo!(),
-                    PureBinaryOpr::Eq => todo!(),
-                    PureBinaryOpr::Geq => todo!(),
-                    PureBinaryOpr::Greater => todo!(),
-                    PureBinaryOpr::Leq => todo!(),
-                    PureBinaryOpr::Less => todo!(),
-                    PureBinaryOpr::Mul => todo!(),
-                    PureBinaryOpr::Neq => todo!(),
-                    PureBinaryOpr::RemEuclid => todo!(),
-                    PureBinaryOpr::Power => todo!(),
-                    PureBinaryOpr::Shl => todo!(),
-                    PureBinaryOpr::Shr => todo!(),
-                    PureBinaryOpr::Sub => todo!(),
-                }
+                todo!()
+                // match opr {
+                //     BinaryShortcuitLogicOpr::And | BinaryShortcuitLogicOpr::Or => (
+                //         FeatureLazyExprVariant::ShortCircuitBinaryOpr {
+                //             opr,
+                //             opds: vec![lopd, ropd],
+                //         },
+                //         feature,
+                //     ),
+                //     BinaryPureClosedOpr::Add => todo!(),
+                //     BinaryPureClosedOpr::BitAnd => todo!(),
+                //     BinaryPureClosedOpr::BitOr => todo!(),
+                //     BinaryPureClosedOpr::BitXor => todo!(),
+                //     BinaryPureClosedOpr::Div => todo!(),
+                //     BinaryComparisonOpr::Eq => todo!(),
+                //     BinaryComparisonOpr::Geq => todo!(),
+                //     BinaryComparisonOpr::Greater => todo!(),
+                //     BinaryComparisonOpr::Leq => todo!(),
+                //     BinaryComparisonOpr::Less => todo!(),
+                //     BinaryPureClosedOpr::Mul => todo!(),
+                //     BinaryComparisonOpr::Neq => todo!(),
+                //     BinaryPureClosedOpr::RemEuclid => todo!(),
+                //     BinaryPureClosedOpr::Power => todo!(),
+                //     BinaryPureClosedOpr::Shl => todo!(),
+                //     BinaryPureClosedOpr::Shr => todo!(),
+                //     BinaryPureClosedOpr::Sub => todo!(),
+                // }
             }
             _ => self.compile_custom_binary_opn(lopd, opr, ropd),
         }
@@ -206,54 +205,55 @@ impl<'a> FeatureExprBuilder<'a> {
     fn compile_custom_binary_opn(
         &self,
         lopd: Arc<FeatureLazyExpr>,
-        opr: PureBinaryOpr,
+        opr: BinaryPureClosedOpr,
         ropd: Arc<FeatureLazyExpr>,
     ) -> (FeatureLazyExprVariant, FeatureItd) {
-        let (opt_instruction_sheet, opt_linkage) = match opr {
-            PureBinaryOpr::Eq => (None, Some(__EQ_LINKAGE)),
-            PureBinaryOpr::Neq => (None, Some(__NEQ_LINKAGE)),
-            PureBinaryOpr::Add => todo!(),
-            PureBinaryOpr::And => todo!(),
-            PureBinaryOpr::BitAnd => todo!(),
-            PureBinaryOpr::BitOr => todo!(),
-            PureBinaryOpr::BitXor => todo!(),
-            PureBinaryOpr::Div => todo!(),
-            PureBinaryOpr::Geq => todo!(),
-            PureBinaryOpr::Greater => todo!(),
-            PureBinaryOpr::Leq => todo!(),
-            PureBinaryOpr::Less => todo!(),
-            PureBinaryOpr::Mul => todo!(),
-            PureBinaryOpr::RemEuclid => todo!(),
-            PureBinaryOpr::Or => {
-                p!(lopd.expr.qualified_ty);
-                todo!()
-            }
-            PureBinaryOpr::Power => todo!(),
-            PureBinaryOpr::Shl => todo!(),
-            PureBinaryOpr::Shr => todo!(),
-            PureBinaryOpr::Sub => todo!(),
-        };
-        let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
-            opr,
-            lopd: lopd.feature,
-            ropd: ropd.feature,
-        });
-        (
-            FeatureLazyExprVariant::CustomBinaryOpr {
-                opr,
-                opds: vec![lopd, ropd],
-                opt_instruction_sheet,
-                opt_linkage,
-            },
-            feature,
-        )
+        todo!()
+        // let (opt_instruction_sheet, opt_linkage) = match opr {
+        //     BinaryComparisonOpr::Eq => (None, Some(__EQ_LINKAGE)),
+        //     BinaryComparisonOpr::Neq => (None, Some(__NEQ_LINKAGE)),
+        //     BinaryPureClosedOpr::Add => todo!(),
+        //     BinaryShortcuitLogicOpr::And => todo!(),
+        //     BinaryPureClosedOpr::BitAnd => todo!(),
+        //     BinaryPureClosedOpr::BitOr => todo!(),
+        //     BinaryPureClosedOpr::BitXor => todo!(),
+        //     BinaryPureClosedOpr::Div => todo!(),
+        //     BinaryComparisonOpr::Geq => todo!(),
+        //     BinaryComparisonOpr::Greater => todo!(),
+        //     BinaryComparisonOpr::Leq => todo!(),
+        //     BinaryComparisonOpr::Less => todo!(),
+        //     BinaryPureClosedOpr::Mul => todo!(),
+        //     BinaryPureClosedOpr::RemEuclid => todo!(),
+        //     BinaryShortcuitLogicOpr::Or => {
+        //         p!(lopd.expr.qualified_ty);
+        //         todo!()
+        //     }
+        //     BinaryPureClosedOpr::Power => todo!(),
+        //     BinaryPureClosedOpr::Shl => todo!(),
+        //     BinaryPureClosedOpr::Shr => todo!(),
+        //     BinaryPureClosedOpr::Sub => todo!(),
+        // };
+        // let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
+        //     opr,
+        //     lopd: lopd.feature,
+        //     ropd: ropd.feature,
+        // });
+        // (
+        //     FeatureLazyExprVariant::CustomBinaryOpr {
+        //         opr,
+        //         opds: vec![lopd, ropd],
+        //         opt_instruction_sheet,
+        //         opt_linkage,
+        //     },
+        //     feature,
+        // )
     }
 
     fn compile_method_call(
         &self,
-        method_ident: RangedCustomIdentifier,
-        method_route: EntityRouteItd,
-        opds: &[Arc<LazyExpr>],
+        _method_ident: RangedCustomIdentifier,
+        _method_route: EntityRouteItd,
+        _opds: &[Arc<LazyExpr>],
     ) -> (FeatureLazyExprVariant, FeatureItd) {
         todo!()
         // let opds = opds
@@ -286,9 +286,9 @@ impl<'a> FeatureExprBuilder<'a> {
 
     pub(super) fn compile_field_access(
         &self,
-        field_ident: RangedCustomIdentifier,
-        this: FeatureRepr,
-        field_binding: Binding,
+        _field_ident: RangedCustomIdentifier,
+        _this: FeatureRepr,
+        _field_binding: Binding,
     ) -> (FeatureLazyExprVariant, FeatureItd) {
         todo!()
         // let this_ty = this.ty();

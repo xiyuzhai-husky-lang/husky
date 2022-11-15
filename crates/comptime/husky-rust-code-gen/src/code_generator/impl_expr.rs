@@ -2,10 +2,10 @@ use super::*;
 use fold::Indent;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use husky_entity_kind::FieldKind;
-use husky_entity_semantics::FieldDefnVariant;
+
 use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
 use husky_primitive_literal_syntax::RawLiteralData;
-use husky_vm_binding::Binding;
+
 use husky_word::RootBuiltinIdentifier;
 
 impl<'a> RustCodeGenerator<'a> {
@@ -45,7 +45,7 @@ impl<'a> RustCodeGenerator<'a> {
             } => match opn_variant {
                 EagerOpnVariant::Binary { opr, .. } => {
                     match opr {
-                        BinaryOpr::Pure(_) => (),
+                        BinaryOpr::PureClosed(_) => (),
                         BinaryOpr::Assign(_) => match opds[0].variant {
                             EagerExprVariant::Variable { .. } => (),
                             EagerExprVariant::Opn {
@@ -60,15 +60,17 @@ impl<'a> RustCodeGenerator<'a> {
                         BinaryOpr::ScopeResolution => todo!(),
                         BinaryOpr::Curry => todo!(),
                         BinaryOpr::As => todo!(),
+                        BinaryOpr::Comparison(_) => todo!(),
+                        BinaryOpr::ShortcuitLogic(_) => todo!(),
                     }
                     self.gen_expr(indent, &opds[0]);
                     match opr {
-                        BinaryOpr::Pure(PureBinaryOpr::RemEuclid) => {
+                        BinaryOpr::PureClosed(BinaryPureClosedOpr::RemEuclid) => {
                             self.write(".rem_euclid(");
                             self.gen_expr(indent, &opds[1]);
                             self.write(")")
                         }
-                        BinaryOpr::Assign(Some(PureBinaryOpr::RemEuclid)) => todo!(),
+                        BinaryOpr::Assign(Some(BinaryPureClosedOpr::RemEuclid)) => todo!(),
                         _ => {
                             self.write(opr.spaced_code());
                             self.gen_expr(indent, &opds[1]);
@@ -96,7 +98,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.gen_expr(indent, &opds[0]);
                     self.gen_suffix_opr(opr)
                 }
-                EagerOpnVariant::RoutineCall(routine) => {
+                EagerOpnVariant::RoutineCall(_routine) => {
                     todo!()
                     // self.gen_entity_route(routine.route, EntityRouteRole::Caller);
                     // self.write("(");
@@ -130,12 +132,7 @@ impl<'a> RustCodeGenerator<'a> {
                         FieldKind::RecordProperty => todo!(),
                     }
                 }
-                EagerOpnVariant::MethodCall {
-                    method_ident,
-                    method_route,
-                    output_binding,
-                    ..
-                } => {
+                EagerOpnVariant::MethodCall { .. } => {
                     todo!()
                     // let call_form_decl = self.db.entity_call_form_decl(*method_route).unwrap();
                     // match call_form_decl.output.liason() {

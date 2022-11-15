@@ -105,11 +105,11 @@ impl<'a> RustCodeGenerator<'a> {
 
     pub(super) fn gen_proc_defn(
         &mut self,
-        indent: Indent,
-        base_route: EntityRouteItd,
-        parameters: &[Parameter],
-        output: EntityRouteItd,
-        stmts: &[Arc<ProcStmt>],
+        _indent: Indent,
+        _base_route: EntityRouteItd,
+        _parameters: &[Parameter],
+        _output: EntityRouteItd,
+        _stmts: &[Arc<ProcStmt>],
     ) {
         todo!()
         // let needs_eval_context: bool = self.db.needs_eval_context(base_route);

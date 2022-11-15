@@ -7,7 +7,7 @@ use husky_primitive_literal_semantics::{
 };
 pub use xml::*;
 
-use husky_vm::{InstructionSource, __Linkage, __Register, __RegistrableSafe, __VirtualEnum};
+use husky_vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
 
 use husky_entity_route::EntityRouteVariant;
 use husky_entity_route::{EntityRouteItd, RangedEntityRoute};
@@ -69,16 +69,16 @@ impl<'eval> Eq for FeatureLazyExpr {}
 pub enum FeatureLazyExprVariant {
     Literal(__Register<'static>),
     PrimitiveBinaryOpr {
-        opr: PureBinaryOpr,
+        opr: BinaryPureClosedOpr,
         opds: Vec<Arc<FeatureLazyExpr>>,
         linkage: __Linkage,
     },
     ShortCircuitBinaryOpr {
-        opr: PureBinaryOpr,
+        opr: BinaryPureClosedOpr,
         opds: Vec<Arc<FeatureLazyExpr>>,
     },
     CustomBinaryOpr {
-        opr: PureBinaryOpr,
+        opr: BinaryPureClosedOpr,
         opds: Vec<Arc<FeatureLazyExpr>>,
         opt_linkage: Option<__Linkage>,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
@@ -192,8 +192,15 @@ impl std::fmt::Debug for FeatureLazyExprVariant {
             }
             FeatureLazyExprVariant::BePattern { .. } => f.debug_struct("BePattern").finish(),
             FeatureLazyExprVariant::Literal(_) => todo!(),
-            FeatureLazyExprVariant::PrimitiveBinaryOpr { opr, opds, linkage } => todo!(),
-            FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr: kind, opds } => todo!(),
+            FeatureLazyExprVariant::PrimitiveBinaryOpr {
+                opr: _,
+                opds: _,
+                linkage: _,
+            } => todo!(),
+            FeatureLazyExprVariant::ShortCircuitBinaryOpr {
+                opr: _kind,
+                opds: _,
+            } => todo!(),
         }
     }
 }
@@ -218,9 +225,10 @@ impl FeatureLazyExprVariant {
             FeatureLazyExprVariant::NewVecFromList { .. } => "NewVecFromList",
             FeatureLazyExprVariant::CustomBinaryOpr { .. } => "CustomBinaryOpr",
             FeatureLazyExprVariant::BePattern { .. } => "BePattern",
-            FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr: kind, opds } => {
-                "ShortCircuitBinaryOpr"
-            }
+            FeatureLazyExprVariant::ShortCircuitBinaryOpr {
+                opr: _kind,
+                opds: _,
+            } => "ShortCircuitBinaryOpr",
         }
     }
 }

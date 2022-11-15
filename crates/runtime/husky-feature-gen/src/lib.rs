@@ -58,12 +58,12 @@ pub enum Feature {
     },
     Cascade(Vec<FeatureItd>),
     PrimitiveBinaryOpr {
-        opr: PureBinaryOpr,
+        opr: BinaryPureClosedOpr,
         lopd: FeatureItd,
         ropd: FeatureItd,
     },
     CustomBinaryOpr {
-        opr: PureBinaryOpr,
+        opr: BinaryPureClosedOpr,
         lopd: FeatureItd,
         ropd: FeatureItd,
     },

@@ -1,8 +1,7 @@
-use husky_comptime::*;
 use husky_test_utils::TestResult;
 use std::path::Path;
 
-pub(super) fn test_diagnostics(package_dir: &Path) -> TestResult {
+pub(super) fn test_diagnostics(_package_dir: &Path) -> TestResult {
     todo!()
     // test_all_source_files(
     //     package_dir,

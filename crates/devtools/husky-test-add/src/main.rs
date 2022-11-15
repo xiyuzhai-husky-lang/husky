@@ -4,8 +4,7 @@ use clap::{Parser, Subcommand};
 use husky_check_utils::should;
 use husky_cli_utils::ask::ask_user_for_permission;
 use husky_io_utils::{
-    file_sync::diff_file_sync, relative_path_pattern::RelativePathPattern, FileSyncConfig,
-    FileVisitConfig,
+    file_sync::diff_file_sync, relative_path_pattern::RelativePathPattern, FileVisitConfig,
 };
 use husky_print_utils::*;
 use std::path::{Path, PathBuf};

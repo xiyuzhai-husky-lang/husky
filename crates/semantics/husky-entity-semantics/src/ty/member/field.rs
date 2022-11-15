@@ -29,12 +29,12 @@ impl EntityDefnVariant {
     }
 
     pub(crate) fn ty_field_from_ast(
-        db: &dyn EntityDefnQueryGroup,
-        arena: &RawExprArena,
-        file: FileItd,
-        ty_route: EntityRouteItd,
-        ast: &Ast,
-        children: Option<AstIter>,
+        _db: &dyn EntityDefnQueryGroup,
+        _arena: &RawExprArena,
+        _file: FileItd,
+        _ty_route: EntityRouteItd,
+        _ast: &Ast,
+        _children: Option<AstIter>,
     ) -> SemanticResult<Self> {
         todo!()
         // match ast.variant {

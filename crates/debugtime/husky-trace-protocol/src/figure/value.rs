@@ -119,12 +119,12 @@ impl FigureCanvasValue {
         match data_itd.generic {
             GenericFigureCanvasData::Unit => FigureCanvasValue::Unit,
             GenericFigureCanvasData::Plot2d {
-                plot_kind,
-                point_groups,
-                xrange,
-                yrange,
+                plot_kind: _,
+                point_groups: _,
+                xrange: _,
+                yrange: _,
             } => todo!(),
-            GenericFigureCanvasData::Graphics2d { graphics2d_data } => todo!(),
+            GenericFigureCanvasData::Graphics2d { graphics2d_data: _ } => todo!(),
             GenericFigureCanvasData::GenericGraphics2d {
                 partitioned_samples,
             } => FigureCanvasValue::GenericGraphics2d {
@@ -177,7 +177,7 @@ impl FigureCanvasValue {
                 image_layers: vec![],
                 shapes: vec![],
             },
-            GenericFigureCanvasData::EvalError { message } => todo!(),
+            GenericFigureCanvasData::EvalError { message: _ } => todo!(),
         }
     }
 
@@ -204,7 +204,7 @@ impl FigureCanvasValue {
                     }
                 }
             }
-            SpecificFigureCanvasData::EvalError { message } => todo!(),
+            SpecificFigureCanvasData::EvalError { message: _ } => todo!(),
         }
     }
 
@@ -227,41 +227,41 @@ impl FigureCanvasValue {
     fn merge(&mut self, other: FigureCanvasValue) {
         match self {
             FigureCanvasValue::Unit => *self = other,
-            FigureCanvasValue::NonUnitPrimitive { data } => (), // ad hoc
+            FigureCanvasValue::NonUnitPrimitive { data: _ } => (), // ad hoc
             FigureCanvasValue::GenericF32 {
-                partitioned_samples,
+                partitioned_samples: _,
                 image_layers,
                 shapes,
             } => match other {
                 FigureCanvasValue::Unit => (),
-                FigureCanvasValue::NonUnitPrimitive { data } => todo!(),
+                FigureCanvasValue::NonUnitPrimitive { data: _ } => todo!(),
                 FigureCanvasValue::GenericF32 {
-                    partitioned_samples,
-                    image_layers,
-                    shapes,
+                    partitioned_samples: _,
+                    image_layers: _,
+                    shapes: _,
                 } => todo!(),
                 FigureCanvasValue::GenericI32 {
-                    partitioned_samples,
-                    image_layers,
-                    shapes,
+                    partitioned_samples: _,
+                    image_layers: _,
+                    shapes: _,
                 } => todo!(),
                 FigureCanvasValue::GenericGraphics2d { specific, .. } => {
                     image_layers.extend(specific.image_layers().into_iter());
                     shapes.extend(specific.shapes().into_iter())
                 }
-                FigureCanvasValue::Graphics2d { value } => todo!(),
+                FigureCanvasValue::Graphics2d { value: _ } => todo!(),
             },
             FigureCanvasValue::GenericI32 {
-                partitioned_samples,
-                image_layers,
-                shapes,
+                partitioned_samples: _,
+                image_layers: _,
+                shapes: _,
             } => todo!(),
             FigureCanvasValue::GenericGraphics2d {
                 partitioned_samples: partitioned_samples0,
                 specific: particular0,
             } => match other {
                 FigureCanvasValue::Unit => (),
-                FigureCanvasValue::NonUnitPrimitive { data } => todo!(),
+                FigureCanvasValue::NonUnitPrimitive { data: _ } => todo!(),
                 FigureCanvasValue::GenericF32 { .. } => (),
                 FigureCanvasValue::GenericI32 { .. } => (),
                 FigureCanvasValue::GenericGraphics2d {
@@ -286,25 +286,25 @@ impl FigureCanvasValue {
                     }
                     particular0.add(particular1)
                 }
-                FigureCanvasValue::Graphics2d { value } => todo!(),
+                FigureCanvasValue::Graphics2d { value: _ } => todo!(),
             },
             FigureCanvasValue::Graphics2d { value: value0 } => match other {
                 FigureCanvasValue::Unit => (),
-                FigureCanvasValue::NonUnitPrimitive { data } => todo!(),
+                FigureCanvasValue::NonUnitPrimitive { data: _ } => todo!(),
                 FigureCanvasValue::Graphics2d { value: value1 } => value0.add(value1),
                 FigureCanvasValue::GenericF32 {
-                    partitioned_samples,
-                    image_layers,
-                    shapes,
+                    partitioned_samples: _,
+                    image_layers: _,
+                    shapes: _,
                 } => todo!(),
                 FigureCanvasValue::GenericI32 {
-                    partitioned_samples,
-                    image_layers,
-                    shapes,
+                    partitioned_samples: _,
+                    image_layers: _,
+                    shapes: _,
                 } => todo!(),
                 FigureCanvasValue::GenericGraphics2d {
-                    partitioned_samples,
-                    specific,
+                    partitioned_samples: _,
+                    specific: _,
                 } => todo!(),
             },
         }

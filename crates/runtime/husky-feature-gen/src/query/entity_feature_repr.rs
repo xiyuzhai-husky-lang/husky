@@ -15,7 +15,7 @@ pub(super) fn entity_feature_repr(
 }
 
 impl FeatureRepr {
-    pub fn input(db: &dyn FeatureGenQueryGroup) -> Self {
+    pub fn input(_db: &dyn FeatureGenQueryGroup) -> Self {
         todo!()
         // FeatureRepr::TargetInput {
         //     ty: db.target_input_ty().unwrap(),

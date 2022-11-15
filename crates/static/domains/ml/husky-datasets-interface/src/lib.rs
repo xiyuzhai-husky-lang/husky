@@ -54,7 +54,7 @@ impl<'eval> Dataset<'eval> {
 }
 
 impl<'eval> PartialEq for Dataset<'eval> {
-    fn eq(&self, other: &Self) -> bool {
+    fn eq(&self, _other: &Self) -> bool {
         todo!()
         // self.0.__eq__(other.0.__upcast_any())
     }

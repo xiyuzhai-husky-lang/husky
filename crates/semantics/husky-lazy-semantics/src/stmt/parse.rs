@@ -1,12 +1,12 @@
 use crate::*;
 use husky_ast::*;
 use husky_entity_route::RangedEntityRoute;
-use husky_expr_syntax::{RawExprArena, RawExprVariant};
+use husky_expr_syntax::RawExprArena;
 use husky_file::FileItd;
-use husky_opn_semantics::ImplicitConversion;
+
 use husky_semantics_error::*;
 use husky_term_infer::{TermInferDb, TermSheet};
-use husky_word::{CustomIdentifier, IdentPairDict, RootBuiltinIdentifier};
+use husky_word::{CustomIdentifier, IdentPairDict};
 use husky_xml_syntax::XmlTagKind;
 use std::{iter::Peekable, sync::Arc};
 
@@ -29,8 +29,8 @@ impl<'a> LazyStmtParser<'a> {
 
     pub(super) fn parse_lazy_stmts(
         &mut self,
-        iter: AstIter,
-        output_ty: RangedEntityRoute,
+        _iter: AstIter,
+        _output_ty: RangedEntityRoute,
     ) -> SemanticResultArc<Vec<Arc<LazyStmt>>> {
         todo!()
         // let mut stmts = Vec::new();

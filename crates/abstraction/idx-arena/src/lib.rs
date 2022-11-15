@@ -8,25 +8,9 @@ use std::{
     ops::{Add, Sub},
 };
 
-#[derive(Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct IdxArena<T> {
     data: Vec<T>,
-}
-
-impl<T> Debug for IdxArena<T>
-where
-    T: Debug,
-{
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("Arena ([")?;
-        for (i, v) in self.data.iter().enumerate() {
-            f.write_fmt(format_args!("\n  #{}: {:?}", i, &v))?
-        }
-        if self.data.len() > 0 {
-            f.write_str("\n")?
-        }
-        f.write_str("])")
-    }
 }
 
 impl<T> IdxArena<T> {

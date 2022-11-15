@@ -94,7 +94,7 @@ impl From<u32> for PrimitiveValueData {
 }
 
 impl From<&f64> for PrimitiveValueData {
-    fn from(value: &f64) -> Self {
+    fn from(_value: &f64) -> Self {
         todo!()
         // Self::F64(*value)
     }

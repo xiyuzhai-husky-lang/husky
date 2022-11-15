@@ -1,4 +1,4 @@
-use crate::{ops::DebugtimeTakeChangeM, *};
+use crate::*;
 
 impl Debugtime {
     pub(crate) fn update_trace_statss(&mut self) -> DebugtimeUpdateM<()> {
@@ -37,7 +37,7 @@ impl Debugtime {
             .variant
             .opt_stats_result(self.runtime(), self.state.presentation().partitions())
             .split();
-        self.state.trace_statss.insert_new(key, opt_stats);
+        self.state.trace_statss.insert_new(key, opt_stats)?;
         self.updating_t(result)
     }
 

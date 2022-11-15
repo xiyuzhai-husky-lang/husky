@@ -53,19 +53,19 @@ impl AstVariant {
     pub(crate) fn ast_entrances(&self) -> Vec<AstEntrance> {
         match self {
             AstVariant::TypeDefnHead {
-                ident,
-                kind,
-                spatial_parameters,
+                ident: _,
+                kind: _,
+                spatial_parameters: _,
             } => vec![],
             AstVariant::MainDefnHead => vec![],
             AstVariant::CallFormDefnHead {
-                ident,
-                paradigm,
-                spatial_parameters,
+                ident: _,
+                paradigm: _,
+                spatial_parameters: _,
                 parameters,
-                return_ty,
-                output_liason,
-                opt_this_liason,
+                return_ty: _,
+                output_liason: _,
+                opt_this_liason: _,
             } => parameters
                 .iter()
                 .map(|parameter| AstEntrance::Parameter {
@@ -73,14 +73,14 @@ impl AstVariant {
                 })
                 .collect(),
             AstVariant::FeatureDefnHead {
-                paradigm,
-                ident,
-                return_ty,
+                paradigm: _,
+                ident: _,
+                return_ty: _,
             } => vec![],
             AstVariant::FieldDefnHead {
-                liason,
-                ranged_ident,
-                field_ty,
+                liason: _,
+                ranged_ident: _,
+                field_ty: _,
                 ast_field_kind,
             } => match ast_field_kind {
                 AstFieldKind::StructOriginal => vec![],
@@ -103,7 +103,7 @@ impl AstVariant {
                         frame_var,
                         initial_boundary,
                         final_boundary,
-                        step,
+                        step: _,
                     } => {
                         let mut infer_entrances = vec![];
                         if let Some(bound) = initial_boundary.opt_bound {
@@ -118,7 +118,7 @@ impl AstVariant {
                     RawLoopKind::ForExt {
                         frame_var,
                         final_boundary,
-                        step,
+                        step: _,
                     } => {
                         let mut ast_entrances = vec![];
                         ast_entrances.push(AstEntrance::FrameVar { frame_var });

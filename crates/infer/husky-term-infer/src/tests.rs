@@ -2,7 +2,7 @@ mod db;
 
 use crate::*;
 use db::*;
-use husky_expect_test_utils::expect_test;
+use husky_expect_test_utils::expect_test_husky_to_rust;
 use husky_expr_syntax::{parse_raw_expr, RawExprArena};
 use husky_print_utils::epin;
 use husky_term::TermDb;
@@ -10,7 +10,7 @@ use husky_token::*;
 
 #[test]
 fn test_decl() {
-    expect_test::<String, _>("decl", &debug_decl);
+    expect_test_husky_to_rust("decl", &debug_decl);
 
     fn debug_decl(text: &str) -> String {
         let db = TermInferTestsDb::new();

@@ -1,4 +1,4 @@
-use std::borrow::{Borrow, Cow};
+use std::borrow::Borrow;
 
 use crate::*;
 
@@ -66,7 +66,7 @@ impl TermPatternItd {
 pub struct TermPatternIdx(usize);
 
 impl TermPattern {
-    fn max_dependee_idx(&self, itr: &TermPatternInterner) -> Option<TermPatternIdx> {
+    fn max_dependee_idx(&self, _itr: &TermPatternInterner) -> Option<TermPatternIdx> {
         match self {
             TermPattern::Resolved(_) | TermPattern::Unresolved(_) => unreachable!(),
             TermPattern::Application(app) => app.m().opt_patt_idx().max(app.n().opt_patt_idx()),
@@ -82,7 +82,7 @@ impl TermPattern {
 
 impl TermPatternInterner {
     #[inline(always)]
-    pub fn it(&mut self, patt: TermPattern) -> TermPatternItd {
+    fn it(&mut self, patt: TermPattern) -> TermPatternItd {
         match patt {
             TermPattern::Resolved(term) => TermPatternItd::Resolved(term),
             TermPattern::Unresolved(term) => TermPatternItd::Unresolved(term),
@@ -90,7 +90,7 @@ impl TermPatternInterner {
         }
     }
 
-    pub fn it_unresolved(&mut self, term: UnresolvedTerm) -> UnresolvedTermIdx {
+    fn it_unresolved(&mut self, term: UnresolvedTerm) -> UnresolvedTermIdx {
         self.unresolved_registry.issue(term)
     }
 
@@ -119,6 +119,17 @@ impl TermPatternInterner {
     }
 }
 
+pub trait InternTermPattern {
+    fn term_patt_itr(&self) -> &TermPatternInterner;
+    fn term_patt_itr_mut(&mut self) -> &mut TermPatternInterner;
+    fn it(&mut self, patt: TermPattern) -> TermPatternItd {
+        self.term_patt_itr_mut().it(patt)
+    }
+    fn it_unresolved(&mut self, term: UnresolvedTerm) -> UnresolvedTermIdx {
+        self.term_patt_itr_mut().it_unresolved(term)
+    }
+}
+
 #[test]
 fn test_option_max_works() {
     assert!(None < Some(1))
@@ -127,7 +138,7 @@ fn test_option_max_works() {
 #[test]
 fn intern_works() {
     // let db = TermPatternTestsDb::new();
-    let mut interner = TermPatternInterner::default();
+    let _interner = TermPatternInterner::default();
 
     // HELP ME
 }

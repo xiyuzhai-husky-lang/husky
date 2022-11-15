@@ -1,7 +1,7 @@
 mod impl_match;
 
 use crate::{stmt::*, *};
-use husky_atom::context::{Symbol, SymbolKind};
+use husky_atom::context::Symbol;
 use husky_init_syntax::InitKind;
 use husky_text::{TextRange, TextRanged};
 use husky_token::*;
@@ -256,7 +256,7 @@ impl<'a> AstTransformer<'a> {
         })
     }
 
-    fn parse_for_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
+    fn parse_for_loop(&mut self, _token_group: &[Token]) -> AstResult<RawStmtVariant> {
         todo!()
         // expect_block_head!(token_group);
         // let expr = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
@@ -268,7 +268,7 @@ impl<'a> AstTransformer<'a> {
         //     } => match opr {
         //         RawOpnVariant::Binary(binary) => match binary {
         //             BinaryOpr::Assign(_) => todo!(),
-        //             BinaryOpr::Pure(pure_binary) => {
+        //             BinaryOpr::PureClosed(pure_binary) => {
         //                 let lopd_idx = opds.start;
         //                 let ropd_idx = opds.end - 1;
         //                 let lopd = &self.arena[lopd_idx];
@@ -317,7 +317,7 @@ impl<'a> AstTransformer<'a> {
         //                             let lropd = &self.arena[lropd_idx];
         //                             let initial_comparison = match opn_variant {
         //                                 RawOpnVariant::Binary(binary) => match binary {
-        //                                     BinaryOpr::Pure(pure_binary_opr) => pure_binary_opr,
+        //                                     BinaryOpr::PureClosed(pure_binary_opr) => pure_binary_opr,
         //                                     BinaryOpr::Assign(_) => {
         //                                         return err!(
         //                                             format!("expect comparison"),
@@ -382,14 +382,14 @@ impl<'a> AstTransformer<'a> {
         // }
     }
 
-    fn parse_forext_loop(&mut self, token_group: &[Token]) -> AstResult<RawStmtVariant> {
+    fn parse_forext_loop(&mut self, _token_group: &[Token]) -> AstResult<RawStmtVariant> {
         todo!()
         // expect_block_head!(token_group);
         // let idx = self.parse_expr(&token_group[1..(token_group.len() - 1)])?;
         // let expr = &self.arena[idx];
         // Ok(match expr.variant {
         //     RawExprVariant::Opn {
-        //         opn_variant: RawOpnVariant::Binary(BinaryOpr::Pure(comparison)),
+        //         opn_variant: RawOpnVariant::Binary(BinaryOpr::PureClosed(comparison)),
         //         ref opds,
         //     } => {
         //         let lopd_idx = opds.start;

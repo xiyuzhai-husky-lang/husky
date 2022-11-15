@@ -51,7 +51,7 @@ impl TermUniverse {
 }
 
 impl std::fmt::Display for TermUniverse {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }
@@ -62,10 +62,10 @@ impl Term {
             Term::Atom(a) => match a {
                 TermAtom::Literal(_) => todo!(),
                 TermAtom::Variable {
-                    ref variable_variant,
+                    variable_variant: _,
                 } => todo!(),
                 TermAtom::Entity { .. } => todo!(),
-                TermAtom::Category(category_kind) => todo!(),
+                TermAtom::Category(_category_kind) => todo!(),
                 TermAtom::Universe(u) => Ok(*u),
             },
             Term::Curry(_) => todo!(),

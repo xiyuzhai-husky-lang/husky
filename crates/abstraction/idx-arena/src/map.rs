@@ -47,11 +47,9 @@ where
     V: std::fmt::Debug,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("ArenaMap ([\n")?;
-        for (i, v) in self.iter() {
-            f.write_fmt(format_args!("    {}, {:#?}\n", i, v))?
-        }
-        f.write_str("])")
+        f.debug_struct("ArenaMap")
+            .field("data", &self.data)
+            .finish()
     }
 }
 
@@ -84,5 +82,13 @@ impl<T, V> ArenaMap<T, V> {
     pub fn insert_new(&mut self, idx: ArenaIdx<T>, v: V) {
         should!(self.data[idx.raw].is_none());
         self.data[idx.raw] = Some(v)
+    }
+}
+
+impl<T, V> std::ops::Index<ArenaIdx<T>> for ArenaMap<T, V> {
+    type Output = V;
+
+    fn index(&self, index: ArenaIdx<T>) -> &Self::Output {
+        self.get(index).unwrap()
     }
 }

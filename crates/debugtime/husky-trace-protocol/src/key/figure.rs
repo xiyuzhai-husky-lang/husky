@@ -1,5 +1,3 @@
-use vec_like::VecSet;
-
 use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone, Hash, PartialEq, Eq)]

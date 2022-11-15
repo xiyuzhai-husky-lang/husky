@@ -17,7 +17,7 @@ impl std::ops::Try for DebuggerHotReloadM {
 
     type Residual = DebuggerHotReloadR;
 
-    fn from_output(output: Self::Output) -> Self {
+    fn from_output(_output: Self::Output) -> Self {
         todo!()
     }
 
@@ -29,19 +29,19 @@ impl std::ops::Try for DebuggerHotReloadM {
 }
 
 impl FromResidual<DebuggerHotReloadR> for DebuggerHotReloadM {
-    fn from_residual(residual: DebuggerHotReloadR) -> Self {
+    fn from_residual(_residual: DebuggerHotReloadR) -> Self {
         todo!()
     }
 }
 
 impl FromResidual<CompileHuskyR> for DebuggerHotReloadM {
-    fn from_residual(residual: CompileHuskyR) -> Self {
+    fn from_residual(_residual: CompileHuskyR) -> Self {
         todo!()
     }
 }
 
 impl FromResidual<DevtimeHotReloadR> for DebuggerHotReloadM {
-    fn from_residual(residual: DevtimeHotReloadR) -> Self {
+    fn from_residual(_residual: DevtimeHotReloadR) -> Self {
         todo!()
     }
 }

@@ -11,8 +11,8 @@ pub trait TermPatternInferSheetQueryGroup: TermPatternInferQueryGroup + AstQuery
 }
 
 fn term_pattern_infer_sheet(
-    db: &dyn TermPatternInferSheetQueryGroup,
-    file: FileItd,
+    _db: &dyn TermPatternInferSheetQueryGroup,
+    _file: FileItd,
 ) -> FileResultArc<TermPatternInferSheet> {
     todo!()
 }

@@ -1,7 +1,7 @@
 use crate::*;
-use __husky::init::__StaticLinkageKey;
+
 use husky_file::LiveFiles;
-use husky_vm::__Linkage;
+
 use std::{fs, path::Path};
 
 pub trait ComptimeOps: FileSalsaQuery + ResolveLinkage + Sized {

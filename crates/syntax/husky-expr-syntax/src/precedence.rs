@@ -1,4 +1,3 @@
-use crate::*;
 use husky_opn_syntax::*;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
@@ -9,8 +8,8 @@ pub(crate) enum Precedence {
     Multiplicative = 16,
     Additive = 15,
     Shift = 14,
-    Compare = 13,
-    Equal = 12,
+    OrdComparison = 13,
+    EqComparison = 12,
     BitAnd = 11,
     BitXor = 10,
     BitOr = 9,
@@ -32,23 +31,27 @@ fn test_precedence_order() {
 impl From<BinaryOpr> for Precedence {
     fn from(binary: BinaryOpr) -> Self {
         match binary {
-            BinaryOpr::Pure(pure_binary) => match pure_binary {
-                PureBinaryOpr::Eq | PureBinaryOpr::Neq => Precedence::Equal,
-                PureBinaryOpr::And => Precedence::And,
-                PureBinaryOpr::BitAnd => Precedence::BitAnd,
-                PureBinaryOpr::Or => Precedence::Or,
-                PureBinaryOpr::BitOr => Precedence::BitOr,
-                PureBinaryOpr::BitXor => Precedence::BitXor,
-                PureBinaryOpr::Mul | PureBinaryOpr::Div | PureBinaryOpr::RemEuclid => {
-                    Precedence::Multiplicative
-                }
-                PureBinaryOpr::Add | PureBinaryOpr::Sub => Precedence::Additive,
-                PureBinaryOpr::Shl | PureBinaryOpr::Shr => Precedence::Shift,
-                PureBinaryOpr::Leq
-                | PureBinaryOpr::Less
-                | PureBinaryOpr::Geq
-                | PureBinaryOpr::Greater => Precedence::Compare,
-                PureBinaryOpr::Power => Precedence::Power,
+            BinaryOpr::PureClosed(pure_binary) => match pure_binary {
+                BinaryPureClosedOpr::BitAnd => Precedence::BitAnd,
+                BinaryPureClosedOpr::BitOr => Precedence::BitOr,
+                BinaryPureClosedOpr::BitXor => Precedence::BitXor,
+                BinaryPureClosedOpr::Mul
+                | BinaryPureClosedOpr::Div
+                | BinaryPureClosedOpr::RemEuclid => Precedence::Multiplicative,
+                BinaryPureClosedOpr::Add | BinaryPureClosedOpr::Sub => Precedence::Additive,
+                BinaryPureClosedOpr::Shl | BinaryPureClosedOpr::Shr => Precedence::Shift,
+                BinaryPureClosedOpr::Power => Precedence::Power,
+            },
+            BinaryOpr::Comparison(cmp_opr) => match cmp_opr {
+                BinaryComparisonOpr::Eq | BinaryComparisonOpr::Neq => Precedence::EqComparison,
+                BinaryComparisonOpr::Leq
+                | BinaryComparisonOpr::Less
+                | BinaryComparisonOpr::Geq
+                | BinaryComparisonOpr::Greater => Precedence::OrdComparison,
+            },
+            BinaryOpr::ShortcuitLogic(logic_opr) => match logic_opr {
+                BinaryShortcuitLogicOpr::And => Precedence::And,
+                BinaryShortcuitLogicOpr::Or => Precedence::Or,
             },
             BinaryOpr::Assign(_) => Precedence::None,
             BinaryOpr::ScopeResolution => Precedence::ScopeResolution,
