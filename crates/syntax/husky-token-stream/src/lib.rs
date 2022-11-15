@@ -1,6 +1,7 @@
-use crate::*;
 use husky_check_utils::should;
-use husky_text::TextPosition;
+use husky_opn_syntax::Bracket;
+use husky_text::{TextPosition, TextRange};
+use husky_token::{Token, TokenKind};
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
@@ -71,20 +72,6 @@ impl<'a> TokenStream<'a> {
             (last_token_range.end..(last_token_range.end.to_right(4))).into()
         }
     }
-
-    // pub fn pop_token_slice(&mut self) -> URange {
-    //     should!(self.start < self.next);
-    //     let start = self.start;
-    //     self.start = self.next;
-    //     start..self.next
-    // }
-
-    // pub fn pop_text_range(&mut self) -> TextRange {
-    //     should!(self.start < self.next);
-    //     let start = self.start;
-    //     self.start = self.next;
-    //     self.tokens[start..self.next].text_range()
-    // }
 
     pub fn peek_next_bra(&mut self) -> Option<Bracket> {
         if self.next < self.tokens.len() {

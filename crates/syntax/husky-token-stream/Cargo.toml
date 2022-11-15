@@ -1,0 +1,13 @@
+[package]
+name = "husky-token-stream"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+# syntax
+husky-token = { path = "../../syntax/husky-token" }
+husky-text = { path = "../../syntax/husky-text" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+# utils
+husky-check-utils = { path = "../../utils/husky-check-utils" }
