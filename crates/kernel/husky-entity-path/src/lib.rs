@@ -6,40 +6,50 @@ mod menu;
 mod package_path;
 
 pub use db::*;
+use husky_toolchain::Toolchain;
 pub use intern::*;
 pub use menu::*;
 
 use crate_path::CratePathKind;
 use husky_word::Identifier;
 use optional::Optioned;
-use package_path::PackagePath;
-
-// EntityPath examples: std::ops::Add
+use package_path::PackagePathVariant;
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-pub enum EntityPath {
+pub struct EntityPath {
+    variant: EntityPathVariant,
+    ident: Identifier,
+}
+
+#[derive(Debug, PartialEq, Eq, Hash)]
+pub enum EntityPathVariant {
     Crate {
-        package: PackagePath,
+        package: PackagePathVariant,
         kind: CratePathKind,
     },
     Childpath {
         parent: EntityPathItd,
-        ident: Identifier,
     },
 }
 
 impl EntityPath {
     pub fn root(ident: Identifier) -> Self {
-        todo!()
-        // Self {
-        //     opt_parent: Optioned::none(),
-        //     ident,
-        // }
+        Self {
+            ident,
+            variant: EntityPathVariant::Crate {
+                package: PackagePathVariant::Builtin {
+                    toolchain: Toolchain::new_ad_hoc(),
+                },
+                kind: CratePathKind::Library,
+            },
+        }
     }
 
     #[inline(always)]
     pub fn opt_parent(&self) -> Option<EntityPathItd> {
-        todo!()
-        // self.opt_parent.into_option()
+        match self.variant {
+            EntityPathVariant::Crate { .. } => None,
+            EntityPathVariant::Childpath { parent, .. } => Some(parent),
+        }
     }
 }

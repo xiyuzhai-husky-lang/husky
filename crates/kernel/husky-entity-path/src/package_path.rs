@@ -5,15 +5,9 @@ use std::path::PathBuf;
 use url::Url;
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
-pub enum PackagePath {
-    Builtin {
-        ident: Identifier,
-        toolchain: Toolchain,
-    },
-    Global {
-        ident: Identifier,
-        version: Version,
-    },
+pub enum PackagePathVariant {
+    Builtin { toolchain: Toolchain },
+    Global { version: Version },
     Local(PathBuf),
     Git(Url),
 }

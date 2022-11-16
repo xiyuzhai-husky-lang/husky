@@ -27,6 +27,10 @@ pub enum Platform {
 }
 
 impl Platform {
+    pub fn new_ad_hoc() -> Self {
+        Platform::Name("x86_64-unknown-linux-gnu".to_string())
+    }
+
     /// Returns whether the Platform matches the given target and cfg.
     ///
     /// The named target and cfg values should be obtained from `rustc`.

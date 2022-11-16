@@ -13,17 +13,12 @@ fn entity_path_menu(db: &dyn EntityPathDb) -> Arc<EntityPathMenu> {
 
 impl dyn EntityPathDb + '_ {
     pub(crate) fn it_root_entity_path(&self, ident: &str) -> EntityPathItd {
-        todo!()
-        // self.it_entity_path(EntityPath {
-        //     opt_parent: Default::default(),
-        //     ident: self.it_ident(ident),
-        // })
+        self.it_entity_path(EntityPath::root(self.it_ident(ident)))
     }
     pub(crate) fn it_child_entity_path(&self, parent: EntityPathItd, ident: &str) -> EntityPathItd {
-        todo!()
-        // self.it_entity_path(EntityPath {
-        //     opt_parent: Optioned::some(parent),
-        //     ident: self.it_ident(ident),
-        // })
+        self.it_entity_path(EntityPath {
+            ident: self.it_ident(ident),
+            variant: EntityPathVariant::Childpath { parent },
+        })
     }
 }
