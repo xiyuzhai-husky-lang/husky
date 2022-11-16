@@ -1,6 +1,6 @@
-use husky_file::PathItd;
 use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::PackageQueryGroup;
+use husky_path::PathItd;
 use husky_term::Ty;
 use husky_trace_protocol::Label;
 use husky_vm::{__Register, __RegisterDataKind};

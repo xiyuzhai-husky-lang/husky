@@ -12,7 +12,7 @@ interner = { path = "../../abstraction/interner" }
 fold = { path = "../../abstraction/fold" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-text = { path = "../../lex/husky-text" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }

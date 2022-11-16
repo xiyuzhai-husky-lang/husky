@@ -9,7 +9,7 @@ pub use xml::*;
 
 use std::sync::Arc;
 
-use husky_file::PathItd;
+use husky_path::PathItd;
 pub use opn::*;
 pub(crate) use parser::LazyExprParser;
 

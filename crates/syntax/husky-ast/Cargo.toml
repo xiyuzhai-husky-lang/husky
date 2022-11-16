@@ -28,7 +28,7 @@ idx-arena = { path = "../../abstraction/idx-arena" }
 map-collect = { path = "../../abstraction/map-collect" }
 # syntax
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
 husky-token-text = { path = "../../lex/husky-token-text" }

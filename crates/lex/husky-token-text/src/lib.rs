@@ -3,7 +3,7 @@ mod query;
 pub use query::*;
 
 use fold::{FoldableList, FoldingEnd};
-use husky_file::URange;
+use husky_path::URange;
 use husky_text::TextIndent;
 use husky_token::Token;
 use husky_tokenize::LexError;

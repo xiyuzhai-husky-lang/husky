@@ -3,18 +3,18 @@ use crate::*;
 use husky_ast::AstText;
 
 use husky_entity_semantics::EntityDefnQueryGroup;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_semantics_error::*;
 
 #[salsa::query_group(PackageQueryGroupStorage)]
 pub trait PackageQueryGroup: EntityDefnQueryGroup {
-    fn package(&self, target_entrance: husky_file::PathItd) -> SemanticResultArc<Package>;
-    fn config(&self, target_entrance: husky_file::PathItd) -> SemanticResultArc<Config>;
+    fn package(&self, target_entrance: husky_path::PathItd) -> SemanticResultArc<Package>;
+    fn config(&self, target_entrance: husky_path::PathItd) -> SemanticResultArc<Config>;
 }
 
 fn package(
     db: &dyn PackageQueryGroup,
-    target_entrance: husky_file::PathItd,
+    target_entrance: husky_path::PathItd,
 ) -> SemanticResultArc<Package> {
     todo!()
     // let module = db.module(target_entrance).unwrap();
@@ -32,7 +32,7 @@ fn package(
 
 fn config(
     this: &dyn PackageQueryGroup,
-    target_entrance: husky_file::PathItd,
+    target_entrance: husky_path::PathItd,
 ) -> SemanticResultArc<Config> {
     let ast_text = this.ast_text(target_entrance).unwrap();
     config_from_ast(this, &ast_text, target_entrance)

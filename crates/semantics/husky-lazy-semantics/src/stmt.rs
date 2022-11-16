@@ -14,7 +14,7 @@ use husky_vm::{InstructionId, InstructionSource};
 use parse::LazyStmtParser;
 
 use super::*;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_text::*;
 
 #[derive(Clone, PartialEq, Eq)]

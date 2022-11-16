@@ -1,5 +1,5 @@
 use crate::*;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_text::{FileRanged, TextRange, TextRanged};
 use husky_vm::{InstructionId, InstructionSource};
 use husky_word::IdentPairDict;

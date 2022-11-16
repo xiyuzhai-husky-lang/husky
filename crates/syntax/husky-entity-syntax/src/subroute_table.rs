@@ -8,7 +8,7 @@ use husky_token_text::TokenGroupIter;
 use crate::{error::*, *};
 use husky_dev_utils::dev_src;
 use husky_entity_kind::{EntityKind, MemberKind};
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_static_defn::*;
 use husky_term::*;
 use husky_text::{RangedCustomIdentifier, TextRanged};

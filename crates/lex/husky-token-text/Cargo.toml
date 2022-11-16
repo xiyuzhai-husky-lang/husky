@@ -13,7 +13,7 @@ fold = { path = "../../abstraction/fold" }
 # syntax
 husky-token = { path = "../../lex/husky-token" }
 husky-tokenize = { path = "../../lex/husky-tokenize" }
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-text = { path = "../../lex/husky-text" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }

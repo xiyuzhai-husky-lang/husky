@@ -15,7 +15,7 @@ use husky_entity_path::EntityPathItd;
 use husky_entity_semantics::*;
 use husky_feature_eval::EvalFeature;
 use husky_feature_gen::*;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_term::Ty;
 use husky_text::TextRange;
 use husky_trace_protocol::*;

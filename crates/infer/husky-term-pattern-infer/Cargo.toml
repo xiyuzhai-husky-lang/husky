@@ -20,7 +20,7 @@ husky-word = { path = "../../kernel/husky-word" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }

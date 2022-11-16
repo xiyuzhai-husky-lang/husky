@@ -1,5 +1,5 @@
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
-use husky_file::{InternHuskyPath, PathItd};
+use husky_path::{InternHuskyPath, PathItd};
 #[cfg(feature = "lsp_support")]
 use lsp_types::TextDocumentPositionParams;
 use serde::{Deserialize, Serialize};

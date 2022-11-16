@@ -1,5 +1,5 @@
 use husky_documentation::Documentation;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_text::TextRange;
 
 /// `NavigationTarget` represents an element in the editor's UI which you can

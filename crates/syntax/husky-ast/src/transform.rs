@@ -19,7 +19,7 @@ use crate::{
 };
 use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};
 use husky_entity_syntax::EntitySyntaxResult;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_text::TextRanged;
 use husky_token::*;
 use husky_token_text::TokenizedText;

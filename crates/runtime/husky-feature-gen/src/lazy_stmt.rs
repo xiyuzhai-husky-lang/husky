@@ -3,8 +3,8 @@ mod variant;
 use husky_term::Ty;
 pub use variant::*;
 
-use husky_file::PathItd;
 use husky_lazy_semantics::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
+use husky_path::PathItd;
 use husky_text::TextRange;
 
 use crate::{eval_id::FeatureEvalId, *};

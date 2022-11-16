@@ -1,5 +1,5 @@
 use husky_dev_utils::DevSource;
-use husky_file::FileError;
+use husky_path::FileError;
 use husky_text::TextRange;
 use std::fmt::Write;
 use std::{fmt::Formatter, sync::Arc};

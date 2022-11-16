@@ -1,7 +1,7 @@
 use husky_entity_semantics::DefinitionRepr;
-use husky_file::PathItd;
 use husky_instruction_gen::{new_func_instruction_sheet, new_proc_instruction_sheet};
 use husky_linkage_table::ResolveLinkage;
+use husky_path::PathItd;
 use husky_vm::__Register;
 
 use crate::*;

@@ -1,8 +1,8 @@
 use crate::*;
 use husky_comptime::ComptimeQueryGroup;
 use husky_entity_path::EntityPathItd;
-use husky_file::PathItd;
 use husky_package_semantics::PackageQueryGroup;
+use husky_path::PathItd;
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
 pub trait InstructionGenQueryGroup: ComptimeQueryGroup {

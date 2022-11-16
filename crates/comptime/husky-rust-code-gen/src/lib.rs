@@ -17,7 +17,7 @@ use crate::registration_content::rust_registration_rs_content;
 use contains_eval_ref::*;
 use eval_context::*;
 use husky_defn_head::*;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_term::Ty;
 
 use husky_liason_semantics::*;

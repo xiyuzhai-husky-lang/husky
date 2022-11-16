@@ -33,7 +33,7 @@ husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
 # syntax
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }

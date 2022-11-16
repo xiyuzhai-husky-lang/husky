@@ -13,5 +13,5 @@ husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-text = { path = "../../lex/husky-text" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }

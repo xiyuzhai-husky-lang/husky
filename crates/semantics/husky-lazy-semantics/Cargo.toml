@@ -15,7 +15,7 @@ fold = { path = "../../abstraction/fold" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-text = { path = "../../lex/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-token = { path = "../../lex/husky-token" }

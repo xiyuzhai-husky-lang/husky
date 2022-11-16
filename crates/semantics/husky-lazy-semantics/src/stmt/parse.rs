@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::*;
 use husky_expr_syntax::RawExprArena;
-use husky_file::PathItd;
+use husky_path::PathItd;
 
 use husky_semantics_error::*;
 use husky_term::Ty;

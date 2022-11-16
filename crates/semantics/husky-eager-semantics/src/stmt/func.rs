@@ -11,7 +11,7 @@ pub use pattern_branch::*;
 use super::parser::EagerParser;
 use super::*;
 use crate::*;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_text::RangedCustomIdentifier;
 use husky_text::TextRange;
 use husky_vm::{InstructionId, InstructionSource};

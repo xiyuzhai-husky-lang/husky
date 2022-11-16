@@ -2,7 +2,7 @@ use super::*;
 
 pub(super) fn main_feature_repr(
     db: &dyn FeatureGenQueryGroup,
-    target_entrance: husky_file::PathItd,
+    target_entrance: husky_path::PathItd,
 ) -> FeatureRepr {
     let package = db.package(target_entrance).unwrap();
     let main = &*package.main_defn;

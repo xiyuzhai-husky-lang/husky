@@ -27,7 +27,7 @@ map-collect = { path = "../../abstraction/map-collect" }
 interner = { path = "../../abstraction/interner" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-vm = { path = "../../vm/husky-vm" }
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }

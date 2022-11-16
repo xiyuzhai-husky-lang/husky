@@ -1,12 +1,12 @@
 use crate::*;
 
 use husky_dev_utils::dev_src;
-use husky_file::{FileError, FileErrorKind, FileResultArc, PathItd};
+use husky_path::{FileError, FileErrorKind, FileResultArc, PathItd};
 
 use husky_tokenize::Tokenize;
 use husky_word::InternWord;
 #[salsa::query_group(TokenQueryGroupStorage)]
-pub trait TokenizedTextQueryGroup: husky_file::FileQueryGroup + Tokenize {
+pub trait TokenizedTextQueryGroup: husky_path::FileQueryGroup + Tokenize {
     fn tokenized_text(&self, id: PathItd) -> FileResultArc<TokenizedText>;
 }
 
