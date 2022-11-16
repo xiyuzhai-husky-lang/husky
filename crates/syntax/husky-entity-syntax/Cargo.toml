@@ -12,20 +12,14 @@ salsa = "0.17.0-pre.2"
 interner = { path = "../../abstraction/interner" }
 upcast = { path = "../../abstraction/upcast" }
 fold = { path = "../../abstraction/fold" }
-# utils
-husky-test-utils = { path = "../../utils/husky-test-utils" }
-husky-display-utils = { path = "../../utils/husky-display-utils" }
-husky-path-utils = { path = "../../utils/husky-path-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
-# syntax
+# forks
+thin-vec = { path = "../../../forks/thin-vec" }
+# fs
 husky-path = { path = "../../fs/husky-path" }
+# lex
 husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
 husky-token-text = { path = "../../lex/husky-token-text" }
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
@@ -33,7 +27,15 @@ husky-term = { path = "../../kernel/husky-term" }
 # static
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
+# syntax
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 # vm
 husky-vm = { path = "../../vm/husky-vm" }
-# forks
-thin-vec = { path = "../../../forks/thin-vec" }
+# utils
+husky-test-utils = { path = "../../utils/husky-test-utils" }
+husky-display-utils = { path = "../../utils/husky-display-utils" }
+husky-path-utils = { path = "../../utils/husky-path-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
