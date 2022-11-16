@@ -1,6 +1,6 @@
 use husky_comptime::*;
 
-use husky_file::FileQueryGroup;
+use husky_path::FileQueryGroup;
 
 use crate::server::client_comm::ClientCommunicator;
 

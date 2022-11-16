@@ -17,7 +17,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 fold = { path = "../../abstraction/fold" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-token = { path = "../../lex/husky-token" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-semantics = { path = "../../semantics/husky-package-semantics" }

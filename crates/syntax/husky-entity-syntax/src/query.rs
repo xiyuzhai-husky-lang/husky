@@ -3,7 +3,7 @@ use husky_check_utils::should;
 use husky_dev_utils::dev_src;
 use husky_entity_kind::{EntityKind, MemberKind, TyKind};
 use husky_entity_path::EntityPathItd;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_path_utils::*;
 use husky_print_utils::msg_once;
 use husky_static_defn::*;

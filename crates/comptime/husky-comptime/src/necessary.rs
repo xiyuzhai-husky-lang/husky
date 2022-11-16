@@ -43,12 +43,12 @@ impl InternWord for HuskyComptime {
 }
 
 impl LiveFiles for HuskyComptime {
-    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_file::PathItd, ASafeRwLock<String>>> {
+    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_path::PathItd, ASafeRwLock<String>>> {
         &self.live_docs
     }
 
-    fn did_change_source(&mut self, id: husky_file::PathItd) {
-        husky_file::FileContentQuery.in_db_mut(self).invalidate(&id);
+    fn did_change_source(&mut self, id: husky_path::PathItd) {
+        husky_path::FileContentQuery.in_db_mut(self).invalidate(&id);
     }
 }
 

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_text::TextRange;
 use std::sync::Arc;
 

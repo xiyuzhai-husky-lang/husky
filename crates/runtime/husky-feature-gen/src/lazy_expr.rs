@@ -1,7 +1,7 @@
 mod impl_opn;
 mod xml;
 
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_primitive_literal_semantics::{
     convert_primitive_literal_to_register, convert_primitive_literal_to_value,
 };

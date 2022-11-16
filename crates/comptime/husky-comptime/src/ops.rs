@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_file::LiveFiles;
+use husky_path::LiveFiles;
 
 use std::{fs, path::Path};
 

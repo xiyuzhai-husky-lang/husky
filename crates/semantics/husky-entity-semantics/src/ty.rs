@@ -7,7 +7,7 @@ pub use type_call::*;
 
 use super::*;
 use husky_ast::*;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_print_utils::{msg_once, p};
 use husky_semantics_error::SemanticResult;
 use husky_term::Ty;

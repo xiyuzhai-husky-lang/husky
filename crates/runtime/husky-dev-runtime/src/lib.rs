@@ -20,8 +20,8 @@ use husky_entity_semantics::EntityRouteStore;
 use husky_feature_eval::*;
 use husky_feature_eval::{EvalFeature, Session};
 use husky_feature_gen::FeatureInterner;
-use husky_file::{FileQueryGroup, PathItd};
 use husky_linkage_table::LinkageTable;
+use husky_path::{FileQueryGroup, PathItd};
 use husky_print_utils::*;
 
 use indexmap::IndexMap;
@@ -36,7 +36,7 @@ use variant::*;
     husky_instruction_gen::InstructionGenQueryGroupStorage,
     husky_data_viewer::HuskyDataViewerQueryGroupStorage,
     // comptime
-    husky_file::FileQueryStorage,
+    husky_path::FileQueryStorage,
     husky_token_text::TokenQueryGroupStorage,
     husky_entity_syntax::ScopeQueryGroupStorage,
     husky_text::TextQueryGroupStorage,
@@ -54,7 +54,7 @@ pub struct DevRuntime {
     variant: HuskyRuntimeVariant,
     config: RuntimeConfig,
     // comptime
-    path_itr: Arc<husky_file::PathInterner>,
+    path_itr: Arc<husky_path::PathInterner>,
     word_interner: Arc<husky_word::WordInterner>,
     // entity_route_interner: Arc<husky_term::EntityRouteInterner>,
     live_docs: ASafeRwLock<IndexMap<PathItd, ASafeRwLock<String>>>,

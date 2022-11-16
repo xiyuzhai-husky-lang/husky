@@ -4,7 +4,7 @@ mod parser;
 use crate::*;
 use husky_entity_path::EntityPathItd;
 use husky_expr_syntax::*;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_term_infer::TermInferDb;
 pub use opn::*;

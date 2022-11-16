@@ -3,7 +3,7 @@ use std::sync::Arc;
 use crate::*;
 
 use husky_expr_syntax::*;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_term::Ty;
 
 use husky_term_infer::TermInferDb;

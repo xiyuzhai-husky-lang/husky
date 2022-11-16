@@ -36,7 +36,7 @@ husky-hover = { path = "../../ide/husky-hover" }
 # static
 husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
 # syntax
-husky-file = { path = "../../fs/husky-file", features = ["lsp_support"] }
+husky-path = { path = "../../fs/husky-path", features = ["lsp_support"] }
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
 # utils

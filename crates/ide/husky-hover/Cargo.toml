@@ -15,7 +15,7 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-text = { path = "../../lex/husky-text" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 # infer
 husky-term-infer = { path = "../../infer/husky-term-infer" }

@@ -32,7 +32,7 @@ husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-text = { path = "../../lex/husky-text" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 # utils

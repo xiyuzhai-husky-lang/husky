@@ -6,7 +6,7 @@ use husky_static_defn::ResolveStaticRootDefn;
 use upcast::Upcast;
 
 impl InternPath for DevRuntime {
-    fn path_itr(&self) -> &husky_file::PathInterner {
+    fn path_itr(&self) -> &husky_path::PathInterner {
         todo!()
     }
 }
@@ -20,12 +20,12 @@ impl InternWord for DevRuntime {
 }
 
 impl LiveFiles for DevRuntime {
-    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_file::PathItd, ASafeRwLock<String>>> {
+    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_path::PathItd, ASafeRwLock<String>>> {
         &self.live_docs
     }
 
-    fn did_change_source(&mut self, id: husky_file::PathItd) {
-        husky_file::FileContentQuery.in_db_mut(self).invalidate(&id);
+    fn did_change_source(&mut self, id: husky_path::PathItd) {
+        husky_path::FileContentQuery.in_db_mut(self).invalidate(&id);
     }
 }
 

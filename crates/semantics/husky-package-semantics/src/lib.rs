@@ -2,7 +2,7 @@ mod cfg;
 mod query;
 
 pub use cfg::*;
-use husky_file::PathItd;
+use husky_path::PathItd;
 pub use query::{PackageQueryGroup, PackageQueryGroupStorage};
 
 use std::{path::PathBuf, sync::Arc};

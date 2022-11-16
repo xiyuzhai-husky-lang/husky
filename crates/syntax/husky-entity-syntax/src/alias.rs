@@ -1,4 +1,4 @@
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_term::Ty;
 use husky_token::TokenKind;
 use husky_word::{Identifier, Keyword};

@@ -1,6 +1,6 @@
 use husky_entity_kind::{EntityKind, TyKind};
 use husky_entity_syntax::EntitySyntaxQueryGroup;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_static_defn::StaticSpatialParameter;
 use husky_text::{RangedCustomIdentifier, TextRange};
 use husky_word::CustomIdentifier;

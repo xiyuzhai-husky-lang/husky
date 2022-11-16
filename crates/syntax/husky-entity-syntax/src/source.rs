@@ -1,5 +1,5 @@
 use husky_entity_path::EntityPathItd;
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_static_defn::EntityStaticDefn;
 use husky_term::Ty;
 use husky_text::TextRange;

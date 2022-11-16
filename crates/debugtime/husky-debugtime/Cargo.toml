@@ -35,7 +35,7 @@ husky-pattern-semantics = { path = "../../semantics/husky-pattern-semantics" }
 # static
 husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
 # syntax
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-text = { path = "../../lex/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }

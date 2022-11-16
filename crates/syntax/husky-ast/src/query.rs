@@ -3,7 +3,7 @@ use fold::Transformer;
 use fold::{FoldableList, FoldableStorage};
 use husky_display_utils::HuskyDisplayConfig;
 use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
-use husky_file::PathItd;
+use husky_path::PathItd;
 use husky_text::{HuskyText, TextQueryGroup};
 use husky_token::AbsSemanticToken;
 use idx_arena::map::ArenaKeyQuery;

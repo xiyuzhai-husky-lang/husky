@@ -11,7 +11,7 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 # abstraction
 reserve = { path = "../../abstraction/reserve" }
 # fs
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 # infer
 husky-term-infer = { path = "../../infer/husky-term-infer" }
 # kernel

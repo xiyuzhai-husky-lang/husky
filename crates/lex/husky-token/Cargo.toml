@@ -12,7 +12,7 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = "0.17.0-pre.2"
 fold = { path = "../../abstraction/fold" }
-husky-file = { path = "../../fs/husky-file" }
+husky-path = { path = "../../fs/husky-path" }
 husky-text = { path = "../../lex/husky-text" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }

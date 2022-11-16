@@ -32,7 +32,7 @@ use husky_entity_syntax::EntitySource;
 use husky_expr_syntax::*;
 use husky_term::Ty;
 
-use husky_file::PathItd;
+use husky_path::PathItd;
 
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
 use husky_liason_semantics::*;
@@ -292,7 +292,7 @@ impl std::fmt::Debug for EntityDefnVariant {
 
 pub(crate) fn main_defn(
     _this: &dyn EntityDefnQueryGroup,
-    _target_entrance: husky_file::PathItd,
+    _target_entrance: husky_path::PathItd,
 ) -> SemanticResultArc<MainDefn> {
     todo!()
     // let ast_text = this.ast_text(target_entrance).unwrap();
