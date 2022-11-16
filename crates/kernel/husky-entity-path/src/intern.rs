@@ -18,14 +18,15 @@ impl std::fmt::Debug for EntityPathItd {
 
 impl std::fmt::Display for EntityPathItd {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self.opt_parent.into_option() {
-            Some(parent) => {
-                parent.fmt(f)?;
-                "::".fmt(f)?
-            }
-            None => (),
-        }
-        self.ident.fmt(f)
+        todo!()
+        // match self.opt_parent.into_option() {
+        //     Some(parent) => {
+        //         parent.fmt(f)?;
+        //         "::".fmt(f)?
+        //     }
+        //     None => (),
+        // }
+        // self.ident.fmt(f)
     }
 }
 
