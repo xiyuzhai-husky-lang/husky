@@ -15,3 +15,13 @@ pub enum Channel {
     Nightly,
     Stable,
 }
+
+impl Toolchain {
+    pub fn new_ad_hoc() -> Self {
+        Self {
+            channel: Channel::Stable,
+            date: Date::new_ad_hoc(),
+            platform: Platform::new_ad_hoc(),
+        }
+    }
+}
