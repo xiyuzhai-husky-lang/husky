@@ -19,7 +19,7 @@ It serves as a 🚀blazingly fast🚀 language with a **uniformed** and much mor
 
 But even more importantly, it is **powerful enough for many difficult tasks which haven't yet been seen as programmable at all**, including
 
-- fully explainable model image classification that is as accurate as deep learning with much better efficiency and robustness, see [vision a programming approach](impress/vision_a_programming_approach.md) for details
+- fully explainable model image classification that is as accurate as deep learning with much better efficiency and robustness, see [vision a programming approach](https://github.com/xiyuzhai-husky-lang/impress/blob/main/vision_a_programming_approach.md) for details
 - fully explainable, effective and efficient natural language processing (TBA)
 - fully explainable, effective and efficient reinforcement learning (TBA)
 - ...
