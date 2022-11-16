@@ -1,6 +1,6 @@
 use std::path::{self, Path};
 
-use crate::FileItd;
+use crate::{ModulePathItd, PathItd};
 
 fn url_from_abs_path(path: &Path) -> lsp_types::Url {
     let url = lsp_types::Url::from_file_path(path).unwrap();
@@ -34,9 +34,11 @@ fn url_from_abs_path(path: &Path) -> lsp_types::Url {
     url[driver_letter_range].make_ascii_lowercase();
     lsp_types::Url::parse(&url).unwrap()
 }
+
 #[cfg(feature = "lsp_support")]
-impl Into<lsp_types::Url> for FileItd {
+impl Into<lsp_types::Url> for ModulePathItd {
     fn into(self) -> lsp_types::Url {
-        url_from_abs_path(&self)
+        todo!()
+        // url_from_abs_path(&self)
     }
 }

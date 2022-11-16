@@ -3,7 +3,7 @@ use crate::*;
 pub fn module_defn(
     db: &dyn EntityDefnQueryGroup,
     entity_path: Ty,
-    file: FileItd,
+    file: PathItd,
 ) -> SemanticResultArc<EntityDefn> {
     todo!()
     // let opt_main_defn = if file.ends_with("main.hsy") {

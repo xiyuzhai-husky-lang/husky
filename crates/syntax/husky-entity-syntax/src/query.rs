@@ -3,7 +3,7 @@ use husky_check_utils::should;
 use husky_dev_utils::dev_src;
 use husky_entity_kind::{EntityKind, MemberKind, TyKind};
 use husky_entity_path::EntityPathItd;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_path_utils::*;
 use husky_print_utils::msg_once;
 use husky_static_defn::*;
@@ -204,7 +204,7 @@ pub trait EntitySyntaxQueryGroup:
         //     .collect()
     }
 
-    fn all_source_files(&self) -> Vec<FileItd>
+    fn all_source_files(&self) -> Vec<PathItd>
     where
         Self: Sized,
     {
@@ -220,7 +220,7 @@ pub trait EntitySyntaxQueryGroup:
         // self.all_modules().into_iter()
     }
 
-    fn collect_modules(&self, file: FileItd) -> Vec<EntityPathItd> {
+    fn collect_modules(&self, file: PathItd) -> Vec<EntityPathItd> {
         if let Ok(module) = self.module(file) {
             let mut modules = vec![module];
             self.subroute_table(module).ok().map(|table| {
@@ -241,15 +241,15 @@ pub trait EntitySyntaxQueryGroup:
         }
     }
 
-    fn collect_source_files(&self, target_entrance: FileItd) -> Vec<FileItd> {
+    fn collect_source_files(&self, target_entrance: PathItd) -> Vec<PathItd> {
         should!(target_entrance.ends_with("main.hsy"));
         collect_all_source_files(target_entrance.parent().unwrap().to_path_buf())
             .into_iter()
-            .map(|path| self.intern_file(path))
+            .map(|path| self.intern_path(path))
             .collect()
     }
 
-    fn module(&self, file: FileItd) -> EntitySyntaxResult<EntityPathItd> {
+    fn module(&self, file: PathItd) -> EntitySyntaxResult<EntityPathItd> {
         let path: PathBuf = file.to_path_buf();
         if !self.file_exists(file) {
             Err(derived_error!(format!("file doesn't exist")))?
@@ -305,7 +305,7 @@ pub trait EntitySyntaxQueryGroup:
         }
     }
 
-    fn module_file(&self, module: Ty) -> EntitySyntaxResult<FileItd> {
+    fn module_file(&self, module: Ty) -> EntitySyntaxResult<PathItd> {
         todo!()
         // Ok(match self.entity_source(module)? {
         //     EntitySource::StaticModuleItem(_) => panic!(),

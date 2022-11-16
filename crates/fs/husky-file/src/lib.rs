@@ -7,7 +7,8 @@ mod query;
 mod utils;
 
 pub use error::*;
-pub use intern::{new_file_interner, FileInterner, FileItd, InternFile};
+pub use intern::InternHuskyPath;
+pub use interner::path::{InternPath, PathInterner, PathItd};
 pub use query::{FileContentQuery, FileQueryGroup, FileQueryStorage, FileSalsaQuery, LiveFiles};
 pub type URange = std::ops::Range<usize>;
 
@@ -35,5 +36,14 @@ impl FileContent {
             FileContent::Live(s) => Some(&s),
             FileContent::Deleted | FileContent::NonExistent => None,
         }
+    }
+}
+
+pub struct ModulePathItd(PathItd);
+
+impl ModulePathItd {
+    fn new(path: PathItd) -> Option<Self> {
+        todo!();
+        Some(ModulePathItd(path))
     }
 }

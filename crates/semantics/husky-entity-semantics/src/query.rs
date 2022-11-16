@@ -10,7 +10,7 @@ use utils::module_contains_features;
 
 #[salsa::query_group(EntityQueryGroupStorage)]
 pub trait EntityDefnQueryGroup: husky_ast::AstQueryGroup + StoreEntityRoute {
-    fn main_defn(&self, target_entrance: husky_file::FileItd) -> SemanticResultArc<MainDefn>;
+    fn main_defn(&self, target_entrance: husky_file::PathItd) -> SemanticResultArc<MainDefn>;
     fn entity_defn(&self, entity_path: EntityPathItd) -> SemanticResultArc<EntityDefn>;
     fn member_defn(&self, entity_path: EntityPathItd) -> Arc<EntityDefn>;
     fn entity_immediate_dependees(&self, entity_path: Ty) -> SemanticResultArc<DependeeMap>;

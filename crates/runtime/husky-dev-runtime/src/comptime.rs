@@ -5,11 +5,13 @@ use husky_linkage_table::LinkageTable;
 use husky_static_defn::ResolveStaticRootDefn;
 use upcast::Upcast;
 
-impl InternFile for DevRuntime {
-    fn file_interner(&self) -> &husky_file::FileInterner {
-        &self.file_interner
+impl InternPath for DevRuntime {
+    fn path_itr(&self) -> &husky_file::PathInterner {
+        todo!()
     }
 }
+
+impl InternHuskyPath for DevRuntime {}
 
 impl InternWord for DevRuntime {
     fn word_itr(&self) -> &husky_word::WordInterner {
@@ -18,11 +20,11 @@ impl InternWord for DevRuntime {
 }
 
 impl LiveFiles for DevRuntime {
-    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_file::FileItd, ASafeRwLock<String>>> {
+    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_file::PathItd, ASafeRwLock<String>>> {
         &self.live_docs
     }
 
-    fn did_change_source(&mut self, id: husky_file::FileItd) {
+    fn did_change_source(&mut self, id: husky_file::PathItd) {
         husky_file::FileContentQuery.in_db_mut(self).invalidate(&id);
     }
 }

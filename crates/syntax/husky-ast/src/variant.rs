@@ -40,7 +40,7 @@ pub enum AstVariant {
     },
     Submodule {
         ident: RangedCustomIdentifier,
-        source_file: FileItd,
+        source_file: PathItd,
     },
     Visual,
 }

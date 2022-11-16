@@ -23,7 +23,7 @@ use husky_eager_semantics::*;
 use husky_entity_semantics::*;
 use husky_feature_eval::EvalFeature;
 use husky_feature_gen::*;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_init_syntax::*;
 use husky_loop_syntax::*;
 use husky_opn_syntax::*;

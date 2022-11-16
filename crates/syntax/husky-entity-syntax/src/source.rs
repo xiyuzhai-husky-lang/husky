@@ -1,5 +1,5 @@
 use husky_entity_path::EntityPathItd;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_static_defn::EntityStaticDefn;
 use husky_term::Ty;
 use husky_text::TextRange;
@@ -14,27 +14,27 @@ pub enum EntitySource {
     StaticTypeAsTraitMember,
     WithinBuiltinModule,
     WithinModule {
-        file: FileItd,
+        file: PathItd,
         token_group_index: usize, // None means the whole file
     },
     Module {
-        file: FileItd,
+        file: PathItd,
     },
     TargetInput,
     Any {
         ident: CustomIdentifier,
-        file: FileItd,
+        file: PathItd,
         range: TextRange,
         entity_path: EntityPathItd,
     },
     ThisType {
-        file: FileItd,
+        file: PathItd,
         range: TextRange,
     },
 }
 
 impl EntitySource {
-    pub fn from_file(file_id: FileItd, token_group_index: usize) -> EntitySource {
+    pub fn from_file(file_id: PathItd, token_group_index: usize) -> EntitySource {
         EntitySource::WithinModule {
             file: file_id,
             token_group_index,

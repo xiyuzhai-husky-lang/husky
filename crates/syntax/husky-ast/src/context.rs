@@ -4,7 +4,7 @@ use husky_entity_syntax::EntitySyntaxQueryGroup;
 pub use struct_item_context::*;
 
 use crate::*;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_word::Paradigm;
 use thin_vec::thin_vec;
 
@@ -34,7 +34,7 @@ pub enum RawReturnContextKind {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum AstContext {
-    Package(FileItd),
+    Package(PathItd),
     Module(Ty),
     Stmt {
         paradigm: Paradigm,

@@ -21,7 +21,7 @@ use parser::EagerParser;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ProcStmt {
     pub variant: ProcStmtVariant,
-    pub file: FileItd,
+    pub file: PathItd,
     pub range: TextRange,
     pub indent: Indent,
     pub instruction_id: InstructionId,
@@ -34,7 +34,7 @@ impl TextRanged for ProcStmt {
 }
 
 impl FileRanged for ProcStmt {
-    fn file(&self) -> FileItd {
+    fn file(&self) -> PathItd {
         self.file
     }
 }
@@ -80,7 +80,7 @@ pub fn parse_proc_stmts(
     db: &dyn TermInferDb,
     arena: &RawExprArena,
     iter: AstIter,
-    file: FileItd,
+    file: PathItd,
 ) -> SemanticResultArc<Vec<Arc<ProcStmt>>> {
     EagerParser::new(db, arena, file).parse_proc_stmts(iter)
 }

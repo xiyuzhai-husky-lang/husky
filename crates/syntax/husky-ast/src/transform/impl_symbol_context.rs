@@ -3,7 +3,7 @@ use husky_atom::context::{AtomContext, AtomContextKind, Symbol};
 use husky_token::AbsSemanticToken;
 
 impl<'a> AtomContext<'a> for AstTransformer<'a> {
-    fn opt_target_entrance(&self) -> Option<FileItd> {
+    fn opt_target_entrance(&self) -> Option<PathItd> {
         Some(self.main)
     }
 
@@ -58,7 +58,7 @@ impl<'a> AtomContext<'a> for AstTransformer<'a> {
         self.symbols.push(new_symbol)
     }
 
-    fn file(&self) -> FileItd {
+    fn file(&self) -> PathItd {
         todo!()
     }
 }

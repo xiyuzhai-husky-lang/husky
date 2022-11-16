@@ -1,7 +1,7 @@
 mod impl_opn;
 mod xml;
 
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_primitive_literal_semantics::{
     convert_primitive_literal_to_register, convert_primitive_literal_to_value,
 };
@@ -34,7 +34,7 @@ impl TextRanged for FeatureLazyExpr {
 }
 
 impl FileRanged for FeatureLazyExpr {
-    fn file(&self) -> FileItd {
+    fn file(&self) -> PathItd {
         self.expr.file
     }
 }

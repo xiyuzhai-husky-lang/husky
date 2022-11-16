@@ -12,7 +12,7 @@ pub use husky_completion::HuskyCompletionQuery;
 pub use husky_diagnostics::DiagnosticSalsaQuery;
 pub use husky_entity_semantics::EntityDefnQueryGroup;
 pub use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};
-pub use husky_file::{FileQueryGroup, FileSalsaQuery, InternFile, LiveFiles};
+pub use husky_file::{FileQueryGroup, FileSalsaQuery, InternHuskyPath, InternPath, LiveFiles};
 pub use husky_fmt::FmtQuery;
 pub use husky_hover::HoverDb;
 pub use husky_linkage_table::ResolveLinkage;
@@ -25,7 +25,7 @@ pub use query::*;
 
 use husky_check_utils::*;
 use husky_entity_semantics::EntityRouteStore;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_linkage_table::LinkageTable;
 use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 use indexmap::IndexMap;
@@ -47,10 +47,10 @@ use sync_utils::ASafeRwLock;
 )]
 pub struct HuskyComptime {
     storage: salsa::Storage<HuskyComptime>,
-    file_interner: Arc<husky_file::FileInterner>,
+    file_interner: Arc<husky_file::PathInterner>,
     word_interner: Arc<husky_word::WordInterner>,
     // entity_route_interner: Arc<husky_term::EntityRouteInterner>,
-    live_docs: ASafeRwLock<IndexMap<FileItd, ASafeRwLock<String>>>,
+    live_docs: ASafeRwLock<IndexMap<PathItd, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
     config: ComptimeConfig,
@@ -68,7 +68,7 @@ impl HuskyComptime {
             config,
             // entity_route_interner: Default::default(),
         };
-        let target_entrance = comptime.intern_file(comptime.config.package_dir.join("main.hsy"));
+        let target_entrance = comptime.intern_path(comptime.config.package_dir.join("main.hsy"));
         comptime.set_opt_target_entrance(Some(target_entrance));
         comptime
     }

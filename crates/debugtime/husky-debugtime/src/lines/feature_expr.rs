@@ -212,7 +212,7 @@ impl<'a> TraceLineGenerator<'a> {
 
     fn feature_entity_call_tokens(
         &mut self,
-        file: FileItd,
+        file: PathItd,
         ranged_scope: Ty,
         inputs: &[Arc<FeatureLazyExpr>],
         opt_associated_trace_id: Option<TraceId>,

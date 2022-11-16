@@ -128,7 +128,7 @@ pub(crate) fn handle_folding_range(
 ) -> Result<Option<Vec<FoldingRange>>> {
     use husky_token::*;
     if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
-        let file = snapshot.intern_file(path);
+        let file = snapshot.intern_path(path);
         if let Ok(tokenized_text) = snapshot.tokenized_text(file) {
             return Ok(Some(tokenized_text.folding_ranges()));
         }
@@ -280,7 +280,7 @@ pub(crate) fn handle_semantic_tokens_full(
     snapshot: HuskyComptimeSnapshot,
     params: SemanticTokensParams,
 ) -> Result<Option<SemanticTokensResult>> {
-    let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
+    let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
         &params.text_document.uri,
     )?);
     let ast_text = match snapshot.ast_text(file) {
@@ -299,7 +299,7 @@ pub(crate) fn handle_semantic_tokens_full_delta(
     params: SemanticTokensDeltaParams,
 ) -> Result<Option<SemanticTokensFullDeltaResult>> {
     msg_once!("todo handle semantic tokens full delta");
-    let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
+    let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
         &params.text_document.uri,
     )?);
     let ast_text = match snapshot.ast_text(file) {
@@ -318,7 +318,7 @@ pub(crate) fn handle_semantic_tokens_range(
     snapshot: HuskyComptimeSnapshot,
     params: SemanticTokensRangeParams,
 ) -> Result<Option<SemanticTokensRangeResult>> {
-    let file = snapshot.intern_file(convert::from_lsp_types::path_from_url(
+    let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
         &params.text_document.uri,
     )?);
     let ast_text = match snapshot.ast_text(file) {

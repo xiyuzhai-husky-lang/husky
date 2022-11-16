@@ -14,12 +14,12 @@ use husky_vm::{InstructionId, InstructionSource};
 use parse::LazyStmtParser;
 
 use super::*;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_text::*;
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct LazyStmt {
-    pub file: FileItd,
+    pub file: PathItd,
     pub range: TextRange,
     pub indent: fold::Indent,
     pub variant: LazyStmtVariant,
@@ -41,7 +41,7 @@ impl TextRanged for LazyStmt {
     }
 }
 impl FileRanged for LazyStmt {
-    fn file(&self) -> FileItd {
+    fn file(&self) -> PathItd {
         self.file
     }
 }
@@ -104,7 +104,7 @@ pub fn parse_lazy_stmts(
     db: &dyn TermInferDb,
     arena: &RawExprArena,
     iter: AstIter,
-    file: FileItd,
+    file: PathItd,
 ) -> SemanticResultArc<Vec<Arc<LazyStmt>>> {
     LazyStmtParser::new(db, arena, file).parse_lazy_stmts(iter, todo!())
 }

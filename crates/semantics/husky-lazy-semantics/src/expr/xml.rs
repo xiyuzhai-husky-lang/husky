@@ -1,5 +1,5 @@
 use crate::*;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_text::{FileRanged, TextRange, TextRanged};
 use husky_vm::{InstructionId, InstructionSource};
 use husky_word::IdentPairDict;
@@ -10,7 +10,7 @@ use std::sync::Arc;
 pub struct XmlExpr {
     pub variant: XmlExprVariant,
     pub range: TextRange,
-    pub file: FileItd,
+    pub file: PathItd,
     pub instruction_id: InstructionId,
 }
 
@@ -20,7 +20,7 @@ impl TextRanged for XmlExpr {
     }
 }
 impl FileRanged for XmlExpr {
-    fn file(&self) -> FileItd {
+    fn file(&self) -> PathItd {
         self.file
     }
 }

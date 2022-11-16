@@ -20,6 +20,7 @@ salsa = "0.17.0-pre.2"
 # abstraction
 upcast = { path = "../../abstraction/upcast" }
 fold = { path = "../../abstraction/fold" }
+interner = { path = "../../abstraction/interner" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

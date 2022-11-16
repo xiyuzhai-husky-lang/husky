@@ -338,11 +338,11 @@ impl<'a> ParseEagerExpr<'a> for EagerParser<'a> {
         todo!()
     }
 
-    fn file(&self) -> FileItd {
+    fn file(&self) -> PathItd {
         todo!()
     }
 
-    fn target_entrance(&self) -> FileItd {
+    fn target_entrance(&self) -> PathItd {
         todo!()
     }
 }

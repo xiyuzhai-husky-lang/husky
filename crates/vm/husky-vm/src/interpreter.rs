@@ -1,7 +1,7 @@
 mod exec;
 mod query;
 
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_print_utils::ps;
 use husky_term::Ty;
 use husky_text::TextRange;
@@ -18,7 +18,7 @@ pub struct Interpreter<'a, 'eval: 'a> {
     pub(crate) history: History<'eval>,
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
-    variable_mutations: IndexMap<VMStackIdx, (Identifier, FileItd, TextRange, Ty)>,
+    variable_mutations: IndexMap<VMStackIdx, (Identifier, PathItd, TextRange, Ty)>,
     vm_config: &'a VMConfig,
 }
 
@@ -112,7 +112,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         stack_idx: VMStackIdx,
         varname: Identifier,
-        file: FileItd,
+        file: PathItd,
         range: TextRange,
         ty: Ty,
     ) {

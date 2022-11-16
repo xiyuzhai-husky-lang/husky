@@ -1,5 +1,5 @@
 use husky_expr_syntax::*;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_term::Ty;
 
 use husky_text::RangedCustomIdentifier;
@@ -10,8 +10,8 @@ use super::EagerOpnVariant;
 
 pub trait ParseEagerExpr<'a> {
     fn arena(&self) -> &'a RawExprArena;
-    fn file(&self) -> FileItd;
-    fn target_entrance(&self) -> FileItd;
+    fn file(&self) -> PathItd;
+    fn target_entrance(&self) -> PathItd;
 
     fn parse_eager_expr(
         &mut self,
