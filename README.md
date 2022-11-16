@@ -81,10 +81,6 @@ Make sure rust toolchains are installed. To install vscode extension, npm is als
 
 TODO
 
-### Run Examples
-
-TODO
-
 What will probably work is,
 
 ```sh
