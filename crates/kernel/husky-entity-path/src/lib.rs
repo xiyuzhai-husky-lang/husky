@@ -3,12 +3,17 @@ mod display;
 mod intern;
 mod menu;
 
+use std::path::PathBuf;
+
 pub use db::*;
+use husky_platform::Platform;
 pub use menu::*;
 
 use husky_word::Identifier;
 pub use intern::*;
 use optional::Optioned;
+use semver::Version;
+use url::Url;
 
 // EntityPath examples: std::ops::Add
 
@@ -30,15 +35,18 @@ pub enum CratePathKind {
     Binary(Identifier),
 }
 
-#[derive(Debug, PartialEq, Eq, Hash)]
-pub struct PackagePath {
-    version: (),
-    kind: PackagePathKind,
-}
-
-#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
-pub enum PackagePathKind {
-    Builtin,
+#[derive(Debug, PartialEq, Eq, Hash, Clone)]
+pub enum PackagePath {
+    Builtin {
+        ident: Identifier,
+        platform: Platform,
+    },
+    Global {
+        ident: Identifier,
+        version: Version,
+    },
+    Local(PathBuf),
+    Git(Url),
 }
 
 impl EntityPath {
