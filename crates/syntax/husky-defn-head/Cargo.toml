@@ -14,12 +14,11 @@ interner = { path = "../../abstraction/interner" }
 upcast = { path = "../../abstraction/upcast" }
 vec-like = { path = "../../abstraction/vec-like" }
 fold = { path = "../../abstraction/fold" }
-# syntax
+# fs
 husky-path = { path = "../../fs/husky-path" }
+# lex
 husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
-husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
-husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
@@ -27,6 +26,9 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-static-defn = { path = "../../static/husky-static-defn" }
 # semantics
 husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
+# syntax
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
 # utils
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
