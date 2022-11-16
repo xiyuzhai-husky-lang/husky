@@ -1,4 +1,4 @@
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_term::Ty;
 use husky_text::TextRange;
 use husky_word::Identifier;
@@ -7,7 +7,7 @@ use crate::*;
 
 #[derive(Debug)]
 pub struct MutationData<'eval> {
-    pub file: FileItd,
+    pub file: PathItd,
     pub range: TextRange,
     pub kind: MutationDataVariant,
     pub ty: Ty,

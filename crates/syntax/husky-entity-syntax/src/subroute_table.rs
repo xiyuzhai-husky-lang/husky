@@ -8,7 +8,7 @@ use husky_token_text::TokenGroupIter;
 use crate::{error::*, *};
 use husky_dev_utils::dev_src;
 use husky_entity_kind::{EntityKind, MemberKind};
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_static_defn::*;
 use husky_term::*;
 use husky_text::{RangedCustomIdentifier, TextRanged};
@@ -72,7 +72,7 @@ impl SubrouteTable {
 
     pub fn parse(
         db: &dyn EntitySyntaxSalsaQueryGroup,
-        file: FileItd,
+        file: PathItd,
         entity_path: EntityPathItd,
         husky_entity_kind: EntityKind,
         token_groups: TokenGroupIter,

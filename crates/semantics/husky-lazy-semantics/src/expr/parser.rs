@@ -3,7 +3,7 @@ use std::sync::Arc;
 use crate::*;
 
 use husky_expr_syntax::*;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_term::Ty;
 
 use husky_term_infer::TermInferDb;
@@ -17,7 +17,7 @@ use husky_semantics_error::*;
 
 pub trait LazyExprParser<'a> {
     fn arena(&self) -> &'a RawExprArena;
-    fn file(&self) -> FileItd;
+    fn file(&self) -> PathItd;
     fn db(&self) -> &dyn TermInferDb;
 
     fn parse_lazy_expr(

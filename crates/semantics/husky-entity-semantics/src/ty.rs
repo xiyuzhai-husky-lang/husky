@@ -7,7 +7,7 @@ pub use type_call::*;
 
 use super::*;
 use husky_ast::*;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_print_utils::{msg_once, p};
 use husky_semantics_error::SemanticResult;
 use husky_term::Ty;
@@ -23,7 +23,7 @@ impl EntityDefnVariant {
         head: &Ast,
         children: AstIter,
         arena: &RawExprArena,
-        file: FileItd,
+        file: PathItd,
     ) -> SemanticResult<EntityDefnVariant> {
         todo!();
         // let (kind, generic_parameters) = match head.variant {
@@ -160,7 +160,7 @@ impl EntityDefnVariant {
 
     fn collect_variants(
         db: &dyn EntityDefnQueryGroup,
-        file: FileItd,
+        file: PathItd,
         ty_route: Ty,
         children: &mut Peekable<AstIter>,
     ) -> SemanticResult<IdentDict<Arc<EntityDefn>>> {
@@ -202,7 +202,7 @@ impl EntityDefnVariant {
     fn visualizer_from_ast(
         _db: &dyn EntityDefnQueryGroup,
         _arena: &RawExprArena,
-        _file: FileItd,
+        _file: PathItd,
         _ty_route: Ty,
         _children: &mut Peekable<AstIter>,
     ) -> Arc<Visualizer> {

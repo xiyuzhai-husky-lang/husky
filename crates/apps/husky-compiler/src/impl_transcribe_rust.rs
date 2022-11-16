@@ -145,7 +145,7 @@ debug = 1
         &self,
         comptime: &HuskyComptime,
         husky_code_snapshot_path: &Path,
-        target_entrance: FileItd,
+        target_entrance: PathItd,
     ) {
         diff_write(
             husky_code_snapshot_path,

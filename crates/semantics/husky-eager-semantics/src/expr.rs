@@ -4,7 +4,7 @@ mod parser;
 use crate::*;
 use husky_entity_path::EntityPathItd;
 use husky_expr_syntax::*;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_term_infer::TermInferDb;
 pub use opn::*;
@@ -19,7 +19,7 @@ use husky_word::CustomIdentifier;
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct EagerExpr {
-    pub file: FileItd,
+    pub file: PathItd,
     pub range: TextRange,
     pub qualified_ty: (),
     pub implicit_conversion: ImplicitConversion,
@@ -52,7 +52,7 @@ impl TextRanged for EagerExpr {
     }
 }
 impl FileRanged for EagerExpr {
-    fn file(&self) -> FileItd {
+    fn file(&self) -> PathItd {
         self.file
     }
 }
@@ -144,7 +144,7 @@ impl std::fmt::Debug for EagerExprVariant {
 pub fn parse_eager_expr(
     _db: &dyn TermInferDb,
     _arena: &RawExprArena,
-    _file: FileItd,
+    _file: PathItd,
     _raw_expr_idx: RawExprIdx,
 ) -> SemanticResultArc<EagerExpr> {
     todo!()

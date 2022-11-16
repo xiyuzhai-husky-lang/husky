@@ -2,7 +2,7 @@ mod cfg;
 mod query;
 
 pub use cfg::*;
-use husky_file::FileItd;
+use husky_file::PathItd;
 pub use query::{PackageQueryGroup, PackageQueryGroupStorage};
 
 use std::{path::PathBuf, sync::Arc};
@@ -23,7 +23,7 @@ impl Package {
         self.main_defn.file.parent().unwrap().to_owned()
     }
 
-    pub fn target_entrance(&self) -> FileItd {
+    pub fn target_entrance(&self) -> PathItd {
         self.main_defn.file
     }
 }

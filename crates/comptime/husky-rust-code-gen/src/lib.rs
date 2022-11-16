@@ -17,7 +17,7 @@ use crate::registration_content::rust_registration_rs_content;
 use contains_eval_ref::*;
 use eval_context::*;
 use husky_defn_head::*;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_term::Ty;
 
 use husky_liason_semantics::*;
@@ -37,9 +37,9 @@ use vec_like::VecSet;
 
 #[salsa::query_group(RustGenQueryStorage)]
 pub trait RustCodeGenQueryGroup: PackageQueryGroup + HuskyLayoutQueryGroup {
-    fn rust_lib_rs_content(&self, target_entrance: FileItd) -> Arc<String>;
-    fn rust_registration_rs_content(&self, target_entrance: FileItd) -> Arc<String>;
-    fn rust_init_rs_content(&self, target_entrance: FileItd) -> Arc<String>;
+    fn rust_lib_rs_content(&self, target_entrance: PathItd) -> Arc<String>;
+    fn rust_registration_rs_content(&self, target_entrance: PathItd) -> Arc<String>;
+    fn rust_init_rs_content(&self, target_entrance: PathItd) -> Arc<String>;
     fn rust_mod_rs_content(&self, module: Ty) -> Arc<String>;
     fn entity_route_variant_contains_eval_ref(&self, entity_path: Ty) -> bool;
     fn entity_route_contains_eval_ref(&self, entity_path: Ty) -> bool;

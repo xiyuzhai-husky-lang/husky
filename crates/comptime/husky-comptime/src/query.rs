@@ -1,4 +1,4 @@
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::PackageQueryGroup;
 use husky_term::Ty;
@@ -9,7 +9,7 @@ use husky_word::RootBuiltinIdentifier;
 use crate::{utils::__RegisterDowncastResult, HuskyComptime};
 
 pub trait ComptimeQueryGroup: PackageQueryGroup + ResolveLinkage {
-    fn target_entrance(&self) -> FileItd {
+    fn target_entrance(&self) -> PathItd {
         self.opt_target_entrance().unwrap()
     }
     fn register_to_label_converter(

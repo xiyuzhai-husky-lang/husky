@@ -10,7 +10,7 @@ pub trait ComptimeOps: FileSalsaQuery + ResolveLinkage + Sized {
     fn set_target_entrance_from_package_dir(&mut self) {
         // assert!(self.opt_target_entrance().is_none());
         let package_main_file =
-            self.intern_file(self.comptime_config().package_dir.join("main.hsy"));
+            self.intern_path(self.comptime_config().package_dir.join("main.hsy"));
         self.set_opt_target_entrance(Some(package_main_file))
     }
 

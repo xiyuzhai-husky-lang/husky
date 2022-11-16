@@ -32,7 +32,7 @@ use husky_entity_syntax::EntitySource;
 use husky_expr_syntax::*;
 use husky_term::Ty;
 
-use husky_file::FileItd;
+use husky_file::PathItd;
 
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind, LazyStmt, LazyStmtVariant};
 use husky_liason_semantics::*;
@@ -72,7 +72,7 @@ pub struct EntityDefn {
     pub variant: EntityDefnVariant,
     pub subentities: Arc<Vec<Arc<EntityDefn>>>,
     pub base_route: Ty,
-    pub file: FileItd,
+    pub file: PathItd,
     pub range: TextRange,
 }
 
@@ -87,14 +87,14 @@ impl EntityDefn {
         db: &dyn EntityDefnQueryGroup,
         ident: CustomIdentifier,
         entity_path: EntityPathItd,
-        file: FileItd,
+        file: PathItd,
         range: TextRange,
     ) -> Arc<Self> {
         todo!()
         // Self::new(db, ident.into(), EntityDefnVariant::Any, route, file, range)
     }
 
-    pub fn this_type(db: &dyn EntityDefnQueryGroup, file: FileItd, range: TextRange) -> Arc<Self> {
+    pub fn this_type(db: &dyn EntityDefnQueryGroup, file: PathItd, range: TextRange) -> Arc<Self> {
         todo!()
         // Self::new(
         //     db,
@@ -115,7 +115,7 @@ impl EntityDefn {
         ident: Identifier,
         variant: EntityDefnVariant,
         base_route: Ty,
-        file: FileItd,
+        file: PathItd,
         range: TextRange,
     ) -> Arc<EntityDefn> {
         let entity_defn = Self {
@@ -292,7 +292,7 @@ impl std::fmt::Debug for EntityDefnVariant {
 
 pub(crate) fn main_defn(
     _this: &dyn EntityDefnQueryGroup,
-    _target_entrance: husky_file::FileItd,
+    _target_entrance: husky_file::PathItd,
 ) -> SemanticResultArc<MainDefn> {
     todo!()
     // let ast_text = this.ast_text(target_entrance).unwrap();
@@ -338,7 +338,7 @@ pub(crate) fn entity_defn(
     //             opt_this_contract: None,
     //             symbols: (&[] as &[Symbol]).into(),
     //             kind: AtomContextKind::Normal,
-    //             opt_file: Some(db.intern_file(static_defn.dev_src.file.into())),
+    //             opt_file: Some(db.intern_path(static_defn.dev_src.file.into())),
     //         },
     //         entity_path,
     //         static_defn,

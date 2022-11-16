@@ -1,4 +1,5 @@
 mod internal;
+pub mod path;
 mod pool;
 mod wrapper;
 

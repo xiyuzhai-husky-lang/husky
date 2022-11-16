@@ -8,7 +8,7 @@ impl EntityDefnVariant {
         _ast: &Ast,
         _children: AstIter,
         _arena: &RawExprArena,
-        _file: FileItd,
+        _file: PathItd,
     ) -> SemanticResult<EntityDefnVariant> {
         todo!()
         // match ast.variant {

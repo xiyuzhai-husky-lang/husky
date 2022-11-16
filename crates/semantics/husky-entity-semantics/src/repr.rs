@@ -15,14 +15,14 @@ pub enum DefinitionRepr {
     },
     FuncBlock {
         entity_path: EntityPathItd,
-        file: FileItd,
+        file: PathItd,
         range: TextRange,
         stmts: Arc<Vec<Arc<FuncStmt>>>,
         return_ty: Ty,
     },
     ProcBlock {
         entity_path: EntityPathItd,
-        file: FileItd,
+        file: PathItd,
         range: TextRange,
         stmts: Arc<Vec<Arc<ProcStmt>>>,
         return_ty: Ty,
@@ -36,7 +36,7 @@ pub(crate) fn parse_definition_repr(
     _return_ty: Ty,
     _arena: &RawExprArena,
     _children: Option<AstIter>,
-    _file: FileItd,
+    _file: PathItd,
 ) -> SemanticResult<Arc<DefinitionRepr>> {
     todo!()
     // Ok(Arc::new(match paradigm {

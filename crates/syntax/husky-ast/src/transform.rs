@@ -19,7 +19,7 @@ use crate::{
 };
 use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};
 use husky_entity_syntax::EntitySyntaxResult;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_text::TextRanged;
 use husky_token::*;
 use husky_token_text::TokenizedText;
@@ -29,8 +29,8 @@ pub type AstIter<'a> = FoldableIter<'a, FoldableList<AstResult<Ast>>>;
 
 pub struct AstTransformer<'a> {
     db: &'a dyn AstSalsaQueryGroup,
-    main: FileItd,
-    file: FileItd,
+    main: PathItd,
+    file: PathItd,
     arena: RawExprArena,
     // symbols: LocalStack<Symbol>,
     context: LocalValue<AstContext>,

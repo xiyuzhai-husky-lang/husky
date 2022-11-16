@@ -2,6 +2,7 @@ use crate::*;
 use husky_entity_semantics::{EntityRouteStore, StoreEntityRoute};
 use husky_linkage_table::{LinkageTable, ResolveLinkage};
 use husky_static_defn::ResolveStaticRootDefn;
+use interner::path::InternPath;
 use upcast::Upcast;
 
 impl fmt::Debug for HuskyComptime {
@@ -27,11 +28,13 @@ impl salsa::ParallelDatabase for HuskyComptime {
     }
 }
 
-impl InternFile for HuskyComptime {
-    fn file_interner(&self) -> &husky_file::FileInterner {
-        &self.file_interner
+impl InternPath for HuskyComptime {
+    fn path_itr(&self) -> &interner::path::PathInterner {
+        todo!()
     }
 }
+
+impl InternHuskyPath for HuskyComptime {}
 
 impl InternWord for HuskyComptime {
     fn word_itr(&self) -> &husky_word::WordInterner {
@@ -40,11 +43,11 @@ impl InternWord for HuskyComptime {
 }
 
 impl LiveFiles for HuskyComptime {
-    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_file::FileItd, ASafeRwLock<String>>> {
+    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_file::PathItd, ASafeRwLock<String>>> {
         &self.live_docs
     }
 
-    fn did_change_source(&mut self, id: husky_file::FileItd) {
+    fn did_change_source(&mut self, id: husky_file::PathItd) {
         husky_file::FileContentQuery.in_db_mut(self).invalidate(&id);
     }
 }

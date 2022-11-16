@@ -1,4 +1,4 @@
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_term::Ty;
 
 use crate::*;
@@ -44,7 +44,7 @@ fn collect_entity_syntax_errors(
 
 fn collect_module_lex_errors(
     db: &dyn DiagnosticSalsaQuery,
-    file: FileItd,
+    file: PathItd,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let tokenized_text = db.tokenized_text(file).unwrap();
@@ -53,7 +53,7 @@ fn collect_module_lex_errors(
 
 fn collect_module_ast_errors(
     db: &dyn DiagnosticSalsaQuery,
-    file: FileItd,
+    file: PathItd,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let ast_text = db.ast_text(file).unwrap();
@@ -70,7 +70,7 @@ fn collect_module_ast_errors(
 
 fn collect_module_infer_ty_errors(
     _db: &dyn DiagnosticSalsaQuery,
-    _file: FileItd,
+    _file: PathItd,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
@@ -82,7 +82,7 @@ fn collect_module_infer_ty_errors(
 
 fn collect_module_infer_contract_errors(
     _db: &dyn DiagnosticSalsaQuery,
-    _file: FileItd,
+    _file: PathItd,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
@@ -94,7 +94,7 @@ fn collect_module_infer_contract_errors(
 
 fn collect_module_infer_qualified_ty_errors(
     _db: &dyn DiagnosticSalsaQuery,
-    _file: FileItd,
+    _file: PathItd,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()

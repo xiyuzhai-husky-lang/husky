@@ -24,7 +24,7 @@ use husky_defn_head::*;
 use husky_dev_utils::*;
 use husky_entity_kind::*;
 use husky_expr_syntax::*;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_init_syntax::InitKind;
 use husky_liason_semantics::*;
 use husky_opn_syntax::*;

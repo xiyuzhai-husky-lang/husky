@@ -1,5 +1,5 @@
 use crate::*;
-use husky_file::FileItd;
+use husky_file::PathItd;
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::TextRange;
 use std::sync::Arc;
@@ -9,7 +9,7 @@ pub struct ProcStmtPatternBranch {
     pub variant: ProcStmtPatternBranchVariant,
     pub stmts: Arc<Vec<Arc<ProcStmt>>>,
     pub range: TextRange,
-    pub file: FileItd,
+    pub file: PathItd,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
