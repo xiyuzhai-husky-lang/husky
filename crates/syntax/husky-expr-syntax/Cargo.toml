@@ -15,14 +15,15 @@ idx-arena = { path = "../../abstraction/idx-arena" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
-# syntax
-husky-text = { path = "../../lex/husky-text" }
-husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+# lex
 husky-token = { path = "../../lex/husky-token" }
 husky-tokenize = { path = "../../lex/husky-tokenize" }
 husky-token-stream = { path = "../../lex/husky-token-stream" }
+husky-text = { path = "../../lex/husky-text" }
+# syntax
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
+husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
