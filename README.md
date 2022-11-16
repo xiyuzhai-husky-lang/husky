@@ -49,8 +49,8 @@ Husky is not only an open-source project of coding, but is also an open project 
 
 Roughly speaking, contributors can play two roles:
 
-- husky language user. Use the language to do things, like machine learning, reinforcement learning, frontend development, etc. A user in the early stage will help demonstrate the power of the new language, and also help eliminate bugs and improve the design.
-- husky language developer. Design and implementation. TODO
+- husky language user. Use the language to do amazing things, like machine learning, reinforcement learning, frontend development, etc. A user in the early stage will help demonstrate the power of the new language, and also help eliminate bugs and improve the design.
+- Husky language developer. Design and implementation. TODO
 
 Contribution will be faithfully recorded. Those who made innovative contribution will become authors in the corresponding papers.
 
@@ -60,6 +60,8 @@ After the husk language is completed, we can use Husky language to deal with all
 
 We divide 1000 categories of ImageNet into 100 subtasks, and each person is responsible for no more than 10 categories. Each task requires limited time and effort. In the process you will gain a deeper understanding of Husky's principles.
 ### Husky Language Developer
+
+Develop new compiler for Husky. We are currently considering the design of incremental compilation of the husky programming language. Anyone who is interested in this area is welcome to guide us. The husky programming language will avoid many of the pitfalls of rust and julia at the compile stage. The general idea is to intelligently select some functions as dynamic linkage or even interpreted according to the specific domain to avoid unnecessary relinking. We think this is one of the most important directions of PL, we can discuss it first and then find more experts.
 
 TODO
 
