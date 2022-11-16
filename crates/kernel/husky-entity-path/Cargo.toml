@@ -13,4 +13,4 @@ optional = "0.5.0"
 interner = { path = "../../abstraction/interner" }
 husky-word = { path = "../../kernel/husky-word" }
 # kernel
-husky-platform = { path = "../../kernel/husky-platform" }
+husky-toolchain = { path = "../../kernel/husky-toolchain" }

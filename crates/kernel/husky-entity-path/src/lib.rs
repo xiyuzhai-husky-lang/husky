@@ -6,7 +6,7 @@ mod menu;
 use std::path::PathBuf;
 
 pub use db::*;
-use husky_platform::Platform;
+use husky_toolchain::Toolchain;
 pub use menu::*;
 
 use husky_word::Identifier;
@@ -39,7 +39,7 @@ pub enum CratePathKind {
 pub enum PackagePath {
     Builtin {
         ident: Identifier,
-        platform: Platform,
+        toolchain: Toolchain,
     },
     Global {
         ident: Identifier,
