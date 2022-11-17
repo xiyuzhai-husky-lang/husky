@@ -5,7 +5,6 @@ edition = "2021"
 
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
 indexmap = "1.8.1"
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
@@ -16,11 +15,9 @@ vec-like = { path = "../../abstraction/vec-like" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
-husky-text = { path = "../../lex/husky-text" }
 # debugtime
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
-# forks
-thin-vec = { path = "../../../forks/thin-vec" }
+
 # vm
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 

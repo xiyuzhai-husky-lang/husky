@@ -18,7 +18,6 @@ fold = { path = "../../abstraction/fold" }
 vec-like = { path = "../../abstraction/vec-like" }
 upcast = { path = "../../abstraction/upcast" }
 idx-arena = { path = "../../abstraction/idx-arena" }
-map-collect = { path = "../../abstraction/map-collect" }
 # fs
 husky-path = { path = "../../fs/husky-path" }
 # lex
