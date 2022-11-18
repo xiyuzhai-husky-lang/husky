@@ -10,6 +10,7 @@ use crate::{
 };
 
 use handlers::*;
+use husky_path::LiveFileSupport;
 
 pub(crate) fn dispatch_lsp_msg(
     server: &mut Server,
@@ -104,7 +105,7 @@ fn handle_lsp_notification(
             Ok(TaskSet::Nothing)
         })?
         .on_sync::<lsp_types::notification::DidOpenTextDocument>(|server, params| {
-            use husky_path::LiveFiles;
+            use husky_path::VfsQueryGroupBase;
             if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
                 server
                     .db
@@ -113,7 +114,7 @@ fn handle_lsp_notification(
             Ok(TaskSet::SendUpdates)
         })?
         .on_sync::<lsp_types::notification::DidChangeTextDocument>(|server, params| {
-            use husky_path::LiveFiles;
+            use husky_path::VfsQueryGroupBase;
             if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
                 server
                     .db

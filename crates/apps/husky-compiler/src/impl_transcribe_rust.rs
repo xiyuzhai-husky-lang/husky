@@ -9,7 +9,6 @@ impl CompilerInstance {
             },
             package_dir: package_dir.to_path_buf(),
         });
-        comptime.load_package();
         let target_entrance = comptime.unique_main_file();
         let all_diagnostics = comptime.all_diagnostics();
         if all_diagnostics.len() > 0 {

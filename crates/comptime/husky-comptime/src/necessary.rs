@@ -1,9 +1,10 @@
 use crate::*;
 use husky_entity_semantics::{EntityRouteStore, StoreEntityRoute};
 use husky_linkage_table::{LinkageTable, ResolveLinkage};
+use husky_path::LiveFileSupport;
 use husky_static_defn::ResolveStaticRootDefn;
 use interner::path::InternPath;
-use upcast::Upcast;
+use upcast::{Upcast, UpcastMut};
 
 impl fmt::Debug for HuskyComptime {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> std::fmt::Result {
@@ -42,17 +43,23 @@ impl InternWord for HuskyComptime {
     }
 }
 
-impl LiveFiles for HuskyComptime {
-    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_path::PathItd, ASafeRwLock<String>>> {
-        &self.live_docs
-    }
-
-    fn did_change_source(&mut self, id: husky_path::PathItd) {
-        husky_path::FileContentQuery.in_db_mut(self).invalidate(&id);
+impl VfsQueryGroupBase for HuskyComptime {
+    fn get_live_files(
+        &self,
+    ) -> Option<&ASafeRwLock<IndexMap<husky_path::PathItd, ASafeRwLock<String>>>> {
+        Some(&self.live_docs)
     }
 }
 
 impl FileQueryGroup for HuskyComptime {}
+
+impl UpcastMut<dyn FileSalsaQuery> for HuskyComptime {
+    fn upcast_mut(&mut self) -> &mut (dyn FileSalsaQuery + 'static) {
+        self
+    }
+}
+
+impl LiveFileSupport for HuskyComptime {}
 
 // impl InternEntityRoute for HuskyComptime {
 //     fn entity_route_interner(&self) -> &husky_term::EntityRouteInterner {

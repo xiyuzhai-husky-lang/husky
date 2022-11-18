@@ -22,6 +22,7 @@ husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-word = { path = "../../kernel/husky-word" }
+upcast = { path = "../../abstraction/upcast" }
 
 [features]
 lsp_support = ["dep:lsp-types"]

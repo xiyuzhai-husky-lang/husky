@@ -19,7 +19,7 @@ impl InternWord for DevRuntime {
     }
 }
 
-impl LiveFiles for DevRuntime {
+impl VfsQueryGroupBase for DevRuntime {
     fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_path::PathItd, ASafeRwLock<String>>> {
         &self.live_docs
     }
