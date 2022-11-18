@@ -14,7 +14,6 @@ impl DevRuntime {
             RelativePathBuf::from_path(&self.config.comptime.package_dir).unwrap(),
         )
         .compile_all();
-        self.load_package();
         self.load_linkages();
         HuskyRuntimeHotReloadM::Ok
     }

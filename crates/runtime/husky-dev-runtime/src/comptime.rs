@@ -20,12 +20,14 @@ impl InternWord for DevRuntime {
 }
 
 impl VfsQueryGroupBase for DevRuntime {
-    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<husky_path::PathItd, ASafeRwLock<String>>> {
-        &self.live_docs
+    fn get_live_files(
+        &self,
+    ) -> Option<&ASafeRwLock<IndexMap<husky_path::PathItd, ASafeRwLock<String>>>> {
+        Some(&self.live_docs)
     }
 
-    fn did_change_source(&mut self, id: husky_path::PathItd) {
-        husky_path::FileContentQuery.in_db_mut(self).invalidate(&id);
+    fn watch(&self, path: PathItd) {
+        todo!()
     }
 }
 
