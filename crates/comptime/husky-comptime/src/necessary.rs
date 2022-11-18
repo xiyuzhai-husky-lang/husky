@@ -49,6 +49,10 @@ impl VfsQueryGroupBase for HuskyComptime {
     ) -> Option<&ASafeRwLock<IndexMap<husky_path::PathItd, ASafeRwLock<String>>>> {
         Some(&self.live_docs)
     }
+
+    fn watch(&self, path: PathItd) {
+        todo!()
+    }
 }
 
 impl FileQueryGroup for HuskyComptime {}
