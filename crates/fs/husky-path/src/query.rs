@@ -7,15 +7,29 @@ use husky_word::CustomIdentifier;
 use indexmap::IndexMap;
 use itertools::Itertools;
 use sync_utils::{ASafeRwLock, SafeRwLock};
+use upcast::UpcastMut;
 
-pub trait LiveFiles: InternHuskyPath {
-    fn get_live_files(&self) -> &ASafeRwLock<IndexMap<PathItd, ASafeRwLock<String>>>;
-    fn did_change_source(&mut self, id: PathItd);
+pub trait VfsQueryGroupBase: InternHuskyPath {
+    // #[cfg(feature = "lsp_support")]
+    #[inline(always)]
+    fn get_live_files(&self) -> Option<&ASafeRwLock<IndexMap<PathItd, ASafeRwLock<String>>>>;
+
+    #[inline(always)]
+    fn watch(&self, path: PathItd);
+}
+
+pub trait LiveFileSupport: FileSalsaQuery + UpcastMut<dyn FileSalsaQuery> {
+    fn did_change_source(&mut self, id: PathItd) {
+        FileContentQuery
+            .in_db_mut(self.upcast_mut())
+            .invalidate(&id);
+    }
 
     fn set_live_file_text(&mut self, path: PathBuf, text: String) {
         let id = self.intern_path(path);
         msg_once!("maybe need improving");
         self.get_live_files()
+            .unwrap()
             .write(|live_docs| live_docs.insert(id, Arc::new(SafeRwLock::new(text))));
         self.did_change_source(id);
     }
@@ -26,8 +40,11 @@ pub trait LiveFiles: InternHuskyPath {
         path: PathBuf,
         changes: Vec<lsp_types::TextDocumentContentChangeEvent>,
     ) {
+        FileContentQuery
+            .in_db_mut(self.upcast_mut())
+            .invalidate(todo!());
         let id = self.intern_path(path);
-        self.get_live_files().write(|live_docs| {
+        self.get_live_files().unwrap().write(|live_docs| {
             live_docs
                 .get(&id)
                 .expect("what")
@@ -38,7 +55,7 @@ pub trait LiveFiles: InternHuskyPath {
 }
 
 #[salsa::query_group(FileQueryStorage)]
-pub trait FileSalsaQuery: LiveFiles {
+pub trait FileSalsaQuery: VfsQueryGroupBase {
     #[salsa::input]
     fn opt_target_entrance(&self) -> Option<PathItd>;
 
@@ -54,18 +71,30 @@ pub trait FileSalsaQuery: LiveFiles {
 fn file_content(db: &dyn FileSalsaQuery, id: PathItd) -> FileContent {
     db.salsa_runtime()
         .report_synthetic_read(salsa::Durability::LOW);
-    db.get_live_files()
-        .read(|live_docs| match live_docs.get(&id) {
-            Some(text) => FileContent::Live(text.clone_to_arc()),
-            None => {
-                let pth: PathBuf = (*id).into();
-                if pth.is_file() {
-                    FileContent::OnDisk(Arc::new(std::fs::read_to_string(pth).expect("io failure")))
-                } else {
-                    FileContent::NonExistent
-                }
-            }
+    // #[cfg(feature = "lsp_support")]
+    let opt_live_file = if let Some(live_files) = db.get_live_files() {
+        live_files.read(|live_docs| {
+            live_docs
+                .get(&id)
+                .map(|text| FileContent::Live(text.clone_to_arc()))
         })
+    } else {
+        None
+    };
+
+    if let Some(live_file) = opt_live_file {
+        live_file
+    } else {
+        let pth: PathBuf = (*id).into();
+        if pth.is_file() {
+            FileContent::OnDisk(Arc::new(std::fs::read_to_string(pth).expect("io failure")))
+        } else {
+            FileContent::NonExistent
+        }
+    }
+
+    // #[cfg(!(feature = "lsp_support"))]
+    // todo!()
 }
 
 fn module_target_entrance(db: &dyn FileSalsaQuery, module_file_id: PathItd) -> Option<PathItd> {

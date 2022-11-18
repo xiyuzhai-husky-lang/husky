@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_path::LiveFiles;
+use husky_path::VfsQueryGroupBase;
 
 use std::{fs, path::Path};
 
@@ -12,31 +12,6 @@ pub trait ComptimeOps: FileSalsaQuery + ResolveLinkage + Sized {
         let package_main_file =
             self.intern_path(self.comptime_config().package_dir.join("main.hsy"));
         self.set_opt_target_entrance(Some(package_main_file))
-    }
-
-    fn load_package(&mut self) {
-        self.set_target_entrance_from_package_dir();
-        // ad hoc
-        self.load_dir(&self.comptime_config().package_dir.clone());
-    }
-
-    fn load_dir(&mut self, dir: &Path) {
-        should_satisfy!(dir, |dir: &Path| dir.is_dir());
-        for maybe_entry in fs::read_dir(dir).unwrap() {
-            let path = maybe_entry.expect("what").path();
-            if path.is_dir() {
-                if path.with_extension("hsy").exists() {
-                    self.load_module(&path)
-                }
-            } else if path.extension().unwrap() == "hsy" {
-                let text = fs::read_to_string(&path).expect("what");
-                self.set_live_file_text(path, text)
-            }
-        }
-    }
-
-    fn load_module(&mut self, module_dir: &Path) {
-        self.load_dir(&module_dir);
     }
 
     fn load_linkages(&self) {

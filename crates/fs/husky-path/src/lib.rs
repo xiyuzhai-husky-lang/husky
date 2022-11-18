@@ -9,7 +9,10 @@ mod utils;
 pub use error::*;
 pub use intern::InternHuskyPath;
 pub use interner::path::{InternPath, PathInterner, PathItd};
-pub use query::{FileContentQuery, FileQueryGroup, FileQueryStorage, FileSalsaQuery, LiveFiles};
+pub use query::{
+    FileContentQuery, FileQueryGroup, FileQueryStorage, FileSalsaQuery, LiveFileSupport,
+    VfsQueryGroupBase,
+};
 pub type URange = std::ops::Range<usize>;
 
 use std::sync::Arc;

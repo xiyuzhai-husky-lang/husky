@@ -16,7 +16,9 @@ pub use husky_fmt::FmtQuery;
 pub use husky_hover::HoverDb;
 pub use husky_linkage_table::ResolveLinkage;
 pub use husky_package_semantics::PackageQueryGroup;
-pub use husky_path::{FileQueryGroup, FileSalsaQuery, InternHuskyPath, InternPath, LiveFiles};
+pub use husky_path::{
+    FileQueryGroup, FileSalsaQuery, InternHuskyPath, InternPath, VfsQueryGroupBase,
+};
 pub use husky_rust_code_gen::RustCodeGenQueryGroup;
 pub use husky_token_text::TokenizedTextQueryGroup;
 pub use husky_word::InternWord;
