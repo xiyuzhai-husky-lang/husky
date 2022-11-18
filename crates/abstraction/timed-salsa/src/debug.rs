@@ -68,9 +68,9 @@ pub trait DebugWithDb<Db: ?Sized> {
     }
 
     /// if `include_all_fields` is `false` only identity fields should be read, which means:
-    ///     - for [#\[salsa::input\]](timed_salsa_macros::input) no fields
-    ///     - for [#\[salsa::tracked\]](timed_salsa_macros::tracked) only fields with `#[id]` attribute
-    ///     - for [#\[salsa::interned\]](timed_salsa_macros::interned) any field
+    ///     - for [#\[timed_salsa::input\]](timed_salsa_macros::input) no fields
+    ///     - for [#\[timed_salsa::tracked\]](timed_salsa_macros::tracked) only fields with `#[id]` attribute
+    ///     - for [#\[timed_salsa::interned\]](timed_salsa_macros::interned) any field
     fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result;
 }
 

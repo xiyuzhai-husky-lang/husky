@@ -3,9 +3,9 @@ use syn::Token;
 
 // Source:
 //
-// #[salsa::db(Jar0, Jar1, Jar2)]
+// #[timed_salsa::db(Jar0, Jar1, Jar2)]
 // pub struct Database {
-//    storage: salsa::Storage<Self>,
+//    storage: timed_salsa::Storage<Self>,
 // }
 
 pub(crate) fn db(
@@ -74,8 +74,8 @@ fn find_storage_field(input: &syn::ItemStruct) -> Result<syn::Ident, &'static st
 fn as_salsa_database_impl(input: &syn::ItemStruct) -> syn::ItemImpl {
     let db = &input.ident;
     parse_quote! {
-        impl salsa::database::AsSalsaDatabase for #db {
-            fn as_salsa_database(&self) -> &dyn salsa::Database {
+        impl timed_salsa::database::AsSalsaDatabase for #db {
+            fn as_salsa_database(&self) -> &dyn timed_salsa::Database {
                 self
             }
         }
@@ -87,23 +87,23 @@ fn has_jars_impl(args: &Args, input: &syn::ItemStruct, storage: &syn::Ident) -> 
     let db = &input.ident;
     parse_quote! {
         // ANCHOR: HasJars
-        impl salsa::storage::HasJars for #db {
+        impl timed_salsa::storage::HasJars for #db {
             type Jars = (#(#jar_paths,)*);
             // ANCHOR_END: HasJars
 
-            fn jars(&self) -> (&Self::Jars, &salsa::Runtime) {
+            fn jars(&self) -> (&Self::Jars, &timed_salsa::Runtime) {
                 self.#storage.jars()
             }
 
-            fn jars_mut(&mut self) -> (&mut Self::Jars, &mut salsa::Runtime) {
+            fn jars_mut(&mut self) -> (&mut Self::Jars, &mut timed_salsa::Runtime) {
                 self.#storage.jars_mut()
             }
 
             // ANCHOR: create_jars
-            fn create_jars(routes: &mut salsa::routes::Routes<Self>) -> Self::Jars {
+            fn create_jars(routes: &mut timed_salsa::routes::Routes<Self>) -> Self::Jars {
                 (
                     #(
-                        <#jar_paths as salsa::jar::Jar>::create_jar(routes),
+                        <#jar_paths as timed_salsa::jar::Jar>::create_jar(routes),
                     )*
                 )
             }
@@ -115,19 +115,19 @@ fn has_jars_impl(args: &Args, input: &syn::ItemStruct, storage: &syn::Ident) -> 
 fn has_jars_dyn_impl(input: &syn::ItemStruct, storage: &syn::Ident) -> syn::ItemImpl {
     let db = &input.ident;
     parse_quote! {
-        impl salsa::storage::HasJarsDyn for #db {
-            fn runtime(&self) -> &salsa::Runtime {
+        impl timed_salsa::storage::HasJarsDyn for #db {
+            fn runtime(&self) -> &timed_salsa::Runtime {
                 self.#storage.runtime()
             }
 
-            fn runtime_mut(&mut self) ->&mut salsa::Runtime {
+            fn runtime_mut(&mut self) ->&mut timed_salsa::Runtime {
                 self.#storage.runtime_mut()
             }
 
             fn maybe_changed_after(
                 &self,
-                input: salsa::key::DependencyIndex,
-                revision: salsa::Revision,
+                input: timed_salsa::key::DependencyIndex,
+                revision: timed_salsa::Revision,
             ) -> bool {
                 let ingredient = self.#storage.ingredient(input.ingredient_index());
                 ingredient.maybe_changed_after(self, input, revision)
@@ -135,36 +135,36 @@ fn has_jars_dyn_impl(input: &syn::ItemStruct, storage: &syn::Ident) -> syn::Item
 
             fn cycle_recovery_strategy(
                 &self,
-                ingredient_index: salsa::IngredientIndex,
-            ) -> salsa::cycle::CycleRecoveryStrategy {
+                ingredient_index: timed_salsa::IngredientIndex,
+            ) -> timed_salsa::cycle::CycleRecoveryStrategy {
                 let ingredient = self.#storage.ingredient(ingredient_index);
                 ingredient.cycle_recovery_strategy()
             }
 
             fn origin(
                 &self,
-                index: salsa::DatabaseKeyIndex,
-            ) -> Option<salsa::runtime::local_state::QueryOrigin> {
+                index: timed_salsa::DatabaseKeyIndex,
+            ) -> Option<timed_salsa::runtime::local_state::QueryOrigin> {
                 let ingredient = self.#storage.ingredient(index.ingredient_index());
                 ingredient.origin(index.key_index())
             }
 
-            fn mark_validated_output(&self, executor: salsa::DatabaseKeyIndex, output: salsa::key::DependencyIndex) {
+            fn mark_validated_output(&self, executor: timed_salsa::DatabaseKeyIndex, output: timed_salsa::key::DependencyIndex) {
                 let ingredient = self.#storage.ingredient(output.ingredient_index());
                 ingredient.mark_validated_output(self, executor, output.key_index());
             }
 
-            fn remove_stale_output(&self, executor: salsa::DatabaseKeyIndex, stale_output: salsa::key::DependencyIndex) {
+            fn remove_stale_output(&self, executor: timed_salsa::DatabaseKeyIndex, stale_output: timed_salsa::key::DependencyIndex) {
                 let ingredient = self.#storage.ingredient(stale_output.ingredient_index());
                 ingredient.remove_stale_output(self, executor, stale_output.key_index());
             }
 
-            fn salsa_struct_deleted(&self, ingredient: salsa::IngredientIndex, id: salsa::Id) {
+            fn salsa_struct_deleted(&self, ingredient: timed_salsa::IngredientIndex, id: timed_salsa::Id) {
                 let ingredient = self.#storage.ingredient(ingredient);
                 ingredient.salsa_struct_deleted(self, id);
             }
 
-            fn fmt_index(&self, index: salsa::key::DependencyIndex, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+            fn fmt_index(&self, index: timed_salsa::key::DependencyIndex, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
                 let ingredient = self.#storage.ingredient(index.ingredient_index());
                 ingredient.fmt_index(index.key_index(), fmt)
             }
@@ -181,24 +181,24 @@ fn per_jar_impls(args: &Args, input: &syn::ItemStruct, storage: &syn::Ident) -> 
             let jar_index = Literal::u32_unsuffixed(jar_index);
             vec![
                 parse_quote! {
-                    impl salsa::storage::DbWithJar<#jar_path> for #db {
-                        fn as_jar_db<'db>(&'db self) -> &'db <#jar_path as salsa::jar::Jar<'db>>::DynDb
+                    impl timed_salsa::storage::DbWithJar<#jar_path> for #db {
+                        fn as_jar_db<'db>(&'db self) -> &'db <#jar_path as timed_salsa::jar::Jar<'db>>::DynDb
                         where
                             'db: 'db,
                         {
-                            self as &'db <#jar_path as salsa::jar::Jar<'db>>::DynDb
+                            self as &'db <#jar_path as timed_salsa::jar::Jar<'db>>::DynDb
                         }
                     }
                 },
 
                 parse_quote! {
-                    impl salsa::storage::HasJar<#jar_path> for #db {
-                        fn jar(&self) -> (&#jar_path, &salsa::Runtime) {
+                    impl timed_salsa::storage::HasJar<#jar_path> for #db {
+                        fn jar(&self) -> (&#jar_path, &timed_salsa::Runtime) {
                             let (__jars, __runtime) = self.#storage.jars();
                             (&__jars.#jar_index, __runtime)
                         }
 
-                        fn jar_mut(&mut self) -> (&mut #jar_path, &mut salsa::Runtime) {
+                        fn jar_mut(&mut self) -> (&mut #jar_path, &mut timed_salsa::Runtime) {
                             let (__jars, __runtime) = self.#storage.jars_mut();
                             (&mut __jars.#jar_index, __runtime)
                         }
@@ -206,7 +206,7 @@ fn per_jar_impls(args: &Args, input: &syn::ItemStruct, storage: &syn::Ident) -> 
                 },
 
                 parse_quote! {
-                    impl salsa::storage::JarFromJars<#jar_path> for #db {
+                    impl timed_salsa::storage::JarFromJars<#jar_path> for #db {
                         fn jar_from_jars<'db>(jars: &Self::Jars) -> &#jar_path {
                             &jars.#jar_index
                         }

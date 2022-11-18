@@ -1,5 +1,5 @@
 [package]
-name = "salsa-2022"
+name = "timed-salsa"
 version = "0.1.0"
 edition = "2021"
 
@@ -16,3 +16,11 @@ log = "0.4.5"
 parking_lot = "0.12.1"
 smallvec = "1.0.0"
 timed-salsa-macros = { path = "../timed-salsa-macros" }
+
+[dev-dependencies]
+expect-test = "1.4.0"
+test-log = "0.2.11"
+husky-salsa-log-utils = { path = "../../utils/husky-salsa-log-utils" }
+env_logger = "*"
+rustversion = "1.0"
+trybuild = "1.0"

@@ -4,7 +4,7 @@ use crate::salsa_struct::{SalsaField, SalsaStruct, SalsaStructKind};
 
 /// For an tracked struct `Foo` with fields `f1: T1, ..., fN: TN`, we generate...
 ///
-/// * the "id struct" `struct Foo(salsa::Id)`
+/// * the "id struct" `struct Foo(timed_salsa::Id)`
 /// * the tracked ingredient, which maps the id fields to the `Id`
 /// * for each value field, a function ingredient
 pub(crate) fn tracked(
@@ -96,8 +96,8 @@ impl TrackedStruct {
                 parse_quote! {
                     #field_vis fn #field_get_name<'db>(self, __db: &'db #db_dyn_ty) -> &'db #field_ty
                     {
-                        let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
-                        let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
+                        let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(__db);
+                        let __ingredients = <#jar_ty as timed_salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                         &__ingredients.#struct_index.tracked_struct_data(__runtime, self).#field_index
                     }
                 }
@@ -105,8 +105,8 @@ impl TrackedStruct {
                 parse_quote! {
                     #field_vis fn #field_get_name<'db>(self, __db: &'db #db_dyn_ty) -> #field_ty
                     {
-                        let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
-                        let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
+                        let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(__db);
+                        let __ingredients = <#jar_ty as timed_salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                         __ingredients.#struct_index.tracked_struct_data(__runtime, self).#field_index.clone()
                     }
                 }
@@ -128,8 +128,8 @@ impl TrackedStruct {
                 parse_quote! {
                     #field_vis fn #field_get_name<'db>(self, __db: &'db #db_dyn_ty) -> &'db #field_ty
                     {
-                        let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
-                        let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
+                        let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(__db);
+                        let __ingredients = <#jar_ty as timed_salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                         __ingredients.#field_index.fetch(__db, self)
                     }
                 }
@@ -137,8 +137,8 @@ impl TrackedStruct {
                 parse_quote! {
                     #field_vis fn #field_get_name<'db>(self, __db: &'db #db_dyn_ty) -> #field_ty
                     {
-                        let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
-                        let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
+                        let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(__db);
+                        let __ingredients = <#jar_ty as timed_salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                         __ingredients.#field_index.fetch(__db, self).clone()
                     }
                 }
@@ -154,8 +154,8 @@ impl TrackedStruct {
             impl #ident {
                 pub fn #constructor_name(__db: &#db_dyn_ty, #(#all_field_names: #all_field_tys,)*) -> Self
                 {
-                    let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
-                    let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
+                    let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(__db);
+                    let __ingredients = <#jar_ty as timed_salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                     let __id = __ingredients.#struct_index.new_struct(__runtime, (#(#id_field_names,)*));
                     #(
                         __ingredients.#value_field_indices.specify_and_record(__db, __id, #value_field_names);
@@ -186,53 +186,53 @@ impl TrackedStruct {
         let debug_name_fields: Vec<_> = self.all_field_names().into_iter().map(literal).collect();
 
         parse_quote! {
-            impl salsa::storage::IngredientsFor for #ident {
+            impl timed_salsa::storage::IngredientsFor for #ident {
                 type Jar = #jar_ty;
                 type Ingredients = (
                     #(
-                        salsa::function::FunctionIngredient<#config_struct_names>,
+                        timed_salsa::function::FunctionIngredient<#config_struct_names>,
                     )*
-                    salsa::tracked_struct::TrackedStructIngredient<#ident, (#(#id_field_tys,)*)>,
+                    timed_salsa::tracked_struct::TrackedStructIngredient<#ident, (#(#id_field_tys,)*)>,
                 );
 
                 fn create_ingredients<DB>(
-                    routes: &mut salsa::routes::Routes<DB>,
+                    routes: &mut timed_salsa::routes::Routes<DB>,
                 ) -> Self::Ingredients
                 where
-                    DB: salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
+                    DB: timed_salsa::DbWithJar<Self::Jar> + timed_salsa::storage::JarFromJars<Self::Jar>,
                 {
                     (
                         #(
                             {
                                 let index = routes.push(
                                     |jars| {
-                                        let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
-                                        let ingredients = <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar);
+                                        let jar = <DB as timed_salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                                        let ingredients = <_ as timed_salsa::storage::HasIngredientsFor<Self>>::ingredient(jar);
                                         &ingredients.#value_field_indices
                                     },
                                     |jars| {
-                                        let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
-                                        let ingredients = <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar);
+                                        let jar = <DB as timed_salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                                        let ingredients = <_ as timed_salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar);
                                         &mut ingredients.#value_field_indices
                                     },
                                 );
-                                salsa::function::FunctionIngredient::new(index, #debug_name_fields)
+                                timed_salsa::function::FunctionIngredient::new(index, #debug_name_fields)
                             },
                         )*
                         {
                             let index = routes.push(
                                 |jars| {
-                                    let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
-                                    let ingredients = <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar);
+                                    let jar = <DB as timed_salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                                    let ingredients = <_ as timed_salsa::storage::HasIngredientsFor<Self>>::ingredient(jar);
                                     &ingredients.#tracked_struct_index
                                 },
                                 |jars| {
-                                    let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
-                                    let ingredients = <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar);
+                                    let jar = <DB as timed_salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                                    let ingredients = <_ as timed_salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar);
                                     &mut ingredients.#tracked_struct_index
                                 },
                             );
-                            salsa::tracked_struct::TrackedStructIngredient::new(index, #debug_name_struct)
+                            timed_salsa::tracked_struct::TrackedStructIngredient::new(index, #debug_name_struct)
                         },
                     )
                 }
@@ -246,13 +246,13 @@ impl TrackedStruct {
         let jar_ty = self.jar_ty();
         let tracked_struct_index: Literal = self.tracked_struct_index();
         parse_quote! {
-            impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for #ident
+            impl<DB> timed_salsa::salsa_struct::SalsaStructInDb<DB> for #ident
             where
-                DB: ?Sized + salsa::DbWithJar<#jar_ty>,
+                DB: ?Sized + timed_salsa::DbWithJar<#jar_ty>,
             {
-                fn register_dependent_fn(db: &DB, index: salsa::routes::IngredientIndex) {
-                    let (jar, _) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(db);
-                    let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor<#ident>>::ingredient(jar);
+                fn register_dependent_fn(db: &DB, index: timed_salsa::routes::IngredientIndex) {
+                    let (jar, _) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(db);
+                    let ingredients = <#jar_ty as timed_salsa::storage::HasIngredientsFor<#ident>>::ingredient(jar);
                     ingredients.#tracked_struct_index.register_dependent_fn(index)
                 }
             }
@@ -265,13 +265,13 @@ impl TrackedStruct {
         let jar_ty = self.jar_ty();
         let tracked_struct_index = self.tracked_struct_index();
         parse_quote! {
-            impl<DB> salsa::tracked_struct::TrackedStructInDb<DB> for #ident
+            impl<DB> timed_salsa::tracked_struct::TrackedStructInDb<DB> for #ident
             where
-                DB: ?Sized + salsa::DbWithJar<#jar_ty>,
+                DB: ?Sized + timed_salsa::DbWithJar<#jar_ty>,
             {
-                fn database_key_index(self, db: &DB) -> salsa::DatabaseKeyIndex {
-                    let (jar, _) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(db);
-                    let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor<#ident>>::ingredient(jar);
+                fn database_key_index(self, db: &DB) -> timed_salsa::DatabaseKeyIndex {
+                    let (jar, _) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(db);
+                    let ingredients = <#jar_ty as timed_salsa::storage::HasIngredientsFor<#ident>>::ingredient(jar);
                     ingredients.#tracked_struct_index.database_key_index(self)
                 }
             }

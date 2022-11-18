@@ -11,6 +11,7 @@ use crate::{
     AsId, IngredientIndex, Revision,
 };
 
+// why bother?
 pub trait InputId: AsId {}
 impl<T: AsId> InputId for T {}
 

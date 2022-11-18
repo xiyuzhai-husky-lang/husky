@@ -7,7 +7,7 @@ use crate::options::Options;
 
 // Source:
 //
-// #[salsa::jar(db = Jar0Db)]
+// #[timed_salsa::jar(db = Jar0Db)]
 // pub struct Jar0(Entity0, Ty0, EntityComponent0, my_func);
 
 pub(crate) fn jar(
@@ -84,12 +84,12 @@ pub(crate) fn has_ingredients_for_impl(
     let field_ty = &field.ty;
     let index = Literal::u32_unsuffixed(index);
     quote! {
-        impl salsa::storage::HasIngredientsFor<#field_ty> for #jar_struct {
-            fn ingredient(&self) -> &<#field_ty as salsa::storage::IngredientsFor>::Ingredients {
+        impl timed_salsa::storage::HasIngredientsFor<#field_ty> for #jar_struct {
+            fn ingredient(&self) -> &<#field_ty as timed_salsa::storage::IngredientsFor>::Ingredients {
                 &self.#index
             }
 
-            fn ingredient_mut(&mut self) -> &mut <#field_ty as salsa::storage::IngredientsFor>::Ingredients {
+            fn ingredient_mut(&mut self) -> &mut <#field_ty as timed_salsa::storage::IngredientsFor>::Ingredients {
                 &mut self.#index
             }
         }
@@ -110,15 +110,15 @@ pub(crate) fn jar_impl(
         .collect();
     // ANCHOR: create_jar
     quote! {
-        impl<'salsa_db> salsa::jar::Jar<'salsa_db> for #jar_struct {
+        impl<'salsa_db> timed_salsa::jar::Jar<'salsa_db> for #jar_struct {
             type DynDb = dyn #jar_trait + 'salsa_db;
 
-            fn create_jar<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self
+            fn create_jar<DB>(routes: &mut timed_salsa::routes::Routes<DB>) -> Self
             where
-                DB: salsa::storage::JarFromJars<Self> + salsa::storage::DbWithJar<Self>,
+                DB: timed_salsa::storage::JarFromJars<Self> + timed_salsa::storage::DbWithJar<Self>,
             {
                 #(
-                    let #field_var_names = <#field_tys as salsa::storage::IngredientsFor>::create_ingredients(routes);
+                    let #field_var_names = <#field_tys as timed_salsa::storage::IngredientsFor>::create_ingredients(routes);
                 )*
                 Self(#(#field_var_names),*)
             }
@@ -147,7 +147,7 @@ fn generate_fields(input: &ItemStruct) -> FieldsUnnamed {
 
         let field_ty = &field.ty;
         field.ty =
-            syn::parse2(quote!(< #field_ty as salsa::storage::IngredientsFor >::Ingredients))
+            syn::parse2(quote!(< #field_ty as timed_salsa::storage::IngredientsFor >::Ingredients))
                 .unwrap();
 
         output_fields.push(field);

@@ -1,7 +1,7 @@
 use crate::salsa_struct::{SalsaStruct, SalsaStructKind};
 use proc_macro2::TokenStream;
 
-// #[salsa::interned(jar = Jar0, data = TyData0)]
+// #[timed_salsa::interned(jar = Jar0, data = TyData0)]
 // #[derive(Eq, PartialEq, Hash, Debug, Clone)]
 // struct Ty0 {
 //    field1: Type1,
@@ -98,16 +98,16 @@ impl InternedStruct {
                 if field.is_clone_field() {
                     parse_quote! {
                         #field_vis fn #field_get_name(self, db: &#db_dyn_ty) -> #field_ty {
-                            let (jar, runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(db);
-                            let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #id_ident >>::ingredient(jar);
+                            let (jar, runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(db);
+                            let ingredients = <#jar_ty as timed_salsa::storage::HasIngredientsFor< #id_ident >>::ingredient(jar);
                             std::clone::Clone::clone(&ingredients.data(runtime, self).#field_name)
                         }
                     }
                 } else {
                     parse_quote! {
                         #field_vis fn #field_get_name<'db>(self, db: &'db #db_dyn_ty) -> &'db #field_ty {
-                            let (jar, runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(db);
-                            let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #id_ident >>::ingredient(jar);
+                            let (jar, runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(db);
+                            let ingredients = <#jar_ty as timed_salsa::storage::HasIngredientsFor< #id_ident >>::ingredient(jar);
                             &ingredients.data(runtime, self).#field_name
                         }
                     }
@@ -124,8 +124,8 @@ impl InternedStruct {
                 db: &#db_dyn_ty,
                 #(#field_names: #field_tys,)*
             ) -> Self {
-                let (jar, runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(db);
-                let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #id_ident >>::ingredient(jar);
+                let (jar, runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(db);
+                let ingredients = <#jar_ty as timed_salsa::storage::HasIngredientsFor< #id_ident >>::ingredient(jar);
                 ingredients.intern(runtime, #data_ident {
                     #(#field_names,)*
                 })
@@ -141,7 +141,7 @@ impl InternedStruct {
         }
     }
 
-    /// Generates an impl of `salsa::storage::IngredientsFor`.
+    /// Generates an impl of `timed_salsa::storage::IngredientsFor`.
     ///
     /// For a memoized type, the only ingredient is an `InternedIngredient`.
     fn ingredients_for_impl(&self) -> syn::ItemImpl {
@@ -150,27 +150,27 @@ impl InternedStruct {
         let jar_ty = self.jar_ty();
         let data_ident = self.data_ident();
         parse_quote! {
-            impl salsa::storage::IngredientsFor for #id_ident {
+            impl timed_salsa::storage::IngredientsFor for #id_ident {
                 type Jar = #jar_ty;
-                type Ingredients = salsa::interned::InternedIngredient<#id_ident, #data_ident>;
+                type Ingredients = timed_salsa::interned::InternedIngredient<#id_ident, #data_ident>;
 
                 fn create_ingredients<DB>(
-                    routes: &mut salsa::routes::Routes<DB>,
+                    routes: &mut timed_salsa::routes::Routes<DB>,
                 ) -> Self::Ingredients
                 where
-                    DB: salsa::storage::JarFromJars<Self::Jar>,
+                    DB: timed_salsa::storage::JarFromJars<Self::Jar>,
                 {
                     let index = routes.push(
                         |jars| {
-                            let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
-                            <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar)
+                            let jar = <DB as timed_salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                            <_ as timed_salsa::storage::HasIngredientsFor<Self>>::ingredient(jar)
                         },
                         |jars| {
-                            let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
-                            <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar)
+                            let jar = <DB as timed_salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                            <_ as timed_salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar)
                         },
                     );
-                    salsa::interned::InternedIngredient::new(index, #debug_name)
+                    timed_salsa::interned::InternedIngredient::new(index, #debug_name)
                 }
             }
         }
@@ -181,11 +181,11 @@ impl InternedStruct {
         let ident = self.id_ident();
         let jar_ty = self.jar_ty();
         parse_quote! {
-            impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for #ident
+            impl<DB> timed_salsa::salsa_struct::SalsaStructInDb<DB> for #ident
             where
-                DB: ?Sized + salsa::DbWithJar<#jar_ty>,
+                DB: ?Sized + timed_salsa::DbWithJar<#jar_ty>,
             {
-                fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {
+                fn register_dependent_fn(_db: &DB, _index: timed_salsa::routes::IngredientIndex) {
                     // Do nothing here, at least for now.
                     // If/when we add ability to delete inputs, this would become relevant.
                 }

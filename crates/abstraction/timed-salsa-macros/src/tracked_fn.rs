@@ -21,7 +21,7 @@ pub(crate) fn tracked_fn(
     if let syn::FnArg::Receiver(receiver) = &item_fn.sig.inputs[0] {
         return Err(syn::Error::new(
             receiver.span(),
-            "#[salsa::tracked] must also be applied to the impl block for tracked methods",
+            "#[timed_salsa::tracked] must also be applied to the impl block for tracked methods",
         ));
     }
 
@@ -92,7 +92,7 @@ pub(crate) fn tracked_impl(
         _ => {
             return Err(syn::Error::new(
                 item_impl.self_ty.span(),
-                "#[salsa::tracked] can only be applied to salsa structs",
+                "#[timed_salsa::tracked] can only be applied to salsa structs",
             ))
         }
     };
@@ -315,14 +315,14 @@ fn configuration_struct(item_fn: &syn::ItemFn) -> syn::ItemStruct {
     let salsa_struct_ty = salsa_struct_ty(item_fn);
     let intern_map: syn::Type = match function_type(item_fn) {
         FunctionType::Constant => {
-            parse_quote! { salsa::interned::IdentityInterner<()> }
+            parse_quote! { timed_salsa::interned::IdentityInterner<()> }
         }
         FunctionType::SalsaStruct => {
-            parse_quote! { salsa::interned::IdentityInterner<#salsa_struct_ty> }
+            parse_quote! { timed_salsa::interned::IdentityInterner<#salsa_struct_ty> }
         }
         FunctionType::RequiresInterning => {
             let key_ty = key_tuple_ty(item_fn);
-            parse_quote! { salsa::interned::InternedIngredient<salsa::Id, #key_ty> }
+            parse_quote! { timed_salsa::interned::InternedIngredient<timed_salsa::Id, #key_ty> }
         }
     };
 
@@ -330,7 +330,7 @@ fn configuration_struct(item_fn: &syn::ItemFn) -> syn::ItemStruct {
         #[allow(non_camel_case_types)]
         #visibility struct #fn_name {
             intern_map: #intern_map,
-            function: salsa::function::FunctionIngredient<Self>,
+            function: timed_salsa::function::FunctionIngredient<Self>,
         }
     }
 }
@@ -357,7 +357,7 @@ fn function_type(item_fn: &syn::ItemFn) -> FunctionType {
 /// This fn returns the type of that second argument.
 fn salsa_struct_ty(item_fn: &syn::ItemFn) -> syn::Type {
     if item_fn.sig.inputs.len() == 1 {
-        return parse_quote! { salsa::salsa_struct::Singleton };
+        return parse_quote! { timed_salsa::salsa_struct::Singleton };
     }
     match &item_fn.sig.inputs[1] {
         syn::FnArg::Receiver(_) => panic!("receiver not expected"),
@@ -371,7 +371,7 @@ fn fn_configuration(args: &FnArgs, item_fn: &syn::ItemFn) -> Configuration {
     let key_ty = match function_type(item_fn) {
         FunctionType::Constant => parse_quote!(()),
         FunctionType::SalsaStruct => salsa_struct_ty.clone(),
-        FunctionType::RequiresInterning => parse_quote!(salsa::id::Id),
+        FunctionType::RequiresInterning => parse_quote!(timed_salsa::id::Id),
     };
     let value_ty = configuration::value_ty(&item_fn.sig);
 
@@ -384,10 +384,10 @@ fn fn_configuration(args: &FnArgs, item_fn: &syn::ItemFn) -> Configuration {
         let cycle_strategy = CycleRecoveryStrategy::Fallback;
 
         let cycle_fullback = parse_quote! {
-            fn recover_from_cycle(__db: &salsa::function::DynDb<Self>, __cycle: &salsa::Cycle, __id: Self::Key) -> Self::Value {
-                let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
+            fn recover_from_cycle(__db: &timed_salsa::function::DynDb<Self>, __cycle: &timed_salsa::Cycle, __id: Self::Key) -> Self::Value {
+                let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(__db);
                 let __ingredients =
-                    <_ as salsa::storage::HasIngredientsFor<#fn_ty>>::ingredient(__jar);
+                    <_ as timed_salsa::storage::HasIngredientsFor<#fn_ty>>::ingredient(__jar);
                 let __key = __ingredients.intern_map.data(__runtime, __id).clone();
                 #recovery_fn(__db, __cycle, #(__key.#indices),*)
             }
@@ -415,12 +415,12 @@ fn fn_configuration(args: &FnArgs, item_fn: &syn::ItemFn) -> Configuration {
     // keys and then (b) invokes the function itself (which we embed within).
     let indices = (0..item_fn.sig.inputs.len() - 1).map(Literal::usize_unsuffixed);
     let execute_fn = parse_quote! {
-        fn execute(__db: &salsa::function::DynDb<Self>, __id: Self::Key) -> Self::Value {
+        fn execute(__db: &timed_salsa::function::DynDb<Self>, __id: Self::Key) -> Self::Value {
             #inner_fn
 
-            let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
+            let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(__db);
             let __ingredients =
-                <_ as salsa::storage::HasIngredientsFor<#fn_ty>>::ingredient(__jar);
+                <_ as timed_salsa::storage::HasIngredientsFor<#fn_ty>>::ingredient(__jar);
             let __key = __ingredients.intern_map.data(__runtime, __id).clone();
             #inner_fn_name(__db, #(__key.#indices),*)
         }
@@ -449,7 +449,7 @@ fn ingredients_for_impl(
     let intern_map: syn::Expr = match function_type(item_fn) {
         FunctionType::Constant | FunctionType::SalsaStruct => {
             parse_quote! {
-                salsa::interned::IdentityInterner::new()
+                timed_salsa::interned::IdentityInterner::new()
             }
         }
         FunctionType::RequiresInterning => {
@@ -457,19 +457,19 @@ fn ingredients_for_impl(
                 {
                     let index = routes.push(
                         |jars| {
-                            let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                            let jar = <DB as timed_salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
                             let ingredients =
-                                <_ as salsa::storage::HasIngredientsFor<Self::Ingredients>>::ingredient(jar);
+                                <_ as timed_salsa::storage::HasIngredientsFor<Self::Ingredients>>::ingredient(jar);
                             &ingredients.intern_map
                         },
                         |jars| {
-                            let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                            let jar = <DB as timed_salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
                             let ingredients =
-                                <_ as salsa::storage::HasIngredientsFor<Self::Ingredients>>::ingredient_mut(jar);
+                                <_ as timed_salsa::storage::HasIngredientsFor<Self::Ingredients>>::ingredient_mut(jar);
                             &mut ingredients.intern_map
                         }
                     );
-                    salsa::interned::InternedIngredient::new(index, #debug_name)
+                    timed_salsa::interned::InternedIngredient::new(index, #debug_name)
                 }
             }
         }
@@ -482,13 +482,13 @@ fn ingredients_for_impl(
     let debug_name = crate::literal(&item_fn.sig.ident);
 
     parse_quote! {
-        impl salsa::storage::IngredientsFor for #config_ty {
+        impl timed_salsa::storage::IngredientsFor for #config_ty {
             type Ingredients = Self;
             type Jar = #jar_ty;
 
-            fn create_ingredients<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self::Ingredients
+            fn create_ingredients<DB>(routes: &mut timed_salsa::routes::Routes<DB>) -> Self::Ingredients
             where
-                DB: salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
+                DB: timed_salsa::DbWithJar<Self::Jar> + timed_salsa::storage::JarFromJars<Self::Jar>,
             {
                 Self {
                     intern_map: #intern_map,
@@ -496,18 +496,18 @@ fn ingredients_for_impl(
                     function: {
                         let index = routes.push(
                             |jars| {
-                                let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                                let jar = <DB as timed_salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
                                 let ingredients =
-                                    <_ as salsa::storage::HasIngredientsFor<Self::Ingredients>>::ingredient(jar);
+                                    <_ as timed_salsa::storage::HasIngredientsFor<Self::Ingredients>>::ingredient(jar);
                                 &ingredients.function
                             },
                             |jars| {
-                                let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                                let jar = <DB as timed_salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
                                 let ingredients =
-                                    <_ as salsa::storage::HasIngredientsFor<Self::Ingredients>>::ingredient_mut(jar);
+                                    <_ as timed_salsa::storage::HasIngredientsFor<Self::Ingredients>>::ingredient_mut(jar);
                                 &mut ingredients.function
                             });
-                        let ingredient = salsa::function::FunctionIngredient::new(index, #debug_name);
+                        let ingredient = timed_salsa::function::FunctionIngredient::new(index, #debug_name);
                         ingredient.set_capacity(#lru);
                         ingredient
                     }
@@ -611,8 +611,8 @@ fn ref_getter_fn(
     let (db_var, arg_names) = fn_args(item_fn)?;
     ref_getter_fn.block = parse_quote! {
         {
-            let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(#db_var);
-            let __ingredients = <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
+            let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(#db_var);
+            let __ingredients = <_ as timed_salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
             let __key = __ingredients.intern_map.intern(__runtime, (#(#arg_names),*));
             __ingredients.function.fetch(#db_var, __key)
         }
@@ -655,10 +655,10 @@ fn setter_fn(
         sig: setter_sig,
         block: parse_quote! {
             {
-                let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar_mut(#db_var);
-                let __ingredients = <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient_mut(__jar);
+                let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar_mut(#db_var);
+                let __ingredients = <_ as timed_salsa::storage::HasIngredientsFor<#config_ty>>::ingredient_mut(__jar);
                 let __key = __ingredients.intern_map.intern(__runtime, (#(#arg_names),*));
-                __ingredients.function.store(__runtime, __key, #value_arg, salsa::Durability::LOW)
+                __ingredients.function.store(__runtime, __key, #value_arg, timed_salsa::Durability::LOW)
             }
         },
     })
@@ -671,7 +671,7 @@ fn setter_fn(
 /// # Examples
 ///
 /// ```rust,ignore
-/// #[salsa::tracked(lru=32)]
+/// #[timed_salsa::tracked(lru=32)]
 /// fn my_tracked_fn(db: &dyn crate::Db, ...) { }
 ///
 /// my_tracked_fn::set_lru_capacity(16)
@@ -687,10 +687,10 @@ fn set_lru_capacity_fn(
     let jar_ty = args.jar_ty();
     let lru_fn = parse_quote! {
         #[allow(dead_code, clippy::needless_lifetimes)]
-        fn set_lru_capacity(__db: &salsa::function::DynDb<Self>, __value: usize) {
-            let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
+        fn set_lru_capacity(__db: &timed_salsa::function::DynDb<Self>, __value: usize) {
+            let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(__db);
             let __ingredients =
-                <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
+                <_ as timed_salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
             __ingredients.function.set_capacity(__value);
         }
     };
@@ -724,8 +724,8 @@ fn specify_fn(
         block: parse_quote! {
             {
 
-                let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(#db_var);
-                let __ingredients = <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
+                let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(#db_var);
+                let __ingredients = <_ as timed_salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
                 __ingredients.function.specify_and_record(#db_var, #(#arg_names,)* #value_arg)
             }
         },
@@ -817,14 +817,14 @@ fn accumulated_fn(
     let mut accumulated_fn = item_fn.clone();
     accumulated_fn.sig.ident = syn::Ident::new("accumulated", item_fn.sig.ident.span());
     accumulated_fn.sig.generics.params.push(parse_quote! {
-        __A: salsa::accumulator::Accumulator
+        __A: timed_salsa::accumulator::Accumulator
     });
     accumulated_fn.sig.output = parse_quote! {
-        -> Vec<<__A as salsa::accumulator::Accumulator>::Data>
+        -> Vec<<__A as timed_salsa::accumulator::Accumulator>::Data>
     };
 
     let (db_lifetime, _) = db_lifetime_and_ty(&mut accumulated_fn.sig)?;
-    let predicate: syn::WherePredicate = parse_quote!(<#jar_ty as salsa::jar::Jar<#db_lifetime>>::DynDb: salsa::storage::HasJar<<__A as salsa::accumulator::Accumulator>::Jar>);
+    let predicate: syn::WherePredicate = parse_quote!(<#jar_ty as timed_salsa::jar::Jar<#db_lifetime>>::DynDb: timed_salsa::storage::HasJar<<__A as timed_salsa::accumulator::Accumulator>::Jar>);
 
     if let Some(where_clause) = &mut accumulated_fn.sig.generics.where_clause {
         where_clause.predicates.push(predicate);
@@ -835,8 +835,8 @@ fn accumulated_fn(
     let (db_var, arg_names) = fn_args(item_fn)?;
     accumulated_fn.block = parse_quote! {
         {
-            let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(#db_var);
-            let __ingredients = <_ as salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
+            let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(#db_var);
+            let __ingredients = <_ as timed_salsa::storage::HasIngredientsFor<#config_ty>>::ingredient(__jar);
             let __key = __ingredients.intern_map.intern(__runtime, (#(#arg_names),*));
             __ingredients.function.accumulated::<__A>(#db_var, __key)
         }
