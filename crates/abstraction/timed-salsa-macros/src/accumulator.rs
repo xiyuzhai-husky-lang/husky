@@ -1,6 +1,6 @@
 use syn::ItemStruct;
 
-// #[salsa::accumulator(jar = Jar0)]
+// #[timed_salsa::accumulator(jar = Jar0)]
 // struct Accumulator(DataType);
 
 pub(crate) fn accumulator(
@@ -98,10 +98,10 @@ fn inherent_impl(args: &Args, struct_ty: &syn::Type, data_ty: &syn::Type) -> syn
         impl #struct_ty {
             pub fn push<DB: ?Sized>(db: &DB, data: #data_ty)
             where
-                DB: salsa::storage::HasJar<#jar_ty>,
+                DB: timed_salsa::storage::HasJar<#jar_ty>,
             {
-                let (jar, runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(db);
-                let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #struct_ty >>::ingredient(jar);
+                let (jar, runtime) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(db);
+                let ingredients = <#jar_ty as timed_salsa::storage::HasIngredientsFor< #struct_ty >>::ingredient(jar);
                 ingredients.push(runtime, data)
             }
         }
@@ -116,25 +116,25 @@ fn ingredients_for_impl(
     let jar_ty = args.jar_ty();
     let debug_name = crate::literal(struct_name);
     parse_quote! {
-        impl salsa::storage::IngredientsFor for #struct_name {
-            type Ingredients = salsa::accumulator::AccumulatorIngredient<#data_ty>;
+        impl timed_salsa::storage::IngredientsFor for #struct_name {
+            type Ingredients = timed_salsa::accumulator::AccumulatorIngredient<#data_ty>;
             type Jar = #jar_ty;
 
-            fn create_ingredients<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self::Ingredients
+            fn create_ingredients<DB>(routes: &mut timed_salsa::routes::Routes<DB>) -> Self::Ingredients
             where
-                DB: salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
+                DB: timed_salsa::DbWithJar<Self::Jar> + timed_salsa::storage::JarFromJars<Self::Jar>,
             {
                     let index = routes.push(
                         |jars| {
-                            let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
-                            <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar)
+                            let jar = <DB as timed_salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                            <_ as timed_salsa::storage::HasIngredientsFor<Self>>::ingredient(jar)
                         },
                         |jars| {
-                            let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
-                            <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar)
+                            let jar = <DB as timed_salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                            <_ as timed_salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar)
                         },
                     );
-                    salsa::accumulator::AccumulatorIngredient::new(index, #debug_name)
+                    timed_salsa::accumulator::AccumulatorIngredient::new(index, #debug_name)
             }
         }
     }
@@ -143,18 +143,18 @@ fn ingredients_for_impl(
 fn accumulator_impl(args: &Args, struct_ty: &syn::Type, data_ty: &syn::Type) -> syn::ItemImpl {
     let jar_ty = args.jar_ty();
     parse_quote! {
-        impl salsa::accumulator::Accumulator for #struct_ty {
+        impl timed_salsa::accumulator::Accumulator for #struct_ty {
             type Data = #data_ty;
             type Jar = #jar_ty;
 
             fn accumulator_ingredient<'db, Db>(
                 db: &'db Db,
-            ) -> &'db salsa::accumulator::AccumulatorIngredient<Self::Data>
+            ) -> &'db timed_salsa::accumulator::AccumulatorIngredient<Self::Data>
             where
-                Db: ?Sized + salsa::storage::HasJar<Self::Jar>
+                Db: ?Sized + timed_salsa::storage::HasJar<Self::Jar>
             {
-                let (jar, _) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(db);
-                let ingredients = <#jar_ty as salsa::storage::HasIngredientsFor<#struct_ty>>::ingredient(jar);
+                let (jar, _) = <_ as timed_salsa::storage::HasJar<#jar_ty>>::jar(db);
+                let ingredients = <#jar_ty as timed_salsa::storage::HasIngredientsFor<#struct_ty>>::ingredient(jar);
                 ingredients
             }
         }

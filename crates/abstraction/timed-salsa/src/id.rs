@@ -19,7 +19,7 @@ impl Id {
     pub const MAX_U32: u32 = std::u32::MAX - 0xFF;
     pub const MAX_USIZE: usize = Self::MAX_U32 as usize;
 
-    /// Create a `salsa::Id` from a u32 value. This value should
+    /// Create a `timed_salsa::Id` from a u32 value. This value should
     /// be less than [`Self::MAX_U32`].
     ///
     /// In general, you should not need to create salsa ids yourself,

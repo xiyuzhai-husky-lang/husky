@@ -1,0 +1,53 @@
+error: `return_ref` option not allowed here
+  --> tests/compile-fail/tracked_impl_incompatibles.rs:10:18
+   |
+10 | #[timed_salsa::tracked(return_ref)]
+   |                  ^^^^^^^^^^
+
+error: `specify` option not allowed here
+  --> tests/compile-fail/tracked_impl_incompatibles.rs:16:18
+   |
+16 | #[timed_salsa::tracked(specify)]
+   |                  ^^^^^^^
+
+error: `no_eq` option not allowed here
+  --> tests/compile-fail/tracked_impl_incompatibles.rs:23:18
+   |
+23 | #[timed_salsa::tracked(no_eq)]
+   |                  ^^^^^
+
+error: `data` option not allowed here
+  --> tests/compile-fail/tracked_impl_incompatibles.rs:30:18
+   |
+30 | #[timed_salsa::tracked(data = Data)]
+   |                  ^^^^
+
+error: `db` option not allowed here
+  --> tests/compile-fail/tracked_impl_incompatibles.rs:37:18
+   |
+37 | #[timed_salsa::tracked(db = Db)]
+   |                  ^^
+
+error: unrecognized option `recover_fn`
+  --> tests/compile-fail/tracked_impl_incompatibles.rs:44:18
+   |
+44 | #[timed_salsa::tracked(recover_fn = recover)]
+   |                  ^^^^^^^^^^
+
+error: `lru` option not allowed here
+  --> tests/compile-fail/tracked_impl_incompatibles.rs:51:18
+   |
+51 | #[timed_salsa::tracked(lru = 32)]
+   |                  ^^^
+
+error: `constructor` option not allowed here
+  --> tests/compile-fail/tracked_impl_incompatibles.rs:58:18
+   |
+58 | #[timed_salsa::tracked(constructor = Constructor)]
+   |                  ^^^^^^^^^^^
+
+error: #[timed_salsa::tracked] can only be applied to salsa structs
+  --> tests/compile-fail/tracked_impl_incompatibles.rs:65:32
+   |
+65 | impl std::default::Default for [MyTracked; 12] {
+   |                                ^^^^^^^^^^^^^^^

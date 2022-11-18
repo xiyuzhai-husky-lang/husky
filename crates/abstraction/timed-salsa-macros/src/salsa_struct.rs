@@ -1,10 +1,10 @@
-//! Common code for `#[salsa::interned]`, `#[salsa::input]`, and
-//! `#[salsa::tracked]` decorators.
+//! Common code for `#[timed_salsa::interned]`, `#[timed_salsa::input]`, and
+//! `#[timed_salsa::tracked]` decorators.
 //!
 //! Example of usage:
 //!
 //! ```rust,ignore
-//! #[salsa::interned(jar = Jar0, data = TyData0)]
+//! #[timed_salsa::interned(jar = Jar0, data = TyData0)]
 //! #[derive(Eq, PartialEq, Hash, Debug, Clone)]
 //! struct Ty0 {
 //!    field1: Type1,
@@ -146,7 +146,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
     pub(crate) fn db_dyn_ty(&self) -> syn::Type {
         let jar_ty = self.jar_ty();
         parse_quote! {
-            <#jar_ty as salsa::jar::Jar<'_>>::DynDb
+            <#jar_ty as timed_salsa::jar::Jar<'_>>::DynDb
         }
     }
 
@@ -178,7 +178,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
         parse_quote! {
             #(#attrs)*
             #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
-            #visibility struct #ident(salsa::Id);
+            #visibility struct #ident(timed_salsa::Id);
         }
     }
 
@@ -219,7 +219,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
 
     /// For each of the fields passed as an argument,
     /// generate a struct named `Ident_Field` and an impl
-    /// of `salsa::function::Configuration` for that struct.
+    /// of `timed_salsa::function::Configuration` for that struct.
     pub(crate) fn field_config_structs_and_impls<'a>(
         &self,
         fields: impl Iterator<Item = &'a SalsaField>,
@@ -256,20 +256,20 @@ impl<A: AllowedOptions> SalsaStruct<A> {
 
                 let should_backdate_value_fn = configuration::should_backdate_value_fn(value_field_backdate);
                 let item_impl: syn::ItemImpl = parse_quote! {
-                    impl salsa::function::Configuration for #config_name {
+                    impl timed_salsa::function::Configuration for #config_name {
                         type Jar = #jar_ty;
                         type SalsaStruct = #ident;
                         type Key = #ident;
                         type Value = #value_field_ty;
-                        const CYCLE_STRATEGY: salsa::cycle::CycleRecoveryStrategy = salsa::cycle::CycleRecoveryStrategy::Panic;
+                        const CYCLE_STRATEGY: timed_salsa::cycle::CycleRecoveryStrategy = timed_salsa::cycle::CycleRecoveryStrategy::Panic;
 
                         #should_backdate_value_fn
 
-                        fn execute(db: &salsa::function::DynDb<Self>, key: Self::Key) -> Self::Value {
+                        fn execute(db: &timed_salsa::function::DynDb<Self>, key: Self::Key) -> Self::Value {
                             panic!(#execute_string)
                         }
 
-                        fn recover_from_cycle(db: &salsa::function::DynDb<Self>, cycle: &salsa::Cycle, key: Self::Key) -> Self::Value {
+                        fn recover_from_cycle(db: &timed_salsa::function::DynDb<Self>, cycle: &timed_salsa::Cycle, key: Self::Key) -> Self::Value {
                             panic!(#recover_from_cycle_string)
                         }
                     }
@@ -280,16 +280,16 @@ impl<A: AllowedOptions> SalsaStruct<A> {
             .unzip()
     }
 
-    /// Generate `impl salsa::AsId for Foo`
+    /// Generate `impl timed_salsa::AsId for Foo`
     pub(crate) fn as_id_impl(&self) -> syn::ItemImpl {
         let ident = self.id_ident();
         parse_quote! {
-            impl salsa::AsId for #ident {
-                fn as_id(self) -> salsa::Id {
+            impl timed_salsa::AsId for #ident {
+                fn as_id(self) -> timed_salsa::Id {
                     self.0
                 }
 
-                fn from_id(id: salsa::Id) -> Self {
+                fn from_id(id: timed_salsa::Id) -> Self {
                     #ident(id)
                 }
             }
@@ -297,14 +297,14 @@ impl<A: AllowedOptions> SalsaStruct<A> {
         }
     }
 
-    /// Generate `impl salsa::DebugWithDb for Foo`
+    /// Generate `impl timed_salsa::DebugWithDb for Foo`
     pub(crate) fn as_debug_with_db_impl(&self) -> syn::ItemImpl {
         let ident = self.id_ident();
 
         let db_type = self.db_dyn_ty();
         let ident_string = ident.to_string();
 
-        // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
+        // `::timed_salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
         let fields = self
             .all_fields()
             .into_iter()
@@ -316,7 +316,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
                 let field_debug = quote_spanned! { field.field.span() =>
                     debug_struct = debug_struct.field(
                         #field_name_string,
-                        &::salsa::debug::helper::SalsaDebug::<#field_ty, #db_type>::salsa_debug(
+                        &::timed_salsa::debug::helper::SalsaDebug::<#field_ty, #db_type>::salsa_debug(
                             #[allow(clippy::needless_borrow)]
                             &self.#field_getter(_db),
                             _db,
@@ -339,12 +339,12 @@ impl<A: AllowedOptions> SalsaStruct<A> {
             })
             .collect::<TokenStream>();
 
-        // `use ::salsa::debug::helper::Fallback` is needed for the fallback to `Debug` impl
+        // `use ::timed_salsa::debug::helper::Fallback` is needed for the fallback to `Debug` impl
         parse_quote_spanned! {ident.span()=>
-            impl ::salsa::DebugWithDb<#db_type> for #ident {
+            impl ::timed_salsa::DebugWithDb<#db_type> for #ident {
                 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &#db_type, _include_all_fields: bool) -> ::std::fmt::Result {
                     #[allow(unused_imports)]
-                    use ::salsa::debug::helper::Fallback;
+                    use ::timed_salsa::debug::helper::Fallback;
                     let mut debug_struct = &mut f.debug_struct(#ident_string);
                     debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
                     #fields
@@ -366,7 +366,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
             if ef.has_id_attr {
                 return Err(syn::Error::new(
                     ef.name().span(),
-                    format!("`#[id]` cannot be used with `#[salsa::{kind}]`"),
+                    format!("`#[id]` cannot be used with `#[timed_salsa::{kind}]`"),
                 ));
             }
         }

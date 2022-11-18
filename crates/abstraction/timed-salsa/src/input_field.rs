@@ -9,7 +9,7 @@ use dashmap::DashMap;
 use std::fmt;
 use std::hash::Hash;
 
-/// Ingredient used to represent the fields of a `#[salsa::input]`.
+/// Ingredient used to represent the fields of a `#[timed_salsa::input]`.
 ///
 /// These fields can only be mutated by a call to a setter with an `&mut`
 /// reference to the database, and therefore cannot be mutated during a tracked
@@ -18,13 +18,16 @@ use std::hash::Hash;
 /// a shared reference, so some locking is required.
 /// Altogether this makes the implementation somewhat simpler than tracked
 /// structs.
-pub struct InputFieldIngredient<K, F> {
+pub struct InputFieldIngredient<K, V> {
     index: IngredientIndex,
-    map: DashMap<K, Box<StampedValue<F>>>,
+    // value is stored in a box so internal moves in the dashmap don't
+    // invalidate the reference to the value inside the box.
+    // Values are only removed or altered when we have `&mut self`.
+    map: DashMap<K, Box<StampedValue<V>>>,
     debug_name: &'static str,
 }
 
-impl<K, F> InputFieldIngredient<K, F>
+impl<K, V> InputFieldIngredient<K, V>
 where
     K: Eq + Hash + AsId,
 {
@@ -36,13 +39,14 @@ where
         }
     }
 
+    // why this needs mut?
     pub fn store_mut(
         &mut self,
         runtime: &Runtime,
         key: K,
-        value: F,
+        value: V,
         durability: Durability,
-    ) -> Option<F> {
+    ) -> Option<V> {
         let revision = runtime.current_revision();
         let stamped_value = Box::new(StampedValue {
             value,
@@ -58,7 +62,7 @@ where
     /// Set the field of a new input.
     ///
     /// This function panics if the field has ever been set before.
-    pub fn store_new(&self, runtime: &Runtime, key: K, value: F, durability: Durability) {
+    pub fn store_new(&self, runtime: &Runtime, key: K, value: V, durability: Durability) {
         let revision = runtime.current_revision();
         let stamped_value = Box::new(StampedValue {
             value,
@@ -76,7 +80,7 @@ where
         }
     }
 
-    pub fn fetch<'db>(&'db self, runtime: &'db Runtime, key: K) -> &F {
+    pub fn fetch<'db>(&'db self, runtime: &'db Runtime, key: K) -> &V {
         let StampedValue {
             value,
             durability,
@@ -112,7 +116,7 @@ unsafe fn transmute_lifetime<'t, 'u, T, U>(_t: &'t T, u: &'u U) -> &'t U {
     std::mem::transmute(u)
 }
 
-impl<DB: ?Sized, K, F> Ingredient<DB> for InputFieldIngredient<K, F>
+impl<DB: ?Sized, K, V> Ingredient<DB> for InputFieldIngredient<K, V>
 where
     K: AsId,
 {
@@ -158,7 +162,7 @@ where
     }
 }
 
-impl<K, F> IngredientRequiresReset for InputFieldIngredient<K, F>
+impl<K, V> IngredientRequiresReset for InputFieldIngredient<K, V>
 where
     K: AsId,
 {

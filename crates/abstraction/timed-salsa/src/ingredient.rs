@@ -9,7 +9,7 @@ use super::Revision;
 
 /// "Ingredients" are the bits of data that are stored within the database to make salsa work.
 /// Each jar will define some number of ingredients that it requires.
-/// Each use salsa macro (e.g., `#[salsa::tracked]`, `#[salsa::interned]`) adds one or more
+/// Each use salsa macro (e.g., `#[timed_salsa::tracked]`, `#[timed_salsa::interned]`) adds one or more
 /// ingredients to the jar struct that together are used to create the salsa concept.
 /// For example, a tracked struct defines a [`crate::interned::InternedIngredient`] to store
 /// its identity plus [`crate::function::FunctionIngredient`] values to store its fields.

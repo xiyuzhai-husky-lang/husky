@@ -22,12 +22,12 @@ impl Configuration {
             recover_fn,
         } = self;
         parse_quote! {
-            impl salsa::function::Configuration for #self_ty {
+            impl timed_salsa::function::Configuration for #self_ty {
                 type Jar = #jar_ty;
                 type SalsaStruct = #salsa_struct_ty;
                 type Key = #key_ty;
                 type Value = #value_ty;
-                const CYCLE_STRATEGY: salsa::cycle::CycleRecoveryStrategy = #cycle_strategy;
+                const CYCLE_STRATEGY: timed_salsa::cycle::CycleRecoveryStrategy = #cycle_strategy;
                 #backdate_fn
                 #execute_fn
                 #recover_fn
@@ -45,10 +45,10 @@ impl quote::ToTokens for CycleRecoveryStrategy {
     fn to_tokens(&self, tokens: &mut proc_macro2::TokenStream) {
         match self {
             CycleRecoveryStrategy::Panic => {
-                tokens.extend(quote! {salsa::cycle::CycleRecoveryStrategy::Panic})
+                tokens.extend(quote! {timed_salsa::cycle::CycleRecoveryStrategy::Panic})
             }
             CycleRecoveryStrategy::Fallback => {
-                tokens.extend(quote! {salsa::cycle::CycleRecoveryStrategy::Fallback})
+                tokens.extend(quote! {timed_salsa::cycle::CycleRecoveryStrategy::Fallback})
             }
         }
     }
@@ -60,7 +60,7 @@ pub(crate) fn should_backdate_value_fn(should_backdate: bool) -> syn::ImplItemMe
     if should_backdate {
         parse_quote! {
             fn should_backdate_value(v1: &Self::Value, v2: &Self::Value) -> bool {
-                salsa::function::should_backdate_value(v1, v2)
+                timed_salsa::function::should_backdate_value(v1, v2)
             }
         }
     } else {
@@ -77,8 +77,8 @@ pub(crate) fn should_backdate_value_fn(should_backdate: bool) -> syn::ImplItemMe
 pub(crate) fn panic_cycle_recovery_fn() -> syn::ImplItemMethod {
     parse_quote! {
         fn recover_from_cycle(
-            _db: &salsa::function::DynDb<Self>,
-            _cycle: &salsa::Cycle,
+            _db: &timed_salsa::function::DynDb<Self>,
+            _cycle: &timed_salsa::Cycle,
             _key: Self::Key,
         ) -> Self::Value {
             panic!()
