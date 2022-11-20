@@ -3,37 +3,53 @@ use crossbeam_channel::{unbounded, Receiver, Sender};
 use dashmap::DashMap;
 use eyre::{eyre, Context, Report, Result};
 use notify_debouncer_mini::{notify::RecommendedWatcher, Debouncer};
+use place::SingleAssignPlace;
 use std::{
     marker::PhantomData,
     sync::{Arc, Mutex},
     thread,
 };
 
-pub trait WatchableVfsDb: VfsDb + Sync + Send + 'static + Sized {
-    fn watch(this: Arc<Mutex<Self>>) -> VfsWatcherGuard<Self> {
-        VfsWatcherGuard::new(this)
+pub trait HasWatcherPlace {
+    fn watcher_place(&mut self) -> &mut SingleAssignPlace<VfsWatcher>;
+}
+
+pub trait WatchableVfsDb: VfsDb + HasWatcherPlace + Send + 'static {
+    fn watcher(&self) -> Option<&VfsWatcher>;
+}
+
+impl<T> WatchableVfsDb for T
+where
+    T: VfsDb + HasWatcherPlace + Send + 'static,
+{
+    fn watcher(&self) -> Option<&VfsWatcher> {
+        todo!()
     }
 }
 
-impl<T> WatchableVfsDb for T where T: VfsDb + Sync + Send + 'static {}
+pub struct VfsWatcher;
 
-pub struct VfsWatcherGuard<DB: WatchableVfsDb> {
-    phantom: PhantomData<DB>,
+impl VfsWatcher {
+    fn new(tx: Sender<VfsWatcherEvent>) -> Self {
+        VfsWatcher
+    }
+}
+
+pub struct VfsWatcherThread<DB: WatchableVfsDb> {
     tx: Sender<VfsWatcherEvent>,
+    phantom: PhantomData<DB>,
 }
 
 pub struct VfsWatcherInstance<DB: WatchableVfsDb> {
     db: Arc<Mutex<DB>>,
     rx: Receiver<VfsWatcherEvent>,
-    files: DashMap<PathBufItd, String>,
-    file_watcher: Mutex<Debouncer<RecommendedWatcher>>,
 }
 
 pub enum VfsWatcherEvent {
     Close,
 }
 
-impl<V: WatchableVfsDb> Drop for VfsWatcherGuard<V> {
+impl<V: WatchableVfsDb> Drop for VfsWatcherThread<V> {
     fn drop(&mut self) {
         match self.tx.send(VfsWatcherEvent::Close) {
             Ok(_) => (),
@@ -42,25 +58,28 @@ impl<V: WatchableVfsDb> Drop for VfsWatcherGuard<V> {
     }
 }
 
-impl<V: WatchableVfsDb> VfsWatcherGuard<V> {
+impl<V: WatchableVfsDb> VfsWatcherThread<V> {
     pub fn new(db: Arc<Mutex<V>>) -> Self {
         let (tx, rx) = unbounded();
+        db.lock()
+            .unwrap()
+            .watcher_place()
+            .set(VfsWatcher::new(tx.clone()))
+            .unwrap();
         thread::spawn(|| match VfsWatcherInstance::new(db, rx).run() {
             Ok(_) => (),
             Err(_) => todo!(),
         });
-        todo!()
+        Self {
+            tx,
+            phantom: PhantomData,
+        }
     }
 }
 
 impl<DB: WatchableVfsDb> VfsWatcherInstance<DB> {
     fn new(db: Arc<Mutex<DB>>, rx: Receiver<VfsWatcherEvent>) -> Self {
-        Self {
-            db,
-            rx,
-            files: Default::default(),
-            file_watcher: todo!(),
-        }
+        Self { db, rx }
     }
 
     fn run(self) -> Result<()> {
