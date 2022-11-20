@@ -25,7 +25,7 @@ pub struct VfsWatcherGuard<DB: WatchableVfsDb> {
 pub struct VfsWatcherInstance<DB: WatchableVfsDb> {
     db: Arc<Mutex<DB>>,
     rx: Receiver<VfsWatcherEvent>,
-    files: DashMap<PathBufItd, HuskyFileContent>,
+    files: DashMap<PathBufItd, String>,
     file_watcher: Mutex<Debouncer<RecommendedWatcher>>,
 }
 
