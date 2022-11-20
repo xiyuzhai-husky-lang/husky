@@ -32,10 +32,14 @@ pub struct PathBufItd {
 pub struct Jar(PathBufItd, HuskyFileId);
 
 pub trait VfsDb: timed_salsa::DbWithJar<Jar> + Vfs {
-    fn file(&self, path: PathBufItd) -> VfsResult<HuskyFileId>
-    where
-        Self: Sized,
-    {
+    fn file(&self, path: PathBufItd) -> VfsResult<HuskyFileId>;
+}
+
+impl<T> VfsDb for T
+where
+    T: timed_salsa::DbWithJar<Jar> + Vfs,
+{
+    fn file(&self, path: PathBufItd) -> VfsResult<HuskyFileId> {
         match self.cache().0.entry(path.clone()) {
             // If the file already exists in our cache then just return it.
             Entry::Occupied(entry) => Ok(*entry.get()),
@@ -50,7 +54,7 @@ pub trait VfsDb: timed_salsa::DbWithJar<Jar> + Vfs {
                 //     .watcher()
                 //     .watch(path_ref, RecursiveMode::NonRecursive)
                 //     .unwrap();
-                self.read_to_file_id_watched(
+                self.watch_then_read(
                     path_ref,
                     Box::new(|| {
                         let content = self.read_to_string(path_ref)?;
@@ -67,13 +71,11 @@ pub trait VfsDb: timed_salsa::DbWithJar<Jar> + Vfs {
     }
 }
 
-impl<T> VfsDb for T where T: timed_salsa::DbWithJar<Jar> + Vfs {}
-
 pub trait Vfs {
-    fn read_to_file_id_watched<'a>(
+    fn watch_then_read<'a>(
         &self,
         path: &Path,
-        new_file: Box<dyn FnOnce() -> VfsResult<HuskyFileId> + 'a>,
+        read: Box<dyn FnOnce() -> VfsResult<HuskyFileId> + 'a>,
     ) -> VfsResult<HuskyFileId>;
     fn cache(&self) -> &HuskyFileCache;
     fn read_to_string(&self, path: &Path) -> VfsResult<String>;
@@ -125,7 +127,7 @@ mod tests {
             &self.cache
         }
 
-        fn read_to_file_id_watched<'a>(
+        fn watch_then_read<'a>(
             &self,
             path: &Path,
             read: Box<dyn FnOnce() -> VfsResult<HuskyFileId> + 'a>,
