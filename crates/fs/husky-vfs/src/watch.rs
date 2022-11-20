@@ -1,17 +1,22 @@
 use crate::*;
-use crossbeam_channel::{unbounded, Receiver, Sender};
+use crossbeam_channel::{select, unbounded, Receiver, Sender};
 use dashmap::DashMap;
 use eyre::{eyre, Context, Report, Result};
-use notify_debouncer_mini::{notify::RecommendedWatcher, Debouncer};
+use notify_debouncer_mini::{
+    new_debouncer, new_debouncer_opt, notify::RecommendedWatcher, DebounceEventHandler,
+    DebounceEventResult, Debouncer,
+};
 use place::SingleAssignPlace;
 use std::{
     marker::PhantomData,
     sync::{Arc, Mutex},
     thread,
+    time::Duration,
 };
 
 pub trait HasWatcherPlace {
-    fn watcher_place(&mut self) -> &mut SingleAssignPlace<VfsWatcher>;
+    fn watcher_place_mut(&mut self) -> &mut SingleAssignPlace<VfsWatcher>;
+    fn watcher_place(&self) -> &SingleAssignPlace<VfsWatcher>;
 }
 
 pub trait WatchableVfsDb: VfsDb + HasWatcherPlace + Send + 'static {
@@ -23,26 +28,29 @@ where
     T: VfsDb + HasWatcherPlace + Send + 'static,
 {
     fn watcher(&self) -> Option<&VfsWatcher> {
-        todo!()
+        self.watcher_place().value()
     }
 }
 
-pub struct VfsWatcher;
+pub struct VfsWatcher(pub(crate) Mutex<Debouncer<RecommendedWatcher>>);
 
 impl VfsWatcher {
-    fn new(tx: Sender<VfsWatcherEvent>) -> Self {
-        VfsWatcher
+    fn new(debounce_tx: Sender<DebounceEventResult>) -> Self {
+        VfsWatcher(Mutex::new(
+            new_debouncer(Duration::from_secs(1), None, debounce_tx).unwrap(),
+        ))
     }
 }
 
 pub struct VfsWatcherThread<DB: WatchableVfsDb> {
-    tx: Sender<VfsWatcherEvent>,
+    event_tx: Sender<VfsWatcherEvent>,
     phantom: PhantomData<DB>,
 }
 
 pub struct VfsWatcherInstance<DB: WatchableVfsDb> {
     db: Arc<Mutex<DB>>,
-    rx: Receiver<VfsWatcherEvent>,
+    debounce_rx: Receiver<DebounceEventResult>,
+    event_rx: Receiver<VfsWatcherEvent>,
 }
 
 pub enum VfsWatcherEvent {
@@ -51,7 +59,7 @@ pub enum VfsWatcherEvent {
 
 impl<V: WatchableVfsDb> Drop for VfsWatcherThread<V> {
     fn drop(&mut self) {
-        match self.tx.send(VfsWatcherEvent::Close) {
+        match self.event_tx.send(VfsWatcherEvent::Close) {
             Ok(_) => (),
             Err(_) => todo!(),
         }
@@ -60,26 +68,37 @@ impl<V: WatchableVfsDb> Drop for VfsWatcherThread<V> {
 
 impl<V: WatchableVfsDb> VfsWatcherThread<V> {
     pub fn new(db: Arc<Mutex<V>>) -> Self {
-        let (tx, rx) = unbounded();
+        let (event_tx, event_rx) = unbounded();
+        let (debounce_tx, debounce_rx) = unbounded();
         db.lock()
             .unwrap()
-            .watcher_place()
-            .set(VfsWatcher::new(tx.clone()))
+            .watcher_place_mut()
+            .set(VfsWatcher::new(debounce_tx))
             .unwrap();
-        thread::spawn(|| match VfsWatcherInstance::new(db, rx).run() {
-            Ok(_) => (),
-            Err(_) => todo!(),
-        });
+        thread::spawn(
+            || match VfsWatcherInstance::new(db, debounce_rx, event_rx).run() {
+                Ok(_) => (),
+                Err(_) => todo!(),
+            },
+        );
         Self {
-            tx,
+            event_tx,
             phantom: PhantomData,
         }
     }
 }
 
 impl<DB: WatchableVfsDb> VfsWatcherInstance<DB> {
-    fn new(db: Arc<Mutex<DB>>, rx: Receiver<VfsWatcherEvent>) -> Self {
-        Self { db, rx }
+    fn new(
+        db: Arc<Mutex<DB>>,
+        debounce_rx: Receiver<DebounceEventResult>,
+        event_rx: Receiver<VfsWatcherEvent>,
+    ) -> Self {
+        Self {
+            db,
+            debounce_rx,
+            event_rx,
+        }
     }
 
     fn run(self) -> Result<()> {
