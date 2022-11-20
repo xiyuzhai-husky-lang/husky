@@ -14,14 +14,16 @@ impl<T> SingleAssignPlace<T> {
     pub fn set(&mut self, t: T) -> SingleAssignResult<()> {
         match self.0 {
             PlaceState::Occupied(_) => Err(SingleAssignError::SetOccupiedValue),
-            PlaceState::Empty => Ok(self.0 = PlaceState::Occupied(t)),
+            PlaceState::Uninitialized => Ok(self.0 = PlaceState::Occupied(t)),
+            PlaceState::Destroyed => todo!(),
         }
     }
 
     pub fn value(&self) -> Option<&T> {
         match self.0 {
             PlaceState::Occupied(ref t) => Some(t),
-            PlaceState::Empty => None,
+            PlaceState::Uninitialized => None,
+            PlaceState::Destroyed => todo!(),
         }
     }
 }

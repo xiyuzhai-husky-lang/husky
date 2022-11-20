@@ -1,11 +1,12 @@
 #[derive(Debug)]
 pub enum PlaceState<T> {
     Occupied(T),
-    Empty,
+    Uninitialized,
+    Destroyed,
 }
 
 impl<T> Default for PlaceState<T> {
     fn default() -> Self {
-        PlaceState::Empty
+        PlaceState::Uninitialized
     }
 }
