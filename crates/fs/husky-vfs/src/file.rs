@@ -19,30 +19,19 @@ impl HuskyFileClass {
     }
 }
 
-#[derive(Debug, Clone)]
-pub enum HuskyFileContent {
-    SourceProgram(String),
-}
-
-impl HuskyFileContent {
-    pub(crate) fn new_source_program(text: String) -> Self {
-        Self::SourceProgram(text)
-    }
-}
-
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
-pub struct HuskyFile(timed_salsa::Id);
+pub struct HuskyFileId(timed_salsa::Id);
 
-impl HuskyFile {
+impl HuskyFileId {
     pub fn new(
         db: &<crate::Jar as timed_salsa::jar::Jar<'_>>::DynDb,
         path: PathBufItd,
         source_class: HuskyFileClass,
-        content: HuskyFileContent,
+        content: String,
     ) -> Self {
         let (jar, runtime) = <_ as timed_salsa::storage::HasJar<crate::Jar>>::jar(db);
         let ingredients =
-            <crate::Jar as timed_salsa::storage::HasIngredientsFor<HuskyFile>>::ingredient(jar);
+            <crate::Jar as timed_salsa::storage::HasIngredientsFor<HuskyFileId>>::ingredient(jar);
         let id = ingredients.3.new_input(runtime);
         ingredients.0.store_new(runtime, id, path, Durability::HIGH);
         ingredients
@@ -57,7 +46,7 @@ impl HuskyFile {
     fn path<'db>(self, __db: &'db <crate::Jar as timed_salsa::jar::Jar<'_>>::DynDb) -> PathBufItd {
         let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<crate::Jar>>::jar(__db);
         let __ingredients =
-            <crate::Jar as timed_salsa::storage::HasIngredientsFor<HuskyFile>>::ingredient(__jar);
+            <crate::Jar as timed_salsa::storage::HasIngredientsFor<HuskyFileId>>::ingredient(__jar);
         __ingredients.0.fetch(__runtime, self).clone()
     }
 
@@ -67,27 +56,27 @@ impl HuskyFile {
     ) -> HuskyFileClass {
         let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<crate::Jar>>::jar(__db);
         let __ingredients =
-            <crate::Jar as timed_salsa::storage::HasIngredientsFor<HuskyFile>>::ingredient(__jar);
+            <crate::Jar as timed_salsa::storage::HasIngredientsFor<HuskyFileId>>::ingredient(__jar);
         __ingredients.1.fetch(__runtime, self).clone()
     }
 
     fn content<'db>(
         self,
         __db: &'db <crate::Jar as timed_salsa::jar::Jar<'_>>::DynDb,
-    ) -> &'db HuskyFileContent {
+    ) -> &'db String {
         let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<crate::Jar>>::jar(__db);
         let __ingredients =
-            <crate::Jar as timed_salsa::storage::HasIngredientsFor<HuskyFile>>::ingredient(__jar);
+            <crate::Jar as timed_salsa::storage::HasIngredientsFor<HuskyFileId>>::ingredient(__jar);
         __ingredients.2.fetch(__runtime, self)
     }
 
     fn set_kind<'db>(
         self,
         __db: &'db mut <crate::Jar as timed_salsa::jar::Jar<'_>>::DynDb,
-    ) -> timed_salsa::setter::Setter<'db, HuskyFile, HuskyFileClass> {
+    ) -> timed_salsa::setter::Setter<'db, HuskyFileId, HuskyFileClass> {
         let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<crate::Jar>>::jar_mut(__db);
         let __ingredients =
-            <crate::Jar as timed_salsa::storage::HasIngredientsFor<HuskyFile>>::ingredient_mut(
+            <crate::Jar as timed_salsa::storage::HasIngredientsFor<HuskyFileId>>::ingredient_mut(
                 __jar,
             );
         timed_salsa::setter::Setter::new(__runtime, self, &mut __ingredients.1)
@@ -96,7 +85,7 @@ impl HuskyFile {
     pub(crate) fn set_content<'db>(
         self,
         db: &'db mut <crate::Jar as timed_salsa::jar::Jar<'_>>::DynDb,
-    ) -> timed_salsa::setter::Setter<'db, HuskyFile, HuskyFileContent> {
+    ) -> timed_salsa::setter::Setter<'db, HuskyFileId, String> {
         match self.source_class(db) {
             HuskyFileClass::Library => todo!(),
             HuskyFileClass::Publish => todo!(),
@@ -104,20 +93,20 @@ impl HuskyFile {
         }
         let (__jar, __runtime) = <_ as timed_salsa::storage::HasJar<crate::Jar>>::jar_mut(db);
         let __ingredients =
-            <crate::Jar as timed_salsa::storage::HasIngredientsFor<HuskyFile>>::ingredient_mut(
+            <crate::Jar as timed_salsa::storage::HasIngredientsFor<HuskyFileId>>::ingredient_mut(
                 __jar,
             );
         timed_salsa::setter::Setter::new(__runtime, self, &mut __ingredients.2)
     }
 }
 
-impl timed_salsa::storage::IngredientsFor for HuskyFile {
+impl timed_salsa::storage::IngredientsFor for HuskyFileId {
     type Jar = crate::Jar;
     type Ingredients = (
-        InputFieldIngredient<HuskyFile, PathBufItd>,
-        InputFieldIngredient<HuskyFile, HuskyFileClass>,
-        InputFieldIngredient<HuskyFile, HuskyFileContent>,
-        InputIngredient<HuskyFile>,
+        InputFieldIngredient<HuskyFileId, PathBufItd>,
+        InputFieldIngredient<HuskyFileId, HuskyFileClass>,
+        InputFieldIngredient<HuskyFileId, String>,
+        InputIngredient<HuskyFileId>,
     );
     fn create_ingredients<DB>(routes: &mut timed_salsa::routes::Routes<DB>) -> Self::Ingredients
     where
@@ -227,15 +216,15 @@ impl timed_salsa::storage::IngredientsFor for HuskyFile {
         )
     }
 }
-impl timed_salsa::AsId for HuskyFile {
+impl timed_salsa::AsId for HuskyFileId {
     fn as_id(self) -> timed_salsa::Id {
         self.0
     }
     fn from_id(id: timed_salsa::Id) -> Self {
-        HuskyFile(id)
+        HuskyFileId(id)
     }
 }
-impl ::timed_salsa::DebugWithDb<<crate::Jar as timed_salsa::jar::Jar<'_>>::DynDb> for HuskyFile {
+impl ::timed_salsa::DebugWithDb<<crate::Jar as timed_salsa::jar::Jar<'_>>::DynDb> for HuskyFileId {
     fn fmt(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
@@ -276,7 +265,7 @@ impl ::timed_salsa::DebugWithDb<<crate::Jar as timed_salsa::jar::Jar<'_>>::DynDb
             debug_struct = debug_struct.field(
                 "content",
                 &::timed_salsa::debug::helper::SalsaDebug::<
-                    HuskyFileContent,
+                    String,
                     <crate::Jar as timed_salsa::jar::Jar<'_>>::DynDb,
                 >::salsa_debug(
                     #[allow(clippy::needless_borrow)]
@@ -289,7 +278,7 @@ impl ::timed_salsa::DebugWithDb<<crate::Jar as timed_salsa::jar::Jar<'_>>::DynDb
         debug_struct.finish()
     }
 }
-impl<DB> timed_salsa::salsa_struct::SalsaStructInDb<DB> for HuskyFile
+impl<DB> timed_salsa::salsa_struct::SalsaStructInDb<DB> for HuskyFileId
 where
     DB: ?Sized + timed_salsa::DbWithJar<crate::Jar>,
 {
