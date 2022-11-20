@@ -60,7 +60,7 @@ impl HuskyFileId {
         __ingredients.1.fetch(__runtime, self).clone()
     }
 
-    fn content<'db>(
+    pub fn content<'db>(
         self,
         __db: &'db <crate::Jar as timed_salsa::jar::Jar<'_>>::DynDb,
     ) -> &'db String {
