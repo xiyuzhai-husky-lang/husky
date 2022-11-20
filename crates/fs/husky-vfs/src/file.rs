@@ -2,7 +2,7 @@ use timed_salsa::{input::InputIngredient, input_field::InputFieldIngredient, Dur
 
 use crate::*;
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum HuskyFileClass {
     Library,
     Publish,
