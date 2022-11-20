@@ -62,7 +62,7 @@ where
                         Ok(*entry.insert(HuskyFileId::new(
                             self,
                             path,
-                            HuskyFileClass::Library,
+                            HuskyFileClass::User,
                             content,
                         )))
                     }),
@@ -73,18 +73,9 @@ where
 
     // todo: test this
     fn update_file(&mut self, path: PathBufItd) -> VfsResult<()> {
-        match self.cache().0.entry(path.clone()) {
-            Entry::Occupied(mut entry) => {
-                let path_ref = &path.path(self);
-                entry.insert(HuskyFileId::new(
-                    self,
-                    path,
-                    HuskyFileClass::Library,
-                    self.read_to_string(path_ref)?,
-                ));
-            }
-            Entry::Vacant(_) => panic!(),
-        }
+        let path_ref = path.path(self);
+        let content = self.read_to_string(path_ref)?;
+        self.file(path)?.set_content(self).to(content);
         Ok(())
     }
 }
