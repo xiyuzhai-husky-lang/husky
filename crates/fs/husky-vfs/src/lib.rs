@@ -33,6 +33,7 @@ pub struct Jar(PathBufItd, HuskyFileId);
 
 pub trait VfsDb: timed_salsa::DbWithJar<Jar> + Vfs {
     fn file(&self, path: PathBufItd) -> VfsResult<HuskyFileId>;
+    fn update_file(&mut self, path: PathBufItd) -> VfsResult<()>;
 }
 
 impl<T> VfsDb for T
@@ -68,6 +69,23 @@ where
                 )
             }
         }
+    }
+
+    // todo: test this
+    fn update_file(&mut self, path: PathBufItd) -> VfsResult<()> {
+        match self.cache().0.entry(path.clone()) {
+            Entry::Occupied(mut entry) => {
+                let path_ref = &path.path(self);
+                entry.insert(HuskyFileId::new(
+                    self,
+                    path,
+                    HuskyFileClass::Library,
+                    self.read_to_string(path_ref)?,
+                ));
+            }
+            Entry::Vacant(_) => panic!(),
+        }
+        Ok(())
     }
 }
 
@@ -107,8 +125,13 @@ mod tests {
             }
         }
 
-        fn write_file(&mut self, path: PathBuf, new_content: String) {
-            self.file_contents.insert(path, new_content);
+        fn write_file(&mut self, path: PathBufItd, new_content: String) -> VfsResult<()> {
+            let pathbuf = path.path(self).to_owned();
+            self.file_contents.insert(pathbuf, new_content);
+            if self.cache.0.contains_key(&path) {
+                self.update_file(path)?
+            }
+            Ok(())
         }
     }
 
@@ -140,9 +163,15 @@ mod tests {
     fn vfs_db_works() {
         let (tx, rx) = unbounded();
         let mut db = VfsTestsDatabase::new(tx);
-        let path0 = PathBufItd::new(&db, "something".into());
-        assert!(db.file(path0).is_err());
-        db.write_file(path0.path(&db).to_owned(), "bob is cool".to_string());
-        assert!(db.file(path0).is_ok());
+        let somepath = PathBufItd::new(&db, "somepath".into());
+        assert!(db.file(somepath).is_err());
+        db.write_file(somepath, "bob is cool".to_string())
+            .expect("true");
+        let file = db.file(somepath).unwrap();
+        assert_eq!(file.content(&db), "bob is cool");
+        db.write_file(somepath, "alice is cool".to_string())
+            .expect("true");
+        let file = db.file(somepath).unwrap();
+        assert_eq!(file.content(&db), "alice is cool");
     }
 }
