@@ -14,7 +14,8 @@ eyre = "0.6.8"
 replace_with = "0.1.7"
 # abstraction
 place = { path = "../../abstraction/place" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
-husky-print-utils = { path = "../../utils/husky-print-utils" }
 tempfile = "3.3.0"

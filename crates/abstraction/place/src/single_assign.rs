@@ -1,7 +1,7 @@
 use crate::*;
 use error::*;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct SingleAssignPlace<T>(PlaceState<T>);
 
 impl<T> Default for SingleAssignPlace<T> {
