@@ -1,5 +1,4 @@
 mod context;
-mod defn;
 mod entrance;
 mod error;
 mod field;
@@ -11,7 +10,6 @@ mod xml;
 
 pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
 pub use context::*;
-pub use defn::*;
 pub use entrance::*;
 pub use field::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
@@ -45,8 +43,3 @@ pub struct Ast {
     pub variant: DeprecatedAstVariant,
     pub range: TextRange,
 }
-
-#[timed_salsa::jar(db = AstDb)]
-pub struct Jar(Defn);
-
-pub trait AstDb: DbWithJar<Jar> {}

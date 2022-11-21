@@ -1,4 +1,13 @@
-use crate::*;
+mod trai;
+use husky_entity_path::EntityPathItd;
+use husky_expr_syntax::ExprArena;
+use timed_salsa::DbWithJar;
+use trai::TraitDefn;
+
+#[timed_salsa::jar(db = DefnDb)]
+pub struct Jar(Defn);
+
+pub trait DefnDb: DbWithJar<Jar> {}
 
 #[timed_salsa::tracked]
 pub struct Defn {
