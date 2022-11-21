@@ -1,11 +1,11 @@
 use crate::*;
-use husky_ast::{Ast, AstIter};
+use husky_ast::{AstIter, DeprecatedAst};
 use husky_semantics_error::*;
 
 impl EntityDefnVariant {
     pub(crate) fn function(
         _db: &dyn EntityDefnQueryGroup,
-        _ast: &Ast,
+        _ast: &DeprecatedAst,
         _children: AstIter,
         _arena: &ExprArena,
         _file: PathItd,

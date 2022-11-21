@@ -42,8 +42,8 @@ impl<'a> Formatter<'a> {
 }
 
 impl<'a> fold::Executor for Formatter<'a> {
-    type Input = AstResult<Ast>;
-    type InputStorage = fold::FoldableList<AstResult<Ast>>;
+    type Input = AstResult<DeprecatedAst>;
+    type InputStorage = fold::FoldableList<AstResult<DeprecatedAst>>;
 
     fn _enter_block(&mut self) {
         self.context.enter()
@@ -56,7 +56,7 @@ impl<'a> fold::Executor for Formatter<'a> {
     fn execute(
         &mut self,
         indent: fold::Indent,
-        ast_result: &AstResult<Ast>,
+        ast_result: &AstResult<DeprecatedAst>,
         enter_block: impl FnOnce(&mut Self),
     ) {
         self.indent = indent;
@@ -83,7 +83,7 @@ impl<'a> Formatter<'a> {
 }
 
 impl<'a> Formatter<'a> {
-    fn fmt(&mut self, ast: &husky_ast::Ast, enter_block: impl FnOnce(&mut Self)) {
+    fn fmt(&mut self, ast: &husky_ast::DeprecatedAst, enter_block: impl FnOnce(&mut Self)) {
         match ast.variant {
             DeprecatedAstVariant::TypeDefnHead {
                 ident,

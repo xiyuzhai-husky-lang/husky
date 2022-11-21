@@ -20,7 +20,7 @@ impl EntityDefnVariant {
     pub(crate) fn ty_from_ast(
         db: &dyn EntityDefnQueryGroup,
         ty: Ty,
-        head: &Ast,
+        head: &DeprecatedAst,
         children: AstIter,
         arena: &ExprArena,
         file: PathItd,

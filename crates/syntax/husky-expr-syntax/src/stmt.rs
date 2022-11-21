@@ -1,8 +1,8 @@
-use idx_arena::{map::ArenaMap, ArenaIdx, ArenaRange, IdxArena};
+use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
-pub type StmtArena = IdxArena<Stmt>;
+pub type StmtArena = Arena<Stmt>;
 pub type StmtIdx = ArenaIdx<Stmt>;
-pub type StmtRange = ArenaRange<Stmt>;
+pub type StmtRange = ArenaIdxRange<Stmt>;
 pub type StmtMap<V> = ArenaMap<Stmt, V>;
 
 pub enum Stmt {}

@@ -11,7 +11,7 @@ x++
 output
 
 ```husky
-IdxArena {
+Arena {
     data: [
         Expr {
             variant: Atom(
@@ -54,7 +54,7 @@ y--
 output
 
 ```husky
-IdxArena {
+Arena {
     data: [
         Expr {
             variant: Atom(

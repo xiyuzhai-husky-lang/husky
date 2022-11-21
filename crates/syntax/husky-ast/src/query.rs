@@ -51,7 +51,7 @@ fn ast_text(this: &dyn AstSalsaQueryGroup, id: PathItd) -> EntitySyntaxResultArc
 pub struct AstText {
     pub file: PathItd,
     pub arena: ExprArena,
-    pub folded_results: FoldableList<AstResult<Ast>>,
+    pub folded_results: FoldableList<AstResult<DeprecatedAst>>,
     pub semantic_tokens: Vec<AbsSemanticToken>,
     pub text: Arc<HuskyText>,
     pub infer_roots: Vec<AstEntrance>,
