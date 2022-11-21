@@ -14,11 +14,25 @@ pub struct Defn {
 pub enum DefnVariant {
     Submodule,
     Type(TypeDefn),
+    Trait(TraitDefn),
     Form(FormDefn),
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct TypeDefn {}
+pub enum TypeDefn {
+    Enum(EnumDefn),
+    StructLike(StructDefn),
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct EnumDefn {
+    variants: Vec<VariantDefn>,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct StructDefn {
+    fields: Vec<FieldDefn>,
+}
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct FormDefn {
