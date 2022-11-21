@@ -1,6 +1,6 @@
 use std::iter::Peekable;
 
-use husky_expr_syntax::RawExprIdx;
+use husky_expr_syntax::ExprIdx;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 
 use super::parser::EagerParser;
@@ -154,7 +154,7 @@ impl<'a> EagerParser<'a> {
     fn parse_func_match(
         &mut self,
         _children: AstIter,
-        _match_expr: RawExprIdx,
+        _match_expr: ExprIdx,
     ) -> SemanticResult<FuncStmtVariant> {
         todo!()
         // let match_expr = self.parse_eager_expr(match_expr, None)?;

@@ -31,27 +31,27 @@ pub enum RawStmtVariant {
         pattern_branch_variant: RawPatternBranchVariant,
     },
     Exec {
-        expr: RawExprIdx,
+        expr: ExprIdx,
         discard: bool,
     },
     Init {
         init_kind: InitKind,
         varname: RangedCustomIdentifier,
-        initial_value: RawExprIdx,
+        initial_value: ExprIdx,
     },
     Return {
-        result: RawExprIdx,
+        result: ExprIdx,
         return_context: RawReturnContext,
     },
     ReturnXml(Arc<RawXmlExpr>),
-    Assert(RawExprIdx),
+    Assert(ExprIdx),
     Break,
     Match {
-        match_expr: RawExprIdx,
+        match_expr: ExprIdx,
         match_liason: MatchLiason,
     },
     Require {
-        condition: RawExprIdx,
+        condition: ExprIdx,
         return_context: RawReturnContext,
     },
 }
@@ -64,8 +64,8 @@ impl From<RawLoopKind> for RawStmtVariant {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum RawConditionBranchKind {
-    If { condition: RawExprIdx },
-    Elif { condition: RawExprIdx },
+    If { condition: ExprIdx },
+    Elif { condition: ExprIdx },
     Else,
 }
 

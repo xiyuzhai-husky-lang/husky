@@ -2,7 +2,7 @@ use husky_entity_path::EntityPathItd;
 
 use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum AstVariant {
+pub enum DeprecatedAstVariant {
     TypeDefnHead {
         ident: RangedCustomIdentifier,
         kind: TyKind,
@@ -14,19 +14,19 @@ pub enum AstVariant {
         paradigm: Paradigm,
         spatial_parameters: IdentDict<SpatialParameter>,
         parameters: Arc<Vec<Parameter>>,
-        return_ty: RawExprIdx,
+        return_ty: ExprIdx,
         output_liason: OutputModifier,
         opt_this_liason: Option<ParameterModifier>,
     },
     FeatureDefnHead {
         paradigm: Paradigm,
         ident: RangedCustomIdentifier,
-        return_ty: RawExprIdx,
+        return_ty: ExprIdx,
     },
     FieldDefnHead {
         liason: MemberModifier,
         ranged_ident: RangedCustomIdentifier,
-        field_ty: RawExprIdx,
+        field_ty: ExprIdx,
         ast_field_kind: AstFieldKind,
     },
     DatasetConfigDefnHead,
@@ -55,13 +55,13 @@ impl From<RawStmt> for Ast {
     fn from(stmt: RawStmt) -> Self {
         Self {
             range: stmt.range,
-            variant: AstVariant::Stmt(stmt),
+            variant: DeprecatedAstVariant::Stmt(stmt),
         }
     }
 }
 
-impl From<RawStmt> for AstVariant {
+impl From<RawStmt> for DeprecatedAstVariant {
     fn from(stmt: RawStmt) -> Self {
-        AstVariant::Stmt(stmt)
+        DeprecatedAstVariant::Stmt(stmt)
     }
 }

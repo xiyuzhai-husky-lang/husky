@@ -50,7 +50,7 @@ fn ast_text(this: &dyn AstSalsaQueryGroup, id: PathItd) -> EntitySyntaxResultArc
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct AstText {
     pub file: PathItd,
-    pub arena: RawExprArena,
+    pub arena: ExprArena,
     pub folded_results: FoldableList<AstResult<Ast>>,
     pub semantic_tokens: Vec<AbsSemanticToken>,
     pub text: Arc<HuskyText>,
@@ -85,17 +85,14 @@ impl AstText {
         summary
     }
 
-    pub fn find_last_expr_before(&self, pos: TextPosition) -> Option<&RawExpr> {
+    pub fn find_last_expr_before(&self, pos: TextPosition) -> Option<&Expr> {
         self.arena
             .data()
             .iter()
             .filter(|expr| expr.range.end <= pos)
             .max_by_key(|expr| expr.range.end)
     }
-    pub fn find_first_expr_with_end_after(
-        &self,
-        pos: TextPosition,
-    ) -> Option<(RawExprIdx, &RawExpr)> {
+    pub fn find_first_expr_with_end_after(&self, pos: TextPosition) -> Option<(ExprIdx, &Expr)> {
         self.arena
             .enum_iter()
             .filter(|(_, expr)| expr.range.end >= pos)
@@ -103,8 +100,8 @@ impl AstText {
     }
 }
 
-impl ArenaKeyQuery<RawExpr> for AstText {
-    fn write_key(&self, config: HuskyDisplayConfig, raw_expr_idx: RawExprIdx, result: &mut String) {
+impl ArenaKeyQuery<Expr> for AstText {
+    fn write_key(&self, config: HuskyDisplayConfig, raw_expr_idx: ExprIdx, result: &mut String) {
         let expr = &self.arena[raw_expr_idx];
         let range = expr.text_range();
         if config.colored {

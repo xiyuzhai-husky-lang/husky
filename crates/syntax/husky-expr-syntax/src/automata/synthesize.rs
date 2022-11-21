@@ -92,7 +92,7 @@ impl<'a> Automata<'a> {
     fn synthesize_opn(&mut self, opn_variant: RawOpnVariant, n_opds: usize, range: TextRange) {
         let _len = self.stack.number_of_exprs();
         let opds = self.arena.alloc(self.stack.drain_exprs(n_opds).into());
-        self.stack.push_expr(RawExpr::new(
+        self.stack.push_expr(Expr::new(
             RawExprVariant::Opn { opn_variant, opds },
             range,
             self.arena,
@@ -101,7 +101,7 @@ impl<'a> Automata<'a> {
 
     fn synthesize_lambda(
         &mut self,
-        _inputs: Vec<(RangedCustomIdentifier, Option<RawExprIdx>)>,
+        _inputs: Vec<(RangedCustomIdentifier, Option<ExprIdx>)>,
         _start: TextPosition,
     ) {
         todo!()

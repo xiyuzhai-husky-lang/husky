@@ -34,7 +34,7 @@ pub(crate) fn parse_definition_repr(
     _paradigm: Paradigm,
     _route: Ty,
     _return_ty: Ty,
-    _arena: &RawExprArena,
+    _arena: &ExprArena,
     _children: Option<AstIter>,
     _file: PathItd,
 ) -> SemanticResult<Arc<DefinitionRepr>> {

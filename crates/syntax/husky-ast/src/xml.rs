@@ -9,9 +9,9 @@ pub struct RawXmlExpr {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum RawXmlExprVariant {
-    Value(RawExprIdx),
+    Value(ExprIdx),
     Tag {
         ident: CustomIdentifier,
-        props: IdentPairDict<RawExprIdx>,
+        props: IdentPairDict<ExprIdx>,
     },
 }

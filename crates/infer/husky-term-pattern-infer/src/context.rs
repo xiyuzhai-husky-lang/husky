@@ -1,14 +1,14 @@
 use crate::*;
 use husky_entity_path::EntityPathItd;
-use husky_expr_syntax::{RawExpr, RawExprArena, RawExprIdx, RawExprVariant};
+use husky_expr_syntax::{Expr, ExprArena, ExprIdx, RawExprVariant};
 use husky_term::{TermContext, TermItd, TermMenu};
 use husky_term_pattern::TermPatternItd;
 use husky_word::InternWord;
 
 pub(crate) struct TermPatternInferContext<'a> {
     db: &'a dyn TermPatternInferQueryGroup,
-    expr_arena: &'a RawExprArena,
-    expr_idx: RawExprIdx,
+    expr_arena: &'a ExprArena,
+    expr_idx: ExprIdx,
     term_menu: &'a TermMenu,
 }
 
@@ -21,8 +21,8 @@ impl<'a> InternWord for TermPatternInferContext<'a> {
 impl<'a> TermPatternInferContext<'a> {
     pub(crate) fn new(
         db: &'a dyn TermPatternInferQueryGroup,
-        expr_arena: &'a RawExprArena,
-        expr_idx: RawExprIdx,
+        expr_arena: &'a ExprArena,
+        expr_idx: ExprIdx,
         term_menu: &'a TermMenu,
     ) -> Self {
         Self {
@@ -96,7 +96,7 @@ impl<'a> TermPatternInferContext<'a> {
     fn infer_opn_ty(
         &self,
         opn_variant: &RawOpnVariant,
-        opds: &RawExprRange,
+        opds: &ExprRange,
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         match opn_variant {
@@ -113,7 +113,7 @@ impl<'a> TermPatternInferContext<'a> {
     fn infer_binary_opn(
         &self,
         opr: BinaryOpr,
-        opds: &RawExprRange,
+        opds: &ExprRange,
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         match opr {
@@ -184,7 +184,7 @@ impl<'a> TermPatternInferContext<'a> {
         }
     }
 
-    fn subexpr_context(&self, subexpr: RawExprIdx) -> Self {
+    fn subexpr_context(&self, subexpr: ExprIdx) -> Self {
         Self {
             db: self.db,
             expr_arena: self.expr_arena,
@@ -193,18 +193,18 @@ impl<'a> TermPatternInferContext<'a> {
         }
     }
 
-    fn subexprs(&self) -> Option<RawExprRange> {
+    fn subexprs(&self) -> Option<ExprRange> {
         match self.expr().variant {
             RawExprVariant::Atom(_) => None,
             RawExprVariant::Opn { ref opds, .. } => Some(opds.clone()),
         }
     }
 
-    pub(crate) fn expr_idx(&self) -> RawExprIdx {
+    pub(crate) fn expr_idx(&self) -> ExprIdx {
         self.expr_idx
     }
 
-    pub(crate) fn expr(&self) -> &'a RawExpr {
+    pub(crate) fn expr(&self) -> &'a Expr {
         &self.expr_arena[self.expr_idx]
     }
 

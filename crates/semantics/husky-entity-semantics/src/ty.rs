@@ -22,7 +22,7 @@ impl EntityDefnVariant {
         ty: Ty,
         head: &Ast,
         children: AstIter,
-        arena: &RawExprArena,
+        arena: &ExprArena,
         file: PathItd,
     ) -> SemanticResult<EntityDefnVariant> {
         todo!();
@@ -201,7 +201,7 @@ impl EntityDefnVariant {
 
     fn visualizer_from_ast(
         _db: &dyn EntityDefnQueryGroup,
-        _arena: &RawExprArena,
+        _arena: &ExprArena,
         _file: PathItd,
         _ty_route: Ty,
         _children: &mut Peekable<AstIter>,

@@ -1,22 +1,22 @@
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AstEntrance {
     Condition {
-        condition: RawExprIdx,
+        condition: ExprIdx,
     },
     MatchExpr {
-        match_expr: RawExprIdx,
+        match_expr: ExprIdx,
         match_liason: MatchLiason,
     },
     Case {
         pattern: RawPattern,
     },
     Bound {
-        bound: RawExprIdx,
+        bound: ExprIdx,
     },
     Init {
         init_kind: InitKind,
         varname: RangedCustomIdentifier,
-        initial_value: RawExprIdx,
+        initial_value: ExprIdx,
     },
     FrameVar {
         frame_var: RangedCustomIdentifier,
@@ -28,18 +28,18 @@ pub enum AstEntrance {
         return_context: RawReturnContext,
     },
     Return {
-        result: RawExprIdx,
+        result: ExprIdx,
         return_context: RawReturnContext,
     },
     Exec {
-        expr: RawExprIdx,
+        expr: ExprIdx,
         discard: bool,
     },
     Default {
-        default: RawExprIdx,
+        default: ExprIdx,
     },
     Derivation {
-        derivation: RawExprIdx,
+        derivation: ExprIdx,
     },
     Xml {
         xml: Arc<RawXmlExpr>,
@@ -48,17 +48,17 @@ pub enum AstEntrance {
 
 use crate::*;
 
-impl AstVariant {
+impl DeprecatedAstVariant {
     // todo: change this to SmallVec
     pub(crate) fn ast_entrances(&self) -> Vec<AstEntrance> {
         match self {
-            AstVariant::TypeDefnHead {
+            DeprecatedAstVariant::TypeDefnHead {
                 ident: _,
                 kind: _,
                 spatial_parameters: _,
             } => vec![],
-            AstVariant::MainDefnHead => vec![],
-            AstVariant::CallFormDefnHead {
+            DeprecatedAstVariant::MainDefnHead => vec![],
+            DeprecatedAstVariant::CallFormDefnHead {
                 ident: _,
                 paradigm: _,
                 spatial_parameters: _,
@@ -72,12 +72,12 @@ impl AstVariant {
                     parameter: parameter.clone(),
                 })
                 .collect(),
-            AstVariant::FeatureDefnHead {
+            DeprecatedAstVariant::FeatureDefnHead {
                 paradigm: _,
                 ident: _,
                 return_ty: _,
             } => vec![],
-            AstVariant::FieldDefnHead {
+            DeprecatedAstVariant::FieldDefnHead {
                 liason: _,
                 ranged_ident: _,
                 field_ty: _,
@@ -96,8 +96,8 @@ impl AstVariant {
                 AstFieldKind::RecordOriginal => vec![],
                 AstFieldKind::RecordDerived => vec![],
             },
-            AstVariant::DatasetConfigDefnHead => vec![],
-            AstVariant::Stmt(stmt) => match stmt.variant {
+            DeprecatedAstVariant::DatasetConfigDefnHead => vec![],
+            DeprecatedAstVariant::Stmt(stmt) => match stmt.variant {
                 RawStmtVariant::Loop(loop_kind) => match loop_kind {
                     RawLoopKind::For {
                         frame_var,
@@ -194,10 +194,10 @@ impl AstVariant {
                     AstEntrance::Condition { condition },
                 ],
             },
-            AstVariant::EnumVariantDefnHead { .. } => vec![],
-            AstVariant::Use { .. } => vec![],
-            AstVariant::Submodule { .. } => vec![],
-            AstVariant::Visual => vec![],
+            DeprecatedAstVariant::EnumVariantDefnHead { .. } => vec![],
+            DeprecatedAstVariant::Use { .. } => vec![],
+            DeprecatedAstVariant::Submodule { .. } => vec![],
+            DeprecatedAstVariant::Visual => vec![],
         }
     }
 }

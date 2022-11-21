@@ -16,7 +16,7 @@ impl<'a> Automata<'a> {
         }
     }
 
-    fn accept_atom(&mut self, atom: RawExpr) {
+    fn accept_atom(&mut self, atom: Expr) {
         self.stack.push_expr(atom)
     }
 

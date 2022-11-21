@@ -13,6 +13,7 @@ salsa = "0.17.0-pre.2"
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
+timed-salsa = { path = "../../abstraction/timed-salsa" }
 interner = { path = "../../abstraction/interner" }
 fold = { path = "../../abstraction/fold" }
 vec-like = { path = "../../abstraction/vec-like" }

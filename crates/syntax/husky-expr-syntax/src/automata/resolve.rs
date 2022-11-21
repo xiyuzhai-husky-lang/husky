@@ -77,7 +77,7 @@ impl<'a> Automata<'a> {
         self.stack.top_expr().map(|expr| self.resolve_entity(expr))
     }
 
-    fn resolve_entity(&self, expr: &RawExpr) -> TermItd {
+    fn resolve_entity(&self, expr: &Expr) -> TermItd {
         match expr.variant {
             RawExprVariant::Atom(ref atom) => match atom {
                 RawAtomExpr::Literal(_) => todo!(),
@@ -117,14 +117,14 @@ impl ResolvedToken {
         &self.kind
     }
 
-    pub(super) fn to_expr(self, arena: &RawExprArena) -> RawExpr {
+    pub(super) fn to_expr(self, arena: &ExprArena) -> Expr {
         let variant = match self.kind {
             ResolvedTokenKind::Atom(variant) => variant.into(),
             ResolvedTokenKind::BinaryOpr(_) => todo!(),
             ResolvedTokenKind::Prefix(_) => todo!(),
             ResolvedTokenKind::Suffix(_) => todo!(),
         };
-        RawExpr::new(variant, self.range, arena)
+        Expr::new(variant, self.range, arena)
     }
 }
 

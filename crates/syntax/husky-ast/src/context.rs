@@ -10,7 +10,7 @@ use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct RawReturnContext {
-    pub opt_return_ty: Option<RawExprIdx>,
+    pub opt_return_ty: Option<ExprIdx>,
     pub kind: RawReturnContextKind,
 }
 

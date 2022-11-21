@@ -16,13 +16,13 @@ use husky_semantics_error::*;
 // todo: opt_expectation
 
 pub trait LazyExprParser<'a> {
-    fn arena(&self) -> &'a RawExprArena;
+    fn arena(&self) -> &'a ExprArena;
     fn file(&self) -> PathItd;
     fn db(&self) -> &dyn TermInferDb;
 
     fn parse_lazy_expr(
         &mut self,
-        _idx: RawExprIdx,
+        _idx: ExprIdx,
         _opt_expectation: Option<Ty>,
     ) -> SemanticResult<Arc<LazyExpr>> {
         todo!()
@@ -147,9 +147,9 @@ pub trait LazyExprParser<'a> {
 
     fn parse_opn(
         &mut self,
-        idx: RawExprIdx,
+        idx: ExprIdx,
         opr: &RawOpnVariant,
-        opds: &RawExprRange,
+        opds: &ExprRange,
     ) -> SemanticResult<LazyExprVariant> {
         match opr {
             RawOpnVariant::Binary(opr) => self.parse_binary_opr(*opr, opds),
@@ -181,7 +181,7 @@ pub trait LazyExprParser<'a> {
     fn parse_binary_opr(
         &mut self,
         opr: BinaryOpr,
-        opds: &RawExprRange,
+        opds: &ExprRange,
     ) -> SemanticResult<LazyExprVariant> {
         // let raw_opds = &self.arena()[raw_opds];
         let lopd = self.parse_lazy_expr(opds.start, None)?;
@@ -317,7 +317,7 @@ pub trait LazyExprParser<'a> {
     fn parse_suffix_opr(
         &mut self,
         opr: &RawSuffixOpr,
-        opd: RawExprIdx,
+        opd: ExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
         let this = self.parse_lazy_expr(opd, None)?;
         Ok(match opr {
@@ -338,8 +338,8 @@ pub trait LazyExprParser<'a> {
     fn parse_field_access(
         &mut self,
         _field_ident: RangedCustomIdentifier,
-        _idx: RawExprIdx,
-        _raw_expr_idx: RawExprIdx,
+        _idx: ExprIdx,
+        _raw_expr_idx: ExprIdx,
     ) -> SemanticResult<LazyExprVariant> {
         todo!()
         // let this = self.parse_lazy_expr(idx, None)?;
@@ -354,7 +354,7 @@ pub trait LazyExprParser<'a> {
         // })
     }
 
-    fn parse_new_vec_from_list(&mut self, opds: RawExprRange) -> SemanticResult<LazyExprVariant> {
+    fn parse_new_vec_from_list(&mut self, opds: ExprRange) -> SemanticResult<LazyExprVariant> {
         let elements: Vec<_> = opds
             .map(|raw| self.parse_lazy_expr(raw, None))
             .collect::<SemanticResult<_>>()?;
@@ -365,7 +365,7 @@ pub trait LazyExprParser<'a> {
         })
     }
 
-    fn parse_function_call(&mut self, _opds: &RawExprRange) -> SemanticResult<LazyExprVariant> {
+    fn parse_function_call(&mut self, _opds: &ExprRange) -> SemanticResult<LazyExprVariant> {
         todo!()
         // let call = &self.arena()[opds.start];
         // match call.variant {
@@ -442,9 +442,9 @@ pub trait LazyExprParser<'a> {
 
     fn parse_method_call(
         &mut self,
-        _idx: RawExprIdx,
-        _this_idx: RawExprIdx,
-        _inputs: RawExprRange,
+        _idx: ExprIdx,
+        _this_idx: ExprIdx,
+        _inputs: ExprRange,
         _method_ident: RangedCustomIdentifier,
     ) -> SemanticResult<LazyExprVariant> {
         todo!()
@@ -473,11 +473,7 @@ pub trait LazyExprParser<'a> {
         // })
     }
 
-    fn parse_index(
-        &mut self,
-        _idx: RawExprIdx,
-        _opds: RawExprRange,
-    ) -> SemanticResult<LazyExprVariant> {
+    fn parse_index(&mut self, _idx: ExprIdx, _opds: ExprRange) -> SemanticResult<LazyExprVariant> {
         todo!()
         // Ok(LazyExprVariant::Opn {
         //     opn_kind: LazyOpnKind::Index {

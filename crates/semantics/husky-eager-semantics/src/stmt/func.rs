@@ -3,7 +3,7 @@ mod parse;
 mod pattern_branch;
 
 pub use condition_branch::*;
-use husky_expr_syntax::RawExprArena;
+use husky_expr_syntax::ExprArena;
 use husky_term_infer::TermInferDb;
 use husky_text::{FileRanged, TextRanged};
 pub use pattern_branch::*;
@@ -71,7 +71,7 @@ pub enum FuncStmtVariant {
 
 pub fn parse_func_stmts(
     db: &dyn TermInferDb,
-    arena: &RawExprArena,
+    arena: &ExprArena,
     iter: AstIter,
     file: PathItd,
 ) -> SemanticResultArc<Vec<Arc<FuncStmt>>> {

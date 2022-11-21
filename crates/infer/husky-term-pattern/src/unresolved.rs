@@ -1,5 +1,5 @@
 use husky_entity_path::EntityPathItd;
-use husky_expr_syntax::RawExprIdx;
+use husky_expr_syntax::ExprIdx;
 use husky_word::Identifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -16,9 +16,9 @@ pub enum UnresolvedTerm {
         scope: EntityPathItd,
         param_ident: Identifier,
     },
-    IntegerLiteral(RawExprIdx),
+    IntegerLiteral(ExprIdx),
     IntegerType(UnresolvedTermIdx),
-    FloatLiteral(RawExprIdx),
+    FloatLiteral(ExprIdx),
     FloatType(UnresolvedTermIdx),
 }
 

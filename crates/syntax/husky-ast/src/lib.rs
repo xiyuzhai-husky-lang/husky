@@ -1,4 +1,5 @@
 mod context;
+mod defn;
 mod entrance;
 mod error;
 mod field;
@@ -10,6 +11,7 @@ mod xml;
 
 pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
 pub use context::*;
+pub use defn::*;
 pub use entrance::*;
 pub use field::*;
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
@@ -23,6 +25,7 @@ use husky_check_utils::*;
 use husky_defn_head::*;
 use husky_dev_utils::*;
 use husky_entity_kind::*;
+use husky_entity_path::EntityPathItd;
 use husky_expr_syntax::*;
 use husky_init_syntax::InitKind;
 use husky_liason_semantics::*;
@@ -35,9 +38,15 @@ use husky_text::*;
 use husky_word::*;
 use husky_word::{CustomIdentifier, IdentDict, Identifier, Paradigm, StmtKeyword};
 use std::sync::Arc;
+use timed_salsa::DbWithJar;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Ast {
-    pub variant: AstVariant,
+    pub variant: DeprecatedAstVariant,
     pub range: TextRange,
 }
+
+#[timed_salsa::jar(db = AstDb)]
+pub struct Jar(Defn);
+
+pub trait AstDb: DbWithJar<Jar> {}

@@ -4,8 +4,8 @@ use husky_word::Paradigm;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum AstFieldKind {
     StructOriginal,
-    StructDefault { default: RawExprIdx },
-    StructDerivedEager { derivation: RawExprIdx },
+    StructDefault { default: ExprIdx },
+    StructDerivedEager { derivation: ExprIdx },
     StructProperty { paradigm: Paradigm },
     RecordOriginal,
     RecordDerived,

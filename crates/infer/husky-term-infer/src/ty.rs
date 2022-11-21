@@ -1,5 +1,5 @@
 use crate::*;
-use husky_expr_syntax::{RawAtomExpr, RawExprIdx, RawExprRange};
+use husky_expr_syntax::{ExprIdx, ExprRange, RawAtomExpr};
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_print_utils::p;
 use husky_symbol_syntax::SymbolKind;
@@ -13,7 +13,7 @@ impl<'a> InferContext<'a> {
         }
     }
 
-    fn infer_subexpr(&mut self, subexpr: RawExprIdx) -> TermInferResult<Ty> {
+    fn infer_subexpr(&mut self, subexpr: ExprIdx) -> TermInferResult<Ty> {
         self.subexpr_context(subexpr).infer()
     }
 
@@ -33,11 +33,7 @@ impl<'a> InferContext<'a> {
         }
     }
 
-    fn infer_opn(
-        &mut self,
-        opn_kind: NormalizedOpnKind,
-        opds: RawExprRange,
-    ) -> TermInferResult<Ty> {
+    fn infer_opn(&mut self, opn_kind: NormalizedOpnKind, opds: ExprRange) -> TermInferResult<Ty> {
         match opn_kind {
             NormalizedOpnKind::ApplyMethod {
                 opt_trait_entity,
