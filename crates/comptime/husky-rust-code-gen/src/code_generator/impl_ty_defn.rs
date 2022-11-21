@@ -1,7 +1,7 @@
 use husky_entity_semantics::{
     CallFormSource, DefinitionRepr, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn,
 };
-use husky_word::{CustomIdentifier, RootBuiltinIdentifier};
+use husky_identifier::{Identifier, RootBuiltinIdentifier};
 
 use super::*;
 
@@ -9,7 +9,7 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_enum_defn(
         &mut self,
         base_route: Ty,
-        tyname: CustomIdentifier,
+        tyname: Identifier,
         variants: &[Arc<EntityDefn>],
     ) {
         self.write(
@@ -68,7 +68,7 @@ impl From<i32> for {tyname} {{
     pub(super) fn gen_struct_defn(
         &mut self,
         base_route: Ty,
-        tyname: CustomIdentifier,
+        tyname: Identifier,
         ty_members: &[Arc<EntityDefn>],
         trait_impls: &[Arc<TraitImplDefn>],
     ) {
@@ -117,7 +117,7 @@ impl From<i32> for {tyname} {{
     fn gen_struct_impls<'b>(
         &mut self,
         base_route: Ty,
-        tyname: CustomIdentifier,
+        tyname: Identifier,
         ty_members: &[Arc<EntityDefn>],
         ty_contains_eval_ref: bool,
         trait_impls: &[Arc<TraitImplDefn>],
@@ -383,7 +383,7 @@ impl From<i32> for {tyname} {{
     fn gen_has_static_type_info_impl(
         &mut self,
         base_route: Ty,
-        tyname: CustomIdentifier,
+        tyname: Identifier,
         ty_contains_eval_ref: bool,
     ) {
         if ty_contains_eval_ref {

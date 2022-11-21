@@ -2,23 +2,18 @@ use crate::*;
 use fold::Transformer;
 use fold::{FoldableList, FoldableStorage};
 use husky_display_utils::HuskyDisplayConfig;
-use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxResultArc};
-use husky_path::PathItd;
-use husky_text::{HuskyText, TextQueryGroup};
+use husky_entity_tree::{EntityTreeDb, EntityTreeResultArc};
+use husky_source_path::SourcePath;
+use husky_text::{HuskyText, TextDb};
 use husky_token::AbsSemanticToken;
 use idx_arena::map::ArenaKeyQuery;
 use std::fmt::Write;
 use std::sync::Arc;
 use upcast::Upcast;
 
-#[salsa::query_group(AstQueryGroupStorage)]
-pub trait AstSalsaQueryGroup:
-    EntitySyntaxQueryGroup + Upcast<dyn EntitySyntaxQueryGroup> + TextQueryGroup
-{
-    fn ast_text(&self, file: PathItd) -> EntitySyntaxResultArc<AstText>;
-}
+pub trait AstDb: EntityTreeDb + Upcast<dyn EntityTreeDb> + TextDb {
+    fn ast_text(&self, file: SourcePath) -> EntityTreeResultArc<AstText>;
 
-pub trait AstQueryGroup: AstSalsaQueryGroup {
     fn parse_route_from_text(&self, text: &str) -> Ty {
         todo!()
         // let root_symbols = self.root_symbols();
@@ -39,7 +34,7 @@ pub trait AstQueryGroup: AstSalsaQueryGroup {
     }
 }
 
-fn ast_text(this: &dyn AstSalsaQueryGroup, id: PathItd) -> EntitySyntaxResultArc<AstText> {
+fn ast_text(this: &dyn AstDb, id: SourcePath) -> EntityTreeResultArc<AstText> {
     todo!()
     // let tokenized_text = this.tokenized_text(id)?;
     // let mut parser = AstTransformer::new(this, this.module(id)?)?;
@@ -49,7 +44,7 @@ fn ast_text(this: &dyn AstSalsaQueryGroup, id: PathItd) -> EntitySyntaxResultArc
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct AstText {
-    pub file: PathItd,
+    pub file: SourcePath,
     pub arena: ExprArena,
     pub folded_results: FoldableList<AstResult<DeprecatedAst>>,
     pub semantic_tokens: Vec<AbsSemanticToken>,

@@ -1,0 +1,20 @@
+[package]
+name = "husky-datasets-static-defn"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+
+[dependencies]
+rand = "0.8.5"
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+xrng = { path = "../../../../utils/husky-rng-utils" }
+husky-identifier = { path = "../../../../kernel/husky-identifier" }
+husky-term = { path = "../../../../kernel/husky-term" }
+husky-vm = { path = "../../../../vm/husky-vm" }
+husky-print-utils = { path = "../../../../utils/husky-print-utils" }
+husky-dev-utils = { path = "../../../../utils/husky-dev-utils" }
+husky-entity-kind = { path = "../../../../syntax/husky-entity-kind" }
+husky-trace-protocol = { path = "../../../../debugtime/husky-trace-protocol" }
+husky-datasets-interface = { path = "../husky-datasets-interface" }

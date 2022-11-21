@@ -101,12 +101,12 @@ impl<'a> AstTransformer<'a> {
         Ok(())
     }
 
-    fn use_route(&mut self, entity_path: EntityPathItd, range: TextRange) -> AstResult<()> {
+    fn use_route(&mut self, entity_path: EntityPath, range: TextRange) -> AstResult<()> {
         if route.spatial_arguments.len() != 0 {
             todo!()
         }
         self.symbols.push(Symbol {
-            init_ident: RangedCustomIdentifier {
+            init_ident: RangedIdentifier {
                 ident: route.ident().custom(),
                 range,
             },

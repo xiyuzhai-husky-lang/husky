@@ -1,10 +1,10 @@
 use crate::*;
-use husky_word::IdentPairDict;
+use husky_identifier::IdentPairDict;
 
 pub trait AskDecl {
     fn ask_namespace_decl(&self, namespace: TermNamespace) -> TermResultArc<NamespaceDecl>;
     fn ask_ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl>;
-    fn ask_decl(&self, entity_path: EntityPathItd) -> TermResultArc<Decl>;
+    fn ask_decl(&self, entity_path: EntityPath) -> TermResultArc<Decl>;
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -15,7 +15,7 @@ pub enum Decl {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct NamespaceDecl {
-    members: IdentPairDict<Term>,
+    members: IdentPairDict<TermData>,
 }
 
 #[derive(Debug, PartialEq, Eq)]

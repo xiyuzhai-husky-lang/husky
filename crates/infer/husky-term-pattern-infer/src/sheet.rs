@@ -60,7 +60,7 @@ impl TermPatternInferSheet {
     pub(crate) fn insert_term_infer_result(
         &mut self,
         _expr: ExprIdx,
-        _term: TermPatternInferResult<TermItd>,
+        _term: TermPatternInferResult<Term>,
     ) {
         todo!()
     }

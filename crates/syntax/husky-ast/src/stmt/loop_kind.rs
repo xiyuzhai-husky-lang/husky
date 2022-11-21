@@ -5,13 +5,13 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum RawLoopKind {
     For {
-        frame_var: RangedCustomIdentifier,
+        frame_var: RangedIdentifier,
         initial_boundary: RawBoundary,
         final_boundary: RawBoundary,
         step: LoopStep,
     },
     ForExt {
-        frame_var: RangedCustomIdentifier,
+        frame_var: RangedIdentifier,
         final_boundary: RawBoundary,
         step: LoopStep,
     },
@@ -27,7 +27,7 @@ impl RawLoopKind {
     pub fn for_loop(
         initial_bound: ExprIdx,
         initial_comparison: BinaryComparisonOpr,
-        frame_var: RangedCustomIdentifier,
+        frame_var: RangedIdentifier,
         final_comparison: BinaryComparisonOpr,
         final_bound: ExprIdx,
     ) -> AstResult<Self> {
@@ -65,7 +65,7 @@ impl RawLoopKind {
     }
 
     pub fn for_loop_with_default_initial(
-        frame_var: RangedCustomIdentifier,
+        frame_var: RangedIdentifier,
         comparison: BinaryComparisonOpr,
         final_bound: ExprIdx,
         range: TextRange,
@@ -95,7 +95,7 @@ impl RawLoopKind {
     pub fn for_loop_with_default_final(
         initial_bound: ExprIdx,
         comparison: BinaryComparisonOpr,
-        frame_var: RangedCustomIdentifier,
+        frame_var: RangedIdentifier,
         range: TextRange,
     ) -> AstResult<Self> {
         let initial_boundary_kind = match comparison {
@@ -121,7 +121,7 @@ impl RawLoopKind {
     }
 
     pub fn forext_loop(
-        frame_var: RangedCustomIdentifier,
+        frame_var: RangedIdentifier,
         comparison: BinaryComparisonOpr,
         bound: ExprIdx,
         range: TextRange,

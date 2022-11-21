@@ -11,7 +11,7 @@ pub use severity::DiagnosticSeverity;
 use husky_ast::{AstError, AstErrorVariant};
 use husky_dev_utils::DevSource;
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
-use husky_entity_syntax::{EntitySyntaxError, EntitySyntaxErrorKind};
+use husky_entity_tree::{EntityTreeError, EntityTreeErrorKind};
 use husky_print_utils::p;
 use husky_semantics_error::{SemanticError, SemanticErrorVariant};
 use husky_text::TextRange;
@@ -77,12 +77,12 @@ impl From<&LexError> for Diagnostic {
     }
 }
 
-impl From<EntitySyntaxError> for Diagnostic {
-    fn from(e: EntitySyntaxError) -> Self {
+impl From<EntityTreeError> for Diagnostic {
+    fn from(e: EntityTreeError) -> Self {
         Diagnostic {
             severity: DiagnosticSeverity::Error,
             range: match e.kind {
-                EntitySyntaxErrorKind::Defn { range } => range,
+                EntityTreeErrorKind::Defn { range } => range,
                 _ => Default::default(),
             },
             message: format!(
@@ -97,12 +97,12 @@ impl From<EntitySyntaxError> for Diagnostic {
     }
 }
 
-impl From<&EntitySyntaxError> for Diagnostic {
-    fn from(e: &EntitySyntaxError) -> Self {
+impl From<&EntityTreeError> for Diagnostic {
+    fn from(e: &EntityTreeError) -> Self {
         Diagnostic {
             severity: DiagnosticSeverity::Error,
             range: match e.kind {
-                EntitySyntaxErrorKind::Defn { range } => range,
+                EntityTreeErrorKind::Defn { range } => range,
                 _ => Default::default(),
             },
             message: format!(

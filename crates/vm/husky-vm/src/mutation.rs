@@ -1,13 +1,13 @@
-use husky_path::PathItd;
+use husky_identifier::Identifier;
+use husky_source_path::SourcePath;
 use husky_term::Ty;
 use husky_text::TextRange;
-use husky_word::Identifier;
 
 use crate::*;
 
 #[derive(Debug)]
 pub struct MutationData<'eval> {
-    pub file: PathItd,
+    pub file: SourcePath,
     pub range: TextRange,
     pub kind: MutationDataVariant,
     pub ty: Ty,

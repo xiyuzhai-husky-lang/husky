@@ -5,11 +5,11 @@ pub use error::*;
 use crate::*;
 use husky_expr_syntax::{AtomExpr, ExprIdx, ExprVariant};
 use husky_symbol_syntax::SymbolKind;
-use husky_term::TermItd;
+use husky_term::Term;
 use wild_utils::arb_ref;
 
 impl<'a> InferContext<'a> {
-    pub(crate) fn term_result<'b>(&'b mut self) -> Result<TermItd, &'b TermInferError> {
+    pub(crate) fn term_result<'b>(&'b mut self) -> Result<Term, &'b TermInferError> {
         match unsafe { arb_ref(self) }.cached_term_result() {
             Some(term_result) => match term_result {
                 Ok(t) => Ok(*t),
@@ -26,7 +26,7 @@ impl<'a> InferContext<'a> {
         }
     }
 
-    fn infer_term(&mut self) -> TermInferResult<TermItd> {
+    fn infer_term(&mut self) -> TermInferResult<Term> {
         let expr = self.expr();
         match expr.variant {
             ExprVariant::Atom(ref atom) => match atom {

@@ -1,6 +1,4 @@
 use serde::{Deserialize, Serialize};
-// use husky_token::{Special, Token, TokenKind};
-use husky_word::TyKeyword;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum TyKind {
@@ -25,15 +23,15 @@ pub enum TyKind {
     Option,
 }
 
-impl From<TyKeyword> for TyKind {
-    fn from(keyword: TyKeyword) -> Self {
-        match keyword {
-            TyKeyword::Struct => TyKind::Struct,
-            TyKeyword::Enum => TyKind::Enum,
-            TyKeyword::Record => TyKind::Record,
-        }
-    }
-}
+// impl From<TyKeyword> for TyKind {
+//     fn from(keyword: TyKeyword) -> Self {
+//         match keyword {
+//             TyKeyword::Struct => TyKind::Struct,
+//             TyKeyword::Enum => TyKind::Enum,
+//             TyKeyword::Record => TyKind::Record,
+//         }
+//     }
+// }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum EntityKind {

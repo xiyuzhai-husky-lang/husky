@@ -1,4 +1,4 @@
-use husky_word::{CustomIdentifier, IdentDict};
+use husky_identifier::{IdentDict, Identifier};
 
 use crate::*;
 
@@ -6,13 +6,13 @@ use crate::*;
 pub enum TySignature {
     Enum,
     Struct {
-        fields: IdentDict<(CustomIdentifier, Binding)>,
+        fields: IdentDict<(Identifier, Binding)>,
     },
     Vec,
 }
 
 // #[derive(Debug, PartialEq, Eq, Clone)]
 // pub struct VMMembVarSignature {
-//     pub ident: CustomIdentifier,
+//     pub ident: Identifier,
 //     pub contract: MembVarContract,
 // }

@@ -20,12 +20,6 @@ monad = { path = "../../abstraction/monad" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value", features = [
     "serde_support"
 ] }
-# static
-husky-datasets-protocol = { path = "../../static/domains/ml/husky-datasets-protocol", features = [
-    "serde_support",
-    "signal_support"
-] }
-husky-datasets-interface = { path = "../../static/domains/ml/husky-datasets-interface" }
 # runtime
 husky-feature-protocol = { path = "../../runtime/husky-feature-protocol" }
 

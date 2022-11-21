@@ -21,7 +21,7 @@ pub enum LinkageKey {
     },
     StructField {
         this_ty_uid: EntityUid,
-        field_ident: CustomIdentifier,
+        field_ident: Identifier,
     },
 }
 

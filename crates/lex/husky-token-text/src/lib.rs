@@ -1,5 +1,6 @@
 mod query;
 
+use husky_identifier::IdentifierDb;
 pub use query::*;
 
 use fold::{FoldableList, FoldingEnd};
@@ -7,7 +8,6 @@ use husky_path::URange;
 use husky_text::TextIndent;
 use husky_token::Token;
 use husky_tokenize::LexError;
-use husky_word::WordInterner;
 use lsp_types::FoldingRange;
 use std::fmt::Write;
 use std::sync::Arc;
@@ -130,7 +130,7 @@ impl fold::ItemToFold<URange> for TokenGroup {
 }
 
 impl TokenizedText {
-    pub(crate) fn parse(word_interner: &WordInterner, text: &str) -> Arc<Self> {
+    pub(crate) fn parse(word_interner: &dyn IdentifierDb, text: &str) -> Arc<Self> {
         todo!()
         // let mut token_scanner = TokenScanner::new(word_interner);
         // for (i, line) in text.lines().enumerate() {

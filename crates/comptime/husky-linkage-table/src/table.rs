@@ -118,7 +118,7 @@ impl LinkageTable {
     pub(crate) fn field_linkage_source(
         &self,
         this_ty_uid: EntityUid,
-        field_ident: CustomIdentifier,
+        field_ident: Identifier,
     ) -> Option<__Linkage> {
         self.get_linkage(LinkageKey::StructField {
             this_ty_uid,

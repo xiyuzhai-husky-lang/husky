@@ -38,7 +38,7 @@ use variant::*;
     // comptime
     husky_path::FileQueryStorage,
     husky_token_text::TokenQueryGroupStorage,
-    husky_entity_syntax::ScopeQueryGroupStorage,
+    husky_entity_tree::ScopeQueryGroupStorage,
     husky_text::TextQueryGroupStorage,
     husky_ast::AstQueryGroupStorage,
     husky_fmt::FormatQueryGroupStorage,
@@ -50,13 +50,8 @@ use variant::*;
 )]
 pub struct DevRuntime {
     storage: salsa::Storage<DevRuntime>,
-    feature_interner: FeatureInterner,
     variant: HuskyRuntimeVariant,
     config: RuntimeConfig,
-    // comptime
-    path_itr: Arc<husky_path::PathInterner>,
-    word_interner: Arc<husky_word::WordInterner>,
-    // entity_route_interner: Arc<husky_term::EntityRouteInterner>,
     live_docs: ASafeRwLock<IndexMap<PathItd, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,

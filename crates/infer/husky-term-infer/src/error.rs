@@ -8,7 +8,7 @@ pub enum TermInferError {
     #[error("ident unrecognized")]
     IdentUnrecognized,
     #[error("term error")]
-    Term(#[from] TermError),
+    TermData(#[from] TermError),
     #[error("derived")]
     Derived(#[from] DerivedTermInferError),
 }

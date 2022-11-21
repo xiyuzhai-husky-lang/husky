@@ -1,8 +1,8 @@
 use crate::*;
+use husky_identifier::*;
 use husky_term::{EntityRoute, EntityRouteVariant};
 use husky_text::TextRanged;
 use husky_token::*;
-use husky_word::*;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_module_item(

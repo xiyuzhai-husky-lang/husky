@@ -7,11 +7,11 @@ impl<'a> InstructionSheetBuilder<'a> {
         self.sheet.instructions.push(instr);
     }
 
-    pub(super) fn def_variable(&mut self, varname: CustomIdentifier) {
+    pub(super) fn def_variable(&mut self, varname: Identifier) {
         self.sheet.variable_stack.push(varname);
     }
 
-    pub(super) fn varidx(&self, varname: CustomIdentifier) -> VMStackIdx {
+    pub(super) fn varidx(&self, varname: Identifier) -> VMStackIdx {
         self.sheet.variable_stack.stack_idx(varname)
     }
 }

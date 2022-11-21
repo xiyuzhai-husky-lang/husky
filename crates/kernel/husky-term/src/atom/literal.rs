@@ -1,10 +1,10 @@
 use ordered_float::OrderedFloat;
 
 // #[derive(Debug, PartialEq, Eq, Hash)]
-// pub struct TermLiteral(TermItd);
+// pub struct TermLiteral(Term);
 
 // impl std::ops::Deref for TermLiteral {
-//     type Target = Term;
+//     type Target = TermData;
 
 //     fn deref(&self) -> &Self::Target {
 //         &self.0
@@ -32,21 +32,21 @@ use ordered_float::OrderedFloat;
 // impl TermLiteral {
 //     pub fn data(&self) -> &TermLiteralData {
 //         match self.deref() {
-//             Term::Atom(_) => todo!(),
-//             Term::Curry(_) => todo!(),
-//             Term::Abstraction(_) => todo!(),
-//             Term::Application(_) => todo!(),
-//             Term::Subentity(_) => todo!(),
-//             Term::TraitImpl(_) => todo!(),
+//             TermData::Atom(_) => todo!(),
+//             TermData::Curry(_) => todo!(),
+//             TermData::Abstraction(_) => todo!(),
+//             TermData::Application(_) => todo!(),
+//             TermData::Subentity(_) => todo!(),
+//             TermData::TraitImpl(_) => todo!(),
 //         }
 //     }
 
-//     pub fn i32_literal(db: &dyn TermDb, i: i32) -> TermItd {
-//         db.it_term(Term::Atom(TermAtom::new_literal(TermLiteralData::I32(i))))
+//     pub fn i32_literal(db: &dyn TermDb, i: i32) -> Term {
+//         db.it_term(TermData::Atom(TermAtom::new_literal(TermLiteralData::I32(i))))
 //     }
 
-//     pub fn i64_literal(db: &dyn TermDb, i: i64) -> TermItd {
-//         db.it_term(Term::Atom(TermAtom::new_literal(TermLiteralData::I64(i))))
+//     pub fn i64_literal(db: &dyn TermDb, i: i64) -> Term {
+//         db.it_term(TermData::Atom(TermAtom::new_literal(TermLiteralData::I64(i))))
 //     }
 // }
 

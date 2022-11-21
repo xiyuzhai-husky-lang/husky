@@ -1,6 +1,6 @@
 use crate::*;
+use husky_identifier::{Keyword, Paradigm};
 use husky_token::*;
-use husky_word::{Keyword, Paradigm};
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_record_item(

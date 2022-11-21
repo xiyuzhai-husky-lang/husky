@@ -5,18 +5,18 @@ mod table;
 
 pub use config::*;
 pub use form::*;
-use husky_entity_path::EntityPathItd;
-use husky_entity_syntax::EntitySource;
+use husky_entity_path::EntityPath;
+use husky_entity_tree::EntitySource;
 pub use key::*;
 pub use table::*;
 
 use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
+use husky_identifier::Identifier;
 use husky_print_utils::p;
 use husky_static_defn::EntityStaticDefnVariant;
 use husky_term::Ty;
 use husky_vm::__ResolvedLinkage;
 use husky_vm::{Binding, EntityUid, __Linkage};
-use husky_word::CustomIdentifier;
 use map_collect::MapCollect;
 use std::collections::HashMap;
 use sync_utils::ASafeRwLock;
@@ -59,7 +59,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         // }
     }
 
-    fn field_linkage(&self, this_ty: Ty, field_ident: CustomIdentifier) -> Option<__Linkage> {
+    fn field_linkage(&self, this_ty: Ty, field_ident: Identifier) -> Option<__Linkage> {
         todo!()
         // if !this_ty.is_intrinsic() {
         //     panic!("expect intrinsic ty, but get `{}` instead", this_ty)
@@ -81,7 +81,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
     fn field_linkage_resolved(
         &self,
         this_ty: Ty,
-        field_ident: CustomIdentifier,
+        field_ident: Identifier,
         field_binding: Binding,
     ) -> Option<__ResolvedLinkage> {
         self.field_linkage(this_ty, field_ident)
@@ -229,7 +229,7 @@ pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup
         // )
     }
 
-    fn feature_eager_block_linkage(&self, entity_path: EntityPathItd) -> Option<__Linkage> {
+    fn feature_eager_block_linkage(&self, entity_path: EntityPath) -> Option<__Linkage> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,

@@ -1,7 +1,7 @@
 use std::path::Path;
 
 use crate::*;
-use husky_word::snake_to_dash;
+use husky_identifier::snake_to_dash;
 use path_slash::PathExt;
 
 pub fn cargo_toml_content(

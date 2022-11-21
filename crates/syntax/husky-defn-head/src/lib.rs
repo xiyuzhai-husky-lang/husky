@@ -1,18 +1,18 @@
 mod spatial;
 
 use husky_check_utils::should;
-use husky_entity_syntax::EntitySyntaxQueryGroup;
+use husky_entity_tree::EntityTreeDb;
 use husky_liason_semantics::{MemberModifier, ParameterModifier, RangedParameterLiason};
 pub use spatial::*;
 use thin_vec::thin_vec;
 
+use husky_identifier::Identifier;
 use husky_term::Ty;
-use husky_text::{RangedCustomIdentifier, TextRange};
-use husky_word::{CustomIdentifier, RootBuiltinIdentifier};
+use husky_text::{RangedIdentifier, TextRange};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Parameter {
-    ranged_ident: RangedCustomIdentifier,
+    ranged_ident: RangedIdentifier,
     ranged_liason: RangedParameterLiason,
     // ranged_book_ty: Ty,
     ty: Ty,
@@ -20,8 +20,8 @@ pub struct Parameter {
 
 impl Parameter {
     pub fn new(
-        db: &dyn EntitySyntaxQueryGroup,
-        ranged_ident: RangedCustomIdentifier,
+        db: &dyn EntityTreeDb,
+        ranged_ident: RangedIdentifier,
         ranged_liason: RangedParameterLiason,
         // ranged_raw_ty: Ty,
     ) -> Self {
@@ -36,7 +36,7 @@ impl Parameter {
         // }
     }
 
-    fn synthesize_ty(db: &dyn EntitySyntaxQueryGroup, liason: ParameterModifier, raw_ty: Ty) -> Ty {
+    fn synthesize_ty(db: &dyn EntityTreeDb, liason: ParameterModifier, raw_ty: Ty) -> Ty {
         todo!()
         // match liason {
         //     ParameterModifier::None => raw_ty,
@@ -59,11 +59,11 @@ impl Parameter {
         self.ranged_liason.opt_range.unwrap()
     }
 
-    pub fn ranged_ident(&self) -> RangedCustomIdentifier {
+    pub fn ranged_ident(&self) -> RangedIdentifier {
         self.ranged_ident
     }
 
-    pub fn ident(&self) -> CustomIdentifier {
+    pub fn ident(&self) -> Identifier {
         self.ranged_ident.ident
     }
 
@@ -82,8 +82,8 @@ impl Parameter {
     }
 
     pub fn from_field(
-        db: &dyn EntitySyntaxQueryGroup,
-        ranged_ident: RangedCustomIdentifier,
+        db: &dyn EntityTreeDb,
+        ranged_ident: RangedIdentifier,
         modifier: MemberModifier,
         member_ty: Ty,
     ) -> Self {

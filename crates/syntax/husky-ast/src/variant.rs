@@ -1,16 +1,18 @@
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
+use husky_source_path::SourcePath;
+use husky_token::Paradigm;
 
 use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum DeprecatedAstVariant {
     TypeDefnHead {
-        ident: RangedCustomIdentifier,
+        ident: RangedIdentifier,
         kind: TyKind,
         spatial_parameters: IdentDict<SpatialParameter>,
     },
     MainDefnHead,
     CallFormDefnHead {
-        ident: RangedCustomIdentifier,
+        ident: RangedIdentifier,
         paradigm: Paradigm,
         spatial_parameters: IdentDict<SpatialParameter>,
         parameters: Arc<Vec<Parameter>>,
@@ -20,34 +22,34 @@ pub enum DeprecatedAstVariant {
     },
     FeatureDefnHead {
         paradigm: Paradigm,
-        ident: RangedCustomIdentifier,
+        ident: RangedIdentifier,
         return_ty: ExprIdx,
     },
     FieldDefnHead {
         liason: MemberModifier,
-        ranged_ident: RangedCustomIdentifier,
+        ranged_ident: RangedIdentifier,
         field_ty: ExprIdx,
         ast_field_kind: AstFieldKind,
     },
     DatasetConfigDefnHead,
     Stmt(RawStmt),
     EnumVariantDefnHead {
-        ident: RangedCustomIdentifier,
+        ident: RangedIdentifier,
         variant_class: EnumVariantKind,
     },
     Use {
         use_variant: UseVariant,
     },
     Submodule {
-        ident: RangedCustomIdentifier,
-        source_file: PathItd,
+        ident: RangedIdentifier,
+        source_file: SourcePath,
     },
     Visual,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum UseVariant {
-    Route { entity_path: EntityPathItd },
+    Route { entity_path: EntityPath },
     All { parent: Ty },
 }
 

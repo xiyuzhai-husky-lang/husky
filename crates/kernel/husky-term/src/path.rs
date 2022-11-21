@@ -1,8 +1,8 @@
 use crate::*;
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
 
 impl<'a> TermRef<'a> {
-    pub fn path(&self) -> EntityPathItd {
+    pub fn path(&self) -> EntityPath {
         match self {
             TermRef::Atom(atom) => match atom {
                 TermAtom::Literal(_) => todo!(),

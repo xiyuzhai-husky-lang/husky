@@ -1,15 +1,13 @@
-use husky_ast::AstQueryGroup;
+use husky_ast::AstDb;
 use husky_entity_semantics::EntityDefnQueryGroup;
-use husky_entity_syntax::EntitySyntaxQueryGroup;
+use husky_entity_tree::EntityTreeDb;
 use husky_term::Ty;
 use reserve::Reserve;
 
 use crate::*;
 
 #[salsa::query_group(DiagnosticSalsaQueryGroupStorage)]
-pub trait DiagnosticSalsaQuery:
-    EntitySyntaxQueryGroup + AstQueryGroup + EntityDefnQueryGroup
-{
+pub trait DiagnosticSalsaQuery: EntityTreeDb + AstDb + EntityDefnQueryGroup {
     fn diagnostics_reserve(&self, module: Ty) -> Arc<DiagnosticReserve>;
 }
 

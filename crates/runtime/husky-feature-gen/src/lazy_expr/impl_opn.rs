@@ -253,7 +253,7 @@ impl<'a> FeatureExprBuilder<'a> {
 
     fn compile_method_call(
         &self,
-        _method_ident: RangedCustomIdentifier,
+        _method_ident: RangedIdentifier,
         _method_route: Ty,
         _opds: &[Arc<LazyExpr>],
     ) -> (FeatureLazyExprVariant, FeatureItd) {
@@ -288,7 +288,7 @@ impl<'a> FeatureExprBuilder<'a> {
 
     pub(super) fn compile_field_access(
         &self,
-        _field_ident: RangedCustomIdentifier,
+        _field_ident: RangedIdentifier,
         _this: FeatureRepr,
         _field_binding: Binding,
     ) -> (FeatureLazyExprVariant, FeatureItd) {

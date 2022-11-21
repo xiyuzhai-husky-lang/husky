@@ -3,14 +3,14 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityPathMenu0 {
     // library
-    core: EntityPathItd,
-    std: EntityPathItd,
-    i32: EntityPathItd,
-    i64: EntityPathItd,
-    b32: EntityPathItd,
-    b64: EntityPathItd,
-    f32: EntityPathItd,
-    f64: EntityPathItd,
+    core: EntityPath,
+    std: EntityPath,
+    i32: EntityPath,
+    i64: EntityPath,
+    b32: EntityPath,
+    b64: EntityPath,
+    f32: EntityPath,
+    f64: EntityPath,
 }
 
 impl EntityPathMenu0 {
@@ -27,35 +27,35 @@ impl EntityPathMenu0 {
         }
     }
 
-    pub fn core(&self) -> EntityPathItd {
+    pub fn core(&self) -> EntityPath {
         self.core
     }
 
-    pub fn std(&self) -> EntityPathItd {
+    pub fn std(&self) -> EntityPath {
         self.std
     }
 
-    pub fn i32(&self) -> EntityPathItd {
+    pub fn i32(&self) -> EntityPath {
         self.i32
     }
 
-    pub fn i64(&self) -> EntityPathItd {
+    pub fn i64(&self) -> EntityPath {
         self.i64
     }
 
-    pub fn b32(&self) -> EntityPathItd {
+    pub fn b32(&self) -> EntityPath {
         self.b32
     }
 
-    pub fn b64(&self) -> EntityPathItd {
+    pub fn b64(&self) -> EntityPath {
         self.b64
     }
 
-    pub fn f32(&self) -> EntityPathItd {
+    pub fn f32(&self) -> EntityPath {
         self.f32
     }
 
-    pub fn f64(&self) -> EntityPathItd {
+    pub fn f64(&self) -> EntityPath {
         self.f64
     }
 }

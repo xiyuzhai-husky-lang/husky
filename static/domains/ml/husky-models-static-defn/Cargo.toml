@@ -1,0 +1,25 @@
+[package]
+name = "husky-models-static-defn"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+
+[dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+ordered-float = "3.0.0"
+linfa-svm = "0.6.0"
+husky-identifier = { path = "../../../../kernel/husky-identifier" }
+husky-term = { path = "../../../../kernel/husky-term" }
+husky-vm = { path = "../../../../vm/husky-vm" }
+husky-print-utils = { path = "../../../../utils/husky-print-utils" }
+husky-dev-utils = { path = "../../../../utils/husky-dev-utils" }
+husky-entity-kind = { path = "../../../../syntax/husky-entity-kind" }
+husky-trace-protocol = { path = "../../../../debugtime/husky-trace-protocol" }
+husky-vm-register-method = { path = "../../../../vm/husky-vm-register-method" }
+
+[build-dependencies]
+husky-rust-code-repr = { path = "../../../../comptime/husky-rust-code-repr" }
+husky-write-utils = { path = "../../../../utils/husky-write-utils" }
+husky-io-utils = { path = "../../../../utils/husky-io-utils" }

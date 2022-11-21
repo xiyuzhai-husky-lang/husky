@@ -13,7 +13,7 @@ mod indicator;
 mod sheet;
 
 pub use config::*;
-use husky_ast::AstQueryGroup;
+use husky_ast::AstDb;
 pub use indicator::FeatureEvalIndicator;
 pub use sheet::*;
 

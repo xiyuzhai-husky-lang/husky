@@ -1,5 +1,6 @@
+use husky_token::Paradigm;
+
 use crate::*;
-use husky_word::Paradigm;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum AstFieldKind {

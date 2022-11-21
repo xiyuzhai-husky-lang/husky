@@ -1,5 +1,5 @@
 use crate::*;
-use husky_word::CustomIdentifier;
+use husky_identifier::Identifier;
 
 #[derive(Debug)]
 pub struct LoopFrameData<'eval> {
@@ -12,7 +12,7 @@ pub struct LoopFrameData<'eval> {
 
 #[derive(Debug, Clone)]
 pub enum FrameKind {
-    For(CustomIdentifier),
+    For(Identifier),
     Loop,
 }
 

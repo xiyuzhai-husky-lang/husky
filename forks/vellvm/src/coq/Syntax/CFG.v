@@ -42,7 +42,7 @@ Section CFG.
 
   Inductive cmd : Set :=
   | Inst (i:instr T)
-  | Term (t:terminator T)
+  | TermData (t:terminator T)
   .
 
   (** * Open cfg

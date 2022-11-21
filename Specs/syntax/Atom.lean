@@ -8,30 +8,30 @@ structure HuskyAtom where
 inductive HuskyAtomVariant
     | EntityRoute (route: EntityRoutePtr) (kind: EntityKind)
     | Variable
-        (varname: CustomIdentifier)
+        (varname: Identifier)
         (init_range: TextRange)
     | FrameVariable
-        (varname: CustomIdentifier)
+        (varname: Identifier)
         (init_range: TextRange)
     | ThisValue
         (opt_this_ty: Option EntityRoutePtr)
         (opt_this_liason: Option ParameterModifier)
     | ThisField
-        (field_ident: RangedCustomIdentifier)
+        (field_ident: RangedIdentifier)
         (opt_this_ty: Option EntityRoutePtr)
         (opt_this_liason: Option ParameterModifier)
         (opt_field_ty: Option Ty)
         (field_liason: MemberModifier)
-    | Unrecognized (ident : CustomIdentifier)
+    | Unrecognized (ident : Identifier)
     | PrimitiveLiteral(data : RawLiteralData)
     | Binary(opr : BinaryOpr)
     | Prefix(opr : PrefixOpr)
     | Suffix(opr : RawSuffixOpr)
-    | FieldAccess(ident : RangedCustomIdentifier)
+    | FieldAccess(ident : RangedIdentifier)
     | ListStart (bra : Bracket) (attr : ListStartAttr)
     | ListEnd (ket : Bracket) (attr : ListEndAttr)
     | ListItem
-    | LambdaHead (parameters : List RangedCustomIdentifier × (Option Ty))
+    | LambdaHead (parameters : List RangedIdentifier × (Option Ty))
     | SilentEnd
     | Be
     | BePattern (patt : RawPattern)

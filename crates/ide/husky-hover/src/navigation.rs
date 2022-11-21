@@ -1,5 +1,5 @@
 use husky_documentation::Documentation;
-use husky_path::PathItd;
+use husky_source_path::SourcePath;
 use husky_text::TextRange;
 
 /// `NavigationTarget` represents an element in the editor's UI which you can
@@ -9,7 +9,7 @@ use husky_text::TextRange;
 /// code, like a function or a struct, but this is not strictly required.
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct NavigationTarget {
-    pub file: PathItd,
+    pub file: SourcePath,
     /// Range which encompasses the whole element.
     ///
     /// Should include body, doc comments, attributes, etc.

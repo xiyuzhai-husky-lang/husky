@@ -1,0 +1,18 @@
+[package]
+name = "husky-identifier"
+version = "0.0.0"
+description = "Word processing for the Husky Programming Language"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+
+[lib]
+doctest = false
+
+[dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
+# abstraction
+vec-like = { path = "../../abstraction/vec-like" }
+salsa = { path = "../../abstraction/salsa" }
+# utils
+husky-display-utils = { path = "../../utils/husky-display-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }

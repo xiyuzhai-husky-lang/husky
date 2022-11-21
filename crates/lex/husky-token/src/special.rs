@@ -1,5 +1,7 @@
 use husky_opn_syntax::{BinaryOpr, Bracket};
 
+use crate::TokenKind;
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SpecialToken {
     BinaryOpr(BinaryOpr),
@@ -216,4 +218,10 @@ macro_rules! is_special {
     ($token: expr, $s: tt) => {{
         $token.kind == special_token!($s).into()
     }};
+}
+
+impl From<SpecialToken> for TokenKind {
+    fn from(special: SpecialToken) -> Self {
+        TokenKind::Special(special)
+    }
 }
