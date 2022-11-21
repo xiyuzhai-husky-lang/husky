@@ -4,7 +4,7 @@ use dashmap::DashMap;
 use eyre::{eyre, Context, Report, Result};
 use notify_debouncer_mini::{
     new_debouncer, new_debouncer_opt, notify::RecommendedWatcher, DebounceEventHandler,
-    DebounceEventResult, Debouncer,
+    DebounceEventResult, DebouncedEvent, Debouncer,
 };
 use place::SingleAssignPlace;
 use std::{
@@ -13,76 +13,102 @@ use std::{
     thread,
     time::Duration,
 };
+use timed_salsa::{ParallelDatabase, Snapshot};
 
 pub trait HasWatcherPlace {
     fn watcher_place_mut(&mut self) -> &mut SingleAssignPlace<VfsWatcher>;
     fn watcher_place(&self) -> &SingleAssignPlace<VfsWatcher>;
 }
 
-pub trait WatchableVfsDb: VfsDb + HasWatcherPlace + Send + 'static {
+pub trait WatchableVfsDb: VfsDb + HasWatcherPlace + Send + ParallelDatabase + 'static {
     fn watcher(&self) -> Option<&VfsWatcher>;
 }
 
 impl<T> WatchableVfsDb for T
 where
-    T: VfsDb + HasWatcherPlace + Send + 'static,
+    T: VfsDb + HasWatcherPlace + Send + ParallelDatabase + 'static,
 {
     fn watcher(&self) -> Option<&VfsWatcher> {
         self.watcher_place().value()
     }
 }
 
-pub struct VfsWatcher(pub(crate) Mutex<Debouncer<RecommendedWatcher>>);
+#[derive(Clone)]
+pub struct VfsWatcher(pub(crate) Arc<Mutex<Debouncer<RecommendedWatcher>>>);
 
 impl VfsWatcher {
     fn new(debounce_tx: Sender<DebounceEventResult>) -> Self {
-        VfsWatcher(Mutex::new(
-            new_debouncer(Duration::from_secs(1), None, debounce_tx).unwrap(),
-        ))
+        VfsWatcher(Arc::new(Mutex::new(
+            new_debouncer(DEBOUNCE_TIMEOUT, None, debounce_tx).unwrap(),
+        )))
     }
 }
 
-pub struct VfsWatcherThread<DB: WatchableVfsDb> {
+const DEBOUNCE_TIMEOUT_RAW: u64 = 50;
+
+const DEBOUNCE_TIMEOUT: Duration = Duration::from_millis(DEBOUNCE_TIMEOUT_RAW);
+
+#[cfg(test)]
+pub(crate) const DEBOUNCE_TEST_SLEEP_TIME: Duration =
+    Duration::from_millis(DEBOUNCE_TIMEOUT_RAW * 4);
+
+pub struct WatchedVfs<DB: WatchableVfsDb> {
     event_tx: Sender<VfsWatcherEvent>,
+    snapshot_rx: Receiver<Snapshot<DB>>,
     phantom: PhantomData<DB>,
 }
 
-pub struct VfsWatcherInstance<DB: WatchableVfsDb> {
-    db: Arc<Mutex<DB>>,
-    debounce_rx: Receiver<DebounceEventResult>,
-    event_rx: Receiver<VfsWatcherEvent>,
-}
-
-pub enum VfsWatcherEvent {
-    Close,
-}
-
-impl<V: WatchableVfsDb> Drop for VfsWatcherThread<V> {
-    fn drop(&mut self) {
-        match self.event_tx.send(VfsWatcherEvent::Close) {
-            Ok(_) => (),
-            Err(_) => todo!(),
+impl<DB: WatchableVfsDb> WatchedVfs<DB> {
+    pub fn apply<S>(&self, f: impl FnOnce(&DB) -> S) -> S {
+        self.event_tx.send(VfsWatcherEvent::Snapshot);
+        match self.snapshot_rx.recv() {
+            Ok(snapshot) => f(&snapshot),
+            Err(e) => {
+                p!(e);
+                todo!()
+            }
         }
     }
 }
 
-impl<V: WatchableVfsDb> VfsWatcherThread<V> {
-    pub fn new(db: Arc<Mutex<V>>) -> Self {
+pub struct VfsWatcherInstance<DB: WatchableVfsDb> {
+    db: DB,
+    debounce_rx: Receiver<DebounceEventResult>,
+    event_rx: Receiver<VfsWatcherEvent>,
+    snapshot_tx: Sender<Snapshot<DB>>,
+}
+
+pub enum VfsWatcherEvent {
+    Snapshot,
+    Close,
+}
+
+impl<V: WatchableVfsDb> Drop for WatchedVfs<V> {
+    fn drop(&mut self) {
+        match self.event_tx.send(VfsWatcherEvent::Close) {
+            Ok(_) => (),
+            Err(e) => eprintln!("error {e} in sending VfsWatcherEvent::Close"),
+        }
+    }
+}
+
+impl<DB: WatchableVfsDb> WatchedVfs<DB> {
+    pub(crate) fn new(mut db: DB) -> Self {
         let (event_tx, event_rx) = unbounded();
         let (debounce_tx, debounce_rx) = unbounded();
-        db.lock()
-            .unwrap()
-            .watcher_place_mut()
+        let (snapshot_tx, snapshot_rx) = unbounded();
+        db.watcher_place_mut()
             .set(VfsWatcher::new(debounce_tx))
             .unwrap();
-        thread::spawn(
-            || match VfsWatcherInstance::new(db, debounce_rx, event_rx).run() {
+        thread::spawn(|| {
+            match VfsWatcherInstance::new(db, debounce_rx, event_rx, snapshot_tx).run() {
                 Ok(_) => (),
                 Err(_) => todo!(),
-            },
-        );
+            }
+        });
         Self {
             event_tx,
+            snapshot_rx,
             phantom: PhantomData,
         }
     }
@@ -90,20 +116,40 @@ impl<V: WatchableVfsDb> VfsWatcherThread<V> {
 
 impl<DB: WatchableVfsDb> VfsWatcherInstance<DB> {
     fn new(
-        db: Arc<Mutex<DB>>,
+        db: DB,
         debounce_rx: Receiver<DebounceEventResult>,
         event_rx: Receiver<VfsWatcherEvent>,
+        snapshot_tx: Sender<Snapshot<DB>>,
     ) -> Self {
         Self {
             db,
             debounce_rx,
             event_rx,
+            snapshot_tx,
         }
     }
 
-    fn run(self) -> Result<()> {
+    fn run(mut self) -> Result<()> {
         // HELP: GENGTENG
-        todo!()
+        loop {
+            select! {
+                recv(self.debounce_rx) -> debounce => match debounce {
+                        Ok(Ok(debounced_events)) => self.process_debounced_events(debounced_events),
+                        Ok(Err(_)) => todo!(),
+                        Err(_) => todo!(),
+                    },
+                recv(self.event_rx) -> event_result => match event_result {
+                    Ok(event) => match event {
+                        VfsWatcherEvent::Snapshot => match self.snapshot_tx.send(self.db.snapshot()) {
+                            Ok(_) => (),
+                            Err(_) => todo!(),
+                        },
+                        VfsWatcherEvent::Close=>return Ok(()),
+                    },
+                    Err(_) => todo!(),
+                },
+            }
+        }
         // let initial_file_path = std::env::args_os()
         //     .nth(1)
         //     .ok_or_else(|| eyre!("Usage: ./lazy-input <input-file>"))?;
@@ -146,5 +192,11 @@ impl<DB: WatchableVfsDb> VfsWatcherInstance<DB> {
         //         file.set_contents(&mut db).to(contents);
         //     }
         // }
+    }
+
+    fn process_debounced_events(&mut self, events: Vec<DebouncedEvent>) {
+        for event in events {
+            self.db.update_file(event.path).unwrap()
+        }
     }
 }

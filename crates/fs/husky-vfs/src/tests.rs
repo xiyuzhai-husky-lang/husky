@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{watch::DEBOUNCE_TEST_SLEEP_TIME, *};
 use crossbeam_channel::{unbounded, Sender};
 use dashmap::DashMap;
 use husky_print_utils::p;
@@ -16,22 +16,20 @@ use std::{
 struct VfsTestsDatabase {
     storage: timed_salsa::Storage<Self>,
     cache: HuskyFileCache,
-    file_contents: DashMap<PathBuf, String>,
     watcher_place: SingleAssignPlace<VfsWatcher>,
 }
 
-impl VfsTestsDatabase {
-    fn write_file(&mut self, path: PathBufItd, new_content: String) -> VfsResult<()> {
-        let pathbuf = path.path(self).to_owned();
-        self.file_contents.insert(pathbuf, new_content);
-        if self.cache.0.contains_key(&path) {
-            self.update_file(path)?
-        }
-        Ok(())
+impl timed_salsa::Database for VfsTestsDatabase {}
+
+impl ParallelDatabase for VfsTestsDatabase {
+    fn snapshot(&self) -> timed_salsa::Snapshot<Self> {
+        timed_salsa::Snapshot::new(VfsTestsDatabase {
+            storage: self.storage.snapshot(),
+            cache: self.cache.snapshot(),
+            watcher_place: self.watcher_place.clone(),
+        })
     }
 }
-
-impl timed_salsa::Database for VfsTestsDatabase {}
 
 impl HasWatcherPlace for VfsTestsDatabase {
     fn watcher_place_mut(&mut self) -> &mut place::SingleAssignPlace<watch::VfsWatcher> {
@@ -43,15 +41,7 @@ impl HasWatcherPlace for VfsTestsDatabase {
     }
 }
 
-impl Vfs for VfsTestsDatabase {
-    fn read_to_string(&self, path: &Path) -> VfsResult<String> {
-        if let Some(content) = self.file_contents.get_mut(path) {
-            Ok(content.clone())
-        } else {
-            Err(VfsError::FileNotFound(path.to_owned()))
-        }
-    }
-
+impl HasFileCache for VfsTestsDatabase {
     fn cache(&self) -> &HuskyFileCache {
         &self.cache
     }
@@ -59,31 +49,16 @@ impl Vfs for VfsTestsDatabase {
 
 #[test]
 fn vfs_db_works() {
-    let mut db = VfsTestsDatabase::default();
-    let somepath = PathBufItd::new(&db, "somepath".into());
-    assert!(db.file(somepath).is_err());
-    db.write_file(somepath, "bob is cool".to_string())
-        .expect("true");
-    let file = db.file(somepath).unwrap();
-    assert_eq!(file.content(&db), "bob is cool");
-    db.write_file(somepath, "alice is cool".to_string())
-        .expect("true");
-    let file = db.file(somepath).unwrap();
-    assert_eq!(file.content(&db), "alice is cool");
-}
-
-#[test]
-fn vfs_db_watcher_works() {
-    let db = Arc::new(Mutex::new(VfsTestsDatabase::default()));
-    let watcher_thread = VfsWatcherThread::new(db.clone());
-    // let somepath = PathBufItd::new(&db, "somepath".into());
-    // assert!(db.file(somepath).is_err());
-    // db.write_file(somepath, "bob is cool".to_string())
-    //     .expect("true");
-    // let file = db.file(somepath).unwrap();
-    // assert_eq!(file.content(&db), "bob is cool");
-    // db.write_file(somepath, "alice is cool".to_string())
-    //     .expect("true");
-    // let file = db.file(somepath).unwrap();
-    // assert_eq!(file.content(&db), "alice is cool");
+    let db = VfsTestsDatabase::default();
+    let db = WatchedVfs::new(db);
+    let tempdir = tempfile::tempdir().unwrap();
+    let somepath = tempdir.path().join("somepath");
+    let somepath_itd = db.apply(|db| PathBufItd::new(db, somepath.clone()));
+    std::fs::write(somepath.clone(), "Hello, world!");
+    let somefile = db.apply(|db| db.file(somepath_itd).unwrap());
+    assert!(db.apply(|db| somefile.content(db) == "Hello, world!"),);
+    std::fs::write(somepath, "Hello, world!2");
+    let a = DEBOUNCE_TEST_SLEEP_TIME;
+    std::thread::sleep(DEBOUNCE_TEST_SLEEP_TIME);
+    assert!(db.apply(|db| somefile.content(db) == "Hello, world!2"))
 }
