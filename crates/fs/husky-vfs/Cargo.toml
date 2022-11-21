@@ -7,13 +7,15 @@ edition = "2021"
 [dependencies]
 thiserror = "1.0.37"
 notify-debouncer-mini = "0.2.0"
-timed-salsa = { path = "../../abstraction/timed-salsa" }
+salsa = { path = "../../abstraction/salsa" }
 crossbeam-channel = "0.5.6"
 dashmap = "5.4.0"
 eyre = "0.6.8"
 replace_with = "0.1.7"
 # abstraction
 place = { path = "../../abstraction/place" }
+# fs
+husky-source-path = { path = "../../fs/husky-source-path" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

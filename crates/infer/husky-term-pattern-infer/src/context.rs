@@ -1,26 +1,20 @@
 use crate::*;
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
 use husky_expr_syntax::{Expr, ExprArena, ExprIdx, ExprVariant};
-use husky_term::{TermContext, TermItd, TermMenu};
+use husky_identifier::IdentifierDb;
+use husky_term::{Term, TermContext, TermMenu};
 use husky_term_pattern::TermPatternItd;
-use husky_word::InternWord;
 
 pub(crate) struct TermPatternInferContext<'a> {
-    db: &'a dyn TermPatternInferQueryGroup,
+    db: &'a dyn TermPatternInferDb,
     expr_arena: &'a ExprArena,
     expr_idx: ExprIdx,
     term_menu: &'a TermMenu,
 }
 
-impl<'a> InternWord for TermPatternInferContext<'a> {
-    fn word_itr(&self) -> &husky_word::WordInterner {
-        self.db.word_itr()
-    }
-}
-
 impl<'a> TermPatternInferContext<'a> {
     pub(crate) fn new(
-        db: &'a dyn TermPatternInferQueryGroup,
+        db: &'a dyn TermPatternInferDb,
         expr_arena: &'a ExprArena,
         expr_idx: ExprIdx,
         term_menu: &'a TermMenu,
@@ -76,7 +70,7 @@ impl<'a> TermPatternInferContext<'a> {
                 SymbolKind::Unrecognized => {
                     let error =
                         self.error_original(OriginalTermPatternInferError::IdentUnrecognized {
-                            ident: symbol.ident,
+                            ident: todo!(),
                         });
                     ExprTermPatternInferRawResults {
                         const_expr: Err(error.clone()),
@@ -152,14 +146,14 @@ impl<'a> TermPatternInferContext<'a> {
             }
             RawLiteralData::I32(i) => ExprTermPatternInferRawResults {
                 const_expr: Ok(Some(ConstExprPattern {
-                    term: TermPatternItd::Resolved(i.into()),
+                    term: TermPatternItd::Resolved(todo!()),
                     opt_substitution_ctx: None,
                 })),
                 ty: Ok(self.term_menu.i32().term().into()),
             },
             RawLiteralData::I64(i) => ExprTermPatternInferRawResults {
                 const_expr: Ok(Some(ConstExprPattern {
-                    term: TermPatternItd::Resolved(i.into()),
+                    term: TermPatternItd::Resolved(todo!()),
                     opt_substitution_ctx: None,
                 })),
                 ty: Ok(self.term_menu.i32().term().into()),
@@ -217,7 +211,7 @@ impl<'a> TermPatternInferContext<'a> {
         TermContext::new(self.db.upcast(), self.term_menu)
     }
 
-    pub(crate) fn entity_path_term(&self, path: EntityPathItd) -> TermPatternInferResult<TermItd> {
+    pub(crate) fn entity_path_term(&self, path: EntityPath) -> TermPatternInferResult<Term> {
         self.map_original(self.term_ctx().entity_path_term(path))
     }
 }

@@ -1,25 +1,39 @@
 use crate::*;
 
 use husky_dev_utils::dev_src;
-use husky_path::{FileError, FileErrorKind, FileResultArc, PathItd};
+use husky_path::{FileError, FileErrorKind, FileResultArc};
 
+use husky_identifier::IdentifierDb;
+use husky_source_path::SourcePath;
+use husky_text::TextDb;
 use husky_tokenize::Tokenize;
-use husky_word::InternWord;
-#[salsa::query_group(TokenQueryGroupStorage)]
-pub trait TokenizedTextQueryGroup: husky_path::FileQueryGroup + Tokenize {
-    fn tokenized_text(&self, id: PathItd) -> FileResultArc<TokenizedText>;
+use salsa::DbWithJar;
+
+#[salsa::jar(db = TokenTextDb)]
+pub struct TokenTextJar(tokenized_text);
+
+pub trait TokenTextDb: DbWithJar<TokenTextJar> + TextDb + Tokenize {
+    fn tokenized_text(&self, id: SourcePath) -> FileResultArc<TokenizedText>;
 }
 
-fn tokenized_text(
-    this: &dyn TokenizedTextQueryGroup,
-    file: PathItd,
-) -> FileResultArc<TokenizedText> {
-    if let Some(text) = this.raw_text(file) {
-        return Ok(TokenizedText::parse(this.word_itr(), text.as_str()));
-    } else {
-        Err(FileError {
-            kind: FileErrorKind::FileNotFound,
-            dev_src: dev_src!(),
-        })
+impl<T> TokenTextDb for T
+where
+    T: DbWithJar<TokenTextJar> + TextDb + Tokenize,
+{
+    fn tokenized_text(&self, id: SourcePath) -> FileResultArc<TokenizedText> {
+        todo!()
     }
+}
+
+#[salsa::tracked(jar = TokenTextJar)]
+fn tokenized_text(db: &dyn TokenTextDb, file: SourcePath) -> FileResultArc<TokenizedText> {
+    todo!()
+    // if let Some(text) = this.raw_text(file) {
+    //     return Ok(TokenizedText::parse(this.word_itr(), text.as_str()));
+    // } else {
+    //     Err(FileError {
+    //         kind: FileErrorKind::FileNotFound,
+    //         dev_src: dev_src!(),
+    //     })
+    // }
 }

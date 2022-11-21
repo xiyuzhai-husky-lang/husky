@@ -10,10 +10,10 @@ pub use xml::*;
 use husky_vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
 
 use husky_entity_semantics::*;
+use husky_identifier::RootBuiltinIdentifier;
 use husky_lazy_semantics::*;
 use husky_term::Ty;
 use husky_vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
-use husky_word::RootBuiltinIdentifier;
 use std::sync::Arc;
 
 use crate::{eval_id::FeatureEvalId, *};
@@ -27,14 +27,14 @@ pub struct FeatureLazyExpr {
     pub opt_domain_indicator: Option<Arc<FeatureDomainIndicator>>,
 }
 
-impl TextRanged for FeatureLazyExpr {
+impl HasTextRange for FeatureLazyExpr {
     fn text_range(&self) -> TextRange {
         self.expr.text_range()
     }
 }
 
-impl FileRanged for FeatureLazyExpr {
-    fn file(&self) -> PathItd {
+impl HasSourceRange for FeatureLazyExpr {
+    fn source(&self) -> PathItd {
         self.expr.file
     }
 }
@@ -83,7 +83,7 @@ pub enum FeatureLazyExprVariant {
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
     Variable {
-        varname: CustomIdentifier,
+        varname: Identifier,
         value: Arc<FeatureLazyExpr>,
     },
     ThisValue {
@@ -91,25 +91,25 @@ pub enum FeatureLazyExprVariant {
     },
     StructOriginalField {
         this: FeatureRepr,
-        field_ident: RangedCustomIdentifier,
+        field_ident: RangedIdentifier,
         field_idx: u8,
         field_binding: Binding,
         opt_linkage: Option<__ResolvedLinkage>,
     },
     RecordOriginalField {
         this: FeatureRepr,
-        field_ident: RangedCustomIdentifier,
+        field_ident: RangedIdentifier,
         repr: FeatureRepr,
     },
     StructDerivedLazyField {
         this: FeatureRepr,
-        field_ident: RangedCustomIdentifier,
+        field_ident: RangedIdentifier,
         field_uid: EntityUid,
         repr: FeatureRepr,
     },
     RecordDerivedField {
         this: FeatureRepr,
-        field_ident: RangedCustomIdentifier,
+        field_ident: RangedIdentifier,
         field_uid: EntityUid,
         repr: FeatureRepr,
     },

@@ -1,9 +1,9 @@
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct TermAbstraction {
     x: i32,
-    m: TermItd,
+    m: Term,
 }
 
 impl TermAbstraction {

@@ -1,5 +1,5 @@
 use husky_term::Ty;
-use husky_text::{TextPosition, TextRanged};
+use husky_text::{HasTextRange, TextPosition};
 
 use super::*;
 

@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 local-stack = { path = "../../abstraction/local-stack" }
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-word = { path = "../../kernel/husky-word" }
+husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-text = { path = "../../lex/husky-text" }

@@ -10,7 +10,7 @@ rust-version = "1.56"
 doctest = false
 
 [dependencies]
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 fold = { path = "../../abstraction/fold" }
@@ -22,15 +22,7 @@ husky-comptime = { path = "../../comptime/husky-comptime" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
-husky-word = { path = "../../kernel/husky-word" }
-# semantics
-husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
-husky-primitive-literal-semantics = { path = "../../semantics/husky-primitive-literal-semantics" }
-husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
-# static
-husky-static-defn = { path = "../../static/husky-static-defn" }
+husky-identifier = { path = "../../kernel/husky-identifier" }
 # syntax
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-path = { path = "../../fs/husky-path" }
@@ -40,6 +32,5 @@ husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 # vm
 husky-vm = { path = "../../vm/husky-vm" }
-husky-vm-primitive-opr-linkage = { path = "../../vm/husky-vm-primitive-opr-linkage" }
 # utils
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

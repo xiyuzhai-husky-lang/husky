@@ -5,14 +5,13 @@ edition = "2021"
 
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 lsp-types = { version = "0.93", features = ["proposed"] }
 indexmap = "1.8.1"
 libloading = "0.7.3"
 convert_case = "0.6.0"
 relative-path = "1.7.2"
 # abstraction
-interner = { path = "../../abstraction/interner" }
 fold = { path = "../../abstraction/fold" }
 upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
@@ -26,22 +25,17 @@ sync-utils = { path = "../../utils/husky-sync-utils" }
 # syntax
 husky-path = { path = "../../fs/husky-path" }
 husky-text = { path = "../../lex/husky-text" }
-husky-word = { path = "../../kernel/husky-word" }
+husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-token = { path = "../../lex/husky-token" }
 husky-token-text = { path = "../../lex/husky-token-text" }
 husky-term = { path = "../../kernel/husky-term" }
-husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-fmt = { path = "../../syntax/husky-fmt" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 # infer
 husky-term-infer = { path = "../../infer/husky-term-infer" }
-# semantics
-husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
-husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # comptime
 husky-layout = { path = "../../comptime/husky-layout" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
@@ -56,8 +50,5 @@ husky-instruction-gen = { path = "../../runtime/husky-instruction-gen" }
 husky-data-viewer = { path = "../../runtime/husky-data-viewer" }
 # devtime
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
-husky-static-defn = { path = "../../static/husky-static-defn" }
-# static
-husky-datasets-interface = { path = "../../static/domains/ml/husky-datasets-interface" }
 # ad hoc
 husky-compiler = { path = "../../apps/husky-compiler" }

@@ -1,15 +1,12 @@
 mod context;
-mod query;
-mod tests_db;
+mod db;
 
 pub use context::*;
-pub use query::*;
-pub use tests_db::SymbolTestsDb;
-pub use tests_db::*;
+pub use db::*;
 
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
+use husky_identifier::*;
 use husky_text::TextRange;
-use husky_word::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct Symbol {
@@ -19,7 +16,7 @@ pub struct Symbol {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SymbolKind {
-    EntityPath(EntityPathItd),
+    EntityPath(EntityPath),
     LocalVariable { init_range: TextRange },
     FrameVariable { init_range: TextRange },
     Unrecognized,

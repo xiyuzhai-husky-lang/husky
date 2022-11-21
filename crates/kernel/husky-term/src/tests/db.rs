@@ -1,16 +1,13 @@
 use std::{collections::HashMap, sync::Arc};
 
-use husky_entity_path::{EntityPathInterner, InternEntityPath};
-use husky_word::{InternWord, WordInterner};
+use husky_entity_path::{EntityPathDb, EntityPathJar};
+use husky_identifier::{IdentifierDb, IdentifierJar};
 
 use crate::*;
 
-#[salsa::database(TermDbStorage)]
+#[salsa::db(crate::TermJar, EntityPathJar, IdentifierJar)]
 pub(crate) struct TermTestsDb {
     storage: salsa::Storage<TermTestsDb>,
-    entity_path_itr: EntityPathInterner,
-    term_itr: TermInterner,
-    word_itr: WordInterner,
     ty_decls: HashMap<Ty, Arc<TyDecl>>,
 }
 
@@ -18,9 +15,6 @@ impl TermTestsDb {
     pub fn new() -> Self {
         Self {
             storage: Default::default(),
-            entity_path_itr: Default::default(),
-            term_itr: Default::default(),
-            word_itr: Default::default(),
             ty_decls: Default::default(),
         }
         .init()
@@ -35,24 +29,6 @@ impl TermTestsDb {
 
 impl salsa::Database for TermTestsDb {}
 
-impl InternEntityPath for TermTestsDb {
-    fn entity_path_itr(&self) -> &husky_entity_path::EntityPathInterner {
-        &self.entity_path_itr
-    }
-}
-
-impl InternTerm for TermTestsDb {
-    fn term_itr(&self) -> &TermInterner {
-        &self.term_itr
-    }
-}
-
-impl InternWord for TermTestsDb {
-    fn word_itr(&self) -> &husky_word::WordInterner {
-        &self.word_itr
-    }
-}
-
 impl AskDecl for TermTestsDb {
     fn ask_namespace_decl(&self, _namespace: TermNamespace) -> TermResultArc<NamespaceDecl> {
         todo!()
@@ -62,7 +38,7 @@ impl AskDecl for TermTestsDb {
         Ok(self.ty_decls[&ty].clone())
     }
 
-    fn ask_decl(&self, _entity_path: EntityPathItd) -> TermResultArc<Decl> {
+    fn ask_decl(&self, _entity_path: EntityPath) -> TermResultArc<Decl> {
         todo!()
     }
 }

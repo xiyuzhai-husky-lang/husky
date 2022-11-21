@@ -16,6 +16,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
 
 [dev-dependencies]
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }

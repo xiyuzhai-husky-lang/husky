@@ -15,7 +15,7 @@ pub struct History<'eval> {
 impl<'eval> History<'eval> {
     pub fn write(&mut self, ins: &Instruction, entry: HistoryEntry<'eval>) {
         if let Some(old_value) = self.entries.insert(ins.ins_id(), entry) {
-            p!(ins.src.file(), ins.src.text_range(), ins.src);
+            p!(ins.src.source(), ins.src.text_range(), ins.src);
             p!(old_value);
             panic!()
         }

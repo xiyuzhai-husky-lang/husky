@@ -1,12 +1,23 @@
-use husky_word::RootBuiltinIdentifier::{self, *};
+use husky_identifier::*;
+use salsa::AsId;
 
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct Ty(TermItd);
+pub struct Ty(Term);
+
+impl AsId for Ty {
+    fn as_id(self) -> salsa::Id {
+        todo!()
+    }
+
+    fn from_id(id: salsa::Id) -> Self {
+        todo!()
+    }
+}
 
 impl Ty {
-    pub(crate) fn new(term: TermItd) -> TermResult<Self> {
+    pub(crate) fn new(term: Term) -> TermResult<Self> {
         // TODO: type checking
         Ok(Ty(term))
         // if let Some(ty_itd) = term.ty_itd() {
@@ -17,39 +28,40 @@ impl Ty {
         // Ok(Self(term))
     }
 
-    fn check_is_category(_term: TermItd) -> TermResult<()> {
+    fn check_is_category(_term: Term) -> TermResult<()> {
         todo!()
         // match term.deref() {
-        //     Term::Application(app) => match app.m().deref() {
-        //         Term::Atom(a) => match a {
+        //     TermData::Application(app) => match app.m().deref() {
+        //         TermData::Atom(a) => match a {
         //             TermAtom::Literal(_) => todo!(),
         //             TermAtom::Variable { variable_variant } => todo!(),
         //             TermAtom::Entity { .. } => todo!(),
         //             TermAtom::Category(category_kind) => match category_kind {
         //                 TermCategory::Type => todo!(),
         //                 TermCategory::Sort => Ok(()),
-        //                 TermCategory::Term => todo!(),
+        //                 TermCategory::TermData => todo!(),
         //             },
         //             TermAtom::Universe(_) => todo!(),
         //         },
-        //         Term::Curry(_) => todo!(),
-        //         Term::Abstraction(_) => todo!(),
-        //         Term::Application(_) => todo!(),
-        //         Term::Subentity(_) => todo!(),
-        //         Term::TraitImpl(_) => todo!(),
+        //         TermData::Curry(_) => todo!(),
+        //         TermData::Abstraction(_) => todo!(),
+        //         TermData::Application(_) => todo!(),
+        //         TermData::Subentity(_) => todo!(),
+        //         TermData::TraitImpl(_) => todo!(),
         //     },
         //     _ => Err(todo!()),
         // }
     }
 
     fn check_ty_itd(ty: Ty) -> TermResult<()> {
-        match ty.term().borrowed() {
-            TermRef::Atom(_a) => todo!(),
-            _ => return Err(TermError::TermIsNotTy),
-        }
+        todo!()
+        // match ty.term().borrowed() {
+        //     TermRef::Atom(_a) => todo!(),
+        //     _ => return Err(TermError::TermIsNotTy),
+        // }
     }
 
-    pub fn term(self) -> TermItd {
+    pub fn term(self) -> Term {
         self.0
     }
 
@@ -57,82 +69,87 @@ impl Ty {
     //     todo!()
     //     todo!()
     //     // match self.ty_term().deref() {
-    //     //     Term::Universe(u) => u.level(),
+    //     //     TermData::Universe(u) => u.level(),
     //     //     _ => unreachable!(),
     //     // }
     // }
     // void
     pub(crate) fn void(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
-        Self::root_builtin_ty(db, Void, menu1)
+        todo!()
+        // Self::root_builtin_ty(db, Void, menu1)
     }
     // i32
     pub(crate) fn i32(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
-        Self::root_builtin_ty(db, I32, menu1)
+        todo!()
+        // Self::root_builtin_ty(db, I32, menu1)
     }
 
     pub(crate) fn i64(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
-        Self::root_builtin_ty(db, I64, menu1)
+        todo!()
+        // Self::root_builtin_ty(db, I64, menu1)
     }
 
     pub(crate) fn f32(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
-        Self::root_builtin_ty(db, F32, menu1)
+        todo!()
+        // Self::root_builtin_ty(db, F32, menu1)
     }
 
     pub(crate) fn f64(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
-        Self::root_builtin_ty(db, F64, menu1)
+        todo!()
+        // Self::root_builtin_ty(db, F64, menu1)
     }
 
     pub(crate) fn b32(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
-        Self::root_builtin_ty(db, B32, menu1)
+        todo!()
+        // Self::root_builtin_ty(db, B32, menu1)
     }
 
     pub(crate) fn b64(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
-        Self::root_builtin_ty(db, B64, menu1)
+        todo!()
+        // Self::root_builtin_ty(db, B64, menu1)
     }
 
     pub(crate) fn bool(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
-        Self::root_builtin_ty(db, Bool, menu1)
+        todo!()
+        // Self::root_builtin_ty(db, Bool, menu1)
     }
 
     pub(crate) fn module(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
-        Self::root_builtin_ty(db, Module, menu1)
+        todo!()
+        // Self::root_builtin_ty(db, Module, menu1)
     }
 
     pub(crate) fn trai(db: &dyn TermDb, menu1: &TermMenu1) -> Ty {
-        Self::root_builtin_ty(db, Trait, menu1)
+        todo!()
+        // Self::root_builtin_ty(db, Trait, menu1)
     }
 
-    fn root_builtin_ty(db: &dyn TermDb, ident: RootBuiltinIdentifier, menu1: &TermMenu1) -> Ty {
-        Ty::new(Term::root_builtin_entity(db, ident, menu1.ty0())).unwrap()
+    fn root_builtin_ty(db: &dyn TermDb, ident: Identifier, menu1: &TermMenu1) -> Ty {
+        todo!()
+        // Ty::new(TermData::root_builtin_entity(db, ident, menu1.ty0())).unwrap()
     }
 }
 
-impl Term {
+impl TermData {
     // #[inline(always)]
     // pub(crate) fn ty_term(&self) -> TermCow {
     //     match self {
-    //         Term::Atom(a) => a.ty_term(),
-    //         Term::Curry(c) => c.ty().term().into(),
-    //         Term::Abstraction(abs) => abs.ty().term().into(),
-    //         Term::Application(app) => app.ty_term(),
+    //         TermData::Atom(a) => a.ty_term(),
+    //         TermData::Curry(c) => c.ty().term().into(),
+    //         TermData::Abstraction(abs) => abs.ty().term().into(),
+    //         TermData::Application(app) => app.ty_term(),
     //     }
     // }
 
     // pub(crate) fn universe(&self) -> Universe {
     //     match self {
-    //         Term::Type(u) => u.next().expect("todo"),
-    //         Term::Curry(TermCurry { from, to }) => {
+    //         TermData::Type(u) => u.next().expect("todo"),
+    //         TermData::Curry(TermCurry { from, to }) => {
     //             from.universe().max(to.universe()).next().expect("todo")
     //         }
-    //         Term::Variable(v) => v.universe(),
-    //         Term::Abstraction(abs) => abs.universe(),
-    //         Term::Application(app) => app.universe(),
+    //         TermData::Variable(v) => v.universe(),
+    //         TermData::Abstraction(abs) => abs.universe(),
+    //         TermData::Application(app) => app.universe(),
     //     }
     // }
-}
-
-impl std::fmt::Display for Ty {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.0.fmt(f)
-    }
 }

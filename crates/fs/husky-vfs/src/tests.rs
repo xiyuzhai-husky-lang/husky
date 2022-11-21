@@ -2,6 +2,7 @@ use crate::{watch::DEBOUNCE_TEST_SLEEP_TIME, *};
 use crossbeam_channel::{unbounded, Sender};
 use dashmap::DashMap;
 use husky_print_utils::p;
+use husky_source_path::SourcePathJar;
 use notify_debouncer_mini::{new_debouncer, DebounceEventResult};
 use place::SingleAssignPlace;
 use replace_with::replace_with;
@@ -11,19 +12,19 @@ use std::{
     time::Duration,
 };
 
-#[timed_salsa::db(Jar)]
+#[salsa::db(Jar, SourcePathJar)]
 #[derive(Default)]
 struct VfsTestsDatabase {
-    storage: timed_salsa::Storage<Self>,
+    storage: salsa::Storage<Self>,
     cache: HuskyFileCache,
     watcher_place: SingleAssignPlace<VfsWatcher>,
 }
 
-impl timed_salsa::Database for VfsTestsDatabase {}
+impl salsa::Database for VfsTestsDatabase {}
 
 impl ParallelDatabase for VfsTestsDatabase {
-    fn snapshot(&self) -> timed_salsa::Snapshot<Self> {
-        timed_salsa::Snapshot::new(VfsTestsDatabase {
+    fn snapshot(&self) -> salsa::Snapshot<Self> {
+        salsa::Snapshot::new(VfsTestsDatabase {
             storage: self.storage.snapshot(),
             cache: self.cache.snapshot(),
             watcher_place: self.watcher_place.clone(),

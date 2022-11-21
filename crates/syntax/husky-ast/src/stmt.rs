@@ -7,7 +7,7 @@ pub use loop_kind::{RawBoundary, RawLoopKind};
 pub use match_stmt::*;
 
 use crate::*;
-use husky_text::{TextRange, TextRanged};
+use husky_text::{HasTextRange, TextRange};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawStmt {
@@ -15,7 +15,7 @@ pub struct RawStmt {
     pub variant: RawStmtVariant,
 }
 
-impl TextRanged for RawStmt {
+impl HasTextRange for RawStmt {
     fn text_range(&self) -> TextRange {
         self.range
     }
@@ -36,7 +36,7 @@ pub enum RawStmtVariant {
     },
     Init {
         init_kind: InitKind,
-        varname: RangedCustomIdentifier,
+        varname: RangedIdentifier,
         initial_value: ExprIdx,
     },
     Return {

@@ -12,269 +12,274 @@ use husky_path_utils::get_relative_path;
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
-        for ins in &sheet.instructions {
-            if self.vm_config.verbose {
-                println!(
-                    "{} {}:{}",
-                    "exec".red(),
-                    get_relative_path(&ins.src.file())
-                        .as_os_str()
-                        .to_str()
-                        .unwrap()
-                        .green(),
-                    format!(
-                        "{:?} .. {:?}",
-                        ins.src.text_range().start,
-                        ins.src.text_range().end
-                    )
-                    .bright_yellow(),
-                )
-            }
-            let control = match ins.variant {
-                InstructionVariant::PushVariable {
-                    binding,
-                    stack_idx,
-                    range,
-                    ty,
-                    varname,
-                    explicit,
-                } => {
-                    let value = self.stack.push_variable(stack_idx, binding);
-                    match mode {
-                        Mode::Fast => (),
-                        Mode::TrackMutation => match binding {
-                            Binding::TempMut => {
-                                self.record_mutation(stack_idx, varname, ins.src.file(), range, ty)
-                            }
-                            _ => (),
-                        },
-                        Mode::TrackHistory => {
-                            if explicit {
-                                self.history.write(
-                                    ins,
-                                    HistoryEntry::PureExpr {
-                                        result: Ok(value.snapshot()),
-                                        ty,
-                                    },
-                                )
-                            }
-                        }
-                    }
-                    VMControl::None
-                }
-                InstructionVariant::PushEntityFp {
-                    opt_linkage, ty, ..
-                } => {
-                    self.stack.push(
-                        __VirtualFunction::ThickFp(opt_linkage.unwrap().transfer()).to_register(),
-                    );
-                    if mode == Mode::TrackHistory {
-                        self.history.write(
-                            ins,
-                            HistoryEntry::PureExpr {
-                                result: Ok(self.stack.eval_top()),
-                                ty,
-                            },
-                        )
-                    }
-                    VMControl::None
-                }
-                InstructionVariant::PushLiteralValue {
-                    ref value,
-                    ty,
-                    explicit,
-                } => {
-                    self.stack.push(value.clone());
-                    match mode {
-                        Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => {
-                            if explicit {
-                                self.history.write(
-                                    ins,
-                                    HistoryEntry::PureExpr {
-                                        result: Ok(self.stack.eval_top()),
-                                        ty,
-                                    },
-                                )
-                            }
-                        }
-                    }
-                    VMControl::None
-                }
-                InstructionVariant::CallRoutine {
-                    resolved_linkage,
-                    nargs,
-                    output_ty,
-                    discard,
-                } => {
-                    // p!(ins.src.file(), ins.src.text_range());
-                    if self.stack.len() > 0 {
-                        assert_ne!(
-                            self.stack.eval_top().vtable as *const _,
-                            &__VOID_VTABLE as *const _
-                        );
-                    }
-                    let control = self
-                        .call_specific_routine(resolved_linkage, nargs, discard)
-                        .into();
-                    match mode {
-                        Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => self.history.write(
-                            ins,
-                            HistoryEntry::PureExpr {
-                                result: match control {
-                                    VMControl::Err(ref e) => Err(e.clone().into()),
-                                    _ => Ok(self.stack.eval_top()),
-                                },
-                                ty: output_ty,
-                            },
-                        ),
-                    }
-                    control
-                }
-                InstructionVariant::CallInterpreted {
-                    routine_uid,
-                    nargs, // including this
-                    output_ty,
-                    discard,
-                } => {
-                    let instruction_sheet =
-                        self.db.entity_opt_instruction_sheet_by_uid(routine_uid);
-                    let result = self.call_interpreted(&instruction_sheet.unwrap(), nargs, discard);
-                    match mode {
-                        Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => {
-                            let result = match result {
-                                Ok(()) => Ok(self.stack.eval_top()),
-                                Err(ref e) => Err(e.clone()),
-                            };
-                            self.history.write(
-                                ins,
-                                HistoryEntry::PureExpr {
-                                    result,
-                                    ty: output_ty,
-                                },
-                            );
-                        }
-                    };
-                    result.into()
-                }
-                InstructionVariant::NewVirtualStruct { ty, ref fields } => {
-                    self.push_new_virtual_struct(ty, fields);
-                    match mode {
-                        Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => {
-                            let output = self.stack.eval_top();
-                            self.history.write(
-                                ins,
-                                HistoryEntry::PureExpr {
-                                    result: Ok(output),
-                                    ty,
-                                },
-                            )
-                        }
-                    }
-                    VMControl::None
-                }
-                InstructionVariant::Return { .. } => {
-                    let return_value = self.stack.pop();
-                    VMControl::Return(return_value)
-                }
-                InstructionVariant::Loop {
-                    ref body,
-                    loop_kind,
-                } => {
-                    let control = match mode {
-                        Mode::Fast => self.exec_loop_fast(loop_kind, body).into(),
-                        Mode::TrackMutation => {
-                            self.exec_loop_tracking_mutation(loop_kind, body).into()
-                        }
-                        Mode::TrackHistory => {
-                            self.save_snapshot("Loop".to_string());
-                            let control = self.exec_loop_tracking_mutation(loop_kind, body).into();
-                            let (snapshot, mutations) = self.collect_block_mutations();
-                            self.history.write(
-                                ins,
-                                HistoryEntry::loop_entry(
-                                    loop_kind,
-                                    &control,
-                                    snapshot,
-                                    body.clone(),
-                                    mutations,
-                                ),
-                            );
-                            control
-                        }
-                    };
-                    control
-                }
-                InstructionVariant::BreakIfFalse => {
-                    let control = if !self.stack.pop().to_bool() {
-                        VMControl::Break
-                    } else {
-                        VMControl::None
-                    };
-                    control
-                }
-                InstructionVariant::VirtualStructField {
-                    field_idx,
-                    field_binding,
-                    field_ty,
-                } => {
-                    let this = self.stack.pop();
-                    self.stack
-                        .push(this.virtual_struct_field(field_idx, field_binding));
-                    match mode {
-                        Mode::Fast | Mode::TrackMutation => (),
-                        Mode::TrackHistory => self.history.write(
-                            ins,
-                            HistoryEntry::PureExpr {
-                                result: Ok(self.stack.eval_top()),
-                                ty: field_ty,
-                            },
-                        ),
-                    };
-                    VMControl::None
-                }
-                InstructionVariant::Assert => {
-                    let is_condition_satisfied = self.stack.pop().to_bool();
-                    if !is_condition_satisfied {
-                        VMControl::Err(__VMError::new_normal(format!("assert failure")))
-                    } else {
-                        VMControl::None
-                    }
-                }
-                InstructionVariant::Require => {
-                    let is_condition_satisfied = self.stack.pop().to_bool();
-                    if !is_condition_satisfied {
-                        VMControl::Return(__Register::none(0))
-                    } else {
-                        VMControl::None
-                    }
-                }
-                InstructionVariant::Break => {
-                    if mode == Mode::TrackHistory {
-                        self.history.write(ins, HistoryEntry::Break)
-                    }
-                    VMControl::Break
-                }
-                InstructionVariant::ConditionFlow { ref branches } => {
-                    self.exec_condition_flow(ins, branches, mode)
-                }
-                InstructionVariant::PatternMatch { ref branches } => {
-                    self.exec_pattern_matching(ins, branches, mode)
-                }
-                InstructionVariant::EntityFeature { feature_uid, ty } => {
-                    self.exec_feature_eval(feature_uid, mode, ins, ty).into()
-                }
-                InstructionVariant::WrapInSome { number_of_somes: _ } => todo!(),
-            };
-            match control {
-                VMControl::None => (),
-                VMControl::Break | VMControl::Return(_) | VMControl::Err(_) => return control,
-            }
-        }
-        VMControl::None
+        todo!()
+        // for ins in &sheet.instructions {
+        //     if self.vm_config.verbose {
+        //         println!(
+        //             "{} {}:{}",
+        //             "exec".red(),
+        //             get_relative_path(&ins.src.source())
+        //                 .as_os_str()
+        //                 .to_str()
+        //                 .unwrap()
+        //                 .green(),
+        //             format!(
+        //                 "{:?} .. {:?}",
+        //                 ins.src.text_range().start,
+        //                 ins.src.text_range().end
+        //             )
+        //             .bright_yellow(),
+        //         )
+        //     }
+        //     let control = match ins.variant {
+        //         InstructionVariant::PushVariable {
+        //             binding,
+        //             stack_idx,
+        //             range,
+        //             ty,
+        //             varname,
+        //             explicit,
+        //         } => {
+        //             let value = self.stack.push_variable(stack_idx, binding);
+        //             match mode {
+        //                 Mode::Fast => (),
+        //                 Mode::TrackMutation => match binding {
+        //                     Binding::TempMut => self.record_mutation(
+        //                         stack_idx,
+        //                         varname,
+        //                         ins.src.source(),
+        //                         range,
+        //                         ty,
+        //                     ),
+        //                     _ => (),
+        //                 },
+        //                 Mode::TrackHistory => {
+        //                     if explicit {
+        //                         self.history.write(
+        //                             ins,
+        //                             HistoryEntry::PureExpr {
+        //                                 result: Ok(value.snapshot()),
+        //                                 ty,
+        //                             },
+        //                         )
+        //                     }
+        //                 }
+        //             }
+        //             VMControl::None
+        //         }
+        //         InstructionVariant::PushEntityFp {
+        //             opt_linkage, ty, ..
+        //         } => {
+        //             self.stack.push(
+        //                 __VirtualFunction::ThickFp(opt_linkage.unwrap().transfer()).to_register(),
+        //             );
+        //             if mode == Mode::TrackHistory {
+        //                 self.history.write(
+        //                     ins,
+        //                     HistoryEntry::PureExpr {
+        //                         result: Ok(self.stack.eval_top()),
+        //                         ty,
+        //                     },
+        //                 )
+        //             }
+        //             VMControl::None
+        //         }
+        //         InstructionVariant::PushLiteralValue {
+        //             ref value,
+        //             ty,
+        //             explicit,
+        //         } => {
+        //             self.stack.push(value.clone());
+        //             match mode {
+        //                 Mode::Fast | Mode::TrackMutation => (),
+        //                 Mode::TrackHistory => {
+        //                     if explicit {
+        //                         self.history.write(
+        //                             ins,
+        //                             HistoryEntry::PureExpr {
+        //                                 result: Ok(self.stack.eval_top()),
+        //                                 ty,
+        //                             },
+        //                         )
+        //                     }
+        //                 }
+        //             }
+        //             VMControl::None
+        //         }
+        //         InstructionVariant::CallRoutine {
+        //             resolved_linkage,
+        //             nargs,
+        //             output_ty,
+        //             discard,
+        //         } => {
+        //             // p!(ins.src.file(), ins.src.text_range());
+        //             if self.stack.len() > 0 {
+        //                 assert_ne!(
+        //                     self.stack.eval_top().vtable as *const _,
+        //                     &__VOID_VTABLE as *const _
+        //                 );
+        //             }
+        //             let control = self
+        //                 .call_specific_routine(resolved_linkage, nargs, discard)
+        //                 .into();
+        //             match mode {
+        //                 Mode::Fast | Mode::TrackMutation => (),
+        //                 Mode::TrackHistory => self.history.write(
+        //                     ins,
+        //                     HistoryEntry::PureExpr {
+        //                         result: match control {
+        //                             VMControl::Err(ref e) => Err(e.clone().into()),
+        //                             _ => Ok(self.stack.eval_top()),
+        //                         },
+        //                         ty: output_ty,
+        //                     },
+        //                 ),
+        //             }
+        //             control
+        //         }
+        //         InstructionVariant::CallInterpreted {
+        //             routine_uid,
+        //             nargs, // including this
+        //             output_ty,
+        //             discard,
+        //         } => {
+        //             let instruction_sheet =
+        //                 self.db.entity_opt_instruction_sheet_by_uid(routine_uid);
+        //             let result = self.call_interpreted(&instruction_sheet.unwrap(), nargs, discard);
+        //             match mode {
+        //                 Mode::Fast | Mode::TrackMutation => (),
+        //                 Mode::TrackHistory => {
+        //                     let result = match result {
+        //                         Ok(()) => Ok(self.stack.eval_top()),
+        //                         Err(ref e) => Err(e.clone()),
+        //                     };
+        //                     self.history.write(
+        //                         ins,
+        //                         HistoryEntry::PureExpr {
+        //                             result,
+        //                             ty: output_ty,
+        //                         },
+        //                     );
+        //                 }
+        //             };
+        //             result.into()
+        //         }
+        //         InstructionVariant::NewVirtualStruct { ty, ref fields } => {
+        //             self.push_new_virtual_struct(ty, fields);
+        //             match mode {
+        //                 Mode::Fast | Mode::TrackMutation => (),
+        //                 Mode::TrackHistory => {
+        //                     let output = self.stack.eval_top();
+        //                     self.history.write(
+        //                         ins,
+        //                         HistoryEntry::PureExpr {
+        //                             result: Ok(output),
+        //                             ty,
+        //                         },
+        //                     )
+        //                 }
+        //             }
+        //             VMControl::None
+        //         }
+        //         InstructionVariant::Return { .. } => {
+        //             let return_value = self.stack.pop();
+        //             VMControl::Return(return_value)
+        //         }
+        //         InstructionVariant::Loop {
+        //             ref body,
+        //             loop_kind,
+        //         } => {
+        //             let control = match mode {
+        //                 Mode::Fast => self.exec_loop_fast(loop_kind, body).into(),
+        //                 Mode::TrackMutation => {
+        //                     self.exec_loop_tracking_mutation(loop_kind, body).into()
+        //                 }
+        //                 Mode::TrackHistory => {
+        //                     self.save_snapshot("Loop".to_string());
+        //                     let control = self.exec_loop_tracking_mutation(loop_kind, body).into();
+        //                     let (snapshot, mutations) = self.collect_block_mutations();
+        //                     self.history.write(
+        //                         ins,
+        //                         HistoryEntry::loop_entry(
+        //                             loop_kind,
+        //                             &control,
+        //                             snapshot,
+        //                             body.clone(),
+        //                             mutations,
+        //                         ),
+        //                     );
+        //                     control
+        //                 }
+        //             };
+        //             control
+        //         }
+        //         InstructionVariant::BreakIfFalse => {
+        //             let control = if !self.stack.pop().to_bool() {
+        //                 VMControl::Break
+        //             } else {
+        //                 VMControl::None
+        //             };
+        //             control
+        //         }
+        //         InstructionVariant::VirtualStructField {
+        //             field_idx,
+        //             field_binding,
+        //             field_ty,
+        //         } => {
+        //             let this = self.stack.pop();
+        //             self.stack
+        //                 .push(this.virtual_struct_field(field_idx, field_binding));
+        //             match mode {
+        //                 Mode::Fast | Mode::TrackMutation => (),
+        //                 Mode::TrackHistory => self.history.write(
+        //                     ins,
+        //                     HistoryEntry::PureExpr {
+        //                         result: Ok(self.stack.eval_top()),
+        //                         ty: field_ty,
+        //                     },
+        //                 ),
+        //             };
+        //             VMControl::None
+        //         }
+        //         InstructionVariant::Assert => {
+        //             let is_condition_satisfied = self.stack.pop().to_bool();
+        //             if !is_condition_satisfied {
+        //                 VMControl::Err(__VMError::new_normal(format!("assert failure")))
+        //             } else {
+        //                 VMControl::None
+        //             }
+        //         }
+        //         InstructionVariant::Require => {
+        //             let is_condition_satisfied = self.stack.pop().to_bool();
+        //             if !is_condition_satisfied {
+        //                 VMControl::Return(__Register::none(0))
+        //             } else {
+        //                 VMControl::None
+        //             }
+        //         }
+        //         InstructionVariant::Break => {
+        //             if mode == Mode::TrackHistory {
+        //                 self.history.write(ins, HistoryEntry::Break)
+        //             }
+        //             VMControl::Break
+        //         }
+        //         InstructionVariant::ConditionFlow { ref branches } => {
+        //             self.exec_condition_flow(ins, branches, mode)
+        //         }
+        //         InstructionVariant::PatternMatch { ref branches } => {
+        //             self.exec_pattern_matching(ins, branches, mode)
+        //         }
+        //         InstructionVariant::EntityFeature { feature_uid, ty } => {
+        //             self.exec_feature_eval(feature_uid, mode, ins, ty).into()
+        //         }
+        //         InstructionVariant::WrapInSome { number_of_somes: _ } => todo!(),
+        //     };
+        //     match control {
+        //         VMControl::None => (),
+        //         VMControl::Break | VMControl::Return(_) | VMControl::Err(_) => return control,
+        //     }
+        // }
+        // VMControl::None
     }
 
     pub(crate) fn eval_linkage(

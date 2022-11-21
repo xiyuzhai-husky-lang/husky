@@ -7,7 +7,7 @@ pub trait BindWithTextRange: Sized {
 
     fn bind_with_text_ranged<S>(self, s: &S) -> Self::Output
     where
-        S: TextRanged,
+        S: HasTextRange,
     {
         self.bind_with_text_range(s.text_range())
     }

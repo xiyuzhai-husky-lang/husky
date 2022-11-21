@@ -3,33 +3,21 @@ mod trivia;
 mod var;
 
 use super::*;
-use husky_entity_path::{
-    EntityPathDb, EntityPathDbStorage, EntityPathInterner, EntityPathItd, EntityPathMenu,
-    InternEntityPath,
-};
+use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu};
 use husky_expr_syntax::ExprIdx;
-use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDbStorage, SymbolKind, SymbolQueries};
-use husky_term::{AskDecl, Decl, TermDb, TermInterner, TermMenu, TermResultArc, Ty, TyDecl};
-use husky_term::{InternTerm, TermDbStorage};
+use husky_identifier::IdentifierDb;
+use husky_symbol_syntax::{Symbol, SymbolContext, SymbolKind};
+use husky_term::{AskDecl, Decl, TermDb, TermMenu, TermResultArc, Ty, TyDecl};
 use husky_token::*;
-use husky_word::{InternWord, RootBuiltinIdentifier, WordInterner};
 use salsa::Database;
 use std::{collections::HashMap, sync::Arc};
 use upcast::Upcast;
 
-#[salsa::database(
-    TermDbStorage,
-    SymbolDbStorage,
-    TermPatternInferQueryGroupStorage,
-    EntityPathDbStorage
-)]
+#[salsa::db(TermJar, TermPatternInferJar, EntityPathJar, IdentifierJar)]
 pub struct TermPatternInferFakeDb {
     storage: salsa::Storage<Self>,
-    term_itr: TermInterner,
-    entity_path_itr: EntityPathInterner,
-    word_itr: WordInterner,
-    entity_tys: HashMap<EntityPathItd, Ty>,
-    decls: HashMap<EntityPathItd, Arc<Decl>>,
+    entity_tys: HashMap<EntityPath, Ty>,
+    decls: HashMap<EntityPath, Arc<Decl>>,
     prelude_symbols: Vec<Symbol>,
 }
 
@@ -37,9 +25,6 @@ impl TermPatternInferFakeDb {
     pub(super) fn new() -> Self {
         let mut db = Self {
             storage: Default::default(),
-            term_itr: Default::default(),
-            entity_path_itr: Default::default(),
-            word_itr: Default::default(),
             entity_tys: Default::default(),
             decls: Default::default(),
             prelude_symbols: Default::default(),
@@ -79,7 +64,7 @@ impl AskDecl for TermPatternInferFakeDb {
         todo!()
     }
 
-    fn ask_decl(&self, _entity_path: EntityPathItd) -> TermResultArc<Decl> {
+    fn ask_decl(&self, _entity_path: EntityPath) -> TermResultArc<Decl> {
         todo!()
     }
 }

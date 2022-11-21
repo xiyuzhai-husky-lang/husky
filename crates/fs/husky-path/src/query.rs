@@ -1,9 +1,10 @@
+// TODO: CLEAR THIS FILE
 use std::path::{self, Path, PathBuf};
 
 use crate::*;
+use husky_identifier::Identifier;
 use husky_path_utils::{parent_module_path, submodule_path};
 use husky_print_utils::msg_once;
-use husky_word::CustomIdentifier;
 use indexmap::IndexMap;
 use itertools::Itertools;
 use sync_utils::{ASafeRwLock, SafeRwLock};
@@ -65,7 +66,7 @@ pub trait FileSalsaQuery: VfsQueryGroupBase {
 
     fn parent_module_file(&self, module_file: PathItd) -> Option<PathItd>;
 
-    fn submodule_file(&self, module_file: PathItd, ident: CustomIdentifier) -> Option<PathItd>;
+    fn submodule_file(&self, module_file: PathItd, ident: Identifier) -> Option<PathItd>;
 }
 
 fn file_content(db: &dyn FileSalsaQuery, id: PathItd) -> FileContent {
@@ -118,7 +119,7 @@ fn parent_module_file(db: &dyn FileSalsaQuery, module_file: PathItd) -> Option<P
 fn submodule_file(
     db: &dyn FileSalsaQuery,
     module_file: PathItd,
-    ident: CustomIdentifier,
+    ident: Identifier,
 ) -> Option<PathItd> {
     Some(db.intern_path(submodule_path(&module_file, &ident, |file| {
         file_exists(db, file)

@@ -14,8 +14,6 @@ mod try_profile;
 mod try_random;
 mod try_rayon;
 mod try_ref;
-#[cfg(test)]
-mod try_salsa;
 mod try_serde;
 mod try_size;
 mod try_trait;

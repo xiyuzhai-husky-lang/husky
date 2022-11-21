@@ -1,6 +1,6 @@
 // use crate::*;
 // use std::sync::Arc;
-// use timed_salsa::{ParallelDatabase, Snapshot};
+// use salsa::{ParallelDatabase, Snapshot};
 
 // #[derive(Default)]
 // pub struct VfsDbRunner<DB: VfsDb + ParallelDatabase + 'static>(Arc<Mutex<DB>>);

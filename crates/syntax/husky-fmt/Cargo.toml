@@ -7,22 +7,20 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
-salsa = "0.17.0-pre.2"
-interner = { path = "../../abstraction/interner" }
+salsa = { path = "../../abstraction/salsa" }
 fold = { path = "../../abstraction/fold" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-path = { path = "../../fs/husky-path" }
 husky-text = { path = "../../lex/husky-text" }
-husky-word = { path = "../../kernel/husky-word" }
+husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-term = { path = "../../kernel/husky-term" }
-husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 husky-ast = { path = "../husky-ast" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-defn-head = { path = "../husky-defn-head" }
-husky-liason-semantics = { path = "../../semantics/husky-liason-semantics" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../husky-init-syntax" }

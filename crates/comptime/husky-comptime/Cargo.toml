@@ -16,11 +16,10 @@ either = "1.6.1"
 itertools = "0.10.0"
 arrayvec = "0.7"
 indexmap = "1.7"
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 # abstraction
 upcast = { path = "../../abstraction/upcast" }
 fold = { path = "../../abstraction/fold" }
-interner = { path = "../../abstraction/interner" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
@@ -29,10 +28,10 @@ sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
 # syntax
 husky-path = { path = "../../fs/husky-path" }
-husky-word = { path = "../../kernel/husky-word" }
+husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-token = { path = "../../lex/husky-token" }
 husky-token-text = { path = "../../lex/husky-token-text" }
-husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-text = { path = "../../lex/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-fmt = { path = "../../syntax/husky-fmt" }
@@ -40,10 +39,6 @@ husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 # infer
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
-# semantics
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
-husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
 # ide
 husky-hover = { path = "../../ide/husky-hover" }
 husky-completion = { path = "../../ide/husky-completion" }
@@ -56,8 +51,5 @@ husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
 husky-vm = { path = "../../vm/husky-vm" }
 # devtime
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
-# static
-husky-static-defn = { path = "../../static/husky-static-defn" }
-__husky = { path = "../../static/__husky" }
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }

@@ -7,21 +7,21 @@ mod query;
 pub mod utils;
 
 pub use config::*;
-pub use husky_ast::{AstQueryGroup, AstSalsaQueryGroup};
+pub use husky_ast::{AstDb, AstDb};
 pub use husky_completion::HuskyCompletionQuery;
 pub use husky_diagnostics::DiagnosticSalsaQuery;
 pub use husky_entity_semantics::EntityDefnQueryGroup;
-pub use husky_entity_syntax::{EntitySyntaxQueryGroup, EntitySyntaxSalsaQueryGroup};
+pub use husky_entity_tree::{EntityTreeDb, EntityTreeDb};
 pub use husky_fmt::FmtQuery;
 pub use husky_hover::HoverDb;
+pub use husky_identifier::IdentifierDb;
 pub use husky_linkage_table::ResolveLinkage;
 pub use husky_package_semantics::PackageQueryGroup;
 pub use husky_path::{
     FileQueryGroup, FileSalsaQuery, InternHuskyPath, InternPath, VfsQueryGroupBase,
 };
 pub use husky_rust_code_gen::RustCodeGenQueryGroup;
-pub use husky_token_text::TokenizedTextQueryGroup;
-pub use husky_word::InternWord;
+pub use husky_token_text::TokenTextDb;
 pub use ops::ComptimeOps;
 pub use query::*;
 
@@ -37,7 +37,7 @@ use sync_utils::ASafeRwLock;
 #[salsa::database(
     husky_path::FileQueryStorage,
     husky_token_text::TokenQueryGroupStorage,
-    husky_entity_syntax::ScopeQueryGroupStorage,
+    husky_entity_tree::ScopeQueryGroupStorage,
     husky_text::TextQueryGroupStorage,
     husky_ast::AstQueryGroupStorage,
     husky_fmt::FormatQueryGroupStorage,
@@ -49,8 +49,6 @@ use sync_utils::ASafeRwLock;
 )]
 pub struct HuskyComptime {
     storage: salsa::Storage<HuskyComptime>,
-    file_interner: Arc<husky_path::PathInterner>,
-    word_interner: Arc<husky_word::WordInterner>,
     // entity_route_interner: Arc<husky_term::EntityRouteInterner>,
     live_docs: ASafeRwLock<IndexMap<PathItd, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
@@ -62,8 +60,6 @@ impl HuskyComptime {
     pub fn new(config: ComptimeConfig) -> Self {
         let mut comptime = Self {
             storage: Default::default(),
-            file_interner: Default::default(),
-            word_interner: Default::default(),
             live_docs: Default::default(),
             linkage_table: LinkageTable::new(config.linkage_table.clone()),
             entity_route_store: Default::default(),
@@ -78,7 +74,7 @@ impl HuskyComptime {
     pub fn new_default(
         package_dir: PathBuf,
         __root_defn: fn(
-            ident: husky_word::RootBuiltinIdentifier,
+            ident: husky_identifier::RootBuiltinIdentifier,
         ) -> &'static husky_static_defn::EntityStaticDefn,
     ) -> Self {
         Self::new(ComptimeConfig {

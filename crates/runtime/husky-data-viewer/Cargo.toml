@@ -7,10 +7,10 @@ edition = "2021"
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-vm-binding = { path = "../../vm/husky-vm-binding" }
-husky-word = { path = "../../kernel/husky-word" }
+husky-identifier = { path = "../../kernel/husky-identifier" }

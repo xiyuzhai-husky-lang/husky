@@ -18,7 +18,7 @@ futures = { version = "0.3.19", features = ["executor", "thread-pool"] }
 tokio = { version = "1.19.2", features = ["rt-multi-thread", "macros"] }
 tokio-stream = { version = "0.1.9" }
 warp = "0.3.2"
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 text-diff = "0.4.0"
 indexmap = "1.8.1"
 lsp-types = { version = "0.93", features = ["proposed"] }
@@ -45,8 +45,6 @@ husky-term = { path = "../../kernel/husky-term" }
 # runtime
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
-# static
-husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
 # syntax
 husky-path = { path = "../../fs/husky-path" }
 husky-token = { path = "../../lex/husky-token" }

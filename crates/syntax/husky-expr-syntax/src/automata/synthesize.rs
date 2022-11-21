@@ -58,7 +58,7 @@ impl<'a> Automata<'a> {
     }
 
     fn synthesize_binary(&mut self, binary: BinaryOpr) {
-        use husky_text::TextRanged;
+        use husky_text::HasTextRange;
         let _len = self.stack.number_of_exprs();
         let range = self.stack.topk_exprs(2).text_range();
         self.synthesize_opn(binary.into(), 2, range)
@@ -74,11 +74,7 @@ impl<'a> Automata<'a> {
         self.synthesize_opn(suffix.into(), 1, range)
     }
 
-    fn synthesize_field_access(
-        &mut self,
-        _field_ident: RangedCustomIdentifier,
-        _end: TextPosition,
-    ) {
+    fn synthesize_field_access(&mut self, _field_ident: RangedIdentifier, _end: TextPosition) {
         todo!()
         // let range = (self.exprs.last().unwrap().range.start..end).into();
         // self.synthesize_opn(
@@ -101,7 +97,7 @@ impl<'a> Automata<'a> {
 
     fn synthesize_lambda(
         &mut self,
-        _inputs: Vec<(RangedCustomIdentifier, Option<ExprIdx>)>,
+        _inputs: Vec<(RangedIdentifier, Option<ExprIdx>)>,
         _start: TextPosition,
     ) {
         todo!()

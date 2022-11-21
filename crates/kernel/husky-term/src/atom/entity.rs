@@ -5,7 +5,7 @@ pub use namespace::*;
 
 // #[derive(Debug, PartialEq, Eq, Hash)]
 // pub struct TermEntity {
-//     path: EntityPathItd,
+//     path: EntityPath,
 //     ty: Ty,
 // }
 
@@ -14,29 +14,13 @@ pub use namespace::*;
 //         self.ty
 //     }
 
-//     pub fn path(&self) -> EntityPathItd {
+//     pub fn path(&self) -> EntityPath {
 //         self.path
 //     }
 // }
 
-// impl Into<Term> for TermEntity {
-//     fn into(self) -> Term {
-//         Term::AtomTermTerm::Entity(self)
+// impl Into<TermData> for TermEntity {
+//     fn into(self) -> TermData {
+//         TermData::AtomTermTerm::Entity(self)
 //     }
 // }
-
-#[test]
-fn display_term() {
-    use crate::tests::TermTestsDb;
-    use crate::TermDb;
-    let db = TermTestsDb::new();
-    let menu = db.term_menu();
-    assert_eq!(menu.unit().to_string(), "void");
-    assert_eq!(menu.i32().to_string(), "i32");
-    assert_eq!(menu.i64().to_string(), "i64");
-    assert_eq!(menu.f32().to_string(), "f32");
-    assert_eq!(menu.f64().to_string(), "f64");
-    assert_eq!(menu.b32().to_string(), "b32");
-    assert_eq!(menu.b64().to_string(), "b64");
-    assert_eq!(menu.bool().to_string(), "bool");
-}

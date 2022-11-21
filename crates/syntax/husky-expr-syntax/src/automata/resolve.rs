@@ -1,7 +1,7 @@
 use super::*;
 
 use husky_symbol_syntax::Symbol;
-use husky_term::TermItd;
+use husky_term::Term;
 use husky_token::SpecialToken;
 
 impl<'a> Automata<'a> {
@@ -44,7 +44,6 @@ impl<'a> Automata<'a> {
                 SpecialToken::QuestionMark => todo!(),
             },
             TokenKind::WordOpr(_) => todo!(),
-            TokenKind::WordPattern(_) => todo!(),
             TokenKind::Literal(literal) => ResolvedTokenKind::Atom(literal.into()),
             TokenKind::Unrecognized(_) => todo!(),
             TokenKind::IllFormedLiteral(_) => todo!(),
@@ -73,11 +72,11 @@ impl<'a> Automata<'a> {
         self.ctx.resolve_ident(ident).into()
     }
 
-    fn resolve_previous_entity(&self) -> Option<TermItd> {
+    fn resolve_previous_entity(&self) -> Option<Term> {
         self.stack.top_expr().map(|expr| self.resolve_entity(expr))
     }
 
-    fn resolve_entity(&self, expr: &Expr) -> TermItd {
+    fn resolve_entity(&self, expr: &Expr) -> Term {
         match expr.variant {
             ExprVariant::Atom(ref atom) => match atom {
                 AtomExpr::Literal(_) => todo!(),
@@ -106,7 +105,7 @@ pub(crate) struct ResolvedToken {
     range: TextRange,
 }
 
-impl TextRanged for ResolvedToken {
+impl HasTextRange for ResolvedToken {
     fn text_range(&self) -> TextRange {
         self.range
     }

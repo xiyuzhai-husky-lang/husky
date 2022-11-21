@@ -8,11 +8,12 @@ pub struct TermMenu1 {
 
 impl TermMenu1 {
     pub fn new(db: &dyn TermDb, menu0: TermMenu0) -> Self {
-        let term = db.it_term(Term::Application(
-            TermApplication::new(menu0.sort(), menu0.universe1()).unwrap(),
-        ));
-        let ty0 = Ty::new(term).unwrap();
-        Self { parent: menu0, ty0 }
+        todo!()
+        // let term = db.it_term(TermData::Application(
+        //     TermApplication::new(menu0.sort(), menu0.universe1()).unwrap(),
+        // ));
+        // let ty0 = Ty::new(term).unwrap();
+        // Self { parent: menu0, ty0 }
     }
 
     pub fn ty0(&self) -> Ty {

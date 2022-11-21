@@ -1,6 +1,6 @@
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
 use husky_primitive_literal_syntax::RawLiteralData;
-use husky_text::{TextRange, TextRanged};
+use husky_text::{HasTextRange, TextRange};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawPattern {
@@ -12,12 +12,12 @@ pub struct RawPattern {
 pub enum RawPatternVariant {
     PrimitiveLiteral(RawLiteralData),
     OneOf { subpatterns: Vec<RawPattern> },
-    EnumLiteral(EntityPathItd),
+    EnumLiteral(EntityPath),
     Some,
     None,
 }
 
-impl TextRanged for RawPattern {
+impl HasTextRange for RawPattern {
     fn text_range(&self) -> TextRange {
         self.range
     }
@@ -31,7 +31,7 @@ impl RawPattern {
         }
     }
 
-    pub fn enum_literal(value: EntityPathItd, range: TextRange) -> Self {
+    pub fn enum_literal(value: EntityPath, range: TextRange) -> Self {
         Self {
             variant: RawPatternVariant::EnumLiteral(value),
             range,

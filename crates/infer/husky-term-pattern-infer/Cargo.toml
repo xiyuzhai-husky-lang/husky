@@ -7,25 +7,28 @@ edition = "2021"
 [dependencies]
 thiserror = "1.0.37"
 textwrap = "0.16.0"
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 # abstraction
 upcast = { path = "../../abstraction/upcast" }
 error-lineage = { path = "../../abstraction/error-lineage" }
+# fs
+husky-source-path = { path = "../../fs/husky-source-path" }
+husky-path = { path = "../../fs/husky-path" }
+# lex
+husky-text = { path = "../../lex/husky-text" }
+husky-token = { path = "../../lex/husky-token" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
-husky-word = { path = "../../kernel/husky-word" }
+husky-identifier = { path = "../../kernel/husky-identifier" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
-husky-path = { path = "../../fs/husky-path" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
-husky-text = { path = "../../lex/husky-text" }
-husky-token = { path = "../../lex/husky-token" }
 # infer
 husky-term-pattern = { path = "../../infer/husky-term-pattern" }
 
