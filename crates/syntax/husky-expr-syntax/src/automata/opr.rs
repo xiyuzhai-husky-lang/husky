@@ -26,7 +26,7 @@ pub(super) enum OnStackOprVariant {
         start: TextPosition,
     },
     LambdaHead {
-        inputs: Vec<(RangedCustomIdentifier, Option<ExprIdx>)>,
+        inputs: Vec<(RangedIdentifier, Option<ExprIdx>)>,
         start: TextPosition,
     },
 }
@@ -62,7 +62,7 @@ impl OnStackOpr {
     }
 
     pub(super) fn lambda_head(
-        inputs: Vec<(RangedCustomIdentifier, Option<ExprIdx>)>,
+        inputs: Vec<(RangedIdentifier, Option<ExprIdx>)>,
         start: TextPosition,
     ) -> Self {
         Self {

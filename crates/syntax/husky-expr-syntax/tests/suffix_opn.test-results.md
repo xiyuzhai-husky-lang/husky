@@ -18,7 +18,7 @@ Arena {
                 Symbol(
                     Symbol {
                         ident: Custom(
-                            CustomIdentifier(
+                            Identifier(
                                 "x",
                             ),
                         ),
@@ -61,7 +61,7 @@ Arena {
                 Symbol(
                     Symbol {
                         ident: Custom(
-                            CustomIdentifier(
+                            Identifier(
                                 "y",
                             ),
                         ),

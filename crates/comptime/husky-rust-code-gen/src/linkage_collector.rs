@@ -1,5 +1,5 @@
 use crate::*;
-use husky_word::RootBuiltinIdentifier;
+use husky_identifier::RootBuiltinIdentifier;
 mod impl_entity;
 mod impl_expr;
 mod impl_stmt;

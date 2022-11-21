@@ -1,4 +1,4 @@
-use husky_word::Identifier;
+use husky_identifier::Identifier;
 
 use super::*;
 

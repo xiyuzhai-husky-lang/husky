@@ -15,11 +15,11 @@ pub enum AstEntrance {
     },
     Init {
         init_kind: InitKind,
-        varname: RangedCustomIdentifier,
+        varname: RangedIdentifier,
         initial_value: ExprIdx,
     },
     FrameVar {
-        frame_var: RangedCustomIdentifier,
+        frame_var: RangedIdentifier,
     },
     Parameter {
         parameter: Parameter,

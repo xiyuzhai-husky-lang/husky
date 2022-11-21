@@ -1,11 +1,11 @@
 mod struct_item_context;
 
-use husky_entity_syntax::EntitySyntaxQueryGroup;
+use husky_entity_path::PackagePath;
+use husky_token::Paradigm;
 pub use struct_item_context::*;
 
 use crate::*;
-use husky_path::PathItd;
-use husky_word::Paradigm;
+use husky_entity_tree::EntityTreeDb;
 use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -34,7 +34,7 @@ pub enum RawReturnContextKind {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum AstContext {
-    Package(PathItd),
+    Package(PackagePath),
     Module(Ty),
     Stmt {
         paradigm: Paradigm,
@@ -54,11 +54,7 @@ pub enum AstContext {
 }
 
 impl AstContext {
-    pub fn opt_subroute(
-        self,
-        db: &dyn EntitySyntaxQueryGroup,
-        ident: CustomIdentifier,
-    ) -> Option<Ty> {
+    pub fn opt_subroute(self, db: &dyn EntityTreeDb, ident: Identifier) -> Option<Ty> {
         todo!()
         // Some(match self {
         //     AstContext::Package(main) => db.subroute(db.module(main).unwrap(), ident, thin_vec![]),

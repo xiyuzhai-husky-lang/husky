@@ -3,7 +3,7 @@ mod impl_ty_linkage_entries;
 
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant};
 
-use husky_word::RootBuiltinIdentifier;
+use husky_identifier::RootBuiltinIdentifier;
 
 use super::*;
 
@@ -211,7 +211,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //     );
     }
 
-    fn gen_eager_feature_linkage_entry(&mut self, entity_path: EntityPathItd, output_ty: Ty) {
+    fn gen_eager_feature_linkage_entry(&mut self, entity_path: EntityPath, output_ty: Ty) {
         self.write(&format!(
             r#"
     (

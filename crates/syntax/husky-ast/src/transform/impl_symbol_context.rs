@@ -7,7 +7,7 @@ impl<'a> AtomContext<'a> for AstTransformer<'a> {
         Some(self.main)
     }
 
-    fn entity_syntax_db(&self) -> &'a dyn husky_entity_syntax::EntitySyntaxQueryGroup {
+    fn entity_syntax_db(&self) -> &'a dyn husky_entity_tree::EntityTreeDb {
         self.db.upcast()
     }
 

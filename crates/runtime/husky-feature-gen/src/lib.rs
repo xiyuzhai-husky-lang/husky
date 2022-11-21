@@ -13,7 +13,7 @@ mod visual;
 
 pub use block::*;
 pub use eval_id::*;
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
 use husky_opn_semantics::ImplicitConversion;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_vm_primitive_value::PrimitiveValueData;
@@ -26,18 +26,18 @@ pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
 pub use repr::*;
 
 use husky_entity_semantics::EntityDefnQueryGroup;
+use husky_identifier::{IdentPairDict, Identifier};
 use husky_opn_syntax::*;
 use husky_print_utils::*;
 use husky_term::Ty;
 use husky_text::*;
 use husky_vm::EntityUid;
-use husky_word::{CustomIdentifier, IdentPairDict};
 use std::sync::Arc;
 use temp::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureSymbol {
-    varname: CustomIdentifier,
+    varname: Identifier,
     value: Arc<FeatureLazyExpr>,
     feature: FeatureItd,
 }
@@ -78,7 +78,7 @@ pub enum Feature {
     },
     FieldAccess {
         this: FeatureItd,
-        field_ident: CustomIdentifier,
+        field_ident: Identifier,
     },
     Index {
         opds: Vec<FeatureItd>,
@@ -92,11 +92,11 @@ pub enum Feature {
         index: i32,
     },
     MethodCall {
-        method_ident: CustomIdentifier,
+        method_ident: Identifier,
         opds: Vec<FeatureItd>,
     },
     EntityFeature {
-        entity_path: EntityPathItd,
+        entity_path: EntityPath,
         uid: EntityUid,
     },
     RecordTypeCall {

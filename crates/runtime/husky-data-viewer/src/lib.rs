@@ -1,8 +1,8 @@
 mod query;
 
+use husky_identifier::{IdentPairDict, RootBuiltinIdentifier};
 use husky_term::Ty;
 use husky_vm_binding::Binding;
-use husky_word::{IdentPairDict, RootBuiltinIdentifier};
 pub use query::*;
 
 use husky_vm_interface::{__Linkage, __Register, __RegistrableSafe, __ResolvedLinkage};

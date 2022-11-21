@@ -1,4 +1,4 @@
-use husky_word::CustomIdentifier;
+use husky_identifier::Identifier;
 
 use crate::*;
 
@@ -9,7 +9,7 @@ pub struct InstructionSheet {
 }
 
 impl InstructionSheet {
-    pub fn new(inputs: impl Iterator<Item = CustomIdentifier>, has_this: bool) -> Self {
+    pub fn new(inputs: impl Iterator<Item = Identifier>, has_this: bool) -> Self {
         Self {
             instructions: vec![],
             variable_stack: VariableStack::new(inputs, has_this),

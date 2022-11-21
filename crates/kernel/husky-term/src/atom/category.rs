@@ -4,7 +4,7 @@ use crate::*;
 pub enum TermCategory {
     Type,
     Sort,
-    Term,
+    TermData,
 }
 
 impl Into<TermAtom> for TermCategory {
@@ -13,8 +13,8 @@ impl Into<TermAtom> for TermCategory {
     }
 }
 
-impl Into<Term> for TermCategory {
-    fn into(self) -> Term {
-        Term::Atom(self.into())
+impl Into<TermData> for TermCategory {
+    fn into(self) -> TermData {
+        TermData::Atom(self.into())
     }
 }

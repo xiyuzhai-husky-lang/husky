@@ -26,7 +26,7 @@ inductive InstructionVariant
     (field_ty : EntityRoutePtr)    
   | NewVirtualStruct 
     (ty : EntityRoutePtr)
-    (fields : List CustomIdentifier)    
+    (fields : List Identifier)    
   | Loop
     (body : InstructionSheet)
     (loop_kind : VMLoopKind)

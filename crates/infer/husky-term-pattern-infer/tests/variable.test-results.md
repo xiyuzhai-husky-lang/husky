@@ -18,7 +18,7 @@ raw_expr_arena = Arena {
                 Symbol(
                     Symbol {
                         ident: Custom(
-                            CustomIdentifier(
+                            Identifier(
                                 "x",
                             ),
                         ),
@@ -50,7 +50,7 @@ ty_infer_sheet = TermPatternInferSheet {
                                 source: Original(
                                     IdentUnrecognized {
                                         ident: Custom(
-                                            CustomIdentifier(
+                                            Identifier(
                                                 "x",
                                             ),
                                         ),
@@ -70,7 +70,7 @@ ty_infer_sheet = TermPatternInferSheet {
                                                 source: Original(
                                                     IdentUnrecognized {
                                                         ident: Custom(
-                                                            CustomIdentifier(
+                                                            Identifier(
                                                                 "x",
                                                             ),
                                                         ),

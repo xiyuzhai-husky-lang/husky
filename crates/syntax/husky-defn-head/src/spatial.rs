@@ -1,21 +1,21 @@
 use husky_entity_kind::{EntityKind, TyKind};
-use husky_entity_syntax::EntitySyntaxQueryGroup;
-use husky_path::PathItd;
+use husky_entity_tree::EntityTreeDb;
+use husky_identifier::Identifier;
+use husky_source_path::SourcePath;
 use husky_static_defn::StaticSpatialParameter;
-use husky_text::{RangedCustomIdentifier, TextRange};
-use husky_word::CustomIdentifier;
+use husky_text::{RangedIdentifier, TextRange};
 use vec_like::VecMapEntry;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SpatialParameter {
-    pub ident: RangedCustomIdentifier,
+    pub ident: RangedIdentifier,
     pub variant: SpatialParameterVariant,
-    pub file: PathItd,
+    pub file: SourcePath,
     pub range: TextRange,
 }
 
-impl VecMapEntry<CustomIdentifier> for SpatialParameter {
-    fn key(&self) -> CustomIdentifier {
+impl VecMapEntry<Identifier> for SpatialParameter {
+    fn key(&self) -> Identifier {
         self.ident.ident
     }
 }
@@ -27,7 +27,7 @@ pub enum SpatialParameterVariant {
 }
 
 impl SpatialParameter {
-    pub fn from_static(_db: &dyn EntitySyntaxQueryGroup, _: &StaticSpatialParameter) -> Self {
+    pub fn from_static(_db: &dyn EntityTreeDb, _: &StaticSpatialParameter) -> Self {
         todo!()
     }
 }

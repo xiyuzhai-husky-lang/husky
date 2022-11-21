@@ -10,7 +10,7 @@ pub struct TermPatternInterner {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TermPatternItd {
-    Resolved(TermItd),
+    Resolved(Term),
     Unresolved(UnresolvedTermIdx),
     Composite(TermPatternIdx),
 }
@@ -19,8 +19,8 @@ pub enum TermPatternItd {
 
 // impl std::fmt::Debug for
 
-impl From<TermItd> for TermPatternItd {
-    fn from(term: TermItd) -> Self {
+impl From<Term> for TermPatternItd {
+    fn from(term: Term) -> Self {
         TermPatternItd::Resolved(term)
     }
 }
@@ -133,12 +133,4 @@ pub trait InternTermPattern {
 #[test]
 fn test_option_max_works() {
     assert!(None < Some(1))
-}
-
-#[test]
-fn intern_works() {
-    // let db = TermPatternTestsDb::new();
-    let _interner = TermPatternInterner::default();
-
-    // HELP ME
 }

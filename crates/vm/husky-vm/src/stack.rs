@@ -1,6 +1,6 @@
 use crate::*;
 use arrayvec::ArrayVec;
-use husky_word::CustomIdentifier;
+use husky_identifier::Identifier;
 use std::fmt::Write;
 
 pub const STACK_SIZE: usize = 255;
@@ -105,24 +105,25 @@ impl<'eval> VMStack<'eval> {
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct VariableStack {
-    non_this_variables: Vec<CustomIdentifier>,
+    non_this_variables: Vec<Identifier>,
     has_this: bool,
 }
 
 impl std::fmt::Debug for VariableStack {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("\nVariableStack:\n")?;
-        f.write_fmt(format_args!("    has_this: {}\n", self.has_this))?;
-        f.write_str("    variables:\n")?;
-        for (i, ident) in self.non_this_variables.iter().enumerate() {
-            f.write_fmt(format_args!("        {: <3} {}\n", i, ident.as_str()))?
-        }
-        f.write_str("\n")
+        todo!()
+        // f.write_str("\nVariableStack:\n")?;
+        // f.write_fmt(format_args!("    has_this: {}\n", self.has_this))?;
+        // f.write_str("    variables:\n")?;
+        // for (i, ident) in self.non_this_variables.iter().enumerate() {
+        //     f.write_fmt(format_args!("        {: <3} {}\n", i, ident.as_str()))?
+        // }
+        // f.write_str("\n")
     }
 }
 
 impl VariableStack {
-    pub fn new(inputs: impl Iterator<Item = CustomIdentifier>, has_this: bool) -> Self {
+    pub fn new(inputs: impl Iterator<Item = Identifier>, has_this: bool) -> Self {
         Self {
             non_this_variables: inputs.map(|ident| ident).collect(),
             has_this,
@@ -137,7 +138,7 @@ impl VariableStack {
         VMStackIdx::new(self.non_this_variables.len())
     }
 
-    pub fn stack_idx(&self, ident0: CustomIdentifier) -> VMStackIdx {
+    pub fn stack_idx(&self, ident0: Identifier) -> VMStackIdx {
         let idx = self.non_this_variables.len()
             - (1 + self
                 .non_this_variables
@@ -148,58 +149,59 @@ impl VariableStack {
         VMStackIdx::new(if self.has_this { idx + 1 } else { idx })
     }
 
-    pub fn push(&mut self, ident: CustomIdentifier) {
+    pub fn push(&mut self, ident: Identifier) {
         self.non_this_variables.push(ident)
     }
 
-    pub fn varname(&self, stack_idx: VMStackIdx) -> CustomIdentifier {
+    pub fn varname(&self, stack_idx: VMStackIdx) -> Identifier {
         self.non_this_variables[stack_idx.raw() as usize]
     }
 
     pub fn compare_with_vm_stack(&self, vm_stack: &VMStack) -> String {
-        let mut result = String::new();
-        write!(result, "VariableStack:\n").unwrap();
-        write!(result, "    has_this: {}\n", self.has_this).unwrap();
-        if self.has_this {
-            write!(
-                result,
-                "        this: {}\n",
-                vm_stack.values[0].print_short()
-            )
-            .unwrap();
-        }
-        write!(result, "    variables:\n").unwrap();
-        let shift = if self.has_this { 1 } else { 0 };
-        for (i, ident) in self.non_this_variables.iter().enumerate() {
-            write!(
-                result,
-                "        #{: <3} {}{: <10}{} ",
-                i,
-                husky_print_utils::CYAN,
-                ident.as_str(),
-                husky_print_utils::RESET,
-            )
-            .unwrap();
-            if i + shift < vm_stack.values.len() {
-                write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()
-            } else {
-                write!(result, "uninitialized\n").unwrap()
-            }
-        }
+        todo!()
+        // let mut result = String::new();
+        // write!(result, "VariableStack:\n").unwrap();
+        // write!(result, "    has_this: {}\n", self.has_this).unwrap();
+        // if self.has_this {
+        //     write!(
+        //         result,
+        //         "        this: {}\n",
+        //         vm_stack.values[0].print_short()
+        //     )
+        //     .unwrap();
+        // }
+        // write!(result, "    variables:\n").unwrap();
+        // let shift = if self.has_this { 1 } else { 0 };
+        // for (i, ident) in self.non_this_variables.iter().enumerate() {
+        //     write!(
+        //         result,
+        //         "        #{: <3} {}{: <10}{} ",
+        //         i,
+        //         husky_print_utils::CYAN,
+        //         ident.as_str(),
+        //         husky_print_utils::RESET,
+        //     )
+        //     .unwrap();
+        //     if i + shift < vm_stack.values.len() {
+        //         write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()
+        //     } else {
+        //         write!(result, "uninitialized\n").unwrap()
+        //     }
+        // }
 
-        for i in self.non_this_variables.len()..(vm_stack.values.len() - shift) {
-            write!(
-                result,
-                "        #{: <3} {}{: <10}{} ",
-                i,
-                husky_print_utils::RED,
-                "$",
-                husky_print_utils::RESET,
-            )
-            .unwrap();
-            write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()
-        }
-        result.push('\n');
-        result
+        // for i in self.non_this_variables.len()..(vm_stack.values.len() - shift) {
+        //     write!(
+        //         result,
+        //         "        #{: <3} {}{: <10}{} ",
+        //         i,
+        //         husky_print_utils::RED,
+        //         "$",
+        //         husky_print_utils::RESET,
+        //     )
+        //     .unwrap();
+        //     write!(result, "{}\n", vm_stack.values[i + shift].print_short()).unwrap()
+        // }
+        // result.push('\n');
+        // result
     }
 }

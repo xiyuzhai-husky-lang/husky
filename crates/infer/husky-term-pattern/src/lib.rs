@@ -21,7 +21,7 @@ use trait_impl::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TermPattern {
-    Resolved(TermItd),
+    Resolved(Term),
     Unresolved(UnresolvedTermIdx),
     Application(TermApplicationPattern),
     Curry(TermCurryPattern),

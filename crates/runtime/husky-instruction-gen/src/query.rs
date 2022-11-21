@@ -1,21 +1,20 @@
 use crate::*;
 use husky_comptime::ComptimeQueryGroup;
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
 use husky_package_semantics::PackageQueryGroup;
 use husky_path::PathItd;
 
 #[salsa::query_group(InstructionGenQueryGroupStorage)]
 pub trait InstructionGenQueryGroup: ComptimeQueryGroup {
-    fn entity_instruction_sheet(&self, entity_path: EntityPathItd)
-        -> Option<Arc<InstructionSheet>>;
+    fn entity_instruction_sheet(&self, entity_path: EntityPath) -> Option<Arc<InstructionSheet>>;
     fn method_opt_instruction_sheet(&self, member_route: Ty) -> Option<Arc<InstructionSheet>>;
     fn dataset_config_instruction_sheet(&self, target_entrance: PathItd) -> Arc<InstructionSheet>;
-    fn enum_literal_to_i32(&self, entity_path: EntityPathItd) -> i32;
+    fn enum_literal_to_i32(&self, entity_path: EntityPath) -> i32;
 }
 
 fn entity_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
-    entity_path: EntityPathItd,
+    entity_path: EntityPath,
 ) -> Option<Arc<InstructionSheet>> {
     todo!()
     // let entity_defn = db.entity_defn(route).unwrap();
@@ -123,7 +122,7 @@ fn dataset_config_instruction_sheet(
     new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)
 }
 
-fn enum_literal_to_i32(_db: &dyn InstructionGenQueryGroup, entity_path: EntityPathItd) -> i32 {
+fn enum_literal_to_i32(_db: &dyn InstructionGenQueryGroup, entity_path: EntityPath) -> i32 {
     todo!()
     // let ty_decl = db.ty_decl(route.parent()).unwrap();
     // ty_decl

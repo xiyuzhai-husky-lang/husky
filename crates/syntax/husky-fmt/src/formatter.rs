@@ -4,17 +4,17 @@ use fold::LocalValue;
 use husky_ast::*;
 use husky_defn_head::Parameter;
 use husky_entity_kind::TyKind;
-use husky_entity_syntax::EntitySyntaxQueryGroup;
+use husky_entity_tree::EntityTreeDb;
 use husky_expr_syntax::*;
 use husky_init_syntax::InitKind;
 use husky_liason_semantics::{MemberModifier, ParameterModifier};
 use husky_term::Ty;
 
+use husky_identifier::{Paradigm, RootBuiltinIdentifier};
 use husky_print_utils::msg_once;
-use husky_word::{Paradigm, RootBuiltinIdentifier};
 
 pub struct Formatter<'a> {
-    db: &'a dyn EntitySyntaxQueryGroup,
+    db: &'a dyn EntityTreeDb,
     arena: &'a ExprArena,
     indent: fold::Indent,
     result: String,
@@ -22,11 +22,7 @@ pub struct Formatter<'a> {
 }
 
 impl<'a> Formatter<'a> {
-    pub(crate) fn new(
-        db: &'a dyn EntitySyntaxQueryGroup,
-        arena: &'a ExprArena,
-        context: AstContext,
-    ) -> Self {
+    pub(crate) fn new(db: &'a dyn EntityTreeDb, arena: &'a ExprArena, context: AstContext) -> Self {
         Self {
             db,
             arena,
@@ -206,7 +202,7 @@ impl<'a> Formatter<'a> {
         }
     }
 
-    fn fmt_ident(&mut self, ident: husky_word::Identifier) {
+    fn fmt_ident(&mut self, ident: husky_identifier::Identifier) {
         self.result.add_assign(&ident)
     }
 

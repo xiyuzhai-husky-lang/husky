@@ -12,11 +12,11 @@ use fold::LocalValue;
 
 use husky_eager_semantics::*;
 use husky_entity_semantics::*;
+use husky_identifier::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
 use husky_term::*;
 use husky_vm::InstructionSheet;
-use husky_word::*;
 use std::sync::Arc;
 
 pub fn new_visual_instruction_sheet(
@@ -30,7 +30,7 @@ pub fn new_visual_instruction_sheet(
 
 pub fn new_func_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
-    inputs: impl Iterator<Item = CustomIdentifier>,
+    inputs: impl Iterator<Item = Identifier>,
     stmts: &[Arc<FuncStmt>],
     has_this: bool,
 ) -> Arc<InstructionSheet> {
@@ -41,7 +41,7 @@ pub fn new_func_instruction_sheet(
 
 pub fn new_proc_instruction_sheet(
     db: &dyn InstructionGenQueryGroup,
-    inputs: impl Iterator<Item = CustomIdentifier>,
+    inputs: impl Iterator<Item = Identifier>,
     stmts: &[Arc<ProcStmt>],
     has_this: bool,
 ) -> Arc<InstructionSheet> {
@@ -59,7 +59,7 @@ struct InstructionSheetBuilder<'a> {
 impl<'a> InstructionSheetBuilder<'a> {
     fn new(
         db: &'a dyn InstructionGenQueryGroup,
-        inputs: impl Iterator<Item = CustomIdentifier>,
+        inputs: impl Iterator<Item = Identifier>,
         has_this: bool,
     ) -> Self {
         Self {

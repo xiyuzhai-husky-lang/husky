@@ -1,6 +1,6 @@
 use super::*;
 use crate::*;
-use husky_word::IdentPairDict;
+use husky_identifier::IdentPairDict;
 
 impl<'a> AstTransformer<'a> {
     pub(crate) fn parse_xml_expr(&mut self, token_group: &[Token]) -> AstResultArc<RawXmlExpr> {
@@ -35,7 +35,7 @@ impl<'a> AstTransformer<'a> {
         self.parse_atoms(tokens, |parser| parser.xml_props())?
             .into_iter()
             .map(
-                |(ranged_ident, token_range)| -> AstResult<(CustomIdentifier, RawExprIdx)> {
+                |(ranged_ident, token_range)| -> AstResult<(Identifier, RawExprIdx)> {
                     self.push_abs_semantic_token(husky_token::AbsSemanticToken::new(
                         SemanticTokenKind::Parameter,
                         ranged_ident.range,

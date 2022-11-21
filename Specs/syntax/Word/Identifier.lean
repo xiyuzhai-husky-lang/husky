@@ -62,31 +62,31 @@ namespace RootHigherTyIdentifier
     | TraitType => "Trait"
 end RootHigherTyIdentifier
 
-namespace CustomIdentifier
+namespace Identifier
 def is_valid : String -> Bool := sorry
-end CustomIdentifier
+end Identifier
 
-structure CustomIdentifier where
+structure Identifier where
   value : String
-  hvalid : CustomIdentifier.is_valid value
+  hvalid : Identifier.is_valid value
   deriving DecidableEq
 
-namespace CustomIdentifier
-  def toRustVersion : CustomIdentifier -> String := sorry
-  def huskyCode : CustomIdentifier -> String
+namespace Identifier
+  def toRustVersion : Identifier -> String := sorry
+  def huskyCode : Identifier -> String
     | ident => ident.value
-end CustomIdentifier
+end Identifier
 
-structure RangedCustomIdentifier where
+structure RangedIdentifier where
   range : TextRange
-  ident: CustomIdentifier
+  ident: Identifier
   deriving DecidableEq
 
 inductive Identifier
   | PrimitiveTy : PrimitiveTyIdentifier -> Identifier
   | RootContainerTy : RootContainerTyIdentifier -> Identifier
   | RootHigherTy : RootHigherTyIdentifier -> Identifier
-  | Custom : CustomIdentifier -> Identifier
+  | Custom : Identifier -> Identifier
   deriving DecidableEq
 
 namespace Identifier

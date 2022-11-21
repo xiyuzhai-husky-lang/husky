@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
-pub struct TermNamespace(TermItd);
+pub struct TermNamespace(Term);
 
 // impl Noned for TermNamespace {
 //     fn is_none(&self) -> bool {
@@ -9,7 +9,7 @@ pub struct TermNamespace(TermItd);
 //     }
 
 //     fn get_none() -> Self {
-//         Self(TermItd::get_none())
+//         Self(Term::get_none())
 //     }
 // }
 

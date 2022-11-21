@@ -276,7 +276,7 @@ impl<'a> AstTransformer<'a> {
         //                 let (frame_var, kind) = if let RawExprVariant::Unrecognized(frame_var) =
         //                     lopd.variant
         //                 {
-        //                     let frame_var = RangedCustomIdentifier {
+        //                     let frame_var = RangedIdentifier {
         //                         ident: frame_var,
         //                         range: lopd.range,
         //                     };
@@ -291,7 +291,7 @@ impl<'a> AstTransformer<'a> {
         //                         .into(),
         //                     )
         //                 } else if let RawExprVariant::Unrecognized(frame_var) = ropd.variant {
-        //                     let frame_var = RangedCustomIdentifier {
+        //                     let frame_var = RangedIdentifier {
         //                         ident: frame_var,
         //                         range: ropd.range,
         //                     };
@@ -333,7 +333,7 @@ impl<'a> AstTransformer<'a> {
         //                             let frame_var = if let RawExprVariant::Unrecognized(frame_var) =
         //                                 lropd.variant
         //                             {
-        //                                 RangedCustomIdentifier {
+        //                                 RangedIdentifier {
         //                                     ident: frame_var,
         //                                     range: lropd.range,
         //                                 }
@@ -395,7 +395,7 @@ impl<'a> AstTransformer<'a> {
         //         let lopd_idx = opds.start;
         //         let ropd_idx = opds.end - 1;
         //         let lopd = &self.arena[lopd_idx];
-        //         let frame_var = RangedCustomIdentifier {
+        //         let frame_var = RangedIdentifier {
         //             ident: match lopd.variant {
         //                 RawExprVariant::Variable { varname, .. } => varname,
         //                 _ => err!(format!("expect variable"), expr.range)?,

@@ -8,7 +8,7 @@ pub use list::*;
 pub use prefix::*;
 pub use suffix::*;
 
-use husky_text::RangedCustomIdentifier;
+use husky_text::RangedIdentifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum RawOpnVariant {
@@ -17,6 +17,6 @@ pub enum RawOpnVariant {
     Suffix(RawSuffixOpr),
     CurlBracketed,
     List(ListOpr),
-    Field(Option<RangedCustomIdentifier>),
+    Field(Option<RangedIdentifier>),
     Abstraction,
 }

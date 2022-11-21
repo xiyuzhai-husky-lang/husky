@@ -17,7 +17,7 @@ pub enum LinkageForm {
     },
     StructFieldAccess {
         this_ty: Ty,
-        field_ident: CustomIdentifier,
+        field_ident: Identifier,
     },
 }
 

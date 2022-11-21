@@ -1,7 +1,5 @@
 use std::path::{self, Path};
 
-use crate::{ModulePathItd, PathItd};
-
 fn url_from_abs_path(path: &Path) -> lsp_types::Url {
     let url = lsp_types::Url::from_file_path(path).unwrap();
     match path.components().next() {
@@ -35,10 +33,10 @@ fn url_from_abs_path(path: &Path) -> lsp_types::Url {
     lsp_types::Url::parse(&url).unwrap()
 }
 
-#[cfg(feature = "lsp_support")]
-impl Into<lsp_types::Url> for ModulePathItd {
-    fn into(self) -> lsp_types::Url {
-        todo!()
-        // url_from_abs_path(&self)
-    }
-}
+// #[cfg(feature = "lsp_support")]
+// impl Into<lsp_types::Url> for ModulePathItd {
+//     fn into(self) -> lsp_types::Url {
+//         todo!()
+//         // url_from_abs_path(&self)
+//     }
+// }

@@ -6,7 +6,6 @@ use husky_text::TextIndent;
 use husky_token::*;
 use husky_token_line::TokenLine;
 use husky_token_storage::TokenIdxRange;
-use husky_word::WordInterner;
 use std::{iter::Peekable, sync::Arc};
 
 #[derive(PartialEq, Eq)]
@@ -26,7 +25,7 @@ impl std::fmt::Debug for TokenizedLine {
 }
 
 pub struct TokenLexer<'lex> {
-    word_interner: &'lex WordInterner,
+    word_interner: &'lex dyn IdentifierDb,
     tokens: Vec<Token>,
     tokenized_lines: Vec<TokenizedLine>,
     errors: Vec<LexError>,
@@ -38,7 +37,7 @@ enum TokenScannerAction {
 }
 
 impl<'token> TokenLexer<'token> {
-    pub fn new(word_interner: &'token WordInterner) -> Self {
+    pub fn new(word_interner: &'token dyn IdentifierDb) -> Self {
         Self {
             word_interner,
             tokens: vec![],
@@ -109,10 +108,11 @@ impl<'token> TokenLexer<'token> {
     }
 
     fn right_convexity(&self) -> Convexity {
-        match self.last_token_in_unfinished_line() {
-            Some(token) => token.right_convexity(),
-            None => Convexity::Concave,
-        }
+        todo!()
+        // match self.last_token_in_unfinished_line() {
+        //     Some(token) => token.right_convexity(),
+        //     None => Convexity::Concave,
+        // }
     }
 
     fn last_token_in_unfinished_line(&self) -> Option<&Token> {

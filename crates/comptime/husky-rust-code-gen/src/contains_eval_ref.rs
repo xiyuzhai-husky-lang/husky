@@ -1,4 +1,4 @@
-use husky_word::RootBuiltinIdentifier;
+use husky_identifier::RootBuiltinIdentifier;
 
 use super::*;
 

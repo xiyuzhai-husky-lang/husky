@@ -1,0 +1,38 @@
+[package]
+edition = "2021"
+name = "husky-entity-tree"
+version = "0.0.0"
+authors = ["Xiyu Zhai"]
+license = "MIT OR Apache-2.0"
+description = "Generic LSP server scaffold."
+
+[dependencies]
+salsa = { path = "../../abstraction/salsa" }
+# abstraction
+upcast = { path = "../../abstraction/upcast" }
+fold = { path = "../../abstraction/fold" }
+# forks
+thin-vec = { path = "../../../forks/thin-vec" }
+# fs
+husky-source-path = { path = "../../fs/husky-source-path" }
+husky-path = { path = "../../fs/husky-path" }
+# lex
+husky-text = { path = "../../lex/husky-text" }
+husky-token = { path = "../../lex/husky-token" }
+husky-token-text = { path = "../../lex/husky-token-text" }
+# kernel
+husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-term = { path = "../../kernel/husky-term" }
+# syntax
+husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+# vm
+husky-vm = { path = "../../vm/husky-vm" }
+# utils
+husky-test-utils = { path = "../../utils/husky-test-utils" }
+husky-display-utils = { path = "../../utils/husky-display-utils" }
+husky-path-utils = { path = "../../utils/husky-path-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }

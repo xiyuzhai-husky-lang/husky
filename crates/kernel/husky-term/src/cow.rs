@@ -3,8 +3,8 @@
 // use crate::*;
 
 // pub(crate) enum TermCow {
-//     Owned(Term),
-//     Ptr(TermItd),
+//     Owned(TermData),
+//     Ptr(Term),
 // }
 
 // impl std::fmt::Debug for TermCow {
@@ -13,20 +13,20 @@
 //     }
 // }
 
-// impl From<Term> for TermCow {
-//     fn from(term: Term) -> Self {
+// impl From<TermData> for TermCow {
+//     fn from(term: TermData) -> Self {
 //         Self::Owned(term)
 //     }
 // }
 
-// impl From<TermItd> for TermCow {
-//     fn from(ptr: TermItd) -> Self {
+// impl From<Term> for TermCow {
+//     fn from(ptr: Term) -> Self {
 //         Self::Ptr(ptr)
 //     }
 // }
 
 // impl std::ops::Deref for TermCow {
-//     type Target = Term;
+//     type Target = TermData;
 
 //     fn deref(&self) -> &Self::Target {
 //         match self {

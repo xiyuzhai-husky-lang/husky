@@ -1,6 +1,6 @@
 use super::*;
+use husky_identifier::{IdentPairDict, Identifier};
 use husky_term::Ty;
-use husky_word::{CustomIdentifier, IdentPairDict};
 use serde::Serialize;
 use std::borrow::Cow;
 
@@ -14,7 +14,7 @@ impl<'eval> DeprecatedVirtualStruct<'eval> {
     pub fn new_struct(
         ty: Ty,
         arguments: impl Iterator<Item = __Register<'eval>>,
-        field_liasons: &[CustomIdentifier],
+        field_liasons: &[Identifier],
     ) -> Self {
         let mut fields = IdentPairDict::<__Register<'eval>>::default();
         for (ident, argument) in std::iter::zip(field_liasons.iter(), arguments) {

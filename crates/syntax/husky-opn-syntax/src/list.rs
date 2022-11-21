@@ -11,9 +11,7 @@ pub enum ListOpr {
     Index,
     ModuloIndex,
     StructInit,
-    MethodCall {
-        ranged_ident: RangedCustomIdentifier
-    },
+    MethodCall { ranged_ident: RangedIdentifier },
 }
 
 impl Into<RawOpnVariant> for ListOpr {
@@ -26,9 +24,7 @@ impl Into<RawOpnVariant> for ListOpr {
 pub enum ListStartAttr {
     None,
     Attach,
-    MethodAttach {
-        ranged_ident: RangedCustomIdentifier,
-    },
+    MethodAttach { ranged_ident: RangedIdentifier },
 }
 
 impl ListStartAttr {

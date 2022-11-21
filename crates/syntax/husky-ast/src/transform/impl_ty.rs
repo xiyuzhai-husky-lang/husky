@@ -1,8 +1,8 @@
 use super::*;
 use crate::*;
 use husky_entity_kind::TyKind;
+use husky_identifier::*;
 use husky_token::*;
-use husky_word::*;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_ty_defn(

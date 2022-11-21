@@ -73,7 +73,7 @@ pub type TermPatternInferResult<T> = Result<T, TermPatternInferError>;
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalTermPatternInferError {
     #[error("ident `{ident}` not recognized")]
-    IdentUnrecognized { ident: Identifier },
+    IdentUnrecognized { ident: String },
     #[error("`{0}`")]
     TermError(#[from] TermError),
 }

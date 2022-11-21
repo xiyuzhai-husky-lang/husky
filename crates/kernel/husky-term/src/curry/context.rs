@@ -1,11 +1,7 @@
-use interner::{InternedRefWrapper, Interner};
+use crate::TermJar;
 
-#[derive(Debug, PartialEq, Eq, Hash)]
+#[salsa::interned(jar = TermJar)]
 pub struct TermCurryContext {
     function: (),
     idx: usize,
 }
-
-pub type TermCurryContextItd = InternedRefWrapper<TermCurryContext>;
-
-pub type TermCurryContextInterner = Interner<TermCurryContextItd>;

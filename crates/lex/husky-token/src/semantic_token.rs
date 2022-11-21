@@ -1,3 +1,4 @@
+use crate::*;
 use husky_entity_kind::{EntityKind, MemberKind};
 use husky_text::TextRange;
 
@@ -129,7 +130,6 @@ impl SemanticTokenKind {
     }
 }
 
-use husky_word::{Keyword, StmtKeyword};
 use lsp_types::{
     Range, SemanticToken, SemanticTokenModifier, SemanticTokenType, SemanticTokens,
     SemanticTokensEdit,

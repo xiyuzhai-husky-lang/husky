@@ -1,6 +1,6 @@
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
 use husky_expr_syntax::ExprIdx;
-use husky_word::Identifier;
+use husky_identifier::Identifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct UnresolvedTermIdx(usize);
@@ -13,7 +13,7 @@ pub struct UnresolvedTermRegistry {
 #[derive(PartialEq, Eq)]
 pub enum UnresolvedTerm {
     ImplicitArgument {
-        scope: EntityPathItd,
+        scope: EntityPath,
         param_ident: Identifier,
     },
     IntegerLiteral(ExprIdx),
@@ -28,11 +28,12 @@ impl std::fmt::Debug for UnresolvedTerm {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::ImplicitArgument { scope, param_ident } => {
-                write!(
-                    f,
-                    "ImplicitArgument {{ scope: {:?}, param_ident: \"{}\"}}",
-                    scope, param_ident
-                )
+                todo!()
+                // write!(
+                //     f,
+                //     "ImplicitArgument {{ scope: {:?}, param_ident: \"{}\"}}",
+                //     scope, param_ident
+                // )
             }
             Self::IntegerLiteral(arg0) => {
                 write!(f, "IntegerLiteral({:?})", arg0)
