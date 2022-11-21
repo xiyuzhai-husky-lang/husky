@@ -1,7 +1,7 @@
-use idx_arena::IdxArena;
+use idx_arena::Arena;
 
 pub struct TrackableIdxArena<E> {
-    inner: IdxArena<E>,
+    inner: Arena<E>,
     state: TrackableIdxArenaState,
 }
 

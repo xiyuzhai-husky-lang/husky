@@ -11,7 +11,7 @@ input
 output
 
 ```husky
-IdxArena {
+Arena {
     data: [
         Expr {
             variant: Atom(
@@ -39,7 +39,7 @@ input
 output
 
 ```husky
-IdxArena {
+Arena {
     data: [
         Expr {
             variant: Atom(
@@ -67,7 +67,7 @@ input
 output
 
 ```husky
-IdxArena {
+Arena {
     data: [
         Expr {
             variant: Atom(
@@ -95,7 +95,7 @@ input
 output
 
 ```husky
-IdxArena {
+Arena {
     data: [
         Expr {
             variant: Atom(
@@ -123,7 +123,7 @@ input
 output
 
 ```husky
-IdxArena {
+Arena {
     data: [
         Expr {
             variant: Atom(
@@ -151,7 +151,7 @@ input
 output
 
 ```husky
-IdxArena {
+Arena {
     data: [
         Expr {
             variant: Atom(
@@ -179,7 +179,7 @@ input
 output
 
 ```husky
-IdxArena {
+Arena {
     data: [
         Expr {
             variant: Atom(
@@ -207,7 +207,7 @@ input
 output
 
 ```husky
-IdxArena {
+Arena {
     data: [
         Expr {
             variant: Atom(

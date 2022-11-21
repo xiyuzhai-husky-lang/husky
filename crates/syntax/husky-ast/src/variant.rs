@@ -51,7 +51,7 @@ pub enum UseVariant {
     All { parent: Ty },
 }
 
-impl From<RawStmt> for Ast {
+impl From<RawStmt> for DeprecatedAst {
     fn from(stmt: RawStmt) -> Self {
         Self {
             range: stmt.range,

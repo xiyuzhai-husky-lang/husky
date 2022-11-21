@@ -6,7 +6,7 @@ impl EntityDefnVariant {
         _arena: &ExprArena,
         _file: PathItd,
         _ty_route: Ty,
-        _ast: &Ast,
+        _ast: &DeprecatedAst,
         _children: Option<AstIter>,
     ) -> SemanticResult<Self> {
         todo!()

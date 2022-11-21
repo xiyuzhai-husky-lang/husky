@@ -12,6 +12,8 @@ pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
 pub use context::*;
 pub use entrance::*;
 pub use field::*;
+use husky_token_storage::TokenIdxRange;
+use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 pub use query::{AstQueryGroup, AstQueryGroupStorage, AstSalsaQueryGroup, AstText};
 pub use stmt::*;
 pub use transform::*;
@@ -39,7 +41,24 @@ use std::sync::Arc;
 use timed_salsa::DbWithJar;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct Ast {
+pub struct DeprecatedAst {
     pub variant: DeprecatedAstVariant,
     pub range: TextRange,
 }
+
+pub struct Ast {
+    tokens: TokenIdxRange,
+    kind: AstKind,
+}
+
+pub enum AstKind {
+    Use,
+    Comment,
+    Stmt,
+    DefnHead,
+}
+
+pub type AstArena = Arena<Ast>;
+pub type AstIdx = ArenaIdx<Ast>;
+pub type AstIdxRange = ArenaIdxRange<Ast>;
+pub type AstMap<V> = ArenaMap<Ast, V>;

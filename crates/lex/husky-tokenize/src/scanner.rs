@@ -5,7 +5,7 @@ use husky_path::URange;
 use husky_text::TextIndent;
 use husky_token::*;
 use husky_token_line::TokenLine;
-use husky_token_storage::TokenRange;
+use husky_token_storage::TokenIdxRange;
 use husky_word::WordInterner;
 use std::{iter::Peekable, sync::Arc};
 
@@ -162,7 +162,7 @@ impl<'token> TokenLexer<'token> {
         let group_indent = first_line.indent;
         TokenLine {
             indent: group_indent,
-            tokens: TokenRange(
+            tokens: TokenIdxRange(
                 first_line.tokens.start..{
                     if self.last_token(first_line).kind == TokenKind::Special(SpecialToken::Colon) {
                         if let Some(line) = line_iter.peek() {

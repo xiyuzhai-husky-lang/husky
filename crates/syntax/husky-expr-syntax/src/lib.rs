@@ -82,11 +82,11 @@ impl From<AtomExpr> for ExprVariant {
     }
 }
 
-use idx_arena::{map::ArenaMap, ArenaIdx, ArenaRange, IdxArena};
+use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
-pub type ExprArena = IdxArena<Expr>;
+pub type ExprArena = Arena<Expr>;
 pub type ExprIdx = ArenaIdx<Expr>;
-pub type ExprRange = ArenaRange<Expr>;
+pub type ExprRange = ArenaIdxRange<Expr>;
 pub type ExprMap<V> = ArenaMap<Expr, V>;
 
 impl Expr {

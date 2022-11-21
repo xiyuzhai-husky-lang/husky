@@ -11,7 +11,7 @@ x
 output
 
 ```husky
-raw_expr_arena = IdxArena {
+raw_expr_arena = Arena {
     data: [
         Expr {
             variant: Atom(

@@ -9,15 +9,15 @@ use std::{
 };
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct IdxArena<T> {
+pub struct Arena<T> {
     data: Vec<T>,
 }
 
-impl<T> IdxArena<T> {
+impl<T> Arena<T> {
     pub fn new() -> Self {
         Self { data: Vec::new() }
     }
-    pub fn alloc(&mut self, item: Vec<T>) -> ArenaRange<T> {
+    pub fn alloc(&mut self, item: Vec<T>) -> ArenaIdxRange<T> {
         let start = ArenaIdx::new(self.data.len());
         self.data.extend(item);
         let end = ArenaIdx::new(self.data.len());
@@ -51,11 +51,11 @@ impl<T> IdxArena<T> {
     }
 }
 
-pub fn len<T>(range: &ArenaRange<T>) -> usize {
+pub fn len<T>(range: &ArenaIdxRange<T>) -> usize {
     range.end.raw - range.start.raw
 }
 
-pub type ArenaRange<T> = core::ops::Range<ArenaIdx<T>>;
+pub type ArenaIdxRange<T> = core::ops::Range<ArenaIdx<T>>;
 
 #[derive(PartialEq, Eq)]
 pub struct ArenaIdx<T> {
@@ -234,7 +234,7 @@ impl<T> ArenaIdx<T> {
     }
 }
 
-impl<T> core::ops::Index<ArenaIdx<T>> for IdxArena<T> {
+impl<T> core::ops::Index<ArenaIdx<T>> for Arena<T> {
     type Output = T;
 
     fn index(&self, idx: ArenaIdx<T>) -> &Self::Output {
@@ -250,7 +250,7 @@ impl<T> core::ops::Index<ArenaIdx<T>> for Vec<T> {
     }
 }
 
-impl<T> core::ops::Index<&ArenaIdx<T>> for IdxArena<T> {
+impl<T> core::ops::Index<&ArenaIdx<T>> for Arena<T> {
     type Output = T;
 
     fn index(&self, idx: &ArenaIdx<T>) -> &Self::Output {
@@ -258,18 +258,18 @@ impl<T> core::ops::Index<&ArenaIdx<T>> for IdxArena<T> {
     }
 }
 
-impl<T> core::ops::Index<ArenaRange<T>> for IdxArena<T> {
+impl<T> core::ops::Index<ArenaIdxRange<T>> for Arena<T> {
     type Output = [T];
 
-    fn index(&self, idx: ArenaRange<T>) -> &Self::Output {
+    fn index(&self, idx: ArenaIdxRange<T>) -> &Self::Output {
         &self.data[idx.start.raw..idx.end.raw]
     }
 }
 
-impl<T> core::ops::Index<&ArenaRange<T>> for IdxArena<T> {
+impl<T> core::ops::Index<&ArenaIdxRange<T>> for Arena<T> {
     type Output = [T];
 
-    fn index(&self, idx: &ArenaRange<T>) -> &Self::Output {
+    fn index(&self, idx: &ArenaIdxRange<T>) -> &Self::Output {
         &self.data[idx.start.raw..idx.end.raw]
     }
 }

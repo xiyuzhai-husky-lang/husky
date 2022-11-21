@@ -25,7 +25,7 @@ use husky_token::*;
 use husky_token_text::TokenizedText;
 use husky_word::Keyword;
 
-pub type AstIter<'a> = FoldableIter<'a, FoldableList<AstResult<Ast>>>;
+pub type AstIter<'a> = FoldableIter<'a, FoldableList<AstResult<DeprecatedAst>>>;
 
 pub struct AstTransformer<'a> {
     db: &'a dyn AstSalsaQueryGroup,
@@ -36,7 +36,7 @@ pub struct AstTransformer<'a> {
     context: LocalValue<AstContext>,
     opt_base_ty: LocalValue<Option<Ty>>,
     opt_this_liason: LocalValue<Option<ParameterModifier>>,
-    pub(crate) folded_results: FoldableList<AstResult<Ast>>,
+    pub(crate) folded_results: FoldableList<AstResult<DeprecatedAst>>,
     abs_semantic_tokens: Vec<AbsSemanticToken>,
     tokenized_text: Arc<TokenizedText>,
     infer_roots: Vec<AstEntrance>,
@@ -107,7 +107,7 @@ impl<'a> AstTransformer<'a> {
 impl<'a> fold::Transformer for AstTransformer<'a> {
     type Input = [Token];
     type InputStorage = TokenizedText;
-    type Output = AstResult<Ast>;
+    type Output = AstResult<DeprecatedAst>;
 
     fn _enter_block(&mut self) {
         todo!()
@@ -130,7 +130,7 @@ impl<'a> fold::Transformer for AstTransformer<'a> {
         _indent: fold::Indent,
         token_group: &[Token],
         enter_block: impl FnOnce(&mut Self),
-    ) -> AstResult<Ast> {
+    ) -> AstResult<DeprecatedAst> {
         todo!()
         // let variant = match self.context() {
         //     AstContext::Package(_) | AstContext::Module { .. } => {
@@ -159,7 +159,7 @@ impl<'a> fold::Transformer for AstTransformer<'a> {
         // })
     }
 
-    fn foldable_outputs_mut(&mut self) -> &mut FoldableList<AstResult<Ast>> {
+    fn foldable_outputs_mut(&mut self) -> &mut FoldableList<AstResult<DeprecatedAst>> {
         &mut self.folded_results
     }
 
@@ -167,7 +167,7 @@ impl<'a> fold::Transformer for AstTransformer<'a> {
         &self.tokenized_text
     }
 
-    fn misplaced(&self) -> AstResult<Ast> {
+    fn misplaced(&self) -> AstResult<DeprecatedAst> {
         derived_err!()
     }
 }
