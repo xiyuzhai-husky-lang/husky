@@ -6,7 +6,7 @@ use husky_term::TermItd;
 use husky_word::{Identifier, InternWord};
 
 pub(crate) enum NormalizedExpr<'a> {
-    Atom(&'a RawAtomExpr),
+    Atom(&'a AtomExpr),
     Opn {
         opn_kind: NormalizedOpnKind,
         opds: ExprRange,
@@ -26,8 +26,8 @@ pub struct TraitEntity(TermItd);
 impl<'a> InferContext<'a> {
     pub(crate) fn normalized_expr(&self) -> NormalizedExpr<'a> {
         match self.expr().variant {
-            RawExprVariant::Atom(ref atom) => NormalizedExpr::Atom(atom),
-            RawExprVariant::Opn {
+            ExprVariant::Atom(ref atom) => NormalizedExpr::Atom(atom),
+            ExprVariant::Opn {
                 ref opn_variant,
                 ref opds,
             } => match opn_variant {

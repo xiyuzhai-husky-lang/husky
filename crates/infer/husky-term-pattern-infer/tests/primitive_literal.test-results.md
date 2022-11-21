@@ -13,7 +13,7 @@ output
 ```husky
 raw_expr_arena = IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Integer(
@@ -81,7 +81,7 @@ output
 ```husky
 raw_expr_arena = IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     I32(
@@ -142,7 +142,7 @@ output
 ```husky
 raw_expr_arena = IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     I64(
@@ -203,7 +203,7 @@ output
 ```husky
 raw_expr_arena = IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Float(

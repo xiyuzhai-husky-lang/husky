@@ -13,7 +13,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Symbol(
                     Symbol {
@@ -46,7 +46,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Symbol(
                     Symbol {
@@ -79,7 +79,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Symbol(
                     Symbol {

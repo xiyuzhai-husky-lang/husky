@@ -13,7 +13,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Symbol(
                     Symbol {
@@ -29,7 +29,7 @@ IdxArena {
             range: [1:1, 1:2),
             base_scope_result: Uncertain,
         },
-        RawExpr {
+        Expr {
             variant: Opn {
                 opn_variant: Suffix(
                     Incr,
@@ -56,7 +56,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Symbol(
                     Symbol {
@@ -72,7 +72,7 @@ IdxArena {
             range: [1:1, 1:2),
             base_scope_result: Uncertain,
         },
-        RawExpr {
+        Expr {
             variant: Opn {
                 opn_variant: Suffix(
                     Decr,

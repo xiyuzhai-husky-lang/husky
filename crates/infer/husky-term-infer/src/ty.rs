@@ -1,5 +1,5 @@
 use crate::*;
-use husky_expr_syntax::{ExprIdx, ExprRange, RawAtomExpr};
+use husky_expr_syntax::{AtomExpr, ExprIdx, ExprRange};
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_print_utils::p;
 use husky_symbol_syntax::SymbolKind;
@@ -17,10 +17,10 @@ impl<'a> InferContext<'a> {
         self.subexpr_context(subexpr).infer()
     }
 
-    fn infer_atom(&self, atom: &RawAtomExpr) -> TermInferResult<Ty> {
+    fn infer_atom(&self, atom: &AtomExpr) -> TermInferResult<Ty> {
         match atom {
-            RawAtomExpr::Literal(literal) => Ok(self.infer_literal(literal)),
-            RawAtomExpr::Symbol(symbol) => match symbol.kind {
+            AtomExpr::Literal(literal) => Ok(self.infer_literal(literal)),
+            AtomExpr::Symbol(symbol) => match symbol.kind {
                 SymbolKind::EntityPath(_) => todo!(),
                 SymbolKind::LocalVariable { init_range } => todo!(),
                 SymbolKind::FrameVariable { init_range } => todo!(),
@@ -29,7 +29,7 @@ impl<'a> InferContext<'a> {
                 SymbolKind::ThisMethod => todo!(),
                 SymbolKind::ThisField => todo!(),
             },
-            RawAtomExpr::Uncertain => todo!(),
+            AtomExpr::Uncertain => todo!(),
         }
     }
 

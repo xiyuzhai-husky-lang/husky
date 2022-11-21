@@ -3,7 +3,7 @@ mod error;
 pub use error::*;
 
 use crate::*;
-use husky_expr_syntax::{ExprIdx, RawAtomExpr, RawExprVariant};
+use husky_expr_syntax::{AtomExpr, ExprIdx, ExprVariant};
 use husky_symbol_syntax::SymbolKind;
 use husky_term::TermItd;
 use wild_utils::arb_ref;
@@ -29,9 +29,9 @@ impl<'a> InferContext<'a> {
     fn infer_term(&mut self) -> TermInferResult<TermItd> {
         let expr = self.expr();
         match expr.variant {
-            RawExprVariant::Atom(ref atom) => match atom {
-                RawAtomExpr::Literal(_) => todo!(),
-                RawAtomExpr::Symbol(symbol) => match symbol.kind {
+            ExprVariant::Atom(ref atom) => match atom {
+                AtomExpr::Literal(_) => todo!(),
+                AtomExpr::Symbol(symbol) => match symbol.kind {
                     SymbolKind::EntityPath(path) => self.entity_path_term(path),
                     SymbolKind::LocalVariable { init_range } => todo!(),
                     SymbolKind::FrameVariable { init_range } => todo!(),
@@ -43,9 +43,9 @@ impl<'a> InferContext<'a> {
                     SymbolKind::ThisMethod => todo!(),
                     SymbolKind::ThisField => todo!(),
                 },
-                RawAtomExpr::Uncertain => todo!(),
+                AtomExpr::Uncertain => todo!(),
             },
-            RawExprVariant::Opn {
+            ExprVariant::Opn {
                 ref opn_variant,
                 ref opds,
             } => todo!(),
