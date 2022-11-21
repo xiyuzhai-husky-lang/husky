@@ -13,7 +13,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Integer(
@@ -41,7 +41,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Integer(
@@ -69,7 +69,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Integer(
@@ -97,7 +97,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     I32(
@@ -125,7 +125,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     I64(
@@ -153,7 +153,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     B32(
@@ -181,7 +181,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     B64(
@@ -209,7 +209,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Float(

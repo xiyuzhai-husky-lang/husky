@@ -60,7 +60,7 @@ impl<'a> Automata<'a> {
                             BaseScopeResult::None => todo!(),
                             BaseScopeResult::Some(_) => todo!(),
                             BaseScopeResult::Uncertain => {
-                                return ResolvedTokenKind::Atom(RawAtomExpr::Uncertain)
+                                return ResolvedTokenKind::Atom(AtomExpr::Uncertain)
                             }
                         }
                     } else {
@@ -79,12 +79,12 @@ impl<'a> Automata<'a> {
 
     fn resolve_entity(&self, expr: &Expr) -> TermItd {
         match expr.variant {
-            RawExprVariant::Atom(ref atom) => match atom {
-                RawAtomExpr::Literal(_) => todo!(),
-                RawAtomExpr::Symbol(_) => todo!(),
-                RawAtomExpr::Uncertain => todo!(),
+            ExprVariant::Atom(ref atom) => match atom {
+                AtomExpr::Literal(_) => todo!(),
+                AtomExpr::Symbol(_) => todo!(),
+                AtomExpr::Uncertain => todo!(),
             },
-            RawExprVariant::Opn {
+            ExprVariant::Opn {
                 ref opn_variant,
                 ref opds,
             } => match opn_variant {
@@ -130,7 +130,7 @@ impl ResolvedToken {
 
 #[derive(Clone)]
 pub(crate) enum ResolvedTokenKind {
-    Atom(RawAtomExpr),
+    Atom(AtomExpr),
     BinaryOpr(BinaryOpr),
     Prefix(PrefixOpr),
     Suffix(RawSuffixOpr),

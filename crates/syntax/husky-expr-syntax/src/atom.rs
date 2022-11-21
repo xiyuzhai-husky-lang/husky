@@ -3,20 +3,20 @@ use husky_symbol_syntax::Symbol;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum RawAtomExpr {
+pub enum AtomExpr {
     Literal(RawLiteralData),
     Symbol(Symbol),
     Uncertain,
 }
 
-impl From<RawLiteralData> for RawAtomExpr {
+impl From<RawLiteralData> for AtomExpr {
     fn from(value: RawLiteralData) -> Self {
-        RawAtomExpr::Literal(value)
+        AtomExpr::Literal(value)
     }
 }
 
-impl From<Symbol> for RawAtomExpr {
+impl From<Symbol> for AtomExpr {
     fn from(symbol: Symbol) -> Self {
-        RawAtomExpr::Symbol(symbol)
+        AtomExpr::Symbol(symbol)
     }
 }

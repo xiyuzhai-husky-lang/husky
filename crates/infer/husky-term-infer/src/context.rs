@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_path::EntityPathItd;
-use husky_expr_syntax::{Expr, ExprArena, ExprIdx, RawExprVariant};
+use husky_expr_syntax::{Expr, ExprArena, ExprIdx, ExprVariant};
 use husky_term::{Term, TermAtom, TermContext, TermItd, TermMenu, Ty};
 use husky_word::InternWord;
 

@@ -8,8 +8,8 @@ pub struct FormDefn {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum FormDefnKind {
-    Function(EagerParadigm),
-    Method(EagerParadigm),
+    Function(PhyParadigm),
+    Method(PhyParadigm),
     Feature(Paradigm),
     TrackedFunction(Paradigm),
     Morphism,
@@ -17,12 +17,13 @@ pub enum FormDefnKind {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Paradigm {
-    Eager(EagerParadigm),
+    Phy(PhyParadigm),
     Def,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EagerParadigm {
+pub enum PhyParadigm {
     Func,
     Proc,
+    Fn,
 }

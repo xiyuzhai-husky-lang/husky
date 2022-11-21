@@ -13,7 +13,7 @@ output
 ```husky
 raw_expr_arena = IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Integer(
@@ -24,7 +24,7 @@ raw_expr_arena = IdxArena {
             range: [1:1, 1:2),
             base_scope_result: None,
         },
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Integer(
@@ -35,7 +35,7 @@ raw_expr_arena = IdxArena {
             range: [1:5, 1:6),
             base_scope_result: None,
         },
-        RawExpr {
+        Expr {
             variant: Opn {
                 opn_variant: Binary(
                     PureClosed(
@@ -143,7 +143,7 @@ output
 ```husky
 raw_expr_arena = IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     I32(
@@ -154,7 +154,7 @@ raw_expr_arena = IdxArena {
             range: [1:1, 1:5),
             base_scope_result: None,
         },
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Integer(
@@ -165,7 +165,7 @@ raw_expr_arena = IdxArena {
             range: [1:8, 1:9),
             base_scope_result: None,
         },
-        RawExpr {
+        Expr {
             variant: Opn {
                 opn_variant: Binary(
                     PureClosed(
@@ -265,7 +265,7 @@ output
 ```husky
 raw_expr_arena = IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Float(
@@ -278,7 +278,7 @@ raw_expr_arena = IdxArena {
             range: [1:1, 1:3),
             base_scope_result: None,
         },
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Integer(
@@ -289,7 +289,7 @@ raw_expr_arena = IdxArena {
             range: [1:6, 1:7),
             base_scope_result: None,
         },
-        RawExpr {
+        Expr {
             variant: Opn {
                 opn_variant: Binary(
                     PureClosed(

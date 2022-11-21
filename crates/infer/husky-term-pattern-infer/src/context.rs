@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_path::EntityPathItd;
-use husky_expr_syntax::{Expr, ExprArena, ExprIdx, RawExprVariant};
+use husky_expr_syntax::{Expr, ExprArena, ExprIdx, ExprVariant};
 use husky_term::{TermContext, TermItd, TermMenu};
 use husky_term_pattern::TermPatternItd;
 use husky_word::InternWord;
@@ -48,8 +48,8 @@ impl<'a> TermPatternInferContext<'a> {
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         match self.expr().variant {
-            RawExprVariant::Atom(ref atom) => self.infer_atom(atom, sheet),
-            RawExprVariant::Opn {
+            ExprVariant::Atom(ref atom) => self.infer_atom(atom, sheet),
+            ExprVariant::Opn {
                 ref opn_variant,
                 ref opds,
             } => self.infer_opn_ty(opn_variant, opds, sheet),
@@ -58,12 +58,12 @@ impl<'a> TermPatternInferContext<'a> {
 
     fn infer_atom(
         &self,
-        atom: &RawAtomExpr,
+        atom: &AtomExpr,
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         match atom {
-            RawAtomExpr::Literal(literal) => self.infer_literal(*literal, sheet),
-            RawAtomExpr::Symbol(symbol) => match symbol.kind {
+            AtomExpr::Literal(literal) => self.infer_literal(*literal, sheet),
+            AtomExpr::Symbol(symbol) => match symbol.kind {
                 SymbolKind::EntityPath(_) => todo!(),
                 SymbolKind::LocalVariable { init_range } => ExprTermPatternInferRawResults {
                     const_expr: Ok(None),
@@ -89,7 +89,7 @@ impl<'a> TermPatternInferContext<'a> {
                 SymbolKind::ThisMethod => todo!(),
                 SymbolKind::ThisField => todo!(),
             },
-            RawAtomExpr::Uncertain => todo!(),
+            AtomExpr::Uncertain => todo!(),
         }
     }
 
@@ -195,8 +195,8 @@ impl<'a> TermPatternInferContext<'a> {
 
     fn subexprs(&self) -> Option<ExprRange> {
         match self.expr().variant {
-            RawExprVariant::Atom(_) => None,
-            RawExprVariant::Opn { ref opds, .. } => Some(opds.clone()),
+            ExprVariant::Atom(_) => None,
+            ExprVariant::Opn { ref opds, .. } => Some(opds.clone()),
         }
     }
 

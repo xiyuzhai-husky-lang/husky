@@ -13,7 +13,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Integer(
@@ -24,7 +24,7 @@ IdxArena {
             range: [1:1, 1:2),
             base_scope_result: None,
         },
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Integer(
@@ -35,7 +35,7 @@ IdxArena {
             range: [1:5, 1:6),
             base_scope_result: None,
         },
-        RawExpr {
+        Expr {
             variant: Opn {
                 opn_variant: Binary(
                     PureClosed(
@@ -64,7 +64,7 @@ output
 ```husky
 IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Integer(
@@ -75,7 +75,7 @@ IdxArena {
             range: [1:1, 1:2),
             base_scope_result: None,
         },
-        RawExpr {
+        Expr {
             variant: Atom(
                 Literal(
                     Integer(
@@ -86,7 +86,7 @@ IdxArena {
             range: [1:5, 1:6),
             base_scope_result: None,
         },
-        RawExpr {
+        Expr {
             variant: Opn {
                 opn_variant: Binary(
                     PureClosed(

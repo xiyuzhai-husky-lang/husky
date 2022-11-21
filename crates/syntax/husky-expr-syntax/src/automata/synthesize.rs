@@ -93,7 +93,7 @@ impl<'a> Automata<'a> {
         let _len = self.stack.number_of_exprs();
         let opds = self.arena.alloc(self.stack.drain_exprs(n_opds).into());
         self.stack.push_expr(Expr::new(
-            RawExprVariant::Opn { opn_variant, opds },
+            ExprVariant::Opn { opn_variant, opds },
             range,
             self.arena,
         ));

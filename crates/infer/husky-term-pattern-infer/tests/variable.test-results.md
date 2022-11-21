@@ -13,7 +13,7 @@ output
 ```husky
 raw_expr_arena = IdxArena {
     data: [
-        RawExpr {
+        Expr {
             variant: Atom(
                 Symbol(
                     Symbol {
