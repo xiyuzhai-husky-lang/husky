@@ -13,12 +13,6 @@ impl InternPath for DevRuntime {
 
 impl InternHuskyPath for DevRuntime {}
 
-impl InternWord for DevRuntime {
-    fn word_itr(&self) -> &husky_word::WordInterner {
-        &self.word_interner
-    }
-}
-
 impl VfsQueryGroupBase for DevRuntime {
     fn get_live_files(
         &self,
@@ -36,15 +30,16 @@ impl FileQueryGroup for DevRuntime {}
 impl ResolveStaticRootDefn for DevRuntime {
     fn __root_defn_resolver(
         &self,
-    ) -> fn(ident: husky_word::RootBuiltinIdentifier) -> &'static husky_static_defn::EntityStaticDefn
-    {
+    ) -> fn(
+        ident: husky_identifier::RootBuiltinIdentifier,
+    ) -> &'static husky_static_defn::EntityStaticDefn {
         self.config.comptime.__resolve_root_defn
     }
 }
 
-impl EntitySyntaxQueryGroup for DevRuntime {}
+impl EntityTreeDb for DevRuntime {}
 
-impl AstQueryGroup for DevRuntime {}
+impl AstDb for DevRuntime {}
 
 impl Upcast<dyn husky_entity_semantics::EntityDefnQueryGroup> for DevRuntime {
     fn upcast(&self) -> &(dyn husky_entity_semantics::EntityDefnQueryGroup + 'static) {
@@ -52,14 +47,14 @@ impl Upcast<dyn husky_entity_semantics::EntityDefnQueryGroup> for DevRuntime {
     }
 }
 
-impl Upcast<dyn husky_entity_syntax::EntitySyntaxSalsaQueryGroup> for DevRuntime {
-    fn upcast(&self) -> &(dyn husky_entity_syntax::EntitySyntaxSalsaQueryGroup + 'static) {
+impl Upcast<dyn husky_entity_tree::EntityTreeDb> for DevRuntime {
+    fn upcast(&self) -> &(dyn husky_entity_tree::EntityTreeDb + 'static) {
         self
     }
 }
 
-impl Upcast<dyn husky_entity_syntax::EntitySyntaxQueryGroup> for DevRuntime {
-    fn upcast(&self) -> &(dyn husky_entity_syntax::EntitySyntaxQueryGroup + 'static) {
+impl Upcast<dyn husky_entity_tree::EntityTreeDb> for DevRuntime {
+    fn upcast(&self) -> &(dyn husky_entity_tree::EntityTreeDb + 'static) {
         self
     }
 }

@@ -4,7 +4,7 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 # abstraction
@@ -19,16 +19,10 @@ husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
-husky-word = { path = "../../kernel/husky-word" }
+husky-identifier = { path = "../../kernel/husky-identifier" }
 # runtime
 husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
-# semantics
-husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
-husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-# stacic
-husky-static-visualizer = { path = "../../static/husky-static-visualizer" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }

@@ -1,5 +1,5 @@
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
-use husky_path::{InternHuskyPath, PathItd};
+use husky_source_path::SourcePath;
 #[cfg(feature = "lsp_support")]
 use lsp_types::TextDocumentPositionParams;
 use serde::{Deserialize, Serialize};
@@ -17,12 +17,12 @@ pub struct TextPosition {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct FilePosition {
-    file: PathItd,
+    file: SourcePath,
     pos: TextPosition,
 }
 
 impl FilePosition {
-    pub fn file(&self) -> PathItd {
+    pub fn file(&self) -> SourcePath {
         self.file
     }
 
@@ -41,14 +41,14 @@ impl From<lsp_types::Position> for TextPosition {
     }
 }
 
-#[cfg(feature = "lsp_support")]
-impl FilePosition {
-    pub fn from_proto(db: &dyn InternHuskyPath, doc_pos: &TextDocumentPositionParams) -> Self {
-        let file = db.it_url(&doc_pos.text_document.uri).expect("todo");
-        let pos: TextPosition = doc_pos.position.into();
-        Self { file, pos }
-    }
-}
+// #[cfg(feature = "lsp_support")]
+// impl FilePosition {
+//     pub fn from_proto(db: &dyn InternHuskyPath, doc_pos: &TextDocumentPositionParams) -> Self {
+//         let file = db.it_url(&doc_pos.text_document.uri).expect("todo");
+//         let pos: TextPosition = doc_pos.position.into();
+//         Self { file, pos }
+//     }
+// }
 
 impl HuskyDisplay for TextPosition {
     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {

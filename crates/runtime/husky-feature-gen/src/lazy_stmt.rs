@@ -46,7 +46,7 @@ impl PartialEq for FeatureLazyStmt {
 
 impl Eq for FeatureLazyStmt {}
 
-impl husky_text::TextRanged for FeatureLazyStmt {
+impl husky_text::HasTextRange for FeatureLazyStmt {
     fn text_range(&self) -> husky_text::TextRange {
         self.range
     }

@@ -4,12 +4,12 @@ mod bind_into;
 pub use bind_from::*;
 pub use bind_into::*;
 use husky_display_utils::HuskyDisplay;
-use husky_path::PathItd;
+use husky_identifier::Identifier;
+use husky_source_path::SourcePath;
 
 use crate::*;
 use husky_dev_utils::__StaticDevSource;
 use husky_print_utils::*;
-use husky_word::CustomIdentifier;
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 
@@ -37,12 +37,12 @@ impl TextRange {
 
 #[derive(Debug)]
 pub struct FileRange {
-    file: PathItd,
+    file: SourcePath,
     range: TextRange,
 }
 
 impl FileRange {
-    pub fn file(&self) -> PathItd {
+    pub fn file(&self) -> SourcePath {
         self.file
     }
 
@@ -51,37 +51,37 @@ impl FileRange {
     }
 }
 
-impl TextRanged for FileRange {
+impl HasTextRange for FileRange {
     fn text_range(&self) -> TextRange {
         self.range
     }
 }
 
-pub trait FileRanged: TextRanged {
-    fn file(&self) -> PathItd;
+pub trait HasSourceRange: HasTextRange {
+    fn source(&self) -> SourcePath;
 
-    fn src(&self) -> FileRange {
+    fn source_range(&self) -> FileRange {
         FileRange {
-            file: self.file(),
+            file: self.source(),
             range: self.text_range(),
         }
     }
 }
 
-impl<S: Deref<Target = T>, T: TextRanged> TextRanged for S {
+impl<S: Deref<Target = T>, T: HasTextRange> HasTextRange for S {
     fn text_range(&self) -> TextRange {
         self.deref().text_range()
     }
 }
 
-impl<S: Deref<Target = T>, T: FileRanged> FileRanged for S {
-    fn file(&self) -> PathItd {
-        self.deref().file()
+impl<S: Deref<Target = T>, T: HasSourceRange> HasSourceRange for S {
+    fn source(&self) -> SourcePath {
+        self.deref().source()
     }
 }
 
 impl FileRange {
-    pub fn new(file: PathItd, range: TextRange) -> Self {
+    pub fn new(file: SourcePath, range: TextRange) -> Self {
         Self { file, range }
     }
 }
@@ -95,16 +95,6 @@ impl std::fmt::Display for TextRange {
 impl std::fmt::Debug for TextRange {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("[{}, {})", self.start, self.end))
-    }
-}
-
-impl std::fmt::Display for FileRange {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!(
-            "{}:{}",
-            self.file.as_os_str().to_str().unwrap(),
-            self.range
-        ))
     }
 }
 
@@ -167,7 +157,7 @@ impl Into<lsp_types::Range> for TextRange {
     }
 }
 
-pub trait TextRanged {
+pub trait HasTextRange {
     fn text_range(&self) -> TextRange;
 
     fn text_start(&self) -> TextPosition {
@@ -177,7 +167,7 @@ pub trait TextRanged {
         self.text_range().end
     }
 
-    fn text_range_to(&self, other: &dyn TextRanged) -> TextRange {
+    fn text_range_to(&self, other: &dyn HasTextRange) -> TextRange {
         (self.text_end()..(other.text_range().end)).into()
     }
 
@@ -190,7 +180,7 @@ pub trait TextRanged {
     }
 }
 
-impl TextRanged for TextRange {
+impl HasTextRange for TextRange {
     fn text_range(&self) -> TextRange {
         *self
     }
@@ -203,7 +193,7 @@ pub fn new_same_line(i: usize, start: usize, end: usize) -> TextRange {
     }
 }
 
-impl<T: TextRanged> TextRanged for [T] {
+impl<T: HasTextRange> HasTextRange for [T] {
     fn text_range(&self) -> TextRange {
         if self.len() > 0 {
             ((self[0].text_range().start)..(self.last().unwrap().text_range().end)).into()
@@ -214,12 +204,12 @@ impl<T: TextRanged> TextRanged for [T] {
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
-pub struct RangedCustomIdentifier {
-    pub ident: CustomIdentifier,
+pub struct RangedIdentifier {
+    pub ident: Identifier,
     pub range: TextRange,
 }
 
-impl TextRanged for RangedCustomIdentifier {
+impl HasTextRange for RangedIdentifier {
     fn text_range(&self) -> TextRange {
         self.range
     }

@@ -14,23 +14,22 @@
 // mod impl_xml;
 
 use crate::{
-    query::{AstSalsaQueryGroup, AstText},
+    query::{AstDb, AstText},
     *,
 };
 use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};
-use husky_entity_syntax::EntitySyntaxResult;
-use husky_path::PathItd;
-use husky_text::TextRanged;
+use husky_entity_tree::EntityTreeResult;
+use husky_source_path::SourcePath;
+use husky_text::HasTextRange;
 use husky_token::*;
 use husky_token_text::TokenizedText;
-use husky_word::Keyword;
 
 pub type AstIter<'a> = FoldableIter<'a, FoldableList<AstResult<DeprecatedAst>>>;
 
 pub struct AstTransformer<'a> {
-    db: &'a dyn AstSalsaQueryGroup,
-    main: PathItd,
-    file: PathItd,
+    db: &'a dyn AstDb,
+    main: SourcePath,
+    file: SourcePath,
     arena: ExprArena,
     // symbols: LocalStack<Symbol>,
     context: LocalValue<AstContext>,
@@ -43,7 +42,7 @@ pub struct AstTransformer<'a> {
 }
 
 impl<'a> AstTransformer<'a> {
-    pub(crate) fn new(db: &'a dyn AstSalsaQueryGroup, module: Ty) -> EntitySyntaxResult<Self> {
+    pub(crate) fn new(db: &'a dyn AstDb, module: Ty) -> EntityTreeResult<Self> {
         todo!()
         // let module_file = db.module_file(module)?;
         // return Ok(Self {
@@ -65,7 +64,7 @@ impl<'a> AstTransformer<'a> {
         //     infer_roots: vec![],
         // });
 
-        // fn module_symbols(db: &dyn AstSalsaQueryGroup, module: Ty) -> LocalStack<Symbol> {
+        // fn module_symbols(db: &dyn AstDb, module: Ty) -> LocalStack<Symbol> {
         //     let mut symbols = LocalStack::new();
         //     let subroute_table = db.subroute_table(module).unwrap();
         //     for entry in subroute_table.entries.iter() {
@@ -89,14 +88,15 @@ impl<'a> AstTransformer<'a> {
     }
 
     pub(crate) fn finish(self) -> AstText {
-        AstText {
-            file: self.file,
-            arena: self.arena,
-            folded_results: self.folded_results,
-            semantic_tokens: self.abs_semantic_tokens,
-            text: self.db.text(self.file).unwrap(),
-            infer_roots: self.infer_roots,
-        }
+        todo!()
+        // AstText {
+        //     file: self.file,
+        //     arena: self.arena,
+        //     folded_results: self.folded_results,
+        //     semantic_tokens: self.abs_semantic_tokens,
+        //     text: self.db.text(self.file).unwrap(),
+        //     infer_roots: self.infer_roots,
+        // }
     }
 
     fn context(&self) -> AstContext {

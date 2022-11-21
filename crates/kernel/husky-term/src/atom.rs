@@ -6,7 +6,7 @@ mod variable;
 
 pub use category::*;
 pub use entity::*;
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
 pub use literal::*;
 pub use universe::*;
 pub use variable::*;
@@ -22,15 +22,15 @@ pub enum TermAtom {
         variable_variant: TermVariableVariant,
     },
     Entity {
-        path: EntityPathItd,
+        path: EntityPath,
     },
     Category(TermCategory),
     Universe(TermUniverse),
 }
 
-impl Into<Term> for TermAtom {
-    fn into(self) -> Term {
-        Term::Atom(self)
+impl Into<TermData> for TermAtom {
+    fn into(self) -> TermData {
+        TermData::Atom(self)
     }
 }
 
@@ -57,23 +57,23 @@ impl TermAtom {
         todo!()
         // if let Some(ty_itd) = self.ty_itd {
         //     match ty_itd.term().deref() {
-        //         Term::Application(app) => match app.m().deref() {
-        //             Term::Atom(m) => match m.variant() {
+        //         TermData::Application(app) => match app.m().deref() {
+        //             TermData::Atom(m) => match m.variant() {
         //                 TermAtom::Literal(_) => todo!(),
         //                 TermAtom::Variable { variable_variant } => todo!(),
         //                 TermAtom::Entity { path } => todo!(),
         //                 TermAtom::Category(category_kind) => match category_kind {
         //                     TermCategory::Type => todo!(),
         //                     TermCategory::Sort => return app.n().as_universe().unwrap(),
-        //                     TermCategory::Term => todo!(),
+        //                     TermCategory::TermData => todo!(),
         //                 },
         //                 TermAtom::Universe(_) => todo!(),
         //             },
-        //             Term::Curry(_) => todo!(),
-        //             Term::Abstraction(_) => todo!(),
-        //             Term::Application(_) => todo!(),
-        //             Term::Subentity(_) => todo!(),
-        //             Term::TraitImpl(_) => todo!(),
+        //             TermData::Curry(_) => todo!(),
+        //             TermData::Abstraction(_) => todo!(),
+        //             TermData::Application(_) => todo!(),
+        //             TermData::Subentity(_) => todo!(),
+        //             TermData::TraitImpl(_) => todo!(),
         //         },
         //         _ => (),
         //     }
@@ -105,8 +105,9 @@ impl TermAtom {
 }
 
 impl<'a> TermContext<'a> {
-    pub fn entity_path_term(&self, path: EntityPathItd) -> TermResult<TermItd> {
-        Ok(self.it_term(TermAtom::Entity { path }.into()))
+    pub fn entity_path_term(&self, path: EntityPath) -> TermResult<Term> {
+        todo!()
+        // Ok(self.it_term(TermAtom::Entity { path }.into()))
     }
 }
 

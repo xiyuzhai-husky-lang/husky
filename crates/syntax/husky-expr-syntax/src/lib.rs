@@ -12,7 +12,7 @@ mod variable;
 pub use atom::*;
 pub use automata::*;
 pub use error::*;
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
 
 pub use variable::*;
 
@@ -21,7 +21,7 @@ use husky_primitive_literal_syntax::RawLiteralData;
 use husky_symbol_syntax::SymbolKind;
 use husky_text::*;
 
-use husky_word::*;
+use husky_identifier::*;
 use precedence::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -34,11 +34,11 @@ pub struct Expr {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BaseScopeResult {
     None,
-    Some(EntityPathItd),
+    Some(EntityPath),
     Uncertain,
 }
 
-impl TextRanged for Expr {
+impl HasTextRange for Expr {
     fn text_range(&self) -> TextRange {
         self.range
     }

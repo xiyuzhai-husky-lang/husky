@@ -7,13 +7,13 @@ use notify_debouncer_mini::{
     DebounceEventResult, DebouncedEvent, Debouncer,
 };
 use place::SingleAssignPlace;
+use salsa::{ParallelDatabase, Snapshot};
 use std::{
     marker::PhantomData,
     sync::{Arc, Mutex},
     thread,
     time::Duration,
 };
-use timed_salsa::{ParallelDatabase, Snapshot};
 
 pub trait HasWatcherPlace {
     fn watcher_place_mut(&mut self) -> &mut SingleAssignPlace<VfsWatcher>;

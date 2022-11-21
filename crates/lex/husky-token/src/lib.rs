@@ -1,31 +1,30 @@
 mod convexity;
+mod decorator;
+mod keyword;
 mod kind;
 mod semantic_token;
 mod special;
 #[cfg(test)]
 mod tests;
 mod utils;
+mod wordopr;
 
 pub use convexity::*;
-pub use kind::TokenKind;
+pub use decorator::Decorator;
+pub use keyword::*;
 pub use semantic_token::*;
 pub use special::SpecialToken;
+pub use wordopr::WordOpr;
 
+use husky_identifier::Identifier;
 use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;
-use husky_text::{RangedCustomIdentifier, TextIndent, TextRange, TextRanged};
-use husky_word::Identifier;
+use husky_text::{HasTextRange, RangedIdentifier, TextIndent, TextRange};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct Token {
     pub range: TextRange,
     pub kind: TokenKind,
-}
-
-impl std::fmt::Display for Token {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.kind.fmt(f)
-    }
 }
 
 impl Token {
@@ -36,27 +35,32 @@ impl Token {
         }
     }
 
-    pub fn ranged_custom_ident(&self) -> Option<RangedCustomIdentifier> {
-        match self.kind {
-            TokenKind::Identifier(Identifier::Custom(ident)) => Some(RangedCustomIdentifier {
-                ident,
-                range: self.range,
-            }),
-            _ => todo!(),
-        }
-    }
-
-    pub fn left_convexity(&self) -> Option<Convexity> {
-        self.kind.left_convexity()
-    }
-
-    pub fn right_convexity(&self) -> Convexity {
-        self.kind.right_convexity()
+    pub fn ranged_custom_ident(&self) -> Option<RangedIdentifier> {
+        todo!()
+        // match self.kind {
+        //     TokenKind::Identifier(Identifier::Custom(ident)) => Some(RangedIdentifier {
+        //         ident,
+        //         range: self.range,
+        //     }),
+        //     _ => todo!(),
+        // }
     }
 }
 
-impl TextRanged for Token {
+impl HasTextRange for Token {
     fn text_range(&self) -> TextRange {
         self.range
     }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum TokenKind {
+    Decorator(Decorator),
+    Keyword(Keyword),
+    Identifier(Identifier),
+    Special(SpecialToken),
+    WordOpr(WordOpr),
+    Literal(RawLiteralData),
+    Unrecognized(char),
+    IllFormedLiteral(RawLiteralData),
 }

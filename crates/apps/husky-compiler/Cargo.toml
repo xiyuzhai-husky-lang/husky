@@ -9,7 +9,7 @@ path = "src/bin/main.rs"
 
 [dependencies]
 clap = { version = "3.2.16", features = ["derive"] }
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 lsp-types = { version = "0.93", features = ["proposed"] }
 relative-path = "1.7.2"
 # abstraction
@@ -24,13 +24,7 @@ husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
-husky-word = { path = "../../kernel/husky-word" }
-# semantics
-husky-semantics-error = { path = "../../semantics/husky-semantics-error" }
-husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-# static
-husky-root-static-defn = { path = "../../static/husky-root-static-defn" }
+husky-identifier = { path = "../../kernel/husky-identifier" }
 # syntax
 husky-path = { path = "../../fs/husky-path" }
 husky-ast = { path = "../../syntax/husky-ast" }

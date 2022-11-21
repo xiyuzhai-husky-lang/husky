@@ -11,7 +11,7 @@ mod registration_content;
 mod utils;
 
 pub use cargo_toml_content::*;
-use husky_layout::HuskyLayoutQueryGroup;
+use husky_layout::LayoutDb;
 
 use crate::registration_content::rust_registration_rs_content;
 use contains_eval_ref::*;
@@ -36,7 +36,7 @@ use utils::*;
 use vec_like::VecSet;
 
 #[salsa::query_group(RustGenQueryStorage)]
-pub trait RustCodeGenQueryGroup: PackageQueryGroup + HuskyLayoutQueryGroup {
+pub trait RustCodeGenQueryGroup: PackageQueryGroup + LayoutDb {
     fn rust_lib_rs_content(&self, target_entrance: PathItd) -> Arc<String>;
     fn rust_registration_rs_content(&self, target_entrance: PathItd) -> Arc<String>;
     fn rust_init_rs_content(&self, target_entrance: PathItd) -> Arc<String>;

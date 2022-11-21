@@ -1,8 +1,8 @@
 mod column;
+mod db;
 mod indent;
 mod info;
 mod position;
-mod query;
 mod range;
 mod row;
 #[cfg(test)]
@@ -14,10 +14,13 @@ pub use position::{FilePosition, TextPosition};
 pub use range::*;
 pub type CharIter<'token_line> = std::iter::Peekable<Enumerate<Chars<'token_line>>>;
 pub use column::Column;
-pub use query::{TextQueryGroup, TextQueryGroupStorage};
+pub use db::TextDb;
 pub use row::Row;
 
 use std::{iter::Enumerate, ops::Deref, str::Chars, sync::Arc};
+
+#[salsa::jar(db = TextDb)]
+pub struct Jar();
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct HuskyText {

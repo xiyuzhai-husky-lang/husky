@@ -5,5 +5,5 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 husky-term = { path = "../../kernel/husky-term" }

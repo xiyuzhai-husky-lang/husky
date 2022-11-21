@@ -8,9 +8,8 @@ edition = "2021"
 optional = "0.5.0"
 thiserror = "1.0.37"
 ordered-float = "3.0.0"
-salsa = "0.17.0-pre.2"
-interner = { path = "../../abstraction/interner" }
+salsa = { path = "../../abstraction/salsa" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-word = { path = "../../kernel/husky-word" }
+husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

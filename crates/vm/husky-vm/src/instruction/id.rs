@@ -3,14 +3,16 @@ use std::{
     sync::atomic::{AtomicUsize, Ordering},
 };
 
-use husky_text::FileRanged;
+use husky_text::HasSourceRange;
 
 static NEXT_VM_INSTRUCTION_ID: AtomicUsize = AtomicUsize::new(0);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct InstructionId(pub(crate) usize);
 
-pub trait InstructionSource: std::fmt::Debug + Send + Sync + RefUnwindSafe + FileRanged {
+pub trait InstructionSource:
+    std::fmt::Debug + Send + Sync + RefUnwindSafe + HasSourceRange
+{
     fn instruction_id(&self) -> InstructionId;
 }
 

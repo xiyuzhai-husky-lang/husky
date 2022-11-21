@@ -7,10 +7,11 @@ edition = "2021"
 [dependencies]
 thiserror = "1.0.37"
 textwrap = "0.16.0"
-salsa = "0.17.0-pre.2"
 #abstraction
+salsa = { path = "../../abstraction/salsa" }
 upcast = { path = "../../abstraction/upcast" }
 # fs
+husky-source-path = { path = "../../fs/husky-source-path" }
 husky-path = { path = "../../fs/husky-path" }
 # syntax
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
@@ -19,7 +20,7 @@ husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # kernel
-husky-word = { path = "../../kernel/husky-word" }
+husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # utils

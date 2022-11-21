@@ -1,18 +1,10 @@
 mod error;
-mod intern;
 mod line_map;
 #[cfg(feature = "lsp_support")]
 mod lsp_support;
-mod query;
 mod utils;
 
 pub use error::*;
-pub use intern::InternHuskyPath;
-pub use interner::path::{InternPath, PathInterner, PathItd};
-pub use query::{
-    FileContentQuery, FileQueryGroup, FileQueryStorage, FileSalsaQuery, LiveFileSupport,
-    VfsQueryGroupBase,
-};
 pub type URange = std::ops::Range<usize>;
 
 use std::sync::Arc;
@@ -42,11 +34,11 @@ impl FileContent {
     }
 }
 
-pub struct ModulePathItd(PathItd);
+// pub struct ModulePathItd(PathItd);
 
-impl ModulePathItd {
-    fn new(path: PathItd) -> Option<Self> {
-        todo!();
-        Some(ModulePathItd(path))
-    }
-}
+// impl ModulePathItd {
+//     fn new(path: PathItd) -> Option<Self> {
+//         todo!();
+//         Some(ModulePathItd(path))
+//     }
+// }

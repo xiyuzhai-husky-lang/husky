@@ -8,14 +8,18 @@ edition = "2021"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 lsp-types = { version = "0.93", features = ["proposed"] }
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 fold = { path = "../../abstraction/fold" }
-# syntax
+# fs
+husky-source-path = { path = "../../fs/husky-source-path" }
+husky-path = { path = "../../fs/husky-path" }
+# lex
 husky-token = { path = "../../lex/husky-token" }
 husky-tokenize = { path = "../../lex/husky-tokenize" }
-husky-path = { path = "../../fs/husky-path" }
 husky-text = { path = "../../lex/husky-text" }
-husky-word = { path = "../../kernel/husky-word" }
+# kernel
+husky-identifier = { path = "../../kernel/husky-identifier" }
+# syntax
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }

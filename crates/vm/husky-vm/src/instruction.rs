@@ -12,8 +12,8 @@ pub use sheet::InstructionSheet;
 
 use crate::*;
 use avec::Avec;
-use husky_text::{FileRanged, TextRange};
-use husky_word::{CustomIdentifier, Identifier};
+use husky_identifier::Identifier;
+use husky_text::{HasSourceRange, TextRange};
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
 #[derive(Debug)]
@@ -42,7 +42,7 @@ impl Instruction {
 
 impl<
         S: InstructionSource,
-        T: Deref<Target = S> + std::fmt::Debug + Send + Sync + RefUnwindSafe + FileRanged,
+        T: Deref<Target = S> + std::fmt::Debug + Send + Sync + RefUnwindSafe + HasSourceRange,
     > InstructionSource for T
 {
     fn instruction_id(&self) -> InstructionId {
@@ -87,7 +87,7 @@ pub enum InstructionVariant {
     },
     NewVirtualStruct {
         ty: Ty,
-        fields: Vec<CustomIdentifier>,
+        fields: Vec<Identifier>,
     },
     Loop {
         body: Arc<InstructionSheet>,

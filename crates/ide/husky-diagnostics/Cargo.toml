@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 lsp-types = { version = "0.93", features = ["proposed"] }
 # abstraction
 reserve = { path = "../../abstraction/reserve" }
@@ -19,12 +19,9 @@ husky-term = { path = "../../kernel/husky-term" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-tokenize = { path = "../../lex/husky-tokenize" }
-# semantics
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-husky-semantics-error = { path = "../../semantics/husky-semantics-error" }
 # syntax
 husky-text = { path = "../../lex/husky-text" }
-husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }

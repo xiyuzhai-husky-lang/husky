@@ -9,9 +9,10 @@ mod watch;
 
 pub use cache::HuskyFileCache;
 pub use error::*;
+use husky_source_path::SourcePathDb;
 pub use path::path_class;
 pub use runner::*;
-use timed_salsa::ParallelDatabase;
+use salsa::ParallelDatabase;
 pub use watch::{HasWatcherPlace, VfsWatcher, WatchableVfsDb, WatchedVfs};
 
 use dashmap::{mapref::entry::Entry, DashMap};
@@ -27,23 +28,24 @@ use std::{
     sync::Mutex,
 };
 
-#[timed_salsa::interned]
+#[salsa::interned]
 pub struct PathBufItd {
     #[return_ref]
     path: PathBuf,
 }
 
-#[timed_salsa::jar(db = VfsDb)]
+#[salsa::jar(db = VfsDb)]
 pub struct Jar(PathBufItd, HuskyFileId, path_class);
 
-pub trait VfsDb: timed_salsa::DbWithJar<Jar> + HasFileCache + Send {
+pub trait VfsDb: salsa::DbWithJar<Jar> + SourcePathDb + HasFileCache + Send {
     fn file(&self, path: PathBufItd) -> VfsResult<HuskyFileId>;
     fn update_file(&mut self, path: PathBuf) -> VfsResult<()>;
 }
 
 impl<T> VfsDb for T
 where
-    T: timed_salsa::DbWithJar<Jar>
+    T: salsa::DbWithJar<Jar>
+        + SourcePathDb
         + HasFileCache
         + HasWatcherPlace
         + ParallelDatabase

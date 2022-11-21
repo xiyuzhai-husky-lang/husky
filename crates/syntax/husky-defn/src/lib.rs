@@ -6,19 +6,19 @@ pub use form::*;
 pub use trai::*;
 pub use ty::*;
 
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
 use husky_expr_syntax::{ExprArena, ExprIdx};
-use timed_salsa::DbWithJar;
+use salsa::DbWithJar;
 
-#[timed_salsa::jar(db = DefnDb)]
+#[salsa::jar(db = DefnDb)]
 pub struct Jar(Defn);
 
 pub trait DefnDb: DbWithJar<Jar> {}
 
-#[timed_salsa::tracked]
+#[salsa::tracked]
 pub struct Defn {
     #[id]
-    pub entity_path: EntityPathItd,
+    pub entity_path: EntityPath,
     #[return_ref]
     pub variant: DefnVariant,
     #[return_ref]

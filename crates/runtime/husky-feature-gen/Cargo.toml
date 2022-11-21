@@ -13,7 +13,7 @@ doctest = false
 rustc-hash = "1.1.0"
 itertools = "^0.10.3"
 lsp-types = { version = "0.93", features = ["proposed"] }
-salsa = "0.17.0-pre.2"
+salsa = { path = "../../abstraction/salsa" }
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
@@ -24,24 +24,14 @@ upcast = { path = "../../abstraction/upcast" }
 avec = { path = "../../abstraction/avec" }
 fold = { path = "../../abstraction/fold" }
 map-collect = { path = "../../abstraction/map-collect" }
-interner = { path = "../../abstraction/interner" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-path = { path = "../../fs/husky-path" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-entity-syntax = { path = "../../syntax/husky-entity-syntax" }
-husky-word = { path = "../../kernel/husky-word" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-ast = { path = "../../syntax/husky-ast" }
-# semantics
-husky-semantics-error = { path = "../../semantics/husky-semantics-error" }
-husky-eager-semantics = { path = "../../semantics/husky-eager-semantics" }
-husky-lazy-semantics = { path = "../../semantics/husky-lazy-semantics" }
-husky-entity-semantics = { path = "../../semantics/husky-entity-semantics" }
-husky-package-semantics = { path = "../../semantics/husky-package-semantics" }
-husky-primitive-literal-semantics = { path = "../../semantics/husky-primitive-literal-semantics" }
-# static
-husky-static-defn = { path = "../../static/husky-static-defn" }
 # syntax
 husky-text = { path = "../../lex/husky-text" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
@@ -51,12 +41,9 @@ husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 # vm
-husky-vm-primitive-opr-linkage = { path = "../../vm/husky-vm-primitive-opr-linkage" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-data-viewer = { path = "../husky-data-viewer" }
-husky-pattern-semantics = { path = "../../semantics/husky-pattern-semantics" }
-husky-opn-semantics = { path = "../../semantics/husky-opn-semantics" }
 husky-feature-protocol = { path = "../../runtime/husky-feature-protocol" }

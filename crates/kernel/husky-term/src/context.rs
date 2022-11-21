@@ -1,4 +1,4 @@
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
 
 use crate::*;
 
@@ -23,27 +23,22 @@ impl<'a> TermContext<'a> {
         }
     }
 
-    pub fn entity_ty(&self, entity_path: EntityPathItd) -> TermResult<Ty> {
-        let decl = self.db.ask_decl(entity_path)?;
-        Ok(match entity_path.opt_parent() {
-            Some(_) => todo!(),
-            None => match *decl {
-                Decl::Module => self.menu.module(),
-                Decl::Ty(ref ty_decl) => {
-                    if ty_decl.parameters().len() == 0 {
-                        self.menu.ty0()
-                    } else {
-                        todo!()
-                    }
-                }
-            },
-        })
-    }
-}
-
-impl<'a> InternTerm for TermContext<'a> {
-    fn term_itr(&self) -> &TermInterner {
-        self.db.term_itr()
+    pub fn entity_ty(&self, entity_path: EntityPath) -> TermResult<Ty> {
+        todo!()
+        // let decl = self.db.ask_decl(entity_path)?;
+        // Ok(match entity_path.opt_parent() {
+        //     Some(_) => todo!(),
+        //     None => match *decl {
+        //         Decl::Module => self.menu.module(),
+        //         Decl::Ty(ref ty_decl) => {
+        //             if ty_decl.parameters().len() == 0 {
+        //                 self.menu.ty0()
+        //             } else {
+        //                 todo!()
+        //             }
+        //         }
+        //     },
+        // })
     }
 }
 

@@ -1,8 +1,8 @@
 use crate::*;
-use husky_entity_path::EntityPathItd;
+use husky_entity_path::EntityPath;
 use husky_expr_syntax::{Expr, ExprArena, ExprIdx, ExprVariant};
-use husky_term::{Term, TermAtom, TermContext, TermItd, TermMenu, Ty};
-use husky_word::InternWord;
+use husky_identifier::IdentifierDb;
+use husky_term::{Term, TermAtom, TermContext, TermData, TermMenu, Ty};
 
 pub(crate) struct InferContext<'a> {
     db: &'a dyn TermInferDb,
@@ -10,12 +10,6 @@ pub(crate) struct InferContext<'a> {
     expr_arena: &'a ExprArena,
     expr: ExprIdx,
     term_menu: &'a TermMenu,
-}
-
-impl<'a> InternWord for InferContext<'a> {
-    fn word_itr(&self) -> &husky_word::WordInterner {
-        self.db.word_itr()
-    }
 }
 
 impl<'a> InferContext<'a> {
@@ -61,14 +55,14 @@ impl<'a> InferContext<'a> {
         self.term_menu
     }
 
-    fn infer_entity_ty(&self, entity: husky_entity_path::EntityPathItd) -> husky_term::Ty {
+    fn infer_entity_ty(&self, entity: husky_entity_path::EntityPath) -> husky_term::Ty {
         self.db.entity_ty(entity)
     }
 
-    pub(crate) fn cached_term_result(&self) -> Option<&TermInferResult<TermItd>> {
+    pub(crate) fn cached_term_result(&self) -> Option<&TermInferResult<Term>> {
         self.sheet.cached_term(self.expr)
     }
-    pub(crate) fn cache_term_result(&mut self, term_result: TermInferResult<TermItd>) {
+    pub(crate) fn cache_term_result(&mut self, term_result: TermInferResult<Term>) {
         self.sheet.cache_term(self.expr, term_result)
     }
 
@@ -77,7 +71,7 @@ impl<'a> InferContext<'a> {
         TermContext::new(self.db.upcast(), self.term_menu)
     }
 
-    pub(crate) fn entity_path_term(&self, path: EntityPathItd) -> TermInferResult<TermItd> {
+    pub(crate) fn entity_path_term(&self, path: EntityPath) -> TermInferResult<Term> {
         self.term_ctx().entity_path_term(path).map_err(|e| e.into())
     }
 }

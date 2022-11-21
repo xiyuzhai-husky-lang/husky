@@ -18,8 +18,6 @@ impl salsa::ParallelDatabase for HuskyComptime {
     fn snapshot(&self) -> salsa::Snapshot<HuskyComptime> {
         salsa::Snapshot::new(HuskyComptime {
             storage: self.storage.snapshot(),
-            file_interner: self.file_interner.clone(),
-            word_interner: self.word_interner.clone(),
             // entity_route_interner: self.entity_route_interner.clone(),
             live_docs: self.live_docs.clone(),
             linkage_table: self.linkage_table.clone(),
@@ -36,12 +34,6 @@ impl InternPath for HuskyComptime {
 }
 
 impl InternHuskyPath for HuskyComptime {}
-
-impl InternWord for HuskyComptime {
-    fn word_itr(&self) -> &husky_word::WordInterner {
-        &self.word_interner
-    }
-}
 
 impl VfsQueryGroupBase for HuskyComptime {
     fn get_live_files(
@@ -74,15 +66,16 @@ impl LiveFileSupport for HuskyComptime {}
 impl ResolveStaticRootDefn for HuskyComptime {
     fn __root_defn_resolver(
         &self,
-    ) -> fn(ident: husky_word::RootBuiltinIdentifier) -> &'static husky_static_defn::EntityStaticDefn
-    {
+    ) -> fn(
+        ident: husky_identifier::RootBuiltinIdentifier,
+    ) -> &'static husky_static_defn::EntityStaticDefn {
         self.config.__resolve_root_defn
     }
 }
 
-impl EntitySyntaxQueryGroup for HuskyComptime {}
+impl EntityTreeDb for HuskyComptime {}
 
-impl AstQueryGroup for HuskyComptime {}
+impl AstDb for HuskyComptime {}
 
 impl Upcast<dyn husky_entity_semantics::EntityDefnQueryGroup> for HuskyComptime {
     fn upcast(&self) -> &(dyn husky_entity_semantics::EntityDefnQueryGroup + 'static) {
@@ -90,14 +83,14 @@ impl Upcast<dyn husky_entity_semantics::EntityDefnQueryGroup> for HuskyComptime 
     }
 }
 
-impl Upcast<dyn husky_entity_syntax::EntitySyntaxSalsaQueryGroup> for HuskyComptime {
-    fn upcast(&self) -> &(dyn husky_entity_syntax::EntitySyntaxSalsaQueryGroup + 'static) {
+impl Upcast<dyn husky_entity_tree::EntityTreeDb> for HuskyComptime {
+    fn upcast(&self) -> &(dyn husky_entity_tree::EntityTreeDb + 'static) {
         self
     }
 }
 
-impl Upcast<dyn husky_entity_syntax::EntitySyntaxQueryGroup> for HuskyComptime {
-    fn upcast(&self) -> &(dyn husky_entity_syntax::EntitySyntaxQueryGroup + 'static) {
+impl Upcast<dyn husky_entity_tree::EntityTreeDb> for HuskyComptime {
+    fn upcast(&self) -> &(dyn husky_entity_tree::EntityTreeDb + 'static) {
         self
     }
 }

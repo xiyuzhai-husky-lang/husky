@@ -1,15 +1,15 @@
 use crate::*;
 use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
+use husky_identifier::IdentPairDict;
 use husky_opn_semantics::ImplicitConversion;
 use husky_opn_syntax::BinaryPureClosedOpr;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_print_utils::{msg_once, p};
-use husky_text::FileRanged;
+use husky_text::HasSourceRange;
 use husky_trace_protocol::VisualData;
 use husky_vm::__Linkage;
 use husky_vm::*;
-use husky_word::IdentPairDict;
 use husky_xml_syntax::XmlValue;
 use std::{panic::catch_unwind, sync::Arc};
 
@@ -161,7 +161,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         this: &FeatureRepr,
         field_idx: u8,
         field_binding: Binding,
-        field_ident: husky_text::RangedCustomIdentifier,
+        field_ident: husky_text::RangedIdentifier,
         expr: &FeatureLazyExpr,
     ) -> __VMResult<__Register<'eval>> {
         if let Some(linkage) = opt_linkage {
@@ -170,7 +170,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 .call_catch_unwind(unsafe { self.some_ctx() }, vec![this_value])
                 .map_err(|e| {
                     e.with_message(&format!(
-                        "while evaluating struct original field with field binding `{field_binding:?}` at {}", expr.src()
+                        "while evaluating struct original field with field binding `{field_binding:?}` at {}", expr.source_range()
                     ))
                 })
         } else {

@@ -1,14 +1,14 @@
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct TermApplication {
-    m: TermItd,
-    n: TermItd,
+    m: Term,
+    n: Term,
 }
 
-impl Into<Term> for TermApplication {
-    fn into(self) -> Term {
-        Term::Application(self)
+impl Into<TermData> for TermApplication {
+    fn into(self) -> TermData {
+        TermData::Application(self)
     }
 }
 
@@ -18,11 +18,11 @@ impl TermApplication {
         None
     }
 
-    pub fn m(&self) -> TermItd {
+    pub fn m(&self) -> Term {
         self.m
     }
 
-    pub fn n(&self) -> TermItd {
+    pub fn n(&self) -> Term {
         self.n
     }
 
@@ -31,7 +31,7 @@ impl TermApplication {
     //         ty_itd.term().into()
     //     } else {
     //         match self.m.deref() {
-    //             Term::Atom(a) => match a.variant() {
+    //             TermData::Atom(a) => match a.variant() {
     //                 TermAtomVariant::Literal(_) => todo!(),
     //                 TermAtomVariant::Variable { variable_variant } => todo!(),
     //                 TermAtomVariant::Entity {} => todo!(),
@@ -40,33 +40,33 @@ impl TermApplication {
     //                 },
     //                 TermAtomVariant::Universe(_) => todo!(),
     //             },
-    //             Term::Curry(_) => todo!(),
-    //             Term::Abstraction(_) => todo!(),
-    //             Term::Application(_) => todo!(),
+    //             TermData::Curry(_) => todo!(),
+    //             TermData::Abstraction(_) => todo!(),
+    //             TermData::Application(_) => todo!(),
     //         }
     //     }
     // }
 
-    pub fn new(m: TermItd, n: TermItd) -> TermResult<Self> {
+    pub fn new(m: Term, n: Term) -> TermResult<Self> {
         // ad hoc
         // TODO: add type checking
         Ok(Self { m, n })
         // if m.ty_itd().is_none() {
         //     match m.deref() {
-        //         Term::Atom(a) => match a {
+        //         TermData::Atom(a) => match a {
         //             TermAtom::Category(category_kind) => match n.deref() {
-        //                 Term::Atom(b) => match b {
+        //                 TermData::Atom(b) => match b {
         //                     TermAtom::Literal(_) => todo!(),
         //                     TermAtom::Variable { variable_variant } => todo!(),
         //                     TermAtom::Entity { .. } => todo!(),
         //                     TermAtom::Category(category_kind) => todo!(),
         //                     TermAtom::Universe(_) => Ok(Self { m, n, ty_itd: None }),
         //                 },
-        //                 Term::Curry(_) => todo!(),
-        //                 Term::Abstraction(_) => todo!(),
-        //                 Term::Application(_) => todo!(),
-        //                 Term::Subentity(_) => todo!(),
-        //                 Term::TraitImpl(_) => todo!(),
+        //                 TermData::Curry(_) => todo!(),
+        //                 TermData::Abstraction(_) => todo!(),
+        //                 TermData::Application(_) => todo!(),
+        //                 TermData::Subentity(_) => todo!(),
+        //                 TermData::TraitImpl(_) => todo!(),
         //             },
         //             TermAtom::Universe(_) => todo!(),
         //             _ => unreachable!(),
@@ -80,14 +80,15 @@ impl TermApplication {
 }
 
 impl<'a> TermContext<'a> {
-    pub(crate) fn sort(&self, universe: TermUniverse) -> TermItd {
-        self.it_term(
-            TermApplication {
-                m: self.it_term(TermCategory::Sort.into()),
-                n: self.it_term(universe.into()),
-            }
-            .into(),
-        )
+    pub(crate) fn sort(&self, universe: TermUniverse) -> Term {
+        todo!()
+        // self.it_term(
+        //     TermApplication {
+        //         m: self.it_term(TermCategory::Sort.into()),
+        //         n: self.it_term(universe.into()),
+        //     }
+        //     .into(),
+        // )
     }
 }
 

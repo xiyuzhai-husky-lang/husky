@@ -1,34 +1,33 @@
-use husky_word::{InternWord, WordInterner};
+// use husky_identifier::{IdentifierDb, dyn IdentifierDb};
 
-use crate::*;
+// use crate::*;
 
-#[salsa::database(SymbolDbStorage)]
-pub struct SymbolTestsDb {
-    storage: salsa::Storage<Self>,
-    word_itr: WordInterner,
-}
+// pub struct SymbolTestsDb {
+//     storage: salsa::Storage<Self>,
+//     word_itr: dyn IdentifierDb,
+// }
 
-impl salsa::Database for SymbolTestsDb {}
+// impl salsa::Database for SymbolTestsDb {}
 
-impl SymbolQueries for SymbolTestsDb {}
+// impl SymbolQueries for SymbolTestsDb {}
 
-impl SymbolTestsDb {
-    pub fn new() -> Self {
-        Self {
-            word_itr: WordInterner::default(),
-            storage: Default::default(),
-        }
-    }
+// impl SymbolTestsDb {
+//     pub fn new() -> Self {
+//         Self {
+//             word_itr: dyn IdentifierDb::default(),
+//             storage: Default::default(),
+//         }
+//     }
 
-    pub fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
-        let ctx = SymbolContext::new(self, &[]);
-        /* do something with ctx */
-        ctx
-    }
-}
+//     pub fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
+//         let ctx = SymbolContext::new(self, &[]);
+//         /* do something with ctx */
+//         ctx
+//     }
+// }
 
-impl InternWord for SymbolTestsDb {
-    fn word_itr(&self) -> &WordInterner {
-        &self.word_itr
-    }
-}
+// impl IdentifierDb for SymbolTestsDb {
+//     fn word_itr(&self) -> &dyn IdentifierDb {
+//         &self.word_itr
+//     }
+// }

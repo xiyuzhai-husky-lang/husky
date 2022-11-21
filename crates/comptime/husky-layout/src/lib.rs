@@ -1,8 +1,11 @@
-mod query;
+mod db;
 
-pub use query::*;
+pub use db::*;
 
 use std::alloc::{Layout, LayoutError};
+
+#[salsa::jar(db = LayoutDb)]
+pub struct LayoutJar(reg_memory_kind);
 
 pub fn repr_c(fields: &[Layout]) -> Result<(Layout, Vec<usize>), LayoutError> {
     let mut offsets = Vec::new();

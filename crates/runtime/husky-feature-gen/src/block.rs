@@ -9,7 +9,7 @@ pub use proc::*;
 use husky_eager_semantics::FuncStmt;
 use husky_lazy_semantics::*;
 use husky_path::PathItd;
-use husky_text::{TextRange, TextRanged};
+use husky_text::{HasTextRange, TextRange};
 use std::sync::Arc;
 
 use crate::{eval_id::FeatureEvalId, intern::FeatureInterner, *};

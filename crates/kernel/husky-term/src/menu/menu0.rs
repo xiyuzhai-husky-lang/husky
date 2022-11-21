@@ -2,22 +2,23 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu0 {
-    sort: TermItd,
-    universe1: TermItd,
+    sort: Term,
+    universe1: Term,
 }
 
 impl TermMenu0 {
     pub fn new(db: &dyn TermDb) -> Self {
-        let sort = db.it_term(TermAtom::new_category(TermCategory::Sort).into());
-        let universe1 = db.it_term(TermAtom::new_universe(1).into());
-        TermMenu0 { sort, universe1 }
+        todo!()
+        // let sort = db.it_term(TermAtom::new_category(TermCategory::Sort).into());
+        // let universe1 = db.it_term(TermAtom::new_universe(1).into());
+        // TermMenu0 { sort, universe1 }
     }
 
-    pub fn sort(&self) -> TermItd {
+    pub fn sort(&self) -> Term {
         self.sort
     }
 
-    pub fn universe1(&self) -> TermItd {
+    pub fn universe1(&self) -> Term {
         self.universe1
     }
 }
