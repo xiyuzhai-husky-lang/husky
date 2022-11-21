@@ -7,7 +7,7 @@ impl EntityDefnVariant {
         _db: &dyn EntityDefnQueryGroup,
         _ast: &Ast,
         _children: AstIter,
-        _arena: &RawExprArena,
+        _arena: &ExprArena,
         _file: PathItd,
     ) -> SemanticResult<EntityDefnVariant> {
         todo!()

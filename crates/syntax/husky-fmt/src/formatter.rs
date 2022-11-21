@@ -15,7 +15,7 @@ use husky_word::{Paradigm, RootBuiltinIdentifier};
 
 pub struct Formatter<'a> {
     db: &'a dyn EntitySyntaxQueryGroup,
-    arena: &'a RawExprArena,
+    arena: &'a ExprArena,
     indent: fold::Indent,
     result: String,
     context: LocalValue<AstContext>,
@@ -24,7 +24,7 @@ pub struct Formatter<'a> {
 impl<'a> Formatter<'a> {
     pub(crate) fn new(
         db: &'a dyn EntitySyntaxQueryGroup,
-        arena: &'a RawExprArena,
+        arena: &'a ExprArena,
         context: AstContext,
     ) -> Self {
         Self {
@@ -85,7 +85,7 @@ impl<'a> Formatter<'a> {
 impl<'a> Formatter<'a> {
     fn fmt(&mut self, ast: &husky_ast::Ast, enter_block: impl FnOnce(&mut Self)) {
         match ast.variant {
-            AstVariant::TypeDefnHead {
+            DeprecatedAstVariant::TypeDefnHead {
                 ident,
                 ref kind,
                 ref spatial_parameters,
@@ -123,7 +123,7 @@ impl<'a> Formatter<'a> {
                     todo!()
                 }
             }
-            AstVariant::MainDefnHead => {
+            DeprecatedAstVariant::MainDefnHead => {
                 enter_block(self);
                 self.context.set(AstContext::Stmt {
                     paradigm: Paradigm::LazyFunctional,
@@ -142,7 +142,7 @@ impl<'a> Formatter<'a> {
                 });
                 self.write("main:")
             }
-            AstVariant::CallFormDefnHead {
+            DeprecatedAstVariant::CallFormDefnHead {
                 paradigm,
                 ident,
                 ref parameters,
@@ -180,7 +180,7 @@ impl<'a> Formatter<'a> {
                 // }
                 self.write(":");
             }
-            AstVariant::FieldDefnHead {
+            DeprecatedAstVariant::FieldDefnHead {
                 liason,
                 ranged_ident,
                 field_ty,
@@ -196,13 +196,13 @@ impl<'a> Formatter<'a> {
                 // self.write(": ");
                 // self.fmt_ty(field_ty.route)
             }
-            AstVariant::Stmt(ref stmt) => self.fmt_stmt(stmt),
-            AstVariant::DatasetConfigDefnHead => todo!(),
-            AstVariant::EnumVariantDefnHead { .. } => todo!(),
-            AstVariant::FeatureDefnHead { .. } => todo!(),
-            AstVariant::Use { .. } => todo!(),
-            AstVariant::Submodule { .. } => todo!(),
-            AstVariant::Visual => todo!(),
+            DeprecatedAstVariant::Stmt(ref stmt) => self.fmt_stmt(stmt),
+            DeprecatedAstVariant::DatasetConfigDefnHead => todo!(),
+            DeprecatedAstVariant::EnumVariantDefnHead { .. } => todo!(),
+            DeprecatedAstVariant::FeatureDefnHead { .. } => todo!(),
+            DeprecatedAstVariant::Use { .. } => todo!(),
+            DeprecatedAstVariant::Submodule { .. } => todo!(),
+            DeprecatedAstVariant::Visual => todo!(),
         }
     }
 
@@ -290,7 +290,7 @@ impl<'a> Formatter<'a> {
         }
     }
 
-    fn fmt_expr(&mut self, _expr: &RawExpr) {
+    fn fmt_expr(&mut self, _expr: &Expr) {
         // match expr.variant {
         //     RawExprVariant::Variable { varname, .. } => self.write(&varname),
         //     RawExprVariant::Unrecognized(varname) => self.write(&varname),

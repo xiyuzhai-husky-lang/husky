@@ -25,7 +25,7 @@ use husky_word::*;
 use precedence::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct RawExpr {
+pub struct Expr {
     pub variant: RawExprVariant,
     pub range: TextRange,
     base_scope_result: BaseScopeResult,
@@ -38,7 +38,7 @@ pub enum BaseScopeResult {
     Uncertain,
 }
 
-impl TextRanged for RawExpr {
+impl TextRanged for Expr {
     fn text_range(&self) -> TextRange {
         self.range
     }
@@ -49,12 +49,12 @@ pub enum RawExprVariant {
     Atom(RawAtomExpr),
     Opn {
         opn_variant: RawOpnVariant,
-        opds: RawExprRange,
+        opds: ExprRange,
     },
 }
 
 impl RawExprVariant {
-    fn base_scope_result(&self, arena: &RawExprArena) -> BaseScopeResult {
+    fn base_scope_result(&self, arena: &ExprArena) -> BaseScopeResult {
         match self {
             RawExprVariant::Atom(ref atom) => match atom {
                 RawAtomExpr::Literal(_) => BaseScopeResult::None,
@@ -84,13 +84,13 @@ impl From<RawAtomExpr> for RawExprVariant {
 
 use idx_arena::{map::ArenaMap, ArenaIdx, ArenaRange, IdxArena};
 
-pub type RawExprArena = IdxArena<RawExpr>;
-pub type RawExprIdx = ArenaIdx<RawExpr>;
-pub type RawExprRange = ArenaRange<RawExpr>;
-pub type RawExprMap<V> = ArenaMap<RawExpr, V>;
+pub type ExprArena = IdxArena<Expr>;
+pub type ExprIdx = ArenaIdx<Expr>;
+pub type ExprRange = ArenaRange<Expr>;
+pub type ExprMap<V> = ArenaMap<Expr, V>;
 
-impl RawExpr {
-    fn new(variant: RawExprVariant, range: TextRange, arena: &RawExprArena) -> Self {
+impl Expr {
+    fn new(variant: RawExprVariant, range: TextRange, arena: &ExprArena) -> Self {
         Self {
             base_scope_result: variant.base_scope_result(arena),
             variant,

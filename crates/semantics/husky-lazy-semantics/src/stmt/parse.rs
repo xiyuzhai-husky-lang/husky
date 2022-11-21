@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ast::*;
-use husky_expr_syntax::RawExprArena;
+use husky_expr_syntax::ExprArena;
 use husky_path::PathItd;
 
 use husky_semantics_error::*;
@@ -12,13 +12,13 @@ use std::{iter::Peekable, sync::Arc};
 
 pub(super) struct LazyStmtParser<'a> {
     pub(super) db: &'a dyn TermInferDb,
-    pub(super) arena: &'a RawExprArena,
+    pub(super) arena: &'a ExprArena,
     pub(super) file: PathItd,
     term_sheet: Arc<TermSheet>,
 }
 
 impl<'a> LazyStmtParser<'a> {
-    pub(super) fn new(db: &'a dyn TermInferDb, arena: &'a RawExprArena, file: PathItd) -> Self {
+    pub(super) fn new(db: &'a dyn TermInferDb, arena: &'a ExprArena, file: PathItd) -> Self {
         Self {
             db,
             arena,
@@ -240,7 +240,7 @@ impl<'a> LazyStmtParser<'a> {
 }
 
 impl<'a> LazyExprParser<'a> for LazyStmtParser<'a> {
-    fn arena(&self) -> &'a RawExprArena {
+    fn arena(&self) -> &'a ExprArena {
         self.arena
     }
 

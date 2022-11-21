@@ -17,7 +17,7 @@ pub(crate) struct Automata<'a> {
     ctx: &'a mut SymbolContext<'a>,
     stream: TokenStream<'a>,
     stack: AutomataStack,
-    arena: &'a mut RawExprArena,
+    arena: &'a mut ExprArena,
 }
 
 impl<'a> Automata<'a> {
@@ -25,11 +25,7 @@ impl<'a> Automata<'a> {
         &self.stream
     }
 
-    fn new(
-        ctx: &'a mut SymbolContext<'a>,
-        tokens: &'a [Token],
-        arena: &'a mut RawExprArena,
-    ) -> Self {
+    fn new(ctx: &'a mut SymbolContext<'a>, tokens: &'a [Token], arena: &'a mut ExprArena) -> Self {
         Self {
             ctx,
             stream: tokens.into(),
@@ -38,7 +34,7 @@ impl<'a> Automata<'a> {
         }
     }
 
-    fn parse_all(mut self) -> RawExprIdx {
+    fn parse_all(mut self) -> ExprIdx {
         while !self.stream().is_empty() {
             let token = &self.stream.next().unwrap();
             match self.accept_token(self.resolve_token(token)) {
@@ -54,8 +50,8 @@ impl<'a> Automata<'a> {
 
 pub fn parse_raw_expr<'a>(
     ctx: &'a mut SymbolContext<'a>,
-    arena: &'a mut RawExprArena,
+    arena: &'a mut ExprArena,
     tokens: &'a [Token],
-) -> RawExprIdx {
+) -> ExprIdx {
     Automata::new(ctx, tokens, arena).parse_all()
 }

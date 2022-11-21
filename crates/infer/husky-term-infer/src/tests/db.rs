@@ -6,7 +6,7 @@ use husky_entity_path::{
     EntityPath, EntityPathDb, EntityPathDbStorage, EntityPathInterner, EntityPathItd,
     EntityPathMenu, InternEntityPath,
 };
-use husky_expr_syntax::RawExprIdx;
+use husky_expr_syntax::ExprIdx;
 use husky_symbol_syntax::{
     Symbol, SymbolContext, SymbolDb, SymbolDbStorage, SymbolKind, SymbolQueries,
 };
@@ -62,10 +62,10 @@ impl TermInferTestsDb {
         ctx
     }
 
-    pub(super) fn parse_raw_expr_from_text(&self, text: &str) -> (RawExprArena, RawExprIdx) {
+    pub(super) fn parse_raw_expr_from_text(&self, text: &str) -> (ExprArena, ExprIdx) {
         use husky_tokenize::Tokenize;
         let tokens = self.tokenize_line(text);
-        let mut arena = RawExprArena::new();
+        let mut arena = ExprArena::new();
         let mut symbol_ctx = self.fake_symbol_ctx();
         let expr = parse_raw_expr(&mut symbol_ctx, &mut arena, &tokens);
         (arena, expr)

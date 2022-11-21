@@ -3,7 +3,7 @@ use super::*;
 impl EntityDefnVariant {
     pub(crate) fn ty_field_from_ast(
         _db: &dyn EntityDefnQueryGroup,
-        _arena: &RawExprArena,
+        _arena: &ExprArena,
         _file: PathItd,
         _ty_route: Ty,
         _ast: &Ast,
@@ -67,7 +67,7 @@ impl EntityDefnVariant {
 
     pub(crate) fn collect_original_fields(
         db: &dyn EntityDefnQueryGroup,
-        arena: &RawExprArena,
+        arena: &ExprArena,
         file: PathItd,
         ty_route: Ty,
         children: &mut Peekable<AstIter>,
@@ -76,7 +76,7 @@ impl EntityDefnVariant {
         while let Some(child) = children.peek() {
             let ast = child.value.as_ref().unwrap();
             match ast.variant {
-                AstVariant::FieldDefnHead {
+                DeprecatedAstVariant::FieldDefnHead {
                     ast_field_kind: field_kind,
                     ranged_ident,
                     ..

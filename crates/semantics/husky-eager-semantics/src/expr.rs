@@ -143,9 +143,9 @@ impl std::fmt::Debug for EagerExprVariant {
 
 pub fn parse_eager_expr(
     _db: &dyn TermInferDb,
-    _arena: &RawExprArena,
+    _arena: &ExprArena,
     _file: PathItd,
-    _raw_expr_idx: RawExprIdx,
+    _raw_expr_idx: ExprIdx,
 ) -> SemanticResultArc<EagerExpr> {
     todo!()
     // EagerParser::new(db, arena, file).parse_eager_expr(raw_expr_idx, None)

@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use crate::*;
 use husky_ast::AstText;
-use husky_expr_syntax::RawExprMap;
+use husky_expr_syntax::ExprMap;
 use husky_term_pattern::*;
 use husky_text::TextRange;
 
@@ -10,7 +10,7 @@ use husky_text::TextRange;
 pub struct TermPatternInferSheet {
     term_patt_itr: TermPatternInterner,
     var_results: HashMap<(Identifier, TextRange), VarTermPatternInferResults>,
-    expr_results: RawExprMap<ExprTermPatternInferResults>,
+    expr_results: ExprMap<ExprTermPatternInferResults>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -35,21 +35,17 @@ pub struct ExprTermPatternInferRawResults {
 impl TermPatternInferSheet {
     #[cfg(test)]
     pub(crate) fn new_test(
-        arena: &RawExprArena,
+        arena: &ExprArena,
         fake_var_results: HashMap<(Identifier, TextRange), VarTermPatternInferResults>,
     ) -> Self {
         Self {
             term_patt_itr: Default::default(),
-            expr_results: RawExprMap::new(arena),
+            expr_results: ExprMap::new(arena),
             var_results: fake_var_results,
         }
     }
 
-    pub(crate) fn insert_result(
-        &mut self,
-        expr: RawExprIdx,
-        result: ExprTermPatternInferRawResults,
-    ) {
+    pub(crate) fn insert_result(&mut self, expr: ExprIdx, result: ExprTermPatternInferRawResults) {
         self.expr_results.insert_new(
             expr,
             ExprTermPatternInferResults {
@@ -63,7 +59,7 @@ impl TermPatternInferSheet {
 
     pub(crate) fn insert_term_infer_result(
         &mut self,
-        _expr: RawExprIdx,
+        _expr: ExprIdx,
         _term: TermPatternInferResult<TermItd>,
     ) {
         todo!()
@@ -71,7 +67,7 @@ impl TermPatternInferSheet {
 
     pub(crate) fn const_expr(
         &self,
-        expr: RawExprIdx,
+        expr: ExprIdx,
     ) -> &TermPatternInferResult<Option<ConstExprPatternItd>> {
         &self.expr_results.get(expr).unwrap().const_expr
     }
@@ -106,7 +102,7 @@ impl<'a> TermPatternInferContext<'a> {
     pub(crate) fn expr_ty_result(
         &self,
         sheet: &TermPatternInferSheet,
-        expr: RawExprIdx,
+        expr: ExprIdx,
     ) -> TermPatternInferResult<TermPatternItd> {
         match sheet.expr_results[expr].ty {
             Ok(ty) => Ok(ty),

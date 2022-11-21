@@ -40,7 +40,7 @@ pub fn member_defn(
 impl EntityDefnVariant {
     pub(crate) fn collect_other_ty_members(
         _db: &dyn EntityDefnQueryGroup,
-        _arena: &RawExprArena,
+        _arena: &ExprArena,
         _file: PathItd,
         _ty_route: Ty,
         _children: &mut Peekable<AstIter>,

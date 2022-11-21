@@ -1,14 +1,14 @@
 use crate::*;
 use husky_entity_path::EntityPathItd;
-use husky_expr_syntax::{RawExpr, RawExprArena, RawExprIdx, RawExprVariant};
+use husky_expr_syntax::{Expr, ExprArena, ExprIdx, RawExprVariant};
 use husky_term::{Term, TermAtom, TermContext, TermItd, TermMenu, Ty};
 use husky_word::InternWord;
 
 pub(crate) struct InferContext<'a> {
     db: &'a dyn TermInferDb,
     sheet: &'a mut TermSheet,
-    expr_arena: &'a RawExprArena,
-    expr: RawExprIdx,
+    expr_arena: &'a ExprArena,
+    expr: ExprIdx,
     term_menu: &'a TermMenu,
 }
 
@@ -22,8 +22,8 @@ impl<'a> InferContext<'a> {
     pub(crate) fn new(
         db: &'a dyn TermInferDb,
         sheet: &'a mut TermSheet,
-        expr_arena: &'a RawExprArena,
-        expr: RawExprIdx,
+        expr_arena: &'a ExprArena,
+        expr: ExprIdx,
         term_menu: &'a TermMenu,
     ) -> Self {
         Self {
@@ -35,7 +35,7 @@ impl<'a> InferContext<'a> {
         }
     }
 
-    pub(crate) fn subexpr_context<'b>(&'b mut self, subexpr: RawExprIdx) -> InferContext<'b>
+    pub(crate) fn subexpr_context<'b>(&'b mut self, subexpr: ExprIdx) -> InferContext<'b>
     where
         'a: 'b,
     {
@@ -53,7 +53,7 @@ impl<'a> InferContext<'a> {
         self.sheet.insert_ty_infer_result(self.expr, ty)
     }
 
-    pub(crate) fn expr(&self) -> &'a RawExpr {
+    pub(crate) fn expr(&self) -> &'a Expr {
         &self.expr_arena[self.expr]
     }
 

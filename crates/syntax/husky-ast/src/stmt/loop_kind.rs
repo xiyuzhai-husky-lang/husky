@@ -16,20 +16,20 @@ pub enum RawLoopKind {
         step: LoopStep,
     },
     While {
-        condition: RawExprIdx,
+        condition: ExprIdx,
     },
     DoWhile {
-        condition: RawExprIdx,
+        condition: ExprIdx,
     },
 }
 
 impl RawLoopKind {
     pub fn for_loop(
-        initial_bound: RawExprIdx,
+        initial_bound: ExprIdx,
         initial_comparison: BinaryComparisonOpr,
         frame_var: RangedCustomIdentifier,
         final_comparison: BinaryComparisonOpr,
-        final_bound: RawExprIdx,
+        final_bound: ExprIdx,
     ) -> AstResult<Self> {
         let (initial_boundary_kind, step) = match initial_comparison {
             BinaryComparisonOpr::Geq => (BoundaryKind::UpperClosed, LoopStep(-1)),
@@ -67,7 +67,7 @@ impl RawLoopKind {
     pub fn for_loop_with_default_initial(
         frame_var: RangedCustomIdentifier,
         comparison: BinaryComparisonOpr,
-        final_bound: RawExprIdx,
+        final_bound: ExprIdx,
         range: TextRange,
     ) -> AstResult<Self> {
         let final_boundary_kind = match comparison {
@@ -93,7 +93,7 @@ impl RawLoopKind {
     }
 
     pub fn for_loop_with_default_final(
-        initial_bound: RawExprIdx,
+        initial_bound: ExprIdx,
         comparison: BinaryComparisonOpr,
         frame_var: RangedCustomIdentifier,
         range: TextRange,
@@ -123,7 +123,7 @@ impl RawLoopKind {
     pub fn forext_loop(
         frame_var: RangedCustomIdentifier,
         comparison: BinaryComparisonOpr,
-        bound: RawExprIdx,
+        bound: ExprIdx,
         range: TextRange,
     ) -> AstResult<Self> {
         let (boundary_kind, step) = match comparison {
@@ -147,18 +147,18 @@ impl RawLoopKind {
         })
     }
 
-    pub fn while_loop(condition: RawExprIdx) -> Self {
+    pub fn while_loop(condition: ExprIdx) -> Self {
         Self::While { condition }
     }
 
-    pub fn do_while_loop(condition: RawExprIdx) -> Self {
+    pub fn do_while_loop(condition: ExprIdx) -> Self {
         Self::DoWhile { condition }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct RawBoundary {
-    pub opt_bound: Option<RawExprIdx>,
+    pub opt_bound: Option<ExprIdx>,
     pub kind: BoundaryKind,
 }
 

@@ -1,6 +1,6 @@
 use std::iter::Peekable;
 
-use husky_expr_syntax::RawExprIdx;
+use husky_expr_syntax::ExprIdx;
 use husky_pattern_syntax::{RawPattern, RawPatternVariant};
 
 use super::{parser::EagerParser, *};
@@ -28,12 +28,12 @@ impl<'a> EagerParser<'a> {
         while let Some(item) = iter.next() {
             let instruction_id = InstructionId::default();
             stmts.push(Arc::new(match item.value.as_ref().unwrap().variant {
-                AstVariant::TypeDefnHead { .. } => todo!(),
-                AstVariant::MainDefnHead => todo!(),
-                AstVariant::DatasetConfigDefnHead => todo!(),
-                AstVariant::CallFormDefnHead { .. } => todo!(),
-                AstVariant::Use { .. } => todo!(),
-                AstVariant::Stmt(ref stmt) => {
+                DeprecatedAstVariant::TypeDefnHead { .. } => todo!(),
+                DeprecatedAstVariant::MainDefnHead => todo!(),
+                DeprecatedAstVariant::DatasetConfigDefnHead => todo!(),
+                DeprecatedAstVariant::CallFormDefnHead { .. } => todo!(),
+                DeprecatedAstVariant::Use { .. } => todo!(),
+                DeprecatedAstVariant::Stmt(ref stmt) => {
                     let variant = self.parse_proc_stmt(stmt, item.opt_children, &mut iter)?;
                     ProcStmt {
                         file: self.file,
@@ -43,11 +43,11 @@ impl<'a> EagerParser<'a> {
                         variant,
                     }
                 }
-                AstVariant::EnumVariantDefnHead { .. } => todo!(),
-                AstVariant::FieldDefnHead { .. } => todo!(),
-                AstVariant::FeatureDefnHead { .. } => todo!(),
-                AstVariant::Submodule { .. } => todo!(),
-                AstVariant::Visual => todo!(),
+                DeprecatedAstVariant::EnumVariantDefnHead { .. } => todo!(),
+                DeprecatedAstVariant::FieldDefnHead { .. } => todo!(),
+                DeprecatedAstVariant::FeatureDefnHead { .. } => todo!(),
+                DeprecatedAstVariant::Submodule { .. } => todo!(),
+                DeprecatedAstVariant::Visual => todo!(),
             }))
         }
         Ok(Arc::new(stmts))
@@ -140,7 +140,7 @@ impl<'a> EagerParser<'a> {
         }
         while let Some(item) = iter.peek() {
             let item = match item.value.as_ref().unwrap().variant {
-                AstVariant::Stmt(RawStmt {
+                DeprecatedAstVariant::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::IfElseBranch {
                             ref condition_branch_kind,
@@ -155,7 +155,7 @@ impl<'a> EagerParser<'a> {
                 _ => break,
             };
             match item.value.as_ref().unwrap().variant {
-                AstVariant::Stmt(RawStmt {
+                DeprecatedAstVariant::Stmt(RawStmt {
                     variant:
                         RawStmtVariant::IfElseBranch {
                             condition_branch_kind,
@@ -268,7 +268,7 @@ impl<'a> EagerParser<'a> {
         &mut self,
         _stmt: &RawStmt,
         _children: AstIter,
-        _match_expr: RawExprIdx,
+        _match_expr: ExprIdx,
         _match_contract: MatchLiason,
     ) -> SemanticResult<ProcStmtVariant> {
         todo!()
@@ -334,7 +334,7 @@ impl<'a> EagerParser<'a> {
 }
 
 impl<'a> ParseEagerExpr<'a> for EagerParser<'a> {
-    fn arena(&self) -> &'a RawExprArena {
+    fn arena(&self) -> &'a ExprArena {
         todo!()
     }
 

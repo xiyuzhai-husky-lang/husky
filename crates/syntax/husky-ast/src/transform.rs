@@ -31,7 +31,7 @@ pub struct AstTransformer<'a> {
     db: &'a dyn AstSalsaQueryGroup,
     main: PathItd,
     file: PathItd,
-    arena: RawExprArena,
+    arena: ExprArena,
     // symbols: LocalStack<Symbol>,
     context: LocalValue<AstContext>,
     opt_base_ty: LocalValue<Option<Ty>>,

@@ -5,7 +5,7 @@ use std::{convert::Infallible, sync::Arc};
 
 pub use branch::*;
 use husky_ast::*;
-use husky_expr_syntax::RawExprArena;
+use husky_expr_syntax::ExprArena;
 use husky_opn_semantics::ImplicitConversion;
 use husky_semantics_error::SemanticResultArc;
 use husky_term_infer::TermInferDb;
@@ -102,7 +102,7 @@ impl std::fmt::Debug for LazyStmtVariant {
 
 pub fn parse_lazy_stmts(
     db: &dyn TermInferDb,
-    arena: &RawExprArena,
+    arena: &ExprArena,
     iter: AstIter,
     file: PathItd,
 ) -> SemanticResultArc<Vec<Arc<LazyStmt>>> {

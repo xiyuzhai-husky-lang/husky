@@ -16,7 +16,7 @@ impl EntityDefnVariant {
         paradigm: Paradigm,
         ty: Ty,
         children: Option<AstIter>,
-        arena: &RawExprArena,
+        arena: &ExprArena,
         file: PathItd,
     ) -> SemanticResult<EntityDefnVariant> {
         todo!()

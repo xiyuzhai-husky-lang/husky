@@ -9,7 +9,7 @@ pub(crate) enum NormalizedExpr<'a> {
     Atom(&'a RawAtomExpr),
     Opn {
         opn_kind: NormalizedOpnKind,
-        opds: RawExprRange,
+        opds: ExprRange,
     },
 }
 
