@@ -1,8 +1,14 @@
+mod form;
 mod trai;
+mod ty;
+
+pub use form::*;
+pub use trai::*;
+pub use ty::*;
+
 use husky_entity_path::EntityPathItd;
-use husky_expr_syntax::ExprArena;
+use husky_expr_syntax::{ExprArena, ExprIdx};
 use timed_salsa::DbWithJar;
-use trai::TraitDefn;
 
 #[timed_salsa::jar(db = DefnDb)]
 pub struct Jar(Defn);
@@ -25,25 +31,4 @@ pub enum DefnVariant {
     Type(TypeDefn),
     Trait(TraitDefn),
     Form(FormDefn),
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub enum TypeDefn {
-    Enum(EnumDefn),
-    StructLike(StructDefn),
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct EnumDefn {
-    variants: Vec<VariantDefn>,
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct StructDefn {
-    fields: Vec<FieldDefn>,
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct FormDefn {
-    body: ExprIdx,
 }
