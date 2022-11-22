@@ -7,7 +7,6 @@ use husky_identifier::Identifier;
 use husky_path_utils::*;
 use husky_print_utils::msg_once;
 use husky_source_path::SourcePath;
-use husky_static_defn::*;
 use husky_term::*;
 use husky_token_text::TokenTextDb;
 use salsa::DbWithJar;
@@ -18,7 +17,7 @@ use fold::FoldableStorage;
 
 use std::{path::PathBuf, sync::Arc};
 
-pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + TokenTextDb + ResolveStaticRootDefn {
+pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + TokenTextDb {
     fn subroute_table(&self, entity_path: EntityPath) -> EntityTreeResultArc<SubrouteTable>;
 
     fn subentity_routes(&self, entity_path: EntityPath) -> Arc<Vec<Ty>>;
@@ -26,7 +25,7 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + TokenTextDb + ResolveStaticRo
 
     fn husky_entity_kind(&self, entity_path: EntityPath) -> EntityTreeResult<EntityKind>;
 
-    fn entity_source(&self, entity_path: EntityPath) -> EntityTreeResult<EntitySource>;
+    // fn entity_source(&self, entity_path: EntityPath) -> EntityTreeResult<EntitySource>;
 
     fn submodules(&self, module: Ty) -> Arc<Vec<Ty>>;
 
@@ -173,45 +172,46 @@ fn subroute_table(
     db: &dyn EntityTreeDb,
     entity_path: EntityPath,
 ) -> EntityTreeResultArc<SubrouteTable> {
-    let husky_entity_kind = db.husky_entity_kind(entity_path)?;
-    match db.husky_entity_kind(entity_path)? {
-        EntityKind::Function { .. }
-        | EntityKind::Feature
-        | EntityKind::EnumVariant
-        | EntityKind::Main
-        | EntityKind::Member(_) => Ok(Arc::new(SubrouteTable::new(entity_path, husky_entity_kind))),
-        EntityKind::Module | EntityKind::Type(_) | EntityKind::Trait => {
-            Ok(Arc::new(match db.entity_source(entity_path)? {
-                EntitySource::StaticModuleItem(data) => {
-                    SubrouteTable::from_static(db, entity_path, husky_entity_kind, data)
-                }
-                EntitySource::WithinModule {
-                    file,
-                    token_group_index,
-                } => {
-                    let text = db.tokenized_text(file)?;
-                    let item = text.iter_from(token_group_index).next().unwrap();
-                    if let Some(children) = item.opt_children {
-                        SubrouteTable::parse(db, file, entity_path, husky_entity_kind, children)
-                    } else {
-                        SubrouteTable::new(entity_path, husky_entity_kind)
-                    }
-                }
-                EntitySource::Module { file: file_id } => {
-                    let text = db.tokenized_text(file_id)?;
-                    SubrouteTable::parse(db, file_id, entity_path, husky_entity_kind, text.iter())
-                }
-                EntitySource::WithinBuiltinModule => todo!(),
-                EntitySource::TargetInput { .. } => todo!(),
-                EntitySource::StaticTypeMember(_) => todo!(),
-                EntitySource::StaticTraitMember(_) => todo!(),
-                EntitySource::StaticTypeAsTraitMember => todo!(),
-                EntitySource::Any { .. } => todo!(),
-                EntitySource::StaticEnumVariant(_) => todo!(),
-                EntitySource::ThisType { .. } => todo!(),
-            }))
-        }
-    }
+    todo!()
+    // let husky_entity_kind = db.husky_entity_kind(entity_path)?;
+    // match db.husky_entity_kind(entity_path)? {
+    //     EntityKind::Function { .. }
+    //     | EntityKind::Feature
+    //     | EntityKind::EnumVariant
+    //     | EntityKind::Main
+    //     | EntityKind::Member(_) => Ok(Arc::new(SubrouteTable::new(entity_path, husky_entity_kind))),
+    //     EntityKind::Module | EntityKind::Type(_) | EntityKind::Trait => {
+    //         Ok(Arc::new(match db.entity_source(entity_path)? {
+    //             EntitySource::StaticModuleItem(data) => {
+    //                 SubrouteTable::from_static(db, entity_path, husky_entity_kind, data)
+    //             }
+    //             EntitySource::WithinModule {
+    //                 file,
+    //                 token_group_index,
+    //             } => {
+    //                 let text = db.tokenized_text(file)?;
+    //                 let item = text.iter_from(token_group_index).next().unwrap();
+    //                 if let Some(children) = item.opt_children {
+    //                     SubrouteTable::parse(db, file, entity_path, husky_entity_kind, children)
+    //                 } else {
+    //                     SubrouteTable::new(entity_path, husky_entity_kind)
+    //                 }
+    //             }
+    //             EntitySource::Module { file: file_id } => {
+    //                 let text = db.tokenized_text(file_id)?;
+    //                 SubrouteTable::parse(db, file_id, entity_path, husky_entity_kind, text.iter())
+    //             }
+    //             EntitySource::WithinBuiltinModule => todo!(),
+    //             EntitySource::TargetInput { .. } => todo!(),
+    //             EntitySource::StaticTypeMember(_) => todo!(),
+    //             EntitySource::StaticTraitMember(_) => todo!(),
+    //             EntitySource::StaticTypeAsTraitMember => todo!(),
+    //             EntitySource::Any { .. } => todo!(),
+    //             EntitySource::StaticEnumVariant(_) => todo!(),
+    //             EntitySource::ThisType { .. } => todo!(),
+    //         }))
+    //     }
+    // }
 }
 
 fn subentity_routes(db: &dyn EntityTreeDb, entity_path: EntityPath) -> Arc<Vec<Ty>> {
@@ -249,67 +249,67 @@ fn husky_entity_kind(
     // entity_kind_from_entity_route_kind(db, &entity_path.variant)
 }
 
-fn entity_source(db: &dyn EntityTreeDb, entity_path: EntityPath) -> EntityTreeResult<EntitySource> {
-    todo!()
-    // if entity_path.canonicalize().kind() != CanonicalTyKind::Intrinsic {
-    //     panic!("expect intrinsic, but get `{}`", entity_path)
-    // }
-    // match entity_path.variant {
-    //     EntityRouteVariant::Root { ident } => Ok(EntitySource::StaticModuleItem(db
-    //         .__root_defn_resolver()(
-    //         ident
-    //     ))),
-    //     EntityRouteVariant::Package { main, .. } => Ok(EntitySource::Module { file: main }),
-    //     EntityRouteVariant::Child { parent, ident } => {
-    //         db.subroute_table(parent)?.entity_source(ident)
-    //     }
-    //     EntityRouteVariant::TargetInputValue => Ok(EntitySource::TargetInput),
-    //     EntityRouteVariant::Any {
-    //         ident, file, range, ..
-    //     } => Ok(EntitySource::Any {
-    //         route: entity_path,
-    //         ident,
-    //         file,
-    //         range,
-    //     }),
-    //     EntityRouteVariant::ThisType { file, range } => Ok(EntitySource::ThisType { file, range }),
-    //     EntityRouteVariant::TypeAsTraitMember { ty, trai, ident: _ } => match trai {
-    //         Ty::Root(root_ident) => match root_ident {
-    //             RootBuiltinIdentifier::CloneTrait => {
-    //                 msg_once!("ad hoc");
-    //                 Ok(EntitySource::StaticTypeAsTraitMember)
-    //                 // db.entity_source(EntityRoutePtr::Root(RootBuiltinIdentifier::CloneTrait))
-    //             }
-    //             _ => todo!(),
-    //         },
-    //         Ty::Custom(_) => match trai.variant {
-    //             EntityRouteVariant::ThisType { file: _, range: _ } => {
-    //                 let ty_source = db.entity_source(ty).unwrap();
-    //                 match ty_source {
-    //                     EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
-    //                         EntityStaticDefnVariant::Ty { .. } => {
-    //                             Ok(EntitySource::StaticTypeAsTraitMember)
-    //                         }
-    //                         _ => panic!(),
-    //                     },
-    //                     EntitySource::WithinBuiltinModule => todo!(),
-    //                     EntitySource::WithinModule { .. } => todo!(),
-    //                     EntitySource::Module { .. } => todo!(),
-    //                     EntitySource::TargetInput { .. } => todo!(),
-    //                     EntitySource::StaticTypeMember(_) => todo!(),
-    //                     EntitySource::StaticTraitMember(_) => todo!(),
-    //                     EntitySource::StaticTypeAsTraitMember => todo!(),
-    //                     EntitySource::Any { .. } => todo!(),
-    //                     EntitySource::StaticEnumVariant(_) => todo!(),
-    //                     EntitySource::ThisType { .. } => todo!(),
-    //                 }
-    //             }
-    //             _ => todo!(),
-    //         },
-    //     },
-    //     EntityRouteVariant::TargetOutputType => todo!(),
-    // }
-}
+// fn entity_source(db: &dyn EntityTreeDb, entity_path: EntityPath) -> EntityTreeResult<EntitySource> {
+//     todo!()
+//     // if entity_path.canonicalize().kind() != CanonicalTyKind::Intrinsic {
+//     //     panic!("expect intrinsic, but get `{}`", entity_path)
+//     // }
+//     // match entity_path.variant {
+//     //     EntityRouteVariant::Root { ident } => Ok(EntitySource::StaticModuleItem(db
+//     //         .__root_defn_resolver()(
+//     //         ident
+//     //     ))),
+//     //     EntityRouteVariant::Package { main, .. } => Ok(EntitySource::Module { file: main }),
+//     //     EntityRouteVariant::Child { parent, ident } => {
+//     //         db.subroute_table(parent)?.entity_source(ident)
+//     //     }
+//     //     EntityRouteVariant::TargetInputValue => Ok(EntitySource::TargetInput),
+//     //     EntityRouteVariant::Any {
+//     //         ident, file, range, ..
+//     //     } => Ok(EntitySource::Any {
+//     //         route: entity_path,
+//     //         ident,
+//     //         file,
+//     //         range,
+//     //     }),
+//     //     EntityRouteVariant::ThisType { file, range } => Ok(EntitySource::ThisType { file, range }),
+//     //     EntityRouteVariant::TypeAsTraitMember { ty, trai, ident: _ } => match trai {
+//     //         Ty::Root(root_ident) => match root_ident {
+//     //             RootBuiltinIdentifier::CloneTrait => {
+//     //                 msg_once!("ad hoc");
+//     //                 Ok(EntitySource::StaticTypeAsTraitMember)
+//     //                 // db.entity_source(EntityRoutePtr::Root(RootBuiltinIdentifier::CloneTrait))
+//     //             }
+//     //             _ => todo!(),
+//     //         },
+//     //         Ty::Custom(_) => match trai.variant {
+//     //             EntityRouteVariant::ThisType { file: _, range: _ } => {
+//     //                 let ty_source = db.entity_source(ty).unwrap();
+//     //                 match ty_source {
+//     //                     EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
+//     //                         EntityStaticDefnVariant::Ty { .. } => {
+//     //                             Ok(EntitySource::StaticTypeAsTraitMember)
+//     //                         }
+//     //                         _ => panic!(),
+//     //                     },
+//     //                     EntitySource::WithinBuiltinModule => todo!(),
+//     //                     EntitySource::WithinModule { .. } => todo!(),
+//     //                     EntitySource::Module { .. } => todo!(),
+//     //                     EntitySource::TargetInput { .. } => todo!(),
+//     //                     EntitySource::StaticTypeMember(_) => todo!(),
+//     //                     EntitySource::StaticTraitMember(_) => todo!(),
+//     //                     EntitySource::StaticTypeAsTraitMember => todo!(),
+//     //                     EntitySource::Any { .. } => todo!(),
+//     //                     EntitySource::StaticEnumVariant(_) => todo!(),
+//     //                     EntitySource::ThisType { .. } => todo!(),
+//     //                 }
+//     //             }
+//     //             _ => todo!(),
+//     //         },
+//     //     },
+//     //     EntityRouteVariant::TargetOutputType => todo!(),
+//     // }
+// }
 
 pub struct ModuleFromFileError {
     pub rule_broken: ModuleFromFileRule,

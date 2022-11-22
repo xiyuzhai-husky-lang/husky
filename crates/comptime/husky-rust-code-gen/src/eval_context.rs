@@ -2,7 +2,7 @@ use husky_entity_kind::{EntityKind, MemberKind, TyKind};
 
 use crate::*;
 
-pub(crate) fn needs_eval_context(db: &dyn RustCodeGenQueryGroup, entity_path: Ty) -> bool {
+pub(crate) fn needs_eval_context(db: &dyn RustTranspileDb, entity_path: Ty) -> bool {
     todo!()
     // let entity_link_dependees = db.entity_link_dependees(entity_path);
     // for link_route in entity_link_dependees.iter() {

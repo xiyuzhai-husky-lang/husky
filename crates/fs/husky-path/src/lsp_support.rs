@@ -34,7 +34,7 @@ fn url_from_abs_path(path: &Path) -> lsp_types::Url {
 }
 
 // #[cfg(feature = "lsp_support")]
-// impl Into<lsp_types::Url> for ModulePathItd {
+// impl Into<lsp_types::Url> for ModuleSourcePath {
 //     fn into(self) -> lsp_types::Url {
 //         todo!()
 //         // url_from_abs_path(&self)

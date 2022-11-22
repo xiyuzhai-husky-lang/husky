@@ -1,11 +1,10 @@
 use crate::*;
-use husky_identifier::RootBuiltinIdentifier;
 mod impl_entity;
 mod impl_expr;
 mod impl_stmt;
 
 pub(crate) struct LinkageCollector<'a> {
-    db: &'a dyn RustCodeGenQueryGroup,
+    db: &'a dyn RustTranspileDb,
     linkages: VecSet<Ty>,
 }
 
@@ -51,7 +50,7 @@ impl<'a> LinkageCollector<'a> {
 }
 
 pub(crate) fn entity_immediate_link_dependees(
-    _db: &dyn RustCodeGenQueryGroup,
+    _db: &dyn RustTranspileDb,
     _entity_route: Ty,
 ) -> Arc<VecSet<Ty>> {
     todo!()
@@ -90,15 +89,12 @@ pub(crate) fn entity_immediate_link_dependees(
     // }
 }
 
-pub(crate) fn entity_link_dependees(
-    db: &dyn RustCodeGenQueryGroup,
-    entity_path: Ty,
-) -> Arc<VecSet<Ty>> {
+pub(crate) fn entity_link_dependees(db: &dyn RustTranspileDb, entity_path: Ty) -> Arc<VecSet<Ty>> {
     let mut dependees = (*db.entity_immediate_link_dependees(entity_path)).clone();
     visit_all(db, &mut dependees, 0);
     return Arc::new(dependees);
 
-    fn visit_all(db: &dyn RustCodeGenQueryGroup, dependees: &mut VecSet<Ty>, start: usize) {
+    fn visit_all(db: &dyn RustTranspileDb, dependees: &mut VecSet<Ty>, start: usize) {
         todo!()
         // let len0 = dependees.len();
         // for subroute in dependees[start..]

@@ -13,7 +13,6 @@ upcast = { path = "../../abstraction/upcast" }
 error-lineage = { path = "../../abstraction/error-lineage" }
 # fs
 husky-source-path = { path = "../../fs/husky-source-path" }
-husky-path = { path = "../../fs/husky-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }

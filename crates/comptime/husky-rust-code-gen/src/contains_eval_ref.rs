@@ -1,9 +1,7 @@
-use husky_identifier::RootBuiltinIdentifier;
-
 use super::*;
 
 pub(super) fn entity_route_variant_contains_eval_ref(
-    db: &dyn RustCodeGenQueryGroup,
+    db: &dyn RustTranspileDb,
     entity_path: Ty,
 ) -> bool {
     // let base_route = db.intern_entity_route(EntityRoute {
@@ -93,7 +91,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
 }
 
 // fn parameter_contains_eval_ref(
-//     db: &dyn RustCodeGenQueryGroup,
+//     db: &dyn RustTranspileDb,
 //     parameter: &infer_decl::ParameterDecl,
 // ) -> bool {
 //     match parameter.modifier {
@@ -103,10 +101,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
 //     db.entity_route_contains_eval_ref(parameter.ty())
 // }
 
-pub(super) fn entity_route_contains_eval_ref(
-    db: &dyn RustCodeGenQueryGroup,
-    entity_path: Ty,
-) -> bool {
+pub(super) fn entity_route_contains_eval_ref(db: &dyn RustTranspileDb, entity_path: Ty) -> bool {
     todo!()
     // if db.entity_route_variant_contains_eval_ref(entity_path) {
     //     return true;

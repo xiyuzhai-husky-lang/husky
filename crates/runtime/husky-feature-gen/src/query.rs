@@ -25,7 +25,10 @@ pub trait FeatureGenQueryGroup:
     + RefUnwindSafe
     + UnwindSafe
 {
-    fn main_feature_repr(&'eval self, target_entrance: husky_path::PathItd) -> FeatureRepr;
+    fn main_feature_repr(
+        &'eval self,
+        target_entrance: husky_source_path::SourcePath,
+    ) -> FeatureRepr;
     fn entity_feature_repr(&self, entity_path: Ty) -> FeatureRepr;
     fn record_field_repr(&self, this: FeatureRepr, field_ident: Identifier) -> FeatureRepr;
     fn visual_feature_lazy_block(&self, this: FeatureRepr) -> __VMResult<Arc<FeatureLazyBody>>;

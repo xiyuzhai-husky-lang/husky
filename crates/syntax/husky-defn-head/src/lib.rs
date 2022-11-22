@@ -2,7 +2,6 @@ mod spatial;
 
 use husky_check_utils::should;
 use husky_entity_tree::EntityTreeDb;
-use husky_liason_semantics::{MemberModifier, ParameterModifier, RangedParameterLiason};
 pub use spatial::*;
 use thin_vec::thin_vec;
 
@@ -13,7 +12,7 @@ use husky_text::{RangedIdentifier, TextRange};
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Parameter {
     ranged_ident: RangedIdentifier,
-    ranged_liason: RangedParameterLiason,
+    // ranged_liason: RangedParameterLiason,
     // ranged_book_ty: Ty,
     ty: Ty,
 }
@@ -22,7 +21,7 @@ impl Parameter {
     pub fn new(
         db: &dyn EntityTreeDb,
         ranged_ident: RangedIdentifier,
-        ranged_liason: RangedParameterLiason,
+        // ranged_liason: RangedParameterLiason,
         // ranged_raw_ty: Ty,
     ) -> Self {
         todo!()
@@ -36,28 +35,28 @@ impl Parameter {
         // }
     }
 
-    fn synthesize_ty(db: &dyn EntityTreeDb, liason: ParameterModifier, raw_ty: Ty) -> Ty {
-        todo!()
-        // match liason {
-        //     ParameterModifier::None => raw_ty,
-        //     ParameterModifier::Owned => raw_ty,
-        //     ParameterModifier::OwnedMut => raw_ty,
-        //     ParameterModifier::MemberAccess => todo!(),
-        //     ParameterModifier::EvalRef => todo!(),
-        //     ParameterModifier::TempRef => todo!(),
-        //     ParameterModifier::TempRefMut => db.route_call(
-        //         RootBuiltinIdentifier::RefMut.into(),
-        //         thin_vec![raw_ty.into()],
-        //     ),
-        // }
-    }
+    // fn synthesize_ty(db: &dyn EntityTreeDb, liason: ParameterModifier, raw_ty: Ty) -> Ty {
+    //     todo!()
+    //     // match liason {
+    //     //     ParameterModifier::None => raw_ty,
+    //     //     ParameterModifier::Owned => raw_ty,
+    //     //     ParameterModifier::OwnedMut => raw_ty,
+    //     //     ParameterModifier::MemberAccess => todo!(),
+    //     //     ParameterModifier::EvalRef => todo!(),
+    //     //     ParameterModifier::TempRef => todo!(),
+    //     //     ParameterModifier::TempRefMut => db.route_call(
+    //     //         RootBuiltinIdentifier::RefMut.into(),
+    //     //         thin_vec![raw_ty.into()],
+    //     //     ),
+    //     // }
+    // }
 
-    pub fn liason(&self) -> ParameterModifier {
-        self.ranged_liason.liason
-    }
-    pub fn liason_range(&self) -> TextRange {
-        self.ranged_liason.opt_range.unwrap()
-    }
+    // pub fn liason(&self) -> ParameterModifier {
+    //     self.ranged_liason.liason
+    // }
+    // pub fn liason_range(&self) -> TextRange {
+    //     self.ranged_liason.opt_range.unwrap()
+    // }
 
     pub fn ranged_ident(&self) -> RangedIdentifier {
         self.ranged_ident
@@ -84,7 +83,7 @@ impl Parameter {
     pub fn from_field(
         db: &dyn EntityTreeDb,
         ranged_ident: RangedIdentifier,
-        modifier: MemberModifier,
+        // modifier: MemberModifier,
         member_ty: Ty,
     ) -> Self {
         todo!()

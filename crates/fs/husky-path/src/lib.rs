@@ -34,11 +34,11 @@ impl FileContent {
     }
 }
 
-// pub struct ModulePathItd(PathItd);
+// pub struct ModuleSourcePath(SourcePath);
 
-// impl ModulePathItd {
-//     fn new(path: PathItd) -> Option<Self> {
+// impl ModuleSourcePath {
+//     fn new(path: SourcePath) -> Option<Self> {
 //         todo!();
-//         Some(ModulePathItd(path))
+//         Some(ModuleSourcePath(path))
 //     }
 // }

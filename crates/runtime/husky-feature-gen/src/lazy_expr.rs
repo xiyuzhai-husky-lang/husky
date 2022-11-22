@@ -1,10 +1,10 @@
 mod impl_opn;
 mod xml;
 
-use husky_path::PathItd;
 use husky_primitive_literal_semantics::{
     convert_primitive_literal_to_register, convert_primitive_literal_to_value,
 };
+use husky_source_path::SourcePath;
 pub use xml::*;
 
 use husky_vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
@@ -34,7 +34,7 @@ impl HasTextRange for FeatureLazyExpr {
 }
 
 impl HasSourceRange for FeatureLazyExpr {
-    fn source(&self) -> PathItd {
+    fn source(&self) -> SourcePath {
         self.expr.file
     }
 }

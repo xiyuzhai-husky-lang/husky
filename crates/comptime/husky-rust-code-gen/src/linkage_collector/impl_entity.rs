@@ -1,11 +1,8 @@
 use super::*;
-use husky_entity_semantics::{
-    CallFormSource, DefinitionRepr, EntityDefn, EntityDefnVariant, EnumVariantDefnVariant,
-    FieldDefnVariant, MethodDefnKind,
-};
+use husky_defn::Defn;
 
 impl<'a> LinkageCollector<'a> {
-    pub(crate) fn collect_from_entity_defn(&mut self, defn: &EntityDefn) {
+    pub(crate) fn collect_from_entity_defn(&mut self, defn: &Defn) {
         todo!()
         // match defn.variant {
         //     EntityDefnVariant::Module {
@@ -129,42 +126,42 @@ impl<'a> LinkageCollector<'a> {
         }
     }
 
-    fn collect_from_feature_repr(
-        &mut self,
-        opt_feature_route: Option<Ty>,
-        feature_repr: &DefinitionRepr,
-    ) {
-        todo!()
-        // match feature_repr {
-        //     DefinitionRepr::LazyExpr { .. } => todo!(),
-        //     DefinitionRepr::LazyBlock { stmts, ty } => {
-        //         opt_feature_route.map(|feature_route| self.insert(feature_route));
-        //         self.insert(ty.route);
-        //         self.collect_from_lazy_stmts(stmts)
-        //     }
-        //     DefinitionRepr::FuncBlock {
-        //         stmts, return_ty, ..
-        //     } => {
-        //         opt_feature_route.map(|feature_route| self.insert(feature_route));
-        //         self.insert(return_ty.route);
-        //         self.collect_from_func_stmts(stmts)
-        //     }
-        //     DefinitionRepr::ProcBlock {
-        //         stmts, return_ty, ..
-        //     } => {
-        //         opt_feature_route.map(|feature_route| self.insert(feature_route));
-        //         self.insert(return_ty.route);
-        //         self.collect_from_proc_stmts(stmts)
-        //     }
-        // }
-    }
+    // fn collect_from_feature_repr(
+    //     &mut self,
+    //     opt_feature_route: Option<Ty>,
+    //     feature_repr: &DefinitionRepr,
+    // ) {
+    //     todo!()
+    //     // match feature_repr {
+    //     //     DefinitionRepr::LazyExpr { .. } => todo!(),
+    //     //     DefinitionRepr::LazyBlock { stmts, ty } => {
+    //     //         opt_feature_route.map(|feature_route| self.insert(feature_route));
+    //     //         self.insert(ty.route);
+    //     //         self.collect_from_lazy_stmts(stmts)
+    //     //     }
+    //     //     DefinitionRepr::FuncBlock {
+    //     //         stmts, return_ty, ..
+    //     //     } => {
+    //     //         opt_feature_route.map(|feature_route| self.insert(feature_route));
+    //     //         self.insert(return_ty.route);
+    //     //         self.collect_from_func_stmts(stmts)
+    //     //     }
+    //     //     DefinitionRepr::ProcBlock {
+    //     //         stmts, return_ty, ..
+    //     //     } => {
+    //     //         opt_feature_route.map(|feature_route| self.insert(feature_route));
+    //     //         self.insert(return_ty.route);
+    //     //         self.collect_from_proc_stmts(stmts)
+    //     //     }
+    //     // }
+    // }
 
-    fn collect_from_call_form_source(&mut self, source: &CallFormSource) {
-        match source {
-            CallFormSource::Func { stmts } => self.collect_from_func_stmts(stmts),
-            CallFormSource::Proc { stmts } => self.collect_from_proc_stmts(stmts),
-            CallFormSource::Lazy { .. } => todo!(),
-            CallFormSource::Static(_) => (),
-        }
-    }
+    // fn collect_from_call_form_source(&mut self, source: &CallFormSource) {
+    //     match source {
+    //         CallFormSource::Func { stmts } => self.collect_from_func_stmts(stmts),
+    //         CallFormSource::Proc { stmts } => self.collect_from_proc_stmts(stmts),
+    //         CallFormSource::Lazy { .. } => todo!(),
+    //         CallFormSource::Static(_) => (),
+    //     }
+    // }
 }

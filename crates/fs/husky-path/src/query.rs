@@ -13,14 +13,14 @@ use upcast::UpcastMut;
 pub trait VfsQueryGroupBase: InternHuskyPath {
     // #[cfg(feature = "lsp_support")]
     #[inline(always)]
-    fn get_live_files(&self) -> Option<&ASafeRwLock<IndexMap<PathItd, ASafeRwLock<String>>>>;
+    fn get_live_files(&self) -> Option<&ASafeRwLock<IndexMap<SourcePath, ASafeRwLock<String>>>>;
 
     #[inline(always)]
-    fn watch(&self, path: PathItd);
+    fn watch(&self, path: SourcePath);
 }
 
 pub trait LiveFileSupport: FileSalsaQuery + UpcastMut<dyn FileSalsaQuery> {
-    fn did_change_source(&mut self, id: PathItd) {
+    fn did_change_source(&mut self, id: SourcePath) {
         FileContentQuery
             .in_db_mut(self.upcast_mut())
             .invalidate(&id);
@@ -58,18 +58,18 @@ pub trait LiveFileSupport: FileSalsaQuery + UpcastMut<dyn FileSalsaQuery> {
 #[salsa::query_group(FileQueryStorage)]
 pub trait FileSalsaQuery: VfsQueryGroupBase {
     #[salsa::input]
-    fn opt_target_entrance(&self) -> Option<PathItd>;
+    fn opt_target_entrance(&self) -> Option<SourcePath>;
 
-    fn module_target_entrance(&self, module_file: PathItd) -> Option<PathItd>;
+    fn module_target_entrance(&self, module_file: SourcePath) -> Option<SourcePath>;
 
-    fn file_content(&self, id: PathItd) -> FileContent;
+    fn file_content(&self, id: SourcePath) -> FileContent;
 
-    fn parent_module_file(&self, module_file: PathItd) -> Option<PathItd>;
+    fn parent_module_file(&self, module_file: SourcePath) -> Option<SourcePath>;
 
-    fn submodule_file(&self, module_file: PathItd, ident: Identifier) -> Option<PathItd>;
+    fn submodule_file(&self, module_file: SourcePath, ident: Identifier) -> Option<SourcePath>;
 }
 
-fn file_content(db: &dyn FileSalsaQuery, id: PathItd) -> FileContent {
+fn file_content(db: &dyn FileSalsaQuery, id: SourcePath) -> FileContent {
     db.salsa_runtime()
         .report_synthetic_read(salsa::Durability::LOW);
     // #[cfg(feature = "lsp_support")]
@@ -98,7 +98,10 @@ fn file_content(db: &dyn FileSalsaQuery, id: PathItd) -> FileContent {
     // todo!()
 }
 
-fn module_target_entrance(db: &dyn FileSalsaQuery, module_file_id: PathItd) -> Option<PathItd> {
+fn module_target_entrance(
+    db: &dyn FileSalsaQuery,
+    module_file_id: SourcePath,
+) -> Option<SourcePath> {
     let pth: PathBuf = (*module_file_id).into();
     for ancestor in pth.ancestors() {
         let id = db.intern_path(ancestor.with_file_name("main.hsy"));
@@ -110,7 +113,7 @@ fn module_target_entrance(db: &dyn FileSalsaQuery, module_file_id: PathItd) -> O
     None
 }
 
-fn parent_module_file(db: &dyn FileSalsaQuery, module_file: PathItd) -> Option<PathItd> {
+fn parent_module_file(db: &dyn FileSalsaQuery, module_file: SourcePath) -> Option<SourcePath> {
     Some(db.intern_path(parent_module_path(&module_file, |file| {
         file_exists(db, file)
     })?))
@@ -118,9 +121,9 @@ fn parent_module_file(db: &dyn FileSalsaQuery, module_file: PathItd) -> Option<P
 
 fn submodule_file(
     db: &dyn FileSalsaQuery,
-    module_file: PathItd,
+    module_file: SourcePath,
     ident: Identifier,
-) -> Option<PathItd> {
+) -> Option<SourcePath> {
     Some(db.intern_path(submodule_path(&module_file, &ident, |file| {
         file_exists(db, file)
     })?))
@@ -137,7 +140,7 @@ fn file_exists(db: &dyn FileSalsaQuery, file: &Path) -> bool {
 }
 
 pub trait FileQueryGroup: FileSalsaQuery {
-    fn file_exists(&self, file: PathItd) -> bool {
+    fn file_exists(&self, file: SourcePath) -> bool {
         match self.file_content(file) {
             FileContent::OnDisk(_) => true,
             FileContent::Live(_) => true,
@@ -146,7 +149,7 @@ pub trait FileQueryGroup: FileSalsaQuery {
         }
     }
 
-    fn all_target_entrances(&self) -> Vec<PathItd> {
+    fn all_target_entrances(&self) -> Vec<SourcePath> {
         self.path_itr()
             .id_iter()
             .filter_map(|id| self.module_target_entrance(id))
@@ -154,13 +157,13 @@ pub trait FileQueryGroup: FileSalsaQuery {
             .collect()
     }
 
-    fn unique_main_file(&self) -> PathItd {
+    fn unique_main_file(&self) -> SourcePath {
         let all_main_files = self.all_target_entrances();
         assert_eq!(all_main_files.len(), 1);
         all_main_files[0]
     }
 
-    fn raw_text(&self, file: PathItd) -> Option<Arc<String>> {
+    fn raw_text(&self, file: SourcePath) -> Option<Arc<String>> {
         match self.file_content(file) {
             FileContent::OnDisk(text) => Some(text),
             FileContent::Live(text) => Some(text),
@@ -170,7 +173,7 @@ pub trait FileQueryGroup: FileSalsaQuery {
     }
 
     #[cfg(feature = "lsp_support")]
-    fn url(&self, id: PathItd) -> lsp_types::Url {
+    fn url(&self, id: SourcePath) -> lsp_types::Url {
         return url_from_abs_path(&id);
 
         pub(crate) fn url_from_abs_path(path: &Path) -> lsp_types::Url {

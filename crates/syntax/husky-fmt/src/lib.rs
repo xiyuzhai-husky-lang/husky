@@ -10,12 +10,15 @@ use formatter::Formatter;
 
 #[salsa::query_group(FormatQueryGroupStorage)]
 pub trait FmtQuery: husky_ast::AstDb {
-    fn fmt_text(&self, id: husky_path::PathItd) -> husky_entity_tree::EntityTreeResultArc<String>;
+    fn fmt_text(
+        &self,
+        id: husky_source_path::SourcePath,
+    ) -> husky_entity_tree::EntityTreeResultArc<String>;
 }
 
 fn fmt_text(
     db: &dyn FmtQuery,
-    file: husky_path::PathItd,
+    file: husky_source_path::SourcePath,
 ) -> husky_entity_tree::EntityTreeResultArc<String> {
     todo!()
     // let ast_text = db.ast_text(file)?;

@@ -2,8 +2,8 @@ use crate::*;
 use code_generator::RustCodeGenerator;
 
 pub(crate) fn rust_init_rs_content(
-    db: &dyn RustCodeGenQueryGroup,
-    target_entrance: PathItd,
+    db: &dyn RustTranspileDb,
+    target_entrance: SourcePath,
 ) -> Arc<String> {
     todo!()
     // msg_once!("deal with submodules");

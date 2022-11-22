@@ -12,15 +12,18 @@ doctest = false
 [dependencies]
 convert_case = "0.6.0"
 path-slash = "0.2.1"
+# abstraction
 salsa = { path = "../../abstraction/salsa" }
 vec-like = { path = "../../abstraction/vec-like" }
 fold = { path = "../../abstraction/fold" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-path = { path = "../../fs/husky-path" }
+# fs
+husky-source-path = { path = "../../fs/husky-source-path" }
+# lex
 husky-token = { path = "../../lex/husky-token" }
+# kernel
 husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-term = { path = "../../kernel/husky-term" }
+# syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
@@ -29,10 +32,16 @@ husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
+husky-defn = { path = "../../syntax/husky-defn" }
+# vm
 husky-vm-binding = { path = "../../vm/husky-vm-binding" }
-husky-rust-code-repr = { path = "../husky-rust-code-repr", features = [
+# comptime
+husky-rust-code-repr = { path = "../../comptime/husky-rust-code-repr", features = [
     "entity_path",
     "registration"
 ] }
-husky-write-utils = { path = "../../utils/husky-write-utils" }
 husky-layout = { path = "../../comptime/husky-layout" }
+# utils
+husky-write-utils = { path = "../../utils/husky-write-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }

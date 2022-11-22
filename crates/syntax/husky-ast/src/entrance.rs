@@ -64,8 +64,7 @@ impl DeprecatedAstVariant {
                 spatial_parameters: _,
                 parameters,
                 return_ty: _,
-                output_liason: _,
-                opt_this_liason: _,
+                ..
             } => parameters
                 .iter()
                 .map(|parameter| AstEntrance::Parameter {
@@ -78,10 +77,10 @@ impl DeprecatedAstVariant {
                 return_ty: _,
             } => vec![],
             DeprecatedAstVariant::FieldDefnHead {
-                liason: _,
                 ranged_ident: _,
                 field_ty: _,
                 ast_field_kind,
+                ..
             } => match ast_field_kind {
                 AstFieldKind::StructOriginal => vec![],
                 AstFieldKind::StructDefault { default } => {

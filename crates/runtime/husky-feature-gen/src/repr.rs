@@ -1,7 +1,7 @@
 use husky_entity_semantics::DefinitionRepr;
 use husky_instruction_gen::{new_func_instruction_sheet, new_proc_instruction_sheet};
 use husky_linkage_table::ResolveLinkage;
-use husky_path::PathItd;
+use husky_source_path::SourcePath;
 use husky_vm::__Register;
 
 use crate::*;
@@ -11,7 +11,7 @@ pub enum FeatureRepr {
     Value {
         value: __Register<'static>,
         ty: Ty,
-        file: PathItd,
+        file: SourcePath,
         range: TextRange,
         feature: FeatureItd,
     },
@@ -20,7 +20,7 @@ pub enum FeatureRepr {
     FuncBody(Arc<FeatureFuncBody>),
     ProcBody(Arc<FeatureProcBody>),
     TargetInput {
-        main_file: PathItd,
+        main_file: SourcePath,
         ty: Ty,
         feature: FeatureItd,
     },
@@ -71,7 +71,7 @@ impl FeatureRepr {
         }
     }
 
-    pub fn file(&self) -> PathItd {
+    pub fn file(&self) -> SourcePath {
         match self {
             FeatureRepr::Value { file, .. } => *file,
             FeatureRepr::LazyExpr(expr) => expr.expr.file,

@@ -17,8 +17,8 @@ pub enum DeprecatedAstVariant {
         spatial_parameters: IdentDict<SpatialParameter>,
         parameters: Arc<Vec<Parameter>>,
         return_ty: ExprIdx,
-        output_liason: OutputModifier,
-        opt_this_liason: Option<ParameterModifier>,
+        // output_liason: OutputModifier,
+        // opt_this_liason: Option<ParameterModifier>,
     },
     FeatureDefnHead {
         paradigm: Paradigm,
@@ -26,7 +26,7 @@ pub enum DeprecatedAstVariant {
         return_ty: ExprIdx,
     },
     FieldDefnHead {
-        liason: MemberModifier,
+        // liason: MemberModifier,
         ranged_ident: RangedIdentifier,
         field_ty: ExprIdx,
         ast_field_kind: AstFieldKind,

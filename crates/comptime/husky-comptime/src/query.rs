@@ -1,7 +1,7 @@
 use husky_identifier::RootBuiltinIdentifier;
 use husky_linkage_table::ResolveLinkage;
 use husky_package_semantics::PackageQueryGroup;
-use husky_path::PathItd;
+use husky_source_path::SourcePath;
 use husky_term::Ty;
 use husky_trace_protocol::Label;
 use husky_vm::{__Register, __RegisterDataKind};
@@ -9,7 +9,7 @@ use husky_vm::{__Register, __RegisterDataKind};
 use crate::{utils::__RegisterDowncastResult, HuskyComptime};
 
 pub trait ComptimeQueryGroup: PackageQueryGroup + ResolveLinkage {
-    fn target_entrance(&self) -> PathItd {
+    fn target_entrance(&self) -> SourcePath {
         self.opt_target_entrance().unwrap()
     }
     fn register_to_label_converter(

@@ -14,7 +14,6 @@ upcast = { path = "../../abstraction/upcast" }
 vec-like = { path = "../../abstraction/vec-like" }
 fold = { path = "../../abstraction/fold" }
 # fs
-husky-path = { path = "../../fs/husky-path" }
 husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }

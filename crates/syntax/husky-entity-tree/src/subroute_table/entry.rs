@@ -2,20 +2,10 @@ use husky_source_path::SourcePath;
 
 use super::*;
 
-#[derive(PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SubrouteEntry {
     pub ident: Option<RangedIdentifier>,
     pub kind: EntityKind,
-    pub source: EntitySource,
-}
-
-impl std::fmt::Debug for SubrouteEntry {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!(
-            "{{ident: {:?}, kind: {:?}}}, source: {:?}",
-            self.ident, self.kind, self.source
-        ))
-    }
 }
 
 impl SubrouteEntry {

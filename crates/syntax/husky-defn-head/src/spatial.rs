@@ -2,7 +2,6 @@ use husky_entity_kind::{EntityKind, TyKind};
 use husky_entity_tree::EntityTreeDb;
 use husky_identifier::Identifier;
 use husky_source_path::SourcePath;
-use husky_static_defn::StaticSpatialParameter;
 use husky_text::{RangedIdentifier, TextRange};
 use vec_like::VecMapEntry;
 
@@ -27,9 +26,9 @@ pub enum SpatialParameterVariant {
 }
 
 impl SpatialParameter {
-    pub fn from_static(_db: &dyn EntityTreeDb, _: &StaticSpatialParameter) -> Self {
-        todo!()
-    }
+    // pub fn from_static(_db: &dyn EntityTreeDb, _: &StaticSpatialParameter) -> Self {
+    //     todo!()
+    // }
 }
 
 impl SpatialParameter {

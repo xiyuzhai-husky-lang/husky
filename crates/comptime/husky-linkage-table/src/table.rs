@@ -1,7 +1,6 @@
 use std::path::Path;
 
 use crate::*;
-use __husky::init::__StaticLinkageKey;
 use husky_vm::__Linkage;
 use libloading::Library;
 use smallvec::SmallVec;
@@ -31,26 +30,27 @@ impl std::fmt::Debug for LinkageTable {
 
 impl LinkageTableInternal {
     fn new(db: &dyn ResolveLinkage, package_dir: &Path) -> Self {
-        let Some(library) = get_library(package_dir) else {
-            panic!("package at {package_dir:?} doesn't have a compiled dynamic library")
-        };
-        let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = unsafe {
-            library
-                .get::<GetLinkagesFromCDylib>(b"get_linkages")
-                .expect("what")()
-        };
-        let linkages: HashMap<LinkageKey, __Linkage> = linkages_from_cdylib
-            .iter()
-            .map(|(static_key, linkage)| {
-                let key = LinkageKey::from_static(db, *static_key);
-                (key, *linkage)
-            })
-            .collect();
-        Self { library, linkages }
+        todo!()
+        // let Some(library) = get_library(package_dir) else {
+        //     panic!("package at {package_dir:?} doesn't have a compiled dynamic library")
+        // };
+        // let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = unsafe {
+        //     library
+        //         .get::<GetLinkagesFromCDylib>(b"get_linkages")
+        //         .expect("what")()
+        // };
+        // let linkages: HashMap<LinkageKey, __Linkage> = linkages_from_cdylib
+        //     .iter()
+        //     .map(|(static_key, linkage)| {
+        //         let key = LinkageKey::from_static(db, *static_key);
+        //         (key, *linkage)
+        //     })
+        //     .collect();
+        // Self { library, linkages }
     }
 }
 
-type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];
+// type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];
 
 fn get_library(package_dir: &Path) -> Option<Library> {
     use convert_case::*;
