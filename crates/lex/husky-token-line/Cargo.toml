@@ -5,5 +5,6 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+# lex
 husky-token-storage = { path = "../../lex/husky-token-storage" }
 husky-text = { path = "../../lex/husky-text" }
