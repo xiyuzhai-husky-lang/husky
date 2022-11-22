@@ -9,5 +9,6 @@ edition = "2021"
 doctest = false
 
 [dependencies]
+# utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
