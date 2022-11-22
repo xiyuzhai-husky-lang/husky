@@ -12,20 +12,17 @@ mod utils;
 
 pub use cargo_toml_content::*;
 use husky_layout::LayoutDb;
+use husky_source_path::SourcePath;
 
 use crate::registration_content::rust_registration_rs_content;
 use contains_eval_ref::*;
 use eval_context::*;
 use husky_defn_head::*;
-use husky_path::PathItd;
-use husky_term::Ty;
-
-use husky_liason_semantics::*;
 use husky_loop_syntax::*;
 use husky_opn_syntax::*;
-use husky_package_semantics::PackageQueryGroup;
 use husky_print_utils::*;
 use husky_rust_code_repr::entity_path::*;
+use husky_term::Ty;
 use init_content::*;
 use lib_rs_content::*;
 use linkage_collector::*;
@@ -35,11 +32,10 @@ use std::sync::Arc;
 use utils::*;
 use vec_like::VecSet;
 
-#[salsa::query_group(RustGenQueryStorage)]
-pub trait RustCodeGenQueryGroup: PackageQueryGroup + LayoutDb {
-    fn rust_lib_rs_content(&self, target_entrance: PathItd) -> Arc<String>;
-    fn rust_registration_rs_content(&self, target_entrance: PathItd) -> Arc<String>;
-    fn rust_init_rs_content(&self, target_entrance: PathItd) -> Arc<String>;
+pub trait RustTranspileDb: LayoutDb {
+    fn rust_lib_rs_content(&self, target_entrance: SourcePath) -> Arc<String>;
+    fn rust_registration_rs_content(&self, target_entrance: SourcePath) -> Arc<String>;
+    fn rust_init_rs_content(&self, target_entrance: SourcePath) -> Arc<String>;
     fn rust_mod_rs_content(&self, module: Ty) -> Arc<String>;
     fn entity_route_variant_contains_eval_ref(&self, entity_path: Ty) -> bool;
     fn entity_route_contains_eval_ref(&self, entity_path: Ty) -> bool;

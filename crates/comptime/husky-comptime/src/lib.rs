@@ -20,7 +20,7 @@ pub use husky_package_semantics::PackageQueryGroup;
 pub use husky_path::{
     FileQueryGroup, FileSalsaQuery, InternHuskyPath, InternPath, VfsQueryGroupBase,
 };
-pub use husky_rust_code_gen::RustCodeGenQueryGroup;
+pub use husky_rust_code_gen::RustTranspileDb;
 pub use husky_token_text::TokenTextDb;
 pub use ops::ComptimeOps;
 pub use query::*;
@@ -28,7 +28,7 @@ pub use query::*;
 use husky_check_utils::*;
 use husky_entity_semantics::EntityRouteStore;
 use husky_linkage_table::LinkageTable;
-use husky_path::PathItd;
+use husky_source_path::SourcePath;
 use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 use indexmap::IndexMap;
 use std::{fmt, path::PathBuf, sync::Arc};
@@ -50,7 +50,7 @@ use sync_utils::ASafeRwLock;
 pub struct HuskyComptime {
     storage: salsa::Storage<HuskyComptime>,
     // entity_route_interner: Arc<husky_term::EntityRouteInterner>,
-    live_docs: ASafeRwLock<IndexMap<PathItd, ASafeRwLock<String>>>,
+    live_docs: ASafeRwLock<IndexMap<SourcePath, ASafeRwLock<String>>>,
     linkage_table: LinkageTable,
     entity_route_store: EntityRouteStore,
     config: ComptimeConfig,

@@ -3,12 +3,12 @@ use convert_case::{Case, Casing};
 use husky_write_utils::w;
 use std::fmt::Write;
 
-pub(crate) fn mangled_intrinsic_ty(db: &dyn RustCodeGenQueryGroup, entity_path: Ty) -> Arc<String> {
+pub(crate) fn mangled_intrinsic_ty(db: &dyn RustTranspileDb, entity_path: Ty) -> Arc<String> {
     todo!()
     // db.mangled_ty(entity_path.intrinsic())
 }
 
-pub(crate) fn mangled_ty(db: &dyn RustCodeGenQueryGroup, entity_path: Ty) -> Arc<String> {
+pub(crate) fn mangled_ty(db: &dyn RustTranspileDb, entity_path: Ty) -> Arc<String> {
     todo!()
     // msg_once!("ad hoc");
     // Arc::new(if entity_path.spatial_arguments.len() > 0 {
@@ -25,13 +25,13 @@ pub(crate) fn mangled_ty(db: &dyn RustCodeGenQueryGroup, entity_path: Ty) -> Arc
 }
 
 pub(crate) fn mangled_intrinsic_ty_vtable(
-    db: &dyn RustCodeGenQueryGroup,
+    db: &dyn RustTranspileDb,
     entity_path: Ty,
 ) -> Arc<String> {
     todo!()
     // db.mangled_ty_vtable(entity_path.intrinsic())
 }
-pub(crate) fn mangled_ty_vtable(db: &dyn RustCodeGenQueryGroup, entity_path: Ty) -> Arc<String> {
+pub(crate) fn mangled_ty_vtable(db: &dyn RustTranspileDb, entity_path: Ty) -> Arc<String> {
     todo!()
     // Arc::new(match entity_path {
     //     Ty::Root(_) => {

@@ -11,7 +11,7 @@ salsa = { path = "../../abstraction/salsa" }
 fold = { path = "../../abstraction/fold" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-path = { path = "../../fs/husky-path" }
+husky-source-path = { path = "../../fs/husky-source-path" }
 husky-text = { path = "../../lex/husky-text" }
 husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-term = { path = "../../kernel/husky-term" }

@@ -10,7 +10,6 @@ use crate::{error::*, *};
 use husky_dev_utils::dev_src;
 use husky_entity_kind::{EntityKind, MemberKind};
 use husky_identifier::Identifier;
-use husky_static_defn::*;
 use husky_term::*;
 use husky_text::{HasTextRange, RangedIdentifier};
 use husky_token::{Keyword, SpecialToken, Token, TokenKind};
@@ -100,20 +99,20 @@ impl SubrouteTable {
             .collect()
     }
 
-    pub fn entity_source(&self, ident: Identifier) -> EntityTreeResult<EntitySource> {
-        todo!()
-        // query_not_none!(
-        //     self.entries
-        //         .iter()
-        //         .find(|entry| if let Some(entry_ident) = entry.ident {
-        //             entry_ident.ident == ident
-        //         } else {
-        //             false
-        //         })
-        //         .map(|entry| entry.source),
-        //     format!("No entity route with ident: \"{}\" among {}", ident, self)
-        // )
-    }
+    // pub fn entity_source(&self, ident: Identifier) -> EntityTreeResult<EntitySource> {
+    //     todo!()
+    //     // query_not_none!(
+    //     //     self.entries
+    //     //         .iter()
+    //     //         .find(|entry| if let Some(entry_ident) = entry.ident {
+    //     //             entry_ident.ident == ident
+    //     //         } else {
+    //     //             false
+    //     //         })
+    //     //         .map(|entry| entry.source),
+    //     //     format!("No entity route with ident: \"{}\" among {}", ident, self)
+    //     // )
+    // }
 
     pub fn husky_entity_kind(&self, ident: Identifier) -> EntityTreeResult<EntityKind> {
         todo!()
@@ -217,92 +216,92 @@ impl SubrouteTable {
     //         })
     // }
 
-    pub(crate) fn from_static(
-        db: &dyn EntityTreeDb,
-        entity_path: EntityPath,
-        husky_entity_kind: EntityKind,
-        data: &EntityStaticDefn,
-    ) -> Self {
-        todo!()
-        // let mut entries: Vec<SubrouteEntry> = data
-        //     .items
-        //     .iter()
-        //     .map(|data| SubrouteEntry {
-        //         ident: Some(RangedIdentifier {
-        //             ident: db.it_word(data.name).opt_custom().unwrap(),
-        //             range: Default::default(),
-        //         }),
-        //         kind: data.variant.husky_entity_kind(),
-        //         source: (*data).into(),
-        //     })
-        //     .collect();
-        // match data.variant {
-        //     EntityStaticDefnVariant::Function { .. } | EntityStaticDefnVariant::Module => (),
-        //     EntityStaticDefnVariant::Ty {
-        //         ty_members,
-        //         variants,
-        //         ..
-        //     } => {
-        //         for ty_member in ty_members {
-        //             entries.push(SubrouteEntry {
-        //                 ident: Some(RangedIdentifier {
-        //                     ident: db.it_word(ty_member.name).custom(),
-        //                     range: Default::default(),
-        //                 }),
-        //                 kind: EntityKind::Member(match ty_member.variant {
-        //                     EntityStaticDefnVariant::TyField { .. } => MemberKind::Field,
-        //                     EntityStaticDefnVariant::Method { .. } => {
-        //                         MemberKind::Method { is_lazy: false }
-        //                     }
-        //                     _ => panic!(),
-        //                 }),
-        //                 source: EntitySource::StaticTypeMember(ty_member),
-        //             })
-        //         }
-        //         for variant in variants {
-        //             entries.push(SubrouteEntry {
-        //                 ident: Some(RangedIdentifier {
-        //                     ident: db.custom_ident(variant.name),
-        //                     range: Default::default(),
-        //                 }),
-        //                 kind: EntityKind::EnumVariant,
-        //                 source: EntitySource::StaticEnumVariant(variant),
-        //             })
-        //         }
-        //     }
-        //     EntityStaticDefnVariant::Trait { ref members, .. } => {
-        //         for member in members.iter() {
-        //             entries.push(SubrouteEntry {
-        //                 ident: Some(RangedIdentifier {
-        //                     ident: db.it_word(member.name).custom(),
-        //                     range: Default::default(),
-        //                 }),
-        //                 kind: EntityKind::Member(match member.variant {
-        //                     EntityStaticDefnVariant::Method { .. } => {
-        //                         MemberKind::Method { is_lazy: false }
-        //                     }
-        //                     EntityStaticDefnVariant::TraitAssociatedType { .. } => {
-        //                         MemberKind::TraitAssociatedType
-        //                     }
-        //                     EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
-        //                     _ => panic!(),
-        //                 }),
-        //                 source: EntitySource::StaticTraitMember(member),
-        //             })
-        //         }
-        //     }
-        //     EntityStaticDefnVariant::Method { .. } => todo!(),
-        //     EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
-        //     EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
-        //     EntityStaticDefnVariant::TyField { .. } => todo!(),
-        //     EntityStaticDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
-        //     EntityStaticDefnVariant::EnumVariant => todo!(),
-        // }
-        // Self {
-        //     entity_path: todo!(),
-        //     husky_entity_kind,
-        //     entries,
-        //     errors: vec![],
-        // }
-    }
+    // pub(crate) fn from_static(
+    //     db: &dyn EntityTreeDb,
+    //     entity_path: EntityPath,
+    //     husky_entity_kind: EntityKind,
+    //     data: &EntityStaticDefn,
+    // ) -> Self {
+    //     todo!()
+    //     // let mut entries: Vec<SubrouteEntry> = data
+    //     //     .items
+    //     //     .iter()
+    //     //     .map(|data| SubrouteEntry {
+    //     //         ident: Some(RangedIdentifier {
+    //     //             ident: db.it_word(data.name).opt_custom().unwrap(),
+    //     //             range: Default::default(),
+    //     //         }),
+    //     //         kind: data.variant.husky_entity_kind(),
+    //     //         source: (*data).into(),
+    //     //     })
+    //     //     .collect();
+    //     // match data.variant {
+    //     //     EntityStaticDefnVariant::Function { .. } | EntityStaticDefnVariant::Module => (),
+    //     //     EntityStaticDefnVariant::Ty {
+    //     //         ty_members,
+    //     //         variants,
+    //     //         ..
+    //     //     } => {
+    //     //         for ty_member in ty_members {
+    //     //             entries.push(SubrouteEntry {
+    //     //                 ident: Some(RangedIdentifier {
+    //     //                     ident: db.it_word(ty_member.name).custom(),
+    //     //                     range: Default::default(),
+    //     //                 }),
+    //     //                 kind: EntityKind::Member(match ty_member.variant {
+    //     //                     EntityStaticDefnVariant::TyField { .. } => MemberKind::Field,
+    //     //                     EntityStaticDefnVariant::Method { .. } => {
+    //     //                         MemberKind::Method { is_lazy: false }
+    //     //                     }
+    //     //                     _ => panic!(),
+    //     //                 }),
+    //     //                 source: EntitySource::StaticTypeMember(ty_member),
+    //     //             })
+    //     //         }
+    //     //         for variant in variants {
+    //     //             entries.push(SubrouteEntry {
+    //     //                 ident: Some(RangedIdentifier {
+    //     //                     ident: db.custom_ident(variant.name),
+    //     //                     range: Default::default(),
+    //     //                 }),
+    //     //                 kind: EntityKind::EnumVariant,
+    //     //                 source: EntitySource::StaticEnumVariant(variant),
+    //     //             })
+    //     //         }
+    //     //     }
+    //     //     EntityStaticDefnVariant::Trait { ref members, .. } => {
+    //     //         for member in members.iter() {
+    //     //             entries.push(SubrouteEntry {
+    //     //                 ident: Some(RangedIdentifier {
+    //     //                     ident: db.it_word(member.name).custom(),
+    //     //                     range: Default::default(),
+    //     //                 }),
+    //     //                 kind: EntityKind::Member(match member.variant {
+    //     //                     EntityStaticDefnVariant::Method { .. } => {
+    //     //                         MemberKind::Method { is_lazy: false }
+    //     //                     }
+    //     //                     EntityStaticDefnVariant::TraitAssociatedType { .. } => {
+    //     //                         MemberKind::TraitAssociatedType
+    //     //                     }
+    //     //                     EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
+    //     //                     _ => panic!(),
+    //     //                 }),
+    //     //                 source: EntitySource::StaticTraitMember(member),
+    //     //             })
+    //     //         }
+    //     //     }
+    //     //     EntityStaticDefnVariant::Method { .. } => todo!(),
+    //     //     EntityStaticDefnVariant::TraitAssociatedType { .. } => todo!(),
+    //     //     EntityStaticDefnVariant::TraitAssociatedConstSize => todo!(),
+    //     //     EntityStaticDefnVariant::TyField { .. } => todo!(),
+    //     //     EntityStaticDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
+    //     //     EntityStaticDefnVariant::EnumVariant => todo!(),
+    //     // }
+    //     // Self {
+    //     //     entity_path: todo!(),
+    //     //     husky_entity_kind,
+    //     //     entries,
+    //     //     errors: vec![],
+    //     // }
+    // }
 }

@@ -15,20 +15,18 @@ use crate::*;
 // use context::*;
 use fold::LocalStack;
 use husky_entity_kind::TyKind;
-use husky_entity_semantics::{EntityDefn, EntityDefnVariant};
-use husky_package_semantics::Package;
 use std::sync::Arc;
 
 pub(crate) struct RustCodeGenerator<'a> {
-    db: &'a dyn RustCodeGenQueryGroup,
+    db: &'a dyn RustTranspileDb,
     result: String,
-    target_entrance: PathItd,
+    target_entrance: SourcePath,
     entity_route_uses: LocalStack<Ty>,
     // context: RustCodeGenContext,
 }
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(crate) fn new(db: &'a dyn RustCodeGenQueryGroup, module: Ty) -> Self {
+    pub(crate) fn new(db: &'a dyn RustTranspileDb, module: Ty) -> Self {
         todo!()
         // let target_entrance = db
         //     .module_target_entrance(db.module_file(module).unwrap())
@@ -48,17 +46,17 @@ impl<'a> RustCodeGenerator<'a> {
     }
 
     pub(crate) fn new_lib(
-        db: &'a dyn RustCodeGenQueryGroup,
-        target_entrance: PathItd,
+        db: &'a dyn RustTranspileDb,
+        target_entrance: SourcePath,
         use_crate_all: bool,
     ) -> Self {
-        let mut symbols = LocalStack::new();
-        let package = db.package(target_entrance).unwrap();
-        if use_crate_all {
-            for entity_defn in package.subentities.iter() {
-                symbols.push(entity_defn.base_route)
-            }
-        }
+        // let mut symbols = LocalStack::new();
+        // let package = db.package(target_entrance).unwrap();
+        // if use_crate_all {
+        //     for entity_defn in package.subentities.iter() {
+        //         symbols.push(entity_defn.base_route)
+        //     }
+        // }
         todo!()
         // Self {
         //     db,
@@ -69,9 +67,9 @@ impl<'a> RustCodeGenerator<'a> {
         // }
     }
 
-    pub(crate) fn package(&self) -> Arc<Package> {
-        self.db.package(self.target_entrance).unwrap()
-    }
+    // pub(crate) fn package(&self) -> Arc<Package> {
+    //     self.db.package(self.target_entrance).unwrap()
+    // }
 
     // fn exec_within_context(&mut self, new_context: RustCodeGenContext, f: impl FnOnce(&mut Self)) {
     //     let old_context = std::mem::replace(&mut self.context, new_context);

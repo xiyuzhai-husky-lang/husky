@@ -15,7 +15,7 @@ use husky_entity_path::EntityPath;
 use husky_entity_semantics::*;
 use husky_feature_eval::EvalFeature;
 use husky_feature_gen::*;
-use husky_path::PathItd;
+use husky_source_path::SourcePath;
 use husky_term::Ty;
 use husky_text::TextRange;
 use husky_trace_protocol::*;
@@ -29,14 +29,14 @@ pub struct Trace {
     pub variant: TraceVariant,
     pub raw_data: TraceData,
     pub range: TextRange,
-    pub file: PathItd,
+    pub file: SourcePath,
 }
 #[derive(Debug)]
 pub enum TraceVariant {
     Main(FeatureRepr),
     Module {
         entity_path: EntityPath,
-        file: PathItd,
+        file: SourcePath,
         range: TextRange,
     },
     EntityFeature {

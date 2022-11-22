@@ -8,7 +8,7 @@ pub use proc::*;
 
 use husky_eager_semantics::FuncStmt;
 use husky_lazy_semantics::*;
-use husky_path::PathItd;
+use husky_source_path::SourcePath;
 use husky_text::{HasTextRange, TextRange};
 use std::sync::Arc;
 

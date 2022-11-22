@@ -1,7 +1,6 @@
 use crate::*;
 use husky_dev_utils::dev_src;
 use husky_opn_syntax::*;
-use husky_path::URange;
 use husky_text::TextIndent;
 use husky_token::*;
 use husky_token_line::TokenLine;

@@ -1,5 +1,3 @@
-use husky_datasets_interface::LabeledData;
-
 use super::*;
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Hash)]

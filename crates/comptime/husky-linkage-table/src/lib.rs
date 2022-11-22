@@ -6,14 +6,11 @@ mod table;
 pub use config::*;
 pub use form::*;
 use husky_entity_path::EntityPath;
-use husky_entity_tree::EntitySource;
 pub use key::*;
 pub use table::*;
 
-use husky_entity_semantics::{CallFormSource, EntityDefnQueryGroup, EntityDefnVariant};
 use husky_identifier::Identifier;
 use husky_print_utils::p;
-use husky_static_defn::EntityStaticDefnVariant;
 use husky_term::Ty;
 use husky_vm::__ResolvedLinkage;
 use husky_vm::{Binding, EntityUid, __Linkage};
@@ -23,7 +20,7 @@ use sync_utils::ASafeRwLock;
 use thin_vec::thin_vec;
 use upcast::Upcast;
 
-pub trait ResolveLinkage: EntityDefnQueryGroup + Upcast<dyn EntityDefnQueryGroup> {
+pub trait ResolveLinkage {
     fn linkage_table(&self) -> &LinkageTable;
 
     fn index_linkage(&self, opd_tys: Vec<Ty>) -> __Linkage {

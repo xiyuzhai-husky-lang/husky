@@ -4,7 +4,7 @@ use husky_term::Ty;
 pub use variant::*;
 
 use husky_lazy_semantics::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
-use husky_path::PathItd;
+use husky_source_path::SourcePath;
 use husky_text::TextRange;
 
 use crate::{eval_id::FeatureEvalId, *};
@@ -15,7 +15,7 @@ pub struct FeatureLazyStmt {
     pub variant: FeatureLazyStmtVariant,
     pub opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
     pub opt_feature: Option<FeatureItd>,
-    pub file: PathItd,
+    pub file: SourcePath,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     pub stmt: Arc<LazyStmt>,

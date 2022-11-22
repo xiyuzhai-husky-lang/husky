@@ -12,7 +12,6 @@ salsa = { path = "../../abstraction/salsa" }
 fold = { path = "../../abstraction/fold" }
 # fs
 husky-source-path = { path = "../../fs/husky-source-path" }
-husky-path = { path = "../../fs/husky-path" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-tokenize = { path = "../../lex/husky-tokenize" }

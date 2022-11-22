@@ -34,7 +34,7 @@ pub struct AstTransformer<'a> {
     // symbols: LocalStack<Symbol>,
     context: LocalValue<AstContext>,
     opt_base_ty: LocalValue<Option<Ty>>,
-    opt_this_liason: LocalValue<Option<ParameterModifier>>,
+    // opt_this_liason: LocalValue<Option<ParameterModifier>>,
     pub(crate) folded_results: FoldableList<AstResult<DeprecatedAst>>,
     abs_semantic_tokens: Vec<AbsSemanticToken>,
     tokenized_text: Arc<TokenizedText>,
