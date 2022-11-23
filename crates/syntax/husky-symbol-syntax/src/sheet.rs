@@ -3,19 +3,25 @@ use husky_identifier::Identifier;
 use vec_like::VecMapEntry;
 
 pub struct SymbolSheet {
-    data: IdentMap<Symbol>,
+    symbols: IdentMap<SymbolEntry>,
 }
 
-impl VecMapEntry<Identifier> for Symbol {
+pub struct SymbolEntry {
+    symbol: Symbol,
+    init_range: TextRange,
+    access_range: TextRange,
+}
+
+impl VecMapEntry<Identifier> for SymbolEntry {
     fn key(&self) -> Identifier {
-        self.ident
+        self.symbol.ident
     }
 }
 
 impl SymbolSheet {
     pub(crate) fn new() -> Self {
         Self {
-            data: Default::default(),
+            symbols: Default::default(),
         }
     }
 
@@ -24,17 +30,16 @@ impl SymbolSheet {
         // self.symbols.push(symbol)
     }
 
-    pub fn resolve_ident(&self, ident: Identifier) -> Symbol {
+    pub fn resolve_ident(&self, ident: Identifier) -> Option<Symbol> {
+        let symbols: Vec<_> = self
+            .symbols
+            .iter()
+            .filter(|entry| entry.symbol.ident == ident)
+            .collect();
+        if symbols.len() == 0 {
+            return None;
+        }
         todo!()
-        // if let Some(symbol) = self.symbols.find_last(|symbol| symbol.ident == ident) {
-        //     *symbol
-        // } else {
-        //     // ad hoc
-        //     Symbol {
-        //         ident,
-        //         kind: SymbolKind::Unrecognized,
-        //     }
-        // }
     }
 
     fn try1() {

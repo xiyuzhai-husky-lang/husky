@@ -17,7 +17,8 @@ fn it_works() {
         let db = MimicDB::default();
         let tokens = db.tokenize_line(text);
         let mut arena = ExprArena::new();
-        let mut symbols = SymbolContext::new(todo!());
+        // ad hoc; todo: preludes
+        let mut symbols = SymbolContext::new(&[]);
         parse_expr(&db, &tokens, &mut symbols, &mut arena);
         format!("{:#?}", arena)
     }

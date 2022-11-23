@@ -15,16 +15,7 @@ Arena {
     data: [
         Expr {
             variant: Atom(
-                Symbol(
-                    Symbol {
-                        ident: Custom(
-                            Identifier(
-                                "haha",
-                            ),
-                        ),
-                        kind: Unrecognized,
-                    },
-                ),
+                Uncertain,
             ),
             range: [1:1, 1:5),
             base_scope_result: Uncertain,
@@ -48,16 +39,7 @@ Arena {
     data: [
         Expr {
             variant: Atom(
-                Symbol(
-                    Symbol {
-                        ident: Custom(
-                            Identifier(
-                                "bt",
-                            ),
-                        ),
-                        kind: Unrecognized,
-                    },
-                ),
+                Uncertain,
             ),
             range: [1:1, 1:3),
             base_scope_result: Uncertain,
@@ -81,16 +63,7 @@ Arena {
     data: [
         Expr {
             variant: Atom(
-                Symbol(
-                    Symbol {
-                        ident: Custom(
-                            Identifier(
-                                "what",
-                            ),
-                        ),
-                        kind: Unrecognized,
-                    },
-                ),
+                Uncertain,
             ),
             range: [1:1, 1:5),
             base_scope_result: Uncertain,

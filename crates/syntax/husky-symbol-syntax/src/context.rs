@@ -22,16 +22,13 @@ impl<'a> SymbolContext<'a> {
         // self.symbols.push(symbol)
     }
 
-    pub fn resolve_ident(&self, ident: Identifier) -> Symbol {
-        todo!()
-        // if let Some(symbol) = self.symbols.find_last(|symbol| symbol.ident == ident) {
-        //     *symbol
-        // } else {
-        //     // ad hoc
-        //     Symbol {
-        //         ident,
-        //         kind: SymbolKind::Unrecognized,
-        //     }
-        // }
+    pub fn resolve_ident(&self, ident: Identifier) -> Option<Symbol> {
+        if let Some(symbol) = self.symbols.resolve_ident(ident) {
+            Some(symbol)
+        } else if let Some(_) = self.preludes.iter().find(|symbol| symbol.ident == ident) {
+            todo!()
+        } else {
+            None
+        }
     }
 }
