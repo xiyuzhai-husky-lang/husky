@@ -13,3 +13,5 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-identifier = { path = "../../kernel/husky-identifier" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
+# syntax
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
