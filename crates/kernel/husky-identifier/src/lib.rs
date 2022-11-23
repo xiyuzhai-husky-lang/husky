@@ -19,9 +19,9 @@ pub struct Identifier {
     data: String,
 }
 
-pub type IdentDict<T> = VecMap<Identifier, T>;
+pub type IdentMap<T> = VecMap<Identifier, T>;
 pub type IdentArcDict<T> = VecMap<Identifier, Arc<T>>;
-pub type IdentPairDict<T> = VecPairMap<Identifier, T>;
+pub type IdentPairMap<T> = VecPairMap<Identifier, T>;
 
 #[salsa::jar(db = IdentifierDb)]
 pub struct IdentifierJar(Identifier);

@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
-use husky_identifier::IdentPairDict;
+use husky_identifier::IdentPairMap;
 use husky_opn_semantics::ImplicitConversion;
 use husky_opn_syntax::BinaryPureClosedOpr;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
@@ -235,7 +235,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                             },
                             // argument.any_ref().to_json_value_dyn()
                         )
-                        .collect::<__VMResult<IdentPairDict<_>>>()?,
+                        .collect::<__VMResult<IdentPairMap<_>>>()?,
                 };
 
                 Ok(__Register::new_box(

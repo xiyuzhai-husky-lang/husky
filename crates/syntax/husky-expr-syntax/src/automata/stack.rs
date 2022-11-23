@@ -44,7 +44,7 @@ impl AutomataStack {
     }
 }
 
-impl<'a> Automata<'a> {
+impl<'a, 'b> Automata<'a, 'b> {
     pub(super) fn expr(&self, idx: usize) -> &Expr {
         &self.stack.exprs[idx]
     }

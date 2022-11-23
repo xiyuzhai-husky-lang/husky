@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> Automata<'a> {
+impl<'a, 'b> Automata<'a, 'b> {
     pub(crate) fn next_token(&mut self) -> Option<&'a Token> {
         self.tokens.next()
     }

@@ -1,6 +1,6 @@
 use super::*;
 use crate::*;
-use husky_identifier::IdentPairDict;
+use husky_identifier::IdentPairMap;
 
 impl<'a> AstTransformer<'a> {
     pub(crate) fn parse_xml_expr(&mut self, token_group: &[Token]) -> AstResultArc<RawXmlExpr> {
@@ -31,7 +31,7 @@ impl<'a> AstTransformer<'a> {
         }))
     }
 
-    fn parse_xml_props(&mut self, tokens: &[Token]) -> AstResult<IdentPairDict<RawExprIdx>> {
+    fn parse_xml_props(&mut self, tokens: &[Token]) -> AstResult<IdentPairMap<RawExprIdx>> {
         self.parse_atoms(tokens, |parser| parser.xml_props())?
             .into_iter()
             .map(
