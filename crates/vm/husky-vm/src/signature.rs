@@ -1,4 +1,4 @@
-use husky_identifier::{IdentDict, Identifier};
+use husky_identifier::{IdentMap, Identifier};
 
 use crate::*;
 
@@ -6,7 +6,7 @@ use crate::*;
 pub enum TySignature {
     Enum,
     Struct {
-        fields: IdentDict<(Identifier, Binding)>,
+        fields: IdentMap<(Identifier, Binding)>,
     },
     Vec,
 }

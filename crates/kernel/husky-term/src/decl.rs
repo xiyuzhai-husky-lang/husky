@@ -1,5 +1,5 @@
 use crate::*;
-use husky_identifier::IdentPairDict;
+use husky_identifier::IdentPairMap;
 
 pub trait AskDecl {
     fn ask_namespace_decl(&self, namespace: TermNamespace) -> TermResultArc<NamespaceDecl>;
@@ -15,7 +15,7 @@ pub enum Decl {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct NamespaceDecl {
-    members: IdentPairDict<TermData>,
+    members: IdentPairMap<TermData>,
 }
 
 #[derive(Debug, PartialEq, Eq)]

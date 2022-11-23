@@ -1,5 +1,5 @@
 use crate::*;
-use husky_identifier::IdentPairDict;
+use husky_identifier::IdentPairMap;
 use husky_lazy_semantics::{XmlExpr, XmlExprVariant};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -67,7 +67,7 @@ pub enum FeatureXmlExprVariant {
     Value(Arc<FeatureLazyExpr>),
     Tag {
         tag_kind: XmlTagKind,
-        props: IdentPairDict<Arc<FeatureLazyExpr>>,
+        props: IdentPairMap<Arc<FeatureLazyExpr>>,
     },
 }
 

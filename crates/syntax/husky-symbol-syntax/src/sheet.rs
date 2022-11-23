@@ -1,13 +1,24 @@
 use crate::*;
 use husky_identifier::Identifier;
-use husky_recursive_symbol::RecursiveSymbolSheet;
+use vec_like::VecMapEntry;
 
-#[derive(Default)]
 pub struct SymbolSheet {
-    recursive_symbols: RecursiveSymbolSheet,
+    data: IdentMap<Symbol>,
+}
+
+impl VecMapEntry<Identifier> for Symbol {
+    fn key(&self) -> Identifier {
+        self.ident
+    }
 }
 
 impl SymbolSheet {
+    pub(crate) fn new() -> Self {
+        Self {
+            data: Default::default(),
+        }
+    }
+
     pub fn define_symbol(&mut self, symbol: Symbol) {
         todo!()
         // self.symbols.push(symbol)

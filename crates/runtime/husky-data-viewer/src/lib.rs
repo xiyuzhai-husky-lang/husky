@@ -1,7 +1,7 @@
 mod db;
 
 pub use db::*;
-use husky_identifier::{IdentPairDict, Identifier};
+use husky_identifier::{IdentPairMap, Identifier};
 use husky_term::Ty;
 use husky_vm_binding::Binding;
 
@@ -13,7 +13,7 @@ pub enum HuskyDataViewer {
         ty: Identifier,
     },
     Struct {
-        fields: IdentPairDict<(__Linkage, Ty)>,
+        fields: IdentPairMap<(__Linkage, Ty)>,
     },
     Vec {
         ilen: __ResolvedLinkage,

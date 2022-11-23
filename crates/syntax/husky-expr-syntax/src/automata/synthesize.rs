@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> Automata<'a> {
+impl<'a, 'b> Automata<'a, 'b> {
     pub(super) fn synthesize_all_above(&mut self, threshold: Precedence) -> ExprSyntaxResult<()> {
         while let Some(stack_opr) = self.stack.top_opr() {
             if stack_opr.precedence() >= threshold {

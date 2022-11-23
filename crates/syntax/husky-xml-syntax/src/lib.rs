@@ -1,5 +1,5 @@
 use husky_check_utils::should_eq;
-use husky_identifier::{IdentPairDict, Identifier};
+use husky_identifier::{IdentPairMap, Identifier};
 use husky_print_utils::msg_once;
 use husky_trace_protocol::{Point2dData, VisualData};
 use serde::Serialize;
@@ -8,7 +8,7 @@ use serde_json::Value;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct XmlValue {
     pub tag_kind: XmlTagKind,
-    pub props: IdentPairDict<Value>,
+    pub props: IdentPairMap<Value>,
 }
 
 impl Serialize for XmlValue {

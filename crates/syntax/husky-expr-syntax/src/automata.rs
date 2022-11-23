@@ -14,15 +14,15 @@ use opr::*;
 use resolve::*;
 use stack::*;
 
-pub(crate) struct Automata<'a> {
+pub(crate) struct Automata<'a, 'b> {
     db: &'a dyn EntityTreeDb,
     tokens: TokenStream<'a>,
-    symbols: &'a mut SymbolSheet,
+    symbols: &'a mut SymbolContext<'b>,
     arena: &'a mut ExprArena,
     stack: AutomataStack,
 }
 
-impl<'a> Automata<'a> {
+impl<'a, 'b> Automata<'a, 'b> {
     pub(crate) fn tokens(&self) -> &TokenStream<'a> {
         &self.tokens
     }
@@ -30,7 +30,7 @@ impl<'a> Automata<'a> {
     fn new(
         db: &'a dyn EntityTreeDb,
         tokens: &'a [Token],
-        symbols: &'a mut SymbolSheet,
+        symbols: &'a mut SymbolContext<'b>,
         arena: &'a mut ExprArena,
     ) -> Self {
         Self {
@@ -59,7 +59,7 @@ impl<'a> Automata<'a> {
 pub fn parse_expr(
     db: &dyn EntityTreeDb,
     tokens: &[Token],
-    symbols: &mut SymbolSheet,
+    symbols: &mut SymbolContext,
     arena: &mut ExprArena,
 ) -> ExprIdx {
     Automata::new(db, tokens, symbols, arena).parse_all()

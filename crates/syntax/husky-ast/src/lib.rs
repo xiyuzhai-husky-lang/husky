@@ -27,7 +27,7 @@ use husky_dev_utils::*;
 use husky_entity_kind::*;
 use husky_entity_path::EntityPath;
 use husky_expr_syntax::*;
-use husky_identifier::IdentDict;
+use husky_identifier::IdentMap;
 use husky_identifier::*;
 use husky_init_syntax::InitKind;
 use husky_opn_syntax::*;

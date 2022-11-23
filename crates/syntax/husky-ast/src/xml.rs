@@ -1,5 +1,5 @@
 use crate::*;
-use husky_identifier::IdentPairDict;
+use husky_identifier::IdentPairMap;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RawXmlExpr {
@@ -12,6 +12,6 @@ pub enum RawXmlExprVariant {
     Value(ExprIdx),
     Tag {
         ident: Identifier,
-        props: IdentPairDict<ExprIdx>,
+        props: IdentPairMap<ExprIdx>,
     },
 }

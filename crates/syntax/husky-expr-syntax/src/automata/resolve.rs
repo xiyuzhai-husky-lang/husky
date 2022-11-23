@@ -4,7 +4,7 @@ use husky_symbol_syntax::Symbol;
 use husky_term::Term;
 use husky_token::SpecialToken;
 
-impl<'a> Automata<'a> {
+impl<'a, 'b> Automata<'a, 'b> {
     pub(crate) fn resolve_token(&self, token: &Token) -> ResolvedToken {
         ResolvedToken {
             kind: self.resolve_token_kind(token),

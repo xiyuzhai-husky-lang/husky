@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_tree::EntityTreeJar;
 use husky_expect_test_utils::expect_test_husky_to_rust;
 use husky_source_path::SourcePathJar;
-use husky_symbol_syntax::SymbolSheet;
+use husky_symbol_syntax::{SymbolContext, SymbolSheet};
 use husky_token_text::TokenTextJar;
 use husky_tokenize::Tokenize;
 use husky_vfs::{HasFileCache, HasWatcherPlace, VfsJar};
@@ -17,7 +17,7 @@ fn it_works() {
         let db = MimicDB::default();
         let tokens = db.tokenize_line(text);
         let mut arena = ExprArena::new();
-        let mut symbols = SymbolSheet::default();
+        let mut symbols = SymbolContext::new(todo!());
         parse_expr(&db, &tokens, &mut symbols, &mut arena);
         format!("{:#?}", arena)
     }

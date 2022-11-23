@@ -8,13 +8,13 @@ pub enum DeprecatedAstVariant {
     TypeDefnHead {
         ident: RangedIdentifier,
         kind: TyKind,
-        spatial_parameters: IdentDict<SpatialParameter>,
+        spatial_parameters: IdentMap<SpatialParameter>,
     },
     MainDefnHead,
     CallFormDefnHead {
         ident: RangedIdentifier,
         paradigm: Paradigm,
-        spatial_parameters: IdentDict<SpatialParameter>,
+        spatial_parameters: IdentMap<SpatialParameter>,
         parameters: Arc<Vec<Parameter>>,
         return_ty: ExprIdx,
         // output_liason: OutputModifier,

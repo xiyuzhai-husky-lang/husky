@@ -6,12 +6,15 @@ pub type SymbolStack<'a> = LocalStack<Symbol, &'a [Symbol]>;
 
 pub struct SymbolContext<'a> {
     preludes: &'a [Symbol],
-    symbols: &'a mut SymbolSheet,
+    symbols: SymbolSheet,
 }
 
 impl<'a> SymbolContext<'a> {
-    pub fn new(preludes: &'a [Symbol], symbols: &'a mut SymbolSheet) -> Self {
-        Self { preludes, symbols }
+    pub fn new(preludes: &'a [Symbol]) -> Self {
+        Self {
+            preludes,
+            symbols: SymbolSheet::new(),
+        }
     }
 
     pub fn define_symbol(&mut self, symbol: Symbol) {
