@@ -11,9 +11,11 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = { path = "../../abstraction/salsa" }
 fold = { path = "../../abstraction/fold" }
 # fs
+husky-path = { path = "../../fs/husky-path" }
 husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
+husky-token-storage = { path = "../../lex/husky-token-storage" }
 husky-tokenize = { path = "../../lex/husky-tokenize" }
 husky-text = { path = "../../lex/husky-text" }
 # kernel

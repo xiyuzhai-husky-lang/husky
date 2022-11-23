@@ -3,10 +3,7 @@ use husky_term::Ty;
 
 use crate::*;
 
-pub(crate) fn collect_module_diagnostics(
-    db: &dyn DiagnosticSalsaQuery,
-    module: Ty,
-) -> Vec<Diagnostic> {
+pub(crate) fn collect_module_diagnostics(db: &dyn DiagnosticsDb, module: Ty) -> Vec<Diagnostic> {
     let mut diagnostics = Vec::new();
     let file = match db.module_file(module) {
         Ok(file) => file,
@@ -22,7 +19,7 @@ pub(crate) fn collect_module_diagnostics(
 }
 
 fn collect_module_entity_syntax_errors(
-    db: &dyn DiagnosticSalsaQuery,
+    db: &dyn DiagnosticsDb,
     module: Ty,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -30,7 +27,7 @@ fn collect_module_entity_syntax_errors(
 }
 
 fn collect_entity_syntax_errors(
-    db: &dyn DiagnosticSalsaQuery,
+    db: &dyn DiagnosticsDb,
     parent: Ty,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -43,7 +40,7 @@ fn collect_entity_syntax_errors(
 }
 
 fn collect_module_lex_errors(
-    db: &dyn DiagnosticSalsaQuery,
+    db: &dyn DiagnosticsDb,
     file: SourcePath,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -52,7 +49,7 @@ fn collect_module_lex_errors(
 }
 
 fn collect_module_ast_errors(
-    db: &dyn DiagnosticSalsaQuery,
+    db: &dyn DiagnosticsDb,
     file: SourcePath,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -61,7 +58,7 @@ fn collect_module_ast_errors(
         match node.value {
             Ok(_) => (),
             Err(ref error) => match error.variant {
-                AstErrorVariant::Original { .. } => diagnostics.push(error.into()),
+                AstErrorVariant::Original { .. } => diagnostics.push(todo!()),
                 AstErrorVariant::Derived => (),
             },
         }
@@ -69,7 +66,7 @@ fn collect_module_ast_errors(
 }
 
 fn collect_module_infer_ty_errors(
-    _db: &dyn DiagnosticSalsaQuery,
+    _db: &dyn DiagnosticsDb,
     _file: SourcePath,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -81,7 +78,7 @@ fn collect_module_infer_ty_errors(
 }
 
 fn collect_module_infer_contract_errors(
-    _db: &dyn DiagnosticSalsaQuery,
+    _db: &dyn DiagnosticsDb,
     _file: SourcePath,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
@@ -93,7 +90,7 @@ fn collect_module_infer_contract_errors(
 }
 
 fn collect_module_infer_qualified_ty_errors(
-    _db: &dyn DiagnosticSalsaQuery,
+    _db: &dyn DiagnosticsDb,
     _file: SourcePath,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {

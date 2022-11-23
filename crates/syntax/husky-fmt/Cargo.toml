@@ -15,6 +15,7 @@ idx-arena = { path = "../../abstraction/idx-arena" }
 husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
+husky-token = { path = "../../lex/husky-token" }
 # kernel
 husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-term = { path = "../../kernel/husky-term" }

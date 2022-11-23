@@ -1,16 +1,16 @@
-mod query;
+mod db;
 
-use husky_identifier::{IdentPairDict, RootBuiltinIdentifier};
+pub use db::*;
+use husky_identifier::{IdentPairDict, Identifier};
 use husky_term::Ty;
 use husky_vm_binding::Binding;
-pub use query::*;
 
 use husky_vm_interface::{__Linkage, __Register, __RegistrableSafe, __ResolvedLinkage};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum HuskyDataViewer {
     Primitive {
-        ty: RootBuiltinIdentifier,
+        ty: Identifier,
     },
     Struct {
         fields: IdentPairDict<(__Linkage, Ty)>,
@@ -35,51 +35,52 @@ impl HuskyDataViewer {
 
     pub fn serialize<'eval>(
         &self,
-        db: &dyn HuskyDataViewerQueryGroup,
+        db: &dyn DataViewerDb,
         value: &__Register<'eval>,
     ) -> serde_json::Value {
-        match self {
-            HuskyDataViewer::Primitive { ty } => match ty {
-                RootBuiltinIdentifier::Void => todo!(),
-                RootBuiltinIdentifier::I32 => todo!(),
-                RootBuiltinIdentifier::I64 => todo!(),
-                RootBuiltinIdentifier::F32 => serde_json::to_value(value.downcast_f32()).unwrap(),
-                RootBuiltinIdentifier::F64 => todo!(),
-                RootBuiltinIdentifier::B32 => todo!(),
-                RootBuiltinIdentifier::B64 => todo!(),
-                RootBuiltinIdentifier::Bool => todo!(),
-                _ => panic!(),
-            },
-            HuskyDataViewer::Struct { fields } => serde_json::Value::Object(
-                fields
-                    .iter()
-                    .map(|(ident, (linkage, field_ty))| {
-                        let value = linkage
-                            .bind(Binding::TempRef)
-                            .call(None, &mut vec![value.bind_temp_ref()]);
-                        let field_data_viewer = db.ty_data_viewer(*field_ty);
-                        let value: serde_json::Value = field_data_viewer.serialize(db, &value);
-                        (ident.as_str().to_string(), value)
-                    })
-                    .collect(),
-            ),
-            HuskyDataViewer::Vec { elem_ty, .. } => {
-                let elem_data_viewer = db.ty_data_viewer(*elem_ty);
-                serde_json::Value::Array(
-                    self.member_temp_iter(value)
-                        .map(|elem| elem_data_viewer.serialize(db, &elem))
-                        .collect(),
-                )
-            }
-            HuskyDataViewer::CyclicSlice { elem_ty, .. } => {
-                let elem_data_viewer = db.ty_data_viewer(*elem_ty);
-                serde_json::Value::Array(
-                    self.member_temp_iter(value)
-                        .map(|elem| elem_data_viewer.serialize(db, &elem))
-                        .collect(),
-                )
-            }
-        }
+        todo!()
+        // match self {
+        //     HuskyDataViewer::Primitive { ty } => match ty {
+        //         RootBuiltinIdentifier::Void => todo!(),
+        //         RootBuiltinIdentifier::I32 => todo!(),
+        //         RootBuiltinIdentifier::I64 => todo!(),
+        //         RootBuiltinIdentifier::F32 => serde_json::to_value(value.downcast_f32()).unwrap(),
+        //         RootBuiltinIdentifier::F64 => todo!(),
+        //         RootBuiltinIdentifier::B32 => todo!(),
+        //         RootBuiltinIdentifier::B64 => todo!(),
+        //         RootBuiltinIdentifier::Bool => todo!(),
+        //         _ => panic!(),
+        //     },
+        //     HuskyDataViewer::Struct { fields } => serde_json::Value::Object(
+        //         fields
+        //             .iter()
+        //             .map(|(ident, (linkage, field_ty))| {
+        //                 let value = linkage
+        //                     .bind(Binding::TempRef)
+        //                     .call(None, &mut vec![value.bind_temp_ref()]);
+        //                 let field_data_viewer = db.ty_data_viewer(*field_ty);
+        //                 let value: serde_json::Value = field_data_viewer.serialize(db, &value);
+        //                 (ident.as_str().to_string(), value)
+        //             })
+        //             .collect(),
+        //     ),
+        //     HuskyDataViewer::Vec { elem_ty, .. } => {
+        //         let elem_data_viewer = db.ty_data_viewer(*elem_ty);
+        //         serde_json::Value::Array(
+        //             self.member_temp_iter(value)
+        //                 .map(|elem| elem_data_viewer.serialize(db, &elem))
+        //                 .collect(),
+        //         )
+        //     }
+        //     HuskyDataViewer::CyclicSlice { elem_ty, .. } => {
+        //         let elem_data_viewer = db.ty_data_viewer(*elem_ty);
+        //         serde_json::Value::Array(
+        //             self.member_temp_iter(value)
+        //                 .map(|elem| elem_data_viewer.serialize(db, &elem))
+        //                 .collect(),
+        //         )
+        //     }
+        // }
     }
 
     pub fn member_eval_indexed_iter<'a, 'eval>(

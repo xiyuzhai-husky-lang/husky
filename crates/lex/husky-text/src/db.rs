@@ -4,13 +4,13 @@ use husky_source_path::SourcePath;
 use husky_vfs::VfsDb;
 use salsa::DbWithJar;
 
-pub trait TextDb: DbWithJar<Jar> + VfsDb {
+pub trait TextDb: DbWithJar<TextJar> + VfsDb {
     fn text(&self, file: SourcePath) -> Option<Arc<HuskyText>>;
 }
 
 impl<T> TextDb for T
 where
-    T: DbWithJar<Jar> + VfsDb,
+    T: DbWithJar<TextJar> + VfsDb,
 {
     fn text(&self, file: SourcePath) -> Option<Arc<HuskyText>> {
         todo!()

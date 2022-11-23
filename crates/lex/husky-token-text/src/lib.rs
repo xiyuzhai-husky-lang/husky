@@ -1,10 +1,10 @@
 mod query;
 
 use husky_identifier::IdentifierDb;
+use husky_token_storage::TokenIdxRange;
 pub use query::*;
 
 use fold::{FoldableList, FoldingEnd};
-use husky_path::URange;
 use husky_text::TextIndent;
 use husky_token::Token;
 use husky_tokenize::LexError;
@@ -21,7 +21,7 @@ use std::sync::Arc;
 pub struct TokenizedText {
     pub tokens: Vec<Token>,
     pub errors: Vec<LexError>,
-    pub token_groups: FoldableList<URange>,
+    pub token_groups: FoldableList<TokenIdxRange>,
 }
 
 impl TokenizedText {
@@ -30,11 +30,12 @@ impl TokenizedText {
         tokens: Vec<Token>,
         errors: Vec<LexError>,
     ) -> TokenizedText {
-        TokenizedText {
-            tokens,
-            errors,
-            token_groups: line_groups.into(),
-        }
+        todo!()
+        // TokenizedText {
+        //     tokens,
+        //     errors,
+        //     token_groups: line_groups.into(),
+        // }
     }
 
     pub fn folding_ranges(&self) -> Vec<FoldingRange> {
@@ -101,7 +102,8 @@ impl fold::FoldableStorage for TokenizedText {
     }
 
     fn value(&self, index: usize) -> &[Token] {
-        &self.tokens[self.token_groups.value(index).clone()]
+        todo!()
+        // &self.tokens[self.token_groups.value(index).clone()]
     }
 
     fn this(&self) -> &TokenizedText {
@@ -116,11 +118,11 @@ impl fold::FoldableStorage for TokenizedText {
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenGroup {
     pub indent: TextIndent,
-    pub tokens: URange,
+    pub tokens: TokenIdxRange,
 }
 
-impl fold::ItemToFold<URange> for TokenGroup {
-    fn value(&self) -> std::ops::Range<usize> {
+impl fold::ItemToFold<TokenIdxRange> for TokenGroup {
+    fn value(&self) -> TokenIdxRange {
         self.tokens.clone()
     }
 

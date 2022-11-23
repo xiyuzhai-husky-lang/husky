@@ -14,7 +14,7 @@
 // mod impl_xml;
 
 use crate::{
-    query::{AstDb, AstText},
+    db::{AstDb, AstText},
     *,
 };
 use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};

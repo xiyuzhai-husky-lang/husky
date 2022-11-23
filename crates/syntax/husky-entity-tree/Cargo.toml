@@ -14,6 +14,7 @@ fold = { path = "../../abstraction/fold" }
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # fs
+husky-path = { path = "../../fs/husky-path" }
 husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }

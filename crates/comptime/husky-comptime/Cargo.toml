@@ -20,29 +20,35 @@ salsa = { path = "../../abstraction/salsa" }
 # abstraction
 upcast = { path = "../../abstraction/upcast" }
 fold = { path = "../../abstraction/fold" }
+place = { path = "../../abstraction/place" }
+# fs
+husky-path = { path = "../../fs/husky-path" }
+husky-source-path = { path = "../../fs/husky-source-path" }
+husky-vfs = { path = "../../fs/husky-vfs" }
+# kernel
+husky-identifier = { path = "../../kernel/husky-identifier" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
+husky-token-text = { path = "../../lex/husky-token-text" }
+# ide
+husky-hover = { path = "../../ide/husky-hover" }
+husky-completion = { path = "../../ide/husky-completion" }
+husky-diagnostics = { path = "../../ide/husky-diagnostics" }
+# infer
+# kernel
+husky-term = { path = "../../kernel/husky-term" }
+# syntax
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-text = { path = "../../lex/husky-text" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-fmt = { path = "../../syntax/husky-fmt" }
+husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
-# syntax
-husky-source-path = { path = "../../fs/husky-source-path" }
-husky-identifier = { path = "../../kernel/husky-identifier" }
-husky-token = { path = "../../lex/husky-token" }
-husky-token-text = { path = "../../lex/husky-token-text" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
-husky-text = { path = "../../lex/husky-text" }
-husky-ast = { path = "../../syntax/husky-ast" }
-husky-fmt = { path = "../../syntax/husky-fmt" }
-husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
-# infer
-# kernel
-husky-term = { path = "../../kernel/husky-term" }
-# ide
-husky-hover = { path = "../../ide/husky-hover" }
-husky-completion = { path = "../../ide/husky-completion" }
-husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # comptime
 husky-layout = { path = "../../comptime/husky-layout" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }

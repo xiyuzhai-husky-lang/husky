@@ -10,7 +10,7 @@ pub struct FeatureFuncBody {
     pub file: SourcePath,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
-    pub stmts: Avec<FuncStmt>,
+    // pub stmts: Avec<FuncStmt>,
     pub ty: Ty,
     pub instruction_sheet: Arc<InstructionSheet>,
     pub opt_linkage: Option<__Linkage>,

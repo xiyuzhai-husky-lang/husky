@@ -12,6 +12,7 @@ salsa = { path = "../../abstraction/salsa" }
 upcast = { path = "../../abstraction/upcast" }
 error-lineage = { path = "../../abstraction/error-lineage" }
 # fs
+husky-path = { path = "../../fs/husky-path" }
 husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }

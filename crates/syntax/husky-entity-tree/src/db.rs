@@ -168,6 +168,31 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + TokenTextDb {
     // }
 }
 
+impl<T> EntityTreeDb for T
+where
+    T: DbWithJar<EntityTreeJar> + TokenTextDb,
+{
+    fn subroute_table(&self, entity_path: EntityPath) -> EntityTreeResultArc<SubrouteTable> {
+        todo!()
+    }
+
+    fn subentity_routes(&self, entity_path: EntityPath) -> Arc<Vec<Ty>> {
+        todo!()
+    }
+
+    fn subentity_kinded_routes(&self, entity_path: EntityPath) -> Arc<Vec<(EntityKind, Ty)>> {
+        todo!()
+    }
+
+    fn husky_entity_kind(&self, entity_path: EntityPath) -> EntityTreeResult<EntityKind> {
+        todo!()
+    }
+
+    fn submodules(&self, module: Ty) -> Arc<Vec<Ty>> {
+        todo!()
+    }
+}
+
 fn subroute_table(
     db: &dyn EntityTreeDb,
     entity_path: EntityPath,

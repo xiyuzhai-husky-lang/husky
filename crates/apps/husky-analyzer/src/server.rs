@@ -6,7 +6,6 @@ use crossbeam_channel::Sender;
 use client_comm::ClientCommunicator;
 use event_loop_comm::EventLoopCommunicator;
 use husky_comptime::HuskyComptime;
-use husky_root_static_defn::__resolve_root_defn;
 use threadpool::ThreadPool;
 
 pub(crate) struct Server {
@@ -23,7 +22,7 @@ impl Server {
             threadpool: ThreadPool::default(),
             event_loop_comm: EventLoopCommunicator::default(),
             // ad hoc
-            db: HuskyComptime::new_default("".into(), __resolve_root_defn),
+            db: HuskyComptime::new_default("".into()),
         }
     }
 }

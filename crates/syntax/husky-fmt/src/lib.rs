@@ -3,21 +3,35 @@ mod formatter;
 pub type FormattedText = fold::FoldableList<husky_ast::AstResult<String>>;
 
 use fold::{Executor, FoldableStorage};
+use formatter::Formatter;
 use husky_ast::AstContext;
+use salsa::DbWithJar;
 use std::sync::Arc;
 
-use formatter::Formatter;
+#[salsa::jar(db = SyntaxFormatDb)]
+pub struct SyntaxFormatJar();
 
-#[salsa::query_group(FormatQueryGroupStorage)]
-pub trait FmtQuery: husky_ast::AstDb {
+pub trait SyntaxFormatDb: DbWithJar<SyntaxFormatJar> + husky_ast::AstDb {
     fn fmt_text(
         &self,
         id: husky_source_path::SourcePath,
     ) -> husky_entity_tree::EntityTreeResultArc<String>;
 }
 
+impl<T> SyntaxFormatDb for T
+where
+    T: DbWithJar<SyntaxFormatJar> + husky_ast::AstDb,
+{
+    fn fmt_text(
+        &self,
+        id: husky_source_path::SourcePath,
+    ) -> husky_entity_tree::EntityTreeResultArc<String> {
+        todo!()
+    }
+}
+
 fn fmt_text(
-    db: &dyn FmtQuery,
+    db: &dyn SyntaxFormatDb,
     file: husky_source_path::SourcePath,
 ) -> husky_entity_tree::EntityTreeResultArc<String> {
     todo!()

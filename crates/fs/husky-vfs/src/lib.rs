@@ -28,23 +28,23 @@ use std::{
     sync::Mutex,
 };
 
-#[salsa::interned]
+#[salsa::interned(jar = VfsJar)]
 pub struct PathBufItd {
     #[return_ref]
     path: PathBuf,
 }
 
 #[salsa::jar(db = VfsDb)]
-pub struct Jar(PathBufItd, HuskyFileId, path_class);
+pub struct VfsJar(PathBufItd, HuskyFileId, path_class);
 
-pub trait VfsDb: salsa::DbWithJar<Jar> + SourcePathDb + HasFileCache + Send {
+pub trait VfsDb: salsa::DbWithJar<VfsJar> + SourcePathDb + HasFileCache + Send {
     fn file(&self, path: PathBufItd) -> VfsResult<HuskyFileId>;
     fn update_file(&mut self, path: PathBuf) -> VfsResult<()>;
 }
 
 impl<T> VfsDb for T
 where
-    T: salsa::DbWithJar<Jar>
+    T: salsa::DbWithJar<VfsJar>
         + SourcePathDb
         + HasFileCache
         + HasWatcherPlace

@@ -3,9 +3,9 @@ mod main_feature_repr;
 
 use crate::{intern::InternFeature, record::*, visual::*, *};
 use entity_feature_repr::entity_feature_repr;
-use husky_data_viewer::HuskyDataViewerQueryGroup;
+use husky_data_viewer::DataViewerDb;
 use husky_entity_semantics::{EntityDefnQueryGroup, EntityDefnVariant};
-use husky_instruction_gen::InstructionGenQueryGroup;
+use husky_instruction_gen::InstructionDb;
 use husky_package_semantics::*;
 use husky_term::Ty;
 use husky_vm::{InterpreterQueryGroup, __ModelLinkage, __Register, __VMResult};
@@ -16,11 +16,11 @@ use upcast::Upcast;
 #[salsa::query_group(FeatureGenQueryGroupStorage)]
 pub trait FeatureGenQueryGroup:
     InternFeature
-    + Upcast<dyn InstructionGenQueryGroup>
-    + InstructionGenQueryGroup
+    + Upcast<dyn InstructionDb>
+    + InstructionDb
     + Upcast<dyn InterpreterQueryGroup>
-    + HuskyDataViewerQueryGroup
-    + Upcast<dyn HuskyDataViewerQueryGroup>
+    + DataViewerDb
+    + Upcast<dyn DataViewerDb>
     + TrainModel
     + RefUnwindSafe
     + UnwindSafe

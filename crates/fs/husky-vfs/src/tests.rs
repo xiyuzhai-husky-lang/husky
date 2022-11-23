@@ -12,7 +12,7 @@ use std::{
     time::Duration,
 };
 
-#[salsa::db(Jar, SourcePathJar)]
+#[salsa::db(VfsJar, SourcePathJar)]
 #[derive(Default)]
 struct VfsTestsDatabase {
     storage: salsa::Storage<Self>,
