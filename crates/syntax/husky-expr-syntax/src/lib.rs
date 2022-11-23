@@ -2,7 +2,6 @@ mod atom;
 mod automata;
 mod error;
 mod opn;
-mod parser;
 mod precedence;
 mod stmt;
 #[cfg(test)]

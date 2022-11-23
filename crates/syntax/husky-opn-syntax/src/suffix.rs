@@ -12,8 +12,8 @@ impl From<RawSuffixOpr> for RawOpnVariant {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum RawSuffixOpr {
-    Incr,                    // ++
-    Decr,                    // --
+    Incr, // ++
+    Decr, // --
     BePattern(RawPattern),
     Unveil,
 }

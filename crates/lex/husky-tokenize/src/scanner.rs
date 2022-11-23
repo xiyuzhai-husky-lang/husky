@@ -24,7 +24,7 @@ impl std::fmt::Debug for TokenizedLine {
 }
 
 pub struct TokenLexer<'lex> {
-    word_interner: &'lex dyn IdentifierDb,
+    db: &'lex dyn IdentifierDb,
     tokens: Vec<Token>,
     tokenized_lines: Vec<TokenizedLine>,
     errors: Vec<LexError>,
@@ -36,9 +36,9 @@ enum TokenScannerAction {
 }
 
 impl<'token> TokenLexer<'token> {
-    pub fn new(word_interner: &'token dyn IdentifierDb) -> Self {
+    pub fn new(db: &'token dyn IdentifierDb) -> Self {
         Self {
-            word_interner,
+            db,
             tokens: vec![],
             tokenized_lines: vec![],
             errors: vec![],
@@ -51,11 +51,8 @@ impl<'token> TokenLexer<'token> {
 
     pub fn scan_line(&mut self, line_index: usize, line: &str) {
         let start = self.tokens.len();
-        let (indent, token_iter) = RawTokenIter::new(
-            self.word_interner,
-            line_index,
-            line.chars().enumerate().peekable(),
-        );
+        let (indent, token_iter) =
+            RawTokenIter::new(self.db, line_index, line.chars().enumerate().peekable());
         self.push_tokens(token_iter);
         let end = self.tokens.len();
         self.tokenized_lines.push(TokenizedLine {
@@ -107,11 +104,10 @@ impl<'token> TokenLexer<'token> {
     }
 
     fn right_convexity(&self) -> Convexity {
-        todo!()
-        // match self.last_token_in_unfinished_line() {
-        //     Some(token) => token.right_convexity(),
-        //     None => Convexity::Concave,
-        // }
+        match self.last_token_in_unfinished_line() {
+            Some(token) => token.right_convexity(),
+            None => Convexity::Concave,
+        }
     }
 
     fn last_token_in_unfinished_line(&self) -> Option<&Token> {

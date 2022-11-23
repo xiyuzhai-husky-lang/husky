@@ -38,13 +38,14 @@ impl TermInferTestsDb {
         ctx
     }
 
-    pub(super) fn parse_raw_expr_from_text(&self, text: &str) -> (ExprArena, ExprIdx) {
+    pub(super) fn parse_expr_from_text(&self, text: &str) -> (ExprArena, ExprIdx) {
         use husky_tokenize::Tokenize;
         let tokens = self.tokenize_line(text);
         let mut arena = ExprArena::new();
         let mut symbol_ctx = self.fake_symbol_ctx();
-        let expr = parse_raw_expr(&mut symbol_ctx, &mut arena, &tokens);
-        (arena, expr)
+        todo!()
+        // let expr = parse_expr(&mut symbol_ctx, &mut arena, &tokens);
+        // (arena, expr)
     }
 }
 
