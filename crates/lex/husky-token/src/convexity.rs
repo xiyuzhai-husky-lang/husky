@@ -38,7 +38,7 @@ impl Token {
         }
     }
 
-    pub fn right_convexity(self) -> Convexity {
+    pub fn right_convexity(&self) -> Convexity {
         match self.kind {
             TokenKind::Decorator(_) => todo!(),
             TokenKind::Keyword(_) => Convexity::Concave,
