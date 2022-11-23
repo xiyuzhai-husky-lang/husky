@@ -12,8 +12,6 @@ use husky_text::TextRange;
 pub struct Symbol {
     pub ident: Identifier,
     pub kind: SymbolKind,
-    pub init_range: TextRange,
-    pub access_range: TextRange,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

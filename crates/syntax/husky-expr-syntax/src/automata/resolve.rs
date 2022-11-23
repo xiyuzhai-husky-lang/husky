@@ -69,7 +69,10 @@ impl<'a, 'b> Automata<'a, 'b> {
                 _ => (),
             }
         }
-        self.symbols.resolve_ident(ident).into()
+        match self.symbols.resolve_ident(ident) {
+            Some(symbol) => symbol.into(),
+            None => ResolvedTokenKind::Atom(AtomExpr::Uncertain),
+        }
     }
 
     fn resolve_previous_entity(&self) -> Option<Term> {

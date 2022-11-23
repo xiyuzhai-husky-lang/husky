@@ -1,14 +1,14 @@
 [
   {
     "input": "haha",
-    "output": "Arena {\n    data: [\n        Expr {\n            variant: Atom(\n                Symbol(\n                    Symbol {\n                        ident: Custom(\n                            Identifier(\n                                \"haha\",\n                            ),\n                        ),\n                        kind: Unrecognized,\n                    },\n                ),\n            ),\n            range: [1:1, 1:5),\n            base_scope_result: Uncertain,\n        },\n    ],\n}"
+    "output": "Arena {\n    data: [\n        Expr {\n            variant: Atom(\n                Uncertain,\n            ),\n            range: [1:1, 1:5),\n            base_scope_result: Uncertain,\n        },\n    ],\n}"
   },
   {
     "input": "bt",
-    "output": "Arena {\n    data: [\n        Expr {\n            variant: Atom(\n                Symbol(\n                    Symbol {\n                        ident: Custom(\n                            Identifier(\n                                \"bt\",\n                            ),\n                        ),\n                        kind: Unrecognized,\n                    },\n                ),\n            ),\n            range: [1:1, 1:3),\n            base_scope_result: Uncertain,\n        },\n    ],\n}"
+    "output": "Arena {\n    data: [\n        Expr {\n            variant: Atom(\n                Uncertain,\n            ),\n            range: [1:1, 1:3),\n            base_scope_result: Uncertain,\n        },\n    ],\n}"
   },
   {
     "input": "what",
-    "output": "Arena {\n    data: [\n        Expr {\n            variant: Atom(\n                Symbol(\n                    Symbol {\n                        ident: Custom(\n                            Identifier(\n                                \"what\",\n                            ),\n                        ),\n                        kind: Unrecognized,\n                    },\n                ),\n            ),\n            range: [1:1, 1:5),\n            base_scope_result: Uncertain,\n        },\n    ],\n}"
+    "output": "Arena {\n    data: [\n        Expr {\n            variant: Atom(\n                Uncertain,\n            ),\n            range: [1:1, 1:5),\n            base_scope_result: Uncertain,\n        },\n    ],\n}"
   }
 ]

@@ -15,16 +15,7 @@ Arena {
     data: [
         Expr {
             variant: Atom(
-                Symbol(
-                    Symbol {
-                        ident: Custom(
-                            Identifier(
-                                "x",
-                            ),
-                        ),
-                        kind: Unrecognized,
-                    },
-                ),
+                Uncertain,
             ),
             range: [1:2, 1:3),
             base_scope_result: Uncertain,
@@ -58,16 +49,7 @@ Arena {
     data: [
         Expr {
             variant: Atom(
-                Symbol(
-                    Symbol {
-                        ident: Custom(
-                            Identifier(
-                                "x",
-                            ),
-                        ),
-                        kind: Unrecognized,
-                    },
-                ),
+                Uncertain,
             ),
             range: [1:2, 1:3),
             base_scope_result: Uncertain,
