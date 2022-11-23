@@ -1,5 +1,5 @@
 [package]
-name = "husky-symbol-syntax"
+name = "husky-recursive-symbol"
 version = "0.1.0"
 edition = "2021"
 
@@ -15,4 +15,3 @@ husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-text = { path = "../../lex/husky-text" }
 # syntax
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
-husky-recursive-symbol = { path = "../../syntax/husky-recursive-symbol" }

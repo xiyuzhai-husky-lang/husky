@@ -1,19 +1,16 @@
 use crate::*;
 use husky_identifier::Identifier;
-use husky_recursive_symbol::RecursiveSymbolSheet;
 
 #[derive(Default)]
-pub struct SymbolSheet {
-    recursive_symbols: RecursiveSymbolSheet,
-}
+pub struct RecursiveSymbolSheet {}
 
-impl SymbolSheet {
-    pub fn define_symbol(&mut self, symbol: Symbol) {
+impl RecursiveSymbolSheet {
+    pub fn define_symbol(&mut self, symbol: RecursiveSymbol) {
         todo!()
         // self.symbols.push(symbol)
     }
 
-    pub fn resolve_ident(&self, ident: Identifier) -> Symbol {
+    pub fn resolve_ident(&self, ident: Identifier) -> RecursiveSymbol {
         todo!()
         // if let Some(symbol) = self.symbols.find_last(|symbol| symbol.ident == ident) {
         //     *symbol
