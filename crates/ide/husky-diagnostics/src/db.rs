@@ -1,17 +1,13 @@
 use husky_ast::AstDb;
-use husky_entity_semantics::EntityDefnQueryGroup;
 use husky_entity_tree::EntityTreeDb;
 use husky_term::Ty;
 use reserve::Reserve;
+use salsa::DbWithJar;
 
 use crate::*;
 
-#[salsa::query_group(DiagnosticSalsaQueryGroupStorage)]
-pub trait DiagnosticSalsaQuery: EntityTreeDb + AstDb + EntityDefnQueryGroup {
+pub trait DiagnosticsDb: DbWithJar<DiagnosticsJar> + EntityTreeDb + AstDb {
     fn diagnostics_reserve(&self, module: Ty) -> Arc<DiagnosticReserve>;
-}
-
-pub trait HuskyDiagnosticQuery: DiagnosticSalsaQuery {
     fn print_diagnostics(&self) {
         let modules = self.all_modules();
         for module in modules.iter() {
@@ -37,7 +33,16 @@ pub trait HuskyDiagnosticQuery: DiagnosticSalsaQuery {
     }
 }
 
-fn diagnostics_reserve(this: &dyn DiagnosticSalsaQuery, module: Ty) -> Arc<DiagnosticReserve> {
+impl<T> DiagnosticsDb for T
+where
+    T: DbWithJar<DiagnosticsJar> + EntityTreeDb + AstDb,
+{
+    fn diagnostics_reserve(&self, module: Ty) -> Arc<DiagnosticReserve> {
+        todo!()
+    }
+}
+
+fn diagnostics_reserve(this: &dyn DiagnosticsDb, module: Ty) -> Arc<DiagnosticReserve> {
     Arc::new(DiagnosticReserve::new(collect_module_diagnostics(
         this, module,
     )))

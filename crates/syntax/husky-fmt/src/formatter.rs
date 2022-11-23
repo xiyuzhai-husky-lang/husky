@@ -7,11 +7,9 @@ use husky_entity_kind::TyKind;
 use husky_entity_tree::EntityTreeDb;
 use husky_expr_syntax::*;
 use husky_init_syntax::InitKind;
-use husky_liason_semantics::{MemberModifier, ParameterModifier};
-use husky_term::Ty;
-
-use husky_identifier::{Paradigm, RootBuiltinIdentifier};
 use husky_print_utils::msg_once;
+use husky_term::Ty;
+use husky_token::Paradigm;
 
 pub struct Formatter<'a> {
     db: &'a dyn EntityTreeDb,
@@ -158,26 +156,26 @@ impl<'a> Formatter<'a> {
                     Paradigm::EagerFunctional => "func ",
                     Paradigm::LazyFunctional => todo!(),
                 });
-                msg_once!("generic parameters");
-                self.write(&ident.ident);
-                self.write("(");
-                for i in 0..parameters.len() {
-                    if i > 0 {
-                        self.write(", ");
-                    }
-                    let parameter = &parameters[i];
-                    self.fmt_parameter(parameter);
-                }
-                self.write(")");
-                todo!();
-                // if return_ty.route != Ty::Root(RootBuiltinIdentifier::Void) {
-                //     self.write(" -> ");
-                //     self.fmt_ty(return_ty.route);
+                todo!()
+                // msg_once!("generic parameters");
+                // self.write(&ident.ident);
+                // self.write("(");
+                // for i in 0..parameters.len() {
+                //     if i > 0 {
+                //         self.write(", ");
+                //     }
+                //     let parameter = &parameters[i];
+                //     self.fmt_parameter(parameter);
                 // }
-                self.write(":");
+                // self.write(")");
+                // todo!();
+                // // if return_ty.route != Ty::Root(RootBuiltinIdentifier::Void) {
+                // //     self.write(" -> ");
+                // //     self.fmt_ty(return_ty.route);
+                // // }
+                // self.write(":");
             }
             DeprecatedAstVariant::FieldDefnHead {
-                liason,
                 ranged_ident,
                 field_ty,
                 ..
@@ -203,22 +201,24 @@ impl<'a> Formatter<'a> {
     }
 
     fn fmt_ident(&mut self, ident: husky_identifier::Identifier) {
-        self.result.add_assign(&ident)
+        todo!()
+        // self.result.add_assign(&ident)
     }
 
     fn fmt_parameter(&mut self, parameter: &Parameter) {
-        match parameter.liason() {
-            ParameterModifier::None => (),
-            ParameterModifier::EvalRef => self.write("&"),
-            ParameterModifier::Owned => self.write("!!"),
-            ParameterModifier::TempRefMut => self.write("mut"),
-            ParameterModifier::OwnedMut => self.write("mut !!"),
-            ParameterModifier::MemberAccess => todo!(),
-            ParameterModifier::TempRef => todo!(),
-        }
-        self.fmt_ident(parameter.ident().into());
-        self.write(": ");
-        self.fmt_ty(parameter.raw_ty());
+        todo!()
+        // match parameter.liason() {
+        //     ParameterModifier::None => (),
+        //     ParameterModifier::EvalRef => self.write("&"),
+        //     ParameterModifier::Owned => self.write("!!"),
+        //     ParameterModifier::TempRefMut => self.write("mut"),
+        //     ParameterModifier::OwnedMut => self.write("mut !!"),
+        //     ParameterModifier::MemberAccess => todo!(),
+        //     ParameterModifier::TempRef => todo!(),
+        // }
+        // self.fmt_ident(parameter.ident().into());
+        // self.write(": ");
+        // self.fmt_ty(parameter.raw_ty());
     }
 
     fn fmt_ty(&mut self, ty: Ty) {

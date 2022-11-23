@@ -1,4 +1,4 @@
-use husky_data_viewer::HuskyDataViewerQueryGroup;
+use husky_data_viewer::DataViewerDb;
 use husky_entity_semantics::StoreEntityRoute;
 use husky_vm::InterpreterQueryGroup;
 use upcast::Upcast;
@@ -13,8 +13,8 @@ impl InternFeature for DevRuntime {
     }
 }
 
-impl Upcast<dyn InstructionGenQueryGroup> for DevRuntime {
-    fn upcast(&self) -> &(dyn InstructionGenQueryGroup + 'static) {
+impl Upcast<dyn InstructionDb> for DevRuntime {
+    fn upcast(&self) -> &(dyn InstructionDb + 'static) {
         self
     }
 }
@@ -49,8 +49,8 @@ impl Upcast<dyn EvalFeature<'static>> for DevRuntime {
     }
 }
 
-impl Upcast<dyn HuskyDataViewerQueryGroup> for DevRuntime {
-    fn upcast(&self) -> &(dyn HuskyDataViewerQueryGroup + 'static) {
+impl Upcast<dyn DataViewerDb> for DevRuntime {
+    fn upcast(&self) -> &(dyn DataViewerDb + 'static) {
         self
     }
 }

@@ -11,7 +11,7 @@ use std::fmt::Write;
 use std::sync::Arc;
 use upcast::Upcast;
 
-pub trait AstDb: EntityTreeDb + Upcast<dyn EntityTreeDb> + TextDb {
+pub trait AstDb: DbWithJar<AstJar> + EntityTreeDb + Upcast<dyn EntityTreeDb> + TextDb {
     fn ast_text(&self, file: SourcePath) -> EntityTreeResultArc<AstText>;
 
     fn parse_route_from_text(&self, text: &str) -> Ty {
@@ -31,6 +31,15 @@ pub trait AstDb: EntityTreeDb + Upcast<dyn EntityTreeDb> + TextDb {
         //         panic!("can't parse entity route from text `{text}`,\n    due to error: {e:?}")
         //     }
         // }
+    }
+}
+
+impl<T> AstDb for T
+where
+    T: DbWithJar<AstJar> + EntityTreeDb + Upcast<dyn EntityTreeDb> + TextDb,
+{
+    fn ast_text(&self, file: SourcePath) -> EntityTreeResultArc<AstText> {
+        todo!()
     }
 }
 

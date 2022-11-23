@@ -1,15 +1,9 @@
 use crate::*;
 
 use husky_linkage_table::ResolveLinkage;
-use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
-use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
 use husky_vm::{
     __root::{__ASSIGN_LINKAGE, __EQ_LINKAGE, __NEQ_LINKAGE, __VALUE_CALL_LINKAGE},
     *,
-};
-use husky_vm_primitive_opr_linkage::{
-    resolve_primitive_assign_binary_opr_linkage, resolve_primitive_prefix_opr_linkage,
-    resolve_primitive_pure_binary_opr_linkage,
 };
 use map_collect::MapCollect;
 

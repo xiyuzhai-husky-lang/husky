@@ -11,6 +11,7 @@ textwrap = "0.16.0"
 salsa = { path = "../../abstraction/salsa" }
 upcast = { path = "../../abstraction/upcast" }
 # fs
+husky-path = { path = "../../fs/husky-path" }
 husky-source-path = { path = "../../fs/husky-source-path" }
 # syntax
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }

@@ -13,6 +13,7 @@ mod utils;
 pub use cargo_toml_content::*;
 use husky_layout::LayoutDb;
 use husky_source_path::SourcePath;
+use salsa::DbWithJar;
 
 use crate::registration_content::rust_registration_rs_content;
 use contains_eval_ref::*;
@@ -32,7 +33,10 @@ use std::sync::Arc;
 use utils::*;
 use vec_like::VecSet;
 
-pub trait RustTranspileDb: LayoutDb {
+#[salsa::jar(db = RustTranspileDb)]
+pub struct RustTranspileJar();
+
+pub trait RustTranspileDb: DbWithJar<RustTranspileJar> + LayoutDb {
     fn rust_lib_rs_content(&self, target_entrance: SourcePath) -> Arc<String>;
     fn rust_registration_rs_content(&self, target_entrance: SourcePath) -> Arc<String>;
     fn rust_init_rs_content(&self, target_entrance: SourcePath) -> Arc<String>;
@@ -48,4 +52,69 @@ pub trait RustTranspileDb: LayoutDb {
     fn mangled_intrinsic_ty_vtable(&self, entity_path: Ty) -> Arc<String>;
     fn mangled_ty(&self, entity_path: Ty) -> Arc<String>;
     fn mangled_ty_vtable(&self, entity_path: Ty) -> Arc<String>;
+}
+
+impl<T> RustTranspileDb for T
+where
+    T: DbWithJar<RustTranspileJar> + LayoutDb,
+{
+    fn rust_lib_rs_content(&self, target_entrance: SourcePath) -> Arc<String> {
+        todo!()
+    }
+
+    fn rust_registration_rs_content(&self, target_entrance: SourcePath) -> Arc<String> {
+        todo!()
+    }
+
+    fn rust_init_rs_content(&self, target_entrance: SourcePath) -> Arc<String> {
+        todo!()
+    }
+
+    fn rust_mod_rs_content(&self, module: Ty) -> Arc<String> {
+        todo!()
+    }
+
+    fn entity_route_variant_contains_eval_ref(&self, entity_path: Ty) -> bool {
+        todo!()
+    }
+
+    fn entity_route_contains_eval_ref(&self, entity_path: Ty) -> bool {
+        todo!()
+    }
+
+    fn is_defn_static(&self, entity_path: Ty) -> bool {
+        todo!()
+    }
+
+    fn contains_spatial_parameters(&self, entity_path: Ty) -> bool {
+        todo!()
+    }
+
+    fn entity_immediate_link_dependees(&self, entity_path: Ty) -> Arc<VecSet<Ty>> {
+        todo!()
+    }
+
+    fn entity_link_dependees(&self, entity_path: Ty) -> Arc<VecSet<Ty>> {
+        todo!()
+    }
+
+    fn needs_eval_context(&self, entity_path: Ty) -> bool {
+        todo!()
+    }
+
+    fn mangled_intrinsic_ty(&self, entity_path: Ty) -> Arc<String> {
+        todo!()
+    }
+
+    fn mangled_intrinsic_ty_vtable(&self, entity_path: Ty) -> Arc<String> {
+        todo!()
+    }
+
+    fn mangled_ty(&self, entity_path: Ty) -> Arc<String> {
+        todo!()
+    }
+
+    fn mangled_ty_vtable(&self, entity_path: Ty) -> Arc<String> {
+        todo!()
+    }
 }

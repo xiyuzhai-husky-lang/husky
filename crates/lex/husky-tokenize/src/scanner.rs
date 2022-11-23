@@ -10,7 +10,7 @@ use std::{iter::Peekable, sync::Arc};
 #[derive(PartialEq, Eq)]
 pub struct TokenizedLine {
     pub(crate) indent: TextIndent,
-    pub(crate) tokens: URange,
+    pub(crate) tokens: TokenIdxRange,
 }
 
 impl std::fmt::Debug for TokenizedLine {
@@ -60,7 +60,7 @@ impl<'token> TokenLexer<'token> {
         let end = self.tokens.len();
         self.tokenized_lines.push(TokenizedLine {
             indent,
-            tokens: start..end,
+            tokens: TokenIdxRange(start..end),
         })
     }
 

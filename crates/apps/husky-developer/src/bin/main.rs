@@ -29,8 +29,9 @@ enum HuskyDebuggerCommands {
 #[tokio::main]
 async fn main() {
     let cli = HuskyDebuggerCli::parse();
-    match cli.command {
-        HuskyDebuggerCommands::Run { package_dir } => dev_run(package_dir).await.unwrap(),
-        HuskyDebuggerCommands::Test { packages_dir } => dev_test(packages_dir).await,
-    }
+    todo!()
+    // match cli.command {
+    //     HuskyDebuggerCommands::Run { package_dir } => dev_run(package_dir).await.unwrap(),
+    //     HuskyDebuggerCommands::Test { packages_dir } => dev_test(packages_dir).await,
+    // }
 }

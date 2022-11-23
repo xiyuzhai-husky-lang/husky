@@ -10,7 +10,6 @@ use crate::{
 };
 
 use handlers::*;
-use husky_path::LiveFileSupport;
 
 pub(crate) fn dispatch_lsp_msg(
     server: &mut Server,
@@ -84,64 +83,66 @@ fn handle_lsp_notification(
     server: &mut Server,
     notif: lsp_server::Notification,
 ) -> Result<TaskSet> {
-    let mut dispatcher = NotificationDispatcher {
-        notif: Some(notif),
-        server,
-        task: TaskSet::Nothing,
-    };
-    dispatcher
-        .on_sync::<lsp_types::notification::Cancel>(|_server, params| {
-            let _id: lsp_server::RequestId = match params.id {
-                lsp_types::NumberOrString::Number(id) => id.into(),
-                lsp_types::NumberOrString::String(id) => id.into(),
-            };
-            msg_once!("TODO: on::<lsp_types::notification::Cancel>");
-            Ok(TaskSet::Nothing)
-        })?
-        .on_sync::<lsp_types::notification::WorkDoneProgressCancel>(|_server, _params| {
-            // Just ignore this. It is OK to continue sending progress
-            // notifications for this token, as the client can't know when
-            // we accepted notification.
-            Ok(TaskSet::Nothing)
-        })?
-        .on_sync::<lsp_types::notification::DidOpenTextDocument>(|server, params| {
-            use husky_path::VfsQueryGroupBase;
-            if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
-                server
-                    .db
-                    .set_live_file_text(path, params.text_document.text);
-            }
-            Ok(TaskSet::SendUpdates)
-        })?
-        .on_sync::<lsp_types::notification::DidChangeTextDocument>(|server, params| {
-            use husky_path::VfsQueryGroupBase;
-            if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
-                server
-                    .db
-                    .apply_live_file_changes(path, params.content_changes);
-            }
-            Ok(TaskSet::SendUpdates)
-        })?
-        .on_sync::<lsp_types::notification::DidCloseTextDocument>(|_server, _params| {
-            eprintln!("todo: lsp_types::notification::DidCloseTextDocument");
-            Ok(TaskSet::SendUpdates)
-        })?
-        .on_sync::<lsp_types::notification::DidSaveTextDocument>(|_server, params| {
-            if let Ok(_path) = from_lsp_types::path_from_url(&params.text_document.uri) {
-                if let Some(_text) = params.text {
-                    todo!()
-                }
-            }
-            Ok(TaskSet::Nothing)
-        })?
-        .on_sync::<lsp_types::notification::DidChangeConfiguration>(|_server, _params| {
-            todo!();
-        })?
-        .on_sync::<lsp_types::notification::DidChangeWatchedFiles>(|_server, _params| {
-            todo!();
-        })?
-        .finish();
-    return Ok(dispatcher.task);
+    todo!()
+
+    // let mut dispatcher = NotificationDispatcher {
+    //     notif: Some(notif),
+    //     server,
+    //     task: TaskSet::Nothing,
+    // };
+    // dispatcher
+    //     .on_sync::<lsp_types::notification::Cancel>(|_server, params| {
+    //         let _id: lsp_server::RequestId = match params.id {
+    //             lsp_types::NumberOrString::Number(id) => id.into(),
+    //             lsp_types::NumberOrString::String(id) => id.into(),
+    //         };
+    //         msg_once!("TODO: on::<lsp_types::notification::Cancel>");
+    //         Ok(TaskSet::Nothing)
+    //     })?
+    //     .on_sync::<lsp_types::notification::WorkDoneProgressCancel>(|_server, _params| {
+    //         // Just ignore this. It is OK to continue sending progress
+    //         // notifications for this token, as the client can't know when
+    //         // we accepted notification.
+    //         Ok(TaskSet::Nothing)
+    //     })?
+    //     .on_sync::<lsp_types::notification::DidOpenTextDocument>(|server, params| {
+    //         use husky_path::VfsQueryGroupBase;
+    //         if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
+    //             server
+    //                 .db
+    //                 .set_live_file_text(path, params.text_document.text);
+    //         }
+    //         Ok(TaskSet::SendUpdates)
+    //     })?
+    //     .on_sync::<lsp_types::notification::DidChangeTextDocument>(|server, params| {
+    //         use husky_path::VfsQueryGroupBase;
+    //         if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
+    //             server
+    //                 .db
+    //                 .apply_live_file_changes(path, params.content_changes);
+    //         }
+    //         Ok(TaskSet::SendUpdates)
+    //     })?
+    //     .on_sync::<lsp_types::notification::DidCloseTextDocument>(|_server, _params| {
+    //         eprintln!("todo: lsp_types::notification::DidCloseTextDocument");
+    //         Ok(TaskSet::SendUpdates)
+    //     })?
+    //     .on_sync::<lsp_types::notification::DidSaveTextDocument>(|_server, params| {
+    //         if let Ok(_path) = from_lsp_types::path_from_url(&params.text_document.uri) {
+    //             if let Some(_text) = params.text {
+    //                 todo!()
+    //             }
+    //         }
+    //         Ok(TaskSet::Nothing)
+    //     })?
+    //     .on_sync::<lsp_types::notification::DidChangeConfiguration>(|_server, _params| {
+    //         todo!();
+    //     })?
+    //     .on_sync::<lsp_types::notification::DidChangeWatchedFiles>(|_server, _params| {
+    //         todo!();
+    //     })?
+    //     .finish();
+    // return Ok(dispatcher.task);
 }
 
 fn handle_lsp_response(server: &mut Server, response: lsp_server::Response) -> Result<TaskSet> {

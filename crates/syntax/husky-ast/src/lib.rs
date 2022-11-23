@@ -1,8 +1,8 @@
 mod context;
+mod db;
 mod entrance;
 mod error;
 mod field;
-mod query;
 mod stmt;
 mod transform;
 mod variant;
@@ -10,11 +10,11 @@ mod xml;
 
 pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
 pub use context::*;
+pub use db::{AstDb, AstText};
 pub use entrance::*;
 pub use field::*;
 use husky_token_storage::TokenIdxRange;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
-pub use query::{AstDb, AstText};
 pub use stmt::*;
 pub use transform::*;
 pub use variant::*;
@@ -37,6 +37,9 @@ use husky_term::Ty;
 use husky_text::*;
 use salsa::DbWithJar;
 use std::sync::Arc;
+
+#[salsa::jar(db = AstDb)]
+pub struct AstJar();
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct DeprecatedAst {

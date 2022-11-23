@@ -109,9 +109,10 @@ pub(crate) fn handle_completion(
     comptime: HuskyComptimeSnapshot,
     params: lsp_types::CompletionParams,
 ) -> Result<Option<lsp_types::CompletionResponse>> {
-    let position = FilePosition::from_proto(&*comptime, &params.text_document_position);
-    let completion_trigger_character = params.context.and_then(|ctx| ctx.trigger_character);
-    Ok(comptime.completion(position, completion_trigger_character))
+    todo!()
+    // let position = FilePosition::from_proto(&*comptime, &params.text_document_position);
+    // let completion_trigger_character = params.context.and_then(|ctx| ctx.trigger_character);
+    // Ok(comptime.completion(position, completion_trigger_character))
 }
 
 pub(crate) fn handle_completion_resolve(
@@ -126,14 +127,15 @@ pub(crate) fn handle_folding_range(
     snapshot: HuskyComptimeSnapshot,
     params: FoldingRangeParams,
 ) -> Result<Option<Vec<FoldingRange>>> {
-    use husky_token::*;
-    if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
-        let file = snapshot.intern_path(path);
-        if let Ok(tokenized_text) = snapshot.tokenized_text(file) {
-            return Ok(Some(tokenized_text.folding_ranges()));
-        }
-    }
-    Ok(None)
+    todo!()
+    // use husky_token::*;
+    // if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
+    //     let file = snapshot.intern_path(path);
+    //     if let Ok(tokenized_text) = snapshot.tokenized_text(file) {
+    //         return Ok(Some(tokenized_text.folding_ranges()));
+    //     }
+    // }
+    // Ok(None)
 }
 
 pub(crate) fn handle_decl_help(
@@ -148,13 +150,14 @@ pub(crate) fn handle_hover(
     comptime: HuskyComptimeSnapshot,
     params: lsp_ext::HoverParams,
 ) -> Result<Option<HoverResult>> {
-    let file = comptime.it_url(&params.text_document.uri).expect("todo");
-    let range = match params.position {
-        PositionOrRange::Position(position) => lsp_types::Range::new(position, position),
-        PositionOrRange::Range(range) => range,
-    };
-    let range: TextRange = range.into();
-    Ok(comptime.opt_hover_result(FileRange::new(file, range)))
+    todo!()
+    // let file = comptime.it_url(&params.text_document.uri).expect("todo");
+    // let range = match params.position {
+    //     PositionOrRange::Position(position) => lsp_types::Range::new(position, position),
+    //     PositionOrRange::Range(range) => range,
+    // };
+    // let range: TextRange = range.into();
+    // Ok(comptime.opt_hover_result(FileRange::new(file, range)))
 }
 
 pub(crate) fn handle_prepare_rename(
@@ -280,55 +283,58 @@ pub(crate) fn handle_semantic_tokens_full(
     snapshot: HuskyComptimeSnapshot,
     params: SemanticTokensParams,
 ) -> Result<Option<SemanticTokensResult>> {
-    let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
-        &params.text_document.uri,
-    )?);
-    let ast_text = match snapshot.ast_text(file) {
-        Ok(ast_text) => ast_text,
-        Err(_) => return Ok(None),
-    };
-    let data = AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens);
-    Ok(Some(SemanticTokensResult::Tokens(SemanticTokens {
-        result_id: None,
-        data,
-    })))
+    todo!()
+    // let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
+    //     &params.text_document.uri,
+    // )?);
+    // let ast_text = match snapshot.ast_text(file) {
+    //     Ok(ast_text) => ast_text,
+    //     Err(_) => return Ok(None),
+    // };
+    // let data = AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens);
+    // Ok(Some(SemanticTokensResult::Tokens(SemanticTokens {
+    //     result_id: None,
+    //     data,
+    // })))
 }
 
 pub(crate) fn handle_semantic_tokens_full_delta(
     snapshot: HuskyComptimeSnapshot,
     params: SemanticTokensDeltaParams,
 ) -> Result<Option<SemanticTokensFullDeltaResult>> {
-    msg_once!("todo handle semantic tokens full delta");
-    let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
-        &params.text_document.uri,
-    )?);
-    let ast_text = match snapshot.ast_text(file) {
-        Ok(ast_text) => ast_text,
-        Err(_) => return Ok(None),
-    };
-    Ok(Some(SemanticTokensFullDeltaResult::Tokens(
-        SemanticTokens {
-            result_id: None,
-            data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
-        },
-    )))
+    todo!()
+    // msg_once!("todo handle semantic tokens full delta");
+    // let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
+    //     &params.text_document.uri,
+    // )?);
+    // let ast_text = match snapshot.ast_text(file) {
+    //     Ok(ast_text) => ast_text,
+    //     Err(_) => return Ok(None),
+    // };
+    // Ok(Some(SemanticTokensFullDeltaResult::Tokens(
+    //     SemanticTokens {
+    //         result_id: None,
+    //         data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
+    //     },
+    // )))
 }
 
 pub(crate) fn handle_semantic_tokens_range(
     snapshot: HuskyComptimeSnapshot,
     params: SemanticTokensRangeParams,
 ) -> Result<Option<SemanticTokensRangeResult>> {
-    let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
-        &params.text_document.uri,
-    )?);
-    let ast_text = match snapshot.ast_text(file) {
-        Ok(ast_text) => ast_text,
-        Err(_) => return Ok(None),
-    };
-    Ok(Some(SemanticTokensRangeResult::Tokens(SemanticTokens {
-        result_id: None,
-        data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
-    })))
+    todo!()
+    // let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
+    //     &params.text_document.uri,
+    // )?);
+    // let ast_text = match snapshot.ast_text(file) {
+    //     Ok(ast_text) => ast_text,
+    //     Err(_) => return Ok(None),
+    // };
+    // Ok(Some(SemanticTokensRangeResult::Tokens(SemanticTokens {
+    //     result_id: None,
+    //     data: AbsSemanticToken::to_semantic_tokens(&ast_text.semantic_tokens),
+    // })))
 }
 
 pub(crate) fn handle_open_docs(

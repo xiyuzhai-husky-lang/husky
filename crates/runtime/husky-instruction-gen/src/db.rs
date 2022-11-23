@@ -1,11 +1,9 @@
 use crate::*;
 use husky_comptime::ComptimeQueryGroup;
 use husky_entity_path::EntityPath;
-use husky_package_semantics::PackageQueryGroup;
 use husky_source_path::SourcePath;
 
-#[salsa::query_group(InstructionGenQueryGroupStorage)]
-pub trait InstructionGenQueryGroup: ComptimeQueryGroup {
+pub trait InstructionDb: ComptimeQueryGroup {
     fn entity_instruction_sheet(&self, entity_path: EntityPath) -> Option<Arc<InstructionSheet>>;
     fn method_opt_instruction_sheet(&self, member_route: Ty) -> Option<Arc<InstructionSheet>>;
     fn dataset_config_instruction_sheet(
@@ -16,7 +14,7 @@ pub trait InstructionGenQueryGroup: ComptimeQueryGroup {
 }
 
 fn entity_instruction_sheet(
-    db: &dyn InstructionGenQueryGroup,
+    db: &dyn InstructionDb,
     entity_path: EntityPath,
 ) -> Option<Arc<InstructionSheet>> {
     todo!()
@@ -81,7 +79,7 @@ fn entity_instruction_sheet(
 }
 
 fn method_opt_instruction_sheet(
-    db: &dyn InstructionGenQueryGroup,
+    db: &dyn InstructionDb,
     member_route: Ty,
 ) -> Option<Arc<InstructionSheet>> {
     todo!()
@@ -118,14 +116,15 @@ fn method_opt_instruction_sheet(
 }
 
 fn dataset_config_instruction_sheet(
-    db: &dyn InstructionGenQueryGroup,
+    db: &dyn InstructionDb,
     target_entrance: SourcePath,
 ) -> Arc<InstructionSheet> {
-    let package = db.package(target_entrance).unwrap();
-    new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)
+    todo!()
+    // let package = db.package(target_entrance).unwrap();
+    // new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)
 }
 
-fn enum_literal_to_i32(_db: &dyn InstructionGenQueryGroup, entity_path: EntityPath) -> i32 {
+fn enum_literal_to_i32(_db: &dyn InstructionDb, entity_path: EntityPath) -> i32 {
     todo!()
     // let ty_decl = db.ty_decl(route.parent()).unwrap();
     // ty_decl

@@ -1,25 +1,26 @@
 mod collect;
+mod db;
 mod kind;
-mod query;
 // mod reserve;
 mod severity;
 
+pub use db::DiagnosticsDb;
 pub use kind::DiagnosticKind;
-pub use query::{DiagnosticSalsaQuery, DiagnosticSalsaQueryGroupStorage, HuskyDiagnosticQuery};
 pub use severity::DiagnosticSeverity;
 
+use collect::collect_module_diagnostics;
 use husky_ast::{AstError, AstErrorVariant};
 use husky_dev_utils::DevSource;
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use husky_entity_tree::{EntityTreeError, EntityTreeErrorKind};
 use husky_print_utils::p;
-use husky_semantics_error::{SemanticError, SemanticErrorVariant};
 use husky_text::TextRange;
 use husky_tokenize::LexError;
 use std::fmt::Write;
 use std::sync::Arc;
 
-use collect::collect_module_diagnostics;
+#[salsa::jar(db = DiagnosticsDb)]
+pub struct DiagnosticsJar();
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Diagnostic {
@@ -35,19 +36,19 @@ impl HuskyDisplay for Diagnostic {
     }
 }
 
-impl From<&AstError> for Diagnostic {
-    fn from(error: &AstError) -> Self {
-        match error.variant {
-            AstErrorVariant::Original { ref message, range } => Self {
-                severity: DiagnosticSeverity::Error,
-                range: range.clone(),
-                message: format!("Ast Error: {}", message),
-                dev_src: error.dev_src.clone(),
-            },
-            AstErrorVariant::Derived => panic!(),
-        }
-    }
-}
+// impl From<&AstError> for Diagnostic {
+//     fn from(error: &AstError) -> Self {
+//         match error.variant {
+//             AstErrorVariant::Original { ref message, range } => Self {
+//                 severity: DiagnosticSeverity::Error,
+//                 range: range.clone(),
+//                 message: format!("Ast Error: {}", message),
+//                 dev_src: error.dev_src.clone(),
+//             },
+//             AstErrorVariant::Derived => panic!(),
+//         }
+//     }
+// }
 
 // impl From<&InferError> for Diagnostic {
 //     fn from(error: &InferError) -> Self {
@@ -113,20 +114,6 @@ impl From<&EntityTreeError> for Diagnostic {
                 })
             ),
             dev_src: e.dev_src.clone(),
-        }
-    }
-}
-
-impl From<SemanticError> for Diagnostic {
-    fn from(error: SemanticError) -> Self {
-        match error.variant {
-            SemanticErrorVariant::Derived { .. } => panic!(),
-            SemanticErrorVariant::Original { message } => Self {
-                severity: DiagnosticSeverity::Error,
-                range: Default::default(),
-                message,
-                dev_src: error.dev_src,
-            },
         }
     }
 }

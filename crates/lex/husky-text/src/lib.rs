@@ -20,7 +20,7 @@ pub use row::Row;
 use std::{iter::Enumerate, ops::Deref, str::Chars, sync::Arc};
 
 #[salsa::jar(db = TextDb)]
-pub struct Jar();
+pub struct TextJar();
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct HuskyText {
