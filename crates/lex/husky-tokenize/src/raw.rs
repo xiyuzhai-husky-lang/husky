@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{word::new_reserved_word, *};
 use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::{CharIter, TextIndent, TextRange};
@@ -42,7 +42,7 @@ impl From<Token> for RawToken {
 }
 
 pub(crate) struct RawTokenIter<'token_line, 'lex: 'token_line> {
-    word_interner: &'lex dyn IdentifierDb,
+    db: &'lex dyn IdentifierDb,
     line_index: usize,
     buffer: String,
     char_iter: CharIter<'token_line>,
@@ -60,7 +60,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
         (
             indent,
             Self {
-                word_interner,
+                db: word_interner,
                 line_index,
                 buffer,
                 char_iter,
@@ -93,8 +93,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
             self.line_index,
             j_start,
             j_start + len,
-            todo!(),
-            // self.take_buffer_word().into(),
+            self.take_buffer_word(),
         );
     }
 
@@ -274,14 +273,19 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
         }
     }
 
-    fn take_buffer_word(&mut self) -> Token {
-        todo!()
-        // let word = self
-        //     .word_interner
-        //     .intern(Word::new(std::mem::take(&mut self.buffer)));
-        // self.buffer.clear();
-        // word
+    fn take_buffer_word(&mut self) -> TokenKind {
+        let word = std::mem::take(&mut self.buffer);
+        self.new_word(word)
     }
+
+    fn new_word(&self, word: String) -> TokenKind {
+        if let Some(token_kind) = new_reserved_word(&word) {
+            token_kind
+        } else {
+            TokenKind::Identifier(self.db.identifier(word))
+        }
+    }
+
     fn take_buffer<T>(&mut self) -> T
     where
         T: FromStr,

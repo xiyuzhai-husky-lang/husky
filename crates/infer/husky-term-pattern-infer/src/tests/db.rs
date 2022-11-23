@@ -33,10 +33,6 @@ impl TermPatternInferFakeDb {
         db
     }
 
-    pub(crate) fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
-        SymbolContext::new(self, &self.prelude_symbols)
-    }
-
     pub(crate) fn new_sheet(&self, arena: &ExprArena) -> TermPatternInferSheet {
         TermPatternInferSheet::new_test(arena, Default::default())
     }
@@ -46,7 +42,6 @@ impl TermPatternInferFakeDb {
 
         let tokens = self.tokenize_line(text);
         let mut arena = ExprArena::new();
-        let mut symbol_ctx = self.fake_symbol_ctx();
         todo!()
         // let expr = parse_expr(&mut symbol_ctx, &mut arena, &tokens);
         // (arena, expr)

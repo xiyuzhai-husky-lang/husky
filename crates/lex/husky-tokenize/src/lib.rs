@@ -1,6 +1,7 @@
 mod error;
 mod raw;
 mod scanner;
+mod word;
 
 pub use error::*;
 

@@ -5,7 +5,7 @@ use super::*;
 use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu};
 use husky_expr_syntax::ExprIdx;
 use husky_identifier::{IdentifierDb, IdentifierJar};
-use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDb, SymbolKind};
+use husky_symbol_syntax::{Symbol, SymbolContext, SymbolKind};
 use husky_term::{
     AskDecl, Decl, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, Ty, TyDecl,
 };
@@ -32,17 +32,10 @@ impl TermInferTestsDb {
         db
     }
 
-    pub fn fake_symbol_ctx<'a>(&'a self) -> SymbolContext<'a> {
-        let mut ctx = SymbolContext::new(self, &self.prelude_symbols);
-        let entity_path_menu = self.entity_path_menu();
-        ctx
-    }
-
     pub(super) fn parse_expr_from_text(&self, text: &str) -> (ExprArena, ExprIdx) {
         use husky_tokenize::Tokenize;
         let tokens = self.tokenize_line(text);
         let mut arena = ExprArena::new();
-        let mut symbol_ctx = self.fake_symbol_ctx();
         todo!()
         // let expr = parse_expr(&mut symbol_ctx, &mut arena, &tokens);
         // (arena, expr)
