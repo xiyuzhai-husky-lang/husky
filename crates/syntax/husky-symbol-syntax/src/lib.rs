@@ -1,8 +1,10 @@
 mod context;
 mod db;
+mod sheet;
 
 pub use context::*;
 pub use db::*;
+pub use sheet::SymbolSheet;
 
 use husky_entity_path::EntityPath;
 use husky_identifier::*;

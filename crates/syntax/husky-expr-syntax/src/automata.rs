@@ -6,7 +6,8 @@ mod synthesize;
 
 use crate::*;
 use husky_check_utils::should;
-use husky_symbol_syntax::SymbolContext;
+use husky_entity_tree::EntityTreeDb;
+use husky_symbol_syntax::{SymbolContext, SymbolSheet};
 use husky_token::{Token, TokenKind};
 use husky_token_stream::TokenStream;
 use opr::*;
@@ -14,29 +15,36 @@ use resolve::*;
 use stack::*;
 
 pub(crate) struct Automata<'a> {
-    ctx: &'a mut SymbolContext<'a>,
-    stream: TokenStream<'a>,
-    stack: AutomataStack,
+    db: &'a dyn EntityTreeDb,
+    tokens: TokenStream<'a>,
+    symbols: &'a mut SymbolSheet,
     arena: &'a mut ExprArena,
+    stack: AutomataStack,
 }
 
 impl<'a> Automata<'a> {
-    pub(crate) fn stream(&self) -> &TokenStream<'a> {
-        &self.stream
+    pub(crate) fn tokens(&self) -> &TokenStream<'a> {
+        &self.tokens
     }
 
-    fn new(ctx: &'a mut SymbolContext<'a>, tokens: &'a [Token], arena: &'a mut ExprArena) -> Self {
+    fn new(
+        db: &'a dyn EntityTreeDb,
+        tokens: &'a [Token],
+        symbols: &'a mut SymbolSheet,
+        arena: &'a mut ExprArena,
+    ) -> Self {
         Self {
-            ctx,
-            stream: tokens.into(),
-            stack: Default::default(),
+            db,
+            tokens: tokens.into(),
+            symbols,
             arena,
+            stack: Default::default(),
         }
     }
 
     fn parse_all(mut self) -> ExprIdx {
-        while !self.stream().is_empty() {
-            let token = &self.stream.next().unwrap();
+        while !self.tokens().is_empty() {
+            let token = &self.tokens.next().unwrap();
             match self.accept_token(self.resolve_token(token)) {
                 Ok(()) => (),
                 Err(_) => todo!(),
@@ -48,10 +56,11 @@ impl<'a> Automata<'a> {
     }
 }
 
-pub fn parse_raw_expr<'a>(
-    ctx: &'a mut SymbolContext<'a>,
-    arena: &'a mut ExprArena,
-    tokens: &'a [Token],
+pub fn parse_expr(
+    db: &dyn EntityTreeDb,
+    tokens: &[Token],
+    symbols: &mut SymbolSheet,
+    arena: &mut ExprArena,
 ) -> ExprIdx {
-    Automata::new(ctx, tokens, arena).parse_all()
+    Automata::new(db, tokens, symbols, arena).parse_all()
 }

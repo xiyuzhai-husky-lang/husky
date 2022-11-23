@@ -69,7 +69,8 @@ impl<'a> Automata<'a> {
                 _ => (),
             }
         }
-        self.ctx.resolve_ident(ident).into()
+        todo!()
+        // self.ctx.resolve_ident(ident).into()
     }
 
     fn resolve_previous_entity(&self) -> Option<Term> {

@@ -3,7 +3,7 @@ mod db;
 use crate::*;
 use db::*;
 use husky_expect_test_utils::expect_test_husky_to_rust;
-use husky_expr_syntax::{parse_raw_expr, ExprArena};
+use husky_expr_syntax::{parse_expr, ExprArena};
 use husky_print_utils::epin;
 use husky_term::TermDb;
 use husky_token::*;
@@ -15,7 +15,7 @@ fn test_decl() {
     fn debug_decl(text: &str) -> String {
         todo!()
         // let db = TermInferTestsDb::new();
-        // let (arena, expr) = db.parse_raw_expr_from_text(text);
+        // let (arena, expr) = db.parse_expr_from_text(text);
         // let mut sheet = TermSheet::new(&arena);
         // let term_menu = db.term_menu();
         // let mut ctx = InferContext::new(&db, &mut sheet, &arena, expr, &term_menu);
@@ -31,7 +31,7 @@ fn test_infer_ty_works() {
     fn debug_infer_ty(text: &str) -> String {
         todo!()
         //         let db = TermInferTestsDb::new();
-        //         let (arena, expr) = db.parse_raw_expr_from_text(text);
+        //         let (arena, expr) = db.parse_expr_from_text(text);
         //         let mut sheet = TermSheet::new(&arena);
         //         let term_menu = db.term_menu();
         //         InferContext::new(&db, &mut sheet, &arena, expr, &term_menu).run();

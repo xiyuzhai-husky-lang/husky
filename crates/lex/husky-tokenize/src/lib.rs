@@ -10,11 +10,13 @@ use raw::*;
 use scanner::TokenLexer;
 
 pub trait Tokenize: IdentifierDb {
-    fn tokenize_line(&self, line: &str) -> Vec<Token> {
-        todo!()
-        // let mut scanner = TokenLexer::new(self.word_itr());
-        // scanner.scan_line(0, line);
-        // scanner.finish_with_tokens()
+    fn tokenize_line(&self, line: &str) -> Vec<Token>
+    where
+        Self: Sized,
+    {
+        let mut scanner = TokenLexer::new(self);
+        scanner.scan_line(0, line);
+        scanner.finish_with_tokens()
     }
 }
 
