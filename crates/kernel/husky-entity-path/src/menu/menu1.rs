@@ -4,7 +4,9 @@ use super::*;
 pub struct EntityPathMenu1 {
     // modules
     core_marker: EntityPath,
+    core_basic: EntityPath,
     core_num: EntityPath,
+    core_ops: EntityPath,
     core_prelude: EntityPath,
     parent: EntityPathMenu0,
 }
@@ -13,10 +15,16 @@ impl EntityPathMenu1 {
     pub(crate) fn new(db: &dyn EntityPathDb, menu0: EntityPathMenu0) -> Self {
         Self {
             core_marker: menu0.core().child(db, "marker"),
+            core_basic: menu0.core().child(db, "basic"),
             core_num: menu0.core().child(db, "num"),
+            core_ops: menu0.core().child(db, "ops"),
             core_prelude: menu0.core().child(db, "prelude"),
             parent: menu0,
         }
+    }
+
+    pub fn core_basic(&self) -> EntityPath {
+        self.core_basic
     }
 
     pub fn core_marker(&self) -> EntityPath {
@@ -25,6 +33,10 @@ impl EntityPathMenu1 {
 
     pub fn core_num(&self) -> EntityPath {
         self.core_num
+    }
+
+    pub fn core_ops(&self) -> EntityPath {
+        self.core_ops
     }
 }
 

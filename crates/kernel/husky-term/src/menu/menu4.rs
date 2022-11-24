@@ -2,7 +2,6 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu4 {
-    core_ops: Term,
     parent: TermMenu3,
 }
 
@@ -16,13 +15,6 @@ impl std::ops::Deref for TermMenu4 {
 
 impl TermMenu4 {
     pub(super) fn new(db: &dyn TermDb, menu3: TermMenu3) -> Self {
-        Self {
-            core_ops: TermSubentity::new(db, menu3.core(), "ops"),
-            parent: menu3,
-        }
-    }
-
-    pub fn core_ops(&self) -> Term {
-        self.core_ops
+        Self { parent: menu3 }
     }
 }
