@@ -1,7 +1,10 @@
+#![feature(const_trait_impl)]
+#![feature(const_convert)]
 mod convexity;
 mod decorator;
 mod keyword;
 mod kind;
+mod reserved;
 mod semantic_token;
 mod special;
 #[cfg(test)]
@@ -12,6 +15,7 @@ mod wordopr;
 pub use convexity::*;
 pub use decorator::Decorator;
 pub use keyword::*;
+pub use reserved::RESERVED_WORDS;
 pub use semantic_token::*;
 pub use special::SpecialToken;
 pub use wordopr::WordOpr;
