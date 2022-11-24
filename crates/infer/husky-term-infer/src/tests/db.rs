@@ -2,7 +2,9 @@ mod init;
 mod trivia;
 
 use super::*;
-use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu};
+use husky_entity_path::{
+    EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu, EntityPathMenuPlace,
+};
 use husky_expr_syntax::ExprIdx;
 use husky_identifier::{IdentifierDb, IdentifierJar};
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolKind};

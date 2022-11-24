@@ -13,14 +13,14 @@ fn test_decl() {
     expect_test_husky_to_rust("decl", &debug_decl);
 
     fn debug_decl(text: &str) -> String {
-        todo!()
-        // let db = TermInferTestsDb::new();
+        let db = TermInferTestsDb::new();
         // let (arena, expr) = db.parse_expr_from_text(text);
         // let mut sheet = TermSheet::new(&arena);
         // let term_menu = db.term_menu();
         // let mut ctx = InferContext::new(&db, &mut sheet, &arena, expr, &term_menu);
         // let term = ctx.term_result().unwrap();
         // format!("{:?}", db.decl(term.path()))
+        todo!()
     }
 }
 
