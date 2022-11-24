@@ -1,6 +1,7 @@
 mod cache;
 mod error;
 mod file;
+mod jar;
 mod path;
 mod runner;
 #[cfg(test)]
@@ -10,10 +11,11 @@ mod watch;
 pub use cache::HuskyFileCache;
 pub use error::*;
 use husky_source_path::SourcePathDb;
+pub use jar::VfsJar;
 pub use path::path_class;
 pub use runner::*;
-use salsa::ParallelDatabase;
-pub use watch::{HasWatcherPlace, VfsWatcher, WatchableVfsDb, WatchedVfs};
+use salsa::{storage::HasJar, ParallelDatabase};
+pub use watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};
 
 use dashmap::{mapref::entry::Entry, DashMap};
 use eyre::Context;
@@ -34,26 +36,27 @@ pub struct PathBufItd {
     path: PathBuf,
 }
 
-#[salsa::jar(db = VfsDb)]
-pub struct VfsJar(PathBufItd, HuskyFileId, path_class);
-
-pub trait VfsDb: salsa::DbWithJar<VfsJar> + SourcePathDb + HasFileCache + Send {
+pub trait VfsDb: salsa::DbWithJar<VfsJar> + SourcePathDb + Send {
     fn file(&self, path: PathBufItd) -> VfsResult<HuskyFileId>;
+    fn vfs_jar(&self) -> &VfsJar;
+    fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn update_file(&mut self, path: PathBuf) -> VfsResult<()>;
 }
 
 impl<T> VfsDb for T
 where
-    T: salsa::DbWithJar<VfsJar>
-        + SourcePathDb
-        + HasFileCache
-        + HasWatcherPlace
-        + ParallelDatabase
-        + Send
-        + 'static,
+    T: salsa::DbWithJar<VfsJar> + SourcePathDb + ParallelDatabase + Send + 'static,
 {
+    fn vfs_jar(&self) -> &VfsJar {
+        <Self as HasJar<VfsJar>>::jar(self).0
+    }
+
+    fn vfs_jar_mut(&mut self) -> &mut VfsJar {
+        <Self as HasJar<VfsJar>>::jar_mut(self).0
+    }
+
     fn file(&self, path: PathBufItd) -> VfsResult<HuskyFileId> {
-        match self.cache().data().entry(path.clone()) {
+        match self.vfs_jar().husky_file_cache().data().entry(path.clone()) {
             // If the file already exists in our cache then just return it.
             Entry::Occupied(entry) => Ok(*entry.get()),
             // If we haven't read this file yet set up the watch, read the
@@ -89,8 +92,4 @@ where
             .to(content);
         Ok(())
     }
-}
-
-pub trait HasFileCache {
-    fn cache(&self) -> &HuskyFileCache;
 }

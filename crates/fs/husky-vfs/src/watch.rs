@@ -15,21 +15,16 @@ use std::{
     time::Duration,
 };
 
-pub trait HasWatcherPlace {
-    fn watcher_place_mut(&mut self) -> &mut SingleAssignPlace<VfsWatcher>;
-    fn watcher_place(&self) -> &SingleAssignPlace<VfsWatcher>;
-}
-
-pub trait WatchableVfsDb: VfsDb + HasWatcherPlace + Send + ParallelDatabase + 'static {
+pub trait WatchableVfsDb: VfsDb + Send + ParallelDatabase + 'static {
     fn watcher(&self) -> Option<&VfsWatcher>;
 }
 
 impl<T> WatchableVfsDb for T
 where
-    T: VfsDb + HasWatcherPlace + Send + ParallelDatabase + 'static,
+    T: VfsDb + Send + ParallelDatabase + 'static,
 {
     fn watcher(&self) -> Option<&VfsWatcher> {
-        self.watcher_place().value()
+        self.vfs_jar().watcher_place().value()
     }
 }
 
@@ -97,7 +92,8 @@ impl<DB: WatchableVfsDb> WatchedVfs<DB> {
         let (event_tx, event_rx) = unbounded();
         let (debounce_tx, debounce_rx) = unbounded();
         let (snapshot_tx, snapshot_rx) = unbounded();
-        db.watcher_place_mut()
+        db.vfs_jar_mut()
+            .watcher_place_mut()
             .set(VfsWatcher::new(debounce_tx))
             .unwrap();
         thread::spawn(|| {
