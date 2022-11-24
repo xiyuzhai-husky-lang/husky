@@ -2,6 +2,7 @@ struct Point2d:
     x: f32
     y: f32
 
+impl Point2d:
     static func from_i_shift28(i: i32, shift: i32) -> Point2d:
         Point2d((29 - shift) as f32, (29 - i) as f32)
 
@@ -25,6 +26,7 @@ struct Vector2d:
     x: f32
     y: f32
 
+impl Vector2d:
     func point() -> Point2d:
         Point2d(this.x, this.y)
 
@@ -77,6 +79,8 @@ struct ClosedRange:
     min: f32
     max: f32
 
+
+impl CloseRange:
     func relative_range(other: ClosedRange) -> ClosedRange:
         assert max > min
         span = max - min
@@ -95,6 +99,7 @@ struct BoundingBox:
     xrange: ClosedRange
     yrange: ClosedRange
 
+impl BoundingBox:
     func relative_range(other: BoundingBox) -> RelativeBoundingBox:
         RelativeBoundingBox(
             xrange.relative_range(other.xrange),
@@ -122,7 +127,8 @@ struct BoundingBox:
 struct RelativeBoundingBox:
     xrange: ClosedRange
     yrange: ClosedRange
-    
+
+impl RelativeBoundingBox:
     func xmin() -> f32:
         xrange.min
     

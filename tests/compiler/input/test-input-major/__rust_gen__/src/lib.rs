@@ -5,7 +5,7 @@ use __husky::root::*;
 
 fn __input<'a, 'eval: 'a>(
     __ctx: &'a dyn __EvalContext<'eval>,
-) -> &'a domains::ml::datasets::cv::mnist::BinaryImage28 {
+) -> &'a cv::datasets::mnist::BinaryImage28 {
     unsafe {
         __ctx
             .target_input()
@@ -13,9 +13,7 @@ fn __input<'a, 'eval: 'a>(
     }
 }
 
-pub(crate) fn find_connected_components(
-    binary_image: &domains::ml::datasets::cv::mnist::BinaryImage28,
-) -> i32 {
+pub(crate) fn find_connected_components(binary_image: &cv::datasets::mnist::BinaryImage28) -> i32 {
     let mut b = binary_image.clone();
     b[(0) as usize] = 1u32;
     return 1;

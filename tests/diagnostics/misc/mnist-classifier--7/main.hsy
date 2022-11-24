@@ -1,6 +1,6 @@
 mod c
 
-use domains::ml::datasets::cv::mnist::BinaryImage28
+use cv::datasets::mnist::BinaryImage28
 
 task:
     ml::datasets::cv::mnist::new_binary_dataset()

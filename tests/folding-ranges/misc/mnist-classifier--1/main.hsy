@@ -3,7 +3,7 @@ mod raw_contour
 mod geom2d
 mod line_segment_sketch
 
-use domains::ml::datasets::cv::mnist::BinaryImage28
+use cv::datasets::mnist::BinaryImage28
 use connected_components::find_connected_components
 use raw_contour::find_raw_contours
 

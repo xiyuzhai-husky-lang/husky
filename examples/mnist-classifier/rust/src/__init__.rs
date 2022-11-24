@@ -292,12 +292,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __arguments: &mut [__Register<'eval>],
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
-                    let mask: domains::ml::datasets::cv::mnist::BinaryImage28 = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__BINARY_IMAGE_28_VTABLE);
+                    let mask: cv::datasets::mnist::BinaryImage28 = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__BINARY_IMAGE_28_VTABLE);
                     __Register::new_box::<connected_component::ConnectedComponent>(connected_component::ConnectedComponent::__call__(mask), &__registration__::__CONNECTED_COMPONENT_VTABLE)
                 }
                 __wrapper
             },
-            some base connected_component::ConnectedComponent::__call__ as fn(domains::ml::datasets::cv::mnist::BinaryImage28) -> connected_component::ConnectedComponent
+            some base connected_component::ConnectedComponent::__call__ as fn(cv::datasets::mnist::BinaryImage28) -> connected_component::ConnectedComponent
         ),
     ),
     (
@@ -309,7 +309,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             immutable,
             Intrinsic,
             BoxNonCopyable,
-            connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, domains::ml::datasets::cv::mnist::BinaryImage28, __registration__::__BINARY_IMAGE_28_VTABLE,
+            connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE, cv::datasets::mnist::BinaryImage28, __registration__::__BINARY_IMAGE_28_VTABLE,
             mask
         )
     ),
@@ -450,12 +450,12 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __arguments: &mut [__Register<'eval>],
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
-                    let img: &domains::ml::datasets::cv::mnist::BinaryImage28 = __arguments[0].downcast_temp_ref(&__registration__::__BINARY_IMAGE_28_VTABLE);
+                    let img: &cv::datasets::mnist::BinaryImage28 = __arguments[0].downcast_temp_ref(&__registration__::__BINARY_IMAGE_28_VTABLE);
                     __Register::new_box::<Vec<connected_component::ConnectedComponent>>(connected_component::find_connected_components(img), &__registration__::__VEC_CONNECTED_COMPONENT_VTABLE)
                 }
                 __wrapper
             },
-            some base connected_component::find_connected_components as fn(&'static domains::ml::datasets::cv::mnist::BinaryImage28) -> Vec<connected_component::ConnectedComponent>
+            some base connected_component::find_connected_components as fn(&'static cv::datasets::mnist::BinaryImage28) -> Vec<connected_component::ConnectedComponent>
         ),
     ),
     (

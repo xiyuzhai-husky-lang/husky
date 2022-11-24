@@ -4,8 +4,7 @@ use husky_liason_semantics::{MemberModifier, ParameterModifier};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
 use husky_vm::*;
 
-pub static BINARY_GRID_28_BASE_ROUTE: &'static str =
-    "domains::ml::datasets::cv::mnist::BinaryGrid28";
+pub static BINARY_GRID_28_BASE_ROUTE: &'static str = "cv::datasets::mnist::BinaryGrid28";
 
 pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryGrid28",
@@ -67,7 +66,7 @@ pub static BINARY_GRID28_TYPE_CALL_DEFN: EntityStaticDefn = EntityStaticDefn {
         spatial_parameters: &[],
         parameters: &[],
         variadic_template: StaticVariadicParameterDecl::None,
-        output_ty: "domains::ml::datasets::cv::mnist::BinaryGrid28",
+        output_ty: "cv::datasets::mnist::BinaryGrid28",
         output_liason: OutputModifier::Transfer,
         linkage: transfer_linkage!(
             |_, _values| __Register::new_box(BinaryGrid28::default(), &__BINARY_GRID_28_VTABLE),

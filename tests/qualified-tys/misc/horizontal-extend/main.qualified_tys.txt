@@ -26,8 +26,8 @@ lazy expr:
     [16:12, 16:53)horizontal_extend(255b32, 1b32) == 255b32   Copyable bool
 
 eager expr:
-    [2:5, 2:48)ml::datasets::cv::mnist::new_binary_dataset   Copyable ThickFp<Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>>
-    [2:5, 2:50)ml::datasets::cv::mnist::new_binary_dataset()   Transient Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>
+    [2:5, 2:48)ml::datasets::cv::mnist::new_binary_dataset   Copyable ThickFp<Dataset<cv::datasets::mnist::BinaryImage28, cv::datasets::mnist::MnistLabel>>
+    [2:5, 2:50)ml::datasets::cv::mnist::new_binary_dataset()   Transient Dataset<cv::datasets::mnist::BinaryImage28, cv::datasets::mnist::MnistLabel>
     [6:23, 6:24)x                      Copyable b32
     [6:28, 6:29)1                      Copyable i32
     [6:23, 6:29)x << 1                 Copyable b32

@@ -31,7 +31,7 @@ eager variable:
     p2          128:5 - 128:7  PureRef      mnist_classifier__10::geom2d::Point2d
     cc          134:24 - 134:26  EvalRef      mnist_classifier__10::connected_component::ConnectedComponent
     result      135:9 - 135:15  OwnedMut     []mnist_classifier__10::raw_contour::RawContour
-    boundary_unsearched  136:9 - 136:28  OwnedMut     domains::ml::datasets::cv::mnist::BinaryGrid28
+    boundary_unsearched  136:9 - 136:28  OwnedMut     cv::datasets::mnist::BinaryGrid28
     i           137:14 - 137:15  Copyable     i32
     r_ur        138:13 - 138:17  Copyable     b32
     r_dr        139:13 - 139:17  Copyable     b32
@@ -203,17 +203,17 @@ eager expr:
     [135:18, 135:30)[]RawContour           EvalRef Type
     [135:18, 135:32)[]RawContour()         Transient []mnist_classifier__10::raw_contour::RawContour
     [136:31, 136:43)BinaryGrid28           EvalRef Type
-    [136:31, 136:45)BinaryGrid28()         Transient domains::ml::datasets::cv::mnist::BinaryGrid28
+    [136:31, 136:45)BinaryGrid28()         Transient cv::datasets::mnist::BinaryGrid28
     [137:9, 137:10)1                      Copyable i32
     [137:19, 137:21)29                     Copyable i32
     [138:20, 138:22)cc                     PureRef mnist_classifier__10::connected_component::ConnectedComponent
     [138:28, 138:29)i                      Copyable i32
     [138:30, 138:31)1                      Copyable i32
-    [138:20, 138:27)cc.mask                PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [138:20, 138:27)cc.mask                PureRef cv::datasets::mnist::BinaryImage28
     [138:28, 138:31)i-1                    Copyable i32
     [138:20, 138:32)cc.mask[i-1]           Copyable b32
     [139:20, 139:22)cc                     PureRef mnist_classifier__10::connected_component::ConnectedComponent
-    [139:20, 139:27)cc.mask                PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [139:20, 139:27)cc.mask                PureRef cv::datasets::mnist::BinaryImage28
     [139:28, 139:29)i                      Copyable i32
     [139:20, 139:30)cc.mask[i]             Copyable b32
     [140:20, 140:24)r_ur                   Copyable b32
@@ -222,7 +222,7 @@ eager expr:
     [141:20, 141:24)r_dr                   Copyable b32
     [141:28, 141:29)1                      Copyable i32
     [141:20, 141:29)r_dr << 1              Copyable b32
-    [142:9, 142:28)boundary_unsearched    TempRefMut domains::ml::datasets::cv::mnist::BinaryGrid28
+    [142:9, 142:28)boundary_unsearched    TempRefMut cv::datasets::mnist::BinaryGrid28
     [142:29, 142:30)i                      Copyable i32
     [142:35, 142:39)r_ur                   Copyable b32
     [142:40, 142:44)r_dr                   Copyable b32
@@ -247,24 +247,24 @@ eager expr:
     [142:9, 142:82)boundary_unsearched[i] = (r_ur|r_dr|r_ul|r_dl) & (~(r_ur&r_dr&r_ul&r_dl))   Copyable void
     [143:9, 143:10)1                      Copyable i32
     [143:19, 143:21)29                     Copyable i32
-    [144:15, 144:34)boundary_unsearched    PureRef domains::ml::datasets::cv::mnist::BinaryGrid28
+    [144:15, 144:34)boundary_unsearched    PureRef cv::datasets::mnist::BinaryGrid28
     [144:35, 144:36)k                      Copyable i32
     [144:15, 144:37)boundary_unsearched[k]   Copyable b32
     [145:27, 145:36)[]Point2d              EvalRef Type
     [145:27, 145:38)[]Point2d()            Transient []mnist_classifier__10::geom2d::Point2d
     [146:21, 146:22)k                      Copyable i32
-    [147:21, 147:40)boundary_unsearched    PureRef domains::ml::datasets::cv::mnist::BinaryGrid28
+    [147:21, 147:40)boundary_unsearched    PureRef cv::datasets::mnist::BinaryGrid28
     [147:41, 147:42)k                      Copyable i32
     [147:21, 147:43)boundary_unsearched[k]   Copyable b32
     [147:21, 147:49)boundary_unsearched[k].ctz()   Copyable i32
     [149:29, 149:31)cc                     PureRef mnist_classifier__10::connected_component::ConnectedComponent
     [149:37, 149:38)i                      Copyable i32
     [149:39, 149:40)1                      Copyable i32
-    [149:29, 149:36)cc.mask                PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [149:29, 149:36)cc.mask                PureRef cv::datasets::mnist::BinaryImage28
     [149:37, 149:40)i-1                    Copyable i32
     [149:29, 149:41)cc.mask[i-1]           Copyable b32
     [150:29, 150:31)cc                     PureRef mnist_classifier__10::connected_component::ConnectedComponent
-    [150:29, 150:36)cc.mask                PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [150:29, 150:36)cc.mask                PureRef cv::datasets::mnist::BinaryImage28
     [150:37, 150:38)i                      Copyable i32
     [150:29, 150:39)cc.mask[i]             Copyable b32
     [152:36, 152:56)get_inward_direction   Copyable ThickFp<b32, b32, i32, mnist_classifier__10::raw_contour::Direction>
@@ -304,9 +304,9 @@ eager expr:
     [168:53, 168:69)inward_direction       Copyable mnist_classifier__10::raw_contour::Direction
     [168:71, 168:88)outward_direction      Copyable mnist_classifier__10::raw_contour::Direction
     [168:36, 168:89)get_angle_change(inward_direction, outward_direction)   Copyable i32
-    [170:17, 170:36)boundary_unsearched    TempRefMut domains::ml::datasets::cv::mnist::BinaryGrid28
+    [170:17, 170:36)boundary_unsearched    TempRefMut cv::datasets::mnist::BinaryGrid28
     [170:37, 170:38)i                      Copyable i32
-    [170:42, 170:61)boundary_unsearched    PureRef domains::ml::datasets::cv::mnist::BinaryGrid28
+    [170:42, 170:61)boundary_unsearched    PureRef cv::datasets::mnist::BinaryGrid28
     [170:62, 170:63)i                      Copyable i32
     [170:70, 170:74)1b32                   Copyable b32
     [170:78, 170:79)j                      Copyable i32
@@ -441,7 +441,7 @@ eager expr:
     [201:37, 201:39)cc                     PureRef mnist_classifier__10::connected_component::ConnectedComponent
     [201:45, 201:46)i                      Copyable i32
     [201:47, 201:48)1                      Copyable i32
-    [201:37, 201:44)cc.mask                PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [201:37, 201:44)cc.mask                PureRef cv::datasets::mnist::BinaryImage28
     [201:45, 201:48)i-1                    Copyable i32
     [201:25, 201:34)row_above              TempRefMut b32
     [201:37, 201:49)cc.mask[i-1]           Copyable b32
@@ -455,7 +455,7 @@ eager expr:
     [204:37, 204:46)row_below              Copyable b32
     [204:25, 204:46)row_above = row_below   Copyable void
     [205:37, 205:39)cc                     PureRef mnist_classifier__10::connected_component::ConnectedComponent
-    [205:37, 205:44)cc.mask                PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [205:37, 205:44)cc.mask                PureRef cv::datasets::mnist::BinaryImage28
     [205:45, 205:46)i                      Copyable i32
     [205:25, 205:34)row_below              TempRefMut b32
     [205:37, 205:47)cc.mask[i]             Copyable b32

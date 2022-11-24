@@ -2,7 +2,7 @@ use crate::*;
 pub use husky_datasets_interface::mnist::BinaryImage28;
 use husky_static_visualizer::{StaticVisualizer, StaticVisualizerFp};
 
-pub static BINARY_IMAGE_28_ROUTE: &'static str = "domains::ml::datasets::cv::mnist::BinaryImage28";
+pub static BINARY_IMAGE_28_ROUTE: &'static str = "cv::datasets::mnist::BinaryImage28";
 
 pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryImage28",

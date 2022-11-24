@@ -299,7 +299,7 @@ pub(crate) fn find_raw_contours<'eval>(
     cc: &'eval crate::connected_component::ConnectedComponent,
 ) -> Vec<RawContour<'eval>> {
     let mut result = Vec::<RawContour>::__call__(vec![]);
-    let mut boundary_unsearched = domains::ml::datasets::cv::mnist::BinaryGrid28::__call__();
+    let mut boundary_unsearched = cv::datasets::mnist::BinaryGrid28::__call__();
     for i in 1..(29 + 1) {
         let r_ur = cc.mask[(i - 1) as usize];
         let r_dr = cc.mask[(i) as usize];

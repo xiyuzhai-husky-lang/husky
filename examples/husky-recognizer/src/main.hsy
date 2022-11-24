@@ -1,0 +1,5 @@
+task:
+    imagenet::stage0::new_husky_dataset()
+
+main:
+    1

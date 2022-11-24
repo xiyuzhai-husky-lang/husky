@@ -61,11 +61,11 @@ pub(crate) fn hole_tmpl<'eval>(ct: &'eval crate::raw_contour::RawContour<'eval>)
 }
 #[derive(Debug, Clone, PartialEq)]
 pub(crate) struct ConnectedComponent {
-    pub(crate) mask: domains::ml::datasets::cv::mnist::BinaryImage28,
+    pub(crate) mask: cv::datasets::mnist::BinaryImage28,
 }
 
 impl ConnectedComponent {
-    pub(crate) fn __call__(mask: domains::ml::datasets::cv::mnist::BinaryImage28) -> Self {
+    pub(crate) fn __call__(mask: cv::datasets::mnist::BinaryImage28) -> Self {
         Self { mask }
     }
     pub(crate) fn raw_contours<'eval>(
@@ -376,7 +376,7 @@ pub(crate) fn horizontal_extend(a: u32, x: u32) -> u32 {
 }
 
 pub(crate) fn find_connected_components(
-    img: &domains::ml::datasets::cv::mnist::BinaryImage28,
+    img: &cv::datasets::mnist::BinaryImage28,
 ) -> Vec<ConnectedComponent> {
     let mut result = Vec::<ConnectedComponent>::__call__(vec![]);
     let mut unsearched = img.clone();
@@ -384,7 +384,7 @@ pub(crate) fn find_connected_components(
         while unsearched[(j) as usize] != 0 {
             let a = unsearched[(j) as usize];
             let shift = a.ctz();
-            let mut mask = domains::ml::datasets::cv::mnist::BinaryImage28::__call__();
+            let mut mask = cv::datasets::mnist::BinaryImage28::__call__();
             mask[(j) as usize] = horizontal_extend(a, 1u32 << shift);
             let mut flag = false;
             while !flag {

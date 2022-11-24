@@ -16,17 +16,17 @@ lazy expr:
     [22:36, 22:37)0                      Copyable i32
     [22:8, 22:37)concave_components.ilen() > 0   Copyable bool
     [23:19, 23:37)concave_components     PureRef []mnist_classifier__7::line_segment_sketch::concave_component::ConcaveComponent
-    [23:9, 23:18)naive_i32              Copyable ThickFp<i32, ?domains::ml::datasets::cv::mnist::MnistLabel>
+    [23:9, 23:18)naive_i32              Copyable ThickFp<i32, ?cv::datasets::mnist::MnistLabel>
     [23:19, 23:44)concave_components.ilen()   Copyable i32
-    [23:9, 23:45)naive_i32(concave_components.ilen())   ?Transient domains::ml::datasets::cv::mnist::MnistLabel
+    [23:9, 23:45)naive_i32(concave_components.ilen())   ?Transient cv::datasets::mnist::MnistLabel
     [25:9, 25:10)1                      InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
-Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead", range: [25:9, 25:10) }
+Original { message: "expect `?cv::datasets::mnist::MnistLabel` but get `i32` instead", range: [25:9, 25:10) }
 
 eager expr:
-    [7:5, 7:48)ml::datasets::cv::mnist::new_binary_dataset   Copyable ThickFp<Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>>
-    [7:5, 7:50)ml::datasets::cv::mnist::new_binary_dataset()   Transient Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>
+    [7:5, 7:48)ml::datasets::cv::mnist::new_binary_dataset   Copyable ThickFp<Dataset<cv::datasets::mnist::BinaryImage28, cv::datasets::mnist::MnistLabel>>
+    [7:5, 7:50)ml::datasets::cv::mnist::new_binary_dataset()   Transient Dataset<cv::datasets::mnist::BinaryImage28, cv::datasets::mnist::MnistLabel>
 
 lazy expr:
     [17:20, 17:45)major_connected_component   EvalRef mnist_classifier__7::connected_component::ConnectedComponent
@@ -43,10 +43,10 @@ lazy expr:
     [22:36, 22:37)0                      Copyable i32
     [22:8, 22:37)concave_components.ilen() > 0   Copyable bool
     [23:19, 23:37)concave_components     PureRef []mnist_classifier__7::line_segment_sketch::concave_component::ConcaveComponent
-    [23:9, 23:18)naive_i32              Copyable ThickFp<i32, ?domains::ml::datasets::cv::mnist::MnistLabel>
+    [23:9, 23:18)naive_i32              Copyable ThickFp<i32, ?cv::datasets::mnist::MnistLabel>
     [23:19, 23:44)concave_components.ilen()   Copyable i32
-    [23:9, 23:45)naive_i32(concave_components.ilen())   ?Transient domains::ml::datasets::cv::mnist::MnistLabel
+    [23:9, 23:45)naive_i32(concave_components.ilen())   ?Transient cv::datasets::mnist::MnistLabel
     [25:9, 25:10)1                      InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
-Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead", range: [25:9, 25:10) }
+Original { message: "expect `?cv::datasets::mnist::MnistLabel` but get `i32` instead", range: [25:9, 25:10) }
