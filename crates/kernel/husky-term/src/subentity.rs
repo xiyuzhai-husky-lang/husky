@@ -8,16 +8,16 @@ pub struct TermSubentity {
 }
 
 impl TermSubentity {
-    pub(crate) fn new(db: &dyn TermDb, parent: Term, ident: &str) -> Term {
-        todo!()
-        // db.it_term(
-        //     TermSubentity {
-        //         parent,
-        //         ident: db.it_ident(ident),
-        //     }
-        //     .into(),
-        // )
-    }
+    // pub(crate) fn new(db: &dyn TermDb, parent: Term, ident: &str) -> Term {
+    //     todo!()
+    //     // db.it_term(
+    //     //     TermSubentity {
+    //     //         parent,
+    //     //         ident: db.it_ident(ident),
+    //     //     }
+    //     //     .into(),
+    //     // )
+    // }
 }
 
 impl Into<TermData> for TermSubentity {

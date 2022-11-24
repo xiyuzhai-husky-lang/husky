@@ -2,7 +2,6 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu3 {
-    core: Term,
     parent: TermMenu2,
 }
 
@@ -19,14 +18,8 @@ impl TermMenu3 {
         let menu0 = TermMenu0::new(db);
         let menu1 = TermMenu1::new(db, menu0);
         let menu2 = TermMenu2::new(db, menu1);
-        TermMenu3 {
-            core: TermData::core(db, &menu2),
-            parent: menu2,
-        }
-    }
-
-    pub fn core(&self) -> Term {
-        self.core
+        TermMenu3 { parent: menu2 }
     }
 }
+
 type A = core::primitive::i32;
