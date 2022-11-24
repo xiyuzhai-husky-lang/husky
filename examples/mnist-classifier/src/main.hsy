@@ -7,16 +7,11 @@ mod geom2d
 mod line_segment_sketch
 mod fermi
 mod major
-mod one
-mod six
-mod zero
 
 use mnist::BinaryImage28
 use mnist::MnistLabel
 use major::*
-use one::is_one
-use six::is_six
-use zero::is_zero
+use digits::*
 use raw_contour::find_raw_contours
 use line_segment_sketch::find_line_segments
 use domains::ml::models::naive::naive_i32
@@ -33,20 +28,10 @@ main:
     naive_i32(concave_components.ilen())
 
 impl<T> Clone for T
-where
-    T Clone,
-    T Clone,
-    T Clone:
+where (
+    T: Clone,
+    T: Clone,
+    T: Clone,
+):
     func clone() -> Self:
         self.clone()
-
-
-impl<T> Clone for T
-where
-    T: Clone,
-    T: Clone,
-    T: Clone {
-    fn clone(&self) -> Self {
-        self.clone()
-    }
-}
