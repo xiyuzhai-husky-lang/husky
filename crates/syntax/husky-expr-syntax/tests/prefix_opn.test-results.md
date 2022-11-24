@@ -15,7 +15,13 @@ Arena {
     data: [
         Expr {
             variant: Atom(
-                Uncertain,
+                Unrecognized(
+                    Identifier(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
             ),
             range: [1:2, 1:3),
             base_scope_result: Uncertain,
@@ -49,7 +55,13 @@ Arena {
     data: [
         Expr {
             variant: Atom(
-                Uncertain,
+                Unrecognized(
+                    Identifier(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
             ),
             range: [1:2, 1:3),
             base_scope_result: Uncertain,

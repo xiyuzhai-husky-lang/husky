@@ -1,4 +1,5 @@
 use crate::*;
+use husky_identifier::Identifier;
 use husky_symbol_syntax::Symbol;
 use husky_term::TermError;
 use thiserror::Error;
@@ -15,8 +16,8 @@ pub enum TermInferError {
 
 #[derive(Error, Debug, PartialEq, Eq)]
 pub enum DerivedTermInferError {
-    #[error("todo")]
-    InferTermUnrecogizedSymbol { symbol: Symbol },
+    #[error("infer term unrecognized `{ident}`")]
+    InferTermUnrecogized { ident: String },
 }
 
 pub type TermInferResult<T> = Result<T, TermInferError>;

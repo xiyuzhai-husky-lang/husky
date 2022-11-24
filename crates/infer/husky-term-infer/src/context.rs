@@ -5,7 +5,7 @@ use husky_identifier::IdentifierDb;
 use husky_term::{Term, TermAtom, TermContext, TermData, TermMenu};
 
 pub(crate) struct InferContext<'a> {
-    db: &'a dyn TermInferDb,
+    pub(crate) db: &'a dyn TermInferDb,
     sheet: &'a mut TermSheet,
     expr_arena: &'a ExprArena,
     expr: ExprIdx,

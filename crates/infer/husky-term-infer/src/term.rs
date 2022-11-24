@@ -35,15 +35,15 @@ impl<'a> InferContext<'a> {
                     SymbolKind::EntityPath(path) => self.entity_path_term(path),
                     SymbolKind::LocalVariable { init_range } => todo!(),
                     SymbolKind::FrameVariable { init_range } => todo!(),
-                    SymbolKind::Unrecognized => Err(
-                        DerivedTermInferError::InferTermUnrecogizedSymbol { symbol: *symbol }
-                            .into(),
-                    ),
                     SymbolKind::ThisValue => todo!(),
                     SymbolKind::ThisMethod => todo!(),
                     SymbolKind::ThisField => todo!(),
                 },
-                AtomExpr::Uncertain => todo!(),
+                AtomExpr::Unrecognized(ident) => Err(DerivedTermInferError::InferTermUnrecogized {
+                    ident: self.db.dt_ident(*ident).to_owned(),
+                }
+                .into()),
+                AtomExpr::Uncertain(_) => todo!(),
             },
             ExprVariant::Opn {
                 ref opn_variant,

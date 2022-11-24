@@ -24,12 +24,12 @@ impl<'a> InferContext<'a> {
                 SymbolKind::EntityPath(_) => todo!(),
                 SymbolKind::LocalVariable { init_range } => todo!(),
                 SymbolKind::FrameVariable { init_range } => todo!(),
-                SymbolKind::Unrecognized => Err(TermInferError::IdentUnrecognized),
                 SymbolKind::ThisValue => todo!(),
                 SymbolKind::ThisMethod => todo!(),
                 SymbolKind::ThisField => todo!(),
             },
-            AtomExpr::Uncertain => todo!(),
+            AtomExpr::Unrecognized(_) => Err(TermInferError::IdentUnrecognized),
+            AtomExpr::Uncertain(_) => todo!(),
         }
     }
 
