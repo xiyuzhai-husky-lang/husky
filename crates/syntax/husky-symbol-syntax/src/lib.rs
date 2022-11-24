@@ -19,7 +19,6 @@ pub enum SymbolKind {
     EntityPath(EntityPath),
     LocalVariable { init_range: TextRange },
     FrameVariable { init_range: TextRange },
-    Unrecognized,
     ThisValue,
     ThisMethod,
     ThisField,

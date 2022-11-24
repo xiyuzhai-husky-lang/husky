@@ -6,7 +6,8 @@ use crate::*;
 pub enum AtomExpr {
     Literal(RawLiteralData),
     Symbol(Symbol),
-    Uncertain,
+    Uncertain(Identifier),
+    Unrecognized(Identifier),
 }
 
 impl From<RawLiteralData> for AtomExpr {

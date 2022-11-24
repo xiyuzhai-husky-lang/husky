@@ -59,7 +59,8 @@ impl<'a, 'b> Automata<'a, 'b> {
                             BaseScopeResult::None => todo!(),
                             BaseScopeResult::Some(_) => todo!(),
                             BaseScopeResult::Uncertain => {
-                                return ResolvedTokenKind::Atom(AtomExpr::Uncertain)
+                                todo!()
+                                // return ResolvedTokenKind::Atom(AtomExpr::Uncertain(ident))
                             }
                         }
                     } else {
@@ -71,7 +72,7 @@ impl<'a, 'b> Automata<'a, 'b> {
         }
         match self.symbols.resolve_ident(ident) {
             Some(symbol) => symbol.into(),
-            None => ResolvedTokenKind::Atom(AtomExpr::Uncertain),
+            None => ResolvedTokenKind::Atom(AtomExpr::Unrecognized(ident)),
         }
     }
 
@@ -84,7 +85,8 @@ impl<'a, 'b> Automata<'a, 'b> {
             ExprVariant::Atom(ref atom) => match atom {
                 AtomExpr::Literal(_) => todo!(),
                 AtomExpr::Symbol(_) => todo!(),
-                AtomExpr::Uncertain => todo!(),
+                AtomExpr::Uncertain(_) => todo!(),
+                AtomExpr::Unrecognized(_) => todo!(),
             },
             ExprVariant::Opn {
                 ref opn_variant,

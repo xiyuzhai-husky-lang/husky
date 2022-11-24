@@ -67,23 +67,21 @@ impl<'a> TermPatternInferContext<'a> {
                     const_expr: Ok(None),
                     ty: Ok(self.term_menu().i32().into()),
                 },
-                SymbolKind::Unrecognized => {
-                    let error =
-                        self.error_original(OriginalTermPatternInferError::IdentUnrecognized {
-                            ident: todo!(),
-                        });
-                    ExprTermPatternInferRawResults {
-                        const_expr: Err(error.clone()),
-                        ty: self.err_derived(DerivedTermPatternInferError::TermPatternInferError(
-                            error,
-                        )),
-                    }
-                }
                 SymbolKind::ThisValue => todo!(),
                 SymbolKind::ThisMethod => todo!(),
                 SymbolKind::ThisField => todo!(),
             },
-            AtomExpr::Uncertain => todo!(),
+            AtomExpr::Unrecognized(ident) => {
+                let error = self.error_original(OriginalTermPatternInferError::IdentUnrecognized {
+                    ident: self.db.dt_ident(*ident).to_owned(),
+                });
+                ExprTermPatternInferRawResults {
+                    const_expr: Err(error.clone()),
+                    ty: self
+                        .err_derived(DerivedTermPatternInferError::TermPatternInferError(error)),
+                }
+            }
+            AtomExpr::Uncertain(_) => todo!(),
         }
     }
 

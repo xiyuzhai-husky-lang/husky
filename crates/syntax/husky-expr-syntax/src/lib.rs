@@ -59,10 +59,9 @@ impl ExprVariant {
                 AtomExpr::Literal(_) => BaseScopeResult::None,
                 AtomExpr::Symbol(symbol) => match symbol.kind {
                     SymbolKind::EntityPath(path) => BaseScopeResult::Some(path),
-                    SymbolKind::Unrecognized => BaseScopeResult::Uncertain,
                     _ => BaseScopeResult::None,
                 },
-                AtomExpr::Uncertain => BaseScopeResult::Uncertain,
+                AtomExpr::Unrecognized(_) | AtomExpr::Uncertain(_) => BaseScopeResult::Uncertain,
             },
             ExprVariant::Opn { opn_variant, opds } => match opn_variant {
                 RawOpnVariant::Binary(BinaryOpr::ScopeResolution) => {
