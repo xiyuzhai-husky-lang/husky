@@ -24,16 +24,16 @@ impl TermMenu0 {
         TermMenu0 {
             sort,
             universe1,
-            unit: todo!(),
-            i32: todo!(),
-            i64: todo!(),
-            f32: todo!(),
-            f64: todo!(),
+            unit: db.it_entity_path_term(entity_path_menu.unit()),
+            i32: db.it_entity_path_term(entity_path_menu.i32()),
+            i64: db.it_entity_path_term(entity_path_menu.i64()),
+            f32: db.it_entity_path_term(entity_path_menu.f32()),
+            f64: db.it_entity_path_term(entity_path_menu.f64()),
             b32: db.it_entity_path_term(entity_path_menu.b32()),
-            b64: todo!(),
-            bool: todo!(),
-            trai: todo!(),
-            module: todo!(),
+            b64: db.it_entity_path_term(entity_path_menu.b64()),
+            bool: db.it_entity_path_term(entity_path_menu.bool()),
+            trai: db.it_entity_path_term(entity_path_menu.trai()),
+            module: db.it_entity_path_term(entity_path_menu.module()),
         }
     }
 
