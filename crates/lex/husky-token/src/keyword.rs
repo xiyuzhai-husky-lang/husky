@@ -3,12 +3,14 @@ mod config;
 mod liason;
 mod paradigm;
 mod stmt;
+mod ty;
 
 pub use ambiguous::*;
 pub use config::*;
 pub use liason::*;
 pub use paradigm::*;
 pub use stmt::*;
+pub use ty::*;
 
 use crate::TokenKind;
 
@@ -27,7 +29,7 @@ use std::ops::Deref;
 pub enum Keyword {
     Config(ConfigKeyword),
     Paradigm(Paradigm),
-    Type(TyKeyword),
+    Type(TypeKeyword),
     Stmt(StmtKeyword),
     Liason(LiasonKeyword),
     Ambiguous(AmbiguousKeyword),
@@ -76,12 +78,6 @@ impl From<Paradigm> for Keyword {
     }
 }
 
-impl From<TyKeyword> for Keyword {
-    fn from(kw: TyKeyword) -> Self {
-        Keyword::Type(kw)
-    }
-}
-
 impl const Into<TokenKind> for ConfigKeyword {
     fn into(self) -> TokenKind {
         TokenKind::Keyword(self.into())
@@ -113,31 +109,6 @@ impl Paradigm {
 }
 
 impl Deref for Paradigm {
-    type Target = str;
-
-    fn deref(&self) -> &Self::Target {
-        self.as_str()
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TyKeyword {
-    Struct,
-    Enum,
-    Record,
-}
-
-impl TyKeyword {
-    fn as_str(&self) -> &'static str {
-        match self {
-            TyKeyword::Struct => "struct",
-            TyKeyword::Enum => "enum",
-            TyKeyword::Record => "record",
-        }
-    }
-}
-
-impl Deref for TyKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {

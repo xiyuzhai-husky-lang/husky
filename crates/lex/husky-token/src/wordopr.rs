@@ -25,7 +25,7 @@ impl Deref for WordOpr {
 }
 
 impl WordOpr {
-    pub fn as_str(&self) -> &'static str {
+    pub const fn as_str(&self) -> &'static str {
         match self {
             WordOpr::And => "and",
             WordOpr::Or => "or",

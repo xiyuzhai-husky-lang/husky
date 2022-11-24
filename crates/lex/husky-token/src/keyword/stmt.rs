@@ -11,8 +11,6 @@ pub enum StmtKeyword {
     Else,
     Match,
     Case,
-    DeFault,
-    For,
     ForExt,
     While,
     Do,
@@ -23,7 +21,7 @@ pub enum StmtKeyword {
 }
 
 impl StmtKeyword {
-    pub fn as_str(&self) -> &'static str {
+    pub const fn as_str(&self) -> &'static str {
         match self {
             StmtKeyword::Let => "let",
             StmtKeyword::Var => "var",
@@ -32,8 +30,6 @@ impl StmtKeyword {
             StmtKeyword::Else => "else",
             StmtKeyword::Match => "match",
             StmtKeyword::Case => "case",
-            StmtKeyword::DeFault => "default",
-            StmtKeyword::For => "for",
             StmtKeyword::ForExt => "forext",
             StmtKeyword::While => "while",
             StmtKeyword::Do => "do",

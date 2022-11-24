@@ -4,6 +4,7 @@ use std::ops::Deref;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Decorator {
     Pub,
+    Protected,
     Private,
     Async,
     Static,
@@ -24,12 +25,19 @@ impl Deref for Decorator {
 }
 
 impl Decorator {
-    pub fn as_str(self) -> &'static str {
+    pub const fn as_str(self) -> &'static str {
         match self {
             Decorator::Pub => "pub",
+            Decorator::Protected => "protected",
             Decorator::Private => "private",
             Decorator::Async => "async",
             Decorator::Static => "static",
         }
+    }
+}
+
+impl const Into<TokenKind> for Decorator {
+    fn into(self) -> TokenKind {
+        TokenKind::Decorator(self)
     }
 }

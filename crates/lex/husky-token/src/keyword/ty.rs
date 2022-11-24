@@ -1,0 +1,44 @@
+use std::ops::Deref;
+
+use crate::{Keyword, TokenKind};
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum TypeKeyword {
+    Struct,
+    Enum,
+    Record,
+    Structure,
+    Inductive,
+}
+
+impl TypeKeyword {
+    pub const fn as_str(&self) -> &'static str {
+        match self {
+            TypeKeyword::Struct => "struct",
+            TypeKeyword::Enum => "enum",
+            TypeKeyword::Record => "record",
+            TypeKeyword::Structure => "structure",
+            TypeKeyword::Inductive => "inductive",
+        }
+    }
+}
+
+impl Deref for TypeKeyword {
+    type Target = str;
+
+    fn deref(&self) -> &Self::Target {
+        self.as_str()
+    }
+}
+
+impl const Into<Keyword> for TypeKeyword {
+    fn into(self) -> Keyword {
+        Keyword::Type(self)
+    }
+}
+
+impl const Into<TokenKind> for TypeKeyword {
+    fn into(self) -> TokenKind {
+        TokenKind::Keyword(self.into())
+    }
+}
