@@ -9,7 +9,7 @@ use husky_entity_tree::EntityTreeJar;
 use husky_expr_syntax::ExprIdx;
 use husky_identifier::{IdentifierDb, IdentifierJar};
 use husky_source_path::SourcePathJar;
-use husky_symbol_syntax::{Symbol, SymbolContext, SymbolKind};
+use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDb, SymbolJar, SymbolKind};
 use husky_term::{
     AskDecl, Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
 };
@@ -21,15 +21,16 @@ use std::{collections::HashMap, sync::Arc};
 use upcast::Upcast;
 
 #[salsa::db(
+    EntityTreeJar,
+    EntityPathJar,
+    IdentifierJar,
+    TextJar,
     TermJar,
+    TermInferJar,
     TokenTextJar,
     VfsJar,
     SourcePathJar,
-    TextJar,
-    TermInferJar,
-    EntityTreeJar,
-    EntityPathJar,
-    IdentifierJar
+    SymbolJar
 )]
 pub(crate) struct TermInferTestsDb {
     storage: salsa::Storage<Self>,
@@ -60,9 +61,9 @@ impl TermInferTestsDb {
         use husky_tokenize::Tokenize;
         let tokens = self.tokenize_line(text);
         let mut arena = ExprArena::new();
-        let expr = parse_expr(self, &tokens, todo!(), &mut arena);
-        // (arena, expr)
-        todo!()
+        let mut ctx = self.new_symbol_ctx();
+        let expr = parse_expr(self, &tokens, &mut ctx, &mut arena);
+        (arena, expr)
     }
 }
 

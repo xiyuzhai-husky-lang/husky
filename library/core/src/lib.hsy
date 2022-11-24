@@ -1,3 +1,5 @@
-mod logic;
-mod ops;
-mod prelude;
+mod basic
+mod logic
+mod num
+mod ops
+mod prelude
