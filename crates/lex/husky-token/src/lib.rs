@@ -3,7 +3,6 @@
 mod convexity;
 mod decorator;
 mod keyword;
-mod kind;
 mod reserved;
 mod semantic_token;
 mod special;
@@ -67,4 +66,10 @@ pub enum TokenKind {
     Literal(RawLiteralData),
     Unrecognized(char),
     IllFormedLiteral(RawLiteralData),
+}
+
+impl std::hash::Hash for TokenKind {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        core::mem::discriminant(self).hash(state);
+    }
 }
