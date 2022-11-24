@@ -9,7 +9,7 @@ impl<'a> TermRef<'a> {
                 TermAtom::Variable {
                     variable_variant: _,
                 } => todo!(),
-                TermAtom::Entity { path } => *path,
+                TermAtom::Entity { entity_path: path } => *path,
                 TermAtom::Category(_) => todo!(),
                 TermAtom::Universe(_) => todo!(),
             },

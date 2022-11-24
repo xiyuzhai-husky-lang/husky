@@ -50,7 +50,7 @@ pub enum DeprecatedAstVariant {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum UseVariant {
     Route { entity_path: EntityPath },
-    All { parent: Ty },
+    All { parent: Term },
 }
 
 impl From<RawStmt> for DeprecatedAst {

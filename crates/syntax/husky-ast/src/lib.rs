@@ -33,7 +33,7 @@ use husky_init_syntax::InitKind;
 use husky_opn_syntax::*;
 use husky_pattern_syntax::RawPattern;
 use husky_print_utils::*;
-use husky_term::Ty;
+use husky_term::Term;
 use husky_text::*;
 use salsa::DbWithJar;
 use std::sync::Arc;

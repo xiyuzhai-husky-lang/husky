@@ -1,4 +1,4 @@
-use husky_term::Ty;
+use husky_term::Term;
 
 use super::*;
 
@@ -143,7 +143,7 @@ impl<'a> TraceLineGenerator<'a> {
     fn eager_routine_call_tokens(
         &mut self,
         file: SourcePath,
-        ranged_scope: Ty,
+        ranged_scope: Term,
         inputs: &[Arc<EagerExpr>],
         opt_associated_trace_id: Option<TraceId>,
         history: &Arc<History<'static>>,

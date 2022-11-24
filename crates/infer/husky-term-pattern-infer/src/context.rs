@@ -65,7 +65,7 @@ impl<'a> TermPatternInferContext<'a> {
                 },
                 SymbolKind::FrameVariable { .. } => ExprTermPatternInferRawResults {
                     const_expr: Ok(None),
-                    ty: Ok(self.term_menu().i32().term().into()),
+                    ty: Ok(self.term_menu().i32().into()),
                 },
                 SymbolKind::Unrecognized => {
                     let error =
@@ -149,14 +149,14 @@ impl<'a> TermPatternInferContext<'a> {
                     term: TermPatternItd::Resolved(todo!()),
                     opt_substitution_ctx: None,
                 })),
-                ty: Ok(self.term_menu.i32().term().into()),
+                ty: Ok(self.term_menu.i32().into()),
             },
             RawLiteralData::I64(i) => ExprTermPatternInferRawResults {
                 const_expr: Ok(Some(ConstExprPattern {
                     term: TermPatternItd::Resolved(todo!()),
                     opt_substitution_ctx: None,
                 })),
-                ty: Ok(self.term_menu.i32().term().into()),
+                ty: Ok(self.term_menu.i32().into()),
             },
             RawLiteralData::Float(_) => {
                 let term = sheet.it_unresolved(UnresolvedTerm::FloatLiteral(self.expr_idx()));

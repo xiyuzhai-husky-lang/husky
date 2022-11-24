@@ -22,7 +22,7 @@ impl VecMapEntry<Identifier> for SpatialParameter {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum SpatialParameterVariant {
     Const,
-    Type {/* traits: Vec<Ty> */},
+    Type {/* traits: Vec<Term> */},
 }
 
 impl SpatialParameter {

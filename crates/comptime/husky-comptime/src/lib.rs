@@ -12,6 +12,7 @@ use husky_ast::AstJar;
 pub use husky_completion::HuskyCompletionQuery;
 pub use husky_diagnostics::DiagnosticsDb;
 use husky_diagnostics::DiagnosticsJar;
+use husky_entity_path::EntityPathJar;
 pub use husky_entity_tree::EntityTreeDb;
 use husky_entity_tree::EntityTreeJar;
 pub use husky_fmt::SyntaxFormatDb;
@@ -46,6 +47,7 @@ use sync_utils::ASafeRwLock;
     AstJar,
     IdentifierJar,
     SourcePathJar,
+    EntityPathJar,
     TermJar,
     VfsJar,
     SyntaxFormatJar,

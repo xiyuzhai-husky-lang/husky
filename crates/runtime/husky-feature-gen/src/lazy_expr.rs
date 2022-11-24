@@ -12,7 +12,7 @@ use husky_vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
 use husky_entity_semantics::*;
 use husky_identifier::RootBuiltinIdentifier;
 use husky_lazy_semantics::*;
-use husky_term::Ty;
+use husky_term::Term;
 use husky_vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
 use std::sync::Arc;
 
@@ -136,7 +136,7 @@ pub enum FeatureLazyExprVariant {
     },
     EvalInput,
     NewRecord {
-        ty: Ty,
+        ty: Term,
         entity: Arc<EntityDefn>,
         opds: Vec<Arc<FeatureLazyExpr>>,
     },

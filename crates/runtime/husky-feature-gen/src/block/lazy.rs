@@ -1,4 +1,4 @@
-use husky_term::Ty;
+use husky_term::Term;
 
 use crate::lazy_branch::FeatureArrivalIndicatorVariant;
 
@@ -11,7 +11,7 @@ pub struct FeatureLazyBody {
     pub file: SourcePath,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
-    pub return_ty: Ty,
+    pub return_ty: Term,
     pub stmts: Vec<Arc<FeatureLazyStmt>>,
 }
 
@@ -37,7 +37,7 @@ impl<'eval> FeatureLazyBody {
         externals: &[FeatureSymbol],
         mut opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
         feature_interner: &FeatureInterner,
-        ty: Ty,
+        ty: Term,
     ) -> Arc<FeatureLazyBody> {
         let mut symbols: Vec<FeatureSymbol> = externals.into();
         // for checking

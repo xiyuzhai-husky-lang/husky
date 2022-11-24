@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_semantics::{Visualizer, VisualizerVariant};
 use husky_identifier::RootBuiltinIdentifier;
-use husky_term::Ty;
+use husky_term::Term;
 use husky_vm::__VMResult;
 
 pub(crate) fn visual_feature_lazy_block(
@@ -20,7 +20,7 @@ pub(crate) fn visual_feature_lazy_block(
     //     &[],
     //     None,
     //     db.feature_interner(),
-    //     Ty {
+    //     Term {
     //         route: RootBuiltinIdentifier::VisualType.into(),
     //         range: Default::default(),
     //     },

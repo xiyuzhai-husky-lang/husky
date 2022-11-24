@@ -14,7 +14,7 @@ use upcast::Upcast;
 pub trait AstDb: DbWithJar<AstJar> + EntityTreeDb + Upcast<dyn EntityTreeDb> + TextDb {
     fn ast_text(&self, file: SourcePath) -> EntityTreeResultArc<AstText>;
 
-    fn parse_route_from_text(&self, text: &str) -> Ty {
+    fn parse_route_from_text(&self, text: &str) -> Term {
         todo!()
         // let root_symbols = self.root_symbols();
         // let mut context = AtomContextStandalone {

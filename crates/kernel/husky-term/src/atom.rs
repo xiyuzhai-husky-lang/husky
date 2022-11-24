@@ -22,7 +22,7 @@ pub enum TermAtom {
         variable_variant: TermVariableVariant,
     },
     Entity {
-        path: EntityPath,
+        entity_path: EntityPath,
     },
     Category(TermCategory),
     Universe(TermUniverse),
@@ -41,7 +41,7 @@ impl std::fmt::Display for TermAtom {
             TermAtom::Variable {
                 ref variable_variant,
             } => variable_variant.fmt(f),
-            TermAtom::Entity { path } => path.fmt(f),
+            TermAtom::Entity { entity_path: path } => path.fmt(f),
             TermAtom::Category(_category_kind) => todo!(),
             TermAtom::Universe(_) => todo!(),
         }

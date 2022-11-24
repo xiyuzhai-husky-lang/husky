@@ -4,7 +4,7 @@ mod query;
 use husky_identifier::Identifier;
 use husky_print_utils::ps;
 use husky_source_path::SourcePath;
-use husky_term::Ty;
+use husky_term::Term;
 use husky_text::TextRange;
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;
@@ -18,7 +18,7 @@ pub struct Interpreter<'a, 'eval: 'a> {
     pub(crate) history: History<'eval>,
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
-    variable_mutations: IndexMap<VMStackIdx, (Identifier, SourcePath, TextRange, Ty)>,
+    variable_mutations: IndexMap<VMStackIdx, (Identifier, SourcePath, TextRange, Term)>,
     vm_config: &'a VMConfig,
 }
 
@@ -92,7 +92,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         }
     }
 
-    fn push_new_virtual_struct(&mut self, ty: Ty, fields: &[Identifier]) {
+    fn push_new_virtual_struct(&mut self, ty: Term, fields: &[Identifier]) {
         let parameters = self.stack.drain(fields.len().try_into().unwrap());
         let value =
             unsafe { DeprecatedVirtualStruct::new_struct(ty, parameters, fields).__to_register() };
@@ -114,7 +114,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         varname: Identifier,
         file: SourcePath,
         range: TextRange,
-        ty: Ty,
+        ty: Term,
     ) {
         self.variable_mutations
             .insert(stack_idx, (varname, file, range, ty));

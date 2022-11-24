@@ -7,7 +7,7 @@ use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu}
 use husky_expr_syntax::ExprIdx;
 use husky_identifier::IdentifierDb;
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolKind};
-use husky_term::{AskDecl, Decl, TermDb, TermMenu, TermResultArc, Ty, TyDecl};
+use husky_term::{AskDecl, Decl, Term, TermDb, TermMenu, TermResultArc, TyDecl};
 use husky_token::*;
 use salsa::Database;
 use std::{collections::HashMap, sync::Arc};
@@ -16,7 +16,7 @@ use upcast::Upcast;
 #[salsa::db(TermJar, TermPatternInferJar, EntityPathJar, IdentifierJar)]
 pub struct TermPatternInferFakeDb {
     storage: salsa::Storage<Self>,
-    entity_tys: HashMap<EntityPath, Ty>,
+    entity_tys: HashMap<EntityPath, Term>,
     decls: HashMap<EntityPath, Arc<Decl>>,
     prelude_symbols: Vec<Symbol>,
 }
@@ -56,7 +56,7 @@ impl AskDecl for TermPatternInferFakeDb {
         todo!()
     }
 
-    fn ask_ty_decl(&self, _ty: Ty) -> TermResultArc<TyDecl> {
+    fn ask_ty_decl(&self, _ty: Term) -> TermResultArc<TyDecl> {
         todo!()
     }
 

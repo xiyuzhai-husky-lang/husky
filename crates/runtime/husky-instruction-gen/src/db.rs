@@ -5,7 +5,7 @@ use husky_source_path::SourcePath;
 
 pub trait InstructionDb: ComptimeQueryGroup {
     fn entity_instruction_sheet(&self, entity_path: EntityPath) -> Option<Arc<InstructionSheet>>;
-    fn method_opt_instruction_sheet(&self, member_route: Ty) -> Option<Arc<InstructionSheet>>;
+    fn method_opt_instruction_sheet(&self, member_route: Term) -> Option<Arc<InstructionSheet>>;
     fn dataset_config_instruction_sheet(
         &self,
         target_entrance: SourcePath,
@@ -44,7 +44,7 @@ fn entity_instruction_sheet(
     //         stmts,
     //         false, // has_this
     //     )),
-    //     EntityDefnVariant::Ty { .. } => todo!(),
+    //     EntityDefnVariant::Term { .. } => todo!(),
     //     EntityDefnVariant::Builtin => {
     //         p!(route.ident());
     //         todo!()
@@ -80,13 +80,13 @@ fn entity_instruction_sheet(
 
 fn method_opt_instruction_sheet(
     db: &dyn InstructionDb,
-    member_route: Ty,
+    member_route: Term,
 ) -> Option<Arc<InstructionSheet>> {
     todo!()
     // let ty = member_route.parent();
     // let entity_defn = db.entity_defn(ty).unwrap();
     // match entity_defn.variant {
-    //     EntityDefnVariant::Ty { .. } => {
+    //     EntityDefnVariant::Term { .. } => {
     //         let method_defn = db.member_defn(member_route);
     //         match method_defn.variant {
     //             EntityDefnVariant::Method {

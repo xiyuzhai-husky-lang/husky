@@ -1,6 +1,6 @@
 use super::*;
 use avec::Avec;
-use husky_term::Ty;
+use husky_term::Term;
 use husky_vm::{InstructionSheet, __Linkage};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -11,7 +11,7 @@ pub struct FeatureFuncBody {
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     // pub stmts: Avec<FuncStmt>,
-    pub ty: Ty,
+    pub ty: Term,
     pub instruction_sheet: Arc<InstructionSheet>,
     pub opt_linkage: Option<__Linkage>,
 }

@@ -58,7 +58,7 @@ impl<'a> LinkageCollector<'a> {
         //         self.insert(output.route);
         //         self.collect_from_proc_stmts(stmts)
         //     }
-        //     EntityDefnVariant::Ty {
+        //     EntityDefnVariant::Term {
         //         ref members,
         //         ref opt_type_call,
         //         ..
@@ -128,7 +128,7 @@ impl<'a> LinkageCollector<'a> {
 
     // fn collect_from_feature_repr(
     //     &mut self,
-    //     opt_feature_route: Option<Ty>,
+    //     opt_feature_route: Option<Term>,
     //     feature_repr: &DefinitionRepr,
     // ) {
     //     todo!()

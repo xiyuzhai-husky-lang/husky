@@ -1,11 +1,11 @@
 use crate::*;
 use husky_ast::AstText;
 use husky_expr_syntax::{ExprArena, ExprIdx, ExprMap};
-use husky_term::{Term, Ty};
+use husky_term::Term;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermSheet {
-    ty_results: ExprMap<TermInferResult<Ty>>,
+    ty_results: ExprMap<TermInferResult<Term>>,
     term_results: ExprMap<TermInferResult<Term>>,
 }
 
@@ -17,7 +17,7 @@ impl TermSheet {
         }
     }
 
-    pub(crate) fn insert_ty_infer_result(&mut self, expr: ExprIdx, ty: TermInferResult<Ty>) {
+    pub(crate) fn insert_ty_infer_result(&mut self, expr: ExprIdx, ty: TermInferResult<Term>) {
         self.ty_results.insert_new(expr, ty)
     }
 
@@ -38,7 +38,7 @@ impl TermSheet {
         todo!()
     }
 
-    pub fn expr_ty_result(&self, expr: ExprIdx) -> &TermInferResult<Ty> {
+    pub fn expr_ty_result(&self, expr: ExprIdx) -> &TermInferResult<Term> {
         todo!()
     }
 }

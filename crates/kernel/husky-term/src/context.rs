@@ -23,14 +23,14 @@ impl<'a> TermContext<'a> {
         }
     }
 
-    pub fn entity_ty(&self, entity_path: EntityPath) -> TermResult<Ty> {
+    pub fn entity_ty(&self, entity_path: EntityPath) -> TermResult<Term> {
         todo!()
         // let decl = self.db.ask_decl(entity_path)?;
         // Ok(match entity_path.opt_parent() {
         //     Some(_) => todo!(),
         //     None => match *decl {
         //         Decl::Module => self.menu.module(),
-        //         Decl::Ty(ref ty_decl) => {
+        //         Decl::Term(ref ty_decl) => {
         //             if ty_decl.parameters().len() == 0 {
         //                 self.menu.ty0()
         //             } else {
@@ -43,15 +43,15 @@ impl<'a> TermContext<'a> {
 }
 
 impl<'a> TermContext<'a> {
-    pub fn ty_family(&self, ty: Ty) -> TermResult<TyFamily> {
-        Ok(self.db.ty_decl(ty)?.ty_family())
-    }
+    // pub fn ty_family(&self, ty: Term) -> TermResult<TyFamily> {
+    //     Ok(self.db.ty_decl(ty)?.ty_family())
+    // }
 }
 
 pub trait ProvideTermContext<'a> {
     fn term_db(&self) -> &'a dyn TermDb;
     fn term_menu(&self) -> &'a TermMenu;
-    fn curry(&self, curry_kind: TermCurryVariant, x: Ty, y: Ty) -> TermResult<Ty> {
+    fn curry(&self, curry_kind: TermCurryVariant, x: Term, y: Term) -> TermResult<Term> {
         let ctx = TermContext::from_provider(self);
         ctx.curry(curry_kind, x, y)
     }

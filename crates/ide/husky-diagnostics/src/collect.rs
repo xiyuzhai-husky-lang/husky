@@ -1,9 +1,9 @@
 use husky_source_path::SourcePath;
-use husky_term::Ty;
+use husky_term::Term;
 
 use crate::*;
 
-pub(crate) fn collect_module_diagnostics(db: &dyn DiagnosticsDb, module: Ty) -> Vec<Diagnostic> {
+pub(crate) fn collect_module_diagnostics(db: &dyn DiagnosticsDb, module: Term) -> Vec<Diagnostic> {
     let mut diagnostics = Vec::new();
     let file = match db.module_file(module) {
         Ok(file) => file,
@@ -20,7 +20,7 @@ pub(crate) fn collect_module_diagnostics(db: &dyn DiagnosticsDb, module: Ty) -> 
 
 fn collect_module_entity_syntax_errors(
     db: &dyn DiagnosticsDb,
-    module: Ty,
+    module: Term,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     collect_entity_syntax_errors(db, module, diagnostics)
@@ -28,7 +28,7 @@ fn collect_module_entity_syntax_errors(
 
 fn collect_entity_syntax_errors(
     db: &dyn DiagnosticsDb,
-    parent: Ty,
+    parent: Term,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()

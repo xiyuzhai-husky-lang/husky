@@ -5,7 +5,7 @@ mod impl_match_pattern;
 use fold::Indent;
 
 use husky_eager_semantics::{Boundary, EagerExpr, FuncStmt, LoopVariant, ProcStmt};
-use husky_term::Ty;
+use husky_term::Term;
 
 use husky_identifier::RootBuiltinIdentifier;
 
@@ -259,7 +259,7 @@ impl<'a> RustCodeGenerator<'a> {
 
     fn gen_condition(&mut self, indent: Indent, condition: &EagerExpr) {
         match condition.intrinsic_ty() {
-            Ty::Root(builtin_ident) => match builtin_ident {
+            Term::Root(builtin_ident) => match builtin_ident {
                 RootBuiltinIdentifier::Void => todo!(),
                 RootBuiltinIdentifier::I32
                 | RootBuiltinIdentifier::I64
@@ -298,7 +298,7 @@ impl<'a> RustCodeGenerator<'a> {
                 RootBuiltinIdentifier::Option => todo!(),
                 RootBuiltinIdentifier::VisualType => todo!(),
             },
-            Ty::Custom(_) => panic!(),
+            Term::Custom(_) => panic!(),
         }
     }
 }

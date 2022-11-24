@@ -1,6 +1,6 @@
 use super::*;
 
-pub(super) fn entity_feature_repr(db: &dyn FeatureGenQueryGroup, entity_path: Ty) -> FeatureRepr {
+pub(super) fn entity_feature_repr(db: &dyn FeatureGenQueryGroup, entity_path: Term) -> FeatureRepr {
     todo!()
     // let entity_defn = db.entity_defn(entity_path).unwrap();
     // match entity_defn.variant {

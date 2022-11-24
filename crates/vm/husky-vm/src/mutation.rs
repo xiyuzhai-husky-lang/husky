@@ -1,6 +1,6 @@
 use husky_identifier::Identifier;
 use husky_source_path::SourcePath;
-use husky_term::Ty;
+use husky_term::Term;
 use husky_text::TextRange;
 
 use crate::*;
@@ -10,7 +10,7 @@ pub struct MutationData<'eval> {
     pub file: SourcePath,
     pub range: TextRange,
     pub kind: MutationDataVariant,
-    pub ty: Ty,
+    pub ty: Term,
     pub before: Option<__Register<'eval>>,
     pub after: __Register<'eval>,
 }

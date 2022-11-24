@@ -7,7 +7,7 @@ pub enum TermVariableVariant {}
 pub struct TermVariable(Term);
 
 impl TermVariable {
-    pub fn ty(&self) -> Ty {
+    pub fn ty(&self) -> Term {
         todo!()
     }
 

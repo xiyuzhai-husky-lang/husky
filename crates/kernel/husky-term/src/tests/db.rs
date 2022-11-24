@@ -8,7 +8,7 @@ use crate::*;
 #[salsa::db(crate::TermJar, EntityPathJar, IdentifierJar)]
 pub(crate) struct TermTestsDb {
     storage: salsa::Storage<TermTestsDb>,
-    ty_decls: HashMap<Ty, Arc<TyDecl>>,
+    ty_decls: HashMap<Term, Arc<TyDecl>>,
 }
 
 impl TermTestsDb {
@@ -34,7 +34,7 @@ impl AskDecl for TermTestsDb {
         todo!()
     }
 
-    fn ask_ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl> {
+    fn ask_ty_decl(&self, ty: Term) -> TermResultArc<TyDecl> {
         Ok(self.ty_decls[&ty].clone())
     }
 

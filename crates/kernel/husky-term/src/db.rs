@@ -3,45 +3,41 @@ use std::sync::Arc;
 use crate::*;
 use husky_entity_path::EntityPathDb;
 use husky_identifier::IdentifierDb;
-use salsa::DbWithJar;
+use salsa::{storage::HasJar, DbWithJar};
 
-pub trait TermDb: DbWithJar<TermJar> {
-    fn term_menu(&self) -> Arc<TermMenu>;
-    fn namespace_decl(&self, namespace: TermNamespace) -> TermResultArc<NamespaceDecl>;
-    fn ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl>;
-    fn decl(&self, entity_path: EntityPath) -> TermResultArc<Decl>;
+pub trait TermDb: DbWithJar<TermJar> + EntityPathDb {
+    fn term_menu(&self) -> &TermMenu;
+    fn it_term(&self, term_data: TermData) -> Term;
+    fn it_entity_path_term(&self, entity_path: EntityPath) -> Term {
+        self.it_term(TermData::Atom(TermAtom::Entity { entity_path }))
+    }
 }
+
+#[derive(Default)]
+pub struct TermMenuPlace(Arc<once_cell::sync::OnceCell<TermMenu>>);
 
 impl<T> TermDb for T
 where
-    T: DbWithJar<TermJar>,
+    T: DbWithJar<TermJar> + EntityPathDb,
 {
-    fn term_menu(&self) -> Arc<TermMenu> {
-        todo!()
+    fn term_menu(&self) -> &TermMenu {
+        <Self as HasJar<TermJar>>::jar(self)
+            .0
+            .term_menu_place()
+            .0
+            .get_or_init(|| TermMenu::new(self))
     }
 
-    fn namespace_decl(&self, namespace: TermNamespace) -> TermResultArc<NamespaceDecl> {
-        todo!()
+    fn it_term(&self, data: TermData) -> Term {
+        Term::new(self, data)
     }
-
-    fn ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl> {
-        todo!()
-    }
-
-    fn decl(&self, entity_path: EntityPath) -> TermResultArc<Decl> {
-        todo!()
-    }
-}
-
-fn term_menu(db: &dyn TermDb) -> Arc<TermMenu> {
-    TermMenu::new(db)
 }
 
 // fn namespace_decl(db: &dyn TermDb, namespace: TermNamespace) -> TermResultArc<NamespaceDecl> {
 //     db.ask_namespace_decl(namespace)
 // }
 
-// fn ty_decl(db: &dyn TermDb, ty: Ty) -> TermResultArc<TyDecl> {
+// fn ty_decl(db: &dyn TermDb, ty: Term) -> TermResultArc<TyDecl> {
 //     db.ask_ty_decl(ty)
 // }
 

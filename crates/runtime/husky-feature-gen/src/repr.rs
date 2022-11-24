@@ -10,7 +10,7 @@ use crate::*;
 pub enum FeatureRepr {
     Value {
         value: __Register<'static>,
-        ty: Ty,
+        ty: Term,
         file: SourcePath,
         range: TextRange,
         feature: FeatureItd,
@@ -21,7 +21,7 @@ pub enum FeatureRepr {
     ProcBody(Arc<FeatureProcBody>),
     TargetInput {
         main_file: SourcePath,
-        ty: Ty,
+        ty: Term,
         feature: FeatureItd,
     },
 }
@@ -49,7 +49,7 @@ impl FeatureRepr {
         }
     }
 
-    pub fn ty(&self) -> Ty {
+    pub fn ty(&self) -> Term {
         todo!()
         // match self {
         //     FeatureRepr::Value { ty, .. } => *ty,

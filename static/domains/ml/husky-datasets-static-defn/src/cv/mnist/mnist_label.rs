@@ -20,7 +20,7 @@ macro_rules! enum_variant_defns {
 pub static MNIST_LABEL_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "MnistLabel",
     items: &[],
-    variant: EntityStaticDefnVariant::Ty {
+    variant: EntityStaticDefnVariant::Term {
         base_route: MNIST_LABEL_BASE_ROUTE,
         spatial_parameters: &[],
         trait_impls: &[],

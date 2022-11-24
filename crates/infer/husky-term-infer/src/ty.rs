@@ -3,21 +3,21 @@ use husky_expr_syntax::{AtomExpr, ExprIdx, ExprRange};
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_print_utils::p;
 use husky_symbol_syntax::SymbolKind;
-use husky_term::Ty;
+use husky_term::Term;
 
 impl<'a> InferContext<'a> {
-    pub(crate) fn infer(&mut self) -> TermInferResult<Ty> {
+    pub(crate) fn infer(&mut self) -> TermInferResult<Term> {
         match self.normalized_expr() {
             NormalizedExpr::Atom(atom) => self.infer_atom(atom),
             NormalizedExpr::Opn { opn_kind, opds } => self.infer_opn(opn_kind, opds),
         }
     }
 
-    fn infer_subexpr(&mut self, subexpr: ExprIdx) -> TermInferResult<Ty> {
+    fn infer_subexpr(&mut self, subexpr: ExprIdx) -> TermInferResult<Term> {
         self.subexpr_context(subexpr).infer()
     }
 
-    fn infer_atom(&self, atom: &AtomExpr) -> TermInferResult<Ty> {
+    fn infer_atom(&self, atom: &AtomExpr) -> TermInferResult<Term> {
         match atom {
             AtomExpr::Literal(literal) => Ok(self.infer_literal(literal)),
             AtomExpr::Symbol(symbol) => match symbol.kind {
@@ -33,7 +33,7 @@ impl<'a> InferContext<'a> {
         }
     }
 
-    fn infer_opn(&mut self, opn_kind: NormalizedOpnKind, opds: ExprRange) -> TermInferResult<Ty> {
+    fn infer_opn(&mut self, opn_kind: NormalizedOpnKind, opds: ExprRange) -> TermInferResult<Term> {
         match opn_kind {
             NormalizedOpnKind::ApplyMethod {
                 opt_trait_entity,
@@ -46,7 +46,7 @@ impl<'a> InferContext<'a> {
         todo!()
     }
 
-    fn infer_literal(&self, literal: &RawLiteralData) -> Ty {
+    fn infer_literal(&self, literal: &RawLiteralData) -> Term {
         let term_menu = self.term_menu();
         match literal {
             RawLiteralData::Unit => todo!(),

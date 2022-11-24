@@ -1,9 +1,9 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
-use husky_term::Ty;
+use husky_term::Term;
 
 impl Debugtime {
-    pub(super) fn module_subtraces(&mut self, trace: &Trace, module: Ty) -> Vec<TraceId> {
+    pub(super) fn module_subtraces(&mut self, trace: &Trace, module: Term) -> Vec<TraceId> {
         todo!()
         // let mut subtrace_ids = vec![];
         // let module_file = self.runtime().module_file(module).unwrap();

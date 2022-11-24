@@ -2,6 +2,6 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct TermTraitImpl {
-    ty: Ty,
+    ty: Term,
     trai: Trai,
 }

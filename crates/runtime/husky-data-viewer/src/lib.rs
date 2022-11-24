@@ -2,7 +2,7 @@ mod db;
 
 pub use db::*;
 use husky_identifier::{IdentPairMap, Identifier};
-use husky_term::Ty;
+use husky_term::Term;
 use husky_vm_binding::Binding;
 
 use husky_vm_interface::{__Linkage, __Register, __RegistrableSafe, __ResolvedLinkage};
@@ -13,18 +13,18 @@ pub enum HuskyDataViewer {
         ty: Identifier,
     },
     Struct {
-        fields: IdentPairMap<(__Linkage, Ty)>,
+        fields: IdentPairMap<(__Linkage, Term)>,
     },
     Vec {
         ilen: __ResolvedLinkage,
         index: __Linkage,
-        elem_ty: Ty,
+        elem_ty: Term,
     },
     CyclicSlice {
         start: __ResolvedLinkage,
         end: __ResolvedLinkage,
         index: __Linkage,
-        elem_ty: Ty,
+        elem_ty: Term,
     },
 }
 
