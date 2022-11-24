@@ -20,3 +20,8 @@ husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-
 # utils
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
+
+[dev-dependencies]
+salsa = { path = "../../abstraction/salsa" }
+# kernel
+husky-identifier = { path = "../../kernel/husky-identifier" }
