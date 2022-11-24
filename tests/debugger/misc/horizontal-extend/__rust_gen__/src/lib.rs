@@ -5,7 +5,7 @@ use __husky::root::*;
 
 fn __input<'a, 'eval: 'a>(
     __ctx: &'a dyn __EvalContext<'eval>,
-) -> &'a domains::ml::datasets::cv::mnist::BinaryImage28 {
+) -> &'a cv::datasets::mnist::BinaryImage28 {
     unsafe {
         __ctx
             .target_input()

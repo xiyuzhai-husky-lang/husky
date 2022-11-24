@@ -1,5 +1,5 @@
-use domains::ml::datasets::cv::mnist::BinaryImage28
-use domains::ml::datasets::cv::mnist::MnistLabel
+use cv::datasets::mnist::BinaryImage28
+use cv::datasets::mnist::MnistLabel
 
 task:
     ml::datasets::cv::mnist::new_binary_dataset()

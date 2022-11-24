@@ -8,14 +8,14 @@ eager variable:
     dp          67:5 - 67:7  Owned        mnist_classifier__12::geom2d::Vector2d
 
 lazy expr:
-    [12:5, 12:16)narrow_down            Copyable ThickFp<?domains::ml::datasets::cv::mnist::MnistLabel, i32, ??domains::ml::datasets::cv::mnist::MnistLabel>
-    [13:9, 13:24)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [12:5, 12:16)narrow_down            Copyable ThickFp<?cv::datasets::mnist::MnistLabel, i32, ??cv::datasets::mnist::MnistLabel>
+    [13:9, 13:24)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
     [14:9, 14:48)major_connected_component.max_hole_ilen   InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
 Original { message: "expect `i32` but get `f32` instead", range: [14:9, 14:48) }
     [15:9, 15:54)ignored_connected_components_row_span_sum_sum   Copyable f32
-    [12:5, 16:6)narrow_down(        MnistLabel::One,        major_connected_component.max_hole_ilen,        ignored_connected_components_row_span_sum_sum    )   ??Transient domains::ml::datasets::cv::mnist::MnistLabel
+    [12:5, 16:6)narrow_down(        MnistLabel::One,        major_connected_component.max_hole_ilen,        ignored_connected_components_row_span_sum_sum    )   ??Transient cv::datasets::mnist::MnistLabel
     [17:22, 17:33)fermi_match            Copyable ThickFp<&[]mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent, []ThickFp<&mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent, ?f32>, mnist_classifier__12::fermi::FermiMatchResult>
     [17:34, 17:58)major_concave_components   EvalRef []mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent
     [17:60, 17:62)[]                     Transient []ThickFp<&mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent, ?f32>
@@ -24,13 +24,13 @@ Original { message: "expect `i32` but get `f32` instead", range: [14:9, 14:48) }
     [18:8, 18:27)simp_one_match.norm    Copyable f32
     [18:30, 18:33)3.0                    Copyable f32
     [18:8, 18:33)simp_one_match.norm < 3.0   Copyable bool
-    [19:9, 19:20)narrow_down            Copyable ThickFp<?domains::ml::datasets::cv::mnist::MnistLabel, i32, ??domains::ml::datasets::cv::mnist::MnistLabel>
-    [20:13, 20:28)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [19:9, 19:20)narrow_down            Copyable ThickFp<?cv::datasets::mnist::MnistLabel, i32, ??cv::datasets::mnist::MnistLabel>
+    [20:13, 20:28)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
     [21:13, 21:51)major_connected_component.max_row_span   InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
 Original { message: "expect `i32` but get `f32` instead", range: [21:13, 21:51) }
-    [19:9, 22:10)narrow_down(            MnistLabel::One,            major_connected_component.max_row_span        )   ??Transient domains::ml::datasets::cv::mnist::MnistLabel
+    [19:9, 22:10)narrow_down(            MnistLabel::One,            major_connected_component.max_row_span        )   ??Transient cv::datasets::mnist::MnistLabel
     [23:12, 23:37)major_connected_component   EvalRef mnist_classifier__12::connected_component::ConnectedComponent
     [23:12, 23:50)major_connected_component.max_row_span   Copyable f32
     [23:53, 23:56)6.5                    Copyable f32
@@ -39,7 +39,7 @@ Original { message: "expect `i32` but get `f32` instead", range: [21:13, 21:51) 
     [24:21, 24:60)major_connected_component.max_hole_ilen   Copyable f32
     [24:64, 24:67)0.0                    Copyable f32
     [24:21, 24:67)major_connected_component.max_hole_ilen == 0.0   Copyable bool
-    [25:9, 25:24)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [25:9, 25:24)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
     [27:17, 27:32)one_fermi_match        EvalRef mnist_classifier__12::fermi::FermiMatchResult
     [27:17, 27:40)one_fermi_match.matches   PureRef []?&mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent
     [27:41, 27:42)0                      Copyable i32
@@ -51,15 +51,15 @@ Original { message: "expect `i32` but get `f32` instead", range: [21:13, 21:51) 
     [28:17, 28:63)major_connected_component.max_hole_ilen == 0.0   Copyable bool
     [32:13, 32:28)one_fermi_match        EvalRef mnist_classifier__12::fermi::FermiMatchResult
     [33:13, 33:28)one_fermi_match        EvalRef mnist_classifier__12::fermi::FermiMatchResult
-    [29:9, 29:20)narrow_down            Copyable ThickFp<?domains::ml::datasets::cv::mnist::MnistLabel, i32, ??domains::ml::datasets::cv::mnist::MnistLabel>
-    [30:13, 30:28)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [29:9, 29:20)narrow_down            Copyable ThickFp<?cv::datasets::mnist::MnistLabel, i32, ??cv::datasets::mnist::MnistLabel>
+    [30:13, 30:28)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
     [31:13, 31:33)one_fermi_match.norm   InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
 Original { message: "expect `i32` but get `f32` instead", range: [31:13, 31:33) }
     [32:13, 32:37)one_fermi_match.rel_norm   Copyable f32
     [33:13, 33:46)one_fermi_match.angle_change_norm   Copyable f32
-    [29:9, 34:10)narrow_down(            MnistLabel::One,            one_fermi_match.norm,            one_fermi_match.rel_norm,            one_fermi_match.angle_change_norm,        )   ??Transient domains::ml::datasets::cv::mnist::MnistLabel
+    [29:9, 34:10)narrow_down(            MnistLabel::One,            one_fermi_match.norm,            one_fermi_match.rel_norm,            one_fermi_match.angle_change_norm,        )   ??Transient cv::datasets::mnist::MnistLabel
     [35:12, 35:27)one_fermi_match        EvalRef mnist_classifier__12::fermi::FermiMatchResult
     [35:12, 35:35)one_fermi_match.matches   PureRef []?&mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent
     [35:36, 35:37)1                      Copyable i32
@@ -74,15 +74,15 @@ Original { message: "expect `i32` but get `f32` instead", range: [31:13, 31:33) 
     [40:41, 40:42)1                      Copyable i32
     [40:17, 40:43)one_fermi_match.matches[1]   ?EvalRef mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent
     [40:17, 40:56)one_fermi_match.matches[1].angle_change   Copyable f32
-    [36:13, 36:24)narrow_down            Copyable ThickFp<?domains::ml::datasets::cv::mnist::MnistLabel, i32, ??domains::ml::datasets::cv::mnist::MnistLabel>
-    [37:17, 37:32)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [36:13, 36:24)narrow_down            Copyable ThickFp<?cv::datasets::mnist::MnistLabel, i32, ??cv::datasets::mnist::MnistLabel>
+    [37:17, 37:32)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
     [38:17, 38:48)one_fermi_match.matches[1].norm   InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
 Original { message: "expect `i32` but get `f32` instead", range: [38:17, 38:48) }
     [39:17, 39:52)one_fermi_match.matches[1].rel_norm   Copyable f32
     [40:17, 40:62)one_fermi_match.matches[1].angle_change.abs()   Copyable f32
-    [36:13, 41:14)narrow_down(                MnistLabel::One,                one_fermi_match.matches[1].norm,                one_fermi_match.matches[1].rel_norm,                one_fermi_match.matches[1].angle_change.abs(),            )   ??Transient domains::ml::datasets::cv::mnist::MnistLabel
+    [36:13, 41:14)narrow_down(                MnistLabel::One,                one_fermi_match.matches[1].norm,                one_fermi_match.matches[1].rel_norm,                one_fermi_match.matches[1].angle_change.abs(),            )   ??Transient cv::datasets::mnist::MnistLabel
     [42:12, 42:27)one_fermi_match        EvalRef mnist_classifier__12::fermi::FermiMatchResult
     [42:12, 42:35)one_fermi_match.matches   PureRef []?&mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent
     [42:36, 42:37)2                      Copyable i32
@@ -97,15 +97,15 @@ Original { message: "expect `i32` but get `f32` instead", range: [38:17, 38:48) 
     [47:41, 47:42)2                      Copyable i32
     [47:17, 47:43)one_fermi_match.matches[2]   ?EvalRef mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent
     [47:17, 47:56)one_fermi_match.matches[2].angle_change   Copyable f32
-    [43:13, 43:24)narrow_down            Copyable ThickFp<?domains::ml::datasets::cv::mnist::MnistLabel, i32, ??domains::ml::datasets::cv::mnist::MnistLabel>
-    [44:17, 44:32)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [43:13, 43:24)narrow_down            Copyable ThickFp<?cv::datasets::mnist::MnistLabel, i32, ??cv::datasets::mnist::MnistLabel>
+    [44:17, 44:32)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
     [45:17, 45:48)one_fermi_match.matches[2].norm   InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
 Original { message: "expect `i32` but get `f32` instead", range: [45:17, 45:48) }
     [46:17, 46:52)one_fermi_match.matches[2].rel_norm   Copyable f32
     [47:17, 47:62)one_fermi_match.matches[2].angle_change.abs()   Copyable f32
-    [43:13, 48:14)narrow_down(                MnistLabel::One,                one_fermi_match.matches[2].norm,                one_fermi_match.matches[2].rel_norm,                one_fermi_match.matches[2].angle_change.abs(),            )   ??Transient domains::ml::datasets::cv::mnist::MnistLabel
+    [43:13, 48:14)narrow_down(                MnistLabel::One,                one_fermi_match.matches[2].norm,                one_fermi_match.matches[2].rel_norm,                one_fermi_match.matches[2].angle_change.abs(),            )   ??Transient cv::datasets::mnist::MnistLabel
     [49:13, 49:38)major_connected_component   EvalRef mnist_classifier__12::connected_component::ConnectedComponent
     [49:58, 49:59)3                      Copyable i32
     [49:13, 49:60)major_connected_component.top_k_row_span_sum(3)   Copyable f32
@@ -124,7 +124,7 @@ Original { message: "expect `i32` but get `f32` instead", range: [45:17, 45:48) 
     [53:17, 53:18)a                      Copyable f32
     [53:21, 53:25)10.5                   Copyable f32
     [53:17, 53:25)a < 10.5               Copyable bool
-    [54:9, 54:24)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [54:9, 54:24)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
 
 eager expr:
     [10:44, 10:52)downmost               Copyable ThickFp<&mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent, ?f32>
@@ -170,14 +170,14 @@ eager expr:
     [70:5, 70:15)-dp.y-dp.x             Copyable f32
 
 lazy expr:
-    [12:5, 12:16)narrow_down            Copyable ThickFp<?domains::ml::datasets::cv::mnist::MnistLabel, i32, ??domains::ml::datasets::cv::mnist::MnistLabel>
-    [13:9, 13:24)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [12:5, 12:16)narrow_down            Copyable ThickFp<?cv::datasets::mnist::MnistLabel, i32, ??cv::datasets::mnist::MnistLabel>
+    [13:9, 13:24)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
     [14:9, 14:48)major_connected_component.max_hole_ilen   InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
 Original { message: "expect `i32` but get `f32` instead", range: [14:9, 14:48) }
     [15:9, 15:54)ignored_connected_components_row_span_sum_sum   Copyable f32
-    [12:5, 16:6)narrow_down(        MnistLabel::One,        major_connected_component.max_hole_ilen,        ignored_connected_components_row_span_sum_sum    )   ??Transient domains::ml::datasets::cv::mnist::MnistLabel
+    [12:5, 16:6)narrow_down(        MnistLabel::One,        major_connected_component.max_hole_ilen,        ignored_connected_components_row_span_sum_sum    )   ??Transient cv::datasets::mnist::MnistLabel
     [17:22, 17:33)fermi_match            Copyable ThickFp<&[]mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent, []ThickFp<&mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent, ?f32>, mnist_classifier__12::fermi::FermiMatchResult>
     [17:34, 17:58)major_concave_components   EvalRef []mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent
     [17:60, 17:62)[]                     Transient []ThickFp<&mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent, ?f32>
@@ -186,13 +186,13 @@ Original { message: "expect `i32` but get `f32` instead", range: [14:9, 14:48) }
     [18:8, 18:27)simp_one_match.norm    Copyable f32
     [18:30, 18:33)3.0                    Copyable f32
     [18:8, 18:33)simp_one_match.norm < 3.0   Copyable bool
-    [19:9, 19:20)narrow_down            Copyable ThickFp<?domains::ml::datasets::cv::mnist::MnistLabel, i32, ??domains::ml::datasets::cv::mnist::MnistLabel>
-    [20:13, 20:28)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [19:9, 19:20)narrow_down            Copyable ThickFp<?cv::datasets::mnist::MnistLabel, i32, ??cv::datasets::mnist::MnistLabel>
+    [20:13, 20:28)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
     [21:13, 21:51)major_connected_component.max_row_span   InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
 Original { message: "expect `i32` but get `f32` instead", range: [21:13, 21:51) }
-    [19:9, 22:10)narrow_down(            MnistLabel::One,            major_connected_component.max_row_span        )   ??Transient domains::ml::datasets::cv::mnist::MnistLabel
+    [19:9, 22:10)narrow_down(            MnistLabel::One,            major_connected_component.max_row_span        )   ??Transient cv::datasets::mnist::MnistLabel
     [23:12, 23:37)major_connected_component   EvalRef mnist_classifier__12::connected_component::ConnectedComponent
     [23:12, 23:50)major_connected_component.max_row_span   Copyable f32
     [23:53, 23:56)6.5                    Copyable f32
@@ -201,7 +201,7 @@ Original { message: "expect `i32` but get `f32` instead", range: [21:13, 21:51) 
     [24:21, 24:60)major_connected_component.max_hole_ilen   Copyable f32
     [24:64, 24:67)0.0                    Copyable f32
     [24:21, 24:67)major_connected_component.max_hole_ilen == 0.0   Copyable bool
-    [25:9, 25:24)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [25:9, 25:24)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
     [27:17, 27:32)one_fermi_match        EvalRef mnist_classifier__12::fermi::FermiMatchResult
     [27:17, 27:40)one_fermi_match.matches   PureRef []?&mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent
     [27:41, 27:42)0                      Copyable i32
@@ -213,15 +213,15 @@ Original { message: "expect `i32` but get `f32` instead", range: [21:13, 21:51) 
     [28:17, 28:63)major_connected_component.max_hole_ilen == 0.0   Copyable bool
     [32:13, 32:28)one_fermi_match        EvalRef mnist_classifier__12::fermi::FermiMatchResult
     [33:13, 33:28)one_fermi_match        EvalRef mnist_classifier__12::fermi::FermiMatchResult
-    [29:9, 29:20)narrow_down            Copyable ThickFp<?domains::ml::datasets::cv::mnist::MnistLabel, i32, ??domains::ml::datasets::cv::mnist::MnistLabel>
-    [30:13, 30:28)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [29:9, 29:20)narrow_down            Copyable ThickFp<?cv::datasets::mnist::MnistLabel, i32, ??cv::datasets::mnist::MnistLabel>
+    [30:13, 30:28)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
     [31:13, 31:33)one_fermi_match.norm   InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
 Original { message: "expect `i32` but get `f32` instead", range: [31:13, 31:33) }
     [32:13, 32:37)one_fermi_match.rel_norm   Copyable f32
     [33:13, 33:46)one_fermi_match.angle_change_norm   Copyable f32
-    [29:9, 34:10)narrow_down(            MnistLabel::One,            one_fermi_match.norm,            one_fermi_match.rel_norm,            one_fermi_match.angle_change_norm,        )   ??Transient domains::ml::datasets::cv::mnist::MnistLabel
+    [29:9, 34:10)narrow_down(            MnistLabel::One,            one_fermi_match.norm,            one_fermi_match.rel_norm,            one_fermi_match.angle_change_norm,        )   ??Transient cv::datasets::mnist::MnistLabel
     [35:12, 35:27)one_fermi_match        EvalRef mnist_classifier__12::fermi::FermiMatchResult
     [35:12, 35:35)one_fermi_match.matches   PureRef []?&mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent
     [35:36, 35:37)1                      Copyable i32
@@ -236,15 +236,15 @@ Original { message: "expect `i32` but get `f32` instead", range: [31:13, 31:33) 
     [40:41, 40:42)1                      Copyable i32
     [40:17, 40:43)one_fermi_match.matches[1]   ?EvalRef mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent
     [40:17, 40:56)one_fermi_match.matches[1].angle_change   Copyable f32
-    [36:13, 36:24)narrow_down            Copyable ThickFp<?domains::ml::datasets::cv::mnist::MnistLabel, i32, ??domains::ml::datasets::cv::mnist::MnistLabel>
-    [37:17, 37:32)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [36:13, 36:24)narrow_down            Copyable ThickFp<?cv::datasets::mnist::MnistLabel, i32, ??cv::datasets::mnist::MnistLabel>
+    [37:17, 37:32)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
     [38:17, 38:48)one_fermi_match.matches[1].norm   InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
 Original { message: "expect `i32` but get `f32` instead", range: [38:17, 38:48) }
     [39:17, 39:52)one_fermi_match.matches[1].rel_norm   Copyable f32
     [40:17, 40:62)one_fermi_match.matches[1].angle_change.abs()   Copyable f32
-    [36:13, 41:14)narrow_down(                MnistLabel::One,                one_fermi_match.matches[1].norm,                one_fermi_match.matches[1].rel_norm,                one_fermi_match.matches[1].angle_change.abs(),            )   ??Transient domains::ml::datasets::cv::mnist::MnistLabel
+    [36:13, 41:14)narrow_down(                MnistLabel::One,                one_fermi_match.matches[1].norm,                one_fermi_match.matches[1].rel_norm,                one_fermi_match.matches[1].angle_change.abs(),            )   ??Transient cv::datasets::mnist::MnistLabel
     [42:12, 42:27)one_fermi_match        EvalRef mnist_classifier__12::fermi::FermiMatchResult
     [42:12, 42:35)one_fermi_match.matches   PureRef []?&mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent
     [42:36, 42:37)2                      Copyable i32
@@ -259,15 +259,15 @@ Original { message: "expect `i32` but get `f32` instead", range: [38:17, 38:48) 
     [47:41, 47:42)2                      Copyable i32
     [47:17, 47:43)one_fermi_match.matches[2]   ?EvalRef mnist_classifier__12::line_segment_sketch::concave_component::ConcaveComponent
     [47:17, 47:56)one_fermi_match.matches[2].angle_change   Copyable f32
-    [43:13, 43:24)narrow_down            Copyable ThickFp<?domains::ml::datasets::cv::mnist::MnistLabel, i32, ??domains::ml::datasets::cv::mnist::MnistLabel>
-    [44:17, 44:32)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [43:13, 43:24)narrow_down            Copyable ThickFp<?cv::datasets::mnist::MnistLabel, i32, ??cv::datasets::mnist::MnistLabel>
+    [44:17, 44:32)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel
     [45:17, 45:48)one_fermi_match.matches[2].norm   InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
 Original { message: "expect `i32` but get `f32` instead", range: [45:17, 45:48) }
     [46:17, 46:52)one_fermi_match.matches[2].rel_norm   Copyable f32
     [47:17, 47:62)one_fermi_match.matches[2].angle_change.abs()   Copyable f32
-    [43:13, 48:14)narrow_down(                MnistLabel::One,                one_fermi_match.matches[2].norm,                one_fermi_match.matches[2].rel_norm,                one_fermi_match.matches[2].angle_change.abs(),            )   ??Transient domains::ml::datasets::cv::mnist::MnistLabel
+    [43:13, 48:14)narrow_down(                MnistLabel::One,                one_fermi_match.matches[2].norm,                one_fermi_match.matches[2].rel_norm,                one_fermi_match.matches[2].angle_change.abs(),            )   ??Transient cv::datasets::mnist::MnistLabel
     [49:13, 49:38)major_connected_component   EvalRef mnist_classifier__12::connected_component::ConnectedComponent
     [49:58, 49:59)3                      Copyable i32
     [49:13, 49:60)major_connected_component.top_k_row_span_sum(3)   Copyable f32
@@ -286,4 +286,4 @@ Original { message: "expect `i32` but get `f32` instead", range: [45:17, 45:48) 
     [53:17, 53:18)a                      Copyable f32
     [53:21, 53:25)10.5                   Copyable f32
     [53:17, 53:25)a < 10.5               Copyable bool
-    [54:9, 54:24)MnistLabel::One        Copyable domains::ml::datasets::cv::mnist::MnistLabel
+    [54:9, 54:24)MnistLabel::One        Copyable cv::datasets::mnist::MnistLabel

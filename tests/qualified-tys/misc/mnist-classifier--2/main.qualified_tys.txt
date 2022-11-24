@@ -4,35 +4,35 @@ eager variable:
     x           7:32 - 7:33  Copyable     b32
     y           8:9 - 8:10  Copyable     b32
     z           9:9 - 9:10  CopyableMut  b32
-    img         15:32 - 15:35  PureRef      domains::ml::datasets::cv::mnist::BinaryImage28
-    result      16:9 - 16:15  OwnedMut     []domains::ml::datasets::cv::mnist::BinaryImage28
-    unsearched  17:9 - 17:19  OwnedMut     domains::ml::datasets::cv::mnist::BinaryImage28
+    img         15:32 - 15:35  PureRef      cv::datasets::mnist::BinaryImage28
+    result      16:9 - 16:15  OwnedMut     []cv::datasets::mnist::BinaryImage28
+    unsearched  17:9 - 17:19  OwnedMut     cv::datasets::mnist::BinaryImage28
     j           18:9 - 18:10  Copyable     i32
     a           20:17 - 20:18  Copyable     b32
     shift       21:17 - 21:22  Copyable     i32
-    mask        22:17 - 22:21  OwnedMut     domains::ml::datasets::cv::mnist::BinaryImage28
+    mask        22:17 - 22:21  OwnedMut     cv::datasets::mnist::BinaryImage28
     flag        24:17 - 24:21  CopyableMut  bool
     k           25:22 - 25:23  Copyable     i32
 
 lazy expr:
-    [32:9, 32:14)input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
-    [33:9, 33:10)a                      PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [32:9, 32:14)input                  EvalRef cv::datasets::mnist::BinaryImage28
+    [33:9, 33:10)a                      PureRef cv::datasets::mnist::BinaryImage28
     [33:11, 33:12)1                      Copyable i32
     [33:9, 33:13)a[1]                   Copyable b32
-    [34:9, 34:10)a                      PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [34:9, 34:10)a                      PureRef cv::datasets::mnist::BinaryImage28
     [34:11, 34:13)12                     Copyable i32
     [34:9, 34:14)a[12]                  Copyable b32
-    [35:9, 35:34)find_connected_components   Copyable ThickFp<domains::ml::datasets::cv::mnist::BinaryImage28, []domains::ml::datasets::cv::mnist::BinaryImage28>
-    [35:35, 35:40)input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
-    [35:9, 35:41)find_connected_components(input)   Transient []domains::ml::datasets::cv::mnist::BinaryImage28
+    [35:9, 35:34)find_connected_components   Copyable ThickFp<cv::datasets::mnist::BinaryImage28, []cv::datasets::mnist::BinaryImage28>
+    [35:35, 35:40)input                  EvalRef cv::datasets::mnist::BinaryImage28
+    [35:9, 35:41)find_connected_components(input)   Transient []cv::datasets::mnist::BinaryImage28
     [36:5, 36:13)d.ilen()               InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
-Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead", range: [36:5, 36:13) }
+Original { message: "expect `?cv::datasets::mnist::MnistLabel` but get `i32` instead", range: [36:5, 36:13) }
 
 eager expr:
-    [4:5, 4:48)ml::datasets::cv::mnist::new_binary_dataset   Copyable ThickFp<Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>>
-    [4:5, 4:50)ml::datasets::cv::mnist::new_binary_dataset()   Transient Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, domains::ml::datasets::cv::mnist::MnistLabel>
+    [4:5, 4:48)ml::datasets::cv::mnist::new_binary_dataset   Copyable ThickFp<Dataset<cv::datasets::mnist::BinaryImage28, cv::datasets::mnist::MnistLabel>>
+    [4:5, 4:50)ml::datasets::cv::mnist::new_binary_dataset()   Transient Dataset<cv::datasets::mnist::BinaryImage28, cv::datasets::mnist::MnistLabel>
     [8:23, 8:24)x                      Copyable b32
     [8:28, 8:29)1                      Copyable i32
     [8:23, 8:29)x << 1                 Copyable b32
@@ -84,21 +84,21 @@ eager expr:
     [12:9, 12:42)z = a & (y | (y << 1) | (y >> 1))   Copyable void
     [13:12, 13:13)y                      Copyable b32
     [16:18, 16:33)[]BinaryImage28        EvalRef Type
-    [16:18, 16:35)[]BinaryImage28()      Transient []domains::ml::datasets::cv::mnist::BinaryImage28
-    [17:22, 17:25)img                    PureRef domains::ml::datasets::cv::mnist::BinaryImage28
-    [17:22, 17:33)img.clone()            Transient domains::ml::datasets::cv::mnist::BinaryImage28
+    [16:18, 16:35)[]BinaryImage28()      Transient []cv::datasets::mnist::BinaryImage28
+    [17:22, 17:25)img                    PureRef cv::datasets::mnist::BinaryImage28
+    [17:22, 17:33)img.clone()            Transient cv::datasets::mnist::BinaryImage28
     [18:13, 18:15)30                     Copyable i32
-    [19:15, 19:25)unsearched             PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [19:15, 19:25)unsearched             PureRef cv::datasets::mnist::BinaryImage28
     [19:26, 19:27)j                      Copyable i32
     [19:15, 19:28)unsearched[j]          Copyable b32
-    [20:21, 20:31)unsearched             PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [20:21, 20:31)unsearched             PureRef cv::datasets::mnist::BinaryImage28
     [20:32, 20:33)j                      Copyable i32
     [20:21, 20:34)unsearched[j]          Copyable b32
     [21:25, 21:26)a                      Copyable b32
     [21:25, 21:32)a.ctz()                Copyable i32
     [22:24, 22:37)BinaryImage28          EvalRef Type
-    [22:24, 22:39)BinaryImage28()        Transient domains::ml::datasets::cv::mnist::BinaryImage28
-    [23:13, 23:17)mask                   TempRefMut domains::ml::datasets::cv::mnist::BinaryImage28
+    [22:24, 22:39)BinaryImage28()        Transient cv::datasets::mnist::BinaryImage28
+    [23:13, 23:17)mask                   TempRefMut cv::datasets::mnist::BinaryImage28
     [23:18, 23:19)j                      Copyable i32
     [23:44, 23:48)1b32                   Copyable b32
     [23:52, 23:57)shift                  Copyable i32
@@ -111,32 +111,32 @@ eager expr:
     [24:24, 24:29)false                  Copyable bool
     [25:17, 25:18)j                      Copyable i32
     [25:26, 25:28)30                     Copyable i32
-    [26:17, 26:27)unsearched             TempRefMut domains::ml::datasets::cv::mnist::BinaryImage28
+    [26:17, 26:27)unsearched             TempRefMut cv::datasets::mnist::BinaryImage28
     [26:28, 26:29)k                      Copyable i32
-    [26:36, 26:40)mask                   PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [26:36, 26:40)mask                   PureRef cv::datasets::mnist::BinaryImage28
     [26:41, 26:42)k                      Copyable i32
     [26:36, 26:43)mask[k]                Copyable b32
     [26:35, 26:43)~mask[k]               Copyable b32
     [26:17, 26:30)unsearched[k]          TempRefMut b32
     [26:34, 26:44)(~mask[k])             Copyable b32
     [26:17, 26:44)unsearched[k] &= (~mask[k])   Copyable void
-    [27:13, 27:19)result                 TempRefMut []domains::ml::datasets::cv::mnist::BinaryImage28
-    [27:25, 27:29)mask                   Transient domains::ml::datasets::cv::mnist::BinaryImage28
+    [27:13, 27:19)result                 TempRefMut []cv::datasets::mnist::BinaryImage28
+    [27:25, 27:29)mask                   Transient cv::datasets::mnist::BinaryImage28
     [27:13, 27:30)result.push(mask)      Copyable void
-    [28:12, 28:18)result                 Transient []domains::ml::datasets::cv::mnist::BinaryImage28
+    [28:12, 28:18)result                 Transient []cv::datasets::mnist::BinaryImage28
 
 lazy expr:
-    [32:9, 32:14)input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
-    [33:9, 33:10)a                      PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [32:9, 32:14)input                  EvalRef cv::datasets::mnist::BinaryImage28
+    [33:9, 33:10)a                      PureRef cv::datasets::mnist::BinaryImage28
     [33:11, 33:12)1                      Copyable i32
     [33:9, 33:13)a[1]                   Copyable b32
-    [34:9, 34:10)a                      PureRef domains::ml::datasets::cv::mnist::BinaryImage28
+    [34:9, 34:10)a                      PureRef cv::datasets::mnist::BinaryImage28
     [34:11, 34:13)12                     Copyable i32
     [34:9, 34:14)a[12]                  Copyable b32
-    [35:9, 35:34)find_connected_components   Copyable ThickFp<domains::ml::datasets::cv::mnist::BinaryImage28, []domains::ml::datasets::cv::mnist::BinaryImage28>
-    [35:35, 35:40)input                  EvalRef domains::ml::datasets::cv::mnist::BinaryImage28
-    [35:9, 35:41)find_connected_components(input)   Transient []domains::ml::datasets::cv::mnist::BinaryImage28
+    [35:9, 35:34)find_connected_components   Copyable ThickFp<cv::datasets::mnist::BinaryImage28, []cv::datasets::mnist::BinaryImage28>
+    [35:35, 35:40)input                  EvalRef cv::datasets::mnist::BinaryImage28
+    [35:9, 35:41)find_connected_components(input)   Transient []cv::datasets::mnist::BinaryImage28
     [36:5, 36:13)d.ilen()               InferError: InferError:
 src: crates/infer/husky-infer-entity-route/src/builder/impl_expr.rs:71
 kind:
-Original { message: "expect `?domains::ml::datasets::cv::mnist::MnistLabel` but get `i32` instead", range: [36:5, 36:13) }
+Original { message: "expect `?cv::datasets::mnist::MnistLabel` but get `i32` instead", range: [36:5, 36:13) }

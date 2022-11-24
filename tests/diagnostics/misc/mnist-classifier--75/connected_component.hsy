@@ -1,4 +1,4 @@
-use domains::ml::datasets::cv::mnist::BinaryImage28
+use cv::datasets::mnist::BinaryImage28
 use crate::raw_contour::*
 
 struct ConnectedComponentDistribution:

@@ -23,7 +23,7 @@
     16:12..16:53   horizontal_extend(255b32, 1b32) == 255b32   Transient bool
 
 [35meager expr qualified types
-[0m    2:5..2:36      ml::datasets::cv::mnist::new_binary_dataset()   Transient    Dataset<domains::ml::datasets::cv::mnist::BinaryImage28, i32>
+[0m    2:5..2:36      ml::datasets::cv::mnist::new_binary_dataset()   Transient    Dataset<cv::datasets::mnist::BinaryImage28, i32>
     6:23..6:24     x                      Copyable     b32
     6:28..6:29     1                      Copyable     i32
     6:23..6:29     x << 1                 Copyable     b32

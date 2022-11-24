@@ -1,13 +1,13 @@
 use crate::geom2d::*
 use crate::connected_component::*
 use crate::line_segment_sketch::*
-use domains::ml::datasets::cv::mnist::BinaryImage28
-use domains::ml::datasets::cv::mnist::BinaryGrid28
+use mnist::{BinaryImage28, BinaryGrid28}
 
 struct RawContour:
     cc: &ConnectedComponent
     points: []Point2d
 
+impl RawContour:
     func line_segment_sketch -> LineSegmentSketch:
         LineSegmentSketch::new(this, 1.4)
 

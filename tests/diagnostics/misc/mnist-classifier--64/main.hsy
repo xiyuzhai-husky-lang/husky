@@ -9,8 +9,8 @@ mod one
 task:
     ml::datasets::cv::mnist::new_binary_dataset()
 
-use domains::ml::datasets::cv::mnist::BinaryImage28
-use domains::ml::datasets::cv::mnist::MnistLabel
+use cv::datasets::mnist::BinaryImage28
+use cv::datasets::mnist::MnistLabel
 use major::*
 use raw_contour::find_raw_contours
 use line_segment_sketch::find_line_segments

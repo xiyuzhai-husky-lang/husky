@@ -1,6 +1,6 @@
 use crate::geom2d::*
-use domains::ml::datasets::cv::mnist::BinaryImage28
-use domains::ml::datasets::cv::mnist::BinaryGrid28
+use cv::datasets::mnist::BinaryImage28
+use cv::datasets::mnist::BinaryGrid28
 
 struct RawContour:
     points: []Point2d

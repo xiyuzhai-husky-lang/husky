@@ -4,7 +4,7 @@ use husky_static_defn::{EntityStaticDefn, EntityStaticDefnVariant};
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
 use husky_trace_protocol::VisualData;
 
-pub static MNIST_LABEL_BASE_ROUTE: &'static str = "domains::ml::datasets::cv::mnist::MnistLabel";
+pub static MNIST_LABEL_BASE_ROUTE: &'static str = "cv::datasets::mnist::MnistLabel";
 
 macro_rules! enum_variant_defns {
     ($($variant: ident),*) => {{

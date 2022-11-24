@@ -9,8 +9,8 @@ mod fermi
 mod major
 mod one
 
-use domains::ml::datasets::cv::mnist::BinaryImage28
-use domains::ml::datasets::cv::mnist::MnistLabel
+use cv::datasets::mnist::BinaryImage28
+use cv::datasets::mnist::MnistLabel
 use major::*
 use one::is_one
 use raw_contour::find_raw_contours

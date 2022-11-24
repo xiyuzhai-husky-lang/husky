@@ -6,7 +6,7 @@ mod line_segment_sketch
 task:
     ml::datasets::cv::mnist::new_binary_dataset()
 
-use domains::ml::datasets::cv::mnist::BinaryImage28
+use cv::datasets::mnist::BinaryImage28
 use connected_component::connected_components
 use raw_contour::find_raw_contours
 use line_segment_sketch::find_line_segments
