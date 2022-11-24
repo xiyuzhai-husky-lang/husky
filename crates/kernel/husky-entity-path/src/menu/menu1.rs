@@ -4,20 +4,27 @@ use super::*;
 pub struct EntityPathMenu1 {
     // modules
     core_marker: EntityPath,
+    core_num: EntityPath,
+    core_prelude: EntityPath,
     parent: EntityPathMenu0,
 }
 
 impl EntityPathMenu1 {
     pub(crate) fn new(db: &dyn EntityPathDb, menu0: EntityPathMenu0) -> Self {
-        todo!()
-        // Self {
-        //     core_marker: menu0.core().child(db, "marker"),
-        //     parent: menu0,
-        // }
+        Self {
+            core_marker: menu0.core().child(db, "marker"),
+            core_num: menu0.core().child(db, "num"),
+            core_prelude: menu0.core().child(db, "prelude"),
+            parent: menu0,
+        }
     }
 
     pub fn core_marker(&self) -> EntityPath {
         self.core_marker
+    }
+
+    pub fn core_num(&self) -> EntityPath {
+        self.core_num
     }
 }
 

@@ -1,10 +1,12 @@
 mod crate_path;
 mod db;
 mod display;
+mod jar;
 mod menu;
 mod package_path;
 
 pub use db::*;
+pub use jar::*;
 pub use menu::*;
 pub use package_path::{PackagePath, PackagePathData};
 
@@ -14,14 +16,11 @@ use husky_toolchain::Toolchain;
 use optional::Optioned;
 use salsa::DbWithJar;
 
-#[salsa::jar(db = EntityPathDb)]
-pub struct EntityPathJar(PackagePath, EntityPath);
-
 #[salsa::interned(jar = EntityPathJar)]
 pub struct EntityPath {
+    ident: Identifier,
     #[return_ref]
     variant: EntityPathVariant,
-    ident: Identifier,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -56,5 +55,9 @@ impl EntityPath {
         //     EntityPathVariant::Crate { .. } => None,
         //     EntityPathVariant::Childpath { parent, .. } => Some(parent),
         // }
+    }
+
+    pub(crate) fn child(self, db: &dyn EntityPathDb, ident: &str) -> EntityPath {
+        db.it_child_entity_path(self, ident)
     }
 }

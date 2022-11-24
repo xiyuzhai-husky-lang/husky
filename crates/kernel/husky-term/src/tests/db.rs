@@ -1,6 +1,6 @@
 use std::{collections::HashMap, sync::Arc};
 
-use husky_entity_path::{EntityPathDb, EntityPathJar};
+use husky_entity_path::{EntityPathDb, EntityPathJar, EntityPathMenuPlace};
 use husky_identifier::{IdentifierDb, IdentifierJar};
 
 use crate::*;
