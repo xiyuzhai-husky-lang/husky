@@ -1,8 +1,9 @@
 use crate::*;
+use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_expect_test_utils::expect_test_husky_to_rust;
 use husky_source_path::SourcePathJar;
-use husky_symbol_syntax::{SymbolContext, SymbolSheet};
+use husky_symbol_syntax::{SymbolContext, SymbolDb, SymbolJar, SymbolSheet};
 use husky_token_text::TokenTextJar;
 use husky_tokenize::Tokenize;
 use husky_vfs::VfsJar;
@@ -18,7 +19,7 @@ fn it_works() {
         let tokens = db.tokenize_line(text);
         let mut arena = ExprArena::new();
         // ad hoc; todo: preludes
-        let mut symbols = SymbolContext::new(&[]);
+        let mut symbols = db.new_symbol_ctx();
         parse_expr(&db, &tokens, &mut symbols, &mut arena);
         format!("{:#?}", arena)
     }
@@ -28,8 +29,10 @@ fn it_works() {
     IdentifierJar,
     VfsJar,
     SourcePathJar,
+    EntityPathJar,
     TextJar,
     TokenTextJar,
+    SymbolJar,
     EntityTreeJar
 )]
 #[derive(Default)]

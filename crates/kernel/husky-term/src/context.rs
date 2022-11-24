@@ -3,7 +3,7 @@ use husky_entity_path::EntityPath;
 use crate::*;
 
 pub struct TermContext<'a> {
-    db: &'a dyn TermDb,
+    pub(crate) db: &'a dyn TermDb,
     menu: &'a TermMenu,
 }
 

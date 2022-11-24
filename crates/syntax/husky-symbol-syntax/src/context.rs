@@ -10,7 +10,7 @@ pub struct SymbolContext<'a> {
 }
 
 impl<'a> SymbolContext<'a> {
-    pub fn new(preludes: &'a [Symbol]) -> Self {
+    pub(crate) fn new(preludes: &'a [Symbol]) -> Self {
         Self {
             preludes,
             symbols: SymbolSheet::new(),
@@ -25,8 +25,8 @@ impl<'a> SymbolContext<'a> {
     pub fn resolve_ident(&self, ident: Identifier) -> Option<Symbol> {
         if let Some(symbol) = self.symbols.resolve_ident(ident) {
             Some(symbol)
-        } else if let Some(_) = self.preludes.iter().find(|symbol| symbol.ident == ident) {
-            todo!()
+        } else if let Some(symbol) = self.preludes.iter().find(|symbol| symbol.ident == ident) {
+            Some(*symbol)
         } else {
             None
         }
