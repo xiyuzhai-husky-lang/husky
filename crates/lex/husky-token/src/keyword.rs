@@ -1,6 +1,14 @@
+mod ambiguous;
+mod config;
 mod liason;
+mod paradigm;
+mod stmt;
 
+pub use ambiguous::*;
+pub use config::*;
 pub use liason::*;
+pub use paradigm::*;
+pub use stmt::*;
 
 use crate::TokenKind;
 
@@ -22,10 +30,12 @@ pub enum Keyword {
     Type(TyKeyword),
     Stmt(StmtKeyword),
     Liason(LiasonKeyword),
+    Ambiguous(AmbiguousKeyword),
     Main,
     Use,
     Mod,
     Visual,
+    Impl,
 }
 
 impl std::fmt::Display for Keyword {
@@ -46,6 +56,8 @@ impl Keyword {
             Keyword::Main => "main",
             Keyword::Visual => "visual",
             Keyword::Liason(keyword) => keyword.as_str(),
+            Keyword::Impl => "impl",
+            Keyword::Ambiguous(_) => todo!(),
         }
     }
 }
@@ -55,12 +67,6 @@ impl Deref for Keyword {
 
     fn deref(&self) -> &Self::Target {
         self.as_str()
-    }
-}
-
-impl From<ConfigKeyword> for Keyword {
-    fn from(kw: ConfigKeyword) -> Self {
-        Self::Config(kw)
     }
 }
 
@@ -76,30 +82,9 @@ impl From<TyKeyword> for Keyword {
     }
 }
 
-impl From<StmtKeyword> for Keyword {
-    fn from(stmt: StmtKeyword) -> Self {
-        Keyword::Stmt(stmt)
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum ConfigKeyword {
-    Task,
-}
-
-impl ConfigKeyword {
-    pub fn as_str(&self) -> &'static str {
-        match self {
-            ConfigKeyword::Task => "task",
-        }
-    }
-}
-
-impl Deref for ConfigKeyword {
-    type Target = str;
-
-    fn deref(&self) -> &Self::Target {
-        self.as_str()
+impl const Into<TokenKind> for ConfigKeyword {
+    fn into(self) -> TokenKind {
+        TokenKind::Keyword(self.into())
     }
 }
 
@@ -153,57 +138,6 @@ impl TyKeyword {
 }
 
 impl Deref for TyKeyword {
-    type Target = str;
-
-    fn deref(&self) -> &Self::Target {
-        self.as_str()
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum StmtKeyword {
-    Let,
-    Var,
-    If,
-    Elif,
-    Else,
-    Match,
-    Case,
-    DeFault,
-    For,
-    ForExt,
-    While,
-    Do,
-    Break,
-    Return,
-    Assert,
-    Require,
-}
-
-impl StmtKeyword {
-    pub fn as_str(&self) -> &'static str {
-        match self {
-            StmtKeyword::Let => "let",
-            StmtKeyword::Var => "var",
-            StmtKeyword::If => "if",
-            StmtKeyword::Elif => "elif",
-            StmtKeyword::Else => "else",
-            StmtKeyword::Match => "match",
-            StmtKeyword::Case => "case",
-            StmtKeyword::DeFault => "default",
-            StmtKeyword::For => "for",
-            StmtKeyword::ForExt => "forext",
-            StmtKeyword::While => "while",
-            StmtKeyword::Do => "do",
-            StmtKeyword::Break => "break",
-            StmtKeyword::Return => "return",
-            StmtKeyword::Assert => "assert",
-            StmtKeyword::Require => "require",
-        }
-    }
-}
-
-impl Deref for StmtKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
