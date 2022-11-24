@@ -5,21 +5,43 @@ use super::*;
 use husky_entity_path::{
     EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu, EntityPathMenuPlace,
 };
+use husky_entity_tree::EntityTreeJar;
 use husky_expr_syntax::ExprIdx;
 use husky_identifier::{IdentifierDb, IdentifierJar};
+use husky_source_path::SourcePathJar;
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolKind};
 use husky_term::{
     AskDecl, Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
 };
+use husky_text::TextJar;
+use husky_token_text::TokenTextJar;
+use husky_vfs::VfsJar;
+use salsa::ParallelDatabase;
 use std::{collections::HashMap, sync::Arc};
 use upcast::Upcast;
 
-#[salsa::db(TermJar, TermInferJar, EntityPathJar, IdentifierJar)]
+#[salsa::db(
+    TermJar,
+    TokenTextJar,
+    VfsJar,
+    SourcePathJar,
+    TextJar,
+    TermInferJar,
+    EntityTreeJar,
+    EntityPathJar,
+    IdentifierJar
+)]
 pub(crate) struct TermInferTestsDb {
     storage: salsa::Storage<Self>,
     entity_tys: HashMap<EntityPath, Term>,
     decls: HashMap<EntityPath, Arc<Decl>>,
     prelude_symbols: Vec<Symbol>,
+}
+
+impl ParallelDatabase for TermInferTestsDb {
+    fn snapshot(&self) -> salsa::Snapshot<Self> {
+        todo!()
+    }
 }
 
 impl TermInferTestsDb {
@@ -38,9 +60,9 @@ impl TermInferTestsDb {
         use husky_tokenize::Tokenize;
         let tokens = self.tokenize_line(text);
         let mut arena = ExprArena::new();
-        todo!()
-        // let expr = parse_expr(&mut symbol_ctx, &mut arena, &tokens);
+        let expr = parse_expr(self, &tokens, todo!(), &mut arena);
         // (arena, expr)
+        todo!()
     }
 }
 

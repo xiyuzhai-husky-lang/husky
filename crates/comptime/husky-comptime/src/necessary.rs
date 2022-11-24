@@ -1,6 +1,5 @@
 use crate::*;
 use husky_linkage_table::{LinkageTable, ResolveLinkage};
-use husky_vfs::{HasFileCache, HasWatcherPlace};
 use place::SingleAssignPlace;
 use upcast::{Upcast, UpcastMut};
 
@@ -42,19 +41,3 @@ impl ResolveLinkage for HuskyComptime {
 //         &self.entity_route_store
 //     }
 // }
-
-impl HasFileCache for HuskyComptime {
-    fn cache(&self) -> &husky_vfs::HuskyFileCache {
-        todo!()
-    }
-}
-
-impl HasWatcherPlace for HuskyComptime {
-    fn watcher_place_mut(&mut self) -> &mut SingleAssignPlace<husky_vfs::VfsWatcher> {
-        todo!()
-    }
-
-    fn watcher_place(&self) -> &SingleAssignPlace<husky_vfs::VfsWatcher> {
-        todo!()
-    }
-}

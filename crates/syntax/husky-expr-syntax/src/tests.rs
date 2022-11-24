@@ -5,7 +5,7 @@ use husky_source_path::SourcePathJar;
 use husky_symbol_syntax::{SymbolContext, SymbolSheet};
 use husky_token_text::TokenTextJar;
 use husky_tokenize::Tokenize;
-use husky_vfs::{HasFileCache, HasWatcherPlace, VfsJar};
+use husky_vfs::VfsJar;
 use place::SingleAssignPlace;
 use salsa::{Database, ParallelDatabase};
 
@@ -41,22 +41,6 @@ impl Database for MimicDB {}
 
 impl ParallelDatabase for MimicDB {
     fn snapshot(&self) -> salsa::Snapshot<Self> {
-        todo!()
-    }
-}
-
-impl HasFileCache for MimicDB {
-    fn cache(&self) -> &husky_vfs::HuskyFileCache {
-        todo!()
-    }
-}
-
-impl HasWatcherPlace for MimicDB {
-    fn watcher_place_mut(&mut self) -> &mut SingleAssignPlace<husky_vfs::VfsWatcher> {
-        todo!()
-    }
-
-    fn watcher_place(&self) -> &SingleAssignPlace<husky_vfs::VfsWatcher> {
         todo!()
     }
 }

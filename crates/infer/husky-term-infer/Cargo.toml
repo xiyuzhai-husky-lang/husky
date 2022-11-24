@@ -29,8 +29,12 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 
 [dev-dependencies]
+husky-token-text = { path = "../../lex/husky-token-text" }
 husky-token = { path = "../../lex/husky-token" }
 husky-tokenize = { path = "../../lex/husky-tokenize" }
 husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-vfs = { path = "../../fs/husky-vfs" }
+husky-text = { path = "../../lex/husky-text" }

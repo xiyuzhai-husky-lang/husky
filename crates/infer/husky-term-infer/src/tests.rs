@@ -14,7 +14,7 @@ fn test_decl() {
 
     fn debug_decl(text: &str) -> String {
         let db = TermInferTestsDb::new();
-        // let (arena, expr) = db.parse_expr_from_text(text);
+        let (arena, expr) = db.parse_expr_from_text(text);
         // let mut sheet = TermSheet::new(&arena);
         // let term_menu = db.term_menu();
         // let mut ctx = InferContext::new(&db, &mut sheet, &arena, expr, &term_menu);

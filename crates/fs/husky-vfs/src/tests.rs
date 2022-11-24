@@ -32,22 +32,6 @@ impl ParallelDatabase for VfsTestsDatabase {
     }
 }
 
-impl HasWatcherPlace for VfsTestsDatabase {
-    fn watcher_place_mut(&mut self) -> &mut place::SingleAssignPlace<watch::VfsWatcher> {
-        &mut self.watcher_place
-    }
-
-    fn watcher_place(&self) -> &SingleAssignPlace<VfsWatcher> {
-        &self.watcher_place
-    }
-}
-
-impl HasFileCache for VfsTestsDatabase {
-    fn cache(&self) -> &HuskyFileCache {
-        &self.cache
-    }
-}
-
 #[test]
 fn vfs_db_works() {
     let db = VfsTestsDatabase::default();
