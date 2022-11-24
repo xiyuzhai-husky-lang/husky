@@ -3,7 +3,7 @@ use super::*;
 pub static FP_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "ThickFp",
     items: &[],
-    variant: EntityStaticDefnVariant::Ty {
+    variant: EntityStaticDefnVariant::Term {
         base_route: "ThickFp",
         spatial_parameters: &[],
         trait_impls: &[],

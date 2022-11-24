@@ -1,11 +1,11 @@
 use crate::*;
-use husky_term::Ty;
+use husky_term::Term;
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub enum TraceSketch {
     Main,
-    Module(Ty),
-    EntityFeature(Ty),
+    Module(Term),
+    EntityFeature(Term),
 }
 
 impl AsTraceSketch for TraceSketch {

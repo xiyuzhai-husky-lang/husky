@@ -1,6 +1,6 @@
 use husky_linkage_table::ResolveLinkage;
 use husky_source_path::SourcePath;
-use husky_term::Ty;
+use husky_term::Term;
 use husky_trace_protocol::Label;
 use husky_vm::{__Register, __RegisterDataKind};
 
@@ -47,7 +47,7 @@ pub trait ComptimeQueryGroup {
     }
 
     // ad hoc loc
-    fn print_short<'eval>(&self, value: &__Register<'eval>, ty: Ty) -> String {
+    fn print_short<'eval>(&self, value: &__Register<'eval>, ty: Term) -> String {
         todo!()
         // if value.data_kind() == __RegisterDataKind::SomeNone {
         //     if unsafe { value.data().as_number_of_somes } > 0 {
@@ -58,7 +58,7 @@ pub trait ComptimeQueryGroup {
         // }
         // let intrinsic_ty = ty.intrinsic();
         // match intrinsic_ty {
-        //     Ty::Root(root_identifier) => match root_identifier {
+        //     Term::Root(root_identifier) => match root_identifier {
         //         RootBuiltinIdentifier::Void => return "()".to_owned(),
         //         RootBuiltinIdentifier::I32 => match value.data_kind() {
         //             __RegisterDataKind::Moved => todo!(),
@@ -109,7 +109,7 @@ pub trait ComptimeQueryGroup {
         //         RootBuiltinIdentifier::RefMut => todo!(),
         //         RootBuiltinIdentifier::Option => todo!(),
         //     },
-        //     Ty::Custom(_) => {
+        //     Term::Custom(_) => {
         //         todo!()
         //         // let ty_decl: Arc<TyDecl> = self.ty_decl(intrinsic_ty).unwrap();
         //         // match ty_decl.ty_kind {

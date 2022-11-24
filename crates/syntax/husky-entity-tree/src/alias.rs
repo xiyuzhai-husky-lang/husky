@@ -1,6 +1,6 @@
 use husky_identifier::Identifier;
 use husky_source_path::SourcePath;
-use husky_term::Ty;
+use husky_term::Term;
 use husky_token::{Keyword, TokenKind};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -33,7 +33,7 @@ impl EntityRouteAliasTable {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct EntityRouteAliasEntry {
     ident: Identifier,
-    scope_id: Ty,
+    scope_id: Term,
 }
 
 impl EntityRouteAliasEntry {

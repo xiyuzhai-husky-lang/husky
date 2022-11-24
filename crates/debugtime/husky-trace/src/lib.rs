@@ -16,7 +16,7 @@
 // use husky_feature_eval::EvalFeature;
 // use husky_feature_gen::*;
 // use husky_source_path::SourcePath;
-// use husky_term::Ty;
+// use husky_term::Term;
 // use husky_text::TextRange;
 // use husky_trace_protocol::*;
 // use husky_vm::{History, HistoryEntry, InstructionSheet, LoopFrameData, VMConditionBranch};

@@ -3,16 +3,6 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu2 {
     parent: TermMenu1,
-    uid: Ty,
-    i32: Ty,
-    i64: Ty,
-    f32: Ty,
-    f64: Ty,
-    b32: Ty,
-    b64: Ty,
-    bool: Ty,
-    trai: Ty,
-    module: Ty,
 }
 
 impl std::ops::Deref for TermMenu2 {
@@ -25,61 +15,7 @@ impl std::ops::Deref for TermMenu2 {
 
 impl TermMenu2 {
     pub(crate) fn new(db: &dyn TermDb, menu1: TermMenu1) -> Self {
-        let void = Ty::void(db, &menu1);
-        let i32 = Ty::i32(db, &menu1);
-        let i64 = Ty::i64(db, &menu1);
-        let f32 = Ty::f32(db, &menu1);
-        let f64 = Ty::f64(db, &menu1);
-        let b32 = Ty::b32(db, &menu1);
-        let b64 = Ty::b64(db, &menu1);
-        let bool = Ty::bool(db, &menu1);
-        let trai = Ty::trai(db, &menu1);
-        let module = Ty::module(db, &menu1);
-        TermMenu2 {
-            parent: menu1,
-            uid: void,
-            i32,
-            i64,
-            f32,
-            f64,
-            b32,
-            b64,
-            bool,
-            trai,
-            module,
-        }
-    }
-
-    pub fn i32(&self) -> Ty {
-        self.i32
-    }
-    pub fn unit(&self) -> Ty {
-        self.uid
-    }
-    pub fn i64(&self) -> Ty {
-        self.i64
-    }
-    pub fn f32(&self) -> Ty {
-        self.f32
-    }
-    pub fn f64(&self) -> Ty {
-        self.f64
-    }
-    pub fn b32(&self) -> Ty {
-        self.b32
-    }
-    pub fn b64(&self) -> Ty {
-        self.b64
-    }
-    pub fn bool(&self) -> Ty {
-        self.bool
-    }
-
-    pub fn trai(&self) -> Ty {
-        self.trai
-    }
-
-    pub fn module(&self) -> Ty {
-        self.module
+        db.it_entity_path_term(db.entity_path_menu().b32());
+        TermMenu2 { parent: menu1 }
     }
 }

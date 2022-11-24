@@ -69,7 +69,7 @@ inductive MemberKind
 
 inductive EntityKind 
    | Module
-   | Ty (kind: TyKind)
+   | Term (kind: TyKind)
    | Trait
    | Member(kind: MemberKind)
    | Function (requires_lazy: Bool)

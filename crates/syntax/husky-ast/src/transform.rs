@@ -33,7 +33,7 @@ pub struct AstTransformer<'a> {
     arena: ExprArena,
     // symbols: LocalStack<Symbol>,
     context: LocalValue<AstContext>,
-    opt_base_ty: LocalValue<Option<Ty>>,
+    opt_base_ty: LocalValue<Option<Term>>,
     // opt_this_liason: LocalValue<Option<ParameterModifier>>,
     pub(crate) folded_results: FoldableList<AstResult<DeprecatedAst>>,
     abs_semantic_tokens: Vec<AbsSemanticToken>,
@@ -42,7 +42,7 @@ pub struct AstTransformer<'a> {
 }
 
 impl<'a> AstTransformer<'a> {
-    pub(crate) fn new(db: &'a dyn AstDb, module: Ty) -> EntityTreeResult<Self> {
+    pub(crate) fn new(db: &'a dyn AstDb, module: Term) -> EntityTreeResult<Self> {
         todo!()
         // let module_file = db.module_file(module)?;
         // return Ok(Self {
@@ -64,7 +64,7 @@ impl<'a> AstTransformer<'a> {
         //     infer_roots: vec![],
         // });
 
-        // fn module_symbols(db: &dyn AstDb, module: Ty) -> LocalStack<Symbol> {
+        // fn module_symbols(db: &dyn AstDb, module: Term) -> LocalStack<Symbol> {
         //     let mut symbols = LocalStack::new();
         //     let subroute_table = db.subroute_table(module).unwrap();
         //     for entry in subroute_table.entries.iter() {

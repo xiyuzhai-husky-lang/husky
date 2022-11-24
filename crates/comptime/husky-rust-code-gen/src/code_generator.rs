@@ -21,12 +21,12 @@ pub(crate) struct RustCodeGenerator<'a> {
     db: &'a dyn RustTranspileDb,
     result: String,
     target_entrance: SourcePath,
-    entity_route_uses: LocalStack<Ty>,
+    entity_route_uses: LocalStack<Term>,
     // context: RustCodeGenContext,
 }
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(crate) fn new(db: &'a dyn RustTranspileDb, module: Ty) -> Self {
+    pub(crate) fn new(db: &'a dyn RustTranspileDb, module: Term) -> Self {
         todo!()
         // let target_entrance = db
         //     .module_target_entrance(db.module_file(module).unwrap())

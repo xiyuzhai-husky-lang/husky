@@ -8,7 +8,7 @@ use husky_entity_tree::EntityTreeDb;
 use husky_expr_syntax::*;
 use husky_init_syntax::InitKind;
 use husky_print_utils::msg_once;
-use husky_term::Ty;
+use husky_term::Term;
 use husky_token::Paradigm;
 
 pub struct Formatter<'a> {
@@ -123,7 +123,7 @@ impl<'a> Formatter<'a> {
                     paradigm: Paradigm::LazyFunctional,
                     return_context: Some(RawReturnContext {
                         opt_return_ty: todo!(),
-                        //  Some(Ty {
+                        //  Some(Term {
                         //     route: self.db.intern_entity_route(EntityRoute {
                         //         variant: EntityRouteVariant::TargetOutputType,
                         //         temporal_arguments: Default::default(),
@@ -169,7 +169,7 @@ impl<'a> Formatter<'a> {
                 // }
                 // self.write(")");
                 // todo!();
-                // // if return_ty.route != Ty::Root(RootBuiltinIdentifier::Void) {
+                // // if return_ty.route != Term::Root(RootBuiltinIdentifier::Void) {
                 // //     self.write(" -> ");
                 // //     self.fmt_ty(return_ty.route);
                 // // }
@@ -221,11 +221,11 @@ impl<'a> Formatter<'a> {
         // self.fmt_ty(parameter.raw_ty());
     }
 
-    fn fmt_ty(&mut self, ty: Ty) {
+    fn fmt_ty(&mut self, ty: Term) {
         todo!()
         // match ty {
-        //     Ty::Root(ident) => self.write(&ident),
-        //     Ty::Custom(_) => todo!(),
+        //     Term::Root(ident) => self.write(&ident),
+        //     Term::Custom(_) => todo!(),
         // }
     }
 

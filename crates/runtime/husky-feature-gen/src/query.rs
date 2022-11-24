@@ -7,7 +7,7 @@ use husky_data_viewer::DataViewerDb;
 use husky_entity_semantics::{EntityDefnQueryGroup, EntityDefnVariant};
 use husky_instruction_gen::InstructionDb;
 use husky_package_semantics::*;
-use husky_term::Ty;
+use husky_term::Term;
 use husky_vm::{InterpreterQueryGroup, __ModelLinkage, __Register, __VMResult};
 use main_feature_repr::*;
 use std::panic::{RefUnwindSafe, UnwindSafe};
@@ -29,7 +29,7 @@ pub trait FeatureGenQueryGroup:
         &'eval self,
         target_entrance: husky_source_path::SourcePath,
     ) -> FeatureRepr;
-    fn entity_feature_repr(&self, entity_path: Ty) -> FeatureRepr;
+    fn entity_feature_repr(&self, entity_path: Term) -> FeatureRepr;
     fn record_field_repr(&self, this: FeatureRepr, field_ident: Identifier) -> FeatureRepr;
     fn visual_feature_lazy_block(&self, this: FeatureRepr) -> __VMResult<Arc<FeatureLazyBody>>;
 }

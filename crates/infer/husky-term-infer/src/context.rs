@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_path::EntityPath;
 use husky_expr_syntax::{Expr, ExprArena, ExprIdx, ExprVariant};
 use husky_identifier::IdentifierDb;
-use husky_term::{Term, TermAtom, TermContext, TermData, TermMenu, Ty};
+use husky_term::{Term, TermAtom, TermContext, TermData, TermMenu};
 
 pub(crate) struct InferContext<'a> {
     db: &'a dyn TermInferDb,
@@ -55,7 +55,7 @@ impl<'a> InferContext<'a> {
         self.term_menu
     }
 
-    fn infer_entity_ty(&self, entity: husky_entity_path::EntityPath) -> husky_term::Ty {
+    fn infer_entity_ty(&self, entity: husky_entity_path::EntityPath) -> husky_term::Term {
         self.db.entity_ty(entity)
     }
 

@@ -20,16 +20,16 @@ use std::{path::PathBuf, sync::Arc};
 pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + TokenTextDb {
     fn subroute_table(&self, entity_path: EntityPath) -> EntityTreeResultArc<SubrouteTable>;
 
-    fn subentity_routes(&self, entity_path: EntityPath) -> Arc<Vec<Ty>>;
-    fn subentity_kinded_routes(&self, entity_path: EntityPath) -> Arc<Vec<(EntityKind, Ty)>>;
+    fn subentity_routes(&self, entity_path: EntityPath) -> Arc<Vec<Term>>;
+    fn subentity_kinded_routes(&self, entity_path: EntityPath) -> Arc<Vec<(EntityKind, Term)>>;
 
     fn husky_entity_kind(&self, entity_path: EntityPath) -> EntityTreeResult<EntityKind>;
 
     // fn entity_source(&self, entity_path: EntityPath) -> EntityTreeResult<EntitySource>;
 
-    fn submodules(&self, module: Ty) -> Arc<Vec<Ty>>;
+    fn submodules(&self, module: Term) -> Arc<Vec<Term>>;
 
-    fn all_modules(&self) -> Vec<Ty> {
+    fn all_modules(&self) -> Vec<Term> {
         todo!()
         // self.all_target_entrances()
         //     .iter()
@@ -143,7 +143,7 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + TokenTextDb {
         // }
     }
 
-    fn module_file(&self, module: Ty) -> EntityTreeResult<SourcePath> {
+    fn module_file(&self, module: Term) -> EntityTreeResult<SourcePath> {
         todo!()
         // Ok(match self.entity_source(module)? {
         //     EntitySource::StaticModuleItem(_) => panic!(),
@@ -176,11 +176,11 @@ where
         todo!()
     }
 
-    fn subentity_routes(&self, entity_path: EntityPath) -> Arc<Vec<Ty>> {
+    fn subentity_routes(&self, entity_path: EntityPath) -> Arc<Vec<Term>> {
         todo!()
     }
 
-    fn subentity_kinded_routes(&self, entity_path: EntityPath) -> Arc<Vec<(EntityKind, Ty)>> {
+    fn subentity_kinded_routes(&self, entity_path: EntityPath) -> Arc<Vec<(EntityKind, Term)>> {
         todo!()
     }
 
@@ -188,7 +188,7 @@ where
         todo!()
     }
 
-    fn submodules(&self, module: Ty) -> Arc<Vec<Ty>> {
+    fn submodules(&self, module: Term) -> Arc<Vec<Term>> {
         todo!()
     }
 }
@@ -239,7 +239,7 @@ fn subroute_table(
     // }
 }
 
-fn subentity_routes(db: &dyn EntityTreeDb, entity_path: EntityPath) -> Arc<Vec<Ty>> {
+fn subentity_routes(db: &dyn EntityTreeDb, entity_path: EntityPath) -> Arc<Vec<Term>> {
     Arc::new(db.subroute_table(entity_path).map_or(Vec::new(), |table| {
         todo!()
         // table.subroute_iter(db, entity_path).collect()
@@ -249,14 +249,14 @@ fn subentity_routes(db: &dyn EntityTreeDb, entity_path: EntityPath) -> Arc<Vec<T
 fn subentity_kinded_routes(
     db: &dyn EntityTreeDb,
     entity_path: EntityPath,
-) -> Arc<Vec<(EntityKind, Ty)>> {
+) -> Arc<Vec<(EntityKind, Term)>> {
     Arc::new(db.subroute_table(entity_path).map_or(Vec::new(), |table| {
         todo!()
         // table.subentity_kinded_route_iter(db, entity_path).collect()
     }))
 }
 
-fn submodules(db: &dyn EntityTreeDb, module: Ty) -> Arc<Vec<Ty>> {
+fn submodules(db: &dyn EntityTreeDb, module: Term) -> Arc<Vec<Term>> {
     todo!()
     // Arc::new(
     //     db.subroute_table(module)
@@ -299,7 +299,7 @@ fn husky_entity_kind(
 //     //     }),
 //     //     EntityRouteVariant::ThisType { file, range } => Ok(EntitySource::ThisType { file, range }),
 //     //     EntityRouteVariant::TypeAsTraitMember { ty, trai, ident: _ } => match trai {
-//     //         Ty::Root(root_ident) => match root_ident {
+//     //         Term::Root(root_ident) => match root_ident {
 //     //             RootBuiltinIdentifier::CloneTrait => {
 //     //                 msg_once!("ad hoc");
 //     //                 Ok(EntitySource::StaticTypeAsTraitMember)
@@ -307,12 +307,12 @@ fn husky_entity_kind(
 //     //             }
 //     //             _ => todo!(),
 //     //         },
-//     //         Ty::Custom(_) => match trai.variant {
+//     //         Term::Custom(_) => match trai.variant {
 //     //             EntityRouteVariant::ThisType { file: _, range: _ } => {
 //     //                 let ty_source = db.entity_source(ty).unwrap();
 //     //                 match ty_source {
 //     //                     EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
-//     //                         EntityStaticDefnVariant::Ty { .. } => {
+//     //                         EntityStaticDefnVariant::Term { .. } => {
 //     //                             Ok(EntitySource::StaticTypeAsTraitMember)
 //     //                         }
 //     //                         _ => panic!(),

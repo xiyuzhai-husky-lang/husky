@@ -2,7 +2,7 @@
 // mod session;
 
 // pub use evaluator::*;
-// use husky_term::Ty;
+// use husky_term::Term;
 // use husky_trace_protocol::{SampleId, VisualData};
 // pub use session::*;
 

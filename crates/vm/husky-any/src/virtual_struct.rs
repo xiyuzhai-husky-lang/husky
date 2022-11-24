@@ -1,18 +1,18 @@
 use super::*;
 use husky_identifier::{IdentPairMap, Identifier};
-use husky_term::Ty;
+use husky_term::Term;
 use serde::Serialize;
 use std::borrow::Cow;
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct DeprecatedVirtualStruct<'eval> {
-    ty: Ty,
+    ty: Term,
     fields: IdentPairMap<__Register<'eval>>,
 }
 
 impl<'eval> DeprecatedVirtualStruct<'eval> {
     pub fn new_struct(
-        ty: Ty,
+        ty: Term,
         arguments: impl Iterator<Item = __Register<'eval>>,
         field_liasons: &[Identifier],
     ) -> Self {

@@ -19,7 +19,7 @@ impl RawReturnContext {
         self.kind
     }
 
-    pub fn return_ty(&self) -> Ty {
+    pub fn return_ty(&self) -> Term {
         todo!()
         // self.opt_return_ty.unwrap().route
     }
@@ -35,7 +35,7 @@ pub enum RawReturnContextKind {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum AstContext {
     Package(PackagePath),
-    Module(Ty),
+    Module(Term),
     Stmt {
         paradigm: Paradigm,
         return_context: Option<RawReturnContext>,
@@ -46,15 +46,15 @@ pub enum AstContext {
     },
     Visual,
     Struct {
-        opt_base_ty: Option<Ty>,
+        opt_base_ty: Option<Term>,
         item_context: StructItemContext,
     },
     Record,
-    Enum(Ty),
+    Enum(Term),
 }
 
 impl AstContext {
-    pub fn opt_subroute(self, db: &dyn EntityTreeDb, ident: Identifier) -> Option<Ty> {
+    pub fn opt_subroute(self, db: &dyn EntityTreeDb, ident: Identifier) -> Option<Term> {
         todo!()
         // Some(match self {
         //     AstContext::Package(main) => db.subroute(db.module(main).unwrap(), ident, thin_vec![]),

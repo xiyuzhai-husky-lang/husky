@@ -1,16 +1,16 @@
 use crate::*;
-use husky_term::{Term, TermDb, Ty};
+use husky_term::{Term, TermDb};
 use salsa::DbWithJar;
 
 pub trait LayoutDb: DbWithJar<LayoutJar> + TermDb {
-    fn reg_memory_kind(&self, ty: Ty) -> RegMemoryKind;
+    fn reg_memory_kind(&self, ty: Term) -> RegMemoryKind;
 }
 
 impl<T> LayoutDb for T
 where
     T: DbWithJar<LayoutJar> + TermDb,
 {
-    fn reg_memory_kind(&self, ty: Ty) -> RegMemoryKind {
+    fn reg_memory_kind(&self, ty: Term) -> RegMemoryKind {
         todo!()
     }
 }

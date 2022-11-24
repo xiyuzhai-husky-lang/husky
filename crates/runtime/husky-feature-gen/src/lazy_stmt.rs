@@ -1,6 +1,6 @@
 mod variant;
 
-use husky_term::Ty;
+use husky_term::Term;
 pub use variant::*;
 
 use husky_lazy_semantics::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
@@ -19,7 +19,7 @@ pub struct FeatureLazyStmt {
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     pub stmt: Arc<LazyStmt>,
-    pub return_ty: Ty,
+    pub return_ty: Term,
 }
 
 impl std::fmt::Debug for FeatureLazyStmt {
@@ -179,7 +179,7 @@ impl FeatureLazyStmt {
         db: &dyn FeatureGenQueryGroup,
         opt_this: Option<FeatureRepr>,
         symbols: &mut Vec<FeatureSymbol>,
-        ty: Ty,
+        ty: Term,
         mut opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
         feature_interner: &FeatureInterner,
     ) -> FeatureLazyStmtVariant {

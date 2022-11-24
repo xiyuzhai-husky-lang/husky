@@ -23,7 +23,7 @@ use husky_loop_syntax::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
 use husky_rust_code_repr::entity_path::*;
-use husky_term::Ty;
+use husky_term::Term;
 use init_content::*;
 use lib_rs_content::*;
 use linkage_collector::*;
@@ -40,18 +40,18 @@ pub trait RustTranspileDb: DbWithJar<RustTranspileJar> + LayoutDb {
     fn rust_lib_rs_content(&self, target_entrance: SourcePath) -> Arc<String>;
     fn rust_registration_rs_content(&self, target_entrance: SourcePath) -> Arc<String>;
     fn rust_init_rs_content(&self, target_entrance: SourcePath) -> Arc<String>;
-    fn rust_mod_rs_content(&self, module: Ty) -> Arc<String>;
-    fn entity_route_variant_contains_eval_ref(&self, entity_path: Ty) -> bool;
-    fn entity_route_contains_eval_ref(&self, entity_path: Ty) -> bool;
-    fn is_defn_static(&self, entity_path: Ty) -> bool;
-    fn contains_spatial_parameters(&self, entity_path: Ty) -> bool;
-    fn entity_immediate_link_dependees(&self, entity_path: Ty) -> Arc<VecSet<Ty>>;
-    fn entity_link_dependees(&self, entity_path: Ty) -> Arc<VecSet<Ty>>;
-    fn needs_eval_context(&self, entity_path: Ty) -> bool;
-    fn mangled_intrinsic_ty(&self, entity_path: Ty) -> Arc<String>;
-    fn mangled_intrinsic_ty_vtable(&self, entity_path: Ty) -> Arc<String>;
-    fn mangled_ty(&self, entity_path: Ty) -> Arc<String>;
-    fn mangled_ty_vtable(&self, entity_path: Ty) -> Arc<String>;
+    fn rust_mod_rs_content(&self, module: Term) -> Arc<String>;
+    fn entity_route_variant_contains_eval_ref(&self, entity_path: Term) -> bool;
+    fn entity_route_contains_eval_ref(&self, entity_path: Term) -> bool;
+    fn is_defn_static(&self, entity_path: Term) -> bool;
+    fn contains_spatial_parameters(&self, entity_path: Term) -> bool;
+    fn entity_immediate_link_dependees(&self, entity_path: Term) -> Arc<VecSet<Term>>;
+    fn entity_link_dependees(&self, entity_path: Term) -> Arc<VecSet<Term>>;
+    fn needs_eval_context(&self, entity_path: Term) -> bool;
+    fn mangled_intrinsic_ty(&self, entity_path: Term) -> Arc<String>;
+    fn mangled_intrinsic_ty_vtable(&self, entity_path: Term) -> Arc<String>;
+    fn mangled_ty(&self, entity_path: Term) -> Arc<String>;
+    fn mangled_ty_vtable(&self, entity_path: Term) -> Arc<String>;
 }
 
 impl<T> RustTranspileDb for T
@@ -70,51 +70,51 @@ where
         todo!()
     }
 
-    fn rust_mod_rs_content(&self, module: Ty) -> Arc<String> {
+    fn rust_mod_rs_content(&self, module: Term) -> Arc<String> {
         todo!()
     }
 
-    fn entity_route_variant_contains_eval_ref(&self, entity_path: Ty) -> bool {
+    fn entity_route_variant_contains_eval_ref(&self, entity_path: Term) -> bool {
         todo!()
     }
 
-    fn entity_route_contains_eval_ref(&self, entity_path: Ty) -> bool {
+    fn entity_route_contains_eval_ref(&self, entity_path: Term) -> bool {
         todo!()
     }
 
-    fn is_defn_static(&self, entity_path: Ty) -> bool {
+    fn is_defn_static(&self, entity_path: Term) -> bool {
         todo!()
     }
 
-    fn contains_spatial_parameters(&self, entity_path: Ty) -> bool {
+    fn contains_spatial_parameters(&self, entity_path: Term) -> bool {
         todo!()
     }
 
-    fn entity_immediate_link_dependees(&self, entity_path: Ty) -> Arc<VecSet<Ty>> {
+    fn entity_immediate_link_dependees(&self, entity_path: Term) -> Arc<VecSet<Term>> {
         todo!()
     }
 
-    fn entity_link_dependees(&self, entity_path: Ty) -> Arc<VecSet<Ty>> {
+    fn entity_link_dependees(&self, entity_path: Term) -> Arc<VecSet<Term>> {
         todo!()
     }
 
-    fn needs_eval_context(&self, entity_path: Ty) -> bool {
+    fn needs_eval_context(&self, entity_path: Term) -> bool {
         todo!()
     }
 
-    fn mangled_intrinsic_ty(&self, entity_path: Ty) -> Arc<String> {
+    fn mangled_intrinsic_ty(&self, entity_path: Term) -> Arc<String> {
         todo!()
     }
 
-    fn mangled_intrinsic_ty_vtable(&self, entity_path: Ty) -> Arc<String> {
+    fn mangled_intrinsic_ty_vtable(&self, entity_path: Term) -> Arc<String> {
         todo!()
     }
 
-    fn mangled_ty(&self, entity_path: Ty) -> Arc<String> {
+    fn mangled_ty(&self, entity_path: Term) -> Arc<String> {
         todo!()
     }
 
-    fn mangled_ty_vtable(&self, entity_path: Ty) -> Arc<String> {
+    fn mangled_ty_vtable(&self, entity_path: Term) -> Arc<String> {
         todo!()
     }
 }

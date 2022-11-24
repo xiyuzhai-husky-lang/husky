@@ -22,13 +22,13 @@ pub(crate) use __husky::registration::*;
         }
     }
 
-    fn might_gen_ty_registration(&mut self, entity_path: Ty, entity_defn: &EntityDefn) {
+    fn might_gen_ty_registration(&mut self, entity_path: Term, entity_defn: &EntityDefn) {
         if self.db.is_defn_static(entity_path) && !self.db.contains_spatial_parameters(entity_path)
         {
             return;
         }
         match entity_defn.variant {
-            EntityDefnVariant::Ty { ty_kind, .. } => {
+            EntityDefnVariant::Term { ty_kind, .. } => {
                 match ty_kind {
                     TyKind::Record => return,
                     TyKind::HigherKind => return,
@@ -40,7 +40,7 @@ pub(crate) use __husky::registration::*;
         }
     }
 
-    fn gen_ty_registration(&mut self, entity_path: Ty) {
+    fn gen_ty_registration(&mut self, entity_path: Term) {
         let mangled_intrinsic_ty = self.db.mangled_intrinsic_ty(entity_path);
         let needs_eval_ref = self.db.entity_route_contains_eval_ref(entity_path);
         write!(

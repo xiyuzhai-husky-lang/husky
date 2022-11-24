@@ -9,26 +9,26 @@
   },
   {
     "input": "i32",
-    "output": "Ok(Ty(TyDecl { ty_family: Physical, parameters: [] }))"
+    "output": "Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))"
   },
   {
     "input": "i64",
-    "output": "Ok(Ty(TyDecl { ty_family: Physical, parameters: [] }))"
+    "output": "Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))"
   },
   {
     "input": "b32",
-    "output": "Ok(Ty(TyDecl { ty_family: Physical, parameters: [] }))"
+    "output": "Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))"
   },
   {
     "input": "b64",
-    "output": "Ok(Ty(TyDecl { ty_family: Physical, parameters: [] }))"
+    "output": "Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))"
   },
   {
     "input": "f32",
-    "output": "Ok(Ty(TyDecl { ty_family: Physical, parameters: [] }))"
+    "output": "Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))"
   },
   {
     "input": "f64",
-    "output": "Ok(Ty(TyDecl { ty_family: Physical, parameters: [] }))"
+    "output": "Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))"
   }
 ]

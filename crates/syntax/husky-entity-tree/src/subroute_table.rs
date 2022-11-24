@@ -163,7 +163,7 @@ impl SubrouteTable {
     //     &'a self,
     //     db: &'a dyn EntityTreeDb,
     //     parent: EntityPath,
-    // ) -> impl Iterator<Item = Ty> + 'a {
+    // ) -> impl Iterator<Item = Term> + 'a {
     //     self.entries.iter().filter_map(move |entry| {
     //         entry.ident.map(
     //             |ident| todo!(), //  db.subroute(parent, ident.ident, thin_vec![])
@@ -174,8 +174,8 @@ impl SubrouteTable {
     // pub fn subentity_kinded_route_iter<'a>(
     //     &'a self,
     //     db: &'a dyn EntityTreeDb,
-    //     parent_route: Ty,
-    // ) -> impl Iterator<Item = (EntityKind, Ty)> + 'a {
+    //     parent_route: Term,
+    // ) -> impl Iterator<Item = (EntityKind, Term)> + 'a {
     //     self.entries.iter().filter_map(move |entry| {
     //         entry.ident.map(|ident| {
     //             (
@@ -189,8 +189,8 @@ impl SubrouteTable {
     // pub fn submodule_route_iter<'a>(
     //     &'a self,
     //     db: &'a dyn EntityTreeDb,
-    //     parent_route: Ty,
-    // ) -> impl Iterator<Item = Ty> + 'a {
+    //     parent_route: Term,
+    // ) -> impl Iterator<Item = Term> + 'a {
     //     self.entries
     //         .iter()
     //         .filter_map(move |entry| match entry.kind {
@@ -204,8 +204,8 @@ impl SubrouteTable {
     // pub fn non_module_subroute_iter<'a>(
     //     &'a self,
     //     db: &'a dyn EntityTreeDb,
-    //     parent_route: Ty,
-    // ) -> impl Iterator<Item = Ty> + 'a {
+    //     parent_route: Term,
+    // ) -> impl Iterator<Item = Term> + 'a {
     //     self.entries
     //         .iter()
     //         .filter_map(move |entry| match entry.kind {
@@ -237,7 +237,7 @@ impl SubrouteTable {
     //     //     .collect();
     //     // match data.variant {
     //     //     EntityStaticDefnVariant::Function { .. } | EntityStaticDefnVariant::Module => (),
-    //     //     EntityStaticDefnVariant::Ty {
+    //     //     EntityStaticDefnVariant::Term {
     //     //         ty_members,
     //     //         variants,
     //     //         ..

@@ -11,7 +11,7 @@ pub use table::*;
 
 use husky_identifier::Identifier;
 use husky_print_utils::p;
-use husky_term::Ty;
+use husky_term::Term;
 use husky_vm::__ResolvedLinkage;
 use husky_vm::{Binding, EntityUid, __Linkage};
 use map_collect::MapCollect;
@@ -23,7 +23,7 @@ use upcast::Upcast;
 pub trait ResolveLinkage {
     fn linkage_table(&self) -> &LinkageTable;
 
-    fn index_linkage(&self, opd_tys: Vec<Ty>) -> __Linkage {
+    fn index_linkage(&self, opd_tys: Vec<Term>) -> __Linkage {
         todo!()
         // if let Some(linkage) = self
         //     .linkage_table()
@@ -56,7 +56,7 @@ pub trait ResolveLinkage {
         // }
     }
 
-    fn field_linkage(&self, this_ty: Ty, field_ident: Identifier) -> Option<__Linkage> {
+    fn field_linkage(&self, this_ty: Term, field_ident: Identifier) -> Option<__Linkage> {
         todo!()
         // if !this_ty.is_intrinsic() {
         //     panic!("expect intrinsic ty, but get `{}` instead", this_ty)
@@ -77,7 +77,7 @@ pub trait ResolveLinkage {
 
     fn field_linkage_resolved(
         &self,
-        this_ty: Ty,
+        this_ty: Term,
         field_ident: Identifier,
         field_binding: Binding,
     ) -> Option<__ResolvedLinkage> {
@@ -85,7 +85,7 @@ pub trait ResolveLinkage {
             .map(|linkage| linkage.bind(field_binding))
     }
 
-    fn method_linkage(&self, method_route: Ty) -> Option<__Linkage> {
+    fn method_linkage(&self, method_route: Term) -> Option<__Linkage> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
@@ -174,7 +174,7 @@ pub trait ResolveLinkage {
         // )
     }
 
-    fn routine_linkage(&self, routine: Ty) -> Option<__Linkage> {
+    fn routine_linkage(&self, routine: Term) -> Option<__Linkage> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
@@ -203,7 +203,7 @@ pub trait ResolveLinkage {
         // )
     }
 
-    fn type_call_linkage(&self, ty: Ty) -> Option<__Linkage> {
+    fn type_call_linkage(&self, ty: Term) -> Option<__Linkage> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
@@ -213,7 +213,7 @@ pub trait ResolveLinkage {
         //         }
         //         let type_defn = self.entity_defn(ty).unwrap();
         //         match type_defn.variant {
-        //             EntityDefnVariant::Ty {
+        //             EntityDefnVariant::Term {
         //                 ref opt_type_call, ..
         //             } => opt_type_call
         //                 .as_ref()

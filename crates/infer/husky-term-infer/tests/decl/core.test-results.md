@@ -39,7 +39,7 @@ i32
 output
 
 ```husky
-Ok(Ty(TyDecl { ty_family: Physical, parameters: [] }))
+Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))
 ```
 
 ## Test#3
@@ -53,7 +53,7 @@ i64
 output
 
 ```husky
-Ok(Ty(TyDecl { ty_family: Physical, parameters: [] }))
+Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))
 ```
 
 ## Test#4
@@ -67,7 +67,7 @@ b32
 output
 
 ```husky
-Ok(Ty(TyDecl { ty_family: Physical, parameters: [] }))
+Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))
 ```
 
 ## Test#5
@@ -81,7 +81,7 @@ b64
 output
 
 ```husky
-Ok(Ty(TyDecl { ty_family: Physical, parameters: [] }))
+Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))
 ```
 
 ## Test#6
@@ -95,7 +95,7 @@ f32
 output
 
 ```husky
-Ok(Ty(TyDecl { ty_family: Physical, parameters: [] }))
+Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))
 ```
 
 ## Test#7
@@ -109,5 +109,5 @@ f64
 output
 
 ```husky
-Ok(Ty(TyDecl { ty_family: Physical, parameters: [] }))
+Ok(Term(TyDecl { ty_family: Physical, parameters: [] }))
 ```

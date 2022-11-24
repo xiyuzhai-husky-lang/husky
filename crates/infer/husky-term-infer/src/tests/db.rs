@@ -9,7 +9,7 @@ use husky_expr_syntax::ExprIdx;
 use husky_identifier::{IdentifierDb, IdentifierJar};
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolKind};
 use husky_term::{
-    AskDecl, Decl, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, Ty, TyDecl,
+    AskDecl, Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
 };
 use std::{collections::HashMap, sync::Arc};
 use upcast::Upcast;
@@ -17,7 +17,7 @@ use upcast::Upcast;
 #[salsa::db(TermJar, TermInferJar, EntityPathJar, IdentifierJar)]
 pub(crate) struct TermInferTestsDb {
     storage: salsa::Storage<Self>,
-    entity_tys: HashMap<EntityPath, Ty>,
+    entity_tys: HashMap<EntityPath, Term>,
     decls: HashMap<EntityPath, Arc<Decl>>,
     prelude_symbols: Vec<Symbol>,
 }
@@ -45,7 +45,7 @@ impl TermInferTestsDb {
 }
 
 impl TyInferQueries for TermInferTestsDb {
-    fn infer_entity_ty(&self, entity: EntityPath) -> Ty {
+    fn infer_entity_ty(&self, entity: EntityPath) -> Term {
         self.entity_tys[&entity]
     }
 }
@@ -58,7 +58,7 @@ impl AskDecl for TermInferTestsDb {
         todo!()
     }
 
-    fn ask_ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl> {
+    fn ask_ty_decl(&self, ty: Term) -> TermResultArc<TyDecl> {
         todo!()
     }
 

@@ -56,13 +56,13 @@ pub enum InstructionVariant {
         stack_idx: VMStackIdx,
         binding: Binding,
         range: TextRange,
-        ty: Ty,
+        ty: Term,
         varname: Identifier,
         explicit: bool,
     },
     PushLiteralValue {
         value: __Register<'static>,
-        ty: Ty,
+        ty: Term,
         explicit: bool,
     },
     WrapInSome {
@@ -71,22 +71,22 @@ pub enum InstructionVariant {
     CallRoutine {
         resolved_linkage: __ResolvedLinkage,
         nargs: u8,
-        output_ty: Ty,
+        output_ty: Term,
         discard: bool,
     },
     CallInterpreted {
         routine_uid: EntityUid,
         nargs: u8,
-        output_ty: Ty,
+        output_ty: Term,
         discard: bool,
     },
     VirtualStructField {
         field_idx: u8,
         field_binding: Binding,
-        field_ty: Ty,
+        field_ty: Term,
     },
     NewVirtualStruct {
-        ty: Ty,
+        ty: Term,
         fields: Vec<Identifier>,
     },
     Loop {
@@ -94,7 +94,7 @@ pub enum InstructionVariant {
         loop_kind: VMLoopKind,
     },
     Return {
-        output_ty: Ty,
+        output_ty: Term,
     },
     BreakIfFalse,
     Break,
@@ -108,11 +108,11 @@ pub enum InstructionVariant {
     },
     EntityFeature {
         feature_uid: EntityUid,
-        ty: Ty,
+        ty: Term,
     },
     PushEntityFp {
         opt_linkage: Option<__Linkage>,
-        ty: Ty,
+        ty: Term,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
 }

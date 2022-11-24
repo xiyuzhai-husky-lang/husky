@@ -8,9 +8,9 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct TermCurry {
     curry_variant: TermCurryVariant,
-    x: Ty,
-    y: Ty,
-    // ty: Ty,
+    x: Term,
+    y: Term,
+    // ty: Term,
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
@@ -46,26 +46,26 @@ impl TermCurry {
         &self.curry_variant
     }
 
-    pub fn x(&self) -> Ty {
+    pub fn x(&self) -> Term {
         self.x
     }
 
-    pub fn y(&self) -> Ty {
+    pub fn y(&self) -> Term {
         self.y
     }
 }
 
 impl<'a> TermContext<'a> {
-    pub(crate) fn curry(&self, curry_kind: TermCurryVariant, x: Ty, y: Ty) -> TermResult<Ty> {
+    pub(crate) fn curry(&self, curry_kind: TermCurryVariant, x: Term, y: Term) -> TermResult<Term> {
         todo!()
         // TODO: check type
-        // Ty::new(
+        // Term::new(
         //     self.it_term(
         //         TermCurry {
         //             curry_variant: curry_kind,
         //             x,
         //             y,
-        //             // ty: Ty::new(self.sort(x.universe().max(y.universe())))?,
+        //             // ty: Term::new(self.sort(x.universe().max(y.universe())))?,
         //         }
         //         .into(),
         //     ),

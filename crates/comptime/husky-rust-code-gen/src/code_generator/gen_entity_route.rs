@@ -3,7 +3,7 @@ use husky_term::*;
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_entity_route(&mut self, _entity_route: Ty, _role: EntityRouteRole) {
+    pub(super) fn gen_entity_route(&mut self, _entity_route: Term, _role: EntityRouteRole) {
         todo!()
         // if let Some(_) = self
         //     .entity_route_uses

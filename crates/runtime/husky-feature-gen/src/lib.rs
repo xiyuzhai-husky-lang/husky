@@ -29,7 +29,7 @@
 // use husky_identifier::{IdentPairMap, Identifier};
 // use husky_opn_syntax::*;
 // use husky_print_utils::*;
-// use husky_term::Ty;
+// use husky_term::Term;
 // use husky_text::*;
 // use husky_vm::EntityUid;
 // use std::sync::Arc;
@@ -46,7 +46,7 @@
 // pub enum Feature {
 //     Input, // ad hoc: needs to include task config
 //     PrimitiveLiteral(PrimitiveValueData),
-//     EnumLiteral(Ty),
+//     EnumLiteral(Term),
 //     Assert {
 //         condition: FeatureItd,
 //     },
@@ -69,7 +69,7 @@
 //         ropd: FeatureItd,
 //     },
 //     FunctionCall {
-//         func: Ty,
+//         func: Term,
 //         uid: EntityUid,
 //         inputs: Vec<FeatureItd>,
 //     },
@@ -100,7 +100,7 @@
 //         uid: EntityUid,
 //     },
 //     RecordTypeCall {
-//         ty: Ty,
+//         ty: Term,
 //         uid: EntityUid,
 //         opds: Vec<FeatureItd>,
 //     },

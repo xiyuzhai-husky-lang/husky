@@ -3,7 +3,7 @@ use std::sync::Arc;
 use crate::*;
 
 impl TermMenu {
-    pub fn primitive_ty_decls(&self) -> impl Iterator<Item = (Ty, Arc<TyDecl>)> {
+    pub fn primitive_ty_decls(&self) -> impl Iterator<Item = (Term, Arc<TyDecl>)> {
         use TyFamily::*;
         [
             (self.unit(), Arc::new(TyDecl::new(Physical))),

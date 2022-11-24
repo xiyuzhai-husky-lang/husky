@@ -7,7 +7,7 @@ pub struct TermAbstraction {
 }
 
 impl TermAbstraction {
-    pub fn ty(&self) -> Ty {
+    pub fn ty(&self) -> Term {
         todo!()
     }
 

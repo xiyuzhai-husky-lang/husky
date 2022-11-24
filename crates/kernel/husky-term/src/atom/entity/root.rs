@@ -14,7 +14,7 @@ impl TermData {
         // Self::root_builtin_entity(db, Core, menu2.module())
     }
 
-    pub(crate) fn root_builtin_entity(db: &dyn TermDb, ident: Identifier, _ty: Ty) -> Term {
+    pub(crate) fn root_builtin_entity(db: &dyn TermDb, ident: Identifier, _ty: Term) -> Term {
         todo!()
         // db.it_term(
         //     TermAtom::Entity {

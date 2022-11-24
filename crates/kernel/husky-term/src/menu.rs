@@ -29,13 +29,13 @@ impl std::ops::Deref for TermMenu {
 }
 
 impl TermMenu {
-    pub(crate) fn new(db: &dyn TermDb) -> Arc<TermMenu> {
+    pub(crate) fn new(db: &dyn TermDb) -> TermMenu {
         let menu0 = TermMenu0::new(db);
         let menu1 = TermMenu1::new(db, menu0);
         let menu2 = TermMenu2::new(db, menu1);
         let menu3 = TermMenu3::new(db, menu2);
         let menu4 = TermMenu4::new(db, menu3);
         let menu5 = TermMenu5::new(db, menu4);
-        Arc::new(TermMenu { parent: menu5 })
+        TermMenu { parent: menu5 }
     }
 }

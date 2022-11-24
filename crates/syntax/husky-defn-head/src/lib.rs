@@ -6,15 +6,15 @@ pub use spatial::*;
 use thin_vec::thin_vec;
 
 use husky_identifier::Identifier;
-use husky_term::Ty;
+use husky_term::Term;
 use husky_text::{RangedIdentifier, TextRange};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Parameter {
     ranged_ident: RangedIdentifier,
     // ranged_liason: RangedParameterLiason,
-    // ranged_book_ty: Ty,
-    ty: Ty,
+    // ranged_book_ty: Term,
+    ty: Term,
 }
 
 impl Parameter {
@@ -22,7 +22,7 @@ impl Parameter {
         db: &dyn EntityTreeDb,
         ranged_ident: RangedIdentifier,
         // ranged_liason: RangedParameterLiason,
-        // ranged_raw_ty: Ty,
+        // ranged_raw_ty: Term,
     ) -> Self {
         todo!()
         // let ty = Self::synthesize_ty(db, ranged_liason.liason, ranged_raw_ty.route);
@@ -35,7 +35,7 @@ impl Parameter {
         // }
     }
 
-    // fn synthesize_ty(db: &dyn EntityTreeDb, liason: ParameterModifier, raw_ty: Ty) -> Ty {
+    // fn synthesize_ty(db: &dyn EntityTreeDb, liason: ParameterModifier, raw_ty: Term) -> Term {
     //     todo!()
     //     // match liason {
     //     //     ParameterModifier::None => raw_ty,
@@ -66,7 +66,7 @@ impl Parameter {
         self.ranged_ident.ident
     }
 
-    pub fn raw_ty(&self) -> Ty {
+    pub fn raw_ty(&self) -> Term {
         todo!()
         // self.ranged_book_ty.route
     }
@@ -76,7 +76,7 @@ impl Parameter {
         // self.ranged_book_ty.range
     }
 
-    pub fn ty(&self) -> Ty {
+    pub fn ty(&self) -> Term {
         self.ty
     }
 
@@ -84,7 +84,7 @@ impl Parameter {
         db: &dyn EntityTreeDb,
         ranged_ident: RangedIdentifier,
         // modifier: MemberModifier,
-        member_ty: Ty,
+        member_ty: Term,
     ) -> Self {
         todo!()
         // should!(ranged_ident
@@ -101,7 +101,7 @@ impl Parameter {
         //         liason: ParameterModifier::from_field(modifier),
         //         opt_range: None,
         //     },
-        //     Ty {
+        //     Term {
         //         route: member_ty,
         //         range: Default::default(),
         //     },

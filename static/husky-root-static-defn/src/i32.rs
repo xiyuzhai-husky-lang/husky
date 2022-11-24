@@ -5,7 +5,7 @@ use super::*;
 pub static I32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "i32",
     items: &[],
-    variant: EntityStaticDefnVariant::Ty {
+    variant: EntityStaticDefnVariant::Term {
         base_route: "i32",
         spatial_parameters: &[],
         trait_impls: &[],

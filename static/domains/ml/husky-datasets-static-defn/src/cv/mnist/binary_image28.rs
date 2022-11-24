@@ -7,7 +7,7 @@ pub static BINARY_IMAGE_28_ROUTE: &'static str = "domains::ml::datasets::cv::mni
 pub static BINARY_IMAGE_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryImage28",
     items: &[],
-    variant: EntityStaticDefnVariant::Ty {
+    variant: EntityStaticDefnVariant::Term {
         base_route: BINARY_IMAGE_28_ROUTE,
         spatial_parameters: &[],
         trait_impls: &[

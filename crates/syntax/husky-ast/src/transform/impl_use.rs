@@ -77,7 +77,7 @@ impl<'a> AstTransformer<'a> {
         }
     }
 
-    pub(super) fn use_all(&mut self, parent: Ty, range: TextRange) -> AstResult<()> {
+    pub(super) fn use_all(&mut self, parent: Term, range: TextRange) -> AstResult<()> {
         self.symbols.extend(
             self.db
                 .subroute_table(parent)

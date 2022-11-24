@@ -1,12 +1,12 @@
 use fold::Indent;
 use husky_eager_semantics::{FuncStmt, ProcStmt};
 use husky_entity_semantics::DefinitionRepr;
-use husky_term::Ty;
+use husky_term::Term;
 
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_feature_defn(&mut self, feature_route: Ty, defn_repr: &DefinitionRepr) {
+    pub(super) fn gen_feature_defn(&mut self, feature_route: Term, defn_repr: &DefinitionRepr) {
         match defn_repr {
             DefinitionRepr::LazyExpr { .. } => (),
             DefinitionRepr::LazyBlock { .. } => (),
@@ -21,8 +21,8 @@ impl<'a> RustCodeGenerator<'a> {
 
     pub(super) fn gen_feature_func_block_defn(
         &mut self,
-        feature_route: Ty,
-        output_ty: Ty,
+        feature_route: Term,
+        output_ty: Term,
         stmts: &[Arc<FuncStmt>],
     ) {
         self.write("pub(crate) fn ");
@@ -61,8 +61,8 @@ impl<'a> RustCodeGenerator<'a> {
 
     pub(super) fn gen_feature_proc_block_defn(
         &mut self,
-        feature_route: Ty,
-        output_ty: Ty,
+        feature_route: Term,
+        output_ty: Term,
         stmts: &[Arc<ProcStmt>],
     ) {
         self.write("pub(crate) fn ");
@@ -102,9 +102,9 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_proc_defn(
         &mut self,
         _indent: Indent,
-        _base_route: Ty,
+        _base_route: Term,
         _parameters: &[Parameter],
-        _output: Ty,
+        _output: Term,
         _stmts: &[Arc<ProcStmt>],
     ) {
         todo!()
@@ -162,9 +162,9 @@ impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_func_defn(
         &mut self,
         indent: Indent,
-        base_route: Ty,
+        base_route: Term,
         parameters: &[Parameter],
-        output: Ty,
+        output: Term,
         stmts: &[Arc<FuncStmt>],
     ) {
         let needs_eval_context: bool = self.db.needs_eval_context(base_route);

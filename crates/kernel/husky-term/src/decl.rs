@@ -3,14 +3,14 @@ use husky_identifier::IdentPairMap;
 
 pub trait AskDecl {
     fn ask_namespace_decl(&self, namespace: TermNamespace) -> TermResultArc<NamespaceDecl>;
-    fn ask_ty_decl(&self, ty: Ty) -> TermResultArc<TyDecl>;
+    fn ask_ty_decl(&self, ty: Term) -> TermResultArc<TyDecl>;
     fn ask_decl(&self, entity_path: EntityPath) -> TermResultArc<Decl>;
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum Decl {
     Module,
-    Ty(TyDecl),
+    Term(TyDecl),
 }
 
 #[derive(Debug, PartialEq, Eq)]

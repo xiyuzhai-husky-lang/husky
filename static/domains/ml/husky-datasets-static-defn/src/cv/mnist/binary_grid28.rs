@@ -10,7 +10,7 @@ pub static BINARY_GRID_28_BASE_ROUTE: &'static str =
 pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryGrid28",
     items: &[],
-    variant: EntityStaticDefnVariant::Ty {
+    variant: EntityStaticDefnVariant::Term {
         base_route: BINARY_GRID_28_BASE_ROUTE,
         spatial_parameters: &[],
         trait_impls: &[StaticTraitImplDefn {

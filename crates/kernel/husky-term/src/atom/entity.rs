@@ -6,11 +6,11 @@ pub use namespace::*;
 // #[derive(Debug, PartialEq, Eq, Hash)]
 // pub struct TermEntity {
 //     path: EntityPath,
-//     ty: Ty,
+//     ty: Term,
 // }
 
 // impl TermEntity {
-//     pub fn ty(&self) -> Ty {
+//     pub fn ty(&self) -> Term {
 //         self.ty
 //     }
 

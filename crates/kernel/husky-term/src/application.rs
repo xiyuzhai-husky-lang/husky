@@ -13,7 +13,7 @@ impl Into<TermData> for TermApplication {
 }
 
 impl TermApplication {
-    pub fn ty_itd(&self) -> Option<Ty> {
+    pub fn ty_itd(&self) -> Option<Term> {
         // TODO: delete this
         None
     }
