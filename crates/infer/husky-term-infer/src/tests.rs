@@ -10,7 +10,7 @@ use husky_token::*;
 
 #[test]
 fn test_decl() {
-    expect_test_husky_to_rust("decl", &debug_decl);
+    // expect_test_husky_to_rust("decl", &debug_decl);
 
     fn debug_decl(text: &str) -> String {
         let db = TermInferTestsDb::new();

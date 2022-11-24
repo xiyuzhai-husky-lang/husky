@@ -14,9 +14,11 @@ output
 [
     Token {
         range: [1:1, 1:4),
-        kind: Keyword(
-            Paradigm(
-                LazyFunctional,
+        kind: Identifier(
+            Identifier(
+                Id {
+                    value: 1,
+                },
             ),
         ),
     },
@@ -37,9 +39,11 @@ output
 [
     Token {
         range: [1:1, 1:5),
-        kind: Keyword(
-            Paradigm(
-                EagerFunctional,
+        kind: Identifier(
+            Identifier(
+                Id {
+                    value: 1,
+                },
             ),
         ),
     },
@@ -60,9 +64,11 @@ output
 [
     Token {
         range: [1:1, 1:5),
-        kind: Keyword(
-            Paradigm(
-                EagerProcedural,
+        kind: Identifier(
+            Identifier(
+                Id {
+                    value: 1,
+                },
             ),
         ),
     },

@@ -26,16 +26,25 @@ impl<T> Tokenize for T where T: IdentifierDb {}
 #[cfg(test)]
 mod tests {
 
+    #[salsa::db(IdentifierJar)]
+    #[derive(Default)]
+    struct MimicDB {
+        storage: Storage<Self>,
+    }
+
+    impl Database for MimicDB {}
+
     use crate::*;
     use husky_expect_test_utils::*;
+    use husky_identifier::IdentifierJar;
+    use salsa::{Database, Storage};
 
     #[test]
-    fn it_works() {
+    fn tokenize_works() {
         expect_test_husky_to_rust("", &tokenize_debug);
 
         fn tokenize_debug(text: &str) -> String {
-            todo!()
-            // format!("{:#?}", dyn IdentifierDb::default().tokenize_line(text))
+            format!("{:#?}", MimicDB::default().tokenize_line(text))
         }
     }
 }
