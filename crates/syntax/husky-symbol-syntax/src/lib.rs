@@ -1,7 +1,11 @@
 mod context;
+mod db;
+mod jar;
 mod sheet;
 
 pub use context::SymbolContext;
+pub use db::SymbolDb;
+pub use jar::SymbolJar;
 pub use sheet::SymbolSheet;
 
 use husky_entity_path::EntityPath;

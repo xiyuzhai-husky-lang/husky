@@ -1,0 +1,5 @@
+type bool
+
+structure Trait
+
+structure Module
