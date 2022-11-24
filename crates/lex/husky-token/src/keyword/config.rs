@@ -14,7 +14,7 @@ impl const Into<Keyword> for ConfigKeyword {
 }
 
 impl ConfigKeyword {
-    pub fn as_str(&self) -> &'static str {
+    pub const fn as_str(&self) -> &'static str {
         match self {
             ConfigKeyword::Task => "task",
         }
