@@ -1,5 +1,8 @@
+mod special;
 #[cfg(test)]
 mod tests;
+
+pub use special::*;
 
 use husky_print_utils::p;
 use husky_text_span::TextSpan;
@@ -11,28 +14,20 @@ use std::{borrow::Cow, sync::Arc};
 
 type StringValue = Arc<String>;
 
+/// tokens in toml file
 #[derive(Eq, PartialEq, Debug)]
 pub struct TomlToken {
     span: TextSpan,
     variant: TomlTokenVariant,
 }
 
-#[derive(Eq, PartialEq, Debug)]
+/// variants for tokens in toml file
+#[derive(Debug, Eq, PartialEq, Clone)]
 pub enum TomlTokenVariant {
     Whitespace,
     Newline,
     Comment,
-
-    Equals,
-    Period,
-    Comma,
-    Colon,
-    Plus,
-    LeftBrace,
-    RightBrace,
-    LeftBracket,
-    RightBracket,
-
+    Special(TomlSpecialToken),
     Keylike(Word),
     StringLiteral { val: StringValue, multiline: bool },
 }
@@ -93,15 +88,15 @@ impl<'a> Tokenizer<'a> {
             Some((start, ' ')) => (start, self.whitespace_token(start)),
             Some((start, '\t')) => (start, self.whitespace_token(start)),
             Some((start, '#')) => (start, self.comment_token(start)),
-            Some((start, '=')) => (start, TomlTokenVariant::Equals),
-            Some((start, '.')) => (start, TomlTokenVariant::Period),
-            Some((start, ',')) => (start, TomlTokenVariant::Comma),
-            Some((start, ':')) => (start, TomlTokenVariant::Colon),
-            Some((start, '+')) => (start, TomlTokenVariant::Plus),
-            Some((start, '{')) => (start, TomlTokenVariant::LeftBrace),
-            Some((start, '}')) => (start, TomlTokenVariant::RightBrace),
-            Some((start, '[')) => (start, TomlTokenVariant::LeftBracket),
-            Some((start, ']')) => (start, TomlTokenVariant::RightBracket),
+            Some((start, '=')) => (start, TomlSpecialToken::Equals.into()),
+            Some((start, '.')) => (start, TomlSpecialToken::Period.into()),
+            Some((start, ',')) => (start, TomlSpecialToken::Comma.into()),
+            Some((start, ':')) => (start, TomlSpecialToken::Colon.into()),
+            Some((start, '+')) => (start, TomlSpecialToken::Plus.into()),
+            Some((start, '{')) => (start, TomlSpecialToken::LeftCurly.into()),
+            Some((start, '}')) => (start, TomlSpecialToken::RightCurly.into()),
+            Some((start, '[')) => (start, TomlSpecialToken::LeftBox.into()),
+            Some((start, ']')) => (start, TomlSpecialToken::RightBox.into()),
             Some((start, '\'')) => {
                 return self.parse_literal_string(start).map(|variant| {
                     Some(TomlToken {
@@ -541,16 +536,10 @@ impl TomlTokenVariant {
     pub fn describe(&self) -> &'static str {
         match *self {
             TomlTokenVariant::Keylike(_) => "an keylike",
-            TomlTokenVariant::Equals => "an equals",
-            TomlTokenVariant::Period => "a period",
             TomlTokenVariant::Comment => "a comment",
             TomlTokenVariant::Newline => "a newline",
+            TomlTokenVariant::Special(special) => special.describe(),
             TomlTokenVariant::Whitespace => "whitespace",
-            TomlTokenVariant::Comma => "a comma",
-            TomlTokenVariant::RightBrace => "a right brace",
-            TomlTokenVariant::LeftBrace => "a left brace",
-            TomlTokenVariant::RightBracket => "a right bracket",
-            TomlTokenVariant::LeftBracket => "a left bracket",
             TomlTokenVariant::StringLiteral { multiline, .. } => {
                 if multiline {
                     "a multiline string"
@@ -558,8 +547,22 @@ impl TomlTokenVariant {
                     "a string"
                 }
             }
-            TomlTokenVariant::Colon => "a colon",
-            TomlTokenVariant::Plus => "a plus",
+        }
+    }
+}
+
+impl TomlSpecialToken {
+    pub fn describe(self) -> &'static str {
+        match self {
+            TomlSpecialToken::Equals => "an equals",
+            TomlSpecialToken::Period => "a period",
+            TomlSpecialToken::Comma => "a comma",
+            TomlSpecialToken::RightCurly => "a right brace",
+            TomlSpecialToken::LeftCurly => "a left brace",
+            TomlSpecialToken::RightBox => "a right bracket",
+            TomlSpecialToken::LeftBox => "a left bracket",
+            TomlSpecialToken::Colon => "a colon",
+            TomlSpecialToken::Plus => "a plus",
         }
     }
 }
