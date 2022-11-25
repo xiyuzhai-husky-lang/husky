@@ -1,6 +1,6 @@
 use ordered_float::OrderedFloat;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum RawLiteralData {
     Unit,
     Integer(i64),

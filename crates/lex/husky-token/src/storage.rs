@@ -2,7 +2,17 @@ use crate::Token;
 pub struct TokenStorage(Vec<Token>);
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct TokenGroup(pub std::ops::Range<usize>);
+pub struct TokenGroup(std::ops::Range<usize>);
+
+impl TokenGroup {
+    pub fn new(range: std::ops::Range<usize>) -> Self {
+        Self(range)
+    }
+
+    pub fn first(&self, storage: &TokenStorage) -> &Token {
+        todo!()
+    }
+}
 
 impl std::ops::Index<TokenGroup> for TokenStorage {
     type Output = [Token];

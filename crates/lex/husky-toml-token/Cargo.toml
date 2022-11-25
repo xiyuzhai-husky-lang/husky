@@ -15,3 +15,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 salsa = { path = "../../abstraction/salsa" }
+
+[features]
+storage = []

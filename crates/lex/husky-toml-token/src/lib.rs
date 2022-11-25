@@ -1,4 +1,6 @@
 mod special;
+#[cfg(feature = "storage")]
+mod storage;
 #[cfg(test)]
 mod tests;
 
