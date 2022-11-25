@@ -1,10 +1,10 @@
-// use husky_identifier::{IdentifierDb, dyn IdentifierDb};
+// use husky_identifier::{WordDb, dyn WordDb};
 
 // use crate::*;
 
 // pub struct SymbolTestsDb {
 //     storage: salsa::Storage<Self>,
-//     word_itr: dyn IdentifierDb,
+//     word_itr: dyn WordDb,
 // }
 
 // impl salsa::Database for SymbolTestsDb {}
@@ -14,7 +14,7 @@
 // impl SymbolTestsDb {
 //     pub fn new() -> Self {
 //         Self {
-//             word_itr: dyn IdentifierDb::default(),
+//             word_itr: dyn WordDb::default(),
 //             storage: Default::default(),
 //         }
 //     }
@@ -26,8 +26,8 @@
 //     }
 // }
 
-// impl IdentifierDb for SymbolTestsDb {
-//     fn word_itr(&self) -> &dyn IdentifierDb {
+// impl WordDb for SymbolTestsDb {
+//     fn word_itr(&self) -> &dyn WordDb {
 //         &self.word_itr
 //     }
 // }

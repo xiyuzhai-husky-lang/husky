@@ -14,3 +14,6 @@ salsa = { path = "../../abstraction/salsa" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
+
+[dev-dependencies]
+husky-word = { path = "../../kernel/husky-word" }

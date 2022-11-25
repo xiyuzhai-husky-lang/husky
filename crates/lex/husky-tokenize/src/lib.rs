@@ -26,7 +26,7 @@ impl<T> Tokenize for T where T: IdentifierDb {}
 #[cfg(test)]
 mod tests {
 
-    #[salsa::db(IdentifierJar)]
+    #[salsa::db(WordJar)]
     #[derive(Default)]
     struct MimicDB {
         storage: Storage<Self>,
@@ -36,7 +36,7 @@ mod tests {
 
     use crate::*;
     use husky_expect_test_utils::*;
-    use husky_identifier::IdentifierJar;
+    use husky_word::WordJar;
     use salsa::{Database, Storage};
 
     #[test]

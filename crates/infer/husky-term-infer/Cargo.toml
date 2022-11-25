@@ -38,3 +38,4 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 husky-text = { path = "../../lex/husky-text" }
+husky-word = { path = "../../kernel/husky-word" }

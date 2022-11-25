@@ -3,11 +3,12 @@ mod tests;
 
 use self::Token::*;
 use husky_text_span::TextSpan;
-use std::borrow::Cow;
+use husky_word::{Word, WordDb};
 use std::char;
 use std::str;
 use std::string;
 use std::string::String as StdString;
+use std::{borrow::Cow, sync::Arc};
 
 #[derive(Eq, PartialEq, Debug)]
 pub enum Token<'a> {
@@ -25,10 +26,10 @@ pub enum Token<'a> {
     LeftBracket,
     RightBracket,
 
-    Keylike(&'a str),
+    Keylike(Word),
     String {
         src: &'a str,
-        val: Cow<'a, str>,
+        val: Arc<StdString>,
         multiline: bool,
     },
 }
@@ -53,6 +54,7 @@ pub enum Error {
 
 #[derive(Clone)]
 pub struct Tokenizer<'a> {
+    db: &'a dyn WordDb,
     input: &'a str,
     chars: CrlfFold<'a>,
 }
@@ -69,8 +71,9 @@ enum MaybeString {
 }
 
 impl<'a> Tokenizer<'a> {
-    pub fn new(input: &'a str) -> Tokenizer<'a> {
+    pub fn new(db: &'a dyn WordDb, input: &'a str) -> Tokenizer<'a> {
         let mut t = Tokenizer {
+            db,
             input,
             chars: CrlfFold {
                 chars: input.char_indices(),
@@ -165,7 +168,7 @@ impl<'a> Tokenizer<'a> {
         }
     }
 
-    pub fn table_key(&mut self) -> Result<(TextSpan, Cow<'a, str>), Error> {
+    pub fn table_key(&mut self) -> Result<(TextSpan, Word), Error> {
         let current = self.current();
         match self.next()? {
             Some((span, Token::Keylike(k))) => Ok((span, k.into())),
@@ -182,7 +185,7 @@ impl<'a> Tokenizer<'a> {
                     return Err(Error::MultilineStringKey(offset));
                 }
                 match src.find('\n') {
-                    None => Ok((span, val)),
+                    None => Ok((span, self.db.it_word_borrowed(&val))),
                     Some(i) => Err(Error::NewlineInTableKey(offset + i)),
                 }
             }
@@ -294,7 +297,7 @@ impl<'a> Tokenizer<'a> {
             } else {
                 return Ok(String {
                     src: &self.input[start..start + 2],
-                    val: Cow::Borrowed(""),
+                    val: Default::default(),
                     multiline: false,
                 });
             }
@@ -439,7 +442,7 @@ impl<'a> Tokenizer<'a> {
             }
             self.one();
         }
-        Keylike(&self.input[start..self.current()])
+        Keylike(self.db.it_word_borrowed(&self.input[start..self.current()]))
     }
 
     pub fn substr_offset(&self, s: &'a str) -> usize {
@@ -505,10 +508,10 @@ impl MaybeString {
         }
     }
 
-    fn into_cow(self, input: &str) -> Cow<'_, str> {
+    fn into_cow(self, input: &str) -> Arc<StdString> {
         match self {
-            MaybeString::NotEscaped(start) => Cow::Borrowed(&input[start..]),
-            MaybeString::Owned(s) => Cow::Owned(s),
+            MaybeString::NotEscaped(start) => Arc::new(input[start..].to_owned()),
+            MaybeString::Owned(s) => Arc::new(s),
         }
     }
 }

@@ -9,11 +9,12 @@ use husky_identifier::IdentifierDb;
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolKind};
 use husky_term::{AskDecl, Decl, Term, TermDb, TermMenu, TermResultArc, TyDecl};
 use husky_token::*;
+use husky_word::WordJar;
 use salsa::Database;
 use std::{collections::HashMap, sync::Arc};
 use upcast::Upcast;
 
-#[salsa::db(TermJar, TermPatternInferJar, EntityPathJar, IdentifierJar)]
+#[salsa::db(TermJar, TermPatternInferJar, EntityPathJar, WordJar)]
 pub struct TermPatternInferFakeDb {
     storage: salsa::Storage<Self>,
     entity_tys: HashMap<EntityPath, Term>,

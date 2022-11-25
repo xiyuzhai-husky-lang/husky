@@ -33,7 +33,7 @@ where
 impl dyn EntityPathDb + '_ {
     pub(crate) fn it_builtin_lib_path(&self, ident: &str) -> EntityPath {
         self.it_entity_path(
-            self.it_ident(ident),
+            self.it_ident_borrowed(ident),
             EntityPathVariant::Crate {
                 package: PackagePathData::Builtin {
                     toolchain: Toolchain::new_ad_hoc(),
@@ -44,7 +44,7 @@ impl dyn EntityPathDb + '_ {
     }
     pub(crate) fn it_child_entity_path(&self, parent: EntityPath, ident: &str) -> EntityPath {
         self.it_entity_path(
-            self.it_ident(ident),
+            self.it_ident_borrowed(ident),
             EntityPathVariant::Childpath { parent },
         )
     }

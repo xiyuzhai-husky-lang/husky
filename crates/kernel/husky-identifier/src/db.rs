@@ -1,24 +1,25 @@
 use crate::*;
+use husky_word::WordDb;
 use salsa::DbWithJar;
 
-pub trait IdentifierDb: DbWithJar<IdentifierJar> {
-    fn identifier(&self, data: String) -> Identifier;
+pub trait IdentifierDb: WordDb {
+    fn it_ident_owned(&self, data: String) -> Identifier;
 
-    fn it_ident(&self, ident: &str) -> Identifier;
+    fn it_ident_borrowed(&self, data: &str) -> Identifier;
 
-    fn dt_ident(&self, ident: Identifier) -> &str;
+    fn dt_ident(&self, data: Identifier) -> &str;
 }
 
 impl<T> IdentifierDb for T
 where
-    T: DbWithJar<IdentifierJar>,
+    T: WordDb,
 {
-    fn identifier(&self, data: String) -> Identifier {
-        Identifier::new(self, data)
+    fn it_ident_owned(&self, data: String) -> Identifier {
+        Identifier::from_owned(self, data)
     }
 
-    fn it_ident(&self, ident: &str) -> Identifier {
-        Identifier::new(self, ident.to_string())
+    fn it_ident_borrowed(&self, data: &str) -> Identifier {
+        Identifier::from_ref(self, data)
     }
 
     fn dt_ident(&self, ident: Identifier) -> &str {

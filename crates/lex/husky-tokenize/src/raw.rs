@@ -282,7 +282,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
         if let Some(token_kind) = new_reserved_word(&word) {
             token_kind
         } else {
-            TokenKind::Identifier(self.db.identifier(word))
+            TokenKind::Identifier(self.db.it_ident_owned(word))
         }
     }
 
