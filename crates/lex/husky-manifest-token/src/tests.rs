@@ -24,9 +24,9 @@ fn err(input: &str, err: Error) {
 fn literal_strings() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
         let mut t = Tokenizer::new(db, input);
-        let (_, token) = t.next().unwrap().unwrap();
+        let token = t.next().unwrap().unwrap();
         assert_eq!(
-            token,
+            token.variant,
             TokenVariant::StringLiteral {
                 src: input,
                 val: Arc::new(val.to_owned()),
@@ -51,9 +51,9 @@ fn literal_strings() {
 fn basic_strings() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
         let mut t = Tokenizer::new(db, input);
-        let (_, token) = t.next().unwrap().unwrap();
+        let token = t.next().unwrap().unwrap();
         assert_eq!(
-            token,
+            token.variant,
             TokenVariant::StringLiteral {
                 src: input,
                 val: Arc::new(val.to_owned()),
@@ -105,8 +105,11 @@ fn basic_strings() {
 fn keylike() {
     fn t(db: &dyn WordDb, input: &str) {
         let mut t = Tokenizer::new(db, input);
-        let (_, token) = t.next().unwrap().unwrap();
-        assert_eq!(token, TokenVariant::Keylike(db.it_word_borrowed(input)));
+        let token = t.next().unwrap().unwrap();
+        assert_eq!(
+            token.variant,
+            TokenVariant::Keylike(db.it_word_borrowed(input))
+        );
         assert!(t.next().unwrap().is_none());
     }
 
@@ -126,8 +129,12 @@ fn all() {
     fn t(db: &dyn WordDb, input: &str, expected: &[((usize, usize), TokenVariant<'_>, &str)]) {
         let mut tokens = Tokenizer::new(db, input);
         let mut actual: Vec<((usize, usize), TokenVariant<'_>, &str)> = Vec::new();
-        while let Some((span, token)) = tokens.next().unwrap() {
-            actual.push((span.into(), token, &input[span.start..span.end]));
+        while let Some(token) = tokens.next().unwrap() {
+            actual.push((
+                token.span.into(),
+                token.variant,
+                &input[token.span.start..token.span.end],
+            ));
         }
         for (a, b) in actual.iter().zip(expected) {
             assert_eq!(a, b);
