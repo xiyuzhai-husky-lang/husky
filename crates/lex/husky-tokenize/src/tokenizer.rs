@@ -3,8 +3,6 @@ use husky_dev_utils::dev_src;
 use husky_opn_syntax::*;
 use husky_text::TextIndent;
 use husky_token::*;
-use husky_token_line::TokenLine;
-use husky_token_storage::TokenIdxRange;
 use std::{iter::Peekable, sync::Arc};
 
 pub(crate) struct Tokenizer<'lex> {
@@ -132,110 +130,110 @@ impl<'token> Tokenizer<'token> {
         &self.tokens[line.tokens.start]
     }
 
-    fn produce_line_groups(&mut self) -> Vec<TokenLine> {
-        todo!()
-        // let mut line_groups = Vec::new();
-        // line_groups.reserve_exact(self.tokenized_lines.len());
-        // let mut line_iter = self
-        //     .tokenized_lines
-        //     .iter()
-        //     .filter(|line| line.tokens.len() > 0)
-        //     .peekable();
-        // while let Some(first_line) = line_iter.next() {
-        //     line_groups.push(
-        //         unsafe { ref_to_mut_ref(self) }.produce_line_group(first_line, &mut line_iter),
-        //     );
-        // }
-        // line_groups
-    }
+    // fn produce_line_groups(&mut self) -> Vec<TokenLine> {
+    //     todo!()
+    //     // let mut line_groups = Vec::new();
+    //     // line_groups.reserve_exact(self.tokenized_lines.len());
+    //     // let mut line_iter = self
+    //     //     .tokenized_lines
+    //     //     .iter()
+    //     //     .filter(|line| line.tokens.len() > 0)
+    //     //     .peekable();
+    //     // while let Some(first_line) = line_iter.next() {
+    //     //     line_groups.push(
+    //     //         unsafe { ref_to_mut_ref(self) }.produce_line_group(first_line, &mut line_iter),
+    //     //     );
+    //     // }
+    //     // line_groups
+    // }
 
-    fn produce_line_group<'a>(
-        &mut self,
-        first_line: &TokenizedLine,
-        line_iter: &mut Peekable<impl Iterator<Item = &'a TokenizedLine>>,
-    ) -> TokenLine {
-        let group_indent = first_line.indent;
-        TokenLine {
-            indent: group_indent,
-            tokens: TokenIdxRange(
-                first_line.tokens.start..{
-                    if self.last_token(first_line).kind == TokenKind::Special(SpecialToken::Colon) {
-                        if let Some(line) = line_iter.peek() {
-                            match line.indent.within(group_indent) {
-                                Ok(is_within) => {
-                                    if !is_within {
-                                        self.errors.push(LexError {
-                                            message: format!("expect indentated lines after `:`"),
-                                            range: self.last_token(first_line).range,
-                                            dev_src: dev_src!(),
-                                        });
-                                    }
-                                }
-                                Err(e) => self.errors.push(LexError {
-                                    message: format!("{:?}", e),
-                                    range: self.last_token(first_line).range,
-                                    dev_src: dev_src!(),
-                                }),
-                            }
-                        } else {
-                            self.errors.push(LexError {
-                                message: format!("expect indentated lines after `:`"),
-                                range: self.last_token(first_line).range,
-                                dev_src: dev_src!(),
-                            })
-                        }
-                        first_line.tokens.end
-                    } else {
-                        loop {
-                            if let Some(line) = line_iter.peek().map(|e| *e) {
-                                match line.indent.within(group_indent) {
-                                    Ok(is_within) => {
-                                        if is_within {
-                                            line_iter.next();
-                                            if self.last_token(line).kind
-                                                == TokenKind::Special(SpecialToken::Colon)
-                                            {
-                                                break line.tokens.end;
-                                            }
-                                        } else {
-                                            fn bind_to_last_line(kind: TokenKind) -> bool {
-                                                match kind {
-                                                    TokenKind::Special(special) => match special {
-                                                        SpecialToken::Ket(_) => true,
-                                                        _ => false,
-                                                    },
-                                                    _ => false,
-                                                }
-                                            }
+    // fn produce_line_group<'a>(
+    //     &mut self,
+    //     first_line: &TokenizedLine,
+    //     line_iter: &mut Peekable<impl Iterator<Item = &'a TokenizedLine>>,
+    // ) -> TokenLine {
+    //     let group_indent = first_line.indent;
+    //     TokenLine {
+    //         indent: group_indent,
+    //         tokens: TokenIdxRange(
+    //             first_line.tokens.start..{
+    //                 if self.last_token(first_line).kind == TokenKind::Special(SpecialToken::Colon) {
+    //                     if let Some(line) = line_iter.peek() {
+    //                         match line.indent.within(group_indent) {
+    //                             Ok(is_within) => {
+    //                                 if !is_within {
+    //                                     self.errors.push(LexError {
+    //                                         message: format!("expect indentated lines after `:`"),
+    //                                         range: self.last_token(first_line).range,
+    //                                         dev_src: dev_src!(),
+    //                                     });
+    //                                 }
+    //                             }
+    //                             Err(e) => self.errors.push(LexError {
+    //                                 message: format!("{:?}", e),
+    //                                 range: self.last_token(first_line).range,
+    //                                 dev_src: dev_src!(),
+    //                             }),
+    //                         }
+    //                     } else {
+    //                         self.errors.push(LexError {
+    //                             message: format!("expect indentated lines after `:`"),
+    //                             range: self.last_token(first_line).range,
+    //                             dev_src: dev_src!(),
+    //                         })
+    //                     }
+    //                     first_line.tokens.end
+    //                 } else {
+    //                     loop {
+    //                         if let Some(line) = line_iter.peek().map(|e| *e) {
+    //                             match line.indent.within(group_indent) {
+    //                                 Ok(is_within) => {
+    //                                     if is_within {
+    //                                         line_iter.next();
+    //                                         if self.last_token(line).kind
+    //                                             == TokenKind::Special(SpecialToken::Colon)
+    //                                         {
+    //                                             break line.tokens.end;
+    //                                         }
+    //                                     } else {
+    //                                         fn bind_to_last_line(kind: TokenKind) -> bool {
+    //                                             match kind {
+    //                                                 TokenKind::Special(special) => match special {
+    //                                                     SpecialToken::Ket(_) => true,
+    //                                                     _ => false,
+    //                                                 },
+    //                                                 _ => false,
+    //                                             }
+    //                                         }
 
-                                            if bind_to_last_line(
-                                                self.first_token(line).kind.clone(),
-                                            ) {
-                                                line_iter.next();
-                                                break line.tokens.end;
-                                            } else {
-                                                break line.tokens.start;
-                                            }
-                                        }
-                                    }
-                                    Err(e) => {
-                                        self.errors.push(LexError {
-                                            message: format!("{:?}", e),
-                                            range: self.last_token(first_line).range,
-                                            dev_src: dev_src!(),
-                                        });
-                                        line_iter.next();
-                                    }
-                                }
-                            } else {
-                                break self.tokens.len();
-                            }
-                        }
-                    }
-                },
-            ),
-        }
-    }
+    //                                         if bind_to_last_line(
+    //                                             self.first_token(line).kind.clone(),
+    //                                         ) {
+    //                                             line_iter.next();
+    //                                             break line.tokens.end;
+    //                                         } else {
+    //                                             break line.tokens.start;
+    //                                         }
+    //                                     }
+    //                                 }
+    //                                 Err(e) => {
+    //                                     self.errors.push(LexError {
+    //                                         message: format!("{:?}", e),
+    //                                         range: self.last_token(first_line).range,
+    //                                         dev_src: dev_src!(),
+    //                                     });
+    //                                     line_iter.next();
+    //                                 }
+    //                             }
+    //                         } else {
+    //                             break self.tokens.len();
+    //                         }
+    //                     }
+    //                 }
+    //             },
+    //         ),
+    //     }
+    // }
 }
 
 impl<'lex> std::fmt::Debug for Tokenizer<'lex> {

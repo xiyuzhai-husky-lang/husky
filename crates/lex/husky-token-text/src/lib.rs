@@ -1,12 +1,11 @@
 mod query;
 
 use husky_identifier::IdentifierDb;
-use husky_token_storage::TokenIdxRange;
 pub use query::*;
 
 use fold::{FoldableList, FoldingEnd};
 use husky_text::TextIndent;
-use husky_token::Token;
+use husky_token::{Token, TokenIdxRange};
 use husky_tokenize::LexError;
 use lsp_types::FoldingRange;
 use std::fmt::Write;
