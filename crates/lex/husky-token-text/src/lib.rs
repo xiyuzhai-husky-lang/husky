@@ -5,7 +5,7 @@ pub use query::*;
 
 use fold::{FoldableList, FoldingEnd};
 use husky_text::TextIndent;
-use husky_token::{Token, TokenIdxRange};
+use husky_token::{Token, TokenGroup};
 use husky_tokenize::LexError;
 use lsp_types::FoldingRange;
 use std::fmt::Write;
@@ -20,7 +20,7 @@ use std::sync::Arc;
 pub struct TokenizedText {
     pub tokens: Vec<Token>,
     pub errors: Vec<LexError>,
-    pub token_groups: FoldableList<TokenIdxRange>,
+    pub token_groups: FoldableList<TokenGroup>,
 }
 
 impl TokenizedText {
@@ -111,22 +111,6 @@ impl fold::FoldableStorage for TokenizedText {
 
     fn indent(&self, index: usize) -> fold::Indent {
         self.token_groups.indent(index)
-    }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct TokenGroup {
-    pub indent: TextIndent,
-    pub tokens: TokenIdxRange,
-}
-
-impl fold::ItemToFold<TokenIdxRange> for TokenGroup {
-    fn value(&self) -> TokenIdxRange {
-        self.tokens.clone()
-    }
-
-    fn indent(&self) -> fold::Indent {
-        self.indent.raw
     }
 }
 

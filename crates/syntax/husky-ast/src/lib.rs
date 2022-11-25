@@ -13,7 +13,7 @@ pub use context::*;
 pub use db::{AstDb, AstText};
 pub use entrance::*;
 pub use field::*;
-use husky_token::TokenIdxRange;
+use husky_token::TokenGroup;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 pub use stmt::*;
 pub use transform::*;
@@ -48,7 +48,7 @@ pub struct DeprecatedAst {
 }
 
 pub struct Ast {
-    tokens: TokenIdxRange,
+    tokens: TokenGroup,
     kind: AstKind,
 }
 

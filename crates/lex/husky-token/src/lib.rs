@@ -6,6 +6,7 @@ mod keyword;
 mod reserved;
 mod semantic_token;
 mod special;
+#[cfg(feature = "storage")]
 mod storage;
 #[cfg(test)]
 mod tests;
@@ -18,6 +19,7 @@ pub use keyword::*;
 pub use reserved::RESERVED_WORDS;
 pub use semantic_token::*;
 pub use special::SpecialToken;
+#[cfg(feature = "storage")]
 pub use storage::*;
 pub use wordopr::WordOpr;
 

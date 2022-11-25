@@ -15,7 +15,7 @@ pub(crate) struct Tokenizer<'lex> {
 #[derive(PartialEq, Eq)]
 pub struct TokenizedLine {
     pub(crate) indent: TextIndent,
-    pub(crate) tokens: TokenIdxRange,
+    pub(crate) tokens: TokenGroup,
 }
 
 impl std::fmt::Debug for TokenizedLine {
@@ -55,7 +55,7 @@ impl<'token> Tokenizer<'token> {
         let end = self.tokens.len();
         self.tokenized_lines.push(TokenizedLine {
             indent,
-            tokens: TokenIdxRange(start..end),
+            tokens: TokenGroup(start..end),
         })
     }
 
