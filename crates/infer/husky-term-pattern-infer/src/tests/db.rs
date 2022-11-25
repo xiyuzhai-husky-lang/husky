@@ -1,6 +1,4 @@
-mod init;
 mod trivia;
-mod var;
 
 use super::*;
 use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu};
@@ -30,7 +28,6 @@ impl TermPatternInferFakeDb {
             decls: Default::default(),
             prelude_symbols: Default::default(),
         };
-        db.init();
         db
     }
 
