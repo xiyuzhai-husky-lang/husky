@@ -1,17 +1,23 @@
 #[cfg(test)]
 mod tests;
 
-use self::Token::*;
 use husky_text_span::TextSpan;
 use husky_word::{Word, WordDb};
 use std::char;
 use std::str;
 use std::string;
-use std::string::String as StdString;
 use std::{borrow::Cow, sync::Arc};
 
+type StringValue = Arc<String>;
+
 #[derive(Eq, PartialEq, Debug)]
-pub enum Token<'a> {
+pub struct Token<'a> {
+    span: TextSpan,
+    variant: TokenVariant<'a>,
+}
+
+#[derive(Eq, PartialEq, Debug)]
+pub enum TokenVariant<'a> {
     Whitespace(&'a str),
     Newline,
     Comment(&'a str),
@@ -27,9 +33,9 @@ pub enum Token<'a> {
     RightBracket,
 
     Keylike(Word),
-    String {
+    StringLiteral {
         src: &'a str,
-        val: Arc<StdString>,
+        val: StringValue,
         multiline: bool,
     },
 }
@@ -84,21 +90,21 @@ impl<'a> Tokenizer<'a> {
         t
     }
 
-    pub fn next(&mut self) -> Result<Option<(TextSpan, Token<'a>)>, Error> {
+    pub fn next(&mut self) -> Result<Option<(TextSpan, TokenVariant<'a>)>, Error> {
         let (start, token) = match self.one() {
-            Some((start, '\n')) => (start, Newline),
+            Some((start, '\n')) => (start, TokenVariant::Newline),
             Some((start, ' ')) => (start, self.whitespace_token(start)),
             Some((start, '\t')) => (start, self.whitespace_token(start)),
             Some((start, '#')) => (start, self.comment_token(start)),
-            Some((start, '=')) => (start, Equals),
-            Some((start, '.')) => (start, Period),
-            Some((start, ',')) => (start, Comma),
-            Some((start, ':')) => (start, Colon),
-            Some((start, '+')) => (start, Plus),
-            Some((start, '{')) => (start, LeftBrace),
-            Some((start, '}')) => (start, RightBrace),
-            Some((start, '[')) => (start, LeftBracket),
-            Some((start, ']')) => (start, RightBracket),
+            Some((start, '=')) => (start, TokenVariant::Equals),
+            Some((start, '.')) => (start, TokenVariant::Period),
+            Some((start, ',')) => (start, TokenVariant::Comma),
+            Some((start, ':')) => (start, TokenVariant::Colon),
+            Some((start, '+')) => (start, TokenVariant::Plus),
+            Some((start, '{')) => (start, TokenVariant::LeftBrace),
+            Some((start, '}')) => (start, TokenVariant::RightBrace),
+            Some((start, '[')) => (start, TokenVariant::LeftBracket),
+            Some((start, ']')) => (start, TokenVariant::RightBracket),
             Some((start, '\'')) => {
                 return self
                     .literal_string(start)
@@ -119,16 +125,16 @@ impl<'a> Tokenizer<'a> {
         Ok(Some((span, token)))
     }
 
-    pub fn peek(&mut self) -> Result<Option<(TextSpan, Token<'a>)>, Error> {
+    pub fn peek(&mut self) -> Result<Option<(TextSpan, TokenVariant<'a>)>, Error> {
         self.clone().next()
     }
 
-    pub fn eat(&mut self, expected: Token<'a>) -> Result<bool, Error> {
+    pub fn eat(&mut self, expected: TokenVariant<'a>) -> Result<bool, Error> {
         self.eat_spanned(expected).map(|s| s.is_some())
     }
 
     /// Eat a value, returning it's span if it was consumed.
-    pub fn eat_spanned(&mut self, expected: Token<'a>) -> Result<Option<TextSpan>, Error> {
+    pub fn eat_spanned(&mut self, expected: TokenVariant<'a>) -> Result<Option<TextSpan>, Error> {
         let span = match self.peek()? {
             Some((span, ref found)) if expected == *found => span,
             Some(_) => return Ok(None),
@@ -139,14 +145,14 @@ impl<'a> Tokenizer<'a> {
         Ok(Some(span))
     }
 
-    pub fn expect(&mut self, expected: Token<'a>) -> Result<(), Error> {
+    pub fn expect(&mut self, expected: TokenVariant<'a>) -> Result<(), Error> {
         // ignore span
         let _ = self.expect_spanned(expected)?;
         Ok(())
     }
 
     /// Expect the given token returning its span.
-    pub fn expect_spanned(&mut self, expected: Token<'a>) -> Result<TextSpan, Error> {
+    pub fn expect_spanned(&mut self, expected: TokenVariant<'a>) -> Result<TextSpan, Error> {
         let current = self.current();
         match self.next()? {
             Some((span, found)) => {
@@ -171,10 +177,10 @@ impl<'a> Tokenizer<'a> {
     pub fn table_key(&mut self) -> Result<(TextSpan, Word), Error> {
         let current = self.current();
         match self.next()? {
-            Some((span, Token::Keylike(k))) => Ok((span, k.into())),
+            Some((span, TokenVariant::Keylike(k))) => Ok((span, k.into())),
             Some((
                 span,
-                Token::String {
+                TokenVariant::StringLiteral {
                     src,
                     val,
                     multiline,
@@ -220,7 +226,7 @@ impl<'a> Tokenizer<'a> {
     pub fn eat_newline_or_eof(&mut self) -> Result<(), Error> {
         let current = self.current();
         match self.next()? {
-            None | Some((_, Token::Newline)) => Ok(()),
+            None | Some((_, TokenVariant::Newline)) => Ok(()),
             Some((_, other)) => Err(Error::Wanted {
                 at: current,
                 expected: "newline",
@@ -260,21 +266,21 @@ impl<'a> Tokenizer<'a> {
         self.input
     }
 
-    fn whitespace_token(&mut self, start: usize) -> Token<'a> {
+    fn whitespace_token(&mut self, start: usize) -> TokenVariant<'a> {
         while self.eatc(' ') || self.eatc('\t') {
             // ...
         }
-        Whitespace(&self.input[start..self.current()])
+        TokenVariant::Whitespace(&self.input[start..self.current()])
     }
 
-    fn comment_token(&mut self, start: usize) -> Token<'a> {
+    fn comment_token(&mut self, start: usize) -> TokenVariant<'a> {
         while let Some((_, ch)) = self.chars.clone().next() {
             if ch != '\t' && !('\u{20}'..='\u{10ffff}').contains(&ch) {
                 break;
             }
             self.one();
         }
-        Comment(&self.input[start..self.current()])
+        TokenVariant::Comment(&self.input[start..self.current()])
     }
 
     #[allow(clippy::type_complexity)]
@@ -289,13 +295,13 @@ impl<'a> Tokenizer<'a> {
             usize,
             char,
         ) -> Result<(), Error>,
-    ) -> Result<Token<'a>, Error> {
+    ) -> Result<TokenVariant<'a>, Error> {
         let mut multiline = false;
         if self.eatc(delim) {
             if self.eatc(delim) {
                 multiline = true;
             } else {
-                return Ok(String {
+                return Ok(TokenVariant::StringLiteral {
                     src: &self.input[start..start + 2],
                     val: Default::default(),
                     multiline: false,
@@ -342,7 +348,7 @@ impl<'a> Tokenizer<'a> {
                             i += 1;
                         }
                     }
-                    return Ok(String {
+                    return Ok(TokenVariant::StringLiteral {
                         src: &self.input[start..self.current()],
                         val: val.into_cow(&self.input[..i]),
                         multiline,
@@ -354,7 +360,7 @@ impl<'a> Tokenizer<'a> {
         }
     }
 
-    fn literal_string(&mut self, start: usize) -> Result<Token<'a>, Error> {
+    fn literal_string(&mut self, start: usize) -> Result<TokenVariant<'a>, Error> {
         self.read_string('\'', start, &mut |_me, val, _multi, i, ch| {
             if ch == '\u{09}' || (('\u{20}'..='\u{10ffff}').contains(&ch) && ch != '\u{7f}') {
                 val.push(ch);
@@ -365,7 +371,7 @@ impl<'a> Tokenizer<'a> {
         })
     }
 
-    fn basic_string(&mut self, start: usize) -> Result<Token<'a>, Error> {
+    fn basic_string(&mut self, start: usize) -> Result<TokenVariant<'a>, Error> {
         self.read_string('"', start, &mut |me, val, multi, i, ch| match ch {
             '\\' => {
                 val.to_owned(&me.input[..i]);
@@ -420,7 +426,7 @@ impl<'a> Tokenizer<'a> {
     }
 
     fn hex(&mut self, start: usize, i: usize, len: usize) -> Result<char, Error> {
-        let mut buf = StdString::with_capacity(len);
+        let mut buf = String::with_capacity(len);
         for _ in 0..len {
             match self.one() {
                 Some((_, ch)) if ch as u32 <= 0x7F && ch.is_ascii_hexdigit() => buf.push(ch),
@@ -435,14 +441,14 @@ impl<'a> Tokenizer<'a> {
         }
     }
 
-    fn keylike(&mut self, start: usize) -> Token<'a> {
+    fn keylike(&mut self, start: usize) -> TokenVariant<'a> {
         while let Some((_, ch)) = self.peek_one() {
             if !is_keylike(ch) {
                 break;
             }
             self.one();
         }
-        Keylike(self.db.it_word_borrowed(&self.input[start..self.current()]))
+        TokenVariant::Keylike(self.db.it_word_borrowed(&self.input[start..self.current()]))
     }
 
     pub fn substr_offset(&self, s: &'a str) -> usize {
@@ -508,7 +514,7 @@ impl MaybeString {
         }
     }
 
-    fn into_cow(self, input: &str) -> Arc<StdString> {
+    fn into_cow(self, input: &str) -> StringValue {
         match self {
             MaybeString::NotEscaped(start) => Arc::new(input[start..].to_owned()),
             MaybeString::Owned(s) => Arc::new(s),
@@ -524,29 +530,29 @@ fn is_keylike(ch: char) -> bool {
         || ch == '_'
 }
 
-impl<'a> Token<'a> {
+impl<'a> TokenVariant<'a> {
     pub fn describe(&self) -> &'static str {
         match *self {
-            Token::Keylike(_) => "an keylike",
-            Token::Equals => "an equals",
-            Token::Period => "a period",
-            Token::Comment(_) => "a comment",
-            Token::Newline => "a newline",
-            Token::Whitespace(_) => "whitespace",
-            Token::Comma => "a comma",
-            Token::RightBrace => "a right brace",
-            Token::LeftBrace => "a left brace",
-            Token::RightBracket => "a right bracket",
-            Token::LeftBracket => "a left bracket",
-            Token::String { multiline, .. } => {
+            TokenVariant::Keylike(_) => "an keylike",
+            TokenVariant::Equals => "an equals",
+            TokenVariant::Period => "a period",
+            TokenVariant::Comment(_) => "a comment",
+            TokenVariant::Newline => "a newline",
+            TokenVariant::Whitespace(_) => "whitespace",
+            TokenVariant::Comma => "a comma",
+            TokenVariant::RightBrace => "a right brace",
+            TokenVariant::LeftBrace => "a left brace",
+            TokenVariant::RightBracket => "a right bracket",
+            TokenVariant::LeftBracket => "a left bracket",
+            TokenVariant::StringLiteral { multiline, .. } => {
                 if multiline {
                     "a multiline string"
                 } else {
                     "a string"
                 }
             }
-            Token::Colon => "a colon",
-            Token::Plus => "a plus",
+            TokenVariant::Colon => "a colon",
+            TokenVariant::Plus => "a plus",
         }
     }
 }

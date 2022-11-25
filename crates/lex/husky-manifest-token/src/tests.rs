@@ -1,7 +1,7 @@
 use husky_word::{WordDb, WordJar};
 use salsa::Database;
 
-use super::{Error, Token, Tokenizer};
+use super::{Error, TokenVariant, Tokenizer};
 use std::{borrow::Cow, sync::Arc};
 
 #[salsa::db(WordJar)]
@@ -27,7 +27,7 @@ fn literal_strings() {
         let (_, token) = t.next().unwrap().unwrap();
         assert_eq!(
             token,
-            Token::String {
+            TokenVariant::StringLiteral {
                 src: input,
                 val: Arc::new(val.to_owned()),
                 multiline,
@@ -54,7 +54,7 @@ fn basic_strings() {
         let (_, token) = t.next().unwrap().unwrap();
         assert_eq!(
             token,
-            Token::String {
+            TokenVariant::StringLiteral {
                 src: input,
                 val: Arc::new(val.to_owned()),
                 multiline,
@@ -106,7 +106,7 @@ fn keylike() {
     fn t(db: &dyn WordDb, input: &str) {
         let mut t = Tokenizer::new(db, input);
         let (_, token) = t.next().unwrap().unwrap();
-        assert_eq!(token, Token::Keylike(db.it_word_borrowed(input)));
+        assert_eq!(token, TokenVariant::Keylike(db.it_word_borrowed(input)));
         assert!(t.next().unwrap().is_none());
     }
 
@@ -123,9 +123,9 @@ fn keylike() {
 
 #[test]
 fn all() {
-    fn t(db: &dyn WordDb, input: &str, expected: &[((usize, usize), Token<'_>, &str)]) {
+    fn t(db: &dyn WordDb, input: &str, expected: &[((usize, usize), TokenVariant<'_>, &str)]) {
         let mut tokens = Tokenizer::new(db, input);
-        let mut actual: Vec<((usize, usize), Token<'_>, &str)> = Vec::new();
+        let mut actual: Vec<((usize, usize), TokenVariant<'_>, &str)> = Vec::new();
         while let Some((span, token)) = tokens.next().unwrap() {
             actual.push((span.into(), token, &input[span.start..span.end]));
         }
@@ -140,9 +140,9 @@ fn all() {
         &db,
         " a ",
         &[
-            ((0, 1), Token::Whitespace(" "), " "),
-            ((1, 2), Token::Keylike(db.it_word_borrowed("a")), "a"),
-            ((2, 3), Token::Whitespace(" "), " "),
+            ((0, 1), TokenVariant::Whitespace(" "), " "),
+            ((1, 2), TokenVariant::Keylike(db.it_word_borrowed("a")), "a"),
+            ((2, 3), TokenVariant::Whitespace(" "), " "),
         ],
     );
 
@@ -150,31 +150,31 @@ fn all() {
         &db,
         " a\t [[]] \t [] {} , . =\n# foo \r\n#foo \n ",
         &[
-            ((0, 1), Token::Whitespace(" "), " "),
-            ((1, 2), Token::Keylike(db.it_word_borrowed("a")), "a"),
-            ((2, 4), Token::Whitespace("\t "), "\t "),
-            ((4, 5), Token::LeftBracket, "["),
-            ((5, 6), Token::LeftBracket, "["),
-            ((6, 7), Token::RightBracket, "]"),
-            ((7, 8), Token::RightBracket, "]"),
-            ((8, 11), Token::Whitespace(" \t "), " \t "),
-            ((11, 12), Token::LeftBracket, "["),
-            ((12, 13), Token::RightBracket, "]"),
-            ((13, 14), Token::Whitespace(" "), " "),
-            ((14, 15), Token::LeftBrace, "{"),
-            ((15, 16), Token::RightBrace, "}"),
-            ((16, 17), Token::Whitespace(" "), " "),
-            ((17, 18), Token::Comma, ","),
-            ((18, 19), Token::Whitespace(" "), " "),
-            ((19, 20), Token::Period, "."),
-            ((20, 21), Token::Whitespace(" "), " "),
-            ((21, 22), Token::Equals, "="),
-            ((22, 23), Token::Newline, "\n"),
-            ((23, 29), Token::Comment("# foo "), "# foo "),
-            ((29, 31), Token::Newline, "\r\n"),
-            ((31, 36), Token::Comment("#foo "), "#foo "),
-            ((36, 37), Token::Newline, "\n"),
-            ((37, 38), Token::Whitespace(" "), " "),
+            ((0, 1), TokenVariant::Whitespace(" "), " "),
+            ((1, 2), TokenVariant::Keylike(db.it_word_borrowed("a")), "a"),
+            ((2, 4), TokenVariant::Whitespace("\t "), "\t "),
+            ((4, 5), TokenVariant::LeftBracket, "["),
+            ((5, 6), TokenVariant::LeftBracket, "["),
+            ((6, 7), TokenVariant::RightBracket, "]"),
+            ((7, 8), TokenVariant::RightBracket, "]"),
+            ((8, 11), TokenVariant::Whitespace(" \t "), " \t "),
+            ((11, 12), TokenVariant::LeftBracket, "["),
+            ((12, 13), TokenVariant::RightBracket, "]"),
+            ((13, 14), TokenVariant::Whitespace(" "), " "),
+            ((14, 15), TokenVariant::LeftBrace, "{"),
+            ((15, 16), TokenVariant::RightBrace, "}"),
+            ((16, 17), TokenVariant::Whitespace(" "), " "),
+            ((17, 18), TokenVariant::Comma, ","),
+            ((18, 19), TokenVariant::Whitespace(" "), " "),
+            ((19, 20), TokenVariant::Period, "."),
+            ((20, 21), TokenVariant::Whitespace(" "), " "),
+            ((21, 22), TokenVariant::Equals, "="),
+            ((22, 23), TokenVariant::Newline, "\n"),
+            ((23, 29), TokenVariant::Comment("# foo "), "# foo "),
+            ((29, 31), TokenVariant::Newline, "\r\n"),
+            ((31, 36), TokenVariant::Comment("#foo "), "#foo "),
+            ((36, 37), TokenVariant::Newline, "\n"),
+            ((37, 38), TokenVariant::Whitespace(" "), " "),
         ],
     );
 }
