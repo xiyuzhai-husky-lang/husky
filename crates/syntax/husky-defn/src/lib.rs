@@ -7,7 +7,7 @@ pub use trai::*;
 pub use ty::*;
 
 use husky_entity_path::EntityPath;
-use husky_expr_syntax::{ExprArena, ExprIdx};
+use husky_expr::{ExprArena, ExprIdx};
 use salsa::DbWithJar;
 
 #[salsa::jar(db = DefnDb)]

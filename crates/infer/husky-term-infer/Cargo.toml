@@ -14,7 +14,7 @@ upcast = { path = "../../abstraction/upcast" }
 husky-path = { path = "../../fs/husky-path" }
 husky-source-path = { path = "../../fs/husky-source-path" }
 # syntax
-husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
+husky-expr = { path = "../../syntax/husky-expr" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
@@ -32,7 +32,7 @@ wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-token-text = { path = "../../lex/husky-token-text" }
 husky-token = { path = "../../lex/husky-token" }
 husky-tokenize = { path = "../../lex/husky-tokenize" }
-husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
+husky-expr = { path = "../../syntax/husky-expr" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }

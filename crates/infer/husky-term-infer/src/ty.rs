@@ -1,5 +1,5 @@
 use crate::*;
-use husky_expr_syntax::{AtomExpr, ExprIdx, ExprRange};
+use husky_expr::{AtomExpr, ExprIdx, ExprRange};
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_print_utils::p;
 use husky_symbol_syntax::SymbolKind;

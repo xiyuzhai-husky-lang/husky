@@ -5,7 +5,7 @@ use husky_ast::*;
 use husky_defn_head::Parameter;
 use husky_entity_kind::TyKind;
 use husky_entity_tree::EntityTreeDb;
-use husky_expr_syntax::*;
+use husky_expr::*;
 use husky_init_syntax::InitKind;
 use husky_print_utils::msg_once;
 use husky_term::Term;

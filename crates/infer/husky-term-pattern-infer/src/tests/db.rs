@@ -4,7 +4,7 @@ mod var;
 
 use super::*;
 use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu};
-use husky_expr_syntax::ExprIdx;
+use husky_expr::ExprIdx;
 use husky_identifier::IdentifierDb;
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolKind};
 use husky_term::{AskDecl, Decl, Term, TermDb, TermMenu, TermResultArc, TyDecl};
