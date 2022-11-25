@@ -1,8 +1,8 @@
 use crossbeam::atomic::AtomicCell;
 use crossbeam::queue::SegQueue;
-use std::fmt;
 use std::hash::Hash;
 use std::marker::PhantomData;
+use std::{borrow::Borrow, fmt};
 
 use crate::durability::Durability;
 use crate::id::AsId;
@@ -97,6 +97,41 @@ where
                 let next_id = self.counter.fetch_add(1);
                 let next_id = Id::from_id(crate::id::Id::from_u32(next_id));
                 let old_value = self.value_map.insert(next_id, Box::new(data));
+                assert!(
+                    old_value.is_none(),
+                    "next_id is guaranteed to be unique, bar overflow"
+                );
+                entry.insert(next_id);
+                next_id
+            }
+        }
+    }
+
+    pub fn intern_borrowed<Q>(&self, runtime: &Runtime, data: &Q) -> Id
+    where
+        Data: Borrow<Q> + for<'a> From<&'a Q>,
+        Q: Hash + Eq + ?Sized + 'static,
+    {
+        runtime.report_tracked_read(
+            DependencyIndex::for_table(self.ingredient_index),
+            Durability::MAX,
+            self.reset_at,
+        );
+
+        // Optimisation to only get read lock on the map if the data has already
+        // been interned.
+        if let Some(id) = self.key_map.get(&data) {
+            return *id;
+        }
+
+        match self.key_map.entry(data.into()) {
+            // Data has been interned by a racing call, use that ID instead
+            dashmap::mapref::entry::Entry::Occupied(entry) => *entry.get(),
+            // We won any races so should intern the data
+            dashmap::mapref::entry::Entry::Vacant(entry) => {
+                let next_id = self.counter.fetch_add(1);
+                let next_id = Id::from_id(crate::id::Id::from_u32(next_id));
+                let old_value = self.value_map.insert(next_id, Box::new(data.into()));
                 assert!(
                     old_value.is_none(),
                     "next_id is guaranteed to be unique, bar overflow"

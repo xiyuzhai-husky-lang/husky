@@ -1,8 +1,20 @@
+use husky_word::{WordDb, WordJar};
+use salsa::Database;
+
 use super::{Error, Token, Tokenizer};
-use std::borrow::Cow;
+use std::{borrow::Cow, sync::Arc};
+
+#[salsa::db(WordJar)]
+#[derive(Default)]
+pub struct MimicDB {
+    storage: salsa::Storage<Self>,
+}
+
+impl Database for MimicDB {}
 
 fn err(input: &str, err: Error) {
-    let mut t = Tokenizer::new(input);
+    let db = MimicDB::default();
+    let mut t = Tokenizer::new(&db, input);
     let token = t.next().unwrap_err();
     assert_eq!(token, err);
     assert!(t.next().unwrap().is_none());
@@ -10,71 +22,74 @@ fn err(input: &str, err: Error) {
 
 #[test]
 fn literal_strings() {
-    fn t(input: &str, val: &str, multiline: bool) {
-        let mut t = Tokenizer::new(input);
+    fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
+        let mut t = Tokenizer::new(db, input);
         let (_, token) = t.next().unwrap().unwrap();
         assert_eq!(
             token,
             Token::String {
                 src: input,
-                val: Cow::Borrowed(val),
+                val: Arc::new(val.to_owned()),
                 multiline,
             }
         );
         assert!(t.next().unwrap().is_none());
     }
 
-    t("''", "", false);
-    t("''''''", "", true);
-    t("'''\n'''", "", true);
-    t("'a'", "a", false);
-    t("'\"a'", "\"a", false);
-    t("''''a'''", "'a", true);
-    t("'''\n'a\n'''", "'a\n", true);
-    t("'''a\n'a\r\n'''", "a\n'a\n", true);
+    let db = MimicDB::default();
+    t(&db, "''", "", false);
+    t(&db, "''''''", "", true);
+    t(&db, "'''\n'''", "", true);
+    t(&db, "'a'", "a", false);
+    t(&db, "'\"a'", "\"a", false);
+    t(&db, "''''a'''", "'a", true);
+    t(&db, "'''\n'a\n'''", "'a\n", true);
+    t(&db, "'''a\n'a\r\n'''", "a\n'a\n", true);
 }
 
 #[test]
 fn basic_strings() {
-    fn t(input: &str, val: &str, multiline: bool) {
-        let mut t = Tokenizer::new(input);
+    fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
+        let mut t = Tokenizer::new(db, input);
         let (_, token) = t.next().unwrap().unwrap();
         assert_eq!(
             token,
             Token::String {
                 src: input,
-                val: Cow::Borrowed(val),
+                val: Arc::new(val.to_owned()),
                 multiline,
             }
         );
         assert!(t.next().unwrap().is_none());
     }
 
-    t(r#""""#, "", false);
-    t(r#""""""""#, "", true);
-    t(r#""a""#, "a", false);
-    t(r#""""a""""#, "a", true);
-    t(r#""\t""#, "\t", false);
-    t(r#""\u0000""#, "\0", false);
-    t(r#""\U00000000""#, "\0", false);
-    t(r#""\U000A0000""#, "\u{A0000}", false);
-    t(r#""\\t""#, "\\t", false);
-    t("\"\t\"", "\t", false);
-    t("\"\"\"\n\t\"\"\"", "\t", true);
-    t("\"\"\"\\\n\"\"\"", "", true);
+    let db = MimicDB::default();
+    t(&db, r#""""#, "", false);
+    t(&db, r#""""""""#, "", true);
+    t(&db, r#""a""#, "a", false);
+    t(&db, r#""""a""""#, "a", true);
+    t(&db, r#""\t""#, "\t", false);
+    t(&db, r#""\u0000""#, "\0", false);
+    t(&db, r#""\U00000000""#, "\0", false);
+    t(&db, r#""\U000A0000""#, "\u{A0000}", false);
+    t(&db, r#""\\t""#, "\\t", false);
+    t(&db, "\"\t\"", "\t", false);
+    t(&db, "\"\"\"\n\t\"\"\"", "\t", true);
+    t(&db, "\"\"\"\\\n\"\"\"", "", true);
     t(
+        &db,
         "\"\"\"\\\n     \t   \t  \\\r\n  \t \n  \t \r\n\"\"\"",
         "",
         true,
     );
-    t(r#""\r""#, "\r", false);
-    t(r#""\n""#, "\n", false);
-    t(r#""\b""#, "\u{8}", false);
-    t(r#""a\fa""#, "a\u{c}a", false);
-    t(r#""\"a""#, "\"a", false);
-    t("\"\"\"\na\"\"\"", "a", true);
-    t("\"\"\"\n\"\"\"", "", true);
-    t(r#""""a\"""b""""#, "a\"\"\"b", true);
+    t(&db, r#""\r""#, "\r", false);
+    t(&db, r#""\n""#, "\n", false);
+    t(&db, r#""\b""#, "\u{8}", false);
+    t(&db, r#""a\fa""#, "a\u{c}a", false);
+    t(&db, r#""\"a""#, "\"a", false);
+    t(&db, "\"\"\"\na\"\"\"", "a", true);
+    t(&db, "\"\"\"\n\"\"\"", "", true);
+    t(&db, r#""""a\"""b""""#, "a\"\"\"b", true);
     err(r#""\a"#, Error::InvalidEscape(2, 'a'));
     err("\"\\\n", Error::InvalidEscape(2, '\n'));
     err("\"\\\r\n", Error::InvalidEscape(2, '\n'));
@@ -88,26 +103,28 @@ fn basic_strings() {
 
 #[test]
 fn keylike() {
-    fn t(input: &str) {
-        let mut t = Tokenizer::new(input);
+    fn t(db: &dyn WordDb, input: &str) {
+        let mut t = Tokenizer::new(db, input);
         let (_, token) = t.next().unwrap().unwrap();
-        assert_eq!(token, Token::Keylike(input));
+        assert_eq!(token, Token::Keylike(db.it_word_borrowed(input)));
         assert!(t.next().unwrap().is_none());
     }
-    t("foo");
-    t("0bar");
-    t("bar0");
-    t("1234");
-    t("a-b");
-    t("a_B");
-    t("-_-");
-    t("___");
+
+    let db = MimicDB::default();
+    t(&db, "foo");
+    t(&db, "0bar");
+    t(&db, "bar0");
+    t(&db, "1234");
+    t(&db, "a-b");
+    t(&db, "a_B");
+    t(&db, "-_-");
+    t(&db, "___");
 }
 
 #[test]
 fn all() {
-    fn t(input: &str, expected: &[((usize, usize), Token<'_>, &str)]) {
-        let mut tokens = Tokenizer::new(input);
+    fn t(db: &dyn WordDb, input: &str, expected: &[((usize, usize), Token<'_>, &str)]) {
+        let mut tokens = Tokenizer::new(db, input);
         let mut actual: Vec<((usize, usize), Token<'_>, &str)> = Vec::new();
         while let Some((span, token)) = tokens.next().unwrap() {
             actual.push((span.into(), token, &input[span.start..span.end]));
@@ -118,20 +135,23 @@ fn all() {
         assert_eq!(actual.len(), expected.len());
     }
 
+    let db = MimicDB::default();
     t(
+        &db,
         " a ",
         &[
             ((0, 1), Token::Whitespace(" "), " "),
-            ((1, 2), Token::Keylike("a"), "a"),
+            ((1, 2), Token::Keylike(db.it_word_borrowed("a")), "a"),
             ((2, 3), Token::Whitespace(" "), " "),
         ],
     );
 
     t(
+        &db,
         " a\t [[]] \t [] {} , . =\n# foo \r\n#foo \n ",
         &[
             ((0, 1), Token::Whitespace(" "), " "),
-            ((1, 2), Token::Keylike("a"), "a"),
+            ((1, 2), Token::Keylike(db.it_word_borrowed("a")), "a"),
             ((2, 4), Token::Whitespace("\t "), "\t "),
             ((4, 5), Token::LeftBracket, "["),
             ((5, 6), Token::LeftBracket, "["),
@@ -170,7 +190,8 @@ fn bare_cr_bad() {
 
 #[test]
 fn bad_comment() {
-    let mut t = Tokenizer::new("#\u{0}");
+    let db = MimicDB::default();
+    let mut t = Tokenizer::new(&db, "#\u{0}");
     t.next().unwrap().unwrap();
     assert_eq!(t.next(), Err(Error::Unexpected(1, '\u{0}')));
     assert!(t.next().unwrap().is_none());

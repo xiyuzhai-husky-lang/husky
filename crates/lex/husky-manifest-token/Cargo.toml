@@ -8,3 +8,8 @@ edition = "2021"
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-text-span = { path = "../../lex/husky-text-span" }
+# kernel
+husky-word = { path = "../../kernel/husky-word" }
+
+[dev-dependencies]
+salsa = { path = "../../abstraction/salsa" }

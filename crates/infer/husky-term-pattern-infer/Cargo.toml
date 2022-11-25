@@ -35,3 +35,4 @@ husky-term-pattern = { path = "../../infer/husky-term-pattern" }
 [dev-dependencies]
 husky-tokenize = { path = "../../lex/husky-tokenize" }
 husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
+husky-word = { path = "../../kernel/husky-word" }

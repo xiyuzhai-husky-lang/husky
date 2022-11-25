@@ -31,11 +31,11 @@ where
         let entity_path_menu = self.entity_path_menu();
         let mut preludes: Vec<Symbol> = vec![
             Symbol {
-                ident: self.it_ident("core"),
+                ident: self.it_ident_borrowed("core"),
                 kind: SymbolKind::EntityPath(entity_path_menu.core()),
             },
             Symbol {
-                ident: self.it_ident("std"),
+                ident: self.it_ident_borrowed("std"),
                 kind: SymbolKind::EntityPath(entity_path_menu.std()),
             },
         ];

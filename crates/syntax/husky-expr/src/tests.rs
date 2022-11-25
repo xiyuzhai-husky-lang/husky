@@ -7,6 +7,7 @@ use husky_symbol_syntax::{SymbolContext, SymbolDb, SymbolJar, SymbolSheet};
 use husky_token_text::TokenTextJar;
 use husky_tokenize::Tokenize;
 use husky_vfs::VfsJar;
+use husky_word::WordJar;
 use place::SingleAssignPlace;
 use salsa::{Database, ParallelDatabase};
 
@@ -26,7 +27,7 @@ fn it_works() {
 }
 
 #[salsa::db(
-    IdentifierJar,
+    WordJar,
     VfsJar,
     SourcePathJar,
     EntityPathJar,

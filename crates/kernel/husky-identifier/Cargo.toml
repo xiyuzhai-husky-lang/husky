@@ -13,6 +13,8 @@ serde = { version = "1.0.106", features = ["derive"] }
 # abstraction
 vec-like = { path = "../../abstraction/vec-like" }
 salsa = { path = "../../abstraction/salsa" }
+# kernel
+husky-word = { path = "../../kernel/husky-word" }
 # utils
 husky-display-utils = { path = "../../utils/husky-display-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

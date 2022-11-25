@@ -132,7 +132,7 @@ impl fold::ItemToFold<TokenIdxRange> for TokenGroup {
 }
 
 impl TokenizedText {
-    pub(crate) fn parse(word_interner: &dyn IdentifierDb, text: &str) -> Arc<Self> {
+    pub(crate) fn parse(db: &dyn IdentifierDb, text: &str) -> Arc<Self> {
         todo!()
         // let mut token_scanner = TokenScanner::new(word_interner);
         // for (i, line) in text.lines().enumerate() {

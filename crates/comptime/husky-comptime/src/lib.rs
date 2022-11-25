@@ -19,7 +19,6 @@ pub use husky_fmt::SyntaxFormatDb;
 use husky_fmt::SyntaxFormatJar;
 pub use husky_hover::HoverDb;
 pub use husky_identifier::IdentifierDb;
-use husky_identifier::IdentifierJar;
 use husky_layout::LayoutJar;
 pub use husky_linkage_table::ResolveLinkage;
 pub use husky_rust_code_gen::RustTranspileDb;
@@ -29,6 +28,7 @@ use husky_text::TextJar;
 pub use husky_token_text::TokenTextDb;
 use husky_token_text::TokenTextJar;
 use husky_vfs::VfsJar;
+use husky_word::WordJar;
 pub use ops::ComptimeOps;
 pub use query::*;
 
@@ -45,7 +45,7 @@ use sync_utils::ASafeRwLock;
     EntityTreeJar,
     TextJar,
     AstJar,
-    IdentifierJar,
+    WordJar,
     SourcePathJar,
     EntityPathJar,
     TermJar,

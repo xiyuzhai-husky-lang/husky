@@ -25,3 +25,4 @@ husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
 salsa = { path = "../../abstraction/salsa" }
 # kernel
 husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
