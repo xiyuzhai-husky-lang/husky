@@ -18,7 +18,7 @@ pub struct LineMap {
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
-pub struct LineColUtf16 {
+pub struct TextPositionUtf16 {
     /// Zero-based
     pub line: usize,
     /// Zero-based
@@ -26,7 +26,7 @@ pub struct LineColUtf16 {
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
-pub struct LineCol {
+pub struct TextPosition {
     /// Zero-based
     pub line: usize,
     /// Zero-based utf8 offset
@@ -81,31 +81,31 @@ impl LineMap {
         }
     }
 
-    pub fn line_col(&self, offset: usize) -> LineCol {
+    pub fn line_col(&self, offset: usize) -> TextPosition {
         let line = self.newlines.partition_point(|&it| it <= offset) - 1;
         let line_start_offset = self.newlines[line];
         let col = offset - line_start_offset;
-        LineCol {
+        TextPosition {
             line: line as usize,
             col: col.into(),
         }
     }
 
-    pub fn offset(&self, line_col: LineCol) -> usize {
+    pub fn offset(&self, line_col: TextPosition) -> usize {
         self.newlines[line_col.line as usize] + usize::from(line_col.col)
     }
 
-    pub fn to_utf16(&self, line_col: LineCol) -> LineColUtf16 {
+    pub fn to_utf16(&self, line_col: TextPosition) -> TextPositionUtf16 {
         let col = self.utf8_to_utf16_col(line_col.line, line_col.col.into());
-        LineColUtf16 {
+        TextPositionUtf16 {
             line: line_col.line,
             col: col as usize,
         }
     }
 
-    pub fn to_utf8(&self, line_col: LineColUtf16) -> LineCol {
+    pub fn to_utf8(&self, line_col: TextPositionUtf16) -> TextPosition {
         let col = self.utf16_to_utf8_col(line_col.line, line_col.col);
-        LineCol {
+        TextPosition {
             line: line_col.line,
             col: col.into(),
         }
