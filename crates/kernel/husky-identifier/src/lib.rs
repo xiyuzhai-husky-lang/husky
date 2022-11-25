@@ -1,14 +1,14 @@
 mod db;
+mod valid;
 // mod decorator;
 // mod keyword;
 // mod menu;
 // mod opr;
 // mod pattern;
 // mod style;
-// mod valid;
 
 pub use db::*;
-use husky_word::Word;
+use husky_word::{Word, WordDb};
 
 use std::sync::Arc;
 use vec_like::{VecMap, VecPairMap};
@@ -17,12 +17,14 @@ use vec_like::{VecMap, VecPairMap};
 pub struct Identifier(Word);
 
 impl Identifier {
-    fn from_owned(db: &dyn IdentifierDb, data: String) -> Self {
-        todo!()
+    fn from_owned(db: &dyn WordDb, data: String) -> Self {
+        assert!(crate::valid::is_valid_ident(&data));
+        Self(db.it_word_owned(data))
     }
 
-    fn from_ref(db: &dyn IdentifierDb, data: &str) -> Self {
-        todo!()
+    fn from_borrowed(db: &dyn WordDb, data: &str) -> Self {
+        assert!(crate::valid::is_valid_ident(data));
+        Self(db.it_word_borrowed(data))
     }
 
     fn data(self, db: &dyn IdentifierDb) -> &str {

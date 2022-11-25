@@ -17,9 +17,11 @@ Arena {
             variant: Atom(
                 Unrecognized(
                     Identifier(
-                        Id {
-                            value: 1,
-                        },
+                        Word(
+                            Id {
+                                value: 1,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -57,9 +59,11 @@ Arena {
             variant: Atom(
                 Unrecognized(
                     Identifier(
-                        Id {
-                            value: 1,
-                        },
+                        Word(
+                            Id {
+                                value: 1,
+                            },
+                        ),
                     ),
                 ),
             ),
