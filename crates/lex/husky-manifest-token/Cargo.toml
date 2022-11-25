@@ -10,6 +10,8 @@ husky-text = { path = "../../lex/husky-text" }
 husky-text-span = { path = "../../lex/husky-text-span" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 salsa = { path = "../../abstraction/salsa" }

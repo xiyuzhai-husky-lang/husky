@@ -28,7 +28,6 @@ fn literal_strings() {
         assert_eq!(
             token.variant,
             TokenVariant::StringLiteral {
-                src: input,
                 val: Arc::new(val.to_owned()),
                 multiline,
             }
@@ -55,7 +54,6 @@ fn basic_strings() {
         assert_eq!(
             token.variant,
             TokenVariant::StringLiteral {
-                src: input,
                 val: Arc::new(val.to_owned()),
                 multiline,
             }
