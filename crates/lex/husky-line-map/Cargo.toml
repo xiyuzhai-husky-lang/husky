@@ -1,0 +1,12 @@
+[package]
+name = "husky-line-map"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+rustc-hash = "1.1.0"
+lsp-types = { version = "0.93", features = ["proposed"], optional = true }
+
+[features]
+lsp_support = ["dep:lsp-types"]

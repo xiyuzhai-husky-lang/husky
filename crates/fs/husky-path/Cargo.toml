@@ -10,18 +10,22 @@ rust-version = "1.56"
 doctest = false
 
 [dependencies]
-rustc-hash = "1.1.0"
 itertools = "^0.10.3"
 lsp-types = { version = "0.93", features = ["proposed"], optional = true }
 indexmap = "1.8.1"
+# abstraction
+upcast = { path = "../../abstraction/upcast" }
 salsa = { path = "../../abstraction/salsa" }
+# kernel
+husky-identifier = { path = "../../kernel/husky-identifier" }
+# lex
+husky-line-map = { path = "../../lex/husky-line-map" }
+# utils
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
-husky-identifier = { path = "../../kernel/husky-identifier" }
-upcast = { path = "../../abstraction/upcast" }
 
 [features]
-lsp_support = ["dep:lsp-types"]
+lsp_support = ["dep:lsp-types", "husky-line-map/lsp_support"]
