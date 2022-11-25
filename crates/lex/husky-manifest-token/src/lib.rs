@@ -12,16 +12,16 @@ use std::{borrow::Cow, sync::Arc};
 type StringValue = Arc<String>;
 
 #[derive(Eq, PartialEq, Debug)]
-pub struct Token<'a> {
+pub struct Token {
     span: TextSpan,
-    variant: TokenVariant<'a>,
+    variant: TokenVariant,
 }
 
 #[derive(Eq, PartialEq, Debug)]
-pub enum TokenVariant<'a> {
-    Whitespace(&'a str),
+pub enum TokenVariant {
+    Whitespace,
     Newline,
-    Comment(&'a str),
+    Comment,
 
     Equals,
     Period,
@@ -74,7 +74,7 @@ enum MaybeString {
 }
 
 impl<'a> Tokenizer<'a> {
-    pub fn new(db: &'a dyn WordDb, input: &'a str) -> Tokenizer<'a> {
+    pub fn new(db: &'a dyn WordDb, input: &'a str) -> Self {
         let mut t = Tokenizer {
             db,
             input,
@@ -87,7 +87,7 @@ impl<'a> Tokenizer<'a> {
         t
     }
 
-    pub fn next(&mut self) -> Result<Option<Token<'a>>, Error> {
+    pub fn next(&mut self) -> Result<Option<Token>, Error> {
         let (start, variant) = match self.take_one_char() {
             Some((start, '\n')) => (start, TokenVariant::Newline),
             Some((start, ' ')) => (start, self.whitespace_token(start)),
@@ -127,16 +127,16 @@ impl<'a> Tokenizer<'a> {
         Ok(Some(Token { span, variant }))
     }
 
-    pub fn peek(&mut self) -> Result<Option<Token<'a>>, Error> {
+    pub fn peek(&mut self) -> Result<Option<Token>, Error> {
         self.clone().next()
     }
 
-    pub fn eat(&mut self, expected: TokenVariant<'a>) -> Result<bool, Error> {
+    pub fn eat(&mut self, expected: TokenVariant) -> Result<bool, Error> {
         self.eat_spanned(expected).map(|s| s.is_some())
     }
 
     /// Eat a value, returning it's span if it was consumed.
-    pub fn eat_spanned(&mut self, expected: TokenVariant<'a>) -> Result<Option<TextSpan>, Error> {
+    pub fn eat_spanned(&mut self, expected: TokenVariant) -> Result<Option<TextSpan>, Error> {
         let span = match self.peek()? {
             Some(token) if expected == token.variant => token.span,
             Some(_) => return Ok(None),
@@ -147,7 +147,7 @@ impl<'a> Tokenizer<'a> {
         Ok(Some(span))
     }
 
-    pub fn eat_expect(&mut self, expected: TokenVariant<'a>) -> Result<(), Error> {
+    pub fn eat_expect(&mut self, expected: TokenVariant) -> Result<(), Error> {
         // ignore span
         let _ = self.eat_expect_return_its_span(expected)?;
         Ok(())
@@ -156,7 +156,7 @@ impl<'a> Tokenizer<'a> {
     /// Expect the given token returning its span.
     pub fn eat_expect_return_its_span(
         &mut self,
-        expected: TokenVariant<'a>,
+        expected: TokenVariant,
     ) -> Result<TextSpan, Error> {
         let current = self.current();
         match self.next()? {
@@ -274,21 +274,21 @@ impl<'a> Tokenizer<'a> {
         self.input
     }
 
-    fn whitespace_token(&mut self, start: usize) -> TokenVariant<'a> {
+    fn whitespace_token(&mut self, start: usize) -> TokenVariant {
         while self.eatc(' ') || self.eatc('\t') {
             // ...
         }
-        TokenVariant::Whitespace(&self.input[start..self.current()])
+        TokenVariant::Whitespace
     }
 
-    fn comment_token(&mut self, start: usize) -> TokenVariant<'a> {
+    fn comment_token(&mut self, start: usize) -> TokenVariant {
         while let Some((_, ch)) = self.chars.clone().next() {
             if ch != '\t' && !('\u{20}'..='\u{10ffff}').contains(&ch) {
                 break;
             }
             self.take_one_char();
         }
-        TokenVariant::Comment(&self.input[start..self.current()])
+        TokenVariant::Comment
     }
 
     #[allow(clippy::type_complexity)]
@@ -303,7 +303,7 @@ impl<'a> Tokenizer<'a> {
             usize,
             char,
         ) -> Result<(), Error>,
-    ) -> Result<TokenVariant<'a>, Error> {
+    ) -> Result<TokenVariant, Error> {
         let mut multiline = false;
         if self.eatc(/* second */ delim) {
             if self.eatc(/* third */ delim) {
@@ -366,7 +366,7 @@ impl<'a> Tokenizer<'a> {
         }
     }
 
-    fn parse_literal_string(&mut self, start: usize) -> Result<TokenVariant<'a>, Error> {
+    fn parse_literal_string(&mut self, start: usize) -> Result<TokenVariant, Error> {
         self.parse_string('\'', start, &mut |_me, val, _multi, i, ch| {
             if ch == '\u{09}' || (('\u{20}'..='\u{10ffff}').contains(&ch) && ch != '\u{7f}') {
                 val.push(ch);
@@ -377,7 +377,7 @@ impl<'a> Tokenizer<'a> {
         })
     }
 
-    fn parse_basic_string(&mut self, start: usize) -> Result<TokenVariant<'a>, Error> {
+    fn parse_basic_string(&mut self, start: usize) -> Result<TokenVariant, Error> {
         self.parse_string('"', start, &mut |me, val, multi, i, ch| match ch {
             '\\' => {
                 val.to_owned(&me.input[..i]);
@@ -447,7 +447,7 @@ impl<'a> Tokenizer<'a> {
         }
     }
 
-    fn keylike(&mut self, start: usize) -> TokenVariant<'a> {
+    fn keylike(&mut self, start: usize) -> TokenVariant {
         while let Some((_, ch)) = self.peek_one() {
             if !is_keylike(ch) {
                 break;
@@ -537,15 +537,15 @@ fn is_keylike(ch: char) -> bool {
         || ch == '_'
 }
 
-impl<'a> TokenVariant<'a> {
+impl TokenVariant {
     pub fn describe(&self) -> &'static str {
         match *self {
             TokenVariant::Keylike(_) => "an keylike",
             TokenVariant::Equals => "an equals",
             TokenVariant::Period => "a period",
-            TokenVariant::Comment(_) => "a comment",
+            TokenVariant::Comment => "a comment",
             TokenVariant::Newline => "a newline",
-            TokenVariant::Whitespace(_) => "whitespace",
+            TokenVariant::Whitespace => "whitespace",
             TokenVariant::Comma => "a comma",
             TokenVariant::RightBrace => "a right brace",
             TokenVariant::LeftBrace => "a left brace",

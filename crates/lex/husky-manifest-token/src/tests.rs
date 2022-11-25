@@ -124,9 +124,9 @@ fn keylike() {
 
 #[test]
 fn all() {
-    fn t(db: &dyn WordDb, input: &str, expected: &[((usize, usize), TokenVariant<'_>, &str)]) {
+    fn t(db: &dyn WordDb, input: &str, expected: &[((usize, usize), TokenVariant, &str)]) {
         let mut tokens = Tokenizer::new(db, input);
-        let mut actual: Vec<((usize, usize), TokenVariant<'_>, &str)> = Vec::new();
+        let mut actual: Vec<((usize, usize), TokenVariant, &str)> = Vec::new();
         while let Some(token) = tokens.next().unwrap() {
             actual.push((
                 token.span.into(),
@@ -145,9 +145,9 @@ fn all() {
         &db,
         " a ",
         &[
-            ((0, 1), TokenVariant::Whitespace(" "), " "),
+            ((0, 1), TokenVariant::Whitespace, " "),
             ((1, 2), TokenVariant::Keylike(db.it_word_borrowed("a")), "a"),
-            ((2, 3), TokenVariant::Whitespace(" "), " "),
+            ((2, 3), TokenVariant::Whitespace, " "),
         ],
     );
 
@@ -155,31 +155,31 @@ fn all() {
         &db,
         " a\t [[]] \t [] {} , . =\n# foo \r\n#foo \n ",
         &[
-            ((0, 1), TokenVariant::Whitespace(" "), " "),
+            ((0, 1), TokenVariant::Whitespace, " "),
             ((1, 2), TokenVariant::Keylike(db.it_word_borrowed("a")), "a"),
-            ((2, 4), TokenVariant::Whitespace("\t "), "\t "),
+            ((2, 4), TokenVariant::Whitespace, "\t "),
             ((4, 5), TokenVariant::LeftBracket, "["),
             ((5, 6), TokenVariant::LeftBracket, "["),
             ((6, 7), TokenVariant::RightBracket, "]"),
             ((7, 8), TokenVariant::RightBracket, "]"),
-            ((8, 11), TokenVariant::Whitespace(" \t "), " \t "),
+            ((8, 11), TokenVariant::Whitespace, " \t "),
             ((11, 12), TokenVariant::LeftBracket, "["),
             ((12, 13), TokenVariant::RightBracket, "]"),
-            ((13, 14), TokenVariant::Whitespace(" "), " "),
+            ((13, 14), TokenVariant::Whitespace, " "),
             ((14, 15), TokenVariant::LeftBrace, "{"),
             ((15, 16), TokenVariant::RightBrace, "}"),
-            ((16, 17), TokenVariant::Whitespace(" "), " "),
+            ((16, 17), TokenVariant::Whitespace, " "),
             ((17, 18), TokenVariant::Comma, ","),
-            ((18, 19), TokenVariant::Whitespace(" "), " "),
+            ((18, 19), TokenVariant::Whitespace, " "),
             ((19, 20), TokenVariant::Period, "."),
-            ((20, 21), TokenVariant::Whitespace(" "), " "),
+            ((20, 21), TokenVariant::Whitespace, " "),
             ((21, 22), TokenVariant::Equals, "="),
             ((22, 23), TokenVariant::Newline, "\n"),
-            ((23, 29), TokenVariant::Comment("# foo "), "# foo "),
+            ((23, 29), TokenVariant::Comment, "# foo "),
             ((29, 31), TokenVariant::Newline, "\r\n"),
-            ((31, 36), TokenVariant::Comment("#foo "), "#foo "),
+            ((31, 36), TokenVariant::Comment, "#foo "),
             ((36, 37), TokenVariant::Newline, "\n"),
-            ((37, 38), TokenVariant::Whitespace(" "), " "),
+            ((37, 38), TokenVariant::Whitespace, " "),
         ],
     );
 }
