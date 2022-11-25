@@ -12,13 +12,13 @@ use std::{borrow::Cow, sync::Arc};
 type StringValue = Arc<String>;
 
 #[derive(Eq, PartialEq, Debug)]
-pub struct Token {
+pub struct TomlToken {
     span: TextSpan,
-    variant: TokenVariant,
+    variant: TomlTokenVariant,
 }
 
 #[derive(Eq, PartialEq, Debug)]
-pub enum TokenVariant {
+pub enum TomlTokenVariant {
     Whitespace,
     Newline,
     Comment,
@@ -87,24 +87,24 @@ impl<'a> Tokenizer<'a> {
         t
     }
 
-    pub fn next(&mut self) -> Result<Option<Token>, Error> {
+    pub fn next(&mut self) -> Result<Option<TomlToken>, Error> {
         let (start, variant) = match self.take_one_char() {
-            Some((start, '\n')) => (start, TokenVariant::Newline),
+            Some((start, '\n')) => (start, TomlTokenVariant::Newline),
             Some((start, ' ')) => (start, self.whitespace_token(start)),
             Some((start, '\t')) => (start, self.whitespace_token(start)),
             Some((start, '#')) => (start, self.comment_token(start)),
-            Some((start, '=')) => (start, TokenVariant::Equals),
-            Some((start, '.')) => (start, TokenVariant::Period),
-            Some((start, ',')) => (start, TokenVariant::Comma),
-            Some((start, ':')) => (start, TokenVariant::Colon),
-            Some((start, '+')) => (start, TokenVariant::Plus),
-            Some((start, '{')) => (start, TokenVariant::LeftBrace),
-            Some((start, '}')) => (start, TokenVariant::RightBrace),
-            Some((start, '[')) => (start, TokenVariant::LeftBracket),
-            Some((start, ']')) => (start, TokenVariant::RightBracket),
+            Some((start, '=')) => (start, TomlTokenVariant::Equals),
+            Some((start, '.')) => (start, TomlTokenVariant::Period),
+            Some((start, ',')) => (start, TomlTokenVariant::Comma),
+            Some((start, ':')) => (start, TomlTokenVariant::Colon),
+            Some((start, '+')) => (start, TomlTokenVariant::Plus),
+            Some((start, '{')) => (start, TomlTokenVariant::LeftBrace),
+            Some((start, '}')) => (start, TomlTokenVariant::RightBrace),
+            Some((start, '[')) => (start, TomlTokenVariant::LeftBracket),
+            Some((start, ']')) => (start, TomlTokenVariant::RightBracket),
             Some((start, '\'')) => {
                 return self.parse_literal_string(start).map(|variant| {
-                    Some(Token {
+                    Some(TomlToken {
                         span: self.calc_span(start),
                         variant,
                     })
@@ -112,7 +112,7 @@ impl<'a> Tokenizer<'a> {
             }
             Some((start, '"')) => {
                 return self.parse_basic_string(start).map(|variant| {
-                    Some(Token {
+                    Some(TomlToken {
                         span: self.calc_span(start),
                         variant,
                     })
@@ -124,19 +124,19 @@ impl<'a> Tokenizer<'a> {
         };
 
         let span = self.calc_span(start);
-        Ok(Some(Token { span, variant }))
+        Ok(Some(TomlToken { span, variant }))
     }
 
-    pub fn peek(&mut self) -> Result<Option<Token>, Error> {
+    pub fn peek(&mut self) -> Result<Option<TomlToken>, Error> {
         self.clone().next()
     }
 
-    pub fn eat(&mut self, expected: TokenVariant) -> Result<bool, Error> {
+    pub fn eat(&mut self, expected: TomlTokenVariant) -> Result<bool, Error> {
         self.eat_spanned(expected).map(|s| s.is_some())
     }
 
     /// Eat a value, returning it's span if it was consumed.
-    pub fn eat_spanned(&mut self, expected: TokenVariant) -> Result<Option<TextSpan>, Error> {
+    pub fn eat_spanned(&mut self, expected: TomlTokenVariant) -> Result<Option<TextSpan>, Error> {
         let span = match self.peek()? {
             Some(token) if expected == token.variant => token.span,
             Some(_) => return Ok(None),
@@ -147,7 +147,7 @@ impl<'a> Tokenizer<'a> {
         Ok(Some(span))
     }
 
-    pub fn eat_expect(&mut self, expected: TokenVariant) -> Result<(), Error> {
+    pub fn eat_expect(&mut self, expected: TomlTokenVariant) -> Result<(), Error> {
         // ignore span
         let _ = self.eat_expect_return_its_span(expected)?;
         Ok(())
@@ -156,7 +156,7 @@ impl<'a> Tokenizer<'a> {
     /// Expect the given token returning its span.
     pub fn eat_expect_return_its_span(
         &mut self,
-        expected: TokenVariant,
+        expected: TomlTokenVariant,
     ) -> Result<TextSpan, Error> {
         let current = self.current();
         match self.next()? {
@@ -182,13 +182,13 @@ impl<'a> Tokenizer<'a> {
     pub fn parse_table_key(&mut self) -> Result<(TextSpan, Word), Error> {
         let current = self.current();
         match self.next()? {
-            Some(Token {
+            Some(TomlToken {
                 span,
-                variant: TokenVariant::Keylike(k),
+                variant: TomlTokenVariant::Keylike(k),
             }) => Ok((span, k.into())),
-            Some(Token {
+            Some(TomlToken {
                 span,
-                variant: TokenVariant::StringLiteral { val, multiline },
+                variant: TomlTokenVariant::StringLiteral { val, multiline },
             }) => {
                 let offset = self.substr_offset(span);
                 if multiline {
@@ -231,8 +231,8 @@ impl<'a> Tokenizer<'a> {
         let current = self.current();
         match self.next()? {
             None
-            | Some(Token {
-                variant: TokenVariant::Newline,
+            | Some(TomlToken {
+                variant: TomlTokenVariant::Newline,
                 ..
             }) => Ok(()),
             Some(token) => Err(Error::Wanted {
@@ -274,21 +274,21 @@ impl<'a> Tokenizer<'a> {
         self.input
     }
 
-    fn whitespace_token(&mut self, start: usize) -> TokenVariant {
+    fn whitespace_token(&mut self, start: usize) -> TomlTokenVariant {
         while self.eatc(' ') || self.eatc('\t') {
             // ...
         }
-        TokenVariant::Whitespace
+        TomlTokenVariant::Whitespace
     }
 
-    fn comment_token(&mut self, start: usize) -> TokenVariant {
+    fn comment_token(&mut self, start: usize) -> TomlTokenVariant {
         while let Some((_, ch)) = self.chars.clone().next() {
             if ch != '\t' && !('\u{20}'..='\u{10ffff}').contains(&ch) {
                 break;
             }
             self.take_one_char();
         }
-        TokenVariant::Comment
+        TomlTokenVariant::Comment
     }
 
     #[allow(clippy::type_complexity)]
@@ -303,13 +303,13 @@ impl<'a> Tokenizer<'a> {
             usize,
             char,
         ) -> Result<(), Error>,
-    ) -> Result<TokenVariant, Error> {
+    ) -> Result<TomlTokenVariant, Error> {
         let mut multiline = false;
         if self.eatc(/* second */ delim) {
             if self.eatc(/* third */ delim) {
                 multiline = true;
             } else {
-                return Ok(TokenVariant::StringLiteral {
+                return Ok(TomlTokenVariant::StringLiteral {
                     val: Default::default(),
                     multiline: false,
                 });
@@ -355,7 +355,7 @@ impl<'a> Tokenizer<'a> {
                             i += 1;
                         }
                     }
-                    return Ok(TokenVariant::StringLiteral {
+                    return Ok(TomlTokenVariant::StringLiteral {
                         val: val.into_cow(&self.input[..i]),
                         multiline,
                     });
@@ -366,7 +366,7 @@ impl<'a> Tokenizer<'a> {
         }
     }
 
-    fn parse_literal_string(&mut self, start: usize) -> Result<TokenVariant, Error> {
+    fn parse_literal_string(&mut self, start: usize) -> Result<TomlTokenVariant, Error> {
         self.parse_string('\'', start, &mut |_me, val, _multi, i, ch| {
             if ch == '\u{09}' || (('\u{20}'..='\u{10ffff}').contains(&ch) && ch != '\u{7f}') {
                 val.push(ch);
@@ -377,7 +377,7 @@ impl<'a> Tokenizer<'a> {
         })
     }
 
-    fn parse_basic_string(&mut self, start: usize) -> Result<TokenVariant, Error> {
+    fn parse_basic_string(&mut self, start: usize) -> Result<TomlTokenVariant, Error> {
         self.parse_string('"', start, &mut |me, val, multi, i, ch| match ch {
             '\\' => {
                 val.to_owned(&me.input[..i]);
@@ -447,14 +447,14 @@ impl<'a> Tokenizer<'a> {
         }
     }
 
-    fn keylike(&mut self, start: usize) -> TokenVariant {
+    fn keylike(&mut self, start: usize) -> TomlTokenVariant {
         while let Some((_, ch)) = self.peek_one() {
             if !is_keylike(ch) {
                 break;
             }
             self.take_one_char();
         }
-        TokenVariant::Keylike(self.db.it_word_borrowed(&self.input[start..self.current()]))
+        TomlTokenVariant::Keylike(self.db.it_word_borrowed(&self.input[start..self.current()]))
     }
 
     pub fn substr_offset(&self, span: TextSpan) -> usize {
@@ -537,29 +537,29 @@ fn is_keylike(ch: char) -> bool {
         || ch == '_'
 }
 
-impl TokenVariant {
+impl TomlTokenVariant {
     pub fn describe(&self) -> &'static str {
         match *self {
-            TokenVariant::Keylike(_) => "an keylike",
-            TokenVariant::Equals => "an equals",
-            TokenVariant::Period => "a period",
-            TokenVariant::Comment => "a comment",
-            TokenVariant::Newline => "a newline",
-            TokenVariant::Whitespace => "whitespace",
-            TokenVariant::Comma => "a comma",
-            TokenVariant::RightBrace => "a right brace",
-            TokenVariant::LeftBrace => "a left brace",
-            TokenVariant::RightBracket => "a right bracket",
-            TokenVariant::LeftBracket => "a left bracket",
-            TokenVariant::StringLiteral { multiline, .. } => {
+            TomlTokenVariant::Keylike(_) => "an keylike",
+            TomlTokenVariant::Equals => "an equals",
+            TomlTokenVariant::Period => "a period",
+            TomlTokenVariant::Comment => "a comment",
+            TomlTokenVariant::Newline => "a newline",
+            TomlTokenVariant::Whitespace => "whitespace",
+            TomlTokenVariant::Comma => "a comma",
+            TomlTokenVariant::RightBrace => "a right brace",
+            TomlTokenVariant::LeftBrace => "a left brace",
+            TomlTokenVariant::RightBracket => "a right bracket",
+            TomlTokenVariant::LeftBracket => "a left bracket",
+            TomlTokenVariant::StringLiteral { multiline, .. } => {
                 if multiline {
                     "a multiline string"
                 } else {
                     "a string"
                 }
             }
-            TokenVariant::Colon => "a colon",
-            TokenVariant::Plus => "a plus",
+            TomlTokenVariant::Colon => "a colon",
+            TomlTokenVariant::Plus => "a plus",
         }
     }
 }
