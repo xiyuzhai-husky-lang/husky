@@ -6,6 +6,7 @@ mod keyword;
 mod reserved;
 mod semantic_token;
 mod special;
+mod storage;
 #[cfg(test)]
 mod tests;
 mod utils;
@@ -17,6 +18,7 @@ pub use keyword::*;
 pub use reserved::RESERVED_WORDS;
 pub use semantic_token::*;
 pub use special::SpecialToken;
+pub use storage::*;
 pub use wordopr::WordOpr;
 
 use husky_identifier::Identifier;

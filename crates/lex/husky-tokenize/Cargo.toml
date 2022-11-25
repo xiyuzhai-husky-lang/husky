@@ -10,9 +10,7 @@ husky-source-path = { path = "../../fs/husky-source-path" }
 # kernel
 husky-identifier = { path = "../../kernel/husky-identifier" }
 # lex
-husky-token-line = { path = "../../lex/husky-token-line" }
 husky-token = { path = "../../lex/husky-token" }
-husky-token-storage = { path = "../../lex/husky-token-storage" }
 husky-text = { path = "../../lex/husky-text" }
 # syntax
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }

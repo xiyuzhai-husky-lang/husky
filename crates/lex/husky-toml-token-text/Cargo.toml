@@ -1,5 +1,5 @@
 [package]
-name = "husky-token-line-group"
+name = "husky-toml-token-text"
 version = "0.1.0"
 edition = "2021"
 

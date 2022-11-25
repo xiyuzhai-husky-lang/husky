@@ -1,4 +1,4 @@
-use husky_token::Token;
+use crate::Token;
 pub struct TokenStorage(Vec<Token>);
 
 #[derive(Debug, Clone, PartialEq, Eq)]

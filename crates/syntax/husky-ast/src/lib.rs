@@ -13,7 +13,7 @@ pub use context::*;
 pub use db::{AstDb, AstText};
 pub use entrance::*;
 pub use field::*;
-use husky_token_storage::TokenIdxRange;
+use husky_token::TokenIdxRange;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 pub use stmt::*;
 pub use transform::*;
