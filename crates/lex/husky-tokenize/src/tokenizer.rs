@@ -7,6 +7,13 @@ use husky_token_line::TokenLine;
 use husky_token_storage::TokenIdxRange;
 use std::{iter::Peekable, sync::Arc};
 
+pub(crate) struct Tokenizer<'lex> {
+    db: &'lex dyn IdentifierDb,
+    tokens: Vec<Token>,
+    tokenized_lines: Vec<TokenizedLine>,
+    errors: Vec<LexError>,
+}
+
 #[derive(PartialEq, Eq)]
 pub struct TokenizedLine {
     pub(crate) indent: TextIndent,
@@ -23,19 +30,12 @@ impl std::fmt::Debug for TokenizedLine {
     }
 }
 
-pub struct TokenLexer<'lex> {
-    db: &'lex dyn IdentifierDb,
-    tokens: Vec<Token>,
-    tokenized_lines: Vec<TokenizedLine>,
-    errors: Vec<LexError>,
-}
-
-enum TokenScannerAction {
+enum TokenizerAction {
     Push,
     ReplaceLast,
 }
 
-impl<'token> TokenLexer<'token> {
+impl<'token> Tokenizer<'token> {
     pub fn new(db: &'token dyn IdentifierDb) -> Self {
         Self {
             db,
@@ -65,17 +65,17 @@ impl<'token> TokenLexer<'token> {
         for token in iter {
             let (action, token) = self.resolve_token(token);
             match action {
-                TokenScannerAction::Push => self.tokens.push(token),
-                TokenScannerAction::ReplaceLast => *self.tokens.last_mut().unwrap() = token,
+                TokenizerAction::Push => self.tokens.push(token),
+                TokenizerAction::ReplaceLast => *self.tokens.last_mut().unwrap() = token,
             }
         }
     }
 
-    fn resolve_token(&self, token: RawToken) -> (TokenScannerAction, Token) {
+    fn resolve_token(&self, token: RawToken) -> (TokenizerAction, Token) {
         let (action, kind) = match token.kind {
-            RawTokenKind::Certain(token_kind) => (TokenScannerAction::Push, token_kind),
+            RawTokenKind::Certain(token_kind) => (TokenizerAction::Push, token_kind),
             RawTokenKind::SubOrMinus => (
-                TokenScannerAction::Push,
+                TokenizerAction::Push,
                 match self.right_convexity() {
                     Convexity::Convex => TokenKind::Special(SpecialToken::BinaryOpr(
                         BinaryOpr::PureClosed(BinaryPureClosedOpr::Sub),
@@ -85,13 +85,13 @@ impl<'token> TokenLexer<'token> {
             ),
             RawTokenKind::Literal(lit) => match self.tokens.last().map(|t| t.kind) {
                 Some(TokenKind::Special(SpecialToken::Minus)) => (
-                    TokenScannerAction::ReplaceLast,
+                    TokenizerAction::ReplaceLast,
                     TokenKind::Literal(lit.negative().expect("todo")),
                 ),
-                _ => (TokenScannerAction::Push, TokenKind::Literal(lit)),
+                _ => (TokenizerAction::Push, TokenKind::Literal(lit)),
             },
             RawTokenKind::IllFormedLiteral(l) => {
-                (TokenScannerAction::Push, TokenKind::IllFormedLiteral(l))
+                (TokenizerAction::Push, TokenKind::IllFormedLiteral(l))
             }
         };
         (
@@ -238,7 +238,7 @@ impl<'token> TokenLexer<'token> {
     }
 }
 
-impl<'lex> std::fmt::Debug for TokenLexer<'lex> {
+impl<'lex> std::fmt::Debug for Tokenizer<'lex> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("TokenScanner").finish()
     }

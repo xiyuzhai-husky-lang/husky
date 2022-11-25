@@ -1,6 +1,6 @@
 mod error;
 mod raw;
-mod scanner;
+mod tokenizer;
 mod word;
 
 pub use error::*;
@@ -8,16 +8,15 @@ pub use error::*;
 use husky_identifier::IdentifierDb;
 use husky_token::Token;
 use raw::*;
-use scanner::TokenLexer;
-
+use tokenizer::*;
 pub trait Tokenize: IdentifierDb {
     fn tokenize_line(&self, line: &str) -> Vec<Token>
     where
         Self: Sized,
     {
-        let mut scanner = TokenLexer::new(self);
-        scanner.scan_line(0, line);
-        scanner.finish_with_tokens()
+        let mut tokenizer = Tokenizer::new(self);
+        tokenizer.scan_line(0, line);
+        tokenizer.finish_with_tokens()
     }
 }
 

@@ -1,38 +1,24 @@
-mod special;
-#[cfg(test)]
-mod tests;
+mod tokenizer;
 
-pub use special::*;
+use std::sync::Arc;
 
-use husky_print_utils::p;
 use husky_text_span::TextSpan;
+use husky_toml_token::{StringValue, TomlSpecialToken, TomlToken, TomlTokenVariant};
 use husky_word::{Word, WordDb};
-use std::char;
-use std::str;
-use std::string;
-use std::{borrow::Cow, sync::Arc};
+use tokenizer::*;
 
-pub type StringValue = Arc<String>;
-
-/// tokens in toml file
-#[derive(Eq, PartialEq, Debug)]
-pub struct TomlToken {
-    pub span: TextSpan,
-    pub variant: TomlTokenVariant,
+#[derive(Clone)]
+pub struct Tokenizer<'a> {
+    db: &'a dyn WordDb,
+    input: &'a str,
+    chars: CrlfFold<'a>,
 }
 
-/// variants for tokens in toml file
-#[derive(Debug, Eq, PartialEq, Clone)]
-pub enum TomlTokenVariant {
-    Whitespace,
-    Newline,
-    Comment,
-    Special(TomlSpecialToken),
-    Keylike(Word),
-    StringLiteral { val: StringValue, multiline: bool },
+#[derive(Clone)]
+struct CrlfFold<'a> {
+    chars: std::str::CharIndices<'a>,
 }
 
-#[derive(Eq, PartialEq, Debug)]
 pub enum Error {
     InvalidCharInString(usize, char),
     InvalidEscape(usize, char),
@@ -48,18 +34,6 @@ pub enum Error {
         expected: &'static str,
         found: &'static str,
     },
-}
-
-#[derive(Clone)]
-pub struct Tokenizer<'a> {
-    db: &'a dyn WordDb,
-    input: &'a str,
-    chars: CrlfFold<'a>,
-}
-
-#[derive(Clone)]
-struct CrlfFold<'a> {
-    chars: std::str::CharIndices<'a>,
 }
 
 #[derive(Debug)]
@@ -530,39 +504,4 @@ fn is_keylike(ch: char) -> bool {
         || ('0'..='9').contains(&ch)
         || ch == '-'
         || ch == '_'
-}
-
-impl TomlTokenVariant {
-    pub fn describe(&self) -> &'static str {
-        match *self {
-            TomlTokenVariant::Keylike(_) => "an keylike",
-            TomlTokenVariant::Comment => "a comment",
-            TomlTokenVariant::Newline => "a newline",
-            TomlTokenVariant::Special(special) => special.describe(),
-            TomlTokenVariant::Whitespace => "whitespace",
-            TomlTokenVariant::StringLiteral { multiline, .. } => {
-                if multiline {
-                    "a multiline string"
-                } else {
-                    "a string"
-                }
-            }
-        }
-    }
-}
-
-impl TomlSpecialToken {
-    pub fn describe(self) -> &'static str {
-        match self {
-            TomlSpecialToken::Equals => "an equals",
-            TomlSpecialToken::Period => "a period",
-            TomlSpecialToken::Comma => "a comma",
-            TomlSpecialToken::RightCurly => "a right brace",
-            TomlSpecialToken::LeftCurly => "a left brace",
-            TomlSpecialToken::RightBox => "a right bracket",
-            TomlSpecialToken::LeftBox => "a left bracket",
-            TomlSpecialToken::Colon => "a colon",
-            TomlSpecialToken::Plus => "a plus",
-        }
-    }
 }
