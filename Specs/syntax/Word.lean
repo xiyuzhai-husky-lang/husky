@@ -68,13 +68,13 @@ namespace WordPattern
     | None => "none"
 end WordPattern
 
-inductive Word
-  | Keyword: Keyword -> Word
-  | Opr: WordOpr -> Word
-  | Decorator: Decorator -> Word
-  | Pattern: WordPattern -> Word
-  | Identifier: Identifier -> Word
-  deriving DecidableEq
+-- inductive Word
+--   | Keyword: Keyword -> Word
+--   | Opr: WordOpr -> Word
+--   | Decorator: Decorator -> Word
+--   | Pattern: WordPattern -> Word
+--   | Identifier: Identifier -> Word
+--   deriving DecidableEq
 
 -- namespace Word
 -- instance : ToString Word where

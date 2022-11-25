@@ -2,7 +2,6 @@ import Specs.syntax.Word
 import Specs.syntax.RawLiteralData
 import Specs.syntax.Token.SpecialToken -- mod SpecialToken; use SpecialToken
 
-
 inductive TokenKind
   | Decorator : Decorator -> TokenKind
   | Keyword : Keyword -> TokenKind
