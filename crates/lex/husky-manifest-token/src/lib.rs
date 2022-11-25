@@ -1,6 +1,7 @@
 #[cfg(test)]
 mod tests;
 
+use husky_print_utils::p;
 use husky_text_span::TextSpan;
 use husky_word::{Word, WordDb};
 use std::char;
@@ -33,11 +34,7 @@ pub enum TokenVariant<'a> {
     RightBracket,
 
     Keylike(Word),
-    StringLiteral {
-        src: &'a str,
-        val: StringValue,
-        multiline: bool,
-    },
+    StringLiteral { val: StringValue, multiline: bool },
 }
 
 #[derive(Eq, PartialEq, Debug)]
@@ -91,7 +88,7 @@ impl<'a> Tokenizer<'a> {
     }
 
     pub fn next(&mut self) -> Result<Option<Token<'a>>, Error> {
-        let (start, variant) = match self.one() {
+        let (start, variant) = match self.take_one_char() {
             Some((start, '\n')) => (start, TokenVariant::Newline),
             Some((start, ' ')) => (start, self.whitespace_token(start)),
             Some((start, '\t')) => (start, self.whitespace_token(start)),
@@ -106,28 +103,27 @@ impl<'a> Tokenizer<'a> {
             Some((start, '[')) => (start, TokenVariant::LeftBracket),
             Some((start, ']')) => (start, TokenVariant::RightBracket),
             Some((start, '\'')) => {
-                return self.literal_string(start).map(|variant| {
+                return self.parse_literal_string(start).map(|variant| {
                     Some(Token {
-                        span: self.step_span(start),
+                        span: self.calc_span(start),
                         variant,
                     })
                 })
             }
             Some((start, '"')) => {
-                return self.basic_string(start).map(|variant| {
+                return self.parse_basic_string(start).map(|variant| {
                     Some(Token {
-                        span: self.step_span(start),
+                        span: self.calc_span(start),
                         variant,
                     })
                 })
             }
             Some((start, ch)) if is_keylike(ch) => (start, self.keylike(start)),
-
             Some((start, ch)) => return Err(Error::Unexpected(start, ch)),
             None => return Ok(None),
         };
 
-        let span = self.step_span(start);
+        let span = self.calc_span(start);
         Ok(Some(Token { span, variant }))
     }
 
@@ -151,14 +147,17 @@ impl<'a> Tokenizer<'a> {
         Ok(Some(span))
     }
 
-    pub fn expect(&mut self, expected: TokenVariant<'a>) -> Result<(), Error> {
+    pub fn eat_expect(&mut self, expected: TokenVariant<'a>) -> Result<(), Error> {
         // ignore span
-        let _ = self.expect_spanned(expected)?;
+        let _ = self.eat_expect_return_its_span(expected)?;
         Ok(())
     }
 
     /// Expect the given token returning its span.
-    pub fn expect_spanned(&mut self, expected: TokenVariant<'a>) -> Result<TextSpan, Error> {
+    pub fn eat_expect_return_its_span(
+        &mut self,
+        expected: TokenVariant<'a>,
+    ) -> Result<TextSpan, Error> {
         let current = self.current();
         match self.next()? {
             Some(token) => {
@@ -180,7 +179,7 @@ impl<'a> Tokenizer<'a> {
         }
     }
 
-    pub fn table_key(&mut self) -> Result<(TextSpan, Word), Error> {
+    pub fn parse_table_key(&mut self) -> Result<(TextSpan, Word), Error> {
         let current = self.current();
         match self.next()? {
             Some(Token {
@@ -189,18 +188,13 @@ impl<'a> Tokenizer<'a> {
             }) => Ok((span, k.into())),
             Some(Token {
                 span,
-                variant:
-                    TokenVariant::StringLiteral {
-                        src,
-                        val,
-                        multiline,
-                    },
+                variant: TokenVariant::StringLiteral { val, multiline },
             }) => {
-                let offset = self.substr_offset(src);
+                let offset = self.substr_offset(span);
                 if multiline {
                     return Err(Error::MultilineStringKey(offset));
                 }
-                match src.find('\n') {
+                match self.input[span.start..span.end].find('\n') {
                     None => Ok((span, self.db.it_word_borrowed(&val))),
                     Some(i) => Err(Error::NewlineInTableKey(offset + i)),
                 }
@@ -251,7 +245,7 @@ impl<'a> Tokenizer<'a> {
 
     pub fn skip_to_newline(&mut self) {
         loop {
-            match self.one() {
+            match self.take_one_char() {
                 Some((_, '\n')) | None => break,
                 _ => {}
             }
@@ -261,14 +255,14 @@ impl<'a> Tokenizer<'a> {
     fn eatc(&mut self, ch: char) -> bool {
         match self.chars.clone().next() {
             Some((_, ch2)) if ch == ch2 => {
-                self.one();
+                self.take_one_char();
                 true
             }
             _ => false,
         }
     }
 
-    pub fn current(&mut self) -> usize {
+    pub fn current(&self) -> usize {
         self.chars
             .clone()
             .next()
@@ -292,13 +286,13 @@ impl<'a> Tokenizer<'a> {
             if ch != '\t' && !('\u{20}'..='\u{10ffff}').contains(&ch) {
                 break;
             }
-            self.one();
+            self.take_one_char();
         }
         TokenVariant::Comment(&self.input[start..self.current()])
     }
 
     #[allow(clippy::type_complexity)]
-    fn read_string(
+    fn parse_string(
         &mut self,
         delim: char,
         start: usize,
@@ -311,12 +305,11 @@ impl<'a> Tokenizer<'a> {
         ) -> Result<(), Error>,
     ) -> Result<TokenVariant<'a>, Error> {
         let mut multiline = false;
-        if self.eatc(delim) {
-            if self.eatc(delim) {
+        if self.eatc(/* second */ delim) {
+            if self.eatc(/* third */ delim) {
                 multiline = true;
             } else {
                 return Ok(TokenVariant::StringLiteral {
-                    src: &self.input[start..start + 2],
                     val: Default::default(),
                     multiline: false,
                 });
@@ -326,7 +319,7 @@ impl<'a> Tokenizer<'a> {
         let mut n = 0;
         'outer: loop {
             n += 1;
-            match self.one() {
+            match self.take_one_char() {
                 Some((i, '\n')) => {
                     if multiline {
                         if self.input.as_bytes()[i] == b'\r' {
@@ -363,7 +356,6 @@ impl<'a> Tokenizer<'a> {
                         }
                     }
                     return Ok(TokenVariant::StringLiteral {
-                        src: &self.input[start..self.current()],
                         val: val.into_cow(&self.input[..i]),
                         multiline,
                     });
@@ -374,8 +366,8 @@ impl<'a> Tokenizer<'a> {
         }
     }
 
-    fn literal_string(&mut self, start: usize) -> Result<TokenVariant<'a>, Error> {
-        self.read_string('\'', start, &mut |_me, val, _multi, i, ch| {
+    fn parse_literal_string(&mut self, start: usize) -> Result<TokenVariant<'a>, Error> {
+        self.parse_string('\'', start, &mut |_me, val, _multi, i, ch| {
             if ch == '\u{09}' || (('\u{20}'..='\u{10ffff}').contains(&ch) && ch != '\u{7f}') {
                 val.push(ch);
                 Ok(())
@@ -385,8 +377,8 @@ impl<'a> Tokenizer<'a> {
         })
     }
 
-    fn basic_string(&mut self, start: usize) -> Result<TokenVariant<'a>, Error> {
-        self.read_string('"', start, &mut |me, val, multi, i, ch| match ch {
+    fn parse_basic_string(&mut self, start: usize) -> Result<TokenVariant<'a>, Error> {
+        self.parse_string('"', start, &mut |me, val, multi, i, ch| match ch {
             '\\' => {
                 val.to_owned(&me.input[..i]);
                 match me.chars.next() {
@@ -399,7 +391,7 @@ impl<'a> Tokenizer<'a> {
                     Some((_, 't')) => val.push('\t'),
                     Some((i, c @ 'u')) | Some((i, c @ 'U')) => {
                         let len = if c == 'u' { 4 } else { 8 };
-                        val.push(me.hex(start, i, len)?);
+                        val.push(me.parse_hex(start, i, len)?);
                     }
                     Some((i, c @ ' ')) | Some((i, c @ '\t')) | Some((i, c @ '\n')) if multi => {
                         if c != '\n' {
@@ -439,10 +431,10 @@ impl<'a> Tokenizer<'a> {
         })
     }
 
-    fn hex(&mut self, start: usize, i: usize, len: usize) -> Result<char, Error> {
+    fn parse_hex(&mut self, start: usize, i: usize, len: usize) -> Result<char, Error> {
         let mut buf = String::with_capacity(len);
         for _ in 0..len {
-            match self.one() {
+            match self.take_one_char() {
                 Some((_, ch)) if ch as u32 <= 0x7F && ch.is_ascii_hexdigit() => buf.push(ch),
                 Some((i, ch)) => return Err(Error::InvalidHexEscape(i, ch)),
                 None => return Err(Error::UnterminatedString(start)),
@@ -460,12 +452,13 @@ impl<'a> Tokenizer<'a> {
             if !is_keylike(ch) {
                 break;
             }
-            self.one();
+            self.take_one_char();
         }
         TokenVariant::Keylike(self.db.it_word_borrowed(&self.input[start..self.current()]))
     }
 
-    pub fn substr_offset(&self, s: &'a str) -> usize {
+    pub fn substr_offset(&self, span: TextSpan) -> usize {
+        let s = &self.input[span.start..span.end];
         assert!(s.len() <= self.input.len());
         let a = self.input.as_ptr() as usize;
         let b = s.as_ptr() as usize;
@@ -473,8 +466,8 @@ impl<'a> Tokenizer<'a> {
         b - a
     }
 
-    /// Calculate the span of a single character.
-    fn step_span(&mut self, start: usize) -> TextSpan {
+    /// Calculate the span from start to next char
+    fn calc_span(&mut self, start: usize) -> TextSpan {
         let end = self
             .peek_one()
             .map(|t| t.0)
@@ -483,12 +476,12 @@ impl<'a> Tokenizer<'a> {
     }
 
     /// Peek one char without consuming it.
-    fn peek_one(&mut self) -> Option<(usize, char)> {
+    fn peek_one(&self) -> Option<(usize, char)> {
         self.chars.clone().next()
     }
 
     /// Take one char.
-    pub fn one(&mut self) -> Option<(usize, char)> {
+    pub fn take_one_char(&mut self) -> Option<(usize, char)> {
         self.chars.next()
     }
 }
