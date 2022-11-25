@@ -90,8 +90,8 @@ impl<'a> Tokenizer<'a> {
         t
     }
 
-    pub fn next(&mut self) -> Result<Option<(TextSpan, TokenVariant<'a>)>, Error> {
-        let (start, token) = match self.one() {
+    pub fn next(&mut self) -> Result<Option<Token<'a>>, Error> {
+        let (start, variant) = match self.one() {
             Some((start, '\n')) => (start, TokenVariant::Newline),
             Some((start, ' ')) => (start, self.whitespace_token(start)),
             Some((start, '\t')) => (start, self.whitespace_token(start)),
@@ -106,14 +106,20 @@ impl<'a> Tokenizer<'a> {
             Some((start, '[')) => (start, TokenVariant::LeftBracket),
             Some((start, ']')) => (start, TokenVariant::RightBracket),
             Some((start, '\'')) => {
-                return self
-                    .literal_string(start)
-                    .map(|t| Some((self.step_span(start), t)))
+                return self.literal_string(start).map(|variant| {
+                    Some(Token {
+                        span: self.step_span(start),
+                        variant,
+                    })
+                })
             }
             Some((start, '"')) => {
-                return self
-                    .basic_string(start)
-                    .map(|t| Some((self.step_span(start), t)))
+                return self.basic_string(start).map(|variant| {
+                    Some(Token {
+                        span: self.step_span(start),
+                        variant,
+                    })
+                })
             }
             Some((start, ch)) if is_keylike(ch) => (start, self.keylike(start)),
 
@@ -122,10 +128,10 @@ impl<'a> Tokenizer<'a> {
         };
 
         let span = self.step_span(start);
-        Ok(Some((span, token)))
+        Ok(Some(Token { span, variant }))
     }
 
-    pub fn peek(&mut self) -> Result<Option<(TextSpan, TokenVariant<'a>)>, Error> {
+    pub fn peek(&mut self) -> Result<Option<Token<'a>>, Error> {
         self.clone().next()
     }
 
@@ -136,7 +142,7 @@ impl<'a> Tokenizer<'a> {
     /// Eat a value, returning it's span if it was consumed.
     pub fn eat_spanned(&mut self, expected: TokenVariant<'a>) -> Result<Option<TextSpan>, Error> {
         let span = match self.peek()? {
-            Some((span, ref found)) if expected == *found => span,
+            Some(token) if expected == token.variant => token.span,
             Some(_) => return Ok(None),
             None => return Ok(None),
         };
@@ -155,14 +161,14 @@ impl<'a> Tokenizer<'a> {
     pub fn expect_spanned(&mut self, expected: TokenVariant<'a>) -> Result<TextSpan, Error> {
         let current = self.current();
         match self.next()? {
-            Some((span, found)) => {
-                if expected == found {
-                    Ok(span)
+            Some(token) => {
+                if expected == token.variant {
+                    Ok(token.span)
                 } else {
                     Err(Error::Wanted {
                         at: current,
                         expected: expected.describe(),
-                        found: found.describe(),
+                        found: token.variant.describe(),
                     })
                 }
             }
@@ -177,15 +183,19 @@ impl<'a> Tokenizer<'a> {
     pub fn table_key(&mut self) -> Result<(TextSpan, Word), Error> {
         let current = self.current();
         match self.next()? {
-            Some((span, TokenVariant::Keylike(k))) => Ok((span, k.into())),
-            Some((
+            Some(Token {
                 span,
-                TokenVariant::StringLiteral {
-                    src,
-                    val,
-                    multiline,
-                },
-            )) => {
+                variant: TokenVariant::Keylike(k),
+            }) => Ok((span, k.into())),
+            Some(Token {
+                span,
+                variant:
+                    TokenVariant::StringLiteral {
+                        src,
+                        val,
+                        multiline,
+                    },
+            }) => {
                 let offset = self.substr_offset(src);
                 if multiline {
                     return Err(Error::MultilineStringKey(offset));
@@ -195,10 +205,10 @@ impl<'a> Tokenizer<'a> {
                     Some(i) => Err(Error::NewlineInTableKey(offset + i)),
                 }
             }
-            Some((_, other)) => Err(Error::Wanted {
+            Some(token) => Err(Error::Wanted {
                 at: current,
                 expected: "a table key",
-                found: other.describe(),
+                found: token.variant.describe(),
             }),
             None => Err(Error::Wanted {
                 at: self.input.len(),
@@ -226,11 +236,15 @@ impl<'a> Tokenizer<'a> {
     pub fn eat_newline_or_eof(&mut self) -> Result<(), Error> {
         let current = self.current();
         match self.next()? {
-            None | Some((_, TokenVariant::Newline)) => Ok(()),
-            Some((_, other)) => Err(Error::Wanted {
+            None
+            | Some(Token {
+                variant: TokenVariant::Newline,
+                ..
+            }) => Ok(()),
+            Some(token) => Err(Error::Wanted {
                 at: current,
                 expected: "newline",
-                found: other.describe(),
+                found: token.variant.describe(),
             }),
         }
     }
