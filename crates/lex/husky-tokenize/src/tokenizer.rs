@@ -55,7 +55,7 @@ impl<'token> Tokenizer<'token> {
         let end = self.tokens.len();
         self.tokenized_lines.push(TokenizedLine {
             indent,
-            tokens: TokenGroup(start..end),
+            tokens: TokenGroup::new(start..end),
         })
     }
 
@@ -81,7 +81,7 @@ impl<'token> Tokenizer<'token> {
                     Convexity::Concave | Convexity::Any => TokenKind::Special(SpecialToken::Minus),
                 },
             ),
-            RawTokenKind::Literal(lit) => match self.tokens.last().map(|t| t.kind) {
+            RawTokenKind::Literal(lit) => match self.tokens.last().map(|t| &t.kind) {
                 Some(TokenKind::Special(SpecialToken::Minus)) => (
                     TokenizerAction::ReplaceLast,
                     TokenKind::Literal(lit.negative().expect("todo")),

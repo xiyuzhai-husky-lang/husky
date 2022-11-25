@@ -44,7 +44,7 @@ impl<'a, 'b> Automata<'a, 'b> {
                 SpecialToken::QuestionMark => todo!(),
             },
             TokenKind::WordOpr(_) => todo!(),
-            TokenKind::Literal(literal) => ResolvedTokenKind::Atom(literal.into()),
+            TokenKind::Literal(ref literal) => ResolvedTokenKind::Atom(literal.clone().into()),
             TokenKind::Unrecognized(_) => todo!(),
             TokenKind::IllFormedLiteral(_) => todo!(),
         }

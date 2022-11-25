@@ -56,7 +56,7 @@ impl<'a> TermPatternInferContext<'a> {
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         match atom {
-            AtomExpr::Literal(literal) => self.infer_literal(*literal, sheet),
+            AtomExpr::Literal(literal) => self.infer_literal(literal, sheet),
             AtomExpr::Symbol(symbol) => match symbol.kind {
                 SymbolKind::EntityPath(_) => todo!(),
                 SymbolKind::LocalVariable { init_range } => ExprTermPatternInferRawResults {
@@ -125,7 +125,7 @@ impl<'a> TermPatternInferContext<'a> {
 
     fn infer_literal(
         &self,
-        literal: RawLiteralData,
+        literal: &RawLiteralData,
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         let _term_menu = self.term_menu();

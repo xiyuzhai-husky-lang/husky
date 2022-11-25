@@ -60,7 +60,7 @@ impl HasTextRange for Token {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TokenKind {
     Decorator(Decorator),
     Keyword(Keyword),
