@@ -6,7 +6,7 @@ use husky_entity_path::{
     EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu, EntityPathMenuPlace,
 };
 use husky_entity_tree::EntityTreeJar;
-use husky_expr_syntax::ExprIdx;
+use husky_expr::ExprIdx;
 use husky_identifier::{IdentifierDb, IdentifierJar};
 use husky_source_path::SourcePathJar;
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDb, SymbolJar, SymbolKind};

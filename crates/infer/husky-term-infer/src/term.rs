@@ -3,7 +3,7 @@ mod error;
 pub use error::*;
 
 use crate::*;
-use husky_expr_syntax::{AtomExpr, ExprIdx, ExprVariant};
+use husky_expr::{AtomExpr, ExprIdx, ExprVariant};
 use husky_symbol_syntax::SymbolKind;
 use husky_term::Term;
 use wild_utils::arb_ref;

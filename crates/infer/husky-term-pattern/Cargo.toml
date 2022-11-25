@@ -10,4 +10,4 @@ husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # syntax
-husky-expr-syntax = { path = "../../syntax/husky-expr-syntax" }
+husky-expr = { path = "../../syntax/husky-expr" }

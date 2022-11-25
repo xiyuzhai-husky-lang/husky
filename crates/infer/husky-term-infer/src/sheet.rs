@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ast::AstText;
-use husky_expr_syntax::{ExprArena, ExprIdx, ExprMap};
+use husky_expr::{ExprArena, ExprIdx, ExprMap};
 use husky_term::Term;
 
 #[derive(Debug, PartialEq, Eq)]

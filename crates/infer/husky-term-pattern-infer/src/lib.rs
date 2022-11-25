@@ -12,7 +12,7 @@ pub use error::*;
 pub use sheet::*;
 
 use context::*;
-use husky_expr_syntax::*;
+use husky_expr::*;
 use husky_opn_syntax::*;
 use husky_path::*;
 use husky_primitive_literal_syntax::RawLiteralData;

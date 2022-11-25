@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use crate::*;
 use husky_ast::AstText;
-use husky_expr_syntax::ExprMap;
+use husky_expr::ExprMap;
 use husky_term_pattern::*;
 use husky_text::TextRange;
 
