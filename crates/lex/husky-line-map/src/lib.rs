@@ -1,5 +1,13 @@
+#[cfg(feature = "lsp_support")]
+mod lsp;
+mod text_bytes_len;
+mod utf16;
+
+pub use text_bytes_len::*;
+
 use rustc_hash::FxHashMap;
 use std::iter;
+use utf16::*;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct LineMap {
@@ -25,78 +33,6 @@ pub struct LineCol {
     pub col: usize,
 }
 
-#[derive(Clone, Debug, Hash, PartialEq, Eq)]
-pub(crate) struct Utf16Char {
-    /// Start offset of a character inside a line, zero-based
-    pub(crate) start: usize,
-    /// End offset of a character inside a line, zero-based
-    pub(crate) end: usize,
-}
-
-impl Utf16Char {
-    /// Returns the length in 8-bit UTF-8 code units.
-    fn len(&self) -> usize {
-        self.end - self.start
-    }
-
-    /// Returns the length in 16-bit UTF-16 code units.
-    fn len_utf16(&self) -> usize {
-        if self.len() == 4 {
-            2
-        } else {
-            1
-        }
-    }
-}
-
-/// Primitives with a textual length that can be passed to [`usize::of`].
-pub trait TextLen: Copy {
-    /// The textual length of this primitive.
-    fn text_len(self) -> usize;
-}
-
-impl TextLen for &'_ str {
-    #[inline]
-    fn text_len(self) -> usize {
-        self.len().try_into().unwrap()
-    }
-}
-
-impl TextLen for &'_ String {
-    #[inline]
-    fn text_len(self) -> usize {
-        self.as_str().text_len()
-    }
-}
-
-impl TextLen for char {
-    #[inline]
-    fn text_len(self) -> usize {
-        self.len_utf8()
-    }
-}
-
-#[cfg(feature = "lsp_support")]
-pub(crate) fn offset(line_map: &LineMap, position: lsp_types::Position) -> usize {
-    let line_col = LineCol {
-        line: position.line as usize,
-        col: position.character as usize,
-        // match line_map.encoding
-        // OffsetEncoding::Utf8 => LineCol {
-        //     line: position.line as u32,
-        //     col: position.character as u32,
-        // },
-        // OffsetEncoding::Utf16 => {
-        //     let line_col = LineColUtf16 {
-        //         line: position.line as u32,
-        //         col: position.character as u32,
-        //     };
-        //     line_map.index.to_utf8(line_col)
-        // }
-    };
-    line_map.offset(line_col)
-}
-
 impl LineMap {
     pub fn new(text: &str) -> LineMap {
         let mut utf16_lines = FxHashMap::default();
@@ -107,7 +43,7 @@ impl LineMap {
         let mut curr_col = 0;
         let mut line = 0;
         for c in text.chars() {
-            let c_len = c.text_len();
+            let c_len = c.text_bytes_len();
             curr_row += c_len;
             if c == '\n' {
                 newlines.push(curr_row);
@@ -143,13 +79,6 @@ impl LineMap {
             newlines,
             utf16_lines,
         }
-    }
-
-    #[cfg(feature = "lsp_support")]
-    pub fn string_range(line_map: &LineMap, range: lsp_types::Range) -> std::ops::Range<usize> {
-        let start = offset(line_map, range.start);
-        let end = offset(line_map, range.end);
-        start..end
     }
 
     pub fn line_col(&self, offset: usize) -> LineCol {
