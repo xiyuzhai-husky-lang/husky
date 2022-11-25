@@ -16,9 +16,11 @@ output
         range: [1:1, 1:4),
         kind: Identifier(
             Identifier(
-                Id {
-                    value: 1,
-                },
+                Word(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         ),
     },
@@ -41,9 +43,11 @@ output
         range: [1:1, 1:5),
         kind: Identifier(
             Identifier(
-                Id {
-                    value: 1,
-                },
+                Word(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         ),
     },
@@ -66,9 +70,11 @@ output
         range: [1:1, 1:5),
         kind: Identifier(
             Identifier(
-                Id {
-                    value: 1,
-                },
+                Word(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         ),
     },

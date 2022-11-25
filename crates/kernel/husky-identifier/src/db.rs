@@ -19,7 +19,7 @@ where
     }
 
     fn it_ident_borrowed(&self, data: &str) -> Identifier {
-        Identifier::from_ref(self, data)
+        Identifier::from_borrowed(self, data)
     }
 
     fn dt_ident(&self, ident: Identifier) -> &str {
