@@ -1,6 +1,8 @@
 use husky_word::{WordDb, WordJar};
 use salsa::Database;
 
+use crate::TomlSpecialToken;
+
 use super::{Error, Tokenizer, TomlTokenVariant};
 use std::{borrow::Cow, sync::Arc};
 
@@ -166,22 +168,22 @@ fn all() {
                 "a",
             ),
             ((2, 4), TomlTokenVariant::Whitespace, "\t "),
-            ((4, 5), TomlTokenVariant::LeftBracket, "["),
-            ((5, 6), TomlTokenVariant::LeftBracket, "["),
-            ((6, 7), TomlTokenVariant::RightBracket, "]"),
-            ((7, 8), TomlTokenVariant::RightBracket, "]"),
+            ((4, 5), TomlSpecialToken::LeftBox.into(), "["),
+            ((5, 6), TomlSpecialToken::LeftBox.into(), "["),
+            ((6, 7), TomlSpecialToken::RightBox.into(), "]"),
+            ((7, 8), TomlSpecialToken::RightBox.into(), "]"),
             ((8, 11), TomlTokenVariant::Whitespace, " \t "),
-            ((11, 12), TomlTokenVariant::LeftBracket, "["),
-            ((12, 13), TomlTokenVariant::RightBracket, "]"),
+            ((11, 12), TomlSpecialToken::LeftBox.into(), "["),
+            ((12, 13), TomlSpecialToken::RightBox.into(), "]"),
             ((13, 14), TomlTokenVariant::Whitespace, " "),
-            ((14, 15), TomlTokenVariant::LeftBrace, "{"),
-            ((15, 16), TomlTokenVariant::RightBrace, "}"),
+            ((14, 15), TomlSpecialToken::LeftCurly.into(), "{"),
+            ((15, 16), TomlSpecialToken::RightCurly.into(), "}"),
             ((16, 17), TomlTokenVariant::Whitespace, " "),
-            ((17, 18), TomlTokenVariant::Comma, ","),
+            ((17, 18), TomlSpecialToken::Comma.into(), ","),
             ((18, 19), TomlTokenVariant::Whitespace, " "),
-            ((19, 20), TomlTokenVariant::Period, "."),
+            ((19, 20), TomlSpecialToken::Period.into(), "."),
             ((20, 21), TomlTokenVariant::Whitespace, " "),
-            ((21, 22), TomlTokenVariant::Equals, "="),
+            ((21, 22), TomlSpecialToken::Equals.into(), "="),
             ((22, 23), TomlTokenVariant::Newline, "\n"),
             ((23, 29), TomlTokenVariant::Comment, "# foo "),
             ((29, 31), TomlTokenVariant::Newline, "\r\n"),
