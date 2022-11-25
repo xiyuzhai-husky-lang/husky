@@ -1,7 +1,7 @@
 use husky_word::{WordDb, WordJar};
 use salsa::Database;
 
-use super::{Error, TokenVariant, Tokenizer};
+use super::{Error, Tokenizer, TomlTokenVariant};
 use std::{borrow::Cow, sync::Arc};
 
 #[salsa::db(WordJar)]
@@ -27,7 +27,7 @@ fn literal_strings() {
         let token = t.next().unwrap().unwrap();
         assert_eq!(
             token.variant,
-            TokenVariant::StringLiteral {
+            TomlTokenVariant::StringLiteral {
                 val: Arc::new(val.to_owned()),
                 multiline,
             }
@@ -53,7 +53,7 @@ fn basic_strings() {
         let token = t.next().unwrap().unwrap();
         assert_eq!(
             token.variant,
-            TokenVariant::StringLiteral {
+            TomlTokenVariant::StringLiteral {
                 val: Arc::new(val.to_owned()),
                 multiline,
             }
@@ -106,7 +106,7 @@ fn keylike() {
         let token = t.next().unwrap().unwrap();
         assert_eq!(
             token.variant,
-            TokenVariant::Keylike(db.it_word_borrowed(input))
+            TomlTokenVariant::Keylike(db.it_word_borrowed(input))
         );
         assert!(t.next().unwrap().is_none());
     }
@@ -124,9 +124,9 @@ fn keylike() {
 
 #[test]
 fn all() {
-    fn t(db: &dyn WordDb, input: &str, expected: &[((usize, usize), TokenVariant, &str)]) {
+    fn t(db: &dyn WordDb, input: &str, expected: &[((usize, usize), TomlTokenVariant, &str)]) {
         let mut tokens = Tokenizer::new(db, input);
-        let mut actual: Vec<((usize, usize), TokenVariant, &str)> = Vec::new();
+        let mut actual: Vec<((usize, usize), TomlTokenVariant, &str)> = Vec::new();
         while let Some(token) = tokens.next().unwrap() {
             actual.push((
                 token.span.into(),
@@ -145,9 +145,13 @@ fn all() {
         &db,
         " a ",
         &[
-            ((0, 1), TokenVariant::Whitespace, " "),
-            ((1, 2), TokenVariant::Keylike(db.it_word_borrowed("a")), "a"),
-            ((2, 3), TokenVariant::Whitespace, " "),
+            ((0, 1), TomlTokenVariant::Whitespace, " "),
+            (
+                (1, 2),
+                TomlTokenVariant::Keylike(db.it_word_borrowed("a")),
+                "a",
+            ),
+            ((2, 3), TomlTokenVariant::Whitespace, " "),
         ],
     );
 
@@ -155,31 +159,35 @@ fn all() {
         &db,
         " a\t [[]] \t [] {} , . =\n# foo \r\n#foo \n ",
         &[
-            ((0, 1), TokenVariant::Whitespace, " "),
-            ((1, 2), TokenVariant::Keylike(db.it_word_borrowed("a")), "a"),
-            ((2, 4), TokenVariant::Whitespace, "\t "),
-            ((4, 5), TokenVariant::LeftBracket, "["),
-            ((5, 6), TokenVariant::LeftBracket, "["),
-            ((6, 7), TokenVariant::RightBracket, "]"),
-            ((7, 8), TokenVariant::RightBracket, "]"),
-            ((8, 11), TokenVariant::Whitespace, " \t "),
-            ((11, 12), TokenVariant::LeftBracket, "["),
-            ((12, 13), TokenVariant::RightBracket, "]"),
-            ((13, 14), TokenVariant::Whitespace, " "),
-            ((14, 15), TokenVariant::LeftBrace, "{"),
-            ((15, 16), TokenVariant::RightBrace, "}"),
-            ((16, 17), TokenVariant::Whitespace, " "),
-            ((17, 18), TokenVariant::Comma, ","),
-            ((18, 19), TokenVariant::Whitespace, " "),
-            ((19, 20), TokenVariant::Period, "."),
-            ((20, 21), TokenVariant::Whitespace, " "),
-            ((21, 22), TokenVariant::Equals, "="),
-            ((22, 23), TokenVariant::Newline, "\n"),
-            ((23, 29), TokenVariant::Comment, "# foo "),
-            ((29, 31), TokenVariant::Newline, "\r\n"),
-            ((31, 36), TokenVariant::Comment, "#foo "),
-            ((36, 37), TokenVariant::Newline, "\n"),
-            ((37, 38), TokenVariant::Whitespace, " "),
+            ((0, 1), TomlTokenVariant::Whitespace, " "),
+            (
+                (1, 2),
+                TomlTokenVariant::Keylike(db.it_word_borrowed("a")),
+                "a",
+            ),
+            ((2, 4), TomlTokenVariant::Whitespace, "\t "),
+            ((4, 5), TomlTokenVariant::LeftBracket, "["),
+            ((5, 6), TomlTokenVariant::LeftBracket, "["),
+            ((6, 7), TomlTokenVariant::RightBracket, "]"),
+            ((7, 8), TomlTokenVariant::RightBracket, "]"),
+            ((8, 11), TomlTokenVariant::Whitespace, " \t "),
+            ((11, 12), TomlTokenVariant::LeftBracket, "["),
+            ((12, 13), TomlTokenVariant::RightBracket, "]"),
+            ((13, 14), TomlTokenVariant::Whitespace, " "),
+            ((14, 15), TomlTokenVariant::LeftBrace, "{"),
+            ((15, 16), TomlTokenVariant::RightBrace, "}"),
+            ((16, 17), TomlTokenVariant::Whitespace, " "),
+            ((17, 18), TomlTokenVariant::Comma, ","),
+            ((18, 19), TomlTokenVariant::Whitespace, " "),
+            ((19, 20), TomlTokenVariant::Period, "."),
+            ((20, 21), TomlTokenVariant::Whitespace, " "),
+            ((21, 22), TomlTokenVariant::Equals, "="),
+            ((22, 23), TomlTokenVariant::Newline, "\n"),
+            ((23, 29), TomlTokenVariant::Comment, "# foo "),
+            ((29, 31), TomlTokenVariant::Newline, "\r\n"),
+            ((31, 36), TomlTokenVariant::Comment, "#foo "),
+            ((36, 37), TomlTokenVariant::Newline, "\n"),
+            ((37, 38), TomlTokenVariant::Whitespace, " "),
         ],
     );
 }
