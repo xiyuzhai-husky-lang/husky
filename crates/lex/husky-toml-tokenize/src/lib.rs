@@ -1,3 +1,5 @@
+#[cfg(tests)]
+mod tests;
 mod tokenizer;
 
 use std::sync::Arc;
