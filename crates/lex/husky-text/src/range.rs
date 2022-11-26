@@ -116,6 +116,10 @@ impl TextRange {
     pub fn from_line(line: u32) -> TextRange {
         ((line, 0)..(line, 4)).into()
     }
+
+    pub fn new(range: std::ops::Range<(u32, u32)>) -> Self {
+        range.into()
+    }
 }
 
 impl From<__StaticDevSource> for TextRange {
