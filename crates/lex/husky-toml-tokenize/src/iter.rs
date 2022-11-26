@@ -1,13 +1,13 @@
-use crate::*;
+use crate::{crlf_fold::CrlfFold, *};
 
 #[derive(Clone)]
-pub(crate) struct Tokenizer<'a> {
+pub(crate) struct TokenIter<'a> {
     pub(crate) db: &'a dyn WordDb,
     pub(crate) input: &'a str,
     chars: CrlfFold<'a>,
 }
 
-impl<'a> Iterator for Tokenizer<'a> {
+impl<'a> Iterator for TokenIter<'a> {
     type Item = TomlToken;
 
     fn next(&mut self) -> Option<Self::Item> {
@@ -48,14 +48,12 @@ impl<'a> Iterator for Tokenizer<'a> {
     }
 }
 
-impl<'a> Tokenizer<'a> {
+impl<'a> TokenIter<'a> {
     pub(crate) fn new(db: &'a dyn WordDb, input: &'a str) -> Self {
-        let mut t = Tokenizer {
+        let mut t = TokenIter {
             db,
             input,
-            chars: CrlfFold {
-                chars: input.char_indices(),
-            },
+            chars: CrlfFold::new(input.char_indices()),
         };
         // Eat utf-8 BOM
         t.try_eat_one_char('\u{feff}');

@@ -1,6 +1,6 @@
 use crate::*;
 
-impl<'a> Tokenizer<'a> {
+impl<'a> TokenIter<'a> {
     pub(crate) fn next_keylike(&mut self, start: usize) -> TomlTokenVariant {
         while let Some((_, ch)) = self.peek_char() {
             if !is_keylike(ch) {
