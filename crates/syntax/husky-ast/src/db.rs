@@ -4,7 +4,7 @@ use fold::{FoldableList, FoldableStorage};
 use husky_display_utils::HuskyDisplayConfig;
 use husky_entity_tree::{EntityTreeDb, EntityTreeResultArc};
 use husky_source_path::SourcePath;
-use husky_text::{HuskyText, TextDb};
+use husky_text::{Text, TextDb};
 use husky_token::AbsSemanticToken;
 use idx_arena::map::ArenaKeyQuery;
 use std::fmt::Write;
@@ -57,7 +57,7 @@ pub struct AstText {
     pub arena: ExprArena,
     pub folded_results: FoldableList<AstResult<DeprecatedAst>>,
     pub semantic_tokens: Vec<AbsSemanticToken>,
-    pub text: Arc<HuskyText>,
+    pub text: Arc<Text>,
     pub infer_roots: Vec<AstEntrance>,
 }
 
@@ -115,7 +115,7 @@ impl ArenaKeyQuery<Expr> for AstText {
         if config.colored {
             result.push_str(husky_print_utils::CYAN);
         }
-        write!(result, "{: <20}", self.text.ranged(range)).unwrap();
+        write!(result, "{: <20}", self.text.text_within(range)).unwrap();
         if config.colored {
             result.push_str(husky_print_utils::RESET);
         }
