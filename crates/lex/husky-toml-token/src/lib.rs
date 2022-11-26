@@ -1,9 +1,11 @@
+mod error;
 mod special;
 #[cfg(feature = "storage")]
 mod storage;
 #[cfg(test)]
 mod tests;
 
+pub use error::*;
 pub use special::*;
 
 use husky_print_utils::p;
@@ -17,10 +19,10 @@ use std::{borrow::Cow, sync::Arc};
 pub type StringValue = Arc<String>;
 
 /// tokens in toml file
-#[derive(Eq, PartialEq, Debug)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct TomlToken {
     pub span: TextSpan,
-    pub variant: TomlTokenVariant,
+    pub variant: TomlTokenizeResult<TomlTokenVariant>,
 }
 
 /// variants for tokens in toml file
