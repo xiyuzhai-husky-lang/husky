@@ -6,19 +6,19 @@ use husky_path::{FileError, FileErrorKind, FileResultArc};
 use husky_identifier::IdentifierDb;
 use husky_source_path::SourcePath;
 use husky_text::TextDb;
-use husky_tokenize::Tokenize;
+use husky_tokenize::TokenizeDb;
 use salsa::DbWithJar;
 
 #[salsa::jar(db = TokenTextDb)]
 pub struct TokenTextJar(tokenized_text);
 
-pub trait TokenTextDb: DbWithJar<TokenTextJar> + TextDb + Tokenize {
+pub trait TokenTextDb: DbWithJar<TokenTextJar> + TextDb + TokenizeDb {
     fn tokenized_text(&self, id: SourcePath) -> FileResultArc<TokenizedText>;
 }
 
 impl<T> TokenTextDb for T
 where
-    T: DbWithJar<TokenTextJar> + TextDb + Tokenize,
+    T: DbWithJar<TokenTextJar> + TextDb + TokenizeDb,
 {
     fn tokenized_text(&self, id: SourcePath) -> FileResultArc<TokenizedText> {
         todo!()
