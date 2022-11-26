@@ -12,11 +12,11 @@ impl<'a> TokenIter<'a> {
             bool,
             usize,
             char,
-        ) -> TomlTokenizeResult<()>,
-    ) -> TomlTokenizeResult<TomlTokenVariant> {
+        ) -> TomlTokenResult<()>,
+    ) -> TomlTokenResult<TomlTokenVariant> {
         let mut multiline = false;
-        if self.try_eat_one_char(/* second */ delim) {
-            if self.try_eat_one_char(/* third */ delim) {
+        if self.try_eat_char(/* second */ delim) {
+            if self.try_eat_char(/* third */ delim) {
                 multiline = true;
             } else {
                 return Ok(TomlTokenVariant::StringLiteral {
@@ -47,20 +47,20 @@ impl<'a> TokenIter<'a> {
                 }
                 Some((mut i, ch)) if ch == delim => {
                     if multiline {
-                        if !self.try_eat_one_char(delim) {
+                        if !self.try_eat_char(delim) {
                             val.push(delim);
                             continue 'outer;
                         }
-                        if !self.try_eat_one_char(delim) {
+                        if !self.try_eat_char(delim) {
                             val.push(delim);
                             val.push(delim);
                             continue 'outer;
                         }
-                        if self.try_eat_one_char(delim) {
+                        if self.try_eat_char(delim) {
                             val.push(delim);
                             i += 1;
                         }
-                        if self.try_eat_one_char(delim) {
+                        if self.try_eat_char(delim) {
                             val.push(delim);
                             i += 1;
                         }
@@ -79,7 +79,7 @@ impl<'a> TokenIter<'a> {
     pub(crate) fn next_literal_string(
         &mut self,
         start: usize,
-    ) -> TomlTokenizeResult<TomlTokenVariant> {
+    ) -> TomlTokenResult<TomlTokenVariant> {
         self.next_string('\'', start, &mut |_me, val, _multi, i, ch| {
             if ch == '\u{09}' || (('\u{20}'..='\u{10ffff}').contains(&ch) && ch != '\u{7f}') {
                 val.push(ch);
@@ -90,10 +90,7 @@ impl<'a> TokenIter<'a> {
         })
     }
 
-    pub(crate) fn next_basic_string(
-        &mut self,
-        start: usize,
-    ) -> TomlTokenizeResult<TomlTokenVariant> {
+    pub(crate) fn next_basic_string(&mut self, start: usize) -> TomlTokenResult<TomlTokenVariant> {
         self.next_string('"', start, &mut |this, val, multi, i, ch| match ch {
             '\\' => {
                 val.to_owned(&this.input[..i]);

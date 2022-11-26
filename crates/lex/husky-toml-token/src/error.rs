@@ -28,4 +28,4 @@ pub enum TomlTokenError {
     },
 }
 
-pub type TomlTokenizeResult<T> = Result<T, TomlTokenError>;
+pub type TomlTokenResult<T> = Result<T, TomlTokenError>;
