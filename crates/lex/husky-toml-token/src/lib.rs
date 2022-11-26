@@ -22,7 +22,7 @@ pub type StringValue = Arc<String>;
 #[derive(Debug, PartialEq, Eq)]
 pub struct TomlToken {
     pub span: TextSpan,
-    pub variant: TomlTokenizeResult<TomlTokenVariant>,
+    pub variant: TomlTokenResult<TomlTokenVariant>,
 }
 
 /// variants for tokens in toml file
