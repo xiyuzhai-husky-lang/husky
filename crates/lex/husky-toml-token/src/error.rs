@@ -1,7 +1,7 @@
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Hash)]
-pub enum TomlTokenizeError {
+pub enum TomlTokenError {
     #[error("invalid char in string {0} {1}")]
     InvalidCharInString(usize, char),
     #[error("todo")]
@@ -28,4 +28,4 @@ pub enum TomlTokenizeError {
     },
 }
 
-pub type TomlTokenizeResult<T> = Result<T, TomlTokenizeError>;
+pub type TomlTokenizeResult<T> = Result<T, TomlTokenError>;
