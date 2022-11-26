@@ -42,7 +42,7 @@ impl<'a> TokenIter<'a> {
                         }
                         continue;
                     } else {
-                        return Err(TomlTokenizeError::NewlineInString(i));
+                        return Err(TomlTokenError::NewlineInString(i));
                     }
                 }
                 Some((mut i, ch)) if ch == delim => {
@@ -71,7 +71,7 @@ impl<'a> TokenIter<'a> {
                     });
                 }
                 Some((i, c)) => new_ch(self, &mut val, multiline, i, c)?,
-                None => return Err(TomlTokenizeError::UnterminatedString(start)),
+                None => return Err(TomlTokenError::UnterminatedString(start)),
             }
         }
     }
@@ -85,7 +85,7 @@ impl<'a> TokenIter<'a> {
                 val.push(ch);
                 Ok(())
             } else {
-                Err(TomlTokenizeError::InvalidCharInString(i, ch))
+                Err(TomlTokenError::InvalidCharInString(i, ch))
             }
         })
     }
@@ -121,7 +121,7 @@ impl<'a> TokenIter<'a> {
                                         this.next_char();
                                         break;
                                     }
-                                    _ => return Err(TomlTokenizeError::InvalidEscape(i, c)),
+                                    _ => return Err(TomlTokenError::InvalidEscape(i, c)),
                                 }
                             }
                         }
@@ -134,8 +134,8 @@ impl<'a> TokenIter<'a> {
                             }
                         }
                     }
-                    Some((i, c)) => return Err(TomlTokenizeError::InvalidEscape(i, c)),
-                    None => return Err(TomlTokenizeError::UnterminatedString(start)),
+                    Some((i, c)) => return Err(TomlTokenError::InvalidEscape(i, c)),
+                    None => return Err(TomlTokenError::UnterminatedString(start)),
                 }
                 Ok(())
             }
@@ -143,7 +143,7 @@ impl<'a> TokenIter<'a> {
                 val.push(ch);
                 Ok(())
             }
-            _ => Err(TomlTokenizeError::InvalidCharInString(i, ch)),
+            _ => Err(TomlTokenError::InvalidCharInString(i, ch)),
         })
     }
 }

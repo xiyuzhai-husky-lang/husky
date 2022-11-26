@@ -13,3 +13,6 @@ husky-toml-token = { path = "../../lex/husky-toml-token" }
 husky-word = { path = "../../kernel/husky-word" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+
+[dev-dependencies]
+salsa = { path = "../../abstraction/salsa" }

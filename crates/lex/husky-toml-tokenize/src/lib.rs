@@ -2,7 +2,7 @@ mod crlf_fold;
 mod iter;
 mod keylike;
 mod string;
-#[cfg(tests)]
+#[cfg(test)]
 mod tests;
 
 use husky_text_span::TextSpan;

@@ -40,7 +40,7 @@ impl<'a> Iterator for TokenIter<'a> {
                 })
             }
             ch if is_keylike(ch) => Ok(self.next_keylike(start)),
-            ch => Err(TomlTokenizeError::Unexpected(start, ch)),
+            ch => Err(TomlTokenError::Unexpected(start, ch)),
         };
 
         let span = self.calc_span(start);
@@ -105,14 +105,14 @@ impl<'a> TokenIter<'a> {
         for _ in 0..len {
             match self.next_char() {
                 Some((_, ch)) if ch as u32 <= 0x7F && ch.is_ascii_hexdigit() => buf.push(ch),
-                Some((i, ch)) => return Err(TomlTokenizeError::InvalidHexEscape(i, ch)),
-                None => return Err(TomlTokenizeError::UnterminatedString(start)),
+                Some((i, ch)) => return Err(TomlTokenError::InvalidHexEscape(i, ch)),
+                None => return Err(TomlTokenError::UnterminatedString(start)),
             }
         }
         let val = u32::from_str_radix(&buf, 16).unwrap();
         match char::from_u32(val) {
             Some(ch) => Ok(ch),
-            None => Err(TomlTokenizeError::InvalidEscapeValue(i, val)),
+            None => Err(TomlTokenError::InvalidEscapeValue(i, val)),
         }
     }
 

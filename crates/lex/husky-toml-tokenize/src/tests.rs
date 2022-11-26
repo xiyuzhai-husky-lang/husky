@@ -3,7 +3,7 @@ use salsa::Database;
 
 use crate::TomlSpecialToken;
 
-use super::{Error, Tokenizer, TomlTokenVariant};
+use super::{TokenIter, TomlTokenError, TomlTokenVariant};
 use std::{borrow::Cow, sync::Arc};
 
 #[salsa::db(WordJar)]
@@ -14,27 +14,27 @@ pub struct MimicDB {
 
 impl Database for MimicDB {}
 
-fn err(input: &str, err: Error) {
+fn err(input: &str, err: TomlTokenError) {
     let db = MimicDB::default();
-    let mut t = Tokenizer::new(&db, input);
-    let token = t.next().unwrap_err();
+    let mut t = TokenIter::new(&db, input);
+    let token = t.next().unwrap().variant.unwrap_err();
     assert_eq!(token, err);
-    assert!(t.next().unwrap().is_none());
+    assert!(t.next().is_none());
 }
 
 #[test]
 fn literal_strings() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
-        let mut t = Tokenizer::new(db, input);
-        let token = t.next().unwrap().unwrap();
+        let mut t = TokenIter::new(db, input);
+        let token = t.next().unwrap().variant.unwrap();
         assert_eq!(
-            token.variant,
+            token,
             TomlTokenVariant::StringLiteral {
                 val: Arc::new(val.to_owned()),
                 multiline,
             }
         );
-        assert!(t.next().unwrap().is_none());
+        assert!(t.next().is_none());
     }
 
     let db = MimicDB::default();
@@ -51,16 +51,16 @@ fn literal_strings() {
 #[test]
 fn basic_strings() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
-        let mut t = Tokenizer::new(db, input);
-        let token = t.next().unwrap().unwrap();
+        let mut t = TokenIter::new(db, input);
+        let token = t.next().unwrap().variant.unwrap();
         assert_eq!(
-            token.variant,
+            token,
             TomlTokenVariant::StringLiteral {
                 val: Arc::new(val.to_owned()),
                 multiline,
             }
         );
-        assert!(t.next().unwrap().is_none());
+        assert!(t.next().is_none());
     }
 
     let db = MimicDB::default();
@@ -90,27 +90,27 @@ fn basic_strings() {
     t(&db, "\"\"\"\na\"\"\"", "a", true);
     t(&db, "\"\"\"\n\"\"\"", "", true);
     t(&db, r#""""a\"""b""""#, "a\"\"\"b", true);
-    err(r#""\a"#, Error::InvalidEscape(2, 'a'));
-    err("\"\\\n", Error::InvalidEscape(2, '\n'));
-    err("\"\\\r\n", Error::InvalidEscape(2, '\n'));
-    err("\"\\", Error::UnterminatedString(0));
-    err("\"\u{0}", Error::InvalidCharInString(1, '\u{0}'));
-    err(r#""\U00""#, Error::InvalidHexEscape(5, '"'));
-    err(r#""\U00"#, Error::UnterminatedString(0));
-    err(r#""\uD800"#, Error::InvalidEscapeValue(2, 0xd800));
-    err(r#""\UFFFFFFFF"#, Error::InvalidEscapeValue(2, 0xffff_ffff));
+    err(r#""\a"#, TomlTokenError::InvalidEscape(2, 'a'));
+    err("\"\\\n", TomlTokenError::InvalidEscape(2, '\n'));
+    err("\"\\\r\n", TomlTokenError::InvalidEscape(2, '\n'));
+    err("\"\\", TomlTokenError::UnterminatedString(0));
+    err("\"\u{0}", TomlTokenError::InvalidCharInString(1, '\u{0}'));
+    err(r#""\U00""#, TomlTokenError::InvalidHexEscape(5, '"'));
+    err(r#""\U00"#, TomlTokenError::UnterminatedString(0));
+    err(r#""\uD800"#, TomlTokenError::InvalidEscapeValue(2, 0xd800));
+    err(
+        r#""\UFFFFFFFF"#,
+        TomlTokenError::InvalidEscapeValue(2, 0xffff_ffff),
+    );
 }
 
 #[test]
 fn keylike() {
     fn t(db: &dyn WordDb, input: &str) {
-        let mut t = Tokenizer::new(db, input);
-        let token = t.next().unwrap().unwrap();
-        assert_eq!(
-            token.variant,
-            TomlTokenVariant::Keylike(db.it_word_borrowed(input))
-        );
-        assert!(t.next().unwrap().is_none());
+        let mut t = TokenIter::new(db, input);
+        let token = t.next().unwrap().variant.unwrap();
+        assert_eq!(token, TomlTokenVariant::Keylike(db.it_word_borrowed(input)));
+        assert!(t.next().is_none());
     }
 
     let db = MimicDB::default();
@@ -127,12 +127,12 @@ fn keylike() {
 #[test]
 fn all() {
     fn t(db: &dyn WordDb, input: &str, expected: &[((usize, usize), TomlTokenVariant, &str)]) {
-        let mut tokens = Tokenizer::new(db, input);
+        let mut tokens = TokenIter::new(db, input);
         let mut actual: Vec<((usize, usize), TomlTokenVariant, &str)> = Vec::new();
-        while let Some(token) = tokens.next().unwrap() {
+        while let Some(token) = tokens.next() {
             actual.push((
                 token.span.into(),
-                token.variant,
+                token.variant.unwrap(),
                 &input[token.span.start..token.span.end],
             ));
         }
@@ -196,18 +196,21 @@ fn all() {
 
 #[test]
 fn bare_cr_bad() {
-    err("\r", Error::Unexpected(0, '\r'));
-    err("'\n", Error::NewlineInString(1));
-    err("'\u{0}", Error::InvalidCharInString(1, '\u{0}'));
-    err("'", Error::UnterminatedString(0));
-    err("\u{0}", Error::Unexpected(0, '\u{0}'));
+    err("\r", TomlTokenError::Unexpected(0, '\r'));
+    err("'\n", TomlTokenError::NewlineInString(1));
+    err("'\u{0}", TomlTokenError::InvalidCharInString(1, '\u{0}'));
+    err("'", TomlTokenError::UnterminatedString(0));
+    err("\u{0}", TomlTokenError::Unexpected(0, '\u{0}'));
 }
 
 #[test]
 fn bad_comment() {
     let db = MimicDB::default();
-    let mut t = Tokenizer::new(&db, "#\u{0}");
-    t.next().unwrap().unwrap();
-    assert_eq!(t.next(), Err(Error::Unexpected(1, '\u{0}')));
-    assert!(t.next().unwrap().is_none());
+    let mut t = TokenIter::new(&db, "#\u{0}");
+    t.next().unwrap();
+    assert_eq!(
+        t.next().unwrap().variant,
+        Err(TomlTokenError::Unexpected(1, '\u{0}'))
+    );
+    assert!(t.next().is_none());
 }
