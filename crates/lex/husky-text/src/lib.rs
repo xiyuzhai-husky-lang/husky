@@ -8,6 +8,7 @@ mod row;
 #[cfg(test)]
 mod tests;
 
+use husky_line_map::LineMap;
 pub use indent::TextIndent;
 pub use info::*;
 pub use position::{FilePosition, TextPosition};
@@ -25,6 +26,7 @@ pub struct TextJar();
 #[derive(Clone, PartialEq, Eq)]
 pub struct Text {
     content: String,
+    line_map: LineMap,
 }
 
 impl std::fmt::Debug for Text {
@@ -52,10 +54,10 @@ impl std::ops::Index<std::ops::Range<(u32, u32)>> for Text {
 impl Text {
     pub(crate) fn new(content: impl Into<String>) -> Self {
         let content: String = content.into();
-        Self { content }
-        // Self {
-        //     lines: raw.lines().map(|line| line.chars().collect()).collect(),
-        // }
+        Self {
+            line_map: LineMap::new(&content),
+            content,
+        }
     }
 
     pub fn text_within(&self, range: TextRange) -> &str {
