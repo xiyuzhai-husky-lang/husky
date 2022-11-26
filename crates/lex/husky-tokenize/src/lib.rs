@@ -9,7 +9,7 @@ use husky_identifier::IdentifierDb;
 use husky_token::Token;
 use raw::*;
 use tokenizer::*;
-pub trait Tokenize: IdentifierDb {
+pub trait TokenizeDb: IdentifierDb {
     fn tokenize_line(&self, line: &str) -> Vec<Token>
     where
         Self: Sized,
@@ -20,7 +20,7 @@ pub trait Tokenize: IdentifierDb {
     }
 }
 
-impl<T> Tokenize for T where T: IdentifierDb {}
+impl<T> TokenizeDb for T where T: IdentifierDb {}
 
 #[cfg(test)]
 mod tests {
