@@ -17,12 +17,9 @@ efgh
 
 #[test]
 fn test_string_length() {
-    let single_letter = "a";
-    assert_eq!(single_letter.len(), 1);
-    let single_chinese_character = "好";
-    assert_eq!(single_chinese_character.len(), 3);
-    let single_greek_character = "α";
-    assert_eq!(single_chinese_character.len(), 3);
-    let single_symbol = "→";
-    assert_eq!(single_symbol.len(), 3);
+    assert_eq!("a".len(), 1);
+    assert_eq!("α".len(), 2);
+    assert_eq!("好".len(), 3);
+    assert_eq!("→".len(), 3);
+    assert_eq!("𒀀".len(), 4);
 }

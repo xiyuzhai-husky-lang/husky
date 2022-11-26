@@ -15,6 +15,8 @@ husky-identifier = { path = "../../kernel/husky-identifier" }
 # fs
 husky-source-path = { path = "../../fs/husky-source-path" }
 husky-vfs = { path = "../../fs/husky-vfs" }
+# lex
+husky-line-map = { path = "../../lex/husky-line-map" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
