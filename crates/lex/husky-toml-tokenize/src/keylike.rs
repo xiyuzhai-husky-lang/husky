@@ -2,11 +2,11 @@ use crate::*;
 
 impl<'a> Tokenizer<'a> {
     pub(crate) fn next_keylike(&mut self, start: usize) -> TomlTokenVariant {
-        while let Some((_, ch)) = self.peek_one() {
+        while let Some((_, ch)) = self.peek_char() {
             if !is_keylike(ch) {
                 break;
             }
-            self.take_one_char();
+            self.next_char();
         }
         TomlTokenVariant::Keylike(self.db.it_word_borrowed(&self.input[start..self.current()]))
     }

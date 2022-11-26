@@ -15,8 +15,8 @@ impl<'a> Tokenizer<'a> {
         ) -> TomlTokenizeResult<()>,
     ) -> TomlTokenizeResult<TomlTokenVariant> {
         let mut multiline = false;
-        if self.eatc(/* second */ delim) {
-            if self.eatc(/* third */ delim) {
+        if self.try_eat_one_char(/* second */ delim) {
+            if self.try_eat_one_char(/* third */ delim) {
                 multiline = true;
             } else {
                 return Ok(TomlTokenVariant::StringLiteral {
@@ -29,7 +29,7 @@ impl<'a> Tokenizer<'a> {
         let mut n = 0;
         'outer: loop {
             n += 1;
-            match self.take_one_char() {
+            match self.next_char() {
                 Some((i, '\n')) => {
                     if multiline {
                         if self.input.as_bytes()[i] == b'\r' {
@@ -47,20 +47,20 @@ impl<'a> Tokenizer<'a> {
                 }
                 Some((mut i, ch)) if ch == delim => {
                     if multiline {
-                        if !self.eatc(delim) {
+                        if !self.try_eat_one_char(delim) {
                             val.push(delim);
                             continue 'outer;
                         }
-                        if !self.eatc(delim) {
+                        if !self.try_eat_one_char(delim) {
                             val.push(delim);
                             val.push(delim);
                             continue 'outer;
                         }
-                        if self.eatc(delim) {
+                        if self.try_eat_one_char(delim) {
                             val.push(delim);
                             i += 1;
                         }
-                        if self.eatc(delim) {
+                        if self.try_eat_one_char(delim) {
                             val.push(delim);
                             i += 1;
                         }
@@ -94,10 +94,10 @@ impl<'a> Tokenizer<'a> {
         &mut self,
         start: usize,
     ) -> TomlTokenizeResult<TomlTokenVariant> {
-        self.next_string('"', start, &mut |me, val, multi, i, ch| match ch {
+        self.next_string('"', start, &mut |this, val, multi, i, ch| match ch {
             '\\' => {
-                val.to_owned(&me.input[..i]);
-                match me.chars.next() {
+                val.to_owned(&this.input[..i]);
+                match this.next_char() {
                     Some((_, '"')) => val.push('"'),
                     Some((_, '\\')) => val.push('\\'),
                     Some((_, 'b')) => val.push('\u{8}'),
@@ -107,28 +107,28 @@ impl<'a> Tokenizer<'a> {
                     Some((_, 't')) => val.push('\t'),
                     Some((i, c @ 'u')) | Some((i, c @ 'U')) => {
                         let len = if c == 'u' { 4 } else { 8 };
-                        val.push(me.next_hex(start, i, len)?);
+                        val.push(this.next_hex(start, i, len)?);
                     }
                     Some((i, c @ ' ')) | Some((i, c @ '\t')) | Some((i, c @ '\n')) if multi => {
                         if c != '\n' {
-                            while let Some((_, ch)) = me.chars.clone().next() {
+                            while let Some((_, ch)) = this.peek_char() {
                                 match ch {
                                     ' ' | '\t' => {
-                                        me.chars.next();
+                                        this.next_char();
                                         continue;
                                     }
                                     '\n' => {
-                                        me.chars.next();
+                                        this.next_char();
                                         break;
                                     }
                                     _ => return Err(TomlTokenizeError::InvalidEscape(i, c)),
                                 }
                             }
                         }
-                        while let Some((_, ch)) = me.chars.clone().next() {
+                        while let Some((_, ch)) = this.peek_char() {
                             match ch {
                                 ' ' | '\t' | '\n' => {
-                                    me.chars.next();
+                                    this.next_char();
                                 }
                                 _ => break,
                             }
