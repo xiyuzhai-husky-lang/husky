@@ -1,13 +1,13 @@
 use crate::*;
 
-impl<'a> Tokenizer<'a> {
+impl<'a> TokenIter<'a> {
     #[allow(clippy::type_complexity)]
     fn next_string(
         &mut self,
         delim: char,
         start: usize,
         new_ch: &mut dyn FnMut(
-            &mut Tokenizer<'_>,
+            &mut TokenIter<'_>,
             &mut MaybeString,
             bool,
             usize,
@@ -145,5 +145,37 @@ impl<'a> Tokenizer<'a> {
             }
             _ => Err(TomlTokenizeError::InvalidCharInString(i, ch)),
         })
+    }
+}
+
+#[derive(Debug)]
+enum MaybeString {
+    NotEscaped(usize),
+    Owned(std::string::String),
+}
+
+impl MaybeString {
+    fn push(&mut self, ch: char) {
+        match *self {
+            MaybeString::NotEscaped(..) => {}
+            MaybeString::Owned(ref mut s) => s.push(ch),
+        }
+    }
+
+    #[allow(clippy::wrong_self_convention)]
+    fn to_owned(&mut self, input: &str) {
+        match *self {
+            MaybeString::NotEscaped(start) => {
+                *self = MaybeString::Owned(input[start..].to_owned());
+            }
+            MaybeString::Owned(..) => {}
+        }
+    }
+
+    fn into_cow(self, input: &str) -> StringValue {
+        match self {
+            MaybeString::NotEscaped(start) => Arc::new(input[start..].to_owned()),
+            MaybeString::Owned(s) => Arc::new(s),
+        }
     }
 }
