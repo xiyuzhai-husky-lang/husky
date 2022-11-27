@@ -3,27 +3,28 @@ pub(crate) fn apply_document_changes(
     old_text: &mut String,
     content_changes: Vec<lsp_types::TextDocumentContentChangeEvent>,
 ) {
-    use husky_line_map::LineMap;
+    todo!()
+    // use husky_line_map::LineMap;
 
-    let mut line_map = LineMap::new(old_text);
+    // let mut line_map = LineMap::new(old_text);
 
-    let mut valid_range = LineMapValidRange::All;
-    for change in content_changes {
-        match change.range {
-            Some(range) => {
-                if !valid_range.covers(range.end.line) {
-                    line_map = LineMap::new(old_text);
-                }
-                valid_range = LineMapValidRange::UpToLineExclusive(range.start.line);
-                let range = LineMap::string_range(&line_map, range);
-                old_text.replace_range(range, &change.text);
-            }
-            None => {
-                *old_text = change.text;
-                valid_range = LineMapValidRange::UpToLineExclusive(0);
-            }
-        }
-    }
+    // let mut valid_range = LineMapValidRange::All;
+    // for change in content_changes {
+    //     match change.range {
+    //         Some(range) => {
+    //             if !valid_range.covers(range.end.line) {
+    //                 line_map = LineMap::new(old_text);
+    //             }
+    //             valid_range = LineMapValidRange::UpToLineExclusive(range.start.line);
+    //             let range = LineMap::string_range(&line_map, range);
+    //             old_text.replace_range(range, &change.text);
+    //         }
+    //         None => {
+    //             *old_text = change.text;
+    //             valid_range = LineMapValidRange::UpToLineExclusive(0);
+    //         }
+    //     }
+    // }
 }
 
 // The changes we got must be applied sequentially, but can cross lines so we

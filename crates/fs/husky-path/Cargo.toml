@@ -18,8 +18,6 @@ upcast = { path = "../../abstraction/upcast" }
 salsa = { path = "../../abstraction/salsa" }
 # kernel
 husky-identifier = { path = "../../kernel/husky-identifier" }
-# lex
-husky-line-map = { path = "../../lex/husky-line-map" }
 # utils
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
@@ -28,4 +26,4 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 
 [features]
-lsp_support = ["dep:lsp-types", "husky-line-map/lsp_support"]
+lsp_support = ["dep:lsp-types"]

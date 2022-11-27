@@ -11,8 +11,8 @@ impl LineMap {
 
     pub(crate) fn lsp_offset(&self, position: lsp_types::Position) -> usize {
         let line_col = TextPosition {
-            line: position.line as usize,
-            col: position.character as usize,
+            line: position.line.into(),
+            col: position.character.into(),
             // match line_map.encoding
             // OffsetEncoding::Utf8 => LineCol {
             //     line: position.line as u32,

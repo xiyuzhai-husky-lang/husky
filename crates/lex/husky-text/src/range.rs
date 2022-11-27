@@ -175,12 +175,12 @@ pub trait HasTextRange {
         (self.text_end()..(other.text_range().end)).into()
     }
 
-    fn row(&self) -> Row {
-        self.text_range().start.row
+    fn row(&self) -> TextLine {
+        self.text_range().start.line
     }
 
-    fn line(&self) -> u32 {
-        self.text_range().start.line()
+    fn one_based_line(&self) -> u32 {
+        self.text_range().start.one_based_line()
     }
 }
 
