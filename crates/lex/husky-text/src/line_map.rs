@@ -84,8 +84,12 @@ impl LineMap {
         }
     }
 
-    pub fn offset(&self, line_col: TextPosition) -> usize {
-        self.newlines[line_col.line.0 as usize] + usize::from(line_col.col.0 as usize)
+    pub fn offset(&self, pos: TextPosition) -> usize {
+        self.newlines[pos.line.0 as usize] + usize::from(pos.col.0 as usize)
+    }
+
+    pub fn offset_range(&self, range: TextRange) -> std::ops::Range<usize> {
+        self.offset(range.start)..self.offset(range.end)
     }
 
     pub fn to_utf16(&self, line_col: TextPosition) -> TextPositionUtf16 {

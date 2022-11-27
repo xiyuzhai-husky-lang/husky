@@ -12,7 +12,7 @@ efgh
     should_eq!(&text[(0, 0)..(0, 1)], "a");
     should_eq!(&text[(0, 0)..(0, 3)], "abc");
     should_eq!(&text[(0, 0)..(0, 4)], "abcd");
-    should_eq!(&text[(0, 0)..(1, 1)], "abcde");
+    should_eq!(&text[(0, 0)..(1, 1)], "abcd\ne");
 }
 
 #[test]
