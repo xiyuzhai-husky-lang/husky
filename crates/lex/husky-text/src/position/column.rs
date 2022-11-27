@@ -29,7 +29,7 @@ impl HuskyDisplay for TextColumn {
     }
 }
 
-impl From<u32> for TextColumn {
+impl const From<u32> for TextColumn {
     fn from(raw: u32) -> Self {
         TextColumn(raw)
     }

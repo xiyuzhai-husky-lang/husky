@@ -14,15 +14,13 @@ pub(crate) struct Tokenizer<'lex> {
 
 #[derive(PartialEq, Eq)]
 pub struct TokenizedLine {
-    pub(crate) indent: TextIndent,
     pub(crate) tokens: TokenGroup,
 }
 
 impl std::fmt::Debug for TokenizedLine {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!(
-            "TokenizedLine{{Indent({:?}), tokens: {:?}}}",
-            &self.indent.get_raw(),
+            "TokenizedLine{{ tokens: {:?} }}",
             &self.tokens,
         ))
     }
@@ -49,12 +47,11 @@ impl<'token> Tokenizer<'token> {
 
     pub fn scan_line(&mut self, line_index: usize, line: &str) {
         let start = self.tokens.len();
-        let (indent, token_iter) =
-            RawTokenIter::new(self.db, line_index, line.chars().enumerate().peekable());
+        let token_iter = RawTokenIter::new(self.db, line);
         self.push_tokens(token_iter);
         let end = self.tokens.len();
+
         self.tokenized_lines.push(TokenizedLine {
-            indent,
             tokens: TokenGroup::new(start..end),
         })
     }
@@ -70,9 +67,9 @@ impl<'token> Tokenizer<'token> {
     }
 
     fn resolve_token(&self, token: RawToken) -> (TokenizerAction, Token) {
-        let (action, kind) = match token.kind {
-            RawTokenKind::Certain(token_kind) => (TokenizerAction::Push, token_kind),
-            RawTokenKind::SubOrMinus => (
+        let (action, kind) = match token.variant {
+            RawTokenVariant::Certain(token_kind) => (TokenizerAction::Push, token_kind),
+            RawTokenVariant::SubOrMinus => (
                 TokenizerAction::Push,
                 match self.right_convexity() {
                     Convexity::Convex => TokenKind::Special(SpecialToken::BinaryOpr(
@@ -81,14 +78,14 @@ impl<'token> Tokenizer<'token> {
                     Convexity::Concave | Convexity::Any => TokenKind::Special(SpecialToken::Minus),
                 },
             ),
-            RawTokenKind::Literal(lit) => match self.tokens.last().map(|t| &t.kind) {
+            RawTokenVariant::Literal(lit) => match self.tokens.last().map(|t| &t.kind) {
                 Some(TokenKind::Special(SpecialToken::Minus)) => (
                     TokenizerAction::ReplaceLast,
                     TokenKind::Literal(lit.negative().expect("todo")),
                 ),
                 _ => (TokenizerAction::Push, TokenKind::Literal(lit)),
             },
-            RawTokenKind::IllFormedLiteral(l) => {
+            RawTokenVariant::IllFormedLiteral(l) => {
                 (TokenizerAction::Push, TokenKind::IllFormedLiteral(l))
             }
         };

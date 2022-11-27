@@ -128,14 +128,14 @@ impl From<__StaticDevSource> for TextRange {
     }
 }
 
-impl From<std::ops::Range<(i32, i32)>> for TextRange {
-    fn from(range: std::ops::Range<(i32, i32)>) -> Self {
-        Self {
-            start: range.start.into(),
-            end: range.end.into(),
-        }
-    }
-}
+// impl From<std::ops::Range<(i32, i32)>> for TextRange {
+//     fn from(range: std::ops::Range<(i32, i32)>) -> Self {
+//         Self {
+//             start: range.start.into(),
+//             end: range.end.into(),
+//         }
+//     }
+// }
 
 impl From<std::ops::Range<(u32, u32)>> for TextRange {
     fn from(range: std::ops::Range<(u32, u32)>) -> Self {
@@ -155,6 +155,7 @@ impl From<std::ops::Range<TextPosition>> for TextRange {
     }
 }
 
+#[cfg(feature = "lsp_support")]
 impl Into<lsp_types::Range> for TextRange {
     fn into(self) -> lsp_types::Range {
         lsp_types::Range::new(self.start.into(), self.end.into())
@@ -190,7 +191,7 @@ impl HasTextRange for TextRange {
     }
 }
 
-pub fn new_same_line(i: usize, start: usize, end: usize) -> TextRange {
+pub fn new_same_line(i: u32, start: u32, end: u32) -> TextRange {
     TextRange {
         start: (i, start).into(),
         end: (i, end).into(),

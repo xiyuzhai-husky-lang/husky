@@ -74,7 +74,7 @@ impl LineMap {
         }
     }
 
-    pub fn line_col(&self, offset: usize) -> TextPosition {
+    pub fn position_from_offset(&self, offset: usize) -> TextPosition {
         let row = self.newlines.partition_point(|&it| it <= offset) - 1;
         let line_start_offset = self.newlines[row];
         let col = offset - line_start_offset;

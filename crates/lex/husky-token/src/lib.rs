@@ -35,7 +35,7 @@ pub struct Token {
 }
 
 impl Token {
-    pub fn new(i: usize, start: usize, end: usize, kind: TokenKind) -> Token {
+    pub fn new(i: u32, start: u32, end: u32, kind: TokenKind) -> Token {
         Token {
             range: husky_text::new_same_line(i, start, end),
             kind,
