@@ -58,27 +58,6 @@ impl Text {
     }
 
     pub fn text_within(&self, range: TextRange) -> &str {
-        todo!()
-        // if range.end.i() > range.start.i() {
-        //     let mut result = String::new();
-        //     for c in &self.lines[range.start.i() as usize][(range.start.j() as usize)..] {
-        //         result.push(*c);
-        //     }
-        //     for i in (range.start.i() + 1)..range.end.i() {
-        //         for c in &self.lines[i as usize] {
-        //             result.push(*c);
-        //         }
-        //     }
-        //     for c in &self.lines[range.end.i() as usize][..(range.end.j() as usize)] {
-        //         result.push(*c);
-        //     }
-        //     result
-        // } else if range.end.i() == range.start.i() {
-        //     self.lines[range.start.i() as usize][(range.start.j() as usize)..range.end.j() as usize]
-        //         .iter()
-        //         .collect()
-        // } else {
-        //     "".into()
-        // }
+        &self.content[self.line_map.offset_range(range)]
     }
 }
