@@ -73,7 +73,7 @@ impl HuskyDisplay for TextPosition {
     }
 }
 
-impl From<(u32, u32)> for TextPosition {
+impl const From<(u32, u32)> for TextPosition {
     fn from(pair: (u32, u32)) -> Self {
         TextPosition {
             line: pair.0.into(),
@@ -82,8 +82,8 @@ impl From<(u32, u32)> for TextPosition {
     }
 }
 
-impl From<(usize, usize)> for TextPosition {
-    fn from(pair: (usize, usize)) -> Self {
+impl const From<&(u32, u32)> for TextPosition {
+    fn from(pair: &(u32, u32)) -> Self {
         TextPosition {
             line: pair.0.into(),
             col: pair.1.into(),
@@ -91,14 +91,23 @@ impl From<(usize, usize)> for TextPosition {
     }
 }
 
-impl From<(i32, i32)> for TextPosition {
-    fn from(pair: (i32, i32)) -> Self {
-        TextPosition {
-            line: pair.0.into(),
-            col: pair.1.into(),
-        }
-    }
-}
+// impl From<(usize, usize)> for TextPosition {
+//     fn from(pair: (usize, usize)) -> Self {
+//         TextPosition {
+//             line: pair.0.into(),
+//             col: pair.1.into(),
+//         }
+//     }
+// }
+
+// impl From<(i32, i32)> for TextPosition {
+//     fn from(pair: (i32, i32)) -> Self {
+//         TextPosition {
+//             line: pair.0.into(),
+//             col: pair.1.into(),
+//         }
+//     }
+// }
 
 impl TextPosition {
     pub fn one_based_line(&self) -> u32 {
@@ -125,6 +134,13 @@ impl TextPosition {
             col: TextColumn(self.col.0 + x),
         }
     }
+
+    pub fn to_next_line(&self) -> TextPosition {
+        Self {
+            line: self.line.to_next_line(),
+            col: Default::default(),
+        }
+    }
 }
 
 impl std::fmt::Display for TextPosition {
@@ -133,6 +149,7 @@ impl std::fmt::Display for TextPosition {
     }
 }
 
+#[cfg(feature = "lsp_support")]
 impl Into<lsp_types::Position> for TextPosition {
     fn into(self) -> lsp_types::Position {
         lsp_types::Position::new(self.line.0, self.col.0)

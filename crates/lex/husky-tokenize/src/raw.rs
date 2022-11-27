@@ -1,34 +1,40 @@
 use crate::{word::new_reserved_word, *};
 use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;
-use husky_text::{CharIter, TextIndent, TextRange};
+use husky_text::{CharIter, TextCharIter, TextIndent, TextRange};
 use husky_token::{SpecialToken, TokenKind};
 use std::str::FromStr;
 
 pub(crate) struct RawToken {
     pub(crate) range: TextRange,
-    pub(crate) kind: RawTokenKind,
+    pub(crate) variant: RawTokenVariant,
 }
 
 impl RawToken {
-    fn new(i: usize, start: usize, end: usize, kind: RawTokenKind) -> Self {
+    fn new(i: u32, start: u32, end: u32, variant: RawTokenVariant) -> Self {
         RawToken {
             range: husky_text::new_same_line(i, start, end),
-            kind,
+            variant,
         }
     }
 }
 
-pub(crate) enum RawTokenKind {
+pub(crate) enum RawTokenVariant {
     Certain(TokenKind),
     Literal(RawLiteralData),
     IllFormedLiteral(RawLiteralData),
     SubOrMinus,
 }
 
-impl From<TokenKind> for RawTokenKind {
+impl From<TokenKind> for RawTokenVariant {
     fn from(kind: TokenKind) -> Self {
-        RawTokenKind::Certain(kind)
+        RawTokenVariant::Certain(kind)
+    }
+}
+
+impl From<SpecialToken> for RawTokenVariant {
+    fn from(value: SpecialToken) -> Self {
+        RawTokenVariant::Certain(value.into())
     }
 }
 
@@ -36,68 +42,49 @@ impl From<Token> for RawToken {
     fn from(value: Token) -> Self {
         Self {
             range: value.range,
-            kind: RawTokenKind::Certain(value.kind),
+            variant: RawTokenVariant::Certain(value.kind),
         }
     }
 }
 
-pub(crate) struct RawTokenIter<'token_line, 'lex: 'token_line> {
-    db: &'lex dyn IdentifierDb,
-    line_index: usize,
+pub(crate) struct RawTokenIter<'a, 'b> {
+    db: &'a dyn IdentifierDb,
     buffer: String,
-    char_iter: CharIter<'token_line>,
+    char_iter: TextCharIter<'b>,
 }
 
-impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
-    pub fn new(
-        word_interner: &'lex dyn IdentifierDb,
-        line_index: usize,
-        mut char_iter: CharIter<'token_line>,
-    ) -> (TextIndent, Self) {
+impl<'a, 'b> RawTokenIter<'a, 'b> {
+    pub fn new(word_interner: &'a dyn IdentifierDb, input: &'b str) -> Self {
         let mut buffer = String::new();
         buffer.reserve_exact(100);
-        let indent = TextIndent::from(&mut char_iter);
-        (
-            indent,
-            Self {
-                db: word_interner,
-                line_index,
-                buffer,
-                char_iter,
-            },
-        )
+        Self {
+            db: word_interner,
+            buffer,
+            char_iter: TextCharIter::new_from_start(input),
+        }
     }
 }
 
 impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
     fn skip_whitespaces(&mut self) {
-        while let Some((_, c)) = self.char_iter.peek() {
-            if *c != ' ' {
-                break;
-            } else {
-                self.char_iter.next();
-            }
+        while let Some(' ') = self.char_iter.peek() {
+            self.char_iter.next();
         }
     }
 
-    fn next_word(&mut self, j_start: usize) -> Token {
-        while let Some((_, c)) = self.char_iter.peek() {
-            if is_word_char(*c) {
+    fn next_word(&mut self) -> RawTokenVariant {
+        while let Some(c) = self.char_iter.peek() {
+            if is_word_char(c) {
                 self.eat_char();
             } else {
                 break;
             }
         }
         let len = self.buffer.len();
-        return Token::new(
-            self.line_index,
-            j_start,
-            j_start + len,
-            self.take_buffer_word(),
-        );
+        self.take_buffer_word()
     }
 
-    fn next_number(&mut self, j_start: usize) -> RawToken {
+    fn next_number(&mut self) -> RawTokenVariant {
         while self.peek_char().is_digit(10) {
             self.eat_char()
         }
@@ -112,134 +99,98 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     _ => (),
                 }
                 let len = self.buffer.len();
-                RawToken::new(
-                    self.line_index,
-                    j_start,
-                    j_start + len,
-                    RawTokenKind::Literal(RawLiteralData::Float(self.take_buffer::<f64>().into())),
-                )
+                RawTokenVariant::Literal(RawLiteralData::Float(self.take_buffer::<f64>().into()))
+                    .into()
             }
             'b' => {
                 // b32 or b64
                 self.ignore_char();
-                let (token_len, kind) = match self.peek_char() {
+                match self.peek_char() {
                     '3' => {
                         self.ignore_char();
                         if self.peek_char() != '2' {
-                            (
-                                self.buffer.len() + 2,
-                                RawTokenKind::IllFormedLiteral(RawLiteralData::Bits(
-                                    self.take_buffer::<u64>().into(),
-                                )),
-                            )
+                            RawTokenVariant::IllFormedLiteral(RawLiteralData::Bits(
+                                self.take_buffer::<u64>().into(),
+                            ))
                         } else {
                             // b32
                             self.ignore_char();
                             if is_word_char(self.peek_char()) {
                                 todo!()
                             } else {
-                                (
-                                    self.buffer.len() + 3,
-                                    RawTokenKind::Literal(RawLiteralData::B32(
-                                        self.take_buffer::<u32>().into(),
-                                    )),
-                                )
+                                RawTokenVariant::Literal(RawLiteralData::B32(
+                                    self.take_buffer::<u32>().into(),
+                                ))
                             }
                         }
                     }
                     '6' => {
                         self.ignore_char();
                         if self.peek_char() != '4' {
-                            (
-                                self.buffer.len() + 2,
-                                RawTokenKind::IllFormedLiteral(RawLiteralData::Bits(
-                                    self.take_buffer::<u64>().into(),
-                                )),
-                            )
+                            RawTokenVariant::IllFormedLiteral(RawLiteralData::Bits(
+                                self.take_buffer::<u64>().into(),
+                            ))
                         } else {
                             // b64
                             self.ignore_char();
                             if is_word_char(self.peek_char()) {
                                 todo!()
                             } else {
-                                (
-                                    self.buffer.len() + 3,
-                                    RawTokenKind::Literal(RawLiteralData::B64(
-                                        self.take_buffer::<u64>().into(),
-                                    )),
-                                )
+                                RawTokenVariant::Literal(RawLiteralData::B64(
+                                    self.take_buffer::<u64>().into(),
+                                ))
                             }
                         }
                     }
-                    _ => (
-                        self.buffer.len() + 1,
-                        RawTokenKind::IllFormedLiteral(RawLiteralData::B64(
-                            self.take_buffer::<u64>(),
-                        )),
-                    ),
-                };
-                RawToken::new(self.line_index, j_start, j_start + token_len, kind)
+                    _ => RawTokenVariant::IllFormedLiteral(RawLiteralData::B64(
+                        self.take_buffer::<u64>(),
+                    )),
+                }
             }
             'i' => {
                 // i32 or i64
                 self.ignore_char();
-                let (token_len, kind) = match self.peek_char() {
+                match self.peek_char() {
                     '3' => {
                         self.ignore_char();
                         if self.peek_char() != '2' {
-                            (
-                                self.buffer.len() + 2,
-                                RawTokenKind::IllFormedLiteral(RawLiteralData::Integer(
-                                    self.take_buffer::<i32>().into(),
-                                )),
-                            )
+                            RawTokenVariant::IllFormedLiteral(RawLiteralData::Integer(
+                                self.take_buffer::<i32>().into(),
+                            ))
                         } else {
                             // i32
                             self.ignore_char();
                             if is_word_char(self.peek_char()) {
                                 todo!()
                             } else {
-                                (
-                                    self.buffer.len() + 3,
-                                    RawTokenKind::Literal(RawLiteralData::I32(
-                                        self.take_buffer::<i32>().into(),
-                                    )),
-                                )
+                                RawTokenVariant::Literal(RawLiteralData::I32(
+                                    self.take_buffer::<i32>().into(),
+                                ))
                             }
                         }
                     }
                     '6' => {
                         self.ignore_char();
                         if self.peek_char() != '4' {
-                            (
-                                self.buffer.len() + 2,
-                                RawTokenKind::IllFormedLiteral(RawLiteralData::Integer(
-                                    self.take_buffer::<i64>().into(),
-                                )),
-                            )
+                            RawTokenVariant::IllFormedLiteral(RawLiteralData::Integer(
+                                self.take_buffer::<i64>().into(),
+                            ))
                         } else {
                             // b64
                             self.ignore_char();
                             if is_word_char(self.peek_char()) {
                                 todo!()
                             } else {
-                                (
-                                    self.buffer.len() + 3,
-                                    RawTokenKind::Literal(RawLiteralData::I64(
-                                        self.take_buffer::<i64>().into(),
-                                    )),
-                                )
+                                RawTokenVariant::Literal(RawLiteralData::I64(
+                                    self.take_buffer::<i64>().into(),
+                                ))
                             }
                         }
                     }
-                    _ => (
-                        self.buffer.len() + 1,
-                        RawTokenKind::IllFormedLiteral(RawLiteralData::I64(
-                            self.take_buffer::<i64>(),
-                        )),
-                    ),
-                };
-                RawToken::new(self.line_index, j_start, j_start + token_len, kind)
+                    _ => RawTokenVariant::IllFormedLiteral(RawLiteralData::I64(
+                        self.take_buffer::<i64>(),
+                    )),
+                }
             }
             default => {
                 if default.is_alphabetic() {
@@ -249,40 +200,31 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                         self.ignore_char();
                         token_len += 1;
                     }
-                    RawToken::new(
-                        self.line_index,
-                        j_start,
-                        j_start + token_len,
-                        RawTokenKind::IllFormedLiteral(RawLiteralData::B64(
-                            self.take_buffer::<u64>().into(),
-                        )),
-                    )
+                    RawTokenVariant::IllFormedLiteral(RawLiteralData::B64(
+                        self.take_buffer::<u64>().into(),
+                    ))
                 } else {
                     // integer
                     let len = self.buffer.len();
-                    RawToken::new(
-                        self.line_index,
-                        j_start,
-                        j_start + len,
-                        RawTokenKind::Literal(RawLiteralData::Integer(
-                            self.take_buffer::<i32>().into(),
-                        )),
-                    )
+                    RawTokenVariant::Literal(RawLiteralData::Integer(
+                        self.take_buffer::<i32>().into(),
+                    ))
                 }
             }
         }
     }
 
-    fn take_buffer_word(&mut self) -> TokenKind {
+    fn take_buffer_word(&mut self) -> RawTokenVariant {
         let word = std::mem::take(&mut self.buffer);
         self.new_word(word)
     }
 
-    fn new_word(&self, word: String) -> TokenKind {
+    fn new_word(&self, word: String) -> RawTokenVariant {
         if let Some(token_kind) = new_reserved_word(&word) {
-            token_kind
+            // ad hoc
+            token_kind.into()
         } else {
-            TokenKind::Identifier(self.db.it_ident_owned(word))
+            TokenKind::Identifier(self.db.it_ident_owned(word)).into()
         }
     }
 
@@ -295,148 +237,147 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
     }
 
     fn peek_char(&mut self) -> char {
-        if let Some((_, c)) = self.char_iter.peek() {
-            *c
+        if let Some(c) = self.char_iter.peek() {
+            c
         } else {
             0.into()
         }
     }
 
-    fn pass_two(&mut self, special: SpecialToken) -> (usize, SpecialToken) {
+    fn pass_two(&mut self, special: SpecialToken) -> SpecialToken {
         self.char_iter.next();
-        (2, special)
+        special
     }
 
     fn eat_char(&mut self) {
-        let (_, c) = self.char_iter.next().expect("what");
+        let c = self.char_iter.next().expect("what");
         self.buffer.push(c);
     }
 
     fn ignore_char(&mut self) {
-        let (_, _c) = self.char_iter.next().expect("what");
+        let c = self.char_iter.next().expect("what");
     }
 
-    fn next_special(&mut self, j_start: usize, c_start: char) -> Option<RawToken> {
-        let (len, kind) = self.next_special_aux(j_start, c_start)?;
-        Some(RawToken::new(self.line_index, j_start, j_start + len, kind).into())
+    fn next_special(&mut self, c_start: char) -> Option<RawTokenVariant> {
+        Some(
+            match c_start {
+                '=' => match self.peek_char() {
+                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Comparison(
+                        BinaryComparisonOpr::Eq,
+                    ))),
+                    _ => SpecialToken::BinaryOpr(BinaryOpr::Assign(None)),
+                },
+                ':' => match self.peek_char() {
+                    '=' => self.pass_two(SpecialToken::DeriveAssign),
+                    ':' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution)),
+                    _ => SpecialToken::Colon,
+                },
+                '(' => SpecialToken::Bra(Bracket::Par),
+                '[' => SpecialToken::Bra(Bracket::Box),
+                '{' => SpecialToken::Bra(Bracket::Curl),
+                ')' => SpecialToken::Ket(Bracket::Par),
+                ']' => SpecialToken::Ket(Bracket::Box),
+                '}' => SpecialToken::Ket(Bracket::Curl),
+                ',' => SpecialToken::Comma,
+                '@' => SpecialToken::At,
+                '&' => match self.peek_char() {
+                    '&' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::ShortcuitLogic(
+                        BinaryShortcuitLogicOpr::And,
+                    ))),
+                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
+                        BinaryPureClosedOpr::BitAnd,
+                    )))),
+                    _ => SpecialToken::Ambersand,
+                },
+                '|' => match self.peek_char() {
+                    '|' => self.pass_two(SpecialToken::DoubleVertical),
+                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
+                        BinaryPureClosedOpr::BitOr,
+                    )))),
+                    _ => SpecialToken::Vertical,
+                },
+                '~' => SpecialToken::BitNot,
+                '.' => SpecialToken::FieldAccess,
+                ';' => SpecialToken::Semicolon,
+                '%' => {
+                    SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::RemEuclid))
+                }
+
+                '-' => match self.peek_char() {
+                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
+                        BinaryPureClosedOpr::Sub,
+                    )))),
+                    '-' => self.pass_two(SpecialToken::Decr),
+                    '>' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Curry)),
+                    _ => return Some(RawTokenVariant::SubOrMinus),
+                },
+                '<' => match self.peek_char() {
+                    '<' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::PureClosed(
+                        BinaryPureClosedOpr::Shl,
+                    ))),
+                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Comparison(
+                        BinaryComparisonOpr::Leq,
+                    ))),
+                    _ => SpecialToken::LAngle,
+                },
+                '>' => match self.peek_char() {
+                    // '>' => self.pass_two(SpecialToken::Shr), // >>
+                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Comparison(
+                        BinaryComparisonOpr::Geq,
+                    ))),
+                    _ => SpecialToken::RAngle,
+                },
+                '*' => match self.peek_char() {
+                    '*' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::PureClosed(
+                        BinaryPureClosedOpr::Power,
+                    ))),
+                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
+                        BinaryPureClosedOpr::Mul,
+                    )))),
+                    _ => SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Mul)),
+                },
+                '/' => match self.peek_char() {
+                    '/' => return None,
+                    '>' => self.pass_two(SpecialToken::XmlKet),
+                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
+                        BinaryPureClosedOpr::Div,
+                    )))),
+                    _ => SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Div)),
+                },
+                '+' => match self.peek_char() {
+                    '+' => self.pass_two(SpecialToken::Incr),
+                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
+                        BinaryPureClosedOpr::Add,
+                    )))),
+                    _ => SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Add)),
+                },
+                '!' => match self.peek_char() {
+                    '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Comparison(
+                        BinaryComparisonOpr::Neq,
+                    ))),
+                    '!' => self.pass_two(SpecialToken::DoubleExclamation),
+                    _ => SpecialToken::Exclamation,
+                },
+                '?' => SpecialToken::QuestionMark,
+                c => return Some(TokenKind::Unrecognized(c).into()),
+            }
+            .into(),
+        )
     }
 
-    fn next_special_aux(
-        &mut self,
-        _j_start: usize,
-        c_start: char,
-    ) -> Option<(usize, RawTokenKind)> {
-        let (len, special) = match c_start {
-            '=' => match self.peek_char() {
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Comparison(
-                    BinaryComparisonOpr::Eq,
-                ))),
-                _ => (1, SpecialToken::BinaryOpr(BinaryOpr::Assign(None))),
-            },
-            ':' => match self.peek_char() {
-                '=' => self.pass_two(SpecialToken::DeriveAssign),
-                ':' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution)),
-                _ => (1, SpecialToken::Colon),
-            },
-            '(' => (1, SpecialToken::Bra(Bracket::Par)),
-            '[' => (1, SpecialToken::Bra(Bracket::Box)),
-            '{' => (1, SpecialToken::Bra(Bracket::Curl)),
-            ')' => (1, SpecialToken::Ket(Bracket::Par)),
-            ']' => (1, SpecialToken::Ket(Bracket::Box)),
-            '}' => (1, SpecialToken::Ket(Bracket::Curl)),
-            ',' => (1, SpecialToken::Comma),
-            '@' => (1, SpecialToken::At),
-            '&' => match self.peek_char() {
-                '&' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::ShortcuitLogic(
-                    BinaryShortcuitLogicOpr::And,
-                ))),
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
-                    BinaryPureClosedOpr::BitAnd,
-                )))),
-                _ => (1, SpecialToken::Ambersand),
-            },
-            '|' => match self.peek_char() {
-                '|' => self.pass_two(SpecialToken::DoubleVertical),
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
-                    BinaryPureClosedOpr::BitOr,
-                )))),
-                _ => (1, SpecialToken::Vertical),
-            },
-            '~' => (1, SpecialToken::BitNot),
-            '.' => (1, SpecialToken::FieldAccess),
-            ';' => (1, SpecialToken::Semicolon),
-            '%' => (
-                1,
-                SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::RemEuclid)),
-            ),
-            '-' => match self.peek_char() {
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
-                    BinaryPureClosedOpr::Sub,
-                )))),
-                '-' => self.pass_two(SpecialToken::Decr),
-                '>' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Curry)),
-                _ => return Some((1, RawTokenKind::SubOrMinus)),
-            },
-            '<' => match self.peek_char() {
-                '<' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::PureClosed(
-                    BinaryPureClosedOpr::Shl,
-                ))),
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Comparison(
-                    BinaryComparisonOpr::Leq,
-                ))),
-                _ => (1, SpecialToken::LAngle),
-            },
-            '>' => match self.peek_char() {
-                // '>' => self.pass_two(SpecialToken::Shr), // >>
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Comparison(
-                    BinaryComparisonOpr::Geq,
-                ))),
-                _ => (1, SpecialToken::RAngle),
-            },
-            '*' => match self.peek_char() {
-                '*' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::PureClosed(
-                    BinaryPureClosedOpr::Power,
-                ))),
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
-                    BinaryPureClosedOpr::Mul,
-                )))),
-                _ => (
-                    1,
-                    SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Mul)),
-                ),
-            },
-            '/' => match self.peek_char() {
-                '/' => return None,
-                '>' => self.pass_two(SpecialToken::XmlKet),
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
-                    BinaryPureClosedOpr::Div,
-                )))),
-                _ => (
-                    1,
-                    SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Div)),
-                ),
-            },
-            '+' => match self.peek_char() {
-                '+' => self.pass_two(SpecialToken::Incr),
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
-                    BinaryPureClosedOpr::Add,
-                )))),
-                _ => (
-                    1,
-                    SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Add)),
-                ),
-            },
-            '!' => match self.peek_char() {
-                '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Comparison(
-                    BinaryComparisonOpr::Neq,
-                ))),
-                '!' => self.pass_two(SpecialToken::DoubleExclamation),
-                _ => (1, SpecialToken::Exclamation),
-            },
-            '?' => (1, SpecialToken::QuestionMark),
-            c => return Some((1, TokenKind::Unrecognized(c).into())),
-        };
-        Some((len, RawTokenKind::Certain(TokenKind::Special(special))))
+    fn next_token_variant(&mut self) -> Option<RawTokenVariant> {
+        let c = self.char_iter.next()?;
+        if c == ' ' {
+            unreachable!()
+        } else if c.is_alphabetic() || c == '_' {
+            self.buffer.push(c);
+            Some(self.next_word())
+        } else if c.is_digit(10) {
+            self.buffer.push(c);
+            Some(self.next_number())
+        } else {
+            self.next_special(c)
+        }
     }
 }
 
@@ -444,21 +385,21 @@ impl<'token_line, 'lex: 'token_line> Iterator for RawTokenIter<'token_line, 'lex
     type Item = RawToken;
 
     fn next(&mut self) -> Option<Self::Item> {
-        if let Some((j, c)) = self.char_iter.next() {
-            if c == ' ' {
+        let c = self.char_iter.peek()?;
+        match c {
+            ' ' => {
                 self.skip_whitespaces();
-                return self.next();
-            } else if c.is_alphabetic() || c == '_' {
-                self.buffer.push(c);
-                Some(self.next_word(j).into())
-            } else if c.is_digit(10) {
-                self.buffer.push(c);
-                Some(self.next_number(j).into())
-            } else {
-                self.next_special(j, c)
+                self.next()
             }
-        } else {
-            None
+            '\n' => self.next(),
+            _ => {
+                let start = self.char_iter.next_position();
+                let variant = self.next_token_variant()?;
+                Some(RawToken {
+                    range: (start..self.char_iter.next_position()).into(),
+                    variant,
+                })
+            }
         }
     }
 }

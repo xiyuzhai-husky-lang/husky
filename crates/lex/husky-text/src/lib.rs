@@ -1,3 +1,7 @@
+#![feature(const_convert)]
+#![feature(const_trait_impl)]
+#![feature(str_internals)]
+mod char_iter;
 mod db;
 mod indent;
 mod info;
@@ -7,6 +11,7 @@ mod range;
 #[cfg(test)]
 mod tests;
 
+pub use char_iter::{PositionedTextCharIter, TextCharIter};
 pub use indent::TextIndent;
 pub use info::*;
 pub use position::*;
