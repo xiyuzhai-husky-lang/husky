@@ -1,23 +1,20 @@
-mod column;
 mod db;
 mod indent;
 mod info;
+mod line_map;
 mod position;
 mod range;
-mod row;
 #[cfg(test)]
 mod tests;
 
-use husky_line_map::LineMap;
 pub use indent::TextIndent;
 pub use info::*;
-pub use position::{FilePosition, TextPosition};
+pub use position::*;
 pub use range::*;
 pub type CharIter<'token_line> = std::iter::Peekable<Enumerate<Chars<'token_line>>>;
-pub use column::Column;
 pub use db::TextDb;
-pub use row::Row;
 
+use line_map::LineMap;
 use std::{iter::Enumerate, ops::Deref, str::Chars, sync::Arc};
 
 #[salsa::jar(db = TextDb)]

@@ -2,12 +2,17 @@ use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 
+/// Character offset on a line in a document (zero-based). The meaning of this
+/// offset is determined by the negotiated `PositionEncodingKind`.
+///
+/// If the character value is greater than the line length it defaults back
+/// to the line length.
 #[derive(
     Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
 )]
-pub struct Column(pub u32); // raw is 0 based
+pub struct TextColumn(pub u32);
 
-impl HuskyDisplay for Column {
+impl HuskyDisplay for TextColumn {
     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         if config.colored {
             write!(
@@ -24,22 +29,22 @@ impl HuskyDisplay for Column {
     }
 }
 
-impl From<u32> for Column {
+impl From<u32> for TextColumn {
     fn from(raw: u32) -> Self {
-        Column(raw)
+        TextColumn(raw)
     }
 }
 
-impl From<usize> for Column {
+impl From<usize> for TextColumn {
     fn from(raw: usize) -> Self {
-        Column(<usize as TryInto<u32>>::try_into(raw).expect("success"))
+        TextColumn(<usize as TryInto<u32>>::try_into(raw).expect("success"))
     }
 }
 
-impl From<i32> for Column {
+impl From<i32> for TextColumn {
     fn from(raw: i32) -> Self {
         assert!(raw >= 0);
-        Column(raw as u32)
+        TextColumn(raw as u32)
     }
 }
 

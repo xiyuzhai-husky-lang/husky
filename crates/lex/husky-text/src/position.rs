@@ -1,3 +1,9 @@
+mod column;
+mod line;
+
+pub use column::*;
+pub use line::*;
+
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use husky_source_path::SourcePath;
 #[cfg(feature = "lsp_support")]
@@ -11,8 +17,8 @@ use crate::*;
     Debug, Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
 )]
 pub struct TextPosition {
-    pub row: Row,
-    pub col: Column,
+    pub line: TextLine,
+    pub col: TextColumn,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -35,8 +41,8 @@ impl FilePosition {
 impl From<lsp_types::Position> for TextPosition {
     fn from(pos: lsp_types::Position) -> Self {
         Self {
-            row: Row(pos.line),
-            col: Column(pos.character),
+            line: pos.line.into(),
+            col: pos.character.into(),
         }
     }
 }
@@ -70,7 +76,7 @@ impl HuskyDisplay for TextPosition {
 impl From<(u32, u32)> for TextPosition {
     fn from(pair: (u32, u32)) -> Self {
         TextPosition {
-            row: pair.0.into(),
+            line: pair.0.into(),
             col: pair.1.into(),
         }
     }
@@ -79,7 +85,7 @@ impl From<(u32, u32)> for TextPosition {
 impl From<(usize, usize)> for TextPosition {
     fn from(pair: (usize, usize)) -> Self {
         TextPosition {
-            row: pair.0.into(),
+            line: pair.0.into(),
             col: pair.1.into(),
         }
     }
@@ -88,19 +94,19 @@ impl From<(usize, usize)> for TextPosition {
 impl From<(i32, i32)> for TextPosition {
     fn from(pair: (i32, i32)) -> Self {
         TextPosition {
-            row: pair.0.into(),
+            line: pair.0.into(),
             col: pair.1.into(),
         }
     }
 }
 
 impl TextPosition {
-    pub fn line(&self) -> u32 {
-        self.row.0 + 1
+    pub fn one_based_line(&self) -> u32 {
+        self.line.0 + 1
     }
 
     pub fn i(&self) -> u32 {
-        self.row.0
+        self.line.0
     }
     pub fn j(&self) -> u32 {
         self.col.0
@@ -108,27 +114,27 @@ impl TextPosition {
 
     pub fn to_left(&self, x: u32) -> TextPosition {
         Self {
-            row: self.row,
-            col: Column(self.col.0 - x),
+            line: self.line,
+            col: TextColumn(self.col.0 - x),
         }
     }
 
     pub fn to_right(&self, x: u32) -> TextPosition {
         Self {
-            row: self.row,
-            col: Column(self.col.0 + x),
+            line: self.line,
+            col: TextColumn(self.col.0 + x),
         }
     }
 }
 
 impl std::fmt::Display for TextPosition {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("{:?}:{:?}", self.row.0 + 1, self.col.0 + 1))
+        f.write_fmt(format_args!("{:?}:{:?}", self.line.0 + 1, self.col.0 + 1))
     }
 }
 
 impl Into<lsp_types::Position> for TextPosition {
     fn into(self) -> lsp_types::Position {
-        lsp_types::Position::new(self.row.0, self.col.0)
+        lsp_types::Position::new(self.line.0, self.col.0)
     }
 }

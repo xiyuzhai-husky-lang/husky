@@ -5,6 +5,7 @@ mod utf16;
 
 pub use text_bytes_len::*;
 
+use crate::{position::TextColumn, *};
 use rustc_hash::FxHashMap;
 use std::iter;
 use utf16::*;
@@ -14,23 +15,15 @@ pub struct LineMap {
     /// Offset the the beginning of each line, zero-based
     pub(crate) newlines: Vec<usize>,
     /// List of non-ASCII characters on each line
-    pub(crate) utf16_lines: FxHashMap<usize, Vec<Utf16Char>>,
+    pub(crate) utf16_lines: FxHashMap<TextLine, Vec<Utf16CharColRange>>,
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub struct TextPositionUtf16 {
     /// Zero-based
-    pub line: usize,
+    pub line: TextLine,
     /// Zero-based
-    pub col: usize,
-}
-
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
-pub struct TextPosition {
-    /// Zero-based
-    pub line: usize,
-    /// Zero-based utf8 offset
-    pub col: usize,
+    pub col: TextColumn,
 }
 
 impl LineMap {
@@ -38,19 +31,19 @@ impl LineMap {
         let mut utf16_lines = FxHashMap::default();
         let mut utf16_chars = Vec::new();
 
-        let mut newlines = vec![0];
-        let mut curr_row = 0;
+        let mut newlines: Vec<usize> = vec![0];
+        let mut curr_row: usize = 0;
         let mut curr_col = 0;
         let mut line = 0;
         for c in text.chars() {
             let c_len = c.text_bytes_len();
-            curr_row += c_len;
+            curr_row += c_len as usize;
             if c == '\n' {
                 newlines.push(curr_row);
 
                 // Save any utf-16 characters seen in the previous line
                 if !utf16_chars.is_empty() {
-                    utf16_lines.insert(line, utf16_chars);
+                    utf16_lines.insert(TextLine(line), utf16_chars);
                     utf16_chars = Vec::new();
                 }
 
@@ -61,7 +54,7 @@ impl LineMap {
             }
 
             if !c.is_ascii() {
-                utf16_chars.push(Utf16Char {
+                utf16_chars.push(Utf16CharColRange {
                     start: curr_col,
                     end: curr_col + c_len,
                 });
@@ -72,7 +65,7 @@ impl LineMap {
 
         // Save any utf-16 characters seen in the last line
         if !utf16_chars.is_empty() {
-            utf16_lines.insert(line, utf16_chars);
+            utf16_lines.insert(TextLine(line), utf16_chars);
         }
 
         LineMap {
@@ -82,24 +75,24 @@ impl LineMap {
     }
 
     pub fn line_col(&self, offset: usize) -> TextPosition {
-        let line = self.newlines.partition_point(|&it| it <= offset) - 1;
-        let line_start_offset = self.newlines[line];
+        let row = self.newlines.partition_point(|&it| it <= offset) - 1;
+        let line_start_offset = self.newlines[row];
         let col = offset - line_start_offset;
         TextPosition {
-            line: line as usize,
+            line: row.into(),
             col: col.into(),
         }
     }
 
     pub fn offset(&self, line_col: TextPosition) -> usize {
-        self.newlines[line_col.line as usize] + usize::from(line_col.col)
+        self.newlines[line_col.line.0 as usize] + usize::from(line_col.col.0 as usize)
     }
 
     pub fn to_utf16(&self, line_col: TextPosition) -> TextPositionUtf16 {
         let col = self.utf8_to_utf16_col(line_col.line, line_col.col.into());
         TextPositionUtf16 {
             line: line_col.line,
-            col: col as usize,
+            col: col.into(),
         }
     }
 
@@ -127,12 +120,12 @@ impl LineMap {
             .filter(|it| !it.is_empty())
     }
 
-    fn utf8_to_utf16_col(&self, line: usize, col: usize) -> usize {
-        let mut res: usize = col.into();
+    fn utf8_to_utf16_col(&self, line: TextLine, col: TextColumn) -> TextColumn {
+        let mut res = col.0;
         if let Some(utf16_chars) = self.utf16_lines.get(&line) {
             for c in utf16_chars {
-                if c.end <= col {
-                    res -= usize::from(c.len()) - c.len_utf16();
+                if c.end <= col.0 {
+                    res -= c.len() - c.len_utf16();
                 } else {
                     // From here on, all utf16 characters come *after* the character we are mapping,
                     // so we don't need to take them into account
@@ -140,14 +133,14 @@ impl LineMap {
                 }
             }
         }
-        res
+        TextColumn(res)
     }
 
-    fn utf16_to_utf8_col(&self, line: usize, mut col: usize) -> usize {
+    fn utf16_to_utf8_col(&self, line: TextLine, mut col: TextColumn) -> TextColumn {
         if let Some(utf16_chars) = self.utf16_lines.get(&line) {
             for c in utf16_chars {
-                if col > usize::from(c.start) {
-                    col += usize::from(c.len()) - c.len_utf16() as usize;
+                if col.0 > c.start {
+                    col.0 += c.len() - c.len_utf16();
                 } else {
                     // From here on, all utf16 characters come *after* the character we are mapping,
                     // so we don't need to take them into account
