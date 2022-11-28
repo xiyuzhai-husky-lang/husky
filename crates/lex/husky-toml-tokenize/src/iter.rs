@@ -1,4 +1,4 @@
-use husky_text::TextCharIter;
+use husky_text::{TextCharIter, TextPosition};
 
 use crate::*;
 
@@ -13,7 +13,7 @@ impl<'a> Iterator for TokenIter<'a> {
     type Item = TomlToken;
 
     fn next(&mut self) -> Option<Self::Item> {
-        let (start_offset, c) = self.chars.next_char_with_offset()?;
+        let (start_offset, start_position, c) = self.chars.next_char_with_offset_and_position()?;
 
         let variant = match c {
             '\n' => Ok(TomlTokenVariant::Newline),
@@ -35,7 +35,7 @@ impl<'a> Iterator for TokenIter<'a> {
             ch => Err(TomlTokenError::UnexpectedChar(ch)),
         };
 
-        Some(self.emit_token(start_offset, variant))
+        Some(self.emit_token(start_offset, start_position, variant))
     }
 }
 
@@ -57,16 +57,18 @@ impl<'a> TokenIter<'a> {
 
     pub(crate) fn emit_token(
         &self,
-        start: usize,
+        start_offset: usize,
+        start_position: TextPosition,
         variant: TomlTokenResult<TomlTokenVariant>,
     ) -> TomlToken {
-        TomlToken {
-            span: TextSpan {
-                start,
+        TomlToken::new(
+            TextSpan {
+                start: start_offset,
                 end: self.chars.current_offset(),
             },
+            (start_position..self.chars.current_position()).into(),
             variant,
-        }
+        )
     }
 }
 
