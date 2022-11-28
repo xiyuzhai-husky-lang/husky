@@ -60,7 +60,7 @@ impl<'a, 'b> RawTokenIter<'a, 'b> {
         Self {
             db: word_interner,
             buffer,
-            char_iter: TextCharIter::new_from_start(input),
+            char_iter: TextCharIter::new(input),
         }
     }
 }
@@ -393,10 +393,10 @@ impl<'token_line, 'lex: 'token_line> Iterator for RawTokenIter<'token_line, 'lex
             }
             '\n' => self.next(),
             _ => {
-                let start = self.char_iter.next_position();
+                let start = self.char_iter.current_position();
                 let variant = self.next_token_variant()?;
                 Some(RawToken {
-                    range: (start..self.char_iter.next_position()).into(),
+                    range: (start..self.char_iter.current_position()).into(),
                     variant,
                 })
             }
