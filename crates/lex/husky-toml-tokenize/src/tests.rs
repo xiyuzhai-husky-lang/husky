@@ -120,10 +120,10 @@ fn basic_strings() {
     err(r#""\a"#, TomlTokenError::InvalidEscape(2, 'a'));
     err("\"\\\n", TomlTokenError::InvalidEscape(2, '\n'));
     err("\"\\\r\n", TomlTokenError::InvalidEscape(2, '\n'));
-    err("\"\\", TomlTokenError::UnterminatedString(0));
+    err("\"\\", TomlTokenError::UnterminatedString);
     err("\"\u{0}", TomlTokenError::InvalidCharInString(1, '\u{0}'));
     err(r#""\U00""#, TomlTokenError::InvalidHexEscape(5, '"'));
-    err(r#""\U00"#, TomlTokenError::UnterminatedString(0));
+    err(r#""\U00"#, TomlTokenError::UnterminatedString);
     err(r#""\uD800"#, TomlTokenError::InvalidEscapeValue(2, 0xd800));
     err(
         r#""\UFFFFFFFF"#,
@@ -223,11 +223,11 @@ fn all() {
 
 #[test]
 fn bare_cr_bad() {
-    err("\r", TomlTokenError::Unexpected(0, '\r'));
+    err("\r", TomlTokenError::UnexpectedChar('\r'));
     err("'\n", TomlTokenError::NewlineInString(1));
     err("'\u{0}", TomlTokenError::InvalidCharInString(1, '\u{0}'));
-    err("'", TomlTokenError::UnterminatedString(0));
-    err("\u{0}", TomlTokenError::Unexpected(0, '\u{0}'));
+    err("'", TomlTokenError::UnterminatedString);
+    err("\u{0}", TomlTokenError::UnexpectedChar('\u{0}'));
 }
 
 #[test]
@@ -237,7 +237,7 @@ fn bad_comment() {
     t.next().unwrap();
     assert_eq!(
         t.next().unwrap().variant,
-        Err(TomlTokenError::Unexpected(1, '\u{0}'))
+        Err(TomlTokenError::UnexpectedChar('\u{0}'))
     );
     assert!(t.next().is_none());
 }

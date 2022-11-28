@@ -17,9 +17,9 @@ impl<'a> Iterator for TokenIter<'a> {
 
         let variant = match c {
             '\n' => Ok(TomlTokenVariant::Newline),
-            ' ' => Ok(self.next_whitespace_token(start_offset)),
-            '\t' => Ok(self.next_whitespace_token(start_offset)),
-            '#' => Ok(self.next_comment_token(start_offset)),
+            ' ' => Ok(self.next_whitespace_token()),
+            '\t' => Ok(self.next_whitespace_token()),
+            '#' => Ok(self.next_comment_token()),
             '=' => Ok(TomlSpecialToken::Equals.into()),
             '.' => Ok(TomlSpecialToken::Period.into()),
             ',' => Ok(TomlSpecialToken::Comma.into()),
@@ -29,10 +29,10 @@ impl<'a> Iterator for TokenIter<'a> {
             '}' => Ok(TomlSpecialToken::RightCurly.into()),
             '[' => Ok(TomlSpecialToken::LeftBox.into()),
             ']' => Ok(TomlSpecialToken::RightBox.into()),
-            '\'' => self.next_literal_string(start_offset),
-            '"' => self.next_basic_string(start_offset),
+            '\'' => self.next_literal_string(),
+            '"' => self.next_basic_string(),
             ch if is_keylike(ch) => Ok(self.next_keylike(start_offset)),
-            ch => Err(TomlTokenError::Unexpected(start_offset, ch)),
+            ch => Err(TomlTokenError::UnexpectedChar(ch)),
         };
 
         Some(self.emit_token(start_offset, variant))
