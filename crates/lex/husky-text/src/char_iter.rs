@@ -81,13 +81,11 @@ impl<'a> TextCharIter<'a> {
     }
 
     pub fn peek(&self) -> Option<char> {
-        unsafe {
-            core::str::next_code_point(&mut self.iter.clone())
-                .map(|ch| char::from_u32_unchecked(ch))
-        }
+        self.clone().next()
     }
 }
 
+#[derive(Clone)]
 pub struct OffsetedTextCharIter<'a> {
     iter: TextCharIter<'a>,
 }
@@ -188,6 +186,18 @@ mod tests {
         t("a\n\r\n", &[((0, 0), 'a'), ((0, 1), '\n'), ((1, 0), '\n')]);
     }
 
+    #[test]
+    fn test_char_iter_peek() {
+        fn t(sample_text: &str) {
+            let mut iter = TextCharIter::new(sample_text);
+            while let Some(ch) = iter.peek() {
+                assert_eq!(Some(ch), iter.next())
+            }
+            assert_eq!(iter.next(), None)
+        }
+
+        t("\"\"\"\\\n     \t   \t  \\\r\n  \t \n  \t \r\n\"\"\"")
+    }
     #[test]
     fn test_crlf_fold() {
         fn t(sample_text: &str, expect: &[(usize, char)]) {
