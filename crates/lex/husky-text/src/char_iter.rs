@@ -1,9 +1,10 @@
 use crate::*;
 
+#[derive(Clone)]
 pub struct TextCharIter<'a> {
     pub(super) iter: core::slice::Iter<'a, u8>,
-    pub(super) front_offset: usize,
-    next_pos: TextPosition,
+    pub(super) current_offset: usize,
+    current_position: TextPosition,
 }
 
 impl<'a> Iterator for TextCharIter<'a> {
@@ -23,25 +24,25 @@ impl<'a> Iterator for TextCharIter<'a> {
                     }
                 {
                     self.iter = attempt;
-                    self.front_offset += 2;
-                    self.next_pos = self.next_pos.to_next_line();
+                    self.current_offset += 2;
+                    self.current_position = self.current_position.to_next_line();
                     Some('\n')
                 } else {
                     let len = self.iter.len();
-                    self.front_offset += pre_len - len;
-                    self.next_pos = self.next_pos.to_right(1);
+                    self.current_offset += pre_len - len;
+                    self.current_position = self.current_position.to_right(1);
                     Some(ch)
                 }
             }
             '\n' => {
-                self.front_offset += 1;
-                self.next_pos = self.next_pos.to_next_line();
+                self.current_offset += 1;
+                self.current_position = self.current_position.to_next_line();
                 Some(ch)
             }
             _ => {
                 let len = self.iter.len();
-                self.front_offset += pre_len - len;
-                self.next_pos = self.next_pos.to_right(1);
+                self.current_offset += pre_len - len;
+                self.current_position = self.current_position.to_right(1);
                 Some(ch)
             }
         }
@@ -49,24 +50,34 @@ impl<'a> Iterator for TextCharIter<'a> {
 }
 
 impl<'a> TextCharIter<'a> {
-    pub(crate) fn new(input: &'a str, front_offset: usize, start_pos: TextPosition) -> Self {
-        Self {
-            iter: input.as_bytes().iter(),
-            front_offset,
-            next_pos: start_pos,
-        }
+    pub fn new(input: &'a str) -> Self {
+        Self::new_aux(input, Default::default(), Default::default())
     }
 
-    pub fn new_from_start(input: &'a str) -> Self {
-        Self::new(input, Default::default(), Default::default())
+    pub(crate) fn new_aux(input: &'a str, next_offset: usize, start_pos: TextPosition) -> Self {
+        Self {
+            iter: input.as_bytes().iter(),
+            current_offset: next_offset,
+            current_position: start_pos,
+        }
     }
 
     fn next_char_raw(&mut self) -> Option<char> {
         unsafe { core::str::next_code_point(&mut self.iter).map(|ch| char::from_u32_unchecked(ch)) }
     }
 
-    pub fn next_position(&self) -> TextPosition {
-        self.next_pos
+    pub fn current_position(&self) -> TextPosition {
+        self.current_position
+    }
+
+    pub fn current_offset(&self) -> usize {
+        self.current_offset
+    }
+
+    pub fn next_char_with_offset(&mut self) -> Option<(usize, char)> {
+        let offset = self.current_offset;
+        let ch = self.next()?;
+        Some((offset, ch))
     }
 
     pub fn peek(&self) -> Option<char> {
@@ -77,19 +88,52 @@ impl<'a> TextCharIter<'a> {
     }
 }
 
+pub struct IndexedTextCharIter<'a> {
+    iter: TextCharIter<'a>,
+}
+
+impl<'a> IndexedTextCharIter<'a> {
+    pub(crate) fn new_aux(input: &'a str, front_offset: usize, start_pos: TextPosition) -> Self {
+        Self {
+            iter: TextCharIter {
+                iter: input.as_bytes().iter(),
+                current_offset: front_offset,
+                current_position: start_pos,
+            },
+        }
+    }
+
+    pub fn new(input: &'a str) -> Self {
+        Self::new_aux(input, Default::default(), Default::default())
+    }
+}
+
+impl<'a> Iterator for IndexedTextCharIter<'a> {
+    type Item = (usize, char);
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let index = self.iter.current_offset();
+        Some((index, self.iter.next()?))
+    }
+}
+
 pub struct PositionedTextCharIter<'a> {
     iter: TextCharIter<'a>,
 }
 
 impl<'a> PositionedTextCharIter<'a> {
-    pub(crate) fn new(input: &'a str, front_offset: usize, start_pos: TextPosition) -> Self {
+    pub(crate) fn new_aux(input: &'a str, front_offset: usize, start_pos: TextPosition) -> Self {
         Self {
             iter: TextCharIter {
                 iter: input.as_bytes().iter(),
-                front_offset,
-                next_pos: start_pos,
+                current_offset: front_offset,
+                current_position: start_pos,
             },
         }
+    }
+
+    pub fn new(input: &'a str) -> Self {
+        Self::new_aux(input, Default::default(), Default::default())
     }
 }
 
@@ -97,7 +141,7 @@ impl<'a> Iterator for PositionedTextCharIter<'a> {
     type Item = (TextPosition, char);
 
     fn next(&mut self) -> Option<Self::Item> {
-        let pos = self.iter.next_position();
+        let pos = self.iter.current_position();
         let ch = self.iter.next()?;
         Some((pos, ch))
     }
@@ -105,11 +149,11 @@ impl<'a> Iterator for PositionedTextCharIter<'a> {
 
 impl Text {
     pub fn char_iter<'a>(&'a self) -> TextCharIter<'a> {
-        TextCharIter::new(&self.content, 0, Default::default())
+        TextCharIter::new_aux(&self.content, 0, Default::default())
     }
 
     pub fn positioned_char_iter<'a>(&'a self) -> PositionedTextCharIter<'a> {
-        PositionedTextCharIter::new(&self.content, 0, Default::default())
+        PositionedTextCharIter::new_aux(&self.content, 0, Default::default())
     }
 }
 
@@ -142,5 +186,51 @@ mod tests {
         }
 
         t("a\n\r\n", &[((0, 0), 'a'), ((0, 1), '\n'), ((1, 0), '\n')]);
+    }
+
+    #[test]
+    fn test_crlf_fold() {
+        fn t(sample_text: &str, expect: &[(usize, char)]) {
+            let fold = IndexedTextCharIter::new(sample_text);
+            assert_eq!(fold.collect::<Vec<_>>(), expect)
+        }
+
+        t(
+            "\"\"\"\\\n     \t   \t  \\\r\n  \t \n  \t \r\n\"\"\"",
+            &[
+                (0, '"'),
+                (1, '"'),
+                (2, '"'),
+                (3, '\\'),
+                (4, '\n'),
+                (5, ' '),
+                (6, ' '),
+                (7, ' '),
+                (8, ' '),
+                (9, ' '),
+                (10, '\t'),
+                (11, ' '),
+                (12, ' '),
+                (13, ' '),
+                (14, '\t'),
+                (15, ' '),
+                (16, ' '),
+                (17, '\\'),
+                (18, '\n'),
+                (20, ' '),
+                (21, ' '),
+                (22, '\t'),
+                (23, ' '),
+                (24, '\n'),
+                (25, ' '),
+                (26, ' '),
+                (27, '\t'),
+                (28, ' '),
+                (29, '\n'),
+                (31, '"'),
+                (32, '"'),
+                (33, '"'),
+            ],
+        );
     }
 }
