@@ -88,11 +88,11 @@ impl<'a> TextCharIter<'a> {
     }
 }
 
-pub struct IndexedTextCharIter<'a> {
+pub struct OffsetedTextCharIter<'a> {
     iter: TextCharIter<'a>,
 }
 
-impl<'a> IndexedTextCharIter<'a> {
+impl<'a> OffsetedTextCharIter<'a> {
     pub(crate) fn new_aux(input: &'a str, front_offset: usize, start_pos: TextPosition) -> Self {
         Self {
             iter: TextCharIter {
@@ -108,12 +108,12 @@ impl<'a> IndexedTextCharIter<'a> {
     }
 }
 
-impl<'a> Iterator for IndexedTextCharIter<'a> {
+impl<'a> Iterator for OffsetedTextCharIter<'a> {
     type Item = (usize, char);
 
     fn next(&mut self) -> Option<Self::Item> {
-        let index = self.iter.current_offset();
-        Some((index, self.iter.next()?))
+        let offset = self.iter.current_offset();
+        Some((offset, self.iter.next()?))
     }
 }
 
@@ -191,7 +191,7 @@ mod tests {
     #[test]
     fn test_crlf_fold() {
         fn t(sample_text: &str, expect: &[(usize, char)]) {
-            let fold = IndexedTextCharIter::new(sample_text);
+            let fold = OffsetedTextCharIter::new(sample_text);
             assert_eq!(fold.collect::<Vec<_>>(), expect)
         }
 

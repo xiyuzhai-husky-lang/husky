@@ -1,3 +1,4 @@
+use husky_print_utils::p;
 use husky_word::{WordDb, WordJar};
 use salsa::Database;
 
@@ -49,10 +50,36 @@ fn literal_strings() {
 }
 
 #[test]
+fn basic_strings0() {
+    fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
+        let mut t = TokenIter::new(db, input);
+        let token = t.next().unwrap().variant.unwrap();
+        p!(input);
+        assert_eq!(
+            token,
+            TomlTokenVariant::StringLiteral {
+                val: Arc::new(val.to_owned()),
+                multiline,
+            }
+        );
+        assert!(t.next().is_none());
+    }
+
+    let db = MimicDB::default();
+    t(
+        &db,
+        "\"\"\"\\\n     \t   \t  \\\r\n  \t \n  \t \r\n\"\"\"",
+        "",
+        true,
+    );
+}
+
+#[test]
 fn basic_strings() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
         let mut t = TokenIter::new(db, input);
         let token = t.next().unwrap().variant.unwrap();
+        p!(input);
         assert_eq!(
             token,
             TomlTokenVariant::StringLiteral {
