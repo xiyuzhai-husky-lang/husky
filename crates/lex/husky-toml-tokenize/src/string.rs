@@ -7,7 +7,6 @@ impl<'a> TokenIter<'a> {
     fn next_string(
         &mut self,
         delim: char,
-        start: usize,
         new_ch: &mut dyn FnMut(
             &mut TokenIter<'_>,
             &mut MaybeString,
@@ -73,16 +72,13 @@ impl<'a> TokenIter<'a> {
                     });
                 }
                 Some((i, c)) => new_ch(self, &mut val, multiline, i, c)?,
-                None => return Err(TomlTokenError::UnterminatedString(start)),
+                None => return Err(TomlTokenError::UnterminatedString),
             }
         }
     }
 
-    pub(crate) fn next_literal_string(
-        &mut self,
-        start: usize,
-    ) -> TomlTokenResult<TomlTokenVariant> {
-        self.next_string('\'', start, &mut |_me, val, _multi, i, ch| {
+    pub(crate) fn next_literal_string(&mut self) -> TomlTokenResult<TomlTokenVariant> {
+        self.next_string('\'', &mut |_me, val, _multi, i, ch| {
             if ch == '\u{09}' || (('\u{20}'..='\u{10ffff}').contains(&ch) && ch != '\u{7f}') {
                 val.push(ch);
                 Ok(())
@@ -92,8 +88,8 @@ impl<'a> TokenIter<'a> {
         })
     }
 
-    pub(crate) fn next_basic_string(&mut self, start: usize) -> TomlTokenResult<TomlTokenVariant> {
-        self.next_string('"', start, &mut |this, val, multi, i, ch| match ch {
+    pub(crate) fn next_basic_string(&mut self) -> TomlTokenResult<TomlTokenVariant> {
+        self.next_string('"', &mut |this, val, multi, i, ch| match ch {
             '\\' => {
                 val.to_owned(&this.input[..i]);
                 match this.next_char_with_offset() {
@@ -106,7 +102,7 @@ impl<'a> TokenIter<'a> {
                     Some((_, 't')) => val.push('\t'),
                     Some((i, c @ 'u')) | Some((i, c @ 'U')) => {
                         let len = if c == 'u' { 4 } else { 8 };
-                        val.push(this.next_hex(start, i, len)?);
+                        val.push(this.next_hex(i, len)?);
                     }
                     Some((i, c @ ' ')) | Some((i, c @ '\t')) | Some((i, c @ '\n')) if multi => {
                         if c != '\n' {
@@ -134,7 +130,7 @@ impl<'a> TokenIter<'a> {
                         }
                     }
                     Some((i, c)) => return Err(TomlTokenError::InvalidEscape(i, c)),
-                    None => return Err(TomlTokenError::UnterminatedString(start)),
+                    None => return Err(TomlTokenError::UnterminatedString),
                 }
                 Ok(())
             }

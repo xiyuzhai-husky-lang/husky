@@ -13,9 +13,9 @@ pub enum TomlTokenError {
     #[error("todo")]
     NewlineInString(usize),
     #[error("todo")]
-    Unexpected(usize, char),
+    UnexpectedChar(char),
     #[error("todo")]
-    UnterminatedString(usize),
+    UnterminatedString,
     #[error("todo")]
     NewlineInTableKey(usize),
     #[error("todo")]
