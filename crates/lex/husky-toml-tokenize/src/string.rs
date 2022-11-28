@@ -1,3 +1,5 @@
+use husky_print_utils::p;
+
 use crate::*;
 
 impl<'a> TokenIter<'a> {
@@ -29,7 +31,12 @@ impl<'a> TokenIter<'a> {
         let mut n = 0;
         'outer: loop {
             n += 1;
-            match self.next_char() {
+            let one = self.next_char_with_offset();
+            println!("n = {n}, one = {one:?}");
+            if n > 2 {
+                todo!();
+            }
+            match one {
                 Some((i, '\n')) => {
                     if multiline {
                         if self.input.as_bytes()[i] == b'\r' {
@@ -94,7 +101,7 @@ impl<'a> TokenIter<'a> {
         self.next_string('"', start, &mut |this, val, multi, i, ch| match ch {
             '\\' => {
                 val.to_owned(&this.input[..i]);
-                match this.next_char() {
+                match this.next_char_with_offset() {
                     Some((_, '"')) => val.push('"'),
                     Some((_, '\\')) => val.push('\\'),
                     Some((_, 'b')) => val.push('\u{8}'),
@@ -108,7 +115,7 @@ impl<'a> TokenIter<'a> {
                     }
                     Some((i, c @ ' ')) | Some((i, c @ '\t')) | Some((i, c @ '\n')) if multi => {
                         if c != '\n' {
-                            while let Some((_, ch)) = this.peek_char() {
+                            while let Some(ch) = this.peek_char() {
                                 match ch {
                                     ' ' | '\t' => {
                                         this.next_char();
@@ -122,7 +129,7 @@ impl<'a> TokenIter<'a> {
                                 }
                             }
                         }
-                        while let Some((_, ch)) = this.peek_char() {
+                        while let Some(ch) = this.peek_char() {
                             match ch {
                                 ' ' | '\t' | '\n' => {
                                     this.next_char();

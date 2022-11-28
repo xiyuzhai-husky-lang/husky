@@ -1,10 +1,42 @@
+use husky_text::TextCharIter;
+
 use crate::*;
 
 #[derive(Clone)]
 pub(crate) struct TokenIter<'a> {
     pub(crate) db: &'a dyn WordDb,
     pub(crate) input: &'a str,
-    chars: CrlfFold<'a>,
+    chars: TextCharIter<'a>,
+}
+
+impl<'a> Iterator for TokenIter<'a> {
+    type Item = TomlToken;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let (start_offset, c) = self.chars.next_char_with_offset()?;
+
+        let variant = match c {
+            '\n' => Ok(TomlTokenVariant::Newline),
+            ' ' => Ok(self.next_whitespace_token(start_offset)),
+            '\t' => Ok(self.next_whitespace_token(start_offset)),
+            '#' => Ok(self.next_comment_token(start_offset)),
+            '=' => Ok(TomlSpecialToken::Equals.into()),
+            '.' => Ok(TomlSpecialToken::Period.into()),
+            ',' => Ok(TomlSpecialToken::Comma.into()),
+            ':' => Ok(TomlSpecialToken::Colon.into()),
+            '+' => Ok(TomlSpecialToken::Plus.into()),
+            '{' => Ok(TomlSpecialToken::LeftCurly.into()),
+            '}' => Ok(TomlSpecialToken::RightCurly.into()),
+            '[' => Ok(TomlSpecialToken::LeftBox.into()),
+            ']' => Ok(TomlSpecialToken::RightBox.into()),
+            '\'' => self.next_literal_string(start_offset),
+            '"' => self.next_basic_string(start_offset),
+            ch if is_keylike(ch) => Ok(self.next_keylike(start_offset)),
+            ch => Err(TomlTokenError::Unexpected(start_offset, ch)),
+        };
+
+        Some(self.emit_token(start_offset, variant))
+    }
 }
 
 impl<'a> TokenIter<'a> {
@@ -12,7 +44,7 @@ impl<'a> TokenIter<'a> {
         let mut t = TokenIter {
             db,
             input,
-            chars: CrlfFold::new(input.char_indices()),
+            chars: TextCharIter::new(input),
         };
         // Eat utf-8 BOM
         t.try_eat_char('\u{feff}');
@@ -20,11 +52,7 @@ impl<'a> TokenIter<'a> {
     }
 
     pub(crate) fn current(&self) -> usize {
-        self.chars
-            .clone()
-            .next()
-            .map(|i| i.0)
-            .unwrap_or_else(|| self.input.len())
+        self.chars.current_offset()
     }
 
     pub(crate) fn emit_token(
@@ -33,25 +61,19 @@ impl<'a> TokenIter<'a> {
         variant: TomlTokenResult<TomlTokenVariant>,
     ) -> TomlToken {
         TomlToken {
-            span: self.calc_span(start),
+            span: TextSpan {
+                start,
+                end: self.chars.current_offset(),
+            },
             variant,
         }
-    }
-
-    /// Calculate the span from start to next char
-    fn calc_span(&self, start: usize) -> TextSpan {
-        let end = self
-            .peek_char()
-            .map(|t| t.0)
-            .unwrap_or_else(|| self.input.len());
-        TextSpan { start, end }
     }
 }
 
 impl<'a> TokenIter<'a> {
     pub(crate) fn try_eat_char(&mut self, ch: char) -> bool {
         match self.chars.clone().next() {
-            Some((_, ch2)) if ch == ch2 => {
+            Some(ch2) if ch == ch2 => {
                 self.next_char();
                 true
             }
@@ -60,13 +82,17 @@ impl<'a> TokenIter<'a> {
     }
 
     /// Peek one char without consuming it.
-    pub(crate) fn peek_char(&self) -> Option<(usize, char)> {
-        self.chars.clone().next()
+    pub(crate) fn peek_char(&self) -> Option<char> {
+        self.chars.peek()
     }
 
     /// Take one char.
-    pub(crate) fn next_char(&mut self) -> Option<(usize, char)> {
+    pub(crate) fn next_char(&mut self) -> Option<char> {
         self.chars.next()
+    }
+
+    pub(crate) fn next_char_with_offset(&mut self) -> Option<(usize, char)> {
+        self.chars.next_char_with_offset()
     }
 }
 
