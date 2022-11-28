@@ -31,12 +31,7 @@ impl<'a> TokenIter<'a> {
         let mut n = 0;
         'outer: loop {
             n += 1;
-            let one = self.next_char_with_offset();
-            println!("n = {n}, one = {one:?}");
-            if n > 2 {
-                todo!();
-            }
-            match one {
+            match self.next_char_with_offset() {
                 Some((i, '\n')) => {
                     if multiline {
                         if self.input.as_bytes()[i] == b'\r' {
