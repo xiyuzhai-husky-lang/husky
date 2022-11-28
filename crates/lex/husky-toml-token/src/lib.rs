@@ -6,6 +6,7 @@ mod storage;
 mod tests;
 
 pub use error::*;
+use husky_text::TextRange;
 pub use special::*;
 
 use husky_print_utils::p;
@@ -21,8 +22,35 @@ pub type StringValue = Arc<String>;
 /// tokens in toml file
 #[derive(Debug, PartialEq, Eq)]
 pub struct TomlToken {
-    pub span: TextSpan,
-    pub variant: TomlTokenResult<TomlTokenVariant>,
+    span: TextSpan,
+    range: TextRange,
+    variant: TomlTokenResult<TomlTokenVariant>,
+}
+
+impl TomlToken {
+    pub fn new(
+        span: TextSpan,
+        range: TextRange,
+        variant: TomlTokenResult<TomlTokenVariant>,
+    ) -> Self {
+        Self {
+            span,
+            range,
+            variant,
+        }
+    }
+
+    pub fn span(&self) -> TextSpan {
+        self.span
+    }
+
+    pub fn range(&self) -> TextRange {
+        self.range
+    }
+
+    pub fn variant(&self) -> &TomlTokenResult<TomlTokenVariant> {
+        &self.variant
+    }
 }
 
 /// variants for tokens in toml file

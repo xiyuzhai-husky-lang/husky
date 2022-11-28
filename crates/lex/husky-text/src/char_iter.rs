@@ -80,6 +80,13 @@ impl<'a> TextCharIter<'a> {
         Some((offset, ch))
     }
 
+    pub fn next_char_with_offset_and_position(&mut self) -> Option<(usize, TextPosition, char)> {
+        let offset = self.current_offset;
+        let position = self.current_position;
+        let ch = self.next()?;
+        Some((offset, position, ch))
+    }
+
     pub fn peek(&self) -> Option<char> {
         self.clone().next()
     }

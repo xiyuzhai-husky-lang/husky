@@ -18,7 +18,7 @@ impl Database for MimicDB {}
 fn err(input: &str, err: TomlTokenError) {
     let db = MimicDB::default();
     let mut t = TokenIter::new(&db, input);
-    let token = t.next().unwrap().variant.unwrap_err();
+    let token = t.next().unwrap().variant().clone().unwrap_err();
     assert_eq!(token, err);
     assert!(t.next().is_none());
 }
@@ -27,7 +27,7 @@ fn err(input: &str, err: TomlTokenError) {
 fn literal_strings() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
         let mut t = TokenIter::new(db, input);
-        let token = t.next().unwrap().variant.unwrap();
+        let token = t.next().unwrap().variant().clone().unwrap();
         assert_eq!(
             token,
             TomlTokenVariant::StringLiteral {
@@ -53,7 +53,7 @@ fn literal_strings() {
 fn basic_strings0() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
         let mut t = TokenIter::new(db, input);
-        let token = t.next().unwrap().variant.unwrap();
+        let token = t.next().unwrap().variant().clone().unwrap();
         p!(input);
         assert_eq!(
             token,
@@ -78,7 +78,7 @@ fn basic_strings0() {
 fn basic_strings() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
         let mut t = TokenIter::new(db, input);
-        let token = t.next().unwrap().variant.unwrap();
+        let token = t.next().unwrap().variant().clone().unwrap();
         p!(input);
         assert_eq!(
             token,
@@ -135,7 +135,7 @@ fn basic_strings() {
 fn keylike() {
     fn t(db: &dyn WordDb, input: &str) {
         let mut t = TokenIter::new(db, input);
-        let token = t.next().unwrap().variant.unwrap();
+        let token = t.next().unwrap().variant().clone().unwrap();
         assert_eq!(token, TomlTokenVariant::Keylike(db.it_word_borrowed(input)));
         assert!(t.next().is_none());
     }
@@ -158,9 +158,9 @@ fn all() {
         let mut actual: Vec<((usize, usize), TomlTokenVariant, &str)> = Vec::new();
         while let Some(token) = tokens.next() {
             actual.push((
-                token.span.into(),
-                token.variant.unwrap(),
-                &input[token.span.start..token.span.end],
+                token.span().into(),
+                token.variant().clone().unwrap(),
+                &input[token.span().start..token.span().end],
             ));
         }
         for (a, b) in actual.iter().zip(expected) {
@@ -236,8 +236,8 @@ fn bad_comment() {
     let mut t = TokenIter::new(&db, "#\u{0}");
     t.next().unwrap();
     assert_eq!(
-        t.next().unwrap().variant,
-        Err(TomlTokenError::UnexpectedChar('\u{0}'))
+        t.next().unwrap().variant(),
+        &Err(TomlTokenError::UnexpectedChar('\u{0}'))
     );
     assert!(t.next().is_none());
 }
