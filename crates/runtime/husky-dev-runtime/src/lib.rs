@@ -37,7 +37,7 @@
 //     husky_data_viewer::DataViewerDbStorage,
 //     // comptime
 //     husky_path::FileQueryStorage,
-//     husky_token_text::TokenQueryGroupStorage,
+//     husky_token_sheet::TokenQueryGroupStorage,
 //     husky_entity_tree::ScopeQueryGroupStorage,
 //     husky_text::TextQueryGroupStorage,
 //     husky_ast::AstQueryGroupStorage,

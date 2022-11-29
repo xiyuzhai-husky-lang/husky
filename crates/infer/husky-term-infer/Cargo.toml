@@ -29,7 +29,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 
 [dev-dependencies]
-husky-token-text = { path = "../../lex/husky-token-text" }
+husky-token-sheet = { path = "../../lex/husky-token-sheet" }
 husky-token = { path = "../../lex/husky-token" }
 husky-tokenize = { path = "../../lex/husky-tokenize" }
 husky-expr = { path = "../../syntax/husky-expr" }

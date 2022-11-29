@@ -19,7 +19,7 @@ husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
-husky-token-text = { path = "../../lex/husky-token-text" }
+husky-token-sheet = { path = "../../lex/husky-token-sheet" }
 # kernel
 husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

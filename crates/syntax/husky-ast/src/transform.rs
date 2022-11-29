@@ -22,7 +22,7 @@ use husky_entity_tree::EntityTreeResult;
 use husky_source_path::SourcePath;
 use husky_text::HasTextRange;
 use husky_token::*;
-use husky_token_text::TokenizedText;
+use husky_token_sheet::TokenizedText;
 
 pub type AstIter<'a> = FoldableIter<'a, FoldableList<AstResult<DeprecatedAst>>>;
 
