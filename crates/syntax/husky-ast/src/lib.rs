@@ -27,14 +27,14 @@ use husky_dev_utils::*;
 use husky_entity_kind::*;
 use husky_entity_path::EntityPath;
 use husky_expr::*;
-use husky_identifier::IdentMap;
-use husky_identifier::*;
 use husky_init_syntax::InitKind;
 use husky_opn_syntax::*;
 use husky_pattern_syntax::RawPattern;
 use husky_print_utils::*;
 use husky_term::Term;
 use husky_text::*;
+use husky_word::IdentMap;
+use husky_word::*;
 use salsa::DbWithJar;
 use std::sync::Arc;
 

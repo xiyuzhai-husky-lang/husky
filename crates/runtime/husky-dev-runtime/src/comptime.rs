@@ -30,9 +30,8 @@ impl FileQueryGroup for DevRuntime {}
 impl ResolveStaticRootDefn for DevRuntime {
     fn __root_defn_resolver(
         &self,
-    ) -> fn(
-        ident: husky_identifier::RootBuiltinIdentifier,
-    ) -> &'static husky_static_defn::EntityStaticDefn {
+    ) -> fn(ident: husky_word::RootBuiltinIdentifier) -> &'static husky_static_defn::EntityStaticDefn
+    {
         self.config.comptime.__resolve_root_defn
     }
 }

@@ -12,7 +12,7 @@ ordered-float = "3.0.0"
 salsa = { path = "../../abstraction/salsa" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 
 [dev-dependencies]

@@ -48,13 +48,13 @@ impl From<Token> for RawToken {
 }
 
 pub(crate) struct RawTokenIter<'a, 'b> {
-    db: &'a dyn IdentifierDb,
+    db: &'a dyn WordDb,
     buffer: String,
     char_iter: TextCharIter<'b>,
 }
 
 impl<'a, 'b> RawTokenIter<'a, 'b> {
-    pub fn new(word_interner: &'a dyn IdentifierDb, input: &'b str) -> Self {
+    pub fn new(word_interner: &'a dyn WordDb, input: &'b str) -> Self {
         let mut buffer = String::new();
         buffer.reserve_exact(100);
         Self {

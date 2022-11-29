@@ -13,11 +13,11 @@ pub use husky_diagnostics::DiagnosticsDb;
 pub use husky_entity_tree::EntityTreeDb;
 pub use husky_fmt::SyntaxFormatDb;
 pub use husky_hover::HoverDb;
-pub use husky_identifier::IdentifierDb;
 pub use husky_linkage_table::ResolveLinkage;
 use husky_package_path::PackagePathJar;
 pub use husky_rust_code_gen::RustTranspileDb;
 pub use husky_token_sheet::TokenTextDb;
+pub use husky_word::WordDb;
 pub use ops::ComptimeOps;
 pub use query::*;
 

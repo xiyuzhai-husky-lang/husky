@@ -26,7 +26,7 @@
 // pub use repr::*;
 
 // use husky_entity_semantics::EntityDefnQueryGroup;
-// use husky_identifier::{IdentPairMap, Identifier};
+// use husky_word::{IdentPairMap, Identifier};
 // use husky_opn_syntax::*;
 // use husky_print_utils::*;
 // use husky_term::Term;

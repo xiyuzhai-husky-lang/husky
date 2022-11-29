@@ -1,6 +1,6 @@
 use crate::*;
 use arrayvec::ArrayVec;
-use husky_identifier::Identifier;
+use husky_word::Identifier;
 use std::fmt::Write;
 
 pub const STACK_SIZE: usize = 255;

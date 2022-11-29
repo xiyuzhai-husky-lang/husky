@@ -1,5 +1,5 @@
 use crate::*;
-use husky_identifier::IdentPairMap;
+use husky_word::IdentPairMap;
 
 pub trait AskDecl {
     fn ask_namespace_decl(&self, namespace: TermNamespace) -> TermResultArc<NamespaceDecl>;

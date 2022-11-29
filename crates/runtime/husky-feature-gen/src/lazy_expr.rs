@@ -10,10 +10,10 @@ pub use xml::*;
 use husky_vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
 
 use husky_entity_semantics::*;
-use husky_identifier::RootBuiltinIdentifier;
 use husky_lazy_semantics::*;
 use husky_term::Term;
 use husky_vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
+use husky_word::RootBuiltinIdentifier;
 use std::sync::Arc;
 
 use crate::{eval_id::FeatureEvalId, *};

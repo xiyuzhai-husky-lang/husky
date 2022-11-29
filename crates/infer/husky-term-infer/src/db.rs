@@ -1,15 +1,15 @@
 use crate::*;
 use husky_entity_path::EntityPath;
-use husky_identifier::IdentifierDb;
 use husky_path::FileResultArc;
 use husky_source_path::SourcePath;
 use husky_term::{Decl, Term, TermDb};
+use husky_word::WordDb;
 use salsa::DbWithJar;
 use std::sync::Arc;
 use upcast::Upcast;
 
 pub trait TermInferDb:
-    DbWithJar<TermInferJar> + TyInferQueries + TermDb + Upcast<dyn TermDb> + IdentifierDb
+    DbWithJar<TermInferJar> + TyInferQueries + TermDb + Upcast<dyn TermDb> + WordDb
 {
     fn entity_ty(&self, entity: EntityPath) -> Term;
 
@@ -18,7 +18,7 @@ pub trait TermInferDb:
 
 impl<T> TermInferDb for T
 where
-    T: DbWithJar<TermInferJar> + TyInferQueries + TermDb + Upcast<dyn TermDb> + IdentifierDb,
+    T: DbWithJar<TermInferJar> + TyInferQueries + TermDb + Upcast<dyn TermDb> + WordDb,
 {
     fn entity_ty(&self, entity: EntityPath) -> Term {
         todo!()

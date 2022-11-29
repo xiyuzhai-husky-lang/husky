@@ -1,7 +1,7 @@
 use husky_entity_semantics::{
     CallFormSource, DefinitionRepr, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn,
 };
-use husky_identifier::{Identifier, RootBuiltinIdentifier};
+use husky_word::{Identifier, RootBuiltinIdentifier};
 
 use super::*;
 

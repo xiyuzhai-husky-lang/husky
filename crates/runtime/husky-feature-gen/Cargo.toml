@@ -30,7 +30,7 @@ husky-source-path = { path = "../../fs/husky-source-path" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # syntax
 husky-text = { path = "../../lex/husky-text" }

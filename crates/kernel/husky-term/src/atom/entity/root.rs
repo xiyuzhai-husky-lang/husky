@@ -1,5 +1,5 @@
 use husky_entity_path::EntityPath;
-use husky_identifier::Identifier;
+use husky_word::Identifier;
 
 use crate::*;
 

@@ -8,7 +8,7 @@ edition = "2021"
 # fs
 husky-source-path = { path = "../../fs/husky-source-path" }
 # kernel
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 # lex
 husky-token = { path = "../../lex/husky-token", features = ["storage"] }
 husky-text = { path = "../../lex/husky-text" }
@@ -22,5 +22,4 @@ husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
 [dev-dependencies]
 salsa = { path = "../../abstraction/salsa" }
 # kernel
-husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-word = { path = "../../kernel/husky-word" }

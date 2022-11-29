@@ -1,7 +1,6 @@
 use crate::*;
 use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
-use husky_identifier::IdentPairMap;
 use husky_opn_semantics::ImplicitConversion;
 use husky_opn_syntax::BinaryPureClosedOpr;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
@@ -10,6 +9,7 @@ use husky_text::HasSourceRange;
 use husky_trace_protocol::VisualData;
 use husky_vm::__Linkage;
 use husky_vm::*;
+use husky_word::IdentPairMap;
 use husky_xml_syntax::XmlValue;
 use std::{panic::catch_unwind, sync::Arc};
 

@@ -1,3 +1,34 @@
+use crate::*;
+
+use std::sync::Arc;
+use vec_like::{VecMap, VecPairMap};
+
+#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
+pub struct Identifier(Word);
+
+impl Identifier {
+    pub fn word(self) -> Word {
+        self.0
+    }
+
+    pub(crate) fn from_owned(db: &dyn WordDb, data: String) -> Self {
+        assert!(is_valid_ident(&data));
+        Self(db.it_word_owned(data))
+    }
+
+    pub(crate) fn from_borrowed(db: &dyn WordDb, data: &str) -> Self {
+        assert!(is_valid_ident(data));
+        Self(db.it_word_borrowed(data))
+    }
+
+    pub(crate) fn data(self, db: &dyn WordDb) -> &str {
+        db.dt_word(self.0)
+    }
+}
+
+pub type IdentMap<T> = VecMap<Identifier, T>;
+pub type IdentArcDict<T> = VecMap<Identifier, Arc<T>>;
+pub type IdentPairMap<T> = VecPairMap<Identifier, T>;
 #[test]
 fn test_is_valid_ident() {
     assert_eq!(is_valid_ident("a"), true);

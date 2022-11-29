@@ -25,7 +25,7 @@ sync-utils = { path = "../../utils/husky-sync-utils" }
 # syntax
 husky-source-path = { path = "../../fs/husky-source-path" }
 husky-text = { path = "../../lex/husky-text" }
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-token = { path = "../../lex/husky-token" }
 husky-token-sheet = { path = "../../lex/husky-token-sheet" }
 husky-term = { path = "../../kernel/husky-term" }

@@ -6,7 +6,7 @@ use husky_token::*;
 use std::{iter::Peekable, sync::Arc};
 
 pub(crate) struct Tokenizer<'lex> {
-    db: &'lex dyn IdentifierDb,
+    db: &'lex dyn WordDb,
     tokens: Vec<Token>,
     tokenized_lines: Vec<TokenizedLine>,
     errors: Vec<LexError>,
@@ -32,7 +32,7 @@ enum TokenizerAction {
 }
 
 impl<'token> Tokenizer<'token> {
-    pub fn new(db: &'token dyn IdentifierDb) -> Self {
+    pub fn new(db: &'token dyn WordDb) -> Self {
         Self {
             db,
             tokens: vec![],

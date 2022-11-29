@@ -12,7 +12,7 @@ local-stack = { path = "../../abstraction/local-stack" }
 salsa = { path = "../../abstraction/salsa" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 # syntax

@@ -3,7 +3,7 @@ use salsa::{storage::HasJar, DbWithJar};
 
 use crate::*;
 
-pub trait SymbolDb: DbWithJar<SymbolJar> + IdentifierDb + EntityPathDb {
+pub trait SymbolDb: DbWithJar<SymbolJar> + WordDb + EntityPathDb {
     fn symbol_jar(&self) -> &SymbolJar;
     fn new_symbol_ctx<'a>(&'a self) -> SymbolContext<'a>;
     fn preludes(&self) -> &[Symbol];
@@ -12,7 +12,7 @@ pub trait SymbolDb: DbWithJar<SymbolJar> + IdentifierDb + EntityPathDb {
 
 impl<T> SymbolDb for T
 where
-    T: DbWithJar<SymbolJar> + IdentifierDb + EntityPathDb,
+    T: DbWithJar<SymbolJar> + WordDb + EntityPathDb,
 {
     fn symbol_jar(&self) -> &SymbolJar {
         &<Self as HasJar<SymbolJar>>::jar(&self).0

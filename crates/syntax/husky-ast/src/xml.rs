@@ -1,5 +1,5 @@
 use crate::*;
-use husky_identifier::IdentPairMap;
+use husky_word::IdentPairMap;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RawXmlExpr {

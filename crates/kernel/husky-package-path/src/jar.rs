@@ -1,4 +1,4 @@
 use crate::*;
 
 #[salsa::jar(db = PackagePathDb)]
-pub struct PackagePathJar(PackagePath, PackagePathMenu, builtin_package_path);
+pub struct PackagePathJar(PackagePath, package_path_menu);

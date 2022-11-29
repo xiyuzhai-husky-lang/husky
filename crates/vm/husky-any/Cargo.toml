@@ -13,7 +13,7 @@ husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 vec-like = { path = "../../abstraction/vec-like" }
 # kernel
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
 # debugtime
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }

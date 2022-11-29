@@ -3,10 +3,10 @@ use crate::*;
 use husky_dev_utils::dev_src;
 use husky_path::{FileError, FileErrorKind, FileResultArc};
 
-use husky_identifier::IdentifierDb;
 use husky_source_path::SourcePath;
 use husky_text::TextDb;
 use husky_tokenize::TokenizeDb;
+use husky_word::WordDb;
 use salsa::DbWithJar;
 
 #[salsa::jar(db = TokenTextDb)]

@@ -5,11 +5,11 @@ mod word;
 
 pub use error::*;
 
-use husky_identifier::IdentifierDb;
 use husky_token::Token;
+use husky_word::WordDb;
 use raw::*;
 use tokenizer::*;
-pub trait TokenizeDb: IdentifierDb {
+pub trait TokenizeDb: WordDb {
     fn tokenize_line(&self, line: &str) -> Vec<Token>
     where
         Self: Sized,
@@ -20,7 +20,7 @@ pub trait TokenizeDb: IdentifierDb {
     }
 }
 
-impl<T> TokenizeDb for T where T: IdentifierDb {}
+impl<T> TokenizeDb for T where T: WordDb {}
 
 #[cfg(test)]
 mod tests {

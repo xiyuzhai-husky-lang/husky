@@ -1,9 +1,9 @@
 use crate::*;
 use husky_entity_path::EntityPath;
 use husky_expr::*;
-use husky_identifier::{Identifier, IdentifierDb};
 use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, RawOpnVariant};
 use husky_term::Term;
+use husky_word::{Identifier, WordDb};
 
 pub(crate) enum NormalizedExpr<'a> {
     Atom(&'a AtomExpr),

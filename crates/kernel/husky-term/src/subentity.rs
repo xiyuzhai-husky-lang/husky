@@ -1,5 +1,5 @@
 use crate::*;
-use husky_identifier::Identifier;
+use husky_word::Identifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct TermSubentity {

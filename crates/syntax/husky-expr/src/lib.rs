@@ -20,7 +20,7 @@ use husky_primitive_literal_syntax::RawLiteralData;
 use husky_symbol_syntax::SymbolKind;
 use husky_text::*;
 
-use husky_identifier::*;
+use husky_word::*;
 use precedence::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

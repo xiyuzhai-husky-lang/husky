@@ -7,7 +7,6 @@ use husky_entity_path::{
 };
 use husky_entity_tree::EntityTreeJar;
 use husky_expr::ExprIdx;
-use husky_identifier::IdentifierDb;
 use husky_package_path::PackagePathJar;
 use husky_source_path::SourcePathJar;
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDb, SymbolJar, SymbolKind};
@@ -18,6 +17,7 @@ use husky_text::TextJar;
 use husky_token_sheet::TokenTextJar;
 use husky_toolchain::ToolchainJar;
 use husky_vfs::VfsJar;
+use husky_word::WordDb;
 use husky_word::WordJar;
 use salsa::ParallelDatabase;
 use std::{collections::HashMap, sync::Arc};

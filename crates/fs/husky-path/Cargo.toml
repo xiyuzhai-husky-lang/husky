@@ -17,7 +17,7 @@ indexmap = "1.8.1"
 upcast = { path = "../../abstraction/upcast" }
 salsa = { path = "../../abstraction/salsa" }
 # kernel
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 # utils
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }

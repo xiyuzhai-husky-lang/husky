@@ -1,7 +1,7 @@
 use crate::*;
-use husky_identifier::Identifier;
 use husky_symbol_syntax::Symbol;
 use husky_term::TermError;
+use husky_word::Identifier;
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq)]

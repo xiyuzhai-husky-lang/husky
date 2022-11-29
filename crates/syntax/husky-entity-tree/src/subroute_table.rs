@@ -9,10 +9,10 @@ use husky_token_sheet::TokenGroupIter;
 use crate::{error::*, *};
 use husky_dev_utils::dev_src;
 use husky_entity_kind::{EntityKind, MemberKind};
-use husky_identifier::Identifier;
 use husky_term::*;
 use husky_text::{HasTextRange, RangedIdentifier};
 use husky_token::{Keyword, SpecialToken, Token, TokenKind};
+use husky_word::Identifier;
 use thin_vec::thin_vec;
 
 pub fn tell_entity_kind(keyword: Keyword, third_token: &Token) -> Option<EntityKind> {

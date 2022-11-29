@@ -1,6 +1,6 @@
 use super::*;
-use husky_identifier::{IdentPairMap, Identifier};
 use husky_term::Term;
+use husky_word::{IdentPairMap, Identifier};
 use serde::Serialize;
 use std::borrow::Cow;
 

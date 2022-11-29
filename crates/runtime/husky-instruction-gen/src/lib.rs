@@ -10,11 +10,11 @@ pub use db::*;
 use context::*;
 use fold::LocalValue;
 
-use husky_identifier::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;
 use husky_term::*;
 use husky_vm::InstructionSheet;
+use husky_word::*;
 use std::sync::Arc;
 
 // pub fn new_visual_instruction_sheet(

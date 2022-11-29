@@ -5,9 +5,9 @@ mod impl_visual;
 
 use crate::*;
 use husky_atom::context::{Symbol, SymbolKind};
-use husky_identifier::Paradigm;
 use husky_text::TextRanged;
 use husky_token::*;
+use husky_word::Paradigm;
 
 impl<'a> AstTransformer<'a> {
     pub(super) fn parse_struct_item(

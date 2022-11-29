@@ -5,6 +5,8 @@ use salsa::DbWithJar;
 
 pub trait PackagePathDb: DbWithJar<PackagePathJar> + ToolchainDb + WordDb {
     fn builtin_package_path(&self, ident: Identifier) -> Option<PackagePath>;
+
+    fn package_path_menu(&self) -> &PackagePathMenu;
 }
 
 impl<T> PackagePathDb for T
@@ -12,7 +14,34 @@ where
     T: DbWithJar<PackagePathJar> + ToolchainDb + WordDb,
 {
     fn builtin_package_path(&self, ident: Identifier) -> Option<PackagePath> {
-        let toolchain = self.toolchain();
-        builtin_package_path(self, toolchain, ident)
+        let word_menu = self.word_menu();
+        if ident == word_menu.core() {
+            Some(self.package_path_menu().core())
+        } else if ident == word_menu.std() {
+            Some(self.package_path_menu().std())
+        } else {
+            None
+        }
+    }
+
+    fn package_path_menu(&self) -> &PackagePathMenu {
+        package_path_menu(self, self.toolchain())
     }
 }
+// pub(crate) fn builtin_package_path(
+//     db: &dyn PackagePathDb,
+//     toolchain: Toolchain,
+//     ident: Identifier,
+// ) -> Option<PackagePath> {
+//     let word_menu = db.word_menu();
+//     let word = ident.word();
+//     if word == word_menu.core() || word == word_menu.std() {
+//         Some(PackagePath::new(
+//             db,
+//             ident,
+//             PackagePathData::Builtin { toolchain },
+//         ))
+//     } else {
+//         None
+//     }
+// }

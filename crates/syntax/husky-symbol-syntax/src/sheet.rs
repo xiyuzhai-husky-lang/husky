@@ -1,5 +1,5 @@
 use crate::*;
-use husky_identifier::Identifier;
+use husky_word::Identifier;
 use vec_like::VecMapEntry;
 
 pub struct SymbolSheet {

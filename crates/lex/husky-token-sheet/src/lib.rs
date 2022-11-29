@@ -1,6 +1,6 @@
 mod query;
 
-use husky_identifier::IdentifierDb;
+use husky_word::WordDb;
 pub use query::*;
 
 use fold::{FoldableList, FoldingEnd};
@@ -115,7 +115,7 @@ impl fold::FoldableStorage for TokenizedText {
 }
 
 impl TokenizedText {
-    pub(crate) fn parse(db: &dyn IdentifierDb, text: &str) -> Arc<Self> {
+    pub(crate) fn parse(db: &dyn WordDb, text: &str) -> Arc<Self> {
         todo!()
         // let mut token_scanner = TokenScanner::new(word_interner);
         // for (i, line) in text.lines().enumerate() {
