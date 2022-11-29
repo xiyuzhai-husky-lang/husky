@@ -16,3 +16,4 @@ salsa = { path = "../../abstraction/salsa" }
 # kernel
 husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
+husky-package-path = { path = "../../kernel/husky-package-path" }

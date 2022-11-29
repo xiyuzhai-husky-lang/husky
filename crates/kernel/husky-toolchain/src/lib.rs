@@ -1,27 +1,28 @@
 mod date;
+mod db;
+mod jar;
+
+pub use db::*;
+pub use jar::*;
 
 use date::*;
 use husky_platform::Platform;
 
-#[derive(Debug, PartialEq, Eq, Hash, Clone)]
+#[salsa::input(jar = ToolchainJar)]
 pub struct Toolchain {
-    channel: Channel,
-    date: Date,
+    channel: ToolchainChannel,
+    date: ToolchainDate,
     platform: Platform,
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
-pub enum Channel {
+pub enum ToolchainChannel {
     Nightly,
     Stable,
 }
 
-impl Toolchain {
+impl ToolchainChannel {
     pub fn new_ad_hoc() -> Self {
-        Self {
-            channel: Channel::Stable,
-            date: Date::new_ad_hoc(),
-            platform: Platform::new_ad_hoc(),
-        }
+        ToolchainChannel::Nightly
     }
 }

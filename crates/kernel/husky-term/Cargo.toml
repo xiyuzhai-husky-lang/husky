@@ -16,4 +16,7 @@ husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 
 [dev-dependencies]
+# kernel
 husky-word = { path = "../../kernel/husky-word" }
+husky-toolchain = { path = "../../kernel/husky-toolchain" }
+husky-package-path = { path = "../../kernel/husky-package-path" }

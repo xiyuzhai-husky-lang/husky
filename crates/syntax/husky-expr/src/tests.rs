@@ -2,10 +2,12 @@ use crate::*;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_expect_test_utils::expect_test_husky_to_rust;
+use husky_package_path::PackagePathJar;
 use husky_source_path::SourcePathJar;
 use husky_symbol_syntax::{SymbolContext, SymbolDb, SymbolJar, SymbolSheet};
 use husky_token_sheet::TokenTextJar;
 use husky_tokenize::TokenizeDb;
+use husky_toolchain::ToolchainJar;
 use husky_vfs::VfsJar;
 use husky_word::WordJar;
 use place::SingleAssignPlace;
@@ -30,6 +32,8 @@ fn it_works() {
     WordJar,
     VfsJar,
     SourcePathJar,
+    ToolchainJar,
+    PackagePathJar,
     EntityPathJar,
     TextJar,
     TokenTextJar,

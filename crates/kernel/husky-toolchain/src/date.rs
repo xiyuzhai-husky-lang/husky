@@ -1,5 +1,5 @@
 #[derive(Debug, PartialEq, Eq, Hash, Clone, PartialOrd, Ord)]
-pub struct Date {
+pub struct ToolchainDate {
     year: Year,
     month: Month,
     day: Day,
@@ -14,7 +14,7 @@ pub struct Month(u8);
 #[derive(Debug, PartialEq, Eq, Hash, Clone, PartialOrd, Ord)]
 pub struct Day(u8);
 
-impl Date {
+impl ToolchainDate {
     pub fn new_ad_hoc() -> Self {
         Self {
             year: Year(2019),

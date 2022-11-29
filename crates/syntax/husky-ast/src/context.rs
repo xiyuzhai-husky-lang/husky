@@ -1,11 +1,11 @@
 mod struct_item_context;
 
-use husky_entity_path::PackagePath;
-use husky_token::Paradigm;
 pub use struct_item_context::*;
 
 use crate::*;
 use husky_entity_tree::EntityTreeDb;
+use husky_package_path::PackagePath;
+use husky_token::Paradigm;
 use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
