@@ -8,7 +8,7 @@ use husky_path_utils::*;
 use husky_print_utils::msg_once;
 use husky_source_path::SourcePath;
 use husky_term::*;
-use husky_token_text::TokenTextDb;
+use husky_token_sheet::TokenTextDb;
 use salsa::DbWithJar;
 use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;

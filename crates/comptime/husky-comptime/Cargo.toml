@@ -31,7 +31,7 @@ husky-identifier = { path = "../../kernel/husky-identifier" }
 husky-word = { path = "../../kernel/husky-word" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
-husky-token-text = { path = "../../lex/husky-token-text" }
+husky-token-sheet = { path = "../../lex/husky-token-sheet" }
 # ide
 husky-hover = { path = "../../ide/husky-hover" }
 husky-completion = { path = "../../ide/husky-completion" }

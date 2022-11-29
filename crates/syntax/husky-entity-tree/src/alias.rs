@@ -17,7 +17,7 @@ impl EntityRouteAliasTable {
         }
     }
 
-    pub fn parse(file_id: SourcePath, token_groups: husky_token_text::TokenGroupIter) -> Self {
+    pub fn parse(file_id: SourcePath, token_groups: husky_token_sheet::TokenGroupIter) -> Self {
         let mut errors = Vec::new();
         let entries = token_groups
             .filter_map(|item| {
