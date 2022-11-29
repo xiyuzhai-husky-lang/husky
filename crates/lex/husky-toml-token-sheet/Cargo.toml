@@ -5,9 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-husky-toml-token = { path = "../../lex/husky-toml-token", features = [
-    "storage"
-] }
+husky-toml-token = { path = "../../lex/husky-toml-token" }
 salsa = { path = "../../abstraction/salsa" }
 # lex
 husky-toml-tokenize = { path = "../../lex/husky-toml-tokenize" }

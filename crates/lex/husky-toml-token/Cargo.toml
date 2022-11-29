@@ -13,6 +13,3 @@ husky-text-span = { path = "../../lex/husky-text-span" }
 husky-word = { path = "../../kernel/husky-word" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-
-[features]
-storage = []
