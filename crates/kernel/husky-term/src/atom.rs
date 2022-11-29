@@ -34,20 +34,6 @@ impl Into<TermData> for TermAtom {
     }
 }
 
-impl std::fmt::Display for TermAtom {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            TermAtom::Literal(ref l) => l.fmt(f),
-            TermAtom::Variable {
-                ref variable_variant,
-            } => variable_variant.fmt(f),
-            TermAtom::Entity { entity_path: path } => path.fmt(f),
-            TermAtom::Category(_category_kind) => todo!(),
-            TermAtom::Universe(_) => todo!(),
-        }
-    }
-}
-
 impl TermAtom {
     // pub(crate) fn ty_term(&self) -> TermCow {
     //     todo!()

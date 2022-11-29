@@ -1,4 +1,5 @@
-use husky_entity_path::{EntityPath, PackagePath};
+use husky_entity_path::EntityPath;
+use husky_package_path::PackagePath;
 use salsa::DbWithJar;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

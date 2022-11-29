@@ -24,6 +24,7 @@ husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
 husky-token-sheet = { path = "../../lex/husky-token-sheet" }
 # kernel
+husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-identifier = { path = "../../kernel/husky-identifier" }

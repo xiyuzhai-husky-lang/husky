@@ -1,4 +1,11 @@
-use crate::EntityPathJar;
+mod builtin;
+mod db;
+mod jar;
+
+pub use builtin::*;
+pub use db::*;
+pub use jar::*;
+
 use husky_identifier::Identifier;
 use husky_toolchain::Toolchain;
 use semver::Version;
@@ -13,8 +20,9 @@ pub enum PackagePathData {
     Git(Url),
 }
 
-#[salsa::interned(jar = EntityPathJar)]
+#[salsa::interned(jar = PackagePathJar)]
 pub struct PackagePath {
+    ident: Identifier,
     #[return_ref]
     data: PackagePathData,
 }

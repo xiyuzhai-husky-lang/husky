@@ -17,6 +17,10 @@ use vec_like::{VecMap, VecPairMap};
 pub struct Identifier(Word);
 
 impl Identifier {
+    pub fn word(self) -> Word {
+        self.0
+    }
+
     fn from_owned(db: &dyn WordDb, data: String) -> Self {
         assert!(crate::valid::is_valid_ident(&data));
         Self(db.it_word_owned(data))

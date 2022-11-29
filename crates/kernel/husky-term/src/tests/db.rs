@@ -1,10 +1,12 @@
 use crate::*;
 use husky_entity_path::{EntityPathDb, EntityPathJar, EntityPathMenuPlace};
 use husky_identifier::IdentifierDb;
+use husky_package_path::PackagePathJar;
+use husky_toolchain::ToolchainJar;
 use husky_word::WordJar;
 use std::{collections::HashMap, sync::Arc};
 
-#[salsa::db(crate::TermJar, EntityPathJar, WordJar)]
+#[salsa::db(crate::TermJar, EntityPathJar, PackagePathJar, ToolchainJar, WordJar)]
 pub(crate) struct TermTestsDb {
     storage: salsa::Storage<TermTestsDb>,
     ty_decls: HashMap<Term, Arc<TyDecl>>,

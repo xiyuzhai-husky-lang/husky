@@ -1,17 +1,15 @@
 mod crate_path;
 mod db;
-mod display;
 mod jar;
 mod menu;
-mod package_path;
 
 pub use db::*;
 pub use jar::*;
 pub use menu::*;
-pub use package_path::{PackagePath, PackagePathData};
 
 use crate_path::CratePathKind;
 use husky_identifier::Identifier;
+use husky_package_path::PackagePath;
 use husky_toolchain::Toolchain;
 use optional::Optioned;
 use salsa::DbWithJar;
@@ -26,7 +24,7 @@ pub struct EntityPath {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum EntityPathVariant {
     Crate {
-        package: PackagePathData,
+        package: PackagePath,
         kind: CratePathKind,
     },
     Childpath {

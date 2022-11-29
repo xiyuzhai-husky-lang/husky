@@ -1,4 +1,4 @@
-use salsa::DbWithJar;
+use salsa::{storage::HasJar, DbWithJar};
 
 use crate::*;
 
@@ -8,6 +8,10 @@ pub trait WordDb: DbWithJar<WordJar> {
     fn it_word_borrowed(&self, data: &str) -> Word;
 
     fn dt_word(&self, data: Word) -> &str;
+
+    fn word_jar(&self) -> &WordJar;
+
+    fn word_menu(&self) -> &WordMenu;
 }
 
 impl<T> WordDb for T
@@ -24,5 +28,15 @@ where
 
     fn dt_word(&self, word: Word) -> &str {
         word.data(self)
+    }
+
+    fn word_jar(&self) -> &WordJar {
+        &<Self as HasJar<WordJar>>::jar(self).0
+    }
+
+    fn word_menu(&self) -> &WordMenu {
+        self.word_jar()
+            .word_menu_cell()
+            .get_or_init(|| WordMenu::new(self))
     }
 }

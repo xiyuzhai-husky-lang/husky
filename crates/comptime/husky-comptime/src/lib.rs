@@ -8,41 +8,45 @@ pub mod utils;
 
 pub use config::*;
 pub use husky_ast::AstDb;
-use husky_ast::AstJar;
 pub use husky_completion::HuskyCompletionQuery;
 pub use husky_diagnostics::DiagnosticsDb;
-use husky_diagnostics::DiagnosticsJar;
-use husky_entity_path::EntityPathJar;
 pub use husky_entity_tree::EntityTreeDb;
-use husky_entity_tree::EntityTreeJar;
 pub use husky_fmt::SyntaxFormatDb;
-use husky_fmt::SyntaxFormatJar;
 pub use husky_hover::HoverDb;
 pub use husky_identifier::IdentifierDb;
-use husky_layout::LayoutJar;
 pub use husky_linkage_table::ResolveLinkage;
+use husky_package_path::PackagePathJar;
 pub use husky_rust_code_gen::RustTranspileDb;
-use husky_rust_code_gen::RustTranspileJar;
-use husky_term::TermJar;
-use husky_text::TextJar;
 pub use husky_token_sheet::TokenTextDb;
-use husky_token_sheet::TokenTextJar;
-use husky_vfs::VfsJar;
-use husky_word::WordJar;
 pub use ops::ComptimeOps;
 pub use query::*;
 
+use husky_ast::AstJar;
 use husky_check_utils::*;
+use husky_diagnostics::DiagnosticsJar;
+use husky_entity_path::EntityPathJar;
+use husky_entity_tree::EntityTreeJar;
+use husky_fmt::SyntaxFormatJar;
+use husky_layout::LayoutJar;
 use husky_linkage_table::LinkageTable;
+use husky_rust_code_gen::RustTranspileJar;
 use husky_source_path::{SourcePath, SourcePathJar};
+use husky_term::TermJar;
+use husky_text::TextJar;
+use husky_token_sheet::TokenTextJar;
+use husky_toolchain::ToolchainJar;
+use husky_vfs::VfsJar;
 use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
+use husky_word::WordJar;
 use indexmap::IndexMap;
 use std::{fmt, path::PathBuf, sync::Arc};
 use sync_utils::ASafeRwLock;
 
 #[salsa::db(
     TokenTextJar,
+    PackagePathJar,
     EntityTreeJar,
+    ToolchainJar,
     TextJar,
     AstJar,
     WordJar,

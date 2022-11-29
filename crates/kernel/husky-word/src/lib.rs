@@ -1,11 +1,11 @@
 mod db;
 mod interned;
+mod jar;
 mod menu;
 
 pub use db::*;
-
-#[salsa::jar(db = WordDb)]
-pub struct WordJar(Word);
+pub use jar::*;
+pub use menu::*;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
 pub struct Word(salsa::Id);

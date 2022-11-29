@@ -10,8 +10,8 @@ pub struct EntityPathMenu0 {
 impl EntityPathMenu0 {
     pub(crate) fn new(db: &dyn EntityPathDb) -> Self {
         Self {
-            core: db.it_builtin_lib_path("core"),
-            std: db.it_builtin_lib_path("std"),
+            core: db.it_builtin_lib_path("core").unwrap(),
+            std: db.it_builtin_lib_path("std").unwrap(),
         }
     }
 
