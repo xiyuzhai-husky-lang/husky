@@ -16,7 +16,7 @@ husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 vec-like = { path = "../../abstraction/vec-like" }
 avec = { path = "../../abstraction/avec" }
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-any = { path = "../husky-any" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-text = { path = "../../lex/husky-text" }

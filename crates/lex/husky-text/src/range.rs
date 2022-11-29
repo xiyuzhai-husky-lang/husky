@@ -4,8 +4,8 @@ mod bind_into;
 pub use bind_from::*;
 pub use bind_into::*;
 use husky_display_utils::HuskyDisplay;
-use husky_identifier::Identifier;
 use husky_source_path::SourcePath;
+use husky_word::Identifier;
 
 use crate::*;
 use husky_dev_utils::__StaticDevSource;

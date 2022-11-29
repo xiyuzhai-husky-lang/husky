@@ -5,9 +5,9 @@ use husky_entity_tree::EntityTreeDb;
 pub use spatial::*;
 use thin_vec::thin_vec;
 
-use husky_identifier::Identifier;
 use husky_term::Term;
 use husky_text::{RangedIdentifier, TextRange};
+use husky_word::Identifier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Parameter {

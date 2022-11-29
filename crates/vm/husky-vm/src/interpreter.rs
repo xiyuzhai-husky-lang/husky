@@ -1,11 +1,11 @@
 mod exec;
 mod query;
 
-use husky_identifier::Identifier;
 use husky_print_utils::ps;
 use husky_source_path::SourcePath;
 use husky_term::Term;
 use husky_text::TextRange;
+use husky_word::Identifier;
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;
 

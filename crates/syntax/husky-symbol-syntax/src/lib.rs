@@ -9,8 +9,8 @@ pub use jar::SymbolJar;
 pub use sheet::SymbolSheet;
 
 use husky_entity_path::EntityPath;
-use husky_identifier::*;
 use husky_text::TextRange;
+use husky_word::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct Symbol {

@@ -13,7 +13,7 @@ salsa = { path = "../../abstraction/salsa" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 # syntax
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 # vm

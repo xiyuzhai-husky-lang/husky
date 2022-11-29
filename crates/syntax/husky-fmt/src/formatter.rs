@@ -200,7 +200,7 @@ impl<'a> Formatter<'a> {
         }
     }
 
-    fn fmt_ident(&mut self, ident: husky_identifier::Identifier) {
+    fn fmt_ident(&mut self, ident: husky_word::Identifier) {
         todo!()
         // self.result.add_assign(&ident)
     }

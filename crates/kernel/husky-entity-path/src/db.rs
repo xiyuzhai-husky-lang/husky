@@ -1,5 +1,5 @@
-use husky_identifier::IdentifierDb;
 use husky_package_path::PackagePathDb;
+use husky_word::WordDb;
 use place::SingleAssignPlace;
 use salsa::storage::HasJar;
 
@@ -9,14 +9,14 @@ use std::sync::Arc;
 #[derive(Default, Clone)]
 pub struct EntityPathMenuPlace(Arc<once_cell::sync::OnceCell<EntityPathMenu>>);
 
-pub trait EntityPathDb: DbWithJar<EntityPathJar> + PackagePathDb + IdentifierDb {
+pub trait EntityPathDb: DbWithJar<EntityPathJar> + PackagePathDb + WordDb {
     fn entity_path_menu(&self) -> &EntityPathMenu;
     fn it_entity_path(&self, ident: Identifier, variant: EntityPathVariant) -> EntityPath;
 }
 
 impl<T> EntityPathDb for T
 where
-    T: DbWithJar<EntityPathJar> + PackagePathDb + IdentifierDb,
+    T: DbWithJar<EntityPathJar> + PackagePathDb + WordDb,
 {
     fn entity_path_menu(&self) -> &EntityPathMenu {
         <Self as HasJar<EntityPathJar>>::jar(self)

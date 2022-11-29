@@ -29,12 +29,12 @@ pub use thick_fp::*;
 pub use vec::*;
 
 use husky_entity_kind::{FieldKind, TyKind};
-use husky_identifier::Identifier;
 use husky_liason_semantics::{MemberModifier, OutputModifier, ParameterModifier};
 use husky_static_defn::StaticParameter;
 use husky_static_defn::*;
 use husky_static_visualizer::{StaticVisualTy, StaticVisualizer, StaticVisualizerFp};
 use husky_vm::*;
+use husky_word::Identifier;
 
 pub fn __resolve_root_defn(ident: Identifier) -> &'static EntityStaticDefn {
     todo!()

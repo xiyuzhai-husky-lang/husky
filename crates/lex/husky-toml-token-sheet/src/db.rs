@@ -12,6 +12,6 @@ where
     T: DbWithJar<TomlTokenSheetJar> + PackagePathDb + TomlTokenizeDb,
 {
     fn toml_token_sheet(&self, package: PackagePath) -> TomlTokenSheet {
-        todo!()
+        toml_token_sheet(self, package)
     }
 }

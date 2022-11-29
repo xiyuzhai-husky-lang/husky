@@ -22,7 +22,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-expr = { path = "../../syntax/husky-expr" }

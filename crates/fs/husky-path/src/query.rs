@@ -2,9 +2,9 @@
 use std::path::{self, Path, PathBuf};
 
 use crate::*;
-use husky_identifier::Identifier;
 use husky_path_utils::{parent_module_path, submodule_path};
 use husky_print_utils::msg_once;
+use husky_word::Identifier;
 use indexmap::IndexMap;
 use itertools::Itertools;
 use sync_utils::{ASafeRwLock, SafeRwLock};

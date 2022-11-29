@@ -1,7 +1,7 @@
-use husky_identifier::Identifier;
 use husky_source_path::SourcePath;
 use husky_term::Term;
 use husky_text::TextRange;
+use husky_word::Identifier;
 
 use crate::*;
 

@@ -1,8 +1,8 @@
 use crate::*;
 use husky_entity_path::EntityPath;
 use husky_expr::{Expr, ExprArena, ExprIdx, ExprVariant};
-use husky_identifier::IdentifierDb;
 use husky_term::{Term, TermAtom, TermContext, TermData, TermMenu};
+use husky_word::WordDb;
 
 pub(crate) struct InferContext<'a> {
     pub(crate) db: &'a dyn TermInferDb,

@@ -9,11 +9,11 @@ use husky_entity_path::EntityPath;
 pub use key::*;
 pub use table::*;
 
-use husky_identifier::Identifier;
 use husky_print_utils::p;
 use husky_term::Term;
 use husky_vm::__ResolvedLinkage;
 use husky_vm::{Binding, EntityUid, __Linkage};
+use husky_word::Identifier;
 use map_collect::MapCollect;
 use std::collections::HashMap;
 use sync_utils::ASafeRwLock;

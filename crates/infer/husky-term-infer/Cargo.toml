@@ -20,7 +20,7 @@ husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # kernel
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # utils

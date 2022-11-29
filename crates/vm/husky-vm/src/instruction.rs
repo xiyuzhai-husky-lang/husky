@@ -12,8 +12,8 @@ pub use sheet::InstructionSheet;
 
 use crate::*;
 use avec::Avec;
-use husky_identifier::Identifier;
 use husky_text::{HasSourceRange, TextRange};
+use husky_word::Identifier;
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
 #[derive(Debug)]

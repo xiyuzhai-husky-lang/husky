@@ -35,10 +35,10 @@ pub use snapshot::StackSnapshot;
 pub use stack::*;
 pub use stack_idx::*;
 
-use husky_identifier::Identifier;
 use husky_loop_syntax::*;
 use husky_term::Term;
 use husky_vm_register_method::*;
+use husky_word::Identifier;
 use std::sync::Arc;
 
 pub fn eval_fast<'temp, 'eval: 'temp>(

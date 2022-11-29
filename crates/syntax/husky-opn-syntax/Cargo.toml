@@ -11,7 +11,7 @@ thin-vec = { path = "../../../forks/thin-vec" }
 husky-text = { path = "../../lex/husky-text" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 # syntax
 husky-pattern-syntax = { path = "../../syntax/husky-pattern-syntax" }
 # utils

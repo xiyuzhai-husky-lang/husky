@@ -8,9 +8,9 @@ pub use jar::*;
 pub use menu::*;
 
 use crate_path::CratePathKind;
-use husky_identifier::Identifier;
 use husky_package_path::PackagePath;
 use husky_toolchain::Toolchain;
+use husky_word::Identifier;
 use optional::Optioned;
 use salsa::DbWithJar;
 

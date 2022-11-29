@@ -1,7 +1,7 @@
 use husky_check_utils::should_eq;
-use husky_identifier::{IdentPairMap, Identifier};
 use husky_print_utils::msg_once;
 use husky_trace_protocol::{Point2dData, VisualData};
+use husky_word::{IdentPairMap, Identifier};
 use serde::Serialize;
 use serde_json::Value;
 

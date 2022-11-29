@@ -23,10 +23,10 @@ pub use special::SpecialToken;
 pub use storage::*;
 pub use wordopr::WordOpr;
 
-use husky_identifier::Identifier;
 use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::{HasTextRange, RangedIdentifier, TextIndent, TextRange};
+use husky_word::Identifier;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct Token {

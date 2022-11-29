@@ -1,8 +1,8 @@
 use husky_entity_kind::{EntityKind, TyKind};
 use husky_entity_tree::EntityTreeDb;
-use husky_identifier::Identifier;
 use husky_source_path::SourcePath;
 use husky_text::{RangedIdentifier, TextRange};
+use husky_word::Identifier;
 use vec_like::VecMapEntry;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

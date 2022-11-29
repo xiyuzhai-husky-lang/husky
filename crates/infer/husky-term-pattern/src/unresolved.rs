@@ -1,6 +1,6 @@
 use husky_entity_path::EntityPath;
 use husky_expr::ExprIdx;
-use husky_identifier::Identifier;
+use husky_word::Identifier;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct UnresolvedTermIdx(usize);

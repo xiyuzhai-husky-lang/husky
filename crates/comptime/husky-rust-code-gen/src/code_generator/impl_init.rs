@@ -3,7 +3,7 @@ mod impl_ty_linkage_entries;
 
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant};
 
-use husky_identifier::RootBuiltinIdentifier;
+use husky_word::RootBuiltinIdentifier;
 
 use super::*;
 

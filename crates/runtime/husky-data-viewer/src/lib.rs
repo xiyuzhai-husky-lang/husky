@@ -1,9 +1,9 @@
 mod db;
 
 pub use db::*;
-use husky_identifier::{IdentPairMap, Identifier};
 use husky_term::Term;
 use husky_vm_binding::Binding;
+use husky_word::{IdentPairMap, Identifier};
 
 use husky_vm_interface::{__Linkage, __Register, __RegistrableSafe, __ResolvedLinkage};
 

@@ -1,4 +1,4 @@
-// use husky_identifier::{WordDb, dyn WordDb};
+// use husky_word::{WordDb, dyn WordDb};
 
 // use crate::*;
 

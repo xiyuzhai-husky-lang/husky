@@ -24,7 +24,7 @@ map-collect = { path = "../../abstraction/map-collect" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 husky-source-path = { path = "../../fs/husky-source-path" }
 husky-text = { path = "../../lex/husky-text" }
-husky-identifier = { path = "../../kernel/husky-identifier" }
+husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-comptime = { path = "../../comptime/husky-comptime" }
