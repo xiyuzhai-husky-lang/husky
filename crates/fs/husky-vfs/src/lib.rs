@@ -3,17 +3,15 @@ mod db;
 mod error;
 mod file;
 mod jar;
-mod path;
 mod runner;
 #[cfg(test)]
 mod tests;
 mod watch;
 
-pub use cache::HuskyFileCache;
+pub use cache::SourcePathMap;
 pub use db::*;
 pub use error::*;
 pub use jar::VfsJar;
-pub use path::path_class;
 pub use runner::*;
 pub use watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};
 

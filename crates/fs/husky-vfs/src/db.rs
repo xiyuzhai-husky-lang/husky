@@ -3,7 +3,7 @@ use husky_package_path::PackagePath;
 use husky_source_path::{SourcePath, SourcePathData};
 
 pub trait VfsDb: salsa::DbWithJar<VfsJar> + SourcePathDb + Send {
-    fn file(&self, path: PathBufItd) -> VfsResult<SourceFile>;
+    fn file(&self, path: SourcePath) -> VfsResult<SourceFile>;
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn update_file(&mut self, path: PathBuf) -> VfsResult<()>;
@@ -22,14 +22,15 @@ where
         <Self as HasJar<VfsJar>>::jar_mut(self).0
     }
 
-    fn file(&self, path: PathBufItd) -> VfsResult<SourceFile> {
-        match self.vfs_jar().husky_file_cache().data().entry(path.clone()) {
+    fn file(&self, path: SourcePath) -> VfsResult<SourceFile> {
+        match self.vfs_jar().husky_file_cache().data().entry(path) {
             // If the file already exists in our cache then just return it.
             Entry::Occupied(entry) => Ok(*entry.get()),
             // If we haven't read this file yet set up the watch, read the
             // contents, store it in the cache, and return it.
             Entry::Vacant(entry) => {
-                let path_ref = &path.path(self);
+                let physical_path = self.with_physical_path(path)?;
+                //  &path.path(self);
                 let watcher = &mut *self
                     .watcher()
                     .expect("watcher is not set")
@@ -38,10 +39,10 @@ where
                     .unwrap();
                 watcher
                     .watcher()
-                    .watch(path_ref, RecursiveMode::NonRecursive)
+                    .watch(&physical_path, RecursiveMode::NonRecursive)
                     .unwrap();
-                let content = std::fs::read_to_string(path_ref)?;
-                Ok(*entry.insert(SourceFile::new(self, path, path_class(self, path), content)))
+                let content = std::fs::read_to_string(&physical_path)?;
+                Ok(*entry.insert(SourceFile::new(self, path, content)))
             }
         }
     }
@@ -49,14 +50,11 @@ where
     // todo: test this
     fn update_file(&mut self, path: PathBuf) -> VfsResult<()> {
         let content = std::fs::read_to_string(&path)?;
-        self.file(PathBufItd::new(self, path))?
-            .set_content(self)
-            .to(content);
+        self.file(todo!())?.set_content(self).to(content);
         Ok(())
     }
 
     fn package_manifest_toml_file(&self, package: PackagePath) -> VfsResult<SourceFile> {
-        let source_path = self.it_source_path(SourcePathData::CorgiToml(package));
-        self.file(todo!())
+        self.file(self.it_source_path(SourcePathData::CorgiToml(package)))
     }
 }
