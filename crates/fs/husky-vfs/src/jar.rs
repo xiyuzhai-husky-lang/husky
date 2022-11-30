@@ -3,7 +3,7 @@ use place::SingleAssignPlace;
 
 pub struct VfsJar(
     <PathBufItd as salsa::storage::IngredientsFor>::Ingredients,
-    <HuskyFileId as salsa::storage::IngredientsFor>::Ingredients,
+    <SourceFile as salsa::storage::IngredientsFor>::Ingredients,
     <path_class as salsa::storage::IngredientsFor>::Ingredients,
     HuskyFileCache,
     SingleAssignPlace<VfsWatcher>,
@@ -33,13 +33,13 @@ impl salsa::storage::HasIngredientsFor<PathBufItd> for VfsJar {
         &mut self.0
     }
 }
-impl salsa::storage::HasIngredientsFor<HuskyFileId> for VfsJar {
-    fn ingredient(&self) -> &<HuskyFileId as salsa::storage::IngredientsFor>::Ingredients {
+impl salsa::storage::HasIngredientsFor<SourceFile> for VfsJar {
+    fn ingredient(&self) -> &<SourceFile as salsa::storage::IngredientsFor>::Ingredients {
         &self.1
     }
     fn ingredient_mut(
         &mut self,
-    ) -> &mut <HuskyFileId as salsa::storage::IngredientsFor>::Ingredients {
+    ) -> &mut <SourceFile as salsa::storage::IngredientsFor>::Ingredients {
         &mut self.1
     }
 }
@@ -60,7 +60,7 @@ impl<'salsa_db> salsa::jar::Jar<'salsa_db> for VfsJar {
         DB: salsa::storage::JarFromJars<Self> + salsa::storage::DbWithJar<Self>,
     {
         let i0 = <PathBufItd as salsa::storage::IngredientsFor>::create_ingredients(routes);
-        let i1 = <HuskyFileId as salsa::storage::IngredientsFor>::create_ingredients(routes);
+        let i1 = <SourceFile as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i2 = <path_class as salsa::storage::IngredientsFor>::create_ingredients(routes);
         Self(i0, i1, i2, Default::default(), Default::default())
     }

@@ -2,7 +2,7 @@ use crate::*;
 use std::sync::Arc;
 
 pub struct HuskyFileCache {
-    data: Arc<DashMap<PathBufItd, HuskyFileId>>,
+    data: Arc<DashMap<PathBufItd, SourceFile>>,
     kind: HuskyFileCacheKind,
 }
 
@@ -28,7 +28,7 @@ impl HuskyFileCache {
         }
     }
 
-    pub(crate) fn data(&self) -> &DashMap<PathBufItd, HuskyFileId> {
+    pub(crate) fn data(&self) -> &DashMap<PathBufItd, SourceFile> {
         &self.data
     }
 }

@@ -5,14 +5,22 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+salsa = { path = "../../abstraction/salsa" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-text-span = { path = "../../lex/husky-text-span" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # kernel
+husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-word = { path = "../../kernel/husky-word" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 salsa = { path = "../../abstraction/salsa" }
+# kernel
+husky-toolchain = { path = "../../kernel/husky-toolchain" }
+# fs
+husky-source-path = { path = "../../fs/husky-source-path" }

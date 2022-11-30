@@ -10,12 +10,21 @@ pub enum SourcePathData {
 
 #[salsa::interned(jar = SourcePathJar)]
 pub struct SourcePath {
-    data: SourcePathData,
+    pub data: SourcePathData,
 }
 
 #[salsa::jar(db = SourcePathDb)]
 pub struct SourcePathJar(SourcePath);
 
-pub trait SourcePathDb: DbWithJar<SourcePathJar> {}
+pub trait SourcePathDb: DbWithJar<SourcePathJar> {
+    fn it_source_path(&self, data: SourcePathData) -> SourcePath;
+}
 
-impl<T> SourcePathDb for T where T: DbWithJar<SourcePathJar> {}
+impl<T> SourcePathDb for T
+where
+    T: DbWithJar<SourcePathJar>,
+{
+    fn it_source_path(&self, data: SourcePathData) -> SourcePath {
+        SourcePath::new(self, data)
+    }
+}

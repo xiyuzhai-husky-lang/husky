@@ -20,9 +20,9 @@ impl HuskyFileClass {
 }
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
-pub struct HuskyFileId(salsa::Id);
+pub struct SourceFile(salsa::Id);
 
-impl HuskyFileId {
+impl SourceFile {
     pub fn new(
         db: &<crate::VfsJar as salsa::jar::Jar<'_>>::DynDb,
         path: PathBufItd,
@@ -31,7 +31,7 @@ impl HuskyFileId {
     ) -> Self {
         let (jar, runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(db);
         let ingredients =
-            <VfsJar as salsa::storage::HasIngredientsFor<HuskyFileId>>::ingredient(jar);
+            <VfsJar as salsa::storage::HasIngredientsFor<SourceFile>>::ingredient(jar);
         let id = ingredients.3.new_input(runtime);
         ingredients.0.store_new(runtime, id, path, Durability::HIGH);
         ingredients
@@ -43,44 +43,44 @@ impl HuskyFileId {
         id
     }
 
-    fn path<'db>(self, __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb) -> PathBufItd {
+    pub fn path<'db>(self, __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb) -> PathBufItd {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(__db);
         let __ingredients =
-            <VfsJar as salsa::storage::HasIngredientsFor<HuskyFileId>>::ingredient(__jar);
+            <VfsJar as salsa::storage::HasIngredientsFor<SourceFile>>::ingredient(__jar);
         __ingredients.0.fetch(__runtime, self).clone()
     }
 
-    fn source_class<'db>(
+    pub fn source_class<'db>(
         self,
         __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb,
     ) -> HuskyFileClass {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(__db);
         let __ingredients =
-            <VfsJar as salsa::storage::HasIngredientsFor<HuskyFileId>>::ingredient(__jar);
+            <VfsJar as salsa::storage::HasIngredientsFor<SourceFile>>::ingredient(__jar);
         __ingredients.1.fetch(__runtime, self).clone()
     }
 
     pub fn content<'db>(self, __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb) -> &'db String {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(__db);
         let __ingredients =
-            <VfsJar as salsa::storage::HasIngredientsFor<HuskyFileId>>::ingredient(__jar);
+            <VfsJar as salsa::storage::HasIngredientsFor<SourceFile>>::ingredient(__jar);
         __ingredients.2.fetch(__runtime, self)
     }
 
     fn set_kind<'db>(
         self,
         __db: &'db mut <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-    ) -> salsa::setter::Setter<'db, HuskyFileId, HuskyFileClass> {
+    ) -> salsa::setter::Setter<'db, SourceFile, HuskyFileClass> {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar_mut(__db);
         let __ingredients =
-            <VfsJar as salsa::storage::HasIngredientsFor<HuskyFileId>>::ingredient_mut(__jar);
+            <VfsJar as salsa::storage::HasIngredientsFor<SourceFile>>::ingredient_mut(__jar);
         salsa::setter::Setter::new(__runtime, self, &mut __ingredients.1)
     }
 
     pub(crate) fn set_content<'db>(
         self,
         db: &'db mut <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-    ) -> salsa::setter::Setter<'db, HuskyFileId, String> {
+    ) -> salsa::setter::Setter<'db, SourceFile, String> {
         match self.source_class(db) {
             HuskyFileClass::Library => todo!(),
             HuskyFileClass::Publish => todo!(),
@@ -88,18 +88,18 @@ impl HuskyFileId {
         }
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar_mut(db);
         let __ingredients =
-            <VfsJar as salsa::storage::HasIngredientsFor<HuskyFileId>>::ingredient_mut(__jar);
+            <VfsJar as salsa::storage::HasIngredientsFor<SourceFile>>::ingredient_mut(__jar);
         salsa::setter::Setter::new(__runtime, self, &mut __ingredients.2)
     }
 }
 
-impl salsa::storage::IngredientsFor for HuskyFileId {
+impl salsa::storage::IngredientsFor for SourceFile {
     type Jar = VfsJar;
     type Ingredients = (
-        InputFieldIngredient<HuskyFileId, PathBufItd>,
-        InputFieldIngredient<HuskyFileId, HuskyFileClass>,
-        InputFieldIngredient<HuskyFileId, String>,
-        InputIngredient<HuskyFileId>,
+        InputFieldIngredient<SourceFile, PathBufItd>,
+        InputFieldIngredient<SourceFile, HuskyFileClass>,
+        InputFieldIngredient<SourceFile, String>,
+        InputIngredient<SourceFile>,
     );
     fn create_ingredients<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self::Ingredients
     where
@@ -185,15 +185,15 @@ impl salsa::storage::IngredientsFor for HuskyFileId {
         )
     }
 }
-impl salsa::AsId for HuskyFileId {
+impl salsa::AsId for SourceFile {
     fn as_id(self) -> salsa::Id {
         self.0
     }
     fn from_id(id: salsa::Id) -> Self {
-        HuskyFileId(id)
+        SourceFile(id)
     }
 }
-impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for HuskyFileId {
+impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for SourceFile {
     fn fmt(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
@@ -249,7 +249,7 @@ impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for HuskyFileI
         debug_struct.finish()
     }
 }
-impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for HuskyFileId
+impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for SourceFile
 where
     DB: ?Sized + salsa::DbWithJar<VfsJar>,
 {
