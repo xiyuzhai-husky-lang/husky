@@ -1,6 +1,6 @@
 use salsa::{storage::HasJar, DbWithJar};
 
-use crate::*;
+use crate::{style::snake_to_dash, *};
 
 pub trait WordDb: DbWithJar<WordJar> {
     fn it_word_owned(&self, data: String) -> Word;
@@ -18,6 +18,8 @@ pub trait WordDb: DbWithJar<WordJar> {
     fn word_jar(&self) -> &WordJar;
 
     fn word_menu(&self) -> &WordMenu;
+
+    fn ident_to_dashed(&self, ident: Identifier) -> String;
 }
 
 impl<T> WordDb for T
@@ -56,5 +58,9 @@ where
 
     fn dt_ident(&self, ident: Identifier) -> &str {
         ident.data(self)
+    }
+
+    fn ident_to_dashed(&self, ident: Identifier) -> String {
+        snake_to_dash(self.dt_ident(ident))
     }
 }

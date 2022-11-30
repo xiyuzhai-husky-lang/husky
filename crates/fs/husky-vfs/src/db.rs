@@ -4,6 +4,7 @@ use husky_source_path::{SourcePath, SourcePathData};
 
 pub trait VfsDb: salsa::DbWithJar<VfsJar> + SourcePathDb + Send {
     fn file(&self, path: SourcePath) -> VfsResult<SourceFile>;
+    fn file_content(&self, file: SourceFile) -> &str;
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn update_file(&mut self, path: PathBuf) -> VfsResult<()>;
@@ -29,32 +30,38 @@ where
             // If we haven't read this file yet set up the watch, read the
             // contents, store it in the cache, and return it.
             Entry::Vacant(entry) => {
-                let physical_path = self.with_physical_path(path)?;
+                let physical_path = self.source_to_absolute_path(path)?;
                 //  &path.path(self);
-                let watcher = &mut *self
-                    .watcher()
-                    .expect("watcher is not set")
-                    .0
-                    .lock()
-                    .unwrap();
-                watcher
-                    .watcher()
-                    .watch(&physical_path, RecursiveMode::NonRecursive)
-                    .unwrap();
-                let content = std::fs::read_to_string(&physical_path)?;
+                if let Some(watcher) = self.watcher() {
+                    let watcher = &mut watcher.0.lock().unwrap();
+                    watcher
+                        .watcher()
+                        .watch(&physical_path, RecursiveMode::NonRecursive)
+                        .unwrap();
+                }
+                let content = read_to_string(&physical_path)?;
                 Ok(*entry.insert(SourceFile::new(self, path, content)))
             }
         }
     }
 
+    fn file_content(&self, file: SourceFile) -> &str {
+        file.content(self)
+    }
     // todo: test this
     fn update_file(&mut self, path: PathBuf) -> VfsResult<()> {
-        let content = std::fs::read_to_string(&path)?;
-        self.file(todo!())?.set_content(self).to(content);
+        let content = read_to_string(&path)?;
+        if let Some(path) = self.source_path_from_physical_path(&path)? {
+            self.file(path)?.set_content(self).to(content);
+        }
         Ok(())
     }
 
     fn package_manifest_toml_file(&self, package: PackagePath) -> VfsResult<SourceFile> {
         self.file(self.it_source_path(SourcePathData::CorgiToml(package)))
     }
+}
+
+fn read_to_string(path: &Path) -> VfsResult<String> {
+    std::fs::read_to_string(path).map_err(|e| VfsError::new_io_error(path.to_owned(), e))
 }

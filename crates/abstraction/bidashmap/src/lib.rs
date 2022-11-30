@@ -33,6 +33,14 @@ where
             Ok(right)
         }
     }
+
+    pub fn get_left(&self, right: &R) -> Option<L>
+    where
+        L: Clone,
+    {
+        let mut inner = self.inner.lock().unwrap();
+        inner.get_by_right(&right).map(|left| left.clone())
+    }
 }
 
 impl<L, R> Default for BiDashMap<L, R>

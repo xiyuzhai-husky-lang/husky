@@ -3,7 +3,9 @@ use crate::*;
 use crate::{TomlSpecialToken, TomlTokenizeJar};
 use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
-use husky_source_path::SourcePathJar;
+use husky_source_path::{
+    HasSourcePathConfig, SourcePathConfig, SourcePathConfigMimic, SourcePathJar,
+};
 use husky_toolchain::ToolchainJar;
 use husky_vfs::VfsJar;
 use husky_word::{WordDb, WordJar};
@@ -21,6 +23,13 @@ use std::{borrow::Cow, sync::Arc};
 #[derive(Default)]
 pub struct MimicDB {
     storage: salsa::Storage<Self>,
+    vfs_config: SourcePathConfigMimic,
+}
+
+impl HasSourcePathConfig for MimicDB {
+    fn source_path_config(&self) -> &SourcePathConfig {
+        &self.vfs_config
+    }
 }
 
 impl Database for MimicDB {}

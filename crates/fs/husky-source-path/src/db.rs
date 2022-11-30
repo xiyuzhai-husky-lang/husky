@@ -1,22 +1,31 @@
+use absolute_path::AbsolutePath;
 use husky_package_path::{PackagePathData, PackagePathDb};
 
 use crate::*;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
-pub trait SourcePathDb: DbWithJar<SourcePathJar> + PackagePathDb {
+pub trait SourcePathDb: DbWithJar<SourcePathJar> + HasSourcePathConfig + PackagePathDb {
     fn it_source_path(&self, data: SourcePathData) -> SourcePath;
+    fn source_path_from_physical_path(&self, path: &Path) -> SourcePathResult<Option<SourcePath>>;
     fn source_path_jar(&self) -> &SourcePathJar;
     fn source_durability(&self, path: SourcePath) -> Durability;
-    // todo: improve this to &PhysicalPath
-    fn with_physical_path(&self, path: SourcePath) -> std::io::Result<PhysicalPath>;
+    fn it_corgi_toml_path(&self, package: PackagePath) -> SourcePath {
+        self.it_source_path(SourcePathData::CorgiToml(package))
+    }
+    // todo: improve this to &AbsolutePath
+    fn source_to_absolute_path(&self, path: SourcePath) -> SourcePathResult<AbsolutePath>;
 }
 
 impl<T> SourcePathDb for T
 where
-    T: DbWithJar<SourcePathJar> + PackagePathDb,
+    T: DbWithJar<SourcePathJar> + HasSourcePathConfig + PackagePathDb,
 {
     fn it_source_path(&self, data: SourcePathData) -> SourcePath {
         SourcePath::new(self, data)
+    }
+
+    fn source_path_from_physical_path(&self, path: &Path) -> SourcePathResult<Option<SourcePath>> {
+        self.source_path_jar().source_path_from_physical_path(path)
     }
 
     fn source_path_jar(&self) -> &SourcePathJar {
@@ -24,28 +33,19 @@ where
     }
 
     fn source_durability(&self, path: SourcePath) -> Durability {
-        todo!()
-        // match self {
-        //     HuskyFileClass::Library => Durability::HIGH,
-        //     HuskyFileClass::Publish => Durability::HIGH,
-        //     HuskyFileClass::User => Durability::LOW,
-        // }
+        match path.data(self) {
+            SourcePathData::Module(_) => todo!(),
+            SourcePathData::CorgiToml(package) => match self.package_path_data(package) {
+                PackagePathData::Builtin { .. } => Durability::HIGH,
+                PackagePathData::Global { version } => todo!(),
+                PackagePathData::Local(_) => Durability::LOW,
+                PackagePathData::Git(_) => todo!(),
+            },
+        }
     }
 
-    fn with_physical_path(&self, path: SourcePath) -> std::io::Result<PhysicalPath> {
+    fn source_to_absolute_path(&self, path: SourcePath) -> SourcePathResult<AbsolutePath> {
         self.source_path_jar()
-            .physical_path(path, || resolve_physical_path(self, path))
-    }
-}
-
-fn resolve_physical_path(db: &dyn SourcePathDb, path: SourcePath) -> std::io::Result<PhysicalPath> {
-    match path.data(db) {
-        SourcePathData::Module(_) => todo!(),
-        SourcePathData::CorgiToml(package) => match db.package_path_data(package) {
-            PackagePathData::Builtin { toolchain } => todo!(),
-            PackagePathData::Global { version } => todo!(),
-            PackagePathData::Local(_) => todo!(),
-            PackagePathData::Git(_) => todo!(),
-        },
+            .physical_path(path, || source_to_absolute_path(self, path).clone())
     }
 }

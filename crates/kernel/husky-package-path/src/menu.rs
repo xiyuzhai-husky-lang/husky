@@ -9,7 +9,7 @@ pub struct PackagePathMenu {
 impl PackagePathMenu {
     fn new(db: &dyn PackagePathDb, toolchain: Toolchain) -> Self {
         let word_menu = db.word_menu();
-        let f = |ident| PackagePath::new(db, ident, PackagePathData::Builtin { toolchain });
+        let f = |ident| PackagePath::new(db, PackagePathData::Builtin { ident, toolchain });
         Self {
             core: f(word_menu.core()),
             std: f(word_menu.std()),

@@ -30,7 +30,7 @@ use husky_fmt::SyntaxFormatJar;
 use husky_layout::LayoutJar;
 use husky_linkage_table::LinkageTable;
 use husky_rust_code_gen::RustTranspileJar;
-use husky_source_path::{SourcePath, SourcePathJar};
+use husky_source_path::{HasSourcePathConfig, SourcePath, SourcePathConfig, SourcePathJar};
 use husky_term::TermJar;
 use husky_text::TextJar;
 use husky_token_sheet::TokenTextJar;
@@ -66,6 +66,12 @@ pub struct HuskyComptime {
     linkage_table: LinkageTable,
     // entity_route_store: EntityRouteStore,
     config: ComptimeConfig,
+}
+
+impl HasSourcePathConfig for HuskyComptime {
+    fn source_path_config(&self) -> &SourcePathConfig {
+        todo!()
+    }
 }
 
 impl HuskyComptime {

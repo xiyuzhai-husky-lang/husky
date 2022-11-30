@@ -8,7 +8,7 @@ use husky_entity_path::{
 use husky_entity_tree::EntityTreeJar;
 use husky_expr::ExprIdx;
 use husky_package_path::PackagePathJar;
-use husky_source_path::SourcePathJar;
+use husky_source_path::{HasSourcePathConfig, SourcePathConfig, SourcePathJar};
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDb, SymbolJar, SymbolKind};
 use husky_term::{
     AskDecl, Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
@@ -42,6 +42,12 @@ pub(crate) struct TermInferTestsDb {
     entity_tys: HashMap<EntityPath, Term>,
     decls: HashMap<EntityPath, Arc<Decl>>,
     prelude_symbols: Vec<Symbol>,
+}
+
+impl HasSourcePathConfig for TermInferTestsDb {
+    fn source_path_config(&self) -> &SourcePathConfig {
+        todo!()
+    }
 }
 
 impl ParallelDatabase for TermInferTestsDb {
