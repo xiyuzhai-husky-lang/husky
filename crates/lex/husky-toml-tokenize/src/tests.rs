@@ -1,19 +1,35 @@
-use husky_print_utils::p;
-use husky_word::{WordDb, WordJar};
-use salsa::Database;
-
-use crate::TomlSpecialToken;
-
 use super::{TokenIter, TomlTokenError, TomlTokenVariant};
+use crate::*;
+use crate::{TomlSpecialToken, TomlTokenizeJar};
+use husky_package_path::{PackagePathDb, PackagePathJar};
+use husky_print_utils::p;
+use husky_source_path::SourcePathJar;
+use husky_toolchain::ToolchainJar;
+use husky_vfs::VfsJar;
+use husky_word::{WordDb, WordJar};
+use salsa::{Database, ParallelDatabase};
 use std::{borrow::Cow, sync::Arc};
 
-#[salsa::db(WordJar)]
+#[salsa::db(
+    WordJar,
+    ToolchainJar,
+    PackagePathJar,
+    TomlTokenizeJar,
+    VfsJar,
+    SourcePathJar
+)]
 #[derive(Default)]
 pub struct MimicDB {
     storage: salsa::Storage<Self>,
 }
 
 impl Database for MimicDB {}
+
+impl ParallelDatabase for MimicDB {
+    fn snapshot(&self) -> salsa::Snapshot<Self> {
+        todo!()
+    }
+}
 
 fn err(input: &str, err: TomlTokenError) {
     let db = MimicDB::default();
@@ -47,31 +63,6 @@ fn literal_strings() {
     t(&db, "''''a'''", "'a", true);
     t(&db, "'''\n'a\n'''", "'a\n", true);
     t(&db, "'''a\n'a\r\n'''", "a\n'a\n", true);
-}
-
-#[test]
-fn basic_strings0() {
-    fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
-        let mut t = TokenIter::new(db, input);
-        let token = t.next().unwrap().variant().clone().unwrap();
-        p!(input);
-        assert_eq!(
-            token,
-            TomlTokenVariant::StringLiteral {
-                val: Arc::new(val.to_owned()),
-                multiline,
-            }
-        );
-        assert!(t.next().is_none());
-    }
-
-    let db = MimicDB::default();
-    t(
-        &db,
-        "\"\"\"\\\n     \t   \t  \\\r\n  \t \n  \t \r\n\"\"\"",
-        "",
-        true,
-    );
 }
 
 #[test]
@@ -240,4 +231,11 @@ fn bad_comment() {
         &Err(TomlTokenError::UnexpectedChar('\u{0}'))
     );
     assert!(t.next().is_none());
+}
+
+#[test]
+fn builtin_library_toml_token_sheets() {
+    let db = MimicDB::default();
+    let package_path_menu = db.package_path_menu();
+    db.toml_token_sheet(package_path_menu.core());
 }
