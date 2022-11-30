@@ -1,9 +1,9 @@
 use crate::*;
+use husky_source_path::SourcePath;
 use std::sync::Arc;
 
-pub struct HuskyFileCache {
-    data: Arc<DashMap<PathBufItd, SourceFile>>,
-    kind: HuskyFileCacheKind,
+pub struct SourcePathMap {
+    data: DashMap<SourcePath, SourceFile>,
 }
 
 pub enum HuskyFileCacheKind {
@@ -11,24 +11,16 @@ pub enum HuskyFileCacheKind {
     Snapshot,
 }
 
-impl Default for HuskyFileCache {
+impl Default for SourcePathMap {
     fn default() -> Self {
         Self {
             data: Default::default(),
-            kind: HuskyFileCacheKind::Major,
         }
     }
 }
 
-impl HuskyFileCache {
-    pub fn snapshot(&self) -> Self {
-        Self {
-            data: self.data.clone(),
-            kind: HuskyFileCacheKind::Snapshot,
-        }
-    }
-
-    pub(crate) fn data(&self) -> &DashMap<PathBufItd, SourceFile> {
+impl SourcePathMap {
+    pub(crate) fn data(&self) -> &DashMap<SourcePath, SourceFile> {
         &self.data
     }
 }
