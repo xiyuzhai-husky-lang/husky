@@ -23,14 +23,17 @@ impl SourceFile {
         id
     }
 
-    pub fn path<'db>(self, __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb) -> SourcePath {
+    pub(crate) fn path<'db>(self, __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb) -> SourcePath {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(__db);
         let __ingredients =
             <VfsJar as salsa::storage::HasIngredientsFor<SourceFile>>::ingredient(__jar);
         __ingredients.0.fetch(__runtime, self).clone()
     }
 
-    pub fn content<'db>(self, __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb) -> &'db String {
+    pub(crate) fn content<'db>(
+        self,
+        __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb,
+    ) -> &'db String {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(__db);
         let __ingredients =
             <VfsJar as salsa::storage::HasIngredientsFor<SourceFile>>::ingredient(__jar);

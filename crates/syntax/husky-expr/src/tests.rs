@@ -3,7 +3,7 @@ use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_expect_test_utils::expect_test_husky_to_rust;
 use husky_package_path::PackagePathJar;
-use husky_source_path::SourcePathJar;
+use husky_source_path::{HasSourcePathConfig, SourcePathConfig, SourcePathJar};
 use husky_symbol_syntax::{SymbolContext, SymbolDb, SymbolJar, SymbolSheet};
 use husky_token_sheet::TokenTextJar;
 use husky_tokenize::TokenizeDb;
@@ -43,6 +43,12 @@ fn it_works() {
 #[derive(Default)]
 struct MimicDB {
     storage: salsa::Storage<Self>,
+}
+
+impl HasSourcePathConfig for MimicDB {
+    fn source_path_config(&self) -> &SourcePathConfig {
+        todo!()
+    }
 }
 
 impl Database for MimicDB {}

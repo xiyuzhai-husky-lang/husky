@@ -1,5 +1,6 @@
 use crate::*;
 use husky_package_path::PackagePath;
+use husky_vfs::VfsResult;
 
 #[salsa::tracked(jar = TomlTokenizeJar)]
 pub struct TomlTokenSheet {
@@ -11,10 +12,11 @@ pub struct TomlTokenSheet {
 pub(crate) fn package_manifest_toml_token_sheet(
     db: &dyn TomlTokenizeDb,
     package: PackagePath,
-) -> TomlTokenSheet {
-    let file = db.package_manifest_toml_file(package);
-    let tokens = TomlTokens(todo!());
-    TomlTokenSheet::new(db, tokens)
+) -> VfsResult<TomlTokenSheet> {
+    let file = db.package_manifest_toml_file(package).unwrap();
+    let file_content = db.file_content(file);
+    let tokens = TomlTokens(db.toml_tokenize(file_content));
+    Ok(TomlTokenSheet::new(db, tokens))
 }
 
 use crate::*;

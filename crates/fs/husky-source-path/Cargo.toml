@@ -9,6 +9,8 @@ thiserror = "1.0.37"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 bidashmap = { path = "../../abstraction/bidashmap" }
+absolute-path = { path = "../../abstraction/absolute-path" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
