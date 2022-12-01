@@ -2,21 +2,14 @@ use crate::*;
 use husky_package_path::PackagePath;
 use husky_vfs::VfsResult;
 
-#[salsa::tracked(jar = TomlTokenizeJar)]
-pub struct TomlTokenSheet {
-    #[return_ref]
-    pub tokens: TomlTokens,
-}
-
-#[salsa::tracked(jar = TomlTokenizeJar)]
+#[salsa::tracked(jar = TomlTokenizeJar, return_ref)]
 pub(crate) fn package_manifest_toml_token_sheet(
     db: &dyn TomlTokenizeDb,
     package: PackagePath,
-) -> VfsResult<TomlTokenSheet> {
+) -> VfsResult<TomlTokens> {
     let file = db.package_manifest_toml_file(package).unwrap();
     let file_content = db.file_content(file);
-    let tokens = TomlTokens(db.toml_tokenize(file_content));
-    Ok(TomlTokenSheet::new(db, tokens))
+    Ok(TomlTokens(db.toml_tokenize(file_content)))
 }
 
 use crate::*;
@@ -32,7 +25,7 @@ impl TomlTokenGroup {
         Self(range)
     }
 
-    pub fn first(&self, sheet: &TomlTokenSheet) -> &TomlToken {
+    pub fn first(&self, sheet: &TomlTokens) -> &TomlToken {
         todo!()
     }
 }
