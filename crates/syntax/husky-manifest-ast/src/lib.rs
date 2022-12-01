@@ -6,9 +6,4 @@ pub struct ManifestAstJar();
 
 pub trait ManifestAstDb: DbWithJar<ManifestAstJar> {}
 
-pub struct ManifestAst {
-    variant: ManifestAstVariant,
-    range: TextRange,
-}
-
-pub enum ManifestAstVariant {}
+pub enum ManifestAst {}

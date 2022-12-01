@@ -3,22 +3,21 @@ mod db;
 mod hex;
 mod iter;
 mod keylike;
-mod sheet;
+mod manifest;
 mod string;
 #[cfg(test)]
 mod tests;
 mod whitespace;
 
 pub use db::TomlTokenizeDb;
-pub use sheet::{TomlTokenGroup, TomlTokens};
 
 use husky_text_span::TextSpan;
 use husky_toml_token::*;
 use husky_word::{Word, WordDb};
 use iter::*;
 use keylike::is_keylike;
-use sheet::package_manifest_toml_token_sheet;
+use manifest::package_manifest_toml_tokens;
 use std::sync::Arc;
 
 #[salsa::jar(db = TomlTokenizeDb)]
-pub struct TomlTokenizeJar(package_manifest_toml_token_sheet);
+pub struct TomlTokenizeJar(package_manifest_toml_tokens);
