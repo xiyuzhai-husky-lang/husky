@@ -252,13 +252,13 @@ fn builtin_library_toml_token_sheets() {
     expect_file!["./tests/package_core_toml_token_sheets.txt"].assert_eq(&format!(
         "{:#?}",
         db.toml_token_sheet(package_path_menu.core())
+            .as_ref()
             .unwrap()
-            .tokens(&db)
     ));
     expect_file!["./tests/package_std_toml_token_sheets.txt"].assert_eq(&format!(
         "{:#?}",
         db.toml_token_sheet(package_path_menu.std())
+            .as_ref()
             .unwrap()
-            .tokens(&db)
     ));
 }
