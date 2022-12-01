@@ -1,6 +1,7 @@
 use super::{TokenIter, TomlTokenError, TomlTokenVariant};
 use crate::*;
 use crate::{TomlSpecialToken, TomlTokenizeJar};
+use expect_test::expect_file;
 use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
 use husky_source_path::{
@@ -9,7 +10,7 @@ use husky_source_path::{
 use husky_toolchain::ToolchainJar;
 use husky_vfs::VfsJar;
 use husky_word::{WordDb, WordJar};
-use salsa::{Database, ParallelDatabase};
+use salsa::{Database, ParallelDatabase, Snapshot};
 use std::{borrow::Cow, sync::Arc};
 
 #[salsa::db(
@@ -23,20 +24,23 @@ use std::{borrow::Cow, sync::Arc};
 #[derive(Default)]
 pub struct MimicDB {
     storage: salsa::Storage<Self>,
-    vfs_config: SourcePathConfigMimic,
+    source_path_config: SourcePathConfigMimic,
 }
 
 impl HasSourcePathConfig for MimicDB {
     fn source_path_config(&self) -> &SourcePathConfig {
-        &self.vfs_config
+        &self.source_path_config
     }
 }
 
 impl Database for MimicDB {}
 
 impl ParallelDatabase for MimicDB {
-    fn snapshot(&self) -> salsa::Snapshot<Self> {
-        todo!()
+    fn snapshot(&self) -> Snapshot<Self> {
+        Snapshot::new(MimicDB {
+            storage: self.storage.snapshot(),
+            source_path_config: self.source_path_config.clone(),
+        })
     }
 }
 
@@ -79,7 +83,6 @@ fn basic_strings() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
         let mut t = TokenIter::new(db, input);
         let token = t.next().unwrap().variant().clone().unwrap();
-        p!(input);
         assert_eq!(
             token,
             TomlTokenVariant::StringLiteral {
@@ -246,5 +249,16 @@ fn bad_comment() {
 fn builtin_library_toml_token_sheets() {
     let db = MimicDB::default();
     let package_path_menu = db.package_path_menu();
-    db.toml_token_sheet(package_path_menu.core());
+    expect_file!["./tests/package_core_toml_token_sheets.txt"].assert_eq(&format!(
+        "{:#?}",
+        db.toml_token_sheet(package_path_menu.core())
+            .unwrap()
+            .tokens(&db)
+    ));
+    expect_file!["./tests/package_std_toml_token_sheets.txt"].assert_eq(&format!(
+        "{:#?}",
+        db.toml_token_sheet(package_path_menu.std())
+            .unwrap()
+            .tokens(&db)
+    ));
 }
