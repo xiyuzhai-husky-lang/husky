@@ -1,4 +1,0 @@
-packages:
-- .
-resolver:
-  compiler: ghc-8.10.7

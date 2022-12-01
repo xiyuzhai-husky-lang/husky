@@ -1,4 +1,0 @@
-(executable
- (public_name helloworld)
- (name main)
- (libraries helloworld))
