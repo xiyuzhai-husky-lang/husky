@@ -5,7 +5,7 @@ use husky_vfs::VfsResult;
 #[salsa::tracked(jar = TomlTokenizeJar)]
 pub struct TomlTokenSheet {
     #[return_ref]
-    tokens: TomlTokens,
+    pub tokens: TomlTokens,
 }
 
 #[salsa::tracked(jar = TomlTokenizeJar)]
