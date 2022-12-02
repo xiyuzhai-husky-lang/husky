@@ -5,13 +5,19 @@ use husky_toml_token_stream::TomlTokenStream;
 pub(crate) struct TomlAstParser<'a> {
     db: &'a dyn TomlAstDb,
     tokens: TomlTokenStream<'a>,
+    exprs: &'a mut TomlExprArena,
 }
 
 impl<'a> TomlAstParser<'a> {
-    pub(crate) fn new(db: &'a dyn TomlAstDb, tokens: &'a [TomlToken]) -> Self {
+    pub(crate) fn new(
+        db: &'a dyn TomlAstDb,
+        tokens: &'a [TomlToken],
+        exprs: &'a mut TomlExprArena,
+    ) -> Self {
         Self {
             db,
             tokens: TomlTokenStream::new(tokens),
+            exprs,
         }
     }
 
