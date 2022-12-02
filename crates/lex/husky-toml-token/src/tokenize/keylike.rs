@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 impl<'a> TomlTokenIter<'a> {
     pub(crate) fn next_keylike(&mut self, start: usize) -> TomlTokenVariant {

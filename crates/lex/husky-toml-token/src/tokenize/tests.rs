@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use expect_test::expect_file;
 use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
@@ -15,7 +15,7 @@ use std::{borrow::Cow, sync::Arc};
     WordJar,
     ToolchainJar,
     PackagePathJar,
-    TomlTokenizeJar,
+    TomlTokenJar,
     VfsJar,
     SourcePathJar
 )]

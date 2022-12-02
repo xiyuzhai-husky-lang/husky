@@ -1,5 +1,4 @@
-use crate::{TomlAstError, TomlExprIdx, TomlLineGroup};
-use husky_toml_token_text::TomlTokenText;
+use crate::*;
 use husky_word::Word;
 use idx_arena::{Arena, ArenaIdx};
 use smallvec::SmallVec;
@@ -37,7 +36,7 @@ impl TomlSection {
 }
 
 impl TomlSectionSheet {
-    pub(crate) fn new(toml_token_text: &TomlTokenText, line_groups: &[TomlLineGroup]) -> Self {
+    pub(crate) fn new(toml_token_text: &TomlTokenSheet, line_groups: &[TomlLineGroup]) -> Self {
         let mut errors = vec![];
         Self {
             arena: TomlSectionIter::new(toml_token_text, line_groups, &mut errors).collect(),
@@ -55,7 +54,7 @@ impl TomlSectionSheet {
 }
 
 struct TomlSectionIter<'a> {
-    toml_token_text: &'a TomlTokenText,
+    toml_token_text: &'a TomlTokenSheet,
     line_groups: &'a [TomlLineGroup],
     current: usize,
     section_errors: &'a mut Vec<TomlAstError>,
@@ -68,7 +67,7 @@ pub enum TomlSectionIterState {
 
 impl<'a> TomlSectionIter<'a> {
     fn new(
-        toml_token_text: &'a TomlTokenText,
+        toml_token_text: &'a TomlTokenSheet,
         line_groups: &'a [TomlLineGroup],
         section_errors: &'a mut Vec<TomlAstError>,
     ) -> Self {

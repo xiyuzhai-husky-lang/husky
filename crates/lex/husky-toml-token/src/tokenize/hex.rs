@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 impl<'a> TomlTokenIter<'a> {
     pub(crate) fn next_hex(&mut self, i: usize, len: usize) -> TomlTokenResult<char> {

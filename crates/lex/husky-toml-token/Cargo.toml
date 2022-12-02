@@ -6,10 +6,22 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 thiserror = "1.0.37"
+# abstraction
+salsa = { path = "../../abstraction/salsa" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
+husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-text-span = { path = "../../lex/husky-text-span" }
 # kernel
+husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-word = { path = "../../kernel/husky-word" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+
+[dev-dependencies]
+expect-test = "1.4.0"
+salsa = { path = "../../abstraction/salsa" }
+# kernel
+husky-toolchain = { path = "../../kernel/husky-toolchain" }

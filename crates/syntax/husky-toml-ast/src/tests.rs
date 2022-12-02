@@ -5,7 +5,7 @@ use husky_print_utils::p;
 use husky_source_path::{
     HasSourcePathConfig, SourcePathConfig, SourcePathConfigMimic, SourcePathJar,
 };
-use husky_toml_tokenize::TomlTokenizeJar;
+use husky_toml_token::TomlTokenJar;
 use husky_toolchain::ToolchainJar;
 use husky_vfs::VfsJar;
 use husky_word::{WordDb, WordJar};
@@ -16,7 +16,7 @@ use std::{borrow::Cow, sync::Arc};
     WordJar,
     ToolchainJar,
     PackagePathJar,
-    TomlTokenizeJar,
+    TomlTokenJar,
     VfsJar,
     SourcePathJar,
     TomlAstJar

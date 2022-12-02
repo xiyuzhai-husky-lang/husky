@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 impl<'a> TomlTokenIter<'a> {
     pub(crate) fn next_comment_token(&mut self) -> TomlTokenVariant {

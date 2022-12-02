@@ -20,9 +20,6 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 # lex
 husky-toml-token = { path = "../../lex/husky-toml-token" }
-husky-toml-tokenize = { path = "../../lex/husky-toml-tokenize" }
-husky-toml-token-stream = { path = "../../lex/husky-toml-token-stream" }
-husky-toml-token-text = { path = "../../lex/husky-toml-token-text" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

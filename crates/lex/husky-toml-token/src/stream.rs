@@ -1,4 +1,4 @@
-use husky_toml_token::TomlToken;
+use crate::*;
 
 #[derive(Debug)]
 pub struct TomlTokenStream<'a> {

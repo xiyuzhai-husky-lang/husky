@@ -1,15 +1,12 @@
-mod line_group;
-
-use husky_toml_token::TomlToken;
-use line_group::produce_line_group_starts;
+use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct TomlTokenText {
+pub struct TomlTokenSheet {
     tokens: Vec<TomlToken>,
     line_group_starts: Vec<usize>,
 }
 
-impl TomlTokenText {
+impl TomlTokenSheet {
     pub fn new(tokens: Vec<TomlToken>) -> Self {
         Self {
             line_group_starts: produce_line_group_starts(&tokens),
