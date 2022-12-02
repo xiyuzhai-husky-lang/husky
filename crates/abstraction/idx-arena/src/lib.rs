@@ -43,7 +43,7 @@ impl<T> Arena<T> {
         &self.data
     }
 
-    pub fn enum_iter<'a>(&'a self) -> impl Iterator<Item = (ArenaIdx<T>, &'a T)> + 'a {
+    pub fn indexed_iter<'a>(&'a self) -> impl Iterator<Item = (ArenaIdx<T>, &'a T)> + 'a {
         self.data.iter().enumerate().map(|(i, t)| {
             (
                 ArenaIdx {
@@ -149,54 +149,13 @@ where
     }
 }
 
-// #[derive(Debug, PartialEq, Eq, Clone)]
-// pub struct ArenaMap<K, V>
-// where
-//     V: for<'a> From<&'a K>,
-// {
-//     data: Vec<V>,
-//     phantom: PhantomData<K>,
-// }
-
-// impl<K, V> Index<ArenaIdx<K>> for ArenaMap<K, V>
-// where
-//     V: for<'a> From<&'a K>,
-// {
-//     type Output = V;
-
-//     fn index(&self, idx: ArenaIdx<K>) -> &Self::Output {
-//         &self.data[idx.raw]
-//     }
-// }
-
-// impl<K, V> IndexMut<ArenaIdx<K>> for ArenaMap<K, V>
-// where
-//     V: for<'a> From<&'a K>,
-// {
-//     fn index_mut(&mut self, idx: ArenaIdx<K>) -> &mut Self::Output {
-//         &mut self.data[idx.raw]
-//     }
-// }
-
-// impl<K, V> ArenaMap<K, V>
-// where
-//     V: for<'a> From<&'a K>,
-// {
-//     pub fn new(arena: &Arena<K>) -> Self {
-//         Self {
-//             data: arena.storage.iter().map(|k| k.into()).collect(),
-//             phantom: Default::default(),
-//         }
-//     }
-
-//     pub fn get(&self, idx: ArenaIdx<K>) -> &V {
-//         &self.data[idx.raw]
-//     }
-
-//     pub fn get_mut(&mut self, idx: ArenaIdx<K>) -> &mut V {
-//         &mut self.data[idx.raw]
-//     }
-// }
+impl<T> FromIterator<T> for Arena<T> {
+    fn from_iter<Iter: IntoIterator<Item = T>>(iter: Iter) -> Self {
+        Self {
+            data: iter.into_iter().collect(),
+        }
+    }
+}
 
 impl<T> Debug for ArenaIdx<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

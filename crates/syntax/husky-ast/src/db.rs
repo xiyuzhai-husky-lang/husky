@@ -98,7 +98,7 @@ impl AstText {
     }
     pub fn find_first_expr_with_end_after(&self, pos: TextPosition) -> Option<(ExprIdx, &Expr)> {
         self.arena
-            .enum_iter()
+            .indexed_iter()
             .filter(|(_, expr)| expr.range.end >= pos)
             .next()
     }

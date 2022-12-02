@@ -1,24 +1,56 @@
 use crate::{TomlAstError, TomlExprIdx, TomlLineGroup};
 use husky_toml_token_text::TomlTokenText;
 use husky_word::Word;
+use idx_arena::{Arena, ArenaIdx};
+use smallvec::SmallVec;
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct TomlSectionSheet {
+    arena: Arena<TomlSection>,
+    errors: Vec<TomlAstError>,
+}
+
+pub type TomlSectionArena = Arena<TomlSection>;
+pub type TomlSectionIdx = ArenaIdx<TomlSection>;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TomlSection {
-    title: Vec<Word>,
-    is_scattered: bool,
-    key_value_pairs: Vec<(usize, Word, TomlExprIdx)>,
+    title: SmallVec<[Word; 2]>,
+    kind: TomlSectionKind,
+    key_value_pairs: Vec<(usize, Word, Option<TomlExprIdx>)>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum TomlSectionKind {
+    Normal,
+    Scattered,
 }
 
 impl TomlSection {
-    pub(crate) fn collect_from_line_groups(
-        toml_token_text: &TomlTokenText,
-        line_groups: &[TomlLineGroup],
-    ) -> (Vec<Self>, Vec<TomlAstError>) {
-        let mut section_errors = vec![];
-        (
-            TomlSectionIter::new(toml_token_text, line_groups, &mut section_errors).collect(),
-            section_errors,
-        )
+    pub fn kind(&self) -> TomlSectionKind {
+        self.kind
+    }
+
+    pub fn title(&self) -> &[Word] {
+        &self.title
+    }
+}
+
+impl TomlSectionSheet {
+    pub(crate) fn new(toml_token_text: &TomlTokenText, line_groups: &[TomlLineGroup]) -> Self {
+        let mut errors = vec![];
+        Self {
+            arena: TomlSectionIter::new(toml_token_text, line_groups, &mut errors).collect(),
+            errors,
+        }
+    }
+
+    pub fn errors(&self) -> &[TomlAstError] {
+        &self.errors
+    }
+
+    pub fn indexed_section_iter(&self) -> impl Iterator<Item = (TomlSectionIdx, &TomlSection)> {
+        self.arena.indexed_iter()
     }
 }
 
@@ -55,7 +87,9 @@ impl<'a> Iterator for TomlSectionIter<'a> {
     fn next(&mut self) -> Option<Self::Item> {
         let (line_group_index, line_group) = self.next_indexed_line_group()?;
         match line_group {
-            TomlLineGroup::SectionTitle { .. } => Some(self.next_section()),
+            TomlLineGroup::SectionTitle { title, kind } => {
+                Some(self.next_section(title.clone(), *kind))
+            }
             TomlLineGroup::KeyValue(_, _) => {
                 self.section_errors
                     .push(TomlAstError::MisplacedKeyValue(line_group_index));
@@ -72,7 +106,15 @@ impl<'a> TomlSectionIter<'a> {
         if self.current < self.line_groups.len() {
             let index = self.current;
             self.current += 1;
-            Some((index, &self.line_groups[self.current]))
+            Some((index, &self.line_groups[index]))
+        } else {
+            None
+        }
+    }
+
+    fn peek_indexed_line_group(&mut self) -> Option<(usize, &'a TomlLineGroup)> {
+        if self.current < self.line_groups.len() {
+            Some((self.current, &self.line_groups[self.current]))
         } else {
             None
         }
@@ -86,8 +128,25 @@ impl<'a> TomlSectionIter<'a> {
         }
     }
 
-    fn next_section(&mut self) -> TomlSection {
-        todo!()
+    fn pass(&mut self) {
+        self.current += 1;
+    }
+
+    fn next_section(&mut self, title: SmallVec<[Word; 2]>, kind: TomlSectionKind) -> TomlSection {
+        let mut key_value_pairs = vec![];
+        while let Some((i, line_group)) = self.peek_indexed_line_group() {
+            match line_group {
+                TomlLineGroup::SectionTitle { .. } => break,
+                TomlLineGroup::KeyValue(key, value) => key_value_pairs.push((i, *key, *value)),
+                TomlLineGroup::Comment | TomlLineGroup::Err => (),
+            }
+            self.pass()
+        }
+        TomlSection {
+            title,
+            kind,
+            key_value_pairs,
+        }
     }
 
     fn ignore_until_new_section(&mut self) -> Option<TomlSection> {
@@ -95,7 +154,7 @@ impl<'a> TomlSectionIter<'a> {
             match line_group {
                 TomlLineGroup::SectionTitle { .. } => break,
                 TomlLineGroup::KeyValue(_, _) | TomlLineGroup::Comment | TomlLineGroup::Err => {
-                    self.next();
+                    self.pass();
                 }
             }
         }

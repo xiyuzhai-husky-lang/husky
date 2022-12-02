@@ -8,6 +8,7 @@ edition = "2021"
 toml_datetime = "0.5.0"
 thiserror = "1.0.37"
 ordered-float = "3.0.0"
+smallvec = "1.10.0"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 idx-arena = { path = "../../abstraction/idx-arena" }

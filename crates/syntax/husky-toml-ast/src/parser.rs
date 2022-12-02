@@ -3,6 +3,7 @@ use husky_print_utils::p;
 use husky_toml_token::{TomlSpecialToken, TomlToken, TomlTokenVariant};
 use husky_toml_token_stream::TomlTokenStream;
 use salsa::DebugWithDb;
+use smallvec::SmallVec;
 
 pub(crate) struct TomlAstParser<'a> {
     db: &'a dyn TomlAstDb,
@@ -38,8 +39,8 @@ impl<'a> TomlAstParser<'a> {
     }
 
     fn parse_section_title(mut self) -> TomlLineGroup {
-        let mut title: Vec<Word> = vec![];
-        let mut is_scattered: bool = false;
+        let mut title: SmallVec<[Word; 2]> = Default::default();
+        let mut kind: TomlSectionKind = TomlSectionKind::Normal;
         let token = self.tokens.next().ok_or(TomlAstError::Expect)?;
         match token.variant() {
             TomlTokenVariant::Comment => todo!(),
@@ -59,15 +60,11 @@ impl<'a> TomlAstParser<'a> {
                 TomlTokenVariant::Err(_) => todo!(),
             }
         }
-        TomlLineGroup::SectionTitle {
-            title,
-            is_scattered,
-        }
+        TomlLineGroup::SectionTitle { title, kind }
     }
 
     fn parse_key_value(mut self, word: Word) -> TomlLineGroup {
         self.eat_special(TomlSpecialToken::Equals);
-        p!(word.debug(self.db.word_db()));
         let expr = self.parse_expr();
         TomlLineGroup::KeyValue(word, expr)
     }

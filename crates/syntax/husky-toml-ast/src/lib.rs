@@ -22,7 +22,7 @@ use husky_vfs::VfsResult;
 use husky_word::Word;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use parser::TomlAstParser;
-use section::TomlSection;
+use section::{TomlSection, TomlSectionIdx, TomlSectionKind, TomlSectionSheet};
 
 #[salsa::jar(db = TomlAstDb)]
 pub struct TomlAstJar(toml_ast);
@@ -30,9 +30,8 @@ pub struct TomlAstJar(toml_ast);
 #[derive(Debug, PartialEq, Eq)]
 pub struct TomlAst {
     exprs: TomlExprArena,
-    sections: Vec<TomlSection>,
+    sections: TomlSectionSheet,
     line_groups: Vec<TomlLineGroup>,
-    section_errors: Vec<TomlAstError>,
     table: TomlTable,
 }
 
@@ -48,14 +47,13 @@ impl TomlAst {
             .line_groups()
             .map(|tokens| TomlAstParser::new(db, tokens, &mut exprs).parse_line_group())
             .collect();
-        let (sections, section_errors) =
-            TomlSection::collect_from_line_groups(&toml_token_text, &line_groups);
+        let sections = TomlSectionSheet::new(&toml_token_text, &line_groups);
+        let table = TomlTable::new(&sections);
         TomlAst {
             sections,
             exprs,
             line_groups,
-            section_errors,
-            table: todo!(),
+            table,
         }
     }
 }
