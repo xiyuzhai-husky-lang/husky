@@ -23,7 +23,7 @@ impl TomlTokenText {
 
     fn line_group(&self, line_group_index: usize) -> &[TomlToken] {
         let start = self.line_group_starts[line_group_index];
-        let end = if line_group_index < self.line_group_starts.len() {
+        let end = if line_group_index + 1 < self.line_group_starts.len() {
             self.line_group_starts[line_group_index + 1]
         } else {
             self.tokens.len()

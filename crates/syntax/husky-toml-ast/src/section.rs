@@ -61,7 +61,7 @@ impl<'a> Iterator for TomlSectionIter<'a> {
                     .push(TomlAstError::MisplacedKeyValue(line_group_index));
                 self.next()
             }
-            TomlLineGroup::Comment => todo!(),
+            TomlLineGroup::Comment => self.next(),
             TomlLineGroup::Err => self.ignore_until_new_section(),
         }
     }

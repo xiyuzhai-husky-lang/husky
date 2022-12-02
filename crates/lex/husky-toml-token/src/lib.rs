@@ -54,7 +54,7 @@ impl TomlToken {
 pub enum TomlTokenVariant {
     Comment,
     Special(TomlSpecialToken),
-    Keylike(Word),
+    Word(Word),
     StringLiteral { val: StringValue, multiline: bool },
     Err(TomlTokenError),
 }
@@ -62,7 +62,7 @@ pub enum TomlTokenVariant {
 impl TomlTokenVariant {
     pub fn describe(&self) -> &'static str {
         match *self {
-            TomlTokenVariant::Keylike(_) => "an keylike",
+            TomlTokenVariant::Word(_) => "a word",
             TomlTokenVariant::Comment => "a comment",
             TomlTokenVariant::Special(special) => special.describe(),
             TomlTokenVariant::StringLiteral { multiline, .. } => {

@@ -139,7 +139,7 @@ fn keylike() {
         let token = t.next().unwrap();
         assert_eq!(
             token.variant(),
-            &TomlTokenVariant::Keylike(db.it_word_borrowed(input))
+            &TomlTokenVariant::Word(db.it_word_borrowed(input))
         );
         assert!(t.next().is_none());
     }
@@ -176,7 +176,7 @@ fn all() {
         " a ",
         &[(
             (1, 2),
-            TomlTokenVariant::Keylike(db.it_word_borrowed("a")),
+            TomlTokenVariant::Word(db.it_word_borrowed("a")),
             "a",
         )],
     );
@@ -187,7 +187,7 @@ fn all() {
         &[
             (
                 (1, 2),
-                TomlTokenVariant::Keylike(db.it_word_borrowed("a")),
+                TomlTokenVariant::Word(db.it_word_borrowed("a")),
                 "a",
             ),
             ((4, 5), TomlSpecialToken::LeftBox.into(), "["),
