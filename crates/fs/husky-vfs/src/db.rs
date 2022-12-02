@@ -8,7 +8,6 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + SourcePathDb + Send {
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn update_file(&mut self, path: PathBuf) -> VfsResult<()>;
-    fn package_manifest_toml_file(&self, package: PackagePath) -> VfsResult<SourceFile>;
 }
 
 impl<T> VfsDb for T
@@ -55,10 +54,6 @@ where
             self.file(path)?.set_content(self).to(content);
         }
         Ok(())
-    }
-
-    fn package_manifest_toml_file(&self, package: PackagePath) -> VfsResult<SourceFile> {
-        self.file(self.it_source_path(SourcePathData::CorgiToml(package)))
     }
 }
 

@@ -17,6 +17,12 @@ pub enum VfsError {
     SourcePath(#[from] SourcePathError),
 }
 
+impl From<&VfsError> for VfsError {
+    fn from(value: &VfsError) -> Self {
+        value.clone()
+    }
+}
+
 pub type VfsResult<T> = Result<T, VfsError>;
 
 // impl From<std::io::Error> for VfsError {

@@ -16,8 +16,8 @@ use husky_toml_token::*;
 use husky_word::{Word, WordDb};
 use iter::*;
 use keylike::is_keylike;
-use manifest::package_manifest_toml_tokens;
+use manifest::toml_token_text;
 use std::sync::Arc;
 
 #[salsa::jar(db = TomlTokenizeDb)]
-pub struct TomlTokenizeJar(package_manifest_toml_tokens);
+pub struct TomlTokenizeJar(toml_token_text);

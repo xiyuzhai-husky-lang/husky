@@ -1,10 +1,10 @@
 use crate::*;
 
-impl<'a> TokenIter<'a> {
-    pub(crate) fn next_whitespace_token(&mut self) -> TomlTokenVariant {
+impl<'a> TomlTokenIter<'a> {
+    pub(crate) fn eat_whitespace_then_next(&mut self) -> Option<TomlToken> {
         while self.try_eat_char(' ') || self.try_eat_char('\t') {
             // ...
         }
-        TomlTokenVariant::Whitespace
+        self.next()
     }
 }

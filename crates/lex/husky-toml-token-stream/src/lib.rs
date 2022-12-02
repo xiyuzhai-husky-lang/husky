@@ -1,14 +1,22 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+use husky_toml_token::TomlToken;
+
+pub struct TomlTokenStream<'a> {
+    tokens: &'a [TomlToken],
+    current: usize,
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+impl<'a> TomlTokenStream<'a> {
+    pub fn new(tokens: &'a [TomlToken]) -> Self {
+        Self { tokens, current: 0 }
+    }
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+    pub fn next(&mut self) -> Option<&'a TomlToken> {
+        if self.current < self.tokens.len() {
+            let index = self.current;
+            self.current += 1;
+            Some(&self.tokens[index])
+        } else {
+            None
+        }
     }
 }

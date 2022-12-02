@@ -3,13 +3,13 @@ use husky_text::{TextCharIter, TextPosition};
 use crate::*;
 
 #[derive(Clone)]
-pub(crate) struct TokenIter<'a> {
+pub(crate) struct TomlTokenIter<'a> {
     pub(crate) db: &'a dyn WordDb,
     pub(crate) input: &'a str,
     chars: TextCharIter<'a>,
 }
 
-impl<'a> Iterator for TokenIter<'a> {
+impl<'a> Iterator for TomlTokenIter<'a> {
     type Item = TomlToken;
 
     fn next(&mut self) -> Option<Self::Item> {
@@ -17,8 +17,8 @@ impl<'a> Iterator for TokenIter<'a> {
 
         let variant = match c {
             '\n' => return self.next(),
-            ' ' => Ok(self.next_whitespace_token()),
-            '\t' => Ok(self.next_whitespace_token()),
+            ' ' => return self.eat_whitespace_then_next(),
+            '\t' => return self.eat_whitespace_then_next(),
             '#' => Ok(self.next_comment_token()),
             '=' => Ok(TomlSpecialToken::Equals.into()),
             '.' => Ok(TomlSpecialToken::Period.into()),
@@ -39,9 +39,9 @@ impl<'a> Iterator for TokenIter<'a> {
     }
 }
 
-impl<'a> TokenIter<'a> {
+impl<'a> TomlTokenIter<'a> {
     pub(crate) fn new(db: &'a dyn WordDb, input: &'a str) -> Self {
-        let mut t = TokenIter {
+        let mut t = TomlTokenIter {
             db,
             input,
             chars: TextCharIter::new(input),
@@ -72,7 +72,7 @@ impl<'a> TokenIter<'a> {
     }
 }
 
-impl<'a> TokenIter<'a> {
+impl<'a> TomlTokenIter<'a> {
     pub(crate) fn try_eat_char(&mut self, ch: char) -> bool {
         match self.chars.clone().next() {
             Some(ch2) if ch == ch2 => {

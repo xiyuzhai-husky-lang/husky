@@ -2,13 +2,13 @@ use husky_print_utils::p;
 
 use crate::*;
 
-impl<'a> TokenIter<'a> {
+impl<'a> TomlTokenIter<'a> {
     #[allow(clippy::type_complexity)]
     fn next_string(
         &mut self,
         delim: char,
         new_ch: &mut dyn FnMut(
-            &mut TokenIter<'_>,
+            &mut TomlTokenIter<'_>,
             &mut MaybeString,
             bool,
             usize,
