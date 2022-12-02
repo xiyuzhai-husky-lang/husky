@@ -8,7 +8,7 @@ impl<'a> TomlTokenIter<'a> {
             }
             self.next_char();
         }
-        TomlTokenVariant::Keylike(self.db.it_word_borrowed(&self.input[start..self.current()]))
+        TomlTokenVariant::Word(self.db.it_word_borrowed(&self.input[start..self.current()]))
     }
 }
 

@@ -31,7 +31,7 @@ impl<'a> TomlAstParser<'a> {
                 TomlSpecialToken::LeftBox => self.parse_section_title(),
                 _ => todo!("unexpected"),
             },
-            TomlTokenVariant::Keylike(word) => self.parse_key_value(*word),
+            TomlTokenVariant::Word(word) => self.parse_key_value(*word),
             TomlTokenVariant::StringLiteral { val, multiline } => todo!("make key value"),
             TomlTokenVariant::Err(_) => TomlLineGroup::Err,
         }
@@ -44,7 +44,7 @@ impl<'a> TomlAstParser<'a> {
         match token.variant() {
             TomlTokenVariant::Comment => todo!(),
             TomlTokenVariant::Special(_) => todo!(),
-            TomlTokenVariant::Keylike(word) => title.push(*word),
+            TomlTokenVariant::Word(word) => title.push(*word),
             TomlTokenVariant::StringLiteral { val, multiline } => todo!(),
             TomlTokenVariant::Err(_) => todo!(),
         }
@@ -54,7 +54,7 @@ impl<'a> TomlAstParser<'a> {
                 TomlTokenVariant::Comment => todo!(),
                 TomlTokenVariant::Special(TomlSpecialToken::RightBox) => break,
                 TomlTokenVariant::Special(_) => todo!(),
-                TomlTokenVariant::Keylike(_) => todo!(),
+                TomlTokenVariant::Word(_) => todo!(),
                 TomlTokenVariant::StringLiteral { val, multiline } => todo!(),
                 TomlTokenVariant::Err(_) => todo!(),
             }
@@ -81,17 +81,16 @@ impl<'a> TomlAstParser<'a> {
     }
 
     fn parse_expr(mut self) -> Option<TomlExprIdx> {
-        Some(match self.tokens.next()?.variant() {
+        Some(self.exprs.alloc_one(match self.tokens.next()?.variant() {
             TomlTokenVariant::Comment => todo!(),
             TomlTokenVariant::Special(_) => todo!(),
-            TomlTokenVariant::Keylike(word) => {
-                p!(word.debug(self.db.word_db()));
-                todo!()
-            }
-            TomlTokenVariant::StringLiteral { val, multiline } => {
-                self.exprs.alloc_one(TomlExpr::String(val.clone()))
-            }
+            TomlTokenVariant::Word(word) => match self.db.word_db().dt_word(*word) {
+                "true" => TomlExpr::Boolean(true),
+                "false" => TomlExpr::Boolean(false),
+                _ => todo!(),
+            },
+            TomlTokenVariant::StringLiteral { val, multiline } => TomlExpr::String(val.clone()),
             TomlTokenVariant::Err(_) => todo!(),
-        })
+        }))
     }
 }
