@@ -1,6 +1,6 @@
 use crate::*;
 
-impl<'a> TokenIter<'a> {
+impl<'a> TomlTokenIter<'a> {
     pub(crate) fn next_hex(&mut self, i: usize, len: usize) -> TomlTokenResult<char> {
         let mut buf = String::with_capacity(len);
         for _ in 0..len {

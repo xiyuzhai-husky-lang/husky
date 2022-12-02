@@ -1,37 +1,38 @@
 #![feature(try_trait_v2)]
+mod db;
 mod error;
+mod expr;
 mod line_group;
+mod parser;
 
+pub use db::*;
 pub use error::*;
+pub use expr::*;
+pub use line_group::*;
 
+use husky_source_path::SourcePath;
+use husky_vfs::VfsResult;
 use husky_word::Word;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
+use parser::TomlAstParser;
 
-#[derive(PartialEq, Clone, Debug)]
-pub enum TomlAst {
-    /// Represents a TOML string
-    String(String),
-    /// Represents a TOML integer
-    Integer(i64),
-    /// Represents a TOML float
-    Float(f64),
-    /// Represents a TOML boolean
-    Boolean(bool),
-    /// Represents a TOML datetime
-    Datetime(toml_datetime::Datetime),
-    /// Represents a TOML array
-    Array(TomlAstIdxRange),
-    /// Represents a TOML table
-    Table(TomlAstIdxRange),
-    Err(TomlAstError),
+// #[salsa::trac]
+#[derive(Debug, PartialEq, Eq)]
+pub struct TomlAst {
+    exprs: TomlExprArena,
+    line_groups: Vec<TomlLineGroup>,
 }
 
-pub type TomlAstArena = Arena<TomlAst>;
-pub type TomlAstIdx = ArenaIdx<TomlAst>;
-pub type TomlAstIdxRange = ArenaIdxRange<TomlAst>;
+#[salsa::jar(db = TomlAstDb)]
+pub struct TomlAstJar(toml_ast);
 
-impl std::ops::FromResidual<TomlAstError> for TomlAst {
-    fn from_residual(error: TomlAstError) -> Self {
-        TomlAst::Err(error)
-    }
+#[salsa::tracked(jar = TomlAstJar, return_ref)]
+fn toml_ast(db: &dyn TomlAstDb, path: SourcePath) -> VfsResult<TomlAst> {
+    let toml_token_text = db.toml_token_text(path).as_ref()?;
+    let mut exprs = TomlExprArena::default();
+    let line_groups = toml_token_text
+        .line_groups()
+        .map(|tokens| TomlAstParser::new(db, tokens).parse_line_group())
+        .collect();
+    Ok(TomlAst { exprs, line_groups })
 }

@@ -54,7 +54,6 @@ impl TomlToken {
 /// variants for tokens in toml file
 #[derive(Debug, Eq, PartialEq, Clone)]
 pub enum TomlTokenVariant {
-    Whitespace,
     Comment,
     Special(TomlSpecialToken),
     Keylike(Word),
@@ -85,7 +84,6 @@ impl TomlTokenVariant {
             TomlTokenVariant::Keylike(_) => "an keylike",
             TomlTokenVariant::Comment => "a comment",
             TomlTokenVariant::Special(special) => special.describe(),
-            TomlTokenVariant::Whitespace => "whitespace",
             TomlTokenVariant::StringLiteral { multiline, .. } => {
                 if multiline {
                     "a multiline string"

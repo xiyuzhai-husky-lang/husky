@@ -20,7 +20,7 @@ fn it_works() {
     fn test_parse_exprs_debug(text: &str) -> String {
         let db = MimicDB::default();
         let tokens = db.tokenize_line(text);
-        let mut arena = ExprArena::new();
+        let mut arena = ExprArena::default();
         // ad hoc; todo: preludes
         let mut symbols = db.new_symbol_ctx();
         parse_expr(&db, &tokens, &mut symbols, &mut arena);

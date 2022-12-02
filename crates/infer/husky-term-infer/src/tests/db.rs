@@ -71,7 +71,7 @@ impl TermInferTestsDb {
     pub(super) fn parse_expr_from_text(&self, text: &str) -> (ExprArena, ExprIdx) {
         use husky_tokenize::TokenizeDb;
         let tokens = self.tokenize_line(text);
-        let mut arena = ExprArena::new();
+        let mut arena = ExprArena::default();
         let mut ctx = self.new_symbol_ctx();
         let expr = parse_expr(self, &tokens, &mut ctx, &mut arena);
         (arena, expr)

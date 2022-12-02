@@ -13,10 +13,15 @@ pub struct Arena<T> {
     data: Vec<T>,
 }
 
-impl<T> Arena<T> {
-    pub fn new() -> Self {
-        Self { data: Vec::new() }
+impl<T> Default for Arena<T> {
+    fn default() -> Self {
+        Self {
+            data: Default::default(),
+        }
     }
+}
+
+impl<T> Arena<T> {
     pub fn alloc(&mut self, item: Vec<T>) -> ArenaIdxRange<T> {
         let start = ArenaIdx::new(self.data.len());
         self.data.extend(item);

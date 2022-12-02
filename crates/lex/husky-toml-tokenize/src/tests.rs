@@ -1,4 +1,4 @@
-use super::{TokenIter, TomlTokenError, TomlTokenVariant};
+use super::{TomlTokenError, TomlTokenIter, TomlTokenVariant};
 use crate::*;
 use crate::{TomlSpecialToken, TomlTokenizeJar};
 use expect_test::expect_file;
@@ -46,7 +46,7 @@ impl ParallelDatabase for MimicDB {
 
 fn err(input: &str, err: TomlTokenError) {
     let db = MimicDB::default();
-    let mut t = TokenIter::new(&db, input);
+    let mut t = TomlTokenIter::new(&db, input);
     let token = t.next().unwrap().variant().clone().unwrap_err();
     assert_eq!(token, err);
     assert!(t.next().is_none());
@@ -55,7 +55,7 @@ fn err(input: &str, err: TomlTokenError) {
 #[test]
 fn literal_strings() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
-        let mut t = TokenIter::new(db, input);
+        let mut t = TomlTokenIter::new(db, input);
         let token = t.next().unwrap().variant().clone().unwrap();
         assert_eq!(
             token,
@@ -81,7 +81,7 @@ fn literal_strings() {
 #[test]
 fn basic_strings() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
-        let mut t = TokenIter::new(db, input);
+        let mut t = TomlTokenIter::new(db, input);
         let token = t.next().unwrap().variant().clone().unwrap();
         assert_eq!(
             token,
@@ -137,7 +137,7 @@ fn basic_strings() {
 #[test]
 fn keylike() {
     fn t(db: &dyn WordDb, input: &str) {
-        let mut t = TokenIter::new(db, input);
+        let mut t = TomlTokenIter::new(db, input);
         let token = t.next().unwrap().variant().clone().unwrap();
         assert_eq!(token, TomlTokenVariant::Keylike(db.it_word_borrowed(input)));
         assert!(t.next().is_none());
@@ -157,7 +157,7 @@ fn keylike() {
 #[test]
 fn all() {
     fn t(db: &dyn WordDb, input: &str, expected: &[((usize, usize), TomlTokenVariant, &str)]) {
-        let mut tokens = TokenIter::new(db, input);
+        let mut tokens = TomlTokenIter::new(db, input);
         let mut actual: Vec<((usize, usize), TomlTokenVariant, &str)> = Vec::new();
         while let Some(token) = tokens.next() {
             actual.push((
@@ -176,47 +176,35 @@ fn all() {
     t(
         &db,
         " a ",
-        &[
-            ((0, 1), TomlTokenVariant::Whitespace, " "),
-            (
-                (1, 2),
-                TomlTokenVariant::Keylike(db.it_word_borrowed("a")),
-                "a",
-            ),
-            ((2, 3), TomlTokenVariant::Whitespace, " "),
-        ],
+        &[(
+            (1, 2),
+            TomlTokenVariant::Keylike(db.it_word_borrowed("a")),
+            "a",
+        )],
     );
 
     t(
         &db,
         " a\t [[]] \t [] {} , . =\n# foo \r\n#foo \n ",
         &[
-            ((0, 1), TomlTokenVariant::Whitespace, " "),
             (
                 (1, 2),
                 TomlTokenVariant::Keylike(db.it_word_borrowed("a")),
                 "a",
             ),
-            ((2, 4), TomlTokenVariant::Whitespace, "\t "),
             ((4, 5), TomlSpecialToken::LeftBox.into(), "["),
             ((5, 6), TomlSpecialToken::LeftBox.into(), "["),
             ((6, 7), TomlSpecialToken::RightBox.into(), "]"),
             ((7, 8), TomlSpecialToken::RightBox.into(), "]"),
-            ((8, 11), TomlTokenVariant::Whitespace, " \t "),
             ((11, 12), TomlSpecialToken::LeftBox.into(), "["),
             ((12, 13), TomlSpecialToken::RightBox.into(), "]"),
-            ((13, 14), TomlTokenVariant::Whitespace, " "),
             ((14, 15), TomlSpecialToken::LeftCurly.into(), "{"),
             ((15, 16), TomlSpecialToken::RightCurly.into(), "}"),
-            ((16, 17), TomlTokenVariant::Whitespace, " "),
             ((17, 18), TomlSpecialToken::Comma.into(), ","),
-            ((18, 19), TomlTokenVariant::Whitespace, " "),
             ((19, 20), TomlSpecialToken::Period.into(), "."),
-            ((20, 21), TomlTokenVariant::Whitespace, " "),
             ((21, 22), TomlSpecialToken::Equals.into(), "="),
             ((23, 29), TomlTokenVariant::Comment, "# foo "),
             ((31, 36), TomlTokenVariant::Comment, "#foo "),
-            ((37, 38), TomlTokenVariant::Whitespace, " "),
         ],
     );
 }
@@ -233,7 +221,7 @@ fn bare_cr_bad() {
 #[test]
 fn bad_comment() {
     let db = MimicDB::default();
-    let mut t = TokenIter::new(&db, "#\u{0}");
+    let mut t = TomlTokenIter::new(&db, "#\u{0}");
     t.next().unwrap();
     assert_eq!(
         t.next().unwrap().variant(),

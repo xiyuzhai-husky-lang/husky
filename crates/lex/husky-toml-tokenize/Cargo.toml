@@ -10,6 +10,7 @@ expect-test = "1.4.0"
 salsa = { path = "../../abstraction/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
+husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-text-span = { path = "../../lex/husky-text-span" }
@@ -25,5 +26,3 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 salsa = { path = "../../abstraction/salsa" }
 # kernel
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
-# fs
-husky-source-path = { path = "../../fs/husky-source-path" }

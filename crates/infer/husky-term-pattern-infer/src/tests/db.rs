@@ -48,7 +48,7 @@ impl TermPatternInferFakeDb {
         use husky_tokenize::TokenizeDb;
 
         let tokens = self.tokenize_line(text);
-        let mut arena = ExprArena::new();
+        let mut arena = ExprArena::default();
         todo!()
         // let expr = parse_expr(&mut symbol_ctx, &mut arena, &tokens);
         // (arena, expr)
