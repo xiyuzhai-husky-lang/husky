@@ -16,7 +16,7 @@ impl<'a> Iterator for TokenIter<'a> {
         let (start_offset, start_position, c) = self.chars.next_char_with_offset_and_position()?;
 
         let variant = match c {
-            '\n' => Ok(TomlTokenVariant::Newline),
+            '\n' => return self.next(),
             ' ' => Ok(self.next_whitespace_token()),
             '\t' => Ok(self.next_whitespace_token()),
             '#' => Ok(self.next_comment_token()),

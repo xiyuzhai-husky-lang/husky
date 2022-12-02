@@ -55,7 +55,6 @@ impl TomlToken {
 #[derive(Debug, Eq, PartialEq, Clone)]
 pub enum TomlTokenVariant {
     Whitespace,
-    Newline,
     Comment,
     Special(TomlSpecialToken),
     Keylike(Word),
@@ -85,7 +84,6 @@ impl TomlTokenVariant {
         match *self {
             TomlTokenVariant::Keylike(_) => "an keylike",
             TomlTokenVariant::Comment => "a comment",
-            TomlTokenVariant::Newline => "a newline",
             TomlTokenVariant::Special(special) => special.describe(),
             TomlTokenVariant::Whitespace => "whitespace",
             TomlTokenVariant::StringLiteral { multiline, .. } => {

@@ -214,11 +214,8 @@ fn all() {
             ((19, 20), TomlSpecialToken::Period.into(), "."),
             ((20, 21), TomlTokenVariant::Whitespace, " "),
             ((21, 22), TomlSpecialToken::Equals.into(), "="),
-            ((22, 23), TomlTokenVariant::Newline, "\n"),
             ((23, 29), TomlTokenVariant::Comment, "# foo "),
-            ((29, 31), TomlTokenVariant::Newline, "\r\n"),
             ((31, 36), TomlTokenVariant::Comment, "#foo "),
-            ((36, 37), TomlTokenVariant::Newline, "\n"),
             ((37, 38), TomlTokenVariant::Whitespace, " "),
         ],
     );
@@ -249,15 +246,15 @@ fn bad_comment() {
 fn builtin_library_toml_token_sheets() {
     let db = MimicDB::default();
     let package_path_menu = db.package_path_menu();
-    expect_file!["./tests/package_core_toml_token_sheets.txt"].assert_eq(&format!(
+    expect_file!["../tests/package_core_toml_token_sheets.txt"].assert_eq(&format!(
         "{:#?}",
-        db.toml_token_sheet(package_path_menu.core())
+        db.package_manifest_token_text(package_path_menu.core())
             .as_ref()
             .unwrap()
     ));
-    expect_file!["./tests/package_std_toml_token_sheets.txt"].assert_eq(&format!(
+    expect_file!["../tests/package_std_toml_token_sheets.txt"].assert_eq(&format!(
         "{:#?}",
-        db.toml_token_sheet(package_path_menu.std())
+        db.package_manifest_token_text(package_path_menu.std())
             .as_ref()
             .unwrap()
     ));
