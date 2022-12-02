@@ -22,7 +22,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
 upcast = { path = "../../abstraction/upcast" }
 avec = { path = "../../abstraction/avec" }
-fold = { path = "../../abstraction/fold" }
 map-collect = { path = "../../abstraction/map-collect" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-vm = { path = "../../vm/husky-vm" }

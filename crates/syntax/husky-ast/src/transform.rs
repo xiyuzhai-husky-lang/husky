@@ -17,29 +17,27 @@ use crate::{
     db::{AstDb, AstText},
     *,
 };
-use fold::{FoldableIter, FoldableList, LocalStack, LocalValue};
 use husky_entity_tree::EntityTreeResult;
 use husky_source_path::SourcePath;
 use husky_text::HasTextRange;
 use husky_token::*;
-use husky_token_sheet::TokenizedText;
 
-pub type AstIter<'a> = FoldableIter<'a, FoldableList<AstResult<DeprecatedAst>>>;
+// pub type AstIter<'a> = FoldableIter<'a, FoldableList<AstResult<DeprecatedAst>>>;
 
-pub struct AstTransformer<'a> {
-    db: &'a dyn AstDb,
-    main: SourcePath,
-    file: SourcePath,
-    arena: ExprArena,
-    // symbols: LocalStack<Symbol>,
-    context: LocalValue<AstContext>,
-    opt_base_ty: LocalValue<Option<Term>>,
-    // opt_this_liason: LocalValue<Option<ParameterModifier>>,
-    pub(crate) folded_results: FoldableList<AstResult<DeprecatedAst>>,
-    abs_semantic_tokens: Vec<AbsSemanticToken>,
-    tokenized_text: Arc<TokenizedText>,
-    infer_roots: Vec<AstEntrance>,
-}
+// pub struct AstTransformer<'a> {
+//     db: &'a dyn AstDb,
+//     main: SourcePath,
+//     file: SourcePath,
+//     arena: ExprArena,
+//     // symbols: LocalStack<Symbol>,
+//     context: LocalValue<AstContext>,
+//     opt_base_ty: LocalValue<Option<Term>>,
+//     // opt_this_liason: LocalValue<Option<ParameterModifier>>,
+//     pub(crate) folded_results: FoldableList<AstResult<DeprecatedAst>>,
+//     abs_semantic_tokens: Vec<AbsSemanticToken>,
+//     tokenized_text: Arc<TokenSheet>,
+//     infer_roots: Vec<AstEntrance>,
+// }
 
 impl<'a> AstTransformer<'a> {
     pub(crate) fn new(db: &'a dyn AstDb, module: Term) -> EntityTreeResult<Self> {
@@ -106,7 +104,7 @@ impl<'a> AstTransformer<'a> {
 
 impl<'a> fold::Transformer for AstTransformer<'a> {
     type Input = [Token];
-    type InputStorage = TokenizedText;
+    type InputStorage = TokenSheet;
     type Output = AstResult<DeprecatedAst>;
 
     fn _enter_block(&mut self) {
@@ -163,7 +161,7 @@ impl<'a> fold::Transformer for AstTransformer<'a> {
         &mut self.folded_results
     }
 
-    fn foldable_inputs(&self) -> &TokenizedText {
+    fn foldable_inputs(&self) -> &TokenSheet {
         &self.tokenized_text
     }
 

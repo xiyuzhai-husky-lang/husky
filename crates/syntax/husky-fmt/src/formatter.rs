@@ -1,6 +1,5 @@
 use std::ops::AddAssign;
 
-use fold::LocalValue;
 use husky_ast::*;
 use husky_defn_head::Parameter;
 use husky_entity_kind::TyKind;
@@ -14,9 +13,9 @@ use husky_token::Paradigm;
 pub struct Formatter<'a> {
     db: &'a dyn EntityTreeDb,
     arena: &'a ExprArena,
-    indent: fold::Indent,
+    // indent: fold::Indent,
     result: String,
-    context: LocalValue<AstContext>,
+    // context: LocalValue<AstContext>,
 }
 
 impl<'a> Formatter<'a> {
@@ -24,9 +23,9 @@ impl<'a> Formatter<'a> {
         Self {
             db,
             arena,
-            indent: 0,
+            // indent: 0,
             result: String::new(),
-            context: LocalValue::new(context),
+            // context: LocalValue::new(context),
         }
     }
 
@@ -35,40 +34,15 @@ impl<'a> Formatter<'a> {
     }
 }
 
-impl<'a> fold::Executor for Formatter<'a> {
-    type Input = AstResult<DeprecatedAst>;
-    type InputStorage = fold::FoldableList<AstResult<DeprecatedAst>>;
-
-    fn _enter_block(&mut self) {
-        self.context.enter()
-    }
-
-    fn _exit_block(&mut self) {
-        self.context.exit()
-    }
-
-    fn execute(
-        &mut self,
-        indent: fold::Indent,
-        ast_result: &AstResult<DeprecatedAst>,
-        enter_block: impl FnOnce(&mut Self),
-    ) {
-        self.indent = indent;
-        if self.result.len() > 0 {
-            self.newline();
-        }
-        self.fmt(ast_result.as_ref().unwrap(), enter_block);
-    }
-}
-
 impl<'a> Formatter<'a> {
     fn newline(&mut self) {
-        self.result
-            .reserve_exact(self.result.len() + self.indent as usize + 1);
-        self.result.push('\n');
-        for _ in 0..self.indent {
-            self.result.push(' ');
-        }
+        todo!()
+        // self.result
+        //     .reserve_exact(self.result.len() + self.indent as usize + 1);
+        // self.result.push('\n');
+        // for _ in 0..self.indent {
+        //     self.result.push(' ');
+        // }
     }
 
     fn write(&mut self, s: &str) {
@@ -78,126 +52,127 @@ impl<'a> Formatter<'a> {
 
 impl<'a> Formatter<'a> {
     fn fmt(&mut self, ast: &husky_ast::DeprecatedAst, enter_block: impl FnOnce(&mut Self)) {
-        match ast.variant {
-            DeprecatedAstVariant::TypeDefnHead {
-                ident,
-                ref kind,
-                ref spatial_parameters,
-            } => {
-                enter_block(self);
-                match kind {
-                    TyKind::Enum => todo!(),
-                    TyKind::Struct => {
-                        self.context.set(AstContext::Struct {
-                            item_context: StructItemContext::OriginalField,
-                            opt_base_ty: None,
-                        });
-                        self.write("struct ")
-                    }
-                    TyKind::Record => todo!(),
-                    TyKind::Primitive => todo!(),
-                    TyKind::Vec => todo!(),
-                    TyKind::Array => todo!(),
-                    TyKind::Slice => todo!(),
-                    TyKind::CyclicSlice => todo!(),
-                    TyKind::Tuple => todo!(),
-                    TyKind::Mor => todo!(),
-                    TyKind::ThickFp => todo!(),
-                    TyKind::AssociatedAny => todo!(),
-                    TyKind::TargetOutputAny => todo!(),
-                    TyKind::ThisAny => todo!(),
-                    TyKind::SpatialPlaceholderAny => todo!(),
-                    TyKind::BoxAny => todo!(),
-                    TyKind::HigherKind => todo!(),
-                    TyKind::Ref => todo!(),
-                    TyKind::Option => todo!(),
-                }
-                self.fmt_ident(ident.ident.into());
-                if spatial_parameters.len() > 0 {
-                    todo!()
-                }
-            }
-            DeprecatedAstVariant::MainDefnHead => {
-                enter_block(self);
-                self.context.set(AstContext::Stmt {
-                    paradigm: Paradigm::LazyFunctional,
-                    return_context: Some(RawReturnContext {
-                        opt_return_ty: todo!(),
-                        //  Some(Term {
-                        //     route: self.db.intern_entity_route(EntityRoute {
-                        //         variant: EntityRouteVariant::TargetOutputType,
-                        //         temporal_arguments: Default::default(),
-                        //         spatial_arguments: Default::default(),
-                        //     }),
-                        //     range: Default::default(),
-                        // }),
-                        kind: RawReturnContextKind::Feature,
-                    }),
-                });
-                self.write("main:")
-            }
-            DeprecatedAstVariant::CallFormDefnHead {
-                paradigm,
-                ident,
-                ref parameters,
-                return_ty,
-                ..
-            } => {
-                enter_block(self);
-                self.context.set(AstContext::Stmt {
-                    paradigm,
-                    return_context: Some(RawReturnContext {
-                        opt_return_ty: Some(return_ty),
-                        kind: RawReturnContextKind::Normal,
-                    }),
-                });
-                self.write(match paradigm {
-                    Paradigm::EagerProcedural => "proc ",
-                    Paradigm::EagerFunctional => "func ",
-                    Paradigm::LazyFunctional => todo!(),
-                });
-                todo!()
-                // msg_once!("generic parameters");
-                // self.write(&ident.ident);
-                // self.write("(");
-                // for i in 0..parameters.len() {
-                //     if i > 0 {
-                //         self.write(", ");
-                //     }
-                //     let parameter = &parameters[i];
-                //     self.fmt_parameter(parameter);
-                // }
-                // self.write(")");
-                // todo!();
-                // // if return_ty.route != Term::Root(RootBuiltinIdentifier::Void) {
-                // //     self.write(" -> ");
-                // //     self.fmt_ty(return_ty.route);
-                // // }
-                // self.write(":");
-            }
-            DeprecatedAstVariant::FieldDefnHead {
-                ranged_ident,
-                field_ty,
-                ..
-            } => {
-                todo!()
-                // match liason {
-                //     MemberModifier::Immutable => (),
-                //     MemberModifier::Mutable => todo!(),
-                //     MemberModifier::Property => todo!(),
-                // }
-                // self.fmt_ident(ranged_ident.ident.into());
-                // self.write(": ");
-                // self.fmt_ty(field_ty.route)
-            }
-            DeprecatedAstVariant::Stmt(ref stmt) => self.fmt_stmt(stmt),
-            DeprecatedAstVariant::DatasetConfigDefnHead => todo!(),
-            DeprecatedAstVariant::EnumVariantDefnHead { .. } => todo!(),
-            DeprecatedAstVariant::FeatureDefnHead { .. } => todo!(),
-            DeprecatedAstVariant::Use { .. } => todo!(),
-            DeprecatedAstVariant::Submodule { .. } => todo!(),
-            DeprecatedAstVariant::Visual => todo!(),
-        }
+        todo!()
+        // match ast.variant {
+        //     DeprecatedAstVariant::TypeDefnHead {
+        //         ident,
+        //         ref kind,
+        //         ref spatial_parameters,
+        //     } => {
+        //         enter_block(self);
+        //         match kind {
+        //             TyKind::Enum => todo!(),
+        //             TyKind::Struct => {
+        //                 self.context.set(AstContext::Struct {
+        //                     item_context: StructItemContext::OriginalField,
+        //                     opt_base_ty: None,
+        //                 });
+        //                 self.write("struct ")
+        //             }
+        //             TyKind::Record => todo!(),
+        //             TyKind::Primitive => todo!(),
+        //             TyKind::Vec => todo!(),
+        //             TyKind::Array => todo!(),
+        //             TyKind::Slice => todo!(),
+        //             TyKind::CyclicSlice => todo!(),
+        //             TyKind::Tuple => todo!(),
+        //             TyKind::Mor => todo!(),
+        //             TyKind::ThickFp => todo!(),
+        //             TyKind::AssociatedAny => todo!(),
+        //             TyKind::TargetOutputAny => todo!(),
+        //             TyKind::ThisAny => todo!(),
+        //             TyKind::SpatialPlaceholderAny => todo!(),
+        //             TyKind::BoxAny => todo!(),
+        //             TyKind::HigherKind => todo!(),
+        //             TyKind::Ref => todo!(),
+        //             TyKind::Option => todo!(),
+        //         }
+        //         self.fmt_ident(ident.ident.into());
+        //         if spatial_parameters.len() > 0 {
+        //             todo!()
+        //         }
+        //     }
+        //     DeprecatedAstVariant::MainDefnHead => {
+        //         enter_block(self);
+        //         self.context.set(AstContext::Stmt {
+        //             paradigm: Paradigm::LazyFunctional,
+        //             return_context: Some(RawReturnContext {
+        //                 opt_return_ty: todo!(),
+        //                 //  Some(Term {
+        //                 //     route: self.db.intern_entity_route(EntityRoute {
+        //                 //         variant: EntityRouteVariant::TargetOutputType,
+        //                 //         temporal_arguments: Default::default(),
+        //                 //         spatial_arguments: Default::default(),
+        //                 //     }),
+        //                 //     range: Default::default(),
+        //                 // }),
+        //                 kind: RawReturnContextKind::Feature,
+        //             }),
+        //         });
+        //         self.write("main:")
+        //     }
+        //     DeprecatedAstVariant::CallFormDefnHead {
+        //         paradigm,
+        //         ident,
+        //         ref parameters,
+        //         return_ty,
+        //         ..
+        //     } => {
+        //         enter_block(self);
+        //         self.context.set(AstContext::Stmt {
+        //             paradigm,
+        //             return_context: Some(RawReturnContext {
+        //                 opt_return_ty: Some(return_ty),
+        //                 kind: RawReturnContextKind::Normal,
+        //             }),
+        //         });
+        //         self.write(match paradigm {
+        //             Paradigm::EagerProcedural => "proc ",
+        //             Paradigm::EagerFunctional => "func ",
+        //             Paradigm::LazyFunctional => todo!(),
+        //         });
+        //         todo!()
+        //         // msg_once!("generic parameters");
+        //         // self.write(&ident.ident);
+        //         // self.write("(");
+        //         // for i in 0..parameters.len() {
+        //         //     if i > 0 {
+        //         //         self.write(", ");
+        //         //     }
+        //         //     let parameter = &parameters[i];
+        //         //     self.fmt_parameter(parameter);
+        //         // }
+        //         // self.write(")");
+        //         // todo!();
+        //         // // if return_ty.route != Term::Root(RootBuiltinIdentifier::Void) {
+        //         // //     self.write(" -> ");
+        //         // //     self.fmt_ty(return_ty.route);
+        //         // // }
+        //         // self.write(":");
+        //     }
+        //     DeprecatedAstVariant::FieldDefnHead {
+        //         ranged_ident,
+        //         field_ty,
+        //         ..
+        //     } => {
+        //         todo!()
+        //         // match liason {
+        //         //     MemberModifier::Immutable => (),
+        //         //     MemberModifier::Mutable => todo!(),
+        //         //     MemberModifier::Property => todo!(),
+        //         // }
+        //         // self.fmt_ident(ranged_ident.ident.into());
+        //         // self.write(": ");
+        //         // self.fmt_ty(field_ty.route)
+        //     }
+        //     DeprecatedAstVariant::Stmt(ref stmt) => self.fmt_stmt(stmt),
+        //     DeprecatedAstVariant::DatasetConfigDefnHead => todo!(),
+        //     DeprecatedAstVariant::EnumVariantDefnHead { .. } => todo!(),
+        //     DeprecatedAstVariant::FeatureDefnHead { .. } => todo!(),
+        //     DeprecatedAstVariant::Use { .. } => todo!(),
+        //     DeprecatedAstVariant::Submodule { .. } => todo!(),
+        //     DeprecatedAstVariant::Visual => todo!(),
+        // }
     }
 
     fn fmt_ident(&mut self, ident: husky_word::Identifier) {
@@ -258,22 +233,23 @@ impl<'a> Formatter<'a> {
                 self.fmt_expr(&self.arena[initial_value]);
             }
             RawStmtVariant::Return { result, .. } => {
-                match self.context.value() {
-                    AstContext::Stmt {
-                        paradigm: Paradigm::EagerFunctional,
-                        ..
-                    }
-                    | AstContext::Stmt {
-                        paradigm: Paradigm::LazyFunctional,
-                        ..
-                    } => (),
-                    AstContext::Stmt {
-                        paradigm: Paradigm::EagerProcedural,
-                        ..
-                    } => self.write("return "),
-                    _ => panic!(),
-                }
-                self.fmt_expr(&self.arena[result]);
+                todo!()
+                // match self.context.value() {
+                //     AstContext::Stmt {
+                //         paradigm: Paradigm::EagerFunctional,
+                //         ..
+                //     }
+                //     | AstContext::Stmt {
+                //         paradigm: Paradigm::LazyFunctional,
+                //         ..
+                //     } => (),
+                //     AstContext::Stmt {
+                //         paradigm: Paradigm::EagerProcedural,
+                //         ..
+                //     } => self.write("return "),
+                //     _ => panic!(),
+                // }
+                // self.fmt_expr(&self.arena[result]);
             }
             RawStmtVariant::Assert(expr) => {
                 self.write("assert ");

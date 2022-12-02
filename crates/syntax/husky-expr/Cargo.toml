@@ -17,8 +17,6 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
-husky-tokenize = { path = "../../lex/husky-tokenize" }
-husky-token-stream = { path = "../../lex/husky-token-stream" }
 husky-text = { path = "../../lex/husky-text" }
 # syntax
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
@@ -42,5 +40,3 @@ husky-source-path = { path = "../../fs/husky-source-path" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
-# lex
-husky-token-sheet = { path = "../../lex/husky-token-sheet" }

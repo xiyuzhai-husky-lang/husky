@@ -8,7 +8,6 @@ mod db;
 pub use db::*;
 
 use context::*;
-use fold::LocalValue;
 
 use husky_opn_syntax::*;
 use husky_print_utils::*;
@@ -51,7 +50,7 @@ use std::sync::Arc;
 struct InstructionSheetBuilder<'a> {
     db: &'a dyn InstructionDb,
     sheet: InstructionSheet,
-    context: LocalValue<InstructionGenContext>,
+    // context: LocalValue<InstructionGenContext>,
 }
 
 impl<'a> InstructionSheetBuilder<'a> {
@@ -63,7 +62,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         Self {
             db,
             sheet: InstructionSheet::new(inputs, has_this),
-            context: LocalValue::new(InstructionGenContext::Normal),
+            // context: LocalValue::new(InstructionGenContext::Normal),
         }
     }
 
@@ -71,7 +70,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         Self {
             db: self.db,
             sheet: self.sheet.init_subsheet(),
-            context: LocalValue::new(InstructionGenContext::Normal),
+            // context: LocalValue::new(InstructionGenContext::Normal),
         }
     }
 

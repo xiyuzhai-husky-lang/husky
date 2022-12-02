@@ -44,8 +44,9 @@ fn collect_module_lex_errors(
     file: SourcePath,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
-    let tokenized_text = db.tokenized_text(file).unwrap();
-    diagnostics.extend(tokenized_text.errors.iter().map(|error| error.into()))
+    todo!()
+    // let tokenized_text = db.tokenized_text(file).unwrap();
+    // diagnostics.extend(tokenized_text.errors.iter().map(|error| error.into()))
 }
 
 fn collect_module_ast_errors(
@@ -53,16 +54,17 @@ fn collect_module_ast_errors(
     file: SourcePath,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
-    let ast_text = db.ast_text(file).unwrap();
-    for node in ast_text.folded_results.nodes() {
-        match node.value {
-            Ok(_) => (),
-            Err(ref error) => match error.variant {
-                AstErrorVariant::Original { .. } => diagnostics.push(todo!()),
-                AstErrorVariant::Derived => (),
-            },
-        }
-    }
+    todo!()
+    // let ast_text = db.ast_text(file).unwrap();
+    // for node in ast_text.folded_results.nodes() {
+    //     match node.value {
+    //         Ok(_) => (),
+    //         Err(ref error) => match error.variant {
+    //             AstErrorVariant::Original { .. } => diagnostics.push(todo!()),
+    //             AstErrorVariant::Derived => (),
+    //         },
+    //     }
+    // }
 }
 
 fn collect_module_infer_ty_errors(

@@ -1,17 +1,17 @@
 use crate::*;
-use fold::Transformer;
-use fold::{FoldableList, FoldableStorage};
 use husky_display_utils::HuskyDisplayConfig;
 use husky_entity_tree::{EntityTreeDb, EntityTreeResultArc};
 use husky_source_path::SourcePath;
-use husky_text::{Text, TextDb};
+use husky_text::{DeprecatedTextDb, Text};
 use husky_token::AbsSemanticToken;
 use idx_arena::map::ArenaKeyQuery;
 use std::fmt::Write;
 use std::sync::Arc;
 use upcast::Upcast;
 
-pub trait AstDb: DbWithJar<AstJar> + EntityTreeDb + Upcast<dyn EntityTreeDb> + TextDb {
+pub trait AstDb:
+    DbWithJar<AstJar> + EntityTreeDb + Upcast<dyn EntityTreeDb> + DeprecatedTextDb
+{
     fn ast_text(&self, file: SourcePath) -> EntityTreeResultArc<AstText>;
 
     fn parse_route_from_text(&self, text: &str) -> Term {
@@ -36,7 +36,7 @@ pub trait AstDb: DbWithJar<AstJar> + EntityTreeDb + Upcast<dyn EntityTreeDb> + T
 
 impl<T> AstDb for T
 where
-    T: DbWithJar<AstJar> + EntityTreeDb + Upcast<dyn EntityTreeDb> + TextDb,
+    T: DbWithJar<AstJar> + EntityTreeDb + Upcast<dyn EntityTreeDb> + DeprecatedTextDb,
 {
     fn ast_text(&self, file: SourcePath) -> EntityTreeResultArc<AstText> {
         todo!()
@@ -55,7 +55,7 @@ fn ast_text(this: &dyn AstDb, id: SourcePath) -> EntityTreeResultArc<AstText> {
 pub struct AstText {
     pub file: SourcePath,
     pub arena: ExprArena,
-    pub folded_results: FoldableList<AstResult<DeprecatedAst>>,
+    // pub folded_results: FoldableList<AstResult<DeprecatedAst>>,
     pub semantic_tokens: Vec<AbsSemanticToken>,
     pub text: Arc<Text>,
     pub infer_roots: Vec<AstEntrance>,
@@ -63,30 +63,32 @@ pub struct AstText {
 
 impl AstText {
     pub fn errors(&self) -> Vec<&AstError> {
-        self.folded_results
-            .nodes
-            .iter()
-            .filter_map(|node| node.value.as_ref().err())
-            .collect()
+        todo!()
+        // self.folded_results
+        //     .nodes
+        //     .iter()
+        //     .filter_map(|node| node.value.as_ref().err())
+        //     .collect()
     }
 
     pub fn summarize(&self) -> String {
-        let mut summary = String::new();
-        for (i, folded_result) in self.folded_results.nodes.iter().enumerate() {
-            write!(
-                summary,
-                "#{}, {}{:?}, {:?}\n",
-                i,
-                &((0..folded_result.indent)
-                    .into_iter()
-                    .map(|_| ' ')
-                    .collect::<String>()),
-                folded_result.folding_end,
-                folded_result.value.as_ref().map(|ast| ast.range)
-            )
-            .unwrap();
-        }
-        summary
+        todo!()
+        // let mut summary = String::new();
+        // for (i, folded_result) in self.folded_results.nodes.iter().enumerate() {
+        //     write!(
+        //         summary,
+        //         "#{}, {}{:?}, {:?}\n",
+        //         i,
+        //         &((0..folded_result.indent)
+        //             .into_iter()
+        //             .map(|_| ' ')
+        //             .collect::<String>()),
+        //         folded_result.folding_end,
+        //         folded_result.value.as_ref().map(|ast| ast.range)
+        //     )
+        //     .unwrap();
+        // }
+        // summary
     }
 
     pub fn find_last_expr_before(&self, pos: TextPosition) -> Option<&Expr> {

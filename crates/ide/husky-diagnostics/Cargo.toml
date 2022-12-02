@@ -18,7 +18,6 @@ husky-term-infer = { path = "../../infer/husky-term-infer" }
 husky-term = { path = "../../kernel/husky-term" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
-husky-tokenize = { path = "../../lex/husky-tokenize" }
 # syntax
 husky-text = { path = "../../lex/husky-text" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }

@@ -9,7 +9,6 @@ description = "Generic LSP server scaffold."
 [dependencies]
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
-fold = { path = "../../abstraction/fold" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 # fs
 husky-source-path = { path = "../../fs/husky-source-path" }

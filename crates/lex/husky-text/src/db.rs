@@ -4,11 +4,11 @@ use husky_source_path::SourcePath;
 use husky_vfs::VfsDb;
 use salsa::DbWithJar;
 
-pub trait TextDb: DbWithJar<TextJar> + VfsDb {
+pub trait DeprecatedTextDb: DbWithJar<TextJar> + VfsDb {
     fn text(&self, file: SourcePath) -> Option<Arc<Text>>;
 }
 
-impl<T> TextDb for T
+impl<T> DeprecatedTextDb for T
 where
     T: DbWithJar<TextJar> + VfsDb,
 {

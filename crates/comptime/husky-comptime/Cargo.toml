@@ -19,7 +19,6 @@ indexmap = "1.7"
 salsa = { path = "../../abstraction/salsa" }
 # abstraction
 upcast = { path = "../../abstraction/upcast" }
-fold = { path = "../../abstraction/fold" }
 place = { path = "../../abstraction/place" }
 # fs
 husky-path = { path = "../../fs/husky-path" }
@@ -32,7 +31,6 @@ husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-word = { path = "../../kernel/husky-word" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
-husky-token-sheet = { path = "../../lex/husky-token-sheet" }
 # ide
 husky-hover = { path = "../../ide/husky-hover" }
 husky-completion = { path = "../../ide/husky-completion" }

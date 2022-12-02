@@ -13,7 +13,6 @@
 
 use crate::*;
 // use context::*;
-use fold::LocalStack;
 use husky_entity_kind::TyKind;
 use std::sync::Arc;
 
@@ -21,7 +20,7 @@ pub(crate) struct RustCodeGenerator<'a> {
     db: &'a dyn RustTranspileDb,
     result: String,
     target_entrance: SourcePath,
-    entity_route_uses: LocalStack<Term>,
+    // entity_route_uses: LocalStack<Term>,
     // context: RustCodeGenContext,
 }
 

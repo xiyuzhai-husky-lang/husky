@@ -14,7 +14,7 @@ use husky_term::{
     AskDecl, Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
 };
 use husky_text::TextJar;
-use husky_token_sheet::TokenTextJar;
+use husky_token::TokenJar;
 use husky_toolchain::ToolchainJar;
 use husky_vfs::VfsJar;
 use husky_word::WordDb;
@@ -32,7 +32,7 @@ use upcast::Upcast;
     TextJar,
     TermJar,
     TermInferJar,
-    TokenTextJar,
+    TokenJar,
     VfsJar,
     SourcePathJar,
     SymbolJar
@@ -69,12 +69,13 @@ impl TermInferTestsDb {
     }
 
     pub(super) fn parse_expr_from_text(&self, text: &str) -> (ExprArena, ExprIdx) {
-        use husky_tokenize::TokenizeDb;
-        let tokens = self.tokenize_line(text);
-        let mut arena = ExprArena::default();
-        let mut ctx = self.new_symbol_ctx();
-        let expr = parse_expr(self, &tokens, &mut ctx, &mut arena);
-        (arena, expr)
+        todo!()
+        // use husky_tokenize::TokenizeDb;
+        // let tokens = self.tokenize_line(text);
+        // let mut arena = ExprArena::default();
+        // let mut ctx = self.new_symbol_ctx();
+        // let expr = parse_expr(self, &tokens, &mut ctx, &mut arena);
+        // (arena, expr)
     }
 }
 

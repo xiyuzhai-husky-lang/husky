@@ -15,7 +15,6 @@ path-slash = "0.2.1"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 vec-like = { path = "../../abstraction/vec-like" }
-fold = { path = "../../abstraction/fold" }
 # fs
 husky-source-path = { path = "../../fs/husky-source-path" }
 # lex

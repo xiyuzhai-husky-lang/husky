@@ -32,9 +32,7 @@ wild-utils = { path = "../../utils/husky-wild-utils" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
-husky-token-sheet = { path = "../../lex/husky-token-sheet" }
 husky-token = { path = "../../lex/husky-token" }
-husky-tokenize = { path = "../../lex/husky-tokenize" }
 husky-text = { path = "../../lex/husky-text" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }

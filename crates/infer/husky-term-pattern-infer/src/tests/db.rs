@@ -45,10 +45,10 @@ impl TermPatternInferFakeDb {
     }
 
     pub(super) fn parse_expr_from_text(&self, text: &str) -> (ExprArena, ExprIdx) {
-        use husky_tokenize::TokenizeDb;
+        // use husky_tokenize::TokenizeDb;
 
-        let tokens = self.tokenize_line(text);
-        let mut arena = ExprArena::default();
+        // let tokens = self.tokenize_line(text);
+        // let mut arena = ExprArena::default();
         todo!()
         // let expr = parse_expr(&mut symbol_ctx, &mut arena, &tokens);
         // (arena, expr)
