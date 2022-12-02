@@ -4,6 +4,7 @@ mod error;
 mod expr;
 mod line_group;
 mod parser;
+mod section;
 
 pub use db::*;
 pub use error::*;
@@ -15,12 +16,14 @@ use husky_vfs::VfsResult;
 use husky_word::Word;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use parser::TomlAstParser;
+use section::TomlSection;
 
-// #[salsa::trac]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TomlAst {
     exprs: TomlExprArena,
+    sections: Vec<TomlSection>,
     line_groups: Vec<TomlLineGroup>,
+    section_errors: Vec<TomlAstError>,
 }
 
 #[salsa::jar(db = TomlAstDb)]
@@ -30,9 +33,16 @@ pub struct TomlAstJar(toml_ast);
 fn toml_ast(db: &dyn TomlAstDb, path: SourcePath) -> VfsResult<TomlAst> {
     let toml_token_text = db.toml_token_text(path).as_ref()?;
     let mut exprs = TomlExprArena::default();
-    let line_groups = toml_token_text
+    let line_groups: Vec<_> = toml_token_text
         .line_groups()
-        .map(|tokens| TomlAstParser::new(db, tokens).parse_line_group())
+        .map(|tokens| TomlAstParser::new(db, tokens, &mut exprs).parse_line_group())
         .collect();
-    Ok(TomlAst { exprs, line_groups })
+    let (sections, section_errors) =
+        TomlSection::collect_from_line_groups(&toml_token_text, &line_groups);
+    Ok(TomlAst {
+        sections,
+        exprs,
+        line_groups,
+        section_errors,
+    })
 }

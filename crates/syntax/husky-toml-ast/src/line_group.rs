@@ -2,8 +2,8 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TomlLineGroup {
-    Section(Vec<Word>),
-    KeyValue(String, TomlExprIdx),
+    SectionTitle(Vec<Word>),
+    KeyValue(Word, TomlExprIdx),
     Comment,
     Err,
 }
