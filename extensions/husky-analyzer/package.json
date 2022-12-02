@@ -91,7 +91,7 @@
             },
             {
                 "command": "husky-analyzer.openCorgiToml",
-                "title": "Open package.toml",
+                "title": "Open husky.toml",
                 "category": "husky-analyzer"
             },
             {
