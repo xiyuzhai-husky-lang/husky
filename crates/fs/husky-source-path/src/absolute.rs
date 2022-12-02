@@ -11,7 +11,7 @@ pub(crate) fn source_to_absolute_path(
     match path.data(db) {
         SourcePathData::Module(_) => todo!(),
         SourcePathData::CorgiToml(package) => resolve_package_path(db, package)?
-            .join("Corgi.toml")
+            .join("package.toml")
             .map_err(|e| e.into()),
     }
 }
