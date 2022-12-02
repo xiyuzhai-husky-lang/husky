@@ -1,12 +1,14 @@
 use std::convert::Infallible;
 
+use smallvec::SmallVec;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TomlLineGroup {
     SectionTitle {
-        title: Vec<Word>,
-        is_scattered: bool,
+        title: SmallVec<[Word; 2]>,
+        kind: TomlSectionKind,
     },
     KeyValue(Word, Option<TomlExprIdx>),
     Comment,

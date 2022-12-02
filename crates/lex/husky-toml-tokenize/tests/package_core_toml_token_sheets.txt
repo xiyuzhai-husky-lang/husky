@@ -6,10 +6,8 @@ TomlTokenText {
                 end: 1,
             },
             range: [1:1, 1:2),
-            variant: Ok(
-                Special(
-                    LeftBox,
-                ),
+            variant: Special(
+                LeftBox,
             ),
         },
         TomlToken {
@@ -18,13 +16,11 @@ TomlTokenText {
                 end: 8,
             },
             range: [1:2, 1:9),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 9,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 9,
+                    },
                 ),
             ),
         },
@@ -34,10 +30,8 @@ TomlTokenText {
                 end: 9,
             },
             range: [1:9, 1:10),
-            variant: Ok(
-                Special(
-                    RightBox,
-                ),
+            variant: Special(
+                RightBox,
             ),
         },
         TomlToken {
@@ -46,13 +40,11 @@ TomlTokenText {
                 end: 14,
             },
             range: [2:1, 2:5),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 10,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 10,
+                    },
                 ),
             ),
         },
@@ -62,10 +54,8 @@ TomlTokenText {
                 end: 16,
             },
             range: [2:6, 2:7),
-            variant: Ok(
-                Special(
-                    Equals,
-                ),
+            variant: Special(
+                Equals,
             ),
         },
         TomlToken {
@@ -74,12 +64,10 @@ TomlTokenText {
                 end: 23,
             },
             range: [2:8, 2:14),
-            variant: Ok(
-                StringLiteral {
-                    val: "core",
-                    multiline: false,
-                },
-            ),
+            variant: StringLiteral {
+                val: "core",
+                multiline: false,
+            },
         },
         TomlToken {
             span: TextSpan {
@@ -87,13 +75,11 @@ TomlTokenText {
                 end: 31,
             },
             range: [3:1, 3:8),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 11,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 11,
+                    },
                 ),
             ),
         },
@@ -103,10 +89,8 @@ TomlTokenText {
                 end: 33,
             },
             range: [3:9, 3:10),
-            variant: Ok(
-                Special(
-                    Equals,
-                ),
+            variant: Special(
+                Equals,
             ),
         },
         TomlToken {
@@ -115,12 +99,10 @@ TomlTokenText {
                 end: 41,
             },
             range: [3:11, 3:18),
-            variant: Ok(
-                StringLiteral {
-                    val: "0.0.0",
-                    multiline: false,
-                },
-            ),
+            variant: StringLiteral {
+                val: "0.0.0",
+                multiline: false,
+            },
         },
         TomlToken {
             span: TextSpan {
@@ -128,13 +110,11 @@ TomlTokenText {
                 end: 49,
             },
             range: [4:1, 4:8),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 12,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 12,
+                    },
                 ),
             ),
         },
@@ -144,10 +124,8 @@ TomlTokenText {
                 end: 51,
             },
             range: [4:9, 4:10),
-            variant: Ok(
-                Special(
-                    Equals,
-                ),
+            variant: Special(
+                Equals,
             ),
         },
         TomlToken {
@@ -156,12 +134,10 @@ TomlTokenText {
                 end: 71,
             },
             range: [4:11, 4:30),
-            variant: Ok(
-                StringLiteral {
-                    val: "MIT OR Apache-2.0",
-                    multiline: false,
-                },
-            ),
+            variant: StringLiteral {
+                val: "MIT OR Apache-2.0",
+                multiline: false,
+            },
         },
         TomlToken {
             span: TextSpan {
@@ -169,13 +145,11 @@ TomlTokenText {
                 end: 82,
             },
             range: [5:1, 5:11),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 13,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 13,
+                    },
                 ),
             ),
         },
@@ -185,10 +159,8 @@ TomlTokenText {
                 end: 84,
             },
             range: [5:12, 5:13),
-            variant: Ok(
-                Special(
-                    Equals,
-                ),
+            variant: Special(
+                Equals,
             ),
         },
         TomlToken {
@@ -197,12 +169,10 @@ TomlTokenText {
                 end: 135,
             },
             range: [5:14, 5:64),
-            variant: Ok(
-                StringLiteral {
-                    val: "https://github.com/xiyuzhai-husky-lang/husky.git",
-                    multiline: false,
-                },
-            ),
+            variant: StringLiteral {
+                val: "https://github.com/xiyuzhai-husky-lang/husky.git",
+                multiline: false,
+            },
         },
         TomlToken {
             span: TextSpan {
@@ -210,13 +180,11 @@ TomlTokenText {
                 end: 147,
             },
             range: [6:1, 6:12),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 14,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 14,
+                    },
                 ),
             ),
         },
@@ -226,10 +194,8 @@ TomlTokenText {
                 end: 149,
             },
             range: [6:13, 6:14),
-            variant: Ok(
-                Special(
-                    Equals,
-                ),
+            variant: Special(
+                Equals,
             ),
         },
         TomlToken {
@@ -238,12 +204,10 @@ TomlTokenText {
                 end: 174,
             },
             range: [6:15, 6:39),
-            variant: Ok(
-                StringLiteral {
-                    val: "The Husky Core Library",
-                    multiline: false,
-                },
-            ),
+            variant: StringLiteral {
+                val: "The Husky Core Library",
+                multiline: false,
+            },
         },
         TomlToken {
             span: TextSpan {
@@ -251,13 +215,11 @@ TomlTokenText {
                 end: 184,
             },
             range: [7:1, 7:10),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 15,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 15,
+                    },
                 ),
             ),
         },
@@ -267,10 +229,8 @@ TomlTokenText {
                 end: 186,
             },
             range: [7:11, 7:12),
-            variant: Ok(
-                Special(
-                    Equals,
-                ),
+            variant: Special(
+                Equals,
             ),
         },
         TomlToken {
@@ -279,13 +239,11 @@ TomlTokenText {
                 end: 192,
             },
             range: [7:13, 7:18),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 16,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 16,
+                    },
                 ),
             ),
         },
@@ -295,13 +253,11 @@ TomlTokenText {
                 end: 204,
             },
             range: [8:1, 8:12),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 17,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 17,
+                    },
                 ),
             ),
         },
@@ -311,10 +267,8 @@ TomlTokenText {
                 end: 206,
             },
             range: [8:13, 8:14),
-            variant: Ok(
-                Special(
-                    Equals,
-                ),
+            variant: Special(
+                Equals,
             ),
         },
         TomlToken {
@@ -323,13 +277,11 @@ TomlTokenText {
                 end: 212,
             },
             range: [8:15, 8:20),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 16,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 16,
+                    },
                 ),
             ),
         },
@@ -339,9 +291,7 @@ TomlTokenText {
                 end: 287,
             },
             range: [9:1, 9:75),
-            variant: Ok(
-                Comment,
-            ),
+            variant: Comment,
         },
         TomlToken {
             span: TextSpan {
@@ -349,9 +299,7 @@ TomlTokenText {
                 end: 364,
             },
             range: [10:1, 10:77),
-            variant: Ok(
-                Comment,
-            ),
+            variant: Comment,
         },
         TomlToken {
             span: TextSpan {
@@ -359,13 +307,11 @@ TomlTokenText {
                 end: 372,
             },
             range: [11:1, 11:8),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 18,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 18,
+                    },
                 ),
             ),
         },
@@ -375,10 +321,8 @@ TomlTokenText {
                 end: 374,
             },
             range: [11:9, 11:10),
-            variant: Ok(
-                Special(
-                    Equals,
-                ),
+            variant: Special(
+                Equals,
             ),
         },
         TomlToken {
@@ -387,12 +331,10 @@ TomlTokenText {
                 end: 381,
             },
             range: [11:11, 11:17),
-            variant: Ok(
-                StringLiteral {
-                    val: "2021",
-                    multiline: false,
-                },
-            ),
+            variant: StringLiteral {
+                val: "2021",
+                multiline: false,
+            },
         },
         TomlToken {
             span: TextSpan {
@@ -400,10 +342,8 @@ TomlTokenText {
                 end: 384,
             },
             range: [13:1, 13:2),
-            variant: Ok(
-                Special(
-                    LeftBox,
-                ),
+            variant: Special(
+                LeftBox,
             ),
         },
         TomlToken {
@@ -412,13 +352,11 @@ TomlTokenText {
                 end: 387,
             },
             range: [13:2, 13:5),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 19,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 19,
+                    },
                 ),
             ),
         },
@@ -428,10 +366,8 @@ TomlTokenText {
                 end: 388,
             },
             range: [13:5, 13:6),
-            variant: Ok(
-                Special(
-                    RightBox,
-                ),
+            variant: Special(
+                RightBox,
             ),
         },
         TomlToken {
@@ -440,13 +376,11 @@ TomlTokenText {
                 end: 393,
             },
             range: [14:1, 14:5),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 20,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 20,
+                    },
                 ),
             ),
         },
@@ -456,10 +390,8 @@ TomlTokenText {
                 end: 395,
             },
             range: [14:6, 14:7),
-            variant: Ok(
-                Special(
-                    Equals,
-                ),
+            variant: Special(
+                Equals,
             ),
         },
         TomlToken {
@@ -468,13 +400,11 @@ TomlTokenText {
                 end: 401,
             },
             range: [14:8, 14:13),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 16,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 16,
+                    },
                 ),
             ),
         },
@@ -484,13 +414,11 @@ TomlTokenText {
                 end: 407,
             },
             range: [15:1, 15:6),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 21,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 21,
+                    },
                 ),
             ),
         },
@@ -500,10 +428,8 @@ TomlTokenText {
                 end: 409,
             },
             range: [15:7, 15:8),
-            variant: Ok(
-                Special(
-                    Equals,
-                ),
+            variant: Special(
+                Equals,
             ),
         },
         TomlToken {
@@ -512,31 +438,29 @@ TomlTokenText {
                 end: 415,
             },
             range: [15:9, 15:14),
-            variant: Ok(
-                Keylike(
-                    Word(
-                        Id {
-                            value: 16,
-                        },
-                    ),
+            variant: Word(
+                Word(
+                    Id {
+                        value: 16,
+                    },
                 ),
             ),
         },
     ],
     line_group_starts: [
         0,
-        1,
-        2,
         3,
-        4,
-        5,
         6,
-        7,
-        8,
         9,
-        10,
-        11,
         12,
-        13,
+        15,
+        18,
+        21,
+        24,
+        25,
+        26,
+        29,
+        32,
+        35,
     ],
 }
