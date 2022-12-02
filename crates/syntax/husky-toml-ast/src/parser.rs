@@ -67,6 +67,7 @@ impl<'a> TomlAstParser<'a> {
 
     fn parse_key_value(mut self, word: Word) -> TomlLineGroup {
         self.eat_special(TomlSpecialToken::Equals);
+        p!(word.debug(self.db.word_db()));
         let expr = self.parse_expr();
         TomlLineGroup::KeyValue(word, expr)
     }
