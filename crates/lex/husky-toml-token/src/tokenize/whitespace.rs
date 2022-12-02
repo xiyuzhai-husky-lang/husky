@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 impl<'a> TomlTokenIter<'a> {
     pub(crate) fn eat_whitespace_then_next(&mut self) -> Option<TomlToken> {

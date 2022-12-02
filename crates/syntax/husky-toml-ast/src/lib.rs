@@ -13,11 +13,11 @@ mod tests;
 pub use db::*;
 pub use error::*;
 pub use expr::*;
-use husky_toml_token_text::TomlTokenText;
 pub use line_group::*;
 pub use table::*;
 
 use husky_source_path::SourcePath;
+use husky_toml_token::*;
 use husky_vfs::VfsResult;
 use husky_word::Word;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
@@ -41,7 +41,7 @@ fn toml_ast(db: &dyn TomlAstDb, path: SourcePath) -> VfsResult<TomlAst> {
 }
 
 impl TomlAst {
-    fn new(db: &dyn TomlAstDb, toml_token_text: &TomlTokenText) -> Self {
+    fn new(db: &dyn TomlAstDb, toml_token_text: &TomlTokenSheet) -> Self {
         let mut exprs = TomlExprArena::default();
         let line_groups: Vec<_> = toml_token_text
             .line_groups()

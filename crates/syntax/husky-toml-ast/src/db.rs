@@ -1,10 +1,10 @@
 use crate::*;
 use husky_package_path::PackagePath;
 use husky_source_path::{SourcePathData, SourcePathDb};
-use husky_toml_tokenize::TomlTokenizeDb;
+use husky_toml_token::TomlTokenDb;
 use salsa::DbWithJar;
 
-pub trait TomlAstDb: DbWithJar<TomlAstJar> + TomlTokenizeDb + SourcePathDb {
+pub trait TomlAstDb: DbWithJar<TomlAstJar> + TomlTokenDb + SourcePathDb {
     fn toml_ast(&self, path: SourcePath) -> &VfsResult<TomlAst>;
 
     fn package_manifest_ast(&self, package: PackagePath) -> &VfsResult<TomlAst>;
@@ -12,7 +12,7 @@ pub trait TomlAstDb: DbWithJar<TomlAstJar> + TomlTokenizeDb + SourcePathDb {
 
 impl<T> TomlAstDb for T
 where
-    T: DbWithJar<TomlAstJar> + TomlTokenizeDb + SourcePathDb,
+    T: DbWithJar<TomlAstJar> + TomlTokenDb + SourcePathDb,
 {
     fn toml_ast(&self, path: SourcePath) -> &VfsResult<TomlAst> {
         toml_ast(self, path)

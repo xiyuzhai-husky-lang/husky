@@ -1,6 +1,6 @@
 use husky_print_utils::p;
 
-use crate::*;
+use super::*;
 
 impl<'a> TomlTokenIter<'a> {
     #[allow(clippy::type_complexity)]
