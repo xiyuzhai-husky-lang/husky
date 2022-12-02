@@ -15,6 +15,8 @@ pub trait WordDb: DbWithJar<WordJar> {
 
     fn dt_ident(&self, data: Identifier) -> &str;
 
+    fn word_db(&self) -> &dyn WordDb;
+
     fn word_jar(&self) -> &WordJar;
 
     fn word_menu(&self) -> &WordMenu;
@@ -36,6 +38,10 @@ where
 
     fn dt_word(&self, word: Word) -> &str {
         word.data(self)
+    }
+
+    fn word_db(&self) -> &dyn WordDb {
+        self
     }
 
     fn word_jar(&self) -> &WordJar {

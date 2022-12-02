@@ -1,3 +1,4 @@
+#![feature(const_trait_impl)]
 #![feature(try_trait_v2)]
 mod db;
 mod error;
@@ -5,12 +6,16 @@ mod expr;
 mod line_group;
 mod parser;
 mod section;
+mod table;
+#[cfg(test)]
+mod tests;
 
 pub use db::*;
 pub use error::*;
 pub use expr::*;
 use husky_toml_token_text::TomlTokenText;
 pub use line_group::*;
+pub use table::*;
 
 use husky_source_path::SourcePath;
 use husky_vfs::VfsResult;
@@ -28,6 +33,7 @@ pub struct TomlAst {
     sections: Vec<TomlSection>,
     line_groups: Vec<TomlLineGroup>,
     section_errors: Vec<TomlAstError>,
+    table: TomlTable,
 }
 
 #[salsa::tracked(jar = TomlAstJar, return_ref)]
@@ -49,6 +55,7 @@ impl TomlAst {
             exprs,
             line_groups,
             section_errors,
+            table: todo!(),
         }
     }
 }

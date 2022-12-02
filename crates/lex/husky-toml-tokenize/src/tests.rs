@@ -1,6 +1,4 @@
-use super::{TomlTokenError, TomlTokenIter, TomlTokenVariant};
 use crate::*;
-use crate::{TomlSpecialToken, TomlTokenizeJar};
 use expect_test::expect_file;
 use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
@@ -22,7 +20,7 @@ use std::{borrow::Cow, sync::Arc};
     SourcePathJar
 )]
 #[derive(Default)]
-pub struct MimicDB {
+struct MimicDB {
     storage: salsa::Storage<Self>,
     source_path_config: SourcePathConfigMimic,
 }
@@ -47,8 +45,8 @@ impl ParallelDatabase for MimicDB {
 fn err(input: &str, err: TomlTokenError) {
     let db = MimicDB::default();
     let mut t = TomlTokenIter::new(&db, input);
-    let token = t.next().unwrap().variant().clone().unwrap_err();
-    assert_eq!(token, err);
+    let token = t.next().unwrap().variant().clone();
+    assert_eq!(token, TomlTokenVariant::Err(err));
     assert!(t.next().is_none());
 }
 
@@ -56,7 +54,7 @@ fn err(input: &str, err: TomlTokenError) {
 fn literal_strings() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
         let mut t = TomlTokenIter::new(db, input);
-        let token = t.next().unwrap().variant().clone().unwrap();
+        let token = t.next().unwrap().variant().clone();
         assert_eq!(
             token,
             TomlTokenVariant::StringLiteral {
@@ -82,10 +80,10 @@ fn literal_strings() {
 fn basic_strings() {
     fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
         let mut t = TomlTokenIter::new(db, input);
-        let token = t.next().unwrap().variant().clone().unwrap();
+        let token = t.next().unwrap();
         assert_eq!(
-            token,
-            TomlTokenVariant::StringLiteral {
+            token.variant(),
+            &TomlTokenVariant::StringLiteral {
                 val: Arc::new(val.to_owned()),
                 multiline,
             }
@@ -138,8 +136,11 @@ fn basic_strings() {
 fn keylike() {
     fn t(db: &dyn WordDb, input: &str) {
         let mut t = TomlTokenIter::new(db, input);
-        let token = t.next().unwrap().variant().clone().unwrap();
-        assert_eq!(token, TomlTokenVariant::Keylike(db.it_word_borrowed(input)));
+        let token = t.next().unwrap();
+        assert_eq!(
+            token.variant(),
+            &TomlTokenVariant::Keylike(db.it_word_borrowed(input))
+        );
         assert!(t.next().is_none());
     }
 
@@ -158,16 +159,13 @@ fn keylike() {
 fn all() {
     fn t(db: &dyn WordDb, input: &str, expected: &[((usize, usize), TomlTokenVariant, &str)]) {
         let mut tokens = TomlTokenIter::new(db, input);
-        let mut actual: Vec<((usize, usize), TomlTokenVariant, &str)> = Vec::new();
+        let mut actual: Vec<(TomlToken, &str)> = Vec::new();
         while let Some(token) = tokens.next() {
-            actual.push((
-                token.span().into(),
-                token.variant().clone().unwrap(),
-                &input[token.span().start..token.span().end],
-            ));
+            let code = &input[token.span().start..token.span().end];
+            actual.push((token, code));
         }
         for (a, b) in actual.iter().zip(expected) {
-            assert_eq!(a, b);
+            assert_eq!((a.0.span().into(), a.0.variant(), a.1), (b.0, &b.1, b.2));
         }
         assert_eq!(actual.len(), expected.len());
     }
@@ -225,7 +223,7 @@ fn bad_comment() {
     t.next().unwrap();
     assert_eq!(
         t.next().unwrap().variant(),
-        &Err(TomlTokenError::UnexpectedChar('\u{0}'))
+        &TomlTokenVariant::Err(TomlTokenError::UnexpectedChar('\u{0}'))
     );
     assert!(t.next().is_none());
 }

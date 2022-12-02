@@ -1,3 +1,5 @@
+#![feature(const_trait_impl)]
+#![feature(try_trait_v2)]
 mod error;
 mod special;
 #[cfg(test)]
@@ -22,15 +24,11 @@ pub type StringValue = Arc<String>;
 pub struct TomlToken {
     span: TextSpan,
     range: TextRange,
-    variant: TomlTokenResult<TomlTokenVariant>,
+    variant: TomlTokenVariant,
 }
 
 impl TomlToken {
-    pub fn new(
-        span: TextSpan,
-        range: TextRange,
-        variant: TomlTokenResult<TomlTokenVariant>,
-    ) -> Self {
+    pub fn new(span: TextSpan, range: TextRange, variant: TomlTokenVariant) -> Self {
         Self {
             span,
             range,
@@ -46,7 +44,7 @@ impl TomlToken {
         self.range
     }
 
-    pub fn variant(&self) -> &TomlTokenResult<TomlTokenVariant> {
+    pub fn variant(&self) -> &TomlTokenVariant {
         &self.variant
     }
 }
@@ -58,24 +56,7 @@ pub enum TomlTokenVariant {
     Special(TomlSpecialToken),
     Keylike(Word),
     StringLiteral { val: StringValue, multiline: bool },
-}
-
-#[derive(Eq, PartialEq, Debug)]
-pub enum Error {
-    InvalidCharInString(usize, char),
-    InvalidEscape(usize, char),
-    InvalidHexEscape(usize, char),
-    InvalidEscapeValue(usize, u32),
-    NewlineInString(usize),
-    Unexpected(usize, char),
-    UnterminatedString(usize),
-    NewlineInTableKey(usize),
-    MultilineStringKey(usize),
-    Wanted {
-        at: usize,
-        expected: &'static str,
-        found: &'static str,
-    },
+    Err(TomlTokenError),
 }
 
 impl TomlTokenVariant {
@@ -91,22 +72,18 @@ impl TomlTokenVariant {
                     "a string"
                 }
             }
+            TomlTokenVariant::Err(_) => todo!(),
         }
     }
 }
 
-impl TomlSpecialToken {
-    pub fn describe(self) -> &'static str {
-        match self {
-            TomlSpecialToken::Equals => "an equals",
-            TomlSpecialToken::Period => "a period",
-            TomlSpecialToken::Comma => "a comma",
-            TomlSpecialToken::RightCurly => "a right brace",
-            TomlSpecialToken::LeftCurly => "a left brace",
-            TomlSpecialToken::RightBox => "a right bracket",
-            TomlSpecialToken::LeftBox => "a left bracket",
-            TomlSpecialToken::Colon => "a colon",
-            TomlSpecialToken::Plus => "a plus",
+impl const std::ops::FromResidual<Result<core::convert::Infallible, TomlTokenError>>
+    for TomlTokenVariant
+{
+    fn from_residual(residual: Result<core::convert::Infallible, TomlTokenError>) -> Self {
+        match residual {
+            Ok(_) => unreachable!(),
+            Err(e) => TomlTokenVariant::Err(e),
         }
     }
 }

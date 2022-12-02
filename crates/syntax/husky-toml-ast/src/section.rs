@@ -55,7 +55,7 @@ impl<'a> Iterator for TomlSectionIter<'a> {
     fn next(&mut self) -> Option<Self::Item> {
         let (line_group_index, line_group) = self.next_indexed_line_group()?;
         match line_group {
-            TomlLineGroup::SectionTitle(_) => Some(self.next_section()),
+            TomlLineGroup::SectionTitle { .. } => Some(self.next_section()),
             TomlLineGroup::KeyValue(_, _) => {
                 self.section_errors
                     .push(TomlAstError::MisplacedKeyValue(line_group_index));
@@ -93,7 +93,7 @@ impl<'a> TomlSectionIter<'a> {
     fn ignore_until_new_section(&mut self) -> Option<TomlSection> {
         while let Some(line_group) = self.peek_line_group() {
             match line_group {
-                TomlLineGroup::SectionTitle(_) => break,
+                TomlLineGroup::SectionTitle { .. } => break,
                 TomlLineGroup::KeyValue(_, _) | TomlLineGroup::Comment | TomlLineGroup::Err => {
                     self.next();
                 }
