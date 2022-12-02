@@ -3,8 +3,6 @@ mod hex;
 mod iter;
 mod keylike;
 mod string;
-#[cfg(test)]
-mod tests;
 mod whitespace;
 
 pub(crate) use iter::*;
