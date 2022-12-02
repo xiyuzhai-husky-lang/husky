@@ -10,7 +10,6 @@ description = "Generic LSP server scaffold."
 salsa = { path = "../../abstraction/salsa" }
 # abstraction
 upcast = { path = "../../abstraction/upcast" }
-fold = { path = "../../abstraction/fold" }
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # fs
@@ -19,7 +18,6 @@ husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
-husky-token-sheet = { path = "../../lex/husky-token-sheet" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

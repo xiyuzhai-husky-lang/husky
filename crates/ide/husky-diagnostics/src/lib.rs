@@ -5,6 +5,7 @@ mod kind;
 mod severity;
 
 pub use db::DiagnosticsDb;
+use husky_token::TokenError;
 pub use kind::DiagnosticKind;
 pub use severity::DiagnosticSeverity;
 
@@ -15,7 +16,6 @@ use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use husky_entity_tree::{EntityTreeError, EntityTreeErrorKind};
 use husky_print_utils::p;
 use husky_text::TextRange;
-use husky_tokenize::LexError;
 use std::fmt::Write;
 use std::sync::Arc;
 
@@ -67,8 +67,8 @@ impl HuskyDisplay for Diagnostic {
 //     }
 // }
 
-impl From<&LexError> for Diagnostic {
-    fn from(error: &LexError) -> Self {
+impl From<&TokenError> for Diagnostic {
+    fn from(error: &TokenError) -> Self {
         Self {
             severity: DiagnosticSeverity::Error,
             range: error.range.clone(),

@@ -12,7 +12,6 @@ thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
 upcast = { path = "../../abstraction/upcast" }
 vec-like = { path = "../../abstraction/vec-like" }
-fold = { path = "../../abstraction/fold" }
 # fs
 husky-source-path = { path = "../../fs/husky-source-path" }
 # lex

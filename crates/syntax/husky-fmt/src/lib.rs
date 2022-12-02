@@ -1,8 +1,5 @@
 mod formatter;
 
-pub type FormattedText = fold::FoldableList<husky_ast::AstResult<String>>;
-
-use fold::{Executor, FoldableStorage};
 use formatter::Formatter;
 use husky_ast::AstContext;
 use salsa::DbWithJar;

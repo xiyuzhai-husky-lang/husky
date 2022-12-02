@@ -12,8 +12,8 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 lsp-types = { version = "0.93", features = ["proposed"] }
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
-fold = { path = "../../abstraction/fold" }
 # fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
@@ -32,6 +32,3 @@ husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [lib]
-
-[features]
-storage = []

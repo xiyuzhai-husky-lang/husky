@@ -1,29 +1,13 @@
-use crate::*;
+use super::*;
 use husky_dev_utils::dev_src;
 use husky_opn_syntax::*;
 use husky_text::TextIndent;
-use husky_token::*;
 use std::{iter::Peekable, sync::Arc};
 
 pub(crate) struct Tokenizer<'lex> {
     db: &'lex dyn WordDb,
     tokens: Vec<Token>,
-    tokenized_lines: Vec<TokenizedLine>,
-    errors: Vec<LexError>,
-}
-
-#[derive(PartialEq, Eq)]
-pub struct TokenizedLine {
-    pub(crate) tokens: TokenGroup,
-}
-
-impl std::fmt::Debug for TokenizedLine {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!(
-            "TokenizedLine{{ tokens: {:?} }}",
-            &self.tokens,
-        ))
-    }
+    errors: Vec<TokenError>,
 }
 
 enum TokenizerAction {
@@ -36,7 +20,6 @@ impl<'token> Tokenizer<'token> {
         Self {
             db,
             tokens: vec![],
-            tokenized_lines: vec![],
             errors: vec![],
         }
     }
@@ -46,14 +29,15 @@ impl<'token> Tokenizer<'token> {
     }
 
     pub fn scan_line(&mut self, line_index: usize, line: &str) {
-        let start = self.tokens.len();
-        let token_iter = RawTokenIter::new(self.db, line);
-        self.push_tokens(token_iter);
-        let end = self.tokens.len();
+        todo!()
+        // let start = self.tokens.len();
+        // let token_iter = RawTokenIter::new(self.db, line);
+        // self.push_tokens(token_iter);
+        // let end = self.tokens.len();
 
-        self.tokenized_lines.push(TokenizedLine {
-            tokens: TokenGroup::new(start..end),
-        })
+        // self.tokenized_lines.push(TokenizedLine {
+        //     tokens: TokenGroup::new(start..end),
+        // })
     }
 
     fn push_tokens(&mut self, iter: impl Iterator<Item = RawToken>) {
@@ -106,26 +90,27 @@ impl<'token> Tokenizer<'token> {
     }
 
     fn last_token_in_unfinished_line(&self) -> Option<&Token> {
-        match self.tokenized_lines.last() {
-            Some(line) => {
-                if line.tokens.end == self.tokens.len() {
-                    None
-                } else {
-                    assert!(line.tokens.end < self.tokens.len());
-                    self.tokens.last()
-                }
-            }
-            None => self.tokens.last(),
-        }
+        todo!()
+        // match self.tokenized_lines.last() {
+        //     Some(line) => {
+        //         if line.tokens.end == self.tokens.len() {
+        //             None
+        //         } else {
+        //             assert!(line.tokens.end < self.tokens.len());
+        //             self.tokens.last()
+        //         }
+        //     }
+        //     None => self.tokens.last(),
+        // }
     }
 
-    fn last_token(&self, line: &TokenizedLine) -> &Token {
-        &self.tokens[line.tokens.end - 1]
-    }
+    // fn last_token(&self, line: &TokenizedLine) -> &Token {
+    //     &self.tokens[line.tokens.end - 1]
+    // }
 
-    fn first_token(&self, line: &TokenizedLine) -> &Token {
-        &self.tokens[line.tokens.start]
-    }
+    // fn first_token(&self, line: &TokenizedLine) -> &Token {
+    //     &self.tokens[line.tokens.start]
+    // }
 
     // fn produce_line_groups(&mut self) -> Vec<TokenLine> {
     //     todo!()
@@ -159,21 +144,21 @@ impl<'token> Tokenizer<'token> {
     //                         match line.indent.within(group_indent) {
     //                             Ok(is_within) => {
     //                                 if !is_within {
-    //                                     self.errors.push(LexError {
+    //                                     self.errors.push(TokenError {
     //                                         message: format!("expect indentated lines after `:`"),
     //                                         range: self.last_token(first_line).range,
     //                                         dev_src: dev_src!(),
     //                                     });
     //                                 }
     //                             }
-    //                             Err(e) => self.errors.push(LexError {
+    //                             Err(e) => self.errors.push(TokenError {
     //                                 message: format!("{:?}", e),
     //                                 range: self.last_token(first_line).range,
     //                                 dev_src: dev_src!(),
     //                             }),
     //                         }
     //                     } else {
-    //                         self.errors.push(LexError {
+    //                         self.errors.push(TokenError {
     //                             message: format!("expect indentated lines after `:`"),
     //                             range: self.last_token(first_line).range,
     //                             dev_src: dev_src!(),
@@ -214,7 +199,7 @@ impl<'token> Tokenizer<'token> {
     //                                     }
     //                                 }
     //                                 Err(e) => {
-    //                                     self.errors.push(LexError {
+    //                                     self.errors.push(TokenError {
     //                                         message: format!("{:?}", e),
     //                                         range: self.last_token(first_line).range,
     //                                         dev_src: dev_src!(),

@@ -7,17 +7,15 @@ use husky_path_utils::*;
 use husky_print_utils::msg_once;
 use husky_source_path::SourcePath;
 use husky_term::*;
-use husky_token_sheet::TokenTextDb;
+use husky_token::TokenDb;
 use husky_word::Identifier;
 use salsa::DbWithJar;
 use thin_vec::{thin_vec, ThinVec};
 use upcast::Upcast;
 
-use fold::FoldableStorage;
-
 use std::{path::PathBuf, sync::Arc};
 
-pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + TokenTextDb {
+pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + TokenDb {
     fn subroute_table(&self, entity_path: EntityPath) -> EntityTreeResultArc<SubrouteTable>;
 
     fn subentity_routes(&self, entity_path: EntityPath) -> Arc<Vec<Term>>;
@@ -170,7 +168,7 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + TokenTextDb {
 
 impl<T> EntityTreeDb for T
 where
-    T: DbWithJar<EntityTreeJar> + TokenTextDb,
+    T: DbWithJar<EntityTreeJar> + TokenDb,
 {
     fn subroute_table(&self, entity_path: EntityPath) -> EntityTreeResultArc<SubrouteTable> {
         todo!()

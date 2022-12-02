@@ -18,7 +18,6 @@ cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-fold = { path = "../../abstraction/fold" }
 upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
 idx-arena = { path = "../../abstraction/idx-arena" }

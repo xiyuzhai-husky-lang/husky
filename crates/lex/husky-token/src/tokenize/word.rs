@@ -1,5 +1,4 @@
-use crate::*;
-use husky_token::{TokenKind, RESERVED_WORDS};
+use super::*;
 
 // todo: change this to RawTokenVariant
 pub(crate) fn new_reserved_word(word: &str) -> Option<TokenKind> {

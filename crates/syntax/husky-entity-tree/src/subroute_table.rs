@@ -4,7 +4,6 @@ pub use entry::*;
 use husky_entity_path::EntityPath;
 use husky_opn_syntax::{BinaryOpr, Bracket};
 use husky_source_path::SourcePath;
-use husky_token_sheet::TokenGroupIter;
 
 use crate::{error::*, *};
 use husky_dev_utils::dev_src;
@@ -52,38 +51,38 @@ impl SubrouteTable {
         }
     }
 
-    pub fn parse(
-        db: &dyn EntityTreeDb,
-        file: SourcePath,
-        entity_path: EntityPath,
-        husky_entity_kind: EntityKind,
-        token_groups: TokenGroupIter,
-    ) -> Self {
-        let mut errors = Vec::new();
-        let entries = token_groups
-            .filter_map(|item| {
-                match SubrouteEntry::from_token_group(
-                    db,
-                    file,
-                    husky_entity_kind,
-                    item.idx,
-                    item.value,
-                ) {
-                    Ok(opt_entry) => opt_entry,
-                    Err(e) => {
-                        errors.push(e);
-                        None
-                    }
-                }
-            })
-            .collect();
-        Self {
-            entity_path,
-            husky_entity_kind,
-            entries,
-            errors,
-        }
-    }
+    // pub fn parse(
+    //     db: &dyn EntityTreeDb,
+    //     file: SourcePath,
+    //     entity_path: EntityPath,
+    //     husky_entity_kind: EntityKind,
+    //     token_groups: TokenGroupIter,
+    // ) -> Self {
+    //     let mut errors = Vec::new();
+    //     let entries = token_groups
+    //         .filter_map(|item| {
+    //             match SubrouteEntry::from_token_group(
+    //                 db,
+    //                 file,
+    //                 husky_entity_kind,
+    //                 item.idx,
+    //                 item.value,
+    //             ) {
+    //                 Ok(opt_entry) => opt_entry,
+    //                 Err(e) => {
+    //                     errors.push(e);
+    //                     None
+    //                 }
+    //             }
+    //         })
+    //         .collect();
+    //     Self {
+    //         entity_path,
+    //         husky_entity_kind,
+    //         entries,
+    //         errors,
+    //     }
+    // }
 
     pub fn submodule_idents(&self) -> Vec<RangedIdentifier> {
         self.entries

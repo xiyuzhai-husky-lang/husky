@@ -1,8 +1,8 @@
-use crate::{word::new_reserved_word, *};
+use super::*;
 use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::{CharIter, TextCharIter, TextIndent, TextRange};
-use husky_token::{SpecialToken, TokenKind};
+use husky_word::WordDb;
 use std::str::FromStr;
 
 pub(crate) struct RawToken {

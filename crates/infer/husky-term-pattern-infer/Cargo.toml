@@ -33,8 +33,6 @@ husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-term-pattern = { path = "../../infer/husky-term-pattern" }
 
 [dev-dependencies]
-# lex
-husky-tokenize = { path = "../../lex/husky-tokenize" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }

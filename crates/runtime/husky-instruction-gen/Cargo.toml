@@ -13,7 +13,6 @@ doctest = false
 salsa = { path = "../../abstraction/salsa" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
-fold = { path = "../../abstraction/fold" }
 map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
 # comptime

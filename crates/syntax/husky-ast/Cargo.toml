@@ -13,7 +13,6 @@ ordered-float = "3.0.0"
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
-fold = { path = "../../abstraction/fold" }
 vec-like = { path = "../../abstraction/vec-like" }
 upcast = { path = "../../abstraction/upcast" }
 idx-arena = { path = "../../abstraction/idx-arena" }
@@ -22,7 +21,6 @@ husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
-husky-token-sheet = { path = "../../lex/husky-token-sheet" }
 # kernel
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

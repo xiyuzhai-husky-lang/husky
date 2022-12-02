@@ -16,7 +16,7 @@ pub use husky_hover::HoverDb;
 pub use husky_linkage_table::ResolveLinkage;
 use husky_package_path::PackagePathJar;
 pub use husky_rust_code_gen::RustTranspileDb;
-pub use husky_token_sheet::TokenTextDb;
+pub use husky_token::TokenDb;
 pub use husky_word::WordDb;
 pub use ops::ComptimeOps;
 pub use query::*;
@@ -33,7 +33,7 @@ use husky_rust_code_gen::RustTranspileJar;
 use husky_source_path::{HasSourcePathConfig, SourcePath, SourcePathConfig, SourcePathJar};
 use husky_term::TermJar;
 use husky_text::TextJar;
-use husky_token_sheet::TokenTextJar;
+use husky_token::TokenJar;
 use husky_toolchain::ToolchainJar;
 use husky_vfs::VfsJar;
 use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
@@ -43,7 +43,7 @@ use std::{fmt, path::PathBuf, sync::Arc};
 use sync_utils::ASafeRwLock;
 
 #[salsa::db(
-    TokenTextJar,
+    TokenJar,
     PackagePathJar,
     EntityTreeJar,
     ToolchainJar,

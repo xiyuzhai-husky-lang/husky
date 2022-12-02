@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 macro_rules! gen_reserved_words {
     ($($args: expr),*,) => {
