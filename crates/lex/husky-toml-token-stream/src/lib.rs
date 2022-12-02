@@ -1,5 +1,6 @@
 use husky_toml_token::TomlToken;
 
+#[derive(Debug)]
 pub struct TomlTokenStream<'a> {
     tokens: &'a [TomlToken],
     current: usize,

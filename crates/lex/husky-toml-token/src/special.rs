@@ -27,3 +27,19 @@ impl Into<TomlTokenVariant> for TomlSpecialToken {
         TomlTokenVariant::Special(self)
     }
 }
+
+impl TomlSpecialToken {
+    pub fn describe(self) -> &'static str {
+        match self {
+            TomlSpecialToken::Equals => "an equals",
+            TomlSpecialToken::Period => "a period",
+            TomlSpecialToken::Comma => "a comma",
+            TomlSpecialToken::RightCurly => "a right brace",
+            TomlSpecialToken::LeftCurly => "a left brace",
+            TomlSpecialToken::RightBox => "a right bracket",
+            TomlSpecialToken::LeftBox => "a left bracket",
+            TomlSpecialToken::Colon => "a colon",
+            TomlSpecialToken::Plus => "a plus",
+        }
+    }
+}

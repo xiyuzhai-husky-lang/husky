@@ -19,20 +19,20 @@ impl<'a> Iterator for TomlTokenIter<'a> {
             '\n' => return self.next(),
             ' ' => return self.eat_whitespace_then_next(),
             '\t' => return self.eat_whitespace_then_next(),
-            '#' => Ok(self.next_comment_token()),
-            '=' => Ok(TomlSpecialToken::Equals.into()),
-            '.' => Ok(TomlSpecialToken::Period.into()),
-            ',' => Ok(TomlSpecialToken::Comma.into()),
-            ':' => Ok(TomlSpecialToken::Colon.into()),
-            '+' => Ok(TomlSpecialToken::Plus.into()),
-            '{' => Ok(TomlSpecialToken::LeftCurly.into()),
-            '}' => Ok(TomlSpecialToken::RightCurly.into()),
-            '[' => Ok(TomlSpecialToken::LeftBox.into()),
-            ']' => Ok(TomlSpecialToken::RightBox.into()),
+            '#' => self.next_comment_token(),
+            '=' => TomlSpecialToken::Equals.into(),
+            '.' => TomlSpecialToken::Period.into(),
+            ',' => TomlSpecialToken::Comma.into(),
+            ':' => TomlSpecialToken::Colon.into(),
+            '+' => TomlSpecialToken::Plus.into(),
+            '{' => TomlSpecialToken::LeftCurly.into(),
+            '}' => TomlSpecialToken::RightCurly.into(),
+            '[' => TomlSpecialToken::LeftBox.into(),
+            ']' => TomlSpecialToken::RightBox.into(),
             '\'' => self.next_literal_string(),
             '"' => self.next_basic_string(),
-            ch if is_keylike(ch) => Ok(self.next_keylike(start_offset)),
-            ch => Err(TomlTokenError::UnexpectedChar(ch)),
+            ch if is_keylike(ch) => self.next_keylike(start_offset),
+            ch => TomlTokenVariant::Err(TomlTokenError::UnexpectedChar(ch)),
         };
 
         Some(self.emit_token(start_offset, start_position, variant))
@@ -59,7 +59,7 @@ impl<'a> TomlTokenIter<'a> {
         &self,
         start_offset: usize,
         start_position: TextPosition,
-        variant: TomlTokenResult<TomlTokenVariant>,
+        variant: TomlTokenVariant,
     ) -> TomlToken {
         TomlToken::new(
             TextSpan {

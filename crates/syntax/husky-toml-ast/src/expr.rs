@@ -1,10 +1,11 @@
 use crate::*;
 use ordered_float::OrderedFloat;
+use std::sync::Arc;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum TomlExpr {
     /// Represents a TOML string
-    String(String),
+    String(Arc<String>),
     /// Represents a TOML integer
     Integer(i64),
     /// Represents a TOML float

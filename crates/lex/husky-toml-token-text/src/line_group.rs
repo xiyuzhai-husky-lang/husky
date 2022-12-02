@@ -8,7 +8,7 @@ pub(crate) fn produce_line_group_starts(tokens: &[TomlToken]) -> Vec<usize> {
     while i < line_starts.len() {
         let line_start0 = line_starts[i];
         let line_indent0 = tokens[line_start0].range().start.col.0;
-        line_group_starts.push(i);
+        line_group_starts.push(line_start0);
         i = {
             let mut j = i + 1;
             while j < line_starts.len() {
@@ -21,8 +21,8 @@ pub(crate) fn produce_line_group_starts(tokens: &[TomlToken]) -> Vec<usize> {
                 } else {
                     if line_indent1 == line_indent0 {
                         match line_start_token.variant() {
-                            Ok(TomlTokenVariant::Special(TomlSpecialToken::RightCurly))
-                            | Ok(TomlTokenVariant::Special(TomlSpecialToken::RightBox)) => j += 1,
+                            TomlTokenVariant::Special(TomlSpecialToken::RightCurly)
+                            | TomlTokenVariant::Special(TomlSpecialToken::RightBox) => j += 1,
                             _ => (),
                         }
                     }
