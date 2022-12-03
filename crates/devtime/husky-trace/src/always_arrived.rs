@@ -8,7 +8,7 @@ impl TraceVariant {
             TraceVariant::EntityFeature { .. } => None,
             TraceVariant::FeatureStmt(stmt) => stmt.opt_arrival_indicator.as_ref(),
             TraceVariant::FeatureBranch(branch) => branch.opt_arrival_indicator.as_ref(),
-            TraceVariant::FeatureExpr(expr) => expr.opt_domain_indicator.as_ref(),
+            TraceVariant::FeatureExpr(expr) => expr.opt_arrival_indicator.as_ref(),
             TraceVariant::FeatureCallArgument { .. } => None,
             TraceVariant::FuncStmt { .. } => None, // could be changed in the future
             TraceVariant::ProcStmt { .. } => None, // could be changed in the future

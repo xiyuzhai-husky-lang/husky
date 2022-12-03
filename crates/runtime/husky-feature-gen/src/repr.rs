@@ -198,7 +198,7 @@ impl FeatureRepr {
     pub fn opt_domain_indicator(&self) -> Option<&Arc<FeatureDomainIndicator>> {
         match self {
             FeatureRepr::Value { .. } => None,
-            FeatureRepr::LazyExpr(expr) => expr.opt_domain_indicator.as_ref(),
+            FeatureRepr::LazyExpr(expr) => expr.opt_arrival_indicator.as_ref(),
             // ad hoc
             // todo: rename `Body` to `Block` and add opt_domain_indicator
             FeatureRepr::LazyBody(_) | FeatureRepr::FuncBody(_) | FeatureRepr::ProcBody(_) => None,

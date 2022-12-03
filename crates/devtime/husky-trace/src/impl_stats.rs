@@ -115,7 +115,7 @@ fn feature_expr_opt_stats<'eval>(
         partitions,
         expr.expr.intrinsic_ty(),
         |sample_id| db.eval_feature_expr(expr, sample_id),
-        expr.opt_domain_indicator.as_ref(),
+        expr.opt_arrival_indicator.as_ref(),
     )
 }
 
