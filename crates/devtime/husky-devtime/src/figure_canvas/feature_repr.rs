@@ -161,7 +161,9 @@ impl HuskyDevtime {
             TraceVariant::FeatureBranch(ref branch) => self
                 .runtime()
                 .eval_opt_domain_indicator_cached(branch.opt_arrival_indicator.as_ref(), sample_id),
-            TraceVariant::FeatureExpr(_) => todo!(),
+            TraceVariant::FeatureExpr(ref expr) => self
+                .runtime()
+                .eval_opt_domain_indicator_cached(expr.opt_arrival_indicator.as_ref(), sample_id),
             TraceVariant::FeatureCallArgument { .. } => todo!(),
             TraceVariant::FuncStmt { .. } => todo!(),
             TraceVariant::ProcStmt { .. } => todo!(),
