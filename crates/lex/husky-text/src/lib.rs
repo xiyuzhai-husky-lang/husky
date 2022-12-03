@@ -17,12 +17,12 @@ pub use info::*;
 pub use position::*;
 pub use range::*;
 pub type CharIter<'token_line> = std::iter::Peekable<Enumerate<Chars<'token_line>>>;
-pub use db::DeprecatedTextDb;
+pub use db::TextDb;
 
 use line_map::LineMap;
 use std::{iter::Enumerate, ops::Deref, str::Chars, sync::Arc};
 
-#[salsa::jar(db = DeprecatedTextDb)]
+#[salsa::jar(db = TextDb)]
 pub struct TextJar();
 
 #[derive(Clone, PartialEq, Eq)]

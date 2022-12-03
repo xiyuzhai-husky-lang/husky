@@ -1,18 +1,20 @@
 use super::*;
 use husky_dev_utils::dev_src;
 use husky_opn_syntax::*;
-use husky_text::TextIndent;
+use husky_text::{TextIndent, TextLine};
 use std::{iter::Peekable, sync::Arc};
 
 pub(crate) struct Tokenizer<'lex> {
     db: &'lex dyn WordDb,
     tokens: Vec<Token>,
     errors: Vec<TokenError>,
+    line: TextLine,
 }
 
 enum TokenizerAction {
-    Push,
-    ReplaceLast,
+    Push(Token),
+    ReplaceLast(Token),
+    NewLine,
 }
 
 impl<'token> Tokenizer<'token> {
@@ -21,6 +23,7 @@ impl<'token> Tokenizer<'token> {
             db,
             tokens: vec![],
             errors: vec![],
+            line: Default::default(),
         }
     }
 
@@ -28,58 +31,63 @@ impl<'token> Tokenizer<'token> {
         self.tokens
     }
 
-    pub fn scan_line(&mut self, line_index: usize, line: &str) {
-        todo!()
-        // let start = self.tokens.len();
-        // let token_iter = RawTokenIter::new(self.db, line);
-        // self.push_tokens(token_iter);
-        // let end = self.tokens.len();
-
-        // self.tokenized_lines.push(TokenizedLine {
-        //     tokens: TokenGroup::new(start..end),
-        // })
-    }
-
-    fn push_tokens(&mut self, iter: impl Iterator<Item = RawToken>) {
+    pub(crate) fn push_tokens(&mut self, iter: impl Iterator<Item = RawToken>) {
         for token in iter {
-            let (action, token) = self.resolve_token(token);
-            match action {
-                TokenizerAction::Push => self.tokens.push(token),
-                TokenizerAction::ReplaceLast => *self.tokens.last_mut().unwrap() = token,
+            match self.resolve_token(token) {
+                TokenizerAction::Push(token) => self.tokens.push(token),
+                TokenizerAction::ReplaceLast(token) => *self.tokens.last_mut().unwrap() = token,
+                TokenizerAction::NewLine => self.line = self.line.to_next_line(),
             }
         }
     }
 
-    fn resolve_token(&self, token: RawToken) -> (TokenizerAction, Token) {
-        let (action, kind) = match token.variant {
-            RawTokenVariant::Certain(token_kind) => (TokenizerAction::Push, token_kind),
-            RawTokenVariant::SubOrMinus => (
-                TokenizerAction::Push,
-                match self.right_convexity() {
+    fn resolve_token(&self, token: RawToken) -> TokenizerAction {
+        match token.variant {
+            RawTokenVariant::Certain(kind) => {
+                let token = Token {
+                    range: token.range,
+                    kind,
+                };
+                TokenizerAction::Push(token)
+            }
+            RawTokenVariant::SubOrMinus => {
+                let kind = match self.right_convexity() {
                     Convexity::Convex => TokenKind::Special(SpecialToken::BinaryOpr(
                         BinaryOpr::PureClosed(BinaryPureClosedOpr::Sub),
                     )),
                     Convexity::Concave | Convexity::Any => TokenKind::Special(SpecialToken::Minus),
-                },
-            ),
+                };
+                let token = Token {
+                    range: token.range,
+                    kind,
+                };
+                TokenizerAction::Push(token)
+            }
             RawTokenVariant::Literal(lit) => match self.tokens.last().map(|t| &t.kind) {
-                Some(TokenKind::Special(SpecialToken::Minus)) => (
-                    TokenizerAction::ReplaceLast,
-                    TokenKind::Literal(lit.negative().expect("todo")),
-                ),
-                _ => (TokenizerAction::Push, TokenKind::Literal(lit)),
+                Some(TokenKind::Special(SpecialToken::Minus)) => {
+                    let token = Token {
+                        range: token.range,
+                        kind: TokenKind::Literal(lit.negative().expect("todo")),
+                    };
+                    TokenizerAction::ReplaceLast(token)
+                }
+                _ => {
+                    let token = Token {
+                        range: token.range,
+                        kind: TokenKind::Literal(lit),
+                    };
+                    TokenizerAction::Push(token)
+                }
             },
             RawTokenVariant::IllFormedLiteral(l) => {
-                (TokenizerAction::Push, TokenKind::IllFormedLiteral(l))
+                let token = Token {
+                    range: token.range,
+                    kind: TokenKind::IllFormedLiteral(l),
+                };
+                TokenizerAction::Push(token)
             }
-        };
-        (
-            action,
-            Token {
-                range: token.range,
-                kind,
-            },
-        )
+            RawTokenVariant::NewLine => TokenizerAction::NewLine,
+        }
     }
 
     fn right_convexity(&self) -> Convexity {
@@ -90,18 +98,12 @@ impl<'token> Tokenizer<'token> {
     }
 
     fn last_token_in_unfinished_line(&self) -> Option<&Token> {
-        todo!()
-        // match self.tokenized_lines.last() {
-        //     Some(line) => {
-        //         if line.tokens.end == self.tokens.len() {
-        //             None
-        //         } else {
-        //             assert!(line.tokens.end < self.tokens.len());
-        //             self.tokens.last()
-        //         }
-        //     }
-        //     None => self.tokens.last(),
-        // }
+        let last_token = self.tokens.last()?;
+        if last_token.range.start.line >= self.line {
+            Some(last_token)
+        } else {
+            None
+        }
     }
 
     // fn last_token(&self, line: &TokenizedLine) -> &Token {
