@@ -18,7 +18,11 @@ impl DeveloperGuiContext {
                 needs_figure_controls,
             },
             needs_response,
-            move || self.did_toggle_pin(trace_id),
+            move || {
+                let mut presentation: Presentation = (*presentation).clone();
+                presentation.toggle_pin(trace_id);
+                self.presentation_signal.set(presentation)
+            },
         )
     }
 }
