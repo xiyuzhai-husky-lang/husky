@@ -1,5 +1,3 @@
-use std::{borrow::Borrow, cell::Cell, collections::HashMap};
-
 use crate::{cell::OptionCell, *};
 use futures::{
     channel::mpsc::{Receiver, Sender},
@@ -7,12 +5,21 @@ use futures::{
     SinkExt, StreamExt,
 };
 use reqwasm::websocket::{futures::WebSocket, Message};
+use std::{
+    borrow::Borrow,
+    cell::Cell,
+    collections::HashMap,
+    sync::{
+        atomic::{AtomicBool, Ordering},
+        Arc,
+    },
+};
 use wasm_bindgen_futures::spawn_local;
 
 #[derive(Clone)]
 pub struct WebsocketService {
     pub gui_message_sender: Sender<String>,
-    pub(super) opt_callback: Rc<OptionCell<Box<dyn FnOnce()>>>,
+    pub(super) blocking: Arc<AtomicBool>,
     next_request_id: Cell<usize>,
 }
 
@@ -40,7 +47,7 @@ impl WebsocketService {
         });
         let this = Self {
             gui_message_sender,
-            opt_callback: Default::default(),
+            blocking: Default::default(),
             next_request_id: Cell::new(0),
         };
         (this, read)
@@ -77,9 +84,7 @@ impl WebsocketService {
                         }
                     };
                     ctx.process_change(server_message.change);
-                    if let Some(request_id) = server_message.opt_request_id {
-                        self.opt_callback.pop().expect("not none")()
-                    }
+                    self.blocking.store(false, Ordering::SeqCst)
                 }
                 log::debug!("WebSocket Closed");
             }
@@ -96,24 +101,24 @@ impl WebsocketService {
         &self,
         variant: HuskyTracerGuiMessageVariant,
         needs_response: bool,
-        f: impl FnOnce() + 'static,
+        f_immediate: impl FnOnce() + 'static,
     ) {
-        if self.opt_callback.is_some() {
+        if self.blocking.load(Ordering::SeqCst) {
             return;
         }
-        self.send_message(variant, needs_response, f)
+        self.send_message(variant, needs_response, f_immediate)
     }
 
     fn send_message(
         &self,
         variant: HuskyTracerGuiMessageVariant,
         needs_response: bool,
-        f: impl FnOnce() + 'static,
+        f_immediate: impl FnOnce() + 'static,
     ) {
         if !needs_response {
-            f()
+            f_immediate()
         } else {
-            self.opt_callback.set(Box::new(f));
+            self.blocking.store(true, Ordering::SeqCst);
         }
         let request = HuskyTracerGuiMessage {
             opt_request_id: if needs_response {
