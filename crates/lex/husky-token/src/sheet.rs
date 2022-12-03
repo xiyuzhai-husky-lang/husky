@@ -18,6 +18,10 @@ pub struct TokenSheet {
 }
 
 impl TokenSheet {
+    pub fn tokens(&self) -> &[Token] {
+        &self.tokens
+    }
+
     pub fn new(line_groups: Vec<usize>, tokens: Vec<Token>, errors: Vec<TokenError>) -> TokenSheet {
         todo!()
         // TokenizedText {

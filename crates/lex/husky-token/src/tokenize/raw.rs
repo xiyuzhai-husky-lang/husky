@@ -24,6 +24,7 @@ pub(crate) enum RawTokenVariant {
     Literal(RawLiteralData),
     IllFormedLiteral(RawLiteralData),
     SubOrMinus,
+    NewLine,
 }
 
 impl From<TokenKind> for RawTokenVariant {
@@ -54,13 +55,13 @@ pub(crate) struct RawTokenIter<'a, 'b> {
 }
 
 impl<'a, 'b> RawTokenIter<'a, 'b> {
-    pub fn new(word_interner: &'a dyn WordDb, input: &'b str) -> Self {
+    pub fn new(db: &'a dyn WordDb, char_iter: TextCharIter<'b>) -> Self {
         let mut buffer = String::new();
         buffer.reserve_exact(100);
         Self {
-            db: word_interner,
+            db,
             buffer,
-            char_iter: TextCharIter::new(input),
+            char_iter,
         }
     }
 }
@@ -367,7 +368,9 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
 
     fn next_token_variant(&mut self) -> Option<RawTokenVariant> {
         let c = self.char_iter.next()?;
-        if c == ' ' {
+        if c == '\n' {
+            Some(RawTokenVariant::NewLine)
+        } else if c == ' ' {
             unreachable!()
         } else if c.is_alphabetic() || c == '_' {
             self.buffer.push(c);
@@ -391,7 +394,6 @@ impl<'token_line, 'lex: 'token_line> Iterator for RawTokenIter<'token_line, 'lex
                 self.skip_whitespaces();
                 self.next()
             }
-            '\n' => self.next(),
             _ => {
                 let start = self.char_iter.current_position();
                 let variant = self.next_token_variant()?;

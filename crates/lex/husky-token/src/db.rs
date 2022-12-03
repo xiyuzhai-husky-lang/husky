@@ -3,7 +3,7 @@ use crate::*;
 use husky_dev_utils::dev_src;
 
 use husky_source_path::SourcePath;
-use husky_text::DeprecatedTextDb;
+use husky_text::{TextCharIter, TextDb};
 use husky_vfs::VfsResult;
 use husky_word::WordDb;
 use salsa::DbWithJar;
@@ -11,15 +11,15 @@ use salsa::DbWithJar;
 #[salsa::jar(db = TokenDb)]
 pub struct TokenJar(tokenized_text);
 
-pub trait TokenDb: DbWithJar<TokenJar> + DeprecatedTextDb {
-    fn tokenized_text(&self, id: SourcePath) -> &VfsResult<TokenSheet>;
+pub trait TokenDb: DbWithJar<TokenJar> + TextDb {
+    fn token_sheet(&self, id: SourcePath) -> &VfsResult<TokenSheet>;
 }
 
 impl<T> TokenDb for T
 where
-    T: DbWithJar<TokenJar> + DeprecatedTextDb,
+    T: DbWithJar<TokenJar> + TextDb,
 {
-    fn tokenized_text(&self, id: SourcePath) -> &VfsResult<TokenSheet> {
+    fn token_sheet(&self, id: SourcePath) -> &VfsResult<TokenSheet> {
         todo!()
     }
 }

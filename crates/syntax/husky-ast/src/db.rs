@@ -2,16 +2,14 @@ use crate::*;
 use husky_display_utils::HuskyDisplayConfig;
 use husky_entity_tree::{EntityTreeDb, EntityTreeResultArc};
 use husky_source_path::SourcePath;
-use husky_text::{DeprecatedTextDb, Text};
+use husky_text::{Text, TextDb};
 use husky_token::AbsSemanticToken;
 use idx_arena::map::ArenaKeyQuery;
 use std::fmt::Write;
 use std::sync::Arc;
 use upcast::Upcast;
 
-pub trait AstDb:
-    DbWithJar<AstJar> + EntityTreeDb + Upcast<dyn EntityTreeDb> + DeprecatedTextDb
-{
+pub trait AstDb: DbWithJar<AstJar> + EntityTreeDb + Upcast<dyn EntityTreeDb> + TextDb {
     fn ast_text(&self, file: SourcePath) -> EntityTreeResultArc<AstText>;
 
     fn parse_route_from_text(&self, text: &str) -> Term {
@@ -36,7 +34,7 @@ pub trait AstDb:
 
 impl<T> AstDb for T
 where
-    T: DbWithJar<AstJar> + EntityTreeDb + Upcast<dyn EntityTreeDb> + DeprecatedTextDb,
+    T: DbWithJar<AstJar> + EntityTreeDb + Upcast<dyn EntityTreeDb> + TextDb,
 {
     fn ast_text(&self, file: SourcePath) -> EntityTreeResultArc<AstText> {
         todo!()
