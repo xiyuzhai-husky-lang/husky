@@ -1,0 +1,13 @@
+use domains::ml::datasets::cv::mnist::MnistLabel
+use crate::major::major_concave_components
+use crate::major::major_connected_component
+use domains::ml::models::narrow::narrow_down
+
+def is_seven -> ?MnistLabel:
+    require major_concave_components.ilen() == 1
+    narrow_down(
+        MnistLabel::Seven,
+        5,
+        major_connected_component.max_hole_ilen,
+    )?
+    MnistLabel::Seven
