@@ -11,7 +11,7 @@ pub struct EntityPathMenuPlace(Arc<once_cell::sync::OnceCell<EntityPathMenu>>);
 
 pub trait EntityPathDb: DbWithJar<EntityPathJar> + PackagePathDb + WordDb {
     fn entity_path_menu(&self) -> &EntityPathMenu;
-    fn it_entity_path(&self, ident: Identifier, variant: EntityPathVariant) -> EntityPath;
+    fn it_entity_path(&self, variant: EntityPathData) -> EntityPath;
 }
 
 impl<T> EntityPathDb for T
@@ -26,26 +26,23 @@ where
             .get_or_init(|| EntityPathMenu::new(self))
     }
 
-    fn it_entity_path(&self, ident: Identifier, variant: EntityPathVariant) -> EntityPath {
-        EntityPath::new(self, ident, variant)
+    fn it_entity_path(&self, variant: EntityPathData) -> EntityPath {
+        EntityPath::new(self, variant)
     }
 }
 
 impl dyn EntityPathDb + '_ {
     pub(crate) fn it_builtin_lib_path(&self, ident: &str) -> Option<EntityPath> {
         let ident = self.it_ident_borrowed(ident);
-        Some(self.it_entity_path(
-            ident,
-            EntityPathVariant::Crate {
-                package: self.builtin_package_path(ident)?,
-                kind: CratePathKind::Library,
-            },
-        ))
+        Some(self.it_entity_path(EntityPathData::Crate {
+            package: self.builtin_package_path(ident)?,
+            kind: CratePathKind::Library,
+        }))
     }
     pub(crate) fn it_child_entity_path(&self, parent: EntityPath, ident: &str) -> EntityPath {
-        self.it_entity_path(
-            self.it_ident_borrowed(ident),
-            EntityPathVariant::Childpath { parent },
-        )
+        self.it_entity_path(EntityPathData::Childpath {
+            parent,
+            ident: self.it_ident_borrowed(ident),
+        })
     }
 }
