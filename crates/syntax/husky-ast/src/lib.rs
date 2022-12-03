@@ -4,6 +4,8 @@ mod entrance;
 mod error;
 mod field;
 mod stmt;
+#[cfg(test)]
+mod tests;
 mod variant;
 mod xml;
 

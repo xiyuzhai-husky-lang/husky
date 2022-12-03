@@ -43,3 +43,14 @@ wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
 husky-display-utils = { path = "../../utils/husky-display-utils" }
+
+[dev-dependencies]
+expect-test = "1.4.0"
+# lex
+husky-toml-token = { path = "../../lex/husky-toml-token" }
+# kernel
+husky-toolchain = { path = "../../kernel/husky-toolchain" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
+# syntax
+husky-toml-ast = { path = "../../syntax/husky-toml-ast" }

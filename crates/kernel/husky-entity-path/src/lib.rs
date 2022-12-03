@@ -16,19 +16,19 @@ use salsa::DbWithJar;
 
 #[salsa::interned(jar = EntityPathJar)]
 pub struct EntityPath {
-    ident: Identifier,
     #[return_ref]
-    variant: EntityPathVariant,
+    variant: EntityPathData,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum EntityPathVariant {
+pub enum EntityPathData {
     Crate {
         package: PackagePath,
         kind: CratePathKind,
     },
     Childpath {
         parent: EntityPath,
+        ident: Identifier,
     },
 }
 
