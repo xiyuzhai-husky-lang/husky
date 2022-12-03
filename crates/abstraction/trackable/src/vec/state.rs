@@ -21,7 +21,7 @@ where
     type Change = TrackableVecChange<E::CloneOutput>;
 
     fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
-        if self.state.old_len > self.entries.len() {
+        let change = if self.state.old_len > self.entries.len() {
             todo!("non incremental")
         } else {
             let modified_entries = self
@@ -39,7 +39,12 @@ where
                 modified_entries,
                 new_entries,
             })
-        }
+        };
+        self.state = TrackableVecState {
+            old_len: self.entries.len(),
+            elems_modified: Default::default(),
+        };
+        change
     }
 }
 
