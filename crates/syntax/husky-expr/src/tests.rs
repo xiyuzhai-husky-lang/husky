@@ -51,9 +51,3 @@ impl HasSourcePathConfig for MimicDB {
 }
 
 impl Database for MimicDB {}
-
-impl ParallelDatabase for MimicDB {
-    fn snapshot(&self) -> salsa::Snapshot<Self> {
-        todo!()
-    }
-}

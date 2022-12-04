@@ -12,7 +12,7 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + SourcePathDb + Send {
 
 impl<T> VfsDb for T
 where
-    T: salsa::DbWithJar<VfsJar> + SourcePathDb + ParallelDatabase + Send + 'static,
+    T: salsa::DbWithJar<VfsJar> + SourcePathDb + Send + 'static,
 {
     fn vfs_jar(&self) -> &VfsJar {
         <Self as HasJar<VfsJar>>::jar(self).0
