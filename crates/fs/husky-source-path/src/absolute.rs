@@ -14,7 +14,20 @@ pub(crate) fn source_absolute_path(
             EntityPathData::Crate { package, kind } => package_absolute_path(db, package)
                 .as_ref()?
                 .join(kind.path())?,
-            EntityPathData::Childpath { parent, ident } => todo!(),
+            EntityPathData::Childpath { parent, ident } => {
+                let parent_source_absolute_path =
+                    source_absolute_path(db, db.it_source_path(SourcePathData::Module(parent)))
+                        .as_ref()?;
+                let dir = match db.dt_entity_path(parent) {
+                    EntityPathData::Crate { package, kind } => {
+                        parent_source_absolute_path.parent().unwrap().to_owned()
+                    }
+                    EntityPathData::Childpath { parent, ident } => {
+                        parent_source_absolute_path.with_extension("")
+                    }
+                };
+                AbsolutePath::new(dir.join(db.dt_ident(ident)).with_extension("hsy"))?
+            }
         },
         SourcePathData::CorgiToml(package) => package_absolute_path(db, package)
             .as_ref()?
