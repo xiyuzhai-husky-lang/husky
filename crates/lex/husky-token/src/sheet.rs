@@ -1,4 +1,4 @@
-use crate::{line_group::produce_line_group_starts, *};
+use crate::{group::produce_group_starts, *};
 use husky_text::TextIndent;
 use husky_word::WordDb;
 use lsp_types::FoldingRange;
@@ -23,7 +23,7 @@ impl TokenSheet {
 
     pub fn new(tokens: Vec<Token>) -> TokenSheet {
         TokenSheet {
-            line_group_starts: produce_line_group_starts(&tokens),
+            line_group_starts: produce_group_starts(&tokens),
             tokens,
         }
     }

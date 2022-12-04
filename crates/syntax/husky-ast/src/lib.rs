@@ -3,6 +3,7 @@ mod db;
 mod entrance;
 mod error;
 mod field;
+mod sheet;
 mod stmt;
 #[cfg(test)]
 mod tests;
@@ -11,10 +12,11 @@ mod xml;
 
 pub use crate::error::{AstError, AstErrorVariant, AstResult, AstResultArc};
 pub use context::*;
-pub use db::{AstDb, AstText};
+pub use db::AstDb;
 pub use entrance::*;
 pub use field::*;
-use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
+use husky_token::TokenGroupIdx;
+pub use sheet::*;
 pub use stmt::*;
 pub use variant::*;
 pub use xml::*;
@@ -34,11 +36,12 @@ use husky_term::Term;
 use husky_text::*;
 use husky_word::IdentMap;
 use husky_word::*;
+use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DbWithJar;
 use std::sync::Arc;
 
 #[salsa::jar(db = AstDb)]
-pub struct AstJar();
+pub struct AstJar(ast_sheet);
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct DeprecatedAst {
@@ -46,16 +49,12 @@ pub struct DeprecatedAst {
     pub range: TextRange,
 }
 
-pub struct Ast {
-    // tokens: TokenGroup,
-    kind: AstKind,
-}
-
-pub enum AstKind {
-    Use,
-    Comment,
-    Stmt,
-    DefnHead,
+#[derive(Debug, PartialEq, Eq)]
+pub enum Ast {
+    Use(TokenGroupIdx),
+    Comment(TokenGroupIdx),
+    Stmt(TokenGroupIdx),
+    DefnHead(TokenGroupIdx),
 }
 
 pub type AstArena = Arena<Ast>;

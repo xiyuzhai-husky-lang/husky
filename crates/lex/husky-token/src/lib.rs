@@ -2,8 +2,8 @@
 #![feature(const_convert)]
 mod db;
 mod error;
+mod group;
 mod kind;
-mod line_group;
 mod semantic_token;
 mod sheet;
 #[cfg(feature = "storage")]
@@ -16,6 +16,7 @@ mod utils;
 
 pub use db::*;
 pub use error::*;
+pub use group::*;
 pub use kind::*;
 pub use semantic_token::*;
 pub use sheet::*;

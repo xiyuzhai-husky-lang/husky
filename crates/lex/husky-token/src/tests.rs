@@ -55,10 +55,11 @@ fn tokenize_library() {
     macro_rules! t {
         ($($module:ident),*) => {
             $(
-                expect_file![format!("../tests/single/package_{}_token_sheets.txt", stringify!($module))]
+                expect_file![format!("../tests/single/{}_token_sheet.txt", stringify!($module))]
                     .assert_eq(&format!("{:#?}", db.token_sheet(entity_path_menu.$module())))
             );*
         }
     }
+
     t!(core, core_basic, core_num, std);
 }

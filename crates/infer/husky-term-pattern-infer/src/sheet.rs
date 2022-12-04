@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use crate::*;
-use husky_ast::AstText;
+use husky_ast::AstSheet;
 use husky_expr::ExprMap;
 use husky_term_pattern::*;
 use husky_text::TextRange;
@@ -74,7 +74,7 @@ impl TermPatternInferSheet {
 }
 
 impl TermPatternInferSheet {
-    pub fn ast_text(&self) -> &AstText {
+    pub fn ast_text(&self) -> &AstSheet {
         todo!()
     }
 }
