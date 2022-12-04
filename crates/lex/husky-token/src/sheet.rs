@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{line_group::produce_line_group_starts, *};
 use husky_text::TextIndent;
 use husky_word::WordDb;
 use lsp_types::FoldingRange;
@@ -13,7 +13,6 @@ use std::sync::Arc;
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenSheet {
     pub tokens: Vec<Token>,
-    pub errors: Vec<TokenError>,
     pub line_group_starts: Vec<usize>,
 }
 
@@ -23,12 +22,10 @@ impl TokenSheet {
     }
 
     pub fn new(tokens: Vec<Token>) -> TokenSheet {
-        todo!()
-        // TokenizedText {
-        //     tokens,
-        //     errors,
-        //     token_groups: line_groups.into(),
-        // }
+        TokenSheet {
+            line_group_starts: produce_line_group_starts(&tokens),
+            tokens,
+        }
     }
 
     pub fn folding_ranges(&self) -> Vec<FoldingRange> {

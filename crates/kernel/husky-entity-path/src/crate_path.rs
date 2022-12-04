@@ -9,7 +9,7 @@ pub enum CratePathKind {
 impl CratePathKind {
     pub fn path(&self) -> &'static str {
         match self {
-            CratePathKind::Library => "lib.hsy",
+            CratePathKind::Library => "src/lib.hsy",
             CratePathKind::Binary(_) => todo!(),
         }
     }

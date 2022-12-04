@@ -2,6 +2,7 @@ mod crate_path;
 mod db;
 mod jar;
 mod menu;
+mod utils;
 
 pub use db::*;
 pub use jar::*;
@@ -13,6 +14,7 @@ use husky_toolchain::Toolchain;
 use husky_word::Identifier;
 use optional::Optioned;
 use salsa::DbWithJar;
+use utils::*;
 
 #[salsa::interned(jar = EntityPathJar)]
 pub struct EntityPath {
