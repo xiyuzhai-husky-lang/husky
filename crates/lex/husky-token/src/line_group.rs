@@ -12,38 +12,37 @@ pub(crate) fn produce_line_group_starts(tokens: &[Token]) -> Vec<usize> {
         line_group_starts.push(line_start0);
         i = {
             let mut j = i + 1;
-            println!("start");
             while j < line_starts.len() {
                 let line_start1 = line_starts[j];
                 let line_start_token = &tokens[line_start1];
                 let line_indent1 = line_start_token.range.start.col.0;
-                enum Flag {
+                enum ControlFlow {
                     Break,
                     Continue,
                 }
+                use ControlFlow::*;
                 let flag = if line_indent1 > line_indent0 {
                     // detect an indentation
                     match tokens[line_start1 - 1].kind {
                         TokenKind::Keyword(Keyword::End(_))
-                        | TokenKind::Special(SpecialToken::Colon) => Flag::Break,
-                        _ => Flag::Continue,
+                        | TokenKind::Special(SpecialToken::Colon) => Break,
+                        _ => ControlFlow::Continue,
                     }
                 } else {
                     if line_indent1 == line_indent0 {
                         match line_start_token.kind {
-                            TokenKind::Special(SpecialToken::Ket(_)) => Flag::Continue,
-                            _ => Flag::Break,
+                            TokenKind::Special(SpecialToken::Ket(_)) => Continue,
+                            _ => Break,
                         }
                     } else {
-                        Flag::Break
+                        Break
                     }
                 };
                 match flag {
-                    Flag::Break => break,
-                    Flag::Continue => j += 1,
+                    Break => break,
+                    Continue => j += 1,
                 }
             }
-            println!("end");
             j
         }
     }
