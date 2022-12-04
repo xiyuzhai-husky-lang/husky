@@ -52,8 +52,13 @@ fn tokenize_library() {
     let package_path_menu = db.package_path_menu();
     let entity_path_menu = db.entity_path_menu();
 
-    expect_file!["../tests/single/package_core_lib_token_sheets.txt"]
-        .assert_eq(&format!("{:#?}", db.token_sheet(entity_path_menu.core())));
-    expect_file!["../tests/single/package_std_lib_token_sheets.txt"]
-        .assert_eq(&format!("{:#?}", db.token_sheet(entity_path_menu.std())));
+    macro_rules! t {
+        ($($module:ident),*) => {
+            $(
+                expect_file![format!("../tests/single/package_{}_token_sheets.txt", stringify!($module))]
+                    .assert_eq(&format!("{:#?}", db.token_sheet(entity_path_menu.$module())))
+            );*
+        }
+    }
+    t!(core, core_basic, core_num, std);
 }

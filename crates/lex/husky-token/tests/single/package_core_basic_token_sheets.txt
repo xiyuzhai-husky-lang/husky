@@ -1,0 +1,75 @@
+Ok(
+    TokenSheet {
+        tokens: [
+            Token {
+                range: [1:1, 1:5),
+                kind: Identifier(
+                    Identifier(
+                        Word(
+                            Id {
+                                value: 35,
+                            },
+                        ),
+                    ),
+                ),
+            },
+            Token {
+                range: [1:6, 1:10),
+                kind: Identifier(
+                    Identifier(
+                        Word(
+                            Id {
+                                value: 16,
+                            },
+                        ),
+                    ),
+                ),
+            },
+            Token {
+                range: [3:1, 3:10),
+                kind: Keyword(
+                    Type(
+                        Structure,
+                    ),
+                ),
+            },
+            Token {
+                range: [3:11, 3:16),
+                kind: Identifier(
+                    Identifier(
+                        Word(
+                            Id {
+                                value: 17,
+                            },
+                        ),
+                    ),
+                ),
+            },
+            Token {
+                range: [5:1, 5:10),
+                kind: Keyword(
+                    Type(
+                        Structure,
+                    ),
+                ),
+            },
+            Token {
+                range: [5:11, 5:17),
+                kind: Identifier(
+                    Identifier(
+                        Word(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
+                ),
+            },
+        ],
+        line_group_starts: [
+            0,
+            2,
+            4,
+        ],
+    },
+)

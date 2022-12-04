@@ -1,5 +1,6 @@
 mod ambiguous;
 mod config;
+mod end;
 mod liason;
 mod paradigm;
 mod stmt;
@@ -7,6 +8,7 @@ mod ty;
 
 pub use ambiguous::*;
 pub use config::*;
+pub use end::*;
 pub use liason::*;
 pub use paradigm::*;
 pub use stmt::*;
@@ -38,6 +40,7 @@ pub enum Keyword {
     Mod,
     Visual,
     Impl,
+    End(EndKeyword),
 }
 
 impl std::fmt::Display for Keyword {
@@ -60,6 +63,7 @@ impl Keyword {
             Keyword::Liason(keyword) => keyword.as_str(),
             Keyword::Impl => "impl",
             Keyword::Ambiguous(_) => todo!(),
+            Keyword::End(_) => todo!(),
         }
     }
 }

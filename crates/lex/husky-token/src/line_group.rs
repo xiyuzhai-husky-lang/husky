@@ -1,3 +1,5 @@
+use husky_print_utils::p;
+
 use crate::*;
 
 pub(crate) fn produce_line_group_starts(tokens: &[Token]) -> Vec<usize> {
@@ -10,23 +12,38 @@ pub(crate) fn produce_line_group_starts(tokens: &[Token]) -> Vec<usize> {
         line_group_starts.push(line_start0);
         i = {
             let mut j = i + 1;
+            println!("start");
             while j < line_starts.len() {
                 let line_start1 = line_starts[j];
                 let line_start_token = &tokens[line_start1];
                 let line_indent1 = line_start_token.range.start.col.0;
-                if line_indent1 > line_indent0 {
+                enum Flag {
+                    Break,
+                    Continue,
+                }
+                let flag = if line_indent1 > line_indent0 {
                     // detect an indentation
-                    todo!();
-                    j += 1;
+                    match tokens[line_start1 - 1].kind {
+                        TokenKind::Keyword(Keyword::End(_))
+                        | TokenKind::Special(SpecialToken::Colon) => Flag::Break,
+                        _ => Flag::Continue,
+                    }
                 } else {
                     if line_indent1 == line_indent0 {
                         match line_start_token.kind {
-                            TokenKind::Special(SpecialToken::Ket(_)) => j += 1,
-                            _ => break,
+                            TokenKind::Special(SpecialToken::Ket(_)) => Flag::Continue,
+                            _ => Flag::Break,
                         }
+                    } else {
+                        Flag::Break
                     }
+                };
+                match flag {
+                    Flag::Break => break,
+                    Flag::Continue => j += 1,
                 }
             }
+            println!("end");
             j
         }
     }
