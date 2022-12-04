@@ -8,7 +8,8 @@ use std::{
 
 pub struct SourcePathJar(
     <SourcePath as salsa::storage::IngredientsFor>::Ingredients,
-    <source_to_absolute_path as salsa::storage::IngredientsFor>::Ingredients,
+    <source_absolute_path as salsa::storage::IngredientsFor>::Ingredients,
+    <package_absolute_path as salsa::storage::IngredientsFor>::Ingredients,
     BiDashMap<SourcePath, AbsolutePath>,
 );
 
@@ -18,7 +19,7 @@ impl SourcePathJar {
         path: SourcePath,
         gen_physical_path: impl FnOnce() -> SourcePathResult<AbsolutePath>,
     ) -> SourcePathResult<AbsolutePath> {
-        self.2
+        self.3
             .get_right_or_insert_with_result(path, gen_physical_path)
     }
 
@@ -27,7 +28,7 @@ impl SourcePathJar {
         path: &Path,
     ) -> SourcePathResult<Option<SourcePath>> {
         let path = AbsolutePath::new(path.to_owned())?;
-        Ok(self.2.get_left(&path))
+        Ok(self.3.get_left(&path))
     }
 }
 
@@ -42,16 +43,27 @@ impl salsa::storage::HasIngredientsFor<SourcePath> for SourcePathJar {
     }
 }
 
-impl salsa::storage::HasIngredientsFor<source_to_absolute_path> for SourcePathJar {
-    fn ingredient(
-        &self,
-    ) -> &<source_to_absolute_path as salsa::storage::IngredientsFor>::Ingredients {
+impl salsa::storage::HasIngredientsFor<source_absolute_path> for SourcePathJar {
+    fn ingredient(&self) -> &<source_absolute_path as salsa::storage::IngredientsFor>::Ingredients {
         &self.1
     }
     fn ingredient_mut(
         &mut self,
-    ) -> &mut <source_to_absolute_path as salsa::storage::IngredientsFor>::Ingredients {
+    ) -> &mut <source_absolute_path as salsa::storage::IngredientsFor>::Ingredients {
         &mut self.1
+    }
+}
+
+impl salsa::storage::HasIngredientsFor<package_absolute_path> for SourcePathJar {
+    fn ingredient(
+        &self,
+    ) -> &<package_absolute_path as salsa::storage::IngredientsFor>::Ingredients {
+        &self.2
+    }
+    fn ingredient_mut(
+        &mut self,
+    ) -> &mut <package_absolute_path as salsa::storage::IngredientsFor>::Ingredients {
+        &mut self.2
     }
 }
 
@@ -63,7 +75,9 @@ impl<'salsa_db> salsa::jar::Jar<'salsa_db> for SourcePathJar {
     {
         let i0 = <SourcePath as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i1 =
-            <source_to_absolute_path as salsa::storage::IngredientsFor>::create_ingredients(routes);
-        Self(i0, i1, Default::default())
+            <source_absolute_path as salsa::storage::IngredientsFor>::create_ingredients(routes);
+        let i2 =
+            <package_absolute_path as salsa::storage::IngredientsFor>::create_ingredients(routes);
+        Self(i0, i1, i2, Default::default())
     }
 }

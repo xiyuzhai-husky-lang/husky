@@ -22,6 +22,7 @@ husky-text = { path = "../../lex/husky-text" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # syntax
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
@@ -33,5 +34,7 @@ wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+
+[dev-dependencies]
 
 [lib]

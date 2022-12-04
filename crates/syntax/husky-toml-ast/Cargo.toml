@@ -28,3 +28,4 @@ expect-test = "1.4.0"
 # kernel
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }

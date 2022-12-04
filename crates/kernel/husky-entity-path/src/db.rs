@@ -11,7 +11,8 @@ pub struct EntityPathMenuPlace(Arc<once_cell::sync::OnceCell<EntityPathMenu>>);
 
 pub trait EntityPathDb: DbWithJar<EntityPathJar> + PackagePathDb + WordDb {
     fn entity_path_menu(&self) -> &EntityPathMenu;
-    fn it_entity_path(&self, variant: EntityPathData) -> EntityPath;
+    fn it_entity_path(&self, data: EntityPathData) -> EntityPath;
+    fn dt_entity_path(&self, path: EntityPath) -> EntityPathData;
 }
 
 impl<T> EntityPathDb for T
@@ -26,8 +27,12 @@ where
             .get_or_init(|| EntityPathMenu::new(self))
     }
 
-    fn it_entity_path(&self, variant: EntityPathData) -> EntityPath {
-        EntityPath::new(self, variant)
+    fn it_entity_path(&self, data: EntityPathData) -> EntityPath {
+        EntityPath::new(self, data)
+    }
+
+    fn dt_entity_path(&self, path: EntityPath) -> EntityPathData {
+        path.data(self)
     }
 }
 

@@ -22,7 +22,7 @@ impl TokenSheet {
         &self.tokens
     }
 
-    pub fn new(line_groups: Vec<usize>, tokens: Vec<Token>, errors: Vec<TokenError>) -> TokenSheet {
+    pub fn new(tokens: Vec<Token>) -> TokenSheet {
         todo!()
         // TokenizedText {
         //     tokens,

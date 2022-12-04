@@ -9,4 +9,10 @@ pub enum SourcePathError {
     AbsolutePath(#[from] AbsolutePathError),
 }
 
+impl From<&SourcePathError> for SourcePathError {
+    fn from(value: &SourcePathError) -> Self {
+        todo!()
+    }
+}
+
 pub type SourcePathResult<T> = Result<T, SourcePathError>;

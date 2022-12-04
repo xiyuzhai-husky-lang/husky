@@ -13,21 +13,6 @@ use husky_word::WordJar;
 use place::SingleAssignPlace;
 use salsa::{Database, ParallelDatabase};
 
-#[test]
-fn it_works() {
-    expect_test_husky_to_rust("", &test_parse_exprs_debug);
-
-    fn test_parse_exprs_debug(text: &str) -> String {
-        let db = MimicDB::default();
-        let tokens = db.tokenize(text);
-        let mut arena = ExprArena::default();
-        // ad hoc; todo: preludes
-        let mut symbols = db.new_symbol_ctx();
-        parse_expr(&db, &tokens, &mut symbols, &mut arena);
-        format!("{:#?}", arena)
-    }
-}
-
 #[salsa::db(
     WordJar,
     VfsJar,
@@ -51,3 +36,18 @@ impl HasSourcePathConfig for MimicDB {
 }
 
 impl Database for MimicDB {}
+
+#[test]
+fn it_works() {
+    expect_test_husky_to_rust("", &test_parse_exprs_debug);
+
+    fn test_parse_exprs_debug(text: &str) -> String {
+        let db = MimicDB::default();
+        let tokens = db.tokenize(text);
+        let mut arena = ExprArena::default();
+        // ad hoc; todo: preludes
+        let mut symbols = db.new_symbol_ctx();
+        parse_expr(&db, &tokens, &mut symbols, &mut arena);
+        format!("{:#?}", arena)
+    }
+}
