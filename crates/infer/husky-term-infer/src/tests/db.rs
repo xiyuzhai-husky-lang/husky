@@ -13,7 +13,6 @@ use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDb, SymbolJar, SymbolKind
 use husky_term::{
     AskDecl, Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
 };
-use husky_text::TextJar;
 use husky_token::TokenJar;
 use husky_toolchain::ToolchainJar;
 use husky_vfs::VfsJar;
@@ -29,7 +28,6 @@ use upcast::Upcast;
     PackagePathJar,
     ToolchainJar,
     WordJar,
-    TextJar,
     TermJar,
     TermInferJar,
     TokenJar,

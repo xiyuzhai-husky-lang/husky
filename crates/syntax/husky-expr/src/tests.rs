@@ -35,7 +35,6 @@ fn it_works() {
     ToolchainJar,
     PackagePathJar,
     EntityPathJar,
-    TextJar,
     TokenJar,
     SymbolJar,
     EntityTreeJar
