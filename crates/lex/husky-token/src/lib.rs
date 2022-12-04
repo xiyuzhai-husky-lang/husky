@@ -3,6 +3,7 @@
 mod db;
 mod error;
 mod kind;
+mod line_group;
 mod semantic_token;
 mod sheet;
 #[cfg(feature = "storage")]

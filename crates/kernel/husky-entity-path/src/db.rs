@@ -13,6 +13,8 @@ pub trait EntityPathDb: DbWithJar<EntityPathJar> + PackagePathDb + WordDb {
     fn entity_path_menu(&self) -> &EntityPathMenu;
     fn it_entity_path(&self, data: EntityPathData) -> EntityPath;
     fn dt_entity_path(&self, path: EntityPath) -> EntityPathData;
+    fn entity_package(&self, path: EntityPath) -> PackagePath;
+    fn is_builtin_entity(&self, path: EntityPath) -> bool;
 }
 
 impl<T> EntityPathDb for T
@@ -22,8 +24,8 @@ where
     fn entity_path_menu(&self) -> &EntityPathMenu {
         <Self as HasJar<EntityPathJar>>::jar(self)
             .0
-             .1
-             .0
+            .entity_path_menu_place()
+            .0
             .get_or_init(|| EntityPathMenu::new(self))
     }
 
@@ -31,8 +33,16 @@ where
         EntityPath::new(self, data)
     }
 
-    fn dt_entity_path(&self, path: EntityPath) -> EntityPathData {
-        path.data(self)
+    fn dt_entity_path(&self, entity: EntityPath) -> EntityPathData {
+        entity.data(self)
+    }
+
+    fn entity_package(&self, entity: EntityPath) -> PackagePath {
+        entity_package(self, entity)
+    }
+
+    fn is_builtin_entity(&self, entity: EntityPath) -> bool {
+        is_builtin_entity(self, entity)
     }
 }
 

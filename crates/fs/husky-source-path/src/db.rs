@@ -39,7 +39,10 @@ where
 
     fn source_durability(&self, path: SourcePath) -> Durability {
         match path.data(self) {
-            SourcePathData::Module(_) => todo!(),
+            SourcePathData::Module(entity_path) => match self.is_builtin_entity(entity_path) {
+                true => Durability::HIGH,
+                false => Durability::LOW,
+            },
             SourcePathData::CorgiToml(package) => match self.package_path_data(package) {
                 PackagePathData::Builtin { .. } => Durability::HIGH,
                 PackagePathData::Global { version } => todo!(),

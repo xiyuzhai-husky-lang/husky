@@ -37,15 +37,9 @@ impl HasSourcePathConfig for MimicDB {
 
 impl Database for MimicDB {}
 
-impl salsa::ParallelDatabase for MimicDB {
-    fn snapshot(&self) -> salsa::Snapshot<Self> {
-        todo!()
-    }
-}
-
 #[test]
 fn tokenize_works() {
-    expect_test_husky_to_rust("", &tokenize_debug);
+    expect_test_husky_to_rust("batch", &tokenize_debug);
 
     fn tokenize_debug(text: &str) -> String {
         format!("{:#?}", MimicDB::default().tokenize(text))
@@ -57,5 +51,9 @@ fn tokenize_library() {
     let db = MimicDB::default();
     let package_path_menu = db.package_path_menu();
     let entity_path_menu = db.entity_path_menu();
-    db.token_sheet(entity_path_menu.core());
+
+    expect_file!["../tests/single/package_core_lib_token_sheets.txt"]
+        .assert_eq(&format!("{:#?}", db.token_sheet(entity_path_menu.core())));
+    expect_file!["../tests/single/package_std_lib_token_sheets.txt"]
+        .assert_eq(&format!("{:#?}", db.token_sheet(entity_path_menu.std())));
 }
