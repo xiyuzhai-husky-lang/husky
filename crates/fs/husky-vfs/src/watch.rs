@@ -15,13 +15,13 @@ use std::{
     time::Duration,
 };
 
-pub trait WatchableVfsDb: VfsDb + Send + ParallelDatabase + 'static {
+pub trait WatchableVfsDb: VfsDb + Send {
     fn watcher(&self) -> Option<&VfsWatcher>;
 }
 
 impl<T> WatchableVfsDb for T
 where
-    T: VfsDb + Send + ParallelDatabase + 'static,
+    T: VfsDb + Send,
 {
     fn watcher(&self) -> Option<&VfsWatcher> {
         self.vfs_jar().watcher_place().value()
@@ -47,13 +47,19 @@ const DEBOUNCE_TIMEOUT: Duration = Duration::from_millis(DEBOUNCE_TIMEOUT_RAW);
 pub(crate) const DEBOUNCE_TEST_SLEEP_TIME: Duration =
     Duration::from_millis(DEBOUNCE_TIMEOUT_RAW * 4);
 
-pub struct WatchedVfs<DB: WatchableVfsDb> {
+pub struct WatchedVfs<DB: WatchableVfsDb>
+where
+    DB: ParallelDatabase,
+{
     event_tx: Sender<VfsWatcherEvent>,
     snapshot_rx: Receiver<Snapshot<DB>>,
     phantom: PhantomData<DB>,
 }
 
-impl<DB: WatchableVfsDb> WatchedVfs<DB> {
+impl<DB: WatchableVfsDb> WatchedVfs<DB>
+where
+    DB: ParallelDatabase,
+{
     pub fn apply<S>(&self, f: impl FnOnce(&DB) -> S) -> S {
         self.event_tx.send(VfsWatcherEvent::Snapshot);
         match self.snapshot_rx.recv() {
@@ -66,7 +72,10 @@ impl<DB: WatchableVfsDb> WatchedVfs<DB> {
     }
 }
 
-pub struct VfsWatcherInstance<DB: WatchableVfsDb> {
+pub struct VfsWatcherInstance<DB: WatchableVfsDb>
+where
+    DB: ParallelDatabase,
+{
     db: DB,
     debounce_rx: Receiver<DebounceEventResult>,
     event_rx: Receiver<VfsWatcherEvent>,
@@ -78,7 +87,10 @@ pub enum VfsWatcherEvent {
     Close,
 }
 
-impl<V: WatchableVfsDb> Drop for WatchedVfs<V> {
+impl<V: WatchableVfsDb> Drop for WatchedVfs<V>
+where
+    V: ParallelDatabase,
+{
     fn drop(&mut self) {
         match self.event_tx.send(VfsWatcherEvent::Close) {
             Ok(_) => (),
@@ -87,7 +99,10 @@ impl<V: WatchableVfsDb> Drop for WatchedVfs<V> {
     }
 }
 
-impl<DB: WatchableVfsDb> WatchedVfs<DB> {
+impl<DB: WatchableVfsDb> WatchedVfs<DB>
+where
+    DB: ParallelDatabase + 'static,
+{
     pub(crate) fn new(mut db: DB) -> Self {
         let (event_tx, event_rx) = unbounded();
         let (debounce_tx, debounce_rx) = unbounded();
@@ -110,7 +125,10 @@ impl<DB: WatchableVfsDb> WatchedVfs<DB> {
     }
 }
 
-impl<DB: WatchableVfsDb> VfsWatcherInstance<DB> {
+impl<DB: WatchableVfsDb> VfsWatcherInstance<DB>
+where
+    DB: ParallelDatabase,
+{
     fn new(
         db: DB,
         debounce_rx: Receiver<DebounceEventResult>,

@@ -33,15 +33,6 @@ impl HasSourcePathConfig for MimicDB {
 
 impl Database for MimicDB {}
 
-impl ParallelDatabase for MimicDB {
-    fn snapshot(&self) -> Snapshot<Self> {
-        Snapshot::new(MimicDB {
-            storage: self.storage.snapshot(),
-            source_path_config: self.source_path_config.clone(),
-        })
-    }
-}
-
 fn err(input: &str, err: TomlTokenError) {
     let db = MimicDB::default();
     let mut t = TomlTokenIter::new(&db, input);
