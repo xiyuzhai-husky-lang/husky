@@ -32,7 +32,6 @@ use husky_linkage_table::LinkageTable;
 use husky_rust_code_gen::RustTranspileJar;
 use husky_source_path::{HasSourcePathConfig, SourcePath, SourcePathConfig, SourcePathJar};
 use husky_term::TermJar;
-use husky_text::TextJar;
 use husky_token::TokenJar;
 use husky_toolchain::ToolchainJar;
 use husky_vfs::VfsJar;
@@ -47,7 +46,6 @@ use sync_utils::ASafeRwLock;
     PackagePathJar,
     EntityTreeJar,
     ToolchainJar,
-    TextJar,
     AstJar,
     WordJar,
     SourcePathJar,

@@ -7,6 +7,7 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
+expect-test = "1.4.0"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 lsp-types = { version = "0.93", features = ["proposed"] }
@@ -19,6 +20,8 @@ husky-source-path = { path = "../../fs/husky-source-path" }
 husky-text = { path = "../../lex/husky-text" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
+husky-toolchain = { path = "../../kernel/husky-toolchain" }
+husky-package-path = { path = "../../kernel/husky-package-path" }
 # syntax
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }

@@ -159,7 +159,7 @@ impl DeveloperGuiContext {
                             };
                             let new_partition = Partition {
                                 ncol,
-                                variant: PartitionVariant::Label(Label(label_raw as i32)),
+                                variant: PartitionVariant::Label(Label(label_raw)),
                             };
                             new_partition_dialog().close();
                             self.handle_status_change(StatusChange::update_restriction(
