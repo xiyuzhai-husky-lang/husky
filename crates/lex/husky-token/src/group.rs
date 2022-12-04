@@ -1,6 +1,9 @@
 use crate::*;
 
-pub(crate) fn produce_line_group_starts(tokens: &[Token]) -> Vec<usize> {
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct TokenGroupIdx(usize);
+
+pub(crate) fn produce_group_starts(tokens: &[Token]) -> Vec<usize> {
     let line_starts = produce_line_starts(tokens);
     let mut i = 0;
     let mut line_group_starts = vec![];

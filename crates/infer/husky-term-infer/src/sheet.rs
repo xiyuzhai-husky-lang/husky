@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::AstText;
+use husky_ast::AstSheet;
 use husky_expr::{ExprArena, ExprIdx, ExprMap};
 use husky_term::Term;
 
@@ -34,7 +34,7 @@ impl TermSheet {
 }
 
 impl TermSheet {
-    pub fn ast_text(&self) -> &AstText {
+    pub fn ast_text(&self) -> &AstSheet {
         todo!()
     }
 

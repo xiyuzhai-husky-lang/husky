@@ -31,7 +31,7 @@ pub struct TomlAstJar(toml_ast);
 pub struct TomlAst {
     exprs: TomlExprArena,
     sections: TomlSectionSheet,
-    line_groups: Vec<TomlLineGroup>,
+    line_groups: Vec<TomlGroup>,
     table: TomlTable,
 }
 

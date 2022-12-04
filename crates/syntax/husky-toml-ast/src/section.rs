@@ -36,7 +36,7 @@ impl TomlSection {
 }
 
 impl TomlSectionSheet {
-    pub(crate) fn new(toml_token_text: &TomlTokenSheet, line_groups: &[TomlLineGroup]) -> Self {
+    pub(crate) fn new(toml_token_text: &TomlTokenSheet, line_groups: &[TomlGroup]) -> Self {
         let mut errors = vec![];
         Self {
             arena: TomlSectionIter::new(toml_token_text, line_groups, &mut errors).collect(),
@@ -55,7 +55,7 @@ impl TomlSectionSheet {
 
 struct TomlSectionIter<'a> {
     toml_token_text: &'a TomlTokenSheet,
-    line_groups: &'a [TomlLineGroup],
+    line_groups: &'a [TomlGroup],
     current: usize,
     section_errors: &'a mut Vec<TomlAstError>,
 }
@@ -68,7 +68,7 @@ pub enum TomlSectionIterState {
 impl<'a> TomlSectionIter<'a> {
     fn new(
         toml_token_text: &'a TomlTokenSheet,
-        line_groups: &'a [TomlLineGroup],
+        line_groups: &'a [TomlGroup],
         section_errors: &'a mut Vec<TomlAstError>,
     ) -> Self {
         Self {
@@ -86,22 +86,22 @@ impl<'a> Iterator for TomlSectionIter<'a> {
     fn next(&mut self) -> Option<Self::Item> {
         let (line_group_index, line_group) = self.next_indexed_line_group()?;
         match line_group {
-            TomlLineGroup::SectionTitle { title, kind } => {
+            TomlGroup::SectionTitle { title, kind } => {
                 Some(self.next_section(title.clone(), *kind))
             }
-            TomlLineGroup::KeyValue(_, _) => {
+            TomlGroup::KeyValue(_, _) => {
                 self.section_errors
                     .push(TomlAstError::MisplacedKeyValue(line_group_index));
                 self.next()
             }
-            TomlLineGroup::Comment => self.next(),
-            TomlLineGroup::Err => self.ignore_until_new_section(),
+            TomlGroup::Comment => self.next(),
+            TomlGroup::Err => self.ignore_until_new_section(),
         }
     }
 }
 
 impl<'a> TomlSectionIter<'a> {
-    fn next_indexed_line_group(&mut self) -> Option<(usize, &'a TomlLineGroup)> {
+    fn next_indexed_line_group(&mut self) -> Option<(usize, &'a TomlGroup)> {
         if self.current < self.line_groups.len() {
             let index = self.current;
             self.current += 1;
@@ -111,7 +111,7 @@ impl<'a> TomlSectionIter<'a> {
         }
     }
 
-    fn peek_indexed_line_group(&mut self) -> Option<(usize, &'a TomlLineGroup)> {
+    fn peek_indexed_line_group(&mut self) -> Option<(usize, &'a TomlGroup)> {
         if self.current < self.line_groups.len() {
             Some((self.current, &self.line_groups[self.current]))
         } else {
@@ -119,7 +119,7 @@ impl<'a> TomlSectionIter<'a> {
         }
     }
 
-    fn peek_line_group(&mut self) -> Option<&'a TomlLineGroup> {
+    fn peek_line_group(&mut self) -> Option<&'a TomlGroup> {
         if self.current < self.line_groups.len() {
             Some(&self.line_groups[self.current])
         } else {
@@ -135,9 +135,9 @@ impl<'a> TomlSectionIter<'a> {
         let mut key_value_pairs = vec![];
         while let Some((i, line_group)) = self.peek_indexed_line_group() {
             match line_group {
-                TomlLineGroup::SectionTitle { .. } => break,
-                TomlLineGroup::KeyValue(key, value) => key_value_pairs.push((i, *key, *value)),
-                TomlLineGroup::Comment | TomlLineGroup::Err => (),
+                TomlGroup::SectionTitle { .. } => break,
+                TomlGroup::KeyValue(key, value) => key_value_pairs.push((i, *key, *value)),
+                TomlGroup::Comment | TomlGroup::Err => (),
             }
             self.pass()
         }
@@ -151,8 +151,8 @@ impl<'a> TomlSectionIter<'a> {
     fn ignore_until_new_section(&mut self) -> Option<TomlSection> {
         while let Some(line_group) = self.peek_line_group() {
             match line_group {
-                TomlLineGroup::SectionTitle { .. } => break,
-                TomlLineGroup::KeyValue(_, _) | TomlLineGroup::Comment | TomlLineGroup::Err => {
+                TomlGroup::SectionTitle { .. } => break,
+                TomlGroup::KeyValue(_, _) | TomlGroup::Comment | TomlGroup::Err => {
                     self.pass();
                 }
             }

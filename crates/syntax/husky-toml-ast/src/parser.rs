@@ -23,21 +23,21 @@ impl<'a> TomlAstParser<'a> {
         }
     }
 
-    pub(crate) fn parse_line_group(mut self) -> TomlLineGroup {
+    pub(crate) fn parse_line_group(mut self) -> TomlGroup {
         let first_token = self.tokens.next().unwrap();
         match first_token.variant() {
-            TomlTokenVariant::Comment => TomlLineGroup::Comment,
+            TomlTokenVariant::Comment => TomlGroup::Comment,
             TomlTokenVariant::Special(special) => match special {
                 TomlSpecialToken::LeftBox => self.parse_section_title(),
                 _ => todo!("unexpected"),
             },
             TomlTokenVariant::Word(word) => self.parse_key_value(*word),
             TomlTokenVariant::StringLiteral { val, multiline } => todo!("make key value"),
-            TomlTokenVariant::Err(_) => TomlLineGroup::Err,
+            TomlTokenVariant::Err(_) => TomlGroup::Err,
         }
     }
 
-    fn parse_section_title(mut self) -> TomlLineGroup {
+    fn parse_section_title(mut self) -> TomlGroup {
         let mut title: SmallVec<[Word; 2]> = Default::default();
         let mut kind: TomlSectionKind = TomlSectionKind::Normal;
         let token = self.tokens.next().ok_or(TomlAstError::Expect)?;
@@ -59,13 +59,13 @@ impl<'a> TomlAstParser<'a> {
                 TomlTokenVariant::Err(_) => todo!(),
             }
         }
-        TomlLineGroup::SectionTitle { title, kind }
+        TomlGroup::SectionTitle { title, kind }
     }
 
-    fn parse_key_value(mut self, word: Word) -> TomlLineGroup {
+    fn parse_key_value(mut self, word: Word) -> TomlGroup {
         self.eat_special(TomlSpecialToken::Equals);
         let expr = self.parse_expr();
-        TomlLineGroup::KeyValue(word, expr)
+        TomlGroup::KeyValue(word, expr)
     }
 
     fn eat_special(&mut self, target: TomlSpecialToken) -> Result<(), TomlAstError> {
