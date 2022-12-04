@@ -25,3 +25,4 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 tempfile = "3.3.0"
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-word = { path = "../../kernel/husky-word" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }

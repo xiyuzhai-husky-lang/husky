@@ -31,7 +31,7 @@ where
 
 #[salsa::tracked(jar = TomlTokenJar, return_ref)]
 pub(crate) fn toml_token_text(db: &dyn TomlTokenDb, path: SourcePath) -> VfsResult<TomlTokenSheet> {
-    let file = db.file(path).unwrap();
-    let file_content = db.file_content(file);
-    Ok(TomlTokenSheet::new(db.toml_tokenize(file_content)))
+    Ok(TomlTokenSheet::new(
+        db.toml_tokenize(db.file_content(path)?),
+    ))
 }

@@ -1,22 +1,29 @@
 use ::absolute_path::AbsolutePath;
+use husky_entity_path::EntityPathData;
 use husky_package_path::PackagePathData;
 
 use crate::*;
 
 #[salsa::tracked(jar = SourcePathJar, return_ref)]
-pub(crate) fn source_to_absolute_path(
+pub(crate) fn source_absolute_path(
     db: &dyn SourcePathDb,
     path: SourcePath,
 ) -> SourcePathResult<AbsolutePath> {
-    match path.data(db) {
-        SourcePathData::Module(_) => todo!(),
-        SourcePathData::CorgiToml(package) => resolve_package_path(db, package)?
-            .join("Corgi.toml")
-            .map_err(|e| e.into()),
-    }
+    Ok(match path.data(db) {
+        SourcePathData::Module(entity_path) => match db.dt_entity_path(entity_path) {
+            EntityPathData::Crate { package, kind } => package_absolute_path(db, package)
+                .as_ref()?
+                .join(kind.path())?,
+            EntityPathData::Childpath { parent, ident } => todo!(),
+        },
+        SourcePathData::CorgiToml(package) => package_absolute_path(db, package)
+            .as_ref()?
+            .join("Corgi.toml")?,
+    })
 }
 
-fn resolve_package_path(
+#[salsa::tracked(jar = SourcePathJar, return_ref)]
+pub(crate) fn package_absolute_path(
     db: &dyn SourcePathDb,
     package: PackagePath,
 ) -> SourcePathResult<AbsolutePath> {

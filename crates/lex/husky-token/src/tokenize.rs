@@ -13,8 +13,8 @@ use raw::*;
 use tokenizer::*;
 use word::*;
 
-fn tokenize<'a>(db: &dyn WordDb, char_iter: TextCharIter<'a>) -> Vec<Token> {
-    let raw_token_iter = RawTokenIter::new(db, char_iter);
+pub(crate) fn tokenize<'a>(db: &dyn WordDb, input: &str) -> Vec<Token> {
+    let raw_token_iter = RawTokenIter::new(db, TextCharIter::new(input));
     let mut tokenizer = Tokenizer::new(db);
     tokenizer.push_tokens(raw_token_iter);
     tokenizer.finish_with_tokens()
@@ -29,6 +29,6 @@ where
     T: WordDb,
 {
     fn tokenize(&self, input: &str) -> Vec<Token> {
-        tokenize::tokenize(self, TextCharIter::new(input))
+        tokenize::tokenize(self, input)
     }
 }

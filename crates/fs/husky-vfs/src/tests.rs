@@ -4,6 +4,7 @@ use crate::{
 };
 use crossbeam_channel::{unbounded, Sender};
 use dashmap::DashMap;
+use husky_entity_path::EntityPathJar;
 use husky_package_path::{PackagePathData, PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
 use husky_source_path::{
@@ -21,7 +22,14 @@ use std::{
     time::Duration,
 };
 
-#[salsa::db(VfsJar, WordJar, ToolchainJar, PackagePathJar, SourcePathJar)]
+#[salsa::db(
+    VfsJar,
+    WordJar,
+    ToolchainJar,
+    PackagePathJar,
+    EntityPathJar,
+    SourcePathJar
+)]
 #[derive(Default)]
 struct VfsTestsDatabase {
     storage: salsa::Storage<Self>,
@@ -58,14 +66,13 @@ fn vfs_db_works() {
         db.it_corgi_toml_path(db.it_package_path(PackagePathData::Local(some_pkg_dir)))
     });
     let corgi_toml_physical_path = db
-        .apply(|db| db.source_to_absolute_path(corgi_toml_path))
+        .apply(|db| db.source_absolute_path(corgi_toml_path))
         .unwrap();
     p!(corgi_toml_physical_path);
     std::fs::write(&corgi_toml_physical_path, "Hello, world!");
-    let somefile = db.apply(|db| db.file(corgi_toml_path).unwrap());
-    assert!(db.apply(|db| somefile.content(db) == "Hello, world!"),);
+    assert!(db.apply(|db| db.file_content(corgi_toml_path) == Ok("Hello, world!")),);
     std::fs::write(&corgi_toml_physical_path, "Hello, world!2");
     let a = DEBOUNCE_TEST_SLEEP_TIME;
     std::thread::sleep(DEBOUNCE_TEST_SLEEP_TIME);
-    assert!(db.apply(|db| somefile.content(db) == "Hello, world!2"))
+    assert!(db.apply(|db| db.file_content(corgi_toml_path) == Ok("Hello, world!2")))
 }

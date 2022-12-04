@@ -3,8 +3,7 @@ use husky_package_path::PackagePath;
 use husky_source_path::{SourcePath, SourcePathData};
 
 pub trait VfsDb: salsa::DbWithJar<VfsJar> + SourcePathDb + Send {
-    fn file(&self, path: SourcePath) -> VfsResult<SourceFile>;
-    fn file_content(&self, file: SourceFile) -> &str;
+    fn file_content(&self, path: SourcePath) -> VfsResult<&str>;
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn update_file(&mut self, path: PathBuf) -> VfsResult<()>;
@@ -22,39 +21,43 @@ where
         <Self as HasJar<VfsJar>>::jar_mut(self).0
     }
 
-    fn file(&self, path: SourcePath) -> VfsResult<SourceFile> {
-        match self.vfs_jar().husky_file_cache().data().entry(path) {
-            // If the file already exists in our cache then just return it.
-            Entry::Occupied(entry) => Ok(*entry.get()),
-            // If we haven't read this file yet set up the watch, read the
-            // contents, store it in the cache, and return it.
-            Entry::Vacant(entry) => {
-                let physical_path = self.source_to_absolute_path(path)?;
-                //  &path.path(self);
-                if let Some(watcher) = self.watcher() {
-                    let watcher = &mut watcher.0.lock().unwrap();
-                    watcher
-                        .watcher()
-                        .watch(&physical_path, RecursiveMode::NonRecursive)
-                        .unwrap();
-                }
-                let content = read_to_string(&physical_path)?;
-                Ok(*entry.insert(SourceFile::new(self, path, content)))
-            }
-        }
+    fn file_content(&self, path: SourcePath) -> VfsResult<&str> {
+        Ok(source_file(self, path)?.content(self))
     }
 
-    fn file_content(&self, file: SourceFile) -> &str {
-        file.content(self)
-    }
     // todo: test this
     fn update_file(&mut self, path: PathBuf) -> VfsResult<()> {
         let content = read_to_string(&path)?;
         if let Some(path) = self.source_path_from_physical_path(&path)? {
-            self.file(path)?.set_content(self).to(content);
+            source_file(self, path)?.set_content(self).to(content);
         }
         Ok(())
     }
+}
+
+fn source_file<T>(db: &T, path: SourcePath) -> VfsResult<SourceFile>
+where
+    T: salsa::DbWithJar<VfsJar> + SourcePathDb + Send + 'static,
+{
+    Ok(match db.vfs_jar().husky_file_cache().data().entry(path) {
+        // If the file already exists in our cache then just return it.
+        Entry::Occupied(entry) => *entry.get(),
+        // If we haven't read this file yet set up the watch, read the
+        // contents, store it in the cache, and return it.
+        Entry::Vacant(entry) => {
+            let physical_path = db.source_absolute_path(path)?;
+            //  &path.path(self);
+            if let Some(watcher) = db.watcher() {
+                let watcher = &mut watcher.0.lock().unwrap();
+                watcher
+                    .watcher()
+                    .watch(&physical_path, RecursiveMode::NonRecursive)
+                    .unwrap();
+            }
+            let content = read_to_string(&physical_path)?;
+            *entry.insert(SourceFile::new(db, path, content))
+        }
+    })
 }
 
 fn read_to_string(path: &Path) -> VfsResult<String> {
