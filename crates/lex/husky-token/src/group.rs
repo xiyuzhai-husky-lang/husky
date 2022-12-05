@@ -36,6 +36,16 @@ impl<'a> TokenGroupIter<'a> {
             },
         ))
     }
+
+    pub fn next_above(&mut self, indent: u32) -> Option<(TokenGroupIdx, TokenGroup<'a>)> {
+        let (idx, group) = self.peek()?;
+        if group.indent() >= indent {
+            self.current += 1;
+            Some((idx, group))
+        } else {
+            None
+        }
+    }
 }
 
 impl<'a> Iterator for TokenGroupIter<'a> {

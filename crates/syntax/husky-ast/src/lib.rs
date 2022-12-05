@@ -53,10 +53,13 @@ pub struct DeprecatedAst {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum Ast {
+    Mod(TokenGroupIdx),
     Use(TokenGroupIdx),
     Comment(TokenGroupIdx),
-    Stmt(TokenGroupIdx),
-    DefnHead(TokenGroupIdx),
+    Defn {
+        head: TokenGroupIdx,
+        body: AstIdxRange,
+    },
 }
 
 pub type AstArena = Arena<Ast>;

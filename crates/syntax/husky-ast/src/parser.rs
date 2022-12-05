@@ -1,5 +1,5 @@
 use crate::*;
-use husky_token::{TokenGroupIter, TokenKind, TokenSheet};
+use husky_token::{Keyword, TokenGroupIter, TokenKind, TokenSheet};
 
 pub(crate) struct AstParser<'a> {
     db: &'a dyn WordDb,
@@ -22,26 +22,46 @@ impl<'a> AstParser<'a> {
     }
 
     fn parse_asts_above(&mut self, indent: u32) -> AstIdxRange {
-        let asts: Vec<Ast> = vec![];
-        while let Some((idx, token_group)) = self.token_groups.next() {
-            if token_group.indent() != indent {
-                todo!()
-            }
-            match token_group.first().kind {
-                TokenKind::Decorator(_) => todo!(),
-                TokenKind::Keyword(_) => todo!(),
-                TokenKind::Identifier(ident) => {
-                    p!(self.db.dt_ident(ident));
-                    todo!()
-                }
-                TokenKind::Special(_) => todo!(),
-                TokenKind::WordOpr(_) => todo!(),
-                TokenKind::Literal(_) => todo!(),
-                TokenKind::Unrecognized(_) => todo!(),
-                TokenKind::IllFormedLiteral(_) => todo!(),
-            }
-            todo!()
+        let mut asts: Vec<Ast> = vec![];
+        while let Some(ast) = self.parse_ast_above(indent) {
+            asts.push(ast)
         }
         self.arena.alloc_batch(asts)
+    }
+
+    fn parse_ast_above(&mut self, indent: u32) -> Option<Ast> {
+        let (idx, token_group) = self.token_groups.next_above(indent)?;
+        Some(match token_group.first().kind {
+            TokenKind::Decorator(_) => todo!(),
+            TokenKind::Keyword(kw) => match kw {
+                Keyword::Config(_) => todo!(),
+                Keyword::Paradigm(_) => todo!(),
+                Keyword::Type(_) => Ast::Defn {
+                    head: idx,
+                    body: self.parse_asts_above(indent + 4),
+                },
+                Keyword::Stmt(_) => todo!(),
+                Keyword::Liason(_) => todo!(),
+                Keyword::Ambiguous(_) => todo!(),
+                Keyword::Main => todo!(),
+                Keyword::Use => Ast::Mod(idx),
+                Keyword::Mod => Ast::Mod(idx),
+                Keyword::Visual => todo!(),
+                Keyword::Impl => todo!(),
+                Keyword::End(_) => todo!(),
+            },
+            TokenKind::Identifier(ident) => {
+                p!(self.db.dt_ident(ident));
+                todo!()
+            }
+            TokenKind::Special(_) => todo!(),
+            TokenKind::WordOpr(_) => todo!(),
+            TokenKind::Literal(_) => todo!(),
+            TokenKind::Unrecognized(c) => {
+                p!(c);
+                todo!()
+            }
+            TokenKind::IllFormedLiteral(_) => todo!(),
+        })
     }
 }

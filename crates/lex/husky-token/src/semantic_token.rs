@@ -112,6 +112,7 @@ impl SemanticTokenKind {
                     | StmtKeyword::Else
                     | StmtKeyword::Match
                     | StmtKeyword::Case
+                    | StmtKeyword::For
                     | StmtKeyword::ForExt
                     | StmtKeyword::While
                     | StmtKeyword::Do
