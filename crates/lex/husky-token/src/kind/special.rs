@@ -26,6 +26,7 @@ pub enum SpecialToken {
     XmlKet,            // />
     At,                // @
     QuestionMark,      // ?
+    PoundSign,         // #
 }
 
 impl std::fmt::Display for SpecialToken {
@@ -59,6 +60,7 @@ impl SpecialToken {
             SpecialToken::XmlKet => "/>",
             SpecialToken::At => "@",
             SpecialToken::QuestionMark => "?",
+            SpecialToken::PoundSign => "#",
         }
     }
 

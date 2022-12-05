@@ -66,6 +66,7 @@ impl Token {
                 SpecialToken::XmlKet => todo!(),
                 SpecialToken::At => todo!(),
                 SpecialToken::QuestionMark => todo!(),
+                SpecialToken::PoundSign => todo!(),
             },
             TokenKind::WordOpr(_) => todo!(),
             TokenKind::Literal(_) => Convexity::Convex,

@@ -56,6 +56,7 @@ pub enum Ast {
     Mod(TokenGroupIdx),
     Use(TokenGroupIdx),
     Comment(TokenGroupIdx),
+    Decor(TokenGroupIdx),
     Defn {
         head: TokenGroupIdx,
         body: AstIdxRange,

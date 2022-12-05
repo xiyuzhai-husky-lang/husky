@@ -42,6 +42,7 @@ impl<'a, 'b> Automata<'a, 'b> {
                 SpecialToken::XmlKet => todo!(),
                 SpecialToken::At => todo!(),
                 SpecialToken::QuestionMark => todo!(),
+                SpecialToken::PoundSign => todo!(),
             },
             TokenKind::WordOpr(_) => todo!(),
             TokenKind::Literal(ref literal) => ResolvedTokenKind::Atom(literal.clone().into()),
