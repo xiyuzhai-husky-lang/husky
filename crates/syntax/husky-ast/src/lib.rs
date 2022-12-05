@@ -58,6 +58,8 @@ pub enum Ast {
     Use,
     Comment,
     Decor,
+    SimpleStmt,
+    LoopStmt(AstIdxRange),
     Defn(AstIdxRange),
 }
 
