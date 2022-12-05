@@ -1,5 +1,5 @@
 use crate::*;
-use husky_token::{Keyword, SpecialToken, TokenGroupIter, TokenKind, TokenSheet};
+use husky_token::{Keyword, SpecialToken, StmtKeyword, TokenGroupIter, TokenKind, TokenSheet};
 
 pub(crate) struct AstParser<'a> {
     db: &'a dyn WordDb,
@@ -52,7 +52,23 @@ impl<'a> AstParser<'a> {
                 match token_group.first().kind {
                     TokenKind::Decorator(_) => todo!(),
                     TokenKind::Keyword(kw) => match kw {
-                        Keyword::Stmt(_) => todo!(),
+                        Keyword::Stmt(kw) => match kw {
+                            StmtKeyword::If => todo!(),
+                            StmtKeyword::Elif => todo!(),
+                            StmtKeyword::Else => todo!(),
+                            StmtKeyword::Match => todo!(),
+                            StmtKeyword::Case => todo!(),
+                            StmtKeyword::While
+                            | StmtKeyword::Do
+                            | StmtKeyword::For
+                            | StmtKeyword::ForExt => Ast::LoopStmt(self.parse_asts(indent + 4)),
+                            StmtKeyword::Let
+                            | StmtKeyword::Var
+                            | StmtKeyword::Break
+                            | StmtKeyword::Return
+                            | StmtKeyword::Assert
+                            | StmtKeyword::Require => Ast::SimpleStmt,
+                        },
                         Keyword::Liason(_) => todo!(),
                         Keyword::Main => todo!(),
                         Keyword::Use => Ast::Use,
@@ -65,18 +81,7 @@ impl<'a> AstParser<'a> {
                         Keyword::End(_) => todo!(),
                     },
                     TokenKind::Special(SpecialToken::PoundSign) => Ast::Decor,
-                    TokenKind::Identifier(ident) => {
-                        p!(self.db.dt_ident(ident));
-                        todo!()
-                    }
-                    TokenKind::Special(_) => todo!(),
-                    TokenKind::WordOpr(_) => todo!(),
-                    TokenKind::Literal(_) => todo!(),
-                    TokenKind::Unrecognized(c) => {
-                        p!(c);
-                        todo!()
-                    }
-                    TokenKind::IllFormedLiteral(_) => todo!(),
+                    _ => Ast::SimpleStmt,
                 }
             },
         ))
