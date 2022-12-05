@@ -5,16 +5,20 @@ use domains::ml::models::narrow::narrow_down
 use crate::one::is_one
 use crate::six::is_six
 use crate::zero::is_zero
+use crate::seven::is_seven
 
-def is_seven -> ?MnistLabel:
+def is_eight -> ?MnistLabel:
     require is_one be none
     require is_six be none
     require is_zero be none
+    require is_seven be none
 
-    require major_concave_components.ilen() == 1
-    require major_connected_component.max_hole_ilen == 0.
+    require major_connected_component.max_hole_ilen >= 1.
 
     upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
 
-    require upper_excess > 15.
-    MnistLabel::Seven
+    require upper_excess>-8.
+    // if major_connected_component.max_hole_ilen == 2.0:
+    //     MnistLabel::Eight
+
+    MnistLabel::Eight
