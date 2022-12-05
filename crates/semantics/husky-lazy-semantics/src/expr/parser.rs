@@ -154,7 +154,7 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
     ) -> SemanticResult<LazyExprVariant> {
         match opr {
             RawOpnVariant::Binary(opr) => self.parse_binary_opr(*opr, opds),
-            RawOpnVariant::Prefix(_) => todo!(),
+            RawOpnVariant::Prefix(opr) => self.parse_prefix_opr(*opr, opds.start),
             RawOpnVariant::Suffix(opr) => self.parse_suffix_opr(opr, opds.start),
             RawOpnVariant::List(opr) => match opr {
                 ListOpr::NewTuple => todo!(),
@@ -306,6 +306,24 @@ pub trait LazyExprParser<'a>: InferEntityRoute + InferContract + InferQualifiedT
             PureBinaryOpr::Shr => todo!(),
             PureBinaryOpr::Sub => todo!(),
         }
+    }
+
+    fn parse_prefix_opr(
+        &mut self,
+        opr: PrefixOpr,
+        opd: RawExprIdx,
+    ) -> SemanticResult<LazyExprVariant> {
+        let this = self.parse_lazy_expr(opd, None)?;
+        Ok(match opr {
+            PrefixOpr::Minus => todo!(),
+            PrefixOpr::Not => LazyExprVariant::Opn {
+                opn_kind: LazyOpnKind::Prefix(opr),
+                opds: vec![this],
+            },
+            PrefixOpr::BitNot => todo!(),
+            PrefixOpr::Shared => todo!(),
+            PrefixOpr::Move => todo!(),
+        })
     }
 
     fn parse_suffix_opr(

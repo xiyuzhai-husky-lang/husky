@@ -74,7 +74,7 @@ impl<'a> LinkageCollector<'a> {
                 }
                 match opn_kind {
                     LazyOpnKind::Binary { .. } => (),
-                    LazyOpnKind::Prefix(_) => todo!(),
+                    LazyOpnKind::Prefix(_) => (),
                     LazyOpnKind::FunctionModelCall(ranged_route) => self.insert(ranged_route.route),
                     LazyOpnKind::FunctionRoutineCall(ranged_route) => {
                         self.insert(ranged_route.route)

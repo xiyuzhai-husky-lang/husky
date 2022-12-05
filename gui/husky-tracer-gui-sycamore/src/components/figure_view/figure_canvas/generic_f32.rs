@@ -1,4 +1,5 @@
 mod scale;
+mod ticks;
 
 use super::*;
 use scale::*;
@@ -40,6 +41,7 @@ pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> 
                     class="GenericF32PlotRegion",
                     viewBox=scale.svg_view_box()
                 ) {
+                    // Ticks {}
                     (points)
                 }
             }

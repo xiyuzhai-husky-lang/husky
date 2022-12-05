@@ -169,7 +169,8 @@ impl<'a> ContractSheetBuilder<'a> {
         opd: RawExprIdx,
         contract: LazyContract,
     ) -> InferResult<()> {
-        todo!()
+        self.infer_lazy_expr(opd, LazyContract::Pure);
+        Ok(())
     }
 
     fn lazy_suffix(
