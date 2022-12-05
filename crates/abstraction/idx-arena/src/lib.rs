@@ -22,7 +22,7 @@ impl<T> Default for Arena<T> {
 }
 
 impl<T> Arena<T> {
-    pub fn alloc(&mut self, item: Vec<T>) -> ArenaIdxRange<T> {
+    pub fn alloc_batch(&mut self, item: Vec<T>) -> ArenaIdxRange<T> {
         let start = ArenaIdx::new(self.data.len());
         self.data.extend(item);
         let end = ArenaIdx::new(self.data.len());

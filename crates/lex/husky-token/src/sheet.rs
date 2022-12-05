@@ -12,13 +12,17 @@ use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenSheet {
-    pub tokens: Vec<Token>,
-    pub line_group_starts: Vec<usize>,
+    tokens: Vec<Token>,
+    line_group_starts: Vec<usize>,
 }
 
 impl TokenSheet {
     pub fn tokens(&self) -> &[Token] {
         &self.tokens
+    }
+
+    pub fn token_groups<'a>(&'a self) -> TokenGroupIter<'a> {
+        TokenGroupIter::new(&self.tokens, &self.line_group_starts)
     }
 
     pub fn new(tokens: Vec<Token>) -> TokenSheet {
