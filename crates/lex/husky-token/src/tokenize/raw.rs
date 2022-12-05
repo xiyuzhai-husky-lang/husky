@@ -19,12 +19,19 @@ impl RawToken {
     }
 }
 
+#[derive(Debug, Clone)]
 pub(crate) enum RawTokenVariant {
     Certain(TokenKind),
     Literal(RawLiteralData),
     IllFormedLiteral(RawLiteralData),
     SubOrMinus,
     NewLine,
+    Special(AmbiguousSpecial),
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum AmbiguousSpecial {
+    For,
 }
 
 impl From<TokenKind> for RawTokenVariant {
@@ -33,13 +40,55 @@ impl From<TokenKind> for RawTokenVariant {
     }
 }
 
-impl From<SpecialToken> for RawTokenVariant {
+impl const From<SpecialToken> for RawTokenVariant {
     fn from(value: SpecialToken) -> Self {
         RawTokenVariant::Certain(value.into())
     }
 }
 
-impl From<Token> for RawToken {
+impl const From<Keyword> for RawTokenVariant {
+    fn from(kw: Keyword) -> Self {
+        RawTokenVariant::Certain(kw.into())
+    }
+}
+
+impl const From<StmtKeyword> for RawTokenVariant {
+    fn from(kw: StmtKeyword) -> Self {
+        RawTokenVariant::Certain(kw.into())
+    }
+}
+
+impl const From<TypeKeyword> for RawTokenVariant {
+    fn from(kw: TypeKeyword) -> Self {
+        RawTokenVariant::Certain(kw.into())
+    }
+}
+
+impl const From<LiasonKeyword> for RawTokenVariant {
+    fn from(kw: LiasonKeyword) -> Self {
+        RawTokenVariant::Certain(kw.into())
+    }
+}
+
+impl const From<ConfigKeyword> for RawTokenVariant {
+    fn from(kw: ConfigKeyword) -> Self {
+        RawTokenVariant::Certain(kw.into())
+    }
+}
+
+impl const From<Decorator> for RawTokenVariant {
+    fn from(kw: Decorator) -> Self {
+        RawTokenVariant::Certain(kw.into())
+    }
+}
+
+impl const From<WordOpr> for RawTokenVariant {
+    fn from(kw: WordOpr) -> Self {
+        RawTokenVariant::Certain(kw.into())
+    }
+}
+
+impl const From<Token> for RawToken {
     fn from(value: Token) -> Self {
         Self {
             range: value.range,
@@ -223,7 +272,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
     fn new_word(&self, word: String) -> RawTokenVariant {
         if let Some(token_kind) = new_reserved_word(&word) {
             // ad hoc
-            token_kind.into()
+            token_kind
         } else {
             TokenKind::Identifier(self.db.it_ident_owned(word)).into()
         }

@@ -8,7 +8,12 @@ macro_rules! gen_reserved_words {
     };
 }
 
-pub const RESERVED_WORDS: &[(&'static str, TokenKind)] = gen_reserved_words![
+pub(crate) const RESERVED_WORDS: &[(&'static str, RawTokenVariant)] = gen_reserved_words![
+    Keyword::Main,
+    Keyword::Use,
+    Keyword::Mod,
+    Keyword::Visual,
+    Keyword::Impl,
     ConfigKeyword::Task,
     StmtKeyword::Let,
     StmtKeyword::Var,
@@ -24,6 +29,7 @@ pub const RESERVED_WORDS: &[(&'static str, TokenKind)] = gen_reserved_words![
     StmtKeyword::Return,
     StmtKeyword::Assert,
     StmtKeyword::Require,
+    TypeKeyword::Type,
     TypeKeyword::Struct,
     TypeKeyword::Enum,
     TypeKeyword::Record,

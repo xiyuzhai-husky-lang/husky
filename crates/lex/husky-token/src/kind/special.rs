@@ -220,7 +220,7 @@ macro_rules! is_special {
     }};
 }
 
-impl From<SpecialToken> for TokenKind {
+impl const From<SpecialToken> for TokenKind {
     fn from(special: SpecialToken) -> Self {
         TokenKind::Special(special)
     }

@@ -16,7 +16,7 @@ pub use ty::*;
 
 use crate::TokenKind;
 
-impl From<Keyword> for TokenKind {
+impl const From<Keyword> for TokenKind {
     fn from(keyword: Keyword) -> Self {
         TokenKind::Keyword(keyword)
     }
@@ -50,7 +50,7 @@ impl std::fmt::Display for Keyword {
 }
 
 impl Keyword {
-    pub fn as_str(&self) -> &'static str {
+    pub const fn as_str(&self) -> &'static str {
         match self {
             Keyword::Config(keyword) => keyword.as_str(),
             Keyword::Paradigm(keyword) => keyword.as_str(),
@@ -96,7 +96,7 @@ pub enum Paradigm {
 }
 
 impl Paradigm {
-    pub fn as_str(self) -> &'static str {
+    pub const fn as_str(self) -> &'static str {
         match self {
             Paradigm::EagerProcedural => "proc",
             Paradigm::EagerFunctional => "func",

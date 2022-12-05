@@ -4,6 +4,7 @@ use crate::{Keyword, TokenKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeKeyword {
+    Type,
     Struct,
     Enum,
     Record,
@@ -14,6 +15,7 @@ pub enum TypeKeyword {
 impl TypeKeyword {
     pub const fn as_str(&self) -> &'static str {
         match self {
+            TypeKeyword::Type => "type",
             TypeKeyword::Struct => "struct",
             TypeKeyword::Enum => "enum",
             TypeKeyword::Record => "record",

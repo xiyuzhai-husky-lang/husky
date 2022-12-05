@@ -1,5 +1,6 @@
 mod convexity;
 mod raw;
+mod reserved;
 mod tokenizer;
 mod word;
 
@@ -10,6 +11,7 @@ use convexity::*;
 use husky_text::TextCharIter;
 use husky_word::WordDb;
 use raw::*;
+use reserved::*;
 use tokenizer::*;
 use word::*;
 
