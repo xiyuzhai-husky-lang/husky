@@ -68,3 +68,31 @@ pub struct CircleProps {
     pub(super) cy: f32,
     pub(super) r: f32,
 }
+
+fn interpolate(a: f32, b: f32) -> Vec<f32> {
+    assert!(a < b);
+    let l = b - a;
+    let d = {
+        let d0 = 10f32.powf(l.log10().floor() - 1.0);
+        let r = l / d0;
+        if r < 25.5 {
+            d0
+        } else if r < 50.5 {
+            2.0 * d0
+        } else {
+            5.0 * d0
+        }
+    };
+    let mut point = (a / d).ceil() * d;
+    let mut points: Vec<f32> = vec![];
+    while point < b {
+        points.push(point);
+        point += d
+    }
+    points
+}
+
+#[test]
+fn interpolate_works() {
+    assert_eq!(interpolate(0.0, 2.3).len(), 23);
+}
