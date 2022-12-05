@@ -27,6 +27,7 @@ pub(crate) enum RawTokenVariant {
     SubOrMinus,
     NewLine,
     Special(AmbiguousSpecial),
+    Comment,
 }
 
 #[derive(Debug, Clone, Copy)]
@@ -393,7 +394,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     _ => SpecialToken::BinaryOpr(BinaryOpr::PureClosed(BinaryPureClosedOpr::Mul)),
                 },
                 '/' => match self.peek_char() {
-                    '/' => return None,
+                    '/' => unreachable!(),
                     '>' => self.pass_two(SpecialToken::XmlKet),
                     '=' => self.pass_two(SpecialToken::BinaryOpr(BinaryOpr::Assign(Some(
                         BinaryPureClosedOpr::Div,
@@ -434,6 +435,8 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
         } else if c.is_digit(10) {
             self.buffer.push(c);
             Some(self.next_number())
+        } else if c == '/' && self.char_iter.peek() == Some('/') {
+            todo!()
         } else {
             self.next_special(c)
         }
