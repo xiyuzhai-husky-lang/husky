@@ -5,7 +5,9 @@ use husky_entity_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
 use husky_vm::{Binding, InstructionSource, __root::__NEQ_LINKAGE};
 use husky_vm::{__Linkage, __root::__EQ_LINKAGE};
-use husky_vm_primitive_opr_linkage::resolve_primitive_pure_binary_opr_linkage;
+use husky_vm_primitive_opr_linkage::{
+    resolve_primitive_prefix_opr_linkage, resolve_primitive_pure_binary_opr_linkage,
+};
 use map_collect::MapCollect;
 use thin_vec::thin_vec;
 
@@ -22,7 +24,10 @@ impl<'a> FeatureExprBuilder<'a> {
                 let ropd = self.new_expr(opds[1].clone());
                 self.compile_binary_opn(this, lopd, opr, ropd)
             }
-            LazyOpnKind::Prefix(_) => todo!(),
+            LazyOpnKind::Prefix(opr) => {
+                let opd = self.new_expr(opds[0].clone());
+                self.compile_prefix_opn(opd, opr)
+            }
             LazyOpnKind::FunctionModelCall(routine) => {
                 let uid = self.db.entity_uid(routine.route);
                 let opds = opds
@@ -201,6 +206,25 @@ impl<'a> FeatureExprBuilder<'a> {
             }
             _ => self.compile_custom_binary_opn(lopd, opr, ropd),
         }
+    }
+
+    fn compile_prefix_opn(
+        &self,
+        opd: Arc<FeatureLazyExpr>,
+        opr: PrefixOpr,
+    ) -> (FeatureLazyExprVariant, FeaturePtr) {
+        let feature = self.feature_interner.intern(Feature::PrefixOpr {
+            opr,
+            opd: opd.feature,
+        });
+        (
+            FeatureLazyExprVariant::PrefixOpr {
+                opr,
+                linkage: resolve_primitive_prefix_opr_linkage(opr, opd.expr.intrinsic_ty().root()),
+                opds: vec![opd],
+            },
+            feature,
+        )
     }
 
     fn compile_custom_binary_opn(

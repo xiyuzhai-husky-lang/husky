@@ -58,6 +58,10 @@ pub enum Feature {
         implicit_conversion: ImplicitConversion,
     },
     Cascade(Vec<FeaturePtr>),
+    PrefixOpr {
+        opr: PrefixOpr,
+        opd: FeaturePtr,
+    },
     PrimitiveBinaryOpr {
         opr: PureBinaryOpr,
         lopd: FeaturePtr,

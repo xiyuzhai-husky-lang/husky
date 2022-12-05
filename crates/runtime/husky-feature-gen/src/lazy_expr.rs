@@ -68,6 +68,11 @@ impl<'eval> Eq for FeatureLazyExpr {}
 #[derive(PartialEq, Eq, Clone)]
 pub enum FeatureLazyExprVariant {
     Literal(__Register<'static>),
+    PrefixOpr {
+        opr: PrefixOpr,
+        opds: Vec<Arc<FeatureLazyExpr>>,
+        linkage: __Linkage,
+    },
     PrimitiveBinaryOpr {
         opr: PureBinaryOpr,
         opds: Vec<Arc<FeatureLazyExpr>>,
@@ -194,6 +199,7 @@ impl std::fmt::Debug for FeatureLazyExprVariant {
             FeatureLazyExprVariant::Literal(_) => todo!(),
             FeatureLazyExprVariant::PrimitiveBinaryOpr { opr, opds, linkage } => todo!(),
             FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr: kind, opds } => todo!(),
+            FeatureLazyExprVariant::PrefixOpr { opr, opds, linkage } => todo!(),
         }
     }
 }
@@ -221,6 +227,7 @@ impl FeatureLazyExprVariant {
             FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr: kind, opds } => {
                 "ShortCircuitBinaryOpr"
             }
+            FeatureLazyExprVariant::PrefixOpr { opr, opds, linkage } => todo!(),
         }
     }
 }

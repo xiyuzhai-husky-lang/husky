@@ -36,6 +36,14 @@ impl<'a> TraceLineGenerator<'a> {
                 self.render_special_token(opr.spaced_husky_code(), opt_assoc, None);
                 self.gen_feature_expr(&opds[1], config.subexpr())
             }
+            FeatureLazyExprVariant::PrefixOpr {
+                opr,
+                ref opds,
+                linkage,
+            } => {
+                self.render_special_token(opr.code(), opt_assoc, None);
+                self.gen_feature_expr(&opds[0], config.subexpr())
+            }
             FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr, ref opds } => {
                 self.gen_feature_expr(&opds[0], config.subexpr());
                 self.render_special_token(opr.spaced_husky_code(), opt_assoc, None);

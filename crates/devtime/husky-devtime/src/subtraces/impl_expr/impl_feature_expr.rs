@@ -55,6 +55,7 @@ impl HuskyDevtime {
             FeatureLazyExprVariant::NewVecFromList { .. } => todo!(),
             FeatureLazyExprVariant::CustomBinaryOpr { .. } => todo!(),
             FeatureLazyExprVariant::BePattern { .. } => todo!(),
+            FeatureLazyExprVariant::PrefixOpr { .. } => todo!(),
         }
     }
 }
