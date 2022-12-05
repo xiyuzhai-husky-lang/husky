@@ -70,6 +70,7 @@ pub enum TokenKind {
     Literal(RawLiteralData),
     Unrecognized(char),
     IllFormedLiteral(RawLiteralData),
+    // todo: add comment
 }
 
 impl std::hash::Hash for TokenKind {
