@@ -48,6 +48,7 @@ impl<'a, 'b> Automata<'a, 'b> {
             TokenKind::Literal(ref literal) => ResolvedTokenKind::Atom(literal.clone().into()),
             TokenKind::Unrecognized(_) => todo!(),
             TokenKind::IllFormedLiteral(_) => todo!(),
+            TokenKind::Comment => todo!(),
         }
     }
 
