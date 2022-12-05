@@ -1,0 +1,73 @@
+Ok(
+    AstSheet {
+        arena: Arena {
+            data: [
+                Defn(
+                    0..0,
+                ),
+                Defn(
+                    1..1,
+                ),
+                Defn(
+                    2..2,
+                ),
+                Defn(
+                    3..3,
+                ),
+                Defn(
+                    4..4,
+                ),
+                Defn(
+                    5..5,
+                ),
+                Defn(
+                    6..6,
+                ),
+                Defn(
+                    7..7,
+                ),
+                Decor,
+                Defn(
+                    0..0,
+                ),
+                Defn(
+                    0..1,
+                ),
+                Defn(
+                    1..2,
+                ),
+                Decor,
+                Defn(
+                    2..2,
+                ),
+                Defn(
+                    2..3,
+                ),
+                Defn(
+                    3..4,
+                ),
+                Decor,
+                Defn(
+                    4..4,
+                ),
+                Defn(
+                    4..5,
+                ),
+                Defn(
+                    5..6,
+                ),
+                Decor,
+                Defn(
+                    6..6,
+                ),
+                Defn(
+                    6..7,
+                ),
+                Defn(
+                    7..8,
+                ),
+            ],
+        },
+        top_level_asts: 8..24,
+    },
+)

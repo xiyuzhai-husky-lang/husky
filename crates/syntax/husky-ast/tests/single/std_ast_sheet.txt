@@ -5,10 +5,8 @@ Ok(
                 Mod,
                 Mod,
                 Mod,
-                Mod,
-                Mod,
             ],
         },
-        top_level_asts: 0..5,
+        top_level_asts: 0..3,
     },
 )

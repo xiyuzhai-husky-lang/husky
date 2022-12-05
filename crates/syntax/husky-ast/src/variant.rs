@@ -1,6 +1,6 @@
 use husky_entity_path::EntityPath;
 use husky_source_path::SourcePath;
-use husky_token::Paradigm;
+use husky_token::ParadigmKeyword;
 
 use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -13,7 +13,7 @@ pub enum DeprecatedAstVariant {
     MainDefnHead,
     CallFormDefnHead {
         ident: RangedIdentifier,
-        paradigm: Paradigm,
+        paradigm: ParadigmKeyword,
         spatial_parameters: IdentMap<SpatialParameter>,
         parameters: Arc<Vec<Parameter>>,
         return_ty: ExprIdx,
@@ -21,7 +21,7 @@ pub enum DeprecatedAstVariant {
         // opt_this_liason: Option<ParameterModifier>,
     },
     FeatureDefnHead {
-        paradigm: Paradigm,
+        paradigm: ParadigmKeyword,
         ident: RangedIdentifier,
         return_ty: ExprIdx,
     },

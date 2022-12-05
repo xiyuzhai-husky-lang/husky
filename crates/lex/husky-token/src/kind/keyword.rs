@@ -30,11 +30,10 @@ use std::ops::Deref;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Keyword {
     Config(ConfigKeyword),
-    Paradigm(Paradigm),
+    Paradigm(ParadigmKeyword),
     Type(TypeKeyword),
     Stmt(StmtKeyword),
     Liason(LiasonKeyword),
-    Ambiguous(AmbiguousKeyword),
     Main,
     Use,
     Mod,
@@ -62,7 +61,6 @@ impl Keyword {
             Keyword::Visual => "visual",
             Keyword::Liason(keyword) => keyword.as_str(),
             Keyword::Impl => "impl",
-            Keyword::Ambiguous(_) => todo!(),
             Keyword::End(_) => todo!(),
         }
     }
@@ -76,46 +74,8 @@ impl Deref for Keyword {
     }
 }
 
-impl From<Paradigm> for Keyword {
-    fn from(kw: Paradigm) -> Self {
-        Keyword::Paradigm(kw)
-    }
-}
-
 impl const Into<TokenKind> for ConfigKeyword {
     fn into(self) -> TokenKind {
         TokenKind::Keyword(self.into())
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, Serialize, Deserialize)]
-pub enum Paradigm {
-    LazyFunctional,
-    EagerFunctional,
-    EagerProcedural,
-}
-
-impl Paradigm {
-    pub const fn as_str(self) -> &'static str {
-        match self {
-            Paradigm::EagerProcedural => "proc",
-            Paradigm::EagerFunctional => "func",
-            Paradigm::LazyFunctional => "def",
-        }
-    }
-
-    pub fn is_lazy(self) -> bool {
-        match self {
-            Paradigm::LazyFunctional => true,
-            Paradigm::EagerFunctional | Paradigm::EagerProcedural => false,
-        }
-    }
-}
-
-impl Deref for Paradigm {
-    type Target = str;
-
-    fn deref(&self) -> &Self::Target {
-        self.as_str()
     }
 }
