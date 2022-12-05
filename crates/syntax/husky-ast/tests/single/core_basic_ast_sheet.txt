@@ -2,24 +2,15 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Defn {
-                    head: TokenGroupIdx(
-                        0,
-                    ),
-                    body: 0..0,
-                },
-                Defn {
-                    head: TokenGroupIdx(
-                        1,
-                    ),
-                    body: 0..0,
-                },
-                Defn {
-                    head: TokenGroupIdx(
-                        2,
-                    ),
-                    body: 0..0,
-                },
+                Defn(
+                    0..0,
+                ),
+                Defn(
+                    0..0,
+                ),
+                Defn(
+                    0..0,
+                ),
             ],
         },
         top_level_asts: 0..3,

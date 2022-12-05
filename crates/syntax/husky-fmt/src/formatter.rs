@@ -8,7 +8,7 @@ use husky_expr::*;
 use husky_init_syntax::InitKind;
 use husky_print_utils::msg_once;
 use husky_term::Term;
-use husky_token::Paradigm;
+use husky_token::ParadigmKeyword;
 
 pub struct Formatter<'a> {
     db: &'a dyn EntityTreeDb,

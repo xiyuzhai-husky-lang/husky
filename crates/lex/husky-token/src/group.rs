@@ -37,7 +37,7 @@ impl<'a> TokenGroupIter<'a> {
         ))
     }
 
-    pub fn next_above(&mut self, indent: u32) -> Option<(TokenGroupIdx, TokenGroup<'a>)> {
+    pub fn next_indented(&mut self, indent: u32) -> Option<(TokenGroupIdx, TokenGroup<'a>)> {
         let (idx, group) = self.peek()?;
         if group.indent() >= indent {
             self.current += 1;
@@ -100,7 +100,14 @@ pub(crate) fn produce_group_starts(tokens: &[Token]) -> Vec<usize> {
                     match tokens[line_start1 - 1].kind {
                         TokenKind::Keyword(Keyword::End(_))
                         | TokenKind::Special(SpecialToken::Colon) => Break,
-                        _ => ControlFlow::Continue,
+                        _ => match line_start_token.kind {
+                            TokenKind::Decorator(_) => Break,
+                            TokenKind::Keyword(kw) => match kw {
+                                Keyword::Liason(_) | Keyword::End(_) => Continue,
+                                _ => Break,
+                            },
+                            _ => Continue,
+                        },
                     }
                 } else {
                     if line_indent1 == line_indent0 {

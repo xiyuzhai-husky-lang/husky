@@ -1,4 +1,4 @@
-use husky_token::Paradigm;
+use husky_token::ParadigmKeyword;
 
 use crate::*;
 
@@ -7,7 +7,7 @@ pub enum AstFieldKind {
     StructOriginal,
     StructDefault { default: ExprIdx },
     StructDerivedEager { derivation: ExprIdx },
-    StructProperty { paradigm: Paradigm },
+    StructProperty { paradigm: ParadigmKeyword },
     RecordOriginal,
     RecordDerived,
 }

@@ -5,7 +5,7 @@ pub use struct_item_context::*;
 use crate::*;
 use husky_entity_tree::EntityTreeDb;
 use husky_package_path::PackagePath;
-use husky_token::Paradigm;
+use husky_token::ParadigmKeyword;
 use thin_vec::thin_vec;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -37,11 +37,11 @@ pub enum AstContext {
     Package(PackagePath),
     Module(Term),
     Stmt {
-        paradigm: Paradigm,
+        paradigm: ParadigmKeyword,
         return_context: Option<RawReturnContext>,
     },
     Match {
-        paradigm: Paradigm,
+        paradigm: ParadigmKeyword,
         return_context: Option<RawReturnContext>,
     },
     Visual,

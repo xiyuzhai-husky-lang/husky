@@ -14,13 +14,9 @@ output
 [
     Token {
         range: [1:1, 1:4),
-        kind: Identifier(
-            Identifier(
-                Word(
-                    Id {
-                        value: 1,
-                    },
-                ),
+        kind: Keyword(
+            Paradigm(
+                Def,
             ),
         ),
     },
@@ -41,13 +37,9 @@ output
 [
     Token {
         range: [1:1, 1:5),
-        kind: Identifier(
-            Identifier(
-                Word(
-                    Id {
-                        value: 1,
-                    },
-                ),
+        kind: Keyword(
+            Paradigm(
+                Func,
             ),
         ),
     },
@@ -68,13 +60,9 @@ output
 [
     Token {
         range: [1:1, 1:5),
-        kind: Identifier(
-            Identifier(
-                Word(
-                    Id {
-                        value: 1,
-                    },
-                ),
+        kind: Keyword(
+            Paradigm(
+                Proc,
             ),
         ),
     },
