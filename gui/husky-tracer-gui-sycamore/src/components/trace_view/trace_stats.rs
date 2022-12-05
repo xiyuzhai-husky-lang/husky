@@ -33,11 +33,11 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                     (*dev_arrivals - *dev_unreturneds)
                 }
                 div (class = "TrueStats") {
-                    "T "
+                    "TP "
                     (*dev_trues)
                 }
                 div (class = "FalseStats") {
-                    "F "
+                    "FP "
                     (*dev_falses)
                 }
                 (View::new_fragment(dev_partition_noness.iter().enumerate().map(

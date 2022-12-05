@@ -11,6 +11,7 @@ mod one
 mod six
 mod zero
 mod seven
+mod eight
 
 use domains::ml::datasets::cv::mnist::BinaryImage28
 use domains::ml::datasets::cv::mnist::MnistLabel
