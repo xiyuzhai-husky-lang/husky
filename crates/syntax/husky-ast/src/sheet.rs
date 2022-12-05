@@ -7,18 +7,21 @@ use husky_vfs::VfsResult;
 #[salsa::tracked(jar = AstJar, return_ref)]
 pub(crate) fn ast_sheet(db: &dyn AstDb, entity_path: EntityPath) -> VfsResult<AstSheet> {
     let token_sheet = db.token_sheet(entity_path).as_ref()?;
-    Ok(AstSheet::new(token_sheet))
+    Ok(AstParser::new(db.word_db(), token_sheet).parse_all())
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct AstSheet {
     arena: AstArena,
-    top_level: AstIdxRange,
+    top_level_asts: AstIdxRange,
 }
 
 impl AstSheet {
-    fn new(token_sheet: &TokenSheet) -> Self {
-        todo!()
+    pub(crate) fn new(arena: AstArena, top_level_asts: AstIdxRange) -> Self {
+        Self {
+            arena,
+            top_level_asts,
+        }
     }
 
     pub fn errors(&self) -> Vec<&AstError> {

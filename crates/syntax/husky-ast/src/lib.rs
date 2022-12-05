@@ -3,6 +3,7 @@ mod db;
 mod entrance;
 mod error;
 mod field;
+mod parser;
 mod sheet;
 mod stmt;
 #[cfg(test)]
@@ -15,7 +16,6 @@ pub use context::*;
 pub use db::AstDb;
 pub use entrance::*;
 pub use field::*;
-use husky_token::TokenGroupIdx;
 pub use sheet::*;
 pub use stmt::*;
 pub use variant::*;
@@ -34,9 +34,11 @@ use husky_pattern_syntax::RawPattern;
 use husky_print_utils::*;
 use husky_term::Term;
 use husky_text::*;
+use husky_token::TokenGroupIdx;
 use husky_word::IdentMap;
 use husky_word::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
+use parser::*;
 use salsa::DbWithJar;
 use std::sync::Arc;
 

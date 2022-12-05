@@ -87,7 +87,9 @@ impl<'a, 'b> Automata<'a, 'b> {
 
     fn synthesize_opn(&mut self, opn_variant: RawOpnVariant, n_opds: usize, range: TextRange) {
         let _len = self.stack.number_of_exprs();
-        let opds = self.arena.alloc(self.stack.drain_exprs(n_opds).into());
+        let opds = self
+            .arena
+            .alloc_batch(self.stack.drain_exprs(n_opds).into());
         self.stack.push_expr(Expr::new(
             ExprVariant::Opn { opn_variant, opds },
             range,

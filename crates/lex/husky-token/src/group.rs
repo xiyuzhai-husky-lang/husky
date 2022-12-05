@@ -3,6 +3,69 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TokenGroupIdx(usize);
 
+pub struct TokenGroupIter<'a> {
+    tokens: &'a [Token],
+    line_group_starts: &'a [usize],
+    current: usize,
+}
+
+impl<'a> TokenGroupIter<'a> {
+    pub(crate) fn new(tokens: &'a [Token], line_group_starts: &'a [usize]) -> Self {
+        Self {
+            tokens,
+            line_group_starts,
+            current: 0,
+        }
+    }
+
+    fn peek(&self) -> Option<(TokenGroupIdx, TokenGroup<'a>)> {
+        if self.current >= self.line_group_starts.len() {
+            return None;
+        }
+        let idx = self.current;
+        let start = self.line_group_starts[idx];
+        let end = self
+            .line_group_starts
+            .get(self.current + 1)
+            .map(|end| *end)
+            .unwrap_or(self.tokens.len());
+        Some((
+            TokenGroupIdx(idx),
+            TokenGroup {
+                tokens: &self.tokens[start..end],
+            },
+        ))
+    }
+}
+
+impl<'a> Iterator for TokenGroupIter<'a> {
+    type Item = (TokenGroupIdx, TokenGroup<'a>);
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let item = self.peek()?;
+        self.current += 1;
+        Some(item)
+    }
+}
+
+pub struct TokenGroup<'a> {
+    tokens: &'a [Token],
+}
+
+impl<'a> TokenGroup<'a> {
+    pub fn first(&self) -> &'a Token {
+        self.tokens.first().unwrap()
+    }
+
+    pub fn last(&self) -> &'a Token {
+        self.tokens.last().unwrap()
+    }
+
+    pub fn indent(&self) -> u32 {
+        self.first().range.start.col.0
+    }
+}
+
 pub(crate) fn produce_group_starts(tokens: &[Token]) -> Vec<usize> {
     let line_starts = produce_line_starts(tokens);
     let mut i = 0;
