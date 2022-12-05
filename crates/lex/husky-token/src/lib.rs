@@ -59,22 +59,3 @@ impl HasTextRange for Token {
         self.range
     }
 }
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum TokenKind {
-    Decorator(Decorator),
-    Keyword(Keyword),
-    Identifier(Identifier),
-    Special(SpecialToken),
-    WordOpr(WordOpr),
-    Literal(RawLiteralData),
-    Unrecognized(char),
-    IllFormedLiteral(RawLiteralData),
-    // todo: add comment
-}
-
-impl std::hash::Hash for TokenKind {
-    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        core::mem::discriminant(self).hash(state);
-    }
-}
