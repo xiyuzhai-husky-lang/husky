@@ -65,6 +65,11 @@ impl TraceVariant {
                     ..
                 } => opt_instruction_sheet.is_some(),
                 FeatureLazyExprVariant::BePattern { .. } => false,
+                FeatureLazyExprVariant::PrefixOpr {
+                    opr,
+                    ref opds,
+                    linkage,
+                } => false,
             },
             TraceVariant::EagerExpr { ref expr, .. } => match expr.variant {
                 EagerExprVariant::Variable { .. } | EagerExprVariant::PrimitiveLiteral(_) => false,
