@@ -409,6 +409,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     _ => SpecialToken::Exclamation,
                 },
                 '?' => SpecialToken::QuestionMark,
+                '#' => SpecialToken::PoundSign,
                 c => return Some(TokenKind::Unrecognized(c).into()),
             }
             .into(),

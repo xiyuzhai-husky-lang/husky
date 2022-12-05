@@ -1,5 +1,5 @@
 use crate::*;
-use husky_token::{Keyword, TokenGroupIter, TokenKind, TokenSheet};
+use husky_token::{Keyword, SpecialToken, TokenGroupIter, TokenKind, TokenSheet};
 
 pub(crate) struct AstParser<'a> {
     db: &'a dyn WordDb,
@@ -44,12 +44,13 @@ impl<'a> AstParser<'a> {
                 Keyword::Liason(_) => todo!(),
                 Keyword::Ambiguous(_) => todo!(),
                 Keyword::Main => todo!(),
-                Keyword::Use => Ast::Mod(idx),
+                Keyword::Use => Ast::Use(idx),
                 Keyword::Mod => Ast::Mod(idx),
                 Keyword::Visual => todo!(),
                 Keyword::Impl => todo!(),
                 Keyword::End(_) => todo!(),
             },
+            TokenKind::Special(SpecialToken::PoundSign) => Ast::Decor(idx),
             TokenKind::Identifier(ident) => {
                 p!(self.db.dt_ident(ident));
                 todo!()
