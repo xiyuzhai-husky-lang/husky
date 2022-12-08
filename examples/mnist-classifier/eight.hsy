@@ -6,20 +6,43 @@ use crate::one::is_one
 use crate::six::is_six
 use crate::zero::is_zero
 use crate::seven::is_seven
+use crate::line_segment_sketch::concave_component::*
+use crate::fermi::*
+
+func upper_mouth_match -> FermiMatchResult:
+    fermi_match(major_concave_components, [big_mouth])
 
 def is_eight -> ?MnistLabel:
     require is_one be none
     require is_six be none
-    require is_zero be none
     require is_seven be none
 
     require major_connected_component.max_hole_ilen >= 1.
-
+ 
     upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
 
-    require !(upper_excess<-21. and upper_excess>37.)
+    eff_holes = major_connected_component.eff_holes
 
-    // if major_connected_component.max_hole_ilen == 2.0:
-    //     MnistLabel::Eight
+    require eff_holes.matches[0] be some
+
+    if eff_holes.matches[1] be none:
+        require upper_excess>-10.0
+        require upper_mouth_match.matches[0] be some
+        MnistLabel::Eight
+         
+    require upper_excess>-5.0 and upper_excess<37.0
+
+    require upper_mouth_match.matches[0] be some
+
+
+    if major_connected_component.max_hole_ilen == 2.0:
+        MnistLabel::Eight
 
     MnistLabel::Eight
+
+func big_mouth(cc: &ConcaveComponent)->?f32:
+    if cc.relative_bounding_box.ymax()>0.5:
+        require cc.strokes.firstx().start.x > cc.strokes.firstx().end.x
+    cc.relative_bounding_box.ymax()
+    
+

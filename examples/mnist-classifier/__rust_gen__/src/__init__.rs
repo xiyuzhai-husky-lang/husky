@@ -2494,6 +2494,34 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::eight::upper_mouth_match"
+        },
+        feature_linkage!(eight::upper_mouth_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::eight::big_mouth",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    eight::big_mouth(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx eight::big_mouth as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegmentStroke>::firstx" },
+        method_elem_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE, __registration__::__LINE_SEGMENT_STROKE_VTABLE, firstx)
+    ),
+    (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::cyclic_slice" },
         transfer_linkage!(
             {
@@ -2580,10 +2608,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             },
             some base geom2d::BoundingBox::relative_range as fn(&'static geom2d::BoundingBox, &'static geom2d::BoundingBox) -> geom2d::RelativeBoundingBox
         ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegmentStroke>::firstx" },
-        method_elem_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE, __registration__::__LINE_SEGMENT_STROKE_VTABLE, firstx)
     ),
     (
         __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::ClosedRange::relative_range" },
