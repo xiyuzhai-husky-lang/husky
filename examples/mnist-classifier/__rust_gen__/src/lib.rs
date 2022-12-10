@@ -18,6 +18,7 @@ pub(crate) mod fermi;
 pub(crate) mod geom2d;
 pub(crate) mod line_segment_sketch;
 pub(crate) mod major;
+pub(crate) mod nine;
 pub(crate) mod one;
 pub(crate) mod raw_contour;
 pub(crate) mod seven;

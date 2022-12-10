@@ -26,13 +26,8 @@ use line_segment_sketch::find_line_segments
 use domains::ml::models::naive::naive_i32
 
 main:
-    raw_contours = major_connected_component.raw_contours
-    raw_contour0 = raw_contours[0]
-    line_segment_sketch = raw_contour0.line_segment_sketch
-    concave_components = line_segment_sketch.concave_components
-    // naive_i32(concave_components.ilen())
     is_one?
     is_six?
     is_zero?
     is_seven?
-    naive_i32(concave_components.ilen())
+    require false
