@@ -15,29 +15,20 @@ func upper_mouth_match -> FermiMatchResult:
 def is_eight -> ?MnistLabel:
     require is_one be none
     require is_six be none
-    require is_zero be none
     require is_seven be none
 
-    require major_connected_component.max_hole_ilen >= 1.
+    // require major_connected_component.max_hole_ilen >= 1.
  
     upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
 
     eff_holes = major_connected_component.eff_holes
 
     require eff_holes.matches[0] be some
-
-    if eff_holes.matches[1] be none:
-        require upper_excess>-10.0
-        require upper_mouth_match.matches[0] be some
-        MnistLabel::Eight
          
-    require upper_excess>-5.0 and upper_excess<37.0
+    // require upper_excess>-5.0 and upper_excess<37.0
 
-    require upper_mouth_match.matches[0] be some
-
-
-    if major_connected_component.max_hole_ilen == 2.0:
-        MnistLabel::Eight
+    // if major_connected_component.max_hole_ilen == 2.0:
+    //     MnistLabel::Eight
 
     MnistLabel::Eight
 

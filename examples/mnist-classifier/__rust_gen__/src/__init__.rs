@@ -8,28 +8,6 @@ pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __Linkage)] {
 
 pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::major::major_connected_component"
-        },
-        feature_linkage!(major::major_connected_component, connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
-                    __this.ilen().to_register()
-                }
-                __wrapper
-            },
-            some base Vec::<line_segment_sketch::concave_component::ConcaveComponent>::ilen as fn(&'static Vec<line_segment_sketch::concave_component::ConcaveComponent<'static>>) -> i32
-        ),
-    ),
-    (
         __StaticLinkageKey::TypeCall {
             ty: "mnist_classifier::connected_component::ConnectedComponentDistribution"
         },
@@ -212,6 +190,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         lazy_field_linkage!(raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, geom2d::BoundingBox, __registration__::__BOUNDING_BOX_VTABLE, bounding_box)
     ),
     (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::raw_contour::RawContour",
+            field_ident: "contour_len",
+        },
+        lazy_field_linkage!(raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, f32, __registration__::__F32_VTABLE, contour_len)
+    ),
+    (
         __StaticLinkageKey::TypeCall {
             ty: "[]?&mnist_classifier::raw_contour::RawContour"
         },
@@ -258,27 +243,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let ct: &'eval raw_contour::RawContour<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__RAW_CONTOUR_VTABLE);
-                    connected_component::hole_tmpl(ct).to_register()
+                    connected_component::hole_tmpl(ct, __opt_ctx.unwrap()).to_register()
                 }
                 __wrapper
             },
-            some base connected_component::hole_tmpl as fn(&'static raw_contour::RawContour<'static>) -> Option<f32>
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::ilen" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_POINT_2_D_VTABLE);
-                    __this.ilen().to_register()
-                }
-                __wrapper
-            },
-            some base Vec::<geom2d::Point2d>::ilen as fn(&'static Vec<geom2d::Point2d>) -> i32
+            some ctx connected_component::hole_tmpl as fn(&'static raw_contour::RawContour<'static>, &dyn __EvalContext<'static>) -> Option<f32>
         ),
     ),
     (
@@ -525,6 +494,22 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some base Vec::<connected_component::ConnectedComponent>::push as fn(&'static mut Vec<connected_component::ConnectedComponent>, connected_component::ConnectedComponent) -> ()
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::ilen" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &Vec<geom2d::Point2d> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_POINT_2_D_VTABLE);
+                    __this.ilen().to_register()
+                }
+                __wrapper
+            },
+            some base Vec::<geom2d::Point2d>::ilen as fn(&'static Vec<geom2d::Point2d>) -> i32
         ),
     ),
     (
@@ -1372,6 +1357,22 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some base line_segment_sketch::concave_component::find_concave_components as fn(&'static line_segment_sketch::LineSegmentSketch<'static>) -> Vec<line_segment_sketch::concave_component::ConcaveComponent<'static>>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>::ilen" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &Vec<line_segment_sketch::concave_component::ConcaveComponent<'eval>> = __arguments[0].downcast_temp_ref(&__registration__::__VEC_CONCAVE_COMPONENT_VTABLE);
+                    __this.ilen().to_register()
+                }
+                __wrapper
+            },
+            some base Vec::<line_segment_sketch::concave_component::ConcaveComponent>::ilen as fn(&'static Vec<line_segment_sketch::concave_component::ConcaveComponent<'static>>) -> i32
         ),
     ),
     (
@@ -2249,9 +2250,21 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::major::major_connected_component"
+        },
+        feature_linkage!(major::major_connected_component, connected_component::ConnectedComponent, __registration__::__CONNECTED_COMPONENT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
             route: "mnist_classifier::major::ignored_connected_components_row_span_sum_sum"
         },
         feature_linkage!(major::ignored_connected_components_row_span_sum_sum, f32, __registration__::__F32_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::major::major_raw_contours"
+        },
+        feature_linkage!(major::major_raw_contours, Vec<raw_contour::RawContour<'eval>>, __registration__::__VEC_RAW_CONTOUR_VTABLE),
     ),
     (
         __StaticLinkageKey::FeatureEagerBlock {
