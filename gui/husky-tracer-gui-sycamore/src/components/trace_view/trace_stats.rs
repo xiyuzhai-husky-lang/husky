@@ -24,19 +24,25 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                 class="TraceStatsView",
                 style=format!("padding-left: {}ch", 3 + props.indent),
             ) {
-                div (class = "ArrivalStats") {
+                div (
+                    class = "ArrivalStats",
+                    on:click = |_|log::info!("todo")
+                ) {
                     "A "
                     (*dev_arrivals)
                 }
-                div (class = "UnreturnedStats") {
+                div (
+                    class = "ReturnStats",
+                    on:click = |_|log::info!("todo")
+                ) {
                     "R "
                     (*dev_arrivals - *dev_unreturneds)
                 }
-                div (class = "TrueStats") {
+                div (class = "TruePositiveStats") {
                     "TP "
                     (*dev_trues)
                 }
-                div (class = "FalseStats") {
+                div (class = "FalsePositiveStats") {
                     "FP "
                     (*dev_falses)
                 }
