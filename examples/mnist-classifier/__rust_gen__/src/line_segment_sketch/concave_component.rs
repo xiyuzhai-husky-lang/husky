@@ -213,11 +213,11 @@ impl<'eval> ConcaveComponent<'eval> {
         return self.line_segment().displacement();
     }
 
-    pub(crate) fn start_displacement(&self) -> crate::geom2d::Vector2d {
+    pub(crate) fn start_tangent(&self) -> crate::geom2d::Vector2d {
         return self.strokes.firstx().displacement();
     }
 
-    pub(crate) fn end_displacement(&self) -> crate::geom2d::Vector2d {
+    pub(crate) fn end_tangent(&self) -> crate::geom2d::Vector2d {
         return self.strokes.lastx().displacement();
     }
 }

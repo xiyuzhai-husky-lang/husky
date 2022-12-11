@@ -2595,7 +2595,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::end_displacement" },
+        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::end_tangent" },
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
@@ -2603,11 +2603,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let __this: &line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    __Register::new_box::<geom2d::Vector2d>(__this.end_displacement(), &__registration__::__VECTOR_2_D_VTABLE)
+                    __Register::new_box::<geom2d::Vector2d>(__this.end_tangent(), &__registration__::__VECTOR_2_D_VTABLE)
                 }
                 __wrapper
             },
-            some base line_segment_sketch::concave_component::ConcaveComponent::end_displacement as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> geom2d::Vector2d
+            some base line_segment_sketch::concave_component::ConcaveComponent::end_tangent as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> geom2d::Vector2d
         ),
     ),
     (
