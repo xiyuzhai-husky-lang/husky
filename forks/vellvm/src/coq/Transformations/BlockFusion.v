@@ -231,7 +231,7 @@ Section BlockFusion.
   Definition block_fusion : ocfg dtyp -> ocfg dtyp * option (block_id * block_id) :=
     fun G => block_fusion_rec G G.
 
-  (* The restriction [src <> G.(init)] is artificial due to a slight lazyness in the current semantics:
+  (* The presentation [src <> G.(init)] is artificial due to a slight lazyness in the current semantics:
      the semantics of a [cfg] starts the denotation of its graph pretending to come from its initial block.
      We should reserve instead an unused dummy label, or have sources be options.
    *)

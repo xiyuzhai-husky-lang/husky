@@ -1,6 +1,6 @@
 use std::panic;
 
-use crate::utils::{add_event_listener, restriction_dialog};
+use crate::utils::{add_event_listener, presentation_dialog};
 use husky_trace_protocol::SampleId;
 use wasm_bindgen::JsCast;
 

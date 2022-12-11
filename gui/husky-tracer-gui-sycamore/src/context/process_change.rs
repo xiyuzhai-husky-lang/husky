@@ -63,7 +63,7 @@ impl DeveloperGuiContext {
                 .borrow_mut(file!(), line!())
                 .extend(self.alloc_key_signal_pairs(new_entries)),
         }
-        match change.restriction {
+        match change.presentation {
             TrackableAtomChange::Some(presentation) => self.set_presentation(presentation),
             TrackableAtomChange::None => (),
         }
