@@ -91,7 +91,7 @@ Open Scope N_scope.
         current local stack. The stack discipline is handled when tying the knot.
     - For expressions [exp], we specialize further the interface:
       [exp_E ::= LLVMGEnvE +' LLVMEnvE +' MemoryE +' PickE +' UBE +' DebugE +' FailureE].
-      The rationale for this restriction is that we need to denote expressions both internally to cfgs
+      The rationale for this presentation is that we need to denote expressions both internally to cfgs
       of course, but also at the [mcfg] level to perform the initialization of the memory.
       We therefore need to be able to inject their signature into both [L0] and [instr_E].
 

@@ -5,7 +5,7 @@ import Specs.abstraction.HashMap
 import Specs.devtime.protocol
 
 structure DevtimeState where
-    restriction: Restriction
+    presentation: Presentation
     pins: VecSet TraceId
 
 structure TraceFactory where

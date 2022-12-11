@@ -9,7 +9,7 @@ impl DeveloperGuiContext {
         self.presentation_signal.get().opt_sample_id()
     }
 
-    pub(super) fn did_lock_restriction(&mut self, presentation: Presentation) {
+    pub(super) fn did_lock_presentation(&mut self, presentation: Presentation) {
         self.presentation_signal.set(presentation);
     }
 
