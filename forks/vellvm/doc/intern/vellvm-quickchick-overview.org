@@ -57,7 +57,7 @@ ensures that all generated programs terminate in order to ease
 testing, though this is something we hope to improve upon in the
 future---for instance it might be nice to automatically generate loops
 over arrays like Csmith does, and it may be nice to relax this
-restriction and rely upon timeouts instead. Further experimentation is
+presentation and rely upon timeouts instead. Further experimentation is
 necessary to determine the most effective approach.
 
 ** Avoiding Errors
@@ -72,7 +72,7 @@ denominators. In theory it should be possible to use variables in the
 denominator, but some analysis is necessary in order to ensure that
 the variable at that stage in the program is necessarily
 non-zero. This analysis should be fairly easy, especially under the
-current restrictions for CFGs that we are generating, however we
+current presentations for CFGs that we are generating, however we
 believe that it will be more fruitful to generate more complicated
 CFGs (with back-edges and phi nodes) that might break the analysis
 that we would have done here anyway.

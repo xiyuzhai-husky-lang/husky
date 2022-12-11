@@ -143,7 +143,7 @@ view! { cx,
 ```
 
 Fragments can also be empty. (Note that passing the `cx` variable is still required. This
-restriction will be lifted in the future.)
+presentation will be lifted in the future.)
 
 ```rust
 view! { cx, }

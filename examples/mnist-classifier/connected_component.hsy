@@ -11,9 +11,10 @@ struct EffHoles:
     matches: []?&RawContour
 
 func hole_tmpl(ct: &RawContour) -> ?f32:
-    len = ct.points.ilen()
-    require len > 4
-    len as f32
+    len = ct.contour_len
+    require len > 4.0
+    // ad hoc
+    len + 0.0
 
 struct ConnectedComponent:
     mask: BinaryImage28

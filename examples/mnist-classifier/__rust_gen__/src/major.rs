@@ -81,6 +81,29 @@ pub(crate) fn ignored_connected_components_row_span_sum_sum<'eval>(
         .unwrap()
         .downcast_eval_ref(&__registration__::__F32_VTABLE)
 }
+pub(crate) fn major_raw_contours<'eval>(
+    __ctx: &dyn __EvalContext<'eval>,
+) -> &'eval Vec<crate::raw_contour::RawContour<'eval>> {
+    let __feature = feature_ptr!(__ctx, "mnist_classifier::major::major_raw_contours");
+    if let Some(__result) = __ctx.opt_cached_feature(__feature) {
+        return __result
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__VEC_RAW_CONTOUR_VTABLE);
+    }
+    return __ctx
+        .cache_feature(
+            __feature,
+            Ok(
+                __Register::new_eval_ref::<Vec<crate::raw_contour::RawContour<'eval>>>(
+                    &(major_connected_component(__ctx).raw_contours(__ctx)),
+                    &__registration__::__VEC_RAW_CONTOUR_VTABLE,
+                )
+                .into(),
+            ),
+        )
+        .unwrap()
+        .downcast_eval_ref(&__registration__::__VEC_RAW_CONTOUR_VTABLE);
+}
 pub(crate) fn major_raw_contour<'eval>(
     __ctx: &dyn __EvalContext<'eval>,
 ) -> &'eval crate::raw_contour::RawContour<'eval> {

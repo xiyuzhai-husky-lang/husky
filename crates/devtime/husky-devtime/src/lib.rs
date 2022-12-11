@@ -5,7 +5,7 @@ mod figure_control;
 mod lines;
 mod ops;
 mod pin;
-mod restriction;
+mod presentation;
 mod state;
 mod subtraces;
 mod trace;
