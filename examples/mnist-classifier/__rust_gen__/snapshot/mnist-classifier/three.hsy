@@ -11,9 +11,9 @@ func three_fermi_match -> FermiMatchResult:
     fermi_match(major_concave_components, [downarc, uparc, back])
 
     // tried:
-    // us = uparc.start_displacement().angle(true)
-    // ue = uparc.end_displacement().angle(true)
-    // ds = downarc.start_displacement().angle(true)
+    // us = uparc.start_tangent().angle(true)
+    // ue = uparc.end_tangent().angle(true)
+    // ds = downarc.start_tangent().angle(true)
     // a = three_fermi_match.norm 
     // b = downarc.angle_change
     // narrow_down(MnistLabel::Three,20,us,ue,ds,a,b)?
@@ -30,7 +30,7 @@ def is_three -> ?MnistLabel:
     require downarc.norm > 3.0
     require uparc be some
 
-    de = downarc.end_displacement().angle(true)
+    de = downarc.end_tangent().angle(true)
     require de > 0.0 or de < -100.0
     downarc_enpoint = downarc.end()
     uparc_startpoint = uparc.start()
