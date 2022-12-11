@@ -28,3 +28,7 @@
     stroke: orange;
     stroke-width: 1px 
 }
+
+.TickValueText {
+    fill: white
+}

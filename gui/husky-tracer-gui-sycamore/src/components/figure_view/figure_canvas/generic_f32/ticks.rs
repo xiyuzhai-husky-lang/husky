@@ -1,9 +1,74 @@
 use super::*;
 
 #[derive(Prop)]
-pub struct TicksProps {}
+pub struct TicksProps {
+    a: f32,
+    b: f32,
+}
 
 #[component]
 pub fn Ticks<'a, G: Html>(scope: Scope<'a>, props: TicksProps) -> View<G> {
-    todo!()
+    let ticks = interpolate(props.a, props.b);
+    let ticks = View::new_fragment(
+        ticks
+            .into_iter()
+            .map(|tick| {
+                let y = 10.0 + 980.0 * (tick - props.a) / (props.b - props.a);
+                view! {
+                    scope,
+                    path (
+                        d = format!("M10 {} L 20 {}", y, y),
+                        stroke="white",
+                        fill="transparent",
+                        stroke-width="0.5"
+                    ) {}
+                    text (
+                        x="23",
+                        y=format!("{}", y + 4.0),
+                        class="TickValueText"
+                    ) {
+                        (tick)
+                    }
+                }
+            })
+            .collect(),
+    );
+    view! {
+        scope,
+        path (
+            d = "M10 10 L 10 990",
+            stroke="white",
+            fill="transparent",
+            stroke-width="0.5"
+        ) {}
+        (ticks)
+    }
+}
+
+fn interpolate(a: f32, b: f32) -> Vec<f32> {
+    assert!(a < b);
+    let l = b - a;
+    let d = {
+        let d0 = 10f32.powf(l.log10().floor() - 1.0);
+        let r = l / d0;
+        if r < 25.5 {
+            d0
+        } else if r < 50.5 {
+            2.0 * d0
+        } else {
+            5.0 * d0
+        }
+    };
+    let mut point = (a / d).ceil() * d;
+    let mut points: Vec<f32> = vec![];
+    while point < b {
+        points.push(point);
+        point += d
+    }
+    points
+}
+
+#[test]
+fn interpolate_works() {
+    assert_eq!(interpolate(0.0, 2.3).len(), 23);
 }
