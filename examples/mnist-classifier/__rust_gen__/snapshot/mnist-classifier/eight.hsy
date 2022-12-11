@@ -15,7 +15,6 @@ func upper_mouth_match -> FermiMatchResult:
 def is_eight -> ?MnistLabel:
     require is_one be none
     require is_six be none
-    require is_zero be none
     require is_seven be none
 
     require major_connected_component.max_hole_ilen >= 1.
