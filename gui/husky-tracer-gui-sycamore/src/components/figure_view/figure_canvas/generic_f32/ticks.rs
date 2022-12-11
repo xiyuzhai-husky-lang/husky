@@ -17,13 +17,13 @@ pub fn Ticks<'a, G: Html>(scope: Scope<'a>, props: TicksProps) -> View<G> {
                 view! {
                     scope,
                     path (
-                        d = format!("M10 {} L 20 {}", y, y),
+                        d = format!("M43 {} L 53 {}", y, y),
                         stroke="white",
                         fill="transparent",
                         stroke-width="0.5"
                     ) {}
                     text (
-                        x="23",
+                        x="10",
                         y=format!("{}", y + 4.0),
                         class="TickValueText"
                     ) {
@@ -36,7 +36,7 @@ pub fn Ticks<'a, G: Html>(scope: Scope<'a>, props: TicksProps) -> View<G> {
     view! {
         scope,
         path (
-            d = "M10 10 L 10 990",
+            d = "M43 10 L 43 990",
             stroke="white",
             fill="transparent",
             stroke-width="0.5"

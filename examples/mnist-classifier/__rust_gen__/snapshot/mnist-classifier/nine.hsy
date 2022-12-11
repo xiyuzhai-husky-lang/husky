@@ -4,13 +4,9 @@ use domains::ml::models::boosting::boosting_with_vmax_normalized
 use domains::ml::models::narrow::narrow_down
 use crate::major::*
 use crate::fermi::*
-<<<<<<< HEAD
 use crate::line_segment_sketch::concave_component::*
 
 def is_nine -> ?MnistLabel:
     MnistLabel::Nine
 
 
-=======
-use crate::line_segment_sketch::concave_component::*
->>>>>>> 991ab84cbfa73c86710500d0bb86a7f62e685d2d
