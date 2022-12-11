@@ -30,8 +30,8 @@ pub(crate) fn get_element_by_id<T: wasm_bindgen::JsCast>(id: &'static str) -> T 
         .unwrap()
 }
 
-pub(crate) fn restriction_dialog() -> HtmlDialogElement {
-    get_element_by_id::<HtmlDialogElement>("restriction-dialog")
+pub(crate) fn presentation_dialog() -> HtmlDialogElement {
+    get_element_by_id::<HtmlDialogElement>("presentation-dialog")
 }
 
 pub(crate) fn new_partition_dialog() -> HtmlDialogElement {

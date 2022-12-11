@@ -1,7 +1,7 @@
 mod activate;
 mod expansion;
 mod pin;
-mod restriction;
+mod presentation;
 mod shown;
 mod utils;
 
@@ -17,7 +17,7 @@ pub(super) enum StatusChange {
 }
 
 impl StatusChange {
-    pub(super) fn update_restriction(
+    pub(super) fn update_presentation(
         ctx: &'static DeveloperGuiContext,
         update: impl FnOnce(&mut Presentation),
     ) -> Self {
@@ -26,8 +26,8 @@ impl StatusChange {
         StatusChange::SetPresentation { presentation }
     }
 
-    fn toggle_restriction_is_specific(ctx: &'static DeveloperGuiContext) -> Self {
-        Self::update_restriction(ctx, |res| res.toggle_kind())
+    fn toggle_presentation_is_specific(ctx: &'static DeveloperGuiContext) -> Self {
+        Self::update_presentation(ctx, |res| res.toggle_kind())
     }
 
     fn keydown(ctx: &'static DeveloperGuiContext, ev: Event) -> Option<Self> {
@@ -38,12 +38,12 @@ impl StatusChange {
                 'T' => {
                     // 't'
                     log::info!("active trace is {:?}", ctx.opt_active_trace());
-                    log::info!("restriction is {:?}", ctx.presentation_signal.get())
+                    log::info!("presentation is {:?}", ctx.presentation_signal.get())
                 }
                 'C' => {
                     // 't'
                     // log::info!("figure context is \n:{:?}", ctx);
-                    // log::info!("fcous context is \n:{:?}", self.restriction_context);
+                    // log::info!("fcous context is \n:{:?}", self.presentation_context);
                     log::info!("opt active trace id is \n:{:?}", ctx.opt_active_trace_id());
                 }
                 'F' => {
@@ -79,8 +79,8 @@ impl DeveloperGuiContext {
             StatusChange::ToggleShown { trace_id } => self.toggle_shown(trace_id),
             StatusChange::Activate { trace_id } => self.activate(trace_id),
             StatusChange::SetPresentation {
-                presentation: restriction,
-            } => self.set_restriction(restriction),
+                presentation: presentation,
+            } => self.try_set_presentation(presentation),
             StatusChange::TogglePin { trace_id } => self.toggle_pin(trace_id),
         }
     }
@@ -101,13 +101,13 @@ impl DeveloperGuiContext {
         move |_| self.handle_status_change(StatusChange::Activate { trace_id })
     }
 
-    pub fn toggle_restriction_kind_handler(&'static self) -> impl Fn(Event) {
-        move |_| self.handle_status_change(StatusChange::toggle_restriction_is_specific(self))
+    pub fn toggle_presentation_kind_handler(&'static self) -> impl Fn(Event) {
+        move |_| self.handle_status_change(StatusChange::toggle_presentation_is_specific(self))
     }
 
-    pub fn set_restriction_from_dialog_handler(&'static self) -> impl Fn(Event) {
+    pub fn set_presentation_from_dialog_handler(&'static self) -> impl Fn(Event) {
         move |_| {
-            let dialog = restriction_dialog();
+            let dialog = presentation_dialog();
             sample_id_input().set_value("");
             dialog.show_modal();
         }
@@ -115,7 +115,7 @@ impl DeveloperGuiContext {
 
     pub(crate) fn set_sample_id_handler(&'static self, sample_id: SampleId) -> impl Fn(Event) {
         move |_| {
-            self.handle_status_change(StatusChange::update_restriction(self, |res| {
+            self.handle_status_change(StatusChange::update_presentation(self, |res| {
                 res.set_sample_id(sample_id)
             }))
         }
@@ -162,7 +162,7 @@ impl DeveloperGuiContext {
                                 variant: PartitionVariant::Label(Label(label_raw as i32)),
                             };
                             new_partition_dialog().close();
-                            self.handle_status_change(StatusChange::update_restriction(
+                            self.handle_status_change(StatusChange::update_presentation(
                                 self,
                                 |res| res.add_partition(idx, new_partition),
                             ))
@@ -176,7 +176,7 @@ impl DeveloperGuiContext {
 
     pub fn shrink_partition_handler(&'static self, idx: usize) -> impl Fn(Event) {
         move |_| {
-            self.handle_status_change(StatusChange::update_restriction(self, |res| {
+            self.handle_status_change(StatusChange::update_presentation(self, |res| {
                 res.shrink_partition(idx)
             }))
         }
@@ -184,7 +184,7 @@ impl DeveloperGuiContext {
 
     pub fn expand_partition_handler(&'static self, idx: usize) -> impl Fn(Event) {
         move |_| {
-            self.handle_status_change(StatusChange::update_restriction(self, |res| {
+            self.handle_status_change(StatusChange::update_presentation(self, |res| {
                 res.expand_partition(idx)
             }))
         }
@@ -192,7 +192,7 @@ impl DeveloperGuiContext {
 
     pub fn remove_partition_handler(&'static self, idx: usize) -> impl Fn(Event) {
         move |_| {
-            self.handle_status_change(StatusChange::update_restriction(self, |res| {
+            self.handle_status_change(StatusChange::update_presentation(self, |res| {
                 res.remove_partition(idx)
             }))
         }

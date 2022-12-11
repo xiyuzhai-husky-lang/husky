@@ -1,4 +1,4 @@
-inductive RestrictionKind
+inductive PresentationKind
   | Generic
   | Specific
   | Panic
@@ -9,8 +9,8 @@ structure Partitions
 
 structure Arrivals
 
-structure Restriction where
-  kind : RestrictionKind
+structure Presentation where
+  kind : PresentationKind
   sample_id: SampleId
   partitions: Partitions
   arrivals: Arrivals

@@ -19,6 +19,6 @@ pub enum HuskyTracerServerMessageVariant {
     TogglePinWithError { sample_id: SampleId, error: String },
     ToggleExpansion,
     ToggleShow,
-    SetRestriction,
-    SetRestrictionWithError { sample_id: SampleId, error: String },
+    SetPresentation,
+    SetPresentationWithError { sample_id: SampleId, error: String },
 }
