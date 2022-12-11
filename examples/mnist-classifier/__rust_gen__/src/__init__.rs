@@ -2535,6 +2535,132 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         method_elem_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE, __registration__::__LINE_SEGMENT_STROKE_VTABLE, firstx)
     ),
     (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::three::three_fermi_match"
+        },
+        feature_linkage!(three::three_fermi_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::three::downarc",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    three::downarc(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx three::downarc as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::three::uparc",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    three::uparc(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx three::uparc as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::three::back",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    three::back(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx three::back as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::end_displacement" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    __Register::new_box::<geom2d::Vector2d>(__this.end_displacement(), &__registration__::__VECTOR_2_D_VTABLE)
+                }
+                __wrapper
+            },
+            some base line_segment_sketch::concave_component::ConcaveComponent::end_displacement as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> geom2d::Vector2d
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Vector2d::angle" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
+                    let is_branch_cut_positive: bool = __arguments[1].downcast_bool();
+                    __this.angle(is_branch_cut_positive).to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::Vector2d::angle as fn(&'static geom2d::Vector2d, bool) -> f32
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::start" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    __Register::new_box::<geom2d::Point2d>(__this.start(), &__registration__::__POINT_2_D_VTABLE)
+                }
+                __wrapper
+            },
+            some base line_segment_sketch::concave_component::ConcaveComponent::start as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> geom2d::Point2d
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Point2d::dist" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::Point2d = __arguments[0].downcast_temp_ref(&__registration__::__POINT_2_D_VTABLE);
+                    let other: &geom2d::Point2d = __arguments[1].downcast_temp_ref(&__registration__::__POINT_2_D_VTABLE);
+                    __this.dist(other).to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::Point2d::dist as fn(&'static geom2d::Point2d, &'static geom2d::Point2d) -> f32
+        ),
+    ),
+    (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::cyclic_slice" },
         transfer_linkage!(
             {
