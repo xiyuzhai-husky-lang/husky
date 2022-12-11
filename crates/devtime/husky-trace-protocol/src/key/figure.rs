@@ -16,8 +16,8 @@ pub struct SpecificFigureCanvasKey {
 }
 
 impl GenericFigureCanvasKey {
-    pub fn from_trace_data(trace_data: &TraceData, restriction: &Presentation) -> Option<Self> {
-        Self::new(trace_data.kind, trace_data.id, restriction)
+    pub fn from_trace_data(trace_data: &TraceData, presentation: &Presentation) -> Option<Self> {
+        Self::new(trace_data.kind, trace_data.id, presentation)
     }
 
     pub fn new(
@@ -52,8 +52,8 @@ impl GenericFigureCanvasKey {
 }
 
 impl SpecificFigureCanvasKey {
-    pub fn from_trace_data(trace_data: &TraceData, restriction: &Presentation) -> Option<Self> {
-        Self::new(trace_data.kind, trace_data.id, restriction)
+    pub fn from_trace_data(trace_data: &TraceData, presentation: &Presentation) -> Option<Self> {
+        Self::new(trace_data.kind, trace_data.id, presentation)
     }
 
     pub fn new(

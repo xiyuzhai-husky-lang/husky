@@ -33,7 +33,7 @@ pub enum Restriction {
     Arrival {
         trace_id: TraceId,
         feature_id: FeatureId,
-        arrival_restriction_kind: ArrivalRestrictionKind,
+        arrival_presentation_kind: ArrivalPresentationKind,
     },
 }
 
@@ -43,7 +43,7 @@ impl Restriction {
             Restriction::None => Restriction::None,
             Restriction::Arrival {
                 trace_id: old_trace_id,
-                arrival_restriction_kind,
+                arrival_presentation_kind,
                 ..
             } => {
                 if let Some(trace_data) = f(old_trace_id) {
@@ -52,7 +52,7 @@ impl Restriction {
                         Restriction::Arrival {
                             trace_id,
                             feature_id,
-                            arrival_restriction_kind,
+                            arrival_presentation_kind,
                         }
                     } else {
                         Restriction::None
@@ -72,18 +72,18 @@ impl std::fmt::Debug for Restriction {
             Restriction::Arrival {
                 trace_id,
                 feature_id,
-                arrival_restriction_kind,
+                arrival_presentation_kind,
             } => write!(
                 f,
                 "Arrival({},{};{:?})",
-                trace_id, feature_id, arrival_restriction_kind
+                trace_id, feature_id, arrival_presentation_kind
             ),
         }
     }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ArrivalRestrictionKind {
+pub enum ArrivalPresentationKind {
     Default,
     Return,
     DeprecatedStrikeEvil, // deprecated
@@ -142,7 +142,7 @@ impl Presentation {
             Restriction::Arrival {
                 trace_id: trace_data.id,
                 feature_id,
-                arrival_restriction_kind: ArrivalRestrictionKind::Default,
+                arrival_presentation_kind: ArrivalPresentationKind::Default,
             }
         } else {
             Restriction::None

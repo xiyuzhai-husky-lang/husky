@@ -59,7 +59,7 @@ pub struct ServerTraceStateChange {
     pub trace_statss: <TrackableMap<TraceStatsKey, Option<TraceStats>> as Trackable>::Change,
     pub root_traces: <TrackableVecSimple<TraceId> as Trackable>::Change,
     pub subtrace_ids_map: <TrackableMap<SubtracesKey, Vec<TraceId>> as Trackable>::Change,
-    pub restriction: <TrackableAtom<Presentation> as Trackable>::Change,
+    pub presentation: <TrackableAtom<Presentation> as Trackable>::Change,
 }
 
 // implementation details
@@ -68,7 +68,7 @@ impl<TraceNode: AsTraceNode> Trackable for ServerTraceState<TraceNode> {
 
     fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
         TrackableTakeChangeM::Ok(ServerTraceStateChange {
-            restriction: self.presentation.take_change()?,
+            presentation: self.presentation.take_change()?,
             trace_nodes: self.trace_nodes.take_change()?,
             specific_figure_canvases: self.specific_figure_canvases.take_change()?,
             generic_figure_canvases: self.generic_figure_canvases.take_change()?,

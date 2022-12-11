@@ -5,11 +5,11 @@ impl HuskyDevtime {
         self.state.presentation()
     }
 
-    pub fn set_restriction(
+    pub fn set_presentation(
         &mut self,
-        restriction: Presentation,
+        presentation: Presentation,
     ) -> HuskyDevtimeTakeChangeM<HuskyDevtimeStateChange> {
-        self.state.set_presentation(restriction)?;
+        self.state.set_presentation(presentation)?;
         self.update()?;
         self.take_change()
     }

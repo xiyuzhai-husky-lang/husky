@@ -89,7 +89,7 @@ impl HuskyDevtime {
         for labeled_data in dev_division.each_labeled_data() {
             let label = labeled_data.label;
             let sample_id = labeled_data.sample_id;
-            if !self.is_restriction_satisfied(presentation, sample_id)? {
+            if !self.is_presentation_satisfied(presentation, sample_id)? {
                 continue;
             }
             // for testing
@@ -111,7 +111,7 @@ impl HuskyDevtime {
         Ok(sampler.finish())
     }
 
-    fn is_restriction_satisfied(
+    fn is_presentation_satisfied(
         &self,
         presentation: &Presentation,
         sample_id: SampleId,
@@ -122,10 +122,10 @@ impl HuskyDevtime {
             Restriction::Arrival {
                 trace_id,
                 feature_id,
-                arrival_restriction_kind,
-            } => self.is_arrival_restriction_satisfied(
+                arrival_presentation_kind,
+            } => self.is_arrival_presentation_satisfied(
                 trace_id,
-                arrival_restriction_kind,
+                arrival_presentation_kind,
                 presentation.partitions(),
                 sample_id,
             ),
@@ -133,17 +133,17 @@ impl HuskyDevtime {
         .map_err(f)
     }
 
-    fn is_arrival_restriction_satisfied(
+    fn is_arrival_presentation_satisfied(
         &self,
         trace_id: TraceId,
-        arrival_restriction_kind: ArrivalRestrictionKind,
+        arrival_presentation_kind: ArrivalPresentationKind,
         partitions: &Partitions,
         sample_id: SampleId,
     ) -> __VMResult<bool> {
-        match arrival_restriction_kind {
-            ArrivalRestrictionKind::Default => self.is_trace_arrived(trace_id, sample_id),
-            ArrivalRestrictionKind::Return => todo!(),
-            ArrivalRestrictionKind::DeprecatedStrikeEvil => {
+        match arrival_presentation_kind {
+            ArrivalPresentationKind::Default => self.is_trace_arrived(trace_id, sample_id),
+            ArrivalPresentationKind::Return => todo!(),
+            ArrivalPresentationKind::DeprecatedStrikeEvil => {
                 self.is_trace_striking_evil(trace_id, sample_id, partitions)
             }
         }

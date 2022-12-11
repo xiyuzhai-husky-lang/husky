@@ -600,7 +600,7 @@ mod struct_info {
             // The default of a field can refer to earlier-defined fields, which we handle by
             // writing out a bunch of `let` statements first, which can each refer to earlier ones.
             // This means that field ordering may actually be significant, which isn't ideal. We
-            // could relax that restriction by calculating a DAG of field default
+            // could relax that presentation by calculating a DAG of field default
             // dependencies and reordering based on that, but for now this much simpler
             // thing is a reasonable approach.
             let assignments = self.fields.iter().map(|field| {
