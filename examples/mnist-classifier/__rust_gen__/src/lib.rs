@@ -23,4 +23,5 @@ pub(crate) mod one;
 pub(crate) mod raw_contour;
 pub(crate) mod seven;
 pub(crate) mod six;
+pub(crate) mod three;
 pub(crate) mod zero;

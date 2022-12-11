@@ -13,7 +13,7 @@ impl DeveloperGuiContext {
     }
 
     fn add_event_listeners_to_dialogues(&'static self) {
-        let dialog = restriction_dialog();
+        let dialog = presentation_dialog();
         add_event_listener!(dialog, "keydown", move |event: web_sys::UiEvent| {
             let event: KeyboardEvent = event.unchecked_into();
             match event.key().as_str() {
@@ -21,8 +21,8 @@ impl DeveloperGuiContext {
                     let sample_id_value = sample_id_input().value();
                     match sample_id_value.parse::<usize>() {
                         Ok(raw) => {
-                            restriction_dialog().close();
-                            self.handle_status_change(StatusChange::update_restriction(
+                            presentation_dialog().close();
+                            self.handle_status_change(StatusChange::update_presentation(
                                 self,
                                 |res| res.set_sample_id(SampleId(raw)),
                             ))

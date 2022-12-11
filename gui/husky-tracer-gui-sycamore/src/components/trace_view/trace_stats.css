@@ -16,6 +16,14 @@
     padding-left: 1ch;
     padding-right: 1ch;
 }
+
+.TraceNode .TraceNodeInternal.active div.ArrivalStats:hover {
+    background-color: rgb(49, 49, 49);
+}
+
+.TraceNode .TraceNodeInternal.active div.ReturnStats:hover {
+    background-color: rgb(49, 49, 49);
+}
 /* .SampleStats {
     border-bottom: solid 1px rgb(113, 96, 0);
 }

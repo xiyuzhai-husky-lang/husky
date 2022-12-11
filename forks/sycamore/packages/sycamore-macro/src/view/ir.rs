@@ -86,7 +86,7 @@ pub fn is_bool_attr(name: &str) -> bool {
     static BOOLEAN_ATTRIBUTES_SET: Lazy<HashSet<&str>> = Lazy::new(|| {
         vec![
             "async",
-            "autorestriction",
+            "autopresentation",
             "autoplay",
             "border",
             "challenge",

@@ -47,9 +47,7 @@ impl HuskyDevtime {
         if let Some(active_trace_id) = self.opt_active_trace_id() {
             self.update_figure_canvas(active_trace_id)?;
         }
-        p!(self.state.presentation().pins());
         for pin in self.state.presentation().pins().to_vec().into_iter() {
-            p!(pin);
             self.update_figure_canvas(pin)?;
         }
         HuskyDevtimeUpdateM::Ok(())

@@ -72,6 +72,12 @@ struct ConcaveComponent:
     func displacement() -> Vector2d:
         this.line_segment().displacement()
 
+    func start_tangent() -> Vector2d:
+        strokes.firstx().displacement()        
+
+    func end_tangent() -> Vector2d:
+        strokes.lastx().displacement()
+
     visual:
         strokes
 
