@@ -13,7 +13,7 @@ pub fn Ticks<'a, G: Html>(scope: Scope<'a>, props: TicksProps) -> View<G> {
         ticks
             .into_iter()
             .map(|tick| {
-                let y = 10.0 + 980.0 * (tick - props.a) / (props.b - props.a);
+                let y = 990.0 - 980.0 * (tick - props.a) / (props.b - props.a);
                 view! {
                     scope,
                     path (

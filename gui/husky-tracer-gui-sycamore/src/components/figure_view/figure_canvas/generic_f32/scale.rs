@@ -4,8 +4,8 @@ use std::ops::Range;
 #[derive(Debug)]
 pub(super) struct GenericF32Scale {
     partitions_len: usize,
-    value_min: f32,
-    value_max: f32,
+    pub(super) value_min: f32,
+    pub(super) value_max: f32,
     value_padding: f32,
     r: f32,
 }
@@ -49,7 +49,7 @@ impl GenericF32Scale {
 
     pub fn circle(&self, class_index: usize, value: f32) -> CircleProps {
         let cx = 150. + 300. * self.normalized_class_index(class_index);
-        let cy = 500. + 1000. * self.normalized_value(value);
+        let cy = 500. - 980. * self.normalized_value(value);
         CircleProps {
             class_index,
             cx,
