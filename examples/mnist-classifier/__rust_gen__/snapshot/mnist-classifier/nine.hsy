@@ -6,7 +6,31 @@ use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 
+func nine_match -> FermiMatchResult:
+    fermi_match(major_concave_components, [downmost])
+
 def is_nine -> ?MnistLabel:
+    eff_holes = major_connected_component.eff_holes
+
+    down_match=nine_match.matches[0]
+    require down_match be some
+    down_match_dp_y = down_match.displacement().y
+    if eff_holes.matches[0] be none:
+        require major_concave_components.ilen()>2
+    lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass
+
+    narrow_down(
+        MnistLabel::Nine,
+        15,
+        // upmost_match_dp_y,
+        ignored_connected_components_row_span_sum_sum,
+        lower_excess,
+        major_connected_component.top_k_row_span_sum(6),
+    )?
+
     MnistLabel::Nine
 
-
+func downmost(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    require dp.y < 0.0
+    dp.y
