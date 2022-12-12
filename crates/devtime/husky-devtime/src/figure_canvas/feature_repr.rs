@@ -118,14 +118,14 @@ impl HuskyDevtime {
     ) -> Result<bool, (SampleId, __VMError)> {
         let f = |e| (sample_id, e);
         match presentation.restriction() {
-            Restriction::None => Ok(true),
-            Restriction::Arrival {
+            None => Ok(true),
+            Some(Restriction {
                 trace_id,
                 feature_id,
-                arrival_presentation_kind,
-            } => self.is_arrival_presentation_satisfied(
+                kind,
+            }) => self.is_arrival_presentation_satisfied(
                 trace_id,
-                arrival_presentation_kind,
+                kind,
                 presentation.partitions(),
                 sample_id,
             ),
@@ -136,14 +136,14 @@ impl HuskyDevtime {
     fn is_arrival_presentation_satisfied(
         &self,
         trace_id: TraceId,
-        arrival_presentation_kind: ArrivalPresentationKind,
+        arrival_presentation_kind: RestrictionKind,
         partitions: &Partitions,
         sample_id: SampleId,
     ) -> __VMResult<bool> {
         match arrival_presentation_kind {
-            ArrivalPresentationKind::Default => self.is_trace_arrived(trace_id, sample_id),
-            ArrivalPresentationKind::Return => todo!(),
-            ArrivalPresentationKind::DeprecatedStrikeEvil => {
+            RestrictionKind::Arrival => self.is_trace_arrived(trace_id, sample_id),
+            RestrictionKind::Return => self.is_trace_returned(trace_id, sample_id),
+            RestrictionKind::DeprecatedStrikeEvil => {
                 self.is_trace_striking_evil(trace_id, sample_id, partitions)
             }
         }
@@ -174,6 +174,41 @@ impl HuskyDevtime {
             TraceVariant::EagerCallArgument { .. } => todo!(),
             TraceVariant::CallHead { .. } => todo!(),
         }
+    }
+
+    fn is_trace_returned(&self, trace_id: TraceId, sample_id: SampleId) -> __VMResult<bool> {
+        let trace = self.trace(trace_id);
+        let (value, ty) = match trace.variant {
+            TraceVariant::Main(ref repr) => {
+                (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
+            }
+            TraceVariant::EntityFeature { ref repr, .. } => {
+                (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
+            }
+            TraceVariant::FeatureStmt(ref stmt) => (
+                self.runtime.eval_feature_stmt(stmt, sample_id)?,
+                stmt.return_ty,
+            ),
+            TraceVariant::FeatureBranch(ref branch) => (
+                self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
+                branch.block.return_ty.route,
+            ),
+            TraceVariant::FeatureExpr(_) => todo!(),
+            TraceVariant::FeatureCallArgument { .. } => todo!(),
+            TraceVariant::FuncStmt { .. } => todo!(),
+            TraceVariant::ProcStmt { .. } => todo!(),
+            TraceVariant::ProcBranch { .. } => todo!(),
+            TraceVariant::FuncBranch { .. } => todo!(),
+            TraceVariant::LoopFrame { .. } => todo!(),
+            TraceVariant::EagerExpr { .. } => todo!(),
+            TraceVariant::EagerCallArgument { .. } => todo!(),
+            TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
+        };
+        let label_downcast_result = self.runtime().register_to_label_converter()(&value);
+        Ok(match label_downcast_result {
+            __RegisterDowncastResult::Value(_) | __RegisterDowncastResult::None { .. } => true,
+            __RegisterDowncastResult::Unreturned => false,
+        })
     }
 
     fn is_trace_striking_evil(

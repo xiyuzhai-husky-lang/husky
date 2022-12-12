@@ -6,7 +6,7 @@ use super::*;
 pub struct GenericFigureCanvasKey {
     trace_id: TraceId,
     partitions: Partitions,
-    restriction: Restriction,
+    restriction: Option<Restriction>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, Hash, PartialEq, Eq)]
