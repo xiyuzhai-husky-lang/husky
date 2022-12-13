@@ -95,7 +95,7 @@ struct BoundingBox:
     xrange: ClosedRange
     yrange: ClosedRange
 
-    func relative_range(other: BoundingBox) -> RelativeBoundingBox:
+    func relative_bounding_box(other: BoundingBox) -> RelativeBoundingBox:
         RelativeBoundingBox(
             xrange.relative_range(other.xrange),
             yrange.relative_range(other.yrange),

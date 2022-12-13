@@ -106,8 +106,12 @@ struct BoundingBox {
     yrange: ClosedRange
 }
 
+<<<<<<< HEAD:crates/syntax/husky-ast/tests/examples/mnist-classifier/src/geom2d.hsy
 impl BoundingBox {
     func relative_range(other: BoundingBox) -> RelativeBoundingBox {
+=======
+    func relative_bounding_box(other: BoundingBox) -> RelativeBoundingBox:
+>>>>>>> b75f429de13031bbe9fac31e000028a86957f02a:examples/mnist-classifier/geom2d.hsy
         RelativeBoundingBox(
             xrange.relative_range(other.xrange),
             yrange.relative_range(other.yrange),
