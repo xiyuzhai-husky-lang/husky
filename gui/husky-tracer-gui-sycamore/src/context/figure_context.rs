@@ -72,12 +72,6 @@ impl DeveloperGuiContext {
             [&FigureControlKey::new(trace.opt_parent_id, trace.kind, trace.id, presentation)]
     }
 
-    pub(crate) fn did_toggle_pin(&self, trace_id: TraceId) {
-        let mut presentation = self.presentation_signal.cget();
-        presentation.toggle_pin(trace_id);
-        self.presentation_signal.set(presentation)
-    }
-
     pub(crate) fn figure_canvas_data_itds(
         &'static self,
         presentation: &Presentation,

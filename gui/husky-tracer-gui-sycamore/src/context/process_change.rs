@@ -5,16 +5,19 @@ use super::*;
 impl DeveloperGuiContext {
     pub(crate) fn process_change(&'static self, change: ServerTraceStateChange) {
         // order matters!
-        match change.trace_nodes {
-            TrackableVecChange::None => (),
-            TrackableVecChange::Append { new_entries } => {
+        let modified_entries = match change.trace_nodes {
+            TrackableVecChange::Incremental {
+                new_entries,
+                modified_entries,
+            } => {
                 self.trace_nodes.borrow_mut(file!(), line!()).extend(
                     new_entries
                         .into_iter()
                         .map(|trace_node| TraceNodeState::from_data(self.scope, trace_node)),
-                )
+                );
+                modified_entries
             }
-        }
+        };
         match change.subtrace_ids_map {
             TrackableMapChange::None => (),
             TrackableMapChange::Append { new_entries } => {
@@ -60,17 +63,29 @@ impl DeveloperGuiContext {
                 .borrow_mut(file!(), line!())
                 .extend(self.alloc_key_signal_pairs(new_entries)),
         }
-        match change.restriction {
+        match change.presentation {
             TrackableAtomChange::Some(presentation) => self.set_presentation(presentation),
             TrackableAtomChange::None => (),
         }
         match change.root_traces {
-            TrackableVecChange::None => (),
-            TrackableVecChange::Append { new_entries } => {
+            TrackableVecChange::Incremental {
+                new_entries,
+                modified_entries,
+            } => {
                 let mut root_traces = self.root_trace_ids_signal.cget();
                 root_traces.extend(new_entries);
+                if modified_entries.len() > 0 {
+                    todo!()
+                }
                 self.root_trace_ids_signal.set(root_traces)
             }
+        }
+        // ad hoc to avoid borrow issues
+        for (i, new_value) in modified_entries {
+            let expansion = self.trace_nodes.borrow(file!(), line!())[i].expansion;
+            expansion.set(new_value.expanded);
+            let shown = self.trace_nodes.borrow(file!(), line!())[i].shown;
+            shown.set(new_value.shown);
         }
         self.update_trace_listing();
     }

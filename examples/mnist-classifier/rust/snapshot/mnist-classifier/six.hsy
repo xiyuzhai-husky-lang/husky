@@ -54,6 +54,7 @@ def is_six -> ?MnistLabel:
         if rel_upmost_match_end.x < 0.7:
             MnistLabel::Six
         MnistLabel::Six
+    // narrow_down: filter the data that satisfy the given features. 
     narrow_down(
         MnistLabel::Six,
         5,

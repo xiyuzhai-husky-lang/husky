@@ -7,12 +7,15 @@ pub enum FigureControlKey {
 }
 
 impl FigureControlKey {
-    pub fn from_trace_data(trace_data: &TraceData, restriction: &Presentation) -> FigureControlKey {
+    pub fn from_trace_data(
+        trace_data: &TraceData,
+        presentation: &Presentation,
+    ) -> FigureControlKey {
         Self::new(
             trace_data.opt_parent_id,
             trace_data.kind,
             trace_data.id,
-            restriction,
+            presentation,
         )
     }
 

@@ -10,6 +10,10 @@ mod major
 mod one
 mod six
 mod zero
+mod seven
+mod eight
+mod nine
+mod three
 
 use cv::datasets::mnist::BinaryImage28
 use cv::datasets::mnist::MnistLabel
@@ -17,17 +21,16 @@ use major::*
 use one::is_one
 use six::is_six
 use zero::is_zero
+use seven::is_seven
+use nine::is_nine
+
 use raw_contour::find_raw_contours
 use line_segment_sketch::find_line_segments
 use domains::ml::models::naive::naive_i32
 
 main:
-    raw_contours = major_connected_component.raw_contours
-    raw_contour0 = raw_contours[0]
-    line_segment_sketch = raw_contour0.line_segment_sketch
-    concave_components = line_segment_sketch.concave_components
-    // naive_i32(concave_components.ilen())
     is_one?
     is_six?
     is_zero?
-    naive_i32(concave_components.ilen())
+    is_seven?
+    require false

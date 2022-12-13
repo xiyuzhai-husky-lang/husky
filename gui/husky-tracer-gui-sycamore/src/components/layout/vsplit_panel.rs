@@ -41,7 +41,7 @@ pub fn VSplitPanel<'a, G: Html>(scope: Scope<'a>, props: VSplitPanelProps<'a>) -
                 }
             }
             div(class="HuskyTracerVSplitPanelLower", style=lower_panel_dimension.cget().to_style()) {
-                RestrictionView {}
+                PresentationView {}
             }
         }
     }

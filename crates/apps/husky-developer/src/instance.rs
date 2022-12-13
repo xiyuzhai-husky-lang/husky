@@ -12,7 +12,7 @@ impl HuskyDebuggerInstance {
         if let Some(_specific_sample_id) = config.opt_sample_id {
             todo!()
             // devtime
-            //     .set_restriction(Restriction::new_specific(specific_sample_id))
+            //     .set_presentation(Restriction::new_specific(specific_sample_id))
             //     .expect("todo");
         }
         Self {
@@ -44,7 +44,7 @@ impl HuskyDebuggerInstance {
         // let internal = &mut self.internal.lock().unwrap();
         // internal
         //     .devtime
-        //     .set_restriction(Restriction::new_specific(specific_sample_id))
+        //     .set_presentation(Restriction::new_specific(specific_sample_id))
         //     .expect("todo");
         // for root_trace_id in internal.devtime.root_traces().into_iter() {
         //     let now = Instant::now();

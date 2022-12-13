@@ -22,6 +22,9 @@ proc ignored_connected_components_row_span_sum_sum -> f32:
         sum += connected_components[i].row_span_sum
     return sum - major_connected_component.row_span_sum
 
+func major_raw_contours -> []RawContour:
+    major_connected_component.raw_contours
+
 // todo: change `def` to `func`
 func major_raw_contour -> RawContour:
     major_connected_component.raw_contours[0]

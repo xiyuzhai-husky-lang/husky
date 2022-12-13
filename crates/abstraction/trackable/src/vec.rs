@@ -1,9 +1,13 @@
+mod state;
+
+pub use state::*;
+
 use crate::*;
 use serde::{Deserialize, Serialize};
 use vec_like::VecSet;
 
 pub trait TrackClone {
-    type CloneOutput;
+    type CloneOutput: Serialize;
     fn track_clone(&self) -> Self::CloneOutput;
 }
 
@@ -20,7 +24,7 @@ impl<T> TrackSimple<T> {
 
 impl<T> TrackClone for TrackSimple<T>
 where
-    T: Clone,
+    T: Clone + Serialize,
 {
     type CloneOutput = T;
 
@@ -45,61 +49,21 @@ where
 
 pub type TrackableVecSimple<E> = TrackableVec<TrackSimple<E>>;
 
-#[derive(Debug, Default)]
-pub struct TrackableVecState {
-    old_len: usize,
-    elems_modified: VecSet<usize>,
-}
-
 #[derive(Debug, Serialize, Deserialize)]
-pub enum TrackableVecChange<E> {
-    None,
-    Append { new_entries: Vec<E> },
-}
-
-impl<E> TrackableVecChange<E>
+pub enum TrackableVecChange<ETrackeCloneOutput>
 where
-    E: TrackClone,
+    ETrackeCloneOutput: Serialize,
 {
-    pub fn opt_new_entries(self) -> Option<Vec<E>> {
-        match self {
-            TrackableVecChange::None => None,
-            TrackableVecChange::Append { new_entries } => Some(new_entries),
-        }
-    }
-}
-
-impl<E> Trackable for TrackableVec<E>
-where
-    E: TrackClone,
-{
-    type Change = TrackableVecChange<E::CloneOutput>;
-
-    fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
-        if self.state.elems_modified.len() > 0 {
-            println!("{:?} {}", self.state.elems_modified, self.state.old_len);
-            todo!()
-        }
-        if self.state.old_len == self.entries.len() {
-            return TrackableTakeChangeM::Ok(TrackableVecChange::None);
-        }
-        let new_entries: Vec<E::CloneOutput> = self.entries[self.state.old_len..]
-            .iter()
-            .map(|v| v.track_clone())
-            .collect();
-        self.state.old_len = self.entries.len();
-        TrackableTakeChangeM::Ok(TrackableVecChange::Append { new_entries })
-    }
+    Incremental {
+        modified_entries: Vec<(usize, ETrackeCloneOutput)>,
+        new_entries: Vec<ETrackeCloneOutput>,
+    },
 }
 
 impl<E> TrackableVec<E>
 where
     E: TrackClone,
 {
-    fn synced(&self) -> bool {
-        self.state.old_len == self.entries.len() && self.state.elems_modified.len() == 0
-    }
-
     pub fn push(&mut self, elem: E) -> TrackableMakeChangeM<Self, ()> {
         self.entries.push(elem);
         TrackableMakeChangeM::Ok {
@@ -124,10 +88,8 @@ where
     }
 
     pub fn set_elem(&mut self, index: usize, new_value: E) -> TrackableMakeChangeM<Self, ()> {
-        if index < self.state.old_len {
-            todo!()
-        }
         self.entries[index] = new_value;
+        self.state.modify_element(index);
         TrackableMakeChangeM::Ok {
             cont: (),
             phantom_state: PhantomData,
@@ -139,18 +101,15 @@ where
         index: usize,
         f: impl FnOnce(&mut E),
     ) -> TrackableMakeChangeM<Self, ()> {
-        if index < self.state.old_len {
-            todo!()
-        }
         f(&mut self.entries[index]);
+        self.state.modify_element(index);
         TrackableMakeChangeM::Ok {
             cont: (),
             phantom_state: PhantomData,
         }
     }
 
-    pub fn apply_set_elem(&mut self, _index: usize, _elem: E) -> TrackableApplyChangeM<Self, ()> {
-        assert!(self.synced());
+    pub fn apply_set_elem(&mut self, index: usize, elem: E) -> TrackableApplyChangeM<Self, ()> {
         todo!()
     }
 
@@ -159,8 +118,8 @@ where
         index: usize,
         f: impl FnOnce(&mut E),
     ) -> TrackableApplyChangeM<Self, ()> {
-        assert!(self.synced());
         f(&mut self.entries[index]);
+        self.state.modify_element(index);
         TrackableApplyChangeM::Ok {
             this: PhantomData,
             cont: (),
@@ -223,7 +182,7 @@ where
 // {
 //     fn index_mut(&mut self, index: usize) -> &mut Self::Output {
 //         if index < self.state.old_len {
-//             self.state.elems_modified.insert(index);
+//             self.state.modify_element(index);
 //         }
 //         &mut self.entries[index]
 //     }

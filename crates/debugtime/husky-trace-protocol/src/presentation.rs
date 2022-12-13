@@ -13,7 +13,7 @@ pub struct Presentation {
     kind: PresentationKind,
     sample_id: SampleId,
     opt_active_trace_id: Option<TraceId>,
-    restriction: Restriction,
+    restriction: Option<Restriction>,
     pins: VecSet<TraceId>,
     partitions: Partitions, // don't need this when we have monad
 }
@@ -28,77 +28,32 @@ pub enum PresentationKind {
 impl Signalable for PresentationKind {}
 
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum Restriction {
-    None,
-    Arrival {
-        trace_id: TraceId,
-        feature_id: FeatureId,
-        arrival_restriction_kind: ArrivalRestrictionKind,
-    },
+pub struct Restriction {
+    pub trace_id: TraceId,
+    pub kind: RestrictionKind,
 }
 
 impl Restriction {
-    pub fn mimic<'a>(self, f: &'a impl Fn(TraceId) -> Option<&'a TraceData>) -> Self {
-        match self {
-            Restriction::None => Restriction::None,
-            Restriction::Arrival {
-                trace_id: old_trace_id,
-                arrival_restriction_kind,
-                ..
-            } => {
-                if let Some(trace_data) = f(old_trace_id) {
-                    let trace_id = trace_data.id;
-                    if let Some(feature_id) = trace_data.opt_arrival_indicator {
-                        Restriction::Arrival {
-                            trace_id,
-                            feature_id,
-                            arrival_restriction_kind,
-                        }
-                    } else {
-                        Restriction::None
-                    }
-                } else {
-                    Restriction::None
-                }
-            }
-        }
+    pub fn mimic<'a>(self, f: &'a impl Fn(TraceId) -> Option<&'a TraceData>) -> Option<Self> {
+        let trace_data = f(self.trace_id)?;
+        let trace_id = trace_data.id;
+        Some(Restriction {
+            trace_id,
+            kind: self.kind,
+        })
     }
 }
 
 impl std::fmt::Debug for Restriction {
     fn fmt(&self, f: &mut __private::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            Restriction::None => write!(f, "None"),
-            Restriction::Arrival {
-                trace_id,
-                feature_id,
-                arrival_restriction_kind,
-            } => write!(
-                f,
-                "Arrival({},{};{:?})",
-                trace_id, feature_id, arrival_restriction_kind
-            ),
-        }
+        write!(f, "Arrival({};{:?})", self.trace_id, self.kind)
     }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ArrivalRestrictionKind {
-    Default,
+pub enum RestrictionKind {
+    Arrival,
     Return,
-    DeprecatedStrikeEvil, // deprecated
-}
-
-impl Default for Restriction {
-    fn default() -> Self {
-        Restriction::None
-    }
-}
-
-impl Restriction {
-    pub fn clear(&mut self) {
-        *self = Restriction::None
-    }
 }
 
 impl Presentation {
@@ -107,7 +62,7 @@ impl Presentation {
             kind: self.kind,
             sample_id: self.sample_id,
             opt_active_trace_id: self.opt_active_trace_id.map(f).flatten().map(|n| n.id),
-            restriction: self.restriction.mimic(f),
+            restriction: self.restriction.map(|res| res.mimic(f)).flatten(),
             pins: self
                 .pins
                 .iter()
@@ -119,7 +74,7 @@ impl Presentation {
     }
 
     pub fn clear(&mut self) {
-        self.restriction.clear();
+        self.restriction = None;
         self.opt_active_trace_id = None;
         self.pins.clear()
     }
@@ -128,7 +83,7 @@ impl Presentation {
         self.kind
     }
 
-    pub fn restriction(&self) -> Restriction {
+    pub fn restriction(&self) -> Option<Restriction> {
         self.restriction
     }
 
@@ -138,15 +93,10 @@ impl Presentation {
 
     pub fn activate_trace(&mut self, trace_data: &TraceData) {
         self.opt_active_trace_id = Some(trace_data.id);
-        self.restriction = if let Some(feature_id) = trace_data.opt_arrival_indicator {
-            Restriction::Arrival {
-                trace_id: trace_data.id,
-                feature_id,
-                arrival_restriction_kind: ArrivalRestrictionKind::Default,
-            }
-        } else {
-            Restriction::None
-        }
+        self.restriction = Some(Restriction {
+            trace_id: trace_data.id,
+            kind: RestrictionKind::Arrival,
+        })
     }
 
     pub fn activate_trace_out_of_place(&self, trace_data: &TraceData) -> Presentation {
@@ -221,6 +171,20 @@ impl Presentation {
 
     pub fn remove_partition(&mut self, idx: usize) {
         self.partitions.remove_partition(idx)
+    }
+
+    pub fn restrict_to_arrival(&mut self, trace_id: TraceId) {
+        match self.restriction {
+            Some(ref mut res) => res.kind = RestrictionKind::Arrival,
+            None => (),
+        }
+    }
+
+    pub fn restrict_to_return(&mut self, trace_id: TraceId) {
+        match self.restriction {
+            Some(ref mut res) => res.kind = RestrictionKind::Return,
+            None => (),
+        }
     }
 
     pub fn is_pinned(&self, id: TraceId) -> bool {

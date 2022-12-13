@@ -24,7 +24,7 @@ pub struct FeatureLazyExpr {
     pub feature: FeatureItd,
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
-    pub opt_domain_indicator: Option<Arc<FeatureDomainIndicator>>,
+    pub opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
 }
 
 impl HasTextRange for FeatureLazyExpr {
@@ -67,6 +67,11 @@ impl<'eval> Eq for FeatureLazyExpr {}
 #[derive(PartialEq, Eq, Clone)]
 pub enum FeatureLazyExprVariant {
     Literal(__Register<'static>),
+    PrefixOpr {
+        opr: PrefixOpr,
+        opds: Vec<Arc<FeatureLazyExpr>>,
+        linkage: __Linkage,
+    },
     PrimitiveBinaryOpr {
         opr: BinaryPureClosedOpr,
         opds: Vec<Arc<FeatureLazyExpr>>,
@@ -191,6 +196,7 @@ impl std::fmt::Debug for FeatureLazyExprVariant {
             }
             FeatureLazyExprVariant::BePattern { .. } => f.debug_struct("BePattern").finish(),
             FeatureLazyExprVariant::Literal(_) => todo!(),
+<<<<<<< HEAD
             FeatureLazyExprVariant::PrimitiveBinaryOpr {
                 opr: _,
                 opds: _,
@@ -200,6 +206,11 @@ impl std::fmt::Debug for FeatureLazyExprVariant {
                 opr: _kind,
                 opds: _,
             } => todo!(),
+=======
+            FeatureLazyExprVariant::PrimitiveBinaryOpr { opr, opds, linkage } => todo!(),
+            FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr: kind, opds } => todo!(),
+            FeatureLazyExprVariant::PrefixOpr { opr, opds, linkage } => todo!(),
+>>>>>>> cd50934257db08a3571c5f4b8b68528b5962e1a4
         }
     }
 }
@@ -224,10 +235,17 @@ impl FeatureLazyExprVariant {
             FeatureLazyExprVariant::NewVecFromList { .. } => "NewVecFromList",
             FeatureLazyExprVariant::CustomBinaryOpr { .. } => "CustomBinaryOpr",
             FeatureLazyExprVariant::BePattern { .. } => "BePattern",
+<<<<<<< HEAD
             FeatureLazyExprVariant::ShortCircuitBinaryOpr {
                 opr: _kind,
                 opds: _,
             } => "ShortCircuitBinaryOpr",
+=======
+            FeatureLazyExprVariant::ShortCircuitBinaryOpr { opr: kind, opds } => {
+                "ShortCircuitBinaryOpr"
+            }
+            FeatureLazyExprVariant::PrefixOpr { opr, opds, linkage } => todo!(),
+>>>>>>> cd50934257db08a3571c5f4b8b68528b5962e1a4
         }
     }
 }
@@ -262,6 +280,7 @@ struct FeatureExprBuilder<'a> {
 
 impl<'a> FeatureExprBuilder<'a> {
     fn new_expr(&self, expr: Arc<LazyExpr>) -> Arc<FeatureLazyExpr> {
+<<<<<<< HEAD
         todo!()
         // let (kind, feature) = match expr.variant {
         //     LazyExprVariant::Variable { varname, .. } => self
@@ -364,5 +383,107 @@ impl<'a> FeatureExprBuilder<'a> {
         //     expr,
         //     opt_domain_indicator: self.opt_arrival_indicator.map(|indi| indi.clone()),
         // })
+=======
+        let (kind, feature) = match expr.variant {
+            LazyExprVariant::Variable { varname, .. } => self
+                .symbols
+                .iter()
+                .rev()
+                .find_map(|symbol| {
+                    if symbol.varname == varname {
+                        Some((
+                            FeatureLazyExprVariant::Variable {
+                                varname,
+                                value: symbol.value.clone(),
+                            },
+                            symbol.feature,
+                        ))
+                    } else {
+                        None
+                    }
+                })
+                .unwrap(),
+            LazyExprVariant::PrimitiveLiteral(data) => (
+                FeatureLazyExprVariant::Literal(convert_primitive_literal_to_register(
+                    data,
+                    expr.intrinsic_ty(),
+                )),
+                self.feature_interner.intern(Feature::PrimitiveLiteral(
+                    convert_primitive_literal_to_value(data, expr.intrinsic_ty()),
+                )),
+            ),
+            LazyExprVariant::Bracketed(ref bracketed_expr) => {
+                return self.new_expr(bracketed_expr.clone())
+            }
+            LazyExprVariant::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
+            LazyExprVariant::Lambda(_, _) => todo!(),
+            LazyExprVariant::EnumLiteral { entity_route } => (
+                FeatureLazyExprVariant::Literal(
+                    __VirtualEnum {
+                        kind_idx: self.db.enum_literal_to_i32(entity_route),
+                    }
+                    .to_register(),
+                ),
+                self.feature_interner
+                    .intern(Feature::EnumLiteral(entity_route)),
+            ),
+            LazyExprVariant::ThisValue { .. } => (
+                FeatureLazyExprVariant::ThisValue {
+                    repr: self.opt_this.as_ref().unwrap().clone(),
+                },
+                self.opt_this.as_ref().unwrap().feature(),
+            ),
+            LazyExprVariant::ThisField {
+                field_ident,
+                field_binding,
+                ..
+            } => {
+                let this_repr = self.opt_this.clone().unwrap();
+                self.compile_field_access(field_ident, this_repr, field_binding)
+            }
+            LazyExprVariant::EntityFeature { entity_route } => match entity_route.variant {
+                EntityRouteVariant::Root { .. } | EntityRouteVariant::Package { .. } => panic!(),
+                EntityRouteVariant::Child { .. } => {
+                    let uid = self.db.entity_uid(entity_route);
+                    let feature = self.feature_interner.intern(Feature::EntityFeature {
+                        route: entity_route,
+                        uid,
+                    });
+                    let variant = FeatureLazyExprVariant::EntityFeature {
+                        repr: self.db.entity_feature_repr(entity_route),
+                    };
+                    (variant, feature)
+                }
+                EntityRouteVariant::TargetInputValue => {
+                    let feature = self.feature_interner.intern(Feature::Input);
+                    let variant = FeatureLazyExprVariant::EvalInput;
+                    (variant, feature)
+                }
+                EntityRouteVariant::Any { .. } => todo!(),
+                EntityRouteVariant::ThisType { .. } => todo!(),
+                EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
+                EntityRouteVariant::TargetOutputType => todo!(),
+            },
+            LazyExprVariant::BePattern { ref this, ref patt } => {
+                let this = self.new_expr(this.clone());
+                let feature = self.feature_interner.intern(Feature::BePattern {
+                    this: this.feature,
+                    expr_pattern: Feature::intern_expr_pattern(self.feature_interner, patt),
+                });
+                let variant = FeatureLazyExprVariant::BePattern {
+                    this,
+                    patt: patt.clone(),
+                };
+                (variant, feature)
+            }
+        };
+        Arc::new(FeatureLazyExpr {
+            variant: kind,
+            feature,
+            eval_id: Default::default(),
+            expr,
+            opt_arrival_indicator: self.opt_arrival_indicator.map(|indi| indi.clone()),
+        })
+>>>>>>> cd50934257db08a3571c5f4b8b68528b5962e1a4
     }
 }

@@ -10,7 +10,7 @@ is given below.
 
 Some of the files in this distribution are derived from other open
 source software projects.  These files may be subject to additional
-license restrictions, as indicated in the file text.
+license presentations, as indicated in the file text.
 
 
 # GPLv3
@@ -402,13 +402,13 @@ that material) supplement the terms of this License with terms:
     those licensors and authors.
 
   All other non-permissive additional terms are considered "further
-restrictions" within the meaning of section 10.  If the Program as you
+presentations" within the meaning of section 10.  If the Program as you
 received it, or any part of it, contains a notice stating that it is
 governed by this License along with a term that is a further
-restriction, you may remove that term.  If a license document contains
-a further restriction but permits relicensing or conveying under this
+presentation, you may remove that term.  If a license document contains
+a further presentation but permits relicensing or conveying under this
 License, you may add to a covered work material governed by the terms
-of that license document, provided that the further restriction does
+of that license document, provided that the further presentation does
 not survive such relicensing or conveying.
 
   If you add terms to a covered work in accord with this section, you
@@ -476,7 +476,7 @@ give under the previous paragraph, plus a right to possession of the
 Corresponding Source of the work from the predecessor in interest, if
 the predecessor has it or can get it with reasonable efforts.
 
-  You may not impose any further restrictions on the exercise of the
+  You may not impose any further presentations on the exercise of the
 rights granted or affirmed under this License.  For example, you may
 not impose a license fee, royalty, or other charge for exercise of
 rights granted under this License, and you may not initiate litigation
