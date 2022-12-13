@@ -5,7 +5,7 @@
 .TraceNodeInternal {
     padding: 0px;
 }
-.active {
+.TraceNodeInternal.active {
     outline: rgb(202, 132, 2) solid 2px;
 }
 

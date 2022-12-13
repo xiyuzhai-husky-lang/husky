@@ -119,11 +119,7 @@ impl HuskyDevtime {
         let f = |e| (sample_id, e);
         match presentation.restriction() {
             None => Ok(true),
-            Some(Restriction {
-                trace_id,
-                feature_id,
-                kind,
-            }) => self.is_arrival_presentation_satisfied(
+            Some(Restriction { trace_id, kind }) => self.is_arrival_presentation_satisfied(
                 trace_id,
                 kind,
                 presentation.partitions(),
@@ -143,9 +139,6 @@ impl HuskyDevtime {
         match arrival_presentation_kind {
             RestrictionKind::Arrival => self.is_trace_arrived(trace_id, sample_id),
             RestrictionKind::Return => self.is_trace_returned(trace_id, sample_id),
-            RestrictionKind::DeprecatedStrikeEvil => {
-                self.is_trace_striking_evil(trace_id, sample_id, partitions)
-            }
         }
     }
 
@@ -204,10 +197,15 @@ impl HuskyDevtime {
             TraceVariant::EagerCallArgument { .. } => todo!(),
             TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
         };
-        let label_downcast_result = self.runtime().register_to_label_converter()(&value);
-        Ok(match label_downcast_result {
-            __RegisterDowncastResult::Value(_) | __RegisterDowncastResult::None { .. } => true,
-            __RegisterDowncastResult::Unreturned => false,
+        Ok(match value.data_kind() {
+            __RegisterDataKind::PrimitiveValue
+            | __RegisterDataKind::Box
+            | __RegisterDataKind::EvalRef
+            | __RegisterDataKind::TempRef
+            | __RegisterDataKind::TempMut
+            | __RegisterDataKind::SomeNone => true,
+            __RegisterDataKind::Unreturned => false,
+            __RegisterDataKind::Moved => unreachable!(),
         })
     }
 
