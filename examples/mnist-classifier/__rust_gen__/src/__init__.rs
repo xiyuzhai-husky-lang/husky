@@ -2482,6 +2482,30 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::zero::open_one_match"
+        },
+        feature_linkage!(zero::open_one_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::zero::almost_closed",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    zero::almost_closed(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx zero::almost_closed as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
         __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::ymax" },
         transfer_linkage!(
             {
@@ -2859,6 +2883,24 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some base geom2d::BoundingBox::relative_bounding_box as fn(&'static geom2d::BoundingBox, &'static geom2d::BoundingBox) -> geom2d::RelativeBoundingBox
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Vector2d::angle_to" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
+                    let other: &geom2d::Vector2d = __arguments[1].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
+                    let is_branch_cut_positive: bool = __arguments[2].downcast_bool();
+                    __this.angle_to(other, is_branch_cut_positive).to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::Vector2d::angle_to as fn(&'static geom2d::Vector2d, &'static geom2d::Vector2d, bool) -> f32
         ),
     ),
     (

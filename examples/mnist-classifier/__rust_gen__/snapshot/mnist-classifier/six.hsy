@@ -65,8 +65,7 @@ def is_six -> ?MnistLabel:
     require eff_holes.matches[0].relative_bounding_box.ymax() < 0.75
     if eff_holes.matches[1] be some:
         require eff_holes.matches[1].relative_bounding_box.ymax() < 0.75
-    if lower_excess < 23.0:
-        require false
+    require lower_excess > 15.0
     MnistLabel::Six
 
 func upmost(cc: &ConcaveComponent) -> ?f32:
