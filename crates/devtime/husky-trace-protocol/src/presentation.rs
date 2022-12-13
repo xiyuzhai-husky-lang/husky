@@ -30,7 +30,6 @@ impl Signalable for PresentationKind {}
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct Restriction {
     pub trace_id: TraceId,
-    pub feature_id: FeatureId,
     pub kind: RestrictionKind,
 }
 
@@ -38,10 +37,8 @@ impl Restriction {
     pub fn mimic<'a>(self, f: &'a impl Fn(TraceId) -> Option<&'a TraceData>) -> Option<Self> {
         let trace_data = f(self.trace_id)?;
         let trace_id = trace_data.id;
-        let feature_id = trace_data.opt_arrival_indicator?;
         Some(Restriction {
             trace_id,
-            feature_id,
             kind: self.kind,
         })
     }
@@ -49,11 +46,7 @@ impl Restriction {
 
 impl std::fmt::Debug for Restriction {
     fn fmt(&self, f: &mut __private::Formatter<'_>) -> std::fmt::Result {
-        write!(
-            f,
-            "Arrival({},{};{:?})",
-            self.trace_id, self.feature_id, self.kind
-        )
+        write!(f, "Arrival({};{:?})", self.trace_id, self.kind)
     }
 }
 
@@ -61,7 +54,6 @@ impl std::fmt::Debug for Restriction {
 pub enum RestrictionKind {
     Arrival,
     Return,
-    DeprecatedStrikeEvil, // deprecated
 }
 
 impl Presentation {
@@ -101,15 +93,10 @@ impl Presentation {
 
     pub fn activate_trace(&mut self, trace_data: &TraceData) {
         self.opt_active_trace_id = Some(trace_data.id);
-        self.restriction = if let Some(feature_id) = trace_data.opt_arrival_indicator {
-            Some(Restriction {
-                trace_id: trace_data.id,
-                feature_id,
-                kind: RestrictionKind::Arrival,
-            })
-        } else {
-            None
-        }
+        self.restriction = Some(Restriction {
+            trace_id: trace_data.id,
+            kind: RestrictionKind::Arrival,
+        })
     }
 
     pub fn activate_trace_out_of_place(&self, trace_data: &TraceData) -> Presentation {
@@ -184,6 +171,20 @@ impl Presentation {
 
     pub fn remove_partition(&mut self, idx: usize) {
         self.partitions.remove_partition(idx)
+    }
+
+    pub fn restrict_to_arrival(&mut self, trace_id: TraceId) {
+        match self.restriction {
+            Some(ref mut res) => res.kind = RestrictionKind::Arrival,
+            None => (),
+        }
+    }
+
+    pub fn restrict_to_return(&mut self, trace_id: TraceId) {
+        match self.restriction {
+            Some(ref mut res) => res.kind = RestrictionKind::Return,
+            None => (),
+        }
     }
 
     pub fn is_pinned(&self, id: TraceId) -> bool {

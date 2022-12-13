@@ -30,7 +30,7 @@ pub fn PresentationView<'a, G: Html>(scope: Scope<'a>) -> View<G> {
             label (
                 id="sample-id-name",
             ) {
-                "sample id = "
+                "base point = "
             }
             label (
                 id="sample-id-value",

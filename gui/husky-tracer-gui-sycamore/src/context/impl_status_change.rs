@@ -105,6 +105,28 @@ impl DeveloperGuiContext {
         move |_| self.handle_status_change(StatusChange::toggle_presentation_is_specific(self))
     }
 
+    pub fn restrict_presentation_to_arrival_handler(
+        &'static self,
+        trace_id: TraceId,
+    ) -> impl Fn(Event) {
+        move |_| {
+            self.handle_status_change(StatusChange::update_presentation(self, |pres| {
+                pres.restrict_to_arrival(trace_id)
+            }))
+        }
+    }
+
+    pub fn restrict_presentation_to_return_handler(
+        &'static self,
+        trace_id: TraceId,
+    ) -> impl Fn(Event) {
+        move |_| {
+            self.handle_status_change(StatusChange::update_presentation(self, |pres| {
+                pres.restrict_to_return(trace_id)
+            }))
+        }
+    }
+
     pub fn set_presentation_from_dialog_handler(&'static self) -> impl Fn(Event) {
         move |_| {
             let dialog = presentation_dialog();
