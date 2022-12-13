@@ -212,6 +212,14 @@ impl<'eval> ConcaveComponent<'eval> {
     pub(crate) fn displacement(&self) -> crate::geom2d::Vector2d {
         return self.line_segment().displacement();
     }
+
+    pub(crate) fn start_tangent(&self) -> crate::geom2d::Vector2d {
+        return self.strokes.firstx().displacement();
+    }
+
+    pub(crate) fn end_tangent(&self) -> crate::geom2d::Vector2d {
+        return self.strokes.lastx().displacement();
+    }
 }
 
 impl<'eval> __StaticInfo for ConcaveComponent<'eval> {

@@ -133,6 +133,11 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
             FeatureLazyExprVariant::BePattern { ref this, ref patt } => {
                 self.eval_be_pattern(this, patt)
             }
+            FeatureLazyExprVariant::PrefixOpr {
+                opr,
+                ref opds,
+                linkage,
+            } => self.eval_routine_call(&None, Some(linkage), opds),
         };
         match expr.expr.implicit_conversion {
             ImplicitConversion::None => result,

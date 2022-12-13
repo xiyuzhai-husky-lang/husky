@@ -31,8 +31,8 @@ pub enum HuskyTracerGuiMessageVariant {
     // Trace {
     //     id: TraceId,
     // },
-    SetRestriction {
-        restriction: Presentation,
+    SetPresentation {
+        presentation: Presentation,
         needs_figure_canvases: bool,
         needs_figure_controls: bool,
         needs_stalks: bool,

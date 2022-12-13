@@ -32,7 +32,7 @@ Import SemNotations.
 (** * Substitution of equivalent expressions
     Substitution of expressions impact neither the control flow nor the
     liveness information of the graph. Their equivalence can therefore
-    be lifted with no restriction to any context: we establish this
+    be lifted with no presentation to any context: we establish this
     generic fact as [exp_optim_correct].
 
     Practically, this means that we can define concrete sound optimizations

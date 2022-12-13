@@ -84,6 +84,39 @@ impl<'eval> RawContour<'eval> {
             .unwrap()
             .downcast_eval_ref(&__registration__::__BOUNDING_BOX_VTABLE)
     }
+    pub(crate) fn contour_len(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::raw_contour::RawContour::contour_len"
+        );
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__F32_VTABLE);
+        }
+        let mut contour_len = 0f32;
+        for i in (0 + 1)..self.points.ilen() {
+            let a = &self.points[(i - 1) as usize];
+            let b = &self.points[(i) as usize];
+            contour_len += (a.x - b.x).abs() + (a.y - b.y).abs();
+        }
+        let a = &self.points[(self.points.ilen() - 1) as usize];
+        let b = &self.points[(0) as usize];
+        contour_len += (a.x - b.x).abs() + (a.y - b.y).abs();
+        __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<f32>(
+                    contour_len,
+                    &__registration__::__F32_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__F32_VTABLE)
+    }
     pub(crate) fn displacement(&self, start: i32, end: i32) -> crate::geom2d::Vector2d {
         let N = self.points.ilen();
         let ct_start = &self.points[(start.rem_euclid(N)) as usize];

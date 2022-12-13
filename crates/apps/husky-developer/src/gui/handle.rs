@@ -197,14 +197,14 @@ impl HuskyDebuggerInternal {
             //     let stalk = self.devtime.trace_stalk(trace_id).clone();
             //     Some(HuskyTracerServerMessageVariant::TraceStalk { stalk })
             // }
-            HuskyTracerGuiMessageVariant::SetRestriction {
-                ref restriction,
+            HuskyTracerGuiMessageVariant::SetPresentation {
+                ref presentation,
                 needs_figure_canvases,
                 needs_figure_controls,
                 needs_stalks,
                 needs_statss,
-            } => self.handle_set_restriction(
-                restriction,
+            } => self.handle_set_presentation(
+                presentation,
                 needs_figure_canvases,
                 needs_figure_controls,
                 needs_stalks,
@@ -276,7 +276,7 @@ impl HuskyDebuggerInternal {
         })
     }
 
-    fn handle_set_restriction(
+    fn handle_set_presentation(
         &mut self,
         presentation: &Presentation,
         needs_figure_canvases: bool,
@@ -287,7 +287,7 @@ impl HuskyDebuggerInternal {
         HandleGuiMessageM::Ok(
             match self
                 .devtime
-                .set_restriction(presentation.clone())
+                .set_presentation(presentation.clone())
                 .result()?
             {
                 Ok(change) => {
@@ -296,7 +296,7 @@ impl HuskyDebuggerInternal {
                         || needs_stalks
                         || needs_statss
                     {
-                        Some((change, HuskyTracerServerMessageVariant::SetRestriction))
+                        Some((change, HuskyTracerServerMessageVariant::SetPresentation))
                     } else {
                         None
                     }

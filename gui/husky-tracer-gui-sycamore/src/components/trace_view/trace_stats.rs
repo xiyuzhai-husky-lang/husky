@@ -4,11 +4,43 @@ use web_sys::Event;
 
 #[derive(Prop)]
 pub struct TraceStatsProps<'a> {
+    trace_id: TraceId,
     stats: &'a TraceStats,
     indent: Indent,
 }
 
 pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>) -> View<G> {
+    let ctx = use_dev_context(scope);
+    let presentation_signal = ctx.presentation_signal();
+    let trace_id = props.trace_id;
+    let restrict_to_arrival = memo!(scope, move || {
+        let presentation = presentation_signal.get();
+        if presentation.opt_active_trace_id() != Some(trace_id) {
+            return false;
+        }
+        match presentation.restriction() {
+            Some(restriction) => match restriction.kind {
+                RestrictionKind::Arrival => true,
+                RestrictionKind::Return => false,
+                RestrictionKind::DeprecatedStrikeEvil => false,
+            },
+            None => true,
+        }
+    });
+    let restrict_to_return = memo!(scope, move || {
+        let presentation = presentation_signal.get();
+        if presentation.opt_active_trace_id() != Some(trace_id) {
+            return false;
+        }
+        match presentation.restriction() {
+            Some(restriction) => match restriction.kind {
+                RestrictionKind::Arrival => false,
+                RestrictionKind::Return => true,
+                RestrictionKind::DeprecatedStrikeEvil => false,
+            },
+            None => false,
+        }
+    });
     match props.stats {
         TraceStats::Classification {
             dev_samples,
@@ -24,36 +56,59 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
                 class="TraceStatsView",
                 style=format!("padding-left: {}ch", 3 + props.indent),
             ) {
-                div (class = "ArrivalStats") {
-                    "A "
-                    (*dev_arrivals)
+                div (class="TraceStatsViewLeft") {
+                    div (
+                        class = format!(
+                            "ArrivalStats{}",
+                            if restrict_to_arrival.cget() {
+                                " active"
+                            } else {
+                                " inactive"
+                            }
+                        ),
+                        on:click = ctx.restrict_presentation_to_arrival_handler(trace_id)
+                    ) {
+                        "A "
+                        (*dev_arrivals)
+                    }
+                    div (
+                        class = format!("ReturnStats{}",
+                            if restrict_to_return.cget() {
+                                " active"
+                            } else {
+                                " inactive"
+                            }
+                        ),
+                        on:click = ctx.restrict_presentation_to_return_handler(trace_id)
+                    ) {
+                        "R "
+                        (*dev_arrivals - *dev_unreturneds)
+                    }
                 }
-                div (class = "UnreturnedStats") {
-                    "R "
-                    (*dev_arrivals - *dev_unreturneds)
-                }
-                div (class = "TrueStats") {
-                    "T "
-                    (*dev_trues)
-                }
-                div (class = "FalseStats") {
-                    "F "
-                    (*dev_falses)
-                }
-                (View::new_fragment(dev_partition_noness.iter().enumerate().map(
-                    |(idx, (partition, dev_partition_nones))| {
-                        let partition_name = partition.name();
-                        view!{
-                            scope,
-                            div (class = "DevPartitionNoneStats") {
-                                "N["
-                                (partition_name)
-                                "] "
-                                (*dev_partition_nones)
+                div (class="TraceStatsViewRight") {
+                    div (class = "TruePositiveStats") {
+                        "TP "
+                        (*dev_trues)
+                    }
+                    div (class = "FalsePositiveStats") {
+                        "FP "
+                        (*dev_falses)
+                    }
+                    (View::new_fragment(dev_partition_noness.iter().enumerate().map(
+                        |(idx, (partition, dev_partition_nones))| {
+                            let partition_name = partition.name();
+                            view!{
+                                scope,
+                                div (class = "DevPartitionNoneStats") {
+                                    "N["
+                                    (partition_name)
+                                    "] "
+                                    (*dev_partition_nones)
+                                }
                             }
                         }
-                    }
-                ).collect()))
+                    ).collect()))
+                }
             }
         },
     }

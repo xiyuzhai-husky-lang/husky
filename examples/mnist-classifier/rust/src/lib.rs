@@ -13,11 +13,15 @@ fn __input<'a, 'eval: 'a>(
     }
 }
 pub(crate) mod connected_component;
+pub(crate) mod eight;
 pub(crate) mod fermi;
 pub(crate) mod geom2d;
 pub(crate) mod line_segment_sketch;
 pub(crate) mod major;
+pub(crate) mod nine;
 pub(crate) mod one;
 pub(crate) mod raw_contour;
+pub(crate) mod seven;
 pub(crate) mod six;
+pub(crate) mod three;
 pub(crate) mod zero;

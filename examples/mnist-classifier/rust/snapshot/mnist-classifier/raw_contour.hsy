@@ -27,6 +27,17 @@ struct RawContour:
             ClosedRange(xmin, xmax), 
             ClosedRange(ymin, ymax),
         )
+    
+    proc contour_len -> f32:
+        var contour_len = 0.0
+        for 0 < i < points.ilen():
+            let a = points[i-1]
+            let b = points[i]
+            contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
+        let a = points[points.ilen() - 1]
+        let b = points[0]
+        contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
+        return contour_len
 
     func displacement(start: i32, end: i32) -> Vector2d:
         N = this.points.ilen()

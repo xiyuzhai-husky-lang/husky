@@ -1,7 +1,9 @@
 mod scale;
+mod ticks;
 
 use super::*;
 use scale::*;
+use ticks::*;
 
 #[derive(Prop)]
 pub struct GenericF32Props<'a> {
@@ -14,6 +16,8 @@ pub struct GenericF32Props<'a> {
 #[component]
 pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> View<G> {
     let scale = GenericF32Scale::new(props.partitioned_samples);
+    let a = scale.value_min;
+    let b = scale.value_max;
     let mut points = vec![];
     for (i, (_partition, samples)) in props.partitioned_samples.iter().enumerate() {
         for (sample_id, value) in samples.iter() {
@@ -40,6 +44,10 @@ pub fn GenericF32<'a, G: Html>(scope: Scope<'a>, props: GenericF32Props<'a>) -> 
                     class="GenericF32PlotRegion",
                     viewBox=scale.svg_view_box()
                 ) {
+                    Ticks {
+                        a,
+                        b,
+                    }
                     (points)
                 }
             }

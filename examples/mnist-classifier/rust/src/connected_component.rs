@@ -54,10 +54,13 @@ impl<'eval> __StaticInfo for EffHoles<'eval> {
         std::mem::transmute(self)
     }
 }
-pub(crate) fn hole_tmpl<'eval>(ct: &'eval crate::raw_contour::RawContour<'eval>) -> Option<f32> {
-    let len = ct.points.ilen();
-    normal_require!(len > 4);
-    return Some(len as f32);
+pub(crate) fn hole_tmpl<'eval>(
+    ct: &'eval crate::raw_contour::RawContour<'eval>,
+    __ctx: &dyn __EvalContext<'eval>,
+) -> Option<f32> {
+    let len = *ct.contour_len(__ctx);
+    normal_require!(len > 4f32);
+    return Some(len + 0f32);
 }
 #[derive(Debug, Clone, PartialEq)]
 pub(crate) struct ConnectedComponent {
@@ -115,20 +118,32 @@ impl ConnectedComponent {
         let mut raw_contours = self.raw_contours(__ctx).collect_refs();
         let mut matches = Vec::<Option<&'eval crate::raw_contour::RawContour>>::__call__(vec![]);
         raw_contours.pop_with_largest_opt_f32_copyable(
-            ThickFp::__new_base(
-                hole_tmpl as fn(&'static crate::raw_contour::RawContour<'static>) -> Option<f32>,
+            ThickFp::__new_ctx(
+                hole_tmpl
+                    as fn(
+                        &'static crate::raw_contour::RawContour<'static>,
+                        &dyn __EvalContext<'static>,
+                    ) -> Option<f32>,
             ),
             __ctx,
         );
         matches.push(raw_contours.pop_with_largest_opt_f32_copyable(
-            ThickFp::__new_base(
-                hole_tmpl as fn(&'static crate::raw_contour::RawContour<'static>) -> Option<f32>,
+            ThickFp::__new_ctx(
+                hole_tmpl
+                    as fn(
+                        &'static crate::raw_contour::RawContour<'static>,
+                        &dyn __EvalContext<'static>,
+                    ) -> Option<f32>,
             ),
             __ctx,
         ));
         matches.push(raw_contours.pop_with_largest_opt_f32_copyable(
-            ThickFp::__new_base(
-                hole_tmpl as fn(&'static crate::raw_contour::RawContour<'static>) -> Option<f32>,
+            ThickFp::__new_ctx(
+                hole_tmpl
+                    as fn(
+                        &'static crate::raw_contour::RawContour<'static>,
+                        &dyn __EvalContext<'static>,
+                    ) -> Option<f32>,
             ),
             __ctx,
         ));
