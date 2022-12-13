@@ -2,6 +2,7 @@ mod module_tree;
 mod rel;
 
 use husky_check_utils::should_satisfy;
+use husky_print_utils::p;
 pub use module_tree::*;
 pub use rel::*;
 pub use std::path::{Path, PathBuf};
@@ -26,7 +27,7 @@ pub fn path_has_extension(path: &Path, extension: &str) -> bool {
     path.extension().map(|s| s.to_string_lossy()) == Some(extension.into())
 }
 
-pub fn collect_package_dirs(dir: &Path) -> Vec<PathBuf> {
+pub fn collect_package_dirs_deprecated(dir: &Path) -> Vec<PathBuf> {
     should_satisfy!(dir, |dir: &Path| dir.is_dir());
     let main_path = dir.join("main.hsy");
     if main_path.exists() {
@@ -37,11 +38,50 @@ pub fn collect_package_dirs(dir: &Path) -> Vec<PathBuf> {
             let entry = entry.unwrap();
             let subpath = entry.path();
             if subpath.is_dir() {
-                pack_paths.extend(collect_package_dirs(&subpath))
+                pack_paths.extend(collect_package_dirs_deprecated(&subpath))
             }
         }
         pack_paths
     }
+}
+
+pub fn collect_package_dirs(dir: PathBuf) -> Vec<PathBuf> {
+    should_satisfy!(&dir, |dir: &Path| dir.is_dir());
+    let mut pack_paths = vec![];
+    collect_package_dirs_aux(dir, &mut pack_paths);
+    pack_paths
+}
+
+fn collect_package_dirs_aux(dir: PathBuf, pack_paths: &mut Vec<PathBuf>) {
+    let manifest_path = dir.join("Corgi.toml");
+    for entry in std::fs::read_dir(&dir).unwrap() {
+        let entry = entry.unwrap();
+        let subpath = entry.path();
+        if subpath.is_dir() {
+            collect_package_dirs_aux(subpath, pack_paths)
+        }
+    }
+    if manifest_path.exists() {
+        pack_paths.push(dir)
+    }
+}
+
+#[test]
+fn collect_package_dirs_works() {
+    let cargo_manifest_dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
+    let library_dir = cargo_manifest_dir
+        .join("../../../library")
+        .canonicalize()
+        .unwrap();
+    expect_test::expect![[r#"
+        [
+            "/home/xiyuzhai/repos/husky/library/std",
+            "/home/xiyuzhai/repos/husky/library/core",
+            "/home/xiyuzhai/repos/husky/library/math",
+            "/home/xiyuzhai/repos/husky/library/cv",
+        ]
+    "#]]
+    .assert_debug_eq(&collect_package_dirs(library_dir))
 }
 
 pub fn collect_all_source_files(dir: PathBuf) -> Vec<PathBuf> {
@@ -59,4 +99,8 @@ pub fn collect_all_source_files(dir: PathBuf) -> Vec<PathBuf> {
         }
     }
     source_files
+}
+
+pub fn cargo_manifest_dir() -> Result<PathBuf, std::env::VarError> {
+    std::env::var("CARGO_MANIFEST_DIR").map(|s| s.into())
 }
