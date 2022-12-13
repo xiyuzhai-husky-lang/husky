@@ -14,6 +14,7 @@ mod seven
 mod eight
 mod nine
 mod three
+mod five
 
 use domains::ml::datasets::cv::mnist::BinaryImage28
 use domains::ml::datasets::cv::mnist::MnistLabel
