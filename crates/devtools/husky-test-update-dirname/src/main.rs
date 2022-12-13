@@ -3,7 +3,7 @@ use husky_path_utils::*;
 
 fn main() {
     let tests_dir: PathBuf = "tests".into();
-    for package_dir in collect_package_dirs(&tests_dir) {
+    for package_dir in collect_package_dirs_deprecated(&tests_dir) {
         let dirname = package_dir.file_name().unwrap().to_str().unwrap();
         let splits: Vec<&str> = dirname.split('(').collect();
         loop_require!(splits.len() == 2);

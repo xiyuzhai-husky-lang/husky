@@ -10,3 +10,6 @@ doctest = false
 pathdiff = "0.2.1"
 husky-print-utils = { path = "../husky-print-utils" }
 husky-check-utils = { path = "../husky-check-utils" }
+
+[dev-dependencies]
+expect-test = "1.4.0"

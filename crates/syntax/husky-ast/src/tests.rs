@@ -2,7 +2,7 @@ use crate::*;
 use expect_test::expect_file;
 use husky_entity_path::{EntityPathDb, EntityPathJar};
 use husky_entity_tree::EntityTreeJar;
-use husky_package_path::{PackagePathDb, PackagePathJar};
+use husky_package_path::{PackagePathData, PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
 use husky_source_path::{
     HasSourcePathConfig, SourcePathConfig, SourcePathConfigMimic, SourcePathData, SourcePathDb,
@@ -67,4 +67,21 @@ fn library_ast_works() {
     }
 
     t!(core, core_basic, core_num, std);
+}
+
+#[test]
+fn examples_ast_works() {
+    use husky_path_utils::*;
+    let db = MimicDB::default();
+    let cargo_manifest_dir = cargo_manifest_dir().unwrap();
+    let examples_dir = cargo_manifest_dir
+        .join("tests/examples")
+        .canonicalize()
+        .unwrap();
+    let package_dirs = collect_package_dirs(examples_dir);
+    let packages: Vec<_> = package_dirs
+        .into_iter()
+        .map(|path| db.it_package_path(PackagePathData::Local(path)))
+        .collect();
+    p!(packages)
 }

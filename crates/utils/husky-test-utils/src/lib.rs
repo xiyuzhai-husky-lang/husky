@@ -1,6 +1,6 @@
 use std::path::{Path, PathBuf};
 
-use husky_path_utils::collect_package_dirs;
+use husky_path_utils::collect_package_dirs_deprecated;
 
 #[derive(Debug)]
 pub enum TestResult {
@@ -12,7 +12,7 @@ pub fn test_all_packages_in_dir(dir: &Path, f: impl Fn(&Path) -> TestResult) {
     if !dir.is_dir() {
         panic!("{:?} is not a directory", dir)
     }
-    let package_paths = collect_package_dirs(dir);
+    let package_paths = collect_package_dirs_deprecated(dir);
     println!(
         "\n{}Running{} tests on {} example packages:",
         husky_print_utils::CYAN,
