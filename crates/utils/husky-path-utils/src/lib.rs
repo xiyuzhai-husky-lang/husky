@@ -49,6 +49,7 @@ pub fn collect_package_dirs(dir: PathBuf) -> Vec<PathBuf> {
     should_satisfy!(&dir, |dir: &Path| dir.is_dir());
     let mut pack_paths = vec![];
     collect_package_dirs_aux(dir, &mut pack_paths);
+    pack_paths.sort();
     pack_paths
 }
 
@@ -75,10 +76,10 @@ fn collect_package_dirs_works() {
         .unwrap();
     expect_test::expect![[r#"
         [
-            "/home/xiyuzhai/repos/husky/library/std",
             "/home/xiyuzhai/repos/husky/library/core",
-            "/home/xiyuzhai/repos/husky/library/math",
             "/home/xiyuzhai/repos/husky/library/cv",
+            "/home/xiyuzhai/repos/husky/library/math",
+            "/home/xiyuzhai/repos/husky/library/std",
         ]
     "#]]
     .assert_debug_eq(&collect_package_dirs(library_dir))

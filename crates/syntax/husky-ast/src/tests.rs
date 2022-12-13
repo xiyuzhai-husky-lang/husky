@@ -83,5 +83,4 @@ fn examples_ast_works() {
         .into_iter()
         .map(|path| db.it_package_path(PackagePathData::Local(path)))
         .collect();
-    p!(packages)
 }
