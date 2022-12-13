@@ -28,6 +28,9 @@ struct RawContour:
             ClosedRange(ymin, ymax),
         )
     
+    func relative_bounding_box -> RelativeBoundingBox:
+        cc.raw_contours[0].bounding_box.relative_bounding_box(this.bounding_box)
+    
     proc contour_len -> f32:
         var contour_len = 0.0
         for 0 < i < points.ilen():

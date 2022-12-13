@@ -27,5 +27,5 @@ def is_five -> ?MnistLabel:
     upright_cc_match = five_match.matches[0]
     downleft_cc_match = five_match.matches[1]
     require upright_cc_match be some
-    require down_left_cc be some
+    // require down_left_cc be some
     MnistLabel::Five
