@@ -22,7 +22,6 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
             Some(restriction) => match restriction.kind {
                 RestrictionKind::Arrival => true,
                 RestrictionKind::Return => false,
-                RestrictionKind::DeprecatedStrikeEvil => false,
             },
             None => true,
         }
@@ -36,7 +35,6 @@ pub fn TraceStatsView<'a, G: Html>(scope: Scope<'a>, props: TraceStatsProps<'a>)
             Some(restriction) => match restriction.kind {
                 RestrictionKind::Arrival => false,
                 RestrictionKind::Return => true,
-                RestrictionKind::DeprecatedStrikeEvil => false,
             },
             None => false,
         }
