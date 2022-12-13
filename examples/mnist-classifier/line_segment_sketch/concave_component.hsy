@@ -55,7 +55,7 @@ struct ConcaveComponent:
         )
     
     func relative_bounding_box -> RelativeBoundingBox:
-        this.line_segment_sketch.bounding_box.relative_range(this.bounding_box)
+        this.line_segment_sketch.bounding_box.relative_bounding_box(this.bounding_box)
 
     func line_segment() -> LineSegment:
         LineSegment(

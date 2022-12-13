@@ -409,6 +409,43 @@ pub static __BOUNDING_BOX_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     typename_str_hash_u64: 13416477031724448479,
     typename_str: "BoundingBox",
 };
+type RelativeBoundingBox = crate::geom2d::RelativeBoundingBox;
+
+// RelativeBoundingBox
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __relative_bounding_box_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    Box::<RelativeBoundingBox>::into_raw(Box::new((*(data as *mut RelativeBoundingBox)).clone())) as *mut std::ffi::c_void
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __relative_bounding_box_drop(data: *mut std::ffi::c_void) {
+    drop(Box::from_raw(data as *mut RelativeBoundingBox))
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __relative_bounding_box_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
+    *(this as *const std::ffi::c_void as *const RelativeBoundingBox) == *(other as *const std::ffi::c_void as *const RelativeBoundingBox)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub unsafe extern "C" fn __relative_bounding_box_assign(registers: *mut __Register) {
+    let registers = std::slice::from_raw_parts_mut(registers, 2);
+    *registers[0].downcast_temp_mut::<RelativeBoundingBox>(&__RELATIVE_BOUNDING_BOX_VTABLE) = registers[1].downcast_move(&__RELATIVE_BOUNDING_BOX_VTABLE)
+}
+#[rustfmt::skip]
+#[no_mangle]
+pub static __RELATIVE_BOUNDING_BOX_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
+    primitive_value_to_bool: None,
+    primitive_ref_to_bool: None,
+    primitive_value_to_box: None,
+    clone: __relative_bounding_box_clone,
+    drop: __relative_bounding_box_drop,
+    eq: __relative_bounding_box_eq,
+    assign: __relative_bounding_box_assign,
+    typename_str_hash_u64: 779247930466867479,
+    typename_str: "RelativeBoundingBox",
+};
 type Direction = crate::raw_contour::Direction;
 
 // Direction
@@ -593,43 +630,6 @@ pub static __CLOSED_RANGE_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
     assign: __closed_range_assign,
     typename_str_hash_u64: 2752559105620249054,
     typename_str: "ClosedRange",
-};
-type RelativeBoundingBox = crate::geom2d::RelativeBoundingBox;
-
-// RelativeBoundingBox
-#[rustfmt::skip]
-#[no_mangle]
-pub unsafe extern "C" fn __relative_bounding_box_clone(data: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
-    Box::<RelativeBoundingBox>::into_raw(Box::new((*(data as *mut RelativeBoundingBox)).clone())) as *mut std::ffi::c_void
-}
-#[rustfmt::skip]
-#[no_mangle]
-pub unsafe extern "C" fn __relative_bounding_box_drop(data: *mut std::ffi::c_void) {
-    drop(Box::from_raw(data as *mut RelativeBoundingBox))
-}
-#[rustfmt::skip]
-#[no_mangle]
-pub unsafe extern "C" fn __relative_bounding_box_eq(this: &std::ffi::c_void, other: &std::ffi::c_void) -> bool {
-    *(this as *const std::ffi::c_void as *const RelativeBoundingBox) == *(other as *const std::ffi::c_void as *const RelativeBoundingBox)
-}
-#[rustfmt::skip]
-#[no_mangle]
-pub unsafe extern "C" fn __relative_bounding_box_assign(registers: *mut __Register) {
-    let registers = std::slice::from_raw_parts_mut(registers, 2);
-    *registers[0].downcast_temp_mut::<RelativeBoundingBox>(&__RELATIVE_BOUNDING_BOX_VTABLE) = registers[1].downcast_move(&__RELATIVE_BOUNDING_BOX_VTABLE)
-}
-#[rustfmt::skip]
-#[no_mangle]
-pub static __RELATIVE_BOUNDING_BOX_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
-    primitive_value_to_bool: None,
-    primitive_ref_to_bool: None,
-    primitive_value_to_box: None,
-    clone: __relative_bounding_box_clone,
-    drop: __relative_bounding_box_drop,
-    eq: __relative_bounding_box_eq,
-    assign: __relative_bounding_box_assign,
-    typename_str_hash_u64: 779247930466867479,
-    typename_str: "RelativeBoundingBox",
 };
 type ConcaveComponent<'eval> =
     crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>;

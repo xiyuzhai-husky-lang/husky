@@ -187,7 +187,7 @@ impl<'eval> ConcaveComponent<'eval> {
                 Ok(__Register::new_box::<crate::geom2d::RelativeBoundingBox>(
                     self.line_segment_sketch
                         .bounding_box(__ctx)
-                        .relative_range(&self.bounding_box(__ctx)),
+                        .relative_bounding_box(&self.bounding_box(__ctx)),
                     &__registration__::__RELATIVE_BOUNDING_BOX_VTABLE,
                 )),
             )
