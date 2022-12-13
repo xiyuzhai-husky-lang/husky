@@ -78,9 +78,9 @@ impl DeveloperGuiContext {
             StatusChange::ToggleExpansion { trace_id } => self.toggle_expansion(trace_id),
             StatusChange::ToggleShown { trace_id } => self.toggle_shown(trace_id),
             StatusChange::Activate { trace_id } => self.activate(trace_id),
-            StatusChange::SetPresentation {
-                presentation: presentation,
-            } => self.try_set_presentation(presentation),
+            StatusChange::SetPresentation { presentation } => {
+                self.try_set_presentation(presentation)
+            }
             StatusChange::TogglePin { trace_id } => self.toggle_pin(trace_id),
         }
     }
