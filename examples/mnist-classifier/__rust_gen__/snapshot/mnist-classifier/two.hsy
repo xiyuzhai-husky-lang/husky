@@ -30,13 +30,16 @@ func down_cc_pattern(cc: &ConcaveComponent) -> ?f32:
 
 def is_two -> ?MnistLabel:
     cc_num=major_concave_components.ilen()
+
     left_cc = two_match.matches[0]
     right_cc = two_match.matches[1]
     down_cc = two_match.matches[2]
 
+    require cc_num<=3
+
+
     require left_cc be some
     require right_cc be some
-
     left_ymax = left_cc.relative_bounding_box.ymax()
     left_ymin = left_cc.relative_bounding_box.ymin()
     left_mid_y = (left_ymax + left_ymin) / 2.0
@@ -44,7 +47,9 @@ def is_two -> ?MnistLabel:
     right_ymax = right_cc.relative_bounding_box.ymax()
     right_ymin = right_cc.relative_bounding_box.ymin()
     right_mid_y = (right_ymax + right_ymin) / 2.0
-
     require left_mid_y > right_mid_y
 
+    if cc_num == 3:
+        require down_cc be some
+        require down_cc.relative_bounding_box.ymin() <0.2
     MnistLabel::Two

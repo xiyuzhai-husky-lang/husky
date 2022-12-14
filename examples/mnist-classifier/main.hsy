@@ -24,14 +24,17 @@ mod nine
 use domains::ml::datasets::cv::mnist::BinaryImage28
 use domains::ml::datasets::cv::mnist::MnistLabel
 use major::*
-use one::is_one
-use six::is_six
 use zero::is_zero
-use seven::is_seven
+use one::is_one
+use two::is_two
 use three::is_three
+// use four::is_four
+use five::is_five
+use six::is_six
+use seven::is_seven
 use eight::is_eight
 use nine::is_nine
-use five::is_five
+
 
 use raw_contour::find_raw_contours
 use line_segment_sketch::find_line_segments
@@ -46,4 +49,5 @@ main:
     is_three?
     is_nine?
     is_five?
+    is_two?
     MnistLabel::Four
