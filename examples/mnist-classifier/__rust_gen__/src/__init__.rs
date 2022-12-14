@@ -2293,6 +2293,78 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::zero::open_one_match"
+        },
+        feature_linkage!(zero::open_one_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::zero::almost_closed",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    zero::almost_closed(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx zero::almost_closed as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::displacement" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    __Register::new_box::<geom2d::Vector2d>(__this.displacement(), &__registration__::__VECTOR_2_D_VTABLE)
+                }
+                __wrapper
+            },
+            some base line_segment_sketch::concave_component::ConcaveComponent::displacement as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> geom2d::Vector2d
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::ymax" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::BoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__BOUNDING_BOX_VTABLE);
+                    __this.ymax().to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::BoundingBox::ymax as fn(&'static geom2d::BoundingBox) -> f32
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::ymin" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::BoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__BOUNDING_BOX_VTABLE);
+                    __this.ymin().to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::BoundingBox::ymin as fn(&'static geom2d::BoundingBox) -> f32
+        ),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
             route: "mnist_classifier::one::one_fermi_match"
         },
         feature_linkage!(one::one_fermi_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
@@ -2369,22 +2441,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::displacement" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    __Register::new_box::<geom2d::Vector2d>(__this.displacement(), &__registration__::__VECTOR_2_D_VTABLE)
-                }
-                __wrapper
-            },
-            some base line_segment_sketch::concave_component::ConcaveComponent::displacement as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> geom2d::Vector2d
-        ),
-    ),
-    (
         __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::end" },
         transfer_linkage!(
             {
@@ -2398,252 +2454,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some base line_segment_sketch::concave_component::ConcaveComponent::end as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> geom2d::Point2d
-        ),
-    ),
-    (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::six::six_match"
-        },
-        feature_linkage!(six::six_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
-    ),
-    (
-        __StaticLinkageKey::Routine {
-            route: "mnist_classifier::six::upmost",
-        },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    six::upmost(cc).to_register()
-                }
-                __wrapper
-            },
-            some base six::upmost as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> Option<f32>
-        ),
-    ),
-    (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::six::six_match_refined1"
-        },
-        feature_linkage!(six::six_match_refined1, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
-    ),
-    (
-        __StaticLinkageKey::Routine {
-            route: "mnist_classifier::six::bottom1",
-        },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    six::bottom1(cc, __opt_ctx.unwrap()).to_register()
-                }
-                __wrapper
-            },
-            some ctx six::bottom1 as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::relative_point" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &geom2d::BoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__BOUNDING_BOX_VTABLE);
-                    let point: &geom2d::Point2d = __arguments[1].downcast_temp_ref(&__registration__::__POINT_2_D_VTABLE);
-                    __Register::new_box::<geom2d::RelativePoint2d>(__this.relative_point(point), &__registration__::__RELATIVE_POINT_2_D_VTABLE)
-                }
-                __wrapper
-            },
-            some base geom2d::BoundingBox::relative_point as fn(&'static geom2d::BoundingBox, &'static geom2d::Point2d) -> geom2d::RelativePoint2d
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::RelativeBoundingBox::ymax" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &geom2d::RelativeBoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
-                    __this.ymax().to_register()
-                }
-                __wrapper
-            },
-            some base geom2d::RelativeBoundingBox::ymax as fn(&'static geom2d::RelativeBoundingBox) -> f32
-        ),
-    ),
-    (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::zero::open_one_match"
-        },
-        feature_linkage!(zero::open_one_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
-    ),
-    (
-        __StaticLinkageKey::Routine {
-            route: "mnist_classifier::zero::almost_closed",
-        },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    zero::almost_closed(cc, __opt_ctx.unwrap()).to_register()
-                }
-                __wrapper
-            },
-            some ctx zero::almost_closed as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::ymax" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &geom2d::BoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__BOUNDING_BOX_VTABLE);
-                    __this.ymax().to_register()
-                }
-                __wrapper
-            },
-            some base geom2d::BoundingBox::ymax as fn(&'static geom2d::BoundingBox) -> f32
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::ymin" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &geom2d::BoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__BOUNDING_BOX_VTABLE);
-                    __this.ymin().to_register()
-                }
-                __wrapper
-            },
-            some base geom2d::BoundingBox::ymin as fn(&'static geom2d::BoundingBox) -> f32
-        ),
-    ),
-    (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::eight::upper_mouth_match"
-        },
-        feature_linkage!(eight::upper_mouth_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
-    ),
-    (
-        __StaticLinkageKey::Routine {
-            route: "mnist_classifier::eight::big_mouth",
-        },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    eight::big_mouth(cc, __opt_ctx.unwrap()).to_register()
-                }
-                __wrapper
-            },
-            some ctx eight::big_mouth as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegmentStroke>::firstx" },
-        method_elem_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE, __registration__::__LINE_SEGMENT_STROKE_VTABLE, firstx)
-    ),
-    (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::nine::nine_match"
-        },
-        feature_linkage!(nine::nine_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
-    ),
-    (
-        __StaticLinkageKey::Routine {
-            route: "mnist_classifier::nine::downmost",
-        },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    nine::downmost(cc).to_register()
-                }
-                __wrapper
-            },
-            some base nine::downmost as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> Option<f32>
-        ),
-    ),
-    (
-        __StaticLinkageKey::FeatureEagerBlock {
-            route: "mnist_classifier::nine::nine_match_refine"
-        },
-        feature_linkage!(nine::nine_match_refine, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
-    ),
-    (
-        __StaticLinkageKey::Routine {
-            route: "mnist_classifier::nine::big_cc",
-        },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    nine::big_cc(cc, __opt_ctx.unwrap()).to_register()
-                }
-                __wrapper
-            },
-            some ctx nine::big_cc as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::connected_component::ConnectedComponent::top_k_row_right_mass_sum" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &connected_component::ConnectedComponent = __arguments[0].downcast_temp_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE);
-                    let k: i32 = __arguments[1].downcast_i32();
-                    __this.top_k_row_right_mass_sum(k).to_register()
-                }
-                __wrapper
-            },
-            some base connected_component::ConnectedComponent::top_k_row_right_mass_sum as fn(&'static connected_component::ConnectedComponent, i32) -> f32
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::RelativeBoundingBox::ymin" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &geom2d::RelativeBoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
-                    __this.ymin().to_register()
-                }
-                __wrapper
-            },
-            some base geom2d::RelativeBoundingBox::ymin as fn(&'static geom2d::RelativeBoundingBox) -> f32
         ),
     ),
     (
@@ -2815,6 +2625,196 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::RelativeBoundingBox::ymin" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::RelativeBoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
+                    __this.ymin().to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::RelativeBoundingBox::ymin as fn(&'static geom2d::RelativeBoundingBox) -> f32
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::RelativeBoundingBox::ymax" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::RelativeBoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
+                    __this.ymax().to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::RelativeBoundingBox::ymax as fn(&'static geom2d::RelativeBoundingBox) -> f32
+        ),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::six::six_match"
+        },
+        feature_linkage!(six::six_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::six::upmost",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    six::upmost(cc).to_register()
+                }
+                __wrapper
+            },
+            some base six::upmost as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::six::six_match_refined1"
+        },
+        feature_linkage!(six::six_match_refined1, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::six::bottom1",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    six::bottom1(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx six::bottom1 as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::relative_point" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::BoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__BOUNDING_BOX_VTABLE);
+                    let point: &geom2d::Point2d = __arguments[1].downcast_temp_ref(&__registration__::__POINT_2_D_VTABLE);
+                    __Register::new_box::<geom2d::RelativePoint2d>(__this.relative_point(point), &__registration__::__RELATIVE_POINT_2_D_VTABLE)
+                }
+                __wrapper
+            },
+            some base geom2d::BoundingBox::relative_point as fn(&'static geom2d::BoundingBox, &'static geom2d::Point2d) -> geom2d::RelativePoint2d
+        ),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::eight::upper_mouth_match"
+        },
+        feature_linkage!(eight::upper_mouth_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::eight::big_mouth",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    eight::big_mouth(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx eight::big_mouth as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "std::slice::CyclicSlice<mnist_classifier::line_segment_sketch::LineSegmentStroke>::firstx" },
+        method_elem_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE, __registration__::__LINE_SEGMENT_STROKE_VTABLE, firstx)
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::nine::nine_match"
+        },
+        feature_linkage!(nine::nine_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::nine::downmost",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    nine::downmost(cc).to_register()
+                }
+                __wrapper
+            },
+            some base nine::downmost as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::nine::nine_match_refine"
+        },
+        feature_linkage!(nine::nine_match_refine, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::nine::big_cc",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    nine::big_cc(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx nine::big_cc as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::connected_component::ConnectedComponent::top_k_row_right_mass_sum" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &connected_component::ConnectedComponent = __arguments[0].downcast_temp_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE);
+                    let k: i32 = __arguments[1].downcast_i32();
+                    __this.top_k_row_right_mass_sum(k).to_register()
+                }
+                __wrapper
+            },
+            some base connected_component::ConnectedComponent::top_k_row_right_mass_sum as fn(&'static connected_component::ConnectedComponent, i32) -> f32
+        ),
+    ),
+    (
         __StaticLinkageKey::Routine { route: "Vec<mnist_classifier::geom2d::Point2d>::cyclic_slice" },
         transfer_linkage!(
             {
@@ -2830,6 +2830,24 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some base Vec::<geom2d::Point2d>::cyclic_slice as fn(&'static Vec<geom2d::Point2d>, i32, i32) -> __std::slice::CyclicSlice<'static, geom2d::Point2d>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Vector2d::angle_to" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
+                    let other: &geom2d::Vector2d = __arguments[1].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
+                    let is_branch_cut_positive: bool = __arguments[2].downcast_bool();
+                    __this.angle_to(other, is_branch_cut_positive).to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::Vector2d::angle_to as fn(&'static geom2d::Vector2d, &'static geom2d::Vector2d, bool) -> f32
         ),
     ),
     (
@@ -2869,23 +2887,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         method_elem_linkage!(__std::slice::CyclicSlice<'eval, line_segment_sketch::LineSegmentStroke<'eval>>, __registration__::__CYCLIC_SLICE_LINE_SEGMENT_STROKE_VTABLE, __registration__::__LINE_SEGMENT_STROKE_VTABLE, lastx)
     ),
     (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::ClosedRange::relative_point" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &geom2d::ClosedRange = __arguments[0].downcast_temp_ref(&__registration__::__CLOSED_RANGE_VTABLE);
-                    let v: f32 = __arguments[1].downcast_f32();
-                    __this.relative_point(v).to_register()
-                }
-                __wrapper
-            },
-            some base geom2d::ClosedRange::relative_point as fn(&'static geom2d::ClosedRange, f32) -> f32
-        ),
-    ),
-    (
         __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::relative_bounding_box" },
         transfer_linkage!(
             {
@@ -2903,21 +2904,20 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Vector2d::angle_to" },
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::ClosedRange::relative_point" },
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
                     __arguments: &mut [__Register<'eval>],
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
-                    let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
-                    let other: &geom2d::Vector2d = __arguments[1].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
-                    let is_branch_cut_positive: bool = __arguments[2].downcast_bool();
-                    __this.angle_to(other, is_branch_cut_positive).to_register()
+                    let __this: &geom2d::ClosedRange = __arguments[0].downcast_temp_ref(&__registration__::__CLOSED_RANGE_VTABLE);
+                    let v: f32 = __arguments[1].downcast_f32();
+                    __this.relative_point(v).to_register()
                 }
                 __wrapper
             },
-            some base geom2d::Vector2d::angle_to as fn(&'static geom2d::Vector2d, &'static geom2d::Vector2d, bool) -> f32
+            some base geom2d::ClosedRange::relative_point as fn(&'static geom2d::ClosedRange, f32) -> f32
         ),
     ),
     (
