@@ -187,7 +187,7 @@ impl BoundingBox {
     pub(crate) fn __call__(xrange: ClosedRange, yrange: ClosedRange) -> Self {
         Self { xrange, yrange }
     }
-    pub(crate) fn relative_range(&self, other: &BoundingBox) -> RelativeBoundingBox {
+    pub(crate) fn relative_bounding_box(&self, other: &BoundingBox) -> RelativeBoundingBox {
         return RelativeBoundingBox::__call__(
             self.xrange.relative_range(&other.xrange),
             self.yrange.relative_range(&other.yrange),

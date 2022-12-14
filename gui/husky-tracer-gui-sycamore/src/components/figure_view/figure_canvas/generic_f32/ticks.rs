@@ -46,7 +46,9 @@ pub fn Ticks<'a, G: Html>(scope: Scope<'a>, props: TicksProps) -> View<G> {
 }
 
 fn interpolate(a: f32, b: f32) -> Vec<f32> {
-    assert!(a < b);
+    if a >= b {
+        return vec![];
+    }
     let l = b - a;
     let d = {
         let d0 = 10f32.powf(l.log10().floor() - 1.0);

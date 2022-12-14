@@ -84,6 +84,35 @@ impl<'eval> RawContour<'eval> {
             .unwrap()
             .downcast_eval_ref(&__registration__::__BOUNDING_BOX_VTABLE)
     }
+    pub(crate) fn relative_bounding_box(
+        &'eval self,
+        __ctx: &dyn __EvalContext<'eval>,
+    ) -> &'eval crate::geom2d::RelativeBoundingBox {
+        let __uid = entity_uid!(
+            __ctx,
+            "mnist_classifier::raw_contour::RawContour::relative_bounding_box"
+        );
+        if let Some(__result) =
+            __ctx.opt_cached_lazy_field(self as *const _ as *const std::ffi::c_void, __uid)
+        {
+            return __result
+                .unwrap()
+                .downcast_eval_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
+        }
+        return __ctx
+            .cache_lazy_field(
+                self as *const _ as *const std::ffi::c_void,
+                __uid,
+                Ok(__Register::new_box::<crate::geom2d::RelativeBoundingBox>(
+                    self.cc.raw_contours(__ctx)[(0) as usize]
+                        .bounding_box(__ctx)
+                        .relative_bounding_box(&self.bounding_box(__ctx)),
+                    &__registration__::__RELATIVE_BOUNDING_BOX_VTABLE,
+                )),
+            )
+            .unwrap()
+            .downcast_eval_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
+    }
     pub(crate) fn contour_len(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval f32 {
         let __uid = entity_uid!(
             __ctx,

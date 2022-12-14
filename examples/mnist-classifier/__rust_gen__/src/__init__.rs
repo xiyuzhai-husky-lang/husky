@@ -192,6 +192,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     (
         __StaticLinkageKey::StructField {
             this_ty: "mnist_classifier::raw_contour::RawContour",
+            field_ident: "relative_bounding_box",
+        },
+        lazy_field_linkage!(raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, geom2d::RelativeBoundingBox, __registration__::__RELATIVE_BOUNDING_BOX_VTABLE, relative_bounding_box)
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::raw_contour::RawContour",
             field_ident: "contour_len",
         },
         lazy_field_linkage!(raw_contour::RawContour<'eval>, __registration__::__RAW_CONTOUR_VTABLE, f32, __registration__::__F32_VTABLE, contour_len)
@@ -701,6 +708,52 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         )
     ),
     (
+        __StaticLinkageKey::TypeCall {
+            ty: "mnist_classifier::geom2d::RelativeBoundingBox"
+        },
+
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let xrange: geom2d::ClosedRange = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__CLOSED_RANGE_VTABLE);
+                    let yrange: geom2d::ClosedRange = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CLOSED_RANGE_VTABLE);
+                    __Register::new_box::<geom2d::RelativeBoundingBox>(geom2d::RelativeBoundingBox::__call__(xrange, yrange), &__registration__::__RELATIVE_BOUNDING_BOX_VTABLE)
+                }
+                __wrapper
+            },
+            some base geom2d::RelativeBoundingBox::__call__ as fn(geom2d::ClosedRange, geom2d::ClosedRange) -> geom2d::RelativeBoundingBox
+        ),
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::geom2d::RelativeBoundingBox",
+            field_ident: "xrange",
+        },
+        eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            BoxNonCopyable,
+            geom2d::RelativeBoundingBox, __registration__::__RELATIVE_BOUNDING_BOX_VTABLE, geom2d::ClosedRange, __registration__::__CLOSED_RANGE_VTABLE,
+            xrange
+        )
+    ),
+    (
+        __StaticLinkageKey::StructField {
+            this_ty: "mnist_classifier::geom2d::RelativeBoundingBox",
+            field_ident: "yrange",
+        },
+        eager_field_linkage!(
+            immutable,
+            Intrinsic,
+            BoxNonCopyable,
+            geom2d::RelativeBoundingBox, __registration__::__RELATIVE_BOUNDING_BOX_VTABLE, geom2d::ClosedRange, __registration__::__CLOSED_RANGE_VTABLE,
+            yrange
+        )
+    ),
+    (
         __StaticLinkageKey::Routine {
             route: "mnist_classifier::raw_contour::get_pixel_pair",
         },
@@ -1108,52 +1161,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
             Direct,
             geom2d::ClosedRange, __registration__::__CLOSED_RANGE_VTABLE, f32, __registration__::__F32_VTABLE,
             max
-        )
-    ),
-    (
-        __StaticLinkageKey::TypeCall {
-            ty: "mnist_classifier::geom2d::RelativeBoundingBox"
-        },
-
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let xrange: geom2d::ClosedRange = unsafe { __arb_ref(&__arguments[0]) }.downcast_move(&__registration__::__CLOSED_RANGE_VTABLE);
-                    let yrange: geom2d::ClosedRange = unsafe { __arb_ref(&__arguments[1]) }.downcast_move(&__registration__::__CLOSED_RANGE_VTABLE);
-                    __Register::new_box::<geom2d::RelativeBoundingBox>(geom2d::RelativeBoundingBox::__call__(xrange, yrange), &__registration__::__RELATIVE_BOUNDING_BOX_VTABLE)
-                }
-                __wrapper
-            },
-            some base geom2d::RelativeBoundingBox::__call__ as fn(geom2d::ClosedRange, geom2d::ClosedRange) -> geom2d::RelativeBoundingBox
-        ),
-    ),
-    (
-        __StaticLinkageKey::StructField {
-            this_ty: "mnist_classifier::geom2d::RelativeBoundingBox",
-            field_ident: "xrange",
-        },
-        eager_field_linkage!(
-            immutable,
-            Intrinsic,
-            BoxNonCopyable,
-            geom2d::RelativeBoundingBox, __registration__::__RELATIVE_BOUNDING_BOX_VTABLE, geom2d::ClosedRange, __registration__::__CLOSED_RANGE_VTABLE,
-            xrange
-        )
-    ),
-    (
-        __StaticLinkageKey::StructField {
-            this_ty: "mnist_classifier::geom2d::RelativeBoundingBox",
-            field_ident: "yrange",
-        },
-        eager_field_linkage!(
-            immutable,
-            Intrinsic,
-            BoxNonCopyable,
-            geom2d::RelativeBoundingBox, __registration__::__RELATIVE_BOUNDING_BOX_VTABLE, geom2d::ClosedRange, __registration__::__CLOSED_RANGE_VTABLE,
-            yrange
         )
     ),
     (
@@ -2475,6 +2482,30 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::zero::open_one_match"
+        },
+        feature_linkage!(zero::open_one_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::zero::almost_closed",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    zero::almost_closed(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx zero::almost_closed as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
         __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::ymax" },
         transfer_linkage!(
             {
@@ -2580,6 +2611,23 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some ctx nine::big_cc as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::connected_component::ConnectedComponent::top_k_row_right_mass_sum" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &connected_component::ConnectedComponent = __arguments[0].downcast_temp_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE);
+                    let k: i32 = __arguments[1].downcast_i32();
+                    __this.top_k_row_right_mass_sum(k).to_register()
+                }
+                __wrapper
+            },
+            some base connected_component::ConnectedComponent::top_k_row_right_mass_sum as fn(&'static connected_component::ConnectedComponent, i32) -> f32
         ),
     ),
     (
@@ -2838,7 +2886,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::relative_range" },
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::BoundingBox::relative_bounding_box" },
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
@@ -2847,11 +2895,29 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 ) -> __Register<'eval> {
                     let __this: &geom2d::BoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__BOUNDING_BOX_VTABLE);
                     let other: &geom2d::BoundingBox = __arguments[1].downcast_temp_ref(&__registration__::__BOUNDING_BOX_VTABLE);
-                    __Register::new_box::<geom2d::RelativeBoundingBox>(__this.relative_range(other), &__registration__::__RELATIVE_BOUNDING_BOX_VTABLE)
+                    __Register::new_box::<geom2d::RelativeBoundingBox>(__this.relative_bounding_box(other), &__registration__::__RELATIVE_BOUNDING_BOX_VTABLE)
                 }
                 __wrapper
             },
-            some base geom2d::BoundingBox::relative_range as fn(&'static geom2d::BoundingBox, &'static geom2d::BoundingBox) -> geom2d::RelativeBoundingBox
+            some base geom2d::BoundingBox::relative_bounding_box as fn(&'static geom2d::BoundingBox, &'static geom2d::BoundingBox) -> geom2d::RelativeBoundingBox
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Vector2d::angle_to" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
+                    let other: &geom2d::Vector2d = __arguments[1].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
+                    let is_branch_cut_positive: bool = __arguments[2].downcast_bool();
+                    __this.angle_to(other, is_branch_cut_positive).to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::Vector2d::angle_to as fn(&'static geom2d::Vector2d, &'static geom2d::Vector2d, bool) -> f32
         ),
     ),
     (
