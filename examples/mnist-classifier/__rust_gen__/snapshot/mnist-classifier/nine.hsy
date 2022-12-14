@@ -28,6 +28,7 @@ def is_nine -> ?MnistLabel:
         require major_concave_components.ilen()>=2
         nine_match_refine_result=nine_match_refine.matches[0]
         require nine_match_refine_result be some
+        require nine_match_refine.norm <1.0
     higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
 
     require higher_excess>7.0
@@ -50,6 +51,8 @@ func downmost(cc: &ConcaveComponent) -> ?f32:
     dp.y
 
 func big_cc(cc: &ConcaveComponent)-> ?f32:
+    dp=cc.displacement()
+    require dp.y >0.0
     require cc.relative_bounding_box.ymin()>0.4
     // dp = cc.displacement()
     // require dp.y.abs()<7.0
