@@ -2499,6 +2499,56 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         ),
     ),
     (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::two::down_cc_pattern",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    two::down_cc_pattern(cc).to_register()
+                }
+                __wrapper
+            },
+            some base two::down_cc_pattern as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::RelativeBoundingBox::ymax" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::RelativeBoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
+                    __this.ymax().to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::RelativeBoundingBox::ymax as fn(&'static geom2d::RelativeBoundingBox) -> f32
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::RelativeBoundingBox::ymin" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::RelativeBoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
+                    __this.ymin().to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::RelativeBoundingBox::ymin as fn(&'static geom2d::RelativeBoundingBox) -> f32
+        ),
+    ),
+    (
         __StaticLinkageKey::FeatureEagerBlock {
             route: "mnist_classifier::three::three_fermi_match"
         },
@@ -2664,38 +2714,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some ctx five::down_left_cc as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::RelativeBoundingBox::ymin" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &geom2d::RelativeBoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
-                    __this.ymin().to_register()
-                }
-                __wrapper
-            },
-            some base geom2d::RelativeBoundingBox::ymin as fn(&'static geom2d::RelativeBoundingBox) -> f32
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::RelativeBoundingBox::ymax" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &geom2d::RelativeBoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
-                    __this.ymax().to_register()
-                }
-                __wrapper
-            },
-            some base geom2d::RelativeBoundingBox::ymax as fn(&'static geom2d::RelativeBoundingBox) -> f32
         ),
     ),
     (

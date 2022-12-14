@@ -33,7 +33,10 @@ def is_two -> ?MnistLabel:
     left_cc = two_match.matches[0]
     right_cc = two_match.matches[1]
     down_cc = two_match.matches[2]
-    
+
+    require left_cc be some
+    require right_cc be some
+
     left_ymax = left_cc.relative_bounding_box.ymax()
     left_ymin = left_cc.relative_bounding_box.ymin()
     left_mid_y = (left_ymax + left_ymin) / 2.0
