@@ -4,179 +4,173 @@ Ok(
             data: [
                 Stmt(
                     TokenGroupIdx(
-                        1,
+                        8,
                     ),
                     0..0,
                 ),
                 Stmt(
                     TokenGroupIdx(
-                        28,
-                    ),
-                    1..1,
-                ),
-                Stmt(
-                    TokenGroupIdx(
-                        29,
-                    ),
-                    1..1,
-                ),
-                Stmt(
-                    TokenGroupIdx(
-                        30,
-                    ),
-                    1..1,
-                ),
-                Stmt(
-                    TokenGroupIdx(
-                        31,
-                    ),
-                    1..1,
-                ),
-                Stmt(
-                    TokenGroupIdx(
-                        32,
-                    ),
-                    1..1,
-                ),
-                Defn(
-                    TokenGroupIdx(
-                        0,
-                    ),
-                    0..1,
-                ),
-                Mod(
-                    TokenGroupIdx(
-                        2,
-                    ),
-                ),
-                Mod(
-                    TokenGroupIdx(
-                        3,
-                    ),
-                ),
-                Mod(
-                    TokenGroupIdx(
-                        4,
-                    ),
-                ),
-                Mod(
-                    TokenGroupIdx(
-                        5,
-                    ),
-                ),
-                Mod(
-                    TokenGroupIdx(
                         6,
                     ),
+                    0..0,
                 ),
-                Mod(
+                Stmt(
                     TokenGroupIdx(
                         7,
                     ),
+                    0..1,
                 ),
-                Mod(
-                    TokenGroupIdx(
-                        8,
-                    ),
-                ),
-                Mod(
+                Stmt(
                     TokenGroupIdx(
                         9,
                     ),
+                    1..1,
                 ),
-                Mod(
-                    TokenGroupIdx(
-                        10,
-                    ),
-                ),
-                Mod(
-                    TokenGroupIdx(
-                        11,
-                    ),
-                ),
-                Mod(
-                    TokenGroupIdx(
-                        12,
-                    ),
-                ),
-                Mod(
+                Stmt(
                     TokenGroupIdx(
                         13,
                     ),
+                    4..4,
                 ),
-                Mod(
+                Stmt(
+                    TokenGroupIdx(
+                        11,
+                    ),
+                    4..4,
+                ),
+                Stmt(
+                    TokenGroupIdx(
+                        12,
+                    ),
+                    4..5,
+                ),
+                Stmt(
                     TokenGroupIdx(
                         14,
                     ),
+                    5..5,
                 ),
-                Use(
-                    TokenGroupIdx(
-                        15,
-                    ),
-                ),
-                Use(
-                    TokenGroupIdx(
-                        16,
-                    ),
-                ),
-                Use(
-                    TokenGroupIdx(
-                        17,
-                    ),
-                ),
-                Use(
+                Stmt(
                     TokenGroupIdx(
                         18,
                     ),
+                    8..8,
                 ),
-                Use(
+                Stmt(
+                    TokenGroupIdx(
+                        16,
+                    ),
+                    8..8,
+                ),
+                Stmt(
+                    TokenGroupIdx(
+                        17,
+                    ),
+                    8..9,
+                ),
+                Stmt(
                     TokenGroupIdx(
                         19,
                     ),
+                    9..9,
                 ),
-                Use(
+                Stmt(
                     TokenGroupIdx(
-                        20,
+                        2,
                     ),
+                    0..0,
                 ),
-                Use(
+                Stmt(
                     TokenGroupIdx(
-                        21,
+                        3,
                     ),
+                    0..0,
                 ),
-                Use(
+                Stmt(
                     TokenGroupIdx(
-                        22,
+                        4,
                     ),
+                    0..0,
                 ),
-                Use(
+                Defn(
                     TokenGroupIdx(
-                        23,
+                        5,
                     ),
+                    1..4,
                 ),
-                Use(
+                Defn(
                     TokenGroupIdx(
-                        24,
+                        10,
                     ),
+                    5..8,
                 ),
-                Use(
+                Defn(
+                    TokenGroupIdx(
+                        15,
+                    ),
+                    9..12,
+                ),
+                Stmt(
                     TokenGroupIdx(
                         25,
                     ),
+                    18..18,
+                ),
+                Stmt(
+                    TokenGroupIdx(
+                        26,
+                    ),
+                    18..18,
+                ),
+                Stmt(
+                    TokenGroupIdx(
+                        21,
+                    ),
+                    18..18,
+                ),
+                Stmt(
+                    TokenGroupIdx(
+                        22,
+                    ),
+                    18..18,
+                ),
+                Stmt(
+                    TokenGroupIdx(
+                        23,
+                    ),
+                    18..18,
+                ),
+                Stmt(
+                    TokenGroupIdx(
+                        24,
+                    ),
+                    18..20,
+                ),
+                Stmt(
+                    TokenGroupIdx(
+                        27,
+                    ),
+                    20..20,
                 ),
                 Use(
                     TokenGroupIdx(
-                        26,
+                        0,
                     ),
                 ),
                 Defn(
                     TokenGroupIdx(
-                        27,
+                        1,
                     ),
-                    1..6,
+                    12..18,
+                ),
+                Defn(
+                    TokenGroupIdx(
+                        20,
+                    ),
+                    20..25,
                 ),
             ],
         },
-        top_level_asts: 6..33,
+        top_level_asts: 25..28,
     },
 )

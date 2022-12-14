@@ -1,5 +1,5 @@
 Ok(
-    TokenSheet {
+    TokenGroupSheet {
         tokens: [
             Token {
                 range: [1:1, 1:5),
@@ -62,7 +62,7 @@ Ok(
                 ),
             },
         ],
-        line_group_starts: [
+        group_starts: [
             0,
             2,
             4,

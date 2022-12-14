@@ -1,0 +1,44 @@
+Ok(
+    AstSheet {
+        arena: Arena {
+            data: [
+                Stmt(
+                    TokenGroupIdx(
+                        5,
+                    ),
+                    0..0,
+                ),
+                Stmt(
+                    TokenGroupIdx(
+                        2,
+                    ),
+                    0..0,
+                ),
+                Stmt(
+                    TokenGroupIdx(
+                        3,
+                    ),
+                    0..0,
+                ),
+                Defn(
+                    TokenGroupIdx(
+                        4,
+                    ),
+                    0..1,
+                ),
+                Use(
+                    TokenGroupIdx(
+                        0,
+                    ),
+                ),
+                Defn(
+                    TokenGroupIdx(
+                        1,
+                    ),
+                    1..4,
+                ),
+            ],
+        },
+        top_level_asts: 4..6,
+    },
+)

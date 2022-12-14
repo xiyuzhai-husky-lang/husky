@@ -5,6 +5,7 @@ mod error;
 mod field;
 mod parser;
 mod sheet;
+mod specs;
 mod stmt;
 #[cfg(test)]
 mod tests;
@@ -17,6 +18,7 @@ pub use db::AstDb;
 pub use entrance::*;
 pub use field::*;
 pub use sheet::*;
+pub use specs::*;
 pub use stmt::*;
 pub use variant::*;
 pub use xml::*;
@@ -53,16 +55,22 @@ pub struct DeprecatedAst {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum Ast {
-    Err(AstError),
-    Mod,
-    Use,
-    Comment,
-    Decor,
-    SimpleStmt,
-    BlockStmt(AstIdxRange),
-    IfElseStmts(AstIdxRange),
-    MatchStmts(AstIdxRange),
-    Defn(AstIdxRange),
+    Err(TokenGroupIdx, AstError),
+    Mod(TokenGroupIdx),
+    Use(TokenGroupIdx),
+    Comment(TokenGroupIdx),
+    Decor(TokenGroupIdx),
+    Stmt(TokenGroupIdx, AstIdxRange),
+    IfElseStmts {
+        if_stmt: (TokenGroupIdx, AstIdxRange),
+        elif_stmts: Vec<(TokenGroupIdx, AstIdxRange)>,
+        else_stmt: Option<(TokenGroupIdx, AstIdxRange)>,
+    },
+    MatchStmts {
+        pattern_stmt: (TokenGroupIdx, AstIdxRange),
+        case_stmts: Vec<(TokenGroupIdx, AstIdxRange)>,
+    },
+    Defn(TokenGroupIdx, AstIdxRange),
 }
 
 pub type AstArena = Arena<Ast>;

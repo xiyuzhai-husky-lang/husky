@@ -37,7 +37,18 @@ impl<'a> TokenGroupIter<'a> {
         ))
     }
 
-    pub fn next_indented(&mut self, indent: u32) -> Option<(TokenGroupIdx, TokenGroup<'a>)> {
+    pub fn peek_with_exact_indent(&self, indent: u32) -> Option<(TokenGroupIdx, TokenGroup<'a>)> {
+        let (idx, token_group) = self.peek()?;
+        if token_group.indent() != indent {
+            return None;
+        }
+        Some((idx, token_group))
+    }
+
+    pub fn next_with_equal_or_more_indent(
+        &mut self,
+        indent: u32,
+    ) -> Option<(TokenGroupIdx, TokenGroup<'a>)> {
         let (idx, group) = self.peek()?;
         if group.indent() >= indent {
             self.current += 1;
