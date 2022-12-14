@@ -9,6 +9,22 @@ use crate::line_segment_sketch::concave_component::*
 use crate::zero::is_zero
 use crate::five::is_five
 
+
+
+func left_cc(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    require dp.y < 0.0
+    dp.y
+
+func right_cc(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    require dp.y > 0.0
+    dp.y
+
 def is_two -> ?MnistLabel:
+    cc_num=major_concave_components.ilen()
+    // if cc_num == 2:
+    //     todo()
+
 
     MnistLabel::Two
