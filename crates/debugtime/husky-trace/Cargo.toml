@@ -11,8 +11,6 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
-# comptime
-husky-comptime = { path = "../../comptime/husky-comptime" }
 # devtime
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 # kernel

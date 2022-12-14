@@ -1,11 +1,10 @@
 use crate::*;
-use husky_comptime::*;
 
 use husky_term::Term;
 
 use std::sync::Arc;
 
-pub trait DataViewerDb: ComptimeQueryGroup {
+pub trait DataViewerDb {
     fn ty_data_viewer(&self, ty: Term) -> Arc<HuskyDataViewer>;
 }
 

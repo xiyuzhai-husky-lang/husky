@@ -36,7 +36,6 @@ husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-term-infer = { path = "../../infer/husky-term-infer" }
 # comptime
 husky-layout = { path = "../../comptime/husky-layout" }
-husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
 # vm
