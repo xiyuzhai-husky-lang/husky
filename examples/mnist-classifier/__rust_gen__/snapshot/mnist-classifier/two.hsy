@@ -10,7 +10,7 @@ use crate::zero::is_zero
 use crate::five::is_five
 
 func two_match -> FermiMatchResult:
-    fermi_match(major_concave_components,[left_cc_pattern, right_cc_pattern])
+    fermi_match(major_concave_components,[left_cc_pattern, right_cc_pattern,down_cc_pattern])
 
 
 func left_cc_pattern(cc: &ConcaveComponent) -> ?f32:
@@ -23,10 +23,28 @@ func right_cc_pattern(cc: &ConcaveComponent) -> ?f32:
     require dp.y > 0.0
     dp.y
 
+func down_cc_pattern(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    require dp.x > 0.0
+    dp.x
+
 def is_two -> ?MnistLabel:
     cc_num=major_concave_components.ilen()
-    if cc_num == 2:
-        left_cc = two_match.matches[0]
-        right_cc = two_match.matches[0]
+    left_cc = two_match.matches[0]
+    right_cc = two_match.matches[1]
+    down_cc = two_match.matches[2]
+
+    require left_cc be some
+    require right_cc be some
+
+    left_ymax = left_cc.relative_bounding_box.ymax()
+    left_ymin = left_cc.relative_bounding_box.ymin()
+    left_mid_y = (left_ymax + left_ymin) / 2.0
+
+    right_ymax = right_cc.relative_bounding_box.ymax()
+    right_ymin = right_cc.relative_bounding_box.ymin()
+    right_mid_y = (right_ymax + right_ymin) / 2.0
+
+    require left_mid_y > right_mid_y
 
     MnistLabel::Two
