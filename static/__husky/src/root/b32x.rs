@@ -4,6 +4,7 @@ pub trait __B32X {
     fn clz(self) -> i32;
     fn last_bits(self, n: i32) -> u32;
     fn span(self) -> i32;
+    fn right_mass(self) -> i32;
 }
 
 impl __B32X for u32 {
@@ -30,6 +31,25 @@ impl __B32X for u32 {
         }
         32 - (self.clz() + self.ctz())
     }
+
+    #[inline(always)]
+    fn right_mass(self) -> i32 {
+        if self == 0 {
+            return 0;
+        }
+        let i = self.ctz();
+        (self + (1 << i)).ctz() - i
+    }
+}
+
+#[test]
+fn right_mass_works() {
+    assert_eq!(0b0011u32.right_mass(), 2);
+    assert_eq!(0b00111u32.right_mass(), 3);
+    assert_eq!(0b00110u32.right_mass(), 2);
+    assert_eq!(0b001110u32.right_mass(), 3);
+    assert_eq!(0b001010u32.right_mass(), 1);
+    assert_eq!(0b0011010u32.right_mass(), 1);
 }
 
 #[test]

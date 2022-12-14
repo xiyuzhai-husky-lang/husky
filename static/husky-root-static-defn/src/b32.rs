@@ -14,6 +14,7 @@ pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
             &B32_TRAILING_ZEROS,
             &B32_COUNT_ONES,
             &B32_SPAN,
+            &B32_RIGHT_MASS,
             &B32_LAST_BITS,
         ],
         variants: &[],
@@ -93,6 +94,24 @@ pub static B32_SPAN: EntityStaticDefn = EntityStaticDefn {
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
         opt_linkage: Some(transfer_linkage!(
             |values, _| values[0]. downcast_b32().span().to_register(),
+            some base u32::span as fn(u32) -> i32
+        )),
+    },
+    dev_src: static_dev_src!(),
+};
+
+pub static B32_RIGHT_MASS: EntityStaticDefn = EntityStaticDefn {
+    name: "right_mass",
+    items: &[],
+    variant: EntityStaticDefnVariant::Method {
+        this_modifier: ParameterModifier::None,
+        parameters: &[],
+        output_ty: "i32",
+        output_liason: OutputModifier::Transfer,
+        spatial_parameters: &[],
+        method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
+        opt_linkage: Some(transfer_linkage!(
+            |values, _| values[0]. downcast_b32().right_mass().to_register(),
             some base u32::span as fn(u32) -> i32
         )),
     },
