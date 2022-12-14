@@ -4,7 +4,7 @@ use husky_term::Term;
 use husky_trace_protocol::Label;
 use husky_vm::{__Register, __RegisterDataKind};
 
-use crate::{utils::__RegisterDowncastResult, HuskyComptime};
+use crate::{utils::__RegisterDowncastResult, AnalysisHost};
 
 pub trait ComptimeQueryGroup {
     fn target_entrance(&self) -> SourcePath {
@@ -142,4 +142,4 @@ pub trait ComptimeQueryGroup {
     }
 }
 
-impl ComptimeQueryGroup for HuskyComptime {}
+impl ComptimeQueryGroup for AnalysisHost {}

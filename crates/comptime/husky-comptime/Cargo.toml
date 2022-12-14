@@ -39,11 +39,11 @@ husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
 # syntax
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
-husky-text = { path = "../../lex/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-fmt = { path = "../../syntax/husky-fmt" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-fmt = { path = "../../syntax/husky-fmt" }
+husky-text = { path = "../../lex/husky-text" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

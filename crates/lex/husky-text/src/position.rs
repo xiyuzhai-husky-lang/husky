@@ -2,10 +2,10 @@ mod column;
 mod line;
 
 pub use column::*;
+use husky_source_path::SourcePath;
 pub use line::*;
 
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
-use husky_source_path::SourcePath;
 #[cfg(feature = "lsp_support")]
 use lsp_types::TextDocumentPositionParams;
 use serde::{Deserialize, Serialize};

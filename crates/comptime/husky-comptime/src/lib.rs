@@ -18,7 +18,6 @@ use husky_package_path::PackagePathJar;
 pub use husky_rust_code_gen::RustTranspileDb;
 pub use husky_token::TokenDb;
 pub use husky_word::WordDb;
-pub use ops::ComptimeOps;
 pub use query::*;
 
 use husky_ast::AstJar;
@@ -30,7 +29,9 @@ use husky_fmt::SyntaxFormatJar;
 use husky_layout::LayoutJar;
 use husky_linkage_table::LinkageTable;
 use husky_rust_code_gen::RustTranspileJar;
-use husky_source_path::{HasSourcePathConfig, SourcePath, SourcePathConfig, SourcePathJar};
+use husky_source_path::{
+    HasSourcePathConfig, SourcePath, SourcePathConfig, SourcePathConfigImpl, SourcePathJar,
+};
 use husky_term::TermJar;
 use husky_token::TokenJar;
 use husky_toolchain::ToolchainJar;
@@ -57,41 +58,38 @@ use sync_utils::ASafeRwLock;
     RustTranspileJar,
     LayoutJar
 )]
-pub struct HuskyComptime {
-    storage: salsa::Storage<HuskyComptime>,
-    // entity_route_interner: Arc<husky_term::EntityRouteInterner>,
-    live_docs: ASafeRwLock<IndexMap<SourcePath, ASafeRwLock<String>>>,
-    linkage_table: LinkageTable,
-    // entity_route_store: EntityRouteStore,
-    config: ComptimeConfig,
+#[derive(Default)]
+pub struct AnalysisHost {
+    storage: salsa::Storage<AnalysisHost>,
+    source_path_config: SourcePathConfigImpl,
 }
 
-impl HasSourcePathConfig for HuskyComptime {
+impl HasSourcePathConfig for AnalysisHost {
     fn source_path_config(&self) -> &SourcePathConfig {
-        todo!()
+        &self.source_path_config
     }
 }
 
-impl HuskyComptime {
-    pub fn new(config: ComptimeConfig) -> Self {
-        todo!()
-        // let mut comptime = Self {
-        //     storage: Default::default(),
-        //     live_docs: Default::default(),
-        //     linkage_table: LinkageTable::new(config.linkage_table.clone()),
-        //     // entity_route_store: Default::default(),
-        //     config,
-        //     // entity_route_interner: Default::default(),
-        // };
-        // let target_entrance = comptime.intern_path(comptime.config.package_dir.join("main.hsy"));
-        // comptime.set_opt_target_entrance(Some(target_entrance));
-        // comptime
-    }
+// impl HuskyComptime {
+//     pub fn new(config: ComptimeConfig) -> Self {
+//         todo!()
+//         // let mut comptime = Self {
+//         //     storage: Default::default(),
+//         //     live_docs: Default::default(),
+//         //     linkage_table: LinkageTable::new(config.linkage_table.clone()),
+//         //     // entity_route_store: Default::default(),
+//         //     config,
+//         //     // entity_route_interner: Default::default(),
+//         // };
+//         // let target_entrance = comptime.intern_path(comptime.config.package_dir.join("main.hsy"));
+//         // comptime.set_opt_target_entrance(Some(target_entrance));
+//         // comptime
+//     }
 
-    pub fn new_default(package_dir: PathBuf) -> Self {
-        Self::new(ComptimeConfig {
-            package_dir,
-            linkage_table: Default::default(),
-        })
-    }
-}
+//     pub fn new_default(package_dir: PathBuf) -> Self {
+//         Self::new(ComptimeConfig {
+//             package_dir,
+//             linkage_table: Default::default(),
+//         })
+//     }
+// }

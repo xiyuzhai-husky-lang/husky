@@ -10,13 +10,10 @@ description = "Generic LSP server scaffold."
 rustc-hash = "1.1.0"
 lsp-types = { version = "0.93", features = ["proposed"], optional = true }
 serde = { version = "1.0.106", features = ["derive"] }
-# abstraction
-salsa = { path = "../../abstraction/salsa" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 # fs
 husky-source-path = { path = "../../fs/husky-source-path" }
-husky-vfs = { path = "../../fs/husky-vfs" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

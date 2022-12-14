@@ -2,7 +2,7 @@ use husky_trace_protocol::Label;
 
 use crate::*;
 
-impl HuskyComptime {}
+impl AnalysisHost {}
 
 // todo: move this to vm
 #[derive(Debug)]

@@ -3,41 +3,19 @@ use husky_linkage_table::{LinkageTable, ResolveLinkage};
 use place::SingleAssignPlace;
 use upcast::{Upcast, UpcastMut};
 
-impl fmt::Debug for HuskyComptime {
+impl fmt::Debug for AnalysisHost {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("husky-compilerompileTime").finish()
     }
 }
 
-impl salsa::Database for HuskyComptime {}
+impl salsa::Database for AnalysisHost {}
 
-impl salsa::ParallelDatabase for HuskyComptime {
-    fn snapshot(&self) -> salsa::Snapshot<HuskyComptime> {
-        salsa::Snapshot::new(HuskyComptime {
+impl salsa::ParallelDatabase for AnalysisHost {
+    fn snapshot(&self) -> salsa::Snapshot<AnalysisHost> {
+        salsa::Snapshot::new(AnalysisHost {
             storage: self.storage.snapshot(),
-            // entity_route_interner: self.entity_route_interner.clone(),
-            live_docs: self.live_docs.clone(),
-            linkage_table: self.linkage_table.clone(),
-            // entity_route_store: self.entity_route_store.clone(),
-            config: self.config.clone(),
+            source_path_config: self.source_path_config.clone(),
         })
     }
 }
-
-impl Upcast<dyn husky_entity_tree::EntityTreeDb> for HuskyComptime {
-    fn upcast(&self) -> &(dyn husky_entity_tree::EntityTreeDb + 'static) {
-        self
-    }
-}
-
-impl ResolveLinkage for HuskyComptime {
-    fn linkage_table(&self) -> &LinkageTable {
-        &self.linkage_table
-    }
-}
-
-// impl StoreEntityRoute for HuskyComptime {
-//     fn entity_route_store(&self) -> &EntityRouteStore {
-//         &self.entity_route_store
-//     }
-// }

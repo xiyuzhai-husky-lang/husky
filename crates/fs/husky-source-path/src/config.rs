@@ -21,7 +21,27 @@ pub trait HasSourcePathConfig {
 }
 
 #[derive(Debug, Clone)]
+pub struct SourcePathConfigImpl(Arc<SourcePathConfig>);
+
+impl Default for SourcePathConfigImpl {
+    fn default() -> Self {
+        Self(Arc::new(SourcePathConfig {
+            // ad hoc
+            library_dir: "/home/xiyuzhai/repos/husky/library".into(),
+        }))
+    }
+}
+
+#[derive(Debug, Clone)]
 pub struct SourcePathConfigMimic(Arc<SourcePathConfig>);
+
+impl std::ops::Deref for SourcePathConfigImpl {
+    type Target = SourcePathConfig;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 
 impl std::ops::Deref for SourcePathConfigMimic {
     type Target = SourcePathConfig;
