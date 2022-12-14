@@ -32,7 +32,6 @@ monad = { path = "../../abstraction/monad" }
 # apps
 husky-compiler = { path = "../../apps/husky-compiler" }
 # comptime
-husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 # devtime
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }

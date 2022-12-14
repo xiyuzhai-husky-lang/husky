@@ -17,7 +17,6 @@ map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
 # comptime
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
-husky-comptime = { path = "../../comptime/husky-comptime" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }

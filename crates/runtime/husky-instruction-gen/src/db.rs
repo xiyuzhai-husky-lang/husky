@@ -1,9 +1,8 @@
 use crate::*;
-use husky_comptime::ComptimeQueryGroup;
 use husky_entity_path::EntityPath;
 use husky_source_path::SourcePath;
 
-pub trait InstructionDb: ComptimeQueryGroup {
+pub trait InstructionDb {
     fn entity_instruction_sheet(&self, entity_path: EntityPath) -> Option<Arc<InstructionSheet>>;
     fn method_opt_instruction_sheet(&self, member_route: Term) -> Option<Arc<InstructionSheet>>;
     fn dataset_config_instruction_sheet(

@@ -26,7 +26,6 @@ husky-text = { path = "../../lex/husky-text" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-comptime = { path = "../../comptime/husky-comptime" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }

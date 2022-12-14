@@ -9,8 +9,6 @@ serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
-# comptime
-husky-comptime = { path = "../../comptime/husky-comptime" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }

@@ -14,8 +14,6 @@ map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
 monad = { path = "../../abstraction/monad" }
 trackable = { path = "../../abstraction/trackable" }
-# comptime
-husky-comptime = { path = "../../comptime/husky-comptime" }
 # devtime
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-trace = { path = "../../debugtime/husky-trace" }
