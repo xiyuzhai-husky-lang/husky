@@ -23,7 +23,10 @@ use one::is_one
 use six::is_six
 use zero::is_zero
 use seven::is_seven
+use three::is_three
+use eight::is_eight
 use nine::is_nine
+use five::is_five
 
 use raw_contour::find_raw_contours
 use line_segment_sketch::find_line_segments
@@ -34,4 +37,8 @@ main:
     is_six?
     is_zero?
     is_seven?
-    require false
+    is_eight?
+    is_three?
+    is_nine?
+    is_five?
+    MnistLabel::Four
