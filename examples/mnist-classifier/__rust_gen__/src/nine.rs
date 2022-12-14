@@ -45,6 +45,8 @@ pub(crate) fn big_cc<'eval>(
     cc: &'eval crate::line_segment_sketch::concave_component::ConcaveComponent<'eval>,
     __ctx: &dyn __EvalContext<'eval>,
 ) -> Option<f32> {
+    let dp = cc.displacement();
+    normal_require!(dp.y > 0f32);
     normal_require!(cc.relative_bounding_box(__ctx).ymin() > 0.4f32);
     return Some(cc.relative_bounding_box(__ctx).ymin());
 }
