@@ -30,19 +30,16 @@ def is_nine -> ?MnistLabel:
 
     if eff_holes.matches[0] be none:
         require major_concave_components.ilen()>=2
-<<<<<<< HEAD
         nine_match_refine_result=nine_match_refine.matches[0]
         require nine_match_refine_result be some
         require nine_match_refine.norm <1.0
-    higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
-=======
+        higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
         upper_arc = nine_match_refine.matches[0]
         require upper_arc be some
         require upper_arc.displacement().y > 0.0
         require upper_arc.angle_change < -110.0
         require nine_match_refine.norm < 9.0
         a = major_connected_component.top_k_row_right_mass_sum(3)
->>>>>>> fbdad7382581026eb0f9d86596e24d8a89ade2cf
 
         require a < 22.0
         require a > 9.0

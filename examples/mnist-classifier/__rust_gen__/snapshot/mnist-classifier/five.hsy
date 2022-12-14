@@ -10,7 +10,6 @@ use crate::seven::is_seven
 
 func five_match -> FermiMatchResult:
     fermi_match(major_concave_components, [up_right_cc, down_left_cc])
-<<<<<<< HEAD
 
 func up_right_cc(cc: &ConcaveComponent) -> ?f32:
     dp=cc.displacement()
@@ -38,24 +37,4 @@ def is_five -> ?MnistLabel:
     require upright_cc_match be some
     require downleft_cc_match be some
     require five_match.norm < 2.0
-=======
-
-func up_right_cc(cc: &ConcaveComponent) -> ?f32:
-    dp=cc.displacement()
-    require cc.relative_bounding_box.ymax() > 0.4
-    require dp.y>0.0
-    dp.y
-
-func down_left_cc(cc: &ConcaveComponent) -> ?f32:
-    dp=cc.displacement()
-    require cc.relative_bounding_box.ymax() < 0.6
-    require dp.y<0.0
-    dp.y
-
-def is_five -> ?MnistLabel:
-    upright_cc_match = five_match.matches[0]
-    downleft_cc_match = five_match.matches[1]
-    require upright_cc_match be some
-    // require down_left_cc be some
->>>>>>> fbdad7382581026eb0f9d86596e24d8a89ade2cf
     MnistLabel::Five

@@ -22,12 +22,8 @@ pub(crate) fn up_right_cc<'eval>(
     __ctx: &dyn __EvalContext<'eval>,
 ) -> Option<f32> {
     let dp = cc.displacement();
-<<<<<<< HEAD
     normal_require!(cc.relative_bounding_box(__ctx).ymin() > 0.1f32);
     normal_require!(cc.relative_bounding_box(__ctx).ymax() > 0.6f32);
-=======
-    normal_require!(cc.relative_bounding_box(__ctx).ymax() > 0.4f32);
->>>>>>> fbdad7382581026eb0f9d86596e24d8a89ade2cf
     normal_require!(dp.y > 0f32);
     return Some(dp.y);
 }
@@ -36,12 +32,8 @@ pub(crate) fn down_left_cc<'eval>(
     __ctx: &dyn __EvalContext<'eval>,
 ) -> Option<f32> {
     let dp = cc.displacement();
-<<<<<<< HEAD
     normal_require!(cc.relative_bounding_box(__ctx).ymax() < 0.8f32);
     normal_require!(cc.relative_bounding_box(__ctx).ymin() < 0.3f32);
-=======
-    normal_require!(cc.relative_bounding_box(__ctx).ymax() < 0.6f32);
->>>>>>> fbdad7382581026eb0f9d86596e24d8a89ade2cf
     normal_require!(dp.y < 0f32);
     return Some(dp.y);
 }
