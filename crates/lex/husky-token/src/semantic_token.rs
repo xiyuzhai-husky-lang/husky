@@ -111,7 +111,6 @@ impl SemanticTokenKind {
                     | StmtKeyword::Elif
                     | StmtKeyword::Else
                     | StmtKeyword::Match
-                    | StmtKeyword::Case
                     | StmtKeyword::For
                     | StmtKeyword::ForExt
                     | StmtKeyword::While

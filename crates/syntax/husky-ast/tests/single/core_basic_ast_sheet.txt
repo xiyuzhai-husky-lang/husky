@@ -3,12 +3,21 @@ Ok(
         arena: Arena {
             data: [
                 Defn(
+                    TokenGroupIdx(
+                        0,
+                    ),
                     0..0,
                 ),
                 Defn(
+                    TokenGroupIdx(
+                        1,
+                    ),
                     0..0,
                 ),
                 Defn(
+                    TokenGroupIdx(
+                        2,
+                    ),
                     0..0,
                 ),
             ],

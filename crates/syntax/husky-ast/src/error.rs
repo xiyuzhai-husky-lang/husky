@@ -8,6 +8,10 @@ use thiserror::Error;
 pub enum AstError {
     #[error("excessive indent")]
     ExcessiveIndent,
+    #[error("standalone elif")]
+    StandaloneElif,
+    #[error("standalone else")]
+    StandaloneElse,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

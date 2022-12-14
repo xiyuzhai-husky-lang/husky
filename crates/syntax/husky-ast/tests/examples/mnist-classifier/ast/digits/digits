@@ -17,18 +17,23 @@ Ok(
                         2,
                     ),
                 ),
-                Mod(
+                Use(
                     TokenGroupIdx(
                         3,
                     ),
                 ),
-                Mod(
+                Use(
                     TokenGroupIdx(
                         4,
                     ),
                 ),
+                Use(
+                    TokenGroupIdx(
+                        5,
+                    ),
+                ),
             ],
         },
-        top_level_asts: 0..5,
+        top_level_asts: 0..6,
     },
 )

@@ -25,7 +25,6 @@ pub(crate) const RESERVED_WORDS: &[(&'static str, RawTokenVariant)] = gen_reserv
     StmtKeyword::Else,
     StmtKeyword::If,
     StmtKeyword::Match,
-    StmtKeyword::Case,
     StmtKeyword::ForExt,
     StmtKeyword::While,
     StmtKeyword::Do,
