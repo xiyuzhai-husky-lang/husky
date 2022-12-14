@@ -281,7 +281,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
             // ad hoc
             token_kind
         } else {
-            TokenKind::Identifier(self.db.it_ident_owned(word)).into()
+            TokenKind::Identifier(self.db.it_ident_owned(word).expect("todo")).into()
         }
     }
 

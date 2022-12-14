@@ -5,7 +5,6 @@ mod error;
 mod group;
 mod kind;
 mod semantic_token;
-mod sheet;
 #[cfg(feature = "storage")]
 mod storage;
 mod stream;
@@ -19,7 +18,6 @@ pub use error::*;
 pub use group::*;
 pub use kind::*;
 pub use semantic_token::*;
-pub use sheet::*;
 pub use stream::*;
 pub use tokenize::Tokenize;
 
