@@ -2,7 +2,7 @@ task:
     ml::datasets::synthetic::trivial::real1d::dataset1()
 
 proc try_vec_opt() -> []?i32:
-    var v = []?i32()
+    let mut v = []?i32()
     v.push(1)
     assert v[0] == 1
     return v

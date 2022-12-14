@@ -5,8 +5,8 @@ task:
 
 
 proc horizontal_extend(a: b32, x: b32) -> b32:
-    var y = a & (x | (x << 1) | (x >> 1))
-    var z = a & (y | (y << 1) | (y >> 1))
+    let mut y = a & (x | (x << 1) | (x >> 1))
+    let mut z = a & (y | (y << 1) | (y >> 1))
     while z != y:
         y = z
         z = a & (y | (y << 1) | (y >> 1))

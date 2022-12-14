@@ -119,8 +119,8 @@ func get_concave_middle_point(contour: RawContour) -> Point2d:
     )
 
 proc find_raw_contours(cc: BinaryImage28) -> []RawContour:
-    var result = []RawContour()
-    var boundary_unsearched = BinaryGrid28()
+    let mut result = []RawContour()
+    let mut boundary_unsearched = BinaryGrid28()
     for 1 <= i <= 29:
         let r_ur = cc[i-1]
         let r_dr = cc[i]
@@ -129,26 +129,26 @@ proc find_raw_contours(cc: BinaryImage28) -> []RawContour:
         boundary_unsearched[i] = (r_ur|r_dr|r_ul|r_dl) & (~(r_ur&r_dr&r_ul&r_dl))
     for 1 <= k <= 29:
         while boundary_unsearched[k]:
-            var contour = RawContour()
-            var i = k
-            var j = boundary_unsearched[k].ctz()
+            let mut contour = RawContour()
+            let mut i = k
+            let mut j = boundary_unsearched[k].ctz()
             // prepare rows
-            var row_above = cc[i-1]
-            var row_below = cc[i]
+            let mut row_above = cc[i-1]
+            let mut row_below = cc[i]
             // prepare pixel_pairs and initial inward direction
-            var inward_direction = get_inward_direction(row_above, row_below, j)
+            let mut inward_direction = get_inward_direction(row_above, row_below, j)
             // store initial position and direction
             let i0 = i
             let j0 = j
             let dir0 = inward_direction
-            var prev_angle_change1 = 0
-            var prev_angle_change2 = 0
-            var total_angle_change = 0
+            let mut prev_angle_change1 = 0
+            let mut prev_angle_change2 = 0
+            let mut total_angle_change = 0
             // prepare streaks (raw line segment lengths)
             // -1 means invalid
-            var prev_streak1 = -1
-            var prev_streak2 = -1
-            var current_streak = -1
+            let mut prev_streak1 = -1
+            let mut prev_streak2 = -1
+            let mut current_streak = -1
             // loop in the geometric sense!
             do while !(i == i0 and j == j0 and inward_direction == dir0):
                 let outward_direction = get_outward_direction(row_above, row_below, j, inward_direction)

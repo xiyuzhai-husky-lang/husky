@@ -42,9 +42,9 @@ def get_curve_components(vector<LineSegment> ls, Interval interval) => (CurveCom
   let start = ls[interval.start%L].start
   let end = ls[interval.end%L].start
   let angle_start = getAngle(start)
-  var angle_change = 0.0
-  var length = 0.0
-  var dp0 = displacement(ls[0])
+  let mut angle_change = 0.0
+  let mut length = 0.0
+  let mut dp0 = displacement(ls[0])
   for interval.start < i < interval.end:
     let line_segment = ls[i%L]
     let dp = displacement(line_segment)
@@ -54,7 +54,7 @@ def get_curve_components(vector<LineSegment> ls, Interval interval) => (CurveCom
     print angle_change, length
   return CurveComponent{angle_start, angle_change, length, start, end}
 def similarity(CurveComponent a, CurveComponent b) => (float similarity):
-  var result = 1.0
+  let mut result = 1.0
   result = min(result, additive_kernel(a.angle_start, b.angle_start, 0.2))
   result = min(result, additive_kernel(a.angle_change, b.angle_change, 0.2))
   result = min(result, additive_kernel(a.angle_start+a.angle_change, b.angle_start + b.angle_change, 0.2))
@@ -65,13 +65,13 @@ def similarity(CurveComponent a, CurveComponent b) => (float similarity):
 def similarity_batch(vector<CurveComponent> a, vector<CurveComponent> b) => (float similarity):
   let Na = a.size()
   let Nb = b.size()
-  // var matched = vector<bool>()
+  // let mut matched = vector<bool>()
   // for j < Nb:
   //  matched.append(false)
-  var result = 0.0
+  let mut result = 0.0
   for i < Na:
-    var s = 0.0
-    var j_matched = -1
+    let mut s = 0.0
+    let mut j_matched = -1
     for j < Nb:
       if s < similarity(a[i], b[j]):
         s = similarity(a[i], b[j])
@@ -84,7 +84,7 @@ def similarity_batch(vector<CurveComponent> a, vector<CurveComponent> b) => (flo
     result = result + s
   return result / float(max(Na, Nb))
 def extract_curve_components(vector<LineSegmentSketch> line_segment_sketches) => ( vector<CurveComponent> curve_components):
-  var curve_components = vector<CurveComponent>()
+  let mut curve_components = vector<CurveComponent>()
   let N0 = line_segment_sketches.size()
   for i < N0:
     let lssk = line_segment_sketches[i]
@@ -106,15 +106,15 @@ struct Configuration{
   vector<CurveComponent> curve_components
 } 
 pub def train(int N, vector<labeled_bool_img28> images) => (float test_error):
-  var hypothesis = vector<Configuration>()
+  let mut hypothesis = vector<Configuration>()
   for 0 <= i < N:
     let img = images[i]
     let line_segment_sketches = find_line_segment_sketches(img.data)
     let curve_components = extract_curve_components(line_segment_sketches)
     draw img, line_segment_sketches
-    var prediction = -1
+    let mut prediction = -1
     let H = hypothesis.size()
-    var highest_similarity = 0.0
+    let mut highest_similarity = 0.0
     for h < H:
       let config = hypothesis[h]
       let s = similarity_batch(config.curve_components, curve_components)
@@ -125,15 +125,15 @@ pub def train(int N, vector<labeled_bool_img28> images) => (float test_error):
       hypothesis.append(Configuration{img.label, curve_components})
     print img.label, prediction
   let H = hypothesis.size()
-  var test_mistakes = 0
+  let mut test_mistakes = 0
   for N <= i < N + 20:
     let img = images[i]
     let line_segment_sketches = find_line_segment_sketches(img.data)
     let curve_components = extract_curve_components(line_segment_sketches)
     draw img, line_segment_sketches
-    var prediction = -1
+    let mut prediction = -1
     let N = hypothesis.size()
-    var highest_similarity = 0.0
+    let mut highest_similarity = 0.0
     for h < N:
       let config = hypothesis[h]
       let s = similarity_batch(config.curve_components, curve_components)

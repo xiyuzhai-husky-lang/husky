@@ -45,8 +45,8 @@ func go_left(u: Vector2d, r: f32) -> Vector2d:
     Vector2d(u.x+dx, u.y+dy)
 
 proc extend_end(ct: &RawContour, start: i32, r: f32) -> i32:
-    var end = start
-    var dp = ct.displacement(start, end + 1)
+    let mut end = start
+    let mut dp = ct.displacement(start, end + 1)
     let N = ct.points.ilen()
     let max_end = start + N
     while end <= max_end and dp.norm() < r:
@@ -54,9 +54,9 @@ proc extend_end(ct: &RawContour, start: i32, r: f32) -> i32:
         dp = ct.displacement(start, end + 1)
     if dp.norm() < r:
         return end
-    var right_bound = go_right(dp, r)
-    var left_bound = go_left(dp, r)
-    var r_max = 0.0
+    let mut right_bound = go_right(dp, r)
+    let mut left_bound = go_left(dp, r)
+    let mut r_max = 0.0
     while end <= max_end
             and right_bound.rotation_direction_to(dp) >= 0 
             and dp.rotation_direction_to(left_bound) >= 0:
@@ -78,17 +78,17 @@ proc extend_end(ct: &RawContour, start: i32, r: f32) -> i32:
     return end
 
 proc extend_start(ct: &RawContour, start0: i32, end: i32, r: f32) -> i32:
-    var start = end
-    var dp0 = ct.displacement(end, start - 1)
+    let mut start = end
+    let mut dp0 = ct.displacement(end, start - 1)
     let min_start = end - ct.points.ilen()
     while start >= min_start and dp0.norm() < r:
         start--
         dp0 = ct.displacement(end, start - 1)
     if dp0.norm() < r:
         return start.min(start0)
-    var right_bound = go_right(dp0, r)
-    var left_bound = go_left(dp0, r)
-    var r_max = 0.0
+    let mut right_bound = go_right(dp0, r)
+    let mut left_bound = go_left(dp0, r)
+    let mut r_max = 0.0
     while start >= min_start:
         let dp = ct.displacement(end, start - 1)
         let dp_norm = dp.norm()
@@ -120,14 +120,14 @@ proc extend_start(ct: &RawContour, start0: i32, end: i32, r: f32) -> i32:
         return start0
 
 proc find_line_segments(ct: &RawContour, r: f32) -> []LineSegment:
-    var line_segments = []LineSegment()
-    var start = 0
-    var end = 1
-    var max_end = ct.points.ilen()
+    let mut line_segments = []LineSegment()
+    let mut start = 0
+    let mut end = 1
+    let mut max_end = ct.points.ilen()
     while end <= max_end:
         end = extend_end(ct, start, r)
         let ls_extend_end = LineSegment::new(ct, start, end)
-        var extend_start_flag = true
+        let mut extend_start_flag = true
         if line_segments.ilen() > 0:
             let dp_extend_end = ls_extend_end.displacement()
             let dp_previous = line_segments.lastx().displacement()
@@ -138,7 +138,7 @@ proc find_line_segments(ct: &RawContour, r: f32) -> []LineSegment:
                 extend_start_flag = false
         if extend_start_flag:
             start = extend_start(ct, start, end, r)
-            var ls = LineSegment::new(ct, start, end)
+            let mut ls = LineSegment::new(ct, start, end)
             if line_segments.ilen() > 0:
                 let ls_last = line_segments.lastx()
                 let dp_last = ls_last.displacement()

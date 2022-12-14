@@ -10,19 +10,19 @@ bit32 horizontal_extend(bit32 a, bit32 x) {
     return y;
 }
 pub def find_connected_components(bool_img28 img)=>([]bool_img28 result) :
-  var result = []bool_img28()
-  var unsearched = img.clone()
+  let mut result = []bool_img28()
+  let mut unsearched = img.clone()
   for j < 30:
     draw unsearched
     while unsearched[j]:
       let a = unsearched[j]
       let shift = find_lowest_nonzero_bit_32(a)
-      var mask = bool_img28()
+      let mut mask = bool_img28()
       mask[j] = horizontal_extend(a, bit32(1)<< shift)
-      var flag = false
+      let mut flag = false
       while !flag :
         flag = true
-        var i = j
+        let mut i = j
         forext i < 30 - 1 :
           draw mask
           let old_row = mask[i + 1]

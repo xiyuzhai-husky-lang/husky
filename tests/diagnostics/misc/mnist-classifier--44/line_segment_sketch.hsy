@@ -18,8 +18,8 @@ struct LineSegmentSketch:
 
 
 proc extend_end(ct: RawContour, start: i32, r: f32) -> i32:
-  var end = start
-  var dp = ct.displacement(start, end + 1)
+  let mut end = start
+  let mut dp = ct.displacement(start, end + 1)
   let N = ct.points,size()
   let max_end = start + ct.size()
   while end <= max_end and get_norm(dp) < r
@@ -27,9 +27,9 @@ proc extend_end(ct: RawContour, start: i32, r: f32) -> i32:
     dp = get_displacement ct start end + 1
   if get_norm(dp) < r
     return end
-  var right_bound = go_right(dp, r)
-  var left_bound = go_left(dp, r)
-  var r_max = 0.0
+  let mut right_bound = go_right(dp, r)
+  let mut left_bound = go_left(dp, r)
+  let mut r_max = 0.0
   while end <= max_end 
      and is_rotation_counterclockwise(right_bound, dp) >= 0 
      and is_rotation_counterclockwise(dp, left_bound) >= 0

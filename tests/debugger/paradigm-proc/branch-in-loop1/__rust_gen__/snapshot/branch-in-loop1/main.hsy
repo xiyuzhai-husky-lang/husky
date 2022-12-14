@@ -1,5 +1,5 @@
 proc f1() -> i32:
-    var a = 0
+    let mut a = 0
     for 0 <= i < 5:
         a += i
         if i > 2:
@@ -7,7 +7,7 @@ proc f1() -> i32:
     return a
 
 proc f2() -> i32:
-    var a = 0
+    let mut a = 0
     for 0 <= i < 5:
         a += i
         if i > 2:
@@ -16,7 +16,7 @@ proc f2() -> i32:
     return a
 
 proc f3() -> i32:
-    var a = 0
+    let mut a = 0
     for 0 <= i < 5:
         a += i
         if i > 3:

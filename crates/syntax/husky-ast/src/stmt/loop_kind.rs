@@ -70,26 +70,27 @@ impl RawLoopKind {
         final_bound: ExprIdx,
         range: TextRange,
     ) -> AstResult<Self> {
-        let final_boundary_kind = match comparison {
-            // ill-formed: $frame_var >= $final_bound
-            BinaryComparisonOpr::Geq => err!("invalid form", range)?,
-            // ill-formed: $frame_var > $final_bound
-            BinaryComparisonOpr::Greater => err!("invalid form", range)?,
-            // well-formed: $frame_var <= $final_bound
-            BinaryComparisonOpr::Leq => BoundaryKind::UpperClosed,
-            // well-formed: $frame_var < $final_bound
-            BinaryComparisonOpr::Less => BoundaryKind::UpperOpen,
-            _ => todo!(),
-        };
-        Ok(Self::For {
-            frame_var,
-            initial_boundary: Default::default(),
-            final_boundary: RawBoundary {
-                opt_bound: Some(final_bound),
-                kind: final_boundary_kind,
-            },
-            step: LoopStep(1),
-        })
+        todo!()
+        // let final_boundary_kind = match comparison {
+        //     // ill-formed: $frame_var >= $final_bound
+        //     BinaryComparisonOpr::Geq => err!("invalid form", range)?,
+        //     // ill-formed: $frame_var > $final_bound
+        //     BinaryComparisonOpr::Greater => err!("invalid form", range)?,
+        //     // well-formed: $frame_var <= $final_bound
+        //     BinaryComparisonOpr::Leq => BoundaryKind::UpperClosed,
+        //     // well-formed: $frame_var < $final_bound
+        //     BinaryComparisonOpr::Less => BoundaryKind::UpperOpen,
+        //     _ => todo!(),
+        // };
+        // Ok(Self::For {
+        //     frame_var,
+        //     initial_boundary: Default::default(),
+        //     final_boundary: RawBoundary {
+        //         opt_bound: Some(final_bound),
+        //         kind: final_boundary_kind,
+        //     },
+        //     step: LoopStep(1),
+        // })
     }
 
     pub fn for_loop_with_default_final(
@@ -98,26 +99,27 @@ impl RawLoopKind {
         frame_var: RangedIdentifier,
         range: TextRange,
     ) -> AstResult<Self> {
-        let initial_boundary_kind = match comparison {
-            // well-formed: $initial_bound >= $frame_var
-            BinaryComparisonOpr::Geq => BoundaryKind::LowerClosed,
-            // well-formed: $initial_bound > $frame_var
-            BinaryComparisonOpr::Greater => BoundaryKind::LowerOpen,
-            // ill-formed: $initial_bound <= $frame_var
-            BinaryComparisonOpr::Leq => err!("invalid form", range)?,
-            // ill-formed: $initial_bound < $frame_var
-            BinaryComparisonOpr::Less => err!("invalid form", range)?,
-            _ => return err!(format!("expect comparison"), range),
-        };
-        Ok(Self::For {
-            frame_var,
-            initial_boundary: RawBoundary {
-                opt_bound: Some(initial_bound),
-                kind: initial_boundary_kind,
-            },
-            final_boundary: Default::default(),
-            step: LoopStep(-1),
-        })
+        todo!()
+        // let initial_boundary_kind = match comparison {
+        //     // well-formed: $initial_bound >= $frame_var
+        //     BinaryComparisonOpr::Geq => BoundaryKind::LowerClosed,
+        //     // well-formed: $initial_bound > $frame_var
+        //     BinaryComparisonOpr::Greater => BoundaryKind::LowerOpen,
+        //     // ill-formed: $initial_bound <= $frame_var
+        //     BinaryComparisonOpr::Leq => err!("invalid form", range)?,
+        //     // ill-formed: $initial_bound < $frame_var
+        //     BinaryComparisonOpr::Less => err!("invalid form", range)?,
+        //     _ => return err!(format!("expect comparison"), range),
+        // };
+        // Ok(Self::For {
+        //     frame_var,
+        //     initial_boundary: RawBoundary {
+        //         opt_bound: Some(initial_bound),
+        //         kind: initial_boundary_kind,
+        //     },
+        //     final_boundary: Default::default(),
+        //     step: LoopStep(-1),
+        // })
     }
 
     pub fn forext_loop(
@@ -126,25 +128,26 @@ impl RawLoopKind {
         bound: ExprIdx,
         range: TextRange,
     ) -> AstResult<Self> {
-        let (boundary_kind, step) = match comparison {
-            // ... $frame_var >= $final_bound
-            BinaryComparisonOpr::Geq => (BoundaryKind::LowerClosed, LoopStep(-1)),
-            // ... $frame_var > $final_bound
-            BinaryComparisonOpr::Greater => (BoundaryKind::LowerOpen, LoopStep(-1)),
-            // ... $frame_var <= $final_bound
-            BinaryComparisonOpr::Leq => (BoundaryKind::UpperClosed, LoopStep(1)),
-            // ... $frame_var < $final_bound
-            BinaryComparisonOpr::Less => (BoundaryKind::UpperOpen, LoopStep(1)),
-            _ => return err!(format!("expect comparison"), range),
-        };
-        Ok(Self::ForExt {
-            frame_var,
-            final_boundary: RawBoundary {
-                opt_bound: Some(bound),
-                kind: boundary_kind,
-            },
-            step,
-        })
+        todo!()
+        // let (boundary_kind, step) = match comparison {
+        //     // ... $frame_var >= $final_bound
+        //     BinaryComparisonOpr::Geq => (BoundaryKind::LowerClosed, LoopStep(-1)),
+        //     // ... $frame_var > $final_bound
+        //     BinaryComparisonOpr::Greater => (BoundaryKind::LowerOpen, LoopStep(-1)),
+        //     // ... $frame_var <= $final_bound
+        //     BinaryComparisonOpr::Leq => (BoundaryKind::UpperClosed, LoopStep(1)),
+        //     // ... $frame_var < $final_bound
+        //     BinaryComparisonOpr::Less => (BoundaryKind::UpperOpen, LoopStep(1)),
+        //     _ => return err!(format!("expect comparison"), range),
+        // };
+        // Ok(Self::ForExt {
+        //     frame_var,
+        //     final_boundary: RawBoundary {
+        //         opt_bound: Some(bound),
+        //         kind: boundary_kind,
+        //     },
+        //     step,
+        // })
     }
 
     pub fn while_loop(condition: ExprIdx) -> Self {

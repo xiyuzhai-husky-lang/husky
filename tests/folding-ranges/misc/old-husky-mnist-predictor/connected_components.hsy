@@ -10,18 +10,18 @@ bit32 horizontal_extend(bit32 a, bit32 x) {
   return y;
 }
 pub def find_connected_components(binary_img28 img)=>([]binary_img28 result) :
-  var result = []binary_img28()
-  var unsearched = img.clone()
+  let mut result = []binary_img28()
+  let mut unsearched = img.clone()
   for j < 30:
     while unsearched[j]:
       let a = unsearched[j]
       let shift = find_lowest_nonzero_bit_32(a)
-      var mask = binary_img28()
+      let mut mask = binary_img28()
       mask[j] = horizontal_extend(a, bit32(1)<< shift)
-      var flag = false
+      let mut flag = false
       while !flag :
         flag = true
-        var i = j
+        let mut i = j
         forext i < 30 - 1 :
           let old_row = mask[i + 1]
           let new_row = old_row | horizontal_extend(img[i + 1], mask[i])
@@ -42,17 +42,17 @@ pub def find_connected_components(binary_img28 img)=>([]binary_img28 result) :
   return result
 
 pub def integrate_from_top_to_down(binary_img28 img) => ([32]int integration):
-  var integration = [32]int()
+  let mut integration = [32]int()
   integration[0] = count_nonzero_bits(img[0])
   for 0 < i < 32:
     integration[i] = integration[i-1] + count_nonzero_bits(img[i])
   return integration
 
 pub def get_upper_mass_ratio(binary_img28 cc, [32]int integration) => (float upper_mass_ratio):
-  var ymin = 0
+  let mut ymin = 0
   while ymin < 32 and not cc[ymin]:
     ymin++
-  var ymax = 31
+  let mut ymax = 31
   while ymax > 0 and not cc[ymax]:
     ymax--
   let ysum = ymin + ymax
@@ -66,7 +66,7 @@ pub def get_upper_mass_ratio(binary_img28 cc, [32]int integration) => (float upp
 struct RowProjection : [32]int
 
 pub def get_row_projection(binary_img28 img) => (RowProjection row_projection):
-  var row_projection = RowProjection()
+  let mut row_projection = RowProjection()
   for 0 <= i < 32:
     row_projection[i] = count_nonzero_bits(img[i])
   return row_projection
@@ -82,23 +82,23 @@ struct RowProjectionAnalysis {
 
 pub def get_row_projection_analysis(RowProjection row_projection) => (RowProjectionAnalysis analysis):
   // min
-  var jmin = 0
+  let mut jmin = 0
   while jmin < 31 and not row_projection[jmin]:
     jmin++
-  var trimmed_jmin = jmin
+  let mut trimmed_jmin = jmin
   while trimmed_jmin < 31 and row_projection[trimmed_jmin] <= row_projection[trimmed_jmin+1]:
     trimmed_jmin++
   // max
-  var jmax = 31
+  let mut jmax = 31
   while jmax > 0 and not row_projection[jmax]:
     jmax--
-  var trimmed_jmax = jmax
+  let mut trimmed_jmax = jmax
   while trimmed_jmax > 0 and row_projection[trimmed_jmax] <= row_projection[trimmed_jmax-1]:
     trimmed_jmax--
-  var pmin_j = trimmed_jmin
-  var pmin = row_projection[trimmed_jmin]
-  var pmax_j = trimmed_jmax
-  var pmax = row_projection[trimmed_jmax]
+  let mut pmin_j = trimmed_jmin
+  let mut pmin = row_projection[trimmed_jmin]
+  let mut pmax_j = trimmed_jmax
+  let mut pmax = row_projection[trimmed_jmax]
   for trimmed_jmin <= j <= trimmed_jmax:
     let p = row_projection[j]
     if p < pmin:

@@ -53,13 +53,15 @@ pub struct DeprecatedAst {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum Ast {
-    ExcessiveIndent,
+    Err(AstError),
     Mod,
     Use,
     Comment,
     Decor,
     SimpleStmt,
-    LoopStmt(AstIdxRange),
+    BlockStmt(AstIdxRange),
+    IfElseStmts(AstIdxRange),
+    MatchStmts(AstIdxRange),
     Defn(AstIdxRange),
 }
 

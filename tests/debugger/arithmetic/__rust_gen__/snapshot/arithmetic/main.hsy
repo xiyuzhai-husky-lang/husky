@@ -2,12 +2,12 @@ func add(x: i32, y: i32) -> i32:
     x + y
 
 proc bitor_assign() -> bool:
-    var b = 0b32
+    let mut b = 0b32
     assert !0b32
     assert true && true
     assert !(true && false)
     assert 1 != 2
-    var a = 1
+    let mut a = 1
     a--
     assert a == 0
     a++
@@ -16,7 +16,7 @@ proc bitor_assign() -> bool:
     return b == 1b32
 
 proc bitand_assign() -> bool:
-    var b = 0b32
+    let mut b = 0b32
     b &= 1b32
     return b == 0b32
 

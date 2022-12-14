@@ -6,8 +6,8 @@ pub struct RawContour : vector<Point29>
 struct bool_img29 : array<bit32,31>
 enum Direction {UP, LEFT, DOWN, RIGHT}
 pub def find_contours(bool_img28 cc) => ([]RawContour contours):
-  var result = []RawContour()
-  var boundary_unsearched = bool_img29()
+  let mut result = []RawContour()
+  let mut boundary_unsearched = bool_img29()
   for 1 <= i <= 29:
     draw cc, boundary_unsearched
     let r_ur = cc[i-1]
@@ -18,15 +18,15 @@ pub def find_contours(bool_img28 cc) => ([]RawContour contours):
   for 1 <= k <= 29:
     draw cc, boundary_unsearched
     while boundary_unsearched[k]:
-      var contour = RawContour()
-      var i = k
-      var j = bit::find_lowest_nonzero_bit_32(boundary_unsearched[k])
+      let mut contour = RawContour()
+      let mut i = k
+      let mut j = bit::find_lowest_nonzero_bit_32(boundary_unsearched[k])
       // prepare rows
-      var row_above = cc[i-1]
-      var row_below = cc[i]
-      var last_point = Point29{0, 0}
+      let mut row_above = cc[i-1]
+      let mut row_below = cc[i]
+      let mut last_point = Point29{0, 0}
       // prepare initial direction
-      var direction = UP
+      let mut direction = UP
       let env_above = (row_above >> (j - 1)) & bit32(3)
       let env_below = (row_below >> (j - 1)) & bit32(3)
       switch (env_above) {
@@ -63,12 +63,12 @@ pub def find_contours(bool_img28 cc) => ([]RawContour contours):
       let i0 = i
       let j0 = j
       let dir0 = direction
-      var angle_change = 0
-      var last_angle_change = 0
-      var total_angle_change = 0
+      let mut angle_change = 0
+      let mut last_angle_change = 0
+      let mut total_angle_change = 0
       // prepare streaks
-      var last_streak = -1
-      var current_streak = 0
+      let mut last_streak = -1
+      let mut current_streak = 0
       // loop in the geometric sense!
       do while !(i == i0 && j == j0 && direction == dir0):
         draw cc, boundary_unsearched, contour

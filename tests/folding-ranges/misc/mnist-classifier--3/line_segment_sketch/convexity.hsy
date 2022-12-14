@@ -9,13 +9,13 @@ proc is_convex(line_segment_sketch: LineSegmentSketch, index: i32) -> bool:
     let is_rotation_counterclockwise_result 
             = previous_displacement.rotation_direction_to(current_displacement)
     if is_rotation_counterclockwise_result == 0:
-        var previous_raw_cross = -999999.0
+        let mut previous_raw_cross = -999999.0
         let previous_interval = line_segment_sketch.line_segments[(index-1)%L].points
         for previous_interval.start <= i1 < previous_interval.end:
             let displacement = line_segment_sketch.contour.displacement(previous_interval.start, i1)
             previous_raw_cross = previous_raw_cross.max(current_displacement.cross(displacement))
         // current
-        var current_raw_cross = -999999.0
+        let mut current_raw_cross = -999999.0
         let current_interval = line_segment_sketch.line_segments[index%L].points
         for current_interval.start <= i2 < current_interval.end:
             let displacement = line_segment_sketch.contour.displacement(previous_interval.start, i2)

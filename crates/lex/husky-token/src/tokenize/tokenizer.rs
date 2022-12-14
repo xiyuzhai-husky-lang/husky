@@ -88,7 +88,10 @@ impl<'token> Tokenizer<'token> {
             }
             RawTokenVariant::NewLine => TokenizerAction::NewLine,
             RawTokenVariant::Special(_) => todo!(),
-            RawTokenVariant::Comment => todo!(),
+            RawTokenVariant::Comment => TokenizerAction::Push(Token {
+                range: token.range,
+                kind: TokenKind::Comment,
+            }),
         }
     }
 

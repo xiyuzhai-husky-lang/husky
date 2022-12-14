@@ -17,11 +17,11 @@ struct ConcaveComponent:
         // temp
 // pub func LineSegmentSketch => []float hausdorff_deviations
 // def get_concave_hausdorff_deviations(lsg_sk) 
-//   var hausdorff_deviations = []float()
+//   let mut hausdorff_deviations = []float()
 //   let L = lsg_sk.line_segments.size()
 //   for i < lsg_sk.concave_components.size()
 //     let interval = lsg_sk.concave_components[i]
-//     var absolute_hausdorff_deviation = 0.0
+//     let mut absolute_hausdorff_deviation = 0.0
 //     let curve_start = lsg_sk.line_segments[interval.start%L].start
 //     let curve_end = lsg_sk.line_segments[(interval.end-1)%L].end
 //     let curve_displacement = geom2d::get_displacement(curve_start, curve_end)
@@ -37,10 +37,10 @@ struct ConcaveComponent:
         line_segments
 
 proc find_concave_components(line_segment_sketch: &LineSegmentSketch) -> []ConcaveComponent:
-    var concave_components = []ConcaveComponent()
+    let mut concave_components = []ConcaveComponent()
     let L = line_segment_sketch.line_segments.ilen()
-    var start = 0
-    var end = 1
+    let mut start = 0
+    let mut end = 1
     while start > -L and !is_convex(line_segment_sketch, start):
         start--
     let ccv_start = start
