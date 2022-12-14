@@ -16,3 +16,22 @@ impl Display for PathConversionError {
     }
 }
 impl Error for PathConversionError {}
+
+pub trait LspExt {
+    type LspType;
+
+    fn from_lsp(t: Self::LspType) -> Self;
+    fn into_lsp(self) -> Self::LspType;
+}
+
+impl LspExt for PathBuf {
+    type LspType = lsp_types::Url;
+
+    fn from_lsp(t: Self::LspType) -> Self {
+        todo!()
+    }
+
+    fn into_lsp(self) -> Self::LspType {
+        todo!()
+    }
+}

@@ -143,7 +143,7 @@ impl CompilerInstance {
 
     fn save_husky_code_snapshot(
         &self,
-        comptime: &HuskyComptime,
+        comptime: &AnalysisHost,
         husky_code_snapshot_path: &Path,
         target_entrance: SourcePath,
     ) {

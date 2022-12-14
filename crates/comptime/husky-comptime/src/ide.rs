@@ -4,10 +4,10 @@ use husky_hover::HoverDb;
 
 use crate::*;
 
-impl HoverDb for HuskyComptime {
+impl HoverDb for AnalysisHost {
     fn hover_config(&self) -> &husky_hover::HoverConfig {
         todo!()
     }
 }
 
-impl HuskyCompletionQuery for HuskyComptime {}
+impl HuskyCompletionQuery for AnalysisHost {}

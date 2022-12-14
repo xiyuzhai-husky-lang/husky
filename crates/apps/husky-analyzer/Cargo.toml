@@ -32,14 +32,28 @@ lsp-server = "0.5.2"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 # comptime
-husky-comptime = { path = "../../comptime/husky-comptime" }
+husky-layout = { path = "../../comptime/husky-layout" }
+husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
+husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
+# fs
+husky-source-path = { path = "../../fs/husky-source-path" }
+husky-vfs = { path = "../../fs/husky-vfs" }
 # ide
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 husky-hover = { path = "../../ide/husky-hover" }
+# kernel
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-toolchain = { path = "../../kernel/husky-toolchain" }
+husky-package-path = { path = "../../kernel/husky-package-path" }
+husky-term = { path = "../../kernel/husky-term" }
+husky-word = { path = "../../kernel/husky-word" }
 # syntax
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-path = { path = "../../fs/husky-path", features = ["lsp_support"] }
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
+husky-fmt = { path = "../../syntax/husky-fmt" }
 # utils
 error-utils = { path = "../../utils/husky-error-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

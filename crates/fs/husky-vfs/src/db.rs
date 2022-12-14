@@ -2,6 +2,7 @@ use crate::*;
 use husky_entity_path::{CratePathKind, EntityPath, EntityPathData};
 use husky_package_path::{PackagePath, PackagePathData};
 use husky_source_path::{SourcePath, SourcePathData};
+use husky_text::{TextChange, TextRange};
 
 pub trait VfsDb: salsa::DbWithJar<VfsJar> + SourcePathDb + Send {
     fn file_content(&self, path: SourcePath) -> VfsResult<&str>;
@@ -17,6 +18,8 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + SourcePathDb + Send {
         }
     }
     fn all_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>>;
+    fn set_live_file(&mut self, path: PathBuf, text: String);
+    fn apply_live_file_changes(&mut self, path: PathBuf, event: Vec<TextChange>);
 }
 
 impl<T> VfsDb for T
@@ -109,6 +112,16 @@ where
             }
         }
         Ok(modules)
+    }
+
+    fn set_live_file(&mut self, path: PathBuf, text: String) {
+        todo!()
+    }
+
+    /// If range are omitted
+    /// the new text is considered to be the full content of the document.
+    fn apply_live_file_changes(&mut self, path: PathBuf, event: Vec<TextChange>) {
+        todo!()
     }
 }
 

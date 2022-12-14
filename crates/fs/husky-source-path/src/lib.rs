@@ -5,7 +5,9 @@ mod db;
 mod error;
 mod jar;
 
-pub use config::{HasSourcePathConfig, SourcePathConfig, SourcePathConfigMimic};
+pub use config::{
+    HasSourcePathConfig, SourcePathConfig, SourcePathConfigImpl, SourcePathConfigMimic,
+};
 pub use db::*;
 pub use error::*;
 pub use jar::SourcePathJar;
