@@ -7,7 +7,8 @@ use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 use crate::zero::is_zero
-use crate::five::is_five
+use crate::three::is_three
+use crate::seven::is_seven
 
 func two_match -> FermiMatchResult:
     fermi_match(major_concave_components,[left_cc_pattern, right_cc_pattern,down_cc_pattern])
@@ -26,10 +27,19 @@ func right_cc_pattern(cc: &ConcaveComponent) -> ?f32:
 func down_cc_pattern(cc: &ConcaveComponent) -> ?f32:
     dp = cc.displacement()
     require dp.x > 0.0
+    // require cc.relative_bounding_box.ymin()<0.2
     dp.x
 
 def is_two -> ?MnistLabel:
+
+    require is_zero be none
+    require is_three be none
+    require is_seven be none
+
     cc_num=major_concave_components.ilen()
+    eff_holes=major_connected_component.eff_holes
+    require eff_holes.matches[1] be none
+
 
     left_cc = two_match.matches[0]
     right_cc = two_match.matches[1]
@@ -37,19 +47,24 @@ def is_two -> ?MnistLabel:
 
     require cc_num<=3
 
+    if cc_num == 2:
+        require left_cc be some
+        require right_cc be some
+        left_ymax = left_cc.relative_bounding_box.ymax()
+        left_ymin = left_cc.relative_bounding_box.ymin()
+        left_mid_y = (left_ymax + left_ymin) / 2.0
 
-    require left_cc be some
-    require right_cc be some
-    left_ymax = left_cc.relative_bounding_box.ymax()
-    left_ymin = left_cc.relative_bounding_box.ymin()
-    left_mid_y = (left_ymax + left_ymin) / 2.0
+        right_ymax = right_cc.relative_bounding_box.ymax()
+        right_ymin = right_cc.relative_bounding_box.ymin()
+        right_mid_y = (right_ymax + right_ymin) / 2.0
+        require left_mid_y >= right_mid_y
 
-    right_ymax = right_cc.relative_bounding_box.ymax()
-    right_ymin = right_cc.relative_bounding_box.ymin()
-    right_mid_y = (right_ymax + right_ymin) / 2.0
-    require left_mid_y > right_mid_y
+    // if cc_num == 2:
+    //     require major_connected_component.eff_holes.matches[0] be none
 
     if cc_num == 3:
+        require left_cc be some
+        require right_cc be some
         require down_cc be some
-        require down_cc.relative_bounding_box.ymin() <0.2
+        require down_cc.relative_bounding_box.ymin() <0.4
     MnistLabel::Two
