@@ -3,7 +3,6 @@ mod struct_item_context;
 pub use struct_item_context::*;
 
 use crate::*;
-use husky_entity_tree::EntityTreeDb;
 use husky_package_path::PackagePath;
 use husky_token::ParadigmKeyword;
 use thin_vec::thin_vec;
@@ -54,7 +53,7 @@ pub enum AstContext {
 }
 
 impl AstContext {
-    pub fn opt_subroute(self, db: &dyn EntityTreeDb, ident: Identifier) -> Option<Term> {
+    pub fn opt_subroute(self, db: &dyn AstDb, ident: Identifier) -> Option<Term> {
         todo!()
         // Some(match self {
         //     AstContext::Package(main) => db.subroute(db.module(main).unwrap(), ident, thin_vec![]),

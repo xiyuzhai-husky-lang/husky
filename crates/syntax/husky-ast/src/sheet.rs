@@ -1,7 +1,6 @@
 use crate::*;
-use husky_entity_tree::EntityTreeResultArc;
 use husky_source_path::SourcePath;
-use husky_token::{AbsSemanticToken, TokenSheet};
+use husky_token::{AbsSemanticToken, TokenGroupSheet};
 use husky_vfs::VfsResult;
 
 #[salsa::tracked(jar = AstJar, return_ref)]

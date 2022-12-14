@@ -4,18 +4,19 @@ use husky_term::Term;
 use crate::*;
 
 pub(crate) fn collect_module_diagnostics(db: &dyn DiagnosticsDb, module: Term) -> Vec<Diagnostic> {
-    let mut diagnostics = Vec::new();
-    let file = match db.module_file(module) {
-        Ok(file) => file,
-        Err(e) => return vec![e.into()],
-    };
-    collect_module_entity_syntax_errors(db, module, &mut diagnostics);
-    collect_module_lex_errors(db, file, &mut diagnostics);
-    collect_module_ast_errors(db, file, &mut diagnostics);
-    collect_module_infer_ty_errors(db, file, &mut diagnostics);
-    collect_module_infer_contract_errors(db, file, &mut diagnostics);
-    collect_module_infer_qualified_ty_errors(db, file, &mut diagnostics);
-    diagnostics
+    todo!()
+    // let mut diagnostics = Vec::new();
+    // let file = match db.module_file(module) {
+    //     Ok(file) => file,
+    //     Err(e) => return vec![e.into()],
+    // };
+    // collect_module_entity_syntax_errors(db, module, &mut diagnostics);
+    // collect_module_lex_errors(db, file, &mut diagnostics);
+    // collect_module_ast_errors(db, file, &mut diagnostics);
+    // collect_module_infer_ty_errors(db, file, &mut diagnostics);
+    // collect_module_infer_contract_errors(db, file, &mut diagnostics);
+    // collect_module_infer_qualified_ty_errors(db, file, &mut diagnostics);
+    // diagnostics
 }
 
 fn collect_module_entity_syntax_errors(

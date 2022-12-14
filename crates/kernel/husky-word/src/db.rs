@@ -9,9 +9,9 @@ pub trait WordDb: DbWithJar<WordJar> {
 
     fn dt_word(&self, data: Word) -> &str;
 
-    fn it_ident_owned(&self, data: String) -> Identifier;
+    fn it_ident_owned(&self, data: String) -> Option<Identifier>;
 
-    fn it_ident_borrowed(&self, data: &str) -> Identifier;
+    fn it_ident_borrowed(&self, data: &str) -> Option<Identifier>;
 
     fn dt_ident(&self, data: Identifier) -> &str;
 
@@ -54,11 +54,11 @@ where
             .get_or_init(|| WordMenu::new(self))
     }
 
-    fn it_ident_owned(&self, data: String) -> Identifier {
+    fn it_ident_owned(&self, data: String) -> Option<Identifier> {
         Identifier::from_owned(self, data)
     }
 
-    fn it_ident_borrowed(&self, data: &str) -> Identifier {
+    fn it_ident_borrowed(&self, data: &str) -> Option<Identifier> {
         Identifier::from_borrowed(self, data)
     }
 

@@ -14,14 +14,14 @@ pub struct WordMenu {
 impl WordMenu {
     pub(crate) fn new(db: &dyn WordDb) -> Self {
         Self {
-            core: db.it_ident_borrowed("core"),
-            std: db.it_ident_borrowed("std"),
-            i32: db.it_ident_borrowed("i32"),
-            i64: db.it_ident_borrowed("i64"),
-            b32: db.it_ident_borrowed("b32"),
-            b64: db.it_ident_borrowed("b64"),
-            f32: db.it_ident_borrowed("f32"),
-            f64: db.it_ident_borrowed("f64"),
+            core: db.it_ident_borrowed("core").unwrap(),
+            std: db.it_ident_borrowed("std").unwrap(),
+            i32: db.it_ident_borrowed("i32").unwrap(),
+            i64: db.it_ident_borrowed("i64").unwrap(),
+            b32: db.it_ident_borrowed("b32").unwrap(),
+            b64: db.it_ident_borrowed("b64").unwrap(),
+            f32: db.it_ident_borrowed("f32").unwrap(),
+            f64: db.it_ident_borrowed("f64").unwrap(),
         }
     }
 

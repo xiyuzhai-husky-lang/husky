@@ -16,7 +16,7 @@ pub(crate) fn is_builtin_entity(db: &dyn EntityPathDb, entity: EntityPath) -> bo
     match db.package_path_data(package) {
         PackagePathData::Builtin { ident, toolchain } => true,
         PackagePathData::Global { version } => todo!(),
-        PackagePathData::Local(_) => todo!(),
+        PackagePathData::Local(_) => false,
         PackagePathData::Git(_) => todo!(),
     }
 }

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_token::{Keyword, SpecialToken, StmtKeyword, TokenGroupIter, TokenKind, TokenSheet};
+use husky_token::{Keyword, SpecialToken, StmtKeyword, TokenGroupIter, TokenGroupSheet, TokenKind};
 
 pub(crate) struct AstParser<'a> {
     db: &'a dyn WordDb,
@@ -9,11 +9,11 @@ pub(crate) struct AstParser<'a> {
 }
 
 impl<'a> AstParser<'a> {
-    pub(crate) fn new(db: &'a dyn WordDb, token_sheet: &'a TokenSheet) -> Self {
+    pub(crate) fn new(db: &'a dyn WordDb, token_sheet: &'a TokenGroupSheet) -> Self {
         Self {
             db,
             arena: Default::default(),
-            token_groups: token_sheet.token_groups(),
+            token_groups: token_sheet.iter(),
             token_group_map: vec![],
         }
     }
@@ -70,10 +70,10 @@ impl<'a> AstParser<'a> {
                             | StmtKeyword::Require => Ast::SimpleStmt,
                         },
                         Keyword::Liason(_) => todo!(),
-                        Keyword::Main => todo!(),
                         Keyword::Use => Ast::Use,
                         Keyword::Mod => Ast::Mod,
-                        Keyword::Config(_)
+                        Keyword::Main
+                        | Keyword::Config(_)
                         | Keyword::Paradigm(_)
                         | Keyword::Visual
                         | Keyword::Type(_)

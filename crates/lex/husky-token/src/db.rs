@@ -13,22 +13,22 @@ use salsa::DbWithJar;
 pub struct TokenJar(token_sheet);
 
 pub trait TokenDb: DbWithJar<TokenJar> + VfsDb + EntityPathDb {
-    fn token_sheet(&self, entity_path: EntityPath) -> &VfsResult<TokenSheet>;
+    fn token_sheet(&self, entity_path: EntityPath) -> &VfsResult<TokenGroupSheet>;
 }
 
 impl<T> TokenDb for T
 where
     T: DbWithJar<TokenJar> + VfsDb + EntityPathDb,
 {
-    fn token_sheet(&self, entity_path: EntityPath) -> &VfsResult<TokenSheet> {
+    fn token_sheet(&self, entity_path: EntityPath) -> &VfsResult<TokenGroupSheet> {
         token_sheet(self, entity_path)
     }
 }
 
 #[salsa::tracked(jar = TokenJar,return_ref)]
-fn token_sheet(db: &dyn TokenDb, entity_path: EntityPath) -> VfsResult<TokenSheet> {
+fn token_sheet(db: &dyn TokenDb, entity_path: EntityPath) -> VfsResult<TokenGroupSheet> {
     let file_content = db.file_content(db.it_source_path(SourcePathData::Module(entity_path)))?;
-    Ok(TokenSheet::new(tokenize::tokenize(
+    Ok(TokenGroupSheet::new(tokenize::tokenize(
         db.word_db(),
         file_content,
     )))

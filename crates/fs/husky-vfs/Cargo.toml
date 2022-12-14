@@ -18,6 +18,7 @@ place = { path = "../../abstraction/place" }
 husky-source-path = { path = "../../fs/husky-source-path" }
 # kernel
 husky-package-path = { path = "../../kernel/husky-package-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
@@ -25,4 +26,3 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 tempfile = "3.3.0"
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-word = { path = "../../kernel/husky-word" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }

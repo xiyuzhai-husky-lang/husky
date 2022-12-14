@@ -3,6 +3,7 @@ use husky_check_utils::should;
 use husky_dev_utils::dev_src;
 use husky_entity_kind::{EntityKind, MemberKind, TyKind};
 use husky_entity_path::EntityPath;
+use husky_package_path::PackagePath;
 use husky_path_utils::*;
 use husky_print_utils::msg_once;
 use husky_source_path::SourcePath;
@@ -23,57 +24,11 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + TokenDb {
 
     fn husky_entity_kind(&self, entity_path: EntityPath) -> EntityTreeResult<EntityKind>;
 
-    // fn entity_source(&self, entity_path: EntityPath) -> EntityTreeResult<EntitySource>;
+    fn submodules(&self, module: EntityPath) -> &[EntityPath];
 
-    fn submodules(&self, module: Term) -> Arc<Vec<Term>>;
+    fn root_modules_of_package(&self, package: PackagePath) -> &[EntityPath];
 
-    fn all_modules(&self) -> Vec<Term> {
-        todo!()
-        // self.all_target_entrances()
-        //     .iter()
-        //     .map(|id| self.collect_modules(*id))
-        //     .flatten()
-        //     .collect()
-    }
-
-    fn all_source_files(&self) -> Vec<SourcePath>
-    where
-        Self: Sized,
-    {
-        todo!()
-        // self.all_target_entrances()
-        //     .iter()
-        //     .map(|file| self.collect_source_files(*file))
-        //     .flatten()
-        //     .collect()
-    }
-
-    fn module_iter(&self) -> std::vec::IntoIter<EntityPath> {
-        todo!()
-        // self.all_modules().into_iter()
-    }
-
-    fn collect_modules(&self, file: SourcePath) -> Vec<EntityPath> {
-        todo!()
-        // if let Ok(module) = self.module(file) {
-        //     let mut modules = vec![module];
-        //     self.subroute_table(module).ok().map(|table| {
-        //         modules.extend(
-        //             table
-        //                 .submodule_idents()
-        //                 .into_iter()
-        //                 .filter_map(|ident| {
-        //                     self.submodule_file(file, ident.ident)
-        //                         .map_or(None, |id| Some(self.collect_modules(id)))
-        //                 })
-        //                 .flatten(),
-        //         );
-        //     });
-        //     modules
-        // } else {
-        //     vec![]
-        // }
-    }
+    fn all_modules_of_package(&self, package: PackagePath) -> &[EntityPath];
 
     fn collect_source_files(&self, target_entrance: SourcePath) -> Vec<SourcePath> {
         todo!()
@@ -83,87 +38,6 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + TokenDb {
         //     .map(|path| self.intern_path(path))
         //     .collect()
     }
-
-    fn module(&self, file: SourcePath) -> EntityTreeResult<EntityPath> {
-        todo!()
-        // let path: PathBuf = file.to_path_buf();
-        // if !self.file_exists(file) {
-        //     Err(derived_error!(format!("file doesn't exist")))?
-        // } else if path_has_file_name(&path, "main.hsy") {
-        //     if let Some(pack_name) = path_parent_file_name_str(&path) {
-        //         let snake_name = dash_to_snake(&pack_name);
-        //         if let WordItd::Identifier(Identifier::Custom(ident)) =
-        //             self.word_itr().intern(Word::new(snake_name))
-        //         {
-        //             todo!()
-        //             // Ok(self.intern_entity_route(EntityRoute::package(file, ident)))
-        //         } else {
-        //             Err(derived_error!(format!("pack name should be identifier")))?
-        //         }
-        //     } else {
-        //         Err(derived_error!(format!("pack root should have filename")))?
-        //     }
-        // } else if path_has_extension(&path, "hsy") {
-        //     let parent = self.module(query_not_none!(
-        //         self.parent_module_file(file),
-        //         format!("cannot find parent")
-        //     )?)?;
-        //     let word = self.it_word(path.file_stem().unwrap().to_str().unwrap());
-        //     match word {
-        //         WordItd::Keyword(kw) => Err(derived_error!(format!(
-        //             "expect custom identifier for module name, but got keyword {} instead",
-        //             kw.as_str()
-        //         ))),
-        //         WordItd::Opr(word_opr) => Err(derived_error!(format!(
-        //             "expect custom identifier for module name, but got word operator {} instead",
-        //             word_opr.as_str()
-        //         ))),
-        //         WordItd::Identifier(ident) => match ident {
-        //             Identifier::Root(_) => todo!(),
-        //             Identifier::Custom(ident) => Ok(
-        //                 todo!(),
-        //                 //     self.intern_entity_route(EntityRoute {
-        //                 //     variant: EntityRouteVariant::Child { parent, ident },
-        //                 //     temporal_arguments: thin_vec![],
-        //                 //     spatial_arguments: thin_vec![],
-        //                 // })
-        //             ),
-        //             Identifier::Contextual(_) => todo!(),
-        //         },
-        //         WordItd::Decorator(_) => todo!(),
-        //         WordItd::Pattern(_) => todo!(),
-        //     }
-        // } else {
-        //     Err(derived_error!(format!(
-        //         "file (path: {:?}) should have extension .hsy",
-        //         path.to_str()
-        //     )))?
-        // }
-    }
-
-    fn module_file(&self, module: Term) -> EntityTreeResult<SourcePath> {
-        todo!()
-        // Ok(match self.entity_source(module)? {
-        //     EntitySource::StaticModuleItem(_) => panic!(),
-        //     EntitySource::WithinModule { file, .. } => file,
-        //     EntitySource::Module { file } => file,
-        //     EntitySource::WithinBuiltinModule => todo!(),
-        //     EntitySource::TargetInput { .. } => todo!(),
-        //     EntitySource::StaticTypeMember(_) => todo!(),
-        //     EntitySource::StaticTraitMember(_) => todo!(),
-        //     EntitySource::StaticTypeAsTraitMember => todo!(),
-        //     EntitySource::Any { .. } => todo!(),
-        //     EntitySource::StaticEnumVariant(_) => todo!(),
-        //     EntitySource::ThisType { .. } => todo!(),
-        // })
-    }
-
-    // fn entity_kind_from_entity_route_variant(
-    //     &self,
-    //     entity_route_variant: &EntityRouteVariant,
-    // ) -> EntityTreeResult<EntityKind> {
-    //     entity_kind_from_entity_route_kind(self.upcast(), entity_route_variant)
-    // }
 }
 
 impl<T> EntityTreeDb for T
@@ -186,7 +60,15 @@ where
         todo!()
     }
 
-    fn submodules(&self, module: Term) -> Arc<Vec<Term>> {
+    fn submodules(&self, module: EntityPath) -> &[EntityPath] {
+        todo!()
+    }
+
+    fn root_modules_of_package(&self, package: PackagePath) -> &[EntityPath] {
+        todo!()
+    }
+
+    fn all_modules_of_package(&self, package: PackagePath) -> &[EntityPath] {
         todo!()
     }
 }

@@ -4,11 +4,11 @@ mod jar;
 mod menu;
 mod utils;
 
+pub use crate_path::CratePathKind;
 pub use db::*;
 pub use jar::*;
 pub use menu::*;
 
-use crate_path::CratePathKind;
 use husky_package_path::PackagePath;
 use husky_toolchain::Toolchain;
 use husky_word::Identifier;
@@ -56,7 +56,7 @@ impl EntityPath {
         // }
     }
 
-    pub(crate) fn child(self, db: &dyn EntityPathDb, ident: &str) -> EntityPath {
+    pub(crate) fn child(self, db: &dyn EntityPathDb, ident: &str) -> Option<EntityPath> {
         db.it_child_entity_path(self, ident)
     }
 }

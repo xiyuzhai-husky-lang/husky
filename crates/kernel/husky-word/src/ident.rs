@@ -11,14 +11,20 @@ impl Identifier {
         self.0
     }
 
-    pub(crate) fn from_owned(db: &dyn WordDb, data: String) -> Self {
-        assert!(is_valid_ident(&data));
-        Self(db.it_word_owned(data))
+    pub(crate) fn from_owned(db: &dyn WordDb, data: String) -> Option<Self> {
+        if is_valid_ident(&data) {
+            Some(Self(db.it_word_owned(data)))
+        } else {
+            None
+        }
     }
 
-    pub(crate) fn from_borrowed(db: &dyn WordDb, data: &str) -> Self {
-        assert!(is_valid_ident(data));
-        Self(db.it_word_borrowed(data))
+    pub(crate) fn from_borrowed(db: &dyn WordDb, data: &str) -> Option<Self> {
+        if is_valid_ident(data) {
+            Some(Self(db.it_word_borrowed(data)))
+        } else {
+            None
+        }
     }
 
     pub(crate) fn data(self, db: &dyn WordDb) -> &str {

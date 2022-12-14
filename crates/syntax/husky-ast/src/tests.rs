@@ -1,7 +1,6 @@
 use crate::*;
 use expect_test::expect_file;
-use husky_entity_path::{EntityPathDb, EntityPathJar};
-use husky_entity_tree::EntityTreeJar;
+use husky_entity_path::{CratePathKind, EntityPathData, EntityPathDb, EntityPathJar};
 use husky_package_path::{PackagePathData, PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
 use husky_source_path::{
@@ -12,9 +11,9 @@ use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 use husky_toolchain::ToolchainJar;
-use husky_vfs::VfsJar;
+use husky_vfs::{VfsDb, VfsJar};
 use husky_word::{WordDb, WordJar};
-use salsa::{Database, ParallelDatabase, Snapshot};
+use salsa::{Database, DebugWithDb, ParallelDatabase, Snapshot};
 use std::{borrow::Cow, sync::Arc};
 
 #[salsa::db(
@@ -22,7 +21,6 @@ use std::{borrow::Cow, sync::Arc};
     ToolchainJar,
     PackagePathJar,
     EntityPathJar,
-    EntityTreeJar,
     VfsJar,
     SourcePathJar,
     TokenJar,
@@ -71,6 +69,21 @@ fn library_ast_works() {
 
 #[test]
 fn examples_ast_works() {
+    fn assign_expect_path(db: &MimicDB, module: EntityPath) -> PathBuf {
+        match db.dt_entity_path(module) {
+            EntityPathData::Crate { package, kind } => {
+                let dir = db.package_dir(package).unwrap().join("ast");
+                std::fs::create_dir(&dir);
+                match kind {
+                    CratePathKind::Library => dir.join("lib.ast"),
+                    CratePathKind::Main => dir.join("main.ast"),
+                    CratePathKind::Binary(_) => todo!(),
+                }
+            }
+            EntityPathData::Childpath { parent, ident } => todo!(),
+        }
+    }
+
     use husky_path_utils::*;
     let db = MimicDB::default();
     let cargo_manifest_dir = cargo_manifest_dir().unwrap();
@@ -78,9 +91,12 @@ fn examples_ast_works() {
         .join("tests/examples")
         .canonicalize()
         .unwrap();
-    let package_dirs = collect_package_dirs(examples_dir);
-    let packages: Vec<_> = package_dirs
+    collect_package_dirs(examples_dir)
         .into_iter()
-        .map(|path| db.it_package_path(PackagePathData::Local(path)))
-        .collect();
+        .for_each(|path| {
+            let package = db.it_package_path(PackagePathData::Local(path));
+            for module in db.all_possible_modules(package).unwrap() {
+                expect_file![assign_expect_path(&db, module)].assert_debug_eq(db.ast_sheet(module))
+            }
+        });
 }
