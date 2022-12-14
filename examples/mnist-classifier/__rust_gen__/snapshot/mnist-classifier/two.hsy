@@ -9,6 +9,24 @@ use crate::line_segment_sketch::concave_component::*
 use crate::zero::is_zero
 use crate::five::is_five
 
+func two_match -> FermiMatchResult:
+    fermi_match(major_concave_components,[left_cc_pattern, right_cc_pattern])
+
+
+func left_cc_pattern(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    require dp.y < 0.0
+    dp.y
+
+func right_cc_pattern(cc: &ConcaveComponent) -> ?f32:
+    dp = cc.displacement()
+    require dp.y > 0.0
+    dp.y
+
 def is_two -> ?MnistLabel:
+    cc_num=major_concave_components.ilen()
+    if cc_num == 2:
+        left_cc = two_match.matches[0]
+        right_cc = two_match.matches[0]
 
     MnistLabel::Two
