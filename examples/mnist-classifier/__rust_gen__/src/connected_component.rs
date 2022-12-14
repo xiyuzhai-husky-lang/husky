@@ -366,6 +366,22 @@ impl ConnectedComponent {
         }
         return top_k_row_span_sum as f32;
     }
+
+    pub(crate) fn top_k_row_right_mass_sum(&self, k: i32) -> f32 {
+        let mut top_k_row_span_sum = 0;
+        assert!(k > 0);
+        let mut i = 1;
+        while i < 29 {
+            if self.mask[(i) as usize] != 0 {
+                break;
+            }
+            i += 1;
+        }
+        for j in i..i + k {
+            top_k_row_span_sum += self.mask[(j) as usize].right_mass();
+        }
+        return top_k_row_span_sum as f32;
+    }
 }
 
 impl __StaticInfo for ConnectedComponent {
