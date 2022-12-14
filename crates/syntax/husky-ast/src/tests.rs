@@ -80,14 +80,17 @@ fn examples_ast_works() {
 
     fn mimic_path(db: &MimicDB, module: EntityPath) -> PathBuf {
         let dir = mimic_dir(db, module);
-        dir.join(match db.dt_entity_path(module) {
-            EntityPathData::Crate { package, kind } => match kind {
-                CratePathKind::Library => "lib.ast",
-                CratePathKind::Main => "main.ast",
-                CratePathKind::Binary(_) => todo!(),
-            },
-            EntityPathData::Childpath { ident, .. } => db.dt_ident(ident),
-        })
+        dir.join(format!(
+            "{}.ast.txt",
+            match db.dt_entity_path(module) {
+                EntityPathData::Crate { package, kind } => match kind {
+                    CratePathKind::Library => "lib",
+                    CratePathKind::Main => "main",
+                    CratePathKind::Binary(_) => todo!(),
+                },
+                EntityPathData::Childpath { ident, .. } => db.dt_ident(ident),
+            }
+        ))
     }
 
     use husky_path_utils::*;
