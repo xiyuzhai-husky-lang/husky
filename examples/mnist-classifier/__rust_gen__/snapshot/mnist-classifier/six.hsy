@@ -62,7 +62,9 @@ def is_six -> ?MnistLabel:
     )?
     if six_match.norm > 1.8:
         require six_match.norm < 1.8
-    require eff_holes.matches[1] be none
+    require eff_holes.matches[0].relative_bounding_box.ymax() < 0.75
+    if eff_holes.matches[1] be some:
+        require eff_holes.matches[1].relative_bounding_box.ymax() < 0.75
     require lower_excess > 15.0
     MnistLabel::Six
 

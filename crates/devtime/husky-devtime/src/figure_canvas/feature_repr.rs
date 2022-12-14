@@ -170,6 +170,10 @@ impl HuskyDevtime {
     }
 
     fn is_trace_returned(&self, trace_id: TraceId, sample_id: SampleId) -> __VMResult<bool> {
+        // ad hoc, without this, we get bugs
+        if !self.is_trace_arrived(trace_id, sample_id)? {
+            return Ok(false);
+        }
         let trace = self.trace(trace_id);
         let (value, ty) = match trace.variant {
             TraceVariant::Main(ref repr) => {
