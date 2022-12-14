@@ -2,18 +2,18 @@ use cv::datasets::mnist::BinaryImage28
 
 
 proc find_connected_components(img: BinaryImage28) -> []BinaryImage28:
-    var result = []BinaryImage28()
-    var unsearched = img.clone()
+    let mut result = []BinaryImage28()
+    let mut unsearched = img.clone()
     for j < 30:
         while unsearched[j]:
             let a = unsearched[j]
             let shift = a.ctz()
-            var mask = BinaryImage28()
+            let mut mask = BinaryImage28()
             mask[j] = horizontal_extend(a, 1b32 << shift)
-            var flag = false
+            let mut flag = false
             while !flag :
                 flag = true
-                var i = j
+                let mut i = j
                 forext i < 30 - 1:
                     let old_row = mask[i + 1]
                     let new_row = old_row | horizontal_extend(img[i + 1], mask[i])

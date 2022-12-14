@@ -436,7 +436,14 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
             self.buffer.push(c);
             Some(self.next_number())
         } else if c == '/' && self.char_iter.peek() == Some('/') {
-            todo!()
+            while let Some(c) = self.char_iter.peek() {
+                if c == '\n' {
+                    break;
+                } else {
+                    self.char_iter.next();
+                }
+            }
+            Some(RawTokenVariant::Comment)
         } else {
             self.next_special(c)
         }

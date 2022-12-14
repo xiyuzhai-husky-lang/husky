@@ -17,17 +17,17 @@ func h(v: &[]A) -> i32:
     1
 
 proc i(v: &[]A) -> i32:
-    var t1 = g(v.firstx())
-    var t2 = v.firstx()
+    let mut t1 = g(v.firstx())
+    let mut t2 = v.firstx()
     return 1
 
 proc i2(v: &[]A) -> i32:
-    var t1 = g(v.firstx())
+    let mut t1 = g(v.firstx())
     v.firstx() = v
     return 1
 
 proc i3(v: &[]A) -> i32:
-    var t1 = g(v.firstx())
+    let mut t1 = g(v.firstx())
     v.firstx() = v.firstx()
     return 1
 

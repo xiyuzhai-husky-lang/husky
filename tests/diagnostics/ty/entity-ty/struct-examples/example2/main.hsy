@@ -23,7 +23,7 @@ proc f1() -> A:
     return A(1)
 
 proc f2() -> A:
-    var a = A(2)
+    let mut a = A(2)
     a.x = 1
     return a
 

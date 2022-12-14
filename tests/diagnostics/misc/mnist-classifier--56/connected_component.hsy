@@ -14,26 +14,26 @@ def connected_components -> []ConnectedComponent:
     find_connected_components(input)
 
 proc horizontal_extend(a: b32, x: b32) -> b32:
-    var y = a & (x | (x << 1) | (x >> 1))
-    var z = a & (y | (y << 1) | (y >> 1))
+    let mut y = a & (x | (x << 1) | (x >> 1))
+    let mut z = a & (y | (y << 1) | (y >> 1))
     while z != y:
         y = z
         z = a & (y | (y << 1) | (y >> 1))
     return y
 
 proc find_connected_components(img: BinaryImage28) -> []ConnectedComponent:
-    var result = []ConnectedComponent()
-    var unsearched = img.clone()
+    let mut result = []ConnectedComponent()
+    let mut unsearched = img.clone()
     for j < 30:
         while unsearched[j]:
             let a = unsearched[j]
             let shift = a.ctz()
-            var mask = BinaryImage28()
+            let mut mask = BinaryImage28()
             mask[j] = horizontal_extend(a, 1b32 << shift)
-            var flag = false
+            let mut flag = false
             while !flag :
                 flag = true
-                var i = j
+                let mut i = j
                 forext i < 30 - 1:
                     let old_row = mask[i + 1]
                     let new_row = old_row | horizontal_extend(img[i + 1], mask[i])

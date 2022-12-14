@@ -69,19 +69,25 @@ fn library_ast_works() {
 
 #[test]
 fn examples_ast_works() {
-    fn assign_expect_path(db: &MimicDB, module: EntityPath) -> PathBuf {
+    fn mimic_dir(db: &dyn VfsDb, module: EntityPath) -> PathBuf {
         match db.dt_entity_path(module) {
-            EntityPathData::Crate { package, kind } => {
-                let dir = db.package_dir(package).unwrap().join("ast");
-                std::fs::create_dir(&dir);
-                match kind {
-                    CratePathKind::Library => dir.join("lib.ast"),
-                    CratePathKind::Main => dir.join("main.ast"),
-                    CratePathKind::Binary(_) => todo!(),
-                }
+            EntityPathData::Crate { package, kind } => db.package_dir(package).unwrap().join("ast"),
+            EntityPathData::Childpath { parent, ident } => {
+                mimic_dir(db, parent).join(db.dt_ident(ident))
             }
-            EntityPathData::Childpath { parent, ident } => todo!(),
         }
+    }
+
+    fn mimic_path(db: &MimicDB, module: EntityPath) -> PathBuf {
+        let dir = mimic_dir(db, module);
+        dir.join(match db.dt_entity_path(module) {
+            EntityPathData::Crate { package, kind } => match kind {
+                CratePathKind::Library => "lib.ast",
+                CratePathKind::Main => "main.ast",
+                CratePathKind::Binary(_) => todo!(),
+            },
+            EntityPathData::Childpath { ident, .. } => db.dt_ident(ident),
+        })
     }
 
     use husky_path_utils::*;
@@ -96,7 +102,9 @@ fn examples_ast_works() {
         .for_each(|path| {
             let package = db.it_package_path(PackagePathData::Local(path));
             for module in db.all_possible_modules(package).unwrap() {
-                expect_file![assign_expect_path(&db, module)].assert_debug_eq(db.ast_sheet(module))
+                let path = mimic_path(&db, module);
+                std::fs::create_dir_all(path.parent().unwrap()).unwrap();
+                expect_file![path].assert_debug_eq(db.ast_sheet(module))
             }
         });
 }

@@ -15,7 +15,7 @@ struct ConcaveComponent:
         this.norm / this.displacement().norm()
 
     proc hausdorff_norm -> f32:
-        var hausdorff_norm = 0.0
+        let mut hausdorff_norm = 0.0
         let curve_start = strokes.firstx().start
         let curve_ls = this.line_segment()
         let dp_norm = curve_ls.displacement().norm()
@@ -28,8 +28,8 @@ struct ConcaveComponent:
         return hausdorff_norm
 
     proc angle_change -> f32:
-        var angle_change = 0.0
-        var dp0 = this.strokes[strokes.start].displacement()
+        let mut angle_change = 0.0
+        let mut dp0 = this.strokes[strokes.start].displacement()
         // todo: change this for .. in ..[1..]
         for strokes.start < i < strokes.end:
             let dp = this.strokes[i].displacement()
@@ -39,10 +39,10 @@ struct ConcaveComponent:
     
     proc bounding_box -> BoundingBox:
         let start_point = strokes.firstx().start
-        var xmin = start_point.x
-        var xmax = start_point.x
-        var ymin = start_point.y
-        var ymax = start_point.y
+        let mut xmin = start_point.x
+        let mut xmax = start_point.x
+        let mut ymin = start_point.y
+        let mut ymax = start_point.y
         for strokes.start <= i < strokes.end:
             let point = strokes[i].end
             xmin = xmin.min(point.x)
@@ -82,10 +82,10 @@ struct ConcaveComponent:
         strokes
 
 proc find_concave_components(line_segment_sketch: &LineSegmentSketch) -> []ConcaveComponent:
-    var concave_components = []ConcaveComponent()
+    let mut concave_components = []ConcaveComponent()
     let L = line_segment_sketch.strokes.ilen()
-    var start = 0
-    var end = 1
+    let mut start = 0
+    let mut end = 1
     while start > -L and !is_convex(line_segment_sketch, start):
         start--
     let ccv_start = start

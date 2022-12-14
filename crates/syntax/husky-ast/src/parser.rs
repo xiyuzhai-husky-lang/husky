@@ -47,13 +47,15 @@ impl<'a> AstParser<'a> {
         Some((
             idx,
             if token_group.indent() > indent {
-                Ast::ExcessiveIndent
+                Ast::Err(AstError::ExcessiveIndent)
             } else {
                 match token_group.first().kind {
                     TokenKind::Decorator(_) => todo!(),
                     TokenKind::Keyword(kw) => match kw {
                         Keyword::Stmt(kw) => match kw {
-                            StmtKeyword::If => todo!(),
+                            StmtKeyword::If => {
+                                todo!()
+                            }
                             StmtKeyword::Elif => todo!(),
                             StmtKeyword::Else => todo!(),
                             StmtKeyword::Match => todo!(),
@@ -61,7 +63,7 @@ impl<'a> AstParser<'a> {
                             StmtKeyword::While
                             | StmtKeyword::Do
                             | StmtKeyword::For
-                            | StmtKeyword::ForExt => Ast::LoopStmt(self.parse_asts(indent + 4)),
+                            | StmtKeyword::ForExt => Ast::BlockStmt(self.parse_asts(indent + 4)),
                             StmtKeyword::Let
                             | StmtKeyword::Var
                             | StmtKeyword::Break

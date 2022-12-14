@@ -5,7 +5,7 @@ task:
     ml::datasets::cv::mnist::new_binary_dataset()
 
 proc find_a(binary_image: BinaryImage28) -> i32:
-    var b = binary_image.clone()
+    let mut b = binary_image.clone()
     b[0] = 1b32
     return 1
 
