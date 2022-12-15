@@ -1,5 +1,4 @@
 use crate::*;
-use husky_source_path::SourcePath;
 use husky_token::{AbsSemanticToken, TokenGroupSheet};
 use husky_vfs::VfsResult;
 

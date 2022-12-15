@@ -1,4 +1,4 @@
-use husky_source_path::SourcePath;
+use husky_absolute_path::AbsolutePath;
 
 use super::*;
 
@@ -11,7 +11,7 @@ pub struct SubrouteEntry {
 impl SubrouteEntry {
     pub fn from_token_group(
         db: &dyn EntityTreeDb,
-        file: SourcePath,
+        file: AbsolutePath,
         _parent_entity_kind: EntityKind,
         token_group_index: usize,
         token_group: &[Token],
@@ -107,7 +107,7 @@ impl SubrouteEntry {
 
     pub fn submodule(
         db: &dyn EntityTreeDb,
-        file: SourcePath,
+        file: AbsolutePath,
         _token_group_index: usize,
         token_group: &[Token],
     ) -> EntityTreeResult<Option<SubrouteEntry>> {

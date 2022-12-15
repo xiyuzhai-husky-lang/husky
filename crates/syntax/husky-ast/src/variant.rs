@@ -1,5 +1,5 @@
+use husky_absolute_path::AbsolutePath;
 use husky_entity_path::EntityPath;
-use husky_source_path::SourcePath;
 use husky_token::ParadigmKeyword;
 
 use crate::*;
@@ -42,7 +42,7 @@ pub enum DeprecatedAstVariant {
     },
     Submodule {
         ident: RangedIdentifier,
-        source_file: SourcePath,
+        source_file: AbsolutePath,
     },
     Visual,
 }

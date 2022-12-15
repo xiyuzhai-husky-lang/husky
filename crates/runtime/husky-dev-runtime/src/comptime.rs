@@ -14,13 +14,11 @@ impl InternPath for DevRuntime {
 impl InternHuskyPath for DevRuntime {}
 
 impl VfsQueryGroupBase for DevRuntime {
-    fn get_live_files(
-        &self,
-    ) -> Option<&ASafeRwLock<IndexMap<husky_source_path::SourcePath, ASafeRwLock<String>>>> {
+    fn get_live_files(&self) -> Option<&ASafeRwLock<IndexMap<EntityPath, ASafeRwLock<String>>>> {
         Some(&self.live_docs)
     }
 
-    fn watch(&self, path: SourcePath) {
+    fn watch(&self, path: AbsolutePath) {
         todo!()
     }
 }

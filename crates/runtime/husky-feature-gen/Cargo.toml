@@ -25,7 +25,6 @@ avec = { path = "../../abstraction/avec" }
 map-collect = { path = "../../abstraction/map-collect" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-vm = { path = "../../vm/husky-vm" }
-husky-source-path = { path = "../../fs/husky-source-path" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }

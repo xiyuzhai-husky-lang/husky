@@ -7,6 +7,7 @@ pub use db::*;
 pub use jar::*;
 pub use menu::*;
 
+use husky_absolute_path::AbsolutePath;
 use husky_toolchain::Toolchain;
 use husky_word::Identifier;
 use name::package_name;
@@ -23,7 +24,7 @@ pub enum PackagePathData {
     Global {
         version: Version,
     },
-    Local(PathBuf),
+    Local(AbsolutePath),
     Git(Url),
 }
 

@@ -3,7 +3,6 @@ use crate::*;
 use husky_dev_utils::dev_src;
 
 use husky_entity_path::{EntityPath, EntityPathDb};
-use husky_source_path::{SourcePath, SourcePathData};
 use husky_text::TextCharIter;
 use husky_vfs::{VfsDb, VfsResult};
 use husky_word::WordDb;
@@ -29,6 +28,6 @@ where
 fn token_sheet(db: &dyn TokenDb, entity_path: EntityPath) -> VfsResult<TokenGroupSheet> {
     Ok(TokenGroupSheet::new(tokenize::tokenize(
         db.word_db(),
-        db.source_text(db.it_source_path(SourcePathData::Module(entity_path)))?,
+        db.module_content(entity_path)?,
     )))
 }

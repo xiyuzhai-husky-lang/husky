@@ -1,14 +1,12 @@
-use husky_source_path::SourcePath;
 use husky_term::Term;
-use husky_text::TextRange;
+use husky_text::{FileRange, TextRange};
 use husky_word::Identifier;
 
 use crate::*;
 
 #[derive(Debug)]
 pub struct MutationData<'eval> {
-    pub file: SourcePath,
-    pub range: TextRange,
+    pub range: FileRange,
     pub kind: MutationDataVariant,
     pub ty: Term,
     pub before: Option<__Register<'eval>>,

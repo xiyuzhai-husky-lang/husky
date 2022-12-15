@@ -10,12 +10,11 @@ salsa = { path = "../../abstraction/salsa" }
 lsp-types = { version = "0.93", features = ["proposed"] }
 # abstraction
 reserve = { path = "../../abstraction/reserve" }
-# fs
-husky-source-path = { path = "../../fs/husky-source-path" }
 # infer
 husky-term-infer = { path = "../../infer/husky-term-infer" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
+husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax

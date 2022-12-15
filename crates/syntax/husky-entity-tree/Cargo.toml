@@ -12,9 +12,6 @@ salsa = { path = "../../abstraction/salsa" }
 upcast = { path = "../../abstraction/upcast" }
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
-# fs
-husky-path = { path = "../../fs/husky-path" }
-husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
@@ -23,6 +20,7 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
+husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 # syntax
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }

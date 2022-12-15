@@ -1,15 +1,13 @@
 use crate::*;
-use husky_absolute_path::AbsolutePathJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_expect_test_utils::expect_test_husky_to_rust;
 use husky_package_path::PackagePathJar;
-use husky_source_path::{HasSourcePathConfig, SourcePathConfig, SourcePathJar};
 use husky_symbol_syntax::{SymbolContext, SymbolDb, SymbolJar, SymbolSheet};
 use husky_token::TokenJar;
 use husky_token::{TokenDb, Tokenize};
 use husky_toolchain::ToolchainJar;
-use husky_vfs::VfsJar;
+use husky_vfs::*;
 use husky_word::WordJar;
 use place::SingleAssignPlace;
 use salsa::{Database, ParallelDatabase};
@@ -17,8 +15,6 @@ use salsa::{Database, ParallelDatabase};
 #[salsa::db(
     WordJar,
     VfsJar,
-    AbsolutePathJar,
-    SourcePathJar,
     ToolchainJar,
     PackagePathJar,
     EntityPathJar,
@@ -31,8 +27,8 @@ struct MimicDB {
     storage: salsa::Storage<Self>,
 }
 
-impl HasSourcePathConfig for MimicDB {
-    fn source_path_config(&self) -> &SourcePathConfig {
+impl HasVfsConfig for MimicDB {
+    fn vfs_config(&self) -> &VfsConfig {
         todo!()
     }
 }

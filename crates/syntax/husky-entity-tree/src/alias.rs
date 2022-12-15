@@ -1,4 +1,4 @@
-use husky_source_path::SourcePath;
+use husky_absolute_path::AbsolutePath;
 use husky_term::Term;
 use husky_token::{Keyword, TokenKind};
 use husky_word::Identifier;
@@ -17,7 +17,7 @@ impl EntityRouteAliasTable {
         }
     }
 
-    // pub fn parse(file_id: SourcePath, token_groups: husky_token_sheet::TokenGroupIter) -> Self {
+    // pub fn parse(file_id: AbsolutePath, token_groups: husky_token_sheet::TokenGroupIter) -> Self {
     //     let mut errors = Vec::new();
     //     let entries = token_groups
     //         .filter_map(|item| {
@@ -38,7 +38,7 @@ pub struct EntityRouteAliasEntry {
 
 impl EntityRouteAliasEntry {
     pub fn parse(
-        _file_id: SourcePath,
+        _file_id: AbsolutePath,
         _token_group_index: usize,
         token_group: &[husky_token::Token],
     ) -> (Option<EntityRouteAliasEntry>, Option<ScopeAliasDefError>) {

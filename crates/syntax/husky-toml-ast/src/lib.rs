@@ -13,10 +13,10 @@ mod tests;
 pub use db::*;
 pub use error::*;
 pub use expr::*;
+use husky_package_path::PackagePath;
 pub use line_group::*;
 pub use table::*;
 
-use husky_source_path::SourcePath;
 use husky_toml_token::*;
 use husky_vfs::VfsResult;
 use husky_word::Word;
@@ -25,7 +25,7 @@ use parser::TomlAstParser;
 use section::{TomlSection, TomlSectionIdx, TomlSectionKind, TomlSectionSheet};
 
 #[salsa::jar(db = TomlAstDb)]
-pub struct TomlAstJar(toml_ast);
+pub struct TomlAstJar(package_manifest_ast);
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TomlAst {
@@ -36,8 +36,11 @@ pub struct TomlAst {
 }
 
 #[salsa::tracked(jar = TomlAstJar, return_ref)]
-fn toml_ast(db: &dyn TomlAstDb, path: SourcePath) -> VfsResult<TomlAst> {
-    Ok(TomlAst::new(db, db.toml_token_text(path).as_ref()?))
+fn package_manifest_ast(db: &dyn TomlAstDb, package: PackagePath) -> VfsResult<TomlAst> {
+    Ok(TomlAst::new(
+        db,
+        db.package_manifest_toml_token_sheet(package).as_ref()?,
+    ))
 }
 
 impl TomlAst {

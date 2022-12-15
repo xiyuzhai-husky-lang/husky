@@ -15,7 +15,7 @@
 // use husky_entity_semantics::*;
 // use husky_feature_eval::EvalFeature;
 // use husky_feature_gen::*;
-// use husky_source_path::SourcePath;
+// use EntityPath;
 // use husky_term::Term;
 // use husky_text::TextRange;
 // use husky_trace_protocol::*;
@@ -29,14 +29,14 @@
 //     pub variant: TraceVariant,
 //     pub raw_data: TraceData,
 //     pub range: TextRange,
-//     pub file: SourcePath,
+//     pub file: AbsolutePath,
 // }
 // #[derive(Debug)]
 // pub enum TraceVariant {
 //     Main(FeatureRepr),
 //     Module {
 //         entity_path: EntityPath,
-//         file: SourcePath,
+//         file: AbsolutePath,
 //         range: TextRange,
 //     },
 //     EntityFeature {

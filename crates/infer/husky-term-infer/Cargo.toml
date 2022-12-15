@@ -12,7 +12,6 @@ salsa = { path = "../../abstraction/salsa" }
 upcast = { path = "../../abstraction/upcast" }
 # fs
 husky-path = { path = "../../fs/husky-path" }
-husky-source-path = { path = "../../fs/husky-source-path" }
 # syntax
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
@@ -23,6 +22,7 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 # utils
 husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
@@ -31,7 +31,6 @@ wild-utils = { path = "../../utils/husky-wild-utils" }
 [dev-dependencies]
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
-husky-absolute-path = { path = "../../fs/husky-absolute-path" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }

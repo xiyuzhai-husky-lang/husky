@@ -1,4 +1,6 @@
 use husky_absolute_path::AbsolutePath;
+use husky_entity_path::EntityPath;
+use husky_package_path::PackagePath;
 use salsa::{input::InputIngredient, input_field::InputFieldIngredient, Durability};
 
 use crate::*;
@@ -13,6 +15,12 @@ pub enum FileContent {
     Live(String),
     Directory(Vec<AbsolutePath>),
     Err(VfsError),
+}
+
+impl File {
+    pub(crate) fn text(self, db: &dyn VfsDb) -> VfsResult<&str> {
+        self.content(db).text()
+    }
 }
 
 impl FileContent {
@@ -195,4 +203,15 @@ where
     DB: ?Sized + salsa::DbWithJar<VfsJar>,
 {
     fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
+}
+
+#[salsa::tracked(jar = VfsJar )]
+pub(crate) fn package_manifest_file(db: &dyn VfsDb, package_path: PackagePath) -> VfsResult<File> {
+    Ok(db.file_from_absolute_path(&package_manifest_path(db, package_path)?))
+}
+
+#[salsa::tracked(jar = VfsJar )]
+pub(crate) fn module_file(db: &dyn VfsDb, entity_path: EntityPath) -> VfsResult<File> {
+    let abs_path = module_path(db, entity_path).as_ref()?;
+    Ok(db.file_from_absolute_path(abs_path))
 }

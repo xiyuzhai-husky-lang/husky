@@ -21,7 +21,7 @@
 // use husky_feature_eval::{EvalFeature, Session};
 // use husky_feature_gen::FeatureInterner;
 // use husky_linkage_table::LinkageTable;
-// use husky_path::{FileQueryGroup, SourcePath};
+// use husky_path::{FileQueryGroup, AbsolutePath};
 // use husky_print_utils::*;
 
 // use indexmap::IndexMap;
@@ -52,7 +52,7 @@
 //     storage: salsa::Storage<DevRuntime>,
 //     variant: HuskyRuntimeVariant,
 //     config: RuntimeConfig,
-//     live_docs: ASafeRwLock<IndexMap<SourcePath, ASafeRwLock<String>>>,
+//     live_docs: ASafeRwLock<IndexMap<AbsolutePath, ASafeRwLock<String>>>,
 //     linkage_table: LinkageTable,
 //     entity_route_store: EntityRouteStore,
 // }

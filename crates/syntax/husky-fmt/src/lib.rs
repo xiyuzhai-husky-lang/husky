@@ -2,6 +2,7 @@ mod formatter;
 
 use formatter::Formatter;
 use husky_ast::AstContext;
+use husky_entity_path::EntityPath;
 use salsa::DbWithJar;
 use std::sync::Arc;
 
@@ -9,27 +10,21 @@ use std::sync::Arc;
 pub struct SyntaxFormatJar();
 
 pub trait SyntaxFormatDb: DbWithJar<SyntaxFormatJar> + husky_ast::AstDb {
-    fn fmt_text(
-        &self,
-        id: husky_source_path::SourcePath,
-    ) -> husky_entity_tree::EntityTreeResultArc<String>;
+    fn fmt_text(&self, id: EntityPath) -> husky_entity_tree::EntityTreeResultArc<String>;
 }
 
 impl<T> SyntaxFormatDb for T
 where
     T: DbWithJar<SyntaxFormatJar> + husky_ast::AstDb,
 {
-    fn fmt_text(
-        &self,
-        id: husky_source_path::SourcePath,
-    ) -> husky_entity_tree::EntityTreeResultArc<String> {
+    fn fmt_text(&self, id: EntityPath) -> husky_entity_tree::EntityTreeResultArc<String> {
         todo!()
     }
 }
 
 fn fmt_text(
     db: &dyn SyntaxFormatDb,
-    file: husky_source_path::SourcePath,
+    file: EntityPath,
 ) -> husky_entity_tree::EntityTreeResultArc<String> {
     todo!()
     // let ast_text = db.ast_text(file)?;

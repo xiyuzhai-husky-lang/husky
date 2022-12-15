@@ -1,13 +1,12 @@
 use crate::*;
 use husky_entity_path::EntityPath;
-use husky_source_path::SourcePath;
 
 pub trait InstructionDb {
     fn entity_instruction_sheet(&self, entity_path: EntityPath) -> Option<Arc<InstructionSheet>>;
     fn method_opt_instruction_sheet(&self, member_route: Term) -> Option<Arc<InstructionSheet>>;
     fn dataset_config_instruction_sheet(
         &self,
-        target_entrance: SourcePath,
+        target_entrance: EntityPath,
     ) -> Arc<InstructionSheet>;
     fn enum_literal_to_i32(&self, entity_path: EntityPath) -> i32;
 }
@@ -116,7 +115,7 @@ fn method_opt_instruction_sheet(
 
 fn dataset_config_instruction_sheet(
     db: &dyn InstructionDb,
-    target_entrance: SourcePath,
+    target_entrance: EntityPath,
 ) -> Arc<InstructionSheet> {
     todo!()
     // let package = db.package(target_entrance).unwrap();

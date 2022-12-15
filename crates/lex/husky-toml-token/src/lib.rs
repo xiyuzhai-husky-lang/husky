@@ -21,7 +21,7 @@ pub use stream::*;
 use tokenize::*;
 
 #[salsa::jar(db = TomlTokenDb)]
-pub struct TomlTokenJar(toml_token_text);
+pub struct TomlTokenJar(package_manifest_toml_token_sheet);
 
 use husky_print_utils::p;
 use husky_text_span::TextSpan;

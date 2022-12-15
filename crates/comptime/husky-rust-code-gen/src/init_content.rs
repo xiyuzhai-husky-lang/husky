@@ -3,7 +3,7 @@ use code_generator::RustCodeGenerator;
 
 pub(crate) fn rust_init_rs_content(
     db: &dyn RustTranspileDb,
-    target_entrance: SourcePath,
+    target_entrance: AbsolutePath,
 ) -> Arc<String> {
     todo!()
     // msg_once!("deal with submodules");

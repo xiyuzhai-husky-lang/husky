@@ -13,7 +13,6 @@ smallvec = "1.10.0"
 salsa = { path = "../../abstraction/salsa" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 # fs
-husky-source-path = { path = "../../fs/husky-source-path" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
@@ -25,8 +24,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
-# fs
-husky-absolute-path = { path = "../../fs/husky-absolute-path" }
 # kernel
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-package-path = { path = "../../kernel/husky-package-path" }

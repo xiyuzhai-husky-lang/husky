@@ -26,7 +26,6 @@ husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 # syntax
-husky-source-path = { path = "../../fs/husky-source-path" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # utils
 husky-path-utils = { path = "../../utils/husky-path-utils" }

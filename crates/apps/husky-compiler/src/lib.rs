@@ -14,7 +14,6 @@ use husky_diagnostics::DiagnosticsDb;
 use husky_io_utils::diff_write;
 use husky_linkage_table::LinkageTableConfig;
 use husky_path_utils::collect_package_dirs_deprecated;
-use husky_source_path::SourcePath;
 use impl_cargo_build::*;
 use monad::{Monad, MonadT};
 use relative_path::RelativePathBuf;

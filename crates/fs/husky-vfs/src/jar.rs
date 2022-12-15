@@ -4,24 +4,25 @@ use place::SingleAssignPlace;
 pub struct VfsJar(
     <PathBufItd as salsa::storage::IngredientsFor>::Ingredients,
     <File as salsa::storage::IngredientsFor>::Ingredients,
-    <absolute_path_from_source_path as salsa::storage::IngredientsFor>::Ingredients,
-    <source_path_from_absolute_path as salsa::storage::IngredientsFor>::Ingredients,
-    <package_absolute_path as salsa::storage::IngredientsFor>::Ingredients,
+    <package_dir as salsa::storage::IngredientsFor>::Ingredients,
+    <module_path as salsa::storage::IngredientsFor>::Ingredients,
+    <package_manifest_file as salsa::storage::IngredientsFor>::Ingredients,
+    <module_file as salsa::storage::IngredientsFor>::Ingredients,
     VfsCache,
     SingleAssignPlace<VfsWatcher>,
 );
 
 impl VfsJar {
     pub(crate) fn cache(&self) -> &VfsCache {
-        &self.5
-    }
-
-    pub(crate) fn watcher_place(&self) -> &SingleAssignPlace<VfsWatcher> {
         &self.6
     }
 
+    pub(crate) fn watcher_place(&self) -> &SingleAssignPlace<VfsWatcher> {
+        &self.7
+    }
+
     pub(crate) fn watcher_place_mut(&mut self) -> &mut SingleAssignPlace<VfsWatcher> {
-        &mut self.6
+        &mut self.7
     }
 }
 
@@ -45,42 +46,49 @@ impl salsa::storage::HasIngredientsFor<File> for VfsJar {
     }
 }
 
-impl salsa::storage::HasIngredientsFor<absolute_path_from_source_path> for VfsJar {
-    fn ingredient(
-        &self,
-    ) -> &<absolute_path_from_source_path as salsa::storage::IngredientsFor>::Ingredients {
+impl salsa::storage::HasIngredientsFor<package_dir> for VfsJar {
+    fn ingredient(&self) -> &<package_dir as salsa::storage::IngredientsFor>::Ingredients {
         &self.2
     }
     fn ingredient_mut(
         &mut self,
-    ) -> &mut <absolute_path_from_source_path as salsa::storage::IngredientsFor>::Ingredients {
+    ) -> &mut <package_dir as salsa::storage::IngredientsFor>::Ingredients {
         &mut self.2
     }
 }
 
-impl salsa::storage::HasIngredientsFor<source_path_from_absolute_path> for VfsJar {
-    fn ingredient(
-        &self,
-    ) -> &<source_path_from_absolute_path as salsa::storage::IngredientsFor>::Ingredients {
+impl salsa::storage::HasIngredientsFor<module_path> for VfsJar {
+    fn ingredient(&self) -> &<module_path as salsa::storage::IngredientsFor>::Ingredients {
         &self.3
     }
     fn ingredient_mut(
         &mut self,
-    ) -> &mut <source_path_from_absolute_path as salsa::storage::IngredientsFor>::Ingredients {
+    ) -> &mut <module_path as salsa::storage::IngredientsFor>::Ingredients {
         &mut self.3
     }
 }
 
-impl salsa::storage::HasIngredientsFor<package_absolute_path> for VfsJar {
+impl salsa::storage::HasIngredientsFor<package_manifest_file> for VfsJar {
     fn ingredient(
         &self,
-    ) -> &<package_absolute_path as salsa::storage::IngredientsFor>::Ingredients {
+    ) -> &<package_manifest_file as salsa::storage::IngredientsFor>::Ingredients {
         &self.4
     }
     fn ingredient_mut(
         &mut self,
-    ) -> &mut <package_absolute_path as salsa::storage::IngredientsFor>::Ingredients {
+    ) -> &mut <package_manifest_file as salsa::storage::IngredientsFor>::Ingredients {
         &mut self.4
+    }
+}
+
+impl salsa::storage::HasIngredientsFor<module_file> for VfsJar {
+    fn ingredient(&self) -> &<module_file as salsa::storage::IngredientsFor>::Ingredients {
+        &self.5
+    }
+    fn ingredient_mut(
+        &mut self,
+    ) -> &mut <module_file as salsa::storage::IngredientsFor>::Ingredients {
+        &mut self.5
     }
 }
 
@@ -92,16 +100,20 @@ impl<'salsa_db> salsa::jar::Jar<'salsa_db> for VfsJar {
     {
         let i0 = <PathBufItd as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i1 = <File as salsa::storage::IngredientsFor>::create_ingredients(routes);
-        let i2 =
-            <absolute_path_from_source_path as salsa::storage::IngredientsFor>::create_ingredients(
-                routes,
-            );
-        let i3 =
-            <source_path_from_absolute_path as salsa::storage::IngredientsFor>::create_ingredients(
-                routes,
-            );
+        let i2 = <package_dir as salsa::storage::IngredientsFor>::create_ingredients(routes);
+        let i3 = <module_path as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i4 =
-            <package_absolute_path as salsa::storage::IngredientsFor>::create_ingredients(routes);
-        Self(i0, i1, i2, i3, i4, Default::default(), Default::default())
+            <package_manifest_file as salsa::storage::IngredientsFor>::create_ingredients(routes);
+        let i5 = <module_file as salsa::storage::IngredientsFor>::create_ingredients(routes);
+        Self(
+            i0,
+            i1,
+            i2,
+            i3,
+            i4,
+            i5,
+            Default::default(),
+            Default::default(),
+        )
     }
 }

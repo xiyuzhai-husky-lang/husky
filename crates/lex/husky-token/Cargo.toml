@@ -15,7 +15,6 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = { path = "../../abstraction/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
-husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 # kernel
@@ -34,9 +33,5 @@ wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-
-[dev-dependencies]
-# fs
-husky-absolute-path = { path = "../../fs/husky-absolute-path" }
 
 [lib]

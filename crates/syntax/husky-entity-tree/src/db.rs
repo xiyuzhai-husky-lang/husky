@@ -1,4 +1,5 @@
 use crate::*;
+use husky_absolute_path::AbsolutePath;
 use husky_check_utils::should;
 use husky_dev_utils::dev_src;
 use husky_entity_kind::{EntityKind, MemberKind, TyKind};
@@ -6,7 +7,6 @@ use husky_entity_path::EntityPath;
 use husky_package_path::PackagePath;
 use husky_path_utils::*;
 use husky_print_utils::msg_once;
-use husky_source_path::SourcePath;
 use husky_term::*;
 use husky_token::TokenDb;
 use husky_word::Identifier;
@@ -30,7 +30,7 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + TokenDb {
 
     fn all_modules_of_package(&self, package: PackagePath) -> &[EntityPath];
 
-    fn collect_source_files(&self, target_entrance: SourcePath) -> Vec<SourcePath> {
+    fn collect_source_files(&self, target_entrance: AbsolutePath) -> Vec<AbsolutePath> {
         todo!()
         // should!(target_entrance.ends_with("main.hsy"));
         // collect_all_source_files(target_entrance.parent().unwrap().to_path_buf())

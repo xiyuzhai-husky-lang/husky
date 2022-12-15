@@ -1,18 +1,14 @@
 use crate::*;
 use expect_test::expect_file;
-use husky_absolute_path::AbsolutePathJar;
+use husky_absolute_path::AbsolutePath;
 use husky_entity_path::{CratePathKind, EntityPathData, EntityPathDb, EntityPathJar};
 use husky_package_path::{PackagePathData, PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
-use husky_source_path::{
-    HasSourcePathConfig, SourcePathConfig, SourcePathConfigMimic, SourcePathData, SourcePathDb,
-    SourcePathJar,
-};
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 use husky_toolchain::ToolchainJar;
-use husky_vfs::{VfsDb, VfsJar};
+use husky_vfs::*;
 use husky_word::{WordDb, WordJar};
 use salsa::{Database, DebugWithDb, ParallelDatabase, Snapshot};
 use std::{borrow::Cow, sync::Arc};
@@ -23,19 +19,17 @@ use std::{borrow::Cow, sync::Arc};
     PackagePathJar,
     EntityPathJar,
     VfsJar,
-    AbsolutePathJar,
-    SourcePathJar,
     TokenJar,
     AstJar
 )]
 #[derive(Default)]
 struct MimicDB {
     storage: salsa::Storage<Self>,
-    source_path_config: SourcePathConfigMimic,
+    source_path_config: VfsConfigMimic,
 }
 
-impl HasSourcePathConfig for MimicDB {
-    fn source_path_config(&self) -> &SourcePathConfig {
+impl HasVfsConfig for MimicDB {
+    fn vfs_config(&self) -> &VfsConfig {
         &self.source_path_config
     }
 }
@@ -73,7 +67,9 @@ fn library_ast_works() {
 fn examples_ast_works() {
     fn mimic_dir(db: &dyn VfsDb, module: EntityPath) -> PathBuf {
         match db.dt_entity_path(module) {
-            EntityPathData::Crate { package, kind } => db.package_dir(package).unwrap().join("ast"),
+            EntityPathData::Crate { package, kind } => {
+                db.package_dir(package).as_ref().unwrap().join("ast")
+            }
             EntityPathData::Childpath { parent, ident } => {
                 mimic_dir(db, parent).join(db.dt_ident(ident))
             }
@@ -105,7 +101,8 @@ fn examples_ast_works() {
     collect_package_dirs(examples_dir)
         .into_iter()
         .for_each(|path| {
-            let package = db.it_package_path(PackagePathData::Local(path));
+            let package =
+                db.it_package_path(PackagePathData::Local(AbsolutePath::new(&path).unwrap()));
             for module in db.all_possible_modules(package).unwrap() {
                 let path = mimic_path(&db, module);
                 std::fs::create_dir_all(path.parent().unwrap()).unwrap();

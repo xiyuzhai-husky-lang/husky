@@ -3,7 +3,6 @@ mod entry;
 pub use entry::*;
 use husky_entity_path::EntityPath;
 use husky_opn_syntax::{BinaryOpr, Bracket};
-use husky_source_path::SourcePath;
 
 use crate::{error::*, *};
 use husky_dev_utils::dev_src;
@@ -53,7 +52,7 @@ impl SubrouteTable {
 
     // pub fn parse(
     //     db: &dyn EntityTreeDb,
-    //     file: SourcePath,
+    //     file: AbsolutePath,
     //     entity_path: EntityPath,
     //     husky_entity_kind: EntityKind,
     //     token_groups: TokenGroupIter,

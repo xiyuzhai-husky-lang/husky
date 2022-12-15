@@ -8,7 +8,7 @@ impl Debugtime {
         &self,
         value: &__Register<'static>,
         ty: Term,
-        file: SourcePath,
+        file: AbsolutePath,
         range: TextRange,
     ) -> __VMResult<VisualData> {
         let eval_time = self.runtime();

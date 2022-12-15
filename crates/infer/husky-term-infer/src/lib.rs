@@ -13,6 +13,7 @@ pub use error::*;
 pub use sheet::*;
 
 use context::*;
+use husky_absolute_path::*;
 use normalize::*;
 
 #[salsa::jar(db = TermInferDb)]

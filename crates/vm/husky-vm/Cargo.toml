@@ -20,7 +20,6 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-any = { path = "../husky-any" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-text = { path = "../../lex/husky-text" }
-husky-source-path = { path = "../../fs/husky-source-path" }
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-vm-register-method = { path = "../husky-vm-register-method" }
 thin-vec = { path = "../../../forks/thin-vec" }

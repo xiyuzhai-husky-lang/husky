@@ -6,62 +6,68 @@ use std::{
 use husky_print_utils::p;
 
 #[derive(Debug)]
-pub struct SourcePathConfig {
+pub struct VfsConfig {
     library_dir: PathBuf,
+    corgi_install_path: Option<PathBuf>,
 }
 
-impl SourcePathConfig {
+impl VfsConfig {
     pub fn library_dir(&self) -> &Path {
         &self.library_dir
     }
+
+    pub fn corgi_install_path(&self) -> Option<&Path> {
+        self.corgi_install_path.as_ref().map(|p| p.as_ref())
+    }
 }
 
-pub trait HasSourcePathConfig {
-    fn source_path_config(&self) -> &SourcePathConfig;
+pub trait HasVfsConfig {
+    fn vfs_config(&self) -> &VfsConfig;
 }
 
 #[derive(Debug, Clone)]
-pub struct SourcePathConfigImpl(Arc<SourcePathConfig>);
+pub struct VfsConfigImpl(Arc<VfsConfig>);
 
-impl Default for SourcePathConfigImpl {
+impl Default for VfsConfigImpl {
     fn default() -> Self {
-        Self(Arc::new(SourcePathConfig {
+        Self(Arc::new(VfsConfig {
             // ad hoc
             library_dir: "/home/xiyuzhai/repos/husky/library".into(),
+            corgi_install_path: None,
         }))
     }
 }
 
 #[derive(Debug, Clone)]
-pub struct SourcePathConfigMimic(Arc<SourcePathConfig>);
+pub struct VfsConfigMimic(Arc<VfsConfig>);
 
-impl std::ops::Deref for SourcePathConfigImpl {
-    type Target = SourcePathConfig;
-
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-
-impl std::ops::Deref for SourcePathConfigMimic {
-    type Target = SourcePathConfig;
+impl std::ops::Deref for VfsConfigImpl {
+    type Target = VfsConfig;
 
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
 
-impl Default for SourcePathConfigMimic {
+impl std::ops::Deref for VfsConfigMimic {
+    type Target = VfsConfig;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl Default for VfsConfigMimic {
     fn default() -> Self {
-        Self(Arc::new(SourcePathConfig {
-            library_dir: derive_library_dir_from_cargo_manifest_dir(
-                std::env::var("CARGO_MANIFEST_DIR").unwrap(),
-            ),
+        Self(Arc::new(VfsConfig {
+            library_dir: derive_library_dir_from_cargo_manifest_dir(),
+            corgi_install_path: None,
         }))
     }
 }
 
-fn derive_library_dir_from_cargo_manifest_dir(cargo_manifest_dir: impl AsRef<Path>) -> PathBuf {
+fn derive_library_dir_from_cargo_manifest_dir() -> PathBuf {
+    let cargo_manifest_dir = std::env::var("CARGO_MANIFEST_DIR").unwrap();
     let mut library_parent_dir: &Path = cargo_manifest_dir.as_ref();
     loop {
         let library_dir = library_parent_dir.join("library");

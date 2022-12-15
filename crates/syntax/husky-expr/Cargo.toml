@@ -35,8 +35,6 @@ place = { path = "../../abstraction/place" }
 salsa = { path = "../../abstraction/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
-husky-absolute-path = { path = "../../fs/husky-absolute-path" }
-husky-source-path = { path = "../../fs/husky-source-path" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
