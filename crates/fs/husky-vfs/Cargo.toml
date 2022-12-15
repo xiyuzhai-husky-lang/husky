@@ -16,6 +16,7 @@ replace_with = "0.1.7"
 place = { path = "../../abstraction/place" }
 # fs
 husky-source-path = { path = "../../fs/husky-source-path" }
+husky-absolute-path = { path = "../../fs/husky-absolute-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 # kernel

@@ -47,6 +47,8 @@ husky-display-utils = { path = "../../utils/husky-display-utils" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
+# fs
+husky-absolute-path = { path = "../../fs/husky-absolute-path" }
 # lex
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # kernel

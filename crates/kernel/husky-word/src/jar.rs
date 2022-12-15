@@ -1,6 +1,6 @@
-use std::sync::Arc; 
-use once_cell::sync::OnceCell; 
 use crate::*;
+use once_cell::sync::OnceCell;
+use std::sync::Arc;
 
 pub struct WordJar(
     <Word as salsa::storage::IngredientsFor>::Ingredients,

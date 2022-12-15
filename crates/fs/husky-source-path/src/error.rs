@@ -1,12 +1,13 @@
 use std::path::PathBuf;
-
-use absolute_path::AbsolutePathError;
 use thiserror::Error;
 
 #[derive(Debug, Clone, Error, PartialEq, Eq)]
 pub enum SourcePathError {
-    #[error("{0}")]
-    AbsolutePath(#[from] AbsolutePathError),
+    #[error("fail to absolutize {path:?} due to IO `{error_message}")]
+    FailToAbsolutize {
+        path: PathBuf,
+        error_message: String,
+    },
 }
 
 impl From<&SourcePathError> for SourcePathError {

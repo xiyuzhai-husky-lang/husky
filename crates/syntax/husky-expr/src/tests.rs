@@ -1,4 +1,5 @@
 use crate::*;
+use husky_absolute_path::AbsolutePathJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_expect_test_utils::expect_test_husky_to_rust;
@@ -16,6 +17,7 @@ use salsa::{Database, ParallelDatabase};
 #[salsa::db(
     WordJar,
     VfsJar,
+    AbsolutePathJar,
     SourcePathJar,
     ToolchainJar,
     PackagePathJar,

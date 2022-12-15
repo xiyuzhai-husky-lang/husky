@@ -7,6 +7,7 @@ mod query;
 pub mod utils;
 
 pub use config::*;
+use husky_absolute_path::AbsolutePathJar;
 pub use husky_ast::AstDb;
 pub use husky_completion::HuskyCompletionQuery;
 pub use husky_diagnostics::DiagnosticsDb;
@@ -49,6 +50,7 @@ use sync_utils::ASafeRwLock;
     ToolchainJar,
     AstJar,
     WordJar,
+    AbsolutePathJar,
     SourcePathJar,
     EntityPathJar,
     TermJar,

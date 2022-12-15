@@ -1,5 +1,6 @@
 use std::path::{Path, PathBuf};
 
+use husky_absolute_path::AbsolutePathError;
 use husky_print_utils::p;
 use husky_source_path::SourcePathError;
 use thiserror::Error;
@@ -15,6 +16,10 @@ pub enum VfsError {
     },
     #[error("source path error {0}")]
     SourcePath(#[from] SourcePathError),
+    #[error("not source file")]
+    NotSourceFile(PathBuf),
+    #[error("{0}")]
+    AbsolutePath(#[from] AbsolutePathError),
 }
 
 impl From<&VfsError> for VfsError {

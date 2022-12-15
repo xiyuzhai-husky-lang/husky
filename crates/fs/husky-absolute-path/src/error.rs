@@ -1,10 +1,10 @@
 use std::path::PathBuf;
 use thiserror::Error;
 
-#[derive(Debug, Error, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Error, PartialEq, Eq)]
 pub enum AbsolutePathError {
-    #[error("can't absolutize {path:?} due to IO `{error_message}")]
-    IO {
+    #[error("fail to absolutize {path:?} due to IO `{error_message}")]
+    FailToAbsolutize {
         path: PathBuf,
         error_message: String,
     },
