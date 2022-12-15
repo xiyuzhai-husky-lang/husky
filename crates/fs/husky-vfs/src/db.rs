@@ -21,6 +21,7 @@ pub trait VfsDbInner {
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn vfs_cache(&self) -> &VfsCache;
+    fn set_content(&mut self, path: &Path, content: FileContent) -> VfsResult<()>;
     fn update_file(&mut self, path: &Path) -> VfsResult<()>
     where
         Self: 'static;
@@ -81,39 +82,40 @@ where
         T: 'static,
     {
         let content = read_file_content(&path);
-        if let abs_path = AbsolutePath::new(&path)? {
-            let abs_path = &abs_path;
-            let file = match self
-                .vfs_jar()
-                .cache()
-                .files()
-                .entry(abs_path.path().to_owned())
-            {
-                // If the file already exists in our cache then just return it.
-                Entry::Occupied(entry) => *entry.get(),
-                // If we haven't read this file yet set up the watch, read the
-                // contents, store it in the cache, and return it.
-                Entry::Vacant(entry) => unsafe {
-                    let path = abs_path.path();
-                    //  &path.path(self);
-                    if let Some(watcher) = self.watcher() {
-                        let watcher = &mut watcher.0.lock().unwrap();
-                        watcher
-                            .watcher()
-                            .watch(path, RecursiveMode::NonRecursive)
-                            .unwrap();
-                    }
-                    let content = read_file_content(path);
-                    *entry.insert(File::new(
-                        self,
-                        abs_path.clone(),
-                        content,
-                        self.calc_durability(path),
-                    ))
-                },
-            };
-            file.set_content(self).to(content);
-        }
+        self.set_content(path, content)
+    }
+    fn set_content(&mut self, path: &Path, content: FileContent) -> VfsResult<()> {
+        let abs_path = AbsolutePath::new(path)?;
+        let file = match self
+            .vfs_jar()
+            .cache()
+            .files()
+            .entry(abs_path.path().to_owned())
+        {
+            // If the file already exists in our cache then just return it.
+            Entry::Occupied(entry) => *entry.get(),
+            // If we haven't read this file yet set up the watch, read the
+            // contents, store it in the cache, and return it.
+            Entry::Vacant(entry) => unsafe {
+                let path = abs_path.path();
+                //  &path.path(self);
+                if let Some(watcher) = self.watcher() {
+                    let watcher = &mut watcher.0.lock().unwrap();
+                    watcher
+                        .watcher()
+                        .watch(path, RecursiveMode::NonRecursive)
+                        .unwrap();
+                }
+                let content = read_file_content(path);
+                *entry.insert(File::new(
+                    self,
+                    abs_path.clone(),
+                    content,
+                    self.calc_durability(path),
+                ))
+            },
+        };
+        file.set_content(self).to(content);
         Ok(())
     }
 
@@ -211,14 +213,7 @@ where
     }
 
     fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()> {
-        let abs_path = AbsolutePath::new(path)?;
-        // ad hoc
-        let entry = self.vfs_cache().files().entry(abs_path.path().to_owned());
-        match entry {
-            Entry::Occupied(_) => todo!(),
-            Entry::Vacant(_) => todo!(),
-        }
-        todo!()
+        self.set_content(path, FileContent::Live(text))
     }
 
     /// If range are omitted
