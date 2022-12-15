@@ -1,14 +1,10 @@
 use super::*;
 use expect_test::expect_file;
-use husky_absolute_path::AbsolutePathJar;
 use husky_entity_path::EntityPathJar;
 use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
-use husky_source_path::{
-    HasSourcePathConfig, SourcePathConfig, SourcePathConfigMimic, SourcePathJar,
-};
 use husky_toolchain::ToolchainJar;
-use husky_vfs::VfsJar;
+use husky_vfs::{HasVfsConfig, VfsConfig, VfsConfigMimic, VfsJar};
 use husky_word::{WordDb, WordJar};
 use salsa::{Database, ParallelDatabase, Snapshot};
 use std::{borrow::Cow, sync::Arc};
@@ -19,18 +15,16 @@ use std::{borrow::Cow, sync::Arc};
     PackagePathJar,
     EntityPathJar,
     TomlTokenJar,
-    VfsJar,
-    AbsolutePathJar,
-    SourcePathJar
+    VfsJar
 )]
 #[derive(Default)]
 struct MimicDB {
     storage: salsa::Storage<Self>,
-    source_path_config: SourcePathConfigMimic,
+    source_path_config: VfsConfigMimic,
 }
 
-impl HasSourcePathConfig for MimicDB {
-    fn source_path_config(&self) -> &SourcePathConfig {
+impl HasVfsConfig for MimicDB {
+    fn vfs_config(&self) -> &VfsConfig {
         &self.source_path_config
     }
 }
@@ -229,13 +223,13 @@ fn builtin_library_toml_token_sheets() {
     let package_path_menu = db.package_path_menu();
     expect_file!["../tests/package_core_toml_token_sheets.txt"].assert_eq(&format!(
         "{:#?}",
-        db.package_manifest_token_text(package_path_menu.core())
+        db.package_manifest_toml_token_sheet(package_path_menu.core())
             .as_ref()
             .unwrap()
     ));
     expect_file!["../tests/package_std_toml_token_sheets.txt"].assert_eq(&format!(
         "{:#?}",
-        db.package_manifest_token_text(package_path_menu.std())
+        db.package_manifest_toml_token_sheet(package_path_menu.std())
             .as_ref()
             .unwrap()
     ));

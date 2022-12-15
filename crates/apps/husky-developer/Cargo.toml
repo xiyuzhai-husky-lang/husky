@@ -45,7 +45,6 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 # syntax
-husky-source-path = { path = "../../fs/husky-source-path" }
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }
 # utils

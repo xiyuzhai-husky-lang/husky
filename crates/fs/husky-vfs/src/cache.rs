@@ -1,11 +1,10 @@
 use crate::*;
 use husky_absolute_path::AbsolutePath;
-use husky_source_path::SourcePath;
 use std::sync::Arc;
 
 #[derive(Default)]
 pub struct VfsCache {
-    files: DashMap<AbsolutePath, File>,
+    files: DashMap<PathBuf, File>,
 }
 
 pub enum HuskyFileCacheKind {
@@ -14,7 +13,7 @@ pub enum HuskyFileCacheKind {
 }
 
 impl VfsCache {
-    pub(crate) fn files(&self) -> &DashMap<AbsolutePath, File> {
+    pub(crate) fn files(&self) -> &DashMap<PathBuf, File> {
         &self.files
     }
 }

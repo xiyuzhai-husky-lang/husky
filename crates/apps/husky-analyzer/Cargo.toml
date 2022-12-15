@@ -36,8 +36,6 @@ husky-layout = { path = "../../comptime/husky-layout" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
 # fs
-husky-absolute-path = { path = "../../fs/husky-absolute-path" }
-husky-source-path = { path = "../../fs/husky-source-path" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # ide
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }

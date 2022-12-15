@@ -1,15 +1,13 @@
 use crate::*;
 use husky_package_path::{PackagePath, PackagePathDb};
-use husky_source_path::{SourcePath, SourcePathData, SourcePathDb};
 use husky_vfs::{VfsDb, VfsResult};
 use salsa::DbWithJar;
 
-pub trait TomlTokenDb: DbWithJar<TomlTokenJar> + SourcePathDb + VfsDb {
+pub trait TomlTokenDb: DbWithJar<TomlTokenJar> + VfsDb {
     fn toml_tokenize(&self, input: &str) -> Vec<TomlToken>;
 
-    fn toml_token_text(&self, path: SourcePath) -> &VfsResult<TomlTokenSheet>;
-
-    fn package_manifest_token_text(&self, package: PackagePath) -> &VfsResult<TomlTokenSheet>;
+    fn package_manifest_toml_token_sheet(&self, package: PackagePath)
+        -> &VfsResult<TomlTokenSheet>;
 }
 
 impl<T> TomlTokenDb for T
@@ -20,16 +18,20 @@ where
         TomlTokenIter::new(self, input).collect()
     }
 
-    fn toml_token_text(&self, path: SourcePath) -> &VfsResult<TomlTokenSheet> {
-        toml_token_text(self, path)
-    }
-
-    fn package_manifest_token_text(&self, package: PackagePath) -> &VfsResult<TomlTokenSheet> {
-        self.toml_token_text(self.it_source_path(SourcePathData::CorgiToml(package)))
+    fn package_manifest_toml_token_sheet(
+        &self,
+        package: PackagePath,
+    ) -> &VfsResult<TomlTokenSheet> {
+        package_manifest_toml_token_sheet(self, package)
     }
 }
 
 #[salsa::tracked(jar = TomlTokenJar, return_ref)]
-pub(crate) fn toml_token_text(db: &dyn TomlTokenDb, path: SourcePath) -> VfsResult<TomlTokenSheet> {
-    Ok(TomlTokenSheet::new(db.toml_tokenize(db.source_text(path)?)))
+pub(crate) fn package_manifest_toml_token_sheet(
+    db: &dyn TomlTokenDb,
+    package_path: PackagePath,
+) -> VfsResult<TomlTokenSheet> {
+    Ok(TomlTokenSheet::new(
+        db.toml_tokenize(db.package_manifest_content(package_path)?),
+    ))
 }

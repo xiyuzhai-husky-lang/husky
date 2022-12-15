@@ -11,8 +11,8 @@ mod registration_content;
 mod utils;
 
 pub use cargo_toml_content::*;
+use husky_absolute_path::AbsolutePath;
 use husky_layout::LayoutDb;
-use husky_source_path::SourcePath;
 use salsa::DbWithJar;
 
 use crate::registration_content::rust_registration_rs_content;
@@ -37,9 +37,9 @@ use vec_like::VecSet;
 pub struct RustTranspileJar();
 
 pub trait RustTranspileDb: DbWithJar<RustTranspileJar> + LayoutDb {
-    fn rust_lib_rs_content(&self, target_entrance: SourcePath) -> Arc<String>;
-    fn rust_registration_rs_content(&self, target_entrance: SourcePath) -> Arc<String>;
-    fn rust_init_rs_content(&self, target_entrance: SourcePath) -> Arc<String>;
+    fn rust_lib_rs_content(&self, target_entrance: AbsolutePath) -> Arc<String>;
+    fn rust_registration_rs_content(&self, target_entrance: AbsolutePath) -> Arc<String>;
+    fn rust_init_rs_content(&self, target_entrance: AbsolutePath) -> Arc<String>;
     fn rust_mod_rs_content(&self, module: Term) -> Arc<String>;
     fn entity_route_variant_contains_eval_ref(&self, entity_path: Term) -> bool;
     fn entity_route_contains_eval_ref(&self, entity_path: Term) -> bool;
@@ -58,15 +58,15 @@ impl<T> RustTranspileDb for T
 where
     T: DbWithJar<RustTranspileJar> + LayoutDb,
 {
-    fn rust_lib_rs_content(&self, target_entrance: SourcePath) -> Arc<String> {
+    fn rust_lib_rs_content(&self, target_entrance: AbsolutePath) -> Arc<String> {
         todo!()
     }
 
-    fn rust_registration_rs_content(&self, target_entrance: SourcePath) -> Arc<String> {
+    fn rust_registration_rs_content(&self, target_entrance: AbsolutePath) -> Arc<String> {
         todo!()
     }
 
-    fn rust_init_rs_content(&self, target_entrance: SourcePath) -> Arc<String> {
+    fn rust_init_rs_content(&self, target_entrance: AbsolutePath) -> Arc<String> {
         todo!()
     }
 

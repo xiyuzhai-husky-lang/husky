@@ -1,5 +1,4 @@
 use husky_dev_utils::DevSource;
-use husky_path::FileError;
 use husky_text::TextRange;
 use std::fmt::Write;
 use std::{fmt::Formatter, sync::Arc};
@@ -46,16 +45,6 @@ impl HuskyDisplay for EntityTreeError {
 
 pub type EntityTreeResult<T> = Result<T, EntityTreeError>;
 pub type EntityTreeResultArc<T> = Result<Arc<T>, EntityTreeError>;
-
-impl From<FileError> for EntityTreeError {
-    fn from(error: FileError) -> Self {
-        EntityTreeError {
-            kind: EntityTreeErrorKind::Derived,
-            message: format!("{:?}", error.kind),
-            dev_src: error.dev_src,
-        }
-    }
-}
 
 macro_rules! defn_error {
     ($msg: expr, $range: expr) => {{

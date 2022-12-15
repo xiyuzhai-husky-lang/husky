@@ -2,9 +2,9 @@ mod column;
 mod line;
 
 pub use column::*;
-use husky_source_path::SourcePath;
 pub use line::*;
 
+use husky_absolute_path::AbsolutePath;
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 #[cfg(feature = "lsp_support")]
 use lsp_types::TextDocumentPositionParams;
@@ -21,15 +21,15 @@ pub struct TextPosition {
     pub col: TextColumn,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct FilePosition {
-    file: SourcePath,
+    file: AbsolutePath,
     pos: TextPosition,
 }
 
 impl FilePosition {
-    pub fn file(&self) -> SourcePath {
-        self.file
+    pub fn file(&self) -> &AbsolutePath {
+        &self.file
     }
 
     pub fn pos(&self) -> TextPosition {

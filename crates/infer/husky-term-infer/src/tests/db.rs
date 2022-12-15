@@ -2,21 +2,19 @@ mod init;
 mod trivia;
 
 use super::*;
-use husky_absolute_path::AbsolutePathJar;
 use husky_entity_path::{
     EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu, EntityPathMenuPlace,
 };
 use husky_entity_tree::EntityTreeJar;
 use husky_expr::ExprIdx;
 use husky_package_path::PackagePathJar;
-use husky_source_path::{HasSourcePathConfig, SourcePathConfig, SourcePathJar};
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDb, SymbolJar, SymbolKind};
 use husky_term::{
     AskDecl, Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
 };
 use husky_token::TokenJar;
 use husky_toolchain::ToolchainJar;
-use husky_vfs::VfsJar;
+use husky_vfs::*;
 use husky_word::WordDb;
 use husky_word::WordJar;
 use salsa::ParallelDatabase;
@@ -33,8 +31,6 @@ use upcast::Upcast;
     TermInferJar,
     TokenJar,
     VfsJar,
-    AbsolutePathJar,
-    SourcePathJar,
     SymbolJar
 )]
 pub(crate) struct TermInferTestsDb {
@@ -44,8 +40,8 @@ pub(crate) struct TermInferTestsDb {
     prelude_symbols: Vec<Symbol>,
 }
 
-impl HasSourcePathConfig for TermInferTestsDb {
-    fn source_path_config(&self) -> &SourcePathConfig {
+impl HasVfsConfig for TermInferTestsDb {
+    fn vfs_config(&self) -> &VfsConfig {
         todo!()
     }
 }

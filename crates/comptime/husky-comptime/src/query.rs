@@ -1,5 +1,4 @@
 use husky_linkage_table::ResolveLinkage;
-use husky_source_path::SourcePath;
 use husky_term::Term;
 use husky_trace_protocol::Label;
 use husky_vm::{__Register, __RegisterDataKind};
@@ -7,10 +6,10 @@ use husky_vm::{__Register, __RegisterDataKind};
 use crate::{utils::__RegisterDowncastResult, AnalysisHost};
 
 pub trait ComptimeQueryGroup {
-    fn target_entrance(&self) -> SourcePath {
-        todo!()
-        // self.opt_target_entrance().unwrap()
-    }
+    // fn target_entrance(&self) -> AbsolutePath {
+    //     todo!()
+    //     // self.opt_target_entrance().unwrap()
+    // }
     fn register_to_label_converter(
         &self,
     ) -> for<'eval> fn(&__Register<'eval>) -> __RegisterDowncastResult<Label> {

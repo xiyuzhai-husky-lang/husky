@@ -1,38 +1,24 @@
 use crate::*;
 use expect_test::expect_file;
-use husky_absolute_path::AbsolutePathJar;
 use husky_entity_path::{EntityPathDb, EntityPathJar};
 use husky_expect_test_utils::*;
 use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
-use husky_source_path::{
-    HasSourcePathConfig, SourcePathConfig, SourcePathConfigMimic, SourcePathData, SourcePathDb,
-    SourcePathJar,
-};
 use husky_toolchain::ToolchainJar;
-use husky_vfs::VfsJar;
+use husky_vfs::{HasVfsConfig, VfsConfig, VfsConfigMimic, VfsJar};
 use husky_word::{WordDb, WordJar};
 use salsa::{Database, ParallelDatabase, Snapshot, Storage};
 use std::{borrow::Cow, sync::Arc};
 
-#[salsa::db(
-    WordJar,
-    ToolchainJar,
-    PackagePathJar,
-    TokenJar,
-    VfsJar,
-    AbsolutePathJar,
-    SourcePathJar,
-    EntityPathJar
-)]
+#[salsa::db(WordJar, ToolchainJar, PackagePathJar, TokenJar, VfsJar, EntityPathJar)]
 #[derive(Default)]
 struct MimicDB {
     storage: Storage<Self>,
-    source_path_config: SourcePathConfigMimic,
+    source_path_config: VfsConfigMimic,
 }
 
-impl HasSourcePathConfig for MimicDB {
-    fn source_path_config(&self) -> &SourcePathConfig {
+impl HasVfsConfig for MimicDB {
+    fn vfs_config(&self) -> &VfsConfig {
         &self.source_path_config
     }
 }

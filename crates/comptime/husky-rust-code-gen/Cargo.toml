@@ -15,13 +15,12 @@ path-slash = "0.2.1"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 vec-like = { path = "../../abstraction/vec-like" }
-# fs
-husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }

@@ -10,7 +10,6 @@ thiserror = "1.0.37"
 salsa = { path = "../../abstraction/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
-husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-text-span = { path = "../../lex/husky-text-span" }
@@ -26,5 +25,3 @@ salsa = { path = "../../abstraction/salsa" }
 # kernel
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
-# fs
-husky-absolute-path = { path = "../../fs/husky-absolute-path" }

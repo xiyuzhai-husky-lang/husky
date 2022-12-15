@@ -1,4 +1,4 @@
-use husky_source_path::SourcePath;
+use husky_absolute_path::AbsolutePath;
 use husky_term::Term;
 
 use crate::*;
@@ -42,7 +42,7 @@ fn collect_entity_syntax_errors(
 
 fn collect_module_lex_errors(
     db: &dyn DiagnosticsDb,
-    file: SourcePath,
+    file: AbsolutePath,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
@@ -52,7 +52,7 @@ fn collect_module_lex_errors(
 
 fn collect_module_ast_errors(
     db: &dyn DiagnosticsDb,
-    file: SourcePath,
+    file: AbsolutePath,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
@@ -70,7 +70,7 @@ fn collect_module_ast_errors(
 
 fn collect_module_infer_ty_errors(
     _db: &dyn DiagnosticsDb,
-    _file: SourcePath,
+    _file: AbsolutePath,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
@@ -82,7 +82,7 @@ fn collect_module_infer_ty_errors(
 
 fn collect_module_infer_contract_errors(
     _db: &dyn DiagnosticsDb,
-    _file: SourcePath,
+    _file: AbsolutePath,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
@@ -94,7 +94,7 @@ fn collect_module_infer_contract_errors(
 
 fn collect_module_infer_qualified_ty_errors(
     _db: &dyn DiagnosticsDb,
-    _file: SourcePath,
+    _file: AbsolutePath,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()

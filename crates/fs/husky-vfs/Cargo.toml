@@ -14,12 +14,10 @@ eyre = "0.6.8"
 replace_with = "0.1.7"
 # abstraction
 place = { path = "../../abstraction/place" }
-# fs
-husky-source-path = { path = "../../fs/husky-source-path" }
-husky-absolute-path = { path = "../../fs/husky-absolute-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 # kernel
+husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # utils

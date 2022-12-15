@@ -141,17 +141,17 @@ impl CompilerInstance {
     //     }
     // }
 
-    fn save_husky_code_snapshot(
-        &self,
-        comptime: &AnalysisHost,
-        husky_code_snapshot_path: &Path,
-        target_entrance: SourcePath,
-    ) {
-        todo!()
-        // diff_write(
-        //     husky_code_snapshot_path,
-        //     comptime.file_content(target_entrance).to_str().unwrap(),
-        //     self.rust_codegen_cache_diff_write_verbose(),
-        // );
-    }
+    // fn save_husky_code_snapshot(
+    //     &self,
+    //     comptime: &AnalysisHost,
+    //     husky_code_snapshot_path: &Path,
+    //     target_entrance: AbsolutePath,
+    // ) {
+    //     todo!()
+    //     // diff_write(
+    //     //     husky_code_snapshot_path,
+    //     //     comptime.file_content(target_entrance).to_str().unwrap(),
+    //     //     self.rust_codegen_cache_diff_write_verbose(),
+    //     // );
+    // }
 }

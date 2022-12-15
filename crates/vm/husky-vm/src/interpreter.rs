@@ -2,9 +2,8 @@ mod exec;
 mod query;
 
 use husky_print_utils::ps;
-use husky_source_path::SourcePath;
 use husky_term::Term;
-use husky_text::TextRange;
+use husky_text::{FileRange, TextRange};
 use husky_word::Identifier;
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;
@@ -18,7 +17,7 @@ pub struct Interpreter<'a, 'eval: 'a> {
     pub(crate) history: History<'eval>,
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
-    variable_mutations: IndexMap<VMStackIdx, (Identifier, SourcePath, TextRange, Term)>,
+    variable_mutations: IndexMap<VMStackIdx, (Identifier, FileRange, Term)>,
     vm_config: &'a VMConfig,
 }
 
@@ -112,32 +111,32 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         stack_idx: VMStackIdx,
         varname: Identifier,
-        file: SourcePath,
-        range: TextRange,
+        range: FileRange,
         ty: Term,
     ) {
         self.variable_mutations
-            .insert(stack_idx, (varname, file, range, ty));
+            .insert(stack_idx, (varname, range, ty));
     }
 
     fn collect_block_mutations(&mut self) -> (StackSnapshot<'eval>, Vec<MutationData<'eval>>) {
         let snapshot = std::mem::take(&mut self.opt_snapshot_saved).expect("bug");
         let mutations = std::mem::take(&mut self.variable_mutations)
             .iter()
-            .filter_map(|(stack_idx, (varname, file, range, ty))| {
+            .filter_map(|(stack_idx, (varname, range, ty))| {
                 let stack_idx = *stack_idx;
                 if stack_idx.raw() < snapshot.len().min(self.stack.len()) {
-                    Some(MutationData {
-                        file: *file,
-                        range: *range,
-                        kind: MutationDataVariant::Block {
-                            stack_idx,
-                            varname: *varname,
-                        },
-                        ty: *ty,
-                        before: Some(snapshot[stack_idx].snapshot()),
-                        after: self.stack.eval(stack_idx),
-                    })
+                    todo!()
+                    // Some(MutationData {
+                    //     file: *file,
+                    //     range: *range,
+                    //     kind: MutationDataVariant::Block {
+                    //         stack_idx,
+                    //         varname: *varname,
+                    //     },
+                    //     ty: *ty,
+                    //     before: Some(snapshot[stack_idx].snapshot()),
+                    //     after: self.stack.eval(stack_idx),
+                    // })
                 } else {
                     None
                 }

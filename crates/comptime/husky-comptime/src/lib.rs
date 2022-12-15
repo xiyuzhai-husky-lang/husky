@@ -7,7 +7,6 @@ mod query;
 pub mod utils;
 
 pub use config::*;
-use husky_absolute_path::AbsolutePathJar;
 pub use husky_ast::AstDb;
 pub use husky_completion::HuskyCompletionQuery;
 pub use husky_diagnostics::DiagnosticsDb;
@@ -30,13 +29,10 @@ use husky_fmt::SyntaxFormatJar;
 use husky_layout::LayoutJar;
 use husky_linkage_table::LinkageTable;
 use husky_rust_code_gen::RustTranspileJar;
-use husky_source_path::{
-    HasSourcePathConfig, SourcePath, SourcePathConfig, SourcePathConfigImpl, SourcePathJar,
-};
 use husky_term::TermJar;
 use husky_token::TokenJar;
 use husky_toolchain::ToolchainJar;
-use husky_vfs::VfsJar;
+use husky_vfs::*;
 use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 use husky_word::WordJar;
 use indexmap::IndexMap;
@@ -50,8 +46,6 @@ use sync_utils::ASafeRwLock;
     ToolchainJar,
     AstJar,
     WordJar,
-    AbsolutePathJar,
-    SourcePathJar,
     EntityPathJar,
     TermJar,
     VfsJar,
@@ -63,11 +57,11 @@ use sync_utils::ASafeRwLock;
 #[derive(Default)]
 pub struct AnalysisHost {
     storage: salsa::Storage<AnalysisHost>,
-    source_path_config: SourcePathConfigImpl,
+    source_path_config: VfsConfigImpl,
 }
 
-impl HasSourcePathConfig for AnalysisHost {
-    fn source_path_config(&self) -> &SourcePathConfig {
+impl HasVfsConfig for AnalysisHost {
+    fn vfs_config(&self) -> &VfsConfig {
         &self.source_path_config
     }
 }

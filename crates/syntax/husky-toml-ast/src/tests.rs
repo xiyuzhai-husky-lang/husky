@@ -1,15 +1,11 @@
 use crate::*;
 use expect_test::expect_file;
-use husky_absolute_path::AbsolutePathJar;
 use husky_entity_path::EntityPathJar;
 use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
-use husky_source_path::{
-    HasSourcePathConfig, SourcePathConfig, SourcePathConfigMimic, SourcePathJar,
-};
 use husky_toml_token::TomlTokenJar;
 use husky_toolchain::ToolchainJar;
-use husky_vfs::VfsJar;
+use husky_vfs::*;
 use husky_word::{WordDb, WordJar};
 use salsa::{Database, ParallelDatabase, Snapshot};
 use std::{borrow::Cow, sync::Arc};
@@ -21,18 +17,16 @@ use std::{borrow::Cow, sync::Arc};
     EntityPathJar,
     TomlTokenJar,
     VfsJar,
-    AbsolutePathJar,
-    SourcePathJar,
     TomlAstJar
 )]
 #[derive(Default)]
 struct MimicDB {
     storage: salsa::Storage<Self>,
-    source_path_config: SourcePathConfigMimic,
+    source_path_config: VfsConfigMimic,
 }
 
-impl HasSourcePathConfig for MimicDB {
-    fn source_path_config(&self) -> &SourcePathConfig {
+impl HasVfsConfig for MimicDB {
+    fn vfs_config(&self) -> &VfsConfig {
         &self.source_path_config
     }
 }

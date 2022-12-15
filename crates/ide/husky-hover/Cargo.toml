@@ -13,9 +13,9 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
 husky-text = { path = "../../lex/husky-text" }
+husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-source-path = { path = "../../fs/husky-source-path" }
 husky-expr = { path = "../../syntax/husky-expr" }
 # infer
 husky-term-infer = { path = "../../infer/husky-term-infer" }

@@ -12,14 +12,13 @@ thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
 upcast = { path = "../../abstraction/upcast" }
 vec-like = { path = "../../abstraction/vec-like" }
-# fs
-husky-source-path = { path = "../../fs/husky-source-path" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 # syntax
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }

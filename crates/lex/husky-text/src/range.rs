@@ -3,8 +3,8 @@ mod bind_into;
 
 pub use bind_from::*;
 pub use bind_into::*;
+use husky_absolute_path::AbsolutePath;
 use husky_display_utils::HuskyDisplay;
-use husky_source_path::SourcePath;
 use husky_word::Identifier;
 
 use crate::*;
@@ -37,13 +37,13 @@ impl TextRange {
 
 #[derive(Debug)]
 pub struct FileRange {
-    file: SourcePath,
+    file: AbsolutePath,
     range: TextRange,
 }
 
 impl FileRange {
-    pub fn file(&self) -> SourcePath {
-        self.file
+    pub fn file(&self) -> &AbsolutePath {
+        &self.file
     }
 
     pub fn range(&self) -> TextRange {
@@ -58,11 +58,11 @@ impl HasTextRange for FileRange {
 }
 
 pub trait HasSourceRange: HasTextRange {
-    fn source(&self) -> SourcePath;
+    fn source(&self) -> &AbsolutePath;
 
     fn source_range(&self) -> FileRange {
         FileRange {
-            file: self.source(),
+            file: self.source().clone(),
             range: self.text_range(),
         }
     }
@@ -74,14 +74,14 @@ impl<S: Deref<Target = T>, T: HasTextRange> HasTextRange for S {
     }
 }
 
-impl<S: Deref<Target = T>, T: HasSourceRange> HasSourceRange for S {
-    fn source(&self) -> SourcePath {
+impl<S: Deref<Target = T>, T: HasSourceRange + 'static> HasSourceRange for S {
+    fn source(&self) -> &AbsolutePath {
         self.deref().source()
     }
 }
 
 impl FileRange {
-    pub fn new(file: SourcePath, range: TextRange) -> Self {
+    pub fn new(file: AbsolutePath, range: TextRange) -> Self {
         Self { file, range }
     }
 }

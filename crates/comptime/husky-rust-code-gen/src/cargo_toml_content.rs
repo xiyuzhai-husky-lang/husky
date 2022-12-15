@@ -5,7 +5,7 @@ use path_slash::PathExt;
 
 pub fn cargo_toml_content(
     db: &dyn RustTranspileDb,
-    target_entrance: SourcePath,
+    target_entrance: AbsolutePath,
     husky_dir: &Path,
 ) -> String {
     todo!()

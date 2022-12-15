@@ -23,7 +23,6 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 # syntax
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
-husky-source-path = { path = "../../fs/husky-source-path" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }

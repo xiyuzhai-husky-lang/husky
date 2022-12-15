@@ -1,7 +1,7 @@
 use crate::*;
 
 impl TraceVariant {
-    pub fn file_and_range(&self) -> (SourcePath, TextRange) {
+    pub fn file_and_range(&self) -> (AbsolutePath, TextRange) {
         match self {
             TraceVariant::Main(repr) => (repr.file(), repr.text_range()),
             TraceVariant::Module { file, range, .. } => (*file, *range),

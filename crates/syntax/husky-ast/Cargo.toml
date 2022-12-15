@@ -18,7 +18,6 @@ vec-like = { path = "../../abstraction/vec-like" }
 upcast = { path = "../../abstraction/upcast" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 # fs
-husky-source-path = { path = "../../fs/husky-source-path" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
@@ -28,6 +27,7 @@ husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
+husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 # syntax
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
@@ -47,8 +47,6 @@ husky-display-utils = { path = "../../utils/husky-display-utils" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
-# fs
-husky-absolute-path = { path = "../../fs/husky-absolute-path" }
 # lex
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # kernel

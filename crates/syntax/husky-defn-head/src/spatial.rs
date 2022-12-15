@@ -1,6 +1,6 @@
+use husky_absolute_path::AbsolutePath;
 use husky_entity_kind::{EntityKind, TyKind};
 use husky_entity_tree::EntityTreeDb;
-use husky_source_path::SourcePath;
 use husky_text::{RangedIdentifier, TextRange};
 use husky_word::Identifier;
 use vec_like::VecMapEntry;
@@ -9,7 +9,7 @@ use vec_like::VecMapEntry;
 pub struct SpatialParameter {
     pub ident: RangedIdentifier,
     pub variant: SpatialParameterVariant,
-    pub file: SourcePath,
+    pub file: AbsolutePath,
     pub range: TextRange,
 }
 

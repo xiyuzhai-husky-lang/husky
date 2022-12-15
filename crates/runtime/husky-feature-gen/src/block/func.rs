@@ -7,7 +7,7 @@ use husky_vm::{InstructionSheet, __Linkage};
 pub struct FeatureFuncBody {
     pub opt_this: Option<FeatureRepr>,
     pub feature: FeatureItd,
-    pub file: SourcePath,
+    pub file: AbsolutePath,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     // pub stmts: Avec<FuncStmt>,

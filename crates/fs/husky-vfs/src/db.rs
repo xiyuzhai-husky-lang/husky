@@ -1,54 +1,66 @@
 use crate::*;
-use husky_absolute_path::{AbsolutePath, AbsolutePathDb};
-use husky_entity_path::{CratePathKind, EntityPath, EntityPathData};
-use husky_package_path::{PackagePath, PackagePathData};
-use husky_source_path::{SourcePath, SourcePathData};
+use husky_absolute_path::AbsolutePath;
+use husky_entity_path::{CratePathKind, EntityPath, EntityPathData, EntityPathDb};
+use husky_package_path::{PackagePath, PackagePathData, PackagePathDb};
 use husky_text::{TextChange, TextRange};
 
 pub trait VfsDb:
-    salsa::DbWithJar<VfsJar> + AbsolutePathDb + SourcePathDb + Send + VfsDbInner
+    salsa::DbWithJar<VfsJar> + HasVfsConfig + EntityPathDb + PackagePathDb + Send + VfsDbInner
 {
-    fn source_text(&self, path: SourcePath) -> VfsResult<&str>;
-    fn package_dir(&self, package: PackagePath) -> VfsResult<PathBuf> {
-        match self.package_path_data(package) {
-            PackagePathData::Builtin { ident, toolchain } => todo!(),
-            PackagePathData::Global { version } => todo!(),
-            PackagePathData::Local(path) => Ok(path.to_owned()),
-            PackagePathData::Git(_) => todo!(),
-        }
-    }
+    fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
+    fn module_content(&self, entity_path: EntityPath) -> VfsResult<&str>;
+    fn package_dir(&self, package: PackagePath) -> &VfsResult<AbsolutePath>;
     fn all_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>>;
-    fn set_live_file(&mut self, path: PathBuf, text: String) -> VfsResult<()>;
-    fn apply_live_file_changes(&mut self, path: PathBuf, event: Vec<TextChange>) -> VfsResult<()>;
+    fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()>;
+    fn apply_live_file_changes(&mut self, path: &Path, event: Vec<TextChange>) -> VfsResult<()>;
 }
 
 // don't leak this outside the crate
 pub trait VfsDbInner {
-    fn source_path_from_absolute_path(&self, path: AbsolutePath) -> VfsResult<Option<SourcePath>>;
-    fn absolute_path_from_source_path(&self, path: SourcePath) -> VfsResult<AbsolutePath>;
-    fn file_content(&self, path: AbsolutePath, durability: salsa::Durability) -> &FileContent;
+    fn file_from_absolute_path(&self, path: &AbsolutePath) -> File;
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn vfs_cache(&self) -> &VfsCache;
-    fn update_file(&mut self, path: PathBuf) -> VfsResult<()>
+    fn update_file(&mut self, path: &Path) -> VfsResult<()>
     where
         Self: 'static;
+    fn calc_durability(&self, path: &Path) -> salsa::Durability;
 }
 
 impl<T> VfsDbInner for T
 where
-    T: salsa::DbWithJar<VfsJar> + AbsolutePathDb + SourcePathDb + Send + 'static,
+    T: salsa::DbWithJar<VfsJar> + HasVfsConfig + EntityPathDb + PackagePathDb + Send + 'static,
 {
-    fn source_path_from_absolute_path(&self, path: AbsolutePath) -> VfsResult<Option<SourcePath>> {
-        source_path_from_absolute_path(self, path)
-    }
-
-    fn absolute_path_from_source_path(&self, path: SourcePath) -> VfsResult<AbsolutePath> {
-        absolute_path_from_source_path(self, path)
-    }
-
-    fn file_content(&self, path: AbsolutePath, durability: salsa::Durability) -> &FileContent {
-        file_from_absolute_path(self, path, durability).content(self)
+    fn file_from_absolute_path(&self, abs_path: &AbsolutePath) -> File {
+        match self
+            .vfs_jar()
+            .cache()
+            .files()
+            .entry(abs_path.path().to_owned())
+        {
+            // If the file already exists in our cache then just return it.
+            Entry::Occupied(entry) => *entry.get(),
+            // If we haven't read this file yet set up the watch, read the
+            // contents, store it in the cache, and return it.
+            Entry::Vacant(entry) => unsafe {
+                let path = abs_path.path();
+                //  &path.path(self);
+                if let Some(watcher) = self.watcher() {
+                    let watcher = &mut watcher.0.lock().unwrap();
+                    watcher
+                        .watcher()
+                        .watch(path, RecursiveMode::NonRecursive)
+                        .unwrap();
+                }
+                let content = read_file_content(path);
+                *entry.insert(File::new(
+                    self,
+                    abs_path.clone(),
+                    content,
+                    self.calc_durability(path),
+                ))
+            },
+        }
     }
 
     fn vfs_jar(&self) -> &VfsJar {
@@ -64,27 +76,71 @@ where
     }
 
     // todo: test this
-    fn update_file(&mut self, path: PathBuf) -> VfsResult<()>
+    fn update_file(&mut self, path: &Path) -> VfsResult<()>
     where
         T: 'static,
     {
         let content = read_file_content(&path);
-        if let path = AbsolutePath::new_from_owned(self, path)? {
-            file_from_absolute_path(self, path, salsa::Durability::LOW)
-                .set_content(self)
-                .to(content);
+        if let abs_path = AbsolutePath::new(&path)? {
+            let abs_path = &abs_path;
+            let file = match self
+                .vfs_jar()
+                .cache()
+                .files()
+                .entry(abs_path.path().to_owned())
+            {
+                // If the file already exists in our cache then just return it.
+                Entry::Occupied(entry) => *entry.get(),
+                // If we haven't read this file yet set up the watch, read the
+                // contents, store it in the cache, and return it.
+                Entry::Vacant(entry) => unsafe {
+                    let path = abs_path.path();
+                    //  &path.path(self);
+                    if let Some(watcher) = self.watcher() {
+                        let watcher = &mut watcher.0.lock().unwrap();
+                        watcher
+                            .watcher()
+                            .watch(path, RecursiveMode::NonRecursive)
+                            .unwrap();
+                    }
+                    let content = read_file_content(path);
+                    *entry.insert(File::new(
+                        self,
+                        abs_path.clone(),
+                        content,
+                        self.calc_durability(path),
+                    ))
+                },
+            };
+            file.set_content(self).to(content);
         }
         Ok(())
+    }
+
+    fn calc_durability(&self, path: &Path) -> salsa::Durability {
+        if let Some(corgi_install_path) = self.vfs_config().corgi_install_path() {
+            todo!()
+        } else {
+            salsa::Durability::LOW
+        }
     }
 }
 
 impl<T> VfsDb for T
 where
-    T: salsa::DbWithJar<VfsJar> + AbsolutePathDb + SourcePathDb + Send + 'static,
+    T: salsa::DbWithJar<VfsJar> + HasVfsConfig + EntityPathDb + PackagePathDb + Send + 'static,
 {
-    fn source_text(&self, path: SourcePath) -> VfsResult<&str> {
-        let abs_path = self.absolute_path_from_source_path(path)?;
-        self.file_content(abs_path, path.durability(self)).text()
+    fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str> {
+        package_manifest_file(self, package_path)?.text(self)
+    }
+
+    fn module_content(&self, entity_path: EntityPath) -> VfsResult<&str> {
+        let abs_path = module_path(self, entity_path).as_ref()?;
+        self.file_from_absolute_path(abs_path).text(self)
+    }
+
+    fn package_dir(&self, package: PackagePath) -> &VfsResult<AbsolutePath> {
+        package_dir(self, package)
     }
 
     fn all_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>> {
@@ -126,7 +182,7 @@ where
         }
 
         let mut modules = vec![];
-        let package_dir = self.package_dir(package)?;
+        let package_dir = self.package_dir(package).as_ref()?;
         if package_dir.join("src/lib.hsy").exists() {
             let root_module = self.it_entity_path(EntityPathData::Crate {
                 package,
@@ -154,9 +210,10 @@ where
         Ok(modules)
     }
 
-    fn set_live_file(&mut self, path: PathBuf, text: String) -> VfsResult<()> {
-        let path = AbsolutePath::new_from_owned(self, path.clone())?;
-        let entry = self.vfs_cache().files().entry(path);
+    fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()> {
+        let abs_path = AbsolutePath::new(path)?;
+        // ad hoc
+        let entry = self.vfs_cache().files().entry(abs_path.path().to_owned());
         match entry {
             Entry::Occupied(_) => todo!(),
             Entry::Vacant(_) => todo!(),
@@ -166,33 +223,8 @@ where
 
     /// If range are omitted
     /// the new text is considered to be the full content of the document.
-    fn apply_live_file_changes(&mut self, path: PathBuf, event: Vec<TextChange>) -> VfsResult<()> {
+    fn apply_live_file_changes(&mut self, path: &Path, event: Vec<TextChange>) -> VfsResult<()> {
         todo!()
-    }
-}
-
-fn file_from_absolute_path<T>(db: &T, abs_path: AbsolutePath, durability: salsa::Durability) -> File
-where
-    T: salsa::DbWithJar<VfsJar> + AbsolutePathDb + SourcePathDb + Send + 'static,
-{
-    match db.vfs_jar().cache().files().entry(abs_path) {
-        // If the file already exists in our cache then just return it.
-        Entry::Occupied(entry) => *entry.get(),
-        // If we haven't read this file yet set up the watch, read the
-        // contents, store it in the cache, and return it.
-        Entry::Vacant(entry) => unsafe {
-            let path = abs_path.path(db);
-            //  &path.path(self);
-            if let Some(watcher) = db.watcher() {
-                let watcher = &mut watcher.0.lock().unwrap();
-                watcher
-                    .watcher()
-                    .watch(path, RecursiveMode::NonRecursive)
-                    .unwrap();
-            }
-            let content = read_file_content(path);
-            *entry.insert(File::new(db, abs_path, content, durability))
-        },
     }
 }
 
