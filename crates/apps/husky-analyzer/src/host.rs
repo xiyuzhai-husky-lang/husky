@@ -28,24 +28,29 @@ use husky_word::WordJar;
     LayoutJar
 )]
 #[derive(Default)]
-pub struct AnalysisHost {
-    storage: salsa::Storage<AnalysisHost>,
+pub struct AnalyzerDB {
+    storage: salsa::Storage<AnalyzerDB>,
     source_path_config: VfsConfigImpl,
 }
 
-impl salsa::Database for AnalysisHost {}
+impl salsa::Database for AnalyzerDB {}
 
-impl HasVfsConfig for AnalysisHost {
+impl HasVfsConfig for AnalyzerDB {
     fn vfs_config(&self) -> &VfsConfig {
         &self.source_path_config
     }
 }
 
-impl salsa::ParallelDatabase for AnalysisHost {
+impl salsa::ParallelDatabase for AnalyzerDB {
     fn snapshot(&self) -> salsa::Snapshot<Self> {
-        salsa::Snapshot::new(AnalysisHost {
+        salsa::Snapshot::new(AnalyzerDB {
             storage: self.storage.snapshot(),
             source_path_config: self.source_path_config.clone(),
         })
     }
 }
+
+// ad hoc
+impl std::panic::RefUnwindSafe for AnalyzerDB {}
+// ad hoc
+impl std::panic::UnwindSafe for AnalyzerDB {}

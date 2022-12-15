@@ -29,7 +29,6 @@ def search(pattern: str, search_path: str, depth: int):
         for subpath in subpaths(search_path):
             search(pattern, subpath, depth - 1)
 
-
 def count_patterns(pattern: str, search_path: str) -> int:
     total = 0
     if os.path.isdir(search_path):

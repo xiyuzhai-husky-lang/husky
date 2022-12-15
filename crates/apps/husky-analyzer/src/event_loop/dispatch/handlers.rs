@@ -1,6 +1,6 @@
 use crate::{convert::from_lsp_types, lsp_ext::PositionOrRange, *};
 
-type HuskyComptimeSnapshot = salsa::Snapshot<AnalysisHost>;
+type HuskyComptimeSnapshot = salsa::Snapshot<AnalyzerDB>;
 
 use husky_hover::HoverResult;
 use husky_text::{FilePosition, FileRange, TextRange};
@@ -108,7 +108,8 @@ pub(crate) fn handle_completion(
     comptime: HuskyComptimeSnapshot,
     params: lsp_types::CompletionParams,
 ) -> Result<Option<lsp_types::CompletionResponse>> {
-    todo!()
+    msg_once!("todo handle completion!");
+    Ok(None)
     // let position = FilePosition::from_proto(&*comptime, &params.text_document_position);
     // let completion_trigger_character = params.context.and_then(|ctx| ctx.trigger_character);
     // Ok(comptime.completion(position, completion_trigger_character))
@@ -126,7 +127,8 @@ pub(crate) fn handle_folding_range(
     snapshot: HuskyComptimeSnapshot,
     params: FoldingRangeParams,
 ) -> Result<Option<Vec<FoldingRange>>> {
-    todo!()
+    msg_once!("todo handle folding range");
+    Ok(None)
     // use husky_token::*;
     // if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
     //     let file = snapshot.intern_path(path);
@@ -149,7 +151,8 @@ pub(crate) fn handle_hover(
     comptime: HuskyComptimeSnapshot,
     params: lsp_ext::HoverParams,
 ) -> Result<Option<HoverResult>> {
-    todo!()
+    msg_once!("todo handle hover!");
+    Ok(None)
     // let file = comptime.it_url(&params.text_document.uri).expect("todo");
     // let range = match params.position {
     //     PositionOrRange::Position(position) => lsp_types::Range::new(position, position),
@@ -282,7 +285,8 @@ pub(crate) fn handle_semantic_tokens_full(
     snapshot: HuskyComptimeSnapshot,
     params: SemanticTokensParams,
 ) -> Result<Option<SemanticTokensResult>> {
-    todo!()
+    eprintln!("todo: handle_semantic_tokens_full");
+    Ok(None)
     // let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
     //     &params.text_document.uri,
     // )?);
@@ -301,7 +305,8 @@ pub(crate) fn handle_semantic_tokens_full_delta(
     snapshot: HuskyComptimeSnapshot,
     params: SemanticTokensDeltaParams,
 ) -> Result<Option<SemanticTokensFullDeltaResult>> {
-    todo!()
+    eprintln!("todo: handle_semantic_tokens_full_delta");
+    Ok(None)
     // msg_once!("todo handle semantic tokens full delta");
     // let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
     //     &params.text_document.uri,
@@ -322,7 +327,8 @@ pub(crate) fn handle_semantic_tokens_range(
     snapshot: HuskyComptimeSnapshot,
     params: SemanticTokensRangeParams,
 ) -> Result<Option<SemanticTokensRangeResult>> {
-    todo!()
+    eprintln!("todo: handle_semantic_tokens_range");
+    Ok(None)
     // let file = snapshot.intern_path(convert::from_lsp_types::path_from_url(
     //     &params.text_document.uri,
     // )?);

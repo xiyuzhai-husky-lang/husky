@@ -16,5 +16,5 @@ pub use crate::event_loop::event_loop;
 pub use crate::init_connection::init_connection;
 
 use error_utils::Result;
-use host::AnalysisHost;
+use host::AnalyzerDB;
 use husky_print_utils::*;

@@ -4,10 +4,10 @@ use std::{fmt, panic, thread};
 use serde::{de::DeserializeOwned, Serialize};
 
 use salsa::ParallelDatabase;
-type HuskyComptimeSnapshot = salsa::Snapshot<AnalysisHost>;
+type HuskyComptimeSnapshot = salsa::Snapshot<AnalyzerDB>;
 
 use crate::{
-    host::AnalysisHost,
+    host::AnalyzerDB,
     server::{Server, TaskSet},
     utils::from_json,
     *,
@@ -44,20 +44,19 @@ impl<'a> RequestDispatcher<'a> {
         R::Params: DeserializeOwned + panic::UnwindSafe + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        todo!()
-        // let (id, params, panic_context) = match self.parse::<R>() {
-        //     Some(it) => it,
-        //     None => return Ok(self),
-        // };
-        // let snapshot = self.server.db.snapshot();
-        // let result = panic::catch_unwind(move || {
-        //     let _pctx = error_utils::panic_context::enter(panic_context);
-        //     f(snapshot, params)
-        // });
-        // let response = thread_result_to_response::<R>(id, result);
+        let (id, params, panic_context) = match self.parse::<R>() {
+            Some(it) => it,
+            None => return Ok(self),
+        };
+        let snapshot = self.server.db.snapshot();
+        let result = panic::catch_unwind(move || {
+            let _pctx = error_utils::panic_context::enter(panic_context);
+            f(snapshot, params)
+        });
+        let response = thread_result_to_response::<R>(id, result);
 
-        // self.server.client_comm.respond(response);
-        // Ok(self)
+        self.server.client_comm.respond(response);
+        Ok(self)
     }
 
     /// Dispatches the request onto the current thread.
@@ -70,22 +69,21 @@ impl<'a> RequestDispatcher<'a> {
         R::Params: DeserializeOwned + panic::UnwindSafe + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        todo!()
-        // let (_id, params, panic_context) = match self.parse::<R>() {
-        //     Some(it) => it,
-        //     None => return Ok(self),
-        // };
+        let (_id, params, panic_context) = match self.parse::<R>() {
+            Some(it) => it,
+            None => return Ok(self),
+        };
 
-        // let snapshot = self.server.db.snapshot();
-        // match panic::catch_unwind(move || {
-        //     let _pctx = error_utils::panic_context::enter(panic_context);
-        //     f(snapshot, params)
-        // }) {
-        //     Ok(control_signal) => self.control_signal = control_signal,
-        //     Err(_) => todo!(),
-        // }
+        let snapshot = self.server.db.snapshot();
+        match panic::catch_unwind(move || {
+            let _pctx = error_utils::panic_context::enter(panic_context);
+            f(snapshot, params)
+        }) {
+            Ok(control_signal) => self.control_signal = control_signal,
+            Err(_) => todo!(),
+        }
 
-        // Ok(self)
+        Ok(self)
     }
 
     /// Dispatches the request onto thread pool
@@ -98,25 +96,24 @@ impl<'a> RequestDispatcher<'a> {
         R::Params: DeserializeOwned + panic::UnwindSafe + Send + fmt::Debug + 'static,
         R::Result: Serialize + 'static,
     {
-        todo!()
-        // let (id, params, panic_context) = match self.parse::<R>() {
-        //     Some(it) => it,
-        //     None => return self,
-        // };
-        // self.server.threadpool.execute({
-        //     let snapshot = self.server.db.snapshot();
-        //     let sender = self.server.event_loop_comm.sender.clone();
-        //     move || {
-        //         let result = panic::catch_unwind(move || {
-        //             let _pctx = error_utils::panic_context::enter(panic_context);
-        //             f(snapshot, params)
-        //         });
-        //         let response = thread_result_to_response::<R>(id, result);
-        //         sender.send(TaskSet::Respond(response)).expect("ok");
-        //     }
-        // });
+        let (id, params, panic_context) = match self.parse::<R>() {
+            Some(it) => it,
+            None => return self,
+        };
+        self.server.threadpool.execute({
+            let snapshot = self.server.db.snapshot();
+            let sender = self.server.event_loop_comm.sender.clone();
+            move || {
+                let result = panic::catch_unwind(move || {
+                    let _pctx = error_utils::panic_context::enter(panic_context);
+                    f(snapshot, params)
+                });
+                let response = thread_result_to_response::<R>(id, result);
+                sender.send(TaskSet::Respond(response)).expect("ok");
+            }
+        });
 
-        // self
+        self
     }
 
     pub(crate) fn finish(&mut self) {

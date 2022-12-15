@@ -4,6 +4,7 @@ mod interned;
 mod jar;
 mod menu;
 mod style;
+mod tests;
 
 pub use db::*;
 pub use ident::*;
