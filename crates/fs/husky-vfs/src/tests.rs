@@ -16,6 +16,7 @@ use replace_with::replace_with;
 use salsa::Durability;
 use std::{
     collections::HashSet,
+    ops::Deref,
     sync::{Arc, Mutex},
     time::Duration,
 };
@@ -57,16 +58,16 @@ fn watcher_works() {
     let abs_path: AbsolutePath = AbsolutePath::new(&path).unwrap();
     unsafe {
         std::fs::write(&path, "Hello, world!");
-        assert!(
-            db.apply(|db| db.file_from_absolute_path(&abs_path).content(db)
-                == &FileContent::OnDisk("Hello, world!".to_owned())),
-        );
+        assert!(db.query(
+            |db| db.file_from_absolute_path(&abs_path).content(db.deref())
+                == &FileContent::OnDisk("Hello, world!".to_owned())
+        ),);
         std::fs::write(&path, "Hello, world!2");
         let a = DEBOUNCE_TEST_SLEEP_TIME;
         std::thread::sleep(DEBOUNCE_TEST_SLEEP_TIME);
-        assert!(
-            db.apply(|db| db.file_from_absolute_path(&abs_path).content(db)
-                == &FileContent::OnDisk("Hello, world!2".to_owned()))
-        )
+        assert!(db.query(
+            |db| db.file_from_absolute_path(&abs_path).content(db.deref())
+                == &FileContent::OnDisk("Hello, world!2".to_owned())
+        ))
     }
 }

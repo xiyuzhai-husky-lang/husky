@@ -12,7 +12,7 @@ pub trait VfsDb:
     fn package_dir(&self, package: PackagePath) -> &VfsResult<AbsolutePath>;
     fn all_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>>;
     fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()>;
-    fn apply_live_file_changes(&mut self, path: &Path, event: Vec<TextChange>) -> VfsResult<()>;
+    fn apply_live_file_changes(&mut self, path: &Path, changes: Vec<TextChange>) -> VfsResult<()>;
 }
 
 // don't leak this outside the crate
@@ -219,7 +219,8 @@ where
     /// If range are omitted
     /// the new text is considered to be the full content of the document.
     fn apply_live_file_changes(&mut self, path: &Path, event: Vec<TextChange>) -> VfsResult<()> {
-        todo!()
+        eprintln!("todo: apply_live_file_changes");
+        Ok(())
     }
 }
 

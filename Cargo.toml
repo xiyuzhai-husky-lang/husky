@@ -4,6 +4,7 @@ members = [
     "crates/apps/*",
     "crates/comptime/*",
     "crates/devtools/*",
+    "crates/debugtime/*",
     "crates/fs/*",
     "crates/ide/*",
     "crates/infer/*",
@@ -11,7 +12,7 @@ members = [
     "crates/lex/*",
     "crates/runtime/*",
     "crates/syntax/*",
-    "crates/debugtime/*",
+    "crates/try/*",
     "crates/utils/*",
     "crates/vm/*",
     "crates/benchmarks/*"

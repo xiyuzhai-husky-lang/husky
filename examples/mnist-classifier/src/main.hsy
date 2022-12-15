@@ -1,5 +1,5 @@
 task:
-    mnist::new_binary_dataset()
+    ml::datasets::cv::mnist::new_binary_dataset()
     
 mod connected_component
 mod raw_contour
@@ -7,8 +7,6 @@ mod geom2d
 mod line_segment_sketch
 mod fermi
 mod major
-<<<<<<< HEAD:examples/mnist-classifier/src/main.hsy
-=======
 mod one
 mod six
 mod zero
@@ -16,41 +14,35 @@ mod seven
 mod eight
 mod nine
 mod three
->>>>>>> cd50934257db08a3571c5f4b8b68528b5962e1a4:examples/mnist-classifier/__rust_gen__/snapshot/mnist-classifier/main.hsy
+mod five
 
-use mnist::BinaryImage28
-use mnist::MnistLabel
+use domains::ml::datasets::cv::mnist::BinaryImage28
+use domains::ml::datasets::cv::mnist::MnistLabel
 use major::*
-<<<<<<< HEAD:examples/mnist-classifier/src/main.hsy
-use digits::*
-=======
 use one::is_one
 use six::is_six
 use zero::is_zero
 use seven::is_seven
+use three::is_three
+use eight::is_eight
 use nine::is_nine
+use five::is_five
 
->>>>>>> cd50934257db08a3571c5f4b8b68528b5962e1a4:examples/mnist-classifier/__rust_gen__/snapshot/mnist-classifier/main.hsy
 use raw_contour::find_raw_contours
 use line_segment_sketch::find_line_segments
 use domains::ml::models::naive::naive_i32
+
+
+
+
 
 main:
     is_one?
     is_six?
     is_zero?
-<<<<<<< HEAD:examples/mnist-classifier/src/main.hsy
-    naive_i32(concave_components.ilen())
-
-impl<T> Clone for T
-where (
-    T: Clone,
-    T: Clone,
-    T: Clone,
-):
-    func clone() -> Self:
-        self.clone()
-=======
     is_seven?
-    require false
->>>>>>> cd50934257db08a3571c5f4b8b68528b5962e1a4:examples/mnist-classifier/__rust_gen__/snapshot/mnist-classifier/main.hsy
+    is_eight?
+    is_three?
+    is_nine?
+    is_five?
+    MnistLabel::Four

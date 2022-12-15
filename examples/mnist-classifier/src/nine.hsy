@@ -30,6 +30,21 @@ def is_nine -> ?MnistLabel:
 
     MnistLabel::Nine
 
+def a:
+    s
+
+def a(
+    s
+):
+    s
+    s
+
+
+
+
+
+    
+
 func downmost(cc: &ConcaveComponent) -> ?f32:
     dp = cc.displacement()
     require dp.y < 0.0

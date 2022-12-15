@@ -10,7 +10,9 @@ use crate::{
 };
 
 use handlers::*;
+use husky_text::{TextChange, TextRange};
 use husky_vfs::VfsDb;
+use itertools::Itertools;
 
 pub(crate) fn dispatch_lsp_msg(
     server: &mut Server,
@@ -120,8 +122,12 @@ fn handle_lsp_notification(
         })?
         .on_sync::<lsp_types::notification::DidChangeTextDocument>(|server, params| {
             if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
-                let changes = params.content_changes;
-                server.db.apply_live_file_changes(&path, todo!());
+                let changes = params
+                    .content_changes
+                    .into_iter()
+                    .map(|change| change.into())
+                    .collect();
+                server.db.apply_live_file_changes(&path, changes);
             }
             Ok(TaskSet::SendUpdates)
         })?

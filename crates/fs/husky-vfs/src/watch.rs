@@ -2,6 +2,7 @@ use crate::*;
 use crossbeam_channel::{select, unbounded, Receiver, Sender};
 use dashmap::DashMap;
 use eyre::{eyre, Context, Report, Result};
+use husky_text::TextChange;
 use notify_debouncer_mini::{
     new_debouncer, new_debouncer_opt, notify::RecommendedWatcher, DebounceEventHandler,
     DebounceEventResult, DebouncedEvent, Debouncer,
@@ -56,14 +57,23 @@ where
     phantom: PhantomData<DB>,
 }
 
+impl<DB> Default for WatchedVfs<DB>
+where
+    DB: Default + WatchableVfsDb + ParallelDatabase + 'static,
+{
+    fn default() -> Self {
+        Self::new(Default::default())
+    }
+}
+
 impl<DB: WatchableVfsDb> WatchedVfs<DB>
 where
     DB: ParallelDatabase,
 {
-    pub fn apply<S>(&self, f: impl FnOnce(&DB) -> S) -> S {
+    pub fn query<S>(&self, f: impl FnOnce(salsa::Snapshot<DB>) -> S) -> S {
         self.event_tx.send(VfsWatcherEvent::Snapshot);
         match self.snapshot_rx.recv() {
-            Ok(snapshot) => f(&snapshot),
+            Ok(snapshot) => f(snapshot),
             Err(e) => {
                 p!(e);
                 todo!()
@@ -158,7 +168,7 @@ where
                             Ok(_) => (),
                             Err(_) => todo!(),
                         },
-                        VfsWatcherEvent::Close=>return Ok(()),
+                        VfsWatcherEvent::Close => return Ok(()),
                     },
                     Err(_) => todo!(),
                 },
