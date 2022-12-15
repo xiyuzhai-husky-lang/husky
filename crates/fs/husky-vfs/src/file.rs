@@ -1,62 +1,81 @@
-use husky_source_path::SourcePath;
+use husky_absolute_path::AbsolutePath;
 use salsa::{input::InputIngredient, input_field::InputFieldIngredient, Durability};
 
 use crate::*;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
-pub struct SourceFile(salsa::Id);
+pub struct File(salsa::Id);
 
-impl SourceFile {
-    pub fn new(
+#[derive(Debug, PartialEq, Eq)]
+pub enum FileContent {
+    NotExist,
+    OnDisk(String),
+    Live(String),
+    Directory(Vec<AbsolutePath>),
+    Err(VfsError),
+}
+
+impl FileContent {
+    pub(crate) fn text(&self) -> VfsResult<&str> {
+        match self {
+            FileContent::NotExist => todo!(),
+            FileContent::OnDisk(text) | FileContent::Live(text) => Ok(text),
+            FileContent::Directory(_) => todo!(),
+            FileContent::Err(_) => todo!(),
+        }
+    }
+}
+
+impl File {
+    pub(crate) fn new(
         db: &<crate::VfsJar as salsa::jar::Jar<'_>>::DynDb,
-        path: SourcePath,
-        content: String,
+        path: AbsolutePath,
+        content: FileContent,
+        durability: Durability,
     ) -> Self {
         let (jar, runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(db);
-        let ingredients =
-            <VfsJar as salsa::storage::HasIngredientsFor<SourceFile>>::ingredient(jar);
+        let ingredients = <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(jar);
         let id = ingredients.2.new_input(runtime);
         ingredients.0.store_new(runtime, id, path, Durability::HIGH);
-        ingredients
-            .1
-            .store_new(runtime, id, content, db.source_durability(path));
+        ingredients.1.store_new(runtime, id, content, durability);
         id
     }
 
-    pub(crate) fn path<'db>(self, __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb) -> SourcePath {
+    pub(crate) fn path<'db>(
+        self,
+        __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb,
+    ) -> AbsolutePath {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(__db);
-        let __ingredients =
-            <VfsJar as salsa::storage::HasIngredientsFor<SourceFile>>::ingredient(__jar);
+        let __ingredients = <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(__jar);
         __ingredients.0.fetch(__runtime, self).clone()
     }
 
     pub(crate) fn content<'db>(
         self,
         __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-    ) -> &'db String {
+    ) -> &'db FileContent {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(__db);
-        let __ingredients =
-            <VfsJar as salsa::storage::HasIngredientsFor<SourceFile>>::ingredient(__jar);
+        let __ingredients = <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(__jar);
         __ingredients.1.fetch(__runtime, self)
     }
 
     pub(crate) fn set_content<'db>(
         self,
         db: &'db mut <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-    ) -> salsa::setter::Setter<'db, SourceFile, String> {
+    ) -> salsa::setter::Setter<'db, File, FileContent> {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar_mut(db);
         let __ingredients =
-            <VfsJar as salsa::storage::HasIngredientsFor<SourceFile>>::ingredient_mut(__jar);
+            <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient_mut(__jar);
         salsa::setter::Setter::new(__runtime, self, &mut __ingredients.1)
     }
 }
 
-impl salsa::storage::IngredientsFor for SourceFile {
+impl salsa::storage::IngredientsFor for File {
     type Jar = VfsJar;
     type Ingredients = (
-        InputFieldIngredient<SourceFile, SourcePath>,
-        InputFieldIngredient<SourceFile, String>,
-        InputIngredient<SourceFile>,
+        InputFieldIngredient<File, AbsolutePath>,
+        InputFieldIngredient<File, FileContent>,
+        InputIngredient<File>,
     );
     fn create_ingredients<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self::Ingredients
     where
@@ -123,15 +142,15 @@ impl salsa::storage::IngredientsFor for SourceFile {
         )
     }
 }
-impl salsa::AsId for SourceFile {
+impl salsa::AsId for File {
     fn as_id(self) -> salsa::Id {
         self.0
     }
     fn from_id(id: salsa::Id) -> Self {
-        SourceFile(id)
+        File(id)
     }
 }
-impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for SourceFile {
+impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for File {
     fn fmt(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
@@ -142,38 +161,36 @@ impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for SourceFile
         use ::salsa::debug::helper::Fallback;
         let mut debug_struct = &mut f.debug_struct("HuskyFile");
         debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
-        debug_struct =
-            debug_struct.field(
-                "path",
+        debug_struct = debug_struct.field(
+            "path",
+            &::salsa::debug::helper::SalsaDebug::<
+                AbsolutePath,
+                <VfsJar as salsa::jar::Jar<'_>>::DynDb,
+            >::salsa_debug(
+                #[allow(clippy::needless_borrow)]
+                &self.path(_db),
+                _db,
+                _include_all_fields,
+            ),
+        );
+        if _include_all_fields {
+            debug_struct = debug_struct.field(
+                "content",
                 &::salsa::debug::helper::SalsaDebug::<
-                    SourcePath,
+                    FileContent,
                     <VfsJar as salsa::jar::Jar<'_>>::DynDb,
                 >::salsa_debug(
                     #[allow(clippy::needless_borrow)]
-                    &self.path(_db),
+                    &self.content(_db),
                     _db,
                     _include_all_fields,
                 ),
             );
-        if _include_all_fields {
-            debug_struct =
-                debug_struct.field(
-                    "content",
-                    &::salsa::debug::helper::SalsaDebug::<
-                        String,
-                        <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-                    >::salsa_debug(
-                        #[allow(clippy::needless_borrow)]
-                        &self.content(_db),
-                        _db,
-                        _include_all_fields,
-                    ),
-                );
         }
         debug_struct.finish()
     }
 }
-impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for SourceFile
+impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for File
 where
     DB: ?Sized + salsa::DbWithJar<VfsJar>,
 {

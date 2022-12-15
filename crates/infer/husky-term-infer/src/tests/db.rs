@@ -2,6 +2,7 @@ mod init;
 mod trivia;
 
 use super::*;
+use husky_absolute_path::AbsolutePathJar;
 use husky_entity_path::{
     EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu, EntityPathMenuPlace,
 };
@@ -32,6 +33,7 @@ use upcast::Upcast;
     TermInferJar,
     TokenJar,
     VfsJar,
+    AbsolutePathJar,
     SourcePathJar,
     SymbolJar
 )]

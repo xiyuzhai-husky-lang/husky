@@ -1,3 +1,4 @@
+use husky_absolute_path::AbsolutePathJar;
 use husky_ast::AstJar;
 use husky_diagnostics::DiagnosticsJar;
 use husky_entity_path::EntityPathJar;
@@ -22,6 +23,7 @@ use husky_word::WordJar;
     ToolchainJar,
     AstJar,
     WordJar,
+    AbsolutePathJar,
     SourcePathJar,
     EntityPathJar,
     TermJar,

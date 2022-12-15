@@ -31,6 +31,7 @@ wild-utils = { path = "../../utils/husky-wild-utils" }
 [dev-dependencies]
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
+husky-absolute-path = { path = "../../fs/husky-absolute-path" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }

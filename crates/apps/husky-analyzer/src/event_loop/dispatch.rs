@@ -106,7 +106,15 @@ fn handle_lsp_notification(
         })?
         .on_sync::<lsp_types::notification::DidOpenTextDocument>(|server, params| {
             if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
-                server.db.set_live_file(path, params.text_document.text);
+                match server.db.set_live_file(path, params.text_document.text) {
+                    Ok(_) => (),
+                    Err(e) => {
+                        eprintln!(
+                            "error when setting live file at {}: {e}",
+                            params.text_document.uri
+                        )
+                    }
+                }
             }
             Ok(TaskSet::SendUpdates)
         })?

@@ -27,17 +27,8 @@ where
 
 #[salsa::tracked(jar = TokenJar,return_ref)]
 fn token_sheet(db: &dyn TokenDb, entity_path: EntityPath) -> VfsResult<TokenGroupSheet> {
-    let file_content = db.file_content(db.it_source_path(SourcePathData::Module(entity_path)))?;
     Ok(TokenGroupSheet::new(tokenize::tokenize(
         db.word_db(),
-        file_content,
+        db.source_text(db.it_source_path(SourcePathData::Module(entity_path)))?,
     )))
-    // if let Some(text) = this.raw_text(file) {
-    //     return Ok(TokenizedText::parse(this.word_itr(), text.as_str()));
-    // } else {
-    //     Err(FileError {
-    //         kind: FileErrorKind::FileNotFound,
-    //         dev_src: dev_src!(),
-    //     })
-    // }
 }

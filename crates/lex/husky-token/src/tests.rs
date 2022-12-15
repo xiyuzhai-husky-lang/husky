@@ -1,5 +1,6 @@
 use crate::*;
 use expect_test::expect_file;
+use husky_absolute_path::AbsolutePathJar;
 use husky_entity_path::{EntityPathDb, EntityPathJar};
 use husky_expect_test_utils::*;
 use husky_package_path::{PackagePathDb, PackagePathJar};
@@ -20,6 +21,7 @@ use std::{borrow::Cow, sync::Arc};
     PackagePathJar,
     TokenJar,
     VfsJar,
+    AbsolutePathJar,
     SourcePathJar,
     EntityPathJar
 )]

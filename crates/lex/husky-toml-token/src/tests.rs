@@ -1,5 +1,6 @@
 use super::*;
 use expect_test::expect_file;
+use husky_absolute_path::AbsolutePathJar;
 use husky_entity_path::EntityPathJar;
 use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
@@ -19,6 +20,7 @@ use std::{borrow::Cow, sync::Arc};
     EntityPathJar,
     TomlTokenJar,
     VfsJar,
+    AbsolutePathJar,
     SourcePathJar
 )]
 #[derive(Default)]

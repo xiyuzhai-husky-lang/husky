@@ -1,14 +1,14 @@
 use crate::*;
+use husky_absolute_path::{AbsolutePath, AbsolutePathDb};
 use husky_entity_path::{CratePathKind, EntityPath, EntityPathData};
 use husky_package_path::{PackagePath, PackagePathData};
 use husky_source_path::{SourcePath, SourcePathData};
 use husky_text::{TextChange, TextRange};
 
-pub trait VfsDb: salsa::DbWithJar<VfsJar> + SourcePathDb + Send {
-    fn file_content(&self, path: SourcePath) -> VfsResult<&str>;
-    fn vfs_jar(&self) -> &VfsJar;
-    fn vfs_jar_mut(&mut self) -> &mut VfsJar;
-    fn update_file(&mut self, path: PathBuf) -> VfsResult<()>;
+pub trait VfsDb:
+    salsa::DbWithJar<VfsJar> + AbsolutePathDb + SourcePathDb + Send + VfsDbInner
+{
+    fn source_text(&self, path: SourcePath) -> VfsResult<&str>;
     fn package_dir(&self, package: PackagePath) -> VfsResult<PathBuf> {
         match self.package_path_data(package) {
             PackagePathData::Builtin { ident, toolchain } => todo!(),
@@ -18,14 +18,39 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + SourcePathDb + Send {
         }
     }
     fn all_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>>;
-    fn set_live_file(&mut self, path: PathBuf, text: String);
-    fn apply_live_file_changes(&mut self, path: PathBuf, event: Vec<TextChange>);
+    fn set_live_file(&mut self, path: PathBuf, text: String) -> VfsResult<()>;
+    fn apply_live_file_changes(&mut self, path: PathBuf, event: Vec<TextChange>) -> VfsResult<()>;
 }
 
-impl<T> VfsDb for T
+// don't leak this outside the crate
+pub trait VfsDbInner {
+    fn source_path_from_absolute_path(&self, path: AbsolutePath) -> VfsResult<Option<SourcePath>>;
+    fn absolute_path_from_source_path(&self, path: SourcePath) -> VfsResult<AbsolutePath>;
+    fn file_content(&self, path: AbsolutePath, durability: salsa::Durability) -> &FileContent;
+    fn vfs_jar(&self) -> &VfsJar;
+    fn vfs_jar_mut(&mut self) -> &mut VfsJar;
+    fn vfs_cache(&self) -> &VfsCache;
+    fn update_file(&mut self, path: PathBuf) -> VfsResult<()>
+    where
+        Self: 'static;
+}
+
+impl<T> VfsDbInner for T
 where
-    T: salsa::DbWithJar<VfsJar> + SourcePathDb + Send + 'static,
+    T: salsa::DbWithJar<VfsJar> + AbsolutePathDb + SourcePathDb + Send + 'static,
 {
+    fn source_path_from_absolute_path(&self, path: AbsolutePath) -> VfsResult<Option<SourcePath>> {
+        source_path_from_absolute_path(self, path)
+    }
+
+    fn absolute_path_from_source_path(&self, path: SourcePath) -> VfsResult<AbsolutePath> {
+        absolute_path_from_source_path(self, path)
+    }
+
+    fn file_content(&self, path: AbsolutePath, durability: salsa::Durability) -> &FileContent {
+        file_from_absolute_path(self, path, durability).content(self)
+    }
+
     fn vfs_jar(&self) -> &VfsJar {
         <Self as HasJar<VfsJar>>::jar(self).0
     }
@@ -34,17 +59,32 @@ where
         <Self as HasJar<VfsJar>>::jar_mut(self).0
     }
 
-    fn file_content(&self, path: SourcePath) -> VfsResult<&str> {
-        Ok(source_file(self, path)?.content(self))
+    fn vfs_cache(&self) -> &VfsCache {
+        self.vfs_jar().cache()
     }
 
     // todo: test this
-    fn update_file(&mut self, path: PathBuf) -> VfsResult<()> {
-        let content = read_to_string(&path)?;
-        if let Some(path) = self.source_path_from_physical_path(&path)? {
-            source_file(self, path)?.set_content(self).to(content);
+    fn update_file(&mut self, path: PathBuf) -> VfsResult<()>
+    where
+        T: 'static,
+    {
+        let content = read_file_content(&path);
+        if let path = AbsolutePath::new_from_owned(self, path)? {
+            file_from_absolute_path(self, path, salsa::Durability::LOW)
+                .set_content(self)
+                .to(content);
         }
         Ok(())
+    }
+}
+
+impl<T> VfsDb for T
+where
+    T: salsa::DbWithJar<VfsJar> + AbsolutePathDb + SourcePathDb + Send + 'static,
+{
+    fn source_text(&self, path: SourcePath) -> VfsResult<&str> {
+        let abs_path = self.absolute_path_from_source_path(path)?;
+        self.file_content(abs_path, path.durability(self)).text()
     }
 
     fn all_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>> {
@@ -114,42 +154,59 @@ where
         Ok(modules)
     }
 
-    fn set_live_file(&mut self, path: PathBuf, text: String) {
+    fn set_live_file(&mut self, path: PathBuf, text: String) -> VfsResult<()> {
+        let path = AbsolutePath::new_from_owned(self, path.clone())?;
+        let entry = self.vfs_cache().files().entry(path);
+        match entry {
+            Entry::Occupied(_) => todo!(),
+            Entry::Vacant(_) => todo!(),
+        }
         todo!()
     }
 
     /// If range are omitted
     /// the new text is considered to be the full content of the document.
-    fn apply_live_file_changes(&mut self, path: PathBuf, event: Vec<TextChange>) {
+    fn apply_live_file_changes(&mut self, path: PathBuf, event: Vec<TextChange>) -> VfsResult<()> {
         todo!()
     }
 }
 
-fn source_file<T>(db: &T, path: SourcePath) -> VfsResult<SourceFile>
+fn file_from_absolute_path<T>(db: &T, abs_path: AbsolutePath, durability: salsa::Durability) -> File
 where
-    T: salsa::DbWithJar<VfsJar> + SourcePathDb + Send + 'static,
+    T: salsa::DbWithJar<VfsJar> + AbsolutePathDb + SourcePathDb + Send + 'static,
 {
-    Ok(match db.vfs_jar().husky_file_cache().data().entry(path) {
+    match db.vfs_jar().cache().files().entry(abs_path) {
         // If the file already exists in our cache then just return it.
         Entry::Occupied(entry) => *entry.get(),
         // If we haven't read this file yet set up the watch, read the
         // contents, store it in the cache, and return it.
-        Entry::Vacant(entry) => {
-            let physical_path = db.source_absolute_path(path)?;
+        Entry::Vacant(entry) => unsafe {
+            let path = abs_path.path(db);
             //  &path.path(self);
             if let Some(watcher) = db.watcher() {
                 let watcher = &mut watcher.0.lock().unwrap();
                 watcher
                     .watcher()
-                    .watch(&physical_path, RecursiveMode::NonRecursive)
+                    .watch(path, RecursiveMode::NonRecursive)
                     .unwrap();
             }
-            let content = read_to_string(&physical_path)?;
-            *entry.insert(SourceFile::new(db, path, content))
-        }
-    })
+            let content = read_file_content(path);
+            *entry.insert(File::new(db, abs_path, content, durability))
+        },
+    }
 }
 
-fn read_to_string(path: &Path) -> VfsResult<String> {
-    std::fs::read_to_string(path).map_err(|e| VfsError::new_io_error(path.to_owned(), e))
+fn read_file_content(path: &Path) -> FileContent {
+    if !path.exists() {
+        FileContent::NotExist
+    } else if path.is_file() {
+        match std::fs::read_to_string(path) {
+            Ok(text) => FileContent::OnDisk(text),
+            Err(e) => FileContent::Err(VfsError::new_io_error(path.to_owned(), e)),
+        }
+    } else if path.is_dir() {
+        todo!()
+    } else {
+        todo!()
+    }
 }

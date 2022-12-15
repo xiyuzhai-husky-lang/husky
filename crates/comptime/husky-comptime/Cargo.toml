@@ -22,6 +22,7 @@ upcast = { path = "../../abstraction/upcast" }
 place = { path = "../../abstraction/place" }
 # fs
 husky-path = { path = "../../fs/husky-path" }
+husky-absolute-path = { path = "../../fs/husky-absolute-path" }
 husky-source-path = { path = "../../fs/husky-source-path" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel

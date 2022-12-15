@@ -127,7 +127,7 @@ where
 
 impl<DB: WatchableVfsDb> VfsWatcherInstance<DB>
 where
-    DB: ParallelDatabase,
+    DB: ParallelDatabase + 'static,
 {
     fn new(
         db: DB,

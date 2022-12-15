@@ -93,6 +93,8 @@ pub trait ParallelDatabase: Database + Send {
     ///             }
     ///         )
     ///     }
+    ///
+    ///
     /// }
     /// ```
     fn snapshot(&self) -> Snapshot<Self>;
