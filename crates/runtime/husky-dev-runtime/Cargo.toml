@@ -28,7 +28,7 @@ husky-token = { path = "../../lex/husky-token" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-fmt = { path = "../../syntax/husky-fmt" }
+husky-syntax-fmt = { path = "../../syntax/husky-syntax-fmt" }
 husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 # infer

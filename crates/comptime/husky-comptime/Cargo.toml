@@ -41,7 +41,7 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
-husky-fmt = { path = "../../syntax/husky-fmt" }
+husky-syntax-fmt = { path = "../../syntax/husky-syntax-fmt" }
 husky-text = { path = "../../lex/husky-text" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
