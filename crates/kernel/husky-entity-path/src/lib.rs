@@ -59,4 +59,13 @@ impl EntityPath {
     pub(crate) fn child(self, db: &dyn EntityPathDb, ident: &str) -> Option<EntityPath> {
         db.it_child_entity_path(self, ident)
     }
+
+    pub fn display(self, db: &dyn EntityPathDb) -> String {
+        match self.data(db) {
+            EntityPathData::Crate { package, kind } => "crate".into(),
+            EntityPathData::Childpath { parent, ident } => {
+                format!("{}::{}", parent.display(db), db.dt_ident(ident))
+            }
+        }
+    }
 }

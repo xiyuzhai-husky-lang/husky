@@ -5,6 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+salsa = { path = "../../abstraction/salsa" }
 expect-test = "1.4.0"
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
