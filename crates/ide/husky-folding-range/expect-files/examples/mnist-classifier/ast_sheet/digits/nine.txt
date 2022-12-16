@@ -1,0 +1,82 @@
+Ok(
+    [
+        FoldingRange {
+            start_line: 30,
+            start_character: Some(
+                4,
+            ),
+            end_line: 41,
+            end_character: Some(
+                24,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 10,
+            start_character: Some(
+                0,
+            ),
+            end_line: 11,
+            end_character: Some(
+                53,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 13,
+            start_character: Some(
+                0,
+            ),
+            end_line: 14,
+            end_character: Some(
+                51,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 16,
+            start_character: Some(
+                0,
+            ),
+            end_line: 53,
+            end_character: Some(
+                20,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 55,
+            start_character: Some(
+                0,
+            ),
+            end_line: 58,
+            end_character: Some(
+                8,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 60,
+            start_character: Some(
+                0,
+            ),
+            end_line: 64,
+            end_character: Some(
+                35,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+    ],
+)

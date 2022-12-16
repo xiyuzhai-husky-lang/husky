@@ -1,0 +1,8 @@
+Ok(
+    AstSheet {
+        arena: Arena {
+            data: [],
+        },
+        top_level_asts: 0..0,
+    },
+)

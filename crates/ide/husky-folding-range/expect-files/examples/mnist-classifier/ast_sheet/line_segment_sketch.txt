@@ -1,0 +1,602 @@
+Ok(
+    [
+        FoldingRange {
+            start_line: 17,
+            start_character: Some(
+                4,
+            ),
+            end_line: 19,
+            end_character: Some(
+                63,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 21,
+            start_character: Some(
+                4,
+            ),
+            end_line: 22,
+            end_character: Some(
+                21,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 24,
+            start_character: Some(
+                4,
+            ),
+            end_line: 25,
+            end_character: Some(
+                57,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 41,
+            start_character: Some(
+                8,
+            ),
+            end_line: 46,
+            end_character: Some(
+                36,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 32,
+            start_character: Some(
+                4,
+            ),
+            end_line: 33,
+            end_character: Some(
+                37,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 35,
+            start_character: Some(
+                4,
+            ),
+            end_line: 50,
+            end_character: Some(
+                9,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 52,
+            start_character: Some(
+                4,
+            ),
+            end_line: 53,
+            end_character: Some(
+                56,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 55,
+            start_character: Some(
+                4,
+            ),
+            end_line: 56,
+            end_character: Some(
+                20,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 82,
+            start_character: Some(
+                4,
+            ),
+            end_line: 83,
+            end_character: Some(
+                18,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 91,
+            start_character: Some(
+                8,
+            ),
+            end_line: 92,
+            end_character: Some(
+                17,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 93,
+            start_character: Some(
+                8,
+            ),
+            end_line: 94,
+            end_character: Some(
+                27,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 98,
+            start_character: Some(
+                12,
+            ),
+            end_line: 99,
+            end_character: Some(
+                38,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 100,
+            start_character: Some(
+                12,
+            ),
+            end_line: 101,
+            end_character: Some(
+                36,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 95,
+            start_character: Some(
+                8,
+            ),
+            end_line: 101,
+            end_character: Some(
+                36,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 79,
+            start_character: Some(
+                4,
+            ),
+            end_line: 81,
+            end_character: Some(
+                44,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 87,
+            start_character: Some(
+                4,
+            ),
+            end_line: 103,
+            end_character: Some(
+                44,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 114,
+            start_character: Some(
+                4,
+            ),
+            end_line: 115,
+            end_character: Some(
+                32,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 122,
+            start_character: Some(
+                8,
+            ),
+            end_line: 123,
+            end_character: Some(
+                17,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 124,
+            start_character: Some(
+                8,
+            ),
+            end_line: 125,
+            end_character: Some(
+                27,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 129,
+            start_character: Some(
+                12,
+            ),
+            end_line: 130,
+            end_character: Some(
+                38,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 131,
+            start_character: Some(
+                12,
+            ),
+            end_line: 132,
+            end_character: Some(
+                36,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 126,
+            start_character: Some(
+                8,
+            ),
+            end_line: 132,
+            end_character: Some(
+                36,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 134,
+            start_character: Some(
+                12,
+            ),
+            end_line: 139,
+            end_character: Some(
+                21,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 133,
+            start_character: Some(
+                8,
+            ),
+            end_line: 140,
+            end_character: Some(
+                19,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 141,
+            start_character: Some(
+                8,
+            ),
+            end_line: 142,
+            end_character: Some(
+                17,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 144,
+            start_character: Some(
+                4,
+            ),
+            end_line: 145,
+            end_character: Some(
+                20,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 146,
+            start_character: Some(
+                4,
+            ),
+            end_line: 147,
+            end_character: Some(
+                21,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 111,
+            start_character: Some(
+                4,
+            ),
+            end_line: 113,
+            end_character: Some(
+                45,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 119,
+            start_character: Some(
+                4,
+            ),
+            end_line: 142,
+            end_character: Some(
+                17,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 161,
+            start_character: Some(
+                12,
+            ),
+            end_line: 165,
+            end_character: Some(
+                41,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 158,
+            start_character: Some(
+                8,
+            ),
+            end_line: 165,
+            end_character: Some(
+                41,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 174,
+            start_character: Some(
+                16,
+            ),
+            end_line: 179,
+            end_character: Some(
+                88,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 169,
+            start_character: Some(
+                12,
+            ),
+            end_line: 179,
+            end_character: Some(
+                88,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 180,
+            start_character: Some(
+                12,
+            ),
+            end_line: 181,
+            end_character: Some(
+                50,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 166,
+            start_character: Some(
+                8,
+            ),
+            end_line: 182,
+            end_character: Some(
+                34,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 188,
+            start_character: Some(
+                4,
+            ),
+            end_line: 194,
+            end_character: Some(
+                9,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 154,
+            start_character: Some(
+                4,
+            ),
+            end_line: 184,
+            end_character: Some(
+                23,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 11,
+            start_character: Some(
+                0,
+            ),
+            end_line: 14,
+            end_character: Some(
+                42,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 16,
+            start_character: Some(
+                0,
+            ),
+            end_line: 25,
+            end_character: Some(
+                57,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 27,
+            start_character: Some(
+                0,
+            ),
+            end_line: 29,
+            end_character: Some(
+                32,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 31,
+            start_character: Some(
+                0,
+            ),
+            end_line: 56,
+            end_character: Some(
+                20,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 58,
+            start_character: Some(
+                0,
+            ),
+            end_line: 64,
+            end_character: Some(
+                28,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 66,
+            start_character: Some(
+                0,
+            ),
+            end_line: 72,
+            end_character: Some(
+                28,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 74,
+            start_character: Some(
+                0,
+            ),
+            end_line: 105,
+            end_character: Some(
+                14,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 107,
+            start_character: Some(
+                0,
+            ),
+            end_line: 147,
+            end_character: Some(
+                21,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 149,
+            start_character: Some(
+                0,
+            ),
+            end_line: 195,
+            end_character: Some(
+                24,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+    ],
+)

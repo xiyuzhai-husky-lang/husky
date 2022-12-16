@@ -1,0 +1,24 @@
+Ok(
+    AstSheet {
+        arena: Arena {
+            data: [
+                Mod(
+                    TokenGroupIdx(
+                        0,
+                    ),
+                ),
+                Mod(
+                    TokenGroupIdx(
+                        1,
+                    ),
+                ),
+                Mod(
+                    TokenGroupIdx(
+                        2,
+                    ),
+                ),
+            ],
+        },
+        top_level_asts: 0..3,
+    },
+)
