@@ -1,5 +1,4 @@
 use crate::*;
-use husky_display_utils::HuskyDisplayConfig;
 use husky_text::Text;
 use husky_token::{AbsSemanticToken, TokenDb};
 use husky_vfs::VfsResult;

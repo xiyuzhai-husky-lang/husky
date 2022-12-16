@@ -1,14 +1,16 @@
 use cv::datasets::mnist::BinaryImage28
 use crate::raw_contour::*
 
-struct ConnectedComponentDistribution:
-    row_start: i32
-    row_end: i32
-    upper_mass: i32
-    lower_mass: i32
+struct ConnectedComponentDistribution {
+    row_start: i32,
+    row_end: i32,
+    upper_mass: i32,
+    lower_mass: i32,
+}
 
-struct EffHoles:
-    matches: []?&RawContour
+struct EffHoles {
+    matches: []?&RawContour,
+}
 
 func hole_tmpl(ct: &RawContour) -> ?f32:
     len = ct.contour_len

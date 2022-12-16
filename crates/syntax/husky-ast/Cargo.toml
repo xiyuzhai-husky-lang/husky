@@ -28,31 +28,12 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
-# syntax
-husky-expr = { path = "../../syntax/husky-expr" }
-husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
-husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
-husky-defn-head = { path = "../../syntax/husky-defn-head" }
-husky-pattern-syntax = { path = "../../syntax/husky-pattern-syntax" }
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
-husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
-# utils
-husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-wild-utils = { path = "../../utils/husky-wild-utils" }
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
-husky-test-utils = { path = "../../utils/husky-test-utils" }
-husky-display-utils = { path = "../../utils/husky-display-utils" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
-# lex
-husky-toml-token = { path = "../../lex/husky-toml-token" }
 # kernel
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
 # syntax
-husky-toml-ast = { path = "../../syntax/husky-toml-ast" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 # utils
 husky-vfs-test-utils = { path = "../../utils/husky-vfs-test-utils" }

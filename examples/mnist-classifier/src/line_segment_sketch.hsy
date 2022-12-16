@@ -9,10 +9,11 @@ use concave_component::*
 use convex_component::*
 use line_segment::*
 
-struct LineSegmentStroke:
-    points: [%]Point2d
-    start: Point2d := points.firstx().clone()
-    end: Point2d := points.lastx().clone()
+struct LineSegmentStroke {
+    points: [%]Point2d,
+    start: Point2d := points.firstx().clone(),
+    end: Point2d := points.lastx().clone(),
+}
 
 impl LineSegmentStroke:
     static func new(ct: &RawContour, from: i32, to: i32) -> LineSegmentStroke:
@@ -25,9 +26,10 @@ impl LineSegmentStroke:
     visual:
         <LineSegment start={this.start} end={this.end} />
 
-struct LineSegmentSketch:
-    contour: &RawContour
-    strokes: []LineSegmentStroke
+struct LineSegmentSketch {
+    contour: &RawContour,
+    strokes: []LineSegmentStroke,
+}
 
 impl LineSegmentSketch:
     func concave_components -> []ConcaveComponent:

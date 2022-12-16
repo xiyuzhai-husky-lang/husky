@@ -62,7 +62,6 @@ pub fn len<T>(range: &ArenaIdxRange<T>) -> usize {
 
 pub type ArenaIdxRange<T> = core::ops::Range<ArenaIdx<T>>;
 
-#[derive(PartialEq, Eq)]
 pub struct ArenaIdx<T> {
     raw: usize,
     phantom: PhantomData<T>,
@@ -105,16 +104,23 @@ impl<T> Sub<Self> for ArenaIdx<T> {
     }
 }
 
-impl<T> PartialOrd for ArenaIdx<T>
-where
-    T: PartialEq,
-{
+impl<T> PartialEq for ArenaIdx<T> {
+    fn eq(&self, other: &Self) -> bool {
+        self.raw == other.raw
+    }
+}
+
+impl<T> Eq for ArenaIdx<T> {}
+
+impl<T> PartialOrd for ArenaIdx<T> {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        match self.raw.partial_cmp(&other.raw) {
-            Some(core::cmp::Ordering::Equal) => {}
-            ord => return ord,
-        }
-        self.phantom.partial_cmp(&other.phantom)
+        self.raw.partial_cmp(&other.raw)
+    }
+}
+
+impl<T> Ord for ArenaIdx<T> {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.raw.cmp(&other.raw)
     }
 }
 

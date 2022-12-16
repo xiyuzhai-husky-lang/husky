@@ -13,7 +13,6 @@ use collect::collect_module_diagnostics;
 use husky_ast::{AstError, AstErrorVariant};
 use husky_dev_utils::DevSource;
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
-use husky_entity_tree::{EntityTreeError, EntityTreeErrorKind};
 use husky_print_utils::p;
 use husky_text::TextRange;
 use std::fmt::Write;
@@ -66,57 +65,6 @@ impl HuskyDisplay for Diagnostic {
 //         }
 //     }
 // }
-
-impl From<&TokenError> for Diagnostic {
-    fn from(error: &TokenError) -> Self {
-        Self {
-            severity: DiagnosticSeverity::Error,
-            range: error.range.clone(),
-            message: format!("Lex Error: {}", error.message),
-            dev_src: error.dev_src.clone(),
-        }
-    }
-}
-
-impl From<EntityTreeError> for Diagnostic {
-    fn from(e: EntityTreeError) -> Self {
-        Diagnostic {
-            severity: DiagnosticSeverity::Error,
-            range: match e.kind {
-                EntityTreeErrorKind::Defn { range } => range,
-                _ => Default::default(),
-            },
-            message: format!(
-                "Entity Route Error: {}",
-                &e.print_inherent(HuskyDisplayConfig {
-                    colored: false,
-                    indent: 0
-                })
-            ),
-            dev_src: e.dev_src,
-        }
-    }
-}
-
-impl From<&EntityTreeError> for Diagnostic {
-    fn from(e: &EntityTreeError) -> Self {
-        Diagnostic {
-            severity: DiagnosticSeverity::Error,
-            range: match e.kind {
-                EntityTreeErrorKind::Defn { range } => range,
-                _ => Default::default(),
-            },
-            message: format!(
-                "Entity Route Error: {}",
-                &e.print_inherent(HuskyDisplayConfig {
-                    colored: false,
-                    indent: 0
-                })
-            ),
-            dev_src: e.dev_src.clone(),
-        }
-    }
-}
 
 impl Into<lsp_types::Diagnostic> for Diagnostic {
     fn into(self) -> lsp_types::Diagnostic {

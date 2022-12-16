@@ -7,11 +7,14 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
-salsa = { path = "../../abstraction/salsa" }
-# abstraction
-upcast = { path = "../../abstraction/upcast" }
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
+thiserror = "1.0.37"
+# abstraction
+salsa = { path = "../../abstraction/salsa" }
+idx-arena = { path = "../../abstraction/idx-arena" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
@@ -22,6 +25,7 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 # syntax
+husky-ast = { path = "../../syntax/husky-ast" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 # vm
@@ -33,3 +37,10 @@ husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+
+[dev-dependencies]
+expect-test = "1.4.0"
+# kernel
+husky-toolchain = { path = "../../kernel/husky-toolchain" }
+# utils
+husky-vfs-test-utils = { path = "../../utils/husky-vfs-test-utils" }

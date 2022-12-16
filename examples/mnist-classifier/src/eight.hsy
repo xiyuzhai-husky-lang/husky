@@ -14,10 +14,10 @@ func upper_mouth_match -> FermiMatchResult:
     fermi_match(major_concave_components, [big_mouth])
 
 def is_eight -> ?MnistLabel:
-    require is_one be none
-    require is_six be none
-    require is_zero be none
-    require is_seven be none
+    require is_one be None
+    require is_six be None
+    require is_zero be None
+    require is_seven be None
 
     // require major_connected_component.max_hole_ilen >= 1.
  
@@ -28,8 +28,8 @@ def is_eight -> ?MnistLabel:
     // if major_connected_component.max_hole_ilen == 2.0:
     //     MnistLabel::Eight
 
-    if major_connected_component.eff_holes.matches[1] be none:
-        if major_connected_component.eff_holes.matches[0] be none:
+    if major_connected_component.eff_holes.matches[1] be None:
+        if major_connected_component.eff_holes.matches[0] be None:
             require false
         require false
     MnistLabel::Eight

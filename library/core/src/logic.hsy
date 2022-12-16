@@ -1,7 +1,8 @@
-struct LogicAnd<P: Prop, Q: Prop>:
+pub structure LogicAnd<P: Prop, Q: Prop> {
     left: P,
-    right: Q
+    right: Q,
+}
 
-enum LogicOr<P: Prop, Q: Prop>:
-    Left(P)
-    Right(Q)
+pub inductive LogicOr<P: Prop, Q: Prop>
+| Left(P)
+| Right(Q)

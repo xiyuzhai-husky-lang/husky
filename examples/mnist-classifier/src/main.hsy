@@ -24,8 +24,8 @@ use six::is_six
 use zero::is_zero
 use seven::is_seven
 use nine::is_nine
-use raw_contour::find_raw_contours
-use line_segment_sketch::find_line_segments
+use raw_contour::*
+use line_segment_sketch::*
 use domains::ml::models::naive::naive_i32
 
 main:
