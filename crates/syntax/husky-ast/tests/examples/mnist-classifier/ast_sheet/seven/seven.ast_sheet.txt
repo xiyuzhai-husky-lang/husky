@@ -1,0 +1,116 @@
+Ok(
+    AstSheet {
+        arena: Arena {
+            data: [
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            8,
+                        ),
+                        body: 0..0,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            9,
+                        ),
+                        body: 0..0,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            10,
+                        ),
+                        body: 0..0,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            11,
+                        ),
+                        body: 0..0,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            12,
+                        ),
+                        body: 0..0,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            13,
+                        ),
+                        body: 0..0,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            14,
+                        ),
+                        body: 0..0,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            15,
+                        ),
+                        body: 0..0,
+                    },
+                ),
+                Use(
+                    TokenGroupIdx(
+                        0,
+                    ),
+                ),
+                Use(
+                    TokenGroupIdx(
+                        1,
+                    ),
+                ),
+                Use(
+                    TokenGroupIdx(
+                        2,
+                    ),
+                ),
+                Use(
+                    TokenGroupIdx(
+                        3,
+                    ),
+                ),
+                Use(
+                    TokenGroupIdx(
+                        4,
+                    ),
+                ),
+                Use(
+                    TokenGroupIdx(
+                        5,
+                    ),
+                ),
+                Use(
+                    TokenGroupIdx(
+                        6,
+                    ),
+                ),
+                BlockDefn(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            7,
+                        ),
+                        body: 0..8,
+                    },
+                ),
+            ],
+        },
+        top_level_asts: 8..16,
+    },
+)
