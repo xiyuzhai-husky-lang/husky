@@ -43,7 +43,7 @@ impl<'a> TestPathResolver<'a> {
                     CratePathKind::Binary(_) => todo!(),
                 }
             )),
-            EntityPathData::Childpath { ident, .. } => dir.with_extension(".txt"),
+            EntityPathData::Childpath { ident, .. } => dir.with_extension("txt"),
         }
     }
 }
@@ -59,27 +59,43 @@ where
     {
         let db = Self::default();
         let cargo_manifest_dir = cargo_manifest_dir().unwrap();
-        let examples_dir = cargo_manifest_dir.join("tests/examples");
-        std::fs::create_dir_all(&examples_dir);
-
-        let base = &db.vfs_config().examples_dir();
-        collect_package_relative_dirs(base)
-            .into_iter()
-            .for_each(|path| {
-                let package = db.it_package_path(PackagePathData::Local(
-                    AbsolutePath::new(&path.to_logical_path(base)).unwrap(),
-                ));
-                let resolver = TestPathResolver {
-                    db: &db,
-                    name,
-                    package_expects_dir: path.to_logical_path(&examples_dir),
-                };
-                for module in db.collect_possible_modules(package).unwrap() {
-                    use salsa::DebugWithDb;
-                    let path = resolver.resolve_path(module);
-                    std::fs::create_dir_all(path.parent().unwrap()).unwrap();
-                    expect_test::expect_file![path].assert_debug_eq(&f(&db, module))
-                }
-            });
+        for (base, out) in [
+            (
+                db.vfs_config().library_dir(),
+                cargo_manifest_dir.join("expect-files/library"),
+            ),
+            (
+                db.vfs_config().examples_dir(),
+                cargo_manifest_dir.join("expect-files/examples"),
+            ),
+        ] {
+            t(&db, name, base, out, &f);
+        }
     }
+}
+
+fn t<T, R>(db: &T, name: &str, base: &Path, out: PathBuf, f: &impl Fn(&T, EntityPath) -> &R)
+where
+    T: VfsDb,
+    R: std::fmt::Debug,
+{
+    std::fs::create_dir_all(&out);
+    collect_package_relative_dirs(base)
+        .into_iter()
+        .for_each(|path| {
+            let package = db.it_package_path(PackagePathData::Local(
+                AbsolutePath::new(&path.to_logical_path(base)).unwrap(),
+            ));
+            let resolver = TestPathResolver {
+                db,
+                name,
+                package_expects_dir: path.to_logical_path(&out),
+            };
+            for module in db.collect_possible_modules(package).unwrap() {
+                use salsa::DebugWithDb;
+                let path = resolver.resolve_path(module);
+                std::fs::create_dir_all(path.parent().unwrap()).unwrap();
+                expect_test::expect_file![path].assert_debug_eq(&f(&db, module))
+            }
+        });
 }

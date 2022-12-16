@@ -29,33 +29,20 @@ impl<'a> FoldingRangeCalculator<'a> {
 
     fn calc_ast(&self, idx: AstIdx, ast: &Ast) -> Option<FoldingRange> {
         let (text_range, kind) = match ast {
-            Ast::Err(_, _) | Ast::Mod(_) | Ast::Use(_) | Ast::Comment(_) | Ast::Decor(_) => None,
-            Ast::Stmt(block)|
-            Ast::BlockDefn(block) => {
+            Ast::Err(_, _)
+            | Ast::Mod(_)
+            | Ast::Use(_)
+            | Ast::Comment(_)
+            | Ast::Decor(_)
+            | Ast::IfElseStmts { .. }
+            | Ast::MatchStmts { .. } => None,
+            Ast::Stmt(block) | Ast::BlockDefn(block) => {
                 if !block.empty() {
                     Some((self.ast_range_sheet[idx], FoldingRangeKind::Region))
                 } else {
                     None
                 }
             }
-            Ast::IfElseStmts {
-                if_stmt,
-                elif_stmts,
-                else_stmt,
-            } => {
-                todo!()
-                // self.calc_block(if_stmt);
-                // for elif_stmt in elif_stmts {
-                //     self.calc_block(elif_stmt);
-                // }
-                // if let Some(else_stmt) = else_stmt {
-                //     self.calc_block(else_stmt);
-                // }
-            }
-            Ast::MatchStmts {
-                pattern_stmt,
-                case_stmts,
-            } => todo!(),
         }?;
         Some(FoldingRange {
             start_line: text_range.start.i(),
@@ -65,9 +52,4 @@ impl<'a> FoldingRangeCalculator<'a> {
             kind: Some(kind),
         })
     }
-
-    // fn calc_block(&self, block: &AstBlock) -> FoldingRange {
-    //     todo!()
-    //     // block.last()
-    // }
 }
