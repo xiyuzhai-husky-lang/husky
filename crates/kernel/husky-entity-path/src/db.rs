@@ -10,6 +10,7 @@ use std::sync::Arc;
 pub struct EntityPathMenuPlace(Arc<once_cell::sync::OnceCell<EntityPathMenu>>);
 
 pub trait EntityPathDb: DbWithJar<EntityPathJar> + PackagePathDb + WordDb {
+    fn entity_path_db(&self) -> &dyn EntityPathDb;
     fn entity_path_menu(&self) -> &EntityPathMenu;
     fn it_entity_path(&self, data: EntityPathData) -> EntityPath;
     fn dt_entity_path(&self, path: EntityPath) -> EntityPathData;
@@ -43,6 +44,10 @@ where
 
     fn is_builtin_entity(&self, entity: EntityPath) -> bool {
         is_builtin_entity(self, entity)
+    }
+
+    fn entity_path_db(&self) -> &dyn EntityPathDb {
+        self
     }
 }
 

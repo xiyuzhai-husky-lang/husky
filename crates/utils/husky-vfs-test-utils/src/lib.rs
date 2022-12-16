@@ -22,29 +22,29 @@ struct TestPathResolver<'a> {
 }
 
 impl<'a> TestPathResolver<'a> {
-    fn resolve_dir(&self, module: EntityPath) -> PathBuf {
+    // return the folder containing submodules
+    fn resolve_module_dir(&self, module: EntityPath) -> PathBuf {
         match self.db.dt_entity_path(module) {
             EntityPathData::Crate { package, kind } => self.package_expects_dir.join(self.name),
-            EntityPathData::Childpath { parent, ident } => {
-                self.resolve_dir(parent).join(self.db.dt_ident(ident))
-            }
+            EntityPathData::Childpath { parent, ident } => self
+                .resolve_module_dir(parent)
+                .join(self.db.dt_ident(ident)),
         }
     }
 
     fn resolve_path(&self, module: EntityPath) -> PathBuf {
-        let dir = self.resolve_dir(module);
-        dir.join(format!(
-            "{}.{}.txt",
-            match self.db.dt_entity_path(module) {
-                EntityPathData::Crate { package, kind } => match kind {
+        let dir = self.resolve_module_dir(module);
+        match self.db.dt_entity_path(module) {
+            EntityPathData::Crate { package, kind } => dir.join(format!(
+                "{}.txt",
+                match kind {
                     CratePathKind::Library => "lib",
                     CratePathKind::Main => "main",
                     CratePathKind::Binary(_) => todo!(),
-                },
-                EntityPathData::Childpath { ident, .. } => self.db.dt_ident(ident),
-            },
-            self.name
-        ))
+                }
+            )),
+            EntityPathData::Childpath { ident, .. } => dir.with_extension(".txt"),
+        }
     }
 }
 
@@ -75,6 +75,7 @@ where
                     package_expects_dir: path.to_logical_path(&examples_dir),
                 };
                 for module in db.all_possible_modules(package).unwrap() {
+                    use salsa::DebugWithDb;
                     let path = resolver.resolve_path(module);
                     std::fs::create_dir_all(path.parent().unwrap()).unwrap();
                     expect_test::expect_file![path].assert_debug_eq(&f(&db, module))

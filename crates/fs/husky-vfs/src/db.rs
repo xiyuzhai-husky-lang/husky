@@ -163,6 +163,7 @@ where
                 .collect::<VfsResult<_>>()?;
             // sort is important for testing
             paths.sort();
+            p!(paths);
             for path in paths {
                 if path.is_dir() {
                     let Some(filename) = path
@@ -178,7 +179,11 @@ where
                         .and_then(|s| s.to_str())
                         .and_then(|s| db.it_ident_borrowed(s))
                         else { continue };
-                    modules.push(db.it_entity_path(EntityPathData::Childpath { parent, ident }))
+                    match db.dt_ident(ident) {
+                        "main" | "lib" => (),
+                        _ => modules
+                            .push(db.it_entity_path(EntityPathData::Childpath { parent, ident })),
+                    }
                 }
             }
             Ok(())
