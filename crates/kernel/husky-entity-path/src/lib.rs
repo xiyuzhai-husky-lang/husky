@@ -7,7 +7,7 @@ mod menu;
 mod tests;
 mod utils;
 
-pub use crate_path::CratePathKind;
+pub use crate_path::{CrateKind, CratePath};
 pub use db::*;
 pub use jar::*;
 pub use menu::*;
@@ -27,10 +27,7 @@ pub struct EntityPath {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum EntityPathData {
-    Crate {
-        package: PackagePath,
-        kind: CratePathKind,
-    },
+    CrateRoot(CratePath),
     Childpath {
         parent: EntityPath,
         ident: Identifier,
@@ -51,6 +48,17 @@ impl EntityPath {
         // }
     }
 
+    pub fn new_crate_root(
+        db: &dyn EntityPathDb,
+        package_path: PackagePath,
+        crate_kind: CrateKind,
+    ) -> Self {
+        db.it_entity_path(EntityPathData::CrateRoot(CratePath::new(
+            package_path,
+            crate_kind,
+        )))
+    }
+
     #[inline(always)]
     pub fn opt_parent(&self) -> Option<EntityPath> {
         todo!()
@@ -66,7 +74,7 @@ impl EntityPath {
 
     pub fn display(self, db: &dyn EntityPathDb) -> String {
         match self.data(db) {
-            EntityPathData::Crate { package, kind } => "crate".into(),
+            EntityPathData::CrateRoot(_) => "crate".into(),
             EntityPathData::Childpath { parent, ident } => {
                 format!("{}::{}", parent.display(db), db.dt_ident(ident))
             }

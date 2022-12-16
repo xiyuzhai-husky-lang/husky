@@ -1,15 +1,11 @@
 //! Conversion of husky-lang-server specific types to lsp_types equivalents.
 #![allow(warnings, dead_code)]
+use crate::lsp_ext;
+use lsp_types::SemanticToken;
 use std::{
     path::{self, Path},
     sync::Arc,
 };
-
-use husky_print_utils::p;
-use husky_token::{AbsSemanticToken, SemanticTokenKind};
-use lsp_types::SemanticToken;
-
-use crate::lsp_ext;
 
 /// Returns a `Url` object from a given path, will lowercase drive letters if present.
 /// This will only happen when processing windows paths.

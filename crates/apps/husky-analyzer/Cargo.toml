@@ -41,17 +41,19 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 husky-hover = { path = "../../ide/husky-hover" }
 husky-folding-range = { path = "../../ide/husky-folding-range" }
+husky-semantic-token = { path = "../../ide/husky-semantic-token" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-path = { path = "../../fs/husky-path", features = ["lsp_support"] }
-husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
 husky-syntax-fmt = { path = "../../syntax/husky-syntax-fmt" }
 # utils

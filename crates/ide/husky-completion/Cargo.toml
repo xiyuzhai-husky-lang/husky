@@ -11,6 +11,6 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 # infer
 husky-term-infer = { path = "../../infer/husky-term-infer" }

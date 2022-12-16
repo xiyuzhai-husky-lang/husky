@@ -1,6 +1,6 @@
 use crate::*;
 use husky_text::Text;
-use husky_token::{AbsSemanticToken, TokenDb};
+use husky_token::TokenDb;
 use husky_vfs::VfsResult;
 use idx_arena::map::ArenaKeyQuery;
 use std::fmt::Write;

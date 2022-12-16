@@ -1,20 +1,28 @@
+#![feature(trait_upcasting)]
 mod absolute;
 mod alias;
+mod ast;
+mod child;
 mod db;
 mod error;
 mod implementation;
+mod node;
 #[cfg(test)]
 mod tests;
 
 pub use absolute::*;
 pub use alias::*;
 pub use db::EntityTreeDb;
+pub use error::*;
 
+use ast::*;
 use error::EntityTreeError;
 use husky_ast::AstIdx;
+use husky_entity_kind::EntityKind;
 use husky_entity_path::EntityPath;
 use idx_arena::{Arena, ArenaIdxRange};
 use implementation::ImplementationMap;
+use node::*;
 #[cfg(test)]
 use tests::*;
 
@@ -22,30 +30,3 @@ use tests::*;
 pub struct EntityTreeJar(absolute_entity_path);
 
 pub struct EntityTreeSheet {}
-
-pub struct EntityNodeSheet {
-    arena: Arena<EntityNode>,
-    implementations: ImplementationMap,
-    errors: Vec<EntityTreeError>,
-}
-
-pub type EntityTreeNodeIdxRange = ArenaIdxRange<EntityNode>;
-
-pub struct EntityNode {
-    entity_path: EntityPath,
-    accessibility: Accessibility,
-    kind: EntityNodeKind,
-    children: Option<EntityTreeNodeIdxRange>,
-}
-
-enum Accessibility {
-    PubCrate,              // this is default
-    Public,                // everyone can access it
-    Protected(EntityPath), // only one module and its submodules
-    Private,               // only self
-}
-
-enum EntityNodeKind {
-    Alias(EntityPath),
-    Type,
-}

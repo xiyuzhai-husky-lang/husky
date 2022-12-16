@@ -18,7 +18,6 @@ use salsa::DbWithJar;
 use crate::registration_content::rust_registration_rs_content;
 use contains_eval_ref::*;
 use eval_context::*;
-use husky_defn_head::*;
 use husky_loop_syntax::*;
 use husky_opn_syntax::*;
 use husky_print_utils::*;

@@ -4,7 +4,6 @@ mod db;
 mod error;
 mod group;
 mod kind;
-mod semantic_token;
 mod stream;
 #[cfg(test)]
 mod tests;
@@ -15,7 +14,6 @@ pub use db::*;
 pub use error::*;
 pub use group::*;
 pub use kind::*;
-pub use semantic_token::*;
 pub use stream::*;
 pub use tokenize::Tokenize;
 

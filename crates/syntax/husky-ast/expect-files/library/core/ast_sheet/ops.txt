@@ -23,7 +23,7 @@ Ok(
                         0,
                     ),
                 ),
-                Stmt(
+                BlockDefn(
                     AstBlock {
                         head: TokenGroupIdx(
                             1,

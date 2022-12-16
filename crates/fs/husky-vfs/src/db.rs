@@ -1,6 +1,6 @@
 use crate::*;
 use husky_absolute_path::AbsolutePath;
-use husky_entity_path::{CratePathKind, EntityPath, EntityPathData, EntityPathDb};
+use husky_entity_path::{CrateKind, EntityPath, EntityPathData, EntityPathDb};
 use husky_package_path::{PackagePath, PackagePathData, PackagePathDb};
 use husky_path_utils::collect_package_dirs;
 use husky_text::{TextChange, TextRange};
@@ -200,10 +200,7 @@ where
         let mut modules = vec![];
         let package_dir = self.package_dir(package).as_ref()?;
         if package_dir.join("src/lib.hsy").exists() {
-            let root_module = self.it_entity_path(EntityPathData::Crate {
-                package,
-                kind: CratePathKind::Library,
-            });
+            let root_module = EntityPath::new_crate_root(self, package, CrateKind::Library);
             modules.push(root_module);
             collect_possible_modules(self, root_module, &package_dir.join("src"), &mut modules);
             if package_dir.join("src/main.hsy").exists() {
@@ -213,10 +210,7 @@ where
                 todo!()
             }
         } else if package_dir.join("src/main.hsy").exists() {
-            let root_module = self.it_entity_path(EntityPathData::Crate {
-                package,
-                kind: CratePathKind::Main,
-            });
+            let root_module = EntityPath::new_crate_root(self, package, CrateKind::Main);
             modules.push(root_module);
             collect_possible_modules(self, root_module, &package_dir.join("src"), &mut modules);
             if package_dir.join("src/bin").exists() {

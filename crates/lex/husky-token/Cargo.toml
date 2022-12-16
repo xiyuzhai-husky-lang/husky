@@ -23,7 +23,6 @@ husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # syntax
-husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 # utils

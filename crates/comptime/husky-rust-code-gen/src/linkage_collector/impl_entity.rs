@@ -120,11 +120,11 @@ impl<'a> LinkageCollector<'a> {
         // }
     }
 
-    fn collect_from_parameters(&mut self, parameters: &[Parameter]) {
-        for parameter in parameters {
-            self.insert(parameter.ty())
-        }
-    }
+    // fn collect_from_parameters(&mut self, parameters: &[Parameter]) {
+    //     for parameter in parameters {
+    //         self.insert(parameter.ty())
+    //     }
+    // }
 
     // fn collect_from_feature_repr(
     //     &mut self,
