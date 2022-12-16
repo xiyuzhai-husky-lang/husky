@@ -17,3 +17,6 @@ salsa = { path = "../../abstraction/salsa" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
+
+[dev-dependencies]
+expect-test = "1.4.0"
