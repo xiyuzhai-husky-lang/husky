@@ -2,6 +2,7 @@ use crate::*;
 use husky_absolute_path::AbsolutePath;
 use husky_entity_path::{CratePathKind, EntityPath, EntityPathData, EntityPathDb};
 use husky_package_path::{PackagePath, PackagePathData, PackagePathDb};
+use husky_path_utils::collect_package_dirs;
 use husky_text::{TextChange, TextRange};
 
 pub trait VfsDb:
@@ -10,7 +11,8 @@ pub trait VfsDb:
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
     fn module_content(&self, entity_path: EntityPath) -> VfsResult<&str>;
     fn package_dir(&self, package: PackagePath) -> &VfsResult<AbsolutePath>;
-    fn all_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>>;
+    fn collect_local_packages(&self, dir: &Path) -> VfsResult<Vec<PackagePath>>;
+    fn collect_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>>;
     fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()>;
     fn apply_live_file_changes(&mut self, path: &Path, changes: Vec<TextChange>) -> VfsResult<()>;
     fn resolve_module_path(&self, path: &Path) -> VfsResult<EntityPath>;
@@ -146,8 +148,15 @@ where
         package_dir(self, package)
     }
 
-    fn all_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>> {
-        fn collect_all_possible_modules(
+    fn collect_local_packages(&self, dir: &Path) -> VfsResult<Vec<PackagePath>> {
+        collect_package_dirs(dir)
+            .into_iter()
+            .map(|path| Ok(self.it_package_path(PackagePathData::Local(AbsolutePath::new(&path)?))))
+            .collect()
+    }
+
+    fn collect_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>> {
+        fn collect_possible_modules(
             db: &dyn VfsDb,
             parent: EntityPath,
             dir: &Path,
@@ -163,7 +172,6 @@ where
                 .collect::<VfsResult<_>>()?;
             // sort is important for testing
             paths.sort();
-            p!(paths);
             for path in paths {
                 if path.is_dir() {
                     let Some(filename) = path
@@ -171,7 +179,7 @@ where
                     let Some(filename) = filename.to_str() else { continue };
                     let Some(ident) = db.it_ident_borrowed(filename) else { continue };
                     let new_parent = db.it_entity_path(EntityPathData::Childpath { parent, ident });
-                    collect_all_possible_modules(db, new_parent, &path, modules)?
+                    collect_possible_modules(db, new_parent, &path, modules)?
                 } else if path.is_file() && path.extension().and_then(|s| s.to_str()) == Some("hsy")
                 {
                     let Some(ident) = path
@@ -197,7 +205,7 @@ where
                 kind: CratePathKind::Library,
             });
             modules.push(root_module);
-            collect_all_possible_modules(self, root_module, &package_dir.join("src"), &mut modules);
+            collect_possible_modules(self, root_module, &package_dir.join("src"), &mut modules);
             if package_dir.join("src/main.hsy").exists() {
                 todo!()
             }
@@ -210,7 +218,7 @@ where
                 kind: CratePathKind::Main,
             });
             modules.push(root_module);
-            collect_all_possible_modules(self, root_module, &package_dir.join("src"), &mut modules);
+            collect_possible_modules(self, root_module, &package_dir.join("src"), &mut modules);
             if package_dir.join("src/bin").exists() {
                 todo!()
             }

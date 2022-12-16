@@ -74,7 +74,7 @@ where
                     name,
                     package_expects_dir: path.to_logical_path(&examples_dir),
                 };
-                for module in db.all_possible_modules(package).unwrap() {
+                for module in db.collect_possible_modules(package).unwrap() {
                     use salsa::DebugWithDb;
                     let path = resolver.resolve_path(module);
                     std::fs::create_dir_all(path.parent().unwrap()).unwrap();
