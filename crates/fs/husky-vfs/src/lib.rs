@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 #![feature(let_chains)]
 mod cache;
 mod config;

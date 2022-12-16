@@ -25,7 +25,7 @@ impl<'a> TestPathResolver<'a> {
     // return the folder containing submodules
     fn resolve_module_dir(&self, module: EntityPath) -> PathBuf {
         match self.db.dt_entity_path(module) {
-            EntityPathData::Crate { package, kind } => self.package_expects_dir.join(self.name),
+            EntityPathData::CrateRoot(_) => self.package_expects_dir.join(self.name),
             EntityPathData::Childpath { parent, ident } => self
                 .resolve_module_dir(parent)
                 .join(self.db.dt_ident(ident)),
@@ -35,12 +35,12 @@ impl<'a> TestPathResolver<'a> {
     fn resolve_path(&self, module: EntityPath) -> PathBuf {
         let dir = self.resolve_module_dir(module);
         match self.db.dt_entity_path(module) {
-            EntityPathData::Crate { package, kind } => dir.join(format!(
+            EntityPathData::CrateRoot(crate_path) => dir.join(format!(
                 "{}.txt",
-                match kind {
-                    CratePathKind::Library => "lib",
-                    CratePathKind::Main => "main",
-                    CratePathKind::Binary(_) => todo!(),
+                match crate_path.crate_kind() {
+                    CrateKind::Library => "lib",
+                    CrateKind::Main => "main",
+                    CrateKind::Binary(_) => todo!(),
                 }
             )),
             EntityPathData::Childpath { ident, .. } => dir.with_extension("txt"),

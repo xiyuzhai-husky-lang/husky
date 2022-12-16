@@ -27,11 +27,10 @@ husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
 # syntax
 husky-text = { path = "../../lex/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
-husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

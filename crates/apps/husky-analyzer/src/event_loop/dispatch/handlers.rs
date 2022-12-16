@@ -6,7 +6,7 @@ use husky_ast::AstDb;
 use husky_folding_range::FoldingRangeDb;
 use husky_hover::HoverResult;
 use husky_text::{FilePosition, FileRange, TextRange};
-use husky_token::{AbsSemanticToken, TokenDb};
+use husky_token::TokenDb;
 use husky_vfs::VfsDb;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,

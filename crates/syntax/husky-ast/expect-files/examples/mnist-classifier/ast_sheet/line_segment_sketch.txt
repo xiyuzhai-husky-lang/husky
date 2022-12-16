@@ -5,23 +5,15 @@ Ok(
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            10,
-                        ),
-                        body: 0..0,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            11,
-                        ),
-                        body: 0..0,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
                             12,
+                        ),
+                        body: 0..0,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            13,
                         ),
                         body: 0..0,
                     },
@@ -31,31 +23,23 @@ Ok(
                         head: TokenGroupIdx(
                             15,
                         ),
-                        body: 3..3,
+                        body: 2..2,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            16,
+                            17,
                         ),
                         body: 3..3,
                     },
                 ),
-                Stmt(
+                BlockDefn(
                     AstBlock {
                         head: TokenGroupIdx(
-                            18,
+                            11,
                         ),
-                        body: 5..5,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            20,
-                        ),
-                        body: 6..6,
+                        body: 0..2,
                     },
                 ),
                 BlockDefn(
@@ -63,31 +47,63 @@ Ok(
                         head: TokenGroupIdx(
                             14,
                         ),
-                        body: 3..5,
+                        body: 2..3,
                     },
                 ),
                 BlockDefn(
                     AstBlock {
                         head: TokenGroupIdx(
-                            17,
+                            16,
                         ),
-                        body: 5..6,
-                    },
-                ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            19,
-                        ),
-                        body: 6..7,
+                        body: 3..4,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            22,
+                            21,
                         ),
-                        body: 10..10,
+                        body: 7..7,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            29,
+                        ),
+                        body: 8..8,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            30,
+                        ),
+                        body: 8..8,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            31,
+                        ),
+                        body: 8..8,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            32,
+                        ),
+                        body: 8..8,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            33,
+                        ),
+                        body: 8..8,
                     },
                 ),
                 Stmt(
@@ -95,7 +111,23 @@ Ok(
                         head: TokenGroupIdx(
                             23,
                         ),
-                        body: 10..10,
+                        body: 8..8,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            24,
+                        ),
+                        body: 8..8,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            25,
+                        ),
+                        body: 8..8,
                     },
                 ),
                 Stmt(
@@ -103,7 +135,23 @@ Ok(
                         head: TokenGroupIdx(
                             26,
                         ),
-                        body: 12..12,
+                        body: 8..8,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            27,
+                        ),
+                        body: 8..8,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            28,
+                        ),
+                        body: 8..13,
                     },
                 ),
                 Stmt(
@@ -117,25 +165,9 @@ Ok(
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            35,
-                        ),
-                        body: 13..13,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
                             36,
                         ),
-                        body: 13..13,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            37,
-                        ),
-                        body: 13..13,
+                        body: 20..20,
                     },
                 ),
                 Stmt(
@@ -143,63 +175,47 @@ Ok(
                         head: TokenGroupIdx(
                             38,
                         ),
-                        body: 13..13,
+                        body: 21..21,
+                    },
+                ),
+                BlockDefn(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            20,
+                        ),
+                        body: 7..8,
+                    },
+                ),
+                BlockDefn(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            22,
+                        ),
+                        body: 13..20,
+                    },
+                ),
+                BlockDefn(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            35,
+                        ),
+                        body: 20..21,
+                    },
+                ),
+                BlockDefn(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            37,
+                        ),
+                        body: 21..22,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            28,
+                            40,
                         ),
-                        body: 13..13,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            29,
-                        ),
-                        body: 13..13,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            30,
-                        ),
-                        body: 13..13,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            31,
-                        ),
-                        body: 13..13,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            32,
-                        ),
-                        body: 13..13,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            33,
-                        ),
-                        body: 13..18,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            39,
-                        ),
-                        body: 18..18,
+                        body: 26..26,
                     },
                 ),
                 Stmt(
@@ -207,7 +223,15 @@ Ok(
                         head: TokenGroupIdx(
                             41,
                         ),
-                        body: 25..25,
+                        body: 26..26,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            42,
+                        ),
+                        body: 26..26,
                     },
                 ),
                 Stmt(
@@ -218,36 +242,12 @@ Ok(
                         body: 26..26,
                     },
                 ),
-                BlockDefn(
+                Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            25,
+                            44,
                         ),
-                        body: 12..13,
-                    },
-                ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            27,
-                        ),
-                        body: 18..25,
-                    },
-                ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            40,
-                        ),
-                        body: 25..26,
-                    },
-                ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            42,
-                        ),
-                        body: 26..27,
+                        body: 26..26,
                     },
                 ),
                 Stmt(
@@ -255,15 +255,7 @@ Ok(
                         head: TokenGroupIdx(
                             45,
                         ),
-                        body: 31..31,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            46,
-                        ),
-                        body: 31..31,
+                        body: 26..26,
                     },
                 ),
                 Stmt(
@@ -271,7 +263,7 @@ Ok(
                         head: TokenGroupIdx(
                             47,
                         ),
-                        body: 31..31,
+                        body: 32..32,
                     },
                 ),
                 Stmt(
@@ -279,7 +271,7 @@ Ok(
                         head: TokenGroupIdx(
                             48,
                         ),
-                        body: 31..31,
+                        body: 32..32,
                     },
                 ),
                 Stmt(
@@ -287,7 +279,7 @@ Ok(
                         head: TokenGroupIdx(
                             49,
                         ),
-                        body: 31..31,
+                        body: 32..32,
                     },
                 ),
                 Stmt(
@@ -295,7 +287,15 @@ Ok(
                         head: TokenGroupIdx(
                             50,
                         ),
-                        body: 31..31,
+                        body: 32..32,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            51,
+                        ),
+                        body: 32..32,
                     },
                 ),
                 Stmt(
@@ -303,95 +303,71 @@ Ok(
                         head: TokenGroupIdx(
                             52,
                         ),
-                        body: 37..37,
+                        body: 32..32,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            53,
+                            59,
                         ),
-                        body: 37..37,
+                        body: 38..38,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            54,
+                            60,
                         ),
-                        body: 37..37,
+                        body: 38..38,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            55,
+                            62,
                         ),
-                        body: 37..37,
+                        body: 40..40,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            56,
+                            61,
                         ),
-                        body: 37..37,
+                        body: 40..41,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            57,
+                            69,
                         ),
-                        body: 37..37,
+                        body: 42..42,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            64,
+                            68,
                         ),
-                        body: 43..43,
+                        body: 42..43,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            65,
+                            71,
                         ),
-                        body: 43..43,
+                        body: 44..44,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            67,
+                            70,
                         ),
-                        body: 45..45,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            66,
-                        ),
-                        body: 45..46,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            74,
-                        ),
-                        body: 47..47,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            73,
-                        ),
-                        body: 47..48,
+                        body: 44..45,
                     },
                 ),
                 Stmt(
@@ -399,7 +375,7 @@ Ok(
                         head: TokenGroupIdx(
                             76,
                         ),
-                        body: 49..49,
+                        body: 46..46,
                     },
                 ),
                 Stmt(
@@ -407,39 +383,7 @@ Ok(
                         head: TokenGroupIdx(
                             75,
                         ),
-                        body: 49..50,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            81,
-                        ),
-                        body: 51..51,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            80,
-                        ),
-                        body: 51..52,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            83,
-                        ),
-                        body: 53..53,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            82,
-                        ),
-                        body: 53..54,
+                        body: 46..47,
                     },
                 ),
                 Stmt(
@@ -447,20 +391,62 @@ Ok(
                         head: TokenGroupIdx(
                             78,
                         ),
-                        body: 51..51,
+                        body: 48..48,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            79,
+                            77,
                         ),
-                        body: 51..51,
+                        body: 48..49,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            73,
+                        ),
+                        body: 46..46,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            74,
+                        ),
+                        body: 46..46,
                     },
                 ),
                 IfElseStmts {
-                    if_stmt: 52,
-                    elif_stmts: 53..53,
+                    if_stmt: 47,
+                    elif_stmts: 48..48,
+                    else_stmt: None,
+                },
+                IfElseStmts {
+                    if_stmt: 49,
+                    elif_stmts: 50..50,
+                    else_stmt: None,
+                },
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            72,
+                        ),
+                        body: 50..54,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            67,
+                        ),
+                        body: 42..42,
+                    },
+                ),
+                IfElseStmts {
+                    if_stmt: 43,
+                    elif_stmts: 45..46,
                     else_stmt: None,
                 },
                 IfElseStmts {
@@ -471,384 +457,118 @@ Ok(
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            77,
+                            79,
                         ),
-                        body: 55..59,
+                        body: 55..55,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            72,
+                            80,
                         ),
-                        body: 47..47,
+                        body: 55..55,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            54,
+                        ),
+                        body: 38..38,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            55,
+                        ),
+                        body: 38..38,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            56,
+                        ),
+                        body: 38..38,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            57,
+                        ),
+                        body: 38..38,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            58,
+                        ),
+                        body: 38..40,
                     },
                 ),
                 IfElseStmts {
-                    if_stmt: 48,
-                    elif_stmts: 50..51,
+                    if_stmt: 41,
+                    elif_stmts: 42..42,
                     else_stmt: None,
                 },
-                IfElseStmts {
-                    if_stmt: 59,
-                    elif_stmts: 60..60,
-                    else_stmt: None,
-                },
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            84,
-                        ),
-                        body: 60..60,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            85,
-                        ),
-                        body: 60..60,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            59,
-                        ),
-                        body: 43..43,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            60,
-                        ),
-                        body: 43..43,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            61,
-                        ),
-                        body: 43..43,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            62,
-                        ),
-                        body: 43..43,
-                    },
-                ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
                             63,
                         ),
-                        body: 43..45,
-                    },
-                ),
-                IfElseStmts {
-                    if_stmt: 46,
-                    elif_stmts: 47..47,
-                    else_stmt: None,
-                },
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            68,
-                        ),
-                        body: 47..47,
+                        body: 42..42,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            69,
+                            64,
                         ),
-                        body: 47..47,
+                        body: 42..42,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            70,
+                            65,
                         ),
-                        body: 47..47,
+                        body: 42..42,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            71,
+                            66,
                         ),
-                        body: 60..65,
+                        body: 55..60,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            86,
+                            81,
                         ),
-                        body: 65..65,
+                        body: 60..60,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            87,
+                            82,
                         ),
-                        body: 65..65,
+                        body: 60..60,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            93,
+                            88,
                         ),
-                        body: 77..77,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            94,
-                        ),
-                        body: 77..77,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            96,
-                        ),
-                        body: 79..79,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            95,
-                        ),
-                        body: 79..80,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            104,
-                        ),
-                        body: 81..81,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            103,
-                        ),
-                        body: 81..82,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            106,
-                        ),
-                        body: 83..83,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            105,
-                        ),
-                        body: 83..84,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            111,
-                        ),
-                        body: 85..85,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            110,
-                        ),
-                        body: 85..86,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            113,
-                        ),
-                        body: 87..87,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            112,
-                        ),
-                        body: 87..88,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            108,
-                        ),
-                        body: 85..85,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            109,
-                        ),
-                        body: 85..85,
-                    },
-                ),
-                IfElseStmts {
-                    if_stmt: 86,
-                    elif_stmts: 87..87,
-                    else_stmt: None,
-                },
-                IfElseStmts {
-                    if_stmt: 88,
-                    elif_stmts: 89..89,
-                    else_stmt: None,
-                },
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            107,
-                        ),
-                        body: 89..93,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            116,
-                        ),
-                        body: 94..94,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            115,
-                        ),
-                        body: 94..95,
-                    },
-                ),
-                IfElseStmts {
-                    if_stmt: 95,
-                    elif_stmts: 96..96,
-                    else_stmt: None,
-                },
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            117,
-                        ),
-                        body: 96..96,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            114,
-                        ),
-                        body: 96..98,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            119,
-                        ),
-                        body: 99..99,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            118,
-                        ),
-                        body: 99..100,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            101,
-                        ),
-                        body: 81..81,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            102,
-                        ),
-                        body: 81..81,
-                    },
-                ),
-                IfElseStmts {
-                    if_stmt: 82,
-                    elif_stmts: 84..85,
-                    else_stmt: None,
-                },
-                IfElseStmts {
-                    if_stmt: 93,
-                    elif_stmts: 94..94,
-                    else_stmt: None,
-                },
-                IfElseStmts {
-                    if_stmt: 98,
-                    elif_stmts: 99..99,
-                    else_stmt: Some(
-                        100,
-                    ),
-                },
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            122,
-                        ),
-                        body: 106..106,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            121,
-                        ),
-                        body: 106..107,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            124,
-                        ),
-                        body: 108..108,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            123,
-                        ),
-                        body: 108..109,
+                        body: 72..72,
                     },
                 ),
                 Stmt(
@@ -856,15 +576,7 @@ Ok(
                         head: TokenGroupIdx(
                             89,
                         ),
-                        body: 77..77,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            90,
-                        ),
-                        body: 77..77,
+                        body: 72..72,
                     },
                 ),
                 Stmt(
@@ -872,36 +584,15 @@ Ok(
                         head: TokenGroupIdx(
                             91,
                         ),
-                        body: 77..77,
+                        body: 74..74,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            92,
+                            90,
                         ),
-                        body: 77..79,
-                    },
-                ),
-                IfElseStmts {
-                    if_stmt: 80,
-                    elif_stmts: 81..81,
-                    else_stmt: None,
-                },
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            97,
-                        ),
-                        body: 81..81,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            98,
-                        ),
-                        body: 81..81,
+                        body: 74..75,
                     },
                 ),
                 Stmt(
@@ -909,7 +600,23 @@ Ok(
                         head: TokenGroupIdx(
                             99,
                         ),
-                        body: 81..81,
+                        body: 76..76,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            98,
+                        ),
+                        body: 76..77,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            101,
+                        ),
+                        body: 78..78,
                     },
                 ),
                 Stmt(
@@ -917,54 +624,291 @@ Ok(
                         head: TokenGroupIdx(
                             100,
                         ),
-                        body: 101..106,
+                        body: 78..79,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            120,
+                            106,
                         ),
-                        body: 106..106,
+                        body: 80..80,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            105,
+                        ),
+                        body: 80..81,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            108,
+                        ),
+                        body: 82..82,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            107,
+                        ),
+                        body: 82..83,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            103,
+                        ),
+                        body: 80..80,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            104,
+                        ),
+                        body: 80..80,
                     },
                 ),
                 IfElseStmts {
-                    if_stmt: 107,
-                    elif_stmts: 108..108,
+                    if_stmt: 81,
+                    elif_stmts: 82..82,
+                    else_stmt: None,
+                },
+                IfElseStmts {
+                    if_stmt: 83,
+                    elif_stmts: 84..84,
+                    else_stmt: None,
+                },
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            102,
+                        ),
+                        body: 84..88,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            111,
+                        ),
+                        body: 89..89,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            110,
+                        ),
+                        body: 89..90,
+                    },
+                ),
+                IfElseStmts {
+                    if_stmt: 90,
+                    elif_stmts: 91..91,
+                    else_stmt: None,
+                },
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            112,
+                        ),
+                        body: 91..91,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            109,
+                        ),
+                        body: 91..93,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            114,
+                        ),
+                        body: 94..94,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            113,
+                        ),
+                        body: 94..95,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            96,
+                        ),
+                        body: 76..76,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            97,
+                        ),
+                        body: 76..76,
+                    },
+                ),
+                IfElseStmts {
+                    if_stmt: 77,
+                    elif_stmts: 79..80,
+                    else_stmt: None,
+                },
+                IfElseStmts {
+                    if_stmt: 88,
+                    elif_stmts: 89..89,
+                    else_stmt: None,
+                },
+                IfElseStmts {
+                    if_stmt: 93,
+                    elif_stmts: 94..94,
                     else_stmt: Some(
-                        109,
+                        95,
                     ),
                 },
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            138,
+                            117,
                         ),
-                        body: 121..121,
+                        body: 101..101,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            139,
+                            116,
                         ),
-                        body: 121..121,
+                        body: 101..102,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            140,
+                            119,
                         ),
-                        body: 121..121,
+                        body: 103..103,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            137,
+                            118,
                         ),
-                        body: 121..124,
+                        body: 103..104,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            84,
+                        ),
+                        body: 72..72,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            85,
+                        ),
+                        body: 72..72,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            86,
+                        ),
+                        body: 72..72,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            87,
+                        ),
+                        body: 72..74,
+                    },
+                ),
+                IfElseStmts {
+                    if_stmt: 75,
+                    elif_stmts: 76..76,
+                    else_stmt: None,
+                },
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            92,
+                        ),
+                        body: 76..76,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            93,
+                        ),
+                        body: 76..76,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            94,
+                        ),
+                        body: 76..76,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            95,
+                        ),
+                        body: 96..101,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            115,
+                        ),
+                        body: 101..101,
+                    },
+                ),
+                IfElseStmts {
+                    if_stmt: 102,
+                    elif_stmts: 103..103,
+                    else_stmt: Some(
+                        104,
+                    ),
+                },
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            133,
+                        ),
+                        body: 116..116,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            134,
+                        ),
+                        body: 116..116,
                     },
                 ),
                 Stmt(
@@ -972,160 +916,7 @@ Ok(
                         head: TokenGroupIdx(
                             135,
                         ),
-                        body: 121..121,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            136,
-                        ),
-                        body: 121..121,
-                    },
-                ),
-                IfElseStmts {
-                    if_stmt: 124,
-                    elif_stmts: 125..125,
-                    else_stmt: None,
-                },
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            134,
-                        ),
-                        body: 125..128,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            150,
-                        ),
-                        body: 129..129,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            151,
-                        ),
-                        body: 129..129,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            149,
-                        ),
-                        body: 129..131,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            145,
-                        ),
-                        body: 129..129,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            146,
-                        ),
-                        body: 129..129,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            147,
-                        ),
-                        body: 129..129,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            148,
-                        ),
-                        body: 129..129,
-                    },
-                ),
-                IfElseStmts {
-                    if_stmt: 131,
-                    elif_stmts: 132..132,
-                    else_stmt: None,
-                },
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            144,
-                        ),
-                        body: 132..137,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            153,
-                        ),
-                        body: 138..138,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            152,
-                        ),
-                        body: 138..139,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            142,
-                        ),
-                        body: 129..129,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            143,
-                        ),
-                        body: 129..129,
-                    },
-                ),
-                IfElseStmts {
-                    if_stmt: 137,
-                    elif_stmts: 138..138,
-                    else_stmt: Some(
-                        139,
-                    ),
-                },
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            154,
-                        ),
-                        body: 140..140,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            141,
-                        ),
-                        body: 140..144,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            131,
-                        ),
-                        body: 121..121,
+                        body: 116..116,
                     },
                 ),
                 Stmt(
@@ -1133,97 +924,7 @@ Ok(
                         head: TokenGroupIdx(
                             132,
                         ),
-                        body: 121..121,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            133,
-                        ),
-                        body: 121..121,
-                    },
-                ),
-                IfElseStmts {
-                    if_stmt: 128,
-                    elif_stmts: 129..129,
-                    else_stmt: None,
-                },
-                IfElseStmts {
-                    if_stmt: 144,
-                    elif_stmts: 145..145,
-                    else_stmt: None,
-                },
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            155,
-                        ),
-                        body: 145..145,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            156,
-                        ),
-                        body: 145..145,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            161,
-                        ),
-                        body: 152..152,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            162,
-                        ),
-                        body: 152..152,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            160,
-                        ),
-                        body: 152..154,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            126,
-                        ),
-                        body: 121..121,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            127,
-                        ),
-                        body: 121..121,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            128,
-                        ),
-                        body: 121..121,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            129,
-                        ),
-                        body: 121..121,
+                        body: 116..119,
                     },
                 ),
                 Stmt(
@@ -1231,7 +932,210 @@ Ok(
                         head: TokenGroupIdx(
                             130,
                         ),
-                        body: 145..152,
+                        body: 116..116,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            131,
+                        ),
+                        body: 116..116,
+                    },
+                ),
+                IfElseStmts {
+                    if_stmt: 119,
+                    elif_stmts: 120..120,
+                    else_stmt: None,
+                },
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            129,
+                        ),
+                        body: 120..123,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            145,
+                        ),
+                        body: 124..124,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            146,
+                        ),
+                        body: 124..124,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            144,
+                        ),
+                        body: 124..126,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            140,
+                        ),
+                        body: 124..124,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            141,
+                        ),
+                        body: 124..124,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            142,
+                        ),
+                        body: 124..124,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            143,
+                        ),
+                        body: 124..124,
+                    },
+                ),
+                IfElseStmts {
+                    if_stmt: 126,
+                    elif_stmts: 127..127,
+                    else_stmt: None,
+                },
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            139,
+                        ),
+                        body: 127..132,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            148,
+                        ),
+                        body: 133..133,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            147,
+                        ),
+                        body: 133..134,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            137,
+                        ),
+                        body: 124..124,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            138,
+                        ),
+                        body: 124..124,
+                    },
+                ),
+                IfElseStmts {
+                    if_stmt: 132,
+                    elif_stmts: 133..133,
+                    else_stmt: Some(
+                        134,
+                    ),
+                },
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            149,
+                        ),
+                        body: 135..135,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            136,
+                        ),
+                        body: 135..139,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            126,
+                        ),
+                        body: 116..116,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            127,
+                        ),
+                        body: 116..116,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            128,
+                        ),
+                        body: 116..116,
+                    },
+                ),
+                IfElseStmts {
+                    if_stmt: 123,
+                    elif_stmts: 124..124,
+                    else_stmt: None,
+                },
+                IfElseStmts {
+                    if_stmt: 139,
+                    elif_stmts: 140..140,
+                    else_stmt: None,
+                },
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            150,
+                        ),
+                        body: 140..140,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            151,
+                        ),
+                        body: 140..140,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            156,
+                        ),
+                        body: 147..147,
                     },
                 ),
                 Stmt(
@@ -1239,36 +1143,92 @@ Ok(
                         head: TokenGroupIdx(
                             157,
                         ),
-                        body: 152..152,
+                        body: 147..147,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            158,
+                            155,
                         ),
-                        body: 152..152,
+                        body: 147..149,
                     },
                 ),
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            159,
+                            121,
                         ),
-                        body: 152..152,
+                        body: 116..116,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            122,
+                        ),
+                        body: 116..116,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            123,
+                        ),
+                        body: 116..116,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            124,
+                        ),
+                        body: 116..116,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            125,
+                        ),
+                        body: 140..147,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            152,
+                        ),
+                        body: 147..147,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            153,
+                        ),
+                        body: 147..147,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            154,
+                        ),
+                        body: 147..147,
                     },
                 ),
                 IfElseStmts {
-                    if_stmt: 154,
-                    elif_stmts: 155..155,
+                    if_stmt: 149,
+                    elif_stmts: 150..150,
                     else_stmt: None,
                 },
                 Stmt(
                     AstBlock {
                         head: TokenGroupIdx(
-                            163,
+                            158,
                         ),
-                        body: 155..155,
+                        body: 150..150,
                     },
                 ),
                 Mod(
@@ -1321,75 +1281,75 @@ Ok(
                         head: TokenGroupIdx(
                             9,
                         ),
-                        body: 0..3,
+                        body: 0..0,
                     },
                 ),
                 BlockDefn(
                     AstBlock {
                         head: TokenGroupIdx(
-                            13,
+                            10,
                         ),
-                        body: 7..10,
+                        body: 4..7,
                     },
                 ),
                 BlockDefn(
                     AstBlock {
                         head: TokenGroupIdx(
-                            21,
+                            18,
                         ),
-                        body: 10..12,
+                        body: 7..7,
                     },
                 ),
                 BlockDefn(
                     AstBlock {
                         head: TokenGroupIdx(
-                            24,
+                            19,
                         ),
-                        body: 27..31,
+                        body: 22..26,
                     },
                 ),
                 BlockDefn(
                     AstBlock {
                         head: TokenGroupIdx(
-                            44,
+                            39,
                         ),
-                        body: 31..37,
+                        body: 26..32,
                     },
                 ),
                 BlockDefn(
                     AstBlock {
                         head: TokenGroupIdx(
-                            51,
+                            46,
                         ),
-                        body: 37..43,
+                        body: 32..38,
                     },
                 ),
                 BlockDefn(
                     AstBlock {
                         head: TokenGroupIdx(
-                            58,
+                            53,
                         ),
-                        body: 65..77,
+                        body: 60..72,
                     },
                 ),
                 BlockDefn(
                     AstBlock {
                         head: TokenGroupIdx(
-                            88,
+                            83,
                         ),
-                        body: 110..121,
+                        body: 105..116,
                     },
                 ),
                 BlockDefn(
                     AstBlock {
                         head: TokenGroupIdx(
-                            125,
+                            120,
                         ),
-                        body: 155..165,
+                        body: 150..160,
                     },
                 ),
             ],
         },
-        top_level_asts: 165..183,
+        top_level_asts: 160..178,
     },
 )

@@ -1,5 +1,5 @@
 use husky_absolute_path::AbsolutePath;
-use husky_entity_path::{CratePathKind, EntityPath, EntityPathData};
+use husky_entity_path::{CrateKind, EntityPath, EntityPathData};
 use husky_package_path::{PackagePath, PackagePathData};
 use husky_path_utils::collect_package_dirs;
 use salsa::Durability;
@@ -30,17 +30,17 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Abs
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
 pub(crate) fn module_path(db: &dyn VfsDb, entity_path: EntityPath) -> VfsResult<AbsolutePath> {
-    match db.dt_entity_path(entity_path) {
-        EntityPathData::Crate { package, kind } => {
-            AbsolutePath::new(&package_dir(db, package).as_ref()?.join(kind.path()))
-                .map_err(|e| e.into())
-        }
+    match entity_path.data(db) {
+        EntityPathData::CrateRoot(crate_path) => AbsolutePath::new(
+            &package_dir(db, crate_path.package())
+                .as_ref()?
+                .join(crate_path.crate_kind().path()),
+        )
+        .map_err(|e| e.into()),
         EntityPathData::Childpath { parent, ident } => {
             let parent_module_path = module_path(db, parent).as_ref()?;
             let dir = match db.dt_entity_path(parent) {
-                EntityPathData::Crate { package, kind } => {
-                    parent_module_path.parent().unwrap().to_owned()
-                }
+                EntityPathData::CrateRoot(_) => parent_module_path.parent().unwrap().to_owned(),
                 EntityPathData::Childpath { parent, ident } => {
                     parent_module_path.with_extension("")
                 }
@@ -71,22 +71,17 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> Vfs
                 .exists()
         {
             match file_stem {
-                "lib" => db.it_entity_path(EntityPathData::Crate {
+                "lib" =>  EntityPath::new_crate_root( db, db.it_package_path(PackagePathData::Local(AbsolutePath::new(
+                        parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
+                    )?)),  CrateKind::Library,
+                ) ,
+                "main" => EntityPath::new_crate_root( db, 
                     // ad hoc
                     // todo: correctly recognize toolchain
-                    package: db.it_package_path(PackagePathData::Local(AbsolutePath::new(
+                    db.it_package_path(PackagePathData::Local(AbsolutePath::new(
                         parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
-                    )?)),
-                    kind: CratePathKind::Library,
-                }),
-                "main" => db.it_entity_path(EntityPathData::Crate {
-                    // ad hoc
-                    // todo: correctly recognize toolchain
-                    package: db.it_package_path(PackagePathData::Local(AbsolutePath::new(
-                        parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
-                    )?)),
-                    kind: CratePathKind::Main,
-                }),
+                    )?)),  CrateKind::Main,
+                 ),
                 _ => {
                     if let lib_path = parent.join("lib.hsy") && lib_path.exists() {
                         db.it_entity_path(EntityPathData::Childpath {

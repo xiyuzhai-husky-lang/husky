@@ -5,7 +5,7 @@ use crate::*;
 #[salsa::tracked(jar = EntityPathJar)]
 pub(crate) fn entity_package(db: &dyn EntityPathDb, entity: EntityPath) -> PackagePath {
     match db.dt_entity_path(entity) {
-        EntityPathData::Crate { package, kind } => package,
+        EntityPathData::CrateRoot(crate_path) => crate_path.package(),
         EntityPathData::Childpath { parent, ident } => db.entity_package(parent),
     }
 }

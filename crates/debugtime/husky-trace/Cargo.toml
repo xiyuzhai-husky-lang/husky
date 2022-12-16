@@ -22,9 +22,8 @@ husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
 husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-defn-head = { path = "../../syntax/husky-defn-head" }
 husky-text = { path = "../../lex/husky-text" }
-husky-entity-kind = { path = "../../syntax/husky-entity-kind" }
+husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

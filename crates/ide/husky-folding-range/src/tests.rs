@@ -2,7 +2,7 @@ use crate::*;
 use expect_test::expect_file;
 use husky_absolute_path::AbsolutePath;
 use husky_ast::AstJar;
-use husky_entity_path::{CratePathKind, EntityPathData, EntityPathDb, EntityPathJar};
+use husky_entity_path::{CrateKind, EntityPathData, EntityPathDb, EntityPathJar};
 use husky_package_path::{PackagePathData, PackagePathDb, PackagePathJar};
 use husky_token::TokenJar;
 use husky_toolchain::ToolchainJar;

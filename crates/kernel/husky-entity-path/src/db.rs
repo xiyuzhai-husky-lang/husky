@@ -54,10 +54,12 @@ where
 impl dyn EntityPathDb + '_ {
     pub(crate) fn it_builtin_lib_path(&self, ident: &str) -> Option<EntityPath> {
         let ident = self.it_ident_borrowed(ident)?;
-        Some(self.it_entity_path(EntityPathData::Crate {
-            package: self.builtin_package_path(ident)?,
-            kind: CratePathKind::Library,
-        }))
+        Some(
+            self.it_entity_path(EntityPathData::CrateRoot(CratePath::new(
+                self.builtin_package_path(ident)?,
+                CrateKind::Library,
+            ))),
+        )
     }
     pub(crate) fn it_child_entity_path(
         &self,

@@ -2,8 +2,8 @@ use crate::*;
 
 #[salsa::tracked(jar = EntityPathJar, return_ref)]
 pub(crate) fn ancestry(db: &dyn EntityPathDb, entity_path: EntityPath) -> Vec<EntityPath> {
-    match db.dt_entity_path(entity_path) {
-        EntityPathData::Crate { package, kind } => vec![entity_path],
+    match entity_path.data(db) {
+        EntityPathData::CrateRoot(_) => vec![entity_path],
         EntityPathData::Childpath { parent, ident } => {
             let mut ancestry = ancestry(db, parent).clone();
             ancestry.push(entity_path);
