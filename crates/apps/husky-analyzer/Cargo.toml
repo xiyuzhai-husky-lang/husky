@@ -53,7 +53,7 @@ husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-path = { path = "../../fs/husky-path", features = ["lsp_support"] }
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
-husky-fmt = { path = "../../syntax/husky-fmt" }
+husky-syntax-fmt = { path = "../../syntax/husky-syntax-fmt" }
 # utils
 error-utils = { path = "../../utils/husky-error-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
