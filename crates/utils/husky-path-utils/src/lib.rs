@@ -100,7 +100,7 @@ fn collect_package_relative_dirs_aux(
 }
 
 #[test]
-fn collect_package_dirs_works() {
+fn collect_package_relative_dirs_works() {
     let cargo_manifest_dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
     let library_dir = cargo_manifest_dir
         .join("../../../library")
@@ -108,13 +108,48 @@ fn collect_package_dirs_works() {
         .unwrap();
     expect_test::expect![[r#"
         [
-            "/home/xiyuzhai/repos/husky/library/core",
-            "/home/xiyuzhai/repos/husky/library/cv",
-            "/home/xiyuzhai/repos/husky/library/math",
-            "/home/xiyuzhai/repos/husky/library/std",
+            "./core",
+            "./cv",
+            "./math",
+            "./std",
         ]
     "#]]
-    .assert_debug_eq(&collect_package_dirs(&library_dir))
+    .assert_debug_eq(&collect_package_relative_dirs(&library_dir));
+
+    let examples_dir = cargo_manifest_dir
+        .join("../../../examples")
+        .canonicalize()
+        .unwrap();
+    expect_test::expect![[r#"
+        [
+            "./husky-recognizer",
+            "./mnist-classifier",
+            "./natural-number-game",
+        ]
+    "#]]
+    .assert_debug_eq(&collect_package_relative_dirs(&examples_dir));
+}
+
+#[test]
+fn collect_package_dirs_works() {
+    fn t(dir: &Path) {
+        assert_eq!(
+            collect_package_relative_dirs(dir)
+                .into_iter()
+                .map(|rpath| rpath.to_logical_path(dir))
+                .collect::<Vec<_>>(),
+            collect_package_dirs(dir)
+        )
+    }
+    let cargo_manifest_dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
+    t(&cargo_manifest_dir
+        .join("../../../library")
+        .canonicalize()
+        .unwrap());
+    t(&cargo_manifest_dir
+        .join("../../../examples")
+        .canonicalize()
+        .unwrap())
 }
 
 pub fn collect_all_source_files(dir: PathBuf) -> Vec<PathBuf> {
