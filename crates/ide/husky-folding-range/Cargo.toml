@@ -1,0 +1,28 @@
+[package]
+name = "husky-folding-range"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+lsp-types = "0.93"
+thiserror = "1.0.37"
+# abstraction
+salsa = { path = "../../abstraction/salsa" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
+# kernel
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+# syntax
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-token = { path = "../../lex/husky-token" }
+
+[dev-dependencies]
+expect-test = "1.4.0"
+# kernel
+husky-package-path = { path = "../../kernel/husky-package-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-term = { path = "../../kernel/husky-term" }
+husky-word = { path = "../../kernel/husky-word" }
+husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
+husky-toolchain = { path = "../../kernel/husky-toolchain" }

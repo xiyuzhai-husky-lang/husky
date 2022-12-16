@@ -49,3 +49,8 @@ pub(crate) fn module_path(db: &dyn VfsDb, entity_path: EntityPath) -> VfsResult<
         }
     }
 }
+
+// this shouldn't be tracked
+pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> VfsResult<EntityPath> {
+    todo!()
+}

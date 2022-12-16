@@ -1,5 +1,5 @@
 use crate::*;
-use husky_token::{Keyword, SpecialToken, StmtKeyword, TokenGroupIter, TokenGroupSheet, TokenKind};
+use husky_token::{Keyword, SpecialToken, StmtKeyword, TokenGroupIter, TokenKind, TokenSheet};
 
 pub(crate) struct AstParser<'a> {
     db: &'a dyn WordDb,
@@ -8,7 +8,7 @@ pub(crate) struct AstParser<'a> {
 }
 
 impl<'a> AstParser<'a> {
-    pub(crate) fn new(db: &'a dyn WordDb, token_sheet: &'a TokenGroupSheet) -> Self {
+    pub(crate) fn new(db: &'a dyn WordDb, token_sheet: &'a TokenSheet) -> Self {
         Self {
             db,
             arena: Default::default(),
@@ -34,13 +34,19 @@ impl<'a> AstParser<'a> {
         self.arena.alloc_batch(asts)
     }
 
+    fn alloc_ast(&mut self, ast: Ast) -> AstIdx {
+        self.arena.alloc_one(ast)
+    }
+
     fn parse_ast(&mut self, indent: u32) -> Option<Ast> {
         let (idx, token_group) = self.token_groups.next_with_equal_or_more_indent(indent)?;
         if token_group.indent() > indent {
             return Some(Ast::Err(idx, AstError::ExcessiveIndent));
         }
         Some(match token_group.first().kind {
-            TokenKind::Decorator(_) => Ast::Defn(idx, self.parse_asts(indent + INDENT_INCR)),
+            TokenKind::Decorator(_) => {
+                Ast::BlockDefn(AstBlock::new(idx, self.parse_asts(indent + INDENT_INCR)))
+            }
             TokenKind::Keyword(kw) => match kw {
                 Keyword::Stmt(kw) => match kw {
                     StmtKeyword::If => self.parse_if_else_stmts(idx, indent),
@@ -56,7 +62,9 @@ impl<'a> AstParser<'a> {
                     | StmtKeyword::Break
                     | StmtKeyword::Return
                     | StmtKeyword::Assert
-                    | StmtKeyword::Require => Ast::Stmt(idx, self.parse_asts(indent + INDENT_INCR)),
+                    | StmtKeyword::Require => {
+                        Ast::Stmt(AstBlock::new(idx, self.parse_asts(indent + INDENT_INCR)))
+                    }
                 },
                 Keyword::Liason(_) => todo!(),
                 Keyword::Use => Ast::Use(idx),
@@ -66,42 +74,47 @@ impl<'a> AstParser<'a> {
                 | Keyword::Paradigm(_)
                 | Keyword::Visual
                 | Keyword::Type(_)
-                | Keyword::Impl => Ast::Defn(idx, self.parse_asts(indent + INDENT_INCR)),
+                | Keyword::Impl => {
+                    Ast::BlockDefn(AstBlock::new(idx, self.parse_asts(indent + INDENT_INCR)))
+                }
                 Keyword::End(_) => todo!(),
             },
             TokenKind::Special(SpecialToken::PoundSign) => Ast::Decor(idx),
-            _ => Ast::Stmt(idx, self.parse_asts(indent + INDENT_INCR)),
+            _ => Ast::Stmt(AstBlock::new(idx, self.parse_asts(indent + INDENT_INCR))),
         })
     }
 
     fn parse_if_else_stmts(&mut self, idx: TokenGroupIdx, indent: u32) -> Ast {
         Ast::IfElseStmts {
-            if_stmt: (idx, self.parse_asts(indent + INDENT_INCR)),
+            if_stmt: self.alloc_stmt(idx, indent),
             elif_stmts: self.parse_elif_stmts(indent),
             else_stmt: self.parse_else_stmt(indent),
         }
     }
 
-    fn parse_elif_stmts(&mut self, indent: u32) -> Vec<(TokenGroupIdx, AstIdxRange)> {
+    fn parse_elif_stmts(&mut self, indent: u32) -> AstIdxRange {
         let mut elif_stmts = vec![];
         while let Some((idx, token_group)) = self.token_groups.peek_with_exact_indent(indent) {
             match token_group.first().kind {
                 TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
                     self.token_groups.next();
-                    elif_stmts.push((idx, self.parse_asts(indent + INDENT_INCR)))
+                    elif_stmts.push(Ast::Stmt(AstBlock::new(
+                        idx,
+                        self.parse_asts(indent + INDENT_INCR),
+                    )))
                 }
                 _ => break,
             }
         }
-        elif_stmts
+        self.alloc_asts(elif_stmts)
     }
 
-    fn parse_else_stmt(&mut self, indent: u32) -> Option<(TokenGroupIdx, AstIdxRange)> {
+    fn parse_else_stmt(&mut self, indent: u32) -> Option<AstIdx> {
         let (idx, token_group) = self.token_groups.peek_with_exact_indent(indent)?;
         match token_group.first().kind {
             TokenKind::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
                 self.token_groups.next();
-                Some((idx, self.parse_asts(indent + INDENT_INCR)))
+                Some(self.alloc_stmt(idx, indent))
             }
             _ => None,
         }
@@ -109,22 +122,30 @@ impl<'a> AstParser<'a> {
 
     fn parse_match_stmts(&mut self, idx: TokenGroupIdx, indent: u32) -> Ast {
         Ast::MatchStmts {
-            pattern_stmt: (idx, self.parse_asts(indent + INDENT_INCR)),
+            pattern_stmt: self.alloc_stmt(idx, indent),
             case_stmts: self.parse_case_stmts(indent),
         }
     }
 
-    fn parse_case_stmts(&mut self, indent: u32) -> Vec<(TokenGroupIdx, AstIdxRange)> {
+    fn alloc_stmt(&mut self, idx: TokenGroupIdx, indent: u32) -> AstIdx {
+        let body = self.parse_asts(indent + INDENT_INCR);
+        self.alloc_ast(Ast::Stmt(AstBlock::new(idx, body)))
+    }
+
+    fn parse_case_stmts(&mut self, indent: u32) -> AstIdxRange {
         let mut case_stmts = vec![];
         while let Some((idx, token_group)) = self.token_groups.peek_with_exact_indent(indent) {
             match token_group.first().kind {
                 TokenKind::Special(SpecialToken::Vertical) => {
                     self.token_groups.next();
-                    case_stmts.push((idx, self.parse_asts(indent + INDENT_INCR)))
+                    case_stmts.push(Ast::Stmt(AstBlock::new(
+                        idx,
+                        self.parse_asts(indent + INDENT_INCR),
+                    )))
                 }
                 _ => break,
             }
         }
-        case_stmts
+        self.alloc_asts(case_stmts)
     }
 }

@@ -28,6 +28,9 @@ impl RawContour:
             ClosedRange(ymin, ymax),
         )
     
+    func relative_bounding_box -> RelativeBoundingBox:
+        cc.raw_contours[0].bounding_box.relative_bounding_box(this.bounding_box)
+    
     proc contour_len -> f32:
         let mut contour_len = 0.0
         for 0 < i < points.ilen():
@@ -67,37 +70,32 @@ func get_pixel_to_the_right(row: b32, j: i32) -> b32:
 func get_inward_direction(row_above: b32, row_below: b32, j: i32) -> Direction:
     pixel_pair_above = get_pixel_pair(row_above, j)
     pixel_pair_below = get_pixel_pair(row_below, j)
-    match pixel_pair_above:
-        case 0b32:
-            match pixel_pair_below:
-                case 1b32 | 3b32:
-                    Direction::LEFT
-                case 2b32:
-                    Direction::UP
-        case 1b32:
-            Direction::DOWN
-        case 2b32: 
-            match pixel_pair_below:
-                case 0b32:
-                    Direction::RIGHT
-                case 1b32 | 3b32:
-                    Direction::LEFT
-                case 2b32:
-                    Direction::UP
-        case 3b32:
-            match pixel_pair_below:
-                case 0b32 | 1b32:
-                    Direction::RIGHT
-                case 2b32:
-                    Direction::UP
+    match pixel_pair_above with
+    | 0 =>:
+        match pixel_pair_below with
+        | 1
+        | 3 => Direction::LEFT
+        | 2 => Direction::UP
+    | 1 => Direction::DOWN
+    | 2 =>: 
+        match pixel_pair_below with
+        | 0 => Direction::RIGHT
+        | 1
+        | 3 => Direction::LEFT
+        | 2 =>Direction::UP
+    | 3 =>:
+        match pixel_pair_below with
+        | 0
+        | 1 => Direction::RIGHT
+        | 2 => Direction::UP
 
 func get_angle_change(inward: Direction, outward: Direction) -> i32:
     raw_angle_change = (((outward as i32) - (inward as i32)) as b32).last_bits(2)
     match raw_angle_change:
-        case 0b32 | 1b32 | 2b32:
-            raw_angle_change as i32
-        case 3b32:
-            -1
+    | 0
+    | 1
+    | 2 => raw_angle_change as i32
+    | 3 => -1
 
 func get_outward_direction(
     row_above: b32,
@@ -107,43 +105,42 @@ func get_outward_direction(
 ) -> Direction:
     pixel_pair_above = get_pixel_pair(row_above, j)
     pixel_pair_below = get_pixel_pair(row_below, j)
-    match pixel_pair_above:
-        case 0b32:
-            match pixel_pair_below:
-                case 1b32:
-                    Direction::DOWN
-                case 2b32 | 3b32:
-                    Direction::LEFT
-        case 1b32:
-            match pixel_pair_below:
-                case 0b32:
-                    Direction::RIGHT
-                case 1b32:
-                    Direction::DOWN
-                case 2b32:
-                    match inward_direction:
-                        case Direction::DOWN:
-                            Direction::LEFT
-                        case Direction::UP:
-                            Direction::RIGHT
-                case 3b32:
-                    Direction::LEFT
-        case 2b32:
-            match pixel_pair_below:
-                case 0b32 | 2b32 | 3b32:
-                    Direction::UP
-                case 1b32:
-                    match inward_direction:
-                        case Direction::LEFT:
-                            Direction::UP
-                        case Direction::RIGHT:
-                            Direction::DOWN
-        case 3b32:
-            match pixel_pair_below:
-                case 0b32 | 2b32:
-                    Direction::RIGHT
-                case 1b32:
-                    Direction::DOWN
+    match pixel_pair_above with
+    | 0 =>:
+        match pixel_pair_below with
+        | 1 => Direction::DOWN
+        | 2
+        | 3 => Direction::LEFT
+        | _ => unreachable
+    | 1 =>:
+        match pixel_pair_below with
+        | 0 => Direction::RIGHT
+        | 1 => Direction::DOWN
+        | 2 =>:
+            match inward_direction with
+            | Direction::DOWN => Direction::LEFT
+            | Direction::UP => Direction::RIGHT
+            | _ => unreachable
+        | 3 => Direction::LEFT
+        | _ => unreachable
+    | 2 =>:
+        match pixel_pair_below with
+        | 0
+        | 2
+        | 3 => Direction::UP
+        | 1 =>:
+            match inward_direction with
+            | Direction::LEFT => Direction::UP
+            | Direction::RIGHT => Direction::DOWN
+            | _ => unreachable
+        | _ => unreachable
+    | 3 =>:
+        match pixel_pair_below with
+        | 0
+        | 2 => Direction::RIGHT
+        | 1 => Direction::DOWN
+        | _ => unreachable
+    | _ => unreachable
 
 
 struct StreakCache:
@@ -198,16 +195,25 @@ proc find_raw_contours(cc: &ConnectedComponent) -> []RawContour:
                 boundary_unsearched[i] = boundary_unsearched[i] & (~(1b32 << j))
                 if angle_change:
                     // update contour and previous streaks
-                    if prev_angle_change1 == -1 and prev_angle_change2 == -1 and current_streak == 1 and prev_streak1 != -1 and prev_streak2 == 1:
+                    if prev_angle_change1 == -1
+                            and prev_angle_change2 == -1
+                            and current_streak == 1
+                            and prev_streak1 != -1
+                            and prev_streak2 == 1:
                         contour.lastx() = get_concave_middle_point(contour)
                         contour.push(Point2d::from_i_shift28(i, j))
                         prev_streak2 = -1
                         prev_streak1 = -1
-                    elif prev_angle_change1 == -1 and prev_streak1 > 0 and prev_streak1 == 1:
+                    elif prev_angle_change1 == -1
+                            and prev_streak1 > 0
+                            and prev_streak1 == 1:
                         contour.lastx() = Point2d::from_i_shift28(i, j)
                         prev_streak2 = prev_streak1
                         prev_streak1 = current_streak
-                    elif prev_angle_change1 == -1 and prev_streak1 > 0 and current_streak == 1 and prev_streak1 > 1:
+                    elif prev_angle_change1 == -1
+                            and prev_streak1 > 0
+                            and current_streak == 1
+                            and prev_streak1 > 1:
                         contour.lastx() = Point2d::from_i_shift28(i, j)
                         prev_streak2 = -1
                         prev_streak1 = -1

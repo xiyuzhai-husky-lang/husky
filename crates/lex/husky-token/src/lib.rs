@@ -5,8 +5,6 @@ mod error;
 mod group;
 mod kind;
 mod semantic_token;
-#[cfg(feature = "storage")]
-mod storage;
 mod stream;
 #[cfg(test)]
 mod tests;

@@ -5,28 +5,51 @@ use domains::ml::models::narrow::narrow_down
 use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
+use crate::zero::is_zero
+use crate::six::is_six
 
 func nine_match -> FermiMatchResult:
     fermi_match(major_concave_components, [downmost])
 
+func nine_match_refine -> FermiMatchResult:
+    fermi_match(major_concave_components, [big_cc])
+
 def is_nine -> ?MnistLabel:
+    require is_zero be none
+    require is_six be none 
     eff_holes = major_connected_component.eff_holes
+
+    require eff_holes.matches[1] be none
 
     down_match=nine_match.matches[0]
     require down_match be some
     down_match_dp_y = down_match.displacement().y
-    if eff_holes.matches[0] be none:
-        require major_concave_components.ilen()>2
-    lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass
+    
+    higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
+    require higher_excess>7.0
 
-    narrow_down(
-        MnistLabel::Nine,
-        15,
-        // upmost_match_dp_y,
-        ignored_connected_components_row_span_sum_sum,
-        lower_excess,
-        major_connected_component.top_k_row_span_sum(6),
-    )?
+    if eff_holes.matches[0] be none:
+        require major_concave_components.ilen()>=2
+        upper_arc = nine_match_refine.matches[0]
+        require upper_arc be some
+        require upper_arc.displacement().y > 0.0
+        require upper_arc.angle_change < -110.0
+        require nine_match_refine.norm < 9.0
+        a = major_connected_component.top_k_row_right_mass_sum(3)
+
+        require a < 22.0
+        require a > 9.0
+        MnistLabel::Nine
+    
+
+    // narrow_down(
+    //     MnistLabel::Nine,
+    //     15,
+    //     nine_match_refine,
+    //     ignored_connected_components_row_span_sum_sum,
+    //     higher_excess,
+    //     major_connected_component.top_k_row_span_sum(6),
+    // )?
 
     MnistLabel::Nine
 
@@ -34,3 +57,9 @@ func downmost(cc: &ConcaveComponent) -> ?f32:
     dp = cc.displacement()
     require dp.y < 0.0
     dp.y
+
+func big_cc(cc: &ConcaveComponent)-> ?f32:
+    require cc.relative_bounding_box.ymin()>0.4
+    // dp = cc.displacement()
+    // require dp.y.abs()<7.0
+    cc.relative_bounding_box.ymin()

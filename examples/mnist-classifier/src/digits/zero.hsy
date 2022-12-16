@@ -5,10 +5,25 @@ use domains::ml::models::narrow::narrow_down
 use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
+use crate::one::is_one
+
+func open_one_match -> FermiMatchResult:
+    fermi_match(major_concave_components, [almost_closed])
+
+func almost_closed(cc: &ConcaveComponent) -> ?f32:
+    require cc.angle_change + 0.0 < -140.0
+    -cc.angle_change + 0.0
 
 def is_zero -> ?MnistLabel:
+    require is_one be none
     if major_connected_component.raw_contours.ilen() == 1:
-        require false
+        n = open_one_match.norm
+        require n < 1.5
+        require open_one_match.matches[0] be some
+        require connected_components.ilen() == 1
+        c = open_one_match.matches[0].displacement().norm()
+        require c < 5.5
+        MnistLabel::Zero
     simp_zero_match = fermi_match(major_concave_components, [])
     narrow_down(
         MnistLabel::Zero,
@@ -26,6 +41,6 @@ def is_zero -> ?MnistLabel:
     b = major_line_segment_sketch.bounding_box.ymax() - major_line_segment_sketch.bounding_box.ymin()
     // high_point, low_point
     ratio = a/b
-    require ratio > 0.5
+    require ratio > 0.4
     a = simp_zero_match.norm
     MnistLabel::Zero
