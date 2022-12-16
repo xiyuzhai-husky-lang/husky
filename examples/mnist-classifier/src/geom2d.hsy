@@ -1,6 +1,7 @@
-struct Point2d:
-    x: f32
-    y: f32
+struct Point2d {
+    x: f32,
+    y: f32,
+}
 
 impl Point2d:
     static func from_i_shift28(i: i32, shift: i32) -> Point2d:
@@ -18,13 +19,15 @@ impl Point2d:
     func dist(other: Point2d) -> f32:
         this.to(other).norm()
 
-struct RelativePoint2d:
-    x: f32
-    y: f32
+struct RelativePoint2d {
+    x: f32,
+    y: f32,
+}
 
-struct Vector2d:
-    x: f32
-    y: f32
+struct Vector2d {
+    x: f32,
+    y: f32,
+}
 
 impl Vector2d:
     func point() -> Point2d:
@@ -75,9 +78,10 @@ impl Vector2d:
             arc_angle = (this.rotation_direction_to(other) as f32) * cos_value.acos()
             arc_angle * 180.0 / 3.1415926
 
-struct ClosedRange:
-    min: f32
-    max: f32
+struct ClosedRange {
+    min: f32,
+    max: f32,
+}
 
 impl CloseRange:
     func relative_range(other: ClosedRange) -> ClosedRange:
@@ -94,9 +98,10 @@ impl CloseRange:
         span = max - min
         (v - min) / span
 
-struct BoundingBox:
-    xrange: ClosedRange
-    yrange: ClosedRange
+struct BoundingBox {
+    xrange: ClosedRange,
+    yrange: ClosedRange,
+}
 
 impl BoundingBox:
     func relative_bounding_box(other: BoundingBox) -> RelativeBoundingBox:
@@ -127,9 +132,10 @@ impl BoundingBox:
         yrange.max
     }
 
-struct RelativeBoundingBox:
-    xrange: ClosedRange
-    yrange: ClosedRange
+struct RelativeBoundingBox {
+    xrange: ClosedRange,
+    yrange: ClosedRange,
+}
 
 impl RelativeBoundingBox:
     func xmin() -> f32:

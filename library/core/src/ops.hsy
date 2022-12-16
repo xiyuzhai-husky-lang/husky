@@ -1,5 +1,5 @@
 #[rust("std::ops::Add")]
-trait Add<B>:
+pub trait Add<B>:
     type Output
 
     fn add(other: B) -> Self::Output
