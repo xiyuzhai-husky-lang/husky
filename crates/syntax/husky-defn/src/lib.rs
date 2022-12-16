@@ -11,11 +11,11 @@ use husky_expr::{ExprArena, ExprIdx};
 use salsa::DbWithJar;
 
 #[salsa::jar(db = DefnDb)]
-pub struct Jar(Defn);
+pub struct DefnJar(Defn);
 
-pub trait DefnDb: DbWithJar<Jar> {}
+pub trait DefnDb: DbWithJar<DefnJar> {}
 
-#[salsa::tracked]
+#[salsa::tracked(jar = DefnJar)]
 pub struct Defn {
     #[id]
     pub entity_path: EntityPath,

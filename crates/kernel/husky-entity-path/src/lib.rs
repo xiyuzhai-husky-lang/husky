@@ -1,7 +1,10 @@
+mod ancestry;
 mod crate_path;
 mod db;
 mod jar;
 mod menu;
+#[cfg(test)]
+mod tests;
 mod utils;
 
 pub use crate_path::CratePathKind;
@@ -9,6 +12,7 @@ pub use db::*;
 pub use jar::*;
 pub use menu::*;
 
+use ancestry::*;
 use husky_package_path::PackagePath;
 use husky_toolchain::Toolchain;
 use husky_word::Identifier;
