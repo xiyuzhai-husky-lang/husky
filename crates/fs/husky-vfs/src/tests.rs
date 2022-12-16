@@ -23,23 +23,23 @@ use std::{
 
 #[salsa::db(VfsJar, WordJar, ToolchainJar, PackagePathJar, EntityPathJar)]
 #[derive(Default)]
-struct MimicDB {
+pub(crate) struct DB {
     storage: salsa::Storage<Self>,
     watcher_place: SingleAssignPlace<VfsWatcher>,
     vfs_config: VfsConfigMimic,
 }
 
-impl salsa::Database for MimicDB {}
+impl salsa::Database for DB {}
 
-impl HasVfsConfig for MimicDB {
+impl HasVfsConfig for DB {
     fn vfs_config(&self) -> &VfsConfig {
         &self.vfs_config
     }
 }
 
-impl ParallelDatabase for MimicDB {
+impl ParallelDatabase for DB {
     fn snapshot(&self) -> salsa::Snapshot<Self> {
-        salsa::Snapshot::new(MimicDB {
+        salsa::Snapshot::new(DB {
             storage: self.storage.snapshot(),
             watcher_place: self.watcher_place.clone(),
             vfs_config: self.vfs_config.clone(),
@@ -49,7 +49,7 @@ impl ParallelDatabase for MimicDB {
 
 #[test]
 fn watcher_works() {
-    let db = MimicDB::default();
+    let db = DB::default();
     let db = WatchedVfs::new(db);
     let tempdir = tempfile::tempdir().unwrap();
     let some_pkg_dir = tempdir.path().join("somepath");

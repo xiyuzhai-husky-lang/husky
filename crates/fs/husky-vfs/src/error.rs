@@ -17,6 +17,8 @@ pub enum VfsError {
     NotSourceFile(PathBuf),
     #[error("{0}")]
     AbsolutePath(#[from] AbsolutePathError),
+    #[error("failed to resolve module path")]
+    ModulePathResolveFailure,
 }
 
 impl From<&VfsError> for VfsError {

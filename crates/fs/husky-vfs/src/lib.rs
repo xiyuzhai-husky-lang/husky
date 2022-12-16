@@ -1,3 +1,4 @@
+#![feature(let_chains)]
 mod cache;
 mod config;
 mod db;

@@ -1,6 +1,7 @@
 use husky_absolute_path::AbsolutePath;
-use husky_entity_path::{EntityPath, EntityPathData};
+use husky_entity_path::{CratePathKind, EntityPath, EntityPathData};
 use husky_package_path::{PackagePath, PackagePathData};
+use husky_path_utils::collect_package_dirs;
 use salsa::Durability;
 
 use crate::*;
@@ -52,5 +53,91 @@ pub(crate) fn module_path(db: &dyn VfsDb, entity_path: EntityPath) -> VfsResult<
 
 // this shouldn't be tracked
 pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> VfsResult<EntityPath> {
-    todo!()
+    let path = path.as_ref();
+    if path.extension().and_then(|s| s.to_str()) != Some("hsy") {
+        todo!()
+    }
+    let parent = path.parent().ok_or(VfsError::ModulePathResolveFailure)?;
+    let file_stem = path
+        .file_stem()
+        .and_then(|s| s.to_str())
+        .ok_or(VfsError::ModulePathResolveFailure)?;
+    Ok(
+        if parent.ends_with("src")
+            && parent
+                .parent()
+                .ok_or(VfsError::ModulePathResolveFailure)?
+                .join("Corgi.toml")
+                .exists()
+        {
+            match file_stem {
+                "lib" => db.it_entity_path(EntityPathData::Crate {
+                    // ad hoc
+                    // todo: correctly recognize toolchain
+                    package: db.it_package_path(PackagePathData::Local(AbsolutePath::new(
+                        parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
+                    )?)),
+                    kind: CratePathKind::Library,
+                }),
+                "main" => db.it_entity_path(EntityPathData::Crate {
+                    // ad hoc
+                    // todo: correctly recognize toolchain
+                    package: db.it_package_path(PackagePathData::Local(AbsolutePath::new(
+                        parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
+                    )?)),
+                    kind: CratePathKind::Main,
+                }),
+                _ => {
+                    if let lib_path = parent.join("lib.hsy") && lib_path.exists() {
+                        db.it_entity_path(EntityPathData::Childpath {
+                            parent: resolve_module_path(db, lib_path)?,
+                            ident: db
+                                .it_ident_borrowed(file_stem)
+                                .ok_or(VfsError::ModulePathResolveFailure)?,
+                        })
+                    } else if let main_path = parent.join("main.hsy") && main_path.exists() {
+                        db.it_entity_path(EntityPathData::Childpath {
+                            parent: resolve_module_path(db, main_path)?,
+                            ident: db
+                                .it_ident_borrowed(file_stem)
+                                .ok_or(VfsError::ModulePathResolveFailure)?,
+                        })
+                    } else {
+                        todo!()
+                    }
+                }
+            }
+        } else {
+            let parent_module_path = parent.with_extension("hsy");
+            if !parent_module_path.exists() {
+                todo!()
+            }
+            db.it_entity_path(EntityPathData::Childpath {
+                parent: resolve_module_path(db, parent_module_path)?,
+                ident: db
+                    .it_ident_borrowed(file_stem)
+                    .ok_or(VfsError::ModulePathResolveFailure)?,
+            })
+        },
+    )
+}
+
+#[test]
+fn resolve_module_path_works() {
+    use crate::tests::*;
+
+    fn t(db: &DB, dir: &Path) {
+        for package in db.collect_local_packages(dir).unwrap() {
+            for module in db.collect_possible_modules(package).unwrap() {
+                assert_eq!(
+                    db.resolve_module_path(module_path(db, module).as_ref().unwrap()),
+                    Ok(module)
+                )
+            }
+        }
+    }
+
+    let db = DB::default();
+    t(&db, db.vfs_config().library_dir());
+    t(&db, db.vfs_config().examples_dir());
 }
