@@ -48,5 +48,10 @@ impl ParallelDatabase for DB {
 
 #[test]
 fn ast_sheet_works() {
-    DB::run_module_expect_tests(AstDb::ast_sheet);
+    DB::run_module_expect_tests("ast_sheet", AstDb::ast_sheet);
+}
+
+#[test]
+fn ast_range_sheet_works() {
+    DB::run_module_expect_tests("ast_range_sheet", AstDb::ast_range_sheet);
 }

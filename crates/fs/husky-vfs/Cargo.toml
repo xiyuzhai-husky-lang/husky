@@ -21,6 +21,7 @@ husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # utils
+husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]

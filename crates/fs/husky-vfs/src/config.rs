@@ -3,17 +3,25 @@ use std::{
     sync::Arc,
 };
 
+use husky_path_utils::{
+    derive_examples_dir_from_cargo_manifest_dir, derive_library_dir_from_cargo_manifest_dir,
+};
 use husky_print_utils::p;
 
 #[derive(Debug)]
 pub struct VfsConfig {
     library_dir: PathBuf,
+    examples_dir: PathBuf,
     corgi_install_path: Option<PathBuf>,
 }
 
 impl VfsConfig {
     pub fn library_dir(&self) -> &Path {
         &self.library_dir
+    }
+
+    pub fn examples_dir(&self) -> &Path {
+        &self.examples_dir
     }
 
     pub fn corgi_install_path(&self) -> Option<&Path> {
@@ -33,6 +41,7 @@ impl Default for VfsConfigImpl {
         Self(Arc::new(VfsConfig {
             // ad hoc
             library_dir: "/home/xiyuzhai/repos/husky/library".into(),
+            examples_dir: "/home/xiyuzhai/repos/husky/examples".into(),
             corgi_install_path: None,
         }))
     }
@@ -61,23 +70,8 @@ impl Default for VfsConfigMimic {
     fn default() -> Self {
         Self(Arc::new(VfsConfig {
             library_dir: derive_library_dir_from_cargo_manifest_dir(),
+            examples_dir: derive_examples_dir_from_cargo_manifest_dir(),
             corgi_install_path: None,
         }))
-    }
-}
-
-fn derive_library_dir_from_cargo_manifest_dir() -> PathBuf {
-    let cargo_manifest_dir = std::env::var("CARGO_MANIFEST_DIR").unwrap();
-    let mut library_parent_dir: &Path = cargo_manifest_dir.as_ref();
-    loop {
-        let library_dir = library_parent_dir.join("library");
-        if library_dir.exists() {
-            break library_dir;
-        }
-        if let Some(new_library_parent_dir) = library_parent_dir.parent() {
-            library_parent_dir = new_library_parent_dir
-        } else {
-            todo!()
-        }
     }
 }

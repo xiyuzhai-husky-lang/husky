@@ -62,13 +62,34 @@ impl<'a> AstRangeCalculator<'a> {
                 if_stmt,
                 elif_stmts,
                 else_stmt,
-            } => todo!(),
+            } => {
+                let start = self.text_ranges[if_stmt.raw()].start;
+                let end = match else_stmt {
+                    Some(else_stmt) => self.text_ranges[else_stmt.raw()].end,
+                    None => {
+                        if elif_stmts.start < elif_stmts.end {
+                            self.text_ranges[elif_stmts.end.raw() - 1].end
+                        } else {
+                            self.text_ranges[if_stmt.raw()].end
+                        }
+                    }
+                };
+                (start..end).into()
+            }
             Ast::MatchStmts {
                 pattern_stmt,
                 case_stmts,
-            } => todo!(),
+            } => {
+                let start = self.text_ranges[pattern_stmt.raw()].start;
+                let end = {
+                    if case_stmts.start < case_stmts.end {
+                        self.text_ranges[case_stmts.end.raw() - 1].end
+                    } else {
+                        self.text_ranges[pattern_stmt.raw()].end
+                    }
+                };
+                (start..end).into()
+            }
         }
     }
-
-    // fn calc_block_range(&self,)
 }

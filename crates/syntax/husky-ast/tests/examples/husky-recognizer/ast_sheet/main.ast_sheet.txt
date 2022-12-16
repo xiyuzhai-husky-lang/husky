@@ -1,0 +1,41 @@
+Ok(
+    AstSheet {
+        arena: Arena {
+            data: [
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            1,
+                        ),
+                        body: 0..0,
+                    },
+                ),
+                Stmt(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            3,
+                        ),
+                        body: 1..1,
+                    },
+                ),
+                BlockDefn(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            0,
+                        ),
+                        body: 0..1,
+                    },
+                ),
+                BlockDefn(
+                    AstBlock {
+                        head: TokenGroupIdx(
+                            2,
+                        ),
+                        body: 1..2,
+                    },
+                ),
+            ],
+        },
+        top_level_asts: 2..4,
+    },
+)
