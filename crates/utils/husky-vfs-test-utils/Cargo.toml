@@ -1,0 +1,19 @@
+[package]
+name = "husky-vfs-test-utils"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+expect-test = "1.4.0"
+# kernel
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-word = { path = "../../kernel/husky-word" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
+# kernel
+husky-package-path = { path = "../../kernel/husky-package-path" }
+husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
+# utils
+husky-path-utils = { path = "../../utils/husky-path-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }

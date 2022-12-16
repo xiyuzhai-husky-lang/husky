@@ -14,6 +14,7 @@ struct LineSegmentStroke:
     start: Point2d := points.firstx().clone()
     end: Point2d := points.lastx().clone()
 
+impl LineSegmentStroke:
     static func new(ct: &RawContour, from: i32, to: i32) -> LineSegmentStroke:
         assert from <= to
         LineSegmentStroke(ct.points.cyclic_slice(from, to + 1))
@@ -28,6 +29,7 @@ struct LineSegmentSketch:
     contour: &RawContour
     strokes: []LineSegmentStroke
 
+impl LineSegmentSketch:
     func concave_components -> []ConcaveComponent:
         find_concave_components(this)
     

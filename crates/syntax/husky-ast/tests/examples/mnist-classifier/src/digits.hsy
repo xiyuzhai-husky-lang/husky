@@ -1,7 +1,0 @@
-mod zero
-mod one
-mod six
-
-use one::is_one
-use six::is_six
-use zero::is_zero

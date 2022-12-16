@@ -2,9 +2,12 @@ use crate::{convert::from_lsp_types, lsp_ext::PositionOrRange, *};
 
 type HuskyComptimeSnapshot = salsa::Snapshot<AnalyzerDB>;
 
+use husky_ast::AstDb;
+use husky_folding_range::FoldingRangeDb;
 use husky_hover::HoverResult;
 use husky_text::{FilePosition, FileRange, TextRange};
-use husky_token::AbsSemanticToken;
+use husky_token::{AbsSemanticToken, TokenDb};
+use husky_vfs::VfsDb;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,
     CallHierarchyOutgoingCall, CallHierarchyOutgoingCallsParams, CallHierarchyPrepareParams,
@@ -127,16 +130,12 @@ pub(crate) fn handle_folding_range(
     snapshot: HuskyComptimeSnapshot,
     params: FoldingRangeParams,
 ) -> Result<Option<Vec<FoldingRange>>> {
-    msg_once!("todo handle folding range");
-    Ok(None)
-    // use husky_token::*;
-    // if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
-    //     let file = snapshot.intern_path(path);
-    //     if let Ok(tokenized_text) = snapshot.tokenized_text(file) {
-    //         return Ok(Some(tokenized_text.folding_ranges()));
-    //     }
-    // }
-    // Ok(None)
+    let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
+    let module = snapshot.resolve_module_path(&path)?;
+    match snapshot.folding_ranges(module) {
+        Ok(folding_ranges) => Ok(Some(folding_ranges.clone())),
+        Err(e) => Err(Box::new(e.clone())),
+    }
 }
 
 pub(crate) fn handle_decl_help(

@@ -1,9 +1,8 @@
-struct Point2d {
-    x: f32,
-    y: f32,
-}
+struct Point2d:
+    x: f32
+    y: f32
 
-impl Point2d {
+impl Point2d:
     static func from_i_shift28(i: i32, shift: i32) -> Point2d:
         Point2d((29 - shift) as f32, (29 - i) as f32)
 
@@ -18,19 +17,16 @@ impl Point2d {
 
     func dist(other: Point2d) -> f32:
         this.to(other).norm()
-}
 
-struct RelativePoint2d {
-    x: f32,
-    y: f32,
-}
+struct RelativePoint2d:
+    x: f32
+    y: f32
 
-struct Vector2d {
-    x: f32,
-    y: f32,
-}
+struct Vector2d:
+    x: f32
+    y: f32
 
-impl Vector2d {
+impl Vector2d:
     func point() -> Point2d:
         Point2d(this.x, this.y)
 
@@ -78,15 +74,12 @@ impl Vector2d {
         else:
             arc_angle = (this.rotation_direction_to(other) as f32) * cos_value.acos()
             arc_angle * 180.0 / 3.1415926
-}
 
-struct ClosedRange {
+struct ClosedRange:
     min: f32
     max: f32
-}
 
-
-impl CloseRange {}
+impl CloseRange:
     func relative_range(other: ClosedRange) -> ClosedRange:
         assert max > min
         span = max - min
@@ -101,18 +94,16 @@ impl CloseRange {}
         span = max - min
         (v - min) / span
 
-struct BoundingBox {
+struct BoundingBox:
     xrange: ClosedRange
     yrange: ClosedRange
-}
 
-impl BoundingBox {
-    func relative_range(other: BoundingBox) -> RelativeBoundingBox {
+impl BoundingBox:
+    func relative_bounding_box(other: BoundingBox) -> RelativeBoundingBox:
         RelativeBoundingBox(
             xrange.relative_range(other.xrange),
             yrange.relative_range(other.yrange),
         )
-    }
     
     func relative_point(point: Point2d) -> RelativePoint2d {
         RelativePoint2d(
@@ -135,27 +126,20 @@ impl BoundingBox {
     func ymax() -> f32 {
         yrange.max
     }
-}
 
-struct RelativeBoundingBox {
-    xrange: ClosedRange,
-    yrange: ClosedRange,
-}
+struct RelativeBoundingBox:
+    xrange: ClosedRange
+    yrange: ClosedRange
 
-impl RelativeBoundingBox {
-    func xmin() -> f32 {
+impl RelativeBoundingBox:
+    func xmin() -> f32:
         xrange.min
-    }
     
-    func xmax() -> f32 {
+    func xmax() -> f32:
         xrange.max
-    }
     
-    func ymin() -> f32 {
+    func ymin() -> f32:
         yrange.min
-    }
     
-    func ymax() -> f32 {
+    func ymax() -> f32:
         yrange.max
-    }
-}

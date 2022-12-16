@@ -1,15 +1,12 @@
 use crate::*;
 use expect_test::expect_file;
 use husky_absolute_path::AbsolutePath;
+use husky_ast::AstJar;
 use husky_entity_path::{CratePathKind, EntityPathData, EntityPathDb, EntityPathJar};
 use husky_package_path::{PackagePathData, PackagePathDb, PackagePathJar};
-use husky_print_utils::p;
 use husky_token::TokenJar;
-use husky_toml_ast::TomlAstJar;
-use husky_toml_token::TomlTokenJar;
 use husky_toolchain::ToolchainJar;
 use husky_vfs::*;
-use husky_vfs_test_utils::VfsTestSupport;
 use husky_word::{WordDb, WordJar};
 use salsa::{Database, DebugWithDb, ParallelDatabase, Snapshot};
 use std::{borrow::Cow, sync::Arc};
@@ -21,10 +18,11 @@ use std::{borrow::Cow, sync::Arc};
     EntityPathJar,
     VfsJar,
     TokenJar,
-    AstJar
+    AstJar,
+    FoldingRangeJar
 )]
 #[derive(Default)]
-struct DB {
+pub struct DB {
     storage: salsa::Storage<Self>,
     source_path_config: VfsConfigMimic,
 }
@@ -35,18 +33,22 @@ impl HasVfsConfig for DB {
     }
 }
 
-impl Database for DB {}
-
-impl ParallelDatabase for DB {
-    fn snapshot(&self) -> Snapshot<Self> {
-        Snapshot::new(DB {
-            storage: self.storage.snapshot(),
-            source_path_config: self.source_path_config.clone(),
-        })
-    }
-}
+impl salsa::Database for DB {}
 
 #[test]
-fn ast_sheet_works() {
-    DB::run_module_expect_tests(AstDb::ast_sheet);
+fn library_folding_ranges_works() {
+    let db = DB::default();
+    let package_path_menu = db.package_path_menu();
+    let entity_path_menu = db.entity_path_menu();
+
+    macro_rules! t {
+        ($($module:ident),*) => {
+            $(
+                expect_file![format!("../tests/library/{}.folding_ranges.txt", stringify!($module))]
+                    .assert_eq(&format!("{:#?}", db.folding_ranges(entity_path_menu.$module())))
+            );*
+        }
+    }
+
+    t!(core, core_basic, core_num, std);
 }

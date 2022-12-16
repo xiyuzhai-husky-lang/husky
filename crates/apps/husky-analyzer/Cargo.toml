@@ -40,6 +40,7 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # ide
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 husky-hover = { path = "../../ide/husky-hover" }
+husky-folding-range = { path = "../../ide/husky-folding-range" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }

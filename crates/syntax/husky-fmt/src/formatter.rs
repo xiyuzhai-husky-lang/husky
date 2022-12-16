@@ -51,7 +51,7 @@ impl<'a> Formatter<'a> {
 }
 
 impl<'a> Formatter<'a> {
-    fn fmt(&mut self, ast: &husky_ast::DeprecatedAst, enter_block: impl FnOnce(&mut Self)) {
+    fn fmt(&mut self, ast: &husky_ast::Ast, enter_block: impl FnOnce(&mut Self)) {
         todo!()
         // match ast.variant {
         //     DeprecatedAstVariant::TypeDefnHead {

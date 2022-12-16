@@ -7,7 +7,7 @@ use salsa::ParallelDatabase;
 type HuskyComptimeSnapshot = salsa::Snapshot<AnalyzerDB>;
 
 use crate::{
-    host::AnalyzerDB,
+    db::AnalyzerDB,
     server::{Server, TaskSet},
     utils::from_json,
     *,
