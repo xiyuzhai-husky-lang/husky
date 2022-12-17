@@ -1,4 +1,5 @@
 mod defn;
+mod impls;
 mod uses;
 
 use crate::*;
@@ -80,10 +81,7 @@ impl<'a> AstParser<'a> {
                 Keyword::Mod | Keyword::Paradigm(_) | Keyword::Visual | Keyword::Type(_) => {
                     self.parse_defn(idx, indent)
                 }
-                Keyword::Impl => Ast::Impl {
-                    token_group: idx,
-                    body: self.parse_asts(indent + INDENT_INCR),
-                },
+                Keyword::Impl => self.parse_impls(idx, indent),
                 Keyword::End(_) => unreachable!(),
             },
             TokenKind::Special(SpecialToken::PoundSign) => Ast::Decor(idx),
