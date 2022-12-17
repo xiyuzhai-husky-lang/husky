@@ -2,7 +2,17 @@ use crate::*;
 
 impl CompilerInstance {
     pub(crate) fn transcribe_package_in_rust(&self, package_dir: &Path) {
-        todo!()
+        use husky_print_utils::*;
+        eprintln!(
+            r#"{RED}
+Man, this is the main branch.
+
+Please use the stable branch for now.
+
+A common pitfall is that one use `git branch stable` instead of `git checkout origin stable`
+        {RESET}"#
+        );
+        todo!("");
         //         let mut comptime = HuskyComptime::new(ComptimeConfig {
         //             __resolve_root_defn,
         //             linkage_table: LinkageTableConfig {
