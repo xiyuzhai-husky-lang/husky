@@ -1,4 +1,5 @@
 use crate::*;
+use husky_ast::AstJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_expect_test_utils::expect_test_husky_to_rust;
@@ -19,6 +20,7 @@ use salsa::{Database, ParallelDatabase};
     PackagePathJar,
     EntityPathJar,
     TokenJar,
+    AstJar,
     SymbolJar,
     EntityTreeJar
 )]

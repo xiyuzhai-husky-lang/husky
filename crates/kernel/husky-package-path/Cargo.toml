@@ -16,3 +16,4 @@ salsa = { path = "../../abstraction/salsa" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
+husky-entity-kind = { path = "../../kernel/husky-entity-kind" }

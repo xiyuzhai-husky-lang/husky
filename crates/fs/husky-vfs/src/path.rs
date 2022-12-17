@@ -32,9 +32,9 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Abs
 pub(crate) fn module_path(db: &dyn VfsDb, entity_path: EntityPath) -> VfsResult<AbsolutePath> {
     match entity_path.data(db) {
         EntityPathData::CrateRoot(crate_path) => AbsolutePath::new(
-            &package_dir(db, crate_path.package())
+            &package_dir(db, crate_path.package_path(db))
                 .as_ref()?
-                .join(crate_path.crate_kind().path()),
+                .join(crate_path.path(db)),
         )
         .map_err(|e| e.into()),
         EntityPathData::Childpath { parent, ident } => {

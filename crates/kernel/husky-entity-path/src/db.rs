@@ -14,8 +14,8 @@ pub trait EntityPathDb: DbWithJar<EntityPathJar> + PackagePathDb + WordDb {
     fn entity_path_menu(&self) -> &EntityPathMenu;
     fn it_entity_path(&self, data: EntityPathData) -> EntityPath;
     fn dt_entity_path(&self, path: EntityPath) -> EntityPathData;
-    fn entity_package(&self, path: EntityPath) -> PackagePath;
-    fn is_builtin_entity(&self, path: EntityPath) -> bool;
+    fn book_crate_of_entity_path(&self, path: EntityPath) -> CratePath;
+    fn book_ancestry(&self, path: EntityPath) -> &BookAncestry;
 }
 
 impl<T> EntityPathDb for T
@@ -38,16 +38,16 @@ where
         entity.data(self)
     }
 
-    fn entity_package(&self, entity: EntityPath) -> PackagePath {
-        entity_package(self, entity)
-    }
-
-    fn is_builtin_entity(&self, entity: EntityPath) -> bool {
-        is_builtin_entity(self, entity)
+    fn book_crate_of_entity_path(&self, entity_path: EntityPath) -> CratePath {
+        self.book_ancestry(entity_path).crate_path()
     }
 
     fn entity_path_db(&self) -> &dyn EntityPathDb {
         self
+    }
+
+    fn book_ancestry(&self, path: EntityPath) -> &BookAncestry {
+        book_ancestry(self, path)
     }
 }
 
@@ -56,6 +56,7 @@ impl dyn EntityPathDb + '_ {
         let ident = self.it_ident_borrowed(ident)?;
         Some(
             self.it_entity_path(EntityPathData::CrateRoot(CratePath::new(
+                self,
                 self.builtin_package_path(ident)?,
                 CrateKind::Library,
             ))),

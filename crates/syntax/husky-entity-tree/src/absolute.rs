@@ -18,6 +18,7 @@ pub(crate) fn absolute_entity_path(
     entity_path: EntityPath,
 ) -> EntityTreeResult<AbsoluteEntityPath> {
     match db.entity_kind(entity_path).as_ref()? {
+        EntityKind::Crate(_) => todo!(),
         EntityKind::Module => todo!(),
         EntityKind::Type(_) => todo!(),
         EntityKind::Trait => todo!(),

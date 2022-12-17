@@ -8,6 +8,8 @@ mod tests;
 
 pub use crate::error::{AstError, AstErrorVariant, AstResult};
 pub use db::AstDb;
+use husky_accessibility::Accessibility;
+use husky_entity_kind::EntityKind;
 pub use range::*;
 pub use specs::*;
 
@@ -31,59 +33,57 @@ pub struct AstJar(ast_sheet, ast_range_sheet);
 #[derive(Debug, PartialEq, Eq)]
 pub enum Ast {
     Err(TokenGroupIdx, AstError),
-    Mod(TokenGroupIdx),
-    Use(TokenGroupIdx),
+    Use {
+        token_group: TokenGroupIdx,
+    },
     Comment(TokenGroupIdx),
     Decor(TokenGroupIdx),
-    Stmt(AstBlock),
+    Stmt {
+        token_group: TokenGroupIdx,
+        body: Option<AstIdxRange>,
+    },
     IfElseStmts {
         if_stmt: AstIdx,
-        elif_stmts: AstIdxRange,
+        elif_stmts: Option<AstIdxRange>,
         else_stmt: Option<AstIdx>,
     },
     MatchStmts {
         pattern_stmt: AstIdx,
-        case_stmts: AstIdxRange,
+        case_stmts: Option<AstIdxRange>,
     },
-    BlockDefn(AstBlock),
+    Defn {
+        accessibility: Accessibility,
+        entity_kind: EntityKind,
+        ident: Identifier,
+        is_generic: bool,
+        token_group: TokenGroupIdx,
+        body: Option<AstIdxRange>,
+        body_kind: DefnBodyKind,
+    },
+    Impl {
+        entity_path: EntityPath,
+        impl_kind: ImplAstKind,
+        body: Option<AstIdxRange>,
+    },
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum DefnBodyKind {
+    None,
+    Block,
+    Cases,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum ImplAstKind {
+    TypeImpl,
+    TraitImpl,
 }
 
 pub type AstArena = Arena<Ast>;
 pub type AstIdx = ArenaIdx<Ast>;
 pub type AstIdxRange = ArenaIdxRange<Ast>;
 pub type AstMap<V> = ArenaMap<Ast, V>;
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct AstBlock {
-    head: TokenGroupIdx,
-    body: AstIdxRange,
-}
-
-impl AstBlock {
-    pub fn new(head: TokenGroupIdx, body: AstIdxRange) -> Self {
-        Self { head, body }
-    }
-
-    pub fn head(&self) -> TokenGroupIdx {
-        self.head
-    }
-
-    pub fn body_asts<'a>(&self, ast_sheet: &'a AstSheet) -> &'a [Ast] {
-        &ast_sheet.arena[&self.body]
-    }
-
-    pub fn last(&self) -> Option<AstIdx> {
-        if self.body.start < self.body.end {
-            Some(self.body.end - 1)
-        } else {
-            None
-        }
-    }
-
-    pub fn empty(&self) -> bool {
-        self.body.start >= self.body.end
-    }
-}
 
 #[salsa::tracked(jar = AstJar, return_ref)]
 pub(crate) fn ast_sheet(db: &dyn AstDb, entity_path: EntityPath) -> VfsResult<AstSheet> {
@@ -94,11 +94,11 @@ pub(crate) fn ast_sheet(db: &dyn AstDb, entity_path: EntityPath) -> VfsResult<As
 #[derive(Debug, PartialEq, Eq)]
 pub struct AstSheet {
     arena: AstArena,
-    top_level_asts: AstIdxRange,
+    top_level_asts: Option<AstIdxRange>,
 }
 
 impl AstSheet {
-    pub(crate) fn new(arena: AstArena, top_level_asts: AstIdxRange) -> Self {
+    pub(crate) fn new(arena: AstArena, top_level_asts: Option<AstIdxRange>) -> Self {
         Self {
             arena,
             top_level_asts,
@@ -109,7 +109,15 @@ impl AstSheet {
         self.arena.indexed_iter()
     }
 
-    pub fn top_level_asts(&self) -> &[Ast] {
-        &self.arena[&self.top_level_asts]
+    pub fn top_level_asts<'a>(&'a self) -> impl Iterator<Item = (AstIdx, &'a Ast)> + 'a {
+        self.top_level_asts
+            .iter()
+            .map(|range| {
+                self.arena[range]
+                    .iter()
+                    .enumerate()
+                    .map(|(i, ast)| (range.start + i, ast))
+            })
+            .flatten()
     }
 }

@@ -1,5 +1,5 @@
+#![feature(trait_upcasting)]
 mod ancestry;
-mod crate_path;
 mod db;
 mod jar;
 mod menu;
@@ -7,13 +7,13 @@ mod menu;
 mod tests;
 mod utils;
 
-pub use crate_path::{CrateKind, CratePath};
 pub use db::*;
+pub use husky_entity_kind::CrateKind;
 pub use jar::*;
 pub use menu::*;
 
 use ancestry::*;
-use husky_package_path::PackagePath;
+use husky_package_path::*;
 use husky_toolchain::Toolchain;
 use husky_word::Identifier;
 use optional::Optioned;
@@ -54,6 +54,7 @@ impl EntityPath {
         crate_kind: CrateKind,
     ) -> Self {
         db.it_entity_path(EntityPathData::CrateRoot(CratePath::new(
+            db,
             package_path,
             crate_kind,
         )))

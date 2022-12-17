@@ -46,6 +46,13 @@ impl Token {
         //     _ => todo!(),
         // }
     }
+
+    pub fn identify(&self) -> Option<Identifier> {
+        match self.kind {
+            TokenKind::Identifier(ident) => Some(ident),
+            _ => None,
+        }
+    }
 }
 
 impl HasTextRange for Token {

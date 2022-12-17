@@ -22,11 +22,14 @@ impl<T> Default for Arena<T> {
 }
 
 impl<T> Arena<T> {
-    pub fn alloc_batch(&mut self, item: Vec<T>) -> ArenaIdxRange<T> {
+    pub fn alloc_batch(&mut self, item: Vec<T>) -> Option<ArenaIdxRange<T>> {
+        if item.len() == 0 {
+            return None;
+        }
         let start = ArenaIdx::new(self.data.len());
         self.data.extend(item);
         let end = ArenaIdx::new(self.data.len());
-        start..end
+        Some(start..end)
     }
 
     pub fn alloc_one(&mut self, item: T) -> ArenaIdx<T> {

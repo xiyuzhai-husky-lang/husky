@@ -1,26 +1,14 @@
+use husky_word::Identifier;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum TyKind {
     Enum,
+    Inductive,
     Record,
     Struct,
-    Primitive,
-    Vec,
-    Slice,
-    CyclicSlice,
-    Array,
-    Tuple,
-    Mor,
-    ThickFp,
-    AssociatedAny,
-    ThisAny,
-    TargetOutputAny,
-    SpatialPlaceholderAny,
-    BoxAny,
-    HigherKind,
-    Ref,
-    Option,
+    Structure,
+    Any,
 }
 
 // impl From<TyKeyword> for TyKind {
@@ -33,8 +21,9 @@ pub enum TyKind {
 //     }
 // }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum EntityKind {
+    Crate(CrateKind),
     Module,
     Type(TyKind),
     Trait,
@@ -43,6 +32,13 @@ pub enum EntityKind {
     Feature,
     EnumVariant,
     Main,
+}
+
+#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
+pub enum CrateKind {
+    Library,
+    Main,
+    Binary(Identifier),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
