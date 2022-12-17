@@ -40,20 +40,20 @@ pub enum Ast {
     Decor(TokenGroupIdx),
     Stmt {
         token_group: TokenGroupIdx,
-        body: Option<AstIdxRange>,
+        body: AstIdxRange,
     },
     IfElseStmts {
         if_stmt: AstIdx,
-        elif_stmts: Option<AstIdxRange>,
+        elif_stmts: AstIdxRange,
         else_stmt: Option<AstIdx>,
     },
     MatchStmts {
         pattern_stmt: AstIdx,
-        case_stmts: Option<AstIdxRange>,
+        case_stmts: AstIdxRange,
     },
     Defn {
         token_group: TokenGroupIdx,
-        body: Option<AstIdxRange>,
+        body: AstIdxRange,
         accessibility: Accessibility,
         entity_card: EntityCard,
         ident: Identifier,
@@ -62,15 +62,15 @@ pub enum Ast {
     },
     Impl {
         token_group: TokenGroupIdx,
-        body: Option<AstIdxRange>,
+        body: AstIdxRange,
     },
     Main {
         token_group: TokenGroupIdx,
-        body: Option<AstIdxRange>,
+        body: AstIdxRange,
     },
     Config {
         token_group: TokenGroupIdx,
-        body: Option<AstIdxRange>,
+        body: AstIdxRange,
     },
 }
 
@@ -101,11 +101,11 @@ pub(crate) fn ast_sheet(db: &dyn AstDb, entity_path: EntityPath) -> VfsResult<As
 #[derive(Debug, PartialEq, Eq)]
 pub struct AstSheet {
     arena: AstArena,
-    top_level_asts: Option<AstIdxRange>,
+    top_level_asts: AstIdxRange,
 }
 
 impl AstSheet {
-    pub(crate) fn new(arena: AstArena, top_level_asts: Option<AstIdxRange>) -> Self {
+    pub(crate) fn new(arena: AstArena, top_level_asts: AstIdxRange) -> Self {
         Self {
             arena,
             top_level_asts,
@@ -116,15 +116,24 @@ impl AstSheet {
         self.arena.indexed_iter()
     }
 
-    pub fn top_level_asts<'a>(&'a self) -> impl Iterator<Item = (AstIdx, &'a Ast)> + 'a {
-        self.top_level_asts
+    pub fn top_level_asts(&self) -> &AstIdxRange {
+        &self.top_level_asts
+    }
+
+    pub fn top_level_asts_indexed_iter<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = (AstIdx, &'a Ast)> + 'a {
+        self.arena[&self.top_level_asts]
             .iter()
-            .map(|range| {
-                self.arena[range]
-                    .iter()
-                    .enumerate()
-                    .map(|(i, ast)| (range.start + i, ast))
-            })
-            .flatten()
+            .enumerate()
+            .map(|(i, ast)| (self.top_level_asts.start() + i, ast))
+    }
+}
+
+impl std::ops::Deref for AstSheet {
+    type Target = AstArena;
+
+    fn deref(&self) -> &Self::Target {
+        &self.arena
     }
 }

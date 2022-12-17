@@ -17,7 +17,7 @@ pub(crate) fn absolute_entity_path(
     db: &dyn EntityTreeDb,
     entity_path: EntityPath,
 ) -> EntityTreeResult<AbsoluteEntityPath> {
-    match db.entity_class(entity_path).as_ref()? {
+    match db.entity_card(entity_path).as_ref()? {
         EntityCard::Module => todo!(),
         EntityCard::Type => todo!(),
         EntityCard::Trait => todo!(),

@@ -6,19 +6,25 @@ Ok(
                     token_group: TokenGroupIdx(
                         2,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         3,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                 },
                 Defn {
                     token_group: TokenGroupIdx(
                         0,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: Public,
                     entity_card: Type,
                     ident: Identifier(
@@ -35,7 +41,7 @@ Ok(
                     token_group: TokenGroupIdx(
                         1,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         0..2,
                     ),
                     accessibility: Public,
@@ -52,7 +58,7 @@ Ok(
                 },
             ],
         },
-        top_level_asts: Some(
+        top_level_asts: ArenaIdxRange(
             2..4,
         ),
     },

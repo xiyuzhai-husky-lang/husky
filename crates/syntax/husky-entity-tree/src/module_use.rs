@@ -6,33 +6,34 @@ use husky_vfs::VfsResult;
 use husky_word::Identifier;
 use std::collections::{HashMap, HashSet};
 
-pub struct AliasSheet {
-    aliases: HashMap<EntityPath, VfsResult<Vec<Alias>>>,
+#[derive(Debug, PartialEq, Eq)]
+pub struct ModuleUsesSheet {
+    module_level_uses: HashMap<EntityPath, VfsResult<Vec<EntityTree>>>,
+    errors: Vec<(AstIdx, EntityTreeError)>,
 }
 
-pub struct Alias {
-    ident: Identifier,
-    ast_idx: AstIdx,
-}
-
-fn alias_sheet(db: &dyn EntityTreeDb, crate_path: CratePath) -> AliasSheet {
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub(crate) fn module_use_sheet(db: &dyn EntityTreeDb, entity_path: EntityPath) -> ModuleUsesSheet {
     todo!()
 }
 
-pub struct AliasSheetBuilder<'a> {
+pub struct ModuleUseBuilder<'a> {
     db: &'a dyn EntityTreeDb,
     root: EntityPath,
-    aliases: HashMap<EntityPath, VfsResult<Vec<Alias>>>,
+    aliases: HashMap<EntityPath, VfsResult<Vec<EntityTree>>>,
     modified_modules: HashSet<EntityPath>,
+    errors: Vec<(AstIdx, EntityTreeError)>,
 }
 
-impl<'a> AliasSheetBuilder<'a> {
-    fn build_all(mut self) -> AliasSheet {
+impl<'a> ModuleUseBuilder<'a> {
+    fn build_all(mut self) -> ModuleUsesSheet {
+        self.first_build();
         loop {
-            self.build();
+            self.incr_build();
             if self.modified_modules.len() == 0 {
-                return AliasSheet {
-                    aliases: self.aliases,
+                return ModuleUsesSheet {
+                    module_level_uses: self.aliases,
+                    errors: self.errors,
                 };
             } else {
                 self.modified_modules = Default::default()
@@ -40,7 +41,11 @@ impl<'a> AliasSheetBuilder<'a> {
         }
     }
 
-    fn build(&mut self) {
+    fn first_build(&mut self) {
+        todo!()
+    }
+
+    fn incr_build(&mut self) {
         todo!()
     }
 }
@@ -61,7 +66,7 @@ pub(crate) fn module_level_use_ones(
 ) -> VfsResult<Vec<UseOne>> {
     let ast_sheet = db.ast_sheet(module).as_ref()?;
     Ok(ast_sheet
-        .top_level_asts()
+        .top_level_asts_indexed_iter()
         .filter_map(|(ast_idx, ast)| match ast {
             Ast::Use { .. } => todo!(),
             _ => None,

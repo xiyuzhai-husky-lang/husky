@@ -44,7 +44,7 @@ impl<'a> FoldingRangeCalculator<'a> {
             | Ast::Impl { token_group, body }
             | Ast::Main { token_group, body }
             | Ast::Config { token_group, body } => body
-                .as_ref()
+                .last()
                 .map(|_| (self.ast_range_sheet[idx], FoldingRangeKind::Region)),
         }?;
         Some(FoldingRange {

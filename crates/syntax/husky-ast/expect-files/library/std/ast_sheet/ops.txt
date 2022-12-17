@@ -6,7 +6,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         2,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
@@ -23,7 +25,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         3,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
@@ -45,13 +49,13 @@ Ok(
                     token_group: TokenGroupIdx(
                         1,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         0..2,
                     ),
                 },
             ],
         },
-        top_level_asts: Some(
+        top_level_asts: ArenaIdxRange(
             2..4,
         ),
     },

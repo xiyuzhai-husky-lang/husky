@@ -6,25 +6,31 @@ Ok(
                     token_group: TokenGroupIdx(
                         5,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         12,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         13,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         11,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         1..3,
                     ),
                 },
@@ -32,30 +38,38 @@ Ok(
                     token_group: TokenGroupIdx(
                         10,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
                 },
                 IfElseStmts {
                     if_stmt: 3,
-                    elif_stmts: None,
+                    elif_stmts: ArenaIdxRange(
+                        4..4,
+                    ),
                     else_stmt: None,
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         7,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         8,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         9,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         4..6,
                     ),
                 },
@@ -63,25 +77,31 @@ Ok(
                     token_group: TokenGroupIdx(
                         14,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        6..6,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         18,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        10..10,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         16,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        10..10,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         17,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         10..11,
                     ),
                 },
@@ -89,31 +109,41 @@ Ok(
                     token_group: TokenGroupIdx(
                         19,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        11..11,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         21,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        14..14,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         24,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        15..15,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         26,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        16..16,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         28,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        17..17,
+                    ),
                 },
                 Use {
                     token_group: TokenGroupIdx(
@@ -139,7 +169,7 @@ Ok(
                     token_group: TokenGroupIdx(
                         4,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         0..1,
                     ),
                     accessibility: PubCrate,
@@ -158,7 +188,7 @@ Ok(
                     token_group: TokenGroupIdx(
                         6,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         6..10,
                     ),
                     accessibility: PubCrate,
@@ -177,7 +207,7 @@ Ok(
                     token_group: TokenGroupIdx(
                         15,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         11..14,
                     ),
                     accessibility: PubCrate,
@@ -196,7 +226,7 @@ Ok(
                     token_group: TokenGroupIdx(
                         20,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         14..15,
                     ),
                     accessibility: PubCrate,
@@ -215,13 +245,15 @@ Ok(
                     token_group: TokenGroupIdx(
                         22,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        15..15,
+                    ),
                 },
                 Defn {
                     token_group: TokenGroupIdx(
                         23,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         15..16,
                     ),
                     accessibility: PubCrate,
@@ -240,7 +272,7 @@ Ok(
                     token_group: TokenGroupIdx(
                         25,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         16..17,
                     ),
                     accessibility: PubCrate,
@@ -259,7 +291,7 @@ Ok(
                     token_group: TokenGroupIdx(
                         27,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         17..18,
                     ),
                     accessibility: PubCrate,
@@ -276,7 +308,7 @@ Ok(
                 },
             ],
         },
-        top_level_asts: Some(
+        top_level_asts: ArenaIdxRange(
             18..30,
         ),
     },

@@ -99,7 +99,7 @@ impl<'a, 'b> Automata<'a, 'b> {
                 RawOpnVariant::Suffix(_) => todo!(),
                 RawOpnVariant::List(_) => todo!(),
                 RawOpnVariant::Field(_) => todo!(),
-                RawOpnVariant::CurlBracketed => self.resolve_entity(&self.arena[opds.start]),
+                RawOpnVariant::CurlBracketed => self.resolve_entity(&self.arena[opds.start()]),
                 RawOpnVariant::Abstraction => todo!(),
             },
         }

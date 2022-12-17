@@ -22,14 +22,11 @@ impl<T> Default for Arena<T> {
 }
 
 impl<T> Arena<T> {
-    pub fn alloc_batch(&mut self, item: Vec<T>) -> Option<ArenaIdxRange<T>> {
-        if item.len() == 0 {
-            return None;
-        }
+    pub fn alloc_batch(&mut self, item: Vec<T>) -> ArenaIdxRange<T> {
         let start = ArenaIdx::new(self.data.len());
         self.data.extend(item);
         let end = ArenaIdx::new(self.data.len());
-        Some(start..end)
+        ArenaIdxRange(start..end)
     }
 
     pub fn alloc_one(&mut self, item: T) -> ArenaIdx<T> {
@@ -60,10 +57,83 @@ impl<T> Arena<T> {
 }
 
 pub fn len<T>(range: &ArenaIdxRange<T>) -> usize {
-    range.end.raw - range.start.raw
+    range.len()
 }
 
-pub type ArenaIdxRange<T> = core::ops::Range<ArenaIdx<T>>;
+pub struct ArenaIdxRange<T>(core::ops::Range<ArenaIdx<T>>);
+
+impl<T> std::fmt::Debug for ArenaIdxRange<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("ArenaIdxRange").field(&self.0).finish()
+    }
+}
+impl<T> Clone for ArenaIdxRange<T> {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl<T> PartialEq for ArenaIdxRange<T> {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl<T> Eq for ArenaIdxRange<T> {}
+
+impl<T> IntoIterator for ArenaIdxRange<T> {
+    type Item = ArenaIdx<T>;
+
+    type IntoIter = <core::ops::Range<ArenaIdx<T>> as IntoIterator>::IntoIter;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.into_iter()
+    }
+}
+
+impl<T> IntoIterator for &ArenaIdxRange<T> {
+    type Item = ArenaIdx<T>;
+
+    type IntoIter = <core::ops::Range<ArenaIdx<T>> as IntoIterator>::IntoIter;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.clone().into_iter()
+    }
+}
+
+impl<T> Default for ArenaIdxRange<T> {
+    fn default() -> Self {
+        Self(
+            ArenaIdx {
+                raw: 0,
+                phantom: PhantomData,
+            }..ArenaIdx {
+                raw: 0,
+                phantom: PhantomData,
+            },
+        )
+    }
+}
+
+impl<T> ArenaIdxRange<T> {
+    pub fn len(&self) -> usize {
+        self.0.end.raw - self.0.start.raw
+    }
+
+    pub fn start(&self) -> ArenaIdx<T> {
+        self.0.start
+    }
+
+    pub fn end(&self) -> ArenaIdx<T> {
+        self.0.end
+    }
+
+    pub fn last(&self) -> Option<ArenaIdx<T>> {
+        if self.0.start < self.0.end {
+            Some(self.0.end - 1)
+        } else {
+            None
+        }
+    }
+}
 
 pub struct ArenaIdx<T> {
     raw: usize,
@@ -127,10 +197,7 @@ impl<T> Ord for ArenaIdx<T> {
     }
 }
 
-impl<T> Step for ArenaIdx<T>
-where
-    T: PartialEq + Clone,
-{
+impl<T> Step for ArenaIdx<T> {
     fn steps_between(start: &Self, end: &Self) -> Option<usize> {
         if start.raw <= end.raw {
             Some(end.raw - start.raw)
@@ -235,7 +302,7 @@ impl<T> core::ops::Index<ArenaIdxRange<T>> for Arena<T> {
     type Output = [T];
 
     fn index(&self, idx: ArenaIdxRange<T>) -> &Self::Output {
-        &self.data[idx.start.raw..idx.end.raw]
+        &self.data[idx.0.start.raw..idx.0.end.raw]
     }
 }
 
@@ -243,6 +310,6 @@ impl<T> core::ops::Index<&ArenaIdxRange<T>> for Arena<T> {
     type Output = [T];
 
     fn index(&self, idx: &ArenaIdxRange<T>) -> &Self::Output {
-        &self.data[idx.start.raw..idx.end.raw]
+        &self.data[idx.0.start.raw..idx.0.end.raw]
     }
 }
