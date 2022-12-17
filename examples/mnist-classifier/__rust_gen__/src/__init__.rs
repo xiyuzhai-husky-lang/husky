@@ -2509,27 +2509,44 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
                     let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    two::down_cc_pattern(cc, __opt_ctx.unwrap()).to_register()
+                    two::down_cc_pattern(cc).to_register()
                 }
                 __wrapper
             },
-            some ctx two::down_cc_pattern as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+            some base two::down_cc_pattern as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> Option<f32>
         ),
     ),
     (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::RelativeBoundingBox::ymin" },
+        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::end_tangent" },
         transfer_linkage!(
             {
                 unsafe fn __wrapper<'eval>(
                     __arguments: &mut [__Register<'eval>],
                     __opt_ctx: Option<&dyn __EvalContext<'eval>>,
                 ) -> __Register<'eval> {
-                    let __this: &geom2d::RelativeBoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
-                    __this.ymin().to_register()
+                    let __this: &line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    __Register::new_box::<geom2d::Vector2d>(__this.end_tangent(), &__registration__::__VECTOR_2_D_VTABLE)
                 }
                 __wrapper
             },
-            some base geom2d::RelativeBoundingBox::ymin as fn(&'static geom2d::RelativeBoundingBox) -> f32
+            some base line_segment_sketch::concave_component::ConcaveComponent::end_tangent as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> geom2d::Vector2d
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Vector2d::angle" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
+                    let is_branch_cut_positive: bool = __arguments[1].downcast_bool();
+                    __this.angle(is_branch_cut_positive).to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::Vector2d::angle as fn(&'static geom2d::Vector2d, bool) -> f32
         ),
     ),
     (
@@ -2546,6 +2563,22 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some base geom2d::RelativeBoundingBox::ymax as fn(&'static geom2d::RelativeBoundingBox) -> f32
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::RelativeBoundingBox::ymin" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::RelativeBoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
+                    __this.ymin().to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::RelativeBoundingBox::ymin as fn(&'static geom2d::RelativeBoundingBox) -> f32
         ),
     ),
     (
@@ -2606,39 +2639,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some ctx three::back as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::end_tangent" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
-                    __Register::new_box::<geom2d::Vector2d>(__this.end_tangent(), &__registration__::__VECTOR_2_D_VTABLE)
-                }
-                __wrapper
-            },
-            some base line_segment_sketch::concave_component::ConcaveComponent::end_tangent as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> geom2d::Vector2d
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::Vector2d::angle" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &geom2d::Vector2d = __arguments[0].downcast_temp_ref(&__registration__::__VECTOR_2_D_VTABLE);
-                    let is_branch_cut_positive: bool = __arguments[1].downcast_bool();
-                    __this.angle(is_branch_cut_positive).to_register()
-                }
-                __wrapper
-            },
-            some base geom2d::Vector2d::angle as fn(&'static geom2d::Vector2d, bool) -> f32
         ),
     ),
     (
@@ -2779,6 +2779,46 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some base geom2d::BoundingBox::relative_point as fn(&'static geom2d::BoundingBox, &'static geom2d::Point2d) -> geom2d::RelativePoint2d
+        ),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::seven::special_seven_match"
+        },
+        feature_linkage!(seven::special_seven_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::seven::leftupcc_pattern",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    seven::leftupcc_pattern(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx seven::leftupcc_pattern as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent::start_tangent" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_temp_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    __Register::new_box::<geom2d::Vector2d>(__this.start_tangent(), &__registration__::__VECTOR_2_D_VTABLE)
+                }
+                __wrapper
+            },
+            some base line_segment_sketch::concave_component::ConcaveComponent::start_tangent as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> geom2d::Vector2d
         ),
     ),
     (

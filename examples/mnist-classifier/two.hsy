@@ -7,8 +7,11 @@ use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 use crate::zero::is_zero
+use crate::one::is_one
 use crate::three::is_three
 use crate::seven::is_seven
+use crate::nine::is_nine
+use crate::six::is_six
 
 func two_match -> FermiMatchResult:
     fermi_match(major_concave_components,[left_cc_pattern, right_cc_pattern,down_cc_pattern])
@@ -35,6 +38,9 @@ def is_two -> ?MnistLabel:
     require is_zero be none
     require is_three be none
     require is_seven be none
+    require is_one be none 
+    require is_nine be none
+    require is_six be none
 
     cc_num=major_concave_components.ilen()
     eff_holes=major_connected_component.eff_holes
@@ -47,9 +53,21 @@ def is_two -> ?MnistLabel:
 
     require cc_num<=3
 
+    lower_excess = major_connected_component.lower_mass - major_connected_component.upper_mass
+
+    require lower_excess > 10.0
+
     if cc_num == 2:
         require left_cc be some
         require right_cc be some
+        a=right_cc.angle_change
+        require a>-180.0
+        // get the end line of the cc
+        end_tan = left_cc.end_tangent().angle(true)
+        // require end_tan < -200.0
+        x = left_cc.end_tangent().x
+        y = left_cc.end_tangent().y
+
         left_ymax = left_cc.relative_bounding_box.ymax()
         left_ymin = left_cc.relative_bounding_box.ymin()
         left_mid_y = (left_ymax + left_ymin) / 2.0
@@ -61,10 +79,10 @@ def is_two -> ?MnistLabel:
 
     // if cc_num == 2:
     //     require major_connected_component.eff_holes.matches[0] be none
-
-    if cc_num == 3:
+    if cc_num==3:
         require left_cc be some
         require right_cc be some
         require down_cc be some
         require down_cc.relative_bounding_box.ymin() <0.4
+        a = down_cc.angle_change
     MnistLabel::Two
