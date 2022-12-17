@@ -12,6 +12,14 @@ pub enum AstError {
     StandaloneElif,
     #[error("standalone else")]
     StandaloneElse,
+    #[error("expect entity keyword")]
+    ExpectEntityKeyword,
+    #[error("expect decorator or entity keyword")]
+    ExpectDecoratorOrEntityKeyword,
+    #[error("expect identifier")]
+    ExpectIdentifier(Option<TextRange>),
+    #[error("expect `(` or decorator or identifier")]
+    ExpectParBraOrDecoratorOrIdentifier(Option<TextRange>),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

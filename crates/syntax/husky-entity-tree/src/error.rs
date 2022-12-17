@@ -4,8 +4,10 @@ use thiserror::Error;
 pub enum EntityTreeError {
     #[error("todo")]
     TODO,
-    #[error("Derived")]
+    #[error("derived {0}")]
     Derived(Box<Self>),
+    #[error("expect identifier after keyword")]
+    ExpectIdentifierAfterKeyword,
 }
 
 impl From<&EntityTreeError> for EntityTreeError {

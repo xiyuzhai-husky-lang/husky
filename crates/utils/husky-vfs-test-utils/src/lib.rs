@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 mod inner;
 
 use husky_absolute_path::AbsolutePath;
@@ -37,7 +38,7 @@ impl<'a> TestPathResolver<'a> {
         match self.db.dt_entity_path(module) {
             EntityPathData::CrateRoot(crate_path) => dir.join(format!(
                 "{}.txt",
-                match crate_path.crate_kind() {
+                match crate_path.crate_kind(self.db) {
                     CrateKind::Library => "lib",
                     CrateKind::Main => "main",
                     CrateKind::Binary(_) => todo!(),

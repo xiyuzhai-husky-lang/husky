@@ -39,3 +39,5 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
+# syntax
+husky-ast = { path = "../../syntax/husky-ast" }

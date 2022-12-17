@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{Ast, AstBlock, AstIdx, AstIdxRange, AstRangeSheet, AstSheet};
+use husky_ast::{Ast, AstIdx, AstIdxRange, AstRangeSheet, AstSheet};
 use husky_token::{TokenGroupIdx, TokenSheet};
 use lsp_types::FoldingRangeKind;
 
@@ -30,19 +30,25 @@ impl<'a> FoldingRangeCalculator<'a> {
     fn calc_ast(&self, idx: AstIdx, ast: &Ast) -> Option<FoldingRange> {
         let (text_range, kind) = match ast {
             Ast::Err(_, _)
-            | Ast::Mod(_)
-            | Ast::Use(_)
+            | Ast::Use { .. }
             | Ast::Comment(_)
             | Ast::Decor(_)
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. } => None,
-            Ast::Stmt(block) | Ast::BlockDefn(block) => {
-                if !block.empty() {
-                    Some((self.ast_range_sheet[idx], FoldingRangeKind::Region))
-                } else {
-                    None
-                }
-            }
+            Ast::Stmt {
+                token_group, body, ..
+            } => body
+                .as_ref()
+                .map(|_| (self.ast_range_sheet[idx], FoldingRangeKind::Region)),
+            Ast::Defn { .. } => todo!(),
+            //  => {
+            //     if !block.empty() {
+            //         Some((self.ast_range_sheet[idx], FoldingRangeKind::Region))
+            //     } else {
+            //         None
+            //     }
+            // }
+            Ast::Impl { .. } => todo!(),
         }?;
         Some(FoldingRange {
             start_line: text_range.start.i(),

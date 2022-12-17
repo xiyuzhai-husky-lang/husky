@@ -90,6 +90,7 @@ impl SemanticTokenKind {
                 EntityKind::Feature => SemanticTokenType::VARIABLE,
                 EntityKind::EnumVariant => SemanticTokenType::VARIABLE,
                 EntityKind::Main => panic!(),
+                EntityKind::Crate(_) => todo!(),
             },
             SemanticTokenKind::GenericPlaceholder => SemanticTokenType::TYPE_PARAMETER,
             SemanticTokenKind::Parameter => SemanticTokenType::PARAMETER,

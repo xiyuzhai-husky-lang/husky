@@ -1,22 +1,38 @@
 use crate::*;
 
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct BookAncestry {
+    crate_path: CratePath,
+    paths: Vec<EntityPath>,
+}
+
+impl BookAncestry {
+    pub fn crate_path(&self) -> CratePath {
+        self.crate_path
+    }
+}
+
 #[salsa::tracked(jar = EntityPathJar, return_ref)]
-pub(crate) fn ancestry(db: &dyn EntityPathDb, entity_path: EntityPath) -> Vec<EntityPath> {
+pub(crate) fn book_ancestry(db: &dyn EntityPathDb, entity_path: EntityPath) -> BookAncestry {
     match entity_path.data(db) {
-        EntityPathData::CrateRoot(_) => vec![entity_path],
+        EntityPathData::CrateRoot(crate_path) => BookAncestry {
+            crate_path,
+            paths: vec![entity_path],
+        },
         EntityPathData::Childpath { parent, ident } => {
-            let mut ancestry = ancestry(db, parent).clone();
-            ancestry.push(entity_path);
+            let mut ancestry = book_ancestry(db, parent).clone();
+            ancestry.paths.push(entity_path);
             ancestry
         }
     }
 }
 
 #[test]
-fn ancestry_works() {
+fn book_ancestry_works() {
     use crate::tests::*;
     fn t(db: &DB, entity_path: EntityPath) -> Vec<String> {
-        ancestry(db, entity_path)
+        book_ancestry(db, entity_path)
+            .paths
             .iter()
             .map(|path| path.display(db))
             .collect()
