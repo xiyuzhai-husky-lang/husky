@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_kind::TyKind;
+use husky_entity_taxonomy::TyKingdom;
 use husky_opn_syntax::Bracket;
 use husky_token::{Decorator, Token, TypeKeyword};
 use std::iter::Peekable;
@@ -32,7 +32,7 @@ impl<'a> AstParser<'a> {
         Ok(Ast::Defn {
             // order matters!
             accessibility: parser.parse_accessibility()?,
-            entity_kind: parser.parse_entity_kind()?,
+            entity_taxonomy: parser.parse_entity_taxonomy()?,
             ident: parser.parse_ident()?,
             is_generic: parser.parse_is_generic(),
             token_group,
@@ -71,7 +71,7 @@ impl<'a> DefnHeadParser<'a> {
         })
     }
 
-    fn parse_entity_kind(&mut self) -> AstResult<EntityKind> {
+    fn parse_entity_taxonomy(&mut self) -> AstResult<EntityClass> {
         Ok(
             match self
                 .token_iter
@@ -79,18 +79,11 @@ impl<'a> DefnHeadParser<'a> {
                 .ok_or(AstError::ExpectEntityKeyword)?
                 .kind
             {
-                TokenKind::Decorator(decor) => self.parse_entity_kind()?,
+                TokenKind::Decorator(decor) => self.parse_entity_taxonomy()?,
                 TokenKind::Keyword(kw) => match kw {
-                    Keyword::Paradigm(_) | Keyword::Visual => EntityKind::Form,
-                    Keyword::Type(ty_kw) => EntityKind::Type(match ty_kw {
-                        TypeKeyword::Type => TyKind::Any,
-                        TypeKeyword::Struct => TyKind::Struct,
-                        TypeKeyword::Enum => TyKind::Enum,
-                        TypeKeyword::Record => TyKind::Record,
-                        TypeKeyword::Structure => TyKind::Structure,
-                        TypeKeyword::Inductive => TyKind::Inductive,
-                    }),
-                    Keyword::Mod => EntityKind::Module,
+                    Keyword::Paradigm(_) | Keyword::Visual => EntityClass::Form,
+                    Keyword::Type(ty_kw) => EntityClass::Type,
+                    Keyword::Mod => EntityClass::Module,
                     Keyword::Impl | Keyword::End(_) => return Err(AstError::ExpectEntityKeyword),
                     _ => unreachable!(),
                 },

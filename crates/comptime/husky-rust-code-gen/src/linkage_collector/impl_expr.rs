@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_kind::FieldKind;
+use husky_entity_taxonomy::FieldKind;
 
 impl<'a> LinkageCollector<'a> {
     // pub(crate) fn collect_from_eager_expr(&mut self, expr: &EagerExpr) {

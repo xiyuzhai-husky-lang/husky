@@ -1,5 +1,5 @@
-use husky_entity_kind::EntityKind;
 use husky_entity_path::{EntityPathData, EntityPathDb};
+use husky_entity_taxonomy::EntityClass;
 
 use crate::*;
 
@@ -17,14 +17,14 @@ pub(crate) fn absolute_entity_path(
     db: &dyn EntityTreeDb,
     entity_path: EntityPath,
 ) -> EntityTreeResult<AbsoluteEntityPath> {
-    match db.entity_kind(entity_path).as_ref()? {
-        EntityKind::Crate(_) => todo!(),
-        EntityKind::Module => todo!(),
-        EntityKind::Type(_) => todo!(),
-        EntityKind::Trait => todo!(),
-        EntityKind::Form => todo!(),
-        EntityKind::EnumVariant => todo!(),
-        EntityKind::Alias(_) => todo!(),
+    match db.entity_class(entity_path).as_ref()? {
+        EntityClass::Crate => todo!(),
+        EntityClass::Module => todo!(),
+        EntityClass::Type => todo!(),
+        EntityClass::Trait => todo!(),
+        EntityClass::Form => todo!(),
+        EntityClass::EnumVariant => todo!(),
+        EntityClass::Use => todo!(),
     }
     Ok(match entity_path.data(db) {
         EntityPathData::CrateRoot(_) => AbsoluteEntityPath(entity_path),

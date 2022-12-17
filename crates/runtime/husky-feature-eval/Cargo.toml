@@ -31,6 +31,6 @@ husky-feature-gen = { path = "../husky-feature-gen" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-data-viewer = { path = "../husky-data-viewer" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }

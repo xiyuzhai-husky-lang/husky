@@ -4,7 +4,7 @@ use husky_word::Identifier;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
-pub enum TyKind {
+pub enum TyKingdom {
     Enum,
     Inductive,
     Record,
@@ -14,14 +14,14 @@ pub enum TyKind {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum EntityKind {
-    Crate(CrateKind),
+pub enum EntityClass {
+    Crate,
     Module,
-    Type(TyKind),
+    Type,
     Trait,
     Form,
     EnumVariant,
-    Alias(EntityPath),
+    Use,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

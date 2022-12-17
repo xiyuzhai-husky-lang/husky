@@ -3,11 +3,11 @@ mod absolute;
 mod alias;
 mod builder;
 mod db;
-mod entity_kind;
 mod error;
 mod implementation;
 mod node;
 mod submodule;
+mod taxonomy;
 #[cfg(test)]
 mod tests;
 mod visibility;
@@ -20,14 +20,15 @@ pub use error::*;
 use builder::*;
 use error::EntityTreeError;
 use husky_ast::AstIdx;
-use husky_entity_kind::EntityKind;
 use husky_entity_path::*;
+use husky_entity_taxonomy::EntityClass;
 use husky_package_path::*;
 use husky_vfs::VfsResult;
 use idx_arena::{Arena, ArenaIdxRange};
 use implementation::ImplementationMap;
 use node::*;
 use submodule::*;
+use taxonomy::*;
 #[cfg(test)]
 use tests::*;
 
@@ -39,7 +40,7 @@ pub struct EntityTreeJar(
     module_level_use_alls,
     module_level_use_ones,
     entity_node,
-    entity_kind::entity_kind,
+    taxonomy::entity_class,
     visibility::visibility,
 );
 

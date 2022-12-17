@@ -8,7 +8,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: PubCrate,
-                    entity_kind: Module,
+                    entity_taxonomy: Module,
                     ident: Identifier(
                         Word(
                             Id {

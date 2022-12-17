@@ -43,9 +43,7 @@ Ok(
                         1..4,
                     ),
                     accessibility: PubCrate,
-                    entity_kind: Type(
-                        Struct,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {

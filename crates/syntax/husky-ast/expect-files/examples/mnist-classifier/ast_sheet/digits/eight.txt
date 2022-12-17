@@ -194,7 +194,7 @@ Ok(
                         0..1,
                     ),
                     accessibility: PubCrate,
-                    entity_kind: Form,
+                    entity_taxonomy: Form,
                     ident: Identifier(
                         Word(
                             Id {
@@ -213,7 +213,7 @@ Ok(
                         6..17,
                     ),
                     accessibility: PubCrate,
-                    entity_kind: Form,
+                    entity_taxonomy: Form,
                     ident: Identifier(
                         Word(
                             Id {
@@ -232,7 +232,7 @@ Ok(
                         19..21,
                     ),
                     accessibility: PubCrate,
-                    entity_kind: Form,
+                    entity_taxonomy: Form,
                     ident: Identifier(
                         Word(
                             Id {

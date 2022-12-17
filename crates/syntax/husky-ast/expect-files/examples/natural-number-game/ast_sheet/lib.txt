@@ -54,9 +54,7 @@ Ok(
                         0..2,
                     ),
                     accessibility: PubCrate,
-                    entity_kind: Type(
-                        Inductive,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {
@@ -81,9 +79,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: PubCrate,
-                    entity_kind: Type(
-                        Structure,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {
@@ -100,9 +96,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: PubCrate,
-                    entity_kind: Type(
-                        Structure,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {
