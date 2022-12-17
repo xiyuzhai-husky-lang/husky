@@ -26,7 +26,7 @@ impl<'a> AstParser<'a> {
         AstSheet::new(self.arena, top_level_asts)
     }
 
-    fn parse_asts(&mut self, indent: u32) -> Option<AstIdxRange> {
+    fn parse_asts(&mut self, indent: u32) -> AstIdxRange {
         let mut asts: Vec<Ast> = vec![];
         let mut token_group_indices: Vec<TokenGroupIdx> = vec![];
         while let Some(ast) = self.parse_ast(indent) {
@@ -35,7 +35,7 @@ impl<'a> AstParser<'a> {
         self.alloc_asts(asts)
     }
 
-    fn alloc_asts(&mut self, asts: Vec<Ast>) -> Option<AstIdxRange> {
+    fn alloc_asts(&mut self, asts: Vec<Ast>) -> AstIdxRange {
         self.arena.alloc_batch(asts)
     }
 
@@ -99,7 +99,7 @@ impl<'a> AstParser<'a> {
         }
     }
 
-    fn alloc_elif_stmts(&mut self, indent: u32) -> Option<AstIdxRange> {
+    fn alloc_elif_stmts(&mut self, indent: u32) -> AstIdxRange {
         let mut elif_stmts = vec![];
         while let Some((idx, token_group)) = self.token_groups.peek_with_exact_indent(indent) {
             match token_group.first().kind {
@@ -141,7 +141,7 @@ impl<'a> AstParser<'a> {
         Ast::Stmt { token_group, body }
     }
 
-    fn parse_case_stmts(&mut self, indent: u32) -> Option<AstIdxRange> {
+    fn parse_case_stmts(&mut self, indent: u32) -> AstIdxRange {
         let mut case_stmts = vec![];
         while let Some((idx, token_group)) = self.token_groups.peek_with_exact_indent(indent) {
             match token_group.first().kind {

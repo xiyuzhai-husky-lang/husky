@@ -113,7 +113,7 @@ impl<'a> TermPatternInferContext<'a> {
             BinaryOpr::PureClosed(_) => ExprTermPatternInferRawResults {
                 // todo: if both operands are constant, make this constexpr?
                 const_expr: Ok(None),
-                ty: self.expr_ty_result(sheet, opds.start),
+                ty: self.expr_ty_result(sheet, opds.start()),
             },
             BinaryOpr::Comparison(_) => todo!(),
             BinaryOpr::ShortcuitLogic(_) => todo!(),

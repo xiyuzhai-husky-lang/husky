@@ -19,7 +19,7 @@ pub trait HuskyCompletionQuery {
         //         ref opds,
         //     } => match opn_variant {
         //         RawOpnVariant::Field(_) => {
-        //             let ty = term_sheet.expr_ty_result(opds.start).ok()?;
+        //             let ty = term_sheet.expr_ty_result(opds.start()).ok()?;
         //             let ty_decl = self.ty_decl(ty.intrinsic()).ok()?;
         //             Some(field_completion_response(&ty_decl))
         //         }

@@ -14,7 +14,7 @@ Ok(
                 },
             ],
         },
-        top_level_asts: Some(
+        top_level_asts: ArenaIdxRange(
             0..2,
         ),
     },

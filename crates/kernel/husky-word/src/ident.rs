@@ -27,7 +27,7 @@ impl Identifier {
         }
     }
 
-    pub(crate) fn data(self, db: &dyn WordDb) -> &str {
+    pub fn data(self, db: &dyn WordDb) -> &str {
         db.dt_word(self.0)
     }
 }

@@ -41,7 +41,7 @@ impl<'a> InferContext<'a> {
             } => todo!(),
             NormalizedOpnKind::ScopeResolution => todo!(),
         }
-        let this_ty = self.infer_subexpr(opds.start);
+        let this_ty = self.infer_subexpr(opds.start());
         p!(this_ty);
         todo!()
     }

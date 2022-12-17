@@ -6,19 +6,23 @@ Ok(
                     token_group: TokenGroupIdx(
                         1,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         3,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
                 },
                 Config {
                     token_group: TokenGroupIdx(
                         0,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         0..1,
                     ),
                 },
@@ -26,13 +30,13 @@ Ok(
                     token_group: TokenGroupIdx(
                         2,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         1..2,
                     ),
                 },
             ],
         },
-        top_level_asts: Some(
+        top_level_asts: ArenaIdxRange(
             2..4,
         ),
     },

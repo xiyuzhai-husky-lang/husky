@@ -1,9 +1,9 @@
-use crate::{node::EntityNode, *};
+use crate::*;
 use husky_ast::AstIdx;
 use husky_entity_path::EntityPath;
 use husky_vfs::VfsResult;
 
-pub(crate) fn subentities() -> Vec<EntityNode> {
+pub(crate) fn subentities() -> Vec<EntityTree> {
     todo!()
 }
 

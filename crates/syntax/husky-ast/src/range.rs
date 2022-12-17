@@ -59,8 +59,8 @@ impl<'a> AstRangeCalculator<'a> {
             | Ast::Main { token_group, body }
             | Ast::Config { token_group, body } => {
                 let start = self.token_sheet[*token_group].first().unwrap().text_start();
-                let end = match body {
-                    Some(range) => self.text_ranges[range.end.raw() - 1].text_end(),
+                let end = match body.last() {
+                    Some(last) => self.text_ranges[last.raw()].text_end(),
                     None => self.token_sheet[*token_group].last().unwrap().text_end(),
                 };
                 (start..end).into()
@@ -74,8 +74,8 @@ impl<'a> AstRangeCalculator<'a> {
                 let end = match else_stmt {
                     Some(else_stmt) => self.text_ranges[else_stmt.raw()].end,
                     None => {
-                        if let Some(elif_stmts) = elif_stmts {
-                            self.text_ranges[elif_stmts.end.raw() - 1].end
+                        if let Some(last) = elif_stmts.last() {
+                            self.text_ranges[last.raw()].end
                         } else {
                             self.text_ranges[if_stmt.raw()].end
                         }
@@ -89,8 +89,8 @@ impl<'a> AstRangeCalculator<'a> {
             } => {
                 let start = self.text_ranges[pattern_stmt.raw()].start;
                 let end = {
-                    if let Some(case_stmts) = case_stmts {
-                        self.text_ranges[case_stmts.end.raw() - 1].end
+                    if let Some(last) = case_stmts.last() {
+                        self.text_ranges[last.raw()].end
                     } else {
                         self.text_ranges[pattern_stmt.raw()].end
                     }

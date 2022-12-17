@@ -13,16 +13,16 @@ impl<'a> AstParser<'a> {
     fn parse_defn_aux(&mut self, indent: u32, token_group: TokenGroupIdx) -> AstResult<Ast> {
         let (body, body_kind) = {
             let body = self.parse_asts(indent + INDENT_INCR);
-            match body {
+            match body.last() {
                 Some(_) => (body, DefnBodyKind::Block),
                 None => match self.token_groups.peek_with_exact_indent(indent) {
                     Some((token_group_idx, token_group)) => match token_group.first().kind {
                         TokenKind::Special(SpecialToken::Vertical) => {
                             (self.parse_case_stmts(indent), DefnBodyKind::Cases)
                         }
-                        _ => (None, DefnBodyKind::None),
+                        _ => (Default::default(), DefnBodyKind::None),
                     },
-                    None => (None, DefnBodyKind::None),
+                    None => (Default::default(), DefnBodyKind::None),
                 },
             }
         };

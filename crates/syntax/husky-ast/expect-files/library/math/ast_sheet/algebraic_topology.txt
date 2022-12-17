@@ -3,6 +3,8 @@ Ok(
         arena: Arena {
             data: [],
         },
-        top_level_asts: None,
+        top_level_asts: ArenaIdxRange(
+            0..0,
+        ),
     },
 )

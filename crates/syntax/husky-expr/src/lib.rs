@@ -65,7 +65,7 @@ impl ExprVariant {
             },
             ExprVariant::Opn { opn_variant, opds } => match opn_variant {
                 RawOpnVariant::Binary(BinaryOpr::ScopeResolution) => {
-                    arena[opds.start + 1].base_scope_result()
+                    arena[opds.start() + 1].base_scope_result()
                 }
                 RawOpnVariant::Binary(BinaryOpr::As) => todo!(),
                 _ => BaseScopeResult::None,

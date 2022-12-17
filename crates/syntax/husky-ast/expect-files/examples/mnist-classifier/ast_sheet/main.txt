@@ -6,43 +6,55 @@ Ok(
                     token_group: TokenGroupIdx(
                         1,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         28,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         29,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         30,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         31,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
                         32,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
                 },
                 Config {
                     token_group: TokenGroupIdx(
                         0,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         0..1,
                     ),
                 },
@@ -50,7 +62,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         2,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -67,7 +81,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         3,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -84,7 +100,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         4,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -101,7 +119,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         5,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -118,7 +138,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         6,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -135,7 +157,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         7,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -152,7 +176,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         8,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -169,7 +195,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         9,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -186,7 +214,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         10,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -203,7 +233,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         11,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -220,7 +252,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         12,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -237,7 +271,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         13,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -254,7 +290,9 @@ Ok(
                     token_group: TokenGroupIdx(
                         14,
                     ),
-                    body: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
@@ -331,13 +369,13 @@ Ok(
                     token_group: TokenGroupIdx(
                         27,
                     ),
-                    body: Some(
+                    body: ArenaIdxRange(
                         1..6,
                     ),
                 },
             ],
         },
-        top_level_asts: Some(
+        top_level_asts: ArenaIdxRange(
             6..33,
         ),
     },
