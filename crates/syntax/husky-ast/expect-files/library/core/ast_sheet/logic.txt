@@ -20,9 +20,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Type(
-                        Structure,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {
@@ -41,9 +39,7 @@ Ok(
                         0..2,
                     ),
                     accessibility: Public,
-                    entity_kind: Type(
-                        Inductive,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {

@@ -10,4 +10,4 @@ lsp-types = "0.93"
 husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
 # kernel
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }

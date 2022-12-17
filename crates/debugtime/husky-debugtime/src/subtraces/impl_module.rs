@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_kind::EntityKind;
+use husky_entity_taxonomy::EntityKind;
 use husky_term::Term;
 
 impl Debugtime {
@@ -7,10 +7,10 @@ impl Debugtime {
         todo!()
         // let mut subtrace_ids = vec![];
         // let module_file = self.runtime().module_file(module).unwrap();
-        // for (subentity_kind, subentity_route) in
-        //     self.runtime().subentity_kinded_routes(module).iter()
+        // for (subentity_taxonomy, subentity_route) in
+        //     self.runtime().subentity_taxonomyed_routes(module).iter()
         // {
-        //     match subentity_kind {
+        //     match subentity_taxonomy {
         //         EntityKind::Module => {
         //             if self.runtime().module_contains_features(*subentity_route) {
         //                 subtrace_ids.push(self.new_trace(

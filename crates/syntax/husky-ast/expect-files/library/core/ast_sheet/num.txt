@@ -8,7 +8,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Form,
+                    entity_taxonomy: Form,
                     ident: Identifier(
                         Word(
                             Id {
@@ -25,7 +25,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Form,
+                    entity_taxonomy: Form,
                     ident: Identifier(
                         Word(
                             Id {
@@ -42,7 +42,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Form,
+                    entity_taxonomy: Form,
                     ident: Identifier(
                         Word(
                             Id {
@@ -59,7 +59,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Form,
+                    entity_taxonomy: Form,
                     ident: Identifier(
                         Word(
                             Id {
@@ -76,7 +76,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Form,
+                    entity_taxonomy: Form,
                     ident: Identifier(
                         Word(
                             Id {
@@ -93,7 +93,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: PubCrate,
-                    entity_kind: Form,
+                    entity_taxonomy: Form,
                     ident: Identifier(
                         Word(
                             Id {
@@ -110,7 +110,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Form,
+                    entity_taxonomy: Form,
                     ident: Identifier(
                         Word(
                             Id {
@@ -127,7 +127,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Form,
+                    entity_taxonomy: Form,
                     ident: Identifier(
                         Word(
                             Id {
@@ -149,9 +149,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Type(
-                        Any,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {
@@ -189,9 +187,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Type(
-                        Any,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {
@@ -229,9 +225,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Type(
-                        Any,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {
@@ -269,9 +263,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: PubCrate,
-                    entity_kind: Type(
-                        Any,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {

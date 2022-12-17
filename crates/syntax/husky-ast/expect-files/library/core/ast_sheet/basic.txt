@@ -8,9 +8,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Type(
-                        Any,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {
@@ -27,9 +25,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Type(
-                        Structure,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {
@@ -46,9 +42,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: Public,
-                    entity_kind: Type(
-                        Structure,
-                    ),
+                    entity_taxonomy: Type,
                     ident: Identifier(
                         Word(
                             Id {
