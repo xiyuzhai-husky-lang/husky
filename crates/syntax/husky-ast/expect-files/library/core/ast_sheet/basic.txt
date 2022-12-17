@@ -3,6 +3,10 @@ Ok(
         arena: Arena {
             data: [
                 Defn {
+                    token_group: TokenGroupIdx(
+                        0,
+                    ),
+                    body: None,
                     accessibility: Public,
                     entity_kind: Type(
                         Any,
@@ -15,13 +19,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        0,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        1,
+                    ),
+                    body: None,
                     accessibility: Public,
                     entity_kind: Type(
                         Structure,
@@ -34,13 +38,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        1,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        2,
+                    ),
+                    body: None,
                     accessibility: Public,
                     entity_kind: Type(
                         Structure,
@@ -53,10 +57,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        2,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
             ],

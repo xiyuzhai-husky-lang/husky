@@ -36,6 +36,12 @@ Ok(
                     ),
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        1,
+                    ),
+                    body: Some(
+                        1..4,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Type(
                         Struct,
@@ -48,12 +54,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        1,
-                    ),
-                    body: Some(
-                        1..4,
-                    ),
                     body_kind: Block,
                 },
             ],

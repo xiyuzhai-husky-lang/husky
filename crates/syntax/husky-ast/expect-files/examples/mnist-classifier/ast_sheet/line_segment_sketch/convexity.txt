@@ -147,6 +147,12 @@ Ok(
                     ),
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        3,
+                    ),
+                    body: Some(
+                        15..20,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -157,12 +163,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        3,
-                    ),
-                    body: Some(
-                        15..20,
-                    ),
                     body_kind: Block,
                 },
             ],

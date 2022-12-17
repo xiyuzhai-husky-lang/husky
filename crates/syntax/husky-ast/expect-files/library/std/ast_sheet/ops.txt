@@ -3,6 +3,10 @@ Ok(
         arena: Arena {
             data: [
                 Defn {
+                    token_group: TokenGroupIdx(
+                        2,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Type(
                         Any,
@@ -15,13 +19,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        2,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        3,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -32,10 +36,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        3,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Decor(

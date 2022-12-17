@@ -3,57 +3,27 @@ Ok(
         arena: Arena {
             data: [
                 Defn {
-                    accessibility: Public,
-                    entity_kind: Form,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 21,
-                            },
-                        ),
-                    ),
-                    is_generic: false,
                     token_group: TokenGroupIdx(
                         3,
                     ),
                     body: None,
-                    body_kind: None,
-                },
-                Defn {
                     accessibility: Public,
                     entity_kind: Form,
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 25,
+                                value: 21,
                             },
                         ),
                     ),
                     is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
                     token_group: TokenGroupIdx(
                         5,
                     ),
                     body: None,
-                    body_kind: None,
-                },
-                Defn {
-                    accessibility: Public,
-                    entity_kind: Form,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 21,
-                            },
-                        ),
-                    ),
-                    is_generic: false,
-                    token_group: TokenGroupIdx(
-                        9,
-                    ),
-                    body: None,
-                    body_kind: None,
-                },
-                Defn {
                     accessibility: Public,
                     entity_kind: Form,
                     ident: Identifier(
@@ -64,13 +34,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        11,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        9,
+                    ),
+                    body: None,
                     accessibility: Public,
                     entity_kind: Form,
                     ident: Identifier(
@@ -81,13 +51,47 @@ Ok(
                         ),
                     ),
                     is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group: TokenGroupIdx(
+                        11,
+                    ),
+                    body: None,
+                    accessibility: Public,
+                    entity_kind: Form,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 25,
+                            },
+                        ),
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
                     token_group: TokenGroupIdx(
                         15,
                     ),
                     body: None,
+                    accessibility: Public,
+                    entity_kind: Form,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 21,
+                            },
+                        ),
+                    ),
+                    is_generic: false,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        17,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -98,13 +102,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        17,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        21,
+                    ),
+                    body: None,
                     accessibility: Public,
                     entity_kind: Form,
                     ident: Identifier(
@@ -115,13 +119,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        21,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        23,
+                    ),
+                    body: None,
                     accessibility: Public,
                     entity_kind: Form,
                     ident: Identifier(
@@ -132,10 +136,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        23,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Decor(
@@ -144,6 +144,10 @@ Ok(
                     ),
                 ),
                 Defn {
+                    token_group: TokenGroupIdx(
+                        1,
+                    ),
+                    body: None,
                     accessibility: Public,
                     entity_kind: Type(
                         Any,
@@ -156,10 +160,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        1,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Impl {
@@ -184,6 +184,10 @@ Ok(
                     ),
                 ),
                 Defn {
+                    token_group: TokenGroupIdx(
+                        7,
+                    ),
+                    body: None,
                     accessibility: Public,
                     entity_kind: Type(
                         Any,
@@ -196,10 +200,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        7,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Impl {
@@ -224,6 +224,10 @@ Ok(
                     ),
                 ),
                 Defn {
+                    token_group: TokenGroupIdx(
+                        13,
+                    ),
+                    body: None,
                     accessibility: Public,
                     entity_kind: Type(
                         Any,
@@ -236,10 +240,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        13,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Impl {
@@ -264,6 +264,10 @@ Ok(
                     ),
                 ),
                 Defn {
+                    token_group: TokenGroupIdx(
+                        19,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Type(
                         Any,
@@ -276,10 +280,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        19,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Impl {

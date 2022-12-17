@@ -103,6 +103,12 @@ Ok(
                     body: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        4,
+                    ),
+                    body: Some(
+                        0..1,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -113,15 +119,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        4,
-                    ),
-                    body: Some(
-                        0..1,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        6,
+                    ),
+                    body: Some(
+                        10..13,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -132,12 +138,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        6,
-                    ),
-                    body: Some(
-                        10..13,
-                    ),
                     body_kind: Block,
                 },
                 Use {
@@ -146,6 +146,12 @@ Ok(
                     ),
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        1,
+                    ),
+                    body: Some(
+                        13..17,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Type(
                         Struct,
@@ -158,12 +164,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        1,
-                    ),
-                    body: Some(
-                        13..17,
-                    ),
                     body_kind: Block,
                 },
             ],

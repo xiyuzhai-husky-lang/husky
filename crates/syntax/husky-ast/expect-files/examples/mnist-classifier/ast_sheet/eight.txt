@@ -187,6 +187,12 @@ Ok(
                     ),
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        11,
+                    ),
+                    body: Some(
+                        0..1,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -197,15 +203,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        11,
-                    ),
-                    body: Some(
-                        0..1,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        13,
+                    ),
+                    body: Some(
+                        6..17,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -216,15 +222,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        13,
-                    ),
-                    body: Some(
-                        6..17,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        28,
+                    ),
+                    body: Some(
+                        19..21,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -235,12 +241,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        28,
-                    ),
-                    body: Some(
-                        19..21,
-                    ),
                     body_kind: Block,
                 },
             ],
