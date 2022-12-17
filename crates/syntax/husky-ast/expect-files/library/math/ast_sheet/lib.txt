@@ -2,33 +2,95 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Mod(
-                    TokenGroupIdx(
+                Defn {
+                    accessibility: PubCrate,
+                    entity_kind: Module,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 36,
+                            },
+                        ),
+                    ),
+                    is_generic: false,
+                    token_group: TokenGroupIdx(
                         0,
                     ),
-                ),
-                Mod(
-                    TokenGroupIdx(
+                    body: None,
+                    body_kind: None,
+                },
+                Defn {
+                    accessibility: PubCrate,
+                    entity_kind: Module,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 37,
+                            },
+                        ),
+                    ),
+                    is_generic: false,
+                    token_group: TokenGroupIdx(
                         1,
                     ),
-                ),
-                Mod(
-                    TokenGroupIdx(
+                    body: None,
+                    body_kind: None,
+                },
+                Defn {
+                    accessibility: PubCrate,
+                    entity_kind: Module,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 38,
+                            },
+                        ),
+                    ),
+                    is_generic: false,
+                    token_group: TokenGroupIdx(
                         2,
                     ),
-                ),
-                Mod(
-                    TokenGroupIdx(
+                    body: None,
+                    body_kind: None,
+                },
+                Defn {
+                    accessibility: PubCrate,
+                    entity_kind: Module,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 39,
+                            },
+                        ),
+                    ),
+                    is_generic: false,
+                    token_group: TokenGroupIdx(
                         3,
                     ),
-                ),
-                Mod(
-                    TokenGroupIdx(
+                    body: None,
+                    body_kind: None,
+                },
+                Defn {
+                    accessibility: PubCrate,
+                    entity_kind: Module,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 40,
+                            },
+                        ),
+                    ),
+                    is_generic: false,
+                    token_group: TokenGroupIdx(
                         4,
                     ),
-                ),
+                    body: None,
+                    body_kind: None,
+                },
             ],
         },
-        top_level_asts: 0..5,
+        top_level_asts: Some(
+            0..5,
+        ),
     },
 )

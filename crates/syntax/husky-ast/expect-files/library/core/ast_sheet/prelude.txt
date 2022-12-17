@@ -2,24 +2,20 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            0,
-                        ),
-                        body: 0..0,
-                    },
-                ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            1,
-                        ),
-                        body: 0..0,
-                    },
-                ),
+                Use {
+                    token_group: TokenGroupIdx(
+                        0,
+                    ),
+                },
+                Use {
+                    token_group: TokenGroupIdx(
+                        1,
+                    ),
+                },
             ],
         },
-        top_level_asts: 0..2,
+        top_level_asts: Some(
+            0..2,
+        ),
     },
 )

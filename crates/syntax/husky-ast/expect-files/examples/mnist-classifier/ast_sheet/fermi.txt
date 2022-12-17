@@ -2,221 +2,246 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            7,
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        7,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        5,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        6,
+                    ),
+                    body: Some(
+                        0..1,
+                    ),
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        8,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        12,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        10,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        11,
+                    ),
+                    body: Some(
+                        4..5,
+                    ),
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        13,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        17,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        15,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        16,
+                    ),
+                    body: Some(
+                        8..9,
+                    ),
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        18,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        3,
+                    ),
+                    body: None,
+                },
+                Defn {
+                    accessibility: PubCrate,
+                    entity_kind: Form,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 177,
+                            },
                         ),
-                        body: 0..0,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            5,
+                    ),
+                    is_generic: false,
+                    token_group: TokenGroupIdx(
+                        4,
+                    ),
+                    body: Some(
+                        1..4,
+                    ),
+                    body_kind: Block,
+                },
+                Defn {
+                    accessibility: PubCrate,
+                    entity_kind: Form,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 189,
+                            },
                         ),
-                        body: 0..0,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            6,
+                    ),
+                    is_generic: false,
+                    token_group: TokenGroupIdx(
+                        9,
+                    ),
+                    body: Some(
+                        5..8,
+                    ),
+                    body_kind: Block,
+                },
+                Defn {
+                    accessibility: PubCrate,
+                    entity_kind: Form,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 187,
+                            },
                         ),
-                        body: 0..1,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            8,
-                        ),
-                        body: 1..1,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            12,
-                        ),
-                        body: 4..4,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            10,
-                        ),
-                        body: 4..4,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            11,
-                        ),
-                        body: 4..5,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            13,
-                        ),
-                        body: 5..5,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            17,
-                        ),
-                        body: 8..8,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            15,
-                        ),
-                        body: 8..8,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            16,
-                        ),
-                        body: 8..9,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            18,
-                        ),
-                        body: 9..9,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            3,
-                        ),
-                        body: 0..0,
-                    },
-                ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            4,
-                        ),
-                        body: 1..4,
-                    },
-                ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            9,
-                        ),
-                        body: 5..8,
-                    },
-                ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            14,
-                        ),
-                        body: 9..12,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            24,
-                        ),
-                        body: 16..16,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            25,
-                        ),
-                        body: 16..16,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            20,
-                        ),
-                        body: 16..16,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            21,
-                        ),
-                        body: 16..16,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            22,
-                        ),
-                        body: 16..16,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            23,
-                        ),
-                        body: 16..18,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            26,
-                        ),
-                        body: 18..18,
-                    },
-                ),
-                Use(
-                    TokenGroupIdx(
+                    ),
+                    is_generic: false,
+                    token_group: TokenGroupIdx(
+                        14,
+                    ),
+                    body: Some(
+                        9..12,
+                    ),
+                    body_kind: Block,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        24,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        25,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        20,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        21,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        22,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        23,
+                    ),
+                    body: Some(
+                        16..18,
+                    ),
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        26,
+                    ),
+                    body: None,
+                },
+                Use {
+                    token_group: TokenGroupIdx(
                         0,
                     ),
-                ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            1,
+                },
+                Defn {
+                    accessibility: PubCrate,
+                    entity_kind: Type(
+                        Struct,
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 147,
+                            },
                         ),
-                        body: 0..0,
-                    },
-                ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            2,
+                    ),
+                    is_generic: false,
+                    token_group: TokenGroupIdx(
+                        1,
+                    ),
+                    body: None,
+                    body_kind: None,
+                },
+                Impl {
+                    token_group: TokenGroupIdx(
+                        2,
+                    ),
+                    body: Some(
+                        12..16,
+                    ),
+                },
+                Defn {
+                    accessibility: PubCrate,
+                    entity_kind: Form,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 148,
+                            },
                         ),
-                        body: 12..16,
-                    },
-                ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            19,
-                        ),
-                        body: 18..23,
-                    },
-                ),
+                    ),
+                    is_generic: false,
+                    token_group: TokenGroupIdx(
+                        19,
+                    ),
+                    body: Some(
+                        18..23,
+                    ),
+                    body_kind: Block,
+                },
             ],
         },
-        top_level_asts: 23..27,
+        top_level_asts: Some(
+            23..27,
+        ),
     },
 )

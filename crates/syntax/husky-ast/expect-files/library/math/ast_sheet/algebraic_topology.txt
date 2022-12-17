@@ -3,6 +3,6 @@ Ok(
         arena: Arena {
             data: [],
         },
-        top_level_asts: 0..0,
+        top_level_asts: None,
     },
 )

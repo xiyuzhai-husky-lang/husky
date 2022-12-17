@@ -37,18 +37,15 @@ impl<'a> FoldingRangeCalculator<'a> {
             | Ast::MatchStmts { .. } => None,
             Ast::Stmt {
                 token_group, body, ..
-            } => body
+            }
+            | Ast::Defn {
+                token_group, body, ..
+            }
+            | Ast::Impl { token_group, body }
+            | Ast::Main { token_group, body }
+            | Ast::Config { token_group, body } => body
                 .as_ref()
                 .map(|_| (self.ast_range_sheet[idx], FoldingRangeKind::Region)),
-            Ast::Defn { .. } => todo!(),
-            //  => {
-            //     if !block.empty() {
-            //         Some((self.ast_range_sheet[idx], FoldingRangeKind::Region))
-            //     } else {
-            //         None
-            //     }
-            // }
-            Ast::Impl { .. } => todo!(),
         }?;
         Some(FoldingRange {
             start_line: text_range.start.i(),

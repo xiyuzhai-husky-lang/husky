@@ -54,7 +54,10 @@ impl<'a> AstRangeCalculator<'a> {
             }
             | Ast::Defn {
                 token_group, body, ..
-            } => {
+            }
+            | Ast::Impl { token_group, body }
+            | Ast::Main { token_group, body }
+            | Ast::Config { token_group, body } => {
                 let start = self.token_sheet[*token_group].first().unwrap().text_start();
                 let end = match body {
                     Some(range) => self.text_ranges[range.end.raw() - 1].text_end(),
@@ -62,7 +65,6 @@ impl<'a> AstRangeCalculator<'a> {
                 };
                 (start..end).into()
             }
-            Ast::Impl { .. } => todo!(),
             Ast::IfElseStmts {
                 if_stmt,
                 elif_stmts,
