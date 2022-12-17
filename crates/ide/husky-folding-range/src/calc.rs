@@ -41,7 +41,12 @@ impl<'a> FoldingRangeCalculator<'a> {
             | Ast::Defn {
                 token_group, body, ..
             }
-            | Ast::Impl { token_group, body }
+            | Ast::TypeImpl {
+                token_group, body, ..
+            }
+            | Ast::TraitImpl {
+                token_group, body, ..
+            }
             | Ast::Main { token_group, body }
             | Ast::Config { token_group, body } => body
                 .last()

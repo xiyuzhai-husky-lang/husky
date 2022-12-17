@@ -55,7 +55,12 @@ impl<'a> AstRangeCalculator<'a> {
             | Ast::Defn {
                 token_group, body, ..
             }
-            | Ast::Impl { token_group, body }
+            | Ast::TypeImpl {
+                token_group, body, ..
+            }
+            | Ast::TraitImpl {
+                token_group, body, ..
+            }
             | Ast::Main { token_group, body }
             | Ast::Config { token_group, body } => {
                 let start = self.token_sheet[*token_group].first().unwrap().text_start();

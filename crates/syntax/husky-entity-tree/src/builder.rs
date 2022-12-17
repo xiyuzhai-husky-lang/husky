@@ -76,13 +76,17 @@ impl<'a> EntityTreeBuilder<'a> {
                     subentities: self.arena.alloc_batch(subentities),
                 })
             }
-            Ast::Impl { body, .. } => {
-                todo!()
-                // let isolated_entities = self.process_body(None, body);
-                // if isolated_entities.len() != 0 {
-                //     todo!()
-                // }
-                // None
+            Ast::TypeImpl {
+                token_group, body, ..
+            } => todo!(),
+            Ast::TraitImpl {
+                token_group, body, ..
+            } => {
+                let isolated_entities = self.process_body(None, body);
+                if isolated_entities.len() != 0 {
+                    todo!()
+                }
+                None
             }
             Ast::Main { token_group, body } => todo!(),
             Ast::Config { token_group, body } => todo!(),
