@@ -47,6 +47,10 @@ Ok(
                     ),
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        2,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -57,13 +61,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        2,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        3,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -74,13 +78,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        3,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        4,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -91,13 +95,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        4,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        5,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -108,13 +112,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        5,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        6,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -125,13 +129,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        6,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        7,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -142,13 +146,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        7,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        8,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -159,13 +163,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        8,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        9,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -176,13 +180,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        9,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        10,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -193,13 +197,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        10,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        11,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -210,13 +214,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        11,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        12,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -227,13 +231,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        12,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        13,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -244,13 +248,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        13,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        14,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Module,
                     ident: Identifier(
@@ -261,10 +265,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        14,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Use {

@@ -47,6 +47,12 @@ Ok(
                     ),
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        0,
+                    ),
+                    body: Some(
+                        0..2,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Type(
                         Inductive,
@@ -59,12 +65,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        0,
-                    ),
-                    body: Some(
-                        0..2,
-                    ),
                     body_kind: Cases,
                 },
                 Impl {
@@ -76,6 +76,10 @@ Ok(
                     ),
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        9,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Type(
                         Structure,
@@ -88,13 +92,13 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        9,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        10,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Type(
                         Structure,
@@ -107,10 +111,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        10,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
             ],

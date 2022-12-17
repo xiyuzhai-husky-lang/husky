@@ -52,12 +52,12 @@ pub enum Ast {
         case_stmts: Option<AstIdxRange>,
     },
     Defn {
+        token_group: TokenGroupIdx,
+        body: Option<AstIdxRange>,
         accessibility: Accessibility,
         entity_kind: EntityKind,
         ident: Identifier,
         is_generic: bool,
-        token_group: TokenGroupIdx,
-        body: Option<AstIdxRange>,
         body_kind: DefnBodyKind,
     },
     Impl {

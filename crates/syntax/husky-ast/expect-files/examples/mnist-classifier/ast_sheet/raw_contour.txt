@@ -175,6 +175,12 @@ Ok(
                     body: None,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        6,
+                    ),
+                    body: Some(
+                        0..1,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -185,15 +191,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        6,
-                    ),
-                    body: Some(
-                        0..1,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        8,
+                    ),
+                    body: Some(
+                        6..13,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -204,15 +210,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        8,
-                    ),
-                    body: Some(
-                        6..13,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        21,
+                    ),
+                    body: Some(
+                        13..14,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -223,15 +229,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        21,
-                    ),
-                    body: Some(
-                        13..14,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        23,
+                    ),
+                    body: Some(
+                        17..23,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -242,15 +248,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        23,
-                    ),
-                    body: Some(
-                        17..23,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        33,
+                    ),
+                    body: Some(
+                        23..27,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -261,12 +267,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        33,
-                    ),
-                    body: Some(
-                        23..27,
-                    ),
                     body_kind: Block,
                 },
                 Err(
@@ -1446,6 +1446,10 @@ Ok(
                     ),
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        4,
+                    ),
+                    body: None,
                     accessibility: PubCrate,
                     entity_kind: Type(
                         Struct,
@@ -1458,10 +1462,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        4,
-                    ),
-                    body: None,
                     body_kind: None,
                 },
                 Impl {
@@ -1473,6 +1473,12 @@ Ok(
                     ),
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        40,
+                    ),
+                    body: Some(
+                        34..38,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Type(
                         Enum,
@@ -1485,15 +1491,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        40,
-                    ),
-                    body: Some(
-                        34..38,
-                    ),
                     body_kind: Cases,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        45,
+                    ),
+                    body: Some(
+                        38..39,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -1504,15 +1510,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        45,
-                    ),
-                    body: Some(
-                        38..39,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        47,
+                    ),
+                    body: Some(
+                        39..40,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -1523,15 +1529,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        47,
-                    ),
-                    body: Some(
-                        39..40,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        49,
+                    ),
+                    body: Some(
+                        40..41,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -1542,15 +1548,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        49,
-                    ),
-                    body: Some(
-                        40..41,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        51,
+                    ),
+                    body: Some(
+                        66..69,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -1561,15 +1567,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        51,
-                    ),
-                    body: Some(
-                        66..69,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        76,
+                    ),
+                    body: Some(
+                        75..77,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -1580,15 +1586,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        76,
-                    ),
-                    body: Some(
-                        75..77,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        84,
+                    ),
+                    body: Some(
+                        119..122,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -1599,15 +1605,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        84,
-                    ),
-                    body: Some(
-                        119..122,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        123,
+                    ),
+                    body: Some(
+                        122..124,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Type(
                         Struct,
@@ -1620,15 +1626,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        123,
-                    ),
-                    body: Some(
-                        122..124,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        126,
+                    ),
+                    body: Some(
+                        124..128,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -1639,15 +1645,15 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        126,
-                    ),
-                    body: Some(
-                        124..128,
-                    ),
                     body_kind: Block,
                 },
                 Defn {
+                    token_group: TokenGroupIdx(
+                        131,
+                    ),
+                    body: Some(
+                        212..217,
+                    ),
                     accessibility: PubCrate,
                     entity_kind: Form,
                     ident: Identifier(
@@ -1658,12 +1664,6 @@ Ok(
                         ),
                     ),
                     is_generic: false,
-                    token_group: TokenGroupIdx(
-                        131,
-                    ),
-                    body: Some(
-                        212..217,
-                    ),
                     body_kind: Block,
                 },
             ],
