@@ -28,7 +28,7 @@ pub use std::sync::Arc as __Arc;
 pub use thick_fp::*;
 pub use vec::*;
 
-use husky_entity_taxonomy::{FieldKind, TyKind};
+use husky_entity_card::{FieldKind, TyKind};
 use husky_liason_semantics::{MemberModifier, OutputModifier, ParameterModifier};
 use husky_static_defn::StaticParameter;
 use husky_static_defn::*;

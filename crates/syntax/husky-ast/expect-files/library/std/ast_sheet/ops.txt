@@ -8,7 +8,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: PubCrate,
-                    entity_taxonomy: Type,
+                    entity_card: Type,
                     ident: Identifier(
                         Word(
                             Id {
@@ -25,7 +25,7 @@ Ok(
                     ),
                     body: None,
                     accessibility: PubCrate,
-                    entity_taxonomy: Form,
+                    entity_card: Form,
                     ident: Identifier(
                         Word(
                             Id {

@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_taxonomy::TyKingdom;
+use husky_entity_card::TyKingdom;
 use husky_opn_syntax::Bracket;
 use husky_token::{Decorator, Token, TypeKeyword};
 use std::iter::Peekable;
@@ -32,7 +32,7 @@ impl<'a> AstParser<'a> {
         Ok(Ast::Defn {
             // order matters!
             accessibility: parser.parse_accessibility()?,
-            entity_taxonomy: parser.parse_entity_taxonomy()?,
+            entity_card: parser.parse_entity_card()?,
             ident: parser.parse_ident()?,
             is_generic: parser.parse_is_generic(),
             token_group,
@@ -71,7 +71,7 @@ impl<'a> DefnHeadParser<'a> {
         })
     }
 
-    fn parse_entity_taxonomy(&mut self) -> AstResult<EntityClass> {
+    fn parse_entity_card(&mut self) -> AstResult<EntityCard> {
         Ok(
             match self
                 .token_iter
@@ -79,11 +79,11 @@ impl<'a> DefnHeadParser<'a> {
                 .ok_or(AstError::ExpectEntityKeyword)?
                 .kind
             {
-                TokenKind::Decorator(decor) => self.parse_entity_taxonomy()?,
+                TokenKind::Decorator(decor) => self.parse_entity_card()?,
                 TokenKind::Keyword(kw) => match kw {
-                    Keyword::Paradigm(_) | Keyword::Visual => EntityClass::Form,
-                    Keyword::Type(ty_kw) => EntityClass::Type,
-                    Keyword::Mod => EntityClass::Module,
+                    Keyword::Paradigm(_) | Keyword::Visual => EntityCard::Form,
+                    Keyword::Type(ty_kw) => EntityCard::Type,
+                    Keyword::Mod => EntityCard::Module,
                     Keyword::Impl | Keyword::End(_) => return Err(AstError::ExpectEntityKeyword),
                     _ => unreachable!(),
                 },

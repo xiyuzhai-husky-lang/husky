@@ -15,7 +15,7 @@ pub trait EntityPathDb: DbWithJar<EntityPathJar> + PackagePathDb + WordDb {
     fn it_entity_path(&self, data: EntityPathData) -> EntityPath;
     fn dt_entity_path(&self, path: EntityPath) -> EntityPathData;
     fn book_crate_of_entity_path(&self, path: EntityPath) -> CratePath;
-    fn book_ancestry(&self, path: EntityPath) -> &BookAncestry;
+    fn apparent_ancestry(&self, path: EntityPath) -> &BookAncestry;
 }
 
 impl<T> EntityPathDb for T
@@ -39,15 +39,15 @@ where
     }
 
     fn book_crate_of_entity_path(&self, entity_path: EntityPath) -> CratePath {
-        self.book_ancestry(entity_path).crate_path()
+        self.apparent_ancestry(entity_path).crate_path()
     }
 
     fn entity_path_db(&self) -> &dyn EntityPathDb {
         self
     }
 
-    fn book_ancestry(&self, path: EntityPath) -> &BookAncestry {
-        book_ancestry(self, path)
+    fn apparent_ancestry(&self, path: EntityPath) -> &BookAncestry {
+        apparent_ancestry(self, path)
     }
 }
 

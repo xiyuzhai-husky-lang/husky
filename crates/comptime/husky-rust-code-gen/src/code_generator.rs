@@ -13,7 +13,7 @@
 
 use crate::*;
 // use context::*;
-use husky_entity_taxonomy::TyKingdom;
+use husky_entity_card::TyKingdom;
 use std::sync::Arc;
 
 pub(crate) struct RustCodeGenerator<'a> {

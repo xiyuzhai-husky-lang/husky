@@ -14,8 +14,7 @@ pub enum TyKingdom {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum EntityClass {
-    Crate,
+pub enum EntityCard {
     Module,
     Type,
     Trait,

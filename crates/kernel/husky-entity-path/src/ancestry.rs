@@ -13,14 +13,14 @@ impl BookAncestry {
 }
 
 #[salsa::tracked(jar = EntityPathJar, return_ref)]
-pub(crate) fn book_ancestry(db: &dyn EntityPathDb, entity_path: EntityPath) -> BookAncestry {
+pub(crate) fn apparent_ancestry(db: &dyn EntityPathDb, entity_path: EntityPath) -> BookAncestry {
     match entity_path.data(db) {
         EntityPathData::CrateRoot(crate_path) => BookAncestry {
             crate_path,
             paths: vec![entity_path],
         },
         EntityPathData::Childpath { parent, ident } => {
-            let mut ancestry = book_ancestry(db, parent).clone();
+            let mut ancestry = apparent_ancestry(db, parent).clone();
             ancestry.paths.push(entity_path);
             ancestry
         }
@@ -28,10 +28,10 @@ pub(crate) fn book_ancestry(db: &dyn EntityPathDb, entity_path: EntityPath) -> B
 }
 
 #[test]
-fn book_ancestry_works() {
+fn apparent_ancestry_works() {
     use crate::tests::*;
     fn t(db: &DB, entity_path: EntityPath) -> Vec<String> {
-        book_ancestry(db, entity_path)
+        apparent_ancestry(db, entity_path)
             .paths
             .iter()
             .map(|path| path.display(db))

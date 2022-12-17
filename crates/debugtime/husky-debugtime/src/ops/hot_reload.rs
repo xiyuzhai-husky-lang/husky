@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_taxonomy::EntityKind;
+use husky_entity_card::EntityKind;
 
 use monad::MonadT;
 use std::time::Instant;
@@ -39,10 +39,10 @@ impl Debugtime {
         // // add input trace
         // root_traces.push(self.new_trace(None, 0, TraceVariant::input(self.runtime())));
         // // add module traces
-        // for (subentity_taxonomy, subentity_route) in
-        //     self.runtime().subentity_taxonomyed_routes(module).iter()
+        // for (subentity_card, subentity_route) in
+        //     self.runtime().subentity_carded_routes(module).iter()
         // {
-        //     match subentity_taxonomy {
+        //     match subentity_card {
         //         EntityKind::Module => {
         //             if self.runtime().module_contains_features(*subentity_route) {
         //                 root_traces.push(self.new_trace(
