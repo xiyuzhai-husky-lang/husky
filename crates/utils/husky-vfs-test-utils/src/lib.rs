@@ -3,7 +3,7 @@ mod inner;
 
 use husky_absolute_path::AbsolutePath;
 use husky_entity_path::*;
-use husky_package_path::PackagePathData;
+use husky_package_path::{CrateKind, PackagePathData};
 use husky_path_utils::*;
 use husky_print_utils::p;
 use husky_vfs::*;

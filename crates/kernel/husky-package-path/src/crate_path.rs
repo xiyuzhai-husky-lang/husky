@@ -16,3 +16,10 @@ impl CratePath {
         }
     }
 }
+
+#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
+pub enum CrateKind {
+    Library,
+    Main,
+    Binary(Identifier),
+}

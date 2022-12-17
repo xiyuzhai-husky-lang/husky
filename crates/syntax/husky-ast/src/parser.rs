@@ -1,5 +1,4 @@
 mod defn;
-mod impls;
 mod uses;
 
 use crate::*;
@@ -66,22 +65,25 @@ impl<'a> AstParser<'a> {
                     | StmtKeyword::Break
                     | StmtKeyword::Return
                     | StmtKeyword::Assert
-                    | StmtKeyword::Require => {
-                        todo!()
-                        // Ast::Stmt(AstBlock::new(idx, self.parse_asts(indent + INDENT_INCR)))
-                    }
+                    | StmtKeyword::Require => self.parse_stmt(idx, indent),
                 },
                 Keyword::Liason(_) => todo!(),
-                Keyword::Use => {
-                    todo!() //  Ast::Use(idx)
+                Keyword::Use => Ast::Use { token_group: idx },
+                Keyword::Main => Ast::Main {
+                    token_group: idx,
+                    body: self.parse_asts(indent + INDENT_INCR),
+                },
+                Keyword::Config(_) => Ast::Config {
+                    token_group: idx,
+                    body: self.parse_asts(indent + INDENT_INCR),
+                },
+                Keyword::Mod | Keyword::Paradigm(_) | Keyword::Visual | Keyword::Type(_) => {
+                    self.parse_defn(idx, indent)
                 }
-                Keyword::Mod
-                | Keyword::Main
-                | Keyword::Config(_)
-                | Keyword::Paradigm(_)
-                | Keyword::Visual
-                | Keyword::Type(_) => self.parse_defn(idx, indent),
-                Keyword::Impl => self.parse_impls(idx, indent),
+                Keyword::Impl => Ast::Impl {
+                    token_group: idx,
+                    body: self.parse_asts(indent + INDENT_INCR),
+                },
                 Keyword::End(_) => unreachable!(),
             },
             TokenKind::Special(SpecialToken::PoundSign) => Ast::Decor(idx),

@@ -65,7 +65,7 @@ impl<'a> DefnHeadParser<'a> {
                 Decorator::Protected => todo!(),
                 Decorator::Private => todo!(),
                 Decorator::Async => todo!(),
-                Decorator::Static => todo!(),
+                Decorator::Static => Accessibility::Public,
             },
             _ => Accessibility::PubCrate,
         })
@@ -79,10 +79,9 @@ impl<'a> DefnHeadParser<'a> {
                 .ok_or(AstError::ExpectEntityKeyword)?
                 .kind
             {
-                TokenKind::Decorator(_) => todo!(),
+                TokenKind::Decorator(decor) => self.parse_entity_kind()?,
                 TokenKind::Keyword(kw) => match kw {
-                    Keyword::Config(_) => todo!(),
-                    Keyword::Paradigm(_) => todo!(),
+                    Keyword::Paradigm(_) | Keyword::Visual => EntityKind::Form,
                     Keyword::Type(ty_kw) => EntityKind::Type(match ty_kw {
                         TypeKeyword::Type => TyKind::Any,
                         TypeKeyword::Struct => TyKind::Struct,
@@ -91,13 +90,9 @@ impl<'a> DefnHeadParser<'a> {
                         TypeKeyword::Structure => TyKind::Structure,
                         TypeKeyword::Inductive => TyKind::Inductive,
                     }),
-                    Keyword::Stmt(_) => todo!(),
-                    Keyword::Liason(_) => todo!(),
-                    Keyword::Main => EntityKind::Main,
                     Keyword::Mod => EntityKind::Module,
-                    Keyword::Visual => todo!(),
-                    Keyword::Use => unreachable!(),
                     Keyword::Impl | Keyword::End(_) => return Err(AstError::ExpectEntityKeyword),
+                    _ => unreachable!(),
                 },
                 _ => return Err(AstError::ExpectEntityKeyword),
                 TokenKind::Comment => todo!(),

@@ -61,8 +61,15 @@ pub enum Ast {
         body_kind: DefnBodyKind,
     },
     Impl {
-        entity_path: EntityPath,
-        impl_kind: ImplAstKind,
+        token_group: TokenGroupIdx,
+        body: Option<AstIdxRange>,
+    },
+    Main {
+        token_group: TokenGroupIdx,
+        body: Option<AstIdxRange>,
+    },
+    Config {
+        token_group: TokenGroupIdx,
         body: Option<AstIdxRange>,
     },
 }

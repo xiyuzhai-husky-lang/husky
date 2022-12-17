@@ -2,53 +2,64 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            5,
-                        ),
-                        body: 0..0,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            2,
-                        ),
-                        body: 0..0,
-                    },
-                ),
-                Stmt(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            3,
-                        ),
-                        body: 0..0,
-                    },
-                ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            4,
-                        ),
-                        body: 0..1,
-                    },
-                ),
-                Use(
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        5,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        2,
+                    ),
+                    body: None,
+                },
+                Stmt {
+                    token_group: TokenGroupIdx(
+                        3,
+                    ),
+                    body: None,
+                },
+                Err(
                     TokenGroupIdx(
-                        0,
+                        4,
+                    ),
+                    ExpectIdentifier(
+                        Some(
+                            [7:11, 7:12),
+                        ),
                     ),
                 ),
-                BlockDefn(
-                    AstBlock {
-                        head: TokenGroupIdx(
-                            1,
+                Use {
+                    token_group: TokenGroupIdx(
+                        0,
+                    ),
+                },
+                Defn {
+                    accessibility: PubCrate,
+                    entity_kind: Type(
+                        Struct,
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 299,
+                            },
                         ),
-                        body: 1..4,
-                    },
-                ),
+                    ),
+                    is_generic: false,
+                    token_group: TokenGroupIdx(
+                        1,
+                    ),
+                    body: Some(
+                        1..4,
+                    ),
+                    body_kind: Block,
+                },
             ],
         },
-        top_level_asts: 4..6,
+        top_level_asts: Some(
+            4..6,
+        ),
     },
 )

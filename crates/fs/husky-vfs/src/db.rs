@@ -1,7 +1,7 @@
 use crate::*;
 use husky_absolute_path::AbsolutePath;
-use husky_entity_path::{CrateKind, EntityPath, EntityPathData, EntityPathDb};
-use husky_package_path::{PackagePath, PackagePathData, PackagePathDb};
+use husky_entity_path::{EntityPath, EntityPathData, EntityPathDb};
+use husky_package_path::{CrateKind, PackagePath, PackagePathData, PackagePathDb};
 use husky_path_utils::collect_package_dirs;
 use husky_text::{TextChange, TextRange};
 

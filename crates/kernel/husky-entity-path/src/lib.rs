@@ -8,7 +8,6 @@ mod tests;
 mod utils;
 
 pub use db::*;
-pub use husky_entity_kind::CrateKind;
 pub use jar::*;
 pub use menu::*;
 

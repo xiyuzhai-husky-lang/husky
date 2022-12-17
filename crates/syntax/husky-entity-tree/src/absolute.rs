@@ -22,11 +22,9 @@ pub(crate) fn absolute_entity_path(
         EntityKind::Module => todo!(),
         EntityKind::Type(_) => todo!(),
         EntityKind::Trait => todo!(),
-        EntityKind::Member(_) => todo!(),
-        EntityKind::Function { requires_lazy } => todo!(),
-        EntityKind::Feature => todo!(),
+        EntityKind::Form => todo!(),
         EntityKind::EnumVariant => todo!(),
-        EntityKind::Main => todo!(),
+        EntityKind::Alias(_) => todo!(),
     }
     Ok(match entity_path.data(db) {
         EntityPathData::CrateRoot(_) => AbsoluteEntityPath(entity_path),

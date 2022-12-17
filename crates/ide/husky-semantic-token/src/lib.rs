@@ -67,39 +67,40 @@ pub enum SemanticTokenKind {
 
 impl SemanticTokenKind {
     pub fn token_type(self) -> u32 {
-        get_type_index(match self {
-            SemanticTokenKind::Keyword(_) => SemanticTokenType::KEYWORD,
-            SemanticTokenKind::Field => SemanticTokenType::PROPERTY,
-            SemanticTokenKind::Special => SemanticTokenType::OPERATOR,
-            SemanticTokenKind::Variable => SemanticTokenType::VARIABLE,
-            SemanticTokenKind::ThisValue => SemanticTokenType::VARIABLE,
-            SemanticTokenKind::FrameVariable => SemanticTokenType::VARIABLE,
-            SemanticTokenKind::Entity(husky_entity_kind) => match husky_entity_kind {
-                EntityKind::Module => SemanticTokenType::NAMESPACE,
-                EntityKind::Type(_) => SemanticTokenType::TYPE,
-                EntityKind::Trait => SemanticTokenType::TYPE,
-                EntityKind::Member(member_kind) => match member_kind {
-                    MemberKind::Method { .. } => SemanticTokenType::METHOD,
-                    MemberKind::Call => todo!(),
-                    MemberKind::TraitAssociatedType => todo!(),
-                    MemberKind::TraitAssociatedConstSize => todo!(),
-                    MemberKind::Field => todo!(),
-                    MemberKind::TraitAssociatedAny => panic!(),
-                },
-                EntityKind::Function { .. } => SemanticTokenType::FUNCTION,
-                EntityKind::Feature => SemanticTokenType::VARIABLE,
-                EntityKind::EnumVariant => SemanticTokenType::VARIABLE,
-                EntityKind::Main => panic!(),
-                EntityKind::Crate(_) => todo!(),
-            },
-            SemanticTokenKind::GenericPlaceholder => SemanticTokenType::TYPE_PARAMETER,
-            SemanticTokenKind::Parameter => SemanticTokenType::PARAMETER,
-            SemanticTokenKind::EnumVariant => SemanticTokenType::ENUM_MEMBER,
-            SemanticTokenKind::Method => SemanticTokenType::METHOD,
-            SemanticTokenKind::Literal => SemanticTokenType::NUMBER,
-            SemanticTokenKind::XmlTagKind => SemanticTokenType::FUNCTION,
-            SemanticTokenKind::WordPattern => SemanticTokenType::ENUM_MEMBER,
-        })
+        todo!()
+        // get_type_index(match self {
+        //     SemanticTokenKind::Keyword(_) => SemanticTokenType::KEYWORD,
+        //     SemanticTokenKind::Field => SemanticTokenType::PROPERTY,
+        //     SemanticTokenKind::Special => SemanticTokenType::OPERATOR,
+        //     SemanticTokenKind::Variable => SemanticTokenType::VARIABLE,
+        //     SemanticTokenKind::ThisValue => SemanticTokenType::VARIABLE,
+        //     SemanticTokenKind::FrameVariable => SemanticTokenType::VARIABLE,
+        //     SemanticTokenKind::Entity(husky_entity_kind) => match husky_entity_kind {
+        //         EntityKind::Module => SemanticTokenType::NAMESPACE,
+        //         EntityKind::Type(_) => SemanticTokenType::TYPE,
+        //         EntityKind::Trait => SemanticTokenType::TYPE,
+        //         EntityKind::Member(member_kind) => match member_kind {
+        //             MemberKind::Method { .. } => SemanticTokenType::METHOD,
+        //             MemberKind::Call => todo!(),
+        //             MemberKind::TraitAssociatedType => todo!(),
+        //             MemberKind::TraitAssociatedConstSize => todo!(),
+        //             MemberKind::Field => todo!(),
+        //             MemberKind::TraitAssociatedAny => panic!(),
+        //         },
+        //         EntityKind::Function { .. } => SemanticTokenType::FUNCTION,
+        //         EntityKind::Feature => SemanticTokenType::VARIABLE,
+        //         EntityKind::EnumVariant => SemanticTokenType::VARIABLE,
+        //         EntityKind::Main => panic!(),
+        //         EntityKind::Crate(_) => todo!(),
+        //     },
+        //     SemanticTokenKind::GenericPlaceholder => SemanticTokenType::TYPE_PARAMETER,
+        //     SemanticTokenKind::Parameter => SemanticTokenType::PARAMETER,
+        //     SemanticTokenKind::EnumVariant => SemanticTokenType::ENUM_MEMBER,
+        //     SemanticTokenKind::Method => SemanticTokenType::METHOD,
+        //     SemanticTokenKind::Literal => SemanticTokenType::NUMBER,
+        //     SemanticTokenKind::XmlTagKind => SemanticTokenType::FUNCTION,
+        //     SemanticTokenKind::WordPattern => SemanticTokenType::ENUM_MEMBER,
+        // })
     }
 
     pub fn token_modifiers_bitset(self) -> u32 {

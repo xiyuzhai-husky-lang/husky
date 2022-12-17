@@ -1,6 +1,6 @@
 use husky_absolute_path::AbsolutePath;
-use husky_entity_path::{CrateKind, EntityPath, EntityPathData};
-use husky_package_path::{PackagePath, PackagePathData};
+use husky_entity_path::{EntityPath, EntityPathData};
+use husky_package_path::{CrateKind, PackagePath, PackagePathData};
 use husky_path_utils::collect_package_dirs;
 use salsa::Durability;
 

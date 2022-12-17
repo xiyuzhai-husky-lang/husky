@@ -1,3 +1,5 @@
+use husky_entity_path::EntityPath;
+use husky_package_path::CrateKind;
 use husky_word::Identifier;
 use serde::{Deserialize, Serialize};
 
@@ -11,34 +13,15 @@ pub enum TyKind {
     Any,
 }
 
-// impl From<TyKeyword> for TyKind {
-//     fn from(keyword: TyKeyword) -> Self {
-//         match keyword {
-//             TyKeyword::Struct => TyKind::Struct,
-//             TyKeyword::Enum => TyKind::Enum,
-//             TyKeyword::Record => TyKind::Record,
-//         }
-//     }
-// }
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum EntityKind {
     Crate(CrateKind),
     Module,
     Type(TyKind),
     Trait,
-    Member(MemberKind),
-    Function { requires_lazy: bool },
-    Feature,
+    Form,
     EnumVariant,
-    Main,
-}
-
-#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
-pub enum CrateKind {
-    Library,
-    Main,
-    Binary(Identifier),
+    Alias(EntityPath),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
