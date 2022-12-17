@@ -15,7 +15,7 @@ husky-term = { path = "../../../../kernel/husky-term" }
 husky-vm = { path = "../../../../vm/husky-vm" }
 husky-print-utils = { path = "../../../../utils/husky-print-utils" }
 husky-dev-utils = { path = "../../../../utils/husky-dev-utils" }
-husky-entity-taxonomy = { path = "../../../../kernel/husky-entity-taxonomy" }
+husky-entity-card = { path = "../../../../kernel/husky-entity-card" }
 husky-trace-protocol = { path = "../../../../debugtime/husky-trace-protocol" }
 husky-vm-register-method = { path = "../../../../vm/husky-vm-register-method" }
 

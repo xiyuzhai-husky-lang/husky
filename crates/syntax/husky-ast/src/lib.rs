@@ -9,7 +9,7 @@ mod tests;
 pub use crate::error::{AstError, AstErrorVariant, AstResult};
 pub use db::AstDb;
 use husky_accessibility::Accessibility;
-use husky_entity_taxonomy::EntityClass;
+use husky_entity_card::EntityCard;
 pub use range::*;
 pub use specs::*;
 
@@ -55,7 +55,7 @@ pub enum Ast {
         token_group: TokenGroupIdx,
         body: Option<AstIdxRange>,
         accessibility: Accessibility,
-        entity_taxonomy: EntityClass,
+        entity_card: EntityCard,
         ident: Identifier,
         is_generic: bool,
         body_kind: DefnBodyKind,

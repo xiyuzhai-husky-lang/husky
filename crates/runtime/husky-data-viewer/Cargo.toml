@@ -13,7 +13,7 @@ salsa = { path = "../../abstraction/salsa" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 # syntax
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-card = { path = "../../kernel/husky-entity-card" }
 # vm
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 husky-vm-binding = { path = "../../vm/husky-vm-binding" }

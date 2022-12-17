@@ -39,7 +39,7 @@ husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 husky-term = { path = "../../kernel/husky-term" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-card = { path = "../../kernel/husky-entity-card" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-syntax-fmt = { path = "../../syntax/husky-syntax-fmt" }
 husky-text = { path = "../../lex/husky-text" }

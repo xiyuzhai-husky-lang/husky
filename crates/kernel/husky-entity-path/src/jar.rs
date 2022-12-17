@@ -1,9 +1,9 @@
 use crate::*;
-use ancestry::book_ancestry;
+use ancestry::apparent_ancestry;
 
 pub struct EntityPathJar(
     <EntityPath as salsa::storage::IngredientsFor>::Ingredients,
-    <book_ancestry as salsa::storage::IngredientsFor>::Ingredients,
+    <apparent_ancestry as salsa::storage::IngredientsFor>::Ingredients,
     pub(crate) EntityPathMenuPlace,
 );
 
@@ -24,13 +24,13 @@ impl salsa::storage::HasIngredientsFor<EntityPath> for EntityPathJar {
     }
 }
 
-impl salsa::storage::HasIngredientsFor<book_ancestry> for EntityPathJar {
-    fn ingredient(&self) -> &<book_ancestry as salsa::storage::IngredientsFor>::Ingredients {
+impl salsa::storage::HasIngredientsFor<apparent_ancestry> for EntityPathJar {
+    fn ingredient(&self) -> &<apparent_ancestry as salsa::storage::IngredientsFor>::Ingredients {
         &self.1
     }
     fn ingredient_mut(
         &mut self,
-    ) -> &mut <book_ancestry as salsa::storage::IngredientsFor>::Ingredients {
+    ) -> &mut <apparent_ancestry as salsa::storage::IngredientsFor>::Ingredients {
         &mut self.1
     }
 }
@@ -42,7 +42,7 @@ impl<'salsa_db> salsa::jar::Jar<'salsa_db> for EntityPathJar {
         DB: salsa::storage::JarFromJars<Self> + salsa::storage::DbWithJar<Self>,
     {
         let i0 = <EntityPath as salsa::storage::IngredientsFor>::create_ingredients(routes);
-        let i1 = <book_ancestry as salsa::storage::IngredientsFor>::create_ingredients(routes);
+        let i1 = <apparent_ancestry as salsa::storage::IngredientsFor>::create_ingredients(routes);
         Self(i0, i1, Default::default())
     }
 }

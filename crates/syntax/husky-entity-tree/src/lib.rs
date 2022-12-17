@@ -1,6 +1,7 @@
 #![feature(trait_upcasting)]
 mod absolute;
 mod alias;
+mod ancestry;
 mod builder;
 mod db;
 mod error;
@@ -17,11 +18,12 @@ pub use alias::*;
 pub use db::EntityTreeDb;
 pub use error::*;
 
+use ancestry::*;
 use builder::*;
 use error::EntityTreeError;
 use husky_ast::AstIdx;
+use husky_entity_card::EntityCard;
 use husky_entity_path::*;
-use husky_entity_taxonomy::EntityClass;
 use husky_package_path::*;
 use husky_vfs::VfsResult;
 use idx_arena::{Arena, ArenaIdxRange};
@@ -40,6 +42,7 @@ pub struct EntityTreeJar(
     module_level_use_alls,
     module_level_use_ones,
     entity_node,
+    closest_module_in_apparent_ancestry,
     taxonomy::entity_class,
     visibility::visibility,
 );
