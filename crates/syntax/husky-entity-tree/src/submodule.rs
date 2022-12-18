@@ -42,10 +42,10 @@ fn collect_all_modules(db: &dyn EntityTreeDb, root: EntityPath, all_modules: &mu
 
 #[test]
 fn submodules_works() {
-    expect_test_modules!(DB, submodules);
+    DB::expect_test_modules("submodules", DB::submodules)
 }
 
 #[test]
 fn all_modules_works() {
-    expect_test_crates!(DB, all_modules_within_crate);
+    DB::expect_test_crates("all_modules_within_crate", DB::all_modules_within_crate)
 }

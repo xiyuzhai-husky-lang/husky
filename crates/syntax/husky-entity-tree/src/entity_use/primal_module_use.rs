@@ -17,8 +17,15 @@ pub struct PrimalModuleUseSheet {
 pub(crate) fn primal_module_use_sheet(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> PrimalModuleUseSheet {
-    PrimalModuleUseBuilder::new(db, crate_path).build_all()
+) -> VfsResult<PrimalModuleUseSheet> {
+    Ok(PrimalModuleUseBuilder::new(db, crate_path)?.build_all())
+}
+
+#[test]
+fn primal_module_use_sheet_works() {
+    DB::expect_test_crates("primal_module_use_sheet", |db, crate_path| {
+        primal_module_use_sheet(db, crate_path)
+    })
 }
 
 pub struct PrimalModuleUseBuilder<'a> {
@@ -30,15 +37,23 @@ pub struct PrimalModuleUseBuilder<'a> {
 }
 
 impl<'a> PrimalModuleUseBuilder<'a> {
-    fn new(db: &dyn EntityTreeDb, crate_path: CratePath) -> Self {
+    fn new(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> VfsResult<Self> {
+        fn collect_initial_module_uses(
+            db: &dyn EntityTreeDb,
+            crate_path: CratePath,
+        ) -> VfsResult<HashMap<EntityPath, VfsResult<Vec<EntityTree>>>> {
+            let all_modules = db.all_modules_within_crate(crate_path).as_ref()?;
+            todo!()
+        }
+
         let root = db.it_entity_path(EntityPathData::CrateRoot(crate_path));
-        PrimalModuleUseBuilder {
+        Ok(PrimalModuleUseBuilder {
             db,
             root,
-            module_uses_map: todo!(),
+            module_uses_map: collect_initial_module_uses(db, crate_path)?,
             modified_modules: Default::default(),
             errors: Default::default(),
-        }
+        })
     }
 
     fn build_all(mut self) -> PrimalModuleUseSheet {
@@ -68,7 +83,20 @@ impl<'a> PrimalModuleUseBuilder<'a> {
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn module_use_alls(db: &dyn EntityTreeDb, module: EntityPath) -> VfsResult<Vec<UseAll>> {
     let ast_sheet = db.ast_sheet(module).as_ref()?;
-    todo!()
+    Ok(ast_sheet
+        .top_level_asts_indexed_iter()
+        .filter_map(|(ast_idx, ast)| match ast {
+            Ast::Use { token_group } => todo!(),
+            _ => None,
+        })
+        .collect())
+}
+
+#[test]
+fn module_use_alls_works() {
+    DB::expect_test_modules("module_use_alls", |db, entity_path| {
+        module_use_alls(db, entity_path)
+    })
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
@@ -81,6 +109,13 @@ pub(crate) fn module_use_ones(db: &dyn EntityTreeDb, module: EntityPath) -> VfsR
             _ => None,
         })
         .collect())
+}
+
+#[test]
+fn module_use_ones_works() {
+    DB::expect_test_modules("module_use_ones", |db, entity_path| {
+        module_use_ones(db, entity_path)
+    })
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
