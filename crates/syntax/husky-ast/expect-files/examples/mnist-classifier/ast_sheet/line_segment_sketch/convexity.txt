@@ -58,14 +58,11 @@ Ok(
                         0..2,
                     ),
                 },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                Comment(
+                    TokenGroupIdx(
                         14,
                     ),
-                    body: ArenaIdxRange(
-                        2..2,
-                    ),
-                },
+                ),
                 Stmt {
                     token_group: TokenGroupIdx(
                         15,
@@ -190,7 +187,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 339,
+                                value: 338,
                             },
                         ),
                     ),

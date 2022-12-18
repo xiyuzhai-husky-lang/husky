@@ -137,14 +137,11 @@ Ok(
                         11..11,
                     ),
                 },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                Comment(
+                    TokenGroupIdx(
                         27,
                     ),
-                    body: ArenaIdxRange(
-                        11..11,
-                    ),
-                },
+                ),
                 Stmt {
                     token_group: TokenGroupIdx(
                         28,
@@ -177,14 +174,11 @@ Ok(
                         11..11,
                     ),
                 },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                Comment(
+                    TokenGroupIdx(
                         32,
                     ),
-                    body: ArenaIdxRange(
-                        11..11,
-                    ),
-                },
+                ),
                 Stmt {
                     token_group: TokenGroupIdx(
                         33,
@@ -269,7 +263,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 275,
+                                value: 274,
                             },
                         ),
                     ),
@@ -288,7 +282,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 276,
+                                value: 275,
                             },
                         ),
                     ),
@@ -307,7 +301,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 77,
+                                value: 76,
                             },
                         ),
                     ),

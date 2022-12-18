@@ -77,9 +77,11 @@ impl<'a> AstParser<'a> {
                     token_group: idx,
                     body: self.parse_asts(indent + INDENT_INCR),
                 },
-                Keyword::Mod | Keyword::Paradigm(_) | Keyword::Visual | Keyword::Type(_) => {
-                    self.parse_defn(idx, indent)
-                }
+                Keyword::Mod
+                | Keyword::Paradigm(_)
+                | Keyword::Visual
+                | Keyword::Trait
+                | Keyword::Type(_) => self.parse_defn(idx, indent),
                 Keyword::Impl => Ast::Impl {
                     token_group: idx,
                     body: self.parse_asts(indent + INDENT_INCR),
@@ -87,7 +89,14 @@ impl<'a> AstParser<'a> {
                 Keyword::End(_) => unreachable!(),
             },
             TokenKind::Special(SpecialToken::PoundSign) => Ast::Decor(idx),
-            _ => self.parse_stmt(idx, indent),
+            TokenKind::Keyword(_)
+            | TokenKind::Special(_)
+            | TokenKind::Identifier(_)
+            | TokenKind::WordOpr(_)
+            | TokenKind::Literal(_)
+            | TokenKind::Unrecognized(_)
+            | TokenKind::IllFormedLiteral(_) => self.parse_stmt(idx, indent),
+            TokenKind::Comment => Ast::Comment(idx),
         })
     }
 

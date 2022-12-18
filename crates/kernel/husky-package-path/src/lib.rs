@@ -33,5 +33,5 @@ pub enum PackagePathData {
 #[salsa::interned(jar = PackagePathJar)]
 pub struct PackagePath {
     #[return_ref]
-    data: PackagePathData,
+    pub data: PackagePathData,
 }

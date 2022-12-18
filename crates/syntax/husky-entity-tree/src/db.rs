@@ -49,7 +49,7 @@ where
     }
 
     fn submodules(&self, entity_path: EntityPath) -> &VfsResult<Vec<EntityPath>> {
-        todo!()
+        submodules(self, entity_path)
     }
 
     fn all_modules_within_crate(&self, crate_path: CratePath) -> &VfsResult<Vec<EntityPath>> {

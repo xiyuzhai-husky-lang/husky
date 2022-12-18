@@ -14,7 +14,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 32,
+                                value: 31,
                             },
                         ),
                     ),
@@ -45,13 +45,24 @@ Ok(
                         0,
                     ),
                 ),
-                Stmt {
+                Defn {
                     token_group: TokenGroupIdx(
                         1,
                     ),
                     body: ArenaIdxRange(
                         0..2,
                     ),
+                    accessibility: PubCrate,
+                    entity_card: Trait,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 22,
+                            },
+                        ),
+                    ),
+                    is_generic: true,
+                    body_kind: Block,
                 },
             ],
         },

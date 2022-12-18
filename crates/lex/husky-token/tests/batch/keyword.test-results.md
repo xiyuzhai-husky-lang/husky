@@ -68,3 +68,24 @@ output
     },
 ]
 ```
+
+## Test#3
+
+input
+
+```husky
+trait
+```
+
+output
+
+```husky
+[
+    Token {
+        range: [1:1, 1:6),
+        kind: Keyword(
+            Trait,
+        ),
+    },
+]
+```

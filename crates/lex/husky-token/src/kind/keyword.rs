@@ -1,20 +1,20 @@
 mod ambiguous;
 mod config;
 mod end;
+mod form;
 mod liason;
-mod paradigm;
 mod stmt;
 mod ty;
 
 pub use ambiguous::*;
 pub use config::*;
 pub use end::*;
+pub use form::*;
 pub use liason::*;
-pub use paradigm::*;
 pub use stmt::*;
 pub use ty::*;
 
-use crate::TokenKind;
+use crate::*;
 
 impl const From<Keyword> for TokenKind {
     fn from(keyword: Keyword) -> Self {
@@ -30,7 +30,7 @@ use std::ops::Deref;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Keyword {
     Config(ConfigKeyword),
-    Paradigm(ParadigmKeyword),
+    Paradigm(FormKeyword),
     Type(TypeKeyword),
     Stmt(StmtKeyword),
     Liason(LiasonKeyword),
@@ -39,6 +39,7 @@ pub enum Keyword {
     Mod,
     Visual,
     Impl,
+    Trait,
     End(EndKeyword),
 }
 
@@ -60,6 +61,7 @@ impl Keyword {
             Keyword::Main => "main",
             Keyword::Visual => "visual",
             Keyword::Liason(keyword) => keyword.as_str(),
+            Keyword::Trait => "trait",
             Keyword::Impl => "impl",
             Keyword::End(_) => todo!(),
         }

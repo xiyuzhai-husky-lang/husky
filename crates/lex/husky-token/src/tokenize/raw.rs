@@ -89,7 +89,7 @@ impl const From<WordOpr> for RawTokenVariant {
     }
 }
 
-impl const Into<RawTokenVariant> for ParadigmKeyword {
+impl const Into<RawTokenVariant> for FormKeyword {
     fn into(self) -> RawTokenVariant {
         RawTokenVariant::Certain(self.into())
     }

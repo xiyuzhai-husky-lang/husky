@@ -7,7 +7,7 @@ use thiserror::Error;
 #[derive(Debug, Error, Clone, PartialEq, Eq)]
 pub enum VfsError {
     #[error("file {0:?} not found")]
-    FileNotFound(PathBuf),
+    FileNotExists(PathBuf),
     #[error("IO Error: ???")]
     IO {
         path: PathBuf,
