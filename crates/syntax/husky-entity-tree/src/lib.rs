@@ -32,6 +32,8 @@ use primal_tree::*;
 use submodule::*;
 #[cfg(test)]
 use tests::*;
+#[cfg(test)]
+use tests::*;
 
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
@@ -46,6 +48,7 @@ pub struct EntityTreeJar(
     entity_accessibility,
     primal_module_use_sheet,
     module_use_sheet,
+    all_modules_within_crate,
 );
 
 #[derive(Debug, PartialEq, Eq)]

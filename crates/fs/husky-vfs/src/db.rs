@@ -1,7 +1,7 @@
 use crate::*;
 use husky_absolute_path::AbsolutePath;
 use husky_entity_path::{EntityPath, EntityPathData, EntityPathDb};
-use husky_package_path::{CrateKind, PackagePath, PackagePathData, PackagePathDb};
+use husky_package_path::{CrateKind, CratePath, PackagePath, PackagePathData, PackagePathDb};
 use husky_path_utils::collect_package_dirs;
 use husky_text::{TextChange, TextRange};
 
@@ -10,9 +10,10 @@ pub trait VfsDb:
 {
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
     fn module_content(&self, entity_path: EntityPath) -> VfsResult<&str>;
-    fn package_dir(&self, package: PackagePath) -> &VfsResult<AbsolutePath>;
+    fn package_dir(&self, package_path: PackagePath) -> &VfsResult<AbsolutePath>;
     fn collect_local_packages(&self, dir: &Path) -> VfsResult<Vec<PackagePath>>;
-    fn collect_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>>;
+    fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
+    fn collect_possible_modules(&self, package_path: PackagePath) -> VfsResult<Vec<EntityPath>>;
     fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()>;
     fn apply_live_file_changes(&mut self, path: &Path, changes: Vec<TextChange>) -> VfsResult<()>;
     fn resolve_module_path(&self, path: &Path) -> VfsResult<EntityPath>;
@@ -155,6 +156,24 @@ where
             .collect()
     }
 
+    fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>> {
+        let mut crates: Vec<CratePath> = vec![];
+        let package_dir = self.package_dir(package_path).as_ref()?;
+        if package_dir.join("src/lib.hsy").exists() {
+            crates.push(CratePath::new(self, package_path, CrateKind::Library));
+        }
+        if package_dir.join("src/main.hsy").exists() {
+            crates.push(CratePath::new(self, package_path, CrateKind::Main));
+        }
+        if package_dir.join("src/bin").exists() {
+            todo!()
+        }
+        if package_dir.join("tests").exists() {
+            todo!()
+        }
+        Ok(crates)
+    }
+
     fn collect_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>> {
         fn collect_possible_modules(
             db: &dyn VfsDb,
@@ -174,23 +193,35 @@ where
             paths.sort();
             for path in paths {
                 if path.is_dir() {
-                    let Some(filename) = path
-                        .file_name() else { continue };
-                    let Some(filename) = filename.to_str() else { continue };
-                    let Some(ident) = db.it_ident_borrowed(filename) else { continue };
-                    let new_parent = db.it_entity_path(EntityPathData::Childpath { parent, ident });
-                    collect_possible_modules(db, new_parent, &path, modules)?
+                    if let Some(ident) = path
+                        .file_name()
+                        .and_then(|filename| filename.to_str())
+                        .and_then(|filename| db.it_ident_borrowed(filename))
+                    {
+                        collect_possible_modules(
+                            db,
+                            db.it_entity_path(EntityPathData::Childpath { parent, ident }),
+                            &path,
+                            modules,
+                        )?
+                    }
                 } else if path.is_file() && path.extension().and_then(|s| s.to_str()) == Some("hsy")
                 {
-                    let Some(ident) = path
-                        .file_stem()
-                        .and_then(|s| s.to_str())
-                        .and_then(|s| db.it_ident_borrowed(s))
-                        else { continue };
-                    match db.dt_ident(ident) {
-                        "main" | "lib" => (),
-                        _ => modules
-                            .push(db.it_entity_path(EntityPathData::Childpath { parent, ident })),
+                    if let Some(file_stem) = path.file_stem().and_then(|s| s.to_str()) {
+                        let push_flag = match file_stem {
+                            "main" | "lib" => match parent.data(db) {
+                                EntityPathData::CrateRoot(_) => false,
+                                EntityPathData::Childpath { .. } => true,
+                            },
+                            _ => true,
+                        };
+                        if push_flag {
+                            if let Some(ident) = db.it_ident_borrowed(file_stem) {
+                                modules.push(
+                                    db.it_entity_path(EntityPathData::Childpath { parent, ident }),
+                                )
+                            }
+                        }
                     }
                 }
             }

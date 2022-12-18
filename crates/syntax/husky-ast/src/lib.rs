@@ -98,6 +98,12 @@ pub(crate) fn ast_sheet(db: &dyn AstDb, entity_path: EntityPath) -> VfsResult<As
     Ok(AstParser::new(db.word_db(), token_sheet).parse_all())
 }
 
+#[test]
+fn ast_sheet_works() {
+    use tests::*;
+    DB::expect_test_modules("ast_sheet", AstDb::ast_sheet);
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct AstSheet {
     arena: AstArena,

@@ -25,6 +25,8 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb {
     fn is_absolute(&self, entity_path: EntityPath) -> EntityTreeResult<bool> {
         Ok(self.entity_absolute_path(entity_path).as_ref()?.path() == entity_path)
     }
+    fn submodules(&self, entity_path: EntityPath) -> &VfsResult<Vec<EntityPath>>;
+    fn all_modules_within_crate(&self, crate_path: CratePath) -> &VfsResult<Vec<EntityPath>>;
 }
 
 impl<T> EntityTreeDb for T
@@ -44,5 +46,13 @@ where
 
     fn primal_entity_tree_sheet(&self, module: EntityPath) -> &VfsResult<PrimalEntityTreeSheet> {
         primal_entity_tree_sheet(self, module)
+    }
+
+    fn submodules(&self, entity_path: EntityPath) -> &VfsResult<Vec<EntityPath>> {
+        todo!()
+    }
+
+    fn all_modules_within_crate(&self, crate_path: CratePath) -> &VfsResult<Vec<EntityPath>> {
+        all_modules_within_crate(self, crate_path)
     }
 }

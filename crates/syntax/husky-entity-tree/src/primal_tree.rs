@@ -7,8 +7,8 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct PrimalEntityTreeSheet {
     arena: EntityTreeArena,
-    top_level_entities: EntityTreeIdxRange,
-    isolate_entities: EntityTreeIdxRange,
+    top_level_entities_idx_range: EntityTreeIdxRange,
+    isolate_entities_idx_range: EntityTreeIdxRange,
 }
 
 impl PrimalEntityTreeSheet {
@@ -30,6 +30,26 @@ impl PrimalEntityTreeSheet {
             .iter()
             .find(|node| node.entity_path() == entity_path)
     }
+
+    pub(crate) fn top_level_entities<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = (Accessibility, EntityCard, EntityPath)> + 'a {
+        self[&self.top_level_entities_idx_range].iter().map(|tree| {
+            (
+                tree.node.accessibility(),
+                tree.node.card(),
+                tree.node.entity_path(),
+            )
+        })
+    }
+}
+
+impl std::ops::Deref for PrimalEntityTreeSheet {
+    type Target = EntityTreeArena;
+
+    fn deref(&self) -> &Self::Target {
+        &self.arena
+    }
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
@@ -46,7 +66,7 @@ struct PrimalEntityTreeBuilder<'a> {
     module: EntityPath,
     ast_sheet: &'a AstSheet,
     arena: EntityTreeArena,
-    isolate_entities: Vec<EntityTree>,
+    sporadic_entities: Vec<EntityTree>,
 }
 
 impl<'a> PrimalEntityTreeBuilder<'a> {
@@ -56,7 +76,7 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
             module,
             ast_sheet,
             arena: Default::default(),
-            isolate_entities: Default::default(),
+            sporadic_entities: Default::default(),
         }
     }
 
@@ -64,8 +84,8 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
         // order matters!
         let top_level_nodes = self.process_body(Some(self.module), self.ast_sheet.top_level_asts());
         Ok(PrimalEntityTreeSheet {
-            top_level_entities: self.arena.alloc_batch(top_level_nodes),
-            isolate_entities: self.arena.alloc_batch(self.isolate_entities),
+            top_level_entities_idx_range: self.arena.alloc_batch(top_level_nodes),
+            isolate_entities_idx_range: self.arena.alloc_batch(self.sporadic_entities),
             arena: self.arena,
         })
     }
@@ -78,7 +98,11 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
     ) -> Option<EntityTree> {
         match ast {
             Ast::Err(_, _) | Ast::Use { .. } | Ast::Comment(_) | Ast::Decor(_) => None,
-            Ast::Stmt { token_group, body } => todo!(),
+            Ast::Stmt { token_group, body } => {
+                let sporadic_entities = self.process_body(None, body);
+                self.sporadic_entities.extend(sporadic_entities);
+                None
+            }
             Ast::IfElseStmts {
                 if_stmt,
                 elif_stmts,
@@ -131,7 +155,7 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
                         Ast::Err(_, _) | Ast::Use { .. } | Ast::Comment(_) | Ast::Decor(_) => (),
                         Ast::Defn { body, .. } => {
                             let isolate_entities = self.process_body(None, body);
-                            self.isolate_entities.extend(isolate_entities)
+                            self.sporadic_entities.extend(isolate_entities)
                         }
                         Ast::Stmt { .. }
                         | Ast::IfElseStmts { .. }
