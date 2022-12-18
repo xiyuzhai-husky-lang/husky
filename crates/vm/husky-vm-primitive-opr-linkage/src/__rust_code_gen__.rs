@@ -114,6 +114,10 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
             |arguments, _| (arguments[0].downcast_f32() - arguments[1].downcast_f32()).to_register(),
             none
         ),
+        (Bool, And, Bool) => transfer_linkage!(
+            |arguments, _| (arguments[0].downcast_bool() && arguments[1].downcast_bool()).to_register(),
+            none
+        ),
         (I32, Power, I32) => transfer_linkage!(
             |arguments, _| {
                 num::pow(arguments[0].downcast_i32(), arguments[1].downcast_i32() as usize).to_register()

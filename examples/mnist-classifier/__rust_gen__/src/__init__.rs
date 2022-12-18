@@ -2676,6 +2676,111 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::four::left_components"
+        },
+        feature_linkage!(four::left_components, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::four::left_coordinate_max",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    four::left_coordinate_max(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx four::left_coordinate_max as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::geom2d::RelativeBoundingBox::xmax" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &geom2d::RelativeBoundingBox = __arguments[0].downcast_temp_ref(&__registration__::__RELATIVE_BOUNDING_BOX_VTABLE);
+                    __this.xmax().to_register()
+                }
+                __wrapper
+            },
+            some base geom2d::RelativeBoundingBox::xmax as fn(&'static geom2d::RelativeBoundingBox) -> f32
+        ),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::four::components_max_downwards"
+        },
+        feature_linkage!(four::components_max_downwards, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::four::displacement_downwards",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    four::displacement_downwards(cc).to_register()
+                }
+                __wrapper
+            },
+            some base four::displacement_downwards as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::four::components_max_heights"
+        },
+        feature_linkage!(four::components_max_heights, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::four::cc_box_heights",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    four::cc_box_heights(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx four::cc_box_heights as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine { route: "mnist_classifier::connected_component::ConnectedComponent::top_k_row_right_mass_sum" },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let __this: &connected_component::ConnectedComponent = __arguments[0].downcast_temp_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE);
+                    let k: i32 = __arguments[1].downcast_i32();
+                    __this.top_k_row_right_mass_sum(k).to_register()
+                }
+                __wrapper
+            },
+            some base connected_component::ConnectedComponent::top_k_row_right_mass_sum as fn(&'static connected_component::ConnectedComponent, i32) -> f32
+        ),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
             route: "mnist_classifier::five::five_match"
         },
         feature_linkage!(five::five_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
@@ -2783,6 +2888,30 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::FeatureEagerBlock {
+            route: "mnist_classifier::seven::simple_seven_match"
+        },
+        feature_linkage!(seven::simple_seven_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::seven::simple_leftdown_pattern",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    seven::simple_leftdown_pattern(cc).to_register()
+                }
+                __wrapper
+            },
+            some base seven::simple_leftdown_pattern as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::FeatureEagerBlock {
             route: "mnist_classifier::seven::special_seven_match"
         },
         feature_linkage!(seven::special_seven_match, fermi::FermiMatchResult<'eval>, __registration__::__FERMI_MATCH_RESULT_VTABLE),
@@ -2803,6 +2932,24 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some ctx seven::leftupcc_pattern as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
+        ),
+    ),
+    (
+        __StaticLinkageKey::Routine {
+            route: "mnist_classifier::seven::leftdowncc_pattern",
+        },
+        transfer_linkage!(
+            {
+                unsafe fn __wrapper<'eval>(
+                    __arguments: &mut [__Register<'eval>],
+                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
+                ) -> __Register<'eval> {
+                    let cc: &'eval line_segment_sketch::concave_component::ConcaveComponent<'eval> = __arguments[0].downcast_eval_ref(&__registration__::__CONCAVE_COMPONENT_VTABLE);
+                    seven::leftdowncc_pattern(cc, __opt_ctx.unwrap()).to_register()
+                }
+                __wrapper
+            },
+            some ctx seven::leftdowncc_pattern as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
         ),
     ),
     (
@@ -2895,23 +3042,6 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
                 __wrapper
             },
             some ctx nine::big_cc as fn(&'static line_segment_sketch::concave_component::ConcaveComponent<'static>, &dyn __EvalContext<'static>) -> Option<f32>
-        ),
-    ),
-    (
-        __StaticLinkageKey::Routine { route: "mnist_classifier::connected_component::ConnectedComponent::top_k_row_right_mass_sum" },
-        transfer_linkage!(
-            {
-                unsafe fn __wrapper<'eval>(
-                    __arguments: &mut [__Register<'eval>],
-                    __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-                ) -> __Register<'eval> {
-                    let __this: &connected_component::ConnectedComponent = __arguments[0].downcast_temp_ref(&__registration__::__CONNECTED_COMPONENT_VTABLE);
-                    let k: i32 = __arguments[1].downcast_i32();
-                    __this.top_k_row_right_mass_sum(k).to_register()
-                }
-                __wrapper
-            },
-            some base connected_component::ConnectedComponent::top_k_row_right_mass_sum as fn(&'static connected_component::ConnectedComponent, i32) -> f32
         ),
     ),
     (

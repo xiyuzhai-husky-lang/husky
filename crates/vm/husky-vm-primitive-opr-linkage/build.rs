@@ -66,6 +66,8 @@ pub fn resolve_primitive_pure_binary_opr_linkage(
         (F32, Leq, F32),
         (F32, Mul, F32),
         (F32, Sub, F32),
+        // bool
+        (Bool, And, Bool),
     ];
     for (lopd_ty_ident, opr, ropd_ty_ident) in SUPPORTED_PURE_BINARY_OPNS {
         let lopd_ty_husky_name = lopd_ty_ident.as_str();
