@@ -2,6 +2,9 @@
     padding: 2px;
     padding-right: 3px;
 }
+.TraceNodeInternal:hover {
+    outline: rgb(127, 83, 0) dashed 2px;
+}
 .TraceNodeInternal {
     padding: 0px;
 }

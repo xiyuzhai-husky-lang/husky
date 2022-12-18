@@ -12,7 +12,7 @@ mod zero
 mod one
 mod two
 mod three
-// mod four
+mod four
 mod five
 mod six
 mod seven

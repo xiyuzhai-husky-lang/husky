@@ -16,6 +16,7 @@ pub(crate) mod connected_component;
 pub(crate) mod eight;
 pub(crate) mod fermi;
 pub(crate) mod five;
+pub(crate) mod four;
 pub(crate) mod geom2d;
 pub(crate) mod line_segment_sketch;
 pub(crate) mod major;
