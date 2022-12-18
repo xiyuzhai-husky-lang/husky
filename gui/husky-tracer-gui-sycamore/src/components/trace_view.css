@@ -4,6 +4,7 @@
     overflow-y: scroll;
     scrollbar-width: none;
 }
+
 .TraceView::-webkit-scrollbar {
     display: none;
 }
