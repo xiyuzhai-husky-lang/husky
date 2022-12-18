@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet};
-use husky_token::{TokenIdx, TokenStream};
+use husky_token::{TokenIdx, TokenIter};
 use husky_word::Identifier;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -77,7 +77,7 @@ impl<'a> EntityUseExprCollector<'a> {
 
 pub struct EntityUseExprParser<'a> {
     db: &'a dyn EntityTreeDb,
-    token_iter: TokenStream<'a>,
+    token_iter: TokenIter<'a>,
 }
 
 impl<'a> EntityUseExprParser<'a> {

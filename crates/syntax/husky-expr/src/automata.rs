@@ -8,7 +8,7 @@ use crate::*;
 use husky_check_utils::should;
 use husky_entity_tree::EntityTreeDb;
 use husky_symbol_syntax::{SymbolContext, SymbolSheet};
-use husky_token::TokenStream;
+use husky_token::TokenIter;
 use husky_token::{Token, TokenKind};
 use opr::*;
 use resolve::*;
@@ -16,14 +16,14 @@ use stack::*;
 
 pub(crate) struct Automata<'a, 'b> {
     db: &'a dyn EntityTreeDb,
-    tokens: TokenStream<'a>,
+    tokens: TokenIter<'a>,
     symbols: &'a mut SymbolContext<'b>,
     arena: &'a mut ExprArena,
     stack: AutomataStack,
 }
 
 impl<'a, 'b> Automata<'a, 'b> {
-    pub(crate) fn tokens(&self) -> &TokenStream<'a> {
+    pub(crate) fn tokens(&self) -> &TokenIter<'a> {
         &self.tokens
     }
 
