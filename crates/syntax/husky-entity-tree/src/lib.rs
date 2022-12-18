@@ -1,20 +1,20 @@
 #![feature(trait_upcasting)]
 mod absolute;
 mod db;
+mod entity_use;
 mod error;
 mod implementation;
-mod module_use;
 mod node;
-mod primal_module_use;
 mod primal_tree;
 mod submodule;
 #[cfg(test)]
 mod tests;
+mod utils;
 
 pub use absolute::*;
 pub use db::EntityTreeDb;
+pub use entity_use::*;
 pub use error::*;
-pub use primal_module_use::*;
 
 use error::EntityTreeError;
 use husky_accessibility::Accessibility;
@@ -25,9 +25,7 @@ use husky_package_path::*;
 use husky_vfs::VfsResult;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use implementation::ImplementationMap;
-use module_use::*;
 use node::*;
-use primal_module_use::*;
 use primal_tree::*;
 use submodule::*;
 #[cfg(test)]
@@ -49,6 +47,7 @@ pub struct EntityTreeJar(
     primal_module_use_sheet,
     module_use_sheet,
     all_modules_within_crate,
+    module_use_exprs,
 );
 
 #[derive(Debug, PartialEq, Eq)]

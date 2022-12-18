@@ -3,8 +3,9 @@
 mod db;
 mod error;
 mod group;
+mod idx;
+mod iter;
 mod kind;
-mod stream;
 #[cfg(test)]
 mod tests;
 mod tokenize;
@@ -13,8 +14,9 @@ mod utils;
 pub use db::*;
 pub use error::*;
 pub use group::*;
+pub use idx::*;
+pub use iter::*;
 pub use kind::*;
-pub use stream::*;
 pub use tokenize::Tokenize;
 
 use husky_opn_syntax::*;

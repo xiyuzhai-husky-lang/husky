@@ -1,6 +1,5 @@
 #![feature(trait_upcasting)]
 mod inner;
-mod macros;
 
 use husky_absolute_path::AbsolutePath;
 use husky_entity_path::*;
