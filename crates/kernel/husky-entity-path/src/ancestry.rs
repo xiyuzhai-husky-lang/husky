@@ -34,7 +34,7 @@ fn apparent_ancestry_works() {
         apparent_ancestry(db, entity_path)
             .paths
             .iter()
-            .map(|path| path.display(db))
+            .map(|path| path.show(db))
             .collect()
     }
 

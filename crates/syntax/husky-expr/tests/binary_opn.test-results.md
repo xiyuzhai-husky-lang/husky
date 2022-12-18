@@ -42,7 +42,9 @@ Arena {
                         Add,
                     ),
                 ),
-                opds: 0..2,
+                opds: ArenaIdxRange(
+                    0..2,
+                ),
             },
             range: [1:1, 1:6),
             base_scope_result: None,
@@ -93,7 +95,9 @@ Arena {
                         Sub,
                     ),
                 ),
-                opds: 0..2,
+                opds: ArenaIdxRange(
+                    0..2,
+                ),
             },
             range: [1:1, 1:6),
             base_scope_result: None,

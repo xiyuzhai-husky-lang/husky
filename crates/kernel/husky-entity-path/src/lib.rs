@@ -72,11 +72,11 @@ impl EntityPath {
         db.it_child_entity_path(self, ident)
     }
 
-    pub fn display(self, db: &dyn EntityPathDb) -> String {
+    pub fn show(self, db: &dyn EntityPathDb) -> String {
         match self.data(db) {
             EntityPathData::CrateRoot(_) => "crate".into(),
             EntityPathData::Childpath { parent, ident } => {
-                format!("{}::{}", parent.display(db), db.dt_ident(ident))
+                format!("{}::{}", parent.show(db), db.dt_ident(ident))
             }
         }
     }

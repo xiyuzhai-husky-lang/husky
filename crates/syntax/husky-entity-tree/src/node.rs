@@ -2,8 +2,10 @@ use crate::*;
 use husky_accessibility::Accessibility;
 use husky_entity_card::EntityCard;
 use husky_entity_path::EntityPathData;
+use husky_print_utils::p;
 use husky_word::Identifier;
 use idx_arena::ArenaIdx;
+use salsa::DebugWithDb;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct EntityNode {
@@ -53,15 +55,16 @@ pub(crate) fn entity_node(
 ) -> EntityTreeResult<EntityNode> {
     Ok(
         if let Some(parent_module) = parent_module(db, entity_path).as_ref()? {
-            let entity_tree_sheet = db.entity_tree_sheet(*parent_module).as_ref()?;
+            let entity_tree_sheet = db.primal_entity_tree_sheet(*parent_module).as_ref()?;
             if let Some(tree) = entity_tree_sheet.get(entity_path) {
                 tree.node.clone()
             } else {
-                let module_use_sheet = module_use_sheet(db, *parent_module);
+                p!(entity_path.show(db,));
+                p!(entity_tree_sheet.show(db));
                 todo!()
             }
         } else {
-            let entity_tree_sheet = db.entity_tree_sheet(entity_path).as_ref()?;
+            let entity_tree_sheet = db.primal_entity_tree_sheet(entity_path).as_ref()?;
             EntityNode {
                 entity_path,
                 accessibility: Accessibility::Public,

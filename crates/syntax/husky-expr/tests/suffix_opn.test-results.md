@@ -33,7 +33,9 @@ Arena {
                 opn_variant: Suffix(
                     Incr,
                 ),
-                opds: 0..1,
+                opds: ArenaIdxRange(
+                    0..1,
+                ),
             },
             range: [1:1, 1:4),
             base_scope_result: None,
@@ -75,7 +77,9 @@ Arena {
                 opn_variant: Suffix(
                     Decr,
                 ),
-                opds: 0..1,
+                opds: ArenaIdxRange(
+                    0..1,
+                ),
             },
             range: [1:1, 1:4),
             base_scope_result: None,

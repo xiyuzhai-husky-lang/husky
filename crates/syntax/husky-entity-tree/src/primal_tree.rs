@@ -1,0 +1,161 @@
+/// primal doesn't care about uses and impls
+use husky_ast::{Ast, AstIdxRange, AstSheet};
+use husky_print_utils::p;
+
+use crate::*;
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct PrimalEntityTreeSheet {
+    arena: EntityTreeArena,
+    top_level_entities: EntityTreeIdxRange,
+    isolate_entities: EntityTreeIdxRange,
+}
+
+impl PrimalEntityTreeSheet {
+    pub fn show(&self, db: &dyn EntityTreeDb) -> String {
+        let all_entity_paths: Vec<_> = self
+            .arena
+            .data()
+            .iter()
+            .map(|tree| tree.node.entity_path().show(db))
+            .collect();
+        format!("{:?}", all_entity_paths)
+    }
+}
+
+impl PrimalEntityTreeSheet {
+    pub(crate) fn get(&self, entity_path: EntityPath) -> Option<&EntityTree> {
+        self.arena
+            .data()
+            .iter()
+            .find(|node| node.entity_path() == entity_path)
+    }
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub(crate) fn primal_entity_tree_sheet(
+    db: &dyn EntityTreeDb,
+    module: EntityPath,
+) -> VfsResult<PrimalEntityTreeSheet> {
+    let ast_sheet = db.ast_sheet(module).as_ref()?;
+    PrimalEntityTreeBuilder::new(db, module, ast_sheet).build()
+}
+
+struct PrimalEntityTreeBuilder<'a> {
+    db: &'a dyn EntityTreeDb,
+    module: EntityPath,
+    ast_sheet: &'a AstSheet,
+    arena: EntityTreeArena,
+    isolate_entities: Vec<EntityTree>,
+}
+
+impl<'a> PrimalEntityTreeBuilder<'a> {
+    fn new(db: &'a dyn EntityTreeDb, module: EntityPath, ast_sheet: &'a AstSheet) -> Self {
+        Self {
+            db,
+            module,
+            ast_sheet,
+            arena: Default::default(),
+            isolate_entities: Default::default(),
+        }
+    }
+
+    fn build(mut self) -> VfsResult<PrimalEntityTreeSheet> {
+        // order matters!
+        let top_level_nodes = self.process_body(Some(self.module), self.ast_sheet.top_level_asts());
+        Ok(PrimalEntityTreeSheet {
+            top_level_entities: self.arena.alloc_batch(top_level_nodes),
+            isolate_entities: self.arena.alloc_batch(self.isolate_entities),
+            arena: self.arena,
+        })
+    }
+
+    fn process(
+        &mut self,
+        parent: Option<EntityPath>,
+        ast_idx: AstIdx,
+        ast: &Ast,
+    ) -> Option<EntityTree> {
+        match ast {
+            Ast::Err(_, _) | Ast::Use { .. } | Ast::Comment(_) | Ast::Decor(_) => None,
+            Ast::Stmt { token_group, body } => todo!(),
+            Ast::IfElseStmts {
+                if_stmt,
+                elif_stmts,
+                else_stmt,
+            } => todo!(),
+            Ast::MatchStmts {
+                pattern_stmt,
+                case_stmts,
+            } => todo!(),
+            Ast::Defn {
+                token_group,
+                body,
+                accessibility,
+                entity_card,
+                ident,
+                is_generic,
+                body_kind,
+            } => {
+                let entity_path = self.db.it_entity_path(match parent {
+                    Some(parent) => EntityPathData::Childpath {
+                        parent,
+                        ident: *ident,
+                    },
+                    None => {
+                        p!(entity_card, ident.data(self.db));
+                        todo!()
+                    }
+                });
+                let subentities = self.process_body(
+                    match entity_card {
+                        EntityCard::Module | EntityCard::Type | EntityCard::Trait => {
+                            Some(entity_path)
+                        }
+                        EntityCard::Form | EntityCard::EnumVariant | EntityCard::Use => None,
+                    },
+                    body,
+                );
+                Some(EntityTree {
+                    node: EntityNode::new(entity_path, *accessibility, *entity_card),
+                    ast_idx: Some(ast_idx),
+                    subentities: self.arena.alloc_batch(subentities),
+                })
+            }
+            Ast::Impl {
+                token_group, body, ..
+            } => {
+                for ast_idx in body {
+                    let ast = &self.ast_sheet[ast_idx];
+                    match ast {
+                        Ast::Err(_, _) | Ast::Use { .. } | Ast::Comment(_) | Ast::Decor(_) => (),
+                        Ast::Defn { body, .. } => {
+                            let isolate_entities = self.process_body(None, body);
+                            self.isolate_entities.extend(isolate_entities)
+                        }
+                        Ast::Stmt { .. }
+                        | Ast::IfElseStmts { .. }
+                        | Ast::MatchStmts { .. }
+                        | Ast::Impl { .. }
+                        | Ast::Main { .. }
+                        | Ast::Config { .. } => {
+                            todo!()
+                        }
+                    }
+                }
+                None
+            }
+            Ast::Main { token_group, body } => todo!(),
+            Ast::Config { token_group, body } => todo!(),
+        }
+    }
+
+    fn process_body(&mut self, parent: Option<EntityPath>, body: &AstIdxRange) -> Vec<EntityTree> {
+        body.into_iter()
+            .filter_map(|idx| {
+                let ast = &self.ast_sheet[idx];
+                self.process(parent, idx, ast)
+            })
+            .collect()
+    }
+}

@@ -64,7 +64,13 @@ Ok(
                 ),
             },
             Token {
-                range: [2:1, 2:5),
+                range: [2:1, 2:4),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [2:5, 2:9),
                 kind: Keyword(
                     Type(
                         Type,
@@ -72,7 +78,7 @@ Ok(
                 ),
             },
             Token {
-                range: [2:6, 2:8),
+                range: [2:10, 2:12),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -108,7 +114,13 @@ Ok(
                 ),
             },
             Token {
-                range: [5:5, 5:7),
+                range: [5:5, 5:8),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [5:9, 5:11),
                 kind: Keyword(
                     Paradigm(
                         Fn,
@@ -116,7 +128,7 @@ Ok(
                 ),
             },
             Token {
-                range: [5:8, 5:11),
+                range: [5:12, 5:15),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -128,7 +140,7 @@ Ok(
                 ),
             },
             Token {
-                range: [5:11, 5:12),
+                range: [5:15, 5:16),
                 kind: Special(
                     Bra(
                         Par,
@@ -136,7 +148,7 @@ Ok(
                 ),
             },
             Token {
-                range: [5:12, 5:13),
+                range: [5:16, 5:17),
                 kind: Special(
                     Ket(
                         Par,
@@ -144,7 +156,7 @@ Ok(
                 ),
             },
             Token {
-                range: [5:14, 5:16),
+                range: [5:18, 5:20),
                 kind: Special(
                     BinaryOpr(
                         Curry,
@@ -152,7 +164,7 @@ Ok(
                 ),
             },
             Token {
-                range: [5:17, 5:19),
+                range: [5:21, 5:23),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -276,7 +288,13 @@ Ok(
                 ),
             },
             Token {
-                range: [8:5, 8:7),
+                range: [8:5, 8:8),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [8:9, 8:11),
                 kind: Keyword(
                     Paradigm(
                         Fn,
@@ -284,7 +302,7 @@ Ok(
                 ),
             },
             Token {
-                range: [8:8, 8:11),
+                range: [8:12, 8:15),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -296,7 +314,7 @@ Ok(
                 ),
             },
             Token {
-                range: [8:11, 8:12),
+                range: [8:15, 8:16),
                 kind: Special(
                     Bra(
                         Par,
@@ -304,7 +322,7 @@ Ok(
                 ),
             },
             Token {
-                range: [8:12, 8:17),
+                range: [8:16, 8:21),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -316,13 +334,13 @@ Ok(
                 ),
             },
             Token {
-                range: [8:17, 8:18),
+                range: [8:21, 8:22),
                 kind: Special(
                     Colon,
                 ),
             },
             Token {
-                range: [8:19, 8:21),
+                range: [8:23, 8:25),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -334,7 +352,7 @@ Ok(
                 ),
             },
             Token {
-                range: [8:21, 8:22),
+                range: [8:25, 8:26),
                 kind: Special(
                     Ket(
                         Par,
@@ -342,7 +360,7 @@ Ok(
                 ),
             },
             Token {
-                range: [8:23, 8:25),
+                range: [8:27, 8:29),
                 kind: Special(
                     BinaryOpr(
                         Curry,
@@ -350,7 +368,7 @@ Ok(
                 ),
             },
             Token {
-                range: [8:26, 8:28),
+                range: [8:30, 8:32),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -424,7 +442,13 @@ Ok(
                 ),
             },
             Token {
-                range: [11:1, 11:5),
+                range: [11:1, 11:4),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [11:5, 11:9),
                 kind: Keyword(
                     Type(
                         Type,
@@ -432,7 +456,7 @@ Ok(
                 ),
             },
             Token {
-                range: [11:6, 11:9),
+                range: [11:10, 11:13),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -468,7 +492,13 @@ Ok(
                 ),
             },
             Token {
-                range: [14:5, 14:7),
+                range: [14:5, 14:8),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [14:9, 14:11),
                 kind: Keyword(
                     Paradigm(
                         Fn,
@@ -476,7 +506,7 @@ Ok(
                 ),
             },
             Token {
-                range: [14:8, 14:11),
+                range: [14:12, 14:15),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -488,7 +518,7 @@ Ok(
                 ),
             },
             Token {
-                range: [14:11, 14:12),
+                range: [14:15, 14:16),
                 kind: Special(
                     Bra(
                         Par,
@@ -496,7 +526,7 @@ Ok(
                 ),
             },
             Token {
-                range: [14:12, 14:13),
+                range: [14:16, 14:17),
                 kind: Special(
                     Ket(
                         Par,
@@ -504,7 +534,7 @@ Ok(
                 ),
             },
             Token {
-                range: [14:14, 14:16),
+                range: [14:18, 14:20),
                 kind: Special(
                     BinaryOpr(
                         Curry,
@@ -512,7 +542,7 @@ Ok(
                 ),
             },
             Token {
-                range: [14:17, 14:20),
+                range: [14:21, 14:24),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -636,7 +666,13 @@ Ok(
                 ),
             },
             Token {
-                range: [17:5, 17:7),
+                range: [17:5, 17:8),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [17:9, 17:11),
                 kind: Keyword(
                     Paradigm(
                         Fn,
@@ -644,7 +680,7 @@ Ok(
                 ),
             },
             Token {
-                range: [17:8, 17:11),
+                range: [17:12, 17:15),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -656,7 +692,7 @@ Ok(
                 ),
             },
             Token {
-                range: [17:11, 17:12),
+                range: [17:15, 17:16),
                 kind: Special(
                     Bra(
                         Par,
@@ -664,7 +700,7 @@ Ok(
                 ),
             },
             Token {
-                range: [17:12, 17:17),
+                range: [17:16, 17:21),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -676,13 +712,13 @@ Ok(
                 ),
             },
             Token {
-                range: [17:17, 17:18),
+                range: [17:21, 17:22),
                 kind: Special(
                     Colon,
                 ),
             },
             Token {
-                range: [17:19, 17:22),
+                range: [17:23, 17:26),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -694,7 +730,7 @@ Ok(
                 ),
             },
             Token {
-                range: [17:22, 17:23),
+                range: [17:26, 17:27),
                 kind: Special(
                     Ket(
                         Par,
@@ -702,7 +738,7 @@ Ok(
                 ),
             },
             Token {
-                range: [17:24, 17:26),
+                range: [17:28, 17:30),
                 kind: Special(
                     BinaryOpr(
                         Curry,
@@ -710,7 +746,7 @@ Ok(
                 ),
             },
             Token {
-                range: [17:27, 17:30),
+                range: [17:31, 17:34),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -784,7 +820,13 @@ Ok(
                 ),
             },
             Token {
-                range: [20:1, 20:5),
+                range: [20:1, 20:4),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [20:5, 20:9),
                 kind: Keyword(
                     Type(
                         Type,
@@ -792,7 +834,7 @@ Ok(
                 ),
             },
             Token {
-                range: [20:6, 20:9),
+                range: [20:10, 20:13),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -828,7 +870,13 @@ Ok(
                 ),
             },
             Token {
-                range: [23:5, 23:7),
+                range: [23:5, 23:8),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [23:9, 23:11),
                 kind: Keyword(
                     Paradigm(
                         Fn,
@@ -836,7 +884,7 @@ Ok(
                 ),
             },
             Token {
-                range: [23:8, 23:11),
+                range: [23:12, 23:15),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -848,7 +896,7 @@ Ok(
                 ),
             },
             Token {
-                range: [23:11, 23:12),
+                range: [23:15, 23:16),
                 kind: Special(
                     Bra(
                         Par,
@@ -856,7 +904,7 @@ Ok(
                 ),
             },
             Token {
-                range: [23:12, 23:13),
+                range: [23:16, 23:17),
                 kind: Special(
                     Ket(
                         Par,
@@ -864,7 +912,7 @@ Ok(
                 ),
             },
             Token {
-                range: [23:14, 23:16),
+                range: [23:18, 23:20),
                 kind: Special(
                     BinaryOpr(
                         Curry,
@@ -872,7 +920,7 @@ Ok(
                 ),
             },
             Token {
-                range: [23:17, 23:20),
+                range: [23:21, 23:24),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1188,7 +1236,13 @@ Ok(
                 ),
             },
             Token {
-                range: [32:5, 32:7),
+                range: [32:5, 32:8),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [32:9, 32:11),
                 kind: Keyword(
                     Paradigm(
                         Fn,
@@ -1196,7 +1250,7 @@ Ok(
                 ),
             },
             Token {
-                range: [32:8, 32:11),
+                range: [32:12, 32:15),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1208,7 +1262,7 @@ Ok(
                 ),
             },
             Token {
-                range: [32:11, 32:12),
+                range: [32:15, 32:16),
                 kind: Special(
                     Bra(
                         Par,
@@ -1216,7 +1270,7 @@ Ok(
                 ),
             },
             Token {
-                range: [32:12, 32:13),
+                range: [32:16, 32:17),
                 kind: Special(
                     Ket(
                         Par,
@@ -1224,7 +1278,7 @@ Ok(
                 ),
             },
             Token {
-                range: [32:14, 32:16),
+                range: [32:18, 32:20),
                 kind: Special(
                     BinaryOpr(
                         Curry,
@@ -1232,7 +1286,7 @@ Ok(
                 ),
             },
             Token {
-                range: [32:17, 32:20),
+                range: [32:21, 32:24),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1356,7 +1410,13 @@ Ok(
                 ),
             },
             Token {
-                range: [35:5, 35:7),
+                range: [35:5, 35:8),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [35:9, 35:11),
                 kind: Keyword(
                     Paradigm(
                         Fn,
@@ -1364,7 +1424,7 @@ Ok(
                 ),
             },
             Token {
-                range: [35:8, 35:11),
+                range: [35:12, 35:15),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1376,7 +1436,7 @@ Ok(
                 ),
             },
             Token {
-                range: [35:11, 35:12),
+                range: [35:15, 35:16),
                 kind: Special(
                     Bra(
                         Par,
@@ -1384,7 +1444,7 @@ Ok(
                 ),
             },
             Token {
-                range: [35:12, 35:17),
+                range: [35:16, 35:21),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1396,13 +1456,13 @@ Ok(
                 ),
             },
             Token {
-                range: [35:17, 35:18),
+                range: [35:21, 35:22),
                 kind: Special(
                     Colon,
                 ),
             },
             Token {
-                range: [35:19, 35:22),
+                range: [35:23, 35:26),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1414,7 +1474,7 @@ Ok(
                 ),
             },
             Token {
-                range: [35:22, 35:23),
+                range: [35:26, 35:27),
                 kind: Special(
                     Ket(
                         Par,
@@ -1422,7 +1482,7 @@ Ok(
                 ),
             },
             Token {
-                range: [35:24, 35:26),
+                range: [35:28, 35:30),
                 kind: Special(
                     BinaryOpr(
                         Curry,
@@ -1430,7 +1490,7 @@ Ok(
                 ),
             },
             Token {
-                range: [35:27, 35:30),
+                range: [35:31, 35:34),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -1445,28 +1505,28 @@ Ok(
         group_starts: [
             0,
             7,
-            9,
-            12,
-            18,
-            30,
-            39,
-            46,
-            48,
-            51,
-            57,
-            69,
-            78,
-            85,
-            87,
-            90,
-            96,
-            108,
-            117,
-            124,
-            126,
-            129,
-            135,
-            147,
+            10,
+            13,
+            20,
+            32,
+            42,
+            49,
+            52,
+            55,
+            62,
+            74,
+            84,
+            91,
+            94,
+            97,
+            104,
+            116,
+            125,
+            132,
+            134,
+            137,
+            144,
+            156,
         ],
     },
 )

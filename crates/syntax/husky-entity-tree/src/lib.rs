@@ -1,11 +1,12 @@
 #![feature(trait_upcasting)]
 mod absolute;
-mod builder;
 mod db;
 mod error;
 mod implementation;
 mod module_use;
 mod node;
+mod primal_module_use;
+mod primal_tree;
 mod submodule;
 #[cfg(test)]
 mod tests;
@@ -13,9 +14,8 @@ mod tests;
 pub use absolute::*;
 pub use db::EntityTreeDb;
 pub use error::*;
-pub use module_use::*;
+pub use primal_module_use::*;
 
-use builder::*;
 use error::EntityTreeError;
 use husky_accessibility::Accessibility;
 use husky_ast::AstIdx;
@@ -27,6 +27,8 @@ use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use implementation::ImplementationMap;
 use module_use::*;
 use node::*;
+use primal_module_use::*;
+use primal_tree::*;
 use submodule::*;
 #[cfg(test)]
 use tests::*;
@@ -34,23 +36,17 @@ use tests::*;
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
     absolute_entity_path,
-    entity_tree_sheet,
+    primal_entity_tree_sheet,
     submodules,
-    module_level_use_alls,
-    module_level_use_ones,
+    module_use_alls,
+    module_use_ones,
     entity_node,
     parent_module,
     entity_card,
     entity_accessibility,
+    primal_module_use_sheet,
     module_use_sheet,
 );
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct EntityTreeSheet {
-    arena: EntityTreeArena,
-    top_level_entities: EntityTreeIdxRange,
-    isolate_entities: EntityTreeIdxRange,
-}
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityTree {
@@ -62,18 +58,3 @@ pub struct EntityTree {
 pub type EntityTreeArena = Arena<EntityTree>;
 pub type EntityTreeIdx = ArenaIdx<EntityTree>;
 pub type EntityTreeIdxRange = ArenaIdxRange<EntityTree>;
-
-impl EntityTreeSheet {
-    fn get(&self, entity_path: EntityPath) -> Option<&EntityTree> {
-        self.arena
-            .data()
-            .iter()
-            .find(|node| node.entity_path() == entity_path)
-    }
-}
-
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-fn entity_tree_sheet(db: &dyn EntityTreeDb, module: EntityPath) -> VfsResult<EntityTreeSheet> {
-    let ast_sheet = db.ast_sheet(module).as_ref()?;
-    EntityTreeBuilder::new(db, module, ast_sheet).build()
-}

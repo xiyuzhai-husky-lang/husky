@@ -60,12 +60,7 @@ pub enum Ast {
         is_generic: bool,
         body_kind: DefnBodyKind,
     },
-    TypeImpl {
-        token_group: TokenGroupIdx,
-        body: AstIdxRange,
-        ty: EntityPath,
-    },
-    TraitImpl {
+    Impl {
         token_group: TokenGroupIdx,
         body: AstIdxRange,
     },
