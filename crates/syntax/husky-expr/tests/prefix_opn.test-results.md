@@ -33,7 +33,9 @@ Arena {
                 opn_variant: Prefix(
                     Minus,
                 ),
-                opds: 0..1,
+                opds: ArenaIdxRange(
+                    0..1,
+                ),
             },
             range: [1:1, 1:3),
             base_scope_result: None,
@@ -75,7 +77,9 @@ Arena {
                 opn_variant: Prefix(
                     Not,
                 ),
-                opds: 0..1,
+                opds: ArenaIdxRange(
+                    0..1,
+                ),
             },
             range: [1:1, 1:3),
             base_scope_result: None,

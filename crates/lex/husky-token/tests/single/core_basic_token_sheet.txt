@@ -2,7 +2,13 @@ Ok(
     TokenSheet {
         tokens: [
             Token {
-                range: [1:1, 1:5),
+                range: [1:1, 1:4),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [1:5, 1:9),
                 kind: Keyword(
                     Type(
                         Type,
@@ -10,7 +16,7 @@ Ok(
                 ),
             },
             Token {
-                range: [1:6, 1:10),
+                range: [1:10, 1:14),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -22,7 +28,13 @@ Ok(
                 ),
             },
             Token {
-                range: [3:1, 3:10),
+                range: [3:1, 3:4),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [3:5, 3:14),
                 kind: Keyword(
                     Type(
                         Structure,
@@ -30,7 +42,7 @@ Ok(
                 ),
             },
             Token {
-                range: [3:11, 3:16),
+                range: [3:15, 3:20),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -42,7 +54,13 @@ Ok(
                 ),
             },
             Token {
-                range: [5:1, 5:10),
+                range: [5:1, 5:4),
+                kind: Decorator(
+                    Pub,
+                ),
+            },
+            Token {
+                range: [5:5, 5:14),
                 kind: Keyword(
                     Type(
                         Structure,
@@ -50,7 +68,7 @@ Ok(
                 ),
             },
             Token {
-                range: [5:11, 5:17),
+                range: [5:15, 5:21),
                 kind: Identifier(
                     Identifier(
                         Word(
@@ -64,8 +82,8 @@ Ok(
         ],
         group_starts: [
             0,
-            2,
-            4,
+            3,
+            6,
         ],
     },
 )
