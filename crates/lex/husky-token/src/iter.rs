@@ -4,7 +4,7 @@ use husky_opn_syntax::Bracket;
 use husky_text::{TextPosition, TextRange};
 
 #[derive(Debug, Clone)]
-pub struct TokenStream<'a> {
+pub struct TokenIter<'a> {
     pub tokens: &'a [Token],
     next: usize,
 }
@@ -13,7 +13,7 @@ pub struct TokenStreamState {
     next: usize,
 }
 
-impl<'a> TokenStream<'a> {
+impl<'a> TokenIter<'a> {
     pub fn is_empty(&self) -> bool {
         self.next >= self.tokens.len()
     }
@@ -95,7 +95,7 @@ impl<'a> TokenStream<'a> {
     }
 }
 
-impl<'a> From<&'a [Token]> for TokenStream<'a> {
+impl<'a> From<&'a [Token]> for TokenIter<'a> {
     fn from(tokens: &'a [Token]) -> Self {
         should!(tokens.len() > 0);
         Self { tokens, next: 0 }
