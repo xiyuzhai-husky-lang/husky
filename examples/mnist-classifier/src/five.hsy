@@ -6,26 +6,35 @@ use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 use crate::zero::is_zero
-use crate::six::is_six
+use crate::seven::is_seven
 
 func five_match -> FermiMatchResult:
     fermi_match(major_concave_components, [up_right_cc, down_left_cc])
 
 func up_right_cc(cc: &ConcaveComponent) -> ?f32:
     dp=cc.displacement()
-    require cc.relative_bounding_box.ymax() > 0.4
+    require cc.relative_bounding_box.ymin() > 0.1
+    require cc.relative_bounding_box.ymax() > 0.6
     require dp.y>0.0
     dp.y
 
 func down_left_cc(cc: &ConcaveComponent) -> ?f32:
     dp=cc.displacement()
-    require cc.relative_bounding_box.ymax() < 0.6
+    require cc.relative_bounding_box.ymax() < 0.8
+    require cc.relative_bounding_box.ymin() < 0.3
     require dp.y<0.0
     dp.y
 
 def is_five -> ?MnistLabel:
+    require is_zero be none
+    require is_seven be none
+
+    eff_holes = major_connected_component.eff_holes
+    require eff_holes.matches[0] be none
+
     upright_cc_match = five_match.matches[0]
     downleft_cc_match = five_match.matches[1]
     require upright_cc_match be some
-    // require down_left_cc be some
+    require downleft_cc_match be some
+    require five_match.norm < 2.0
     MnistLabel::Five
