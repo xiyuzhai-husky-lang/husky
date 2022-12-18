@@ -34,7 +34,7 @@ pub(crate) fn module_path(db: &dyn VfsDb, entity_path: EntityPath) -> VfsResult<
         EntityPathData::CrateRoot(crate_path) => AbsolutePath::new(
             &package_dir(db, crate_path.package_path(db))
                 .as_ref()?
-                .join(crate_path.path(db)),
+                .join(crate_path.relative_path(db).as_ref()),
         )
         .map_err(|e| e.into()),
         EntityPathData::Childpath { parent, ident } => {

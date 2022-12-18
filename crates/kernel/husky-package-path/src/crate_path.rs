@@ -8,11 +8,12 @@ pub struct CratePath {
 }
 
 impl CratePath {
-    pub fn path(&self, db: &dyn PackagePathDb) -> &'static str {
+    pub fn relative_path(&self, db: &dyn PackagePathDb) -> std::borrow::Cow<'static, str> {
         match self.crate_kind(db) {
-            CrateKind::Library => "src/lib.hsy",
-            CrateKind::Main => "src/main.hsy",
-            CrateKind::Binary(_) => todo!(),
+            CrateKind::Library => "src/lib.hsy".into(),
+            CrateKind::Main => "src/main.hsy".into(),
+            CrateKind::Binary(ident) => todo!(),
+            CrateKind::StandaloneTest(_) => todo!(),
         }
     }
 }
@@ -22,4 +23,5 @@ pub enum CrateKind {
     Library,
     Main,
     Binary(Identifier),
+    StandaloneTest(Identifier),
 }

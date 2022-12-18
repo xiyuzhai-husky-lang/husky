@@ -1,0 +1,9 @@
+Ok(
+    [
+        EntityPath(
+            Id {
+                value: 17,
+            },
+        ),
+    ],
+)
