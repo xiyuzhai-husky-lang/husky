@@ -83,9 +83,14 @@ impl<'a> DefnHeadParser<'a> {
                 TokenKind::Keyword(kw) => match kw {
                     Keyword::Paradigm(_) | Keyword::Visual => EntityCard::Form,
                     Keyword::Type(ty_kw) => EntityCard::Type,
+                    Keyword::Trait => EntityCard::Trait,
                     Keyword::Mod => EntityCard::Module,
                     Keyword::Impl | Keyword::End(_) => return Err(AstError::ExpectEntityKeyword),
-                    _ => unreachable!(),
+                    Keyword::Config(_)
+                    | Keyword::Stmt(_)
+                    | Keyword::Liason(_)
+                    | Keyword::Main
+                    | Keyword::Use => unreachable!(),
                 },
                 _ => return Err(AstError::ExpectEntityKeyword),
                 TokenKind::Comment => todo!(),

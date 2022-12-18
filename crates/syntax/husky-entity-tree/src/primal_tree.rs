@@ -90,6 +90,12 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
         })
     }
 
+    fn process_stmt(&mut self, ast_idx: AstIdx) {
+        assert!(self
+            .process(None, ast_idx, &self.ast_sheet[ast_idx])
+            .is_none())
+    }
+
     fn process(
         &mut self,
         parent: Option<EntityPath>,
@@ -98,7 +104,9 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
     ) -> Option<EntityTree> {
         match ast {
             Ast::Err(_, _) | Ast::Use { .. } | Ast::Comment(_) | Ast::Decor(_) => None,
-            Ast::Stmt { token_group, body } => {
+            Ast::Stmt { token_group, body }
+            | Ast::Main { token_group, body }
+            | Ast::Config { token_group, body } => {
                 let sporadic_entities = self.process_body(None, body);
                 self.sporadic_entities.extend(sporadic_entities);
                 None
@@ -107,11 +115,26 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
                 if_stmt,
                 elif_stmts,
                 else_stmt,
-            } => todo!(),
+            } => {
+                self.process_stmt(*if_stmt);
+                for elif_stmt in elif_stmts {
+                    self.process_stmt(elif_stmt);
+                }
+                if let Some(else_stmt) = else_stmt {
+                    self.process_stmt(*else_stmt)
+                }
+                None
+            }
             Ast::MatchStmts {
                 pattern_stmt,
                 case_stmts,
-            } => todo!(),
+            } => {
+                self.process_stmt(*pattern_stmt);
+                for case_stmt in case_stmts {
+                    self.process_stmt(case_stmt);
+                }
+                None
+            }
             Ast::Defn {
                 token_group,
                 body,
@@ -163,12 +186,46 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
                         | Ast::Impl { .. }
                         | Ast::Main { .. }
                         | Ast::Config { .. } => {
+                            p!(self.debug_ast(ast));
                             todo!()
                         }
                     }
                 }
                 None
             }
+        }
+    }
+
+    fn debug_ast(&self, ast: &Ast) {
+        let token_sheet = self.db.token_sheet(self.module).as_ref().unwrap();
+        match ast {
+            Ast::Err(_, _) => todo!(),
+            Ast::Use { token_group } => todo!(),
+            Ast::Comment(_) => todo!(),
+            Ast::Decor(_) => todo!(),
+            Ast::Stmt { token_group, body } => {
+                p!(self.module.show(self.db), &token_sheet[*token_group]);
+                todo!()
+            }
+            Ast::IfElseStmts {
+                if_stmt,
+                elif_stmts,
+                else_stmt,
+            } => todo!(),
+            Ast::MatchStmts {
+                pattern_stmt,
+                case_stmts,
+            } => todo!(),
+            Ast::Defn {
+                token_group,
+                body,
+                accessibility,
+                entity_card,
+                ident,
+                is_generic,
+                body_kind,
+            } => todo!(),
+            Ast::Impl { token_group, body } => todo!(),
             Ast::Main { token_group, body } => todo!(),
             Ast::Config { token_group, body } => todo!(),
         }

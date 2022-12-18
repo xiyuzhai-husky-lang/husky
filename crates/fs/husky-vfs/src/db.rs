@@ -269,7 +269,7 @@ where
 
 fn read_file_content(path: &Path) -> FileContent {
     if !path.exists() {
-        FileContent::NotExist
+        FileContent::NotExists
     } else if path.is_file() {
         match std::fs::read_to_string(path) {
             Ok(text) => FileContent::OnDisk(text),

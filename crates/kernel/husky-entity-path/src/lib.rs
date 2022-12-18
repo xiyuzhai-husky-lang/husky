@@ -74,7 +74,9 @@ impl EntityPath {
 
     pub fn show(self, db: &dyn EntityPathDb) -> String {
         match self.data(db) {
-            EntityPathData::CrateRoot(_) => "crate".into(),
+            EntityPathData::CrateRoot(crate_path) => {
+                format!("crate({:?})", crate_path.package_path(db).data(db))
+            }
             EntityPathData::Childpath { parent, ident } => {
                 format!("{}::{}", parent.show(db), db.dt_ident(ident))
             }

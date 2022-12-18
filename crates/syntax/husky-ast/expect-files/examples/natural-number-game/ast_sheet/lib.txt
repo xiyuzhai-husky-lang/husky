@@ -20,22 +20,6 @@ Ok(
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
-                        8,
-                    ),
-                    body: ArenaIdxRange(
-                        2..2,
-                    ),
-                },
-                Stmt {
-                    token_group: TokenGroupIdx(
-                        4,
-                    ),
-                    body: ArenaIdxRange(
-                        2..2,
-                    ),
-                },
-                Stmt {
-                    token_group: TokenGroupIdx(
                         5,
                     ),
                     body: ArenaIdxRange(
@@ -52,11 +36,49 @@ Ok(
                 },
                 Stmt {
                     token_group: TokenGroupIdx(
+                        8,
+                    ),
+                    body: ArenaIdxRange(
+                        4..4,
+                    ),
+                },
+                Defn {
+                    token_group: TokenGroupIdx(
+                        4,
+                    ),
+                    body: ArenaIdxRange(
+                        2..4,
+                    ),
+                    accessibility: PubCrate,
+                    entity_card: Form,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 24,
+                            },
+                        ),
+                    ),
+                    is_generic: false,
+                    body_kind: Cases,
+                },
+                Defn {
+                    token_group: TokenGroupIdx(
                         7,
                     ),
                     body: ArenaIdxRange(
-                        2..3,
+                        4..5,
                     ),
+                    accessibility: PubCrate,
+                    entity_card: Form,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
                 },
                 Defn {
                     token_group: TokenGroupIdx(
@@ -70,7 +92,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 443,
+                                value: 442,
                             },
                         ),
                     ),
@@ -82,7 +104,7 @@ Ok(
                         3,
                     ),
                     body: ArenaIdxRange(
-                        3..7,
+                        5..7,
                     ),
                 },
                 Defn {
@@ -97,7 +119,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 449,
+                                value: 446,
                             },
                         ),
                     ),
@@ -116,7 +138,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 452,
+                                value: 449,
                             },
                         ),
                     ),

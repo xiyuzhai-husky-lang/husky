@@ -10,5 +10,9 @@
   {
     "input": "proc",
     "output": "[\n    Token {\n        range: [1:1, 1:5),\n        kind: Keyword(\n            Paradigm(\n                Proc,\n            ),\n        ),\n    },\n]"
+  },
+  {
+    "input": "trait",
+    "output": "[\n    Token {\n        range: [1:1, 1:6),\n        kind: Keyword(\n            Trait,\n        ),\n    },\n]"
   }
 ]

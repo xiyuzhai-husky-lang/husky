@@ -10,7 +10,7 @@ pub struct File(salsa::Id);
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum FileContent {
-    NotExist,
+    NotExists,
     OnDisk(String),
     Live(String),
     Directory(Vec<AbsolutePath>),
@@ -19,14 +19,14 @@ pub enum FileContent {
 
 impl File {
     pub(crate) fn text(self, db: &dyn VfsDb) -> VfsResult<&str> {
-        self.content(db).text()
+        self.content(db).text(self.path(db).as_ref())
     }
 }
 
 impl FileContent {
-    pub(crate) fn text(&self) -> VfsResult<&str> {
+    pub(crate) fn text(&self, path: &Path) -> VfsResult<&str> {
         match self {
-            FileContent::NotExist => todo!(),
+            FileContent::NotExists => Err(VfsError::FileNotExists(path.to_owned())),
             FileContent::OnDisk(text) | FileContent::Live(text) => Ok(text),
             FileContent::Directory(_) => todo!(),
             FileContent::Err(_) => todo!(),

@@ -42,39 +42,39 @@ fn apparent_ancestry_works() {
     let menu = db.entity_path_menu();
     expect_test::expect![[r#"
         [
-            "crate",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })",
         ]
     "#]]
     .assert_debug_eq(&t(&db, menu.core()));
     expect_test::expect![[r#"
         [
-            "crate",
-            "crate::num",
-            "crate::num::i32",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num::i32",
         ]
     "#]]
     .assert_debug_eq(&t(&db, menu.i32()));
     expect_test::expect![[r#"
         [
-            "crate",
-            "crate::num",
-            "crate::num::i64",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num::i64",
         ]
     "#]]
     .assert_debug_eq(&t(&db, menu.i64()));
     expect_test::expect![[r#"
         [
-            "crate",
-            "crate::num",
-            "crate::num::b32",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num::b32",
         ]
     "#]]
     .assert_debug_eq(&t(&db, menu.b32()));
     expect_test::expect![[r#"
         [
-            "crate",
-            "crate::num",
-            "crate::num::b64",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num",
+            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num::b64",
         ]
     "#]]
     .assert_debug_eq(&t(&db, menu.b64()));

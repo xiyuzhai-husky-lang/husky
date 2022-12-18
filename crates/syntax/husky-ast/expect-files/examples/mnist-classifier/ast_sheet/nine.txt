@@ -217,70 +217,46 @@ Ok(
                     ),
                     else_stmt: None,
                 },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                Comment(
+                    TokenGroupIdx(
                         38,
                     ),
-                    body: ArenaIdxRange(
-                        17..17,
-                    ),
-                },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                ),
+                Comment(
+                    TokenGroupIdx(
                         39,
                     ),
-                    body: ArenaIdxRange(
-                        17..17,
-                    ),
-                },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                ),
+                Comment(
+                    TokenGroupIdx(
                         40,
                     ),
-                    body: ArenaIdxRange(
-                        17..17,
-                    ),
-                },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                ),
+                Comment(
+                    TokenGroupIdx(
                         41,
                     ),
-                    body: ArenaIdxRange(
-                        17..17,
-                    ),
-                },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                ),
+                Comment(
+                    TokenGroupIdx(
                         42,
                     ),
-                    body: ArenaIdxRange(
-                        17..17,
-                    ),
-                },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                ),
+                Comment(
+                    TokenGroupIdx(
                         43,
                     ),
-                    body: ArenaIdxRange(
-                        17..17,
-                    ),
-                },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                ),
+                Comment(
+                    TokenGroupIdx(
                         44,
                     ),
-                    body: ArenaIdxRange(
-                        17..17,
-                    ),
-                },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                ),
+                Comment(
+                    TokenGroupIdx(
                         45,
                     ),
-                    body: ArenaIdxRange(
-                        17..17,
-                    ),
-                },
+                ),
                 Stmt {
                     token_group: TokenGroupIdx(
                         46,
@@ -337,22 +313,16 @@ Ok(
                         39..39,
                     ),
                 },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                Comment(
+                    TokenGroupIdx(
                         55,
                     ),
-                    body: ArenaIdxRange(
-                        39..39,
-                    ),
-                },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                ),
+                Comment(
+                    TokenGroupIdx(
                         56,
                     ),
-                    body: ArenaIdxRange(
-                        39..39,
-                    ),
-                },
+                ),
                 Stmt {
                     token_group: TokenGroupIdx(
                         57,
@@ -418,7 +388,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 198,
+                                value: 197,
                             },
                         ),
                     ),
@@ -437,7 +407,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 200,
+                                value: 199,
                             },
                         ),
                     ),
@@ -456,7 +426,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 84,
+                                value: 83,
                             },
                         ),
                     ),
@@ -475,7 +445,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 199,
+                                value: 198,
                             },
                         ),
                     ),
@@ -494,7 +464,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 201,
+                                value: 200,
                             },
                         ),
                     ),

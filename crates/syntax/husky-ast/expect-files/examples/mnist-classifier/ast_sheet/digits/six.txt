@@ -26,14 +26,11 @@ Ok(
                         2..2,
                     ),
                 },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                Comment(
+                    TokenGroupIdx(
                         28,
                     ),
-                    body: ArenaIdxRange(
-                        2..2,
-                    ),
-                },
+                ),
                 Stmt {
                     token_group: TokenGroupIdx(
                         29,
@@ -263,14 +260,11 @@ Ok(
                     ),
                     else_stmt: None,
                 },
-                Stmt {
-                    token_group: TokenGroupIdx(
+                Comment(
+                    TokenGroupIdx(
                         37,
                     ),
-                    body: ArenaIdxRange(
-                        23..23,
-                    ),
-                },
+                ),
                 Stmt {
                     token_group: TokenGroupIdx(
                         38,
@@ -456,7 +450,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 234,
+                                value: 233,
                             },
                         ),
                     ),
@@ -475,7 +469,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 235,
+                                value: 234,
                             },
                         ),
                     ),
@@ -494,7 +488,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 82,
+                                value: 81,
                             },
                         ),
                     ),
@@ -513,7 +507,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 205,
+                                value: 204,
                             },
                         ),
                     ),
@@ -532,7 +526,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 236,
+                                value: 235,
                             },
                         ),
                     ),
