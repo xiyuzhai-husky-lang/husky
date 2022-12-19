@@ -86,7 +86,7 @@ pub(crate) fn module_use_alls(db: &dyn EntityTreeDb, module: EntityPath) -> VfsR
     Ok(ast_sheet
         .top_level_asts_indexed_iter()
         .filter_map(|(ast_idx, ast)| match ast {
-            Ast::Use { token_group } => todo!(),
+            Ast::Use { token_group_idx } => todo!(),
             _ => None,
         })
         .collect())

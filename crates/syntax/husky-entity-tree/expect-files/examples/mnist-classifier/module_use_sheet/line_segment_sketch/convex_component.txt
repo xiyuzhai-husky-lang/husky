@@ -1,0 +1,35 @@
+Ok(
+    EntityUseExprSheet {
+        arena: Arena {
+            data: [
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        Word(
+                            Id {
+                                value: 57,
+                            },
+                        ),
+                    ),
+                    child: 0,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    child: 1,
+                },
+            ],
+        },
+        use_exprs: [
+            (
+                4,
+                2,
+            ),
+        ],
+    },
+)

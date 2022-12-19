@@ -103,10 +103,19 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
         ast: &Ast,
     ) -> Option<EntityTree> {
         match ast {
-            Ast::Err(_, _) | Ast::Use { .. } | Ast::Comment(_) | Ast::Decor(_) => None,
-            Ast::Stmt { token_group, body }
-            | Ast::Main { token_group, body }
-            | Ast::Config { token_group, body } => {
+            Ast::Err { .. } | Ast::Use { .. } | Ast::Comment { .. } | Ast::Decor { .. } => None,
+            Ast::Stmt {
+                token_group_idx,
+                body,
+            }
+            | Ast::Main {
+                token_group_idx,
+                body,
+            }
+            | Ast::Config {
+                token_group_idx,
+                body,
+            } => {
                 let sporadic_entities = self.process_body(None, body);
                 self.sporadic_entities.extend(sporadic_entities);
                 None
@@ -136,7 +145,7 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
                 None
             }
             Ast::Defn {
-                token_group,
+                token_group_idx,
                 body,
                 accessibility,
                 entity_card,
@@ -170,12 +179,17 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
                 })
             }
             Ast::Impl {
-                token_group, body, ..
+                token_group_idx,
+                body,
+                ..
             } => {
                 for ast_idx in body {
                     let ast = &self.ast_sheet[ast_idx];
                     match ast {
-                        Ast::Err(_, _) | Ast::Use { .. } | Ast::Comment(_) | Ast::Decor(_) => (),
+                        Ast::Err { .. }
+                        | Ast::Use { .. }
+                        | Ast::Comment { .. }
+                        | Ast::Decor { .. } => (),
                         Ast::Defn { body, .. } => {
                             let isolate_entities = self.process_body(None, body);
                             self.sporadic_entities.extend(isolate_entities)
@@ -199,12 +213,15 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
     fn debug_ast(&self, ast: &Ast) {
         let token_sheet = self.db.token_sheet(self.module).as_ref().unwrap();
         match ast {
-            Ast::Err(_, _) => todo!(),
-            Ast::Use { token_group } => todo!(),
-            Ast::Comment(_) => todo!(),
-            Ast::Decor(_) => todo!(),
-            Ast::Stmt { token_group, body } => {
-                p!(self.module.show(self.db), &token_sheet[*token_group]);
+            Ast::Err { .. } => todo!(),
+            Ast::Use { token_group_idx } => todo!(),
+            Ast::Comment { .. } => todo!(),
+            Ast::Decor { .. } => todo!(),
+            Ast::Stmt {
+                token_group_idx,
+                body,
+            } => {
+                p!(self.module.show(self.db), &token_sheet[*token_group_idx]);
                 todo!()
             }
             Ast::IfElseStmts {
@@ -217,7 +234,7 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
                 case_stmts,
             } => todo!(),
             Ast::Defn {
-                token_group,
+                token_group_idx,
                 body,
                 accessibility,
                 entity_card,
@@ -225,9 +242,18 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
                 is_generic,
                 body_kind,
             } => todo!(),
-            Ast::Impl { token_group, body } => todo!(),
-            Ast::Main { token_group, body } => todo!(),
-            Ast::Config { token_group, body } => todo!(),
+            Ast::Impl {
+                token_group_idx,
+                body,
+            } => todo!(),
+            Ast::Main {
+                token_group_idx,
+                body,
+            } => todo!(),
+            Ast::Config {
+                token_group_idx,
+                body,
+            } => todo!(),
         }
     }
 

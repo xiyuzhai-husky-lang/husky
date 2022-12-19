@@ -3,7 +3,7 @@ Ok(
         arena: Arena {
             data: [
                 Stmt {
-                    token_group: TokenGroupIdx(
+                    token_group_idx: TokenGroupIdx(
                         1,
                     ),
                     body: ArenaIdxRange(
@@ -11,7 +11,7 @@ Ok(
                     ),
                 },
                 Stmt {
-                    token_group: TokenGroupIdx(
+                    token_group_idx: TokenGroupIdx(
                         3,
                     ),
                     body: ArenaIdxRange(
@@ -19,7 +19,7 @@ Ok(
                     ),
                 },
                 Config {
-                    token_group: TokenGroupIdx(
+                    token_group_idx: TokenGroupIdx(
                         0,
                     ),
                     body: ArenaIdxRange(
@@ -27,7 +27,7 @@ Ok(
                     ),
                 },
                 Main {
-                    token_group: TokenGroupIdx(
+                    token_group_idx: TokenGroupIdx(
                         2,
                     ),
                     body: ArenaIdxRange(

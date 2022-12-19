@@ -51,25 +51,51 @@ impl<'a> AstRangeCalculator<'a> {
 
     fn calc_ast_range(&self, ast: &Ast) -> TextRange {
         match ast {
-            Ast::Err(token_group, _)
-            | Ast::Use { token_group, .. }
-            | Ast::Comment(token_group)
-            | Ast::Decor(token_group) => self.token_sheet[*token_group].text_range(),
+            Ast::Err {
+                token_group_idx, ..
+            }
+            | Ast::Use {
+                token_group_idx, ..
+            }
+            | Ast::Comment {
+                token_group_idx, ..
+            }
+            | Ast::Decor {
+                token_group_idx, ..
+            } => self.token_sheet[*token_group_idx].text_range(),
             Ast::Stmt {
-                token_group, body, ..
+                token_group_idx,
+                body,
+                ..
             }
             | Ast::Defn {
-                token_group, body, ..
+                token_group_idx,
+                body,
+                ..
             }
             | Ast::Impl {
-                token_group, body, ..
+                token_group_idx,
+                body,
+                ..
             }
-            | Ast::Main { token_group, body }
-            | Ast::Config { token_group, body } => {
-                let start = self.token_sheet[*token_group].first().unwrap().text_start();
+            | Ast::Main {
+                token_group_idx,
+                body,
+            }
+            | Ast::Config {
+                token_group_idx,
+                body,
+            } => {
+                let start = self.token_sheet[*token_group_idx]
+                    .first()
+                    .unwrap()
+                    .text_start();
                 let end = match body.last() {
                     Some(last) => self.text_ranges[last.raw()].text_end(),
-                    None => self.token_sheet[*token_group].last().unwrap().text_end(),
+                    None => self.token_sheet[*token_group_idx]
+                        .last()
+                        .unwrap()
+                        .text_end(),
                 };
                 (start..end).into()
             }

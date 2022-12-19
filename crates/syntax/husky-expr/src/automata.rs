@@ -16,7 +16,7 @@ use stack::*;
 
 pub(crate) struct Automata<'a, 'b> {
     db: &'a dyn EntityTreeDb,
-    tokens: TokenIter<'a>,
+    token_iter: TokenIter<'a>,
     symbols: &'a mut SymbolContext<'b>,
     arena: &'a mut ExprArena,
     stack: AutomataStack,
@@ -24,18 +24,18 @@ pub(crate) struct Automata<'a, 'b> {
 
 impl<'a, 'b> Automata<'a, 'b> {
     pub(crate) fn tokens(&self) -> &TokenIter<'a> {
-        &self.tokens
+        &self.token_iter
     }
 
     fn new(
         db: &'a dyn EntityTreeDb,
-        tokens: &'a [Token],
+        token_iter: TokenIter<'a>,
         symbols: &'a mut SymbolContext<'b>,
         arena: &'a mut ExprArena,
     ) -> Self {
         Self {
             db,
-            tokens: tokens.into(),
+            token_iter,
             symbols,
             arena,
             stack: Default::default(),
@@ -44,7 +44,7 @@ impl<'a, 'b> Automata<'a, 'b> {
 
     fn parse_all(mut self) -> ExprIdx {
         while !self.tokens().is_empty() {
-            let token = &self.tokens.next().unwrap();
+            let token = &self.token_iter.next().unwrap();
             match self.accept_token(self.resolve_token(token)) {
                 Ok(()) => (),
                 Err(_) => todo!(),
@@ -58,9 +58,9 @@ impl<'a, 'b> Automata<'a, 'b> {
 
 pub fn parse_expr(
     db: &dyn EntityTreeDb,
-    tokens: &[Token],
+    token_iter: TokenIter,
     symbols: &mut SymbolContext,
     arena: &mut ExprArena,
 ) -> ExprIdx {
-    Automata::new(db, tokens, symbols, arena).parse_all()
+    Automata::new(db, token_iter, symbols, arena).parse_all()
 }

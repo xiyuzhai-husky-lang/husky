@@ -2,7 +2,7 @@ use super::*;
 
 impl<'a, 'b> Automata<'a, 'b> {
     pub(crate) fn next_token(&mut self) -> Option<&'a Token> {
-        self.tokens.next()
+        self.token_iter.next()
     }
 
     pub(crate) fn accept_token(&mut self, token: ResolvedToken) -> ExprSyntaxResult<()> {

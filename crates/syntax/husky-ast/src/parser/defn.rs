@@ -5,12 +5,15 @@ use husky_token::{Decorator, Token, TypeKeyword};
 use std::iter::Peekable;
 
 impl<'a> AstParser<'a> {
-    pub(super) fn parse_defn(&mut self, token_group: TokenGroupIdx, indent: u32) -> Ast {
-        self.parse_defn_aux(indent, token_group)
-            .unwrap_or_else(|e| Ast::Err(token_group, e))
+    pub(super) fn parse_defn(&mut self, token_group_idx: TokenGroupIdx, indent: u32) -> Ast {
+        self.parse_defn_aux(indent, token_group_idx)
+            .unwrap_or_else(|error| Ast::Err {
+                token_group_idx,
+                error,
+            })
     }
 
-    fn parse_defn_aux(&mut self, indent: u32, token_group: TokenGroupIdx) -> AstResult<Ast> {
+    fn parse_defn_aux(&mut self, indent: u32, token_group_idx: TokenGroupIdx) -> AstResult<Ast> {
         let (body, body_kind) = {
             let body = self.parse_asts(indent + INDENT_INCR);
             match body.last() {
@@ -27,7 +30,7 @@ impl<'a> AstParser<'a> {
             }
         };
         let mut parser = DefnHeadParser {
-            token_iter: self.token_sheet[token_group].iter().peekable(),
+            token_iter: self.token_sheet[token_group_idx].iter().peekable(),
         };
         Ok(Ast::Defn {
             // order matters!
@@ -35,7 +38,7 @@ impl<'a> AstParser<'a> {
             entity_card: parser.parse_entity_card()?,
             ident: parser.parse_ident()?,
             is_generic: parser.parse_is_generic(),
-            token_group,
+            token_group_idx,
             body,
             body_kind,
         })

@@ -5,8 +5,31 @@ use husky_text::{TextPosition, TextRange};
 
 #[derive(Debug, Clone)]
 pub struct TokenIter<'a> {
-    pub tokens: &'a [Token],
+    base: usize,
+    tokens: &'a [Token],
     next: usize,
+}
+
+impl<'a> TokenIter<'a> {
+    pub fn new(base: usize, tokens: &'a [Token]) -> Self {
+        TokenIter {
+            base,
+            tokens,
+            next: 0,
+        }
+    }
+}
+
+impl TokenSheet {
+    pub fn token_group_token_iter<'a>(&'a self, token_group_idx: TokenGroupIdx) -> TokenIter<'a> {
+        let tokens = &self[token_group_idx];
+        assert!(tokens.len() > 0);
+        TokenIter {
+            base: self.group_start(token_group_idx),
+            tokens,
+            next: 0,
+        }
+    }
 }
 
 pub struct TokenStreamState {
@@ -92,12 +115,5 @@ impl<'a> TokenIter<'a> {
             },
             None => false,
         }
-    }
-}
-
-impl<'a> From<&'a [Token]> for TokenIter<'a> {
-    fn from(tokens: &'a [Token]) -> Self {
-        should!(tokens.len() > 0);
-        Self { tokens, next: 0 }
     }
 }

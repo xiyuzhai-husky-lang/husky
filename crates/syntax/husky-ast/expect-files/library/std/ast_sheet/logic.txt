@@ -3,7 +3,7 @@ Ok(
         arena: Arena {
             data: [
                 Use {
-                    token_group: TokenGroupIdx(
+                    token_group_idx: TokenGroupIdx(
                         0,
                     ),
                 },

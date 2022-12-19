@@ -30,6 +30,12 @@ pub struct Token {
     pub kind: TokenKind,
 }
 
+#[derive(Debug, PartialEq, Eq)]
+pub struct TokenSheet {
+    tokens: Vec<Token>,
+    group_starts: Vec<usize>,
+}
+
 impl Token {
     pub fn new(i: u32, start: u32, end: u32, kind: TokenKind) -> Token {
         Token {
