@@ -13,7 +13,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 43,
+                            value: 38,
                         },
                     ),
                 ),
@@ -33,7 +33,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 63,
+                            value: 58,
                         },
                     ),
                 ),
@@ -53,7 +53,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 57,
+                            value: 52,
                         },
                     ),
                 ),
@@ -73,14 +73,14 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 57,
+                            value: 52,
                         },
                     ),
                 ),
                 Identifier(
                     Word(
                         Id {
-                            value: 58,
+                            value: 53,
                         },
                     ),
                 ),

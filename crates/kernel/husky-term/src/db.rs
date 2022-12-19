@@ -6,7 +6,7 @@ use husky_word::WordDb;
 use salsa::{storage::HasJar, DbWithJar};
 
 pub trait TermDb: DbWithJar<TermJar> + EntityPathDb {
-    fn term_menu(&self) -> &TermMenu;
+    fn term_menu(&self, toolchain: Toolchain) -> &TermMenu;
     fn it_term(&self, term_data: TermData) -> Term;
     fn it_entity_path_term(&self, entity_path: EntityPath) -> Term {
         self.it_term(TermData::Atom(TermAtom::Entity { entity_path }))
@@ -20,12 +20,8 @@ impl<T> TermDb for T
 where
     T: DbWithJar<TermJar> + EntityPathDb,
 {
-    fn term_menu(&self) -> &TermMenu {
-        <Self as HasJar<TermJar>>::jar(self)
-            .0
-            .term_menu_place()
-            .0
-            .get_or_init(|| TermMenu::new(self))
+    fn term_menu(&self, toolchain: Toolchain) -> &TermMenu {
+        term_menu(self, toolchain)
     }
 
     fn it_term(&self, data: TermData) -> Term {

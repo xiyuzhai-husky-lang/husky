@@ -207,11 +207,11 @@ where
 
 #[salsa::tracked(jar = VfsJar )]
 pub(crate) fn package_manifest_file(db: &dyn VfsDb, package_path: PackagePath) -> VfsResult<File> {
-    Ok(db.file_from_absolute_path(&package_manifest_path(db, package_path)?))
+    db.file_from_absolute_path(&package_manifest_path(db, package_path)?)
 }
 
 #[salsa::tracked(jar = VfsJar )]
 pub(crate) fn module_file(db: &dyn VfsDb, entity_path: EntityPath) -> VfsResult<File> {
-    let abs_path = module_path(db, entity_path).as_ref()?;
-    Ok(db.file_from_absolute_path(abs_path))
+    let abs_path = module_absolute_path(db, entity_path).as_ref()?;
+    db.file_from_absolute_path(abs_path)
 }

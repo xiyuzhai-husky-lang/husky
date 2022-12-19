@@ -1,3 +1,5 @@
+use husky_toolchain::Toolchain;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -48,10 +50,10 @@ pub struct TermMenu0 {
 }
 
 impl TermMenu0 {
-    pub fn new(db: &dyn TermDb) -> Self {
+    pub fn new(db: &dyn TermDb, toolchain: Toolchain) -> Self {
         let sort = db.it_term(TermAtom::new_category(TermCategory::Sort).into());
         let universe1 = db.it_term(TermAtom::new_universe(1).into());
-        let entity_path_menu = db.entity_path_menu();
+        let entity_path_menu = db.entity_path_menu(toolchain);
         TermMenu0 {
             sort,
             universe1,

@@ -7,7 +7,6 @@ use husky_package_path::{CrateKind, PackagePathData, PackagePathDb, PackagePathJ
 use husky_token::TokenJar;
 use husky_toolchain::*;
 use husky_vfs::*;
-use husky_vfs_test_utils::VfsTestSupport;
 use husky_word::{WordDb, WordJar};
 use salsa::{Database, DebugWithDb, ParallelDatabase, Snapshot};
 use std::{borrow::Cow, sync::Arc};
@@ -25,13 +24,6 @@ use std::{borrow::Cow, sync::Arc};
 #[derive(Default)]
 pub struct DB {
     storage: salsa::Storage<Self>,
-    source_path_config: VfsConfigMimic,
-}
-
-impl HasVfsConfig for DB {
-    fn vfs_config(&self) -> &VfsConfig {
-        &self.source_path_config
-    }
 }
 
 impl salsa::Database for DB {}

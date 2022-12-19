@@ -6,7 +6,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 77,
+                                value: 72,
                             },
                         ),
                     ),
@@ -15,30 +15,11 @@ Ok(
                     parent: Identifier(
                         Word(
                             Id {
-                                value: 48,
+                                value: 43,
                             },
                         ),
                     ),
                     child: 0,
-                },
-                One {
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 81,
-                            },
-                        ),
-                    ),
-                },
-                ScopeResolution {
-                    parent: Identifier(
-                        Word(
-                            Id {
-                                value: 50,
-                            },
-                        ),
-                    ),
-                    child: 2,
                 },
                 One {
                     ident: Identifier(
@@ -53,7 +34,26 @@ Ok(
                     parent: Identifier(
                         Word(
                             Id {
-                                value: 53,
+                                value: 45,
+                            },
+                        ),
+                    ),
+                    child: 2,
+                },
+                One {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 71,
+                            },
+                        ),
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        Word(
+                            Id {
+                                value: 48,
                             },
                         ),
                     ),

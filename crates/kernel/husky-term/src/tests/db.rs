@@ -18,28 +18,7 @@ impl TermTestsDb {
             storage: Default::default(),
             ty_decls: Default::default(),
         }
-        .init()
-    }
-
-    fn init(mut self) -> Self {
-        let menu = self.term_menu();
-        self.ty_decls.extend(menu.primitive_ty_decls());
-        self
     }
 }
 
 impl salsa::Database for TermTestsDb {}
-
-impl AskDecl for TermTestsDb {
-    fn ask_namespace_decl(&self, _namespace: TermNamespace) -> TermResultArc<NamespaceDecl> {
-        todo!()
-    }
-
-    fn ask_ty_decl(&self, ty: Term) -> TermResultArc<TyDecl> {
-        Ok(self.ty_decls[&ty].clone())
-    }
-
-    fn ask_decl(&self, _entity_path: EntityPath) -> TermResultArc<Decl> {
-        todo!()
-    }
-}

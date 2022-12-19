@@ -1,5 +1,3 @@
-pub(crate) use husky_vfs_test_utils::*;
-
 use crate::*;
 use expect_test::expect_file;
 use husky_absolute_path::AbsolutePath;
@@ -26,13 +24,6 @@ use std::{borrow::Cow, sync::Arc};
 #[derive(Default)]
 pub(crate) struct DB {
     storage: salsa::Storage<Self>,
-    source_path_config: VfsConfigMimic,
-}
-
-impl HasVfsConfig for DB {
-    fn vfs_config(&self) -> &VfsConfig {
-        &self.source_path_config
-    }
 }
 
 impl salsa::Database for DB {}

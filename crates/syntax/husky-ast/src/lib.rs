@@ -18,7 +18,7 @@ use husky_entity_path::EntityPath;
 use husky_term::Term;
 use husky_text::*;
 use husky_token::TokenGroupIdx;
-use husky_vfs::VfsResult;
+use husky_vfs::*;
 use husky_word::IdentMap;
 use husky_word::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};

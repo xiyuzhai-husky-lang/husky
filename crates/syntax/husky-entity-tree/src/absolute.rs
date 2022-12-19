@@ -1,5 +1,6 @@
 use husky_entity_card::EntityCard;
 use husky_entity_path::{EntityPathData, EntityPathDb};
+use husky_toolchain::ToolchainDb;
 
 use crate::*;
 
@@ -43,7 +44,8 @@ pub(crate) fn absolute_entity_path(
 #[test]
 fn absolute_entity_path_works() {
     let db = DB::default();
-    let menu = db.entity_path_menu();
+    let toolchain = db.lang_dev_toolchain();
+    let menu = db.entity_path_menu(toolchain);
     assert!(db.is_absolute(menu.i32()).unwrap());
     assert!(db.is_absolute(menu.i64()).unwrap());
     // todo

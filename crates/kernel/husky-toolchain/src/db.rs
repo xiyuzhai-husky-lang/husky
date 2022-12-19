@@ -1,30 +1,22 @@
-use crate::{Toolchain, ToolchainChannel, ToolchainDate, ToolchainJar};
+use crate::*;
+use husky_path_utils::{derive_library_path_from_cargo_manifest_dir, Path};
 use husky_platform::Platform;
 use salsa::{storage::HasJar, DbWithJar};
 
 pub trait ToolchainDb: DbWithJar<ToolchainJar> {
-    fn toolchain(&self) -> Toolchain;
-    fn toolchain_jar(&self) -> &ToolchainJar;
+    fn lang_dev_toolchain(&self) -> Toolchain;
+    fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path;
 }
 
 impl<T> ToolchainDb for T
 where
     T: DbWithJar<ToolchainJar>,
 {
-    fn toolchain(&self) -> Toolchain {
-        todo!()
-        // *self.toolchain_jar().toolchain_cell().get_or_init(|| {
-        //     // ad hoc
-        //     Toolchain::new(
-        //         self,
-        //         ToolchainChannel::new_ad_hoc(),
-        //         ToolchainDate::new_ad_hoc(),
-        //         Platform::new_ad_hoc(),
-        //     )
-        // })
+    fn lang_dev_toolchain(&self) -> Toolchain {
+        let library_path = derive_library_path_from_cargo_manifest_dir();
+        Toolchain::new(self, ToolchainData::Local { library_path })
     }
-
-    fn toolchain_jar(&self) -> &ToolchainJar {
-        &<Self as HasJar<ToolchainJar>>::jar(self).0
+    fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path {
+        toolchain_library_path(self, toolchain)
     }
 }

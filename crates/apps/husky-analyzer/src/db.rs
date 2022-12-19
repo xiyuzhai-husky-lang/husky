@@ -10,7 +10,7 @@ use husky_syntax_fmt::SyntaxFormatJar;
 use husky_term::TermJar;
 use husky_token::TokenJar;
 use husky_toolchain::*;
-use husky_vfs::VfsJar;
+use husky_vfs::*;
 use husky_word::WordJar;
 
 #[salsa::db(
@@ -33,22 +33,14 @@ use husky_word::WordJar;
 #[derive(Default)]
 pub struct AnalyzerDB {
     storage: salsa::Storage<AnalyzerDB>,
-    source_path_config: VfsConfigImpl,
 }
 
 impl salsa::Database for AnalyzerDB {}
-
-impl HasVfsConfig for AnalyzerDB {
-    fn vfs_config(&self) -> &VfsConfig {
-        &self.source_path_config
-    }
-}
 
 impl salsa::ParallelDatabase for AnalyzerDB {
     fn snapshot(&self) -> salsa::Snapshot<Self> {
         salsa::Snapshot::new(AnalyzerDB {
             storage: self.storage.snapshot(),
-            source_path_config: self.source_path_config.clone(),
         })
     }
 }

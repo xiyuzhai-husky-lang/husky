@@ -22,7 +22,7 @@ use husky_ast::AstIdx;
 use husky_entity_card::EntityCard;
 use husky_entity_path::*;
 use husky_package_path::*;
-use husky_vfs::VfsResult;
+use husky_vfs::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use implementation::ImplementationMap;
 use node::*;

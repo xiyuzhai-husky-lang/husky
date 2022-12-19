@@ -1,12 +1,15 @@
+mod env;
 mod module_tree;
 mod rel;
 
-use husky_check_utils::should_satisfy;
-use husky_print_utils::p;
+pub use env::*;
 pub use module_tree::*;
 pub use rel::*;
-use relative_path::{RelativePath, RelativePathBuf};
 pub use std::path::{Path, PathBuf};
+
+use husky_check_utils::should_satisfy;
+use husky_print_utils::p;
+use relative_path::{RelativePath, RelativePathBuf};
 
 pub fn path_has_file_name(path: &Path, name: &str) -> bool {
     path.file_name().map(|s| s.to_string_lossy()) == Some(name.into())
@@ -173,7 +176,7 @@ pub fn cargo_manifest_dir() -> Result<PathBuf, std::env::VarError> {
     std::env::var("CARGO_MANIFEST_DIR").map(|s| s.into())
 }
 
-pub fn derive_library_dir_from_cargo_manifest_dir() -> PathBuf {
+pub fn derive_library_path_from_cargo_manifest_dir() -> PathBuf {
     let cargo_manifest_dir = std::env::var("CARGO_MANIFEST_DIR").unwrap();
     let mut library_parent_dir: &Path = cargo_manifest_dir.as_ref();
     loop {

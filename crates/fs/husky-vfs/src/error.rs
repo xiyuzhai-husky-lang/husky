@@ -1,6 +1,7 @@
 use std::path::{Path, PathBuf};
 
 use husky_absolute_path::AbsolutePathError;
+use husky_fs_specs::FsSpecsError;
 use husky_print_utils::p;
 use thiserror::Error;
 
@@ -24,6 +25,12 @@ pub enum VfsError {
 impl From<&VfsError> for VfsError {
     fn from(value: &VfsError) -> Self {
         value.clone()
+    }
+}
+
+impl From<&FsSpecsError> for VfsError {
+    fn from(value: &FsSpecsError) -> Self {
+        todo!()
     }
 }
 

@@ -29,12 +29,6 @@ struct MimicDB {
     storage: salsa::Storage<Self>,
 }
 
-impl HasVfsConfig for MimicDB {
-    fn vfs_config(&self) -> &VfsConfig {
-        todo!()
-    }
-}
-
 impl Database for MimicDB {}
 
 #[test]

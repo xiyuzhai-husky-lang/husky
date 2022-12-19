@@ -1,15 +1,14 @@
-mod config;
 mod date;
 mod db;
-mod jar;
 
-pub use config::{HasVfsConfig, VfsConfig, VfsConfigImpl, VfsConfigMimic};
 pub use db::*;
-pub use jar::*;
 
 use date::*;
 use husky_platform::Platform;
 use std::path::PathBuf;
+
+#[salsa::jar(db = ToolchainDb)]
+pub struct ToolchainJar(Toolchain, toolchain_library_path);
 
 #[salsa::input(jar = ToolchainJar)]
 pub struct Toolchain {
@@ -25,7 +24,7 @@ pub enum ToolchainData {
         platform: Platform,
     },
     Local {
-        path: PathBuf,
+        library_path: PathBuf,
     },
 }
 
@@ -38,5 +37,17 @@ pub enum ToolchainChannel {
 impl ToolchainChannel {
     pub fn new_ad_hoc() -> Self {
         ToolchainChannel::Nightly
+    }
+}
+
+#[salsa::tracked(jar = ToolchainJar, return_ref)]
+fn toolchain_library_path(db: &dyn ToolchainDb, toolchain: Toolchain) -> PathBuf {
+    match toolchain.data(db) {
+        ToolchainData::Published {
+            channel,
+            date,
+            platform,
+        } => todo!(),
+        ToolchainData::Local { library_path } => library_path.clone(),
     }
 }

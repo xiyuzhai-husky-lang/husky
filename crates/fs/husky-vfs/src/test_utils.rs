@@ -1,19 +1,24 @@
-#![feature(trait_upcasting)]
-mod inner;
-
+use crate::*;
 use husky_absolute_path::AbsolutePath;
 use husky_entity_path::*;
 use husky_package_path::{CrateKind, CratePath, PackagePathData};
 use husky_path_utils::*;
 use husky_print_utils::p;
-use husky_vfs::*;
 use std::path::PathBuf;
 
 pub trait VfsTestSupport: VfsDb {
+    fn test_crates(name: &str, f: impl Fn(&Self, CratePath))
+    where
+        Self: Default;
+
     fn expect_test_crates<'a, R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
     where
         Self: Default + 'a,
         R: std::fmt::Debug;
+
+    fn test_modules(name: &str, f: impl Fn(&Self, EntityPath))
+    where
+        Self: Default;
 
     fn expect_test_modules<'a, R>(name: &str, f: impl Fn(&Self, EntityPath) -> &R)
     where
@@ -72,25 +77,29 @@ impl<T> VfsTestSupport for T
 where
     T: VfsDb,
 {
+    fn test_crates(name: &str, f: impl Fn(&Self, CratePath))
+    where
+        Self: Default,
+    {
+        todo!()
+    }
+
     fn expect_test_crates<'a, R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
     where
         Self: Default + 'a,
         R: std::fmt::Debug,
     {
         let db = Self::default();
-        let cargo_manifest_dir = cargo_manifest_dir().unwrap();
-        for (base, out) in [
-            (
-                db.vfs_config().library_dir(),
-                cargo_manifest_dir.join("expect-files/library"),
-            ),
-            (
-                db.vfs_config().examples_dir(),
-                cargo_manifest_dir.join("expect-files/examples"),
-            ),
-        ] {
-            expect_test_crates(&db, name, base, out, &f);
+        for (base, out) in expect_test_base_outs() {
+            expect_test_crates(&db, name, &base, out, &f);
         }
+    }
+
+    fn test_modules(name: &str, f: impl Fn(&Self, EntityPath))
+    where
+        Self: Default,
+    {
+        todo!()
     }
 
     fn expect_test_modules<'a, R>(name: &str, f: impl Fn(&Self, EntityPath) -> &R)
@@ -99,20 +108,25 @@ where
         R: std::fmt::Debug,
     {
         let db = Self::default();
-        let cargo_manifest_dir = cargo_manifest_dir().unwrap();
-        for (base, out) in [
-            (
-                db.vfs_config().library_dir(),
-                cargo_manifest_dir.join("expect-files/library"),
-            ),
-            (
-                db.vfs_config().examples_dir(),
-                cargo_manifest_dir.join("expect-files/examples"),
-            ),
-        ] {
-            expect_test_modules(&db, name, base, out, &f);
+        let env = HuskyDevPathEnv::new();
+        for (base, out) in expect_test_base_outs() {
+            expect_test_modules(&db, name, &base, out, &f);
         }
     }
+}
+
+fn expect_test_base_outs() -> Vec<(PathBuf, PathBuf)> {
+    let env = HuskyDevPathEnv::new();
+    vec![
+        (
+            env.lang_dev_library_dir().to_owned(),
+            env.cargo_manifest_dir().join("expect-files/library"),
+        ),
+        (
+            env.lang_dev_examples_dir().to_owned(),
+            env.cargo_manifest_dir().join("expect-files/examples"),
+        ),
+    ]
 }
 
 fn expect_test_crates<T, R>(

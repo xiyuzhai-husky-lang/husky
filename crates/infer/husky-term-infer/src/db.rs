@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::EntityPath;
 use husky_term::{Decl, Term, TermDb};
-use husky_vfs::VfsResult;
+use husky_vfs::*;
 use husky_word::WordDb;
 use salsa::DbWithJar;
 use std::sync::Arc;

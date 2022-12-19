@@ -7,6 +7,7 @@ use husky_expr::{parse_expr, ExprArena};
 use husky_print_utils::epin;
 use husky_term::TermDb;
 use husky_token::*;
+use husky_toolchain::ToolchainDb;
 
 #[test]
 fn test_decl() {
@@ -16,7 +17,8 @@ fn test_decl() {
         let db = TermInferTestsDb::new();
         let (arena, expr) = db.parse_expr_from_text(text);
         let mut sheet = TermSheet::new(&arena);
-        let term_menu = db.term_menu();
+        let toolchain = db.lang_dev_toolchain();
+        let term_menu = db.term_menu(toolchain);
         let mut ctx = InferContext::new(&db, &mut sheet, &arena, expr, &term_menu);
         let term = ctx.term_result().unwrap();
         todo!()

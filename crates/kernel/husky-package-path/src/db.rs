@@ -4,8 +4,8 @@ use husky_word::WordDb;
 use salsa::DbWithJar;
 
 pub trait PackagePathDb: DbWithJar<PackagePathJar> + ToolchainDb + WordDb {
-    fn builtin_package_path(&self, ident: Identifier) -> Option<PackagePath>;
-    fn package_path_menu(&self) -> &PackagePathMenu;
+    fn builtin_package_path(&self, toolchain: Toolchain, ident: Identifier) -> Option<PackagePath>;
+    fn package_path_menu(&self, toolchain: Toolchain) -> &PackagePathMenu;
     fn package_path_data(&self, package: PackagePath) -> &PackagePathData;
     // fn package_ident(&self, package: PackagePath) -> Identifier;
     fn package_name(&self, package: PackagePath) -> &str;
@@ -16,19 +16,20 @@ impl<T> PackagePathDb for T
 where
     T: DbWithJar<PackagePathJar> + ToolchainDb + WordDb,
 {
-    fn builtin_package_path(&self, ident: Identifier) -> Option<PackagePath> {
+    fn builtin_package_path(&self, toolchain: Toolchain, ident: Identifier) -> Option<PackagePath> {
         let word_menu = self.word_menu();
+        let package_path_menu = self.package_path_menu(toolchain);
         if ident == word_menu.core() {
-            Some(self.package_path_menu().core())
+            Some(package_path_menu.core())
         } else if ident == word_menu.std() {
-            Some(self.package_path_menu().std())
+            Some(package_path_menu.std())
         } else {
             None
         }
     }
 
-    fn package_path_menu(&self) -> &PackagePathMenu {
-        package_path_menu(self, self.toolchain())
+    fn package_path_menu(&self, toolchain: Toolchain) -> &PackagePathMenu {
+        package_path_menu(self, toolchain)
     }
 
     fn package_path_data(&self, package: PackagePath) -> &PackagePathData {
