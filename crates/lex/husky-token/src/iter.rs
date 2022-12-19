@@ -79,6 +79,11 @@ impl<'a> TokenIter<'a> {
         }
     }
 
+    pub fn step_back(&mut self) {
+        assert!(self.next > 0);
+        self.next -= 1
+    }
+
     pub fn peek(&self) -> Option<&'a Token> {
         if self.next < self.tokens.len() {
             Some(&self.tokens[self.next])
