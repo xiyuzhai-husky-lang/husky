@@ -28,6 +28,7 @@ Ok(
         use_exprs: [
             (
                 4,
+                PubCrate,
                 2,
             ),
         ],

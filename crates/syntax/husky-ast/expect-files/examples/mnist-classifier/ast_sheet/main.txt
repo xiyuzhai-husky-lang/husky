@@ -409,16 +409,19 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         23,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         24,
                     ),
+                    accessibility: PubCrate,
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -432,6 +435,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
+                    accessibility: PubCrate,
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -445,6 +449,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         28,
                     ),
+                    accessibility: PubCrate,
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -458,16 +463,19 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         30,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         31,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         32,
                     ),
+                    accessibility: PubCrate,
                 },
                 Comment {
                     token_group_idx: TokenGroupIdx(
@@ -478,16 +486,19 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         34,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         35,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         36,
                     ),
+                    accessibility: PubCrate,
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -501,16 +512,19 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         38,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         39,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         40,
                     ),
+                    accessibility: PubCrate,
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -524,21 +538,25 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         42,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         43,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         44,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         45,
                     ),
+                    accessibility: PubCrate,
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -552,6 +570,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         47,
                     ),
+                    accessibility: PubCrate,
                 },
                 Main {
                     token_group_idx: TokenGroupIdx(

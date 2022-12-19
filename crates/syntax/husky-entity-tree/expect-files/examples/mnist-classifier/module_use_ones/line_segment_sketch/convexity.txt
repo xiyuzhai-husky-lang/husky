@@ -1,0 +1,64 @@
+Ok(
+    [
+        All {
+            ast_idx: 20,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 57,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        All {
+            ast_idx: 21,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 63,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        All {
+            ast_idx: 22,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 56,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+    ],
+)

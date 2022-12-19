@@ -1,0 +1,24 @@
+Ok(
+    [
+        All {
+            ast_idx: 0,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 21,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 2,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: Public,
+        },
+    ],
+)

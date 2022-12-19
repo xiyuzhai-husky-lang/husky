@@ -70,14 +70,17 @@ Ok(
         use_exprs: [
             (
                 20,
+                PubCrate,
                 2,
             ),
             (
                 21,
+                PubCrate,
                 5,
             ),
             (
                 22,
+                PubCrate,
                 8,
             ),
         ],

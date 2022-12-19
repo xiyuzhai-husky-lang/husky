@@ -1,7 +1,9 @@
+mod aux;
 mod defn;
 mod uses;
 
 use crate::*;
+use aux::*;
 use husky_token::{Keyword, SpecialToken, StmtKeyword, TokenGroupIter, TokenKind, TokenSheet};
 
 pub(crate) struct AstParser<'a> {
@@ -78,10 +80,7 @@ impl<'a> AstParser<'a> {
                     | StmtKeyword::Require => self.parse_stmt(token_group_idx, indent),
                 },
                 Keyword::Liason(_) => todo!(),
-                Keyword::Use => Ast::Use {
-                    token_group_idx,
-                    accessibility: todo!(),
-                },
+                Keyword::Use => self.parse_uses(token_group_idx, indent),
                 Keyword::Main => Ast::Main {
                     token_group_idx,
                     body: self.parse_asts(indent + INDENT_INCR),

@@ -217,6 +217,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
+                    accessibility: PubCrate,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(

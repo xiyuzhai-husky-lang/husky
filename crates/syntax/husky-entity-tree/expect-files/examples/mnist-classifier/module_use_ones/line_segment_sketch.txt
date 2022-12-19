@@ -1,0 +1,90 @@
+Ok(
+    [
+        All {
+            ast_idx: 164,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 56,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        One {
+            ast_idx: 165,
+            path: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 63,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 103,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        All {
+            ast_idx: 166,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 58,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        All {
+            ast_idx: 167,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 59,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        All {
+            ast_idx: 168,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 61,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+    ],
+)

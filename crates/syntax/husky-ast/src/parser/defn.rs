@@ -29,95 +29,16 @@ impl<'a> AstParser<'a> {
                 },
             }
         };
-        let mut parser = DefnHeadParser {
-            token_iter: self.token_sheet[token_group_idx].iter().peekable(),
-        };
+        let mut aux_parser = self.aux_parser(token_group_idx);
         Ok(Ast::Defn {
             // order matters!
-            accessibility: parser.parse_accessibility()?,
-            entity_card: parser.parse_entity_card()?,
-            ident: parser.parse_ident()?,
-            is_generic: parser.parse_is_generic(),
+            accessibility: aux_parser.parse_accessibility()?,
+            entity_card: aux_parser.parse_entity_card()?,
+            ident: aux_parser.parse_ident()?,
+            is_generic: aux_parser.parse_is_generic(),
             token_group_idx,
             body,
             body_kind,
         })
-    }
-}
-
-struct DefnHeadParser<'a> {
-    token_iter: Peekable<core::slice::Iter<'a, Token>>,
-}
-
-impl<'a> DefnHeadParser<'a> {
-    fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
-        Ok(match self.token_iter.peek().unwrap().kind {
-            TokenKind::Decorator(decor) => match decor {
-                Decorator::Pub => {
-                    self.token_iter.next();
-                    match self
-                        .token_iter
-                        .peek()
-                        .ok_or(AstError::ExpectParBraOrDecoratorOrIdentifier(None))?
-                        .kind
-                    {
-                        TokenKind::Special(SpecialToken::Bra(Bracket::Par)) => todo!(),
-                        _ => Accessibility::Public,
-                    }
-                }
-                Decorator::Protected => todo!(),
-                Decorator::Private => todo!(),
-                Decorator::Async => todo!(),
-                Decorator::Static => Accessibility::Public,
-            },
-            _ => Accessibility::PubCrate,
-        })
-    }
-
-    fn parse_entity_card(&mut self) -> AstResult<EntityCard> {
-        Ok(
-            match self
-                .token_iter
-                .next()
-                .ok_or(AstError::ExpectEntityKeyword)?
-                .kind
-            {
-                TokenKind::Decorator(decor) => self.parse_entity_card()?,
-                TokenKind::Keyword(kw) => match kw {
-                    Keyword::Paradigm(_) | Keyword::Visual => EntityCard::Form,
-                    Keyword::Type(ty_kw) => EntityCard::Type,
-                    Keyword::Trait => EntityCard::Trait,
-                    Keyword::Mod => EntityCard::Module,
-                    Keyword::Impl | Keyword::End(_) => return Err(AstError::ExpectEntityKeyword),
-                    Keyword::Config(_)
-                    | Keyword::Stmt(_)
-                    | Keyword::Liason(_)
-                    | Keyword::Main
-                    | Keyword::Use => unreachable!(),
-                },
-                _ => return Err(AstError::ExpectEntityKeyword),
-                TokenKind::Comment => todo!(),
-            },
-        )
-    }
-
-    fn parse_ident(&mut self) -> AstResult<Identifier> {
-        let token = self
-            .token_iter
-            .next()
-            .ok_or(AstError::ExpectIdentifier(None))?;
-        token
-            .identify()
-            .ok_or(AstError::ExpectIdentifier(Some(token.range)))
-    }
-
-    fn parse_is_generic(&mut self) -> bool {
-        let Some (token) = &self
-            .token_iter
-            .next() else { return false };
-        match token.kind {
-            TokenKind::Special(SpecialToken::LAngle) => true,
-            _ => false,
-        }
     }
 }

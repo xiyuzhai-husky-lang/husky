@@ -1,0 +1,44 @@
+Ok(
+    [
+        All {
+            ast_idx: 0,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: Public,
+        },
+        All {
+            ast_idx: 1,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: Public,
+        },
+    ],
+)

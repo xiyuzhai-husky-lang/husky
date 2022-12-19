@@ -101,18 +101,22 @@ Ok(
         use_exprs: [
             (
                 18,
+                PubCrate,
                 2,
             ),
             (
                 19,
+                PubCrate,
                 5,
             ),
             (
                 20,
+                PubCrate,
                 8,
             ),
             (
                 21,
+                PubCrate,
                 12,
             ),
         ],

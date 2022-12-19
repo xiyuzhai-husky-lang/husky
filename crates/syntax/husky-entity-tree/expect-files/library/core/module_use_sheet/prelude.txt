@@ -49,10 +49,12 @@ Ok(
         use_exprs: [
             (
                 0,
+                Public,
                 2,
             ),
             (
                 1,
+                Public,
                 5,
             ),
         ],

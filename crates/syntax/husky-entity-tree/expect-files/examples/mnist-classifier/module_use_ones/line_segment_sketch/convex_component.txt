@@ -1,0 +1,24 @@
+Ok(
+    [
+        All {
+            ast_idx: 4,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 57,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+    ],
+)

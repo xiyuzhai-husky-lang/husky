@@ -7,79 +7,6 @@ use husky_vfs::VfsResult;
 use husky_word::Identifier;
 use std::collections::{HashMap, HashSet};
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct PrimalModuleUseSheet {
-    module_uses_map: HashMap<EntityPath, VfsResult<Vec<EntityTree>>>,
-    errors: Vec<(AstIdx, EntityTreeError)>,
-}
-
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn primal_module_use_sheet(
-    db: &dyn EntityTreeDb,
-    crate_path: CratePath,
-) -> VfsResult<PrimalModuleUseSheet> {
-    Ok(PrimalModuleUseBuilder::new(db, crate_path)?.build_all())
-}
-
-#[test]
-fn primal_module_use_sheet_works() {
-    DB::expect_test_crates("primal_module_use_sheet", |db, crate_path| {
-        primal_module_use_sheet(db, crate_path)
-    })
-}
-
-pub struct PrimalModuleUseBuilder<'a> {
-    db: &'a dyn EntityTreeDb,
-    root: EntityPath,
-    module_uses_map: HashMap<EntityPath, VfsResult<Vec<EntityTree>>>,
-    modified_modules: HashSet<EntityPath>,
-    errors: Vec<(AstIdx, EntityTreeError)>,
-}
-
-impl<'a> PrimalModuleUseBuilder<'a> {
-    fn new(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> VfsResult<Self> {
-        fn collect_initial_module_uses(
-            db: &dyn EntityTreeDb,
-            crate_path: CratePath,
-        ) -> VfsResult<HashMap<EntityPath, VfsResult<Vec<EntityTree>>>> {
-            let all_modules = db.all_modules_within_crate(crate_path).as_ref()?;
-            todo!()
-        }
-
-        let root = db.it_entity_path(EntityPathData::CrateRoot(crate_path));
-        Ok(PrimalModuleUseBuilder {
-            db,
-            root,
-            module_uses_map: collect_initial_module_uses(db, crate_path)?,
-            modified_modules: Default::default(),
-            errors: Default::default(),
-        })
-    }
-
-    fn build_all(mut self) -> PrimalModuleUseSheet {
-        self.first_build();
-        loop {
-            self.incr_build();
-            if self.modified_modules.len() == 0 {
-                return PrimalModuleUseSheet {
-                    module_uses_map: self.module_uses_map,
-                    errors: self.errors,
-                };
-            } else {
-                self.modified_modules = Default::default()
-            }
-        }
-    }
-
-    fn first_build(&mut self) {
-        todo!()
-    }
-
-    fn incr_build(&mut self) {
-        todo!()
-    }
-}
-
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn module_use_atoms(
     db: &dyn EntityTreeDb,
@@ -162,7 +89,15 @@ impl<'a> UseAllCollector<'a> {
                 parent: self.path.clone(),
                 accessibility: self.accessibility,
             }),
-            EntityUseExpr::One { ident } => todo!(),
+            EntityUseExpr::One { ident } => {
+                let mut path = self.path.clone();
+                path.push(*ident);
+                self.use_atoms.push(EntityUseAtom::One {
+                    ast_idx: self.ast_idx,
+                    path,
+                    accessibility: self.accessibility,
+                })
+            }
             EntityUseExpr::ScopeResolution { parent, child } => {
                 self.path.push(*parent);
                 self.collect(*child)

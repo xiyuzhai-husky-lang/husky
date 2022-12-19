@@ -1,0 +1,58 @@
+Ok(
+    [
+        One {
+            ast_idx: 124,
+            path: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 94,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 95,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 64,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        All {
+            ast_idx: 125,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 63,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+    ],
+)
