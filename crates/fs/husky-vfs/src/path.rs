@@ -121,8 +121,9 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> Vfs
 
 #[test]
 fn resolve_module_path_works() {
-    DB::test_modules("resolve_module_path", |db, entity_path| {
-        let path = module_absolute_path(db, entity_path);
-        todo!()
+    DB::test_probable_modules("resolve_module_path", |db, entity_path| {
+        let abs_path = module_absolute_path(db, entity_path).as_ref().unwrap();
+        let entity_path_resolved = db.resolve_module_path(abs_path).unwrap();
+        assert_eq!(entity_path, entity_path_resolved)
     })
 }

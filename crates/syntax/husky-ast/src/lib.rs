@@ -109,7 +109,7 @@ pub(crate) fn ast_sheet(db: &dyn AstDb, entity_path: EntityPath) -> VfsResult<As
 #[test]
 fn ast_sheet_works() {
     use tests::*;
-    DB::expect_test_modules("ast_sheet", AstDb::ast_sheet);
+    DB::expect_test_probable_modules("ast_sheet", AstDb::ast_sheet);
 }
 
 #[derive(Debug, PartialEq, Eq)]

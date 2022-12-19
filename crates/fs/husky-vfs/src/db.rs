@@ -14,7 +14,7 @@ pub trait VfsDb:
     fn package_dir(&self, package_path: PackagePath) -> &VfsResult<AbsolutePath>;
     fn collect_local_packages(&self, dir: &Path) -> VfsResult<Vec<PackagePath>>;
     fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
-    fn collect_possible_modules(&self, package_path: PackagePath) -> VfsResult<Vec<EntityPath>>;
+    fn collect_probable_modules(&self, package_path: PackagePath) -> VfsResult<Vec<EntityPath>>;
     fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()>;
     fn apply_live_file_changes(&mut self, path: &Path, changes: Vec<TextChange>) -> VfsResult<()>;
     fn resolve_module_path(&self, path: &Path) -> VfsResult<EntityPath>;
@@ -188,8 +188,8 @@ where
         Ok(crates)
     }
 
-    fn collect_possible_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>> {
-        fn collect_possible_modules(
+    fn collect_probable_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>> {
+        fn collect_probable_modules(
             db: &dyn VfsDb,
             parent: EntityPath,
             dir: &Path,
@@ -212,7 +212,7 @@ where
                         .and_then(|filename| filename.to_str())
                         .and_then(|filename| db.it_ident_borrowed(filename))
                     {
-                        collect_possible_modules(
+                        collect_probable_modules(
                             db,
                             db.it_entity_path(EntityPathData::Childpath { parent, ident }),
                             &path,
@@ -247,7 +247,7 @@ where
         if package_dir.join("src/lib.hsy").exists() {
             let root_module = EntityPath::new_crate_root(self, package, CrateKind::Library);
             modules.push(root_module);
-            collect_possible_modules(self, root_module, &package_dir.join("src"), &mut modules);
+            collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules);
             if package_dir.join("src/main.hsy").exists() {
                 todo!()
             }
@@ -257,7 +257,7 @@ where
         } else if package_dir.join("src/main.hsy").exists() {
             let root_module = EntityPath::new_crate_root(self, package, CrateKind::Main);
             modules.push(root_module);
-            collect_possible_modules(self, root_module, &package_dir.join("src"), &mut modules);
+            collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules);
             if package_dir.join("src/bin").exists() {
                 todo!()
             }
