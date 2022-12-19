@@ -4,14 +4,14 @@ use salsa::DbWithJar;
 use upcast::Upcast;
 
 pub trait TermPatternInferDb: DbWithJar<TermPatternInferJar> + TermDb + Upcast<dyn TermDb> {
-    // fn term_pattern_infer_sheet(&self, file: AbsolutePath) -> FileResultArc<TermPatternInferSheet>;
+    // fn term_pattern_infer_sheet(&self, file: AbsolutePath) -> VfsResult<TermPatternInferSheet>;
 }
 
 impl<T> TermPatternInferDb for T
 where
     T: DbWithJar<TermPatternInferJar> + TermDb + Upcast<dyn TermDb>,
 {
-    // fn term_pattern_infer_sheet(&self, file: AbsolutePath) -> FileResultArc<TermPatternInferSheet> {
+    // fn term_pattern_infer_sheet(&self, file: AbsolutePath) -> VfsResult<TermPatternInferSheet> {
     //     todo!()
     // }
 }
@@ -19,6 +19,6 @@ where
 // fn term_pattern_infer_sheet(
 //     _db: &dyn TermPatternInferDb,
 //     _file: AbsolutePath,
-// ) -> FileResultArc<TermPatternInferSheet> {
+// ) -> VfsResult<TermPatternInferSheet> {
 //     todo!()
 // }
