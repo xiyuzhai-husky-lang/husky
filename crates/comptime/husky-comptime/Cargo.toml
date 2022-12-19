@@ -21,7 +21,6 @@ salsa = { path = "../../abstraction/salsa" }
 upcast = { path = "../../abstraction/upcast" }
 place = { path = "../../abstraction/place" }
 # fs
-husky-path = { path = "../../fs/husky-path" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::EntityPath;
-use husky_path::FileResultArc;
 use husky_term::{Decl, Term, TermDb};
+use husky_vfs::VfsResult;
 use husky_word::WordDb;
 use salsa::DbWithJar;
 use std::sync::Arc;
@@ -12,7 +12,7 @@ pub trait TermInferDb:
 {
     fn entity_ty(&self, entity: EntityPath) -> Term;
 
-    fn term_sheet(&self, file: AbsolutePath) -> FileResultArc<TermSheet>;
+    fn term_sheet(&self, file: AbsolutePath) -> VfsResult<TermSheet>;
 }
 
 impl<T> TermInferDb for T
@@ -23,7 +23,7 @@ where
         todo!()
     }
 
-    fn term_sheet(&self, file: AbsolutePath) -> FileResultArc<TermSheet> {
+    fn term_sheet(&self, file: AbsolutePath) -> VfsResult<TermSheet> {
         todo!()
     }
 }
@@ -32,7 +32,7 @@ fn entity_ty(db: &dyn TermInferDb, entity: EntityPath) -> Term {
     db.infer_entity_ty(entity)
 }
 
-fn term_sheet(db: &dyn TermInferDb, file: AbsolutePath) -> FileResultArc<TermSheet> {
+fn term_sheet(db: &dyn TermInferDb, file: AbsolutePath) -> VfsResult<TermSheet> {
     todo!()
 }
 
