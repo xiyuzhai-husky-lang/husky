@@ -34,14 +34,6 @@ Ok(
                         2..2,
                     ),
                 },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        8,
-                    ),
-                    body: ArenaIdxRange(
-                        4..4,
-                    ),
-                },
                 Defn {
                     token_group_idx: TokenGroupIdx(
                         4,
@@ -61,24 +53,13 @@ Ok(
                     is_generic: false,
                     body_kind: Cases,
                 },
-                Defn {
+                Stmt {
                     token_group_idx: TokenGroupIdx(
-                        7,
+                        8,
                     ),
                     body: ArenaIdxRange(
-                        4..5,
+                        5..5,
                     ),
-                    accessibility: PubCrate,
-                    entity_card: Form,
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 1,
-                            },
-                        ),
-                    ),
-                    is_generic: false,
-                    body_kind: Block,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -92,7 +73,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 437,
+                                value: 429,
                             },
                         ),
                     ),
@@ -104,7 +85,17 @@ Ok(
                         3,
                     ),
                     body: ArenaIdxRange(
-                        5..7,
+                        4..5,
+                    ),
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        7,
+                    ),
+                    error: ExpectIdentifier(
+                        Some(
+                            [10:8, 10:9),
+                        ),
                     ),
                 },
                 Defn {
@@ -119,7 +110,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 441,
+                                value: 433,
                             },
                         ),
                     ),
@@ -138,7 +129,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 444,
+                                value: 436,
                             },
                         ),
                     ),
@@ -148,7 +139,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            7..11,
+            6..11,
         ),
     },
 )

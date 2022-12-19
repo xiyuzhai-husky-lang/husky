@@ -80,10 +80,5 @@ Ok(
                 value: 49,
             },
         ),
-        EntityPath(
-            Id {
-                value: 52,
-            },
-        ),
     ],
 )

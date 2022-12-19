@@ -55,16 +55,16 @@ pub(crate) fn entity_node(
 ) -> EntityTreeResult<EntityNode> {
     Ok(
         if let Some(parent_module) = parent_module(db, entity_path).as_ref()? {
-            let entity_tree_sheet = db.primal_entity_tree_sheet(*parent_module).as_ref()?;
-            if let Some(tree) = entity_tree_sheet.get(entity_path) {
+            let entity_tree_page = db.entity_tree_page0(*parent_module).as_ref()?;
+            if let Some(tree) = entity_tree_page.get(entity_path) {
                 tree.node.clone()
             } else {
                 p!(entity_path.show(db,));
-                p!(entity_tree_sheet.show(db));
+                p!(entity_tree_page.show(db));
                 todo!()
             }
         } else {
-            let entity_tree_sheet = db.primal_entity_tree_sheet(entity_path).as_ref()?;
+            let entity_tree_page = db.entity_tree_page0(entity_path).as_ref()?;
             EntityNode {
                 entity_path,
                 accessibility: Accessibility::Public,

@@ -1,12 +1,185 @@
 Ok(
     [
         One {
-            ast_idx: 27,
+            ast_idx: 28,
             path: [
                 Identifier(
                     Word(
                         Id {
                             value: 59,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 61,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        One {
+            ast_idx: 29,
+            path: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 59,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 62,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        All {
+            ast_idx: 30,
+            parent: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 57,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        One {
+            ast_idx: 31,
+            path: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 48,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 63,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        One {
+            ast_idx: 32,
+            path: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 43,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 64,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        One {
+            ast_idx: 33,
+            path: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 47,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 65,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        One {
+            ast_idx: 34,
+            path: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 46,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 66,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        One {
+            ast_idx: 35,
+            path: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 50,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 67,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        One {
+            ast_idx: 36,
+            path: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 45,
+                        },
+                    ),
+                ),
+                Identifier(
+                    Word(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+            ],
+            accessibility: PubCrate,
+        },
+        One {
+            ast_idx: 37,
+            path: [
+                Identifier(
+                    Word(
+                        Id {
+                            value: 44,
                         },
                     ),
                 ),
@@ -21,12 +194,12 @@ Ok(
             accessibility: PubCrate,
         },
         One {
-            ast_idx: 28,
+            ast_idx: 38,
             path: [
                 Identifier(
                     Word(
                         Id {
-                            value: 59,
+                            value: 40,
                         },
                     ),
                 ),
@@ -40,39 +213,13 @@ Ok(
             ],
             accessibility: PubCrate,
         },
-        All {
-            ast_idx: 29,
-            parent: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 57,
-                        },
-                    ),
-                ),
-            ],
-            accessibility: PubCrate,
-        },
-        All {
-            ast_idx: 31,
-            parent: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 39,
-                        },
-                    ),
-                ),
-            ],
-            accessibility: PubCrate,
-        },
         One {
-            ast_idx: 33,
+            ast_idx: 39,
             path: [
                 Identifier(
                     Word(
                         Id {
-                            value: 48,
+                            value: 42,
                         },
                     ),
                 ),
@@ -87,12 +234,12 @@ Ok(
             accessibility: PubCrate,
         },
         One {
-            ast_idx: 35,
+            ast_idx: 40,
             path: [
                 Identifier(
                     Word(
                         Id {
-                            value: 43,
+                            value: 58,
                         },
                     ),
                 ),
@@ -107,12 +254,12 @@ Ok(
             accessibility: PubCrate,
         },
         One {
-            ast_idx: 36,
+            ast_idx: 41,
             path: [
                 Identifier(
                     Word(
                         Id {
-                            value: 47,
+                            value: 52,
                         },
                     ),
                 ),
@@ -127,32 +274,12 @@ Ok(
             accessibility: PubCrate,
         },
         One {
-            ast_idx: 37,
+            ast_idx: 42,
             path: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 46,
-                        },
-                    ),
-                ),
                 Identifier(
                     Word(
                         Id {
                             value: 74,
-                        },
-                    ),
-                ),
-            ],
-            accessibility: PubCrate,
-        },
-        One {
-            ast_idx: 39,
-            path: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 50,
                         },
                     ),
                 ),
@@ -163,36 +290,10 @@ Ok(
                         },
                     ),
                 ),
-            ],
-            accessibility: PubCrate,
-        },
-        One {
-            ast_idx: 40,
-            path: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 45,
-                        },
-                    ),
-                ),
                 Identifier(
                     Word(
                         Id {
                             value: 76,
-                        },
-                    ),
-                ),
-            ],
-            accessibility: PubCrate,
-        },
-        One {
-            ast_idx: 41,
-            path: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 44,
                         },
                     ),
                 ),
@@ -203,170 +304,10 @@ Ok(
                         },
                     ),
                 ),
-            ],
-            accessibility: PubCrate,
-        },
-        One {
-            ast_idx: 43,
-            path: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 42,
-                        },
-                    ),
-                ),
                 Identifier(
                     Word(
                         Id {
                             value: 78,
-                        },
-                    ),
-                ),
-            ],
-            accessibility: PubCrate,
-        },
-        All {
-            ast_idx: 44,
-            parent: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 58,
-                        },
-                    ),
-                ),
-            ],
-            accessibility: PubCrate,
-        },
-        All {
-            ast_idx: 45,
-            parent: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 52,
-                        },
-                    ),
-                ),
-            ],
-            accessibility: PubCrate,
-        },
-        One {
-            ast_idx: 47,
-            path: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 40,
-                        },
-                    ),
-                ),
-                Identifier(
-                    Word(
-                        Id {
-                            value: 79,
-                        },
-                    ),
-                ),
-            ],
-            accessibility: PubCrate,
-        },
-        One {
-            ast_idx: 48,
-            path: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 42,
-                        },
-                    ),
-                ),
-                Identifier(
-                    Word(
-                        Id {
-                            value: 78,
-                        },
-                    ),
-                ),
-            ],
-            accessibility: PubCrate,
-        },
-        One {
-            ast_idx: 49,
-            path: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 58,
-                        },
-                    ),
-                ),
-                Identifier(
-                    Word(
-                        Id {
-                            value: 80,
-                        },
-                    ),
-                ),
-            ],
-            accessibility: PubCrate,
-        },
-        One {
-            ast_idx: 50,
-            path: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 52,
-                        },
-                    ),
-                ),
-                Identifier(
-                    Word(
-                        Id {
-                            value: 81,
-                        },
-                    ),
-                ),
-            ],
-            accessibility: PubCrate,
-        },
-        One {
-            ast_idx: 52,
-            path: [
-                Identifier(
-                    Word(
-                        Id {
-                            value: 82,
-                        },
-                    ),
-                ),
-                Identifier(
-                    Word(
-                        Id {
-                            value: 83,
-                        },
-                    ),
-                ),
-                Identifier(
-                    Word(
-                        Id {
-                            value: 84,
-                        },
-                    ),
-                ),
-                Identifier(
-                    Word(
-                        Id {
-                            value: 85,
-                        },
-                    ),
-                ),
-                Identifier(
-                    Word(
-                        Id {
-                            value: 86,
                         },
                     ),
                 ),
