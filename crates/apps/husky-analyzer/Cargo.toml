@@ -42,6 +42,8 @@ husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 husky-hover = { path = "../../ide/husky-hover" }
 husky-folding-range = { path = "../../ide/husky-folding-range" }
 husky-semantic-token = { path = "../../ide/husky-semantic-token" }
+# infer
+husky-toolchain-infer = { path = "../../infer/husky-toolchain-infer" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }

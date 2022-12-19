@@ -38,6 +38,10 @@ impl EntityPathMenu1 {
     pub fn core_ops(&self) -> EntityPath {
         self.core_ops
     }
+
+    pub fn core_prelude(&self) -> EntityPath {
+        self.core_prelude
+    }
 }
 
 impl std::ops::Deref for EntityPathMenu1 {

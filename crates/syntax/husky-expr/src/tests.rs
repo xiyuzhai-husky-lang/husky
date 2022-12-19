@@ -8,6 +8,7 @@ use husky_symbol_syntax::{SymbolContext, SymbolDb, SymbolJar, SymbolSheet};
 use husky_token::{TokenDb, Tokenize};
 use husky_token::{TokenIter, TokenJar};
 use husky_toolchain::*;
+use husky_toolchain_infer::ToolchainInferJar;
 use husky_vfs::*;
 use husky_word::WordJar;
 use place::SingleAssignPlace;
@@ -22,7 +23,8 @@ use salsa::{Database, ParallelDatabase};
     TokenJar,
     AstJar,
     SymbolJar,
-    EntityTreeJar
+    EntityTreeJar,
+    ToolchainInferJar
 )]
 #[derive(Default)]
 struct MimicDB {

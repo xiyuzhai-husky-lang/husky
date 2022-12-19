@@ -9,7 +9,7 @@ pub(crate) fn subentities() -> Vec<EntityTree> {
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn submodules(db: &dyn EntityTreeDb, module: EntityPath) -> VfsResult<Vec<EntityPath>> {
-    let entity_tree_page0 = db.entity_tree_page(module).as_ref()?;
+    let entity_tree_page0 = db.entity_tree_sheet(module).as_ref()?;
     Ok(entity_tree_page0
         .top_level_entities()
         .filter_map(|(_, card, path)| match card {
