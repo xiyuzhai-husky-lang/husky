@@ -42,7 +42,7 @@ where
 }
 
 #[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
-pub struct VecMap<K, V>
+pub struct VecEntryMap<K, V>
 where
     K: PartialEq + Eq + std::fmt::Debug,
     V: VecMapEntry<K>,
@@ -51,7 +51,7 @@ where
     phantom: PhantomData<K>,
 }
 
-impl<K, V> std::fmt::Debug for VecMap<K, V>
+impl<K, V> std::fmt::Debug for VecEntryMap<K, V>
 where
     K: PartialEq + Eq + std::fmt::Debug,
     V: VecMapEntry<K> + std::fmt::Debug,
@@ -61,7 +61,7 @@ where
     }
 }
 
-pub type VecPairMap<K, V> = VecMap<K, (K, V)>;
+pub type VecPairMap<K, V> = VecEntryMap<K, (K, V)>;
 
 #[derive(Debug)]
 pub struct EntryRepeatError<Entry> {
@@ -69,7 +69,7 @@ pub struct EntryRepeatError<Entry> {
     pub new: Entry,
 }
 
-impl<K, Entry> VecMap<K, Entry>
+impl<K, Entry> VecEntryMap<K, Entry>
 where
     K: PartialEq + Eq + std::fmt::Debug,
     Entry: VecMapEntry<K>,
@@ -209,7 +209,7 @@ where
     }
 }
 
-impl<K, Entry> FromIterator<Entry> for VecMap<K, Entry>
+impl<K, Entry> FromIterator<Entry> for VecEntryMap<K, Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     Entry: VecMapEntry<K> + std::fmt::Debug,
@@ -223,7 +223,7 @@ where
     }
 }
 
-impl<K, V> Deref for VecMap<K, V>
+impl<K, V> Deref for VecEntryMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: VecMapEntry<K>,
@@ -235,7 +235,7 @@ where
     }
 }
 
-impl<K, V> Default for VecMap<K, V>
+impl<K, V> Default for VecEntryMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: VecMapEntry<K>,
@@ -248,7 +248,7 @@ where
     }
 }
 
-impl<K, V> std::ops::Index<K> for VecMap<K, V>
+impl<K, V> std::ops::Index<K> for VecEntryMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: VecMapEntry<K>,
@@ -260,7 +260,7 @@ where
     }
 }
 
-impl<K, V> std::ops::IndexMut<K> for VecMap<K, V>
+impl<K, V> std::ops::IndexMut<K> for VecEntryMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: VecMapEntry<K>,
@@ -270,7 +270,7 @@ where
     }
 }
 
-impl<K, V> HuskyDisplay for VecMap<K, V>
+impl<K, V> HuskyDisplay for VecEntryMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     V: VecMapEntry<K> + HuskyDisplay,

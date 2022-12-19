@@ -1,9 +1,12 @@
 use crate::*;
+use core::slice::Iter;
 use husky_ast::{Ast, AstSheet};
 use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Bracket};
 use husky_print_utils::p;
 use husky_token::{Keyword, SpecialToken, TokenIdx, TokenIter, TokenKind, TokenSheet};
 use husky_word::Identifier;
+use idx_arena::map::ArenaMap;
+use std::iter::Peekable;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum EntityUseExpr {
@@ -33,9 +36,30 @@ pub enum EntityUseExprError {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct EntityUseExprSheet {
+pub(crate) struct EntityUseExprSheet {
     arena: EntityUseExprArena,
     use_exprs: Vec<(AstIdx, Accessibility, EntityUseExprIdx)>,
+}
+
+pub(crate) struct EntityUseExprResolveSheet<'a> {
+    sheet: &'a EntityUseExprSheet,
+    roots: ArenaMap<EntityUseExpr, EntityPath>,
+    modified: Vec<EntityUseExprIdx>,
+}
+
+impl<'a> EntityUseExprResolveSheet<'a> {
+    pub fn next(&mut self) -> Option<&'a EntityUseExprVisitor> {
+        todo!()
+    }
+
+    pub fn peek(&mut self) -> Option<&'a EntityUseExprVisitor> {
+        todo!()
+    }
+}
+
+pub struct EntityUseExprVisitor<'a> {
+    arena: &'a EntityUseExprArena,
+    expr: &'a EntityUseExpr,
 }
 
 impl std::ops::Deref for EntityUseExprSheet {

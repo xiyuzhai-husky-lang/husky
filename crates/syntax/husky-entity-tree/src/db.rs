@@ -20,7 +20,7 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb {
         &self,
         entity_path: EntityPath,
     ) -> &EntityTreeResult<AbsoluteEntityPath>;
-    fn primal_entity_tree_sheet(&self, module: EntityPath) -> &VfsResult<PrimalEntityTreeSheet>;
+    fn entity_tree_page0(&self, module: EntityPath) -> &VfsResult<EntityTreePage0>;
     fn entity_card(&self, entity_path: EntityPath) -> &EntityTreeResult<EntityCard>;
     fn is_absolute(&self, entity_path: EntityPath) -> EntityTreeResult<bool> {
         Ok(self.entity_absolute_path(entity_path).as_ref()?.path() == entity_path)
@@ -44,8 +44,8 @@ where
         entity_card(self, entity_path)
     }
 
-    fn primal_entity_tree_sheet(&self, module: EntityPath) -> &VfsResult<PrimalEntityTreeSheet> {
-        primal_entity_tree_sheet(self, module)
+    fn entity_tree_page0(&self, module: EntityPath) -> &VfsResult<EntityTreePage0> {
+        entity_tree_page0(self, module)
     }
 
     fn submodules(&self, entity_path: EntityPath) -> &VfsResult<Vec<EntityPath>> {

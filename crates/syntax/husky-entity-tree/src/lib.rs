@@ -5,7 +5,8 @@ mod entity_use;
 mod error;
 mod implementation;
 mod node;
-mod primal_tree;
+mod page0;
+mod page1;
 mod submodule;
 #[cfg(test)]
 mod tests;
@@ -26,7 +27,8 @@ use husky_vfs::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use implementation::ImplementationMap;
 use node::*;
-use primal_tree::*;
+use page0::*;
+use page1::*;
 use submodule::*;
 #[cfg(test)]
 use tests::*;
@@ -36,7 +38,7 @@ use tests::*;
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
     absolute_entity_path,
-    primal_entity_tree_sheet,
+    entity_tree_page0,
     submodules,
     entity_node,
     parent_module,
@@ -44,7 +46,7 @@ pub struct EntityTreeJar(
     entity_accessibility,
     module_use_exprs,
     module_use_atoms,
-    module_use_sheet,
+    entity_tree_page1,
     all_modules_within_crate,
 );
 
