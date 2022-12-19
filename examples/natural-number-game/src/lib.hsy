@@ -4,11 +4,11 @@ inductive Nat
 
 impl Nat:
     function add: Nat -> Nat
-    | Zero => self
-    | Succ(a) => Succ(self.add(a))
+    | Nat::Zero => self
+    | Nat::Succ(a) => Nat::Succ(self.add(a))
 
-    theorem basic -> ∀ a b ∊ Nat, Succ(a) = b → Succ(Succ(a)) = Succ(b):
-        rw
+theorem[basic] ∀ a b ∊ Nat, Nat::Succ(a) = b → Nat::Succ(Nat::Succ(a)) = Nat::Succ(b):
+    rw
 
 structure OddNat {
     inner: Nat,

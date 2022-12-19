@@ -18,40 +18,23 @@ mod six
 mod seven
 mod eight
 mod nine
-<<<<<<< HEAD:examples/mnist-classifier/src/main.hsy
-mod three
-=======
-
-
->>>>>>> 33cc76f99b5a9456ee70d4326d6b1a0e711bb218:examples/mnist-classifier/__rust_gen__/snapshot/mnist-classifier/main.hsy
 
 use mnist::BinaryImage28
 use mnist::MnistLabel
 use major::*
-<<<<<<< HEAD:examples/mnist-classifier/src/main.hsy
-use digits::*
-=======
 use zero::is_zero
->>>>>>> 33cc76f99b5a9456ee70d4326d6b1a0e711bb218:examples/mnist-classifier/__rust_gen__/snapshot/mnist-classifier/main.hsy
 use one::is_one
 use two::is_two
 use three::is_three
-// use four::is_four
 use five::is_five
 use six::is_six
 use seven::is_seven
-<<<<<<< HEAD:examples/mnist-classifier/src/main.hsy
-use nine::is_nine
-use raw_contour::*
-use line_segment_sketch::*
-=======
 use eight::is_eight
 use nine::is_nine
 
 
 use raw_contour::find_raw_contours
 use line_segment_sketch::find_line_segments
->>>>>>> 33cc76f99b5a9456ee70d4326d6b1a0e711bb218:examples/mnist-classifier/__rust_gen__/snapshot/mnist-classifier/main.hsy
 use domains::ml::models::naive::naive_i32
 
 main:
@@ -59,13 +42,9 @@ main:
     is_six?
     is_zero?
     is_seven?
-<<<<<<< HEAD:examples/mnist-classifier/src/main.hsy
-    require false
-=======
     is_eight?
     is_three?
     is_nine?
     is_five?
     is_two?
     MnistLabel::Four
->>>>>>> 33cc76f99b5a9456ee70d4326d6b1a0e711bb218:examples/mnist-classifier/__rust_gen__/snapshot/mnist-classifier/main.hsy
