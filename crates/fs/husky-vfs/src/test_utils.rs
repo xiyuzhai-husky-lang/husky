@@ -16,11 +16,11 @@ pub trait VfsTestSupport: VfsDb {
         Self: Default + 'a,
         R: std::fmt::Debug;
 
-    fn test_modules(name: &str, f: impl Fn(&Self, EntityPath))
+    fn test_probable_modules(name: &str, f: impl Fn(&Self, EntityPath))
     where
         Self: Default;
 
-    fn expect_test_modules<'a, R>(name: &str, f: impl Fn(&Self, EntityPath) -> &R)
+    fn expect_test_probable_modules<'a, R>(name: &str, f: impl Fn(&Self, EntityPath) -> &R)
     where
         Self: Default + 'a,
         R: std::fmt::Debug;
@@ -81,7 +81,20 @@ where
     where
         Self: Default,
     {
-        todo!()
+        let db = Self::default();
+        for dir in test_dirs() {
+            test_crates(&db, name, &dir, &f);
+        }
+    }
+
+    fn test_probable_modules(name: &str, f: impl Fn(&Self, EntityPath))
+    where
+        Self: Default,
+    {
+        let db = Self::default();
+        for dir in test_dirs() {
+            test_probable_modules(&db, name, &dir, &f);
+        }
     }
 
     fn expect_test_crates<'a, R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
@@ -95,14 +108,7 @@ where
         }
     }
 
-    fn test_modules(name: &str, f: impl Fn(&Self, EntityPath))
-    where
-        Self: Default,
-    {
-        todo!()
-    }
-
-    fn expect_test_modules<'a, R>(name: &str, f: impl Fn(&Self, EntityPath) -> &R)
+    fn expect_test_probable_modules<'a, R>(name: &str, f: impl Fn(&Self, EntityPath) -> &R)
     where
         Self: Default + 'a,
         R: std::fmt::Debug,
@@ -110,9 +116,17 @@ where
         let db = Self::default();
         let env = HuskyDevPathEnv::new();
         for (base, out) in expect_test_base_outs() {
-            expect_test_modules(&db, name, &base, out, &f);
+            expect_test_probable_modules(&db, name, &base, out, &f);
         }
     }
+}
+
+fn test_dirs() -> Vec<PathBuf> {
+    let env = HuskyDevPathEnv::new();
+    vec![
+        env.lang_dev_library_dir().to_owned(),
+        env.lang_dev_examples_dir().to_owned(),
+    ]
 }
 
 fn expect_test_base_outs() -> Vec<(PathBuf, PathBuf)> {
@@ -127,6 +141,34 @@ fn expect_test_base_outs() -> Vec<(PathBuf, PathBuf)> {
             env.cargo_manifest_dir().join("expect-files/examples"),
         ),
     ]
+}
+
+fn test_crates<T>(db: &T, name: &str, dir: &Path, f: &impl Fn(&T, CratePath))
+where
+    T: VfsDb,
+{
+    collect_package_dirs(dir).into_iter().for_each(|path| {
+        let package_path =
+            db.it_package_path(PackagePathData::Local(AbsolutePath::new(&path).unwrap()));
+        use salsa::DebugWithDb;
+        for crate_path in db.collect_crates(package_path).unwrap() {
+            f(db, crate_path)
+        }
+    });
+}
+
+fn test_probable_modules<T>(db: &T, name: &str, dir: &Path, f: &impl Fn(&T, EntityPath))
+where
+    T: VfsDb,
+{
+    collect_package_dirs(dir).into_iter().for_each(|path| {
+        let package_path =
+            db.it_package_path(PackagePathData::Local(AbsolutePath::new(&path).unwrap()));
+        use salsa::DebugWithDb;
+        for entity_path in db.collect_probable_modules(package_path).unwrap() {
+            f(db, entity_path)
+        }
+    });
 }
 
 fn expect_test_crates<T, R>(
@@ -160,7 +202,7 @@ fn expect_test_crates<T, R>(
         });
 }
 
-fn expect_test_modules<T, R>(
+fn expect_test_probable_modules<T, R>(
     db: &T,
     name: &str,
     base: &Path,
@@ -182,7 +224,7 @@ fn expect_test_modules<T, R>(
                 name,
                 package_expects_dir: path.to_logical_path(&out),
             };
-            for module in db.collect_possible_modules(package).unwrap() {
+            for module in db.collect_probable_modules(package).unwrap() {
                 use salsa::DebugWithDb;
                 let path = resolver.decide_module_expect_file_path(module);
                 std::fs::create_dir_all(path.parent().unwrap()).unwrap();

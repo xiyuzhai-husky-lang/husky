@@ -5,13 +5,13 @@ use husky_print_utils::p;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct EntityTreePage0 {
+pub struct EntityTreePage {
     arena: EntityTreeArena,
     top_level_entities_idx_range: EntityTreeIdxRange,
     isolate_entities_idx_range: EntityTreeIdxRange,
 }
 
-impl EntityTreePage0 {
+impl EntityTreePage {
     pub fn show(&self, db: &dyn EntityTreeDb) -> String {
         let all_entity_paths: Vec<_> = self
             .arena
@@ -23,7 +23,7 @@ impl EntityTreePage0 {
     }
 }
 
-impl EntityTreePage0 {
+impl EntityTreePage {
     pub(crate) fn get(&self, entity_path: EntityPath) -> Option<&EntityTree> {
         self.arena
             .data()
@@ -44,7 +44,7 @@ impl EntityTreePage0 {
     }
 }
 
-impl std::ops::Deref for EntityTreePage0 {
+impl std::ops::Deref for EntityTreePage {
     type Target = EntityTreeArena;
 
     fn deref(&self) -> &Self::Target {
@@ -53,15 +53,15 @@ impl std::ops::Deref for EntityTreePage0 {
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn entity_tree_page0(
+pub(crate) fn entity_tree_page(
     db: &dyn EntityTreeDb,
     module: EntityPath,
-) -> VfsResult<EntityTreePage0> {
+) -> VfsResult<EntityTreePage> {
     let ast_sheet = db.ast_sheet(module).as_ref()?;
-    EntityTreeCollector0::new(db, module, ast_sheet).build()
+    EntityTreePageBuilder::new(db, module, ast_sheet).build()
 }
 
-struct EntityTreeCollector0<'a> {
+struct EntityTreePageBuilder<'a> {
     db: &'a dyn EntityTreeDb,
     module: EntityPath,
     ast_sheet: &'a AstSheet,
@@ -69,7 +69,7 @@ struct EntityTreeCollector0<'a> {
     sporadic_entities: Vec<EntityTree>,
 }
 
-impl<'a> EntityTreeCollector0<'a> {
+impl<'a> EntityTreePageBuilder<'a> {
     fn new(db: &'a dyn EntityTreeDb, module: EntityPath, ast_sheet: &'a AstSheet) -> Self {
         Self {
             db,
@@ -80,10 +80,10 @@ impl<'a> EntityTreeCollector0<'a> {
         }
     }
 
-    fn build(mut self) -> VfsResult<EntityTreePage0> {
+    fn build(mut self) -> VfsResult<EntityTreePage> {
         // order matters!
         let top_level_nodes = self.process_body(Some(self.module), self.ast_sheet.top_level_asts());
-        Ok(EntityTreePage0 {
+        Ok(EntityTreePage {
             top_level_entities_idx_range: self.arena.alloc_batch(top_level_nodes),
             isolate_entities_idx_range: self.arena.alloc_batch(self.sporadic_entities),
             arena: self.arena,

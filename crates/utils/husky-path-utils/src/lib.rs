@@ -112,8 +112,6 @@ fn collect_package_relative_dirs_works() {
     expect_test::expect![[r#"
         [
             "./core",
-            "./cv",
-            "./math",
             "./std",
         ]
     "#]]

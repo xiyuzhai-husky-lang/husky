@@ -24,7 +24,7 @@ pub(crate) fn ast_range_sheet(db: &dyn AstDb, module: EntityPath) -> VfsResult<A
 #[test]
 fn ast_range_sheet_works() {
     use tests::*;
-    DB::expect_test_modules("ast_range_sheet", AstDb::ast_range_sheet);
+    DB::expect_test_probable_modules("ast_range_sheet", AstDb::ast_range_sheet);
 }
 
 impl std::ops::Index<AstIdx> for AstRangeSheet {
