@@ -35,7 +35,21 @@ pub enum EntityUseExprError {
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityUseExprSheet {
     arena: EntityUseExprArena,
-    use_exprs: Vec<(AstIdx, EntityUseExprIdx)>,
+    use_exprs: Vec<(AstIdx, Accessibility, EntityUseExprIdx)>,
+}
+
+impl std::ops::Deref for EntityUseExprSheet {
+    type Target = EntityUseExprArena;
+
+    fn deref(&self) -> &Self::Target {
+        &self.arena
+    }
+}
+
+impl EntityUseExprSheet {
+    pub fn use_exprs(&self) -> &[(ArenaIdx<Ast>, Accessibility, ArenaIdx<EntityUseExpr>)] {
+        self.use_exprs.as_ref()
+    }
 }
 
 pub type EntityUseExprArena = Arena<EntityUseExpr>;
@@ -82,24 +96,31 @@ impl<'a> EntityUseExprCollector<'a> {
             use_exprs: self
                 .ast_sheet
                 .indexed_asts()
-                .filter_map(|(ast_idx, ast)| self.collect_from_ast(ast).map(|expr| (ast_idx, expr)))
+                .filter_map(|(ast_idx, ast)| {
+                    self.collect_from_ast(ast)
+                        .map(|(accessibility, expr)| (ast_idx, accessibility, expr))
+                })
                 .collect(),
             arena: self.arena,
         }
     }
 
-    fn collect_from_ast(&mut self, ast: &Ast) -> Option<EntityUseExprIdx> {
+    fn collect_from_ast(&mut self, ast: &Ast) -> Option<(Accessibility, EntityUseExprIdx)> {
         match ast {
-            Ast::Use { token_group_idx } => {
+            Ast::Use {
+                token_group_idx,
+                accessibility,
+            } => {
                 let mut token_iter = self.token_sheet.token_group_token_iter(*token_group_idx);
-                Some(
+                Some((
+                    *accessibility,
                     match EntityUseExprParser::new(self.db, token_iter, &mut self.arena)
                         .parse_rest()
                     {
                         Some(expr) => expr,
                         None => self.arena.alloc_one(EntityUseExpr::Err(todo!())),
                     },
-                )
+                ))
             }
             _ => None,
         }

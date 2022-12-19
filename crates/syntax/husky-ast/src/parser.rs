@@ -78,7 +78,10 @@ impl<'a> AstParser<'a> {
                     | StmtKeyword::Require => self.parse_stmt(token_group_idx, indent),
                 },
                 Keyword::Liason(_) => todo!(),
-                Keyword::Use => Ast::Use { token_group_idx },
+                Keyword::Use => Ast::Use {
+                    token_group_idx,
+                    accessibility: todo!(),
+                },
                 Keyword::Main => Ast::Main {
                     token_group_idx,
                     body: self.parse_asts(indent + INDENT_INCR),

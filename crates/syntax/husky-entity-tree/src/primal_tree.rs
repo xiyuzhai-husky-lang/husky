@@ -214,7 +214,9 @@ impl<'a> PrimalEntityTreeBuilder<'a> {
         let token_sheet = self.db.token_sheet(self.module).as_ref().unwrap();
         match ast {
             Ast::Err { .. } => todo!(),
-            Ast::Use { token_group_idx } => todo!(),
+            Ast::Use {
+                token_group_idx, ..
+            } => todo!(),
             Ast::Comment { .. } => todo!(),
             Ast::Decor { .. } => todo!(),
             Ast::Stmt {
