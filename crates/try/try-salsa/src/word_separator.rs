@@ -32,8 +32,9 @@ impl<'a> WordSplitter<'a> {
     }
 
     fn complete_current(&mut self) {
-        match std::mem::take(&mut self.word_in_progress) {
-            Some(word) => self.completed_words.push(word),
+        let take = std::mem::take(&mut self.word_in_progress);
+        match take {
+            Some(/* this is an initialization */ word2) => self.completed_words.push(word2),
             None => (),
         }
     }
