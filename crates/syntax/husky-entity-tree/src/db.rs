@@ -10,17 +10,18 @@ use husky_path_utils::*;
 use husky_print_utils::msg_once;
 use husky_term::*;
 use husky_token::TokenDb;
+use husky_toolchain_infer::ToolchainInferDb;
 use husky_vfs::*;
 use husky_word::Identifier;
 use salsa::DbWithJar;
 use std::{path::PathBuf, sync::Arc};
 
-pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb {
+pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + ToolchainInferDb {
     fn entity_absolute_path(
         &self,
         entity_path: EntityPath,
     ) -> &EntityTreeResult<AbsoluteEntityPath>;
-    fn entity_tree_page(&self, module: EntityPath) -> &VfsResult<EntityTreePage>;
+    fn entity_tree_sheet(&self, module: EntityPath) -> &VfsResult<EntityTreeSheet>;
     fn entity_card(&self, entity_path: EntityPath) -> &EntityTreeResult<EntityCard>;
     fn is_absolute(&self, entity_path: EntityPath) -> EntityTreeResult<bool> {
         Ok(self.entity_absolute_path(entity_path).as_ref()?.path() == entity_path)
@@ -31,7 +32,7 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb {
 
 impl<T> EntityTreeDb for T
 where
-    T: DbWithJar<EntityTreeJar> + AstDb,
+    T: DbWithJar<EntityTreeJar> + AstDb + ToolchainInferDb,
 {
     fn entity_absolute_path(
         &self,
@@ -44,8 +45,8 @@ where
         entity_card(self, entity_path)
     }
 
-    fn entity_tree_page(&self, module: EntityPath) -> &VfsResult<EntityTreePage> {
-        entity_tree_page(self, module)
+    fn entity_tree_sheet(&self, module: EntityPath) -> &VfsResult<EntityTreeSheet> {
+        entity_tree_sheet(self, module)
     }
 
     fn submodules(&self, entity_path: EntityPath) -> &VfsResult<Vec<EntityPath>> {

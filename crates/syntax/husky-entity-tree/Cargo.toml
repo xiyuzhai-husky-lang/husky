@@ -32,7 +32,8 @@ husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 # infer
-husky-manifest = { path = "../../infer/husky-manifest" }
+husky-manifest-infer = { path = "../../infer/husky-manifest-infer" }
+husky-toolchain-infer = { path = "../../infer/husky-toolchain-infer" }
 # vm
 husky-vm = { path = "../../vm/husky-vm" }
 # utils

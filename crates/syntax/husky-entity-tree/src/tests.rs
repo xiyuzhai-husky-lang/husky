@@ -6,6 +6,7 @@ use husky_entity_path::{EntityPathData, EntityPathDb, EntityPathJar};
 use husky_package_path::{CrateKind, PackagePathData, PackagePathDb, PackagePathJar};
 use husky_token::TokenJar;
 use husky_toolchain::*;
+use husky_toolchain_infer::ToolchainInferJar;
 use husky_vfs::*;
 use husky_word::{WordDb, WordJar};
 use salsa::{Database, DebugWithDb, ParallelDatabase, Snapshot};
@@ -19,7 +20,8 @@ use std::{borrow::Cow, sync::Arc};
     VfsJar,
     TokenJar,
     AstJar,
-    EntityTreeJar
+    EntityTreeJar,
+    ToolchainInferJar
 )]
 #[derive(Default)]
 pub(crate) struct DB {

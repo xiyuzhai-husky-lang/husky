@@ -10,6 +10,7 @@ use husky_syntax_fmt::SyntaxFormatJar;
 use husky_term::TermJar;
 use husky_token::TokenJar;
 use husky_toolchain::*;
+use husky_toolchain_infer::ToolchainInferJar;
 use husky_vfs::*;
 use husky_word::WordJar;
 
@@ -27,6 +28,7 @@ use husky_word::WordJar;
     DiagnosticsJar,
     RustTranspileJar,
     LayoutJar,
+    ToolchainInferJar,
     // ide
     FoldingRangeJar,
 )]

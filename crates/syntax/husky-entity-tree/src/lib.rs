@@ -6,7 +6,7 @@ mod error;
 mod implementation;
 mod module_item;
 mod node;
-mod page;
+mod sheet;
 mod submodule;
 #[cfg(test)]
 mod tests;
@@ -28,7 +28,7 @@ use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use implementation::ImplementationMap;
 use module_item::*;
 use node::*;
-use page::*;
+use sheet::*;
 use submodule::*;
 #[cfg(test)]
 use tests::*;
@@ -38,7 +38,7 @@ use tests::*;
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
     absolute_entity_path,
-    entity_tree_page,
+    entity_tree_sheet,
     submodules,
     entity_node,
     parent_module,

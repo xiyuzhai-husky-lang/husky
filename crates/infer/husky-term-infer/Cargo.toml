@@ -34,6 +34,8 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }
+# infer
+husky-toolchain-infer = { path = "../../infer/husky-toolchain-infer" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
