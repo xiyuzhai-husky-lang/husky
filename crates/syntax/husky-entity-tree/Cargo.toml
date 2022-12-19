@@ -28,10 +28,11 @@ husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 husky-entity-card = { path = "../../kernel/husky-entity-card" }
 husky-accessibility = { path = "../../kernel/husky-accessibility" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
-husky-package-dependency = { path = "../../syntax/husky-package-dependency" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+# infer
+husky-manifest = { path = "../../infer/husky-manifest" }
 # vm
 husky-vm = { path = "../../vm/husky-vm" }
 # utils
