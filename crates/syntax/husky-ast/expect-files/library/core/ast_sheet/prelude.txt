@@ -6,11 +6,13 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
+                    accessibility: Public,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
+                    accessibility: Public,
                 },
             ],
         },

@@ -11,7 +11,7 @@ pub struct ModuleUseSheet {
 pub(crate) fn module_use_sheet(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> VfsResult<PrimalModuleUseSheet> {
+) -> VfsResult<ModuleUseSheet> {
     ModuleUseCollector::new(db, crate_path).collect_all()
 }
 
@@ -33,7 +33,8 @@ pub struct ModuleUseCollector<'a> {
 
 impl<'a> ModuleUseCollector<'a> {
     fn new(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> Self {
-        let primal_module_use_sheet = primal_module_use_sheet(db, crate_path);
+        todo!();
+        // let primal_module_use_sheet = primal_module_use_sheet(db, crate_path);
         Self {
             db,
             crate_path,
@@ -44,7 +45,7 @@ impl<'a> ModuleUseCollector<'a> {
         }
     }
 
-    fn collect_all(&mut self) -> VfsResult<PrimalModuleUseSheet> {
+    fn collect_all(&mut self) -> VfsResult<ModuleUseSheet> {
         todo!()
     }
 }

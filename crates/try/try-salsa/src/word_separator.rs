@@ -52,7 +52,26 @@ impl<'a> WordSplitter<'a> {
 
 fn test_it() {
     assert_eq!(
-        WordSplitter::new("haha s").parse_all(),
+        split_by_whitespace("haha s"),
         ["haha".to_string(), "s".to_string()]
     )
+}
+
+fn split_by_whitespace(s: &str) -> Vec<String> {
+    let mut words = Vec::new();
+    let mut current_word = String::new();
+    for c in s.chars() {
+        if c.is_whitespace() {
+            if !current_word.is_empty() {
+                words.push(current_word);
+                current_word = String::new();
+            }
+        } else {
+            current_word.push(c);
+        }
+    }
+    if !current_word.is_empty() {
+        words.push(current_word);
+    }
+    words
 }

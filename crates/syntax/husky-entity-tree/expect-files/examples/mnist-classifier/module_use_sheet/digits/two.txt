@@ -460,54 +460,67 @@ Ok(
         use_exprs: [
             (
                 54,
+                PubCrate,
                 5,
             ),
             (
                 55,
+                PubCrate,
                 10,
             ),
             (
                 56,
+                PubCrate,
                 15,
             ),
             (
                 57,
+                PubCrate,
                 20,
             ),
             (
                 58,
+                PubCrate,
                 23,
             ),
             (
                 59,
+                PubCrate,
                 26,
             ),
             (
                 60,
+                PubCrate,
                 30,
             ),
             (
                 61,
+                PubCrate,
                 33,
             ),
             (
                 62,
+                PubCrate,
                 36,
             ),
             (
                 63,
+                PubCrate,
                 39,
             ),
             (
                 64,
+                PubCrate,
                 42,
             ),
             (
                 65,
+                PubCrate,
                 45,
             ),
             (
                 66,
+                PubCrate,
                 48,
             ),
         ],

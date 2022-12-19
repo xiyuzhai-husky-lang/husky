@@ -90,22 +90,27 @@ Ok(
         use_exprs: [
             (
                 164,
+                PubCrate,
                 2,
             ),
             (
                 165,
+                PubCrate,
                 5,
             ),
             (
                 166,
+                PubCrate,
                 7,
             ),
             (
                 167,
+                PubCrate,
                 9,
             ),
             (
                 168,
+                PubCrate,
                 11,
             ),
         ],

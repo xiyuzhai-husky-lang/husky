@@ -38,15 +38,14 @@ pub struct EntityTreeJar(
     absolute_entity_path,
     primal_entity_tree_sheet,
     submodules,
-    module_use_atoms,
     entity_node,
     parent_module,
     entity_card,
     entity_accessibility,
-    primal_module_use_sheet,
+    module_use_exprs,
+    module_use_atoms,
     module_use_sheet,
     all_modules_within_crate,
-    module_use_exprs,
 );
 
 #[derive(Debug, PartialEq, Eq)]

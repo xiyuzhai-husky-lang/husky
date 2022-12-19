@@ -67,10 +67,12 @@ Ok(
         use_exprs: [
             (
                 124,
+                PubCrate,
                 3,
             ),
             (
                 125,
+                PubCrate,
                 6,
             ),
         ],

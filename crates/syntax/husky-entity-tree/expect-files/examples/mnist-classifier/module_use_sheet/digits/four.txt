@@ -286,30 +286,37 @@ Ok(
         use_exprs: [
             (
                 68,
+                PubCrate,
                 5,
             ),
             (
                 69,
+                PubCrate,
                 10,
             ),
             (
                 70,
+                PubCrate,
                 15,
             ),
             (
                 71,
+                PubCrate,
                 20,
             ),
             (
                 72,
+                PubCrate,
                 23,
             ),
             (
                 73,
+                PubCrate,
                 26,
             ),
             (
                 74,
+                PubCrate,
                 30,
             ),
         ],

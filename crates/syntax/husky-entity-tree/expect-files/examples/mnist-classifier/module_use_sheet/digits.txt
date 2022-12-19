@@ -64,14 +64,17 @@ Ok(
         use_exprs: [
             (
                 3,
+                PubCrate,
                 1,
             ),
             (
                 4,
+                PubCrate,
                 3,
             ),
             (
                 5,
+                PubCrate,
                 5,
             ),
         ],

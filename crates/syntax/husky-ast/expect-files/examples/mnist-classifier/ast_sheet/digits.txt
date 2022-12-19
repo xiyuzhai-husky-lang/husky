@@ -63,16 +63,19 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
+                    accessibility: PubCrate,
                 },
             ],
         },

@@ -149,21 +149,25 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
+                    accessibility: PubCrate,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(

@@ -1405,26 +1405,31 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
+                    accessibility: PubCrate,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
+                    accessibility: PubCrate,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
