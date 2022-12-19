@@ -9,7 +9,6 @@ mod impl_sync_code;
 mod impl_transcribe_rust;
 
 use husky_compile_dir::{getx_child_dir, mkdir};
-use husky_comptime::*;
 use husky_diagnostics::DiagnosticsDb;
 use husky_io_utils::diff_write;
 use husky_linkage_table::LinkageTableConfig;
