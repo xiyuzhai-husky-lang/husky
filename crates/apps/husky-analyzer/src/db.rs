@@ -9,8 +9,8 @@ use husky_rust_code_gen::RustTranspileJar;
 use husky_syntax_fmt::SyntaxFormatJar;
 use husky_term::TermJar;
 use husky_token::TokenJar;
-use husky_toolchain::ToolchainJar;
-use husky_vfs::{HasVfsConfig, VfsConfig, VfsConfigImpl, VfsJar};
+use husky_toolchain::*;
+use husky_vfs::VfsJar;
 use husky_word::WordJar;
 
 #[salsa::db(

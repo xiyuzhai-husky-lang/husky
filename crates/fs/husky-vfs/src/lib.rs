@@ -1,7 +1,6 @@
 #![feature(trait_upcasting)]
 #![feature(let_chains)]
 mod cache;
-mod config;
 mod db;
 mod error;
 mod file;
@@ -13,7 +12,6 @@ mod tests;
 mod watch;
 
 pub use cache::VfsCache;
-pub use config::{HasVfsConfig, VfsConfig, VfsConfigImpl, VfsConfigMimic};
 pub use db::VfsDb;
 pub use error::*;
 pub use jar::VfsJar;
@@ -25,6 +23,7 @@ use db::*;
 use eyre::Context;
 use file::*;
 use husky_print_utils::p;
+use husky_toolchain::*;
 use notify_debouncer_mini::{
     notify::{RecommendedWatcher, RecursiveMode},
     Debouncer,

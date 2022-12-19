@@ -4,7 +4,7 @@ use husky_entity_path::EntityPathJar;
 use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
 use husky_toml_token::TomlTokenJar;
-use husky_toolchain::ToolchainJar;
+use husky_toolchain::*;
 use husky_vfs::*;
 use husky_word::{WordDb, WordJar};
 use salsa::{Database, ParallelDatabase, Snapshot};

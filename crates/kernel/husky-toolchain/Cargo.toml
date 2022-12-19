@@ -10,3 +10,5 @@ once_cell = "1.16.0"
 salsa = { path = "../../abstraction/salsa" }
 # platform
 husky-platform = { path = "../../kernel/husky-platform" }
+# utils
+husky-path-utils = { path = "../../utils/husky-path-utils" }

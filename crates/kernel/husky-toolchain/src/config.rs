@@ -6,7 +6,6 @@ use std::{
 use husky_path_utils::{
     derive_examples_dir_from_cargo_manifest_dir, derive_library_dir_from_cargo_manifest_dir,
 };
-use husky_print_utils::p;
 
 #[derive(Debug)]
 pub struct VfsConfig {

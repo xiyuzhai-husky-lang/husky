@@ -31,7 +31,7 @@ use husky_rust_code_gen::RustTranspileJar;
 use husky_syntax_fmt::SyntaxFormatJar;
 use husky_term::TermJar;
 use husky_token::TokenJar;
-use husky_toolchain::ToolchainJar;
+use husky_toolchain::*;
 use husky_vfs::*;
 use husky_vm::{__Register, __RegisterDataKind, __VirtualEnum, __VIRTUAL_ENUM_VTABLE};
 use husky_word::WordJar;

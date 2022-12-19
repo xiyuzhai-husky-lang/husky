@@ -14,7 +14,7 @@ use husky_term::{
     AskDecl, Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
 };
 use husky_token::TokenJar;
-use husky_toolchain::ToolchainJar;
+use husky_toolchain::*;
 use husky_vfs::*;
 use husky_word::WordDb;
 use husky_word::WordJar;
