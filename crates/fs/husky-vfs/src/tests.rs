@@ -8,7 +8,7 @@ use husky_absolute_path::AbsolutePath;
 use husky_entity_path::{EntityPathDb, EntityPathJar};
 use husky_package_path::{PackagePathData, PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
-use husky_toolchain::ToolchainJar;
+use husky_toolchain::*;
 use husky_word::WordJar;
 use notify_debouncer_mini::{new_debouncer, DebounceEventResult};
 use place::SingleAssignPlace;

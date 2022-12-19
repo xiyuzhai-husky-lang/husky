@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::{EntityPathDb, EntityPathJar, EntityPathMenuPlace};
 use husky_package_path::PackagePathJar;
-use husky_toolchain::ToolchainJar;
+use husky_toolchain::*;
 use husky_word::WordDb;
 use husky_word::WordJar;
 use std::{collections::HashMap, sync::Arc};

@@ -1,0 +1,15 @@
+[package]
+name = "std"
+version = "0.0.0"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/xiyuzhai-husky-lang/husky.git"
+description = "The Husky Standard Library"
+autotests = false
+autobenches = false
+# If you update this, be sure to update it in a bunch of other places too!
+# As of 2022, it was the ci/pgo.sh script and the core-no-fp-fmt-parse test.
+edition = "2021"
+
+[lib]
+test = false
+bench = false

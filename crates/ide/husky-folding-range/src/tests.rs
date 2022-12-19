@@ -5,7 +5,7 @@ use husky_ast::AstJar;
 use husky_entity_path::{EntityPathData, EntityPathDb, EntityPathJar};
 use husky_package_path::{CrateKind, PackagePathData, PackagePathDb, PackagePathJar};
 use husky_token::TokenJar;
-use husky_toolchain::ToolchainJar;
+use husky_toolchain::*;
 use husky_vfs::*;
 use husky_vfs_test_utils::VfsTestSupport;
 use husky_word::{WordDb, WordJar};

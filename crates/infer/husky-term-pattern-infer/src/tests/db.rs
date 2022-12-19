@@ -7,7 +7,7 @@ use husky_package_path::PackagePathJar;
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolKind};
 use husky_term::{AskDecl, Decl, Term, TermDb, TermMenu, TermResultArc, TyDecl};
 use husky_token::*;
-use husky_toolchain::ToolchainJar;
+use husky_toolchain::*;
 use husky_word::WordDb;
 use husky_word::WordJar;
 use salsa::Database;

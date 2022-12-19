@@ -1,6 +1,6 @@
 use crate::*;
 use husky_package_path::PackagePathJar;
-use husky_toolchain::ToolchainJar;
+use husky_toolchain::*;
 use husky_word::WordJar;
 
 #[salsa::db(WordJar, ToolchainJar, PackagePathJar, EntityPathJar)]

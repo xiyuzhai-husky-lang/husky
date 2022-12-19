@@ -12,15 +12,16 @@ where
     T: DbWithJar<ToolchainJar>,
 {
     fn toolchain(&self) -> Toolchain {
-        *self.toolchain_jar().toolchain_cell().get_or_init(|| {
-            // ad hoc
-            Toolchain::new(
-                self,
-                ToolchainChannel::new_ad_hoc(),
-                ToolchainDate::new_ad_hoc(),
-                Platform::new_ad_hoc(),
-            )
-        })
+        todo!()
+        // *self.toolchain_jar().toolchain_cell().get_or_init(|| {
+        //     // ad hoc
+        //     Toolchain::new(
+        //         self,
+        //         ToolchainChannel::new_ad_hoc(),
+        //         ToolchainDate::new_ad_hoc(),
+        //         Platform::new_ad_hoc(),
+        //     )
+        // })
     }
 
     fn toolchain_jar(&self) -> &ToolchainJar {

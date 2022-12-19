@@ -7,7 +7,7 @@ use husky_package_path::PackagePathJar;
 use husky_symbol_syntax::{SymbolContext, SymbolDb, SymbolJar, SymbolSheet};
 use husky_token::{TokenDb, Tokenize};
 use husky_token::{TokenIter, TokenJar};
-use husky_toolchain::ToolchainJar;
+use husky_toolchain::*;
 use husky_vfs::*;
 use husky_word::WordJar;
 use place::SingleAssignPlace;
