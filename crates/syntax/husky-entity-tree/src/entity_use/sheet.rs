@@ -27,6 +27,7 @@ pub struct ModuleUseCollector<'a> {
     crate_path: CratePath,
     root: EntityPath,
     uses: HashMap<EntityPath, VfsResult<Vec<EntityTreeIdx>>>,
+    symbols: HashMap<EntityPath, VfsResult<Vec<(Accessibility, EntityPath, EntityTreeIdx)>>>,
     modified_modules: HashSet<EntityPath>,
     errors: Vec<(AstIdx, EntityTreeError)>,
 }
@@ -40,6 +41,7 @@ impl<'a> ModuleUseCollector<'a> {
             crate_path,
             root: db.it_entity_path(EntityPathData::CrateRoot(crate_path)),
             uses: todo!(),
+            symbols: todo!(),
             modified_modules: Default::default(),
             errors: vec![],
         }
