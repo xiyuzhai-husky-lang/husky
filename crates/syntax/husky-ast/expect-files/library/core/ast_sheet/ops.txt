@@ -3,7 +3,7 @@ Ok(
         arena: Arena {
             data: [
                 Defn {
-                    token_group: TokenGroupIdx(
+                    token_group_idx: TokenGroupIdx(
                         2,
                     ),
                     body: ArenaIdxRange(
@@ -22,7 +22,7 @@ Ok(
                     body_kind: None,
                 },
                 Defn {
-                    token_group: TokenGroupIdx(
+                    token_group_idx: TokenGroupIdx(
                         3,
                     ),
                     body: ArenaIdxRange(
@@ -40,13 +40,13 @@ Ok(
                     is_generic: false,
                     body_kind: None,
                 },
-                Decor(
-                    TokenGroupIdx(
+                Decor {
+                    token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                ),
+                },
                 Defn {
-                    token_group: TokenGroupIdx(
+                    token_group_idx: TokenGroupIdx(
                         1,
                     ),
                     body: ArenaIdxRange(

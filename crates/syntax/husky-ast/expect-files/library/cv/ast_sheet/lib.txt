@@ -3,7 +3,7 @@ Ok(
         arena: Arena {
             data: [
                 Defn {
-                    token_group: TokenGroupIdx(
+                    token_group_idx: TokenGroupIdx(
                         0,
                     ),
                     body: ArenaIdxRange(

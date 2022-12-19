@@ -32,14 +32,21 @@ pub struct AstJar(ast_sheet, ast_range_sheet);
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum Ast {
-    Err(TokenGroupIdx, AstError),
-    Use {
-        token_group: TokenGroupIdx,
+    Err {
+        token_group_idx: TokenGroupIdx,
+        error: AstError,
     },
-    Comment(TokenGroupIdx),
-    Decor(TokenGroupIdx),
+    Use {
+        token_group_idx: TokenGroupIdx,
+    },
+    Comment {
+        token_group_idx: TokenGroupIdx,
+    },
+    Decor {
+        token_group_idx: TokenGroupIdx,
+    },
     Stmt {
-        token_group: TokenGroupIdx,
+        token_group_idx: TokenGroupIdx,
         body: AstIdxRange,
     },
     IfElseStmts {
@@ -52,7 +59,7 @@ pub enum Ast {
         case_stmts: AstIdxRange,
     },
     Defn {
-        token_group: TokenGroupIdx,
+        token_group_idx: TokenGroupIdx,
         body: AstIdxRange,
         accessibility: Accessibility,
         entity_card: EntityCard,
@@ -61,15 +68,15 @@ pub enum Ast {
         body_kind: DefnBodyKind,
     },
     Impl {
-        token_group: TokenGroupIdx,
+        token_group_idx: TokenGroupIdx,
         body: AstIdxRange,
     },
     Main {
-        token_group: TokenGroupIdx,
+        token_group_idx: TokenGroupIdx,
         body: AstIdxRange,
     },
     Config {
-        token_group: TokenGroupIdx,
+        token_group_idx: TokenGroupIdx,
         body: AstIdxRange,
     },
 }

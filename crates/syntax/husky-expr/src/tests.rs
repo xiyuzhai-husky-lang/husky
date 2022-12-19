@@ -5,8 +5,8 @@ use husky_entity_tree::EntityTreeJar;
 use husky_expect_test_utils::expect_test_husky_to_rust;
 use husky_package_path::PackagePathJar;
 use husky_symbol_syntax::{SymbolContext, SymbolDb, SymbolJar, SymbolSheet};
-use husky_token::TokenJar;
 use husky_token::{TokenDb, Tokenize};
+use husky_token::{TokenIter, TokenJar};
 use husky_toolchain::ToolchainJar;
 use husky_vfs::*;
 use husky_word::WordJar;
@@ -47,7 +47,7 @@ fn it_works() {
         let mut arena = ExprArena::default();
         // ad hoc; todo: preludes
         let mut symbols = db.new_symbol_ctx();
-        parse_expr(&db, &tokens, &mut symbols, &mut arena);
+        parse_expr(&db, TokenIter::new(0, &tokens), &mut symbols, &mut arena);
         format!("{:#?}", arena)
     }
 }

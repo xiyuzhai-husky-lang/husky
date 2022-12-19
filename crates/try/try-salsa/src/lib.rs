@@ -1,3 +1,5 @@
+mod word_separator;
+
 #[salsa::jar(db = Db)]
 pub struct Jar();
 

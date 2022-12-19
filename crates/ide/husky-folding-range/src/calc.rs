@@ -27,27 +27,21 @@ impl<'a> FoldingRangeCalculator<'a> {
             .collect()
     }
 
-    fn calc_ast(&self, idx: AstIdx, ast: &Ast) -> Option<FoldingRange> {
+    fn calc_ast(&self, ast_idx: AstIdx, ast: &Ast) -> Option<FoldingRange> {
         let (text_range, kind) = match ast {
-            Ast::Err(_, _)
+            Ast::Err { .. }
             | Ast::Use { .. }
-            | Ast::Comment(_)
-            | Ast::Decor(_)
+            | Ast::Comment { .. }
+            | Ast::Decor { .. }
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. } => None,
-            Ast::Stmt {
-                token_group, body, ..
-            }
-            | Ast::Defn {
-                token_group, body, ..
-            }
-            | Ast::Impl {
-                token_group, body, ..
-            }
-            | Ast::Main { token_group, body }
-            | Ast::Config { token_group, body } => body
+            Ast::Stmt { body, .. }
+            | Ast::Defn { body, .. }
+            | Ast::Impl { body, .. }
+            | Ast::Main { body, .. }
+            | Ast::Config { body, .. } => body
                 .last()
-                .map(|_| (self.ast_range_sheet[idx], FoldingRangeKind::Region)),
+                .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
         }?;
         Some(FoldingRange {
             start_line: text_range.start.i(),

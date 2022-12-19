@@ -1,0 +1,8 @@
+Ok(
+    EntityUseExprSheet {
+        arena: Arena {
+            data: [],
+        },
+        use_exprs: [],
+    },
+)

@@ -155,18 +155,8 @@ fn produce_line_starts(tokens: &[Token]) -> Vec<usize> {
         .collect()
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct TokenSheet {
-    tokens: Vec<Token>,
-    group_starts: Vec<usize>,
-}
-
 impl TokenSheet {
-    pub fn tokens(&self) -> &[Token] {
-        &self.tokens
-    }
-
-    pub fn iter<'a>(&'a self) -> TokenGroupIter<'a> {
+    pub fn token_group_iter<'a>(&'a self) -> TokenGroupIter<'a> {
         TokenGroupIter::new(&self.tokens, &self.group_starts)
     }
 
@@ -175,6 +165,10 @@ impl TokenSheet {
             group_starts: produce_group_starts(&tokens),
             tokens,
         }
+    }
+
+    pub fn group_start(&self, token_group_idx: TokenGroupIdx) -> usize {
+        self.group_starts[token_group_idx.0]
     }
 }
 

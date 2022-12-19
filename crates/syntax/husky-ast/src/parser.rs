@@ -17,7 +17,7 @@ impl<'a> AstParser<'a> {
             db,
             arena: Default::default(),
             token_sheet,
-            token_groups: token_sheet.iter(),
+            token_groups: token_sheet.token_group_iter(),
         }
     }
 
@@ -44,18 +44,28 @@ impl<'a> AstParser<'a> {
     }
 
     fn parse_ast(&mut self, indent: u32) -> Option<Ast> {
-        let (idx, token_group) = self.token_groups.next_with_equal_or_more_indent(indent)?;
+        let (token_group_idx, token_group) =
+            self.token_groups.next_with_equal_or_more_indent(indent)?;
         if token_group.indent() > indent {
-            return Some(Ast::Err(idx, AstError::ExcessiveIndent));
+            return Some(Ast::Err {
+                token_group_idx,
+                error: AstError::ExcessiveIndent,
+            });
         }
         Some(match token_group.first().kind {
-            TokenKind::Decorator(_) => self.parse_defn_or_use(idx, indent),
+            TokenKind::Decorator(_) => self.parse_defn_or_use(token_group_idx, indent),
             TokenKind::Keyword(kw) => match kw {
                 Keyword::Stmt(kw) => match kw {
-                    StmtKeyword::If => self.parse_if_else_stmts(idx, indent),
-                    StmtKeyword::Elif => Ast::Err(idx, AstError::StandaloneElif),
-                    StmtKeyword::Else => Ast::Err(idx, AstError::StandaloneElse),
-                    StmtKeyword::Match => self.parse_match_stmts(idx, indent),
+                    StmtKeyword::If => self.parse_if_else_stmts(token_group_idx, indent),
+                    StmtKeyword::Elif => Ast::Err {
+                        token_group_idx,
+                        error: AstError::StandaloneElif,
+                    },
+                    StmtKeyword::Else => Ast::Err {
+                        token_group_idx,
+                        error: AstError::StandaloneElse,
+                    },
+                    StmtKeyword::Match => self.parse_match_stmts(token_group_idx, indent),
                     StmtKeyword::While
                     | StmtKeyword::Do
                     | StmtKeyword::For
@@ -65,38 +75,38 @@ impl<'a> AstParser<'a> {
                     | StmtKeyword::Break
                     | StmtKeyword::Return
                     | StmtKeyword::Assert
-                    | StmtKeyword::Require => self.parse_stmt(idx, indent),
+                    | StmtKeyword::Require => self.parse_stmt(token_group_idx, indent),
                 },
                 Keyword::Liason(_) => todo!(),
-                Keyword::Use => Ast::Use { token_group: idx },
+                Keyword::Use => Ast::Use { token_group_idx },
                 Keyword::Main => Ast::Main {
-                    token_group: idx,
+                    token_group_idx,
                     body: self.parse_asts(indent + INDENT_INCR),
                 },
                 Keyword::Config(_) => Ast::Config {
-                    token_group: idx,
+                    token_group_idx,
                     body: self.parse_asts(indent + INDENT_INCR),
                 },
                 Keyword::Mod
                 | Keyword::Paradigm(_)
                 | Keyword::Visual
                 | Keyword::Trait
-                | Keyword::Type(_) => self.parse_defn(idx, indent),
+                | Keyword::Type(_) => self.parse_defn(token_group_idx, indent),
                 Keyword::Impl => Ast::Impl {
-                    token_group: idx,
+                    token_group_idx,
                     body: self.parse_asts(indent + INDENT_INCR),
                 },
                 Keyword::End(_) => unreachable!(),
             },
-            TokenKind::Special(SpecialToken::PoundSign) => Ast::Decor(idx),
+            TokenKind::Special(SpecialToken::PoundSign) => Ast::Decor { token_group_idx },
             TokenKind::Keyword(_)
             | TokenKind::Special(_)
             | TokenKind::Identifier(_)
             | TokenKind::WordOpr(_)
             | TokenKind::Literal(_)
             | TokenKind::Unrecognized(_)
-            | TokenKind::IllFormedLiteral(_) => self.parse_stmt(idx, indent),
-            TokenKind::Comment => Ast::Comment(idx),
+            | TokenKind::IllFormedLiteral(_) => self.parse_stmt(token_group_idx, indent),
+            TokenKind::Comment => Ast::Comment { token_group_idx },
         })
     }
 
@@ -133,21 +143,24 @@ impl<'a> AstParser<'a> {
         }
     }
 
-    fn parse_match_stmts(&mut self, token_group: TokenGroupIdx, indent: u32) -> Ast {
+    fn parse_match_stmts(&mut self, token_group_idx: TokenGroupIdx, indent: u32) -> Ast {
         Ast::MatchStmts {
-            pattern_stmt: self.alloc_stmt(token_group, indent),
+            pattern_stmt: self.alloc_stmt(token_group_idx, indent),
             case_stmts: self.parse_case_stmts(indent),
         }
     }
 
-    fn alloc_stmt(&mut self, token_group: TokenGroupIdx, indent: u32) -> AstIdx {
-        let ast = self.parse_stmt(token_group, indent);
+    fn alloc_stmt(&mut self, token_group_idx: TokenGroupIdx, indent: u32) -> AstIdx {
+        let ast = self.parse_stmt(token_group_idx, indent);
         self.alloc_ast(ast)
     }
 
-    fn parse_stmt(&mut self, token_group: TokenGroupIdx, indent: u32) -> Ast {
+    fn parse_stmt(&mut self, token_group_idx: TokenGroupIdx, indent: u32) -> Ast {
         let body = self.parse_asts(indent + INDENT_INCR);
-        Ast::Stmt { token_group, body }
+        Ast::Stmt {
+            token_group_idx,
+            body,
+        }
     }
 
     fn parse_case_stmts(&mut self, indent: u32) -> AstIdxRange {
@@ -164,22 +177,30 @@ impl<'a> AstParser<'a> {
         self.alloc_asts(case_stmts)
     }
 
-    fn parse_defn_or_use(&mut self, token_group: TokenGroupIdx, indent: u32) -> Ast {
-        for token in &self.token_sheet[token_group] {
+    fn parse_defn_or_use(&mut self, token_group_idx: TokenGroupIdx, indent: u32) -> Ast {
+        for token in &self.token_sheet[token_group_idx] {
             match token.kind {
                 TokenKind::Decorator(_) | TokenKind::Comment => (),
-                TokenKind::Keyword(Keyword::Use) => return self.parse_uses(token_group, indent),
-                TokenKind::Keyword(_) => return self.parse_defn(token_group, indent),
+                TokenKind::Keyword(Keyword::Use) => {
+                    return self.parse_uses(token_group_idx, indent)
+                }
+                TokenKind::Keyword(_) => return self.parse_defn(token_group_idx, indent),
                 TokenKind::Identifier(_)
                 | TokenKind::Special(_)
                 | TokenKind::WordOpr(_)
                 | TokenKind::Literal(_)
                 | TokenKind::Unrecognized(_)
                 | TokenKind::IllFormedLiteral(_) => {
-                    return Ast::Err(token_group, AstError::ExpectDecoratorOrEntityKeyword)
+                    return Ast::Err {
+                        token_group_idx,
+                        error: AstError::ExpectDecoratorOrEntityKeyword,
+                    }
                 }
             }
         }
-        Ast::Err(token_group, todo!())
+        Ast::Err {
+            token_group_idx,
+            error: todo!(),
+        }
     }
 }

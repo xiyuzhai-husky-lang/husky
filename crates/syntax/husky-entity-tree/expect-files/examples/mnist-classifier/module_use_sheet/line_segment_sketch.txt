@@ -1,0 +1,113 @@
+Ok(
+    EntityUseExprSheet {
+        arena: Arena {
+            data: [
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        Word(
+                            Id {
+                                value: 56,
+                            },
+                        ),
+                    ),
+                    child: 0,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    child: 1,
+                },
+                One {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 103,
+                            },
+                        ),
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        Word(
+                            Id {
+                                value: 63,
+                            },
+                        ),
+                    ),
+                    child: 3,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    child: 4,
+                },
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        Word(
+                            Id {
+                                value: 58,
+                            },
+                        ),
+                    ),
+                    child: 6,
+                },
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        Word(
+                            Id {
+                                value: 59,
+                            },
+                        ),
+                    ),
+                    child: 8,
+                },
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        Word(
+                            Id {
+                                value: 61,
+                            },
+                        ),
+                    ),
+                    child: 10,
+                },
+            ],
+        },
+        use_exprs: [
+            (
+                164,
+                2,
+            ),
+            (
+                165,
+                5,
+            ),
+            (
+                166,
+                7,
+            ),
+            (
+                167,
+                9,
+            ),
+            (
+                168,
+                11,
+            ),
+        ],
+    },
+)
