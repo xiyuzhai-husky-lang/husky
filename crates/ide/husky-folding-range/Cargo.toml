@@ -26,5 +26,4 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
-# utils
-husky-vfs-test-utils = { path = "../../utils/husky-vfs-test-utils" }
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }

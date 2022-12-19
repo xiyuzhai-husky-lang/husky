@@ -1,3 +1,5 @@
+use husky_toolchain::ToolchainDb;
+
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -39,7 +41,8 @@ fn apparent_ancestry_works() {
     }
 
     let db = DB::default();
-    let menu = db.entity_path_menu();
+    let toolchain = db.lang_dev_toolchain();
+    let menu = db.entity_path_menu(toolchain);
     expect_test::expect![[r#"
         [
             "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })",

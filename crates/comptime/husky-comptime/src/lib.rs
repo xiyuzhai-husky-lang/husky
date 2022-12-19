@@ -57,13 +57,6 @@ use sync_utils::ASafeRwLock;
 #[derive(Default)]
 pub struct AnalysisHost {
     storage: salsa::Storage<AnalysisHost>,
-    source_path_config: VfsConfigImpl,
-}
-
-impl HasVfsConfig for AnalysisHost {
-    fn vfs_config(&self) -> &VfsConfig {
-        &self.source_path_config
-    }
 }
 
 // impl HuskyComptime {

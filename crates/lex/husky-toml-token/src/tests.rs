@@ -4,7 +4,7 @@ use husky_entity_path::EntityPathJar;
 use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
 use husky_toolchain::*;
-use husky_vfs::VfsJar;
+use husky_vfs::*;
 use husky_word::{WordDb, WordJar};
 use salsa::{Database, ParallelDatabase, Snapshot};
 use std::{borrow::Cow, sync::Arc};
@@ -20,13 +20,6 @@ use std::{borrow::Cow, sync::Arc};
 #[derive(Default)]
 struct MimicDB {
     storage: salsa::Storage<Self>,
-    source_path_config: VfsConfigMimic,
-}
-
-impl HasVfsConfig for MimicDB {
-    fn vfs_config(&self) -> &VfsConfig {
-        &self.source_path_config
-    }
 }
 
 impl Database for MimicDB {}
@@ -220,7 +213,8 @@ fn bad_comment() {
 #[test]
 fn builtin_library_toml_token_sheets() {
     let db = MimicDB::default();
-    let package_path_menu = db.package_path_menu();
+    let toolchain = db.lang_dev_toolchain();
+    let package_path_menu = db.package_path_menu(toolchain);
     expect_file!["../tests/package_core_toml_token_sheets.txt"].assert_eq(&format!(
         "{:#?}",
         db.package_manifest_toml_token_sheet(package_path_menu.core())

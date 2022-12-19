@@ -15,7 +15,6 @@ impl salsa::ParallelDatabase for AnalysisHost {
     fn snapshot(&self) -> salsa::Snapshot<AnalysisHost> {
         salsa::Snapshot::new(AnalysisHost {
             storage: self.storage.snapshot(),
-            source_path_config: self.source_path_config.clone(),
         })
     }
 }

@@ -18,7 +18,7 @@ pub use line_group::*;
 pub use table::*;
 
 use husky_toml_token::*;
-use husky_vfs::VfsResult;
+use husky_vfs::*;
 use husky_word::Word;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use parser::TomlAstParser;

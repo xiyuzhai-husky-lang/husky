@@ -14,7 +14,7 @@ impl std::ops::Deref for TermMenu4 {
 }
 
 impl TermMenu4 {
-    pub(super) fn new(db: &dyn TermDb, menu3: TermMenu3) -> Self {
+    pub(super) fn new(db: &dyn TermDb, toolchain: Toolchain, menu3: TermMenu3) -> Self {
         Self { parent: menu3 }
     }
 }

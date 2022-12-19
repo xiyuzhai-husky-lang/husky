@@ -1,12 +1,13 @@
 use crate::*;
 use husky_absolute_path::AbsolutePath;
 use husky_entity_path::{EntityPath, EntityPathData, EntityPathDb};
+use husky_fs_specs::FsSpecsError;
 use husky_package_path::{CrateKind, CratePath, PackagePath, PackagePathData, PackagePathDb};
 use husky_path_utils::collect_package_dirs;
 use husky_text::{TextChange, TextRange};
 
 pub trait VfsDb:
-    salsa::DbWithJar<VfsJar> + HasVfsConfig + EntityPathDb + PackagePathDb + Send + VfsDbInner
+    salsa::DbWithJar<VfsJar> + EntityPathDb + PackagePathDb + Send + VfsDbInner
 {
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
     fn module_content(&self, entity_path: EntityPath) -> VfsResult<&str>;
@@ -21,7 +22,7 @@ pub trait VfsDb:
 
 // don't leak this outside the crate
 pub trait VfsDbInner {
-    fn file_from_absolute_path(&self, path: &AbsolutePath) -> File;
+    fn file_from_absolute_path(&self, path: &AbsolutePath) -> VfsResult<File>;
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn vfs_cache(&self) -> &VfsCache;
@@ -29,43 +30,56 @@ pub trait VfsDbInner {
     fn update_file(&mut self, path: &Path) -> VfsResult<()>
     where
         Self: 'static;
-    fn calc_durability(&self, path: &Path) -> salsa::Durability;
+    fn corgi_install_path(&self) -> Result<&PathBuf, &FsSpecsError> {
+        self.vfs_jar().cache().corgi_install_path()
+    }
+    fn huskyup_install_path(&self) -> Result<&PathBuf, &FsSpecsError> {
+        self.vfs_jar().cache().huskyup_install_path()
+    }
+    fn is_inside_installed_corgi_or_huskyup(&self, path: &Path) -> VfsResult<bool> {
+        assert!(path.is_absolute());
+        Ok(path.starts_with(self.corgi_install_path()?)
+            || path.starts_with(self.huskyup_install_path()?))
+    }
+    fn calc_durability(&self, path: &Path) -> VfsResult<salsa::Durability>;
 }
 
 impl<T> VfsDbInner for T
 where
-    T: salsa::DbWithJar<VfsJar> + HasVfsConfig + EntityPathDb + PackagePathDb + Send + 'static,
+    T: salsa::DbWithJar<VfsJar> + EntityPathDb + PackagePathDb + Send + 'static,
 {
-    fn file_from_absolute_path(&self, abs_path: &AbsolutePath) -> File {
-        match self
-            .vfs_jar()
-            .cache()
-            .files()
-            .entry(abs_path.path().to_owned())
-        {
-            // If the file already exists in our cache then just return it.
-            Entry::Occupied(entry) => *entry.get(),
-            // If we haven't read this file yet set up the watch, read the
-            // contents, store it in the cache, and return it.
-            Entry::Vacant(entry) => unsafe {
-                let path = abs_path.path();
-                //  &path.path(self);
-                if let Some(watcher) = self.watcher() {
-                    let watcher = &mut watcher.0.lock().unwrap();
-                    watcher
-                        .watcher()
-                        .watch(path, RecursiveMode::NonRecursive)
-                        .unwrap();
-                }
-                let content = read_file_content(path);
-                *entry.insert(File::new(
-                    self,
-                    abs_path.clone(),
-                    content,
-                    self.calc_durability(path),
-                ))
+    fn file_from_absolute_path(&self, abs_path: &AbsolutePath) -> VfsResult<File> {
+        Ok(
+            match self
+                .vfs_jar()
+                .cache()
+                .files()
+                .entry(abs_path.path().to_owned())
+            {
+                // If the file already exists in our cache then just return it.
+                Entry::Occupied(entry) => *entry.get(),
+                // If we haven't read this file yet set up the watch, read the
+                // contents, store it in the cache, and return it.
+                Entry::Vacant(entry) => unsafe {
+                    let path = abs_path.path();
+                    //  &path.path(self);
+                    if let Some(watcher) = self.watcher() {
+                        let watcher = &mut watcher.0.lock().unwrap();
+                        watcher
+                            .watcher()
+                            .watch(path, RecursiveMode::NonRecursive)
+                            .unwrap();
+                    }
+                    let content = read_file_content(path);
+                    *entry.insert(File::new(
+                        self,
+                        abs_path.clone(),
+                        content,
+                        self.calc_durability(path)?,
+                    ))
+                },
             },
-        }
+        )
     }
 
     fn vfs_jar(&self) -> &VfsJar {
@@ -115,7 +129,7 @@ where
                     self,
                     abs_path.clone(),
                     content,
-                    self.calc_durability(path),
+                    self.calc_durability(path)?,
                 ))
             },
         };
@@ -123,26 +137,26 @@ where
         Ok(())
     }
 
-    fn calc_durability(&self, path: &Path) -> salsa::Durability {
-        if let Some(corgi_install_path) = self.vfs_config().corgi_install_path() {
-            todo!()
+    fn calc_durability(&self, path: &Path) -> VfsResult<salsa::Durability> {
+        Ok(if self.is_inside_installed_corgi_or_huskyup(path)? {
+            salsa::Durability::HIGH
         } else {
             salsa::Durability::LOW
-        }
+        })
     }
 }
 
 impl<T> VfsDb for T
 where
-    T: salsa::DbWithJar<VfsJar> + HasVfsConfig + EntityPathDb + PackagePathDb + Send + 'static,
+    T: salsa::DbWithJar<VfsJar> + EntityPathDb + PackagePathDb + Send + 'static,
 {
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str> {
         package_manifest_file(self, package_path)?.text(self)
     }
 
     fn module_content(&self, entity_path: EntityPath) -> VfsResult<&str> {
-        let abs_path = module_path(self, entity_path).as_ref()?;
-        self.file_from_absolute_path(abs_path).text(self)
+        let abs_path = module_absolute_path(self, entity_path).as_ref()?;
+        self.file_from_absolute_path(abs_path)?.text(self)
     }
 
     fn package_dir(&self, package: PackagePath) -> &VfsResult<AbsolutePath> {

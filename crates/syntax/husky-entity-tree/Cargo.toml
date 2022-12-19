@@ -26,6 +26,7 @@ husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 husky-entity-card = { path = "../../kernel/husky-entity-card" }
 husky-accessibility = { path = "../../kernel/husky-accessibility" }
+husky-toolchain = { path = "../../kernel/husky-toolchain" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
@@ -41,7 +42,5 @@ husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
-# kernel
-husky-toolchain = { path = "../../kernel/husky-toolchain" }
 # utils
-husky-vfs-test-utils = { path = "../../utils/husky-vfs-test-utils" }
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }

@@ -1,14 +1,12 @@
 #![feature(trait_upcasting)]
 mod ancestry;
 mod db;
-mod jar;
 mod menu;
 #[cfg(test)]
 mod tests;
 mod utils;
 
 pub use db::*;
-pub use jar::*;
 pub use menu::*;
 
 use ancestry::*;
@@ -18,6 +16,9 @@ use husky_word::Identifier;
 use optional::Optioned;
 use salsa::DbWithJar;
 use utils::*;
+
+#[salsa::jar(db = EntityPathDb)]
+pub struct EntityPathJar(EntityPath, apparent_ancestry, entity_path_menu);
 
 #[salsa::interned(jar = EntityPathJar)]
 pub struct EntityPath {

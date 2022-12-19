@@ -10,7 +10,7 @@ use husky_path_utils::*;
 use husky_print_utils::msg_once;
 use husky_term::*;
 use husky_token::TokenDb;
-use husky_vfs::VfsResult;
+use husky_vfs::*;
 use husky_word::Identifier;
 use salsa::DbWithJar;
 use std::{path::PathBuf, sync::Arc};

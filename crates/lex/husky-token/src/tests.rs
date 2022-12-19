@@ -5,7 +5,7 @@ use husky_expect_test_utils::*;
 use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_print_utils::p;
 use husky_toolchain::*;
-use husky_vfs::VfsJar;
+use husky_vfs::*;
 use husky_word::{WordDb, WordJar};
 use salsa::{Database, ParallelDatabase, Snapshot, Storage};
 use std::{borrow::Cow, sync::Arc};
@@ -14,13 +14,6 @@ use std::{borrow::Cow, sync::Arc};
 #[derive(Default)]
 struct MimicDB {
     storage: Storage<Self>,
-    source_path_config: VfsConfigMimic,
-}
-
-impl HasVfsConfig for MimicDB {
-    fn vfs_config(&self) -> &VfsConfig {
-        &self.source_path_config
-    }
 }
 
 impl Database for MimicDB {}
@@ -37,8 +30,9 @@ fn tokenize_works() {
 #[test]
 fn tokenize_library() {
     let db = MimicDB::default();
-    let package_path_menu = db.package_path_menu();
-    let entity_path_menu = db.entity_path_menu();
+    let toolchain = db.lang_dev_toolchain();
+    let package_path_menu = db.package_path_menu(toolchain);
+    let entity_path_menu = db.entity_path_menu(toolchain);
 
     macro_rules! t {
         ($($module:ident),*) => {

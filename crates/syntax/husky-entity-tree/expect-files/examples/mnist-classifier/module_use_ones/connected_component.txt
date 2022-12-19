@@ -6,28 +6,28 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 94,
+                            value: 89,
                         },
                     ),
                 ),
                 Identifier(
                     Word(
                         Id {
-                            value: 95,
+                            value: 90,
                         },
                     ),
                 ),
                 Identifier(
                     Word(
                         Id {
-                            value: 64,
+                            value: 59,
                         },
                     ),
                 ),
                 Identifier(
                     Word(
                         Id {
-                            value: 74,
+                            value: 69,
                         },
                     ),
                 ),
@@ -47,7 +47,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 63,
+                            value: 58,
                         },
                     ),
                 ),

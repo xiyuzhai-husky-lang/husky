@@ -26,23 +26,15 @@ use std::{
 pub(crate) struct DB {
     storage: salsa::Storage<Self>,
     watcher_place: SingleAssignPlace<VfsWatcher>,
-    vfs_config: VfsConfigMimic,
 }
 
 impl salsa::Database for DB {}
-
-impl HasVfsConfig for DB {
-    fn vfs_config(&self) -> &VfsConfig {
-        &self.vfs_config
-    }
-}
 
 impl ParallelDatabase for DB {
     fn snapshot(&self) -> salsa::Snapshot<Self> {
         salsa::Snapshot::new(DB {
             storage: self.storage.snapshot(),
             watcher_place: self.watcher_place.clone(),
-            vfs_config: self.vfs_config.clone(),
         })
     }
 }
@@ -58,16 +50,18 @@ fn watcher_works() {
     let abs_path: AbsolutePath = AbsolutePath::new(&path).unwrap();
     unsafe {
         std::fs::write(&path, "Hello, world!");
-        assert!(db.query(
-            |db| db.file_from_absolute_path(&abs_path).content(db.deref())
-                == &FileContent::OnDisk("Hello, world!".to_owned())
-        ),);
+        assert!(db.query(|db| db
+            .file_from_absolute_path(&abs_path)
+            .unwrap()
+            .content(db.deref())
+            == &FileContent::OnDisk("Hello, world!".to_owned())),);
         std::fs::write(&path, "Hello, world!2");
         let a = DEBOUNCE_TEST_SLEEP_TIME;
         std::thread::sleep(DEBOUNCE_TEST_SLEEP_TIME);
-        assert!(db.query(
-            |db| db.file_from_absolute_path(&abs_path).content(db.deref())
-                == &FileContent::OnDisk("Hello, world!2".to_owned())
-        ))
+        assert!(db.query(|db| db
+            .file_from_absolute_path(&abs_path)
+            .unwrap()
+            .content(db.deref())
+            == &FileContent::OnDisk("Hello, world!2".to_owned())))
     }
 }

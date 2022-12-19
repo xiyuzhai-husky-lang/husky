@@ -10,7 +10,6 @@ mod curry;
 mod db;
 mod decl;
 mod error;
-mod jar;
 mod menu;
 mod path;
 mod subentity;
@@ -27,16 +26,18 @@ pub use curry::*;
 pub use db::*;
 pub use decl::*;
 pub use error::*;
-pub use jar::*;
 pub use menu::*;
 pub use subentity::*;
 pub use trai::*;
 pub use trait_impl::*;
 
-// use cow::TermCow;
 use husky_entity_path::EntityPath;
+use husky_toolchain::Toolchain;
 #[cfg(test)]
 use tests::*;
+
+#[salsa::jar(db = TermDb)]
+pub struct TermJar(Term, TermCurryContext, term_menu);
 
 #[salsa::interned(jar = TermJar)]
 pub struct Term {

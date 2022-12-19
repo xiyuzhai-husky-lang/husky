@@ -7,7 +7,7 @@ Ok(
                     parent: Identifier(
                         Word(
                             Id {
-                                value: 57,
+                                value: 52,
                             },
                         ),
                     ),
@@ -28,7 +28,7 @@ Ok(
                     parent: Identifier(
                         Word(
                             Id {
-                                value: 63,
+                                value: 58,
                             },
                         ),
                     ),
@@ -49,7 +49,7 @@ Ok(
                     parent: Identifier(
                         Word(
                             Id {
-                                value: 56,
+                                value: 51,
                             },
                         ),
                     ),

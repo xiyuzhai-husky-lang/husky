@@ -1,0 +1,10 @@
+[package]
+name = "husky-fs-specs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+thiserror = "1.0.37"
+dirs = "4.0.0"
+husky-path-utils = { path = "../../utils/husky-path-utils" }

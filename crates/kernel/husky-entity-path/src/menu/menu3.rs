@@ -6,7 +6,11 @@ pub struct EntityPathMenu3 {
 }
 
 impl EntityPathMenu3 {
-    pub(crate) fn new(_db: &dyn EntityPathDb, menu2: EntityPathMenu2) -> Self {
+    pub(crate) fn new(
+        _db: &dyn EntityPathDb,
+        toolchain: Toolchain,
+        menu2: EntityPathMenu2,
+    ) -> Self {
         Self { parent: menu2 }
     }
 }

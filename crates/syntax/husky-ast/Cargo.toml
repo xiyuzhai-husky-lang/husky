@@ -40,4 +40,4 @@ husky-toolchain = { path = "../../kernel/husky-toolchain" }
 # syntax
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 # utils
-husky-vfs-test-utils = { path = "../../utils/husky-vfs-test-utils" }
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }

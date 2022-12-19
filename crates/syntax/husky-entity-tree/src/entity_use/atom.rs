@@ -3,7 +3,7 @@ use crate::*;
 use husky_accessibility::Accessibility;
 use husky_ast::{Ast, AstIdx};
 use husky_entity_path::EntityPath;
-use husky_vfs::VfsResult;
+use husky_vfs::*;
 use husky_word::Identifier;
 use std::collections::{HashMap, HashSet};
 

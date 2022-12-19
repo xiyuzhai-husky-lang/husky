@@ -22,13 +22,6 @@ use std::{borrow::Cow, sync::Arc};
 #[derive(Default)]
 struct MimicDB {
     storage: salsa::Storage<Self>,
-    source_path_config: VfsConfigMimic,
-}
-
-impl HasVfsConfig for MimicDB {
-    fn vfs_config(&self) -> &VfsConfig {
-        &self.source_path_config
-    }
 }
 
 impl Database for MimicDB {}
@@ -37,7 +30,6 @@ impl ParallelDatabase for MimicDB {
     fn snapshot(&self) -> Snapshot<Self> {
         Snapshot::new(MimicDB {
             storage: self.storage.snapshot(),
-            source_path_config: self.source_path_config.clone(),
         })
     }
 }
@@ -45,7 +37,8 @@ impl ParallelDatabase for MimicDB {
 #[test]
 fn manifest_ast_works() {
     let db = MimicDB::default();
-    let package_path_menu = db.package_path_menu();
+    let toolchain = db.lang_dev_toolchain();
+    let package_path_menu = db.package_path_menu(toolchain);
     expect_file!["../tests/package_core_manifest_ast.txt"].assert_eq(&format!(
         "{:#?}",
         db.package_manifest_ast(package_path_menu.core())

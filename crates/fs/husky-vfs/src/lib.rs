@@ -7,6 +7,8 @@ mod file;
 mod jar;
 mod path;
 mod runner;
+#[cfg(feature = "test_utils")]
+mod test_utils;
 #[cfg(test)]
 mod tests;
 mod watch;
@@ -16,6 +18,8 @@ pub use db::VfsDb;
 pub use error::*;
 pub use jar::VfsJar;
 pub use runner::*;
+#[cfg(feature = "test_utils")]
+pub use test_utils::*;
 pub use watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};
 
 use dashmap::{mapref::entry::Entry, DashMap};
@@ -34,6 +38,8 @@ use std::{
     path::{Path, PathBuf},
     sync::Mutex,
 };
+#[cfg(test)]
+use tests::*;
 
 #[salsa::interned(jar = VfsJar)]
 pub struct PathBufItd {

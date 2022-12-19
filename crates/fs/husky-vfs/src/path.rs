@@ -18,9 +18,8 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Abs
     match db.package_path_data(package) {
         PackagePathData::Builtin { toolchain, .. } => {
             let name = db.package_name(package);
-            // ad hoc;
-            // shall include toolchain
-            AbsolutePath::new(&db.vfs_config().library_dir().join(name)).map_err(|e| e.into())
+            let toolchain_library_path = db.toolchain_library_path(*toolchain);
+            AbsolutePath::new(&toolchain_library_path.join(name)).map_err(|e| e.into())
         }
         PackagePathData::Global { version } => todo!(),
         PackagePathData::Local(path) => Ok(path.clone()),
@@ -29,7 +28,10 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Abs
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
-pub(crate) fn module_path(db: &dyn VfsDb, entity_path: EntityPath) -> VfsResult<AbsolutePath> {
+pub(crate) fn module_absolute_path(
+    db: &dyn VfsDb,
+    entity_path: EntityPath,
+) -> VfsResult<AbsolutePath> {
     match entity_path.data(db) {
         EntityPathData::CrateRoot(crate_path) => AbsolutePath::new(
             &package_dir(db, crate_path.package_path(db))
@@ -38,7 +40,7 @@ pub(crate) fn module_path(db: &dyn VfsDb, entity_path: EntityPath) -> VfsResult<
         )
         .map_err(|e| e.into()),
         EntityPathData::Childpath { parent, ident } => {
-            let parent_module_path = module_path(db, parent).as_ref()?;
+            let parent_module_path = module_absolute_path(db, parent).as_ref()?;
             let dir = match db.dt_entity_path(parent) {
                 EntityPathData::CrateRoot(_) => parent_module_path.parent().unwrap().to_owned(),
                 EntityPathData::Childpath { parent, ident } => {
@@ -119,20 +121,8 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> Vfs
 
 #[test]
 fn resolve_module_path_works() {
-    use crate::tests::*;
-
-    fn t(db: &DB, dir: &Path) {
-        for package in db.collect_local_packages(dir).unwrap() {
-            for module in db.collect_possible_modules(package).unwrap() {
-                assert_eq!(
-                    db.resolve_module_path(module_path(db, module).as_ref().unwrap()),
-                    Ok(module)
-                )
-            }
-        }
-    }
-
-    let db = DB::default();
-    t(&db, db.vfs_config().library_dir());
-    t(&db, db.vfs_config().examples_dir());
+    DB::test_modules("resolve_module_path", |db, entity_path| {
+        let path = module_absolute_path(db, entity_path);
+        todo!()
+    })
 }
