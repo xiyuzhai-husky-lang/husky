@@ -1,3 +1,4 @@
+mod enum_example;
 mod word_separator;
 
 #[salsa::jar(db = Db)]
