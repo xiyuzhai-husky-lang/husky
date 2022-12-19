@@ -10,9 +10,9 @@ doctest = false
 
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
 indexmap = "1.8.1"
 
 [dev-dependencies]
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
