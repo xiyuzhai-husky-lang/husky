@@ -10,7 +10,6 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 # abstraction
 upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
-avec = { path = "../../abstraction/avec" }
 # devtime
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 # kernel
@@ -26,7 +25,6 @@ husky-text = { path = "../../lex/husky-text" }
 husky-entity-card = { path = "../../kernel/husky-entity-card" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
 # vm
