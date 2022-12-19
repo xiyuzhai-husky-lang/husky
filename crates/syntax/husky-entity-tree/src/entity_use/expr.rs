@@ -115,7 +115,7 @@ impl<'a> EntityUseExprCollector<'a> {
                 Some((
                     *accessibility,
                     match EntityUseExprParser::new(self.db, token_iter, &mut self.arena)
-                        .parse_rest()
+                        .parse_step()
                     {
                         Some(expr) => expr,
                         None => self.arena.alloc_one(EntityUseExpr::Err(todo!())),
@@ -152,27 +152,32 @@ impl<'b> EntityUseExprParser<'b> {
         }
     }
 
-    fn parse_rest(&mut self) -> Option<EntityUseExprIdx> {
-        let expr = self.parse_rest_aux()?;
+    fn parse_step(&mut self) -> Option<EntityUseExprIdx> {
+        let expr = self.parse_step_inner()?;
         Some(self.arena.alloc_one(expr))
     }
 
-    fn parse_rest_aux(&mut self) -> Option<EntityUseExpr> {
+    fn parse_step_inner(&mut self) -> Option<EntityUseExpr> {
         let token = self.token_iter.next()?;
         Some(match token.kind {
             TokenKind::Identifier(ident) => {
-                let Some(scope_resolution_token) = self.token_iter.next() else  {
+                let Some(next_token) = self.token_iter.next() else  {
                     return Some(EntityUseExpr::One { ident })
                 };
-                match scope_resolution_token.kind {
+                match next_token.kind {
                     TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::ScopeResolution)) => {}
+                    TokenKind::Special(SpecialToken::Comma)
+                    | TokenKind::Special(SpecialToken::Ket(Bracket::Curl)) => {
+                        self.token_iter.step_back();
+                        return Some(EntityUseExpr::One { ident });
+                    }
                     _ => {
                         return Some(EntityUseExpr::Err(
                             EntityUseExprError::ExpectScopeResolution,
                         ))
                     }
                 }
-                let Some(child) =  self.parse_rest() else {
+                let Some(child) =  self.parse_step() else {
                     return Some(EntityUseExpr::Err(
                         EntityUseExprError::ExpectScopeResolution,
                     ))
@@ -182,15 +187,33 @@ impl<'b> EntityUseExprParser<'b> {
                     child,
                 }
             }
-            TokenKind::Special(SpecialToken::Bra(Bracket::Curl)) => {
-                todo!()
-                // self.parse_multiple9)
-            }
+            TokenKind::Special(SpecialToken::Bra(Bracket::Curl)) => self.parse_multiple(),
             // ad hoc; todo: change this to SpecialToken::Star
             TokenKind::Special(SpecialToken::BinaryOpr(BinaryOpr::PureClosed(
                 BinaryPureClosedOpr::Mul,
             ))) => EntityUseExpr::All {},
             _ => EntityUseExpr::Err(EntityUseExprError::ExpectSomething),
         })
+    }
+
+    fn parse_multiple(&mut self) -> EntityUseExpr {
+        let mut exprs: Vec<EntityUseExpr> = vec![];
+        loop {
+            match self.parse_step_inner() {
+                Some(expr) => exprs.push(expr),
+                None => todo!(),
+            }
+            match self.token_iter.next() {
+                Some(token) => match token.kind {
+                    TokenKind::Special(SpecialToken::Comma) => continue,
+                    TokenKind::Special(SpecialToken::Ket(Bracket::Curl)) => break,
+                    _ => todo!(),
+                },
+                None => todo!(),
+            }
+        }
+        EntityUseExpr::Multiple {
+            exprs: self.arena.alloc_batch(exprs),
+        }
     }
 }
