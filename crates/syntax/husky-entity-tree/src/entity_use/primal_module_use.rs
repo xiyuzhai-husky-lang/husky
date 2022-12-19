@@ -81,53 +81,94 @@ impl<'a> PrimalModuleUseBuilder<'a> {
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn module_use_alls(db: &dyn EntityTreeDb, module: EntityPath) -> VfsResult<Vec<UseAll>> {
-    let ast_sheet = db.ast_sheet(module).as_ref()?;
-    Ok(ast_sheet
-        .top_level_asts_indexed_iter()
-        .filter_map(|(ast_idx, ast)| match ast {
-            Ast::Use { token_group_idx } => todo!(),
-            _ => None,
-        })
-        .collect())
+pub(crate) fn module_use_atoms(
+    db: &dyn EntityTreeDb,
+    module_path: EntityPath,
+) -> VfsResult<Vec<EntityUseAtom>> {
+    let module_use_expr_sheet = module_use_exprs(db, module_path).as_ref()?;
+    let mut use_alls: Vec<EntityUseAtom> = vec![];
+    for (ast_idx, accessibility, use_expr) in module_use_expr_sheet.use_exprs() {
+        UseAllCollector::new(
+            db,
+            module_use_expr_sheet,
+            *ast_idx,
+            *use_expr,
+            *accessibility,
+            &mut use_alls,
+        )
+        .collect_all()
+    }
+    Ok(use_alls)
 }
 
 #[test]
-fn module_use_alls_works() {
-    DB::expect_test_modules("module_use_alls", |db, entity_path| {
-        module_use_alls(db, entity_path)
-    })
-}
-
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn module_use_ones(db: &dyn EntityTreeDb, module: EntityPath) -> VfsResult<Vec<UseOne>> {
-    let ast_sheet = db.ast_sheet(module).as_ref()?;
-    Ok(ast_sheet
-        .top_level_asts_indexed_iter()
-        .filter_map(|(ast_idx, ast)| match ast {
-            Ast::Use { .. } => todo!(),
-            _ => None,
-        })
-        .collect())
-}
-
-#[test]
-fn module_use_ones_works() {
+fn module_use_atoms_works() {
     DB::expect_test_modules("module_use_ones", |db, entity_path| {
-        module_use_ones(db, entity_path)
+        module_use_atoms(db, entity_path)
     })
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct UseAll {
-    pub ast_idx: AstIdx,
-    pub parent: EntityPath,
-    pub accessibility: Accessibility,
+pub enum EntityUseAtom {
+    All {
+        ast_idx: AstIdx,
+        parent: Vec<Identifier>,
+        accessibility: Accessibility,
+    },
+    One {
+        ast_idx: AstIdx,
+        path: Vec<Identifier>,
+        accessibility: Accessibility,
+    },
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct UseOne {
-    pub ast_idx: AstIdx,
-    pub path: EntityPath,
-    pub accessibility: Accessibility,
+pub struct UseAllCollector<'a> {
+    db: &'a dyn EntityTreeDb,
+    module_use_expr_sheet: &'a EntityUseExprSheet,
+    path: Vec<Identifier>,
+    use_atoms: &'a mut Vec<EntityUseAtom>,
+    ast_idx: AstIdx,
+    root: EntityUseExprIdx,
+    accessibility: Accessibility,
+}
+
+impl<'a> UseAllCollector<'a> {
+    fn new(
+        db: &'a dyn EntityTreeDb,
+        module_use_expr_sheet: &'a EntityUseExprSheet,
+        ast_idx: AstIdx,
+        root: EntityUseExprIdx,
+        accessibility: Accessibility,
+        use_atoms: &'a mut Vec<EntityUseAtom>,
+    ) -> Self {
+        Self {
+            db,
+            module_use_expr_sheet,
+            use_atoms,
+            ast_idx,
+            root,
+            path: vec![],
+            accessibility,
+        }
+    }
+    fn collect_all(mut self) {
+        self.collect(self.root);
+    }
+
+    fn collect(&mut self, use_expr_idx: EntityUseExprIdx) {
+        match &self.module_use_expr_sheet[use_expr_idx] {
+            EntityUseExpr::All {} => self.use_atoms.push(EntityUseAtom::All {
+                ast_idx: self.ast_idx,
+                parent: self.path.clone(),
+                accessibility: self.accessibility,
+            }),
+            EntityUseExpr::One { ident } => todo!(),
+            EntityUseExpr::ScopeResolution { parent, child } => {
+                self.path.push(*parent);
+                self.collect(*child)
+            }
+            EntityUseExpr::Multiple { exprs } => todo!(),
+            EntityUseExpr::Err(_) => todo!(),
+        }
+    }
 }

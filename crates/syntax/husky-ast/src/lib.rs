@@ -38,6 +38,7 @@ pub enum Ast {
     },
     Use {
         token_group_idx: TokenGroupIdx,
+        accessibility: Accessibility,
     },
     Comment {
         token_group_idx: TokenGroupIdx,
