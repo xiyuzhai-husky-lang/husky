@@ -1,18 +1,59 @@
-use husky_print_utils::p;
-use husky_word::{IdentMap, IdentPairMap, Identifier};
-use salsa::DebugWithDb;
-use vec_like::{VecMapEntry, VecSet};
+mod exec;
+mod prelude;
+mod state;
 
 use crate::*;
+use exec::*;
+use husky_print_utils::p;
+use husky_word::{IdentMap, IdentPairMap, Identifier};
+use prelude::*;
+use salsa::DebugWithDb;
+use state::*;
 use std::collections::HashMap;
+use vec_like::{VecMapEntry, VecPairMap, VecSet};
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn module_items_map(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> EntityTreeResult<HashMap<EntityPath, ModuleItemMap>> {
-    // let ast_sheet = db.ast_sheet(module).as_ref()?;
+) -> EntityTreeResult<VecPairMap<EntityPath, ModuleItemMap>> {
     Ok(ModuleItemCollector::new(db, crate_path)?.collect_all())
+}
+
+struct ModuleItemCollector<'a> {
+    db: &'a dyn EntityTreeDb,
+    crate_path: CratePath,
+    core_prelude_path: EntityPath,
+    prelude: Prelude<'a>,
+    root: EntityPath,
+    state: CollectorState<'a>,
+    errors: Vec<(AstIdx, EntityTreeError)>,
+}
+
+impl<'a> ModuleItemCollector<'a> {
+    fn new(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> EntityTreeResult<Self> {
+        let toolchain = db.crate_toolchain(crate_path).as_ref()?;
+        let entity_path_menu = db.entity_path_menu(*toolchain);
+        let prelude = match crate_prelude(db, crate_path).as_ref()?.as_ref() {
+            Some(map) => Prelude::Finished(map.data(db)),
+            None => Prelude::Ongoing(Default::default()),
+        };
+        let root = db.it_entity_path(EntityPathData::CrateRoot(crate_path));
+        Ok(Self {
+            db,
+            crate_path,
+            core_prelude_path: entity_path_menu.core_prelude(),
+            prelude,
+            root,
+            state: CollectorState::new(db, crate_path)?,
+            errors: vec![],
+        })
+    }
+
+    fn collect_all(mut self) -> VecPairMap<EntityPath, ModuleItemMap> {
+        self.repeat_exec_all_util_stable();
+        self.state.finish(self.db)
+    }
 }
 
 #[test]
@@ -74,56 +115,11 @@ impl VecMapEntry<Identifier> for ModuleItem {
             ModuleItem::Defn { ident, .. } | ModuleItem::Use { ident, .. } => *ident,
         }
     }
-}
 
-struct ModuleItemCollector<'a> {
-    db: &'a dyn EntityTreeDb,
-    crate_path: CratePath,
-    core_prelude_path: EntityPath,
-    prelude: PreludeInAction<'a>,
-    root: EntityPath,
-    module_item_maps: HashMap<EntityPath, IdentMap<ModuleItem>>,
-    use_expr_caches: HashMap<EntityPath, EntityUseExprCache<'a>>,
-    errors: Vec<(AstIdx, EntityTreeError)>,
-}
-
-pub enum PreludeInAction<'a> {
-    Ongoing(IdentMap<ModuleItem>),
-    Finished(&'a IdentMap<ModuleItem>),
-}
-
-struct EntityUseExprCache<'a> {
-    sheet: &'a EntityUseExprSheet,
-    unresolved_use_exprs_map: IdentPairMap<EntityUseExprIdx>,
-}
-
-impl<'a> ModuleItemCollector<'a> {
-    fn new(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> EntityTreeResult<Self> {
-        let all_modules = all_modules_within_crate(db, crate_path).as_ref()?;
-        let toolchain = db.crate_toolchain(crate_path).as_ref()?;
-        let entity_path_menu = db.entity_path_menu(*toolchain);
-        let prelude = match crate_prelude(db, crate_path).as_ref()?.as_ref() {
-            Some(map) => PreludeInAction::Finished(map.data(db)),
-            None => PreludeInAction::Ongoing(Default::default()),
-        };
-        Ok(Self {
-            db,
-            crate_path,
-            core_prelude_path: entity_path_menu.core_prelude(),
-            prelude,
-            root: db.it_entity_path(EntityPathData::CrateRoot(crate_path)),
-            module_item_maps: todo!(),
-            use_expr_caches: todo!(),
-            errors: vec![],
-        })
-    }
-
-    fn collect_all(&mut self) -> HashMap<EntityPath, ModuleItemMap> {
-        todo!();
-        self.module_item_maps
-            .into_iter()
-            .map(|(entity_path, map)| (entity_path, ModuleItemMap::new(self.db, map)))
-            .collect()
+    fn key_ref(&self) -> &Identifier {
+        match self {
+            ModuleItem::Defn { ident, .. } | ModuleItem::Use { ident, .. } => ident,
+        }
     }
 }
 
@@ -140,7 +136,7 @@ pub(crate) fn crate_prelude(
     } else {
         let entity_path_menu = db.entity_path_menu(*toolchain);
         Ok(Some(
-            module_items_map(db, core_library).as_ref()?[&entity_path_menu.core_prelude()],
+            module_items_map(db, core_library).as_ref()?[entity_path_menu.core_prelude()].1,
         ))
     }
 }

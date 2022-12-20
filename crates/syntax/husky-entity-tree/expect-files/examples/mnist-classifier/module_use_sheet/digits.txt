@@ -4,77 +4,74 @@ Ok(
             data: [
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 64,
-                            },
-                        ),
+                        "is_one",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                        "one",
                     ),
                     child: 0,
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 68,
-                            },
-                        ),
+                        "is_six",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 45,
-                            },
-                        ),
+                        "six",
                     ),
                     child: 2,
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 63,
-                            },
-                        ),
+                        "is_zero",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 48,
-                            },
-                        ),
+                        "zero",
                     ),
                     child: 4,
                 },
             ],
         },
-        use_exprs: [
+        use_expr_roots: [
             (
-                3,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 43,
+                        },
+                    ),
+                ),
                 1,
-            ),
-            (
-                4,
-                PubCrate,
                 3,
             ),
             (
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 45,
+                        },
+                    ),
+                ),
+                3,
+                4,
+            ),
+            (
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 48,
+                        },
+                    ),
+                ),
                 5,
-                PubCrate,
                 5,
             ),
         ],

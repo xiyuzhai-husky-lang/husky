@@ -149,25 +149,25 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -176,7 +176,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "connected_components",
@@ -191,7 +191,7 @@ Ok(
                     body: ArenaIdxRange(
                         6..10,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "major_connected_component",
@@ -206,7 +206,7 @@ Ok(
                     body: ArenaIdxRange(
                         11..14,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "ignored_connected_components_row_span_sum_sum",
@@ -221,7 +221,7 @@ Ok(
                     body: ArenaIdxRange(
                         14..15,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "major_raw_contours",
@@ -241,7 +241,7 @@ Ok(
                     body: ArenaIdxRange(
                         15..16,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "major_raw_contour",
@@ -256,7 +256,7 @@ Ok(
                     body: ArenaIdxRange(
                         16..17,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "major_line_segment_sketch",
@@ -271,7 +271,7 @@ Ok(
                     body: ArenaIdxRange(
                         17..18,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "major_concave_components",

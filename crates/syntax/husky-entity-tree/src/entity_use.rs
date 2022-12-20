@@ -32,7 +32,20 @@ impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityUseExpr {
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        todo!()
+        match self {
+            Self::All {} => f.debug_struct("All").finish(),
+            Self::One { ident } => f
+                .debug_struct("One")
+                .field("ident", &ident.debug_with(db, include_all_fields))
+                .finish(),
+            Self::ScopeResolution { parent, child } => f
+                .debug_struct("ScopeResolution")
+                .field("parent", &parent.debug_with(db, include_all_fields))
+                .field("child", child)
+                .finish(),
+            Self::Multiple { exprs } => f.debug_struct("Multiple").field("exprs", exprs).finish(),
+            Self::Err(arg0) => f.debug_tuple("Err").field(arg0).finish(),
+        }
     }
 }
 
@@ -49,7 +62,7 @@ pub enum EntityUseExprError {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct EntityUseExprSheet {
     arena: EntityUseExprArena,
-    use_exprs: Vec<(AstIdx, Accessibility, EntityUseExprIdx)>,
+    use_expr_roots: Vec<(Accessibility, Identifier, EntityUseExprIdx, AstIdx)>,
 }
 
 impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityUseExprSheet {
@@ -61,7 +74,7 @@ impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityUseExprSheet {
     ) -> std::fmt::Result {
         f.debug_struct("EntityUseExprSheet")
             .field("arena", &self.arena.debug_with(db, include_all_fields))
-            .field("use_exprs", &self.use_exprs)
+            .field("use_expr_roots", &self.use_expr_roots)
             .finish()
     }
 }
@@ -96,8 +109,15 @@ impl std::ops::Deref for EntityUseExprSheet {
 }
 
 impl EntityUseExprSheet {
-    pub fn use_exprs(&self) -> &[(ArenaIdx<Ast>, Accessibility, ArenaIdx<EntityUseExpr>)] {
-        self.use_exprs.as_ref()
+    pub fn use_exprs(
+        &self,
+    ) -> &[(
+        Accessibility,
+        Identifier,
+        ArenaIdx<EntityUseExpr>,
+        ArenaIdx<Ast>,
+    )] {
+        self.use_expr_roots.as_ref()
     }
 }
 
@@ -142,30 +162,34 @@ impl<'a> EntityUseExprCollector<'a> {
     fn collect_all(mut self) -> EntityUseExprSheet {
         EntityUseExprSheet {
             // order matters!
-            use_exprs: self
+            use_expr_roots: self
                 .ast_sheet
                 .indexed_asts()
                 .filter_map(|(ast_idx, ast)| {
                     self.collect_from_ast(ast)
-                        .map(|(accessibility, expr)| (ast_idx, accessibility, expr))
+                        .map(|(accessibility, ident, expr)| (accessibility, ident, expr, ast_idx))
                 })
                 .collect(),
             arena: self.arena,
         }
     }
 
-    fn collect_from_ast(&mut self, ast: &Ast) -> Option<(Accessibility, EntityUseExprIdx)> {
+    fn collect_from_ast(
+        &mut self,
+        ast: &Ast,
+    ) -> Option<(Accessibility, Identifier, EntityUseExprIdx)> {
         match ast {
             Ast::Use {
                 token_group_idx,
                 accessibility,
             } => {
                 let mut token_iter = self.token_sheet.token_group_token_iter(*token_group_idx);
+                let (ident, mut entity_use_expr_parser) =
+                    EntityUseExprParser::new(self.db, token_iter, &mut self.arena);
                 Some((
                     *accessibility,
-                    match EntityUseExprParser::new(self.db, token_iter, &mut self.arena)
-                        .parse_step()
-                    {
+                    ident,
+                    match entity_use_expr_parser.parse_step() {
                         Some(expr) => expr,
                         None => self.arena.alloc_one(EntityUseExpr::Err(todo!())),
                     },
@@ -187,18 +211,35 @@ impl<'b> EntityUseExprParser<'b> {
         db: &'b dyn EntityTreeDb,
         mut token_iter: TokenIter<'b>,
         arena: &'b mut EntityUseExprArena,
-    ) -> Self {
+    ) -> (Identifier, Self) {
         while let Some(token) = token_iter.next() {
             match token.kind {
                 TokenKind::Keyword(Keyword::Use) => break,
                 _ => continue,
             }
         }
-        Self {
-            db,
-            token_iter,
-            arena,
-        }
+        let ident = match token_iter.peek() {
+            Some(token) => match token.kind {
+                TokenKind::Decorator(_) => todo!(),
+                TokenKind::Keyword(_) => todo!(),
+                TokenKind::Identifier(ident) => ident,
+                TokenKind::Special(_) => todo!(),
+                TokenKind::WordOpr(_) => todo!(),
+                TokenKind::Literal(_) => todo!(),
+                TokenKind::Unrecognized(_) => todo!(),
+                TokenKind::IllFormedLiteral(_) => todo!(),
+                TokenKind::Comment => todo!(),
+            },
+            None => todo!(),
+        };
+        (
+            ident,
+            Self {
+                db,
+                token_iter,
+                arena,
+            },
+        )
     }
 
     fn parse_step(&mut self) -> Option<EntityUseExprIdx> {

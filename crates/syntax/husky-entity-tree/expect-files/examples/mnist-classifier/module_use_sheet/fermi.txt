@@ -5,21 +5,24 @@ Ok(
                 All,
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 0,
                 },
             ],
         },
-        use_exprs: [
+        use_expr_roots: [
             (
-                23,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 1,
+                23,
             ),
         ],
     },

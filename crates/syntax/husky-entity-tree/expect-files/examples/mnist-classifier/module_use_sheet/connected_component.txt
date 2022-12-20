@@ -4,76 +4,66 @@ Ok(
             data: [
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 61,
-                            },
-                        ),
+                        "BinaryImage28",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 59,
-                            },
-                        ),
+                        "mnist",
                     ),
                     child: 0,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 81,
-                            },
-                        ),
+                        "datasets",
                     ),
                     child: 1,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 80,
-                            },
-                        ),
+                        "cv",
                     ),
                     child: 2,
                 },
                 All,
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 58,
-                            },
-                        ),
+                        "raw_contour",
                     ),
                     child: 4,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 5,
                 },
             ],
         },
-        use_exprs: [
+        use_expr_roots: [
             (
-                124,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 80,
+                        },
+                    ),
+                ),
                 3,
+                124,
             ),
             (
-                125,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 6,
+                125,
             ),
         ],
     },

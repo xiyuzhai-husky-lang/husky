@@ -4,524 +4,431 @@ Ok(
             data: [
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 62,
-                            },
-                        ),
+                        "MnistLabel",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 59,
-                            },
-                        ),
+                        "mnist",
                     ),
                     child: 0,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 80,
-                            },
-                        ),
+                        "cv",
                     ),
                     child: 1,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 81,
-                            },
-                        ),
+                        "datasets",
                     ),
                     child: 2,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 75,
-                            },
-                        ),
+                        "ml",
                     ),
                     child: 3,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 74,
-                            },
-                        ),
+                        "domains",
                     ),
                     child: 4,
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 162,
-                            },
-                        ),
+                        "normalize_vmax_f32",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 161,
-                            },
-                        ),
+                        "normalize",
                     ),
                     child: 6,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 76,
-                            },
-                        ),
+                        "models",
                     ),
                     child: 7,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 75,
-                            },
-                        ),
+                        "ml",
                     ),
                     child: 8,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 74,
-                            },
-                        ),
+                        "domains",
                     ),
                     child: 9,
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 164,
-                            },
-                        ),
+                        "boosting_with_vmax_normalized",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 163,
-                            },
-                        ),
+                        "boosting",
                     ),
                     child: 11,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 76,
-                            },
-                        ),
+                        "models",
                     ),
                     child: 12,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 75,
-                            },
-                        ),
+                        "ml",
                     ),
                     child: 13,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 74,
-                            },
-                        ),
+                        "domains",
                     ),
                     child: 14,
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 145,
-                            },
-                        ),
+                        "narrow_down",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 144,
-                            },
-                        ),
+                        "narrow",
                     ),
                     child: 16,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 76,
-                            },
-                        ),
+                        "models",
                     ),
                     child: 17,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 75,
-                            },
-                        ),
+                        "ml",
                     ),
                     child: 18,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 74,
-                            },
-                        ),
+                        "domains",
                     ),
                     child: 19,
                 },
                 All,
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 57,
-                            },
-                        ),
+                        "major",
                     ),
                     child: 21,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 22,
                 },
                 All,
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 49,
-                            },
-                        ),
+                        "fermi",
                     ),
                     child: 24,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 25,
                 },
                 All,
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 53,
-                            },
-                        ),
+                        "concave_component",
                     ),
                     child: 27,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 52,
-                            },
-                        ),
+                        "line_segment_sketch",
                     ),
                     child: 28,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 29,
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 63,
-                            },
-                        ),
+                        "is_zero",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 48,
-                            },
-                        ),
+                        "zero",
                     ),
                     child: 31,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 32,
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 64,
-                            },
-                        ),
+                        "is_one",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                        "one",
                     ),
                     child: 34,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 35,
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 66,
-                            },
-                        ),
+                        "is_three",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 46,
-                            },
-                        ),
+                        "three",
                     ),
                     child: 37,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 38,
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 69,
-                            },
-                        ),
+                        "is_seven",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 44,
-                            },
-                        ),
+                        "seven",
                     ),
                     child: 40,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 41,
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 71,
-                            },
-                        ),
+                        "is_nine",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 42,
-                            },
-                        ),
+                        "nine",
                     ),
                     child: 43,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 44,
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 68,
-                            },
-                        ),
+                        "is_six",
                     ),
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 45,
-                            },
-                        ),
+                        "six",
                     ),
                     child: 46,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 47,
                 },
             ],
         },
-        use_exprs: [
+        use_expr_roots: [
             (
-                54,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
                 5,
+                54,
             ),
             (
-                55,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
                 10,
+                55,
             ),
             (
-                56,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
                 15,
+                56,
             ),
             (
-                57,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
                 20,
+                57,
             ),
             (
-                58,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 23,
+                58,
             ),
             (
-                59,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 26,
+                59,
             ),
             (
-                60,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 30,
+                60,
             ),
             (
-                61,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 33,
+                61,
             ),
             (
-                62,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 36,
+                62,
             ),
             (
-                63,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 39,
+                63,
             ),
             (
-                64,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 42,
+                64,
             ),
             (
-                65,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 45,
+                65,
             ),
             (
-                66,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 48,
+                66,
             ),
         ],
     },

@@ -233,7 +233,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "line_segment_sketch",
@@ -248,7 +248,7 @@ Ok(
                     body: ArenaIdxRange(
                         6..13,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "bounding_box",
@@ -263,7 +263,7 @@ Ok(
                     body: ArenaIdxRange(
                         13..14,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "relative_bounding_box",
@@ -278,7 +278,7 @@ Ok(
                     body: ArenaIdxRange(
                         17..23,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "contour_len",
@@ -293,7 +293,7 @@ Ok(
                     body: ArenaIdxRange(
                         23..27,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "displacement",
@@ -1709,25 +1709,25 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1736,7 +1736,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "RawContour",
@@ -1759,7 +1759,7 @@ Ok(
                     body: ArenaIdxRange(
                         34..38,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "Direction",
@@ -1774,7 +1774,7 @@ Ok(
                     body: ArenaIdxRange(
                         38..39,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "get_pixel_pair",
@@ -1789,7 +1789,7 @@ Ok(
                     body: ArenaIdxRange(
                         39..40,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "get_pixel_to_the_left",
@@ -1804,7 +1804,7 @@ Ok(
                     body: ArenaIdxRange(
                         40..41,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "get_pixel_to_the_right",
@@ -1819,7 +1819,7 @@ Ok(
                     body: ArenaIdxRange(
                         66..69,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "get_inward_direction",
@@ -1834,7 +1834,7 @@ Ok(
                     body: ArenaIdxRange(
                         75..77,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "get_angle_change",
@@ -1849,7 +1849,7 @@ Ok(
                     body: ArenaIdxRange(
                         119..122,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "get_outward_direction",
@@ -1864,7 +1864,7 @@ Ok(
                     body: ArenaIdxRange(
                         122..124,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "StreakCache",
@@ -1879,7 +1879,7 @@ Ok(
                     body: ArenaIdxRange(
                         124..128,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "get_concave_middle_point",
@@ -1894,7 +1894,7 @@ Ok(
                     body: ArenaIdxRange(
                         212..217,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "find_raw_contours",

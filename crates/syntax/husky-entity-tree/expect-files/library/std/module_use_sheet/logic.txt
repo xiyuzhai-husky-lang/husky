@@ -5,31 +5,30 @@ Ok(
                 All,
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 2,
-                            },
-                        ),
+                        "logic",
                     ),
                     child: 0,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                        "core",
                     ),
                     child: 1,
                 },
             ],
         },
-        use_exprs: [
+        use_expr_roots: [
             (
-                0,
                 Public,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 21,
+                        },
+                    ),
+                ),
                 2,
+                0,
             ),
         ],
     },

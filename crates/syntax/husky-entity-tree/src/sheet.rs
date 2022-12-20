@@ -31,14 +31,18 @@ impl EntityTreeSheet {
 
     pub(crate) fn top_level_entities<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (Accessibility, EntityCard, EntityPath)> + 'a {
-        self[&self.top_level_entities_idx_range].iter().map(|tree| {
-            (
-                tree.node.accessibility(),
-                tree.node.card(),
-                tree.node.entity_path(),
-            )
-        })
+    ) -> impl Iterator<Item = (EntityTreeIdx, Accessibility, EntityCard, EntityPath)> + 'a {
+        self[&self.top_level_entities_idx_range]
+            .iter()
+            .enumerate()
+            .map(|(i, tree)| {
+                (
+                    self.top_level_entities_idx_range.start() + i,
+                    tree.node.accessibility(),
+                    tree.node.card(),
+                    tree.node.entity_path(),
+                )
+            })
     }
 }
 

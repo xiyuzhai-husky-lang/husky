@@ -35,7 +35,7 @@ impl<'a> AuxAstParser<'a> {
                 Decorator::Async => todo!(),
                 Decorator::Static => Accessibility::Public,
             },
-            _ => Accessibility::PubCrate,
+            _ => Accessibility::Protected,
         })
     }
 
