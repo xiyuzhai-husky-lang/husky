@@ -1,10 +1,34 @@
 use crate::*;
 
+use salsa::DebugWithDb;
 use std::sync::Arc;
 use vec_like::{VecEntryMap, VecPairMap};
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
 pub struct Identifier(Word);
+
+impl DebugWithDb<<WordJar as salsa::jar::Jar<'_>>::DynDb> for Identifier {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn WordDb,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        #[allow(unused_imports)]
+        use ::salsa::debug::helper::Fallback;
+        f.debug_tuple("Identifier")
+            .field(&::salsa::debug::helper::SalsaDebug::<
+                Word,
+                <WordJar as salsa::jar::Jar<'_>>::DynDb,
+            >::salsa_debug(
+                #[allow(clippy::needless_borrow)]
+                &self.0,
+                db,
+                include_all_fields,
+            ))
+            .finish()
+    }
+}
 
 impl Identifier {
     pub fn word(self) -> Word {

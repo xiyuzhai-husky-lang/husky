@@ -4,26 +4,33 @@ use crate::*;
 pub struct PackagePathMenu {
     core: PackagePath,
     std: PackagePath,
+    core_library: CratePath,
 }
 
 impl PackagePathMenu {
     fn new(db: &dyn PackagePathDb, toolchain: Toolchain) -> Self {
         let word_menu = db.word_menu();
         let f = |ident| PackagePath::new(db, PackagePathData::Builtin { ident, toolchain });
+        let core = f(word_menu.core());
+        let std = f(word_menu.std());
+        let core_library = CratePath::new(db, core, CrateKind::Library);
         Self {
-            core: f(word_menu.core()),
-            std: f(word_menu.std()),
+            core,
+            std,
+            core_library,
         }
     }
-}
 
-impl PackagePathMenu {
     pub fn core(&self) -> PackagePath {
         self.core
     }
 
     pub fn std(&self) -> PackagePath {
         self.std
+    }
+
+    pub fn core_library(&self) -> CratePath {
+        self.core_library
     }
 }
 

@@ -1,5 +1,6 @@
 mod date;
 mod db;
+mod tests;
 
 pub use db::*;
 
@@ -10,13 +11,13 @@ use std::path::PathBuf;
 #[salsa::jar(db = ToolchainDb)]
 pub struct ToolchainJar(Toolchain, toolchain_library_path);
 
-#[salsa::input(jar = ToolchainJar)]
+#[salsa::interned(jar = ToolchainJar)]
 pub struct Toolchain {
     #[return_ref]
     data: ToolchainData,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum ToolchainData {
     Published {
         channel: ToolchainChannel,
