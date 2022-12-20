@@ -335,55 +335,55 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -392,7 +392,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "nine_match",
@@ -407,7 +407,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..2,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "nine_match_refine",
@@ -422,7 +422,7 @@ Ok(
                     body: ArenaIdxRange(
                         17..36,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "is_nine",
@@ -437,7 +437,7 @@ Ok(
                     body: ArenaIdxRange(
                         36..39,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "downmost",
@@ -452,7 +452,7 @@ Ok(
                     body: ArenaIdxRange(
                         39..45,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "big_cc",

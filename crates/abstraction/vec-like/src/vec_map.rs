@@ -2,11 +2,11 @@ use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 
 use crate::*;
 
-pub trait VecMapEntry<K>
-where
-    K: PartialEq + Eq + std::fmt::Debug,
-{
-    fn key(&self) -> K;
+pub trait VecMapEntry<K> {
+    fn key(&self) -> K
+    where
+        K: Copy;
+    fn key_ref(&self) -> &K;
 }
 
 pub trait DefaultVecMapEntry<K> {
@@ -24,20 +24,33 @@ where
 
 impl<K, T> VecMapEntry<K> for (K, T)
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: PartialEq + Eq + std::fmt::Debug,
 {
-    fn key(&self) -> K {
+    fn key(&self) -> K
+    where
+        K: Copy,
+    {
         self.0
+    }
+
+    fn key_ref(&self) -> &K {
+        &self.0
     }
 }
 
 impl<K, T> VecMapEntry<K> for Arc<T>
 where
-    K: PartialEq + Eq + std::fmt::Debug,
     T: VecMapEntry<K>,
 {
-    fn key(&self) -> K {
+    fn key(&self) -> K
+    where
+        K: Copy,
+    {
         (**self).key()
+    }
+
+    fn key_ref(&self) -> &K {
+        (**self).key_ref()
     }
 }
 
@@ -49,6 +62,20 @@ where
 {
     entries: Vec<V>,
     phantom: PhantomData<K>,
+}
+
+impl<K, V> IntoIterator for VecEntryMap<K, V>
+where
+    K: PartialEq + Eq + std::fmt::Debug,
+    V: VecMapEntry<K>,
+{
+    type Item = V;
+
+    type IntoIter = std::vec::IntoIter<V>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.entries.into_iter()
+    }
 }
 
 impl<K, V> std::fmt::Debug for VecEntryMap<K, V>
@@ -88,7 +115,10 @@ where
         &mut self.entries
     }
 
-    pub fn from_vec(mut data: Vec<Entry>) -> Result<Self, EntryRepeatError<Entry>> {
+    pub fn from_vec(mut data: Vec<Entry>) -> Result<Self, EntryRepeatError<Entry>>
+    where
+        K: Copy,
+    {
         for i in 0..data.len() {
             for j in (i + 1)..data.len() {
                 if data[i].key() == data[j].key() {
@@ -118,33 +148,51 @@ where
         self.entries.len()
     }
 
-    pub fn get_entry(&self, key: K) -> Option<&Entry> {
+    pub fn get_entry(&self, key: K) -> Option<&Entry>
+    where
+        K: Copy,
+    {
         self.entries.iter().find(|entry| entry.key() == key)
     }
 
-    pub fn iget_entry(&self, key: K) -> Option<(usize, &Entry)> {
+    pub fn iget_entry(&self, key: K) -> Option<(usize, &Entry)>
+    where
+        K: Copy,
+    {
         self.entries
             .iter()
             .enumerate()
             .find(|(_, entry)| entry.key() == key)
     }
 
-    pub fn has(&self, key: K) -> bool {
+    pub fn has(&self, key: K) -> bool
+    where
+        K: Copy,
+    {
         self.entries
             .iter()
             .find(|entry| entry.key() == key)
             .is_some()
     }
 
-    pub fn keys<'a>(&'a self) -> impl Iterator<Item = K> + 'a {
+    pub fn keys<'a>(&'a self) -> impl Iterator<Item = K> + 'a
+    where
+        K: Copy,
+    {
         self.entries.iter().map(|entry| entry.key())
     }
 
-    pub fn get_mut(&mut self, key: K) -> Option<&mut Entry> {
+    pub fn get_mut(&mut self, key: K) -> Option<&mut Entry>
+    where
+        K: Copy,
+    {
         self.entries.iter_mut().find(|entry| entry.key() == key)
     }
 
-    pub fn insert_new(&mut self, new: Entry) -> Result<(), EntryRepeatError<Entry>> {
+    pub fn insert_new(&mut self, new: Entry) -> Result<(), EntryRepeatError<Entry>>
+    where
+        K: Copy,
+    {
         if self.has(new.key()) {
             let old = loop {
                 let entry = self.entries.pop().unwrap();
@@ -159,7 +207,10 @@ where
         }
     }
 
-    pub fn insert(&mut self, value: Entry) {
+    pub fn insert(&mut self, value: Entry)
+    where
+        K: Copy,
+    {
         if self.has(value.key()) {
             ()
         } else {
@@ -169,6 +220,7 @@ where
     pub fn insert_from_ref(&mut self, value: &Entry)
     where
         Entry: Clone,
+        K: Copy,
     {
         if self.has(value.key()) {
             ()
@@ -177,11 +229,17 @@ where
         }
     }
 
-    pub fn position(&self, key: K) -> Option<usize> {
+    pub fn position(&self, key: K) -> Option<usize>
+    where
+        K: Copy,
+    {
         self.entries.iter().position(|entry| entry.key() == key)
     }
 
-    pub fn extend(&mut self, other: Self) -> Result<(), EntryRepeatError<Entry>> {
+    pub fn extend(&mut self, other: Self) -> Result<(), EntryRepeatError<Entry>>
+    where
+        K: Copy,
+    {
         for v in other.entries {
             self.insert_new(v)?
         }
@@ -191,6 +249,7 @@ where
     pub fn extend_from_ref(&mut self, other: &Self)
     where
         Entry: Clone,
+        K: Copy,
     {
         for entry in &other.entries {
             self.insert_from_ref(entry)
@@ -200,6 +259,7 @@ where
     pub fn toggle(&mut self, key: K)
     where
         Entry: DefaultVecMapEntry<K>,
+        K: Copy,
     {
         if let Some(position) = self.entries.iter().position(|entry| entry.key() == key) {
             self.entries.remove(position);

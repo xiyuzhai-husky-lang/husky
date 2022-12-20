@@ -9,7 +9,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "Output",
@@ -24,7 +24,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "add",

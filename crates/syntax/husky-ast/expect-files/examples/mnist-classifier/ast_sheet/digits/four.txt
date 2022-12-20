@@ -456,43 +456,43 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -501,7 +501,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "left_components",
@@ -516,7 +516,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..2,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "left_coordinate_max",
@@ -531,7 +531,7 @@ Ok(
                     body: ArenaIdxRange(
                         2..3,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "components_max_downwards",
@@ -546,7 +546,7 @@ Ok(
                     body: ArenaIdxRange(
                         3..4,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "components_max_heights",
@@ -561,7 +561,7 @@ Ok(
                     body: ArenaIdxRange(
                         19..59,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "is_four",
@@ -576,7 +576,7 @@ Ok(
                     body: ArenaIdxRange(
                         59..62,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "displacement_downwards",
@@ -591,7 +591,7 @@ Ok(
                     body: ArenaIdxRange(
                         62..68,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "cc_box_heights",

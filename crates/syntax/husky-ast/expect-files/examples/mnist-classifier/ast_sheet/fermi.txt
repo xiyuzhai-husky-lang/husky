@@ -110,7 +110,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..4,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "norm",
@@ -125,7 +125,7 @@ Ok(
                     body: ArenaIdxRange(
                         5..8,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "rel_norm",
@@ -140,7 +140,7 @@ Ok(
                     body: ArenaIdxRange(
                         9..12,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "angle_change_norm",
@@ -205,7 +205,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -214,7 +214,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "FermiMatchResult",
@@ -237,7 +237,7 @@ Ok(
                     body: ArenaIdxRange(
                         18..23,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "fermi_match",

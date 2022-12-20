@@ -5,82 +5,50 @@ Ok(
                 All,
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 51,
-                            },
-                        ),
+                        "geom2d",
                     ),
                     child: 0,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 1,
                 },
                 All,
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 38,
-                            },
-                        ),
+                        "connected_component",
                     ),
                     child: 3,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 4,
                 },
                 All,
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 52,
-                            },
-                        ),
+                        "line_segment_sketch",
                     ),
                     child: 6,
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 33,
-                            },
-                        ),
+                        "crate",
                     ),
                     child: 7,
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 61,
-                            },
-                        ),
+                        "BinaryImage28",
                     ),
                 },
                 One {
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 380,
-                            },
-                        ),
+                        "BinaryGrid28",
                     ),
                 },
                 Multiple {
@@ -90,36 +58,60 @@ Ok(
                 },
                 ScopeResolution {
                     parent: Identifier(
-                        Word(
-                            Id {
-                                value: 59,
-                            },
-                        ),
+                        "mnist",
                     ),
                     child: 11,
                 },
             ],
         },
-        use_exprs: [
+        use_expr_roots: [
             (
-                217,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 2,
+                217,
             ),
             (
-                218,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 5,
+                218,
             ),
             (
-                219,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
                 8,
+                219,
             ),
             (
-                220,
-                PubCrate,
+                Protected,
+                Identifier(
+                    Word(
+                        Id {
+                            value: 59,
+                        },
+                    ),
+                ),
                 12,
+                220,
             ),
         ],
     },

@@ -64,7 +64,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..2,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "vector",
@@ -79,7 +79,7 @@ Ok(
                     body: ArenaIdxRange(
                         2..3,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "to",
@@ -94,7 +94,7 @@ Ok(
                     body: ArenaIdxRange(
                         3..4,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "norm",
@@ -109,7 +109,7 @@ Ok(
                     body: ArenaIdxRange(
                         4..5,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "dist",
@@ -395,7 +395,7 @@ Ok(
                     body: ArenaIdxRange(
                         10..11,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "point",
@@ -410,7 +410,7 @@ Ok(
                     body: ArenaIdxRange(
                         11..12,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "to",
@@ -425,7 +425,7 @@ Ok(
                     body: ArenaIdxRange(
                         12..13,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "norm",
@@ -440,7 +440,7 @@ Ok(
                     body: ArenaIdxRange(
                         13..14,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "dot",
@@ -455,7 +455,7 @@ Ok(
                     body: ArenaIdxRange(
                         14..15,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "cross",
@@ -470,7 +470,7 @@ Ok(
                     body: ArenaIdxRange(
                         23..25,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "angle",
@@ -490,7 +490,7 @@ Ok(
                     body: ArenaIdxRange(
                         25..30,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "rotation_direction_to",
@@ -505,7 +505,7 @@ Ok(
                     body: ArenaIdxRange(
                         39..45,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "angle_to",
@@ -576,7 +576,7 @@ Ok(
                     body: ArenaIdxRange(
                         54..59,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "relative_range",
@@ -591,7 +591,7 @@ Ok(
                     body: ArenaIdxRange(
                         59..61,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "relative_point",
@@ -622,7 +622,7 @@ Ok(
                     body: ArenaIdxRange(
                         63..64,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "relative_bounding_box",
@@ -637,7 +637,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "relative_point",
@@ -652,7 +652,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "xmin",
@@ -667,7 +667,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "xmax",
@@ -682,7 +682,7 @@ Ok(
                     body: ArenaIdxRange(
                         64..65,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "ymin",
@@ -697,7 +697,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "ymax",
@@ -744,7 +744,7 @@ Ok(
                     body: ArenaIdxRange(
                         71..72,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "xmin",
@@ -759,7 +759,7 @@ Ok(
                     body: ArenaIdxRange(
                         72..73,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "xmax",
@@ -774,7 +774,7 @@ Ok(
                     body: ArenaIdxRange(
                         73..74,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "ymin",
@@ -789,7 +789,7 @@ Ok(
                     body: ArenaIdxRange(
                         74..75,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "ymax",
@@ -804,7 +804,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "Point2d",
@@ -827,7 +827,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "RelativePoint2d",
@@ -842,7 +842,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "Vector2d",
@@ -865,7 +865,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "ClosedRange",
@@ -888,7 +888,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "BoundingBox",
@@ -911,7 +911,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "RelativeBoundingBox",

@@ -581,7 +581,7 @@ Ok(
                     body: ArenaIdxRange(
                         4..5,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "raw_contours",
@@ -596,7 +596,7 @@ Ok(
                     body: ArenaIdxRange(
                         5..12,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "eff_holes",
@@ -611,7 +611,7 @@ Ok(
                     body: ArenaIdxRange(
                         16..21,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "max_hole_ilen",
@@ -626,7 +626,7 @@ Ok(
                     body: ArenaIdxRange(
                         22..26,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "max_row_span",
@@ -641,7 +641,7 @@ Ok(
                     body: ArenaIdxRange(
                         27..31,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "row_span_sum",
@@ -656,7 +656,7 @@ Ok(
                     body: ArenaIdxRange(
                         39..50,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "distribution",
@@ -671,7 +671,7 @@ Ok(
                     body: ArenaIdxRange(
                         50..51,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "upper_mass",
@@ -686,7 +686,7 @@ Ok(
                     body: ArenaIdxRange(
                         51..52,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "lower_mass",
@@ -701,7 +701,7 @@ Ok(
                     body: ArenaIdxRange(
                         56..62,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "top_k_row_span_sum",
@@ -716,7 +716,7 @@ Ok(
                     body: ArenaIdxRange(
                         66..72,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "top_k_row_right_mass_sum",
@@ -1047,13 +1047,13 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1062,7 +1062,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "ConnectedComponentDistribution",
@@ -1077,7 +1077,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "EffHoles",
@@ -1092,7 +1092,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..4,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "hole_tmpl",
@@ -1107,7 +1107,7 @@ Ok(
                     body: ArenaIdxRange(
                         73..85,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "ConnectedComponent",
@@ -1122,7 +1122,7 @@ Ok(
                     body: ArenaIdxRange(
                         87..91,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "horizontal_extend",
@@ -1137,7 +1137,7 @@ Ok(
                     body: ArenaIdxRange(
                         120..124,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "find_connected_components",

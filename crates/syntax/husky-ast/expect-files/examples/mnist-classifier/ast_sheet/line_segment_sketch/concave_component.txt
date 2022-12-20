@@ -359,7 +359,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..2,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "norm",
@@ -374,7 +374,7 @@ Ok(
                     body: ArenaIdxRange(
                         2..3,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "rel_norm",
@@ -389,7 +389,7 @@ Ok(
                     body: ArenaIdxRange(
                         8..15,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "hausdorff_norm",
@@ -404,7 +404,7 @@ Ok(
                     body: ArenaIdxRange(
                         18..23,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "angle_change",
@@ -419,7 +419,7 @@ Ok(
                     body: ArenaIdxRange(
                         28..35,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "bounding_box",
@@ -434,7 +434,7 @@ Ok(
                     body: ArenaIdxRange(
                         35..36,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "relative_bounding_box",
@@ -449,7 +449,7 @@ Ok(
                     body: ArenaIdxRange(
                         36..37,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "line_segment",
@@ -464,7 +464,7 @@ Ok(
                     body: ArenaIdxRange(
                         37..38,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "start",
@@ -479,7 +479,7 @@ Ok(
                     body: ArenaIdxRange(
                         38..39,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "end",
@@ -494,7 +494,7 @@ Ok(
                     body: ArenaIdxRange(
                         39..40,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "displacement",
@@ -509,7 +509,7 @@ Ok(
                     body: ArenaIdxRange(
                         40..41,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "start_tangent",
@@ -524,7 +524,7 @@ Ok(
                     body: ArenaIdxRange(
                         41..42,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "end_tangent",
@@ -673,25 +673,25 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -700,7 +700,7 @@ Ok(
                     body: ArenaIdxRange(
                         43..58,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "ConcaveComponent",
@@ -715,7 +715,7 @@ Ok(
                     body: ArenaIdxRange(
                         66..74,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "find_concave_components",

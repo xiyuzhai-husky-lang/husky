@@ -501,43 +501,43 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -546,7 +546,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "one_fermi_match",
@@ -561,7 +561,7 @@ Ok(
                     body: ArenaIdxRange(
                         50..53,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "is_one",
@@ -576,7 +576,7 @@ Ok(
                     body: ArenaIdxRange(
                         53..56,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "upmost",
@@ -591,7 +591,7 @@ Ok(
                     body: ArenaIdxRange(
                         56..59,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "downmost",
@@ -606,7 +606,7 @@ Ok(
                     body: ArenaIdxRange(
                         59..63,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "hat",

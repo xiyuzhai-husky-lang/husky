@@ -56,7 +56,7 @@ Ok(
                     body: ArenaIdxRange(
                         2..3,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "displacement",
@@ -201,7 +201,7 @@ Ok(
                     body: ArenaIdxRange(
                         7..8,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "concave_components",
@@ -216,7 +216,7 @@ Ok(
                     body: ArenaIdxRange(
                         13..20,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "bounding_box",
@@ -1312,7 +1312,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Module,
                     ident: Identifier(
                         "concave_component",
@@ -1327,7 +1327,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Module,
                     ident: Identifier(
                         "convex_component",
@@ -1342,7 +1342,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Module,
                     ident: Identifier(
                         "convexity",
@@ -1357,7 +1357,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Module,
                     ident: Identifier(
                         "line_segment",
@@ -1369,31 +1369,31 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1402,7 +1402,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "LineSegmentStroke",
@@ -1425,7 +1425,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Type,
                     ident: Identifier(
                         "LineSegmentSketch",
@@ -1448,7 +1448,7 @@ Ok(
                     body: ArenaIdxRange(
                         26..32,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "go_right",
@@ -1463,7 +1463,7 @@ Ok(
                     body: ArenaIdxRange(
                         32..38,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "go_left",
@@ -1478,7 +1478,7 @@ Ok(
                     body: ArenaIdxRange(
                         60..72,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "extend_end",
@@ -1493,7 +1493,7 @@ Ok(
                     body: ArenaIdxRange(
                         105..116,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "extend_start",
@@ -1508,7 +1508,7 @@ Ok(
                     body: ArenaIdxRange(
                         150..160,
                     ),
-                    accessibility: PubCrate,
+                    accessibility: Protected,
                     entity_card: Form,
                     ident: Identifier(
                         "find_line_segments",

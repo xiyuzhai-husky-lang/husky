@@ -16,6 +16,10 @@ impl VecMapEntry<Identifier> for SymbolEntry {
     fn key(&self) -> Identifier {
         self.symbol.ident
     }
+
+    fn key_ref(&self) -> &Identifier {
+        &self.symbol.ident
+    }
 }
 
 impl SymbolSheet {
