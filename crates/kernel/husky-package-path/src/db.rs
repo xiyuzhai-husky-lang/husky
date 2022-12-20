@@ -11,8 +11,6 @@ pub trait PackagePathDb: DbWithJar<PackagePathJar> + ToolchainDb + WordDb {
     ) -> PackagePathResult<PackagePath>;
     fn package_path_menu(&self, toolchain: Toolchain) -> &AbsolutePathResult<PackagePathMenu>;
     fn package_path_data(&self, package: PackagePath) -> &PackagePathData;
-    // fn package_ident(&self, package: PackagePath) -> Identifier;
-    fn package_name(&self, package: PackagePath) -> &str;
     fn it_package_path(&self, data: PackagePathData) -> PackagePath;
 }
 
@@ -42,10 +40,6 @@ where
 
     fn package_path_data(&self, package: PackagePath) -> &PackagePathData {
         package.data(self)
-    }
-
-    fn package_name(&self, package: PackagePath) -> &str {
-        package_name(self, package)
     }
 
     fn it_package_path(&self, data: PackagePathData) -> PackagePath {

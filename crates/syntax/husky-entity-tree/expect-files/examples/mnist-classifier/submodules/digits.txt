@@ -2,12 +2,39 @@ Ok(
     [
         EntityPath {
             [show]: "crate::digits::zero",
+            [crate]: CratePath {
+                [salsa id]: 3,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                    ),
+                },
+                crate_kind: Main,
+            },
         },
         EntityPath {
             [show]: "crate::digits::one",
+            [crate]: CratePath {
+                [salsa id]: 3,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                    ),
+                },
+                crate_kind: Main,
+            },
         },
         EntityPath {
             [show]: "crate::digits::six",
+            [crate]: CratePath {
+                [salsa id]: 3,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                    ),
+                },
+                crate_kind: Main,
+            },
         },
     ],
 )

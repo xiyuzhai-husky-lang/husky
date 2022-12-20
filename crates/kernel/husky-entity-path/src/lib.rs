@@ -85,10 +85,14 @@ impl salsa::DebugWithDb<dyn EntityPathDb + '_> for EntityPath {
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
         db: &<EntityPathJar as salsa::jar::Jar<'_>>::DynDb,
-        _include_all_fields: bool,
+        include_all_fields: bool,
     ) -> ::std::fmt::Result {
         f.debug_struct("EntityPath")
             .field("[show]", &self.show(db))
+            .field(
+                "[crate]",
+                &self.crate_path(db).debug_with(db, include_all_fields),
+            )
             .finish()
     }
 }
@@ -157,10 +161,14 @@ impl EntityPath {
 
     pub fn show(self, db: &dyn EntityPathDb) -> String {
         match self.data(db) {
-            EntityPathData::CrateRoot(crate_path) => crate_path.show(db).to_owned(),
+            EntityPathData::CrateRoot(crate_path) => "crate".to_owned(),
             EntityPathData::Childpath { parent, ident } => {
                 format!("{}::{}", parent.show(db), db.dt_ident(ident))
             }
         }
+    }
+
+    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
+        apparent_ancestry(db, self).crate_path()
     }
 }

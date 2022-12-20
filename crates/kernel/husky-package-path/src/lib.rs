@@ -4,7 +4,6 @@ mod db;
 mod error;
 mod jar;
 mod menu;
-mod name;
 #[cfg(test)]
 mod tests;
 
@@ -18,7 +17,6 @@ use ::salsa::DebugWithDb;
 use husky_absolute_path::{AbsolutePath, AbsolutePathResult};
 use husky_toolchain::{PublishedToolchain, Toolchain};
 use husky_word::Identifier;
-use name::package_name;
 use semver::Version;
 use std::path::{Path, PathBuf};
 use url::Url;
@@ -51,15 +49,6 @@ pub enum PackagePathData {
 pub struct PackagePath(salsa::Id);
 
 impl PackagePath {
-    pub fn ident(self, db: &dyn PackagePathDb) -> Identifier {
-        match self.data(db) {
-            PackagePathData::PublishedToolchain { ident, .. }
-            | PackagePathData::Global { ident, .. } => *ident,
-            PackagePathData::Local { .. } => todo!(),
-            PackagePathData::Git { .. } => todo!(),
-        }
-    }
-
     pub fn new_local(db: &dyn PackagePathDb, path: &Path) -> AbsolutePathResult<Self> {
         Ok(PackagePath::new(
             db,
@@ -144,16 +133,8 @@ impl DebugWithDb<dyn PackagePathDb + '_> for PackagePath {
                 .field("ident", ident)
                 .field("version", version)
                 .finish(),
-            PackagePathData::Local { path } => f
-                .debug_struct("Local")
-                .field("ident", &self.ident(db).debug_with(db, include_all_fields))
-                .field("path", path)
-                .finish(),
-            PackagePathData::Git { url } => f
-                .debug_struct("Git")
-                .field("ident", &self.ident(db).debug_with(db, include_all_fields))
-                .field("url", url)
-                .finish(),
+            PackagePathData::Local { path } => f.debug_struct("Local").field("path", path).finish(),
+            PackagePathData::Git { url } => f.debug_struct("Git").field("url", url).finish(),
         }
     }
 }

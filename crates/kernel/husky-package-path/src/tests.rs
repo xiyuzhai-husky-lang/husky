@@ -17,14 +17,10 @@ fn package_path_debug_works() {
     let toolchain = db.lang_dev_toolchain();
     let package_path_menu = db.package_path_menu(toolchain).as_ref().unwrap();
     expect_test::expect![[r#"
-        Builtin {
-            ident: "core",
-            toolchain: Toolchain {
-                [salsa id]: 0,
-                data: Local {
-                    library_path: "/home/xiyuzhai/repos/husky/library",
-                },
-            },
+        Local {
+            path: AbsolutePath(
+                "/home/xiyuzhai/repos/husky/library/core",
+            ),
         }
     "#]]
     .assert_debug_eq(&package_path_menu.core().debug(&db));
