@@ -18,7 +18,6 @@ pub use entity_use::*;
 pub use error::*;
 
 use error::EntityTreeError;
-use husky_accessibility::Accessibility;
 use husky_ast::AstIdx;
 use husky_entity_card::EntityCard;
 use husky_entity_path::*;

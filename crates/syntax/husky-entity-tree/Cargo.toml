@@ -26,7 +26,6 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 husky-entity-card = { path = "../../kernel/husky-entity-card" }
-husky-accessibility = { path = "../../kernel/husky-accessibility" }
 husky-toolchain = { path = "../../kernel/husky-toolchain" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
