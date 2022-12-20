@@ -1,17 +1,15 @@
 use crate::*;
-use husky_absolute_path::AbsolutePath;
 use husky_entity_path::*;
-use husky_package_path::{CrateKind, CratePath, PackagePath, PackagePathData};
+use husky_package_path::{CrateKind, CratePath, PackagePath};
 use husky_path_utils::*;
-use husky_print_utils::p;
-use std::{borrow::Borrow, path::PathBuf};
+use std::path::PathBuf;
 
 pub trait VfsTestSupport: VfsDb {
-    fn test_crates(name: &str, f: impl Fn(&Self, CratePath))
+    fn test_crates(f: impl Fn(&Self, CratePath))
     where
         Self: Default;
 
-    fn test_probable_modules(name: &str, f: impl Fn(&Self, EntityPath))
+    fn test_probable_modules(f: impl Fn(&Self, EntityPath))
     where
         Self: Default;
 
@@ -80,7 +78,7 @@ impl<'a> TestPathResolver<'a> {
                     CrateKind::StandaloneTest(_) => todo!(),
                 }
             )),
-            EntityPathData::Childpath { ident, .. } => dir.with_extension("txt"),
+            EntityPathData::Childpath { .. } => dir.with_extension("txt"),
         }
     }
 }
@@ -89,23 +87,23 @@ impl<T> VfsTestSupport for T
 where
     T: VfsDb,
 {
-    fn test_crates(name: &str, f: impl Fn(&Self, CratePath))
+    fn test_crates(f: impl Fn(&Self, CratePath))
     where
         Self: Default,
     {
         let db = Self::default();
         for dir in test_dirs() {
-            test_crates(&db, name, &dir, &f);
+            test_crates(&db, &dir, &f);
         }
     }
 
-    fn test_probable_modules(name: &str, f: impl Fn(&Self, EntityPath))
+    fn test_probable_modules(f: impl Fn(&Self, EntityPath))
     where
         Self: Default,
     {
         let db = Self::default();
         for dir in test_dirs() {
-            test_probable_modules(&db, name, &dir, &f);
+            test_probable_modules(&db, &dir, &f);
         }
     }
 
@@ -141,7 +139,6 @@ where
         R: salsa::DebugWithDb<Self>,
     {
         let db = Self::default();
-        let env = HuskyDevPathEnv::new();
         for (base, out) in expect_test_base_outs() {
             expect_test_probable_modules_debug_with_db(&db, name, &base, out, &f, |db, r| {
                 format!("{:#?}", r.debug(db))
@@ -154,7 +151,6 @@ where
         R: std::fmt::Debug,
     {
         let db = Self::default();
-        let env = HuskyDevPathEnv::new();
         for (base, out) in expect_test_base_outs() {
             expect_test_probable_modules_debug_with_db(&db, name, &base, out, &f, |db, r| {
                 format!("{:#?}", r)
@@ -185,20 +181,19 @@ fn expect_test_base_outs() -> Vec<(PathBuf, PathBuf)> {
     ]
 }
 
-fn test_crates<T>(db: &T, name: &str, dir: &Path, f: &impl Fn(&T, CratePath))
+fn test_crates<T>(db: &T, dir: &Path, f: &impl Fn(&T, CratePath))
 where
     T: VfsDb,
 {
     collect_package_dirs(dir).into_iter().for_each(|path| {
         let package_path = PackagePath::new_local(db, &path).unwrap();
-        use salsa::DebugWithDb;
         for crate_path in db.collect_crates(package_path).unwrap() {
             f(db, crate_path)
         }
     });
 }
 
-fn test_probable_modules<T>(db: &T, name: &str, dir: &Path, f: &impl Fn(&T, EntityPath))
+fn test_probable_modules<T>(db: &T, dir: &Path, f: &impl Fn(&T, EntityPath))
 where
     T: VfsDb,
 {
@@ -220,7 +215,7 @@ fn expect_test_crates<Db, R>(
 ) where
     Db: VfsDb,
 {
-    std::fs::create_dir_all(&out);
+    std::fs::create_dir_all(&out).unwrap();
     collect_package_relative_dirs(base)
         .into_iter()
         .for_each(|path| {
@@ -249,7 +244,7 @@ fn expect_test_probable_modules_debug_with_db<Db, R>(
 ) where
     Db: VfsDb,
 {
-    std::fs::create_dir_all(&out);
+    std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
     collect_package_relative_dirs(base)
         .into_iter()
         .for_each(|path| {
@@ -260,7 +255,6 @@ fn expect_test_probable_modules_debug_with_db<Db, R>(
                 package_expects_dir: path.to_logical_path(&out),
             };
             for module in db.collect_probable_modules(package).unwrap() {
-                use salsa::DebugWithDb;
                 let path = resolver.decide_module_expect_file_path(module);
                 std::fs::create_dir_all(path.parent().unwrap()).unwrap();
                 expect_test::expect_file![path].assert_eq(&p(&db, f(&db, module)))

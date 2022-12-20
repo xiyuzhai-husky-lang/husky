@@ -1,13 +1,9 @@
 use crate::*;
 use crossbeam_channel::{select, unbounded, Receiver, Sender};
-use dashmap::DashMap;
-use eyre::{eyre, Context, Report, Result};
-use husky_text::TextChange;
+use eyre::Result;
 use notify_debouncer_mini::{
-    new_debouncer, new_debouncer_opt, notify::RecommendedWatcher, DebounceEventHandler,
-    DebounceEventResult, DebouncedEvent, Debouncer,
+    new_debouncer, notify::RecommendedWatcher, DebounceEventResult, DebouncedEvent, Debouncer,
 };
-use place::SingleAssignPlace;
 use salsa::{ParallelDatabase, Snapshot};
 use std::{
     marker::PhantomData,
@@ -25,7 +21,7 @@ where
     T: VfsDb + Send,
 {
     fn watcher(&self) -> Option<&VfsWatcher> {
-        self.vfs_jar().watcher_place().value()
+        self.vfs_jar().cache().watcher()
     }
 }
 
@@ -117,10 +113,7 @@ where
         let (event_tx, event_rx) = unbounded();
         let (debounce_tx, debounce_rx) = unbounded();
         let (snapshot_tx, snapshot_rx) = unbounded();
-        db.vfs_jar_mut()
-            .watcher_place_mut()
-            .set(VfsWatcher::new(debounce_tx))
-            .unwrap();
+        db.vfs_jar_mut().set_watcher(VfsWatcher::new(debounce_tx));
         thread::spawn(|| {
             match VfsWatcherInstance::new(db, debounce_rx, event_rx, snapshot_tx).run() {
                 Ok(_) => (),

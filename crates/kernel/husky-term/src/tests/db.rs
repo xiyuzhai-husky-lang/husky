@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_path::{EntityPathDb, EntityPathJar, EntityPathMenuPlace};
+use husky_entity_path::{EntityPathDb, EntityPathJar};
 use husky_package_path::PackagePathJar;
 use husky_toolchain::*;
 use husky_word::WordDb;

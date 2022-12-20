@@ -1,8 +1,6 @@
 use super::*;
 use husky_ast::AstJar;
-use husky_entity_path::{
-    EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu, EntityPathMenuPlace,
-};
+use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu};
 use husky_entity_tree::EntityTreeJar;
 use husky_expr::ExprIdx;
 use husky_package_path::PackagePathJar;
