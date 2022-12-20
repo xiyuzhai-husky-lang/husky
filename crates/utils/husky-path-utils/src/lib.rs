@@ -8,7 +8,6 @@ pub use rel::*;
 pub use std::path::{Path, PathBuf};
 
 use husky_check_utils::should_satisfy;
-use husky_print_utils::p;
 use relative_path::{RelativePath, RelativePathBuf};
 
 pub fn path_has_file_name(path: &Path, name: &str) -> bool {

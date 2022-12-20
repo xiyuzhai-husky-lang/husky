@@ -33,7 +33,6 @@ husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
 
 [dev-dependencies]
 # abstraction
-place = { path = "../../abstraction/place" }
 salsa = { path = "../../abstraction/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }

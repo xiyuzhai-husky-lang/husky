@@ -1,12 +1,11 @@
 use crate::*;
-use husky_absolute_path::AbsolutePath;
 use husky_fs_specs::{corgi_install_path, huskyup_install_path, FsSpecsError, FsSpecsResult};
-use std::sync::Arc;
 
 pub struct VfsCache {
     files: DashMap<PathBuf, File>,
     corgi_install_path: FsSpecsResult<PathBuf>,
     huskyup_install_path: FsSpecsResult<PathBuf>,
+    watcher: Option<VfsWatcher>,
 }
 
 impl Default for VfsCache {
@@ -25,6 +24,7 @@ impl Default for VfsCache {
             files: Default::default(),
             corgi_install_path,
             huskyup_install_path,
+            watcher: None,
         }
     }
 }
@@ -45,5 +45,14 @@ impl VfsCache {
 
     pub fn huskyup_install_path(&self) -> Result<&PathBuf, &FsSpecsError> {
         self.huskyup_install_path.as_ref()
+    }
+
+    pub fn watcher(&self) -> Option<&VfsWatcher> {
+        self.watcher.as_ref()
+    }
+
+    pub(crate) fn set_watcher(&mut self, watcher: VfsWatcher) {
+        assert!(self.watcher.is_none());
+        self.watcher = Some(watcher)
     }
 }

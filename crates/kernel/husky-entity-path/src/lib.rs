@@ -121,19 +121,6 @@ pub enum EntityPathData {
 }
 
 impl EntityPath {
-    pub fn root(ident: Identifier) -> Self {
-        todo!()
-        // Self {
-        //     ident,
-        //     variant: EntityPathVariant::Crate {
-        //         package: PackagePathData::Builtin {
-        //             toolchain: Toolchain::new_ad_hoc(),
-        //         },
-        //         kind: CratePathKind::Library,
-        //     },
-        // }
-    }
-
     pub fn new_crate_root(
         db: &dyn EntityPathDb,
         package_path: PackagePath,
@@ -144,15 +131,6 @@ impl EntityPath {
             package_path,
             crate_kind,
         )))
-    }
-
-    #[inline(always)]
-    pub fn opt_parent(&self) -> Option<EntityPath> {
-        todo!()
-        // match self.variant {
-        //     EntityPathVariant::Crate { .. } => None,
-        //     EntityPathVariant::Childpath { parent, .. } => Some(parent),
-        // }
     }
 
     pub(crate) fn child(self, db: &dyn EntityPathDb, ident: &str) -> Option<EntityPath> {

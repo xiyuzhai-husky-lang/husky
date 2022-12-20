@@ -1,8 +1,6 @@
 use husky_absolute_path::AbsolutePath;
 use husky_entity_path::{EntityPath, EntityPathData};
 use husky_package_path::{CrateKind, PackagePath, PackagePathData};
-use husky_path_utils::collect_package_dirs;
-use salsa::Durability;
 
 use crate::*;
 
@@ -120,7 +118,7 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> Vfs
 
 #[test]
 fn resolve_module_path_works() {
-    DB::test_probable_modules("resolve_module_path", |db, entity_path| {
+    DB::test_probable_modules(|db, entity_path| {
         let abs_path = module_absolute_path(db, entity_path).as_ref().unwrap();
         let entity_path_resolved = db.resolve_module_path(abs_path).unwrap();
         assert_eq!(entity_path, entity_path_resolved)

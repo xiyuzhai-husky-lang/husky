@@ -1,5 +1,4 @@
 use crate::*;
-use place::SingleAssignPlace;
 
 pub struct VfsJar(
     <PathBufItd as salsa::storage::IngredientsFor>::Ingredients,
@@ -9,7 +8,6 @@ pub struct VfsJar(
     <package_manifest_file as salsa::storage::IngredientsFor>::Ingredients,
     <module_file as salsa::storage::IngredientsFor>::Ingredients,
     VfsCache,
-    SingleAssignPlace<VfsWatcher>,
 );
 
 impl VfsJar {
@@ -17,12 +15,8 @@ impl VfsJar {
         &self.6
     }
 
-    pub(crate) fn watcher_place(&self) -> &SingleAssignPlace<VfsWatcher> {
-        &self.7
-    }
-
-    pub(crate) fn watcher_place_mut(&mut self) -> &mut SingleAssignPlace<VfsWatcher> {
-        &mut self.7
+    pub(crate) fn set_watcher(&mut self, watcher: VfsWatcher) {
+        self.6.set_watcher(watcher)
     }
 }
 
@@ -106,15 +100,6 @@ impl<'salsa_db> salsa::jar::Jar<'salsa_db> for VfsJar {
         let i4 =
             <package_manifest_file as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i5 = <module_file as salsa::storage::IngredientsFor>::create_ingredients(routes);
-        Self(
-            i0,
-            i1,
-            i2,
-            i3,
-            i4,
-            i5,
-            Default::default(),
-            Default::default(),
-        )
+        Self(i0, i1, i2, i3, i4, i5, Default::default())
     }
 }

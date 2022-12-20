@@ -1,14 +1,7 @@
-use husky_absolute_path::AbsolutePathResult;
 use husky_package_path::PackagePathDb;
 use husky_word::WordDb;
-use place::SingleAssignPlace;
-use salsa::storage::HasJar;
 
 use crate::*;
-use std::sync::Arc;
-
-#[derive(Default, Clone)]
-pub struct EntityPathMenuPlace(Arc<once_cell::sync::OnceCell<EntityPathMenu>>);
 
 pub trait EntityPathDb: DbWithJar<EntityPathJar> + PackagePathDb + WordDb {
     fn entity_path_db(&self) -> &dyn EntityPathDb;

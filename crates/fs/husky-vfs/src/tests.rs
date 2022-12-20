@@ -2,30 +2,17 @@ use crate::{
     watch::{WatchedVfs, DEBOUNCE_TEST_SLEEP_TIME},
     *,
 };
-use crossbeam_channel::{unbounded, Sender};
-use dashmap::DashMap;
 use husky_absolute_path::AbsolutePath;
-use husky_entity_path::{EntityPathDb, EntityPathJar};
-use husky_package_path::{PackagePathData, PackagePathDb, PackagePathJar};
-use husky_print_utils::p;
+use husky_entity_path::EntityPathJar;
+use husky_package_path::PackagePathJar;
 use husky_toolchain::*;
 use husky_word::WordJar;
-use notify_debouncer_mini::{new_debouncer, DebounceEventResult};
-use place::SingleAssignPlace;
-use replace_with::replace_with;
-use salsa::Durability;
-use std::{
-    collections::HashSet,
-    ops::Deref,
-    sync::{Arc, Mutex},
-    time::Duration,
-};
+use std::ops::Deref;
 
 #[salsa::db(VfsJar, WordJar, ToolchainJar, PackagePathJar, EntityPathJar)]
 #[derive(Default)]
 pub(crate) struct DB {
     storage: salsa::Storage<Self>,
-    watcher_place: SingleAssignPlace<VfsWatcher>,
 }
 
 impl salsa::Database for DB {}
@@ -34,7 +21,6 @@ impl ParallelDatabase for DB {
     fn snapshot(&self) -> salsa::Snapshot<Self> {
         salsa::Snapshot::new(DB {
             storage: self.storage.snapshot(),
-            watcher_place: self.watcher_place.clone(),
         })
     }
 }
