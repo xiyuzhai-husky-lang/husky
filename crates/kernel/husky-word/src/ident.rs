@@ -16,17 +16,7 @@ impl DebugWithDb<<WordJar as salsa::jar::Jar<'_>>::DynDb> for Identifier {
     ) -> std::fmt::Result {
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;
-        f.debug_tuple("Identifier")
-            .field(&::salsa::debug::helper::SalsaDebug::<
-                Word,
-                <WordJar as salsa::jar::Jar<'_>>::DynDb,
-            >::salsa_debug(
-                #[allow(clippy::needless_borrow)]
-                &self.0,
-                db,
-                include_all_fields,
-            ))
-            .finish()
+        f.debug_tuple("Identifier").field(&self.data(db)).finish()
     }
 }
 

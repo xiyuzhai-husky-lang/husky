@@ -30,5 +30,5 @@ impl salsa::Database for DB {}
 
 #[test]
 fn folding_ranges_works() {
-    DB::expect_test_probable_modules("ast_sheet", FoldingRangeDb::folding_ranges);
+    DB::expect_test_probable_modules_debug("folding_ranges", FoldingRangeDb::folding_ranges);
 }

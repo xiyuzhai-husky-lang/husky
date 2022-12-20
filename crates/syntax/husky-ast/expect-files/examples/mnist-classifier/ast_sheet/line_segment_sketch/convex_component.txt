@@ -52,11 +52,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 328,
-                            },
-                        ),
+                        "ConvexCompoent",
                     ),
                     is_generic: false,
                     body_kind: Block,

@@ -1,24 +1,124 @@
 Ok(
     [
-        EntityPath(
-            Id {
-                value: 44,
+        EntityPath {
+            [salsa id]: 43,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 42,
+                    data: CrateRoot {
+                        parent: EntityPath {
+                            [salsa id]: 26,
+                            data: CrateRoot(
+                                CratePath {
+                                    [salsa id]: 3,
+                                    package_path: PackagePathData::Global(
+                                        AbsolutePath(
+                                            "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                        ),
+                                    ),
+                                    crate_kind: Main,
+                                },
+                            ),
+                        },
+                        ident: Identifier(
+                            "line_segment_sketch",
+                        ),
+                    },
+                },
+                ident: Identifier(
+                    "concave_component",
+                ),
             },
-        ),
-        EntityPath(
-            Id {
-                value: 45,
+        },
+        EntityPath {
+            [salsa id]: 44,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 42,
+                    data: CrateRoot {
+                        parent: EntityPath {
+                            [salsa id]: 26,
+                            data: CrateRoot(
+                                CratePath {
+                                    [salsa id]: 3,
+                                    package_path: PackagePathData::Global(
+                                        AbsolutePath(
+                                            "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                        ),
+                                    ),
+                                    crate_kind: Main,
+                                },
+                            ),
+                        },
+                        ident: Identifier(
+                            "line_segment_sketch",
+                        ),
+                    },
+                },
+                ident: Identifier(
+                    "convex_component",
+                ),
             },
-        ),
-        EntityPath(
-            Id {
-                value: 46,
+        },
+        EntityPath {
+            [salsa id]: 45,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 42,
+                    data: CrateRoot {
+                        parent: EntityPath {
+                            [salsa id]: 26,
+                            data: CrateRoot(
+                                CratePath {
+                                    [salsa id]: 3,
+                                    package_path: PackagePathData::Global(
+                                        AbsolutePath(
+                                            "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                        ),
+                                    ),
+                                    crate_kind: Main,
+                                },
+                            ),
+                        },
+                        ident: Identifier(
+                            "line_segment_sketch",
+                        ),
+                    },
+                },
+                ident: Identifier(
+                    "convexity",
+                ),
             },
-        ),
-        EntityPath(
-            Id {
-                value: 47,
+        },
+        EntityPath {
+            [salsa id]: 46,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 42,
+                    data: CrateRoot {
+                        parent: EntityPath {
+                            [salsa id]: 26,
+                            data: CrateRoot(
+                                CratePath {
+                                    [salsa id]: 3,
+                                    package_path: PackagePathData::Global(
+                                        AbsolutePath(
+                                            "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                        ),
+                                    ),
+                                    crate_kind: Main,
+                                },
+                            ),
+                        },
+                        ident: Identifier(
+                            "line_segment_sketch",
+                        ),
+                    },
+                },
+                ident: Identifier(
+                    "line_segment",
+                ),
             },
-        ),
+        },
     ],
 )

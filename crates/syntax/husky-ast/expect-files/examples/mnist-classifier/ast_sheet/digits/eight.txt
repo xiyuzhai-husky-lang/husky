@@ -231,11 +231,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 146,
-                            },
-                        ),
+                        "upper_mouth_match",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -250,11 +246,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 70,
-                            },
-                        ),
+                        "is_eight",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -269,11 +261,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 149,
-                            },
-                        ),
+                        "big_mouth",
                     ),
                     is_generic: false,
                     body_kind: Block,

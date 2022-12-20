@@ -12,11 +12,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                        "abs",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -31,11 +27,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                        "add",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -50,11 +42,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                        "abs",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -69,11 +57,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                        "add",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -88,11 +72,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                        "abs",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -107,11 +87,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                        "add",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -126,11 +102,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                        "abs",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -145,11 +117,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                        "add",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -169,11 +137,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 19,
-                            },
-                        ),
+                        "i8",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -209,11 +173,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 26,
-                            },
-                        ),
+                        "i16",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -249,11 +209,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 27,
-                            },
-                        ),
+                        "i32",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -289,11 +245,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 28,
-                            },
-                        ),
+                        "i64",
                     ),
                     is_generic: false,
                     body_kind: None,

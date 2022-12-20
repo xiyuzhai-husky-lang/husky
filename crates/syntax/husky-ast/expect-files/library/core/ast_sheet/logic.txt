@@ -28,11 +28,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 9,
-                            },
-                        ),
+                        "LogicAnd",
                     ),
                     is_generic: true,
                     body_kind: None,
@@ -47,11 +43,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                        "LogicOr",
                     ),
                     is_generic: true,
                     body_kind: Cases,

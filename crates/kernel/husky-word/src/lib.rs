@@ -75,19 +75,7 @@ impl ::salsa::DebugWithDb<<WordJar as salsa::jar::Jar<'_>>::DynDb> for Word {
         use ::salsa::debug::helper::Fallback;
         let mut debug_struct = &mut f.debug_struct("Word");
         debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
-        debug_struct =
-            debug_struct.field(
-                "data",
-                &::salsa::debug::helper::SalsaDebug::<
-                    String,
-                    <WordJar as salsa::jar::Jar<'_>>::DynDb,
-                >::salsa_debug(
-                    #[allow(clippy::needless_borrow)]
-                    &self.data(_db),
-                    _db,
-                    _include_all_fields,
-                ),
-            );
+        debug_struct = debug_struct.field("data", &self.data(_db));
         debug_struct.finish()
     }
 }

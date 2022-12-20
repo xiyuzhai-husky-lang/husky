@@ -24,7 +24,7 @@ pub(crate) fn ast_range_sheet(db: &dyn AstDb, module: EntityPath) -> VfsResult<A
 #[test]
 fn ast_range_sheet_works() {
     use tests::*;
-    DB::expect_test_probable_modules("ast_range_sheet", AstDb::ast_range_sheet);
+    DB::expect_test_probable_modules_debug_with_db("ast_range_sheet", AstDb::ast_range_sheet);
 }
 
 impl std::ops::Index<AstIdx> for AstRangeSheet {
@@ -32,6 +32,19 @@ impl std::ops::Index<AstIdx> for AstRangeSheet {
 
     fn index(&self, index: AstIdx) -> &Self::Output {
         &self.text_ranges[index.raw()]
+    }
+}
+
+impl<Db: AstDb> salsa::DebugWithDb<Db> for AstRangeSheet {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        f.debug_struct("AstRangeSheet")
+            .field("text_ranges", &self.text_ranges)
+            .finish()
     }
 }
 

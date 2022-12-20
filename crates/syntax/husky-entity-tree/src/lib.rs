@@ -61,3 +61,14 @@ pub struct EntityTree {
 pub type EntityTreeArena = Arena<EntityTree>;
 pub type EntityTreeIdx = ArenaIdx<EntityTree>;
 pub type EntityTreeIdxRange = ArenaIdxRange<EntityTree>;
+
+impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityTree {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        todo!()
+    }
+}

@@ -320,11 +320,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 235,
-                            },
-                        ),
+                        "three_fermi_match",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -339,11 +335,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 66,
-                            },
-                        ),
+                        "is_three",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -358,11 +350,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 237,
-                            },
-                        ),
+                        "uparc",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -377,11 +365,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 236,
-                            },
-                        ),
+                        "downarc",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -396,11 +380,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 238,
-                            },
-                        ),
+                        "back",
                     ),
                     is_generic: false,
                     body_kind: Block,

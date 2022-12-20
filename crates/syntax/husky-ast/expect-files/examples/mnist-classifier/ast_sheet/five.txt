@@ -234,11 +234,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 274,
-                            },
-                        ),
+                        "five_match",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -253,11 +249,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 275,
-                            },
-                        ),
+                        "up_right_cc",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -272,11 +264,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 276,
-                            },
-                        ),
+                        "down_left_cc",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -291,11 +279,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 67,
-                            },
-                        ),
+                        "is_five",
                     ),
                     is_generic: false,
                     body_kind: Block,

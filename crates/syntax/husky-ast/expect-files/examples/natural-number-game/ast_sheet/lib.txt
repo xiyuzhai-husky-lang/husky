@@ -44,11 +44,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                        "add",
                     ),
                     is_generic: false,
                     body_kind: Cases,
@@ -71,11 +67,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 429,
-                            },
-                        ),
+                        "Nat",
                     ),
                     is_generic: false,
                     body_kind: Cases,
@@ -108,11 +100,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 433,
-                            },
-                        ),
+                        "OddNat",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -127,11 +115,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 436,
-                            },
-                        ),
+                        "EvenNat",
                     ),
                     is_generic: false,
                     body_kind: None,

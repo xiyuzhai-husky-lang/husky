@@ -549,11 +549,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 190,
-                            },
-                        ),
+                        "one_fermi_match",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -568,11 +564,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 64,
-                            },
-                        ),
+                        "is_one",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -587,11 +579,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 191,
-                            },
-                        ),
+                        "upmost",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -606,11 +594,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 185,
-                            },
-                        ),
+                        "downmost",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -625,11 +609,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 192,
-                            },
-                        ),
+                        "hat",
                     ),
                     is_generic: false,
                     body_kind: Block,

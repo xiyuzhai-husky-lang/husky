@@ -17,8 +17,8 @@ pub(crate) fn module_items_map(
 
 #[test]
 fn module_items_map_works() {
-    DB::expect_test_crates("module_items_map", |db, crate_path| {
-        format!("{:?}", module_items_map(db, crate_path).debug(db))
+    DB::expect_test_crates_debug_with_db("module_items_map", |db, crate_path| {
+        module_items_map(db, crate_path)
     })
 }
 

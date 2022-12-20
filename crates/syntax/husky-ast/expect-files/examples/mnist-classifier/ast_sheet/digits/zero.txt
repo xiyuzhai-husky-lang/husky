@@ -269,11 +269,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 261,
-                            },
-                        ),
+                        "open_one_match",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -288,11 +284,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 262,
-                            },
-                        ),
+                        "almost_closed",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -307,11 +299,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 63,
-                            },
-                        ),
+                        "is_zero",
                     ),
                     is_generic: false,
                     body_kind: Block,

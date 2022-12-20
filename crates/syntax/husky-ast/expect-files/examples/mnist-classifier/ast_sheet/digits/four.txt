@@ -504,11 +504,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 165,
-                            },
-                        ),
+                        "left_components",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -523,11 +519,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 166,
-                            },
-                        ),
+                        "left_coordinate_max",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -542,11 +534,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 168,
-                            },
-                        ),
+                        "components_max_downwards",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -561,11 +549,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 170,
-                            },
-                        ),
+                        "components_max_heights",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -580,11 +564,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 172,
-                            },
-                        ),
+                        "is_four",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -599,11 +579,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 169,
-                            },
-                        ),
+                        "displacement_downwards",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -618,11 +594,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 171,
-                            },
-                        ),
+                        "cc_box_heights",
                     ),
                     is_generic: false,
                     body_kind: Block,

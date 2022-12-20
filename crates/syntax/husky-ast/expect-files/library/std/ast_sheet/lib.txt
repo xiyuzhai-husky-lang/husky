@@ -12,11 +12,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 5,
-                            },
-                        ),
+                        "prelude",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -31,11 +27,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 2,
-                            },
-                        ),
+                        "logic",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -50,11 +42,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 4,
-                            },
-                        ),
+                        "ops",
                     ),
                     is_generic: false,
                     body_kind: None,

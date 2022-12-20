@@ -13,6 +13,22 @@ pub struct Arena<T> {
     data: Vec<T>,
 }
 
+impl<T, Db: ?Sized> salsa::DebugWithDb<Db> for Arena<T>
+where
+    T: salsa::DebugWithDb<Db>,
+{
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        f.debug_struct("Arena")
+            .field("data", &self.data.debug_with(db, include_all_fields))
+            .finish()
+    }
+}
+
 impl<T> Default for Arena<T> {
     fn default() -> Self {
         Self {

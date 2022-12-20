@@ -584,11 +584,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 97,
-                            },
-                        ),
+                        "raw_contours",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -603,11 +599,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 99,
-                            },
-                        ),
+                        "eff_holes",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -622,11 +614,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 103,
-                            },
-                        ),
+                        "max_hole_ilen",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -641,11 +629,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 108,
-                            },
-                        ),
+                        "max_row_span",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -660,11 +644,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 112,
-                            },
-                        ),
+                        "row_span_sum",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -679,11 +659,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 113,
-                            },
-                        ),
+                        "distribution",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -698,11 +674,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 85,
-                            },
-                        ),
+                        "upper_mass",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -717,11 +689,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 86,
-                            },
-                        ),
+                        "lower_mass",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -736,11 +704,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 119,
-                            },
-                        ),
+                        "top_k_row_span_sum",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -755,11 +719,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 122,
-                            },
-                        ),
+                        "top_k_row_right_mass_sum",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -1105,11 +1065,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 82,
-                            },
-                        ),
+                        "ConnectedComponentDistribution",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -1124,11 +1080,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 87,
-                            },
-                        ),
+                        "EffHoles",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -1143,11 +1095,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 90,
-                            },
-                        ),
+                        "hole_tmpl",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -1162,11 +1110,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 95,
-                            },
-                        ),
+                        "ConnectedComponent",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -1181,11 +1125,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 124,
-                            },
-                        ),
+                        "horizontal_extend",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -1200,11 +1140,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 130,
-                            },
-                        ),
+                        "find_connected_components",
                     ),
                     is_generic: false,
                     body_kind: Block,

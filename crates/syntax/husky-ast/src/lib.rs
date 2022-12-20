@@ -1,4 +1,5 @@
 mod db;
+mod debug;
 mod error;
 mod parser;
 mod range;
@@ -106,12 +107,6 @@ pub(crate) fn ast_sheet(db: &dyn AstDb, entity_path: EntityPath) -> VfsResult<As
     Ok(AstParser::new(db.word_db(), token_sheet).parse_all())
 }
 
-#[test]
-fn ast_sheet_works() {
-    use tests::*;
-    DB::expect_test_probable_modules("ast_sheet", AstDb::ast_sheet);
-}
-
 #[derive(Debug, PartialEq, Eq)]
 pub struct AstSheet {
     arena: AstArena,
@@ -149,5 +144,123 @@ impl std::ops::Deref for AstSheet {
 
     fn deref(&self) -> &Self::Target {
         &self.arena
+    }
+}
+
+impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        match self {
+            Ast::Err {
+                token_group_idx,
+                error,
+            } => f
+                .debug_struct("Err")
+                .field("token_group_idx", token_group_idx)
+                .field("error", error)
+                .finish(),
+            Ast::Use {
+                token_group_idx,
+                accessibility,
+            } => f
+                .debug_struct("Use")
+                .field("token_group_idx", token_group_idx)
+                .field("accessibility", accessibility)
+                .finish(),
+            Ast::Comment { token_group_idx } => f
+                .debug_struct("Comment")
+                .field("token_group_idx", token_group_idx)
+                .finish(),
+            Ast::Decor { token_group_idx } => f
+                .debug_struct("Decor")
+                .field("token_group_idx", token_group_idx)
+                .finish(),
+            Ast::Stmt {
+                token_group_idx,
+                body,
+            } => f
+                .debug_struct("Stmt")
+                .field("token_group_idx", token_group_idx)
+                .field("body", body)
+                .finish(),
+            Ast::IfElseStmts {
+                if_stmt,
+                elif_stmts,
+                else_stmt,
+            } => f
+                .debug_struct("IfElseStmts")
+                .field("if_stmt", if_stmt)
+                .field("elif_stmts", elif_stmts)
+                .field("else_stmt", else_stmt)
+                .finish(),
+            Ast::MatchStmts {
+                pattern_stmt,
+                case_stmts,
+            } => f
+                .debug_struct("MatchStmts")
+                .field("pattern_stmt", pattern_stmt)
+                .field("case_stmts", case_stmts)
+                .finish(),
+            Ast::Defn {
+                token_group_idx,
+                body,
+                accessibility,
+                entity_card,
+                ident,
+                is_generic,
+                body_kind,
+            } => f
+                .debug_struct("Defn")
+                .field("token_group_idx", token_group_idx)
+                .field("body", body)
+                .field("accessibility", accessibility)
+                .field("entity_card", entity_card)
+                .field("ident", &ident.debug_with(db, include_all_fields))
+                .field("is_generic", is_generic)
+                .field("body_kind", body_kind)
+                .finish(),
+            Ast::Impl {
+                token_group_idx,
+                body,
+            } => f
+                .debug_struct("Impl")
+                .field("token_group_idx", token_group_idx)
+                .field("body", body)
+                .finish(),
+            Ast::Main {
+                token_group_idx,
+                body,
+            } => f
+                .debug_struct("Main")
+                .field("token_group_idx", token_group_idx)
+                .field("body", body)
+                .finish(),
+            Ast::Config {
+                token_group_idx,
+                body,
+            } => f
+                .debug_struct("Config")
+                .field("token_group_idx", token_group_idx)
+                .field("body", body)
+                .finish(),
+        }
+    }
+}
+
+impl<Db: AstDb> salsa::DebugWithDb<Db> for AstSheet {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        f.debug_struct("AstSheet")
+            .field("arena", &self.arena.debug_with(db, include_all_fields))
+            .field("top_level_asts", &self.top_level_asts)
+            .finish()
     }
 }

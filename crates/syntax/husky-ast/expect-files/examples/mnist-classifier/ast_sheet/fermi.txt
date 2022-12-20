@@ -113,11 +113,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 179,
-                            },
-                        ),
+                        "norm",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -132,11 +128,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 198,
-                            },
-                        ),
+                        "rel_norm",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -151,11 +143,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 196,
-                            },
-                        ),
+                        "angle_change_norm",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -229,11 +217,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 147,
-                            },
-                        ),
+                        "FermiMatchResult",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -256,11 +240,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 148,
-                            },
-                        ),
+                        "fermi_match",
                     ),
                     is_generic: false,
                     body_kind: Block,
