@@ -3,8 +3,14 @@
 use std::path::{Path, PathBuf};
 use thiserror::Error;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord, Hash)]
 pub struct AbsolutePath(PathBuf);
+
+impl std::fmt::Debug for AbsolutePath {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        self.0.fmt(f)
+    }
+}
 
 impl AbsolutePath {
     pub fn new(path: &Path) -> AbsolutePathResult<Self> {

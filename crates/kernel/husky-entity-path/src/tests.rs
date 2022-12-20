@@ -25,9 +25,7 @@ fn entity_path_debug_works() {
             [crate]: CratePath {
                 [salsa id]: 0,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/library/core",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/library/core",
                 },
                 crate_kind: Library,
             },
