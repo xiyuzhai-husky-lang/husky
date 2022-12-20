@@ -57,7 +57,7 @@ where
 #[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
 pub struct VecEntryMap<K, V>
 where
-    K: PartialEq + Eq + std::fmt::Debug,
+    K: PartialEq + Eq,
     V: VecMapEntry<K>,
 {
     entries: Vec<V>,
@@ -98,7 +98,7 @@ pub struct EntryRepeatError<Entry> {
 
 impl<K, Entry> VecEntryMap<K, Entry>
 where
-    K: PartialEq + Eq + std::fmt::Debug,
+    K: PartialEq + Eq,
     Entry: VecMapEntry<K>,
 {
     pub fn clear(&mut self) {

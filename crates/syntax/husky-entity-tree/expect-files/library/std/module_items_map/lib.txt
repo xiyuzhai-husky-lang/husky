@@ -11,23 +11,9 @@ Ok(
                 },
                 crate_kind: Library,
             },
-        }: (
-            EntityPath {
-                [show]: "crate::prelude",
-                [crate]: CratePath {
-                    [salsa id]: 1,
-                    package_path: Local {
-                        path: AbsolutePath(
-                            "/home/xiyuzhai/repos/husky/library/std",
-                        ),
-                    },
-                    crate_kind: Library,
-                },
-            },
-            ModuleItemMap {
-                [salsa id]: 5,
-            },
-        ),
+        }: ModuleItemMap {
+            [salsa id]: 5,
+        },
         EntityPath {
             [show]: "crate::logic",
             [crate]: CratePath {
@@ -39,23 +25,9 @@ Ok(
                 },
                 crate_kind: Library,
             },
-        }: (
-            EntityPath {
-                [show]: "crate::logic",
-                [crate]: CratePath {
-                    [salsa id]: 1,
-                    package_path: Local {
-                        path: AbsolutePath(
-                            "/home/xiyuzhai/repos/husky/library/std",
-                        ),
-                    },
-                    crate_kind: Library,
-                },
-            },
-            ModuleItemMap {
-                [salsa id]: 6,
-            },
-        ),
+        }: ModuleItemMap {
+            [salsa id]: 6,
+        },
         EntityPath {
             [show]: "crate::ops",
             [crate]: CratePath {
@@ -67,22 +39,8 @@ Ok(
                 },
                 crate_kind: Library,
             },
-        }: (
-            EntityPath {
-                [show]: "crate::ops",
-                [crate]: CratePath {
-                    [salsa id]: 1,
-                    package_path: Local {
-                        path: AbsolutePath(
-                            "/home/xiyuzhai/repos/husky/library/std",
-                        ),
-                    },
-                    crate_kind: Library,
-                },
-            },
-            ModuleItemMap {
-                [salsa id]: 7,
-            },
-        ),
+        }: ModuleItemMap {
+            [salsa id]: 7,
+        },
     },
 )
