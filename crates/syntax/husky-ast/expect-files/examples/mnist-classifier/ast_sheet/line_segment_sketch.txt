@@ -44,11 +44,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 343,
-                            },
-                        ),
+                        "new",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -63,11 +59,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 176,
-                            },
-                        ),
+                        "displacement",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -212,11 +204,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 270,
-                            },
-                        ),
+                        "concave_components",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -231,11 +219,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 232,
-                            },
-                        ),
+                        "bounding_box",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -250,11 +234,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 343,
-                            },
-                        ),
+                        "new",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -1335,11 +1315,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 53,
-                            },
-                        ),
+                        "concave_component",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -1354,11 +1330,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 54,
-                            },
-                        ),
+                        "convex_component",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -1373,11 +1345,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 55,
-                            },
-                        ),
+                        "convexity",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -1392,11 +1360,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 56,
-                            },
-                        ),
+                        "line_segment",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -1441,11 +1405,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 312,
-                            },
-                        ),
+                        "LineSegmentStroke",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -1468,11 +1428,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 311,
-                            },
-                        ),
+                        "LineSegmentSketch",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -1495,11 +1451,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 346,
-                            },
-                        ),
+                        "go_right",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -1514,11 +1466,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 351,
-                            },
-                        ),
+                        "go_left",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -1533,11 +1481,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 352,
-                            },
-                        ),
+                        "extend_end",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -1552,11 +1496,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 360,
-                            },
-                        ),
+                        "extend_start",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -1571,11 +1511,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 73,
-                            },
-                        ),
+                        "find_line_segments",
                     ),
                     is_generic: false,
                     body_kind: Block,

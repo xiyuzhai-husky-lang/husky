@@ -505,11 +505,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 245,
-                            },
-                        ),
+                        "two_match",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -524,11 +520,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 246,
-                            },
-                        ),
+                        "left_cc_pattern",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -543,11 +535,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 247,
-                            },
-                        ),
+                        "right_cc_pattern",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -562,11 +550,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 248,
-                            },
-                        ),
+                        "down_cc_pattern",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -581,11 +565,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 65,
-                            },
-                        ),
+                        "is_two",
                     ),
                     is_generic: false,
                     body_kind: Block,

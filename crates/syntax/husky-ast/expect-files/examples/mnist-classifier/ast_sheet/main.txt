@@ -108,11 +108,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 38,
-                            },
-                        ),
+                        "connected_component",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -127,11 +123,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 58,
-                            },
-                        ),
+                        "raw_contour",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -146,11 +138,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 51,
-                            },
-                        ),
+                        "geom2d",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -165,11 +153,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 52,
-                            },
-                        ),
+                        "line_segment_sketch",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -184,11 +168,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 49,
-                            },
-                        ),
+                        "fermi",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -203,11 +183,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 57,
-                            },
-                        ),
+                        "major",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -222,11 +198,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 48,
-                            },
-                        ),
+                        "zero",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -241,11 +213,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 43,
-                            },
-                        ),
+                        "one",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -260,11 +228,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 47,
-                            },
-                        ),
+                        "two",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -279,11 +243,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 46,
-                            },
-                        ),
+                        "three",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -298,11 +258,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 41,
-                            },
-                        ),
+                        "four",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -317,11 +273,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 50,
-                            },
-                        ),
+                        "five",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -336,11 +288,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 45,
-                            },
-                        ),
+                        "six",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -355,11 +303,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 44,
-                            },
-                        ),
+                        "seven",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -374,11 +318,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                        "eight",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -393,11 +333,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Module,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 42,
-                            },
-                        ),
+                        "nine",
                     ),
                     is_generic: false,
                     body_kind: None,

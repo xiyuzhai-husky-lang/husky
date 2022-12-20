@@ -179,11 +179,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 264,
-                            },
-                        ),
+                        "connected_components",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -198,11 +194,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 143,
-                            },
-                        ),
+                        "major_connected_component",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -217,11 +209,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 194,
-                            },
-                        ),
+                        "ignored_connected_components_row_span_sum_sum",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -236,11 +224,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 378,
-                            },
-                        ),
+                        "major_raw_contours",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -260,11 +244,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 379,
-                            },
-                        ),
+                        "major_raw_contour",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -279,11 +259,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 231,
-                            },
-                        ),
+                        "major_line_segment_sketch",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -298,11 +274,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 142,
-                            },
-                        ),
+                        "major_concave_components",
                     ),
                     is_generic: false,
                     body_kind: Block,

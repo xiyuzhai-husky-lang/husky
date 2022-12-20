@@ -1,29 +1,114 @@
 Ok(
     [
-        EntityPath(
-            Id {
-                value: 2,
+        EntityPath {
+            [salsa id]: 1,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 0,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 0,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/library/core",
+                                ),
+                            ),
+                            crate_kind: Library,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "basic",
+                ),
             },
-        ),
-        EntityPath(
-            Id {
-                value: 3,
+        },
+        EntityPath {
+            [salsa id]: 2,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 0,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 0,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/library/core",
+                                ),
+                            ),
+                            crate_kind: Library,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "logic",
+                ),
             },
-        ),
-        EntityPath(
-            Id {
-                value: 4,
+        },
+        EntityPath {
+            [salsa id]: 3,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 0,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 0,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/library/core",
+                                ),
+                            ),
+                            crate_kind: Library,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "num",
+                ),
             },
-        ),
-        EntityPath(
-            Id {
-                value: 5,
+        },
+        EntityPath {
+            [salsa id]: 4,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 0,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 0,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/library/core",
+                                ),
+                            ),
+                            crate_kind: Library,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "ops",
+                ),
             },
-        ),
-        EntityPath(
-            Id {
-                value: 6,
+        },
+        EntityPath {
+            [salsa id]: 5,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 0,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 0,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/library/core",
+                                ),
+                            ),
+                            crate_kind: Library,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "prelude",
+                ),
             },
-        ),
+        },
     ],
 )

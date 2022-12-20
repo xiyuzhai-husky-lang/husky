@@ -34,3 +34,9 @@ impl ParallelDatabase for DB {
         })
     }
 }
+
+#[test]
+fn ast_sheet_works() {
+    use tests::*;
+    DB::expect_test_probable_modules_debug_with_db("ast_sheet", AstDb::ast_sheet);
+}

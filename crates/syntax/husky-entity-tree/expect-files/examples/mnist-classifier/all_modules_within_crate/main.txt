@@ -1,1 +1,476 @@
-"Ok([EntityPath { [salsa id]: 27, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 39, data: \"connected_component\" }) } }, EntityPath { [salsa id]: 28, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 40, data: \"raw_contour\" }) } }, EntityPath { [salsa id]: 29, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 41, data: \"geom2d\" }) } }, EntityPath { [salsa id]: 30, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 42, data: \"line_segment_sketch\" }) } }, EntityPath { [salsa id]: 76, data: CrateRoot { parent: EntityPath { [salsa id]: 30, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 42, data: \"line_segment_sketch\" }) } }, ident: Identifier(Word { [salsa id]: 239, data: \"concave_component\" }) } }, EntityPath { [salsa id]: 77, data: CrateRoot { parent: EntityPath { [salsa id]: 30, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 42, data: \"line_segment_sketch\" }) } }, ident: Identifier(Word { [salsa id]: 240, data: \"convex_component\" }) } }, EntityPath { [salsa id]: 78, data: CrateRoot { parent: EntityPath { [salsa id]: 30, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 42, data: \"line_segment_sketch\" }) } }, ident: Identifier(Word { [salsa id]: 241, data: \"convexity\" }) } }, EntityPath { [salsa id]: 79, data: CrateRoot { parent: EntityPath { [salsa id]: 30, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 42, data: \"line_segment_sketch\" }) } }, ident: Identifier(Word { [salsa id]: 242, data: \"line_segment\" }) } }, EntityPath { [salsa id]: 31, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 43, data: \"fermi\" }) } }, EntityPath { [salsa id]: 32, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 44, data: \"major\" }) } }, EntityPath { [salsa id]: 33, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 45, data: \"zero\" }) } }, EntityPath { [salsa id]: 34, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 46, data: \"one\" }) } }, EntityPath { [salsa id]: 35, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 47, data: \"two\" }) } }, EntityPath { [salsa id]: 36, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 48, data: \"three\" }) } }, EntityPath { [salsa id]: 37, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 49, data: \"four\" }) } }, EntityPath { [salsa id]: 38, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 50, data: \"five\" }) } }, EntityPath { [salsa id]: 39, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 51, data: \"six\" }) } }, EntityPath { [salsa id]: 40, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 52, data: \"seven\" }) } }, EntityPath { [salsa id]: 41, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 53, data: \"eight\" }) } }, EntityPath { [salsa id]: 42, data: CrateRoot { parent: EntityPath { [salsa id]: 26, data: CrateRoot(CratePath { [salsa id]: 3, package_path: PackagePathData::Global(AbsolutePath(\"/home/xiyuzhai/repos/husky/examples/mnist-classifier\")), crate_kind: Main }) }, ident: Identifier(Word { [salsa id]: 54, data: \"nine\" }) } }])"
+Ok(
+    [
+        EntityPath {
+            [salsa id]: 27,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "connected_component",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 28,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "raw_contour",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 29,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "geom2d",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 30,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "line_segment_sketch",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 76,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 30,
+                    data: CrateRoot {
+                        parent: EntityPath {
+                            [salsa id]: 26,
+                            data: CrateRoot(
+                                CratePath {
+                                    [salsa id]: 3,
+                                    package_path: PackagePathData::Global(
+                                        AbsolutePath(
+                                            "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                        ),
+                                    ),
+                                    crate_kind: Main,
+                                },
+                            ),
+                        },
+                        ident: Identifier(
+                            "line_segment_sketch",
+                        ),
+                    },
+                },
+                ident: Identifier(
+                    "concave_component",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 77,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 30,
+                    data: CrateRoot {
+                        parent: EntityPath {
+                            [salsa id]: 26,
+                            data: CrateRoot(
+                                CratePath {
+                                    [salsa id]: 3,
+                                    package_path: PackagePathData::Global(
+                                        AbsolutePath(
+                                            "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                        ),
+                                    ),
+                                    crate_kind: Main,
+                                },
+                            ),
+                        },
+                        ident: Identifier(
+                            "line_segment_sketch",
+                        ),
+                    },
+                },
+                ident: Identifier(
+                    "convex_component",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 78,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 30,
+                    data: CrateRoot {
+                        parent: EntityPath {
+                            [salsa id]: 26,
+                            data: CrateRoot(
+                                CratePath {
+                                    [salsa id]: 3,
+                                    package_path: PackagePathData::Global(
+                                        AbsolutePath(
+                                            "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                        ),
+                                    ),
+                                    crate_kind: Main,
+                                },
+                            ),
+                        },
+                        ident: Identifier(
+                            "line_segment_sketch",
+                        ),
+                    },
+                },
+                ident: Identifier(
+                    "convexity",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 79,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 30,
+                    data: CrateRoot {
+                        parent: EntityPath {
+                            [salsa id]: 26,
+                            data: CrateRoot(
+                                CratePath {
+                                    [salsa id]: 3,
+                                    package_path: PackagePathData::Global(
+                                        AbsolutePath(
+                                            "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                        ),
+                                    ),
+                                    crate_kind: Main,
+                                },
+                            ),
+                        },
+                        ident: Identifier(
+                            "line_segment_sketch",
+                        ),
+                    },
+                },
+                ident: Identifier(
+                    "line_segment",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 31,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "fermi",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 32,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "major",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 33,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "zero",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 34,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "one",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 35,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "two",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 36,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "three",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 37,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "four",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 38,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "five",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 39,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "six",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 40,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "seven",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 41,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "eight",
+                ),
+            },
+        },
+        EntityPath {
+            [salsa id]: 42,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 26,
+                    data: CrateRoot(
+                        CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePathData::Global(
+                                AbsolutePath(
+                                    "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                ),
+                            ),
+                            crate_kind: Main,
+                        },
+                    ),
+                },
+                ident: Identifier(
+                    "nine",
+                ),
+            },
+        },
+    ],
+)

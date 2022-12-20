@@ -43,12 +43,13 @@ fn collect_all_modules(db: &dyn EntityTreeDb, root: EntityPath, all_modules: &mu
 
 #[test]
 fn submodules_works() {
-    DB::expect_test_probable_modules("submodules", DB::submodules)
+    DB::expect_test_probable_modules_debug_with_db("submodules", DB::submodules)
 }
 
 #[test]
 fn all_modules_works() {
-    DB::expect_test_crates("all_modules_within_crate", |db, crate_path| {
-        format!("{:?}", db.all_modules_within_crate(crate_path).debug(db))
-    })
+    DB::expect_test_crates_debug_with_db(
+        "all_modules_within_crate",
+        EntityTreeDb::all_modules_within_crate,
+    )
 }

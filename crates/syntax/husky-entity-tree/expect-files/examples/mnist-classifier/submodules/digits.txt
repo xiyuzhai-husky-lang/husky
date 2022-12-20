@@ -1,19 +1,94 @@
 Ok(
     [
-        EntityPath(
-            Id {
-                value: 38,
+        EntityPath {
+            [salsa id]: 37,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 28,
+                    data: CrateRoot {
+                        parent: EntityPath {
+                            [salsa id]: 26,
+                            data: CrateRoot(
+                                CratePath {
+                                    [salsa id]: 3,
+                                    package_path: PackagePathData::Global(
+                                        AbsolutePath(
+                                            "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                        ),
+                                    ),
+                                    crate_kind: Main,
+                                },
+                            ),
+                        },
+                        ident: Identifier(
+                            "digits",
+                        ),
+                    },
+                },
+                ident: Identifier(
+                    "zero",
+                ),
             },
-        ),
-        EntityPath(
-            Id {
-                value: 33,
+        },
+        EntityPath {
+            [salsa id]: 32,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 28,
+                    data: CrateRoot {
+                        parent: EntityPath {
+                            [salsa id]: 26,
+                            data: CrateRoot(
+                                CratePath {
+                                    [salsa id]: 3,
+                                    package_path: PackagePathData::Global(
+                                        AbsolutePath(
+                                            "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                        ),
+                                    ),
+                                    crate_kind: Main,
+                                },
+                            ),
+                        },
+                        ident: Identifier(
+                            "digits",
+                        ),
+                    },
+                },
+                ident: Identifier(
+                    "one",
+                ),
             },
-        ),
-        EntityPath(
-            Id {
-                value: 35,
+        },
+        EntityPath {
+            [salsa id]: 34,
+            data: CrateRoot {
+                parent: EntityPath {
+                    [salsa id]: 28,
+                    data: CrateRoot {
+                        parent: EntityPath {
+                            [salsa id]: 26,
+                            data: CrateRoot(
+                                CratePath {
+                                    [salsa id]: 3,
+                                    package_path: PackagePathData::Global(
+                                        AbsolutePath(
+                                            "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
+                                        ),
+                                    ),
+                                    crate_kind: Main,
+                                },
+                            ),
+                        },
+                        ident: Identifier(
+                            "digits",
+                        ),
+                    },
+                },
+                ident: Identifier(
+                    "six",
+                ),
             },
-        ),
+        },
     ],
 )

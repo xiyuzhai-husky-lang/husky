@@ -25,6 +25,17 @@ pub enum EntityUseExpr {
     Err(EntityUseExprError),
 }
 
+impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityUseExpr {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, thiserror::Error)]
 pub enum EntityUseExprError {
     #[error("expect something")]
@@ -39,6 +50,20 @@ pub enum EntityUseExprError {
 pub(crate) struct EntityUseExprSheet {
     arena: EntityUseExprArena,
     use_exprs: Vec<(AstIdx, Accessibility, EntityUseExprIdx)>,
+}
+
+impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityUseExprSheet {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        f.debug_struct("EntityUseExprSheet")
+            .field("arena", &self.arena.debug_with(db, include_all_fields))
+            .field("use_exprs", &self.use_exprs)
+            .finish()
+    }
 }
 
 pub(crate) struct EntityUseExprResolveSheet<'a> {
@@ -92,7 +117,7 @@ pub(crate) fn module_use_exprs(
 
 #[test]
 fn moule_use_exprs_works() {
-    DB::expect_test_probable_modules("module_use_sheet", |db, module_path| {
+    DB::expect_test_probable_modules_debug_with_db("module_use_sheet", |db, module_path| {
         module_use_exprs(db, module_path)
     })
 }

@@ -362,11 +362,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 179,
-                            },
-                        ),
+                        "norm",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -381,11 +377,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 198,
-                            },
-                        ),
+                        "rel_norm",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -400,11 +392,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 313,
-                            },
-                        ),
+                        "hausdorff_norm",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -419,11 +407,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 181,
-                            },
-                        ),
+                        "angle_change",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -438,11 +422,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 232,
-                            },
-                        ),
+                        "bounding_box",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -457,11 +437,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 155,
-                            },
-                        ),
+                        "relative_bounding_box",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -476,11 +452,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 56,
-                            },
-                        ),
+                        "line_segment",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -495,11 +467,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 159,
-                            },
-                        ),
+                        "start",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -514,11 +482,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 160,
-                            },
-                        ),
+                        "end",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -533,11 +497,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 176,
-                            },
-                        ),
+                        "displacement",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -552,11 +512,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 214,
-                            },
-                        ),
+                        "start_tangent",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -571,11 +527,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 217,
-                            },
-                        ),
+                        "end_tangent",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -751,11 +703,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 154,
-                            },
-                        ),
+                        "ConcaveComponent",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -770,11 +718,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 323,
-                            },
-                        ),
+                        "find_concave_components",
                     ),
                     is_generic: false,
                     body_kind: Block,

@@ -456,11 +456,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 220,
-                            },
-                        ),
+                        "six_match",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -475,11 +471,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 221,
-                            },
-                        ),
+                        "six_match_refined1",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -494,11 +486,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 68,
-                            },
-                        ),
+                        "is_six",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -513,11 +501,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 191,
-                            },
-                        ),
+                        "upmost",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -532,11 +516,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 222,
-                            },
-                        ),
+                        "bottom1",
                     ),
                     is_generic: false,
                     body_kind: Block,

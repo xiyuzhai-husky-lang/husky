@@ -12,11 +12,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 31,
-                            },
-                        ),
+                        "Output",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -31,11 +27,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                        "add",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -55,11 +47,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Trait,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 22,
-                            },
-                        ),
+                        "Add",
                     ),
                     is_generic: true,
                     body_kind: Block,

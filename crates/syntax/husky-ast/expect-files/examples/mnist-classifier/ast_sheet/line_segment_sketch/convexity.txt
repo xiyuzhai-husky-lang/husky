@@ -188,11 +188,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 325,
-                            },
-                        ),
+                        "is_convex",
                     ),
                     is_generic: false,
                     body_kind: Block,

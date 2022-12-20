@@ -12,11 +12,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 6,
-                            },
-                        ),
+                        "bool",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -31,11 +27,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 7,
-                            },
-                        ),
+                        "Trait",
                     ),
                     is_generic: false,
                     body_kind: None,
@@ -50,11 +42,7 @@ Ok(
                     accessibility: Public,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 8,
-                            },
-                        ),
+                        "Module",
                     ),
                     is_generic: false,
                     body_kind: None,

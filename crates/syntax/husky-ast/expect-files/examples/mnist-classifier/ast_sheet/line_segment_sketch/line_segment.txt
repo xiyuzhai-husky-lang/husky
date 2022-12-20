@@ -134,11 +134,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 176,
-                            },
-                        ),
+                        "displacement",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -153,11 +149,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 318,
-                            },
-                        ),
+                        "dist_to_point",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -178,11 +170,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Type,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 321,
-                            },
-                        ),
+                        "LineSegment",
                     ),
                     is_generic: false,
                     body_kind: Block,

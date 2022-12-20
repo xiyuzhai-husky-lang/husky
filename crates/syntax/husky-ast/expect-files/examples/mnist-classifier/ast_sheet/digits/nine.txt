@@ -395,11 +395,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
+                        "nine_match",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -414,11 +410,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 186,
-                            },
-                        ),
+                        "nine_match_refine",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -433,11 +425,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 71,
-                            },
-                        ),
+                        "is_nine",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -452,11 +440,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 185,
-                            },
-                        ),
+                        "downmost",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -471,11 +455,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 187,
-                            },
-                        ),
+                        "big_cc",
                     ),
                     is_generic: false,
                     body_kind: Block,

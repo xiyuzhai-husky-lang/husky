@@ -43,18 +43,12 @@ fn entity_path_debug_works() {
                             ),
                         },
                         ident: Identifier(
-                            Word {
-                                [salsa id]: 10,
-                                data: "num",
-                            },
+                            "num",
                         ),
                     },
                 },
                 ident: Identifier(
-                    Word {
-                        [salsa id]: 2,
-                        data: "i32",
-                    },
+                    "i32",
                 ),
             },
         }

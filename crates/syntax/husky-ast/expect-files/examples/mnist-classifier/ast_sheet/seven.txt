@@ -387,11 +387,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 208,
-                            },
-                        ),
+                        "simple_seven_match",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -406,11 +402,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 209,
-                            },
-                        ),
+                        "simple_leftdown_pattern",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -425,11 +417,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 210,
-                            },
-                        ),
+                        "special_seven_match",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -444,11 +432,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 211,
-                            },
-                        ),
+                        "leftupcc_pattern",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -463,11 +447,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 212,
-                            },
-                        ),
+                        "leftdowncc_pattern",
                     ),
                     is_generic: false,
                     body_kind: Block,
@@ -482,11 +462,7 @@ Ok(
                     accessibility: PubCrate,
                     entity_card: Form,
                     ident: Identifier(
-                        Word(
-                            Id {
-                                value: 69,
-                            },
-                        ),
+                        "is_seven",
                     ),
                     is_generic: false,
                     body_kind: Block,
