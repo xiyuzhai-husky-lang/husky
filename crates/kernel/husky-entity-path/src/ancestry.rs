@@ -1,5 +1,3 @@
-use husky_toolchain::ToolchainDb;
-
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
