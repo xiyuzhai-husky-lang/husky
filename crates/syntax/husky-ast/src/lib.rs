@@ -9,13 +9,12 @@ mod tests;
 
 pub use crate::error::{AstError, AstErrorVariant, AstResult};
 pub use db::AstDb;
-use husky_accessibility::Accessibility;
 use husky_entity_card::EntityCard;
 pub use range::*;
 pub use specs::*;
 
 use error::*;
-use husky_entity_path::EntityPath;
+use husky_entity_path::{Accessibility, EntityPath};
 use husky_term::Term;
 use husky_text::*;
 use husky_token::TokenGroupIdx;

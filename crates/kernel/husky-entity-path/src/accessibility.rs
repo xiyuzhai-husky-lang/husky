@@ -1,4 +1,4 @@
-use husky_entity_path::EntityPath;
+use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Accessibility {

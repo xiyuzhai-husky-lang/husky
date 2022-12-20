@@ -5,6 +5,7 @@ pub(super) enum CollectorAction<'a> {
     ResolveUseExpr {
         sheet: &'a EntityUseExprSheet,
         module: EntityPath,
+        accessibility: Accessibility,
         ident: Identifier,
         use_expr_idx: EntityUseExprIdx,
     },
@@ -34,9 +35,14 @@ impl<'a> ModuleItemCollector<'a> {
             CollectorAction::ResolveUseExpr {
                 sheet,
                 module,
+                accessibility,
                 ident,
                 use_expr_idx,
-            } => todo!(),
+            } => {
+                if let Some(item) = self.state.module_item_maps()[module].1.get_entry(ident) {
+                    todo!()
+                }
+            }
             CollectorAction::UseAll(use_all) => todo!(),
         }
     }
@@ -46,10 +52,11 @@ impl<'a> ModuleItemCollector<'a> {
         for (module, unresolved_use_exprs) in self.state.unresolved_use_exprs() {
             for unresolved_use_expr in unresolved_use_exprs.exprs.iter() {
                 actions.push(CollectorAction::ResolveUseExpr {
-                    sheet: (),
-                    module: (),
-                    ident: (),
-                    use_expr_idx: (),
+                    sheet: unresolved_use_exprs.sheet,
+                    module: *module,
+                    accessibility: unresolved_use_expr.accessibility,
+                    ident: unresolved_use_expr.ident,
+                    use_expr_idx: unresolved_use_expr.use_expr_idx,
                 })
             }
         }

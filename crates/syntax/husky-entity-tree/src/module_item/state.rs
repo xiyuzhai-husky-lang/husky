@@ -7,6 +7,7 @@ pub(super) struct CollectorState<'a> {
     module_item_maps: VecPairMap<EntityPath, IdentMap<ModuleItem>>,
     unresolved_use_exprs: VecPairMap<EntityPath, UnresolvedEntityUseExprs<'a>>,
     use_alls: Vec<UseAll>,
+    has_changed: bool,
 }
 
 #[derive(Debug, Clone, Copy)]
@@ -24,9 +25,9 @@ pub(super) struct UnresolvedEntityUseExprs<'a> {
 
 #[derive(Debug)]
 pub(super) struct UnresolvedUseExpr {
-    accessibility: Accessibility,
-    ident: Identifier,
-    use_expr_idx: EntityUseExprIdx,
+    pub(super) accessibility: Accessibility,
+    pub(super) ident: Identifier,
+    pub(super) use_expr_idx: EntityUseExprIdx,
 }
 
 impl<'a> CollectorState<'a> {
@@ -85,6 +86,7 @@ impl<'a> CollectorState<'a> {
                 })
                 .collect::<EntityTreeResult<VecEntryMap<_, _>>>()?,
             use_alls: vec![],
+            has_changed: false,
         })
     }
 
@@ -96,11 +98,11 @@ impl<'a> CollectorState<'a> {
     }
 
     pub(super) fn has_changed(&self) -> bool {
-        todo!()
+        self.has_changed
     }
 
     pub(super) fn reset_change_flag(&mut self) {
-        todo!()
+        self.has_changed = false
     }
 
     pub(super) fn unresolved_use_exprs(&self) -> &[(EntityPath, UnresolvedEntityUseExprs<'a>)] {
@@ -109,5 +111,9 @@ impl<'a> CollectorState<'a> {
 
     pub(super) fn use_alls(&self) -> &[UseAll] {
         self.use_alls.as_ref()
+    }
+
+    pub(super) fn module_item_maps(&self) -> &VecPairMap<EntityPath, IdentMap<ModuleItem>> {
+        &self.module_item_maps
     }
 }

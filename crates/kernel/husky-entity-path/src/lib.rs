@@ -1,4 +1,5 @@
 #![feature(trait_upcasting)]
+mod accessibility;
 mod ancestry;
 mod db;
 mod menu;
@@ -6,6 +7,7 @@ mod menu;
 mod tests;
 mod utils;
 
+pub use accessibility::*;
 pub use db::*;
 pub use menu::*;
 

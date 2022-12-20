@@ -38,10 +38,7 @@ fn ident_debug_works() {
     let haha = db.it_ident_borrowed("haha").unwrap();
     expect_test::expect![[r#"
         Identifier(
-            Word {
-                [salsa id]: 0,
-                data: "haha",
-            },
+            "haha",
         )
     "#]]
     .assert_debug_eq(&haha.debug(&db));
