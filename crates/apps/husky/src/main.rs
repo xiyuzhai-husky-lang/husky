@@ -41,9 +41,9 @@ enum HuskyCommands {
 fn main() {
     let cli = HuskyCli::parse();
     match cli.command {
-        HuskyCommands::Debug { package_dir } => todo!(),
-        HuskyCommands::Test { packages_dir } => todo!(),
-        HuskyCommands::Fmt { packages_dir } => todo!(),
+        HuskyCommands::Debug { package_dir: _ } => todo!(),
+        HuskyCommands::Test { packages_dir: _ } => todo!(),
+        HuskyCommands::Fmt { packages_dir: _ } => todo!(),
         HuskyCommands::Demo { target } => demo(target),
     }
 }

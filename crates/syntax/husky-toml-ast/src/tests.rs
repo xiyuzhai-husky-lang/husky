@@ -6,9 +6,8 @@ use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_toml_token::TomlTokenJar;
 use husky_toolchain::*;
 use husky_vfs::*;
-use husky_word::{WordJar};
+use husky_word::WordJar;
 use salsa::{Database, ParallelDatabase, Snapshot};
-
 
 #[salsa::db(
     WordJar,

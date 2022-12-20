@@ -11,7 +11,7 @@ where
 }
 
 fn resolve_error(e: Box<dyn Any + Send>) -> String {
-    if let Some(s) = e.downcast_ref::<String>() {
+    if let Some(_s) = e.downcast_ref::<String>() {
         return *(unsafe { e.downcast().unwrap_unchecked() });
     }
     if let Some(s) = e.downcast_ref::<&str>() {

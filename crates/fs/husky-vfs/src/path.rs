@@ -8,7 +8,7 @@ pub(crate) fn package_manifest_path(
     db: &dyn VfsDb,
     package: PackagePath,
 ) -> VfsResult<AbsolutePath> {
-    AbsolutePath::new(&package_dir(db, package).as_ref()?.join("Corgi.toml")).map_err(|e| todo!())
+    AbsolutePath::new(&package_dir(db, package).as_ref()?.join("Corgi.toml")).map_err(|_e| todo!())
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
@@ -18,7 +18,10 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Abs
             let toolchain_library_path = db.published_toolchain_library_path(*toolchain);
             AbsolutePath::new(&toolchain_library_path.join(ident.data(db))).map_err(|e| e.into())
         }
-        PackagePathData::Global { ident, version } => todo!(),
+        PackagePathData::Global {
+            ident: _,
+            version: _,
+        } => todo!(),
         PackagePathData::Local { path } => Ok(path.clone()),
         PackagePathData::Git { .. } => todo!(),
     }
@@ -40,9 +43,10 @@ pub(crate) fn module_absolute_path(
             let parent_module_path = module_absolute_path(db, parent).as_ref()?;
             let dir = match db.dt_entity_path(parent) {
                 EntityPathData::CrateRoot(_) => parent_module_path.parent().unwrap().to_owned(),
-                EntityPathData::Childpath { parent, ident } => {
-                    parent_module_path.with_extension("")
-                }
+                EntityPathData::Childpath {
+                    parent: _,
+                    ident: _,
+                } => parent_module_path.with_extension(""),
             };
             AbsolutePath::new(&dir.join(db.dt_ident(ident)).with_extension("hsy"))
                 .map_err(|e| e.into())

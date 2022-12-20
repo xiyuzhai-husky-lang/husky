@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> AstParser<'a> {
-    pub(super) fn parse_uses(&mut self, token_group_idx: TokenGroupIdx, indent: u32) -> Ast {
+    pub(super) fn parse_uses(&mut self, token_group_idx: TokenGroupIdx, _indent: u32) -> Ast {
         let mut aux_parser = self.aux_parser(token_group_idx);
         Ast::Use {
             token_group_idx,

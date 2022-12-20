@@ -33,8 +33,6 @@ pub use trait_impl::*;
 
 use husky_entity_path::EntityPath;
 use husky_toolchain::Toolchain;
-#[cfg(test)]
-use tests::*;
 
 #[salsa::jar(db = TermDb)]
 pub struct TermJar(Term, TermCurryContext, term_menu);

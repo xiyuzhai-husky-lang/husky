@@ -1,5 +1,3 @@
-use husky_absolute_path::AbsolutePathResult;
-
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]

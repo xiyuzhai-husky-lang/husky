@@ -1,5 +1,3 @@
-use thin_vec::ThinVec;
-
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]

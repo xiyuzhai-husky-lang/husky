@@ -24,20 +24,14 @@ pub use watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};
 
 use dashmap::{mapref::entry::Entry, DashMap};
 use db::*;
-use eyre::Context;
+
 use file::*;
 use husky_print_utils::p;
 use husky_toolchain::*;
-use notify_debouncer_mini::{
-    notify::{RecommendedWatcher, RecursiveMode},
-    Debouncer,
-};
+use notify_debouncer_mini::notify::RecursiveMode;
 use path::*;
 use salsa::{storage::HasJar, ParallelDatabase};
-use std::{
-    path::{Path, PathBuf},
-    sync::Mutex,
-};
+use std::path::{Path, PathBuf};
 #[cfg(test)]
 use tests::*;
 

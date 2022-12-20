@@ -1,8 +1,5 @@
 use super::*;
 
-
-
-
 pub(crate) fn mangled_intrinsic_ty(_db: &dyn RustTranspileDb, _entity_path: Term) -> Arc<String> {
     todo!()
     // db.mangled_ty(entity_path.intrinsic())

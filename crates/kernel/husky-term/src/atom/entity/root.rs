@@ -1,4 +1,3 @@
-use husky_entity_path::EntityPath;
 use husky_word::Identifier;
 
 use crate::*;
@@ -14,7 +13,7 @@ impl TermData {
     //     // Self::root_builtin_entity(db, Core, menu2.module())
     // }
 
-    pub(crate) fn root_builtin_entity(db: &dyn TermDb, ident: Identifier, _ty: Term) -> Term {
+    pub(crate) fn root_builtin_entity(_db: &dyn TermDb, _ident: Identifier, _ty: Term) -> Term {
         todo!()
         // db.it_term(
         //     TermAtom::Entity {

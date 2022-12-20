@@ -47,10 +47,10 @@ impl<'a> AuxAstParser<'a> {
                 .ok_or(AstError::ExpectEntityKeyword)?
                 .kind
             {
-                TokenKind::Decorator(decor) => self.parse_entity_card()?,
+                TokenKind::Decorator(_decor) => self.parse_entity_card()?,
                 TokenKind::Keyword(kw) => match kw {
                     Keyword::Paradigm(_) | Keyword::Visual => EntityCard::Form,
-                    Keyword::Type(ty_kw) => EntityCard::Type,
+                    Keyword::Type(_ty_kw) => EntityCard::Type,
                     Keyword::Trait => EntityCard::Trait,
                     Keyword::Mod => EntityCard::Module,
                     Keyword::Impl | Keyword::End(_) => return Err(AstError::ExpectEntityKeyword),

@@ -20,7 +20,7 @@ pub use range::*;
 pub type CharIter<'token_line> = std::iter::Peekable<Enumerate<Chars<'token_line>>>;
 
 use line_map::LineMap;
-use std::{iter::Enumerate, ops::Deref, str::Chars, sync::Arc};
+use std::{iter::Enumerate, ops::Deref, str::Chars};
 
 #[derive(Clone, PartialEq, Eq)]
 pub struct Text {
@@ -37,7 +37,7 @@ impl std::fmt::Debug for Text {
 impl std::ops::Index<TextRange> for Text {
     type Output = str;
 
-    fn index(&self, index: TextRange) -> &Self::Output {
+    fn index(&self, _index: TextRange) -> &Self::Output {
         todo!()
     }
 }

@@ -48,8 +48,8 @@ impl ToolchainChannel {
 
 #[salsa::tracked(jar = ToolchainJar, return_ref)]
 fn published_toolchain_library_path(
-    db: &dyn ToolchainDb,
-    toolchain: PublishedToolchain,
+    _db: &dyn ToolchainDb,
+    _toolchain: PublishedToolchain,
 ) -> PathBuf {
     todo!()
 }

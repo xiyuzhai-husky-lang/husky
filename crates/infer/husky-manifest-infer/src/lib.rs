@@ -6,7 +6,7 @@ pub use db::*;
 pub use error::*;
 
 use dependency::*;
-use husky_text::TextRange;
+
 use salsa::DbWithJar;
 
 #[salsa::jar(db = ManifestDb)]

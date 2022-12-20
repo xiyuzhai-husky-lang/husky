@@ -13,7 +13,6 @@ pub use menu4::*;
 pub use menu5::*;
 
 use crate::*;
-use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu {

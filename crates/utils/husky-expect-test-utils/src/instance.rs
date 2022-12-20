@@ -1,10 +1,7 @@
 mod init;
 mod update;
 
-use std::{
-    any::Any,
-    panic::{catch_unwind, RefUnwindSafe, UnwindSafe},
-};
+use std::panic::{RefUnwindSafe, UnwindSafe};
 
 use crate::*;
 use convert_case::*;

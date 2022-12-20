@@ -19,9 +19,8 @@ pub use iter::*;
 pub use kind::*;
 pub use tokenize::Tokenize;
 
-use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;
-use husky_text::{HasTextRange, RangedIdentifier, TextIndent, TextRange};
+use husky_text::{HasTextRange, RangedIdentifier, TextRange};
 use husky_word::Identifier;
 
 #[derive(Debug, PartialEq, Eq)]

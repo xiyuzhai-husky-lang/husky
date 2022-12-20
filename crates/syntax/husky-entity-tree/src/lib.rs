@@ -32,7 +32,6 @@ use submodule::*;
 #[cfg(test)]
 use tests::*;
 
-
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
     absolute_entity_path,

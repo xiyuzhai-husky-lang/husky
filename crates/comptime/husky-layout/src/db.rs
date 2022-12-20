@@ -10,7 +10,7 @@ impl<T> LayoutDb for T
 where
     T: DbWithJar<LayoutJar> + TermDb,
 {
-    fn reg_memory_kind(&self, ty: Term) -> RegMemoryKind {
+    fn reg_memory_kind(&self, _ty: Term) -> RegMemoryKind {
         todo!()
     }
 }

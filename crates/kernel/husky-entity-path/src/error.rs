@@ -1,4 +1,3 @@
-use husky_absolute_path::AbsolutePathError;
 use husky_package_path::PackagePathError;
 use thiserror::Error;
 

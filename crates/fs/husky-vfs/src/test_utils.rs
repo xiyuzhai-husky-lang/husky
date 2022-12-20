@@ -127,7 +127,7 @@ where
     {
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
-            expect_test_crates(&db, name, &base, out, &f, |db, r| format!("{:#?}", r));
+            expect_test_crates(&db, name, &base, out, &f, |_db, r| format!("{:#?}", r));
         }
     }
 
@@ -152,7 +152,7 @@ where
     {
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
-            expect_test_probable_modules_debug_with_db(&db, name, &base, out, &f, |db, r| {
+            expect_test_probable_modules_debug_with_db(&db, name, &base, out, &f, |_db, r| {
                 format!("{:#?}", r)
             });
         }
@@ -225,7 +225,7 @@ fn expect_test_crates<Db, R>(
                 name,
                 package_expects_dir: path.to_logical_path(&out),
             };
-            use salsa::DebugWithDb;
+
             for crate_path in db.collect_crates(package_path).unwrap() {
                 let path = resolver.decide_crate_expect_file_path(crate_path);
                 std::fs::create_dir_all(path.parent().unwrap()).unwrap();

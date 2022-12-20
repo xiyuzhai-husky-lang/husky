@@ -13,7 +13,6 @@ use handlers::*;
 
 use husky_vfs::VfsDb;
 
-
 pub(crate) fn dispatch_lsp_msg(
     server: &mut Server,
     msg: lsp_server::Message,

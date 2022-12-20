@@ -1,4 +1,4 @@
-use husky_entity_card::{EntityCard, MemberKind};
+use husky_entity_card::EntityCard;
 use husky_text::TextRange;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

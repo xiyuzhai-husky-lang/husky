@@ -15,7 +15,7 @@ impl std::ops::Deref for TermMenu1 {
 }
 
 impl TermMenu1 {
-    pub fn new(db: &dyn TermDb, toolchain: Toolchain, menu0: TermMenu0) -> Self {
+    pub fn new(db: &dyn TermDb, _toolchain: Toolchain, menu0: TermMenu0) -> Self {
         let ty0 = db.it_term(TermData::Application(
             TermApplication::new(menu0.sort(), menu0.universe1()).unwrap(),
         ));

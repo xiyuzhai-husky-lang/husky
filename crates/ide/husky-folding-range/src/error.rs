@@ -7,7 +7,7 @@ use thiserror::Error;
 pub enum FoldingRangeError {}
 
 impl From<&VfsError> for FoldingRangeError {
-    fn from(value: &VfsError) -> Self {
+    fn from(_value: &VfsError) -> Self {
         todo!()
     }
 }
@@ -17,9 +17,9 @@ pub type FoldingRangeResult<T> = Result<T, FoldingRangeError>;
 impl<Db: FoldingRangeDb> DebugWithDb<Db> for FoldingRangeError {
     fn fmt(
         &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &Db,
+        _include_all_fields: bool,
     ) -> std::fmt::Result {
         todo!()
     }

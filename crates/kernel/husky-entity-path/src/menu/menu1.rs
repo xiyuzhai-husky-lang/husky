@@ -12,7 +12,11 @@ pub struct EntityPathMenu1 {
 }
 
 impl EntityPathMenu1 {
-    pub(crate) fn new(db: &dyn EntityPathDb, toolchain: Toolchain, menu0: EntityPathMenu0) -> Self {
+    pub(crate) fn new(
+        db: &dyn EntityPathDb,
+        _toolchain: Toolchain,
+        menu0: EntityPathMenu0,
+    ) -> Self {
         Self {
             core_marker: menu0.core().child(db, "marker").unwrap(),
             core_basic: menu0.core().child(db, "basic").unwrap(),

@@ -7,7 +7,6 @@ use husky_token::{Keyword, SpecialToken, TokenIter, TokenKind, TokenSheet};
 use husky_word::Identifier;
 use idx_arena::map::ArenaMap;
 
-
 #[derive(Debug, PartialEq, Eq)]
 pub enum EntityUseExpr {
     // *

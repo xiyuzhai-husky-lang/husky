@@ -1,7 +1,7 @@
 use super::*;
 use husky_opn_syntax::*;
 use husky_primitive_literal_syntax::RawLiteralData;
-use husky_text::{CharIter, TextCharIter, TextIndent, TextRange};
+use husky_text::{TextCharIter, TextRange};
 use husky_word::WordDb;
 use std::str::FromStr;
 
@@ -137,7 +137,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                 break;
             }
         }
-        let len = self.buffer.len();
+        let _len = self.buffer.len();
         self.take_buffer_word()
     }
 
@@ -155,7 +155,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     'f' => todo!(),
                     _ => (),
                 }
-                let len = self.buffer.len();
+                let _len = self.buffer.len();
                 RawTokenVariant::Literal(RawLiteralData::Float(self.take_buffer::<f64>().into()))
                     .into()
             }
@@ -262,7 +262,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     ))
                 } else {
                     // integer
-                    let len = self.buffer.len();
+                    let _len = self.buffer.len();
                     RawTokenVariant::Literal(RawLiteralData::Integer(
                         self.take_buffer::<i32>().into(),
                     ))
@@ -312,7 +312,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
     }
 
     fn ignore_char(&mut self) {
-        let c = self.char_iter.next().expect("what");
+        let _c = self.char_iter.next().expect("what");
     }
 
     fn next_special(&mut self, c_start: char) -> Option<RawTokenVariant> {

@@ -1,6 +1,5 @@
 mod partition;
 
-use husky_feature_protocol::FeatureId;
 use husky_signal::Signalable;
 pub use partition::*;
 use vec_like::VecSet;
@@ -173,14 +172,14 @@ impl Presentation {
         self.partitions.remove_partition(idx)
     }
 
-    pub fn restrict_to_arrival(&mut self, trace_id: TraceId) {
+    pub fn restrict_to_arrival(&mut self, _trace_id: TraceId) {
         match self.restriction {
             Some(ref mut res) => res.kind = RestrictionKind::Arrival,
             None => (),
         }
     }
 
-    pub fn restrict_to_return(&mut self, trace_id: TraceId) {
+    pub fn restrict_to_return(&mut self, _trace_id: TraceId) {
         match self.restriction {
             Some(ref mut res) => res.kind = RestrictionKind::Return,
             None => (),

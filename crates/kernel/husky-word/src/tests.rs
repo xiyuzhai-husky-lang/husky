@@ -1,4 +1,3 @@
-use husky_print_utils::p;
 use salsa::DebugWithDb;
 
 use crate::*;

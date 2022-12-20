@@ -28,7 +28,7 @@ impl std::panic::RefUnwindSafe for DB {}
 
 #[test]
 fn test_traits() {
-    fn f<A>(a: &A)
+    fn f<A>(_a: &A)
     where
         A: std::panic::RefUnwindSafe,
     {

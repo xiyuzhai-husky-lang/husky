@@ -56,7 +56,12 @@ impl TermCurry {
 }
 
 impl<'a> TermContext<'a> {
-    pub(crate) fn curry(&self, curry_kind: TermCurryVariant, x: Term, y: Term) -> TermResult<Term> {
+    pub(crate) fn curry(
+        &self,
+        _curry_kind: TermCurryVariant,
+        _x: Term,
+        _y: Term,
+    ) -> TermResult<Term> {
         todo!()
         // TODO: check type
         // Term::new(

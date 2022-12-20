@@ -1,11 +1,7 @@
 use crate::*;
-use husky_text::Text;
+
 use husky_token::TokenDb;
 use husky_vfs::*;
-use idx_arena::map::ArenaKeyQuery;
-use std::fmt::Write;
-use std::sync::Arc;
-use upcast::Upcast;
 
 pub trait AstDb: DbWithJar<AstJar> + TokenDb {
     fn ast_sheet(&self, module: EntityPath) -> &VfsResult<AstSheet>;

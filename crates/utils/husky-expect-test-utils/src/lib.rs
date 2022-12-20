@@ -14,7 +14,6 @@ use serde::{Deserialize, Serialize};
 use std::{
     fs::read_to_string,
     io::{stdin, stdout, Write},
-    ops::Deref,
     panic::{RefUnwindSafe, UnwindSafe},
     path::{Path, PathBuf},
     process::exit,

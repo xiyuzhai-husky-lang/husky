@@ -7,7 +7,7 @@ mod synthesize;
 use crate::*;
 use husky_check_utils::should;
 use husky_entity_tree::EntityTreeDb;
-use husky_symbol_syntax::{SymbolContext, SymbolSheet};
+use husky_symbol_syntax::SymbolContext;
 use husky_token::TokenIter;
 use husky_token::{Token, TokenKind};
 use opr::*;

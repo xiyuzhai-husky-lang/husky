@@ -1,7 +1,7 @@
 use crate::*;
 use husky_path_utils::{derive_library_path_from_cargo_manifest_dir, Path};
-use husky_platform::Platform;
-use salsa::{storage::HasJar, DbWithJar};
+
+use salsa::DbWithJar;
 
 pub trait ToolchainDb: DbWithJar<ToolchainJar> {
     fn lang_dev_toolchain(&self) -> Toolchain;

@@ -3,12 +3,11 @@ use expect_test::expect_file;
 use husky_entity_path::{EntityPathDb, EntityPathJar};
 use husky_expect_test_utils::*;
 use husky_package_path::{PackagePathDb, PackagePathJar};
-use husky_print_utils::p;
+
 use husky_toolchain::*;
 use husky_vfs::*;
-use husky_word::{WordDb, WordJar};
-use salsa::{Database, ParallelDatabase, Snapshot, Storage};
-use std::{borrow::Cow, sync::Arc};
+use husky_word::WordJar;
+use salsa::{Database, Storage};
 
 #[salsa::db(WordJar, ToolchainJar, PackagePathJar, TokenJar, VfsJar, EntityPathJar)]
 #[derive(Default)]
@@ -31,7 +30,7 @@ fn tokenize_works() {
 fn tokenize_library() {
     let db = MimicDB::default();
     let toolchain = db.lang_dev_toolchain();
-    let package_path_menu = db.package_path_menu(toolchain).as_ref().unwrap();
+    let _package_path_menu = db.package_path_menu(toolchain).as_ref().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain).as_ref().unwrap();
 
     macro_rules! t {

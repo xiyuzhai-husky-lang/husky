@@ -12,7 +12,7 @@ impl DebugWithDb<<WordJar as salsa::jar::Jar<'_>>::DynDb> for Identifier {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn WordDb,
-        include_all_fields: bool,
+        _include_all_fields: bool,
     ) -> std::fmt::Result {
         f.debug_tuple("Identifier").field(&self.data(db)).finish()
     }
