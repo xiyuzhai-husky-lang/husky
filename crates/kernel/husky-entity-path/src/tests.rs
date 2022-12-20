@@ -1,3 +1,5 @@
+pub(crate) use husky_toolchain::ToolchainDb;
+
 use crate::*;
 use husky_package_path::PackagePathJar;
 use husky_toolchain::*;

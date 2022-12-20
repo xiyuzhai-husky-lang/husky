@@ -3,12 +3,14 @@ mod ident;
 mod jar;
 mod menu;
 mod style;
+#[cfg(test)]
 mod tests;
 
 pub use db::*;
 pub use ident::*;
 pub use jar::*;
 pub use menu::*;
+pub use style::*;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
 pub struct Word(salsa::Id);

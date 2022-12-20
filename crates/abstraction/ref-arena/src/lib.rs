@@ -12,6 +12,12 @@ pub struct RefArenaIdx<T, const POOL_CAPACITY: usize> {
     phantom: PhantomData<[T; POOL_CAPACITY]>,
 }
 
+impl<T, const POOL_CAPACITY: usize> RefArenaIdx<T, POOL_CAPACITY> {
+    pub fn raw(&self) -> usize {
+        self.raw
+    }
+}
+
 impl<T, const POOL_CAPACITY: usize> RefArena<T, POOL_CAPACITY> {
     pub fn new() -> Self {
         assert!(POOL_CAPACITY > 0);

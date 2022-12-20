@@ -13,8 +13,8 @@ pub struct LocalStack<T, Prelude = ()> {
 #[test]
 fn test_size() {
     struct A {
-        a: (),
-    };
+        _a: (),
+    }
 
     assert_eq!(std::mem::size_of::<A>(), 0);
 }

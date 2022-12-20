@@ -60,7 +60,7 @@ where
                 Entry::Occupied(entry) => *entry.get(),
                 // If we haven't read this file yet set up the watch, read the
                 // contents, store it in the cache, and return it.
-                Entry::Vacant(entry) => unsafe {
+                Entry::Vacant(entry) => {
                     let path = abs_path.path();
                     //  &path.path(self);
                     if let Some(watcher) = self.watcher() {
@@ -77,7 +77,7 @@ where
                         content,
                         self.calc_durability(path)?,
                     ))
-                },
+                }
             },
         )
     }
@@ -114,7 +114,7 @@ where
             Entry::Occupied(entry) => *entry.get(),
             // If we haven't read this file yet set up the watch, read the
             // contents, store it in the cache, and return it.
-            Entry::Vacant(entry) => unsafe {
+            Entry::Vacant(entry) => {
                 let path = abs_path.path();
                 //  &path.path(self);
                 if let Some(watcher) = self.watcher() {
@@ -131,7 +131,7 @@ where
                     content,
                     self.calc_durability(path)?,
                 ))
-            },
+            }
         };
         file.set_content(self).to(content);
         Ok(())
@@ -247,7 +247,7 @@ where
         if package_dir.join("src/lib.hsy").exists() {
             let root_module = EntityPath::new_crate_root(self, package, CrateKind::Library);
             modules.push(root_module);
-            collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules);
+            collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)?;
             if package_dir.join("src/main.hsy").exists() {
                 todo!()
             }
@@ -257,7 +257,7 @@ where
         } else if package_dir.join("src/main.hsy").exists() {
             let root_module = EntityPath::new_crate_root(self, package, CrateKind::Main);
             modules.push(root_module);
-            collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules);
+            collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)?;
             if package_dir.join("src/bin").exists() {
                 todo!()
             }

@@ -29,11 +29,6 @@ impl Default for VfsCache {
     }
 }
 
-pub enum HuskyFileCacheKind {
-    Major,
-    Snapshot,
-}
-
 impl VfsCache {
     pub(crate) fn files(&self) -> &DashMap<PathBuf, File> {
         &self.files

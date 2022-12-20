@@ -47,12 +47,3 @@ where
         change
     }
 }
-
-impl<E> TrackableVec<E>
-where
-    E: TrackClone,
-{
-    pub(super) fn synced(&self) -> bool {
-        self.state.old_len == self.entries.len() && self.state.elems_modified.len() == 0
-    }
-}
