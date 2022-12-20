@@ -38,4 +38,10 @@ pub enum AbsolutePathError {
     },
 }
 
+impl From<&AbsolutePathError> for AbsolutePathError {
+    fn from(value: &AbsolutePathError) -> Self {
+        todo!()
+    }
+}
+
 pub type AbsolutePathResult<T> = Result<T, AbsolutePathError>;

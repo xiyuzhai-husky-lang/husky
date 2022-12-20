@@ -12,16 +12,6 @@ pub struct EntityTreeSheet {
 }
 
 impl EntityTreeSheet {
-    pub fn show(&self, db: &dyn EntityTreeDb) -> String {
-        let all_entity_paths: Vec<_> = self
-            .arena
-            .data()
-            .iter()
-            .map(|tree| tree.node.entity_path().show(db))
-            .collect();
-        format!("{:?}", all_entity_paths)
-    }
-
     pub(crate) fn get(&self, entity_path: EntityPath) -> Option<&EntityTree> {
         self.arena
             .data()

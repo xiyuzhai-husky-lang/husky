@@ -64,19 +64,26 @@ where
 {
     fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
 }
-impl ::salsa::DebugWithDb<<WordJar as salsa::jar::Jar<'_>>::DynDb> for Word {
+
+impl ::salsa::DebugWithDb<dyn WordDb + '_> for Word {
     fn fmt(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
-        _db: &<WordJar as salsa::jar::Jar<'_>>::DynDb,
+        db: &dyn WordDb,
         _include_all_fields: bool,
     ) -> ::std::fmt::Result {
-        #[allow(unused_imports)]
-        use ::salsa::debug::helper::Fallback;
-        let mut debug_struct = &mut f.debug_struct("Word");
-        debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
-        debug_struct = debug_struct.field("data", &self.data(_db));
-        debug_struct.finish()
+        f.debug_tuple("Word").field(&self.data(db)).finish()
+    }
+}
+
+impl<Db: WordDb> ::salsa::DebugWithDb<Db> for Word {
+    fn fmt(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> ::std::fmt::Result {
+        self.fmt(f, db as &dyn WordDb, include_all_fields)
     }
 }
 

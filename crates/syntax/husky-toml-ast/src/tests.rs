@@ -38,7 +38,7 @@ impl ParallelDatabase for MimicDB {
 fn manifest_ast_works() {
     let db = MimicDB::default();
     let toolchain = db.lang_dev_toolchain();
-    let package_path_menu = db.package_path_menu(toolchain);
+    let package_path_menu = db.package_path_menu(toolchain).as_ref().unwrap();
     expect_file!["../tests/package_core_manifest_ast.txt"].assert_eq(&format!(
         "{:#?}",
         db.package_manifest_ast(package_path_menu.core())

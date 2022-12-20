@@ -29,7 +29,7 @@ where
 
     fn collect_preludes(&self) -> Vec<Symbol> {
         let toolchain = self.lang_dev_toolchain();
-        let entity_path_menu = self.entity_path_menu(toolchain);
+        let Ok(entity_path_menu) = self.entity_path_menu(toolchain).as_ref() else {todo!()};
         let mut preludes: Vec<Symbol> = vec![
             Symbol {
                 ident: self.it_ident_borrowed("core").unwrap(),

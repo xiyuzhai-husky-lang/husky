@@ -1,7 +1,7 @@
 use crate::*;
 use husky_absolute_path::AbsolutePath;
 use husky_entity_path::*;
-use husky_package_path::{CrateKind, CratePath, PackagePathData};
+use husky_package_path::{CrateKind, CratePath, PackagePath, PackagePathData};
 use husky_path_utils::*;
 use husky_print_utils::p;
 use std::{borrow::Borrow, path::PathBuf};
@@ -190,8 +190,7 @@ where
     T: VfsDb,
 {
     collect_package_dirs(dir).into_iter().for_each(|path| {
-        let package_path =
-            db.it_package_path(PackagePathData::Local(AbsolutePath::new(&path).unwrap()));
+        let package_path = PackagePath::new_local(db, &path).unwrap();
         use salsa::DebugWithDb;
         for crate_path in db.collect_crates(package_path).unwrap() {
             f(db, crate_path)
@@ -204,9 +203,7 @@ where
     T: VfsDb,
 {
     collect_package_dirs(dir).into_iter().for_each(|path| {
-        let package_path =
-            db.it_package_path(PackagePathData::Local(AbsolutePath::new(&path).unwrap()));
-        use salsa::DebugWithDb;
+        let package_path = PackagePath::new_local(db, &path).unwrap();
         for entity_path in db.collect_probable_modules(package_path).unwrap() {
             f(db, entity_path)
         }
@@ -227,9 +224,7 @@ fn expect_test_crates<Db, R>(
     collect_package_relative_dirs(base)
         .into_iter()
         .for_each(|path| {
-            let package_path = db.it_package_path(PackagePathData::Local(
-                AbsolutePath::new(&path.to_logical_path(base)).unwrap(),
-            ));
+            let package_path = PackagePath::new_local(db, &path.to_logical_path(base)).unwrap();
             let resolver = TestPathResolver {
                 db,
                 name,
@@ -258,9 +253,7 @@ fn expect_test_probable_modules_debug_with_db<Db, R>(
     collect_package_relative_dirs(base)
         .into_iter()
         .for_each(|path| {
-            let package = db.it_package_path(PackagePathData::Local(
-                AbsolutePath::new(&path.to_logical_path(base)).unwrap(),
-            ));
+            let package = PackagePath::new_local(db, &path.to_logical_path(base)).unwrap();
             let resolver = TestPathResolver {
                 db,
                 name,

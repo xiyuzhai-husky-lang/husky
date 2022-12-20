@@ -1,3 +1,4 @@
+use husky_absolute_path::AbsolutePathResult;
 use husky_package_path::PackagePathDb;
 use husky_word::WordDb;
 use place::SingleAssignPlace;
@@ -11,7 +12,7 @@ pub struct EntityPathMenuPlace(Arc<once_cell::sync::OnceCell<EntityPathMenu>>);
 
 pub trait EntityPathDb: DbWithJar<EntityPathJar> + PackagePathDb + WordDb {
     fn entity_path_db(&self) -> &dyn EntityPathDb;
-    fn entity_path_menu(&self, toolchain: Toolchain) -> &EntityPathMenu;
+    fn entity_path_menu(&self, toolchain: Toolchain) -> &EntityPathResult<EntityPathMenu>;
     fn it_entity_path(&self, data: EntityPathData) -> EntityPath;
     fn dt_entity_path(&self, path: EntityPath) -> EntityPathData;
     fn book_crate_of_entity_path(&self, path: EntityPath) -> CratePath;
@@ -22,7 +23,7 @@ impl<T> EntityPathDb for T
 where
     T: DbWithJar<EntityPathJar> + PackagePathDb + WordDb,
 {
-    fn entity_path_menu(&self, toolchain: Toolchain) -> &EntityPathMenu {
+    fn entity_path_menu(&self, toolchain: Toolchain) -> &EntityPathResult<EntityPathMenu> {
         entity_path_menu(self, toolchain)
     }
 
@@ -52,9 +53,9 @@ impl dyn EntityPathDb + '_ {
         &self,
         toolchain: Toolchain,
         ident: &str,
-    ) -> Option<EntityPath> {
-        let ident = self.it_ident_borrowed(ident)?;
-        Some(
+    ) -> PackagePathResult<EntityPath> {
+        let Some(ident) = self.it_ident_borrowed(ident) else { todo!() };
+        Ok(
             self.it_entity_path(EntityPathData::CrateRoot(CratePath::new(
                 self,
                 self.builtin_package_path(toolchain, ident)?,

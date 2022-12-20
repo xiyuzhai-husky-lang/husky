@@ -45,7 +45,7 @@ pub(crate) fn absolute_entity_path(
 fn absolute_entity_path_works() {
     let db = DB::default();
     let toolchain = db.lang_dev_toolchain();
-    let menu = db.entity_path_menu(toolchain);
+    let menu = db.entity_path_menu(toolchain).as_ref().unwrap();
     assert!(db.is_absolute(menu.i32()).unwrap());
     assert!(db.is_absolute(menu.i64()).unwrap());
     // todo

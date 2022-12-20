@@ -1,70 +1,13 @@
 Ok(
     [
         EntityPath {
-            [salsa id]: 19,
-            data: CrateRoot {
-                parent: EntityPath {
-                    [salsa id]: 18,
-                    data: CrateRoot(
-                        CratePath {
-                            [salsa id]: 1,
-                            package_path: PackagePathData::Global(
-                                AbsolutePath(
-                                    "/home/xiyuzhai/repos/husky/library/std",
-                                ),
-                            ),
-                            crate_kind: Library,
-                        },
-                    ),
-                },
-                ident: Identifier(
-                    "prelude",
-                ),
-            },
+            [show]: "crate::prelude",
         },
         EntityPath {
-            [salsa id]: 20,
-            data: CrateRoot {
-                parent: EntityPath {
-                    [salsa id]: 18,
-                    data: CrateRoot(
-                        CratePath {
-                            [salsa id]: 1,
-                            package_path: PackagePathData::Global(
-                                AbsolutePath(
-                                    "/home/xiyuzhai/repos/husky/library/std",
-                                ),
-                            ),
-                            crate_kind: Library,
-                        },
-                    ),
-                },
-                ident: Identifier(
-                    "logic",
-                ),
-            },
+            [show]: "crate::logic",
         },
         EntityPath {
-            [salsa id]: 21,
-            data: CrateRoot {
-                parent: EntityPath {
-                    [salsa id]: 18,
-                    data: CrateRoot(
-                        CratePath {
-                            [salsa id]: 1,
-                            package_path: PackagePathData::Global(
-                                AbsolutePath(
-                                    "/home/xiyuzhai/repos/husky/library/std",
-                                ),
-                            ),
-                            crate_kind: Library,
-                        },
-                    ),
-                },
-                ident: Identifier(
-                    "ops",
-                ),
-            },
+            [show]: "crate::ops",
         },
     ],
 )

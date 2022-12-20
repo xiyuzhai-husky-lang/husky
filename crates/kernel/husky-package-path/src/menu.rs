@@ -1,3 +1,5 @@
+use husky_toolchain::ToolchainData;
+
 use crate::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -8,17 +10,28 @@ pub struct PackagePathMenu {
 }
 
 impl PackagePathMenu {
-    fn new(db: &dyn PackagePathDb, toolchain: Toolchain) -> Self {
+    fn new(db: &dyn PackagePathDb, toolchain: Toolchain) -> AbsolutePathResult<Self> {
         let word_menu = db.word_menu();
-        let f = |ident| PackagePath::new(db, PackagePathData::Builtin { ident, toolchain });
-        let core = f(word_menu.core());
-        let std = f(word_menu.std());
+        let f = |ident| match toolchain.data(db) {
+            ToolchainData::Published(toolchain) => Ok(PackagePath::new(
+                db,
+                PackagePathData::PublishedToolchain {
+                    ident,
+                    toolchain: *toolchain,
+                },
+            )),
+            ToolchainData::Local { library_path } => {
+                PackagePath::new_local(db, &library_path.join(ident.data(db)))
+            }
+        };
+        let core = f(word_menu.core())?;
+        let std = f(word_menu.std())?;
         let core_library = CratePath::new(db, core, CrateKind::Library);
-        Self {
+        Ok(Self {
             core,
             std,
             core_library,
-        }
+        })
     }
 
     pub fn core(&self) -> PackagePath {
@@ -35,6 +48,9 @@ impl PackagePathMenu {
 }
 
 #[salsa::tracked(jar = PackagePathJar, return_ref)]
-pub(crate) fn package_path_menu(db: &dyn PackagePathDb, toolchain: Toolchain) -> PackagePathMenu {
+pub(crate) fn package_path_menu(
+    db: &dyn PackagePathDb,
+    toolchain: Toolchain,
+) -> AbsolutePathResult<PackagePathMenu> {
     PackagePathMenu::new(db, toolchain)
 }

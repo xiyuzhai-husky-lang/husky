@@ -1,6 +1,7 @@
 #![feature(trait_upcasting)]
 mod crate_path;
 mod db;
+mod error;
 mod jar;
 mod menu;
 mod name;
@@ -9,29 +10,35 @@ mod tests;
 
 pub use crate_path::*;
 pub use db::*;
+pub use error::*;
 pub use jar::*;
 pub use menu::*;
 
 use ::salsa::DebugWithDb;
-use husky_absolute_path::AbsolutePath;
-use husky_toolchain::Toolchain;
+use husky_absolute_path::{AbsolutePath, AbsolutePathResult};
+use husky_toolchain::{PublishedToolchain, Toolchain};
 use husky_word::Identifier;
 use name::package_name;
 use semver::Version;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use url::Url;
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
 pub enum PackagePathData {
-    Builtin {
+    PublishedToolchain {
         ident: Identifier,
-        toolchain: Toolchain,
+        toolchain: PublishedToolchain,
     },
     Global {
+        ident: Identifier,
         version: Version,
     },
-    Local(AbsolutePath),
-    Git(Url),
+    Local {
+        path: AbsolutePath,
+    },
+    Git {
+        url: Url,
+    },
 }
 
 // #[salsa::interned(jar = PackagePathJar)]
@@ -42,6 +49,26 @@ pub enum PackagePathData {
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
 pub struct PackagePath(salsa::Id);
+
+impl PackagePath {
+    pub fn ident(self, db: &dyn PackagePathDb) -> Identifier {
+        match self.data(db) {
+            PackagePathData::PublishedToolchain { ident, .. }
+            | PackagePathData::Global { ident, .. } => *ident,
+            PackagePathData::Local { .. } => todo!(),
+            PackagePathData::Git { .. } => todo!(),
+        }
+    }
+
+    pub fn new_local(db: &dyn PackagePathDb, path: &Path) -> AbsolutePathResult<Self> {
+        Ok(PackagePath::new(
+            db,
+            PackagePathData::Local {
+                path: AbsolutePath::new(path)?,
+            },
+        ))
+    }
+}
 
 #[doc = r" Internal struct used for interned item"]
 #[derive(Eq, PartialEq, Hash, Clone)]
@@ -104,20 +131,29 @@ impl DebugWithDb<dyn PackagePathDb + '_> for PackagePath {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn PackagePathDb,
-        _: bool,
+        include_all_fields: bool,
     ) -> ::std::fmt::Result {
         match self.data(db) {
-            PackagePathData::Builtin { ident, toolchain } => f
-                .debug_struct("PackagePathData::Builtin")
+            PackagePathData::PublishedToolchain { ident, toolchain } => f
+                .debug_struct("Builtin")
                 .field("ident", &ident.data(db))
                 .field("toolchain", &toolchain.debug(db))
                 .finish(),
-            PackagePathData::Global { version } => todo!(),
-            PackagePathData::Local(path) => f
-                .debug_tuple("PackagePathData::Global")
-                .field(path)
+            PackagePathData::Global { ident, version } => f
+                .debug_struct("Glocal")
+                .field("ident", ident)
+                .field("version", version)
                 .finish(),
-            PackagePathData::Git(_) => todo!(),
+            PackagePathData::Local { path } => f
+                .debug_struct("Local")
+                .field("ident", &self.ident(db).debug_with(db, include_all_fields))
+                .field("path", path)
+                .finish(),
+            PackagePathData::Git { url } => f
+                .debug_struct("Git")
+                .field("ident", &self.ident(db).debug_with(db, include_all_fields))
+                .field("url", url)
+                .finish(),
         }
     }
 }

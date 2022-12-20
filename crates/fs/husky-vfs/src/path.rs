@@ -16,14 +16,14 @@ pub(crate) fn package_manifest_path(
 #[salsa::tracked(jar = VfsJar, return_ref)]
 pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<AbsolutePath> {
     match db.package_path_data(package) {
-        PackagePathData::Builtin { toolchain, .. } => {
+        PackagePathData::PublishedToolchain { toolchain, .. } => {
             let name = db.package_name(package);
-            let toolchain_library_path = db.toolchain_library_path(*toolchain);
+            let toolchain_library_path = db.published_toolchain_library_path(*toolchain);
             AbsolutePath::new(&toolchain_library_path.join(name)).map_err(|e| e.into())
         }
-        PackagePathData::Global { version } => todo!(),
-        PackagePathData::Local(path) => Ok(path.clone()),
-        PackagePathData::Git(_) => todo!(),
+        PackagePathData::Global { ident, version } => todo!(),
+        PackagePathData::Local { path } => Ok(path.clone()),
+        PackagePathData::Git { .. } => todo!(),
     }
 }
 
@@ -73,16 +73,16 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> Vfs
                 .exists()
         {
             match file_stem {
-                "lib" =>  EntityPath::new_crate_root( db, db.it_package_path(PackagePathData::Local(AbsolutePath::new(
-                        parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
-                    )?)),  CrateKind::Library,
+                "lib" =>  EntityPath::new_crate_root(
+                    db,
+                    PackagePath::new_local(db, parent.parent().ok_or(VfsError::ModulePathResolveFailure)?)?,
+                    CrateKind::Library,
                 ) ,
-                "main" => EntityPath::new_crate_root( db, 
-                    // ad hoc
-                    // todo: correctly recognize toolchain
-                    db.it_package_path(PackagePathData::Local(AbsolutePath::new(
+                "main" => EntityPath::new_crate_root(
+                    db,
+                    db.it_package_path(PackagePathData::Local{path:AbsolutePath::new(
                         parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
-                    )?)),  CrateKind::Main,
+                    )?}),  CrateKind::Main,
                  ),
                 _ => {
                     if let lib_path = parent.join("lib.hsy") && lib_path.exists() {

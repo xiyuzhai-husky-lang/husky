@@ -9,24 +9,29 @@ use husky_platform::Platform;
 use std::path::PathBuf;
 
 #[salsa::jar(db = ToolchainDb)]
-pub struct ToolchainJar(Toolchain, toolchain_library_path);
+pub struct ToolchainJar(
+    Toolchain,
+    PublishedToolchain,
+    published_toolchain_library_path,
+);
 
 #[salsa::interned(jar = ToolchainJar)]
 pub struct Toolchain {
     #[return_ref]
-    data: ToolchainData,
+    pub data: ToolchainData,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum ToolchainData {
-    Published {
-        channel: ToolchainChannel,
-        date: ToolchainDate,
-        platform: Platform,
-    },
-    Local {
-        library_path: PathBuf,
-    },
+    Published(PublishedToolchain),
+    Local { library_path: PathBuf },
+}
+
+#[salsa::interned(jar = ToolchainJar)]
+pub struct PublishedToolchain {
+    channel: ToolchainChannel,
+    date: ToolchainDate,
+    platform: Platform,
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
@@ -42,13 +47,9 @@ impl ToolchainChannel {
 }
 
 #[salsa::tracked(jar = ToolchainJar, return_ref)]
-fn toolchain_library_path(db: &dyn ToolchainDb, toolchain: Toolchain) -> PathBuf {
-    match toolchain.data(db) {
-        ToolchainData::Published {
-            channel,
-            date,
-            platform,
-        } => todo!(),
-        ToolchainData::Local { library_path } => library_path.clone(),
-    }
+fn published_toolchain_library_path(
+    db: &dyn ToolchainDb,
+    toolchain: PublishedToolchain,
+) -> PathBuf {
+    todo!()
 }

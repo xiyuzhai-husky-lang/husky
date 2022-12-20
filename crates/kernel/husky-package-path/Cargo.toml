@@ -5,6 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+thiserror = "1.0.37"
 expect-test = "1.4.0"
 semver = "1.0.14"
 url = "2.3.1"

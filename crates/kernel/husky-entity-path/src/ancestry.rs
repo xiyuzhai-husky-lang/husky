@@ -42,42 +42,42 @@ fn apparent_ancestry_works() {
 
     let db = DB::default();
     let toolchain = db.lang_dev_toolchain();
-    let menu = db.entity_path_menu(toolchain);
+    let menu = db.entity_path_menu(toolchain).as_ref().unwrap();
     expect_test::expect![[r#"
         [
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })",
+            "core",
         ]
     "#]]
     .assert_debug_eq(&t(&db, menu.core()));
     expect_test::expect![[r#"
         [
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })",
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num",
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num::i32",
+            "core",
+            "core::num",
+            "core::num::i32",
         ]
     "#]]
     .assert_debug_eq(&t(&db, menu.i32()));
     expect_test::expect![[r#"
         [
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })",
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num",
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num::i64",
+            "core",
+            "core::num",
+            "core::num::i64",
         ]
     "#]]
     .assert_debug_eq(&t(&db, menu.i64()));
     expect_test::expect![[r#"
         [
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })",
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num",
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num::b32",
+            "core",
+            "core::num",
+            "core::num::b32",
         ]
     "#]]
     .assert_debug_eq(&t(&db, menu.b32()));
     expect_test::expect![[r#"
         [
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })",
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num",
-            "crate(Builtin { ident: Identifier(Word(Id { value: 1 })), toolchain: Toolchain(Id { value: 1 }) })::num::b64",
+            "core",
+            "core::num",
+            "core::num::b64",
         ]
     "#]]
     .assert_debug_eq(&t(&db, menu.b64()));

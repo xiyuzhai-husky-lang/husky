@@ -2,6 +2,7 @@
 mod accessibility;
 mod ancestry;
 mod db;
+mod error;
 mod menu;
 #[cfg(test)]
 mod tests;
@@ -9,6 +10,7 @@ mod utils;
 
 pub use accessibility::*;
 pub use db::*;
+pub use error::*;
 pub use menu::*;
 
 use ancestry::*;
@@ -22,9 +24,73 @@ use utils::*;
 #[salsa::jar(db = EntityPathDb)]
 pub struct EntityPathJar(EntityPath, apparent_ancestry, entity_path_menu);
 
-#[salsa::interned(jar = EntityPathJar)]
-pub struct EntityPath {
-    pub data: EntityPathData,
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
+pub struct EntityPath(salsa::Id);
+
+#[doc = r" Internal struct used for interned item"]
+#[derive(Eq, PartialEq, Hash, Clone)]
+pub struct __EntityPathData {
+    data: EntityPathData,
+}
+impl salsa::storage::IngredientsFor for EntityPath {
+    type Jar = EntityPathJar;
+    type Ingredients = salsa::interned::InternedIngredient<EntityPath, __EntityPathData>;
+    fn create_ingredients<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self::Ingredients
+    where
+        DB: salsa::storage::JarFromJars<Self::Jar>,
+    {
+        let index = routes.push(
+            |jars| {
+                let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars(jars);
+                <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient(jar)
+            },
+            |jars| {
+                let jar = <DB as salsa::storage::JarFromJars<Self::Jar>>::jar_from_jars_mut(jars);
+                <_ as salsa::storage::HasIngredientsFor<Self>>::ingredient_mut(jar)
+            },
+        );
+        salsa::interned::InternedIngredient::new(index, "EntityPath")
+    }
+}
+impl salsa::AsId for EntityPath {
+    fn as_id(self) -> salsa::Id {
+        self.0
+    }
+    fn from_id(id: salsa::Id) -> Self {
+        EntityPath(id)
+    }
+}
+impl EntityPath {
+    pub fn data(self, db: &<EntityPathJar as salsa::jar::Jar<'_>>::DynDb) -> EntityPathData {
+        let (jar, runtime) = <_ as salsa::storage::HasJar<EntityPathJar>>::jar(db);
+        let ingredients =
+            <EntityPathJar as salsa::storage::HasIngredientsFor<EntityPath>>::ingredient(jar);
+        std::clone::Clone::clone(&ingredients.data(runtime, self).data)
+    }
+    pub fn new(db: &<EntityPathJar as salsa::jar::Jar<'_>>::DynDb, data: EntityPathData) -> Self {
+        let (jar, runtime) = <_ as salsa::storage::HasJar<EntityPathJar>>::jar(db);
+        let ingredients =
+            <EntityPathJar as salsa::storage::HasIngredientsFor<EntityPath>>::ingredient(jar);
+        ingredients.intern(runtime, __EntityPathData { data })
+    }
+}
+impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for EntityPath
+where
+    DB: ?Sized + salsa::DbWithJar<EntityPathJar>,
+{
+    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
+}
+impl salsa::DebugWithDb<dyn EntityPathDb + '_> for EntityPath {
+    fn fmt(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+        db: &<EntityPathJar as salsa::jar::Jar<'_>>::DynDb,
+        _include_all_fields: bool,
+    ) -> ::std::fmt::Result {
+        f.debug_struct("EntityPath")
+            .field("[show]", &self.show(db))
+            .finish()
+    }
 }
 
 impl<Db> salsa::DebugWithDb<Db> for EntityPath
@@ -48,74 +114,6 @@ pub enum EntityPathData {
         parent: EntityPath,
         ident: Identifier,
     },
-}
-
-impl salsa::DebugWithDb<<EntityPathJar as salsa::jar::Jar<'_>>::DynDb> for EntityPathData {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &<EntityPathJar as salsa::jar::Jar<'_>>::DynDb,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        #[allow(unused_imports)]
-        use ::salsa::debug::helper::Fallback;
-        match self {
-            EntityPathData::CrateRoot(crate_path) => f
-                .debug_tuple("CrateRoot")
-                .field(&::salsa::debug::helper::SalsaDebug::<
-                    CratePath,
-                    <PackagePathJar as salsa::jar::Jar<'_>>::DynDb,
-                >::salsa_debug(
-                    #[allow(clippy::needless_borrow)]
-                    crate_path,
-                    db,
-                    include_all_fields,
-                ))
-                .finish(),
-            EntityPathData::Childpath { parent, ident } => f
-                .debug_struct("CrateRoot")
-                .field(
-                    "parent",
-                    &::salsa::debug::helper::SalsaDebug::<
-                        EntityPath,
-                        <EntityPathJar as salsa::jar::Jar<'_>>::DynDb,
-                    >::salsa_debug(
-                        #[allow(clippy::needless_borrow)]
-                        parent,
-                        db,
-                        include_all_fields,
-                    ),
-                )
-                .field(
-                    "ident",
-                    &::salsa::debug::helper::SalsaDebug::<
-                        Identifier,
-                        <WordJar as salsa::jar::Jar<'_>>::DynDb,
-                    >::salsa_debug(
-                        #[allow(clippy::needless_borrow)]
-                        ident,
-                        db,
-                        include_all_fields,
-                    ),
-                )
-                .finish(),
-        }
-        // let mut debug_struct = &mut f.debug_struct("EntityPath");
-        // debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
-        // debug_struct = debug_struct.field(
-        //     "data",
-        //     &::salsa::debug::helper::SalsaDebug::<
-        //         EntityPathData,
-        //         <EntityPathJar as salsa::jar::Jar<'_>>::DynDb,
-        //     >::salsa_debug(
-        //         #[allow(clippy::needless_borrow)]
-        //         &self.data(_db),
-        //         _db,
-        //         _include_all_fields,
-        //     ),
-        // );
-        // debug_struct.finish()
-    }
 }
 
 impl EntityPath {
@@ -159,9 +157,7 @@ impl EntityPath {
 
     pub fn show(self, db: &dyn EntityPathDb) -> String {
         match self.data(db) {
-            EntityPathData::CrateRoot(crate_path) => {
-                format!("crate({:?})", crate_path.package_path(db).data(db))
-            }
+            EntityPathData::CrateRoot(crate_path) => crate_path.show(db).to_owned(),
             EntityPathData::Childpath { parent, ident } => {
                 format!("{}::{}", parent.show(db), db.dt_ident(ident))
             }
