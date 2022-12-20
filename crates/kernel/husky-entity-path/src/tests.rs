@@ -19,7 +19,16 @@ fn entity_path_debug_works() {
     let entity_path_menu = db.entity_path_menu(toolchain).as_ref().unwrap();
     expect_test::expect![[r#"
         EntityPath {
-            [show]: "core::num::i32",
+            [show]: "crate::num::i32",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/library/core",
+                    ),
+                },
+                crate_kind: Library,
+            },
         }
     "#]]
     .assert_debug_eq(&entity_path_menu.i32().debug(&db));

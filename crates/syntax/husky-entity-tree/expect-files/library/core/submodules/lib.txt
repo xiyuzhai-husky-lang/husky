@@ -2,18 +2,63 @@ Ok(
     [
         EntityPath {
             [show]: "crate::basic",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/library/core",
+                    ),
+                },
+                crate_kind: Library,
+            },
         },
         EntityPath {
             [show]: "crate::logic",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/library/core",
+                    ),
+                },
+                crate_kind: Library,
+            },
         },
         EntityPath {
             [show]: "crate::num",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/library/core",
+                    ),
+                },
+                crate_kind: Library,
+            },
         },
         EntityPath {
             [show]: "crate::ops",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/library/core",
+                    ),
+                },
+                crate_kind: Library,
+            },
         },
         EntityPath {
             [show]: "crate::prelude",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/library/core",
+                    ),
+                },
+                crate_kind: Library,
+            },
         },
     ],
 )

@@ -16,10 +16,9 @@ pub(crate) fn package_manifest_path(
 #[salsa::tracked(jar = VfsJar, return_ref)]
 pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<AbsolutePath> {
     match db.package_path_data(package) {
-        PackagePathData::PublishedToolchain { toolchain, .. } => {
-            let name = db.package_name(package);
+        PackagePathData::PublishedToolchain { toolchain, ident } => {
             let toolchain_library_path = db.published_toolchain_library_path(*toolchain);
-            AbsolutePath::new(&toolchain_library_path.join(name)).map_err(|e| e.into())
+            AbsolutePath::new(&toolchain_library_path.join(ident.data(db))).map_err(|e| e.into())
         }
         PackagePathData::Global { ident, version } => todo!(),
         PackagePathData::Local { path } => Ok(path.clone()),

@@ -2,52 +2,142 @@ Ok(
     {
         EntityPath {
             [show]: "crate::basic",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/library/core",
+                    ),
+                },
+                crate_kind: Library,
+            },
         }: (
             EntityPath {
                 [show]: "crate::basic",
+                [crate]: CratePath {
+                    [salsa id]: 0,
+                    package_path: Local {
+                        path: AbsolutePath(
+                            "/home/xiyuzhai/repos/husky/library/core",
+                        ),
+                    },
+                    crate_kind: Library,
+                },
             },
             ModuleItemMap {
-                [salsa id]: 5,
+                [salsa id]: 0,
             },
         ),
         EntityPath {
             [show]: "crate::logic",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/library/core",
+                    ),
+                },
+                crate_kind: Library,
+            },
         }: (
             EntityPath {
                 [show]: "crate::logic",
+                [crate]: CratePath {
+                    [salsa id]: 0,
+                    package_path: Local {
+                        path: AbsolutePath(
+                            "/home/xiyuzhai/repos/husky/library/core",
+                        ),
+                    },
+                    crate_kind: Library,
+                },
             },
             ModuleItemMap {
-                [salsa id]: 6,
+                [salsa id]: 1,
             },
         ),
         EntityPath {
             [show]: "crate::num",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/library/core",
+                    ),
+                },
+                crate_kind: Library,
+            },
         }: (
             EntityPath {
                 [show]: "crate::num",
+                [crate]: CratePath {
+                    [salsa id]: 0,
+                    package_path: Local {
+                        path: AbsolutePath(
+                            "/home/xiyuzhai/repos/husky/library/core",
+                        ),
+                    },
+                    crate_kind: Library,
+                },
             },
             ModuleItemMap {
-                [salsa id]: 7,
+                [salsa id]: 2,
             },
         ),
         EntityPath {
             [show]: "crate::ops",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/library/core",
+                    ),
+                },
+                crate_kind: Library,
+            },
         }: (
             EntityPath {
                 [show]: "crate::ops",
+                [crate]: CratePath {
+                    [salsa id]: 0,
+                    package_path: Local {
+                        path: AbsolutePath(
+                            "/home/xiyuzhai/repos/husky/library/core",
+                        ),
+                    },
+                    crate_kind: Library,
+                },
             },
             ModuleItemMap {
-                [salsa id]: 8,
+                [salsa id]: 3,
             },
         ),
         EntityPath {
             [show]: "crate::prelude",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: Local {
+                    path: AbsolutePath(
+                        "/home/xiyuzhai/repos/husky/library/core",
+                    ),
+                },
+                crate_kind: Library,
+            },
         }: (
             EntityPath {
                 [show]: "crate::prelude",
+                [crate]: CratePath {
+                    [salsa id]: 0,
+                    package_path: Local {
+                        path: AbsolutePath(
+                            "/home/xiyuzhai/repos/husky/library/core",
+                        ),
+                    },
+                    crate_kind: Library,
+                },
             },
             ModuleItemMap {
-                [salsa id]: 9,
+                [salsa id]: 4,
             },
         ),
     },
