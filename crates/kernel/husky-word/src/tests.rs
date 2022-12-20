@@ -1,3 +1,5 @@
+use salsa::DebugWithDb;
+
 use crate::*;
 
 #[salsa::db(WordJar)]

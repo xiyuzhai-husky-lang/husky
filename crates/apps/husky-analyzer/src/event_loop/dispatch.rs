@@ -126,7 +126,7 @@ fn handle_lsp_notification(
                     .into_iter()
                     .map(|change| change.into())
                     .collect();
-                server.db.apply_live_file_changes(&path, changes);
+                server.db.apply_live_file_changes(&path, changes)?;
             }
             Ok(TaskSet::SendUpdates)
         })?
