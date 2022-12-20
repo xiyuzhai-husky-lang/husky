@@ -4,17 +4,16 @@ use husky_entity_path::*;
 use husky_package_path::{CrateKind, CratePath, PackagePathData};
 use husky_path_utils::*;
 use husky_print_utils::p;
-use std::path::PathBuf;
+use std::{borrow::Borrow, path::PathBuf};
 
 pub trait VfsTestSupport: VfsDb {
     fn test_crates(name: &str, f: impl Fn(&Self, CratePath))
     where
         Self: Default;
 
-    fn expect_test_crates<'a, R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
+    fn expect_test_crates(name: &str, f: impl Fn(&Self, CratePath) -> String)
     where
-        Self: Default + 'a,
-        R: std::fmt::Debug;
+        Self: Default;
 
     fn test_probable_modules(name: &str, f: impl Fn(&Self, EntityPath))
     where
@@ -97,10 +96,9 @@ where
         }
     }
 
-    fn expect_test_crates<'a, R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
+    fn expect_test_crates(name: &str, f: impl Fn(&Self, CratePath) -> String)
     where
-        Self: Default + 'a,
-        R: std::fmt::Debug,
+        Self: Default,
     {
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
@@ -171,15 +169,14 @@ where
     });
 }
 
-fn expect_test_crates<T, R>(
+fn expect_test_crates<T>(
     db: &T,
     name: &str,
     base: &Path,
     out: PathBuf,
-    f: &impl Fn(&T, CratePath) -> &R,
+    f: &impl Fn(&T, CratePath) -> String,
 ) where
     T: VfsDb,
-    R: std::fmt::Debug,
 {
     std::fs::create_dir_all(&out);
     collect_package_relative_dirs(base)

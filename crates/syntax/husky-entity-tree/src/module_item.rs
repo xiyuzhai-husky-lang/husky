@@ -18,7 +18,7 @@ pub(crate) fn module_items_map(
 #[test]
 fn module_items_map_works() {
     DB::expect_test_crates("module_items_map", |db, crate_path| {
-        module_items_map(db, crate_path)
+        format!("{:?}", module_items_map(db, crate_path).debug(db))
     })
 }
 
@@ -37,10 +37,35 @@ pub enum ModuleItem {
     },
 }
 
+impl DebugWithDb<dyn EntityTreeDb + '_> for ModuleItem {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn EntityTreeDb,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        todo!()
+    }
+}
+
 #[salsa::tracked(jar = EntityTreeJar)]
 pub(crate) struct ModuleItemMap {
     #[return_ref]
     data: IdentMap<ModuleItem>,
+}
+
+impl<Db> salsa::DebugWithDb<Db> for ModuleItemMap
+where
+    Db: EntityTreeDb,
+{
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        self.fmt(f, db as &dyn EntityTreeDb, include_all_fields)
+    }
 }
 
 impl VecMapEntry<Identifier> for ModuleItem {
