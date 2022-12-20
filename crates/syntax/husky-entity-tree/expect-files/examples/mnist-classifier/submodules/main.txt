@@ -5,9 +5,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -17,9 +15,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -29,9 +25,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -41,9 +35,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -53,9 +45,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -65,9 +55,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -77,9 +65,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -89,9 +75,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -101,9 +85,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -113,9 +95,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -125,9 +105,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -137,9 +115,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -149,9 +125,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -161,9 +135,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -173,9 +145,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },
@@ -185,9 +155,7 @@ Ok(
             [crate]: CratePath {
                 [salsa id]: 3,
                 package_path: Local {
-                    path: AbsolutePath(
-                        "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
-                    ),
+                    path: "/home/xiyuzhai/repos/husky/examples/mnist-classifier",
                 },
                 crate_kind: Main,
             },

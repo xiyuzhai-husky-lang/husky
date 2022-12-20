@@ -18,9 +18,7 @@ fn package_path_debug_works() {
     let package_path_menu = db.package_path_menu(toolchain).as_ref().unwrap();
     expect_test::expect![[r#"
         Local {
-            path: AbsolutePath(
-                "/home/xiyuzhai/repos/husky/library/core",
-            ),
+            path: "/home/xiyuzhai/repos/husky/library/core",
         }
     "#]]
     .assert_debug_eq(&package_path_menu.core().debug(&db));
