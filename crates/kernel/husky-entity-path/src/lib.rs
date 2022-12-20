@@ -25,6 +25,20 @@ pub struct EntityPath {
     pub data: EntityPathData,
 }
 
+impl<Db> salsa::DebugWithDb<Db> for EntityPath
+where
+    Db: EntityPathDb,
+{
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        self.fmt(f, db as &dyn EntityPathDb, include_all_fields)
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum EntityPathData {
     CrateRoot(CratePath),

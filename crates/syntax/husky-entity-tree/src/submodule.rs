@@ -2,6 +2,7 @@ use crate::*;
 use husky_ast::AstIdx;
 use husky_entity_path::EntityPath;
 use husky_vfs::*;
+use salsa::DebugWithDb;
 
 pub(crate) fn subentities() -> Vec<EntityTree> {
     todo!()
@@ -47,5 +48,7 @@ fn submodules_works() {
 
 #[test]
 fn all_modules_works() {
-    DB::expect_test_crates("all_modules_within_crate", DB::all_modules_within_crate)
+    DB::expect_test_crates("all_modules_within_crate", |db, crate_path| {
+        format!("{:?}", db.all_modules_within_crate(crate_path).debug(db))
+    })
 }
