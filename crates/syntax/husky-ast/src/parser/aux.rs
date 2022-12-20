@@ -60,8 +60,8 @@ impl<'a> AuxAstParser<'a> {
                     | Keyword::Main
                     | Keyword::Use => unreachable!(),
                 },
-                _ => return Err(AstError::ExpectEntityKeyword),
                 TokenKind::Comment => todo!(),
+                _ => return Err(AstError::ExpectEntityKeyword),
             },
         )
     }

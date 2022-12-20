@@ -7,16 +7,14 @@ use crate::*;
 use husky_token::{Keyword, SpecialToken, StmtKeyword, TokenGroupIter, TokenKind, TokenSheet};
 
 pub(crate) struct AstParser<'a> {
-    db: &'a dyn WordDb,
     arena: AstArena,
     token_sheet: &'a TokenSheet,
     token_groups: TokenGroupIter<'a>,
 }
 
 impl<'a> AstParser<'a> {
-    pub(crate) fn new(db: &'a dyn WordDb, token_sheet: &'a TokenSheet) -> Self {
+    pub(crate) fn new(token_sheet: &'a TokenSheet) -> Self {
         Self {
-            db,
             arena: Default::default(),
             token_sheet,
             token_groups: token_sheet.token_group_iter(),
