@@ -99,8 +99,7 @@ impl<'a> AstParser<'a> {
                 Keyword::End(_) => unreachable!(),
             },
             TokenKind::Special(SpecialToken::PoundSign) => Ast::Decor { token_group_idx },
-            TokenKind::Keyword(_)
-            | TokenKind::Special(_)
+            TokenKind::Special(_)
             | TokenKind::Identifier(_)
             | TokenKind::WordOpr(_)
             | TokenKind::Literal(_)
