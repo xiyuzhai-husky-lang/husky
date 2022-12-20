@@ -1,5 +1,3 @@
-
-
 use super::*;
 
 impl<'a> TomlTokenIter<'a> {

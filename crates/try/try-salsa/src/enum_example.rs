@@ -12,7 +12,7 @@ pub struct GameCard {
 fn describe_a_thing(thing: Thing) -> String {
     match thing {
         Thing::MathFormula { text } => format!("math formulat with text \"{}\"", text),
-        Thing::Dog { weight, .. } => todo!(),
+        Thing::Dog { .. } => todo!(),
         Thing::GameCard(card) => format!("game card with price \"{}\"", card.price),
         _ => todo!(),
     }

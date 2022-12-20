@@ -2,7 +2,6 @@ use std::path::Path;
 
 use crate::*;
 
-
 pub fn cargo_toml_content(
     _db: &dyn RustTranspileDb,
     _target_entrance: AbsolutePath,

@@ -25,7 +25,7 @@ pub enum TermError {
 }
 
 impl From<&EntityPathError> for TermError {
-    fn from(value: &EntityPathError) -> Self {
+    fn from(_value: &EntityPathError) -> Self {
         todo!()
     }
 }

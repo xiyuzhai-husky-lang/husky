@@ -16,10 +16,9 @@ pub use menu::*;
 use ancestry::*;
 use husky_package_path::*;
 use husky_toolchain::Toolchain;
-use husky_word::{Identifier, WordJar};
-use optional::Optioned;
+use husky_word::Identifier;
+
 use salsa::DbWithJar;
-use utils::*;
 
 #[salsa::jar(db = EntityPathDb)]
 pub struct EntityPathJar(EntityPath, apparent_ancestry, entity_path_menu);
@@ -139,7 +138,7 @@ impl EntityPath {
 
     pub fn show(self, db: &dyn EntityPathDb) -> String {
         match self.data(db) {
-            EntityPathData::CrateRoot(crate_path) => "crate".to_owned(),
+            EntityPathData::CrateRoot(_crate_path) => "crate".to_owned(),
             EntityPathData::Childpath { parent, ident } => {
                 format!("{}::{}", parent.show(db), db.dt_ident(ident))
             }

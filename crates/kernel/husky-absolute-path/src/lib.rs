@@ -39,7 +39,7 @@ pub enum AbsolutePathError {
 }
 
 impl From<&AbsolutePathError> for AbsolutePathError {
-    fn from(value: &AbsolutePathError) -> Self {
+    fn from(_value: &AbsolutePathError) -> Self {
         todo!()
     }
 }

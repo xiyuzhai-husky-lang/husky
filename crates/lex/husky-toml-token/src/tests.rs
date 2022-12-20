@@ -6,8 +6,8 @@ use husky_package_path::{PackagePathDb, PackagePathJar};
 use husky_toolchain::*;
 use husky_vfs::*;
 use husky_word::{WordDb, WordJar};
-use salsa::{Database};
-use std::{sync::Arc};
+use salsa::Database;
+use std::sync::Arc;
 
 #[salsa::db(
     WordJar,

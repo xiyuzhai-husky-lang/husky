@@ -1,6 +1,5 @@
 use super::*;
 
-
 impl<'a> LinkageCollector<'a> {
     // pub(crate) fn collect_from_eager_expr(&mut self, expr: &EagerExpr) {
     //     todo!()

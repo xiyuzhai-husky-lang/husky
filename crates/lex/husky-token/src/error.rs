@@ -1,6 +1,5 @@
 use husky_dev_utils::DevSource;
 use husky_text::TextRange;
-use std::sync::Arc;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TokenError {

@@ -3,7 +3,10 @@ use husky_term::Term;
 
 use crate::*;
 
-pub(crate) fn collect_module_diagnostics(_db: &dyn DiagnosticsDb, _module: Term) -> Vec<Diagnostic> {
+pub(crate) fn collect_module_diagnostics(
+    _db: &dyn DiagnosticsDb,
+    _module: Term,
+) -> Vec<Diagnostic> {
     todo!()
     // let mut diagnostics = Vec::new();
     // let file = match db.module_file(module) {

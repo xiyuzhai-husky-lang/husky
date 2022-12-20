@@ -15,18 +15,7 @@ use husky_absolute_path::AbsolutePath;
 use husky_layout::LayoutDb;
 use salsa::DbWithJar;
 
-
-
-
-
-
-
-
 use husky_term::Term;
-
-
-
-
 
 use std::sync::Arc;
 

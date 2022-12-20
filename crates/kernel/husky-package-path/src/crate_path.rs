@@ -12,7 +12,7 @@ impl CratePath {
         match self.crate_kind(db) {
             CrateKind::Library => "src/lib.hsy".into(),
             CrateKind::Main => "src/main.hsy".into(),
-            CrateKind::Binary(ident) => todo!(),
+            CrateKind::Binary(_ident) => todo!(),
             CrateKind::StandaloneTest(_) => todo!(),
         }
     }

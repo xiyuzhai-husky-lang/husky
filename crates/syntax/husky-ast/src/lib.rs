@@ -13,19 +13,17 @@ use husky_entity_card::EntityCard;
 pub use range::*;
 pub use specs::*;
 
-use error::*;
 use husky_entity_path::{Accessibility, EntityPath};
-use husky_term::Term;
+
 use husky_text::*;
 use husky_token::TokenGroupIdx;
 use husky_vfs::*;
-use husky_word::IdentMap;
+
 use husky_word::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use parser::*;
-use range::*;
+
 use salsa::DbWithJar;
-use std::sync::Arc;
 
 #[salsa::jar(db = AstDb)]
 pub struct AstJar(ast_sheet, ast_range_sheet);

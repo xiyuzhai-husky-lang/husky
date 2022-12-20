@@ -6,12 +6,9 @@ pub use line::*;
 
 use husky_absolute_path::AbsolutePath;
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
-#[cfg(feature = "lsp_support")]
-use lsp_types::TextDocumentPositionParams;
+
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
-
-use crate::*;
 
 #[derive(
     Debug, Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,

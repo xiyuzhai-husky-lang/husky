@@ -1,9 +1,7 @@
 use crate::*;
 
-use husky_dev_utils::dev_src;
-
 use husky_entity_path::{EntityPath, EntityPathDb};
-use husky_text::TextCharIter;
+
 use husky_vfs::*;
 use husky_word::WordDb;
 use salsa::DbWithJar;

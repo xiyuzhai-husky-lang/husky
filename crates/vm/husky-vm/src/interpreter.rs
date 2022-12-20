@@ -3,7 +3,7 @@ mod query;
 
 use husky_print_utils::ps;
 use husky_term::Term;
-use husky_text::{FileRange};
+use husky_text::FileRange;
 use husky_word::Identifier;
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;

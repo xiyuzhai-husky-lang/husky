@@ -1,6 +1,3 @@
-use husky_entity_path::EntityPath;
-use husky_package_path::CrateKind;
-use husky_word::Identifier;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]

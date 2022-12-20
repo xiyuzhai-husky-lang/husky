@@ -23,7 +23,7 @@ impl<'a> TermContext<'a> {
         }
     }
 
-    pub fn entity_ty(&self, entity_path: EntityPath) -> TermResult<Term> {
+    pub fn entity_ty(&self, _entity_path: EntityPath) -> TermResult<Term> {
         todo!()
         // let decl = self.db.ask_decl(entity_path)?;
         // Ok(match entity_path.opt_parent() {

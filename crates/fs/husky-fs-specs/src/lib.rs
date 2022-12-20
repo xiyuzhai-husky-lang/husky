@@ -1,4 +1,4 @@
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use thiserror::Error;
 
 fn get_home_dir() -> Result<PathBuf, FsSpecsError> {

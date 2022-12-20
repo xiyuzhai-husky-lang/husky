@@ -1,8 +1,4 @@
 use super::*;
-use husky_entity_card::TyKingdom;
-use husky_opn_syntax::Bracket;
-use husky_token::{Decorator, Token, TypeKeyword};
-use std::iter::Peekable;
 
 impl<'a> AstParser<'a> {
     pub(super) fn parse_defn(&mut self, token_group_idx: TokenGroupIdx, indent: u32) -> Ast {
@@ -19,7 +15,7 @@ impl<'a> AstParser<'a> {
             match body.last() {
                 Some(_) => (body, DefnBodyKind::Block),
                 None => match self.token_groups.peek_with_exact_indent(indent) {
-                    Some((token_group_idx, token_group)) => match token_group.first().kind {
+                    Some((_token_group_idx, token_group)) => match token_group.first().kind {
                         TokenKind::Special(SpecialToken::Vertical) => {
                             (self.parse_case_stmts(indent), DefnBodyKind::Cases)
                         }

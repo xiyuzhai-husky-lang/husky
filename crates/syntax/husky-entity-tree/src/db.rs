@@ -2,19 +2,13 @@ use crate::*;
 
 use husky_ast::AstDb;
 
-
-use husky_entity_card::{EntityCard};
+use husky_entity_card::EntityCard;
 use husky_entity_path::EntityPath;
-
-
-
-
 
 use husky_toolchain_infer::ToolchainInferDb;
 use husky_vfs::*;
 
 use salsa::DbWithJar;
-
 
 pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + ToolchainInferDb {
     fn entity_absolute_path(

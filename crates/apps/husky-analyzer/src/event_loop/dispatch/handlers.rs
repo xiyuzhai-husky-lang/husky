@@ -2,10 +2,8 @@ use crate::{convert::from_lsp_types, *};
 
 type HuskyComptimeSnapshot = salsa::Snapshot<AnalyzerDB>;
 
-
 use husky_folding_range::FoldingRangeDb;
 use husky_hover::HoverResult;
-
 
 use husky_vfs::VfsDb;
 use lsp_types::{

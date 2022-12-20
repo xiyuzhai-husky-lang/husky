@@ -4,16 +4,16 @@ use husky_vfs::VfsResult;
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn unchecked_package_dependencies(
-    db: &dyn ManifestDb,
-    package_path: PackagePath,
+    _db: &dyn ManifestDb,
+    _package_path: PackagePath,
 ) -> VfsResult<Vec<PackageDependency>> {
     todo!()
 }
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn package_dependencies(
-    db: &dyn ManifestDb,
-    package_path: PackagePath,
+    _db: &dyn ManifestDb,
+    _package_path: PackagePath,
 ) -> ManifestResult<Vec<PackageDependency>> {
     todo!()
 }

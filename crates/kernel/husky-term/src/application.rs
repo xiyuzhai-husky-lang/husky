@@ -80,7 +80,7 @@ impl TermApplication {
 }
 
 impl<'a> TermContext<'a> {
-    pub(crate) fn sort(&self, universe: TermUniverse) -> Term {
+    pub(crate) fn sort(&self, _universe: TermUniverse) -> Term {
         todo!()
         // self.it_term(
         //     TermApplication {

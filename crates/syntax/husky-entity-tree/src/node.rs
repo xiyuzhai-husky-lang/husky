@@ -2,10 +2,6 @@ use crate::*;
 use husky_entity_card::EntityCard;
 use husky_entity_path::EntityPathData;
 
-
-
-
-
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct EntityNode {
     entity_path: EntityPath,

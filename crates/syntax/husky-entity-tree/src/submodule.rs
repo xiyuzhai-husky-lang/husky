@@ -3,7 +3,6 @@ use crate::*;
 use husky_entity_path::EntityPath;
 use husky_vfs::*;
 
-
 pub(crate) fn subentities() -> Vec<EntityTree> {
     todo!()
 }

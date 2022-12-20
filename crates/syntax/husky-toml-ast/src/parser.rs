@@ -32,7 +32,10 @@ impl<'a> TomlAstParser<'a> {
                 _ => todo!("unexpected"),
             },
             TomlTokenVariant::Word(word) => self.parse_key_value(*word),
-            TomlTokenVariant::StringLiteral { val: _, multiline: _ } => todo!("make key value"),
+            TomlTokenVariant::StringLiteral {
+                val: _,
+                multiline: _,
+            } => todo!("make key value"),
             TomlTokenVariant::Err(_) => TomlGroup::Err,
         }
     }
@@ -45,7 +48,10 @@ impl<'a> TomlAstParser<'a> {
             TomlTokenVariant::Comment => todo!(),
             TomlTokenVariant::Special(_) => todo!(),
             TomlTokenVariant::Word(word) => title.push(*word),
-            TomlTokenVariant::StringLiteral { val: _, multiline: _ } => todo!(),
+            TomlTokenVariant::StringLiteral {
+                val: _,
+                multiline: _,
+            } => todo!(),
             TomlTokenVariant::Err(_) => todo!(),
         }
         loop {
@@ -55,7 +61,10 @@ impl<'a> TomlAstParser<'a> {
                 TomlTokenVariant::Special(TomlSpecialToken::RightBox) => break,
                 TomlTokenVariant::Special(_) => todo!(),
                 TomlTokenVariant::Word(_) => todo!(),
-                TomlTokenVariant::StringLiteral { val: _, multiline: _ } => todo!(),
+                TomlTokenVariant::StringLiteral {
+                    val: _,
+                    multiline: _,
+                } => todo!(),
                 TomlTokenVariant::Err(_) => todo!(),
             }
         }

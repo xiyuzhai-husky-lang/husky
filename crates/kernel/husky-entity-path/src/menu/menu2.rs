@@ -56,7 +56,11 @@ pub struct EntityPathMenu2 {
 }
 
 impl EntityPathMenu2 {
-    pub(crate) fn new(db: &dyn EntityPathDb, toolchain: Toolchain, menu1: EntityPathMenu1) -> Self {
+    pub(crate) fn new(
+        db: &dyn EntityPathDb,
+        _toolchain: Toolchain,
+        menu1: EntityPathMenu1,
+    ) -> Self {
         Self {
             core_marker_sized: menu1.core_marker().child(db, "Sized").unwrap(),
             core_basic_unit: menu1.core_basic().child(db, "unit").unwrap(),

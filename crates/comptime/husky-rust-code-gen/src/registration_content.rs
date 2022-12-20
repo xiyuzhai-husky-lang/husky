@@ -1,6 +1,5 @@
 use crate::*;
 
-
 pub(crate) fn rust_registration_rs_content(
     _db: &dyn RustTranspileDb,
     _target_entrance: AbsolutePath,

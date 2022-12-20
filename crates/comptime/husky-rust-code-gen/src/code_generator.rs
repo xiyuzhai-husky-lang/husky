@@ -14,8 +14,6 @@
 use crate::*;
 // use context::*;
 
-
-
 pub(crate) struct RustCodeGenerator<'a> {
     db: &'a dyn RustTranspileDb,
     result: String,

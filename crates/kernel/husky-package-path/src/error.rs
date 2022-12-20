@@ -7,7 +7,7 @@ pub enum PackagePathError {}
 pub type PackagePathResult<T> = Result<T, PackagePathError>;
 
 impl From<&AbsolutePathError> for PackagePathError {
-    fn from(value: &AbsolutePathError) -> Self {
+    fn from(_value: &AbsolutePathError) -> Self {
         todo!()
     }
 }

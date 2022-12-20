@@ -1,8 +1,7 @@
 use super::*;
-use husky_dev_utils::dev_src;
+
 use husky_opn_syntax::*;
-use husky_text::{TextIndent, TextLine};
-use std::{iter::Peekable, sync::Arc};
+use husky_text::TextLine;
 
 pub(crate) struct Tokenizer<'lex> {
     db: &'lex dyn WordDb,

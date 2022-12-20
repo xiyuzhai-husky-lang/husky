@@ -170,11 +170,7 @@ impl<'a> EntityTreeCollector<'a> {
                     subentities: self.arena.alloc_batch(subentities),
                 })
             }
-            Ast::Impl {
-                
-                body,
-                ..
-            } => {
+            Ast::Impl { body, .. } => {
                 for ast_idx in body {
                     let ast = &self.ast_sheet[ast_idx];
                     match ast {
@@ -206,9 +202,7 @@ impl<'a> EntityTreeCollector<'a> {
         let token_sheet = self.db.token_sheet(self.module).as_ref().unwrap();
         match ast {
             Ast::Err { .. } => todo!(),
-            Ast::Use {
-                 ..
-            } => todo!(),
+            Ast::Use { .. } => todo!(),
             Ast::Comment { .. } => todo!(),
             Ast::Decor { .. } => todo!(),
             Ast::Stmt {

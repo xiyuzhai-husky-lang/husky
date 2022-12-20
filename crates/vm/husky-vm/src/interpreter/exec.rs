@@ -5,10 +5,9 @@ mod exec_interpret_call;
 mod exec_loop;
 mod exec_pattern_match;
 
-use crate::{*};
+use crate::*;
 
 use husky_check_utils::should_eq;
-
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn exec_all(&mut self, _sheet: &InstructionSheet, _mode: Mode) -> VMControl<'eval> {

@@ -24,7 +24,7 @@ pub(crate) fn apparent_ancestry(
             crate_path,
             paths: vec![entity_path],
         },
-        EntityPathData::Childpath { parent, ident } => {
+        EntityPathData::Childpath { parent, ident: _ } => {
             let mut ancestry = apparent_ancestry(db, parent).clone();
             ancestry.paths.push(entity_path);
             ancestry

@@ -1,8 +1,8 @@
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 
 use husky_absolute_path::AbsolutePathError;
 use husky_fs_specs::FsSpecsError;
-use husky_print_utils::p;
+
 use thiserror::Error;
 
 #[derive(Debug, Error, Clone, PartialEq, Eq)]
@@ -29,7 +29,7 @@ impl From<&VfsError> for VfsError {
 }
 
 impl From<&FsSpecsError> for VfsError {
-    fn from(value: &FsSpecsError) -> Self {
+    fn from(_value: &FsSpecsError) -> Self {
         todo!()
     }
 }

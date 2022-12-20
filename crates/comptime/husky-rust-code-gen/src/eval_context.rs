@@ -1,5 +1,3 @@
-
-
 use crate::*;
 
 pub(crate) fn needs_eval_context(_db: &dyn RustTranspileDb, _entity_path: Term) -> bool {

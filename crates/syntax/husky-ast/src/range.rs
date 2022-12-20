@@ -39,8 +39,8 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for AstRangeSheet {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
+        _db: &Db,
+        _include_all_fields: bool,
     ) -> std::fmt::Result {
         f.debug_struct("AstRangeSheet")
             .field("text_ranges", &self.text_ranges)

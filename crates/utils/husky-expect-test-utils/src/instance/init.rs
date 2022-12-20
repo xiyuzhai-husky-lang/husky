@@ -1,5 +1,4 @@
 use super::*;
-use std::collections::HashMap;
 
 impl ExpectInstance {
     pub(super) fn init(&mut self) -> DesIoResult<()> {

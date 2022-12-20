@@ -18,7 +18,7 @@ use husky_absolute_path::{AbsolutePath, AbsolutePathResult};
 use husky_toolchain::{PublishedToolchain, Toolchain};
 use husky_word::Identifier;
 use semver::Version;
-use std::path::{Path, PathBuf};
+use std::path::Path;
 use url::Url;
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
@@ -120,7 +120,7 @@ impl DebugWithDb<dyn PackagePathDb + '_> for PackagePath {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn PackagePathDb,
-        include_all_fields: bool,
+        _include_all_fields: bool,
     ) -> ::std::fmt::Result {
         match self.data(db) {
             PackagePathData::PublishedToolchain { ident, toolchain } => f

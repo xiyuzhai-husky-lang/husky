@@ -2,8 +2,8 @@ use std::sync::Arc;
 
 use crate::*;
 use husky_entity_path::EntityPathDb;
-use husky_word::WordDb;
-use salsa::{storage::HasJar, DbWithJar};
+
+use salsa::DbWithJar;
 
 pub trait TermDb: DbWithJar<TermJar> + EntityPathDb {
     fn term_menu(&self, toolchain: Toolchain) -> &TermResult<TermMenu>;

@@ -4,7 +4,6 @@ mod state;
 
 use crate::*;
 
-
 use husky_word::{IdentMap, Identifier};
 use prelude::*;
 use salsa::DebugWithDb;

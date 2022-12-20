@@ -2,7 +2,6 @@ use crate::*;
 use arrayvec::ArrayVec;
 use husky_word::Identifier;
 
-
 pub const STACK_SIZE: usize = 255;
 
 pub struct VMStack<'eval> {

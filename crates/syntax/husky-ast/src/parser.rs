@@ -3,7 +3,7 @@ mod defn;
 mod uses;
 
 use crate::*;
-use aux::*;
+
 use husky_token::{Keyword, SpecialToken, StmtKeyword, TokenGroupIter, TokenKind, TokenSheet};
 
 pub(crate) struct AstParser<'a> {
@@ -30,7 +30,7 @@ impl<'a> AstParser<'a> {
 
     fn parse_asts(&mut self, indent: u32) -> AstIdxRange {
         let mut asts: Vec<Ast> = vec![];
-        let mut token_group_indices: Vec<TokenGroupIdx> = vec![];
+        let _token_group_indices: Vec<TokenGroupIdx> = vec![];
         while let Some(ast) = self.parse_ast(indent) {
             asts.push(ast)
         }
