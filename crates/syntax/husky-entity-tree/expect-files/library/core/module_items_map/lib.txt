@@ -1,240 +1,50 @@
 Ok(
     {
         EntityPath {
-            [salsa id]: 40,
-            data: CrateRoot {
-                parent: EntityPath {
-                    [salsa id]: 39,
-                    data: CrateRoot(
-                        CratePath {
-                            [salsa id]: 0,
-                            package_path: PackagePathData::Global(
-                                AbsolutePath(
-                                    "/home/xiyuzhai/repos/husky/library/core",
-                                ),
-                            ),
-                            crate_kind: Library,
-                        },
-                    ),
-                },
-                ident: Identifier(
-                    "basic",
-                ),
-            },
+            [show]: "crate::basic",
         }: (
             EntityPath {
-                [salsa id]: 40,
-                data: CrateRoot {
-                    parent: EntityPath {
-                        [salsa id]: 39,
-                        data: CrateRoot(
-                            CratePath {
-                                [salsa id]: 0,
-                                package_path: PackagePathData::Global(
-                                    AbsolutePath(
-                                        "/home/xiyuzhai/repos/husky/library/core",
-                                    ),
-                                ),
-                                crate_kind: Library,
-                            },
-                        ),
-                    },
-                    ident: Identifier(
-                        "basic",
-                    ),
-                },
+                [show]: "crate::basic",
             },
             ModuleItemMap {
                 [salsa id]: 5,
             },
         ),
         EntityPath {
-            [salsa id]: 41,
-            data: CrateRoot {
-                parent: EntityPath {
-                    [salsa id]: 39,
-                    data: CrateRoot(
-                        CratePath {
-                            [salsa id]: 0,
-                            package_path: PackagePathData::Global(
-                                AbsolutePath(
-                                    "/home/xiyuzhai/repos/husky/library/core",
-                                ),
-                            ),
-                            crate_kind: Library,
-                        },
-                    ),
-                },
-                ident: Identifier(
-                    "logic",
-                ),
-            },
+            [show]: "crate::logic",
         }: (
             EntityPath {
-                [salsa id]: 41,
-                data: CrateRoot {
-                    parent: EntityPath {
-                        [salsa id]: 39,
-                        data: CrateRoot(
-                            CratePath {
-                                [salsa id]: 0,
-                                package_path: PackagePathData::Global(
-                                    AbsolutePath(
-                                        "/home/xiyuzhai/repos/husky/library/core",
-                                    ),
-                                ),
-                                crate_kind: Library,
-                            },
-                        ),
-                    },
-                    ident: Identifier(
-                        "logic",
-                    ),
-                },
+                [show]: "crate::logic",
             },
             ModuleItemMap {
                 [salsa id]: 6,
             },
         ),
         EntityPath {
-            [salsa id]: 42,
-            data: CrateRoot {
-                parent: EntityPath {
-                    [salsa id]: 39,
-                    data: CrateRoot(
-                        CratePath {
-                            [salsa id]: 0,
-                            package_path: PackagePathData::Global(
-                                AbsolutePath(
-                                    "/home/xiyuzhai/repos/husky/library/core",
-                                ),
-                            ),
-                            crate_kind: Library,
-                        },
-                    ),
-                },
-                ident: Identifier(
-                    "num",
-                ),
-            },
+            [show]: "crate::num",
         }: (
             EntityPath {
-                [salsa id]: 42,
-                data: CrateRoot {
-                    parent: EntityPath {
-                        [salsa id]: 39,
-                        data: CrateRoot(
-                            CratePath {
-                                [salsa id]: 0,
-                                package_path: PackagePathData::Global(
-                                    AbsolutePath(
-                                        "/home/xiyuzhai/repos/husky/library/core",
-                                    ),
-                                ),
-                                crate_kind: Library,
-                            },
-                        ),
-                    },
-                    ident: Identifier(
-                        "num",
-                    ),
-                },
+                [show]: "crate::num",
             },
             ModuleItemMap {
                 [salsa id]: 7,
             },
         ),
         EntityPath {
-            [salsa id]: 43,
-            data: CrateRoot {
-                parent: EntityPath {
-                    [salsa id]: 39,
-                    data: CrateRoot(
-                        CratePath {
-                            [salsa id]: 0,
-                            package_path: PackagePathData::Global(
-                                AbsolutePath(
-                                    "/home/xiyuzhai/repos/husky/library/core",
-                                ),
-                            ),
-                            crate_kind: Library,
-                        },
-                    ),
-                },
-                ident: Identifier(
-                    "ops",
-                ),
-            },
+            [show]: "crate::ops",
         }: (
             EntityPath {
-                [salsa id]: 43,
-                data: CrateRoot {
-                    parent: EntityPath {
-                        [salsa id]: 39,
-                        data: CrateRoot(
-                            CratePath {
-                                [salsa id]: 0,
-                                package_path: PackagePathData::Global(
-                                    AbsolutePath(
-                                        "/home/xiyuzhai/repos/husky/library/core",
-                                    ),
-                                ),
-                                crate_kind: Library,
-                            },
-                        ),
-                    },
-                    ident: Identifier(
-                        "ops",
-                    ),
-                },
+                [show]: "crate::ops",
             },
             ModuleItemMap {
                 [salsa id]: 8,
             },
         ),
         EntityPath {
-            [salsa id]: 44,
-            data: CrateRoot {
-                parent: EntityPath {
-                    [salsa id]: 39,
-                    data: CrateRoot(
-                        CratePath {
-                            [salsa id]: 0,
-                            package_path: PackagePathData::Global(
-                                AbsolutePath(
-                                    "/home/xiyuzhai/repos/husky/library/core",
-                                ),
-                            ),
-                            crate_kind: Library,
-                        },
-                    ),
-                },
-                ident: Identifier(
-                    "prelude",
-                ),
-            },
+            [show]: "crate::prelude",
         }: (
             EntityPath {
-                [salsa id]: 44,
-                data: CrateRoot {
-                    parent: EntityPath {
-                        [salsa id]: 39,
-                        data: CrateRoot(
-                            CratePath {
-                                [salsa id]: 0,
-                                package_path: PackagePathData::Global(
-                                    AbsolutePath(
-                                        "/home/xiyuzhai/repos/husky/library/core",
-                                    ),
-                                ),
-                                crate_kind: Library,
-                            },
-                        ),
-                    },
-                    ident: Identifier(
-                        "prelude",
-                    ),
-                },
+                [show]: "crate::prelude",
             },
             ModuleItemMap {
                 [salsa id]: 9,

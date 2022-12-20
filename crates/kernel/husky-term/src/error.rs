@@ -1,4 +1,4 @@
-use husky_entity_path::EntityPath;
+use husky_entity_path::{EntityPath, EntityPathError};
 use std::sync::Arc;
 use thiserror::Error;
 
@@ -22,6 +22,12 @@ pub enum TermError {
     // InvalidHeader { expected: String, found: String },
     // #[error("unknown data store error")]
     // Unknown,
+}
+
+impl From<&EntityPathError> for TermError {
+    fn from(value: &EntityPathError) -> Self {
+        todo!()
+    }
 }
 
 pub type TermResult<T> = Result<T, TermError>;

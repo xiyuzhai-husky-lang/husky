@@ -24,10 +24,9 @@ fn word_debug_works() {
     let db = DB::default();
     let haha = db.it_word_borrowed("haha");
     expect_test::expect![[r#"
-        Word {
-            [salsa id]: 0,
-            data: "haha",
-        }
+        Word(
+            "haha",
+        )
     "#]]
     .assert_debug_eq(&haha.debug(&db));
 }

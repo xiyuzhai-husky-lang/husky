@@ -16,6 +16,10 @@ impl CratePath {
             CrateKind::StandaloneTest(_) => todo!(),
         }
     }
+
+    pub fn show<'a>(&'a self, db: &'a dyn PackagePathDb) -> &'a str {
+        self.package_path(db).ident(db).data(db)
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]

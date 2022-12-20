@@ -58,8 +58,6 @@ pub(crate) fn entity_node(
             if let Some(tree) = entity_tree_page.get(entity_path) {
                 tree.node.clone()
             } else {
-                p!(entity_path.show(db,));
-                p!(entity_tree_page.show(db));
                 todo!()
             }
         } else {

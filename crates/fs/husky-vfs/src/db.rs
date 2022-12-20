@@ -166,7 +166,7 @@ where
     fn collect_local_packages(&self, dir: &Path) -> VfsResult<Vec<PackagePath>> {
         collect_package_dirs(dir)
             .into_iter()
-            .map(|path| Ok(self.it_package_path(PackagePathData::Local(AbsolutePath::new(&path)?))))
+            .map(|path| PackagePath::new_local(self, &path).map_err(|e| e.into()))
             .collect()
     }
 

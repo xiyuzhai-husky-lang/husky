@@ -53,7 +53,7 @@ impl TermMenu0 {
     pub fn new(db: &dyn TermDb, toolchain: Toolchain) -> Self {
         let sort = db.it_term(TermAtom::new_category(TermCategory::Sort).into());
         let universe1 = db.it_term(TermAtom::new_universe(1).into());
-        let entity_path_menu = db.entity_path_menu(toolchain);
+        let entity_path_menu = db.entity_path_menu(toolchain).as_ref().unwrap();
         TermMenu0 {
             sort,
             universe1,

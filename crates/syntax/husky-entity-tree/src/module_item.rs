@@ -33,7 +33,7 @@ struct ModuleItemCollector<'a> {
 impl<'a> ModuleItemCollector<'a> {
     fn new(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> EntityTreeResult<Self> {
         let toolchain = db.crate_toolchain(crate_path).as_ref()?;
-        let entity_path_menu = db.entity_path_menu(*toolchain);
+        let entity_path_menu = db.entity_path_menu(*toolchain).as_ref()?;
         let prelude = match crate_prelude(db, crate_path).as_ref()?.as_ref() {
             Some(map) => Prelude::Finished(map.data(db)),
             None => Prelude::Ongoing(Default::default()),
@@ -129,12 +129,12 @@ pub(crate) fn crate_prelude(
     crate_path: CratePath,
 ) -> EntityTreeResult<Option<ModuleItemMap>> {
     let toolchain = db.crate_toolchain(crate_path).as_ref()?;
-    let package_path_menu = db.package_path_menu(*toolchain);
+    let package_path_menu = db.package_path_menu(*toolchain).as_ref()?;
     let core_library = package_path_menu.core_library();
     if crate_path == core_library {
         Ok(None)
     } else {
-        let entity_path_menu = db.entity_path_menu(*toolchain);
+        let entity_path_menu = db.entity_path_menu(*toolchain).as_ref()?;
         Ok(Some(
             module_items_map(db, core_library).as_ref()?[entity_path_menu.core_prelude()].1,
         ))

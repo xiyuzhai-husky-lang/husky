@@ -23,16 +23,19 @@ impl std::ops::Deref for EntityPathMenu {
 }
 
 impl EntityPathMenu {
-    pub(crate) fn new(db: &dyn EntityPathDb, toolchain: Toolchain) -> Self {
-        let menu0 = EntityPathMenu0::new(db, toolchain);
+    pub(crate) fn new(db: &dyn EntityPathDb, toolchain: Toolchain) -> EntityPathResult<Self> {
+        let menu0 = EntityPathMenu0::new(db, toolchain)?;
         let menu1 = EntityPathMenu1::new(db, toolchain, menu0);
         let menu2 = EntityPathMenu2::new(db, toolchain, menu1);
         let menu3 = EntityPathMenu3::new(db, toolchain, menu2);
-        Self { parent: menu3 }
+        Ok(Self { parent: menu3 })
     }
 }
 
 #[salsa::tracked(jar = EntityPathJar, return_ref)]
-pub(crate) fn entity_path_menu(db: &dyn EntityPathDb, toolchain: Toolchain) -> EntityPathMenu {
+pub(crate) fn entity_path_menu(
+    db: &dyn EntityPathDb,
+    toolchain: Toolchain,
+) -> EntityPathResult<EntityPathMenu> {
     EntityPathMenu::new(db, toolchain)
 }

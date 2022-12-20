@@ -18,7 +18,7 @@ fn test_decl() {
         let (arena, expr) = db.parse_expr_from_text(text);
         let mut sheet = TermSheet::new(&arena);
         let toolchain = db.lang_dev_toolchain();
-        let term_menu = db.term_menu(toolchain);
+        let term_menu = db.term_menu(toolchain).as_ref().unwrap();
         let mut ctx = InferContext::new(&db, &mut sheet, &arena, expr, &term_menu);
         let term = ctx.term_result().unwrap();
         todo!()
