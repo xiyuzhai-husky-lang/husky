@@ -14,8 +14,6 @@ impl DebugWithDb<<WordJar as salsa::jar::Jar<'_>>::DynDb> for Identifier {
         db: &dyn WordDb,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        #[allow(unused_imports)]
-        use ::salsa::debug::helper::Fallback;
         f.debug_tuple("Identifier").field(&self.data(db)).finish()
     }
 }
