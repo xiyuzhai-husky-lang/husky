@@ -12,7 +12,6 @@ members = [
     "crates/lex/*",
     "crates/runtime/*",
     "crates/syntax/*",
-    "crates/try/*",
     "crates/utils/*",
     "crates/vm/*",
     "crates/benchmarks/*"
