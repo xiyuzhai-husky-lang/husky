@@ -37,7 +37,7 @@ pub use stack_idx::*;
 
 use husky_loop_syntax::*;
 use husky_term::Term;
-use husky_vm_register_method::*;
+
 use husky_word::Identifier;
 use std::sync::Arc;
 

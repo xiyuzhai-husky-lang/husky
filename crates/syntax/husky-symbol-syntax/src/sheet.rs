@@ -29,7 +29,7 @@ impl SymbolSheet {
         }
     }
 
-    pub fn define_symbol(&mut self, symbol: Symbol) {
+    pub fn define_symbol(&mut self, _symbol: Symbol) {
         todo!()
         // self.symbols.push(symbol)
     }
@@ -47,7 +47,7 @@ impl SymbolSheet {
     }
 
     fn try1() {
-        let haha = Haha::default();
+        let _haha = Haha::default();
 
         #[derive(Default)]
         struct Haha;

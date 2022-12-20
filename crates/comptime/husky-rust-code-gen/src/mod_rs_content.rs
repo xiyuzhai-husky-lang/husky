@@ -1,7 +1,7 @@
 use crate::*;
-use code_generator::RustCodeGenerator;
 
-pub(crate) fn rust_mod_rs_content(db: &dyn RustTranspileDb, module: Term) -> Arc<String> {
+
+pub(crate) fn rust_mod_rs_content(_db: &dyn RustTranspileDb, _module: Term) -> Arc<String> {
     todo!()
     // let mut generator = RustCodeGenerator::new(db, module);
     // let entity_defn = db.entity_defn(module).unwrap();

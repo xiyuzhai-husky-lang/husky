@@ -9,7 +9,7 @@ pub(crate) struct LinkageCollector<'a> {
 }
 
 impl<'a> LinkageCollector<'a> {
-    pub(crate) fn insert(&mut self, entity_path: Term) {
+    pub(crate) fn insert(&mut self, _entity_path: Term) {
         todo!()
         // match entity_path.variant {
         //     EntityRouteVariant::TypeAsTraitMember { trai, .. } => {
@@ -41,7 +41,7 @@ impl<'a> LinkageCollector<'a> {
         // self.linkages.insert(entity_path.intrinsic())
     }
 
-    fn produce_from_entity_defn(mut self, entity_path: Term) -> Arc<VecSet<Term>> {
+    fn produce_from_entity_defn(self, _entity_path: Term) -> Arc<VecSet<Term>> {
         todo!()
         // let defn = self.db.entity_defn(entity_path).unwrap();
         // self.collect_from_entity_defn(&defn);
@@ -97,7 +97,7 @@ pub(crate) fn entity_link_dependees(
     visit_all(db, &mut dependees, 0);
     return Arc::new(dependees);
 
-    fn visit_all(db: &dyn RustTranspileDb, dependees: &mut VecSet<Term>, start: usize) {
+    fn visit_all(_db: &dyn RustTranspileDb, _dependees: &mut VecSet<Term>, _start: usize) {
         todo!()
         // let len0 = dependees.len();
         // for subroute in dependees[start..]

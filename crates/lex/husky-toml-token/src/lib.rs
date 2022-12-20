@@ -23,13 +23,13 @@ use tokenize::*;
 #[salsa::jar(db = TomlTokenDb)]
 pub struct TomlTokenJar(package_manifest_toml_token_sheet);
 
-use husky_print_utils::p;
+
 use husky_text_span::TextSpan;
-use husky_word::{Word, WordDb};
+use husky_word::{Word};
 use std::char;
 use std::str;
-use std::string;
-use std::{borrow::Cow, sync::Arc};
+
+use std::{sync::Arc};
 
 pub type StringValue = Arc<String>;
 

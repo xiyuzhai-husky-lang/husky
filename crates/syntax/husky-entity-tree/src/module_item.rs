@@ -3,14 +3,14 @@ mod prelude;
 mod state;
 
 use crate::*;
-use exec::*;
-use husky_print_utils::p;
-use husky_word::{IdentMap, IdentPairMap, Identifier};
+
+
+use husky_word::{IdentMap, Identifier};
 use prelude::*;
 use salsa::DebugWithDb;
 use state::*;
-use std::collections::HashMap;
-use vec_like::{VecMapEntry, VecPairMap, VecSet};
+
+use vec_like::{VecMapEntry, VecPairMap};
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn module_items_map(
@@ -81,9 +81,9 @@ pub enum ModuleItem {
 impl DebugWithDb<dyn EntityTreeDb + '_> for ModuleItem {
     fn fmt(
         &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn EntityTreeDb,
-        include_all_fields: bool,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &dyn EntityTreeDb,
+        _include_all_fields: bool,
     ) -> std::fmt::Result {
         todo!()
     }

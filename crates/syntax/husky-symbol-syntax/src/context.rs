@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_tree::EntityTreeDb;
+
 use local_stack::LocalStack;
 
 pub type SymbolStack<'a> = LocalStack<Symbol, &'a [Symbol]>;
@@ -17,7 +17,7 @@ impl<'a> SymbolContext<'a> {
         }
     }
 
-    pub fn define_symbol(&mut self, symbol: Symbol) {
+    pub fn define_symbol(&mut self, _symbol: Symbol) {
         todo!()
         // self.symbols.push(symbol)
     }

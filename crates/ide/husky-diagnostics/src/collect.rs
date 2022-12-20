@@ -3,7 +3,7 @@ use husky_term::Term;
 
 use crate::*;
 
-pub(crate) fn collect_module_diagnostics(db: &dyn DiagnosticsDb, module: Term) -> Vec<Diagnostic> {
+pub(crate) fn collect_module_diagnostics(_db: &dyn DiagnosticsDb, _module: Term) -> Vec<Diagnostic> {
     todo!()
     // let mut diagnostics = Vec::new();
     // let file = match db.module_file(module) {
@@ -28,9 +28,9 @@ fn collect_module_entity_syntax_errors(
 }
 
 fn collect_entity_syntax_errors(
-    db: &dyn DiagnosticsDb,
-    parent: Term,
-    diagnostics: &mut Vec<Diagnostic>,
+    _db: &dyn DiagnosticsDb,
+    _parent: Term,
+    _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
     // let table = db.subroute_table(parent).unwrap();
@@ -41,9 +41,9 @@ fn collect_entity_syntax_errors(
 }
 
 fn collect_module_lex_errors(
-    db: &dyn DiagnosticsDb,
-    file: AbsolutePath,
-    diagnostics: &mut Vec<Diagnostic>,
+    _db: &dyn DiagnosticsDb,
+    _file: AbsolutePath,
+    _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
     // let tokenized_text = db.tokenized_text(file).unwrap();
@@ -51,9 +51,9 @@ fn collect_module_lex_errors(
 }
 
 fn collect_module_ast_errors(
-    db: &dyn DiagnosticsDb,
-    file: AbsolutePath,
-    diagnostics: &mut Vec<Diagnostic>,
+    _db: &dyn DiagnosticsDb,
+    _file: AbsolutePath,
+    _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
     // let ast_text = db.ast_text(file).unwrap();

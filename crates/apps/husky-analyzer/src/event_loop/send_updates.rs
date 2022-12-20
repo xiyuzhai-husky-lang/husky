@@ -1,4 +1,4 @@
-use husky_vfs::WatchedVfs;
+
 
 use crate::server::client_comm::ClientCommunicator;
 use crate::*;
@@ -9,7 +9,7 @@ macro_rules! batch_into {
     }};
 }
 
-pub(crate) fn send_updates(db: &AnalyzerDB, comm: &ClientCommunicator) {
+pub(crate) fn send_updates(_db: &AnalyzerDB, _comm: &ClientCommunicator) {
     eprintln!("todo: send updates")
     // db.module_iter().for_each(|module| {
     //     db.diagnostics_reserve(module).release(|diagnostics| {

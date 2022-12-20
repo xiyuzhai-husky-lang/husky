@@ -35,8 +35,8 @@ impl HuskyDataViewer {
 
     pub fn serialize<'eval>(
         &self,
-        db: &dyn DataViewerDb,
-        value: &__Register<'eval>,
+        _db: &dyn DataViewerDb,
+        _value: &__Register<'eval>,
     ) -> serde_json::Value {
         todo!()
         // match self {

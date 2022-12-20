@@ -5,13 +5,13 @@ mod exec_interpret_call;
 mod exec_loop;
 mod exec_pattern_match;
 
-use crate::{history::HistoryEntry, *};
-use colored::Colorize;
+use crate::{*};
+
 use husky_check_utils::should_eq;
-use husky_path_utils::get_relative_path;
+
 
 impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
-    pub(crate) fn exec_all(&mut self, sheet: &InstructionSheet, mode: Mode) -> VMControl<'eval> {
+    pub(crate) fn exec_all(&mut self, _sheet: &InstructionSheet, _mode: Mode) -> VMControl<'eval> {
         todo!()
         // for ins in &sheet.instructions {
         //     if self.vm_config.verbose {

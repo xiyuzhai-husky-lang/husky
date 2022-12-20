@@ -27,7 +27,7 @@ pub enum UnresolvedTerm {
 impl std::fmt::Debug for UnresolvedTerm {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::ImplicitArgument { scope, param_ident } => {
+            Self::ImplicitArgument { scope: _, param_ident: _ } => {
                 todo!()
                 // write!(
                 //     f,

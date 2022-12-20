@@ -39,7 +39,7 @@ impl<T> DiagnosticsDb for T
 where
     T: DbWithJar<DiagnosticsJar> + EntityTreeDb + AstDb,
 {
-    fn diagnostics_reserve(&self, module: Term) -> Arc<DiagnosticReserve> {
+    fn diagnostics_reserve(&self, _module: Term) -> Arc<DiagnosticReserve> {
         todo!()
     }
 }

@@ -1,4 +1,4 @@
-use std::sync::Arc;
+
 
 use once_cell::sync::OnceCell;
 
@@ -8,7 +8,7 @@ pub struct SymbolJar(OnceCell<Vec<Symbol>>);
 
 impl<'salsa_db> salsa::jar::Jar<'salsa_db> for SymbolJar {
     type DynDb = dyn SymbolDb + 'salsa_db;
-    fn create_jar<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self
+    fn create_jar<DB>(_routes: &mut salsa::routes::Routes<DB>) -> Self
     where
         DB: salsa::storage::JarFromJars<Self> + salsa::storage::DbWithJar<Self>,
     {

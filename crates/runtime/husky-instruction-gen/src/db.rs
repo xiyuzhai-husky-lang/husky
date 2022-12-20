@@ -12,8 +12,8 @@ pub trait InstructionDb {
 }
 
 fn entity_instruction_sheet(
-    db: &dyn InstructionDb,
-    entity_path: EntityPath,
+    _db: &dyn InstructionDb,
+    _entity_path: EntityPath,
 ) -> Option<Arc<InstructionSheet>> {
     todo!()
     // let entity_defn = db.entity_defn(route).unwrap();
@@ -77,8 +77,8 @@ fn entity_instruction_sheet(
 }
 
 fn method_opt_instruction_sheet(
-    db: &dyn InstructionDb,
-    member_route: Term,
+    _db: &dyn InstructionDb,
+    _member_route: Term,
 ) -> Option<Arc<InstructionSheet>> {
     todo!()
     // let ty = member_route.parent();
@@ -114,15 +114,15 @@ fn method_opt_instruction_sheet(
 }
 
 fn dataset_config_instruction_sheet(
-    db: &dyn InstructionDb,
-    target_entrance: EntityPath,
+    _db: &dyn InstructionDb,
+    _target_entrance: EntityPath,
 ) -> Arc<InstructionSheet> {
     todo!()
     // let package = db.package(target_entrance).unwrap();
     // new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)
 }
 
-fn enum_literal_to_i32(_db: &dyn InstructionDb, entity_path: EntityPath) -> i32 {
+fn enum_literal_to_i32(_db: &dyn InstructionDb, _entity_path: EntityPath) -> i32 {
     todo!()
     // let ty_decl = db.ty_decl(route.parent()).unwrap();
     // ty_decl

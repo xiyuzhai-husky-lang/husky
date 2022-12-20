@@ -10,9 +10,9 @@ use crate::{
 };
 
 use handlers::*;
-use husky_text::{TextChange, TextRange};
+
 use husky_vfs::VfsDb;
-use itertools::Itertools;
+
 
 pub(crate) fn dispatch_lsp_msg(
     server: &mut Server,

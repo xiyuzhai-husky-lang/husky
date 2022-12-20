@@ -1,5 +1,5 @@
 use husky_term::Term;
-use husky_text::{FileRange, TextRange};
+use husky_text::{FileRange};
 use husky_word::Identifier;
 
 use crate::*;

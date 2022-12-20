@@ -1,6 +1,6 @@
 use crate::*;
-use db::*;
-use husky_expect_test_utils::*;
+
+
 
 #[test]
 fn test_infer_ty_works() {
@@ -18,15 +18,15 @@ fn test_infer_ty_works() {
     //         )
     //     });
 }
-use super::*;
-use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu};
+
+use husky_entity_path::{EntityPath, EntityPathJar};
 use husky_expr::ExprIdx;
 use husky_package_path::PackagePathJar;
-use husky_symbol_syntax::{Symbol, SymbolContext, SymbolKind};
-use husky_term::{Decl, Term, TermDb, TermMenu, TermResultArc, TyDecl};
-use husky_token::*;
+use husky_symbol_syntax::{Symbol};
+use husky_term::{Decl, Term, TermDb};
+
 use husky_toolchain::*;
-use husky_word::WordDb;
+
 use husky_word::WordJar;
 use salsa::Database;
 use std::{collections::HashMap, sync::Arc};
@@ -57,7 +57,7 @@ impl Database for TermPatternInferFakeDb {}
 
 impl TermPatternInferFakeDb {
     pub(super) fn new() -> Self {
-        let mut db = Self {
+        let db = Self {
             storage: Default::default(),
             entity_tys: Default::default(),
             decls: Default::default(),
@@ -70,7 +70,7 @@ impl TermPatternInferFakeDb {
         TermPatternInferSheet::new_test(arena, Default::default())
     }
 
-    pub(super) fn parse_expr_from_text(&self, text: &str) -> (ExprArena, ExprIdx) {
+    pub(super) fn parse_expr_from_text(&self, _text: &str) -> (ExprArena, ExprIdx) {
         // use husky_tokenize::TokenizeDb;
 
         // let tokens = self.tokenize_line(text);

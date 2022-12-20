@@ -1,7 +1,7 @@
 use crate::*;
 
 impl CompilerInstance {
-    pub(crate) fn transcribe_package_in_rust(&self, package_dir: &Path) {
+    pub(crate) fn transcribe_package_in_rust(&self, _package_dir: &Path) {
         use husky_print_utils::*;
         eprintln!(
             r#"{RED}

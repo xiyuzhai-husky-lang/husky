@@ -1,7 +1,7 @@
 use crate::*;
 use arrayvec::ArrayVec;
 use husky_word::Identifier;
-use std::fmt::Write;
+
 
 pub const STACK_SIZE: usize = 255;
 
@@ -110,7 +110,7 @@ pub struct VariableStack {
 }
 
 impl std::fmt::Debug for VariableStack {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
         // f.write_str("\nVariableStack:\n")?;
         // f.write_fmt(format_args!("    has_this: {}\n", self.has_this))?;
@@ -157,7 +157,7 @@ impl VariableStack {
         self.non_this_variables[stack_idx.raw() as usize]
     }
 
-    pub fn compare_with_vm_stack(&self, vm_stack: &VMStack) -> String {
+    pub fn compare_with_vm_stack(&self, _vm_stack: &VMStack) -> String {
         todo!()
         // let mut result = String::new();
         // write!(result, "VariableStack:\n").unwrap();

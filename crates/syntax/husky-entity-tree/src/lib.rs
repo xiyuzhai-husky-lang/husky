@@ -24,15 +24,14 @@ use husky_entity_path::*;
 use husky_package_path::*;
 use husky_vfs::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
-use implementation::ImplementationMap;
+
 use module_item::*;
 use node::*;
 use sheet::*;
 use submodule::*;
 #[cfg(test)]
 use tests::*;
-#[cfg(test)]
-use tests::*;
+
 
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
@@ -64,9 +63,9 @@ pub type EntityTreeIdxRange = ArenaIdxRange<EntityTree>;
 impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityTree {
     fn fmt(
         &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &Db,
+        _include_all_fields: bool,
     ) -> std::fmt::Result {
         todo!()
     }

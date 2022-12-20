@@ -1,20 +1,20 @@
 use crate::*;
-use husky_absolute_path::AbsolutePath;
+
 use husky_ast::AstDb;
-use husky_check_utils::should;
-use husky_dev_utils::dev_src;
-use husky_entity_card::{EntityCard, MemberKind, TyKingdom};
+
+
+use husky_entity_card::{EntityCard};
 use husky_entity_path::EntityPath;
-use husky_package_path::PackagePath;
-use husky_path_utils::*;
-use husky_print_utils::msg_once;
-use husky_term::*;
-use husky_token::TokenDb;
+
+
+
+
+
 use husky_toolchain_infer::ToolchainInferDb;
 use husky_vfs::*;
-use husky_word::Identifier;
+
 use salsa::DbWithJar;
-use std::{path::PathBuf, sync::Arc};
+
 
 pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + ToolchainInferDb {
     fn entity_absolute_path(

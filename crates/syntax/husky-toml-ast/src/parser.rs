@@ -1,7 +1,7 @@
 use crate::*;
-use husky_print_utils::p;
+
 use husky_toml_token::{TomlSpecialToken, TomlToken, TomlTokenVariant};
-use salsa::DebugWithDb;
+
 use smallvec::SmallVec;
 
 pub(crate) struct TomlAstParser<'a> {
@@ -32,20 +32,20 @@ impl<'a> TomlAstParser<'a> {
                 _ => todo!("unexpected"),
             },
             TomlTokenVariant::Word(word) => self.parse_key_value(*word),
-            TomlTokenVariant::StringLiteral { val, multiline } => todo!("make key value"),
+            TomlTokenVariant::StringLiteral { val: _, multiline: _ } => todo!("make key value"),
             TomlTokenVariant::Err(_) => TomlGroup::Err,
         }
     }
 
     fn parse_section_title(mut self) -> TomlGroup {
         let mut title: SmallVec<[Word; 2]> = Default::default();
-        let mut kind: TomlSectionKind = TomlSectionKind::Normal;
+        let kind: TomlSectionKind = TomlSectionKind::Normal;
         let token = self.tokens.next().ok_or(TomlAstError::Expect)?;
         match token.variant() {
             TomlTokenVariant::Comment => todo!(),
             TomlTokenVariant::Special(_) => todo!(),
             TomlTokenVariant::Word(word) => title.push(*word),
-            TomlTokenVariant::StringLiteral { val, multiline } => todo!(),
+            TomlTokenVariant::StringLiteral { val: _, multiline: _ } => todo!(),
             TomlTokenVariant::Err(_) => todo!(),
         }
         loop {
@@ -55,7 +55,7 @@ impl<'a> TomlAstParser<'a> {
                 TomlTokenVariant::Special(TomlSpecialToken::RightBox) => break,
                 TomlTokenVariant::Special(_) => todo!(),
                 TomlTokenVariant::Word(_) => todo!(),
-                TomlTokenVariant::StringLiteral { val, multiline } => todo!(),
+                TomlTokenVariant::StringLiteral { val: _, multiline: _ } => todo!(),
                 TomlTokenVariant::Err(_) => todo!(),
             }
         }
@@ -85,7 +85,7 @@ impl<'a> TomlAstParser<'a> {
                 "false" => TomlExpr::Boolean(false),
                 _ => todo!(),
             },
-            TomlTokenVariant::StringLiteral { val, multiline } => TomlExpr::String(val.clone()),
+            TomlTokenVariant::StringLiteral { val, multiline: _ } => TomlExpr::String(val.clone()),
             TomlTokenVariant::Err(_) => todo!(),
         }))
     }

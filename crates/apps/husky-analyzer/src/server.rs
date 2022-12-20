@@ -5,7 +5,7 @@ use crate::*;
 use client_comm::ClientCommunicator;
 use crossbeam_channel::Sender;
 use event_loop_comm::EventLoopCommunicator;
-use husky_vfs::WatchedVfs;
+
 use threadpool::ThreadPool;
 
 pub(crate) struct Server {
