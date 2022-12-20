@@ -3,7 +3,7 @@ mod query;
 
 use husky_print_utils::ps;
 use husky_term::Term;
-use husky_text::{FileRange, TextRange};
+use husky_text::{FileRange};
 use husky_word::Identifier;
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;
@@ -122,7 +122,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         let snapshot = std::mem::take(&mut self.opt_snapshot_saved).expect("bug");
         let mutations = std::mem::take(&mut self.variable_mutations)
             .iter()
-            .filter_map(|(stack_idx, (varname, range, ty))| {
+            .filter_map(|(stack_idx, (_varname, _range, _ty))| {
                 let stack_idx = *stack_idx;
                 if stack_idx.raw() < snapshot.len().min(self.stack.len()) {
                     todo!()

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::AstDb;
+
 use salsa::DbWithJar;
 use upcast::Upcast;
 

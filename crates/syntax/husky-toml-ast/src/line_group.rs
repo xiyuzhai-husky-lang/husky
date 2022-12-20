@@ -19,7 +19,7 @@ impl const std::ops::FromResidual<Result<Infallible, TomlAstError>> for TomlGrou
     fn from_residual(residual: Result<Infallible, TomlAstError>) -> Self {
         match residual {
             Ok(_) => unreachable!(),
-            Err(e) => TomlGroup::Err,
+            Err(_e) => TomlGroup::Err,
         }
     }
 }

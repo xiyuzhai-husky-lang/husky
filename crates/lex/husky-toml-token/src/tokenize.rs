@@ -9,6 +9,6 @@ pub(crate) use iter::*;
 
 use crate::*;
 use husky_text_span::TextSpan;
-use husky_word::{Word, WordDb};
+use husky_word::{WordDb};
 use keylike::is_keylike;
 use std::sync::Arc;

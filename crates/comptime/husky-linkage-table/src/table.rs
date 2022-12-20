@@ -29,7 +29,7 @@ impl std::fmt::Debug for LinkageTable {
 }
 
 impl LinkageTableInternal {
-    fn new(db: &dyn ResolveLinkage, package_dir: &Path) -> Self {
+    fn new(_db: &dyn ResolveLinkage, _package_dir: &Path) -> Self {
         todo!()
         // let Some(library) = get_library(package_dir) else {
         //     panic!("package at {package_dir:?} doesn't have a compiled dynamic library")

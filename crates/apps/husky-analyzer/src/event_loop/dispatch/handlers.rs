@@ -1,18 +1,18 @@
-use crate::{convert::from_lsp_types, lsp_ext::PositionOrRange, *};
+use crate::{convert::from_lsp_types, *};
 
 type HuskyComptimeSnapshot = salsa::Snapshot<AnalyzerDB>;
 
-use husky_ast::AstDb;
+
 use husky_folding_range::FoldingRangeDb;
 use husky_hover::HoverResult;
-use husky_text::{FilePosition, FileRange, TextRange};
-use husky_token::TokenDb;
+
+
 use husky_vfs::VfsDb;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,
     CallHierarchyOutgoingCall, CallHierarchyOutgoingCallsParams, CallHierarchyPrepareParams,
     CodeLens, CompletionItem, DocumentFormattingParams, FoldingRange, FoldingRangeParams, Location,
-    Position, PrepareRenameResponse, RenameParams, SemanticTokens, SemanticTokensDeltaParams,
+    Position, PrepareRenameResponse, RenameParams, SemanticTokensDeltaParams,
     SemanticTokensFullDeltaResult, SemanticTokensParams, SemanticTokensRangeParams,
     SemanticTokensRangeResult, SemanticTokensResult, SymbolInformation, WorkspaceEdit,
 };
@@ -108,8 +108,8 @@ pub(crate) fn handle_parent_module(
 }
 
 pub(crate) fn handle_completion(
-    comptime: HuskyComptimeSnapshot,
-    params: lsp_types::CompletionParams,
+    _comptime: HuskyComptimeSnapshot,
+    _params: lsp_types::CompletionParams,
 ) -> Result<Option<lsp_types::CompletionResponse>> {
     msg_once!("todo handle completion!");
     Ok(None)
@@ -147,8 +147,8 @@ pub(crate) fn handle_decl_help(
 }
 
 pub(crate) fn handle_hover(
-    comptime: HuskyComptimeSnapshot,
-    params: lsp_ext::HoverParams,
+    _comptime: HuskyComptimeSnapshot,
+    _params: lsp_ext::HoverParams,
 ) -> Result<Option<HoverResult>> {
     msg_once!("todo handle hover!");
     Ok(None)
@@ -281,8 +281,8 @@ pub(crate) fn handle_call_hierarchy_outgoing(
 }
 
 pub(crate) fn handle_semantic_tokens_full(
-    snapshot: HuskyComptimeSnapshot,
-    params: SemanticTokensParams,
+    _snapshot: HuskyComptimeSnapshot,
+    _params: SemanticTokensParams,
 ) -> Result<Option<SemanticTokensResult>> {
     eprintln!("todo: handle_semantic_tokens_full");
     Ok(None)
@@ -301,8 +301,8 @@ pub(crate) fn handle_semantic_tokens_full(
 }
 
 pub(crate) fn handle_semantic_tokens_full_delta(
-    snapshot: HuskyComptimeSnapshot,
-    params: SemanticTokensDeltaParams,
+    _snapshot: HuskyComptimeSnapshot,
+    _params: SemanticTokensDeltaParams,
 ) -> Result<Option<SemanticTokensFullDeltaResult>> {
     eprintln!("todo: handle_semantic_tokens_full_delta");
     Ok(None)
@@ -323,8 +323,8 @@ pub(crate) fn handle_semantic_tokens_full_delta(
 }
 
 pub(crate) fn handle_semantic_tokens_range(
-    snapshot: HuskyComptimeSnapshot,
-    params: SemanticTokensRangeParams,
+    _snapshot: HuskyComptimeSnapshot,
+    _params: SemanticTokensRangeParams,
 ) -> Result<Option<SemanticTokensRangeResult>> {
     eprintln!("todo: handle_semantic_tokens_range");
     Ok(None)

@@ -1,12 +1,12 @@
 use std::path::Path;
 
 use crate::*;
-use path_slash::PathExt;
+
 
 pub fn cargo_toml_content(
-    db: &dyn RustTranspileDb,
-    target_entrance: AbsolutePath,
-    husky_dir: &Path,
+    _db: &dyn RustTranspileDb,
+    _target_entrance: AbsolutePath,
+    _husky_dir: &Path,
 ) -> String {
     todo!()
     //     let package = db.package(target_entrance).unwrap();

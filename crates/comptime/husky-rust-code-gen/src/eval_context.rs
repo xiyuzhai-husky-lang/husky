@@ -1,8 +1,8 @@
-use husky_entity_card::{EntityCard, MemberKind, TyKingdom};
+
 
 use crate::*;
 
-pub(crate) fn needs_eval_context(db: &dyn RustTranspileDb, entity_path: Term) -> bool {
+pub(crate) fn needs_eval_context(_db: &dyn RustTranspileDb, _entity_path: Term) -> bool {
     todo!()
     // let entity_link_dependees = db.entity_link_dependees(entity_path);
     // for link_route in entity_link_dependees.iter() {

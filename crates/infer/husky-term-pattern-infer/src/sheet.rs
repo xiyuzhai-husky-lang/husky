@@ -92,9 +92,9 @@ impl InternTermPattern for TermPatternInferSheet {
 impl<'a> TermPatternInferContext<'a> {
     pub(crate) fn var_ty_result(
         &self,
-        sheet: &TermPatternInferSheet,
-        ident: Identifier,
-        init_range: TextRange,
+        _sheet: &TermPatternInferSheet,
+        _ident: Identifier,
+        _init_range: TextRange,
     ) -> TermPatternInferResult<TermPatternItd> {
         todo!()
     }

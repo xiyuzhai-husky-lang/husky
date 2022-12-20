@@ -9,7 +9,7 @@ use husky_entity_path::EntityPath;
 pub use key::*;
 pub use table::*;
 
-use husky_print_utils::p;
+
 use husky_term::Term;
 use husky_vm::__ResolvedLinkage;
 use husky_vm::{Binding, EntityUid, __Linkage};
@@ -17,13 +17,13 @@ use husky_word::Identifier;
 use map_collect::MapCollect;
 use std::collections::HashMap;
 use sync_utils::ASafeRwLock;
-use thin_vec::thin_vec;
-use upcast::Upcast;
+
+
 
 pub trait ResolveLinkage {
     fn linkage_table(&self) -> &LinkageTable;
 
-    fn index_linkage(&self, opd_tys: Vec<Term>) -> __Linkage {
+    fn index_linkage(&self, _opd_tys: Vec<Term>) -> __Linkage {
         todo!()
         // if let Some(linkage) = self
         //     .linkage_table()
@@ -56,7 +56,7 @@ pub trait ResolveLinkage {
         // }
     }
 
-    fn field_linkage(&self, this_ty: Term, field_ident: Identifier) -> Option<__Linkage> {
+    fn field_linkage(&self, _this_ty: Term, _field_ident: Identifier) -> Option<__Linkage> {
         todo!()
         // if !this_ty.is_intrinsic() {
         //     panic!("expect intrinsic ty, but get `{}` instead", this_ty)
@@ -85,7 +85,7 @@ pub trait ResolveLinkage {
             .map(|linkage| linkage.bind(field_binding))
     }
 
-    fn method_linkage(&self, method_route: Term) -> Option<__Linkage> {
+    fn method_linkage(&self, _method_route: Term) -> Option<__Linkage> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
@@ -174,7 +174,7 @@ pub trait ResolveLinkage {
         // )
     }
 
-    fn routine_linkage(&self, routine: Term) -> Option<__Linkage> {
+    fn routine_linkage(&self, _routine: Term) -> Option<__Linkage> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
@@ -203,7 +203,7 @@ pub trait ResolveLinkage {
         // )
     }
 
-    fn type_call_linkage(&self, ty: Term) -> Option<__Linkage> {
+    fn type_call_linkage(&self, _ty: Term) -> Option<__Linkage> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
@@ -226,7 +226,7 @@ pub trait ResolveLinkage {
         // )
     }
 
-    fn feature_eager_block_linkage(&self, entity_path: EntityPath) -> Option<__Linkage> {
+    fn feature_eager_block_linkage(&self, _entity_path: EntityPath) -> Option<__Linkage> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,

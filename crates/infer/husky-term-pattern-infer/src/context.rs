@@ -142,14 +142,14 @@ impl<'a> TermPatternInferContext<'a> {
                     ty: Ok(ty.into()),
                 }
             }
-            RawLiteralData::I32(i) => ExprTermPatternInferRawResults {
+            RawLiteralData::I32(_i) => ExprTermPatternInferRawResults {
                 const_expr: Ok(Some(ConstExprPattern {
                     term: TermPatternItd::Resolved(todo!()),
                     opt_substitution_ctx: None,
                 })),
                 ty: Ok(self.term_menu.i32().into()),
             },
-            RawLiteralData::I64(i) => ExprTermPatternInferRawResults {
+            RawLiteralData::I64(_i) => ExprTermPatternInferRawResults {
                 const_expr: Ok(Some(ConstExprPattern {
                     term: TermPatternItd::Resolved(todo!()),
                     opt_substitution_ctx: None,

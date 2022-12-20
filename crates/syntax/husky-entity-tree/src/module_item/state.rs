@@ -48,7 +48,7 @@ impl<'a> CollectorState<'a> {
                                 | EntityCard::Form => Some(ModuleItem::Defn {
                                     ident: match entity_path.data(db) {
                                         EntityPathData::CrateRoot(_) => unreachable!(),
-                                        EntityPathData::Childpath { parent, ident } => ident,
+                                        EntityPathData::Childpath { parent: _, ident } => ident,
                                     },
                                     accessibility,
                                     tree_idx,

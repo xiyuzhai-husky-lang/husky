@@ -97,15 +97,15 @@ impl<'a> EntityTreeCollector<'a> {
         match ast {
             Ast::Err { .. } | Ast::Use { .. } | Ast::Comment { .. } | Ast::Decor { .. } => None,
             Ast::Stmt {
-                token_group_idx,
+                token_group_idx: _,
                 body,
             }
             | Ast::Main {
-                token_group_idx,
+                token_group_idx: _,
                 body,
             }
             | Ast::Config {
-                token_group_idx,
+                token_group_idx: _,
                 body,
             } => {
                 let sporadic_entities = self.process_body(None, body);
@@ -137,13 +137,13 @@ impl<'a> EntityTreeCollector<'a> {
                 None
             }
             Ast::Defn {
-                token_group_idx,
+                token_group_idx: _,
                 body,
                 accessibility,
                 entity_card,
                 ident,
-                is_generic,
-                body_kind,
+                is_generic: _,
+                body_kind: _,
             } => {
                 let entity_path = self.db.it_entity_path(match parent {
                     Some(parent) => EntityPathData::Childpath {
@@ -171,7 +171,7 @@ impl<'a> EntityTreeCollector<'a> {
                 })
             }
             Ast::Impl {
-                token_group_idx,
+                
                 body,
                 ..
             } => {
@@ -207,46 +207,46 @@ impl<'a> EntityTreeCollector<'a> {
         match ast {
             Ast::Err { .. } => todo!(),
             Ast::Use {
-                token_group_idx, ..
+                 ..
             } => todo!(),
             Ast::Comment { .. } => todo!(),
             Ast::Decor { .. } => todo!(),
             Ast::Stmt {
                 token_group_idx,
-                body,
+                body: _,
             } => {
                 p!(self.module.show(self.db), &token_sheet[*token_group_idx]);
                 todo!()
             }
             Ast::IfElseStmts {
-                if_stmt,
-                elif_stmts,
-                else_stmt,
+                if_stmt: _,
+                elif_stmts: _,
+                else_stmt: _,
             } => todo!(),
             Ast::MatchStmts {
-                pattern_stmt,
-                case_stmts,
+                pattern_stmt: _,
+                case_stmts: _,
             } => todo!(),
             Ast::Defn {
-                token_group_idx,
-                body,
-                accessibility,
-                entity_card,
-                ident,
-                is_generic,
-                body_kind,
+                token_group_idx: _,
+                body: _,
+                accessibility: _,
+                entity_card: _,
+                ident: _,
+                is_generic: _,
+                body_kind: _,
             } => todo!(),
             Ast::Impl {
-                token_group_idx,
-                body,
+                token_group_idx: _,
+                body: _,
             } => todo!(),
             Ast::Main {
-                token_group_idx,
-                body,
+                token_group_idx: _,
+                body: _,
             } => todo!(),
             Ast::Config {
-                token_group_idx,
-                body,
+                token_group_idx: _,
+                body: _,
             } => todo!(),
         }
     }

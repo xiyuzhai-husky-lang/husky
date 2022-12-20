@@ -10,7 +10,7 @@ impl ImplementationMap {
             self.data.iter_mut().find(|(path, _)| *path == entity_path)
         {
             match implementations.binary_search(&ast_idx) {
-                Ok(pos) => todo!(), // element already in vector @ `pos` ,
+                Ok(_pos) => todo!(), // element already in vector @ `pos` ,
                 Err(pos) => implementations.insert(pos, ast_idx),
             }
         } else {

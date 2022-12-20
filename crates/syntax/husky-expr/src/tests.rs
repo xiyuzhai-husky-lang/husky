@@ -11,7 +11,6 @@ use husky_toolchain::*;
 use husky_toolchain_infer::ToolchainInferJar;
 use husky_vfs::*;
 use husky_word::WordJar;
-use place::SingleAssignPlace;
 use salsa::{Database, ParallelDatabase};
 
 #[salsa::db(

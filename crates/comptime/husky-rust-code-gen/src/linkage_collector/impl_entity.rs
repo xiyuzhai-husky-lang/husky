@@ -2,7 +2,7 @@ use super::*;
 use husky_defn::Defn;
 
 impl<'a> LinkageCollector<'a> {
-    pub(crate) fn collect_from_entity_defn(&mut self, defn: &Defn) {
+    pub(crate) fn collect_from_entity_defn(&mut self, _defn: &Defn) {
         todo!()
         // match defn.variant {
         //     EntityDefnVariant::Module {

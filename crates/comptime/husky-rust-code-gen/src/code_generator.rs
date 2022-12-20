@@ -13,8 +13,8 @@
 
 use crate::*;
 // use context::*;
-use husky_entity_card::TyKingdom;
-use std::sync::Arc;
+
+
 
 pub(crate) struct RustCodeGenerator<'a> {
     db: &'a dyn RustTranspileDb,
@@ -25,7 +25,7 @@ pub(crate) struct RustCodeGenerator<'a> {
 }
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(crate) fn new(db: &'a dyn RustTranspileDb, module: Term) -> Self {
+    pub(crate) fn new(_db: &'a dyn RustTranspileDb, _module: Term) -> Self {
         todo!()
         // let target_entrance = db
         //     .module_target_entrance(db.module_file(module).unwrap())
@@ -45,9 +45,9 @@ impl<'a> RustCodeGenerator<'a> {
     }
 
     pub(crate) fn new_lib(
-        db: &'a dyn RustTranspileDb,
-        target_entrance: AbsolutePath,
-        use_crate_all: bool,
+        _db: &'a dyn RustTranspileDb,
+        _target_entrance: AbsolutePath,
+        _use_crate_all: bool,
     ) -> Self {
         // let mut symbols = LocalStack::new();
         // let package = db.package(target_entrance).unwrap();

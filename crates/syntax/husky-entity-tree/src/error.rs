@@ -40,19 +40,19 @@ impl From<&ToolchainInferError> for EntityTreeError {
 }
 
 impl From<&EntityPathError> for EntityTreeError {
-    fn from(value: &EntityPathError) -> Self {
+    fn from(_value: &EntityPathError) -> Self {
         todo!()
     }
 }
 
 impl From<&PackagePathError> for EntityTreeError {
-    fn from(value: &PackagePathError) -> Self {
+    fn from(_value: &PackagePathError) -> Self {
         todo!()
     }
 }
 
 impl From<&AbsolutePathError> for EntityTreeError {
-    fn from(value: &AbsolutePathError) -> Self {
+    fn from(_value: &AbsolutePathError) -> Self {
         todo!()
     }
 }

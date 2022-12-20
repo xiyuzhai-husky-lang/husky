@@ -33,17 +33,17 @@ impl<'a> ModuleItemCollector<'a> {
     fn exec(&mut self, action: CollectorAction<'a>) {
         match action {
             CollectorAction::ResolveUseExpr {
-                sheet,
+                sheet: _,
                 module,
-                accessibility,
+                accessibility: _,
                 ident,
-                use_expr_idx,
+                use_expr_idx: _,
             } => {
-                if let Some(item) = self.state.module_item_maps()[module].1.get_entry(ident) {
+                if let Some(_item) = self.state.module_item_maps()[module].1.get_entry(ident) {
                     todo!()
                 }
             }
-            CollectorAction::UseAll(use_all) => todo!(),
+            CollectorAction::UseAll(_use_all) => todo!(),
         }
     }
 

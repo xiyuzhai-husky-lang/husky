@@ -1,12 +1,12 @@
 use crate::*;
-use core::slice::Iter;
+
 use husky_ast::{Ast, AstSheet};
 use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Bracket};
-use husky_print_utils::p;
-use husky_token::{Keyword, SpecialToken, TokenIdx, TokenIter, TokenKind, TokenSheet};
+
+use husky_token::{Keyword, SpecialToken, TokenIter, TokenKind, TokenSheet};
 use husky_word::Identifier;
 use idx_arena::map::ArenaMap;
-use std::iter::Peekable;
+
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum EntityUseExpr {
@@ -183,7 +183,7 @@ impl<'a> EntityUseExprCollector<'a> {
                 token_group_idx,
                 accessibility,
             } => {
-                let mut token_iter = self.token_sheet.token_group_token_iter(*token_group_idx);
+                let token_iter = self.token_sheet.token_group_token_iter(*token_group_idx);
                 let (ident, mut entity_use_expr_parser) =
                     EntityUseExprParser::new(self.db, token_iter, &mut self.arena);
                 Some((
@@ -375,7 +375,7 @@ impl<'a> UseAllCollector<'a> {
                 self.path.push(*parent);
                 self.collect(*child)
             }
-            EntityUseExpr::Multiple { exprs } => todo!(),
+            EntityUseExpr::Multiple { exprs: _ } => todo!(),
             EntityUseExpr::Err(_) => todo!(),
         }
     }

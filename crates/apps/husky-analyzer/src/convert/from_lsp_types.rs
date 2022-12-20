@@ -27,7 +27,7 @@ pub trait LspExt {
 impl LspExt for PathBuf {
     type LspType = lsp_types::Url;
 
-    fn from_lsp(t: Self::LspType) -> Self {
+    fn from_lsp(_t: Self::LspType) -> Self {
         todo!()
     }
 

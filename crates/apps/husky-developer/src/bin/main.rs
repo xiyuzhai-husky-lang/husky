@@ -1,5 +1,5 @@
 use clap::{Parser, Subcommand};
-use husky_developer::*;
+
 use std::path::PathBuf;
 
 #[derive(Parser)]
@@ -28,7 +28,7 @@ enum HuskyDebuggerCommands {
 
 #[tokio::main]
 async fn main() {
-    let cli = HuskyDebuggerCli::parse();
+    let _cli = HuskyDebuggerCli::parse();
     todo!()
     // match cli.command {
     //     HuskyDebuggerCommands::Run { package_dir } => dev_run(package_dir).await.unwrap(),
