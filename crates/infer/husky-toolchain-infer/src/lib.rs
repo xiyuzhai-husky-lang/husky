@@ -1,9 +1,11 @@
+#![feature(trait_upcasting)]
 mod error;
 
 pub use error::*;
 
 use husky_package_path::{CratePath, PackagePathDb};
-use husky_toolchain::Toolchain;
+use husky_path_utils::derive_library_path_from_cargo_manifest_dir;
+use husky_toolchain::{Toolchain, ToolchainData};
 use husky_vfs::VfsResult;
 use salsa::DbWithJar;
 
@@ -34,5 +36,10 @@ fn crate_toolchain(
 }
 
 fn ad_hoc_crate_toolchain(db: &dyn ToolchainInferDb) -> ToolchainInferResult<Toolchain> {
-    todo!()
+    Ok(Toolchain::new(
+        db,
+        ToolchainData::Local {
+            library_path: derive_library_path_from_cargo_manifest_dir(),
+        },
+    ))
 }

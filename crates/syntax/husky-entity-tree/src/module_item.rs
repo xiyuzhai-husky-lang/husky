@@ -1,4 +1,6 @@
+use husky_print_utils::p;
 use husky_word::{IdentMap, IdentPairMap, Identifier};
+use salsa::DebugWithDb;
 use vec_like::{VecMapEntry, VecSet};
 
 use crate::*;
@@ -8,7 +10,7 @@ use std::collections::HashMap;
 pub(crate) fn module_items_map(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> EntityTreeResult<HashMap<EntityPath, IdentMap<ModuleItem>>> {
+) -> EntityTreeResult<HashMap<EntityPath, ModuleItemMap>> {
     // let ast_sheet = db.ast_sheet(module).as_ref()?;
     Ok(ModuleItemCollector::new(db, crate_path)?.collect_all())
 }
@@ -20,7 +22,7 @@ fn module_items_map_works() {
     })
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ModuleItem {
     Defn {
         ident: Identifier,
@@ -35,6 +37,12 @@ pub enum ModuleItem {
     },
 }
 
+#[salsa::tracked(jar = EntityTreeJar)]
+pub(crate) struct ModuleItemMap {
+    #[return_ref]
+    data: IdentMap<ModuleItem>,
+}
+
 impl VecMapEntry<Identifier> for ModuleItem {
     fn key(&self) -> Identifier {
         match self {
@@ -47,11 +55,16 @@ struct ModuleItemCollector<'a> {
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
     core_prelude_path: EntityPath,
-    prelude: IdentPairMap<EntityPath>,
+    prelude: PreludeInAction<'a>,
     root: EntityPath,
     module_item_maps: HashMap<EntityPath, IdentMap<ModuleItem>>,
     use_expr_caches: HashMap<EntityPath, EntityUseExprCache<'a>>,
     errors: Vec<(AstIdx, EntityTreeError)>,
+}
+
+pub enum PreludeInAction<'a> {
+    Ongoing(IdentMap<ModuleItem>),
+    Finished(&'a IdentMap<ModuleItem>),
 }
 
 struct EntityUseExprCache<'a> {
@@ -64,11 +77,15 @@ impl<'a> ModuleItemCollector<'a> {
         let all_modules = all_modules_within_crate(db, crate_path).as_ref()?;
         let toolchain = db.crate_toolchain(crate_path).as_ref()?;
         let entity_path_menu = db.entity_path_menu(*toolchain);
+        let prelude = match crate_prelude(db, crate_path).as_ref()?.as_ref() {
+            Some(map) => PreludeInAction::Finished(map.data(db)),
+            None => PreludeInAction::Ongoing(Default::default()),
+        };
         Ok(Self {
             db,
             crate_path,
             core_prelude_path: entity_path_menu.core_prelude(),
-            prelude: todo!(),
+            prelude,
             root: db.it_entity_path(EntityPathData::CrateRoot(crate_path)),
             module_item_maps: todo!(),
             use_expr_caches: todo!(),
@@ -76,8 +93,29 @@ impl<'a> ModuleItemCollector<'a> {
         })
     }
 
-    fn collect_all(&mut self) -> HashMap<EntityPath, IdentMap<ModuleItem>> {
+    fn collect_all(&mut self) -> HashMap<EntityPath, ModuleItemMap> {
         todo!();
         self.module_item_maps
+            .into_iter()
+            .map(|(entity_path, map)| (entity_path, ModuleItemMap::new(self.db, map)))
+            .collect()
+    }
+}
+
+#[salsa::tracked(jar = EntityTreeJar)]
+pub(crate) fn crate_prelude(
+    db: &dyn EntityTreeDb,
+    crate_path: CratePath,
+) -> EntityTreeResult<Option<ModuleItemMap>> {
+    let toolchain = db.crate_toolchain(crate_path).as_ref()?;
+    let package_path_menu = db.package_path_menu(*toolchain);
+    let core_library = package_path_menu.core_library();
+    if crate_path == core_library {
+        Ok(None)
+    } else {
+        let entity_path_menu = db.entity_path_menu(*toolchain);
+        Ok(Some(
+            module_items_map(db, core_library).as_ref()?[&entity_path_menu.core_prelude()],
+        ))
     }
 }

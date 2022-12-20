@@ -12,3 +12,5 @@ husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
+# utils
+husky-path-utils = { path = "../../utils/husky-path-utils" }

@@ -12,7 +12,7 @@ pub use menu::*;
 use ancestry::*;
 use husky_package_path::*;
 use husky_toolchain::Toolchain;
-use husky_word::Identifier;
+use husky_word::{Identifier, WordJar};
 use optional::Optioned;
 use salsa::DbWithJar;
 use utils::*;
@@ -32,6 +32,74 @@ pub enum EntityPathData {
         parent: EntityPath,
         ident: Identifier,
     },
+}
+
+impl salsa::DebugWithDb<<EntityPathJar as salsa::jar::Jar<'_>>::DynDb> for EntityPathData {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &<EntityPathJar as salsa::jar::Jar<'_>>::DynDb,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        #[allow(unused_imports)]
+        use ::salsa::debug::helper::Fallback;
+        match self {
+            EntityPathData::CrateRoot(crate_path) => f
+                .debug_tuple("CrateRoot")
+                .field(&::salsa::debug::helper::SalsaDebug::<
+                    CratePath,
+                    <PackagePathJar as salsa::jar::Jar<'_>>::DynDb,
+                >::salsa_debug(
+                    #[allow(clippy::needless_borrow)]
+                    crate_path,
+                    db,
+                    include_all_fields,
+                ))
+                .finish(),
+            EntityPathData::Childpath { parent, ident } => f
+                .debug_struct("CrateRoot")
+                .field(
+                    "parent",
+                    &::salsa::debug::helper::SalsaDebug::<
+                        EntityPath,
+                        <EntityPathJar as salsa::jar::Jar<'_>>::DynDb,
+                    >::salsa_debug(
+                        #[allow(clippy::needless_borrow)]
+                        parent,
+                        db,
+                        include_all_fields,
+                    ),
+                )
+                .field(
+                    "ident",
+                    &::salsa::debug::helper::SalsaDebug::<
+                        Identifier,
+                        <WordJar as salsa::jar::Jar<'_>>::DynDb,
+                    >::salsa_debug(
+                        #[allow(clippy::needless_borrow)]
+                        ident,
+                        db,
+                        include_all_fields,
+                    ),
+                )
+                .finish(),
+        }
+        // let mut debug_struct = &mut f.debug_struct("EntityPath");
+        // debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
+        // debug_struct = debug_struct.field(
+        //     "data",
+        //     &::salsa::debug::helper::SalsaDebug::<
+        //         EntityPathData,
+        //         <EntityPathJar as salsa::jar::Jar<'_>>::DynDb,
+        //     >::salsa_debug(
+        //         #[allow(clippy::needless_borrow)]
+        //         &self.data(_db),
+        //         _db,
+        //         _include_all_fields,
+        //     ),
+        // );
+        // debug_struct.finish()
+    }
 }
 
 impl EntityPath {

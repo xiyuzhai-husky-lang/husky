@@ -47,6 +47,8 @@ pub struct EntityTreeJar(
     module_use_exprs,
     module_items_map,
     all_modules_within_crate,
+    crate_prelude,
+    ModuleItemMap,
 );
 
 #[derive(Debug, PartialEq, Eq)]
