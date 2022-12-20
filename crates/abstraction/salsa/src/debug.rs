@@ -192,18 +192,45 @@ where
     }
 }
 
+pub trait MapEntryDebugWithDb<Db>
+where
+    Db: ?Sized,
+{
+    fn map_entry_debug_with<'a>(
+        &'a self,
+        db: &'a Db,
+        include_all_fields: bool,
+    ) -> (DebugWith<'a, Db>, DebugWith<'a, Db>);
+}
+
+impl<Db, K, V> MapEntryDebugWithDb<Db> for (K, V)
+where
+    Db: ?Sized,
+    K: DebugWithDb<Db>,
+    V: DebugWithDb<Db>,
+{
+    fn map_entry_debug_with<'a>(
+        &'a self,
+        db: &'a Db,
+        include_all_fields: bool,
+    ) -> (DebugWith<'a, Db>, DebugWith<'a, Db>) {
+        (
+            self.0.debug_with(db, include_all_fields),
+            self.1.debug_with(db, include_all_fields),
+        )
+    }
+}
+
 impl<Db: ?Sized, K, V> DebugWithDb<Db> for VecEntryMap<K, V>
 where
-    K: DebugWithDb<Db> + PartialEq + Eq + std::fmt::Debug,
-    V: DebugWithDb<Db> + VecMapEntry<K>,
+    K: PartialEq + Eq,
+    V: VecMapEntry<K> + MapEntryDebugWithDb<Db>,
 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
-        let elements = self.data().iter().map(|v| {
-            (
-                v.key_ref().debug_with(db, include_all_fields),
-                v.debug_with(db, include_all_fields),
-            )
-        });
+        let elements = self
+            .data()
+            .iter()
+            .map(|v| v.map_entry_debug_with(db, include_all_fields));
         f.debug_map().entries(elements).finish()
     }
 }
