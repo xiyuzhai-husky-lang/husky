@@ -11,14 +11,11 @@ mod registration_content;
 mod utils;
 
 pub use cargo_toml_content::*;
-use husky_absolute_path::AbsolutePath;
 use husky_layout::LayoutDb;
-use salsa::DbWithJar;
-
 use husky_term::Term;
-
+use husky_vfs::*;
+use salsa::DbWithJar;
 use std::sync::Arc;
-
 use vec_like::VecSet;
 
 #[salsa::jar(db = RustTranspileDb)]

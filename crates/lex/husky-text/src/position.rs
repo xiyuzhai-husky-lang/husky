@@ -4,11 +4,13 @@ mod line;
 pub use column::*;
 pub use line::*;
 
-use husky_absolute_path::AbsolutePath;
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 
 use serde::{Deserialize, Serialize};
-use std::fmt::Write;
+use std::{
+    fmt::Write,
+    path::{Path, PathBuf},
+};
 
 #[derive(
     Debug, Default, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
@@ -20,12 +22,12 @@ pub struct TextPosition {
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct FilePosition {
-    file: AbsolutePath,
+    file: PathBuf,
     pos: TextPosition,
 }
 
 impl FilePosition {
-    pub fn file(&self) -> &AbsolutePath {
+    pub fn file(&self) -> &Path {
         &self.file
     }
 

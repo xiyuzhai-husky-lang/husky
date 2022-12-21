@@ -131,7 +131,7 @@ pub(crate) fn handle_folding_range(
     let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
     let module = snapshot.resolve_module_path(&path)?;
     match snapshot.folding_ranges(module) {
-        Ok(folding_ranges) => Ok(Some(folding_ranges.clone())),
+        Ok(folding_ranges) => Ok(Some(folding_ranges.to_vec())),
         Err(e) => Err(Box::new(e.clone())),
     }
 }

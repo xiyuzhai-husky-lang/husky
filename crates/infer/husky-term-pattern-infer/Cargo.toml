@@ -30,9 +30,10 @@ husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-term-pattern = { path = "../../infer/husky-term-pattern" }
 
 [dev-dependencies]
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
-husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 # utils
 husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }

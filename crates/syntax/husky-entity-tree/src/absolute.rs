@@ -1,6 +1,5 @@
 use husky_entity_card::EntityCard;
 use husky_entity_path::{EntityPathData, EntityPathDb};
-use husky_toolchain::ToolchainDb;
 
 use crate::*;
 
@@ -14,23 +13,17 @@ impl AbsoluteEntityPath {
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn absolute_entity_path(
+pub(crate) fn entity_absolute_path(
     db: &dyn EntityTreeDb,
     entity_path: EntityPath,
 ) -> EntityTreeResult<AbsoluteEntityPath> {
     Ok(match entity_path.data(db) {
-        EntityPathData::CrateRoot(_) => AbsoluteEntityPath(entity_path),
-        EntityPathData::Childpath { parent, ident } => {
-            let abs_parent = absolute_entity_path(db, parent).as_ref()?.path();
+        EntityPathData::Module(_) => AbsoluteEntityPath(entity_path),
+        EntityPathData::Associated { parent, ident } => {
+            let abs_parent = entity_absolute_path(db, parent).as_ref()?.path();
             if abs_parent != parent {
-                *absolute_entity_path(
-                    db,
-                    db.it_entity_path(EntityPathData::Childpath {
-                        parent: abs_parent,
-                        ident,
-                    }),
-                )
-                .as_ref()?
+                todo!()
+                // *entity_absolute_path(db, EntityPath::new_child(db, *abs_parent, ident)).as_ref()?
             } else {
                 match db.entity_card(entity_path).as_ref()? {
                     EntityCard::Use => todo!(),
@@ -45,7 +38,7 @@ pub(crate) fn absolute_entity_path(
 fn absolute_entity_path_works() {
     let db = DB::default();
     let toolchain = db.lang_dev_toolchain();
-    let menu = db.entity_path_menu(toolchain).as_ref().unwrap();
+    let menu = db.entity_path_menu(toolchain).unwrap();
     assert!(db.is_absolute(menu.i32()).unwrap());
     assert!(db.is_absolute(menu.i64()).unwrap());
     // todo
@@ -60,16 +53,17 @@ pub(crate) fn absolutize_parent(
     entity_path: EntityPath,
 ) -> EntityTreeResult<EntityPath> {
     Ok(match entity_path.data(db) {
-        EntityPathData::CrateRoot(_) => entity_path,
-        EntityPathData::Childpath { parent, ident } => {
+        EntityPathData::Module(_) => entity_path,
+        EntityPathData::Associated { parent, ident } => {
             let abs_parent = db.entity_absolute_path(parent).as_ref()?.path();
             if abs_parent == parent {
                 entity_path
             } else {
-                db.it_entity_path(EntityPathData::Childpath {
-                    parent: abs_parent,
-                    ident,
-                })
+                todo!()
+                // db.it_entity_path(EntityPathData::Associated {
+                //     parent: abs_parent,
+                //     ident,
+                // })
             }
         }
     })

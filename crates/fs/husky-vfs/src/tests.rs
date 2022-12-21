@@ -3,15 +3,11 @@ use crate::{
     watch::{WatchedVfs, DEBOUNCE_TEST_SLEEP_TIME},
     *,
 };
-use husky_absolute_path::AbsolutePath;
-use husky_entity_path::EntityPathJar;
-use husky_package_path::PackagePathJar;
-use husky_toolchain::*;
 use husky_word::WordJar;
 use salsa::ParallelDatabase;
 use std::ops::Deref;
 
-#[salsa::db(VfsJar, WordJar, ToolchainJar, PackagePathJar, EntityPathJar)]
+#[salsa::db(VfsJar, WordJar)]
 #[derive(Default)]
 pub(crate) struct DB {
     storage: salsa::Storage<Self>,

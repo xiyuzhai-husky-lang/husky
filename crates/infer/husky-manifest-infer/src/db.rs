@@ -1,4 +1,4 @@
 use crate::*;
-use husky_package_path::PackagePathDb;
+use husky_vfs::VfsDb;
 
-pub trait ManifestDb: DbWithJar<ManifestJar> + PackagePathDb {}
+pub trait ManifestDb: DbWithJar<ManifestJar> + VfsDb {}

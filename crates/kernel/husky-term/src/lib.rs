@@ -32,7 +32,7 @@ pub use trai::*;
 pub use trait_impl::*;
 
 use husky_entity_path::EntityPath;
-use husky_toolchain::Toolchain;
+use husky_vfs::*;
 
 #[salsa::jar(db = TermDb)]
 pub struct TermJar(Term, TermCurryContext, term_menu);
@@ -44,12 +44,18 @@ pub struct Term {
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum TermData {
-    Atom(TermAtom),               // literal: 1,1.0, true, false; variable, entityPath
-    Curry(TermCurry), // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
-    Abstraction(TermAbstraction), // lambda x => expr
-    Application(TermApplication), // f x, apply a function to term
-    Subentity(TermSubentity), // ::
-    TraitImpl(TermTraitImpl), // A as trait
+    // literal: 1,1.0, true, false; variable, entityPath
+    Atom(TermAtom),
+    // X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
+    Curry(TermCurry),
+    // lambda x => expr
+    Abstraction(TermAbstraction),
+    // f x, apply a function to term
+    Application(TermApplication),
+    // ::
+    Subentity(TermSubentity),
+    // A as trait
+    TraitImpl(TermTraitImpl),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

@@ -13,7 +13,6 @@ mod tests;
 pub use db::*;
 pub use error::*;
 pub use expr::*;
-use husky_package_path::PackagePath;
 pub use line_group::*;
 pub use table::*;
 

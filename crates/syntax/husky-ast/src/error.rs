@@ -19,6 +19,12 @@ pub enum AstError {
     ExpectParBraOrDecoratorOrIdentifier(Option<TextRange>),
 }
 
+impl From<&AstError> for AstError {
+    fn from(value: &AstError) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AstErrorVariant {
     Original { message: String, range: TextRange },

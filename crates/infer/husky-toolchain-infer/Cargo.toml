@@ -8,7 +8,6 @@ edition = "2021"
 thiserror = "1.0.37"
 salsa = { path = "../../abstraction/salsa" }
 # kernel
-husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }

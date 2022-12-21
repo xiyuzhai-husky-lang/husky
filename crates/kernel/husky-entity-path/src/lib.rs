@@ -1,5 +1,5 @@
 #![feature(trait_upcasting)]
-mod accessibility;
+#![allow(incomplete_features)]
 mod ancestry;
 mod db;
 mod error;
@@ -8,20 +8,18 @@ mod menu;
 mod tests;
 mod utils;
 
-pub use accessibility::*;
+pub use ancestry::*;
 pub use db::*;
 pub use error::*;
 pub use menu::*;
 
-use ancestry::*;
-use husky_package_path::*;
-use husky_toolchain::Toolchain;
+use husky_vfs::*;
 use husky_word::Identifier;
 
 use salsa::DbWithJar;
 
 #[salsa::jar(db = EntityPathDb)]
-pub struct EntityPathJar(EntityPath, apparent_ancestry, entity_path_menu);
+pub struct EntityPathJar(EntityPath, entity_apparent_ancestry, entity_path_menu);
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
 pub struct EntityPath(salsa::Id);
@@ -66,7 +64,8 @@ impl EntityPath {
             <EntityPathJar as salsa::storage::HasIngredientsFor<EntityPath>>::ingredient(jar);
         std::clone::Clone::clone(&ingredients.data(runtime, self).data)
     }
-    pub fn new(db: &<EntityPathJar as salsa::jar::Jar<'_>>::DynDb, data: EntityPathData) -> Self {
+
+    fn new(db: &<EntityPathJar as salsa::jar::Jar<'_>>::DynDb, data: EntityPathData) -> Self {
         let (jar, runtime) = <_ as salsa::storage::HasJar<EntityPathJar>>::jar(db);
         let ingredients =
             <EntityPathJar as salsa::storage::HasIngredientsFor<EntityPath>>::ingredient(jar);
@@ -90,7 +89,9 @@ impl salsa::DebugWithDb<dyn EntityPathDb + '_> for EntityPath {
             .field("[show]", &self.show(db))
             .field(
                 "[crate]",
-                &self.crate_path(db).debug_with(db, include_all_fields),
+                &self
+                    .apparent_crate_path(db)
+                    .debug_with(db, include_all_fields),
             )
             .finish()
     }
@@ -112,40 +113,43 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum EntityPathData {
-    CrateRoot(CratePath),
-    Childpath {
+    Module(ModulePath),
+    Associated {
         parent: EntityPath,
         ident: Identifier,
     },
 }
 
 impl EntityPath {
-    pub fn new_crate_root(
-        db: &dyn EntityPathDb,
-        package_path: PackagePath,
-        crate_kind: CrateKind,
-    ) -> Self {
-        db.it_entity_path(EntityPathData::CrateRoot(CratePath::new(
-            db,
-            package_path,
-            crate_kind,
-        )))
+    pub fn new_module(db: &dyn EntityPathDb, module_path: ModulePath) -> Self {
+        EntityPath::new(db, EntityPathData::Module(module_path))
     }
 
-    pub(crate) fn child(self, db: &dyn EntityPathDb, ident: &str) -> Option<EntityPath> {
-        db.it_child_entity_path(self, ident)
+    pub fn new_child(self, db: &dyn EntityPathDb, ident: &str) -> Option<EntityPath> {
+        let ident = db.it_ident_borrowed(ident)?;
+        Some(EntityPath::new(
+            db,
+            EntityPathData::Associated {
+                parent: self,
+                ident,
+            },
+        ))
     }
 
     pub fn show(self, db: &dyn EntityPathDb) -> String {
         match self.data(db) {
-            EntityPathData::CrateRoot(_crate_path) => "crate".to_owned(),
-            EntityPathData::Childpath { parent, ident } => {
+            EntityPathData::Module(_crate_path) => "crate".to_owned(),
+            EntityPathData::Associated { parent, ident } => {
                 format!("{}::{}", parent.show(db), db.dt_ident(ident))
             }
         }
     }
 
-    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
-        apparent_ancestry(db, self).crate_path()
+    pub fn apparent_ancestry(self, db: &dyn EntityPathDb) -> &EntityAncestry {
+        entity_apparent_ancestry(db, self)
+    }
+
+    pub fn apparent_crate_path(self, db: &dyn EntityPathDb) -> CratePath {
+        self.apparent_ancestry(db).crate_path()
     }
 }

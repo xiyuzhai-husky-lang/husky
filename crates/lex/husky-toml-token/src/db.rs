@@ -1,5 +1,4 @@
 use crate::*;
-use husky_package_path::{PackagePath, PackagePathDb};
 use husky_vfs::*;
 use salsa::DbWithJar;
 
@@ -12,7 +11,7 @@ pub trait TomlTokenDb: DbWithJar<TomlTokenJar> + VfsDb {
 
 impl<T> TomlTokenDb for T
 where
-    T: DbWithJar<TomlTokenJar> + PackagePathDb + VfsDb,
+    T: DbWithJar<TomlTokenJar> + VfsDb + VfsDb,
 {
     fn toml_tokenize(&self, input: &str) -> Vec<TomlToken> {
         TomlTokenIter::new(self, input).collect()

@@ -15,33 +15,33 @@ use vec_like::{VecMapEntry, VecPairMap};
 pub(crate) fn module_items_map(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> EntityTreeResult<VecPairMap<EntityPath, ModuleItemMap>> {
+) -> EntityTreeResult<VecPairMap<ModulePath, ModuleItemMap>> {
     Ok(ModuleItemCollector::new(db, crate_path)?.collect_all())
 }
 
 struct ModuleItemCollector<'a> {
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
-    core_prelude_path: EntityPath,
+    core_prelude_path: ModulePath,
     prelude: Prelude<'a>,
-    root: EntityPath,
+    root: ModulePath,
     state: CollectorState<'a>,
     errors: Vec<(AstIdx, EntityTreeError)>,
 }
 
 impl<'a> ModuleItemCollector<'a> {
     fn new(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> EntityTreeResult<Self> {
-        let toolchain = db.crate_toolchain(crate_path).as_ref()?;
-        let entity_path_menu = db.entity_path_menu(*toolchain).as_ref()?;
+        let toolchain = crate_path.toolchain(db)?;
+        let path_menu = db.path_menu(toolchain)?;
         let prelude = match crate_prelude(db, crate_path).as_ref()?.as_ref() {
             Some(map) => Prelude::Finished(map.data(db)),
             None => Prelude::Ongoing(Default::default()),
         };
-        let root = db.it_entity_path(EntityPathData::CrateRoot(crate_path));
+        let root = ModulePath::new_root(db, crate_path);
         Ok(Self {
             db,
             crate_path,
-            core_prelude_path: entity_path_menu.core_prelude(),
+            core_prelude_path: path_menu.core_prelude(),
             prelude,
             root,
             state: CollectorState::new(db, crate_path)?,
@@ -49,7 +49,7 @@ impl<'a> ModuleItemCollector<'a> {
         })
     }
 
-    fn collect_all(mut self) -> VecPairMap<EntityPath, ModuleItemMap> {
+    fn collect_all(mut self) -> VecPairMap<ModulePath, ModuleItemMap> {
         self.repeat_exec_all_util_stable();
         self.state.finish(self.db)
     }
@@ -57,9 +57,12 @@ impl<'a> ModuleItemCollector<'a> {
 
 #[test]
 fn module_items_map_works() {
-    DB::expect_test_crates_debug_with_db("module_items_map", |db, crate_path| {
-        module_items_map(db, crate_path)
-    })
+    DB::expect_test_crates_debug_with_db(
+        "module_items_map",
+        |db, crate_path| -> EntityTreeResult<&VecPairMap<ModulePath, ModuleItemMap>> {
+            Ok(module_items_map(db, crate_path).as_ref()?)
+        },
+    )
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -127,15 +130,15 @@ pub(crate) fn crate_prelude(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
 ) -> EntityTreeResult<Option<ModuleItemMap>> {
-    let toolchain = db.crate_toolchain(crate_path).as_ref()?;
-    let package_path_menu = db.package_path_menu(*toolchain).as_ref()?;
-    let core_library = package_path_menu.core_library();
+    let toolchain = crate_path.toolchain(db)?;
+    let path_menu = db.path_menu(toolchain)?;
+    let core_library = path_menu.core_library();
     if crate_path == core_library {
         Ok(None)
     } else {
-        let entity_path_menu = db.entity_path_menu(*toolchain).as_ref()?;
+        let entity_path_menu = db.entity_path_menu(toolchain)?;
         Ok(Some(
-            module_items_map(db, core_library).as_ref()?[entity_path_menu.core_prelude()].1,
+            module_items_map(db, core_library).as_ref()?[path_menu.core_prelude()].1,
         ))
     }
 }

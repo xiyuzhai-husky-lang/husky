@@ -7,7 +7,7 @@ use husky_expr::{parse_expr, ExprArena};
 use husky_print_utils::epin;
 use husky_term::TermDb;
 use husky_token::*;
-use husky_toolchain::ToolchainDb;
+use husky_vfs::VfsDb;
 
 #[test]
 fn test_decl() {

@@ -4,7 +4,7 @@ use super::*;
 pub(super) enum CollectorAction<'a> {
     ResolveUseExpr {
         sheet: &'a EntityUseExprSheet,
-        module: EntityPath,
+        module: ModulePath,
         accessibility: Accessibility,
         ident: Identifier,
         use_expr_idx: EntityUseExprIdx,

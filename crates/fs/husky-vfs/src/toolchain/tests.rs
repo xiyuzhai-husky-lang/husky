@@ -2,14 +2,6 @@ use salsa::DebugWithDb;
 
 use crate::*;
 
-#[salsa::db(ToolchainJar)]
-#[derive(Default)]
-pub(crate) struct DB {
-    storage: salsa::Storage<Self>,
-}
-
-impl salsa::Database for DB {}
-
 #[test]
 fn toolchain_debug_works() {
     let db = DB::default();

@@ -8,12 +8,18 @@ pub(crate) fn subentities() -> Vec<EntityTree> {
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn submodules(db: &dyn EntityTreeDb, module: EntityPath) -> VfsResult<Vec<EntityPath>> {
-    let entity_tree_page0 = db.entity_tree_sheet(module).as_ref()?;
-    Ok(entity_tree_page0
+pub(crate) fn submodules(
+    db: &dyn EntityTreeDb,
+    module_path: ModulePath,
+) -> VfsResult<Vec<ModulePath>> {
+    let entity_tree_sheet = db.entity_tree_sheet(module_path).as_ref()?;
+    Ok(entity_tree_sheet
         .top_level_entities()
         .filter_map(|(_, _, card, path)| match card {
-            EntityCard::Module => Some(path),
+            EntityCard::Module => match path.data(db) {
+                EntityPathData::Module(_) => todo!(),
+                EntityPathData::Associated { parent, ident } => todo!(),
+            },
             _ => None,
         })
         .collect())
@@ -24,14 +30,14 @@ pub(crate) fn submodules(db: &dyn EntityTreeDb, module: EntityPath) -> VfsResult
 pub(crate) fn all_modules_within_crate(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> VfsResult<Vec<EntityPath>> {
+) -> VfsResult<Vec<ModulePath>> {
     let mut all_modules = vec![];
-    let root = db.it_entity_path(EntityPathData::CrateRoot(crate_path));
+    let root = ModulePath::new_root(db, crate_path);
     collect_all_modules(db, root, &mut all_modules);
     Ok(all_modules)
 }
 
-fn collect_all_modules(db: &dyn EntityTreeDb, root: EntityPath, all_modules: &mut Vec<EntityPath>) {
+fn collect_all_modules(db: &dyn EntityTreeDb, root: ModulePath, all_modules: &mut Vec<ModulePath>) {
     if let Ok(submodules) = submodules(db, root).as_ref() {
         for submodule in submodules {
             all_modules.push(*submodule);

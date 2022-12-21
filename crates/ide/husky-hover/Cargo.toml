@@ -13,7 +13,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
 husky-text = { path = "../../lex/husky-text" }
-husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
+husky-vfs = { path = "../../fs/husky-vfs" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-expr = { path = "../../syntax/husky-expr" }

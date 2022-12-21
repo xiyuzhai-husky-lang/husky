@@ -3,7 +3,6 @@ mod bind_into;
 
 pub use bind_from::*;
 pub use bind_into::*;
-use husky_absolute_path::AbsolutePath;
 use husky_display_utils::HuskyDisplay;
 use husky_word::Identifier;
 
@@ -11,7 +10,10 @@ use crate::*;
 use husky_dev_utils::__StaticDevSource;
 use husky_print_utils::*;
 use serde::{Deserialize, Serialize};
-use std::fmt::Write;
+use std::{
+    fmt::Write,
+    path::{Path, PathBuf},
+};
 
 #[derive(Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct TextRange {
@@ -37,12 +39,12 @@ impl TextRange {
 
 #[derive(Debug)]
 pub struct FileRange {
-    file: AbsolutePath,
+    file: PathBuf,
     range: TextRange,
 }
 
 impl FileRange {
-    pub fn file(&self) -> &AbsolutePath {
+    pub fn file(&self) -> &Path {
         &self.file
     }
 
@@ -58,11 +60,11 @@ impl HasTextRange for FileRange {
 }
 
 pub trait HasSourceRange: HasTextRange {
-    fn source(&self) -> &AbsolutePath;
+    fn source(&self) -> &Path;
 
     fn source_range(&self) -> FileRange {
         FileRange {
-            file: self.source().clone(),
+            file: self.source().to_owned(),
             range: self.text_range(),
         }
     }
@@ -75,13 +77,13 @@ impl<S: Deref<Target = T>, T: HasTextRange> HasTextRange for S {
 }
 
 impl<S: Deref<Target = T>, T: HasSourceRange + 'static> HasSourceRange for S {
-    fn source(&self) -> &AbsolutePath {
+    fn source(&self) -> &Path {
         self.deref().source()
     }
 }
 
 impl FileRange {
-    pub fn new(file: AbsolutePath, range: TextRange) -> Self {
+    pub fn new(file: PathBuf, range: TextRange) -> Self {
         Self { file, range }
     }
 }

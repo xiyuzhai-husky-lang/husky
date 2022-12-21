@@ -1,6 +1,4 @@
 use crate::*;
-use husky_package_path::PackagePath;
-use husky_vfs::VfsResult;
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn unchecked_package_dependencies(

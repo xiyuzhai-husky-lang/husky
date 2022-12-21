@@ -12,7 +12,6 @@ lsp-types = { version = "0.93", features = ["proposed"], optional = true }
 serde = { version = "1.0.106", features = ["derive"] }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
-husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

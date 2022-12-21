@@ -140,6 +140,16 @@ where
     }
 }
 
+impl<Db: ?Sized, T> DebugWithDb<Db> for [T]
+where
+    T: DebugWithDb<Db>,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
+        let elements = self.iter().map(|e| e.debug_with(db, include_all_fields));
+        f.debug_list().entries(elements).finish()
+    }
+}
+
 impl<Db: ?Sized, T> DebugWithDb<Db> for Vec<T>
 where
     T: DebugWithDb<Db>,

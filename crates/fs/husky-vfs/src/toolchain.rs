@@ -1,22 +1,15 @@
 mod date;
-mod db;
 #[cfg(test)]
 mod tests;
 
 pub use db::*;
 
+use super::*;
 use date::*;
 use husky_platform::Platform;
 use std::path::PathBuf;
 
-#[salsa::jar(db = ToolchainDb)]
-pub struct ToolchainJar(
-    Toolchain,
-    PublishedToolchain,
-    published_toolchain_library_path,
-);
-
-#[salsa::interned(jar = ToolchainJar)]
+#[salsa::interned(jar = VfsJar)]
 pub struct Toolchain {
     #[return_ref]
     pub data: ToolchainData,
@@ -28,7 +21,7 @@ pub enum ToolchainData {
     Local { library_path: PathBuf },
 }
 
-#[salsa::interned(jar = ToolchainJar)]
+#[salsa::interned(jar =VfsJar)]
 pub struct PublishedToolchain {
     channel: ToolchainChannel,
     date: ToolchainDate,
@@ -47,9 +40,9 @@ impl ToolchainChannel {
     }
 }
 
-#[salsa::tracked(jar = ToolchainJar, return_ref)]
-fn published_toolchain_library_path(
-    _db: &dyn ToolchainDb,
+#[salsa::tracked(jar = VfsJar, return_ref)]
+pub(crate) fn published_toolchain_library_path(
+    _db: &dyn VfsDb,
     _toolchain: PublishedToolchain,
 ) -> PathBuf {
     todo!()
