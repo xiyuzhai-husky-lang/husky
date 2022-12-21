@@ -1370,30 +1370,35 @@ Ok(
                         4,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 2,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 5,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 7,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 9,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 11,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1521,5 +1526,60 @@ Ok(
         top_level_asts: ArenaIdxRange(
             160..178,
         ),
+        use_expr_arena: Arena {
+            data: [
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        "geom2d",
+                    ),
+                    child: 0,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "crate",
+                    ),
+                    child: 1,
+                },
+                One {
+                    ident: Identifier(
+                        "RawContour",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "raw_contour",
+                    ),
+                    child: 3,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "crate",
+                    ),
+                    child: 4,
+                },
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        "concave_component",
+                    ),
+                    child: 6,
+                },
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        "convex_component",
+                    ),
+                    child: 8,
+                },
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        "line_segment",
+                    ),
+                    child: 10,
+                },
+            ],
+        },
     },
 )

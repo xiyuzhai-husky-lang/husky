@@ -206,6 +206,7 @@ Ok(
                         0,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 1,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -250,5 +251,16 @@ Ok(
         top_level_asts: ArenaIdxRange(
             23..27,
         ),
+        use_expr_arena: Arena {
+            data: [
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        "crate",
+                    ),
+                    child: 0,
+                },
+            ],
+        },
     },
 )
