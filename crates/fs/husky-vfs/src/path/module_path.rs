@@ -19,6 +19,10 @@ impl ModulePath {
     pub fn new_child(db: &dyn VfsDb, parent: ModulePath, ident: Identifier) -> Self {
         Self::new(db, ModulePathData::Child { parent, ident })
     }
+
+    pub fn toolchain(self, db: &dyn VfsDb) -> Toolchain {
+        todo!()
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

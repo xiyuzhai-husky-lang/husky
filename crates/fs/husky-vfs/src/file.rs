@@ -201,7 +201,7 @@ where
     fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
 }
 
-#[salsa::tracked(jar = VfsJar )]
+#[salsa::tracked(jar = VfsJar)]
 pub(crate) fn package_manifest_file(db: &dyn VfsDb, package_path: PackagePath) -> VfsResult<File> {
     db.file_from_absolute_path(&package_manifest_path(db, package_path)?)
 }

@@ -31,7 +31,7 @@ struct ModuleItemCollector<'a> {
 
 impl<'a> ModuleItemCollector<'a> {
     fn new(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> EntityTreeResult<Self> {
-        let toolchain = crate_path.toolchain(db)?;
+        let toolchain = crate_path.toolchain(db);
         let path_menu = db.path_menu(toolchain)?;
         let prelude = match crate_prelude(db, crate_path).as_ref()?.as_ref() {
             Some(map) => Prelude::Finished(map.data(db)),
@@ -130,7 +130,7 @@ pub(crate) fn crate_prelude(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
 ) -> EntityTreeResult<Option<ModuleItemMap>> {
-    let toolchain = crate_path.toolchain(db)?;
+    let toolchain = crate_path.toolchain(db);
     let path_menu = db.path_menu(toolchain)?;
     let core_library = path_menu.core_library();
     if crate_path == core_library {
