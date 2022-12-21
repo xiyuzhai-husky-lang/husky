@@ -33,11 +33,11 @@ where
         let preludes: Vec<Symbol> = vec![
             Symbol {
                 ident: self.it_ident_borrowed("core").unwrap(),
-                kind: SymbolKind::EntityPath(entity_path_menu.core()),
+                kind: SymbolKind::ModulePath(entity_path_menu.core()),
             },
             Symbol {
                 ident: self.it_ident_borrowed("std").unwrap(),
-                kind: SymbolKind::EntityPath(entity_path_menu.std()),
+                kind: SymbolKind::ModulePath(entity_path_menu.std()),
             },
         ];
         // ad hoc; todo: load preludes from core::prelude

@@ -13,7 +13,7 @@ pub struct ModulePath {
 
 impl ModulePath {
     pub fn new_root(db: &dyn VfsDb, crate_path: CratePath) -> Self {
-        todo!()
+        Self::new(db, ModulePathData::Root(crate_path))
     }
 
     pub fn new_child(db: &dyn VfsDb, parent: ModulePath, ident: Identifier) -> Self {

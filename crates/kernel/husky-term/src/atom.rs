@@ -92,7 +92,8 @@ impl TermAtom {
 
 impl<'a> TermContext<'a> {
     pub fn entity_path_term(&self, entity_path: EntityPath) -> TermResult<Term> {
-        Ok(self.db.it_term(TermAtom::Entity { entity_path }.into()))
+        todo!()
+        // Ok(self.db.it_term(TermAtom::Entity { entity_path }.into()))
     }
 }
 

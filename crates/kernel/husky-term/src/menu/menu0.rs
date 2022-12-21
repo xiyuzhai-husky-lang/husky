@@ -49,45 +49,46 @@ pub struct TermMenu0 {
 
 impl TermMenu0 {
     pub fn new(db: &dyn TermDb, toolchain: Toolchain) -> Self {
-        let sort = db.it_term(TermAtom::new_category(TermCategory::Sort).into());
-        let universe1 = db.it_term(TermAtom::new_universe(1).into());
-        let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
-        TermMenu0 {
-            sort,
-            universe1,
-            core: db.it_entity_path_term(entity_path_menu.core()),
-            core_ops: db.it_entity_path_term(entity_path_menu.core_ops()),
-            core_ops_add: db.it_entity_path_term(entity_path_menu.core_ops_add()),
-            // start here
-            // db.it_entity_path_term(entity_path_menu.core_ops_())
-            core_ops_add_assign: db.it_entity_path_term(entity_path_menu.core_ops_add_assign()),
-            core_ops_bit_and: db.it_entity_path_term(entity_path_menu.core_ops_bit_and()),
-            core_ops_bit_and_assign: db
-                .it_entity_path_term(entity_path_menu.core_ops_bit_and_assign()),
-            core_ops_bit_or: db.it_entity_path_term(entity_path_menu.core_ops_bit_or()),
-            core_ops_bit_or_assign: db
-                .it_entity_path_term(entity_path_menu.core_ops_bit_or_assign()),
-            core_ops_bit_xor: db.it_entity_path_term(entity_path_menu.core_ops_bit_xor()),
-            core_ops_bit_xor_assign: db
-                .it_entity_path_term(entity_path_menu.core_ops_bit_xor_assign()),
-            core_ops_div: db.it_entity_path_term(entity_path_menu.core_ops_div()),
-            core_ops_div_assign: db.it_entity_path_term(entity_path_menu.core_ops_div_assign()),
-            core_ops_mul: db.it_entity_path_term(entity_path_menu.core_ops_mul()),
-            core_ops_mul_assign: db.it_entity_path_term(entity_path_menu.core_ops_mul_assign()),
-            core_ops_neg: db.it_entity_path_term(entity_path_menu.core_ops_neg()),
-            core_ops_not: db.it_entity_path_term(entity_path_menu.core_ops_not()),
-            std: db.it_entity_path_term(entity_path_menu.std()),
-            unit: db.it_entity_path_term(entity_path_menu.unit()),
-            bool: db.it_entity_path_term(entity_path_menu.bool()),
-            trai: db.it_entity_path_term(entity_path_menu.trai()),
-            module: db.it_entity_path_term(entity_path_menu.module()),
-            i32: db.it_entity_path_term(entity_path_menu.i32()),
-            i64: db.it_entity_path_term(entity_path_menu.i64()),
-            f32: db.it_entity_path_term(entity_path_menu.f32()),
-            f64: db.it_entity_path_term(entity_path_menu.f64()),
-            b32: db.it_entity_path_term(entity_path_menu.b32()),
-            b64: db.it_entity_path_term(entity_path_menu.b64()),
-        }
+        todo!()
+        // let sort = db.it_term(TermAtom::new_category(TermCategory::Sort).into());
+        // let universe1 = db.it_term(TermAtom::new_universe(1).into());
+        // let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+        // TermMenu0 {
+        //     sort,
+        //     universe1,
+        //     core: db.it_entity_path_term(entity_path_menu.core()),
+        //     core_ops: db.it_entity_path_term(entity_path_menu.core_ops()),
+        //     core_ops_add: db.it_entity_path_term(entity_path_menu.core_ops_add()),
+        //     // start here
+        //     // db.it_entity_path_term(entity_path_menu.core_ops_())
+        //     core_ops_add_assign: db.it_entity_path_term(entity_path_menu.core_ops_add_assign()),
+        //     core_ops_bit_and: db.it_entity_path_term(entity_path_menu.core_ops_bit_and()),
+        //     core_ops_bit_and_assign: db
+        //         .it_entity_path_term(entity_path_menu.core_ops_bit_and_assign()),
+        //     core_ops_bit_or: db.it_entity_path_term(entity_path_menu.core_ops_bit_or()),
+        //     core_ops_bit_or_assign: db
+        //         .it_entity_path_term(entity_path_menu.core_ops_bit_or_assign()),
+        //     core_ops_bit_xor: db.it_entity_path_term(entity_path_menu.core_ops_bit_xor()),
+        //     core_ops_bit_xor_assign: db
+        //         .it_entity_path_term(entity_path_menu.core_ops_bit_xor_assign()),
+        //     core_ops_div: db.it_entity_path_term(entity_path_menu.core_ops_div()),
+        //     core_ops_div_assign: db.it_entity_path_term(entity_path_menu.core_ops_div_assign()),
+        //     core_ops_mul: db.it_entity_path_term(entity_path_menu.core_ops_mul()),
+        //     core_ops_mul_assign: db.it_entity_path_term(entity_path_menu.core_ops_mul_assign()),
+        //     core_ops_neg: db.it_entity_path_term(entity_path_menu.core_ops_neg()),
+        //     core_ops_not: db.it_entity_path_term(entity_path_menu.core_ops_not()),
+        //     std: db.it_entity_path_term(entity_path_menu.std()),
+        //     unit: db.it_entity_path_term(entity_path_menu.unit()),
+        //     bool: db.it_entity_path_term(entity_path_menu.bool()),
+        //     trai: db.it_entity_path_term(entity_path_menu.trai()),
+        //     module: db.it_entity_path_term(entity_path_menu.module()),
+        //     i32: db.it_entity_path_term(entity_path_menu.i32()),
+        //     i64: db.it_entity_path_term(entity_path_menu.i64()),
+        //     f32: db.it_entity_path_term(entity_path_menu.f32()),
+        //     f64: db.it_entity_path_term(entity_path_menu.f64()),
+        //     b32: db.it_entity_path_term(entity_path_menu.b32()),
+        //     b64: db.it_entity_path_term(entity_path_menu.b64()),
+        // }
     }
 
     pub fn sort(&self) -> Term {

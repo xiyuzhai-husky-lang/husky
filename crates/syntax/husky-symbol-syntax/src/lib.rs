@@ -10,6 +10,7 @@ pub use sheet::SymbolSheet;
 
 use husky_entity_path::EntityPath;
 use husky_text::TextRange;
+use husky_vfs::ModulePath;
 use husky_word::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -20,7 +21,7 @@ pub struct Symbol {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SymbolKind {
-    EntityPath(EntityPath),
+    ModulePath(ModulePath),
     LocalVariable { init_range: TextRange },
     FrameVariable { init_range: TextRange },
     ThisValue,

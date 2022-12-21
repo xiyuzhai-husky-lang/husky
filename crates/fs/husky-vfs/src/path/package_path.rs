@@ -33,13 +33,26 @@ pub enum PackagePathData {
 pub struct PackagePath(salsa::Id);
 
 impl PackagePath {
-    pub fn new_local(db: &dyn VfsDb, path: &Path) -> AbsolutePathResult<Self> {
+    pub fn new_local(db: &dyn VfsDb, path: &Path) -> VfsResult<Self> {
         Ok(PackagePath::new(
             db,
             PackagePathData::Local {
                 path: AbsolutePath::new(path)?,
             },
         ))
+    }
+
+    pub fn new_toolchain(
+        db: &dyn VfsDb,
+        toolchain: Toolchain,
+        ident: Identifier,
+    ) -> VfsResult<Self> {
+        match toolchain.data(db) {
+            ToolchainData::Published(_) => todo!(),
+            ToolchainData::Local { library_path } => {
+                PackagePath::new_local(db, &library_path.join(ident.data(db)))
+            }
+        }
     }
 }
 

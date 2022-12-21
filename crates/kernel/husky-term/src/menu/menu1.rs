@@ -16,10 +16,11 @@ impl std::ops::Deref for TermMenu1 {
 
 impl TermMenu1 {
     pub fn new(db: &dyn TermDb, _toolchain: Toolchain, menu0: TermMenu0) -> Self {
-        let ty0 = db.it_term(TermData::Application(
-            TermApplication::new(menu0.sort(), menu0.universe1()).unwrap(),
-        ));
-        Self { parent: menu0, ty0 }
+        todo!()
+        // let ty0 = db.it_term(TermData::Application(
+        //     TermApplication::new(menu0.sort(), menu0.universe1()).unwrap(),
+        // ));
+        // Self { parent: menu0, ty0 }
     }
 
     pub fn ty0(&self) -> Term {

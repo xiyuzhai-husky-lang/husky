@@ -21,7 +21,7 @@ impl<'a> InferContext<'a> {
         match atom {
             AtomExpr::Literal(literal) => Ok(self.infer_literal(literal)),
             AtomExpr::Symbol(symbol) => match symbol.kind {
-                SymbolKind::EntityPath(_) => todo!(),
+                SymbolKind::ModulePath(_) => todo!(),
                 SymbolKind::LocalVariable { init_range } => todo!(),
                 SymbolKind::FrameVariable { init_range } => todo!(),
                 SymbolKind::ThisValue => todo!(),

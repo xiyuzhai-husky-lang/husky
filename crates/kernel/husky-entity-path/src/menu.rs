@@ -10,175 +10,244 @@ pub(crate) fn entity_path_menu(
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityPathMenu {
-    core: EntityPath,
-    core_ops: EntityPath,
+    core: ModulePath,
+    std: ModulePath,
+    core_ops: ModulePath,
     // core::ops::Add	The addition operator +.
-    core_ops_add: EntityPath,
+    core_ops_add: ModuleItemPath,
     // core::ops::AddAssign	The addition assignment operator +=.
-    core_ops_add_assign: EntityPath,
+    core_ops_add_assign: ModuleItemPath,
     // core::ops::BitAnd	The bitwise AND operator &.
-    core_ops_bit_and: EntityPath,
+    core_ops_bit_and: ModuleItemPath,
     // core::ops::BitAndAssign	The bitwise AND assignment operator &=.
-    core_ops_bit_and_assign: EntityPath,
+    core_ops_bit_and_assign: ModuleItemPath,
     // core::ops::BitOr	The bitwise OR operator |.
-    core_ops_bit_or: EntityPath,
+    core_ops_bit_or: ModuleItemPath,
     // core::ops::BitOrAssign	The bitwise OR assignment operator |=.
-    core_ops_bit_or_assign: EntityPath,
+    core_ops_bit_or_assign: ModuleItemPath,
     // core::ops::BitXor	The bitwise XOR operator ^.
-    core_ops_bit_xor: EntityPath,
+    core_ops_bit_xor: ModuleItemPath,
     // core::ops::BitXorAssign	The bitwise XOR assignment operator ^=.
-    core_ops_bit_xor_assign: EntityPath,
+    core_ops_bit_xor_assign: ModuleItemPath,
     // core::ops::Div	The division operator /.
-    core_ops_div: EntityPath,
+    core_ops_div: ModuleItemPath,
     // core::ops::DivAssign	The division assignment operator /=.
-    core_ops_div_assign: EntityPath,
+    core_ops_div_assign: ModuleItemPath,
     // core::ops::Mul	The multiplication operator *.
-    core_ops_mul: EntityPath,
+    core_ops_mul: ModuleItemPath,
     // core::ops::MulAssign	The multiplication assignment operator *=.
-    core_ops_mul_assign: EntityPath,
+    core_ops_mul_assign: ModuleItemPath,
     // core::ops::Neg	The unary negation operator -.
-    core_ops_neg: EntityPath,
+    core_ops_neg: ModuleItemPath,
     // Not	The unary logical negation operator !.
-    core_ops_not: EntityPath,
-    std: EntityPath,
+    core_ops_not: ModuleItemPath,
     // prelude
-    unit: EntityPath,
-    bool: EntityPath,
-    i32: EntityPath,
-    i64: EntityPath,
-    f32: EntityPath,
-    f64: EntityPath,
-    b32: EntityPath,
-    b64: EntityPath,
-    u32: EntityPath,
-    u64: EntityPath,
-    trai: EntityPath,
-    module: EntityPath,
+    unit: ModuleItemPath,
+    bool: ModuleItemPath,
+    i32: ModuleItemPath,
+    i64: ModuleItemPath,
+    f32: ModuleItemPath,
+    f64: ModuleItemPath,
+    b32: ModuleItemPath,
+    b64: ModuleItemPath,
+    u32: ModuleItemPath,
+    u64: ModuleItemPath,
+    trai: ModuleItemPath,
+    module: ModuleItemPath,
 }
 
 impl EntityPathMenu {
     pub(crate) fn new(db: &dyn EntityPathDb, toolchain: Toolchain) -> EntityPathResult<Self> {
-        todo!()
-        // let menu0 = EntityPathMenu0::new(db, toolchain)?;
-        // let menu1 = EntityPathMenu1::new(db, toolchain, menu0);
-        // let menu2 = EntityPathMenu2::new(db, toolchain, menu1);
-        // let menu3 = EntityPathMenu3::new(db, toolchain, menu2);
-        // Ok(Self { parent: menu3 })
+        let word_menu = db.word_menu();
+        let core_package = PackagePath::new_toolchain(db, toolchain, word_menu.core())?;
+        let std_package = PackagePath::new_toolchain(db, toolchain, word_menu.std())?;
+        let core_library = CratePath::new(db, core_package, CrateKind::Library);
+        let std_library = CratePath::new(db, std_package, CrateKind::Library);
+        let core = ModulePath::new_root(db, core_library);
+        let std = ModulePath::new_root(db, std_library);
+        let core_num = ModulePath::new_child(db, core, db.it_ident_borrowed("num").unwrap());
+        let core_ops = ModulePath::new_child(db, core, db.it_ident_borrowed("ops").unwrap());
+        let core_ops_add = ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("Add").unwrap());
+        let core_ops_add_assign =
+            ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("AddAssign").unwrap());
+        let core_ops_bit_and =
+            ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("BitAnd").unwrap());
+        let core_ops_bit_and_assign =
+            ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("BitAndAssign").unwrap());
+        let core_ops_bit_or =
+            ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("BitOr").unwrap());
+        let core_ops_bit_or_assign =
+            ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("BitOrAssign").unwrap());
+        let core_ops_bit_xor =
+            ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("BitXor").unwrap());
+        let core_ops_bit_xor_assign =
+            ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("BitXorAssign").unwrap());
+        let core_ops_div = ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("Div").unwrap());
+        let core_ops_div_assign =
+            ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("DivAssign").unwrap());
+        let core_ops_mul = ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("Mul").unwrap());
+        let core_ops_mul_assign =
+            ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("MulAssign").unwrap());
+        let core_ops_neg = ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("Neg").unwrap());
+        let core_ops_not = ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("Not").unwrap());
+        let i32 = ModuleItemPath::new(db, core_num, word_menu.i32());
+        let i64 = ModuleItemPath::new(db, core_num, word_menu.i64());
+        let unit = ModuleItemPath::new(db, core_num, word_menu.unit());
+        let bool = ModuleItemPath::new(db, core_num, word_menu.bool());
+        let f32 = ModuleItemPath::new(db, core_num, word_menu.f32());
+        let f64 = ModuleItemPath::new(db, core_num, word_menu.f64());
+        let b32 = ModuleItemPath::new(db, core_num, word_menu.b32());
+        let b64 = ModuleItemPath::new(db, core_num, word_menu.b64());
+        let u32 = ModuleItemPath::new(db, core_num, word_menu.u32());
+        let u64 = ModuleItemPath::new(db, core_num, word_menu.u64());
+        let trai = ModuleItemPath::new(db, core_num, word_menu.trai());
+        let module = ModuleItemPath::new(db, core_num, word_menu.module());
+        Ok(Self {
+            core,
+            std,
+            core_ops,
+            core_ops_add,
+            core_ops_add_assign,
+            core_ops_bit_and,
+            core_ops_bit_and_assign,
+            core_ops_bit_or,
+            core_ops_bit_or_assign,
+            core_ops_bit_xor,
+            core_ops_bit_xor_assign,
+            core_ops_div,
+            core_ops_div_assign,
+            core_ops_mul,
+            core_ops_mul_assign,
+            core_ops_neg,
+            core_ops_not,
+            unit,
+            bool,
+            i32,
+            i64,
+            f32,
+            f64,
+            b32,
+            b64,
+            u32,
+            u64,
+            trai,
+            module,
+        })
     }
 
-    pub fn i32(&self) -> EntityPath {
-        self.i32
-    }
-
-    pub fn i64(&self) -> EntityPath {
-        self.i64
-    }
-
-    pub fn f32(&self) -> EntityPath {
-        self.f32
-    }
-
-    pub fn f64(&self) -> EntityPath {
-        self.f64
-    }
-
-    pub fn b32(&self) -> EntityPath {
-        self.b32
-    }
-
-    pub fn b64(&self) -> EntityPath {
-        self.b64
-    }
-
-    pub fn u32(&self) -> EntityPath {
-        self.u32
-    }
-
-    pub fn u64(&self) -> EntityPath {
-        self.u64
-    }
-
-    pub fn core(&self) -> EntityPath {
+    pub fn core(&self) -> ModulePath {
         self.core
     }
 
-    pub fn core_ops(&self) -> EntityPath {
-        self.core_ops
-    }
-
-    pub fn core_ops_add(&self) -> EntityPath {
-        self.core_ops_add
-    }
-
-    pub fn core_ops_add_assign(&self) -> EntityPath {
-        self.core_ops_add_assign
-    }
-
-    pub fn core_ops_bit_and(&self) -> EntityPath {
-        self.core_ops_bit_and
-    }
-
-    pub fn core_ops_bit_and_assign(&self) -> EntityPath {
-        self.core_ops_bit_and_assign
-    }
-
-    pub fn core_ops_bit_or(&self) -> EntityPath {
-        self.core_ops_bit_or
-    }
-
-    pub fn core_ops_bit_or_assign(&self) -> EntityPath {
-        self.core_ops_bit_or_assign
-    }
-
-    pub fn core_ops_bit_xor(&self) -> EntityPath {
-        self.core_ops_bit_xor
-    }
-
-    pub fn core_ops_bit_xor_assign(&self) -> EntityPath {
-        self.core_ops_bit_xor_assign
-    }
-
-    pub fn core_ops_div(&self) -> EntityPath {
-        self.core_ops_div
-    }
-
-    pub fn core_ops_div_assign(&self) -> EntityPath {
-        self.core_ops_div_assign
-    }
-
-    pub fn core_ops_mul(&self) -> EntityPath {
-        self.core_ops_mul
-    }
-
-    pub fn core_ops_mul_assign(&self) -> EntityPath {
-        self.core_ops_mul_assign
-    }
-
-    pub fn core_ops_neg(&self) -> EntityPath {
-        self.core_ops_neg
-    }
-
-    pub fn core_ops_not(&self) -> EntityPath {
-        self.core_ops_not
-    }
-
-    pub fn std(&self) -> EntityPath {
+    pub fn std(&self) -> ModulePath {
         self.std
     }
 
-    pub fn trai(&self) -> EntityPath {
+    pub fn i32(&self) -> ModuleItemPath {
+        self.i32
+    }
+
+    pub fn i64(&self) -> ModuleItemPath {
+        self.i64
+    }
+
+    pub fn f32(&self) -> ModuleItemPath {
+        self.f32
+    }
+
+    pub fn f64(&self) -> ModuleItemPath {
+        self.f64
+    }
+
+    pub fn b32(&self) -> ModuleItemPath {
+        self.b32
+    }
+
+    pub fn b64(&self) -> ModuleItemPath {
+        self.b64
+    }
+
+    pub fn u32(&self) -> ModuleItemPath {
+        self.u32
+    }
+
+    pub fn u64(&self) -> ModuleItemPath {
+        self.u64
+    }
+
+    pub fn core_ops(&self) -> ModulePath {
+        self.core_ops
+    }
+
+    pub fn core_ops_add(&self) -> ModuleItemPath {
+        self.core_ops_add
+    }
+
+    pub fn core_ops_add_assign(&self) -> ModuleItemPath {
+        self.core_ops_add_assign
+    }
+
+    pub fn core_ops_bit_and(&self) -> ModuleItemPath {
+        self.core_ops_bit_and
+    }
+
+    pub fn core_ops_bit_and_assign(&self) -> ModuleItemPath {
+        self.core_ops_bit_and_assign
+    }
+
+    pub fn core_ops_bit_or(&self) -> ModuleItemPath {
+        self.core_ops_bit_or
+    }
+
+    pub fn core_ops_bit_or_assign(&self) -> ModuleItemPath {
+        self.core_ops_bit_or_assign
+    }
+
+    pub fn core_ops_bit_xor(&self) -> ModuleItemPath {
+        self.core_ops_bit_xor
+    }
+
+    pub fn core_ops_bit_xor_assign(&self) -> ModuleItemPath {
+        self.core_ops_bit_xor_assign
+    }
+
+    pub fn core_ops_div(&self) -> ModuleItemPath {
+        self.core_ops_div
+    }
+
+    pub fn core_ops_div_assign(&self) -> ModuleItemPath {
+        self.core_ops_div_assign
+    }
+
+    pub fn core_ops_mul(&self) -> ModuleItemPath {
+        self.core_ops_mul
+    }
+
+    pub fn core_ops_mul_assign(&self) -> ModuleItemPath {
+        self.core_ops_mul_assign
+    }
+
+    pub fn core_ops_neg(&self) -> ModuleItemPath {
+        self.core_ops_neg
+    }
+
+    pub fn core_ops_not(&self) -> ModuleItemPath {
+        self.core_ops_not
+    }
+
+    pub fn trai(&self) -> ModuleItemPath {
         self.trai
     }
 
-    pub fn module(&self) -> EntityPath {
+    pub fn module(&self) -> ModuleItemPath {
         self.module
     }
 
-    pub fn unit(&self) -> EntityPath {
+    pub fn unit(&self) -> ModuleItemPath {
         self.unit
     }
 
-    pub fn bool(&self) -> EntityPath {
+    pub fn bool(&self) -> ModuleItemPath {
         self.bool
     }
 }
