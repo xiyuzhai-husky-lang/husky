@@ -46,10 +46,7 @@ impl<'a> CollectorState<'a> {
                                 | EntityCard::Type
                                 | EntityCard::Trait
                                 | EntityCard::Form => Some(ModuleItem::Defn {
-                                    ident: match entity_path.data(db) {
-                                        EntityPathData::Module(_) => unreachable!(),
-                                        EntityPathData::Associated { parent: _, ident } => ident,
-                                    },
+                                    ident: entity_path.ident(db),
                                     accessibility,
                                     tree_idx,
                                 }),
