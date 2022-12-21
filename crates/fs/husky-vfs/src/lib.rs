@@ -38,9 +38,3 @@ use salsa::storage::HasJar;
 use std::path::{Path, PathBuf};
 #[cfg(test)]
 use tests::*;
-
-#[salsa::interned(jar = VfsJar)]
-pub struct PathBufItd {
-    #[return_ref]
-    path: PathBuf,
-}

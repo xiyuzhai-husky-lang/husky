@@ -47,3 +47,9 @@ pub(crate) fn published_toolchain_library_path(
 ) -> PathBuf {
     todo!()
 }
+
+#[salsa::tracked(jar = VfsJar)]
+pub(crate) fn current_toolchain(db: &dyn VfsDb) -> Toolchain {
+    // ad hoc
+    db.lang_dev_toolchain()
+}

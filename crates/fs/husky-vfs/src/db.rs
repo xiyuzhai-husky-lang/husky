@@ -30,7 +30,7 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
 
 // don't leak this outside the crate
 pub trait VfsDbInner {
-    fn file_from_absolute_path(&self, path: &AbsolutePath) -> VfsResult<File>;
+    fn file_from_absolute_path(&self, path: AbsolutePath) -> VfsResult<File>;
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn vfs_cache(&self) -> &VfsCache;
@@ -56,20 +56,20 @@ impl<T> VfsDbInner for T
 where
     T: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
 {
-    fn file_from_absolute_path(&self, abs_path: &AbsolutePath) -> VfsResult<File> {
+    fn file_from_absolute_path(&self, abs_path: AbsolutePath) -> VfsResult<File> {
         Ok(
             match self
                 .vfs_jar()
                 .cache()
                 .files()
-                .entry(abs_path.path().to_owned())
+                .entry(abs_path.path(self).to_owned())
             {
                 // If the file already exists in our cache then just return it.
                 Entry::Occupied(entry) => *entry.get(),
                 // If we haven't read this file yet set up the watch, read the
                 // contents, store it in the cache, and return it.
                 Entry::Vacant(entry) => {
-                    let path = abs_path.path();
+                    let path = abs_path.path(self);
                     //  &path.path(self);
                     if let Some(watcher) = self.watcher() {
                         let watcher = &mut watcher.0.lock().unwrap();
@@ -111,19 +111,19 @@ where
         self.set_content(path, content)
     }
     fn set_content(&mut self, path: &Path, content: FileContent) -> VfsResult<()> {
-        let abs_path = AbsolutePath::new(path)?;
+        let abs_path = AbsolutePath::try_new(self, path)?;
         let file = match self
             .vfs_jar()
             .cache()
             .files()
-            .entry(abs_path.path().to_owned())
+            .entry(abs_path.path(self).to_owned())
         {
             // If the file already exists in our cache then just return it.
             Entry::Occupied(entry) => *entry.get(),
             // If we haven't read this file yet set up the watch, read the
             // contents, store it in the cache, and return it.
             Entry::Vacant(entry) => {
-                let path = abs_path.path();
+                let path = abs_path.path(self);
                 //  &path.path(self);
                 if let Some(watcher) = self.watcher() {
                     let watcher = &mut watcher.0.lock().unwrap();
@@ -167,7 +167,7 @@ where
     }
 
     fn module_content(&self, module_path: ModulePath) -> VfsResult<&str> {
-        let abs_path = module_absolute_path(self, module_path).as_ref()?;
+        let abs_path = module_absolute_path(self, module_path)?;
         self.file_from_absolute_path(abs_path)?.text(self)
     }
 
@@ -192,7 +192,7 @@ where
         package_path: PackagePath,
     ) -> VfsResult<Vec<CratePath>> {
         let mut crates: Vec<CratePath> = vec![];
-        let package_dir = self.package_dir(package_path).as_ref()?;
+        let package_dir = self.package_dir(package_path).as_ref()?.path(self);
         if package_dir.join("src/lib.hsy").exists() {
             crates.push(CratePath::new(self, package_path, CrateKind::Library));
         }
@@ -261,7 +261,7 @@ where
         }
 
         let mut modules = vec![];
-        let package_dir = self.package_dir(package).as_ref()?;
+        let package_dir = self.package_dir(package).as_ref()?.data(self);
         if package_dir.join("src/lib.hsy").exists() {
             let root_module =
                 ModulePath::new_root(self, CratePath::new(self, package, CrateKind::Library));
@@ -275,7 +275,7 @@ where
             }
         } else if package_dir.join("src/main.hsy").exists() {
             let root_module =
-                ModulePath::new_root(self, CratePath::new(self, package, CrateKind::Library));
+                ModulePath::new_root(self, CratePath::new(self, package, CrateKind::Main));
             modules.push(root_module);
             collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)?;
             if package_dir.join("src/bin").exists() {

@@ -2,13 +2,13 @@ mod crate_path;
 mod menu;
 mod module_path;
 mod package_path;
-mod relative_path;
+mod absolute_path;
 
 pub use crate_path::*;
 pub use module_path::*;
 pub use menu::*;
 pub use package_path::*;
-pub use relative_path::*;
+pub use absolute_path::*;
 
 use crate::*;
 
@@ -16,7 +16,7 @@ pub(crate) fn package_manifest_path(
     db: &dyn VfsDb,
     package: PackagePath,
 ) -> VfsResult<AbsolutePath> {
-    AbsolutePath::new(&package_dir(db, package).as_ref()?.join("Corgi.toml")).map_err(|_e| todo!())
+    AbsolutePath::try_new(db, &package_dir(db, package).as_ref()?.path(db).join("Corgi.toml"))
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
@@ -24,7 +24,7 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Abs
     match package.data(db) {
         PackagePathData::PublishedToolchain { toolchain, ident } => {
             let toolchain_library_path = db.published_toolchain_library_path(*toolchain);
-            AbsolutePath::new(&toolchain_library_path.join(ident.data(db))).map_err(|e| e.into())
+            AbsolutePath::try_new(db, &toolchain_library_path.join(ident.data(db)))
         }
         PackagePathData::Global {
             ident: _,
@@ -35,29 +35,30 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Abs
     }
 }
 
-#[salsa::tracked(jar = VfsJar, return_ref)]
+#[salsa::tracked(jar = VfsJar)]
 pub(crate) fn module_absolute_path(
     db: &dyn VfsDb,
     module_path: ModulePath,
 ) -> VfsResult<AbsolutePath> {
     match module_path.data(db) {
-        ModulePathData::Root(crate_path) => AbsolutePath::new(
+        ModulePathData::Root(crate_path) => AbsolutePath::try_new(
+            db,
             &package_dir(db, crate_path.package_path(db))
                 .as_ref()?
+                .path(db)
                 .join(crate_path.relative_path(db).as_ref()),
         )
         .map_err(|e| e.into()),
         ModulePathData::Child { parent, ident } => {
-            let parent_module_path = module_absolute_path(db, parent).as_ref()?;
+            let parent_module_path = module_absolute_path(db, parent)?;
             let dir = match parent.data(db) {
-                ModulePathData::Root(_) => parent_module_path.parent().unwrap().to_owned(),
+                ModulePathData::Root(_) => parent_module_path.path(db).parent().unwrap().to_owned(),
                 ModulePathData::Child {
                     parent: _,
                     ident: _,
-                } => parent_module_path.with_extension(""),
+                } => parent_module_path.path(db).with_extension(""),
             };
-            AbsolutePath::new(&dir.join(db.dt_ident(ident)).with_extension("hsy"))
-                .map_err(|e| e.into())
+            AbsolutePath::try_new(db, &dir.join(db.dt_ident(ident)).with_extension("hsy"))
         }
     }
 }
@@ -132,9 +133,9 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb,
 #[test]
 fn resolve_module_path_works() {
     DB::test_probable_modules(|db, module_path| {
-        let abs_path = module_absolute_path(db, module_path).as_ref().unwrap();
+        let abs_path = module_absolute_path(db, module_path).unwrap();
         let toolchain = module_path.toolchain(db);
-        let entity_path_resolved = db.resolve_module_path(toolchain, abs_path).unwrap();
+        let entity_path_resolved = db.resolve_module_path(toolchain, abs_path.path(db)).unwrap();
         assert_eq!(module_path, entity_path_resolved)
     })
 }

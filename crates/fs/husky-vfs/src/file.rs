@@ -15,7 +15,7 @@ pub enum FileContent {
 
 impl File {
     pub(crate) fn text(self, db: &dyn VfsDb) -> VfsResult<&str> {
-        self.content(db).text(self.path(db).as_ref())
+        self.content(db).text(self.path(db).path(db))
     }
 }
 
@@ -203,11 +203,11 @@ where
 
 #[salsa::tracked(jar = VfsJar)]
 pub(crate) fn package_manifest_file(db: &dyn VfsDb, package_path: PackagePath) -> VfsResult<File> {
-    db.file_from_absolute_path(&package_manifest_path(db, package_path)?)
+    db.file_from_absolute_path(package_manifest_path(db, package_path)?)
 }
 
 #[salsa::tracked(jar = VfsJar )]
 pub(crate) fn module_file(db: &dyn VfsDb, module_path: ModulePath) -> VfsResult<File> {
-    let abs_path = module_absolute_path(db, module_path).as_ref()?;
+    let abs_path = module_absolute_path(db, module_path)?;
     db.file_from_absolute_path(abs_path)
 }
