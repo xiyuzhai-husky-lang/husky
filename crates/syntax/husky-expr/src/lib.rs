@@ -54,23 +54,24 @@ pub enum ExprVariant {
 
 impl ExprVariant {
     fn base_scope_result(&self, arena: &ExprArena) -> BaseScopeResult {
-        match self {
-            ExprVariant::Atom(ref atom) => match atom {
-                AtomExpr::Literal(_) => BaseScopeResult::None,
-                AtomExpr::Symbol(symbol) => match symbol.kind {
-                    SymbolKind::EntityPath(path) => BaseScopeResult::Some(path),
-                    _ => BaseScopeResult::None,
-                },
-                AtomExpr::Unrecognized(_) | AtomExpr::Uncertain(_) => BaseScopeResult::Uncertain,
-            },
-            ExprVariant::Opn { opn_variant, opds } => match opn_variant {
-                RawOpnVariant::Binary(BinaryOpr::ScopeResolution) => {
-                    arena[opds.start() + 1].base_scope_result()
-                }
-                RawOpnVariant::Binary(BinaryOpr::As) => todo!(),
-                _ => BaseScopeResult::None,
-            },
-        }
+        todo!()
+        // match self {
+        //     ExprVariant::Atom(ref atom) => match atom {
+        //         AtomExpr::Literal(_) => BaseScopeResult::None,
+        //         AtomExpr::Symbol(symbol) => match symbol.kind {
+        //             SymbolKind::ModulePath(path) => BaseScopeResult::Some(path),
+        //             _ => BaseScopeResult::None,
+        //         },
+        //         AtomExpr::Unrecognized(_) | AtomExpr::Uncertain(_) => BaseScopeResult::Uncertain,
+        //     },
+        //     ExprVariant::Opn { opn_variant, opds } => match opn_variant {
+        //         RawOpnVariant::Binary(BinaryOpr::ScopeResolution) => {
+        //             arena[opds.start() + 1].base_scope_result()
+        //         }
+        //         RawOpnVariant::Binary(BinaryOpr::As) => todo!(),
+        //         _ => BaseScopeResult::None,
+        //     },
+        // }
     }
 }
 

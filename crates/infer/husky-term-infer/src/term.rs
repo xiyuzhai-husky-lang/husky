@@ -32,7 +32,8 @@ impl<'a> InferContext<'a> {
             ExprVariant::Atom(ref atom) => match atom {
                 AtomExpr::Literal(_) => todo!(),
                 AtomExpr::Symbol(symbol) => match symbol.kind {
-                    SymbolKind::EntityPath(path) => self.entity_path_term(path),
+                    SymbolKind::ModulePath(path) => todo!(),
+                    // self.entity_path_term(path),
                     SymbolKind::LocalVariable { init_range } => todo!(),
                     SymbolKind::FrameVariable { init_range } => todo!(),
                     SymbolKind::ThisValue => todo!(),

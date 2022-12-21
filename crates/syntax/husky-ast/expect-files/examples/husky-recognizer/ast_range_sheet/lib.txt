@@ -1,0 +1,5 @@
+Err(
+    FileNotExists(
+        "/home/xiyuzhai/repos/husky/examples/husky-recognizer/src/lib.hsy",
+    ),
+)

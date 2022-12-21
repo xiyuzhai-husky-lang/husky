@@ -16,15 +16,20 @@ fn entity_path_debug_works() {
     let toolchain = db.lang_dev_toolchain();
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
     expect_test::expect![[r#"
-        EntityPath {
-            [show]: "crate::num::i32",
-            [crate]: CratePath {
-                [salsa id]: 0,
-                package_path: Local {
-                    path: "/home/xiyuzhai/repos/husky/library/core",
+        ModuleItemPath {
+            [salsa id]: 14,
+            module: ModulePath(
+                Id {
+                    value: 3,
                 },
-                crate_kind: Library,
-            },
+            ),
+            ident: Identifier(
+                Word(
+                    Id {
+                        value: 5,
+                    },
+                ),
+            ),
         }
     "#]]
     .assert_debug_eq(&entity_path_menu.i32().debug(&db));

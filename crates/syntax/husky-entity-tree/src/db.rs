@@ -9,15 +9,8 @@ use husky_vfs::*;
 use salsa::DbWithJar;
 
 pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb {
-    fn entity_absolute_path(
-        &self,
-        entity_path: EntityPath,
-    ) -> &EntityTreeResult<AbsoluteEntityPath>;
     fn entity_tree_sheet(&self, module_path: ModulePath) -> &VfsResult<EntityTreeSheet>;
     fn entity_card(&self, entity_path: EntityPath) -> &EntityTreeResult<EntityCard>;
-    fn is_absolute(&self, entity_path: EntityPath) -> EntityTreeResult<bool> {
-        Ok(self.entity_absolute_path(entity_path).as_ref()?.path() == entity_path)
-    }
     fn submodules(&self, module_path: ModulePath) -> VfsResult<&[ModulePath]>;
     fn all_modules_within_crate(&self, crate_path: CratePath) -> VfsResult<&[ModulePath]>;
 }
@@ -26,13 +19,6 @@ impl<T> EntityTreeDb for T
 where
     T: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb,
 {
-    fn entity_absolute_path(
-        &self,
-        entity_path: EntityPath,
-    ) -> &EntityTreeResult<AbsoluteEntityPath> {
-        entity_absolute_path(self, entity_path)
-    }
-
     fn entity_card(&self, entity_path: EntityPath) -> &EntityTreeResult<EntityCard> {
         entity_card(self, entity_path)
     }

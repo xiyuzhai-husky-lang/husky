@@ -1,5 +1,4 @@
 #![feature(trait_upcasting)]
-mod absolute;
 mod db;
 mod entity_use;
 mod error;
@@ -12,7 +11,6 @@ mod submodule;
 mod tests;
 mod utils;
 
-pub use absolute::*;
 pub use db::EntityTreeDb;
 pub use entity_use::*;
 pub use error::*;
@@ -34,7 +32,6 @@ use tests::*;
 
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
-    entity_absolute_path,
     entity_tree_sheet,
     submodules,
     entity_node,

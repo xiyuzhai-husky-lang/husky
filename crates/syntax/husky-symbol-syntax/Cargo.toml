@@ -10,6 +10,8 @@ once_cell = "1.16.0"
 vec-like = { path = "../../abstraction/vec-like" }
 local-stack = { path = "../../abstraction/local-stack" }
 salsa = { path = "../../abstraction/salsa" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-word = { path = "../../kernel/husky-word" }
