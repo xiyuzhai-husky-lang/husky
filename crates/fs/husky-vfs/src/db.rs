@@ -8,12 +8,20 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
     fn module_content(&self, module_path: ModulePath) -> VfsResult<&str>;
     fn package_dir(&self, package_path: PackagePath) -> &VfsResult<AbsolutePath>;
-    fn collect_local_packages(&self, dir: &Path) -> VfsResult<Vec<PackagePath>>;
-    fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
+    fn collect_local_packages(
+        &self,
+        toolchain: Toolchain,
+        dir: &Path,
+    ) -> VfsResult<Vec<PackagePath>>;
+    fn collect_crates(
+        &self,
+        toolchain: Toolchain,
+        package_path: PackagePath,
+    ) -> VfsResult<Vec<CratePath>>;
     fn collect_probable_modules(&self, package_path: PackagePath) -> VfsResult<Vec<ModulePath>>;
     fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()>;
     fn apply_live_file_changes(&mut self, path: &Path, changes: Vec<TextChange>) -> VfsResult<()>;
-    fn resolve_module_path(&self, path: &Path) -> VfsResult<ModulePath>;
+    fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
     // toolchain
     fn lang_dev_toolchain(&self) -> Toolchain;
     fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path;
@@ -167,14 +175,22 @@ where
         package_dir(self, package)
     }
 
-    fn collect_local_packages(&self, dir: &Path) -> VfsResult<Vec<PackagePath>> {
+    fn collect_local_packages(
+        &self,
+        toolchain: Toolchain,
+        dir: &Path,
+    ) -> VfsResult<Vec<PackagePath>> {
         collect_package_dirs(dir)
             .into_iter()
-            .map(|path| PackagePath::new_local(self, &path).map_err(|e| e.into()))
+            .map(|path| PackagePath::new_local(self, toolchain, &path).map_err(|e| e.into()))
             .collect()
     }
 
-    fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>> {
+    fn collect_crates(
+        &self,
+        toolchain: Toolchain,
+        package_path: PackagePath,
+    ) -> VfsResult<Vec<CratePath>> {
         let mut crates: Vec<CratePath> = vec![];
         let package_dir = self.package_dir(package_path).as_ref()?;
         if package_dir.join("src/lib.hsy").exists() {
@@ -280,8 +296,8 @@ where
         Ok(())
     }
 
-    fn resolve_module_path(&self, path: &Path) -> VfsResult<ModulePath> {
-        resolve_module_path(self, path)
+    fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath> {
+        resolve_module_path(self, toolchain, path)
     }
 
     // toolchain

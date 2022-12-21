@@ -16,8 +16,8 @@ impl CratePath {
         }
     }
 
-    pub fn toolchain(&self, db: &dyn VfsDb) -> VfsResult<Toolchain> {
-        todo!()
+    pub fn toolchain(self, db: &dyn VfsDb) -> Toolchain {
+        self.package_path(db).toolchain(db)
     }
 }
 

@@ -63,7 +63,8 @@ pub(crate) fn module_absolute_path(
 }
 
 // this shouldn't be tracked
-pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> VfsResult<ModulePath> {
+pub(crate) fn resolve_module_path(db: &dyn VfsDb,
+    toolchain: Toolchain, path: impl AsRef<Path>) -> VfsResult<ModulePath> {
     let path = path.as_ref();
     if path.extension().and_then(|s| s.to_str()) != Some("hsy") {
         todo!()
@@ -84,26 +85,26 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> Vfs
             match file_stem {
                 "lib" =>  ModulePath::new_root(
                     db,
-                    CratePath::new(db,   PackagePath::new_local(db, parent.parent().ok_or(VfsError::ModulePathResolveFailure)?)?,
+                    CratePath::new(db,   PackagePath::new_local(db, toolchain,parent.parent().ok_or(VfsError::ModulePathResolveFailure)?)?,
                     CrateKind::Library,)
                 ) ,
                 "main" => ModulePath::new_root(
                     db,
-                    CratePath::new(db, PackagePath::new_local(db, 
+                    CratePath::new(db, PackagePath::new_local(db, toolchain,
                         parent.parent().ok_or(VfsError::ModulePathResolveFailure)?
                     )?  ,  CrateKind::Main,)
                  ),
                 _ => {
                     if let lib_path = parent.join("lib.hsy") && lib_path.exists() {
                         ModulePath::new_child( db,
-                             resolve_module_path(db, lib_path)?,
+                             resolve_module_path(db,toolchain, lib_path)?,
                               db
                                 .it_ident_borrowed(file_stem)
                                 .ok_or(VfsError::ModulePathResolveFailure)?,
                         )
                     } else if let main_path = parent.join("main.hsy") && main_path.exists() {
                         ModulePath::new_child(db, 
-                            resolve_module_path(db, main_path)?,
+                            resolve_module_path(db, toolchain,main_path)?,
                             db
                                 .it_ident_borrowed(file_stem)
                                 .ok_or(VfsError::ModulePathResolveFailure)?,
@@ -119,7 +120,7 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> Vfs
                 todo!()
             }
             ModulePath::new_child(db,
-                resolve_module_path(db, parent_module_path)?,
+                resolve_module_path(db,toolchain, parent_module_path)?,
                 db
                     .it_ident_borrowed(file_stem)
                     .ok_or(VfsError::ModulePathResolveFailure)?,
@@ -130,9 +131,10 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> Vfs
 
 #[test]
 fn resolve_module_path_works() {
-    DB::test_probable_modules(|db, entity_path| {
-        let abs_path = module_absolute_path(db, entity_path).as_ref().unwrap();
-        let entity_path_resolved = db.resolve_module_path(abs_path).unwrap();
-        assert_eq!(entity_path, entity_path_resolved)
+    DB::test_probable_modules(|db, module_path| {
+        let abs_path = module_absolute_path(db, module_path).as_ref().unwrap();
+        let toolchain = module_path.toolchain(db);
+        let entity_path_resolved = db.resolve_module_path(toolchain, abs_path).unwrap();
+        assert_eq!(module_path, entity_path_resolved)
     })
 }

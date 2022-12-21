@@ -201,9 +201,10 @@ fn test_crates<T>(db: &T, dir: &Path, f: &impl Fn(&T, CratePath))
 where
     T: VfsDb,
 {
+    let toolchain = db.lang_dev_toolchain();
     collect_package_dirs(dir).into_iter().for_each(|path| {
-        let package_path = PackagePath::new_local(db, &path).unwrap();
-        for crate_path in db.collect_crates(package_path).unwrap() {
+        let package_path = PackagePath::new_local(db, toolchain, &path).unwrap();
+        for crate_path in db.collect_crates(toolchain, package_path).unwrap() {
             f(db, crate_path)
         }
     });
@@ -213,8 +214,9 @@ fn test_probable_modules<T>(db: &T, dir: &Path, f: &impl Fn(&T, ModulePath))
 where
     T: VfsDb,
 {
+    let toolchain = db.lang_dev_toolchain();
     collect_package_dirs(dir).into_iter().for_each(|path| {
-        let package_path = PackagePath::new_local(db, &path).unwrap();
+        let package_path = PackagePath::new_local(db, toolchain, &path).unwrap();
         for entity_path in db.collect_probable_modules(package_path).unwrap() {
             f(db, entity_path)
         }
@@ -232,18 +234,20 @@ fn expect_test_crates<Db, T, E>(
     Db: VfsDb,
     T: ?Sized,
 {
+    let toolchain = db.lang_dev_toolchain();
     std::fs::create_dir_all(&out).unwrap();
     collect_package_relative_dirs(base)
         .into_iter()
         .for_each(|path| {
-            let package_path = PackagePath::new_local(db, &path.to_logical_path(base)).unwrap();
+            let package_path =
+                PackagePath::new_local(db, toolchain, &path.to_logical_path(base)).unwrap();
             let resolver = TestPathResolver {
                 db,
                 name,
                 package_expects_dir: path.to_logical_path(&out),
             };
 
-            for crate_path in db.collect_crates(package_path).unwrap() {
+            for crate_path in db.collect_crates(toolchain, package_path).unwrap() {
                 let path = resolver.decide_crate_expect_file_path(crate_path);
                 std::fs::create_dir_all(path.parent().unwrap()).unwrap();
                 expect_test::expect_file![path].assert_eq(&p(&db, f(&db, crate_path)));
@@ -262,10 +266,12 @@ fn expect_test_probable_modules_debug_with_db<Db, T: ?Sized, E>(
     Db: VfsDb,
 {
     std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
+    let toolchain = db.lang_dev_toolchain();
     collect_package_relative_dirs(base)
         .into_iter()
         .for_each(|path| {
-            let package = PackagePath::new_local(db, &path.to_logical_path(base)).unwrap();
+            let package =
+                PackagePath::new_local(db, toolchain, &path.to_logical_path(base)).unwrap();
             let resolver = TestPathResolver {
                 db,
                 name,
