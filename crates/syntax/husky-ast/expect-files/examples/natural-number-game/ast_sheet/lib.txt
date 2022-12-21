@@ -2,6 +2,92 @@ Ok(
     AstSheet {
         arena: Arena {
             data: [
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        4,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 183,
+                            module: ModulePath(
+                                Id {
+                                    value: 43,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 24,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "add",
+                    ),
+                    is_generic: false,
+                    body_kind: EnumVariants,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        6,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        0,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Inductive,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 182,
+                            module: ModulePath(
+                                Id {
+                                    value: 43,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 429,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "Nat",
+                    ),
+                    is_generic: false,
+                    body_kind: EnumVariants,
+                },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
                         1,
@@ -18,66 +104,12 @@ Ok(
                         0..0,
                     ),
                 },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        5,
-                    ),
-                    body: ArenaIdxRange(
-                        2..2,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        6,
-                    ),
-                    body: ArenaIdxRange(
-                        2..2,
-                    ),
-                },
-                Defn {
-                    token_group_idx: TokenGroupIdx(
-                        4,
-                    ),
-                    body: ArenaIdxRange(
-                        2..4,
-                    ),
-                    accessibility: Protected,
-                    entity_card: Form,
-                    ident: Identifier(
-                        "add",
-                    ),
-                    is_generic: false,
-                    body_kind: Cases,
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        8,
-                    ),
-                    body: ArenaIdxRange(
-                        5..5,
-                    ),
-                },
-                Defn {
-                    token_group_idx: TokenGroupIdx(
-                        0,
-                    ),
-                    body: ArenaIdxRange(
-                        0..2,
-                    ),
-                    accessibility: Protected,
-                    entity_card: Type,
-                    ident: Identifier(
-                        "Nat",
-                    ),
-                    is_generic: false,
-                    body_kind: Cases,
-                },
                 Impl {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
                     body: ArenaIdxRange(
-                        4..5,
+                        0..3,
                     ),
                 },
                 Err {
@@ -90,6 +122,12 @@ Ok(
                         ),
                     ),
                 },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        8,
+                    ),
+                    error: ExcessiveIndent,
+                },
                 Defn {
                     token_group_idx: TokenGroupIdx(
                         9,
@@ -98,7 +136,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Structure,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 184,
+                            module: ModulePath(
+                                Id {
+                                    value: 43,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 433,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "OddNat",
                     ),
@@ -113,7 +172,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Structure,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 185,
+                            module: ModulePath(
+                                Id {
+                                    value: 43,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 436,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "EvenNat",
                     ),
@@ -123,7 +203,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            6..11,
+            3..11,
         ),
         use_expr_arena: Arena {
             data: [],

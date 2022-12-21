@@ -20,7 +20,7 @@ fn entity_path_debug_works() {
             [salsa id]: 14,
             module: ModulePath(
                 Id {
-                    value: 3,
+                    value: 5,
                 },
             ),
             ident: Identifier(

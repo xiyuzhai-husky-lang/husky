@@ -14,7 +14,7 @@ use super::*;
 use crate::*;
 use dev::*;
 use husky_dev_utils::static_dev_src;
-use husky_entity_card::TyKind;
+use husky_entity_kind::TyKind;
 use husky_liason_semantics::OutputModifier;
 use husky_vm::*;
 use load::*;

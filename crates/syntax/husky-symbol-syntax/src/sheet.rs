@@ -1,6 +1,6 @@
 use crate::*;
 use husky_word::Identifier;
-use vec_like::VecMapEntry;
+use vec_like::AsVecMapEntry;
 
 pub struct SymbolSheet {
     symbols: IdentMap<SymbolEntry>,
@@ -12,7 +12,7 @@ pub struct SymbolEntry {
     access_range: TextRange,
 }
 
-impl VecMapEntry<Identifier> for SymbolEntry {
+impl AsVecMapEntry<Identifier> for SymbolEntry {
     fn key(&self) -> Identifier {
         self.symbol.ident
     }

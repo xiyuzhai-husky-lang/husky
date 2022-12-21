@@ -1,4 +1,4 @@
-use husky_entity_card::EntityCard;
+use husky_entity_kind::EntityKind;
 use husky_text::TextRange;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -56,7 +56,7 @@ pub enum SemanticTokenKind {
     Variable,
     ThisValue,
     FrameVariable,
-    Entity(EntityCard),
+    Entity(EntityKind),
     GenericPlaceholder,
     EnumVariant,
     Method,
@@ -75,7 +75,7 @@ impl SemanticTokenKind {
         //     SemanticTokenKind::Variable => SemanticTokenType::VARIABLE,
         //     SemanticTokenKind::ThisValue => SemanticTokenType::VARIABLE,
         //     SemanticTokenKind::FrameVariable => SemanticTokenType::VARIABLE,
-        //     SemanticTokenKind::Entity(husky_entity_card) => match husky_entity_card {
+        //     SemanticTokenKind::Entity(husky_entity_kind) => match husky_entity_kind {
         //         EntityKind::Module => SemanticTokenType::NAMESPACE,
         //         EntityKind::Type(_) => SemanticTokenType::TYPE,
         //         EntityKind::Trait => SemanticTokenType::TYPE,

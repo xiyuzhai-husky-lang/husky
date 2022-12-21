@@ -10,7 +10,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Form,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 0,
+                            module: ModulePath(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "bool",
                     ),
@@ -25,7 +46,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Structure,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 1,
+                            module: ModulePath(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 7,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "Trait",
                     ),
@@ -40,7 +82,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Structure,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 2,
+                            module: ModulePath(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "Module",
                     ),

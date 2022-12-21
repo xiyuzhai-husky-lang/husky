@@ -10,7 +10,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::digits::zero",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "zero",
                     ),
@@ -25,7 +50,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::digits::one",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "one",
                     ),
@@ -40,7 +90,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::digits::six",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "six",
                     ),

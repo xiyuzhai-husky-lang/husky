@@ -17,6 +17,8 @@ pub enum AstError {
     ExpectIdentifier(Option<TextRange>),
     #[error("expect `(` or decorator or identifier")]
     ExpectParBraOrDecoratorOrIdentifier(Option<TextRange>),
+    #[error("expect nothing")]
+    ExpectNothing,
 }
 
 impl From<&AstError> for AstError {

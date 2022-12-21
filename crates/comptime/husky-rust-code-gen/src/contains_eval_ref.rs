@@ -27,9 +27,9 @@ pub(super) fn entity_route_variant_contains_eval_ref(
     // if entity_path.variant == entity_route_menu.std_slice_cyclic_slice.variant {
     //     return true;
     // }
-    // let _husky_entity_card = db.husky_entity_card(base_route).unwrap();
+    // let _husky_entity_kind = db.husky_entity_kind(base_route).unwrap();
     todo!()
-    // match husky_entity_card {
+    // match husky_entity_kind {
     //     EntityKind::Module => return false,
     //     EntityKind::Type(_) => {
     //         let ty_decl = db.ty_decl(base_route).unwrap();

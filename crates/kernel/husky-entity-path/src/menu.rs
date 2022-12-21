@@ -10,9 +10,6 @@ pub(crate) fn entity_path_menu(
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityPathMenu {
-    core: ModulePath,
-    std: ModulePath,
-    core_ops: ModulePath,
     // core::ops::Add	The addition operator +.
     core_ops_add: ModuleItemPath,
     // core::ops::AddAssign	The addition assignment operator +=.
@@ -59,14 +56,9 @@ pub struct EntityPathMenu {
 impl EntityPathMenu {
     pub(crate) fn new(db: &dyn EntityPathDb, toolchain: Toolchain) -> EntityPathResult<Self> {
         let word_menu = db.word_menu();
-        let core_package = PackagePath::new_toolchain(db, toolchain, word_menu.core())?;
-        let std_package = PackagePath::new_toolchain(db, toolchain, word_menu.std())?;
-        let core_library = CratePath::new(db, core_package, CrateKind::Library);
-        let std_library = CratePath::new(db, std_package, CrateKind::Library);
-        let core = ModulePath::new_root(db, core_library);
-        let std = ModulePath::new_root(db, std_library);
-        let core_num = ModulePath::new_child(db, core, db.it_ident_borrowed("num").unwrap());
-        let core_ops = ModulePath::new_child(db, core, db.it_ident_borrowed("ops").unwrap());
+        let path_menu = db.path_menu(toolchain)?;
+        let core_ops = path_menu.core_ops();
+        let core_num = path_menu.core_num();
         let core_ops_add = ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("Add").unwrap());
         let core_ops_add_assign =
             ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("AddAssign").unwrap());
@@ -103,9 +95,6 @@ impl EntityPathMenu {
         let trai = ModuleItemPath::new(db, core_num, word_menu.trai());
         let module = ModuleItemPath::new(db, core_num, word_menu.module());
         Ok(Self {
-            core,
-            std,
-            core_ops,
             core_ops_add,
             core_ops_add_assign,
             core_ops_bit_and,
@@ -133,14 +122,6 @@ impl EntityPathMenu {
             trai,
             module,
         })
-    }
-
-    pub fn core(&self) -> ModulePath {
-        self.core
-    }
-
-    pub fn std(&self) -> ModulePath {
-        self.std
     }
 
     pub fn i32(&self) -> ModuleItemPath {
@@ -173,10 +154,6 @@ impl EntityPathMenu {
 
     pub fn u64(&self) -> ModuleItemPath {
         self.u64
-    }
-
-    pub fn core_ops(&self) -> ModulePath {
-        self.core_ops
     }
 
     pub fn core_ops_add(&self) -> ModuleItemPath {

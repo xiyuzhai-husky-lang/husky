@@ -30,14 +30,15 @@ where
     fn collect_preludes(&self) -> Vec<Symbol> {
         let toolchain = self.lang_dev_toolchain();
         let Ok(entity_path_menu) = self.entity_path_menu(toolchain) else {todo!()};
+        let Ok(path_menu) = self.path_menu(toolchain) else {todo!()};
         let preludes: Vec<Symbol> = vec![
             Symbol {
                 ident: self.it_ident_borrowed("core").unwrap(),
-                kind: SymbolKind::ModulePath(entity_path_menu.core()),
+                kind: SymbolKind::ModulePath(path_menu.core()),
             },
             Symbol {
                 ident: self.it_ident_borrowed("std").unwrap(),
-                kind: SymbolKind::ModulePath(entity_path_menu.std()),
+                kind: SymbolKind::ModulePath(path_menu.std()),
             },
         ];
         // ad hoc; todo: load preludes from core::prelude

@@ -4,7 +4,7 @@ use husky_token::TokenIter;
 use super::*;
 
 impl<'a> AstParser<'a> {
-    pub(super) fn parse_uses(&mut self, token_group_idx: TokenGroupIdx, _indent: u32) -> Ast {
+    pub(super) fn parse_uses(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         let token_iter = self.token_sheet.token_group_token_iter(token_group_idx);
         let (ident, mut aux_parser) =
             EntityUseExprParser::new(token_iter, &mut self.use_expr_arena);

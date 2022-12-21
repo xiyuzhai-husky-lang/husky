@@ -1,4 +1,4 @@
-use vec_like::{VecEntryMap, VecPairMap};
+use vec_like::{VecMap, VecPairMap};
 
 use super::*;
 
@@ -40,8 +40,8 @@ impl<'a> CollectorState<'a> {
                     let entity_tree_sheet = db.entity_tree_sheet(*module)?;
                     let module_defn_items: IdentMap<ModuleItem> = entity_tree_sheet
                         .top_level_entities()
-                        .filter_map(|(tree_idx, accessibility, entity_card, entity_path)| {
-                            match entity_card {
+                        .filter_map(|(tree_idx, accessibility, entity_kind, entity_path)| {
+                            match entity_kind {
                                 EntityCard::Module
                                 | EntityCard::Type
                                 | EntityCard::Trait
@@ -57,7 +57,7 @@ impl<'a> CollectorState<'a> {
                         .collect();
                     Ok((*module, module_defn_items))
                 })
-                .collect::<EntityTreeResult<VecEntryMap<_, _>>>()?,
+                .collect::<EntityTreeResult<VecMap<_, _>>>()?,
             unresolved_use_exprs: all_modules
                 .iter()
                 .map(|module| -> EntityTreeResult<(_, _)> {
@@ -81,7 +81,7 @@ impl<'a> CollectorState<'a> {
                     //     },
                     // ))
                 })
-                .collect::<EntityTreeResult<VecEntryMap<_, _>>>()?,
+                .collect::<EntityTreeResult<VecMap<_, _>>>()?,
             use_alls: vec![],
             has_changed: false,
         })

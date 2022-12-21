@@ -4,14 +4,6 @@ Ok(
             data: [
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        5,
-                    ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
                         2,
                     ),
                     body: ArenaIdxRange(
@@ -36,6 +28,12 @@ Ok(
                         ),
                     ),
                 },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                    error: ExcessiveIndent,
+                },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         0,
@@ -48,10 +46,31 @@ Ok(
                         1,
                     ),
                     body: ArenaIdxRange(
-                        1..4,
+                        0..4,
                     ),
                     accessibility: Protected,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 127,
+                            module: ModulePath(
+                                Id {
+                                    value: 30,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 328,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "ConvexCompoent",
                     ),

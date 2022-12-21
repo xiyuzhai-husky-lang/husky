@@ -26,14 +26,6 @@ Ok(
                         2..2,
                     ),
                 },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        17,
-                    ),
-                    body: ArenaIdxRange(
-                        3..3,
-                    ),
-                },
                 Defn {
                     token_group_idx: TokenGroupIdx(
                         11,
@@ -42,7 +34,26 @@ Ok(
                         0..2,
                     ),
                     accessibility: Public,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 133,
+                            module: ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 343,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "new",
                     ),
@@ -57,7 +68,26 @@ Ok(
                         2..3,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 134,
+                            module: ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 176,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "displacement",
                     ),
@@ -73,6 +103,12 @@ Ok(
                             [26:11, 26:12),
                         ),
                     ),
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        17,
+                    ),
+                    error: ExcessiveIndent,
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -186,14 +222,6 @@ Ok(
                         20..20,
                     ),
                 },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        38,
-                    ),
-                    body: ArenaIdxRange(
-                        21..21,
-                    ),
-                },
                 Defn {
                     token_group_idx: TokenGroupIdx(
                         20,
@@ -202,7 +230,26 @@ Ok(
                         7..8,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 136,
+                            module: ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 270,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "concave_components",
                     ),
@@ -217,7 +264,26 @@ Ok(
                         13..20,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 137,
+                            module: ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 232,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "bounding_box",
                     ),
@@ -232,7 +298,26 @@ Ok(
                         20..21,
                     ),
                     accessibility: Public,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 133,
+                            module: ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 343,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "new",
                     ),
@@ -248,6 +333,12 @@ Ok(
                             [58:11, 58:12),
                         ),
                     ),
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        38,
+                    ),
+                    error: ExcessiveIndent,
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -395,7 +486,7 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        71,
+                        76,
                     ),
                     body: ArenaIdxRange(
                         44..44,
@@ -403,7 +494,7 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        70,
+                        75,
                     ),
                     body: ArenaIdxRange(
                         44..45,
@@ -411,26 +502,10 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        76,
-                    ),
-                    body: ArenaIdxRange(
-                        46..46,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        75,
-                    ),
-                    body: ArenaIdxRange(
-                        46..47,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
                         78,
                     ),
                     body: ArenaIdxRange(
-                        48..48,
+                        46..46,
                     ),
                 },
                 Stmt {
@@ -438,7 +513,7 @@ Ok(
                         77,
                     ),
                     body: ArenaIdxRange(
-                        48..49,
+                        46..47,
                     ),
                 },
                 Stmt {
@@ -446,7 +521,7 @@ Ok(
                         73,
                     ),
                     body: ArenaIdxRange(
-                        46..46,
+                        44..44,
                     ),
                 },
                 Stmt {
@@ -454,8 +529,15 @@ Ok(
                         74,
                     ),
                     body: ArenaIdxRange(
+                        44..44,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 45,
+                    elif_stmts: ArenaIdxRange(
                         46..46,
                     ),
+                    else_stmt: None,
                 },
                 IfElseStmts {
                     if_stmt: 47,
@@ -464,19 +546,12 @@ Ok(
                     ),
                     else_stmt: None,
                 },
-                IfElseStmts {
-                    if_stmt: 49,
-                    elif_stmts: ArenaIdxRange(
-                        50..50,
-                    ),
-                    else_stmt: None,
-                },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
                         72,
                     ),
                     body: ArenaIdxRange(
-                        50..54,
+                        48..52,
                     ),
                 },
                 Stmt {
@@ -490,14 +565,26 @@ Ok(
                 IfElseStmts {
                     if_stmt: 43,
                     elif_stmts: ArenaIdxRange(
-                        45..46,
+                        44..44,
                     ),
                     else_stmt: None,
                 },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        70,
+                    ),
+                    error: StandaloneElif,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        71,
+                    ),
+                    error: ExcessiveIndent,
+                },
                 IfElseStmts {
-                    if_stmt: 54,
+                    if_stmt: 52,
                     elif_stmts: ArenaIdxRange(
-                        55..55,
+                        53..53,
                     ),
                     else_stmt: None,
                 },
@@ -506,7 +593,7 @@ Ok(
                         79,
                     ),
                     body: ArenaIdxRange(
-                        55..55,
+                        53..53,
                     ),
                 },
                 Stmt {
@@ -514,7 +601,7 @@ Ok(
                         80,
                     ),
                     body: ArenaIdxRange(
-                        55..55,
+                        53..53,
                     ),
                 },
                 Stmt {
@@ -593,7 +680,7 @@ Ok(
                         66,
                     ),
                     body: ArenaIdxRange(
-                        55..60,
+                        53..60,
                     ),
                 },
                 Stmt {
@@ -662,7 +749,7 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        101,
+                        106,
                     ),
                     body: ArenaIdxRange(
                         78..78,
@@ -670,7 +757,7 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        100,
+                        105,
                     ),
                     body: ArenaIdxRange(
                         78..79,
@@ -678,26 +765,10 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        106,
-                    ),
-                    body: ArenaIdxRange(
-                        80..80,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        105,
-                    ),
-                    body: ArenaIdxRange(
-                        80..81,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
                         108,
                     ),
                     body: ArenaIdxRange(
-                        82..82,
+                        80..80,
                     ),
                 },
                 Stmt {
@@ -705,7 +776,7 @@ Ok(
                         107,
                     ),
                     body: ArenaIdxRange(
-                        82..83,
+                        80..81,
                     ),
                 },
                 Stmt {
@@ -713,7 +784,7 @@ Ok(
                         103,
                     ),
                     body: ArenaIdxRange(
-                        80..80,
+                        78..78,
                     ),
                 },
                 Stmt {
@@ -721,8 +792,15 @@ Ok(
                         104,
                     ),
                     body: ArenaIdxRange(
+                        78..78,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 79,
+                    elif_stmts: ArenaIdxRange(
                         80..80,
                     ),
+                    else_stmt: None,
                 },
                 IfElseStmts {
                     if_stmt: 81,
@@ -731,19 +809,12 @@ Ok(
                     ),
                     else_stmt: None,
                 },
-                IfElseStmts {
-                    if_stmt: 83,
-                    elif_stmts: ArenaIdxRange(
-                        84..84,
-                    ),
-                    else_stmt: None,
-                },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
                         102,
                     ),
                     body: ArenaIdxRange(
-                        84..88,
+                        82..86,
                     ),
                 },
                 Stmt {
@@ -751,7 +822,7 @@ Ok(
                         111,
                     ),
                     body: ArenaIdxRange(
-                        89..89,
+                        87..87,
                     ),
                 },
                 Stmt {
@@ -759,13 +830,13 @@ Ok(
                         110,
                     ),
                     body: ArenaIdxRange(
-                        89..90,
+                        87..88,
                     ),
                 },
                 IfElseStmts {
-                    if_stmt: 90,
+                    if_stmt: 88,
                     elif_stmts: ArenaIdxRange(
-                        91..91,
+                        89..89,
                     ),
                     else_stmt: None,
                 },
@@ -774,7 +845,7 @@ Ok(
                         112,
                     ),
                     body: ArenaIdxRange(
-                        91..91,
+                        89..89,
                     ),
                 },
                 Stmt {
@@ -782,7 +853,7 @@ Ok(
                         109,
                     ),
                     body: ArenaIdxRange(
-                        91..93,
+                        89..91,
                     ),
                 },
                 Stmt {
@@ -790,7 +861,7 @@ Ok(
                         114,
                     ),
                     body: ArenaIdxRange(
-                        94..94,
+                        92..92,
                     ),
                 },
                 Stmt {
@@ -798,7 +869,7 @@ Ok(
                         113,
                     ),
                     body: ArenaIdxRange(
-                        94..95,
+                        92..93,
                     ),
                 },
                 Stmt {
@@ -820,24 +891,36 @@ Ok(
                 IfElseStmts {
                     if_stmt: 77,
                     elif_stmts: ArenaIdxRange(
-                        79..80,
+                        78..78,
+                    ),
+                    else_stmt: None,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        100,
+                    ),
+                    error: StandaloneElif,
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        101,
+                    ),
+                    error: ExcessiveIndent,
+                },
+                IfElseStmts {
+                    if_stmt: 86,
+                    elif_stmts: ArenaIdxRange(
+                        87..87,
                     ),
                     else_stmt: None,
                 },
                 IfElseStmts {
-                    if_stmt: 88,
+                    if_stmt: 91,
                     elif_stmts: ArenaIdxRange(
-                        89..89,
-                    ),
-                    else_stmt: None,
-                },
-                IfElseStmts {
-                    if_stmt: 93,
-                    elif_stmts: ArenaIdxRange(
-                        94..94,
+                        92..92,
                     ),
                     else_stmt: Some(
-                        95,
+                        93,
                     ),
                 },
                 Stmt {
@@ -940,7 +1023,7 @@ Ok(
                         95,
                     ),
                     body: ArenaIdxRange(
-                        96..101,
+                        94..101,
                     ),
                 },
                 Comment {
@@ -1313,7 +1396,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::line_segment_sketch::concave_component",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "concave_component",
                     ),
@@ -1328,7 +1436,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::line_segment_sketch::convex_component",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "convex_component",
                     ),
@@ -1343,7 +1476,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::line_segment_sketch::convexity",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "convexity",
                     ),
@@ -1358,7 +1516,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::line_segment_sketch::line_segment",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "line_segment",
                     ),
@@ -1408,7 +1591,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 132,
+                            module: ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 312,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "LineSegmentStroke",
                     ),
@@ -1420,7 +1624,7 @@ Ok(
                         10,
                     ),
                     body: ArenaIdxRange(
-                        4..7,
+                        3..7,
                     ),
                 },
                 Defn {
@@ -1431,7 +1635,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 135,
+                            module: ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 311,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "LineSegmentSketch",
                     ),
@@ -1443,7 +1668,7 @@ Ok(
                         19,
                     ),
                     body: ArenaIdxRange(
-                        22..26,
+                        21..26,
                     ),
                 },
                 Defn {
@@ -1454,7 +1679,26 @@ Ok(
                         26..32,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 138,
+                            module: ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 346,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "go_right",
                     ),
@@ -1469,7 +1713,26 @@ Ok(
                         32..38,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 139,
+                            module: ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 351,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "go_left",
                     ),
@@ -1484,7 +1747,26 @@ Ok(
                         60..72,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 140,
+                            module: ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 352,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "extend_end",
                     ),
@@ -1499,7 +1781,26 @@ Ok(
                         105..116,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 141,
+                            module: ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 360,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "extend_start",
                     ),
@@ -1514,7 +1815,26 @@ Ok(
                         150..160,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 142,
+                            module: ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 73,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "find_line_segments",
                     ),

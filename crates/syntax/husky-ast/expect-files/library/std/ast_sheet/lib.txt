@@ -10,7 +10,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::prelude",
+                            [crate]: CratePath {
+                                [salsa id]: 1,
+                                package_path: PackagePath {
+                                    [salsa id]: 1,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Library,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "prelude",
                     ),
@@ -25,7 +50,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::logic",
+                            [crate]: CratePath {
+                                [salsa id]: 1,
+                                package_path: PackagePath {
+                                    [salsa id]: 1,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Library,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "logic",
                     ),
@@ -40,7 +90,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::ops",
+                            [crate]: CratePath {
+                                [salsa id]: 1,
+                                package_path: PackagePath {
+                                    [salsa id]: 1,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Library,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "ops",
                     ),
