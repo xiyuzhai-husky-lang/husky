@@ -30,7 +30,7 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
-husky-entity-card = { path = "../../kernel/husky-entity-card" }
+husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

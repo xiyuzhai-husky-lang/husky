@@ -1,23 +1,27 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
-pub enum TyKingdom {
+pub enum TypeKind {
     Enum,
     Inductive,
     Record,
     Struct,
     Structure,
-    Any,
+    Form,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum EntityCard {
+pub enum EntityKind {
     Module,
-    Type,
+    ModuleItem(ModuleItemKind),
+    EnumVariant,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum ModuleItemKind {
+    Type(TypeKind),
     Trait,
     Form,
-    EnumVariant,
-    Use,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

@@ -275,7 +275,26 @@ Ok(
                         0..1,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 74,
+                            module: ModulePath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 261,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "open_one_match",
                     ),
@@ -290,7 +309,26 @@ Ok(
                         1..3,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 75,
+                            module: ModulePath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 262,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "almost_closed",
                     ),
@@ -305,7 +343,26 @@ Ok(
                         11..27,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 76,
+                            module: ModulePath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 63,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "is_zero",
                     ),

@@ -1,51 +1,116 @@
 Ok(
     [
-        EntityPath {
-            [show]: "crate::basic",
+        ModulePath {
+            [display]: "crate::basic",
             [crate]: CratePath {
                 [salsa id]: 0,
-                package_path: Local {
-                    path: "/home/xiyuzhai/repos/husky/library/core",
+                package_path: PackagePath {
+                    [salsa id]: 0,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: "/home/xiyuzhai/repos/husky/library",
+                        },
+                    },
+                    data: Local {
+                        path: AbsolutePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    },
                 },
                 crate_kind: Library,
             },
         },
-        EntityPath {
-            [show]: "crate::logic",
+        ModulePath {
+            [display]: "crate::logic",
             [crate]: CratePath {
                 [salsa id]: 0,
-                package_path: Local {
-                    path: "/home/xiyuzhai/repos/husky/library/core",
+                package_path: PackagePath {
+                    [salsa id]: 0,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: "/home/xiyuzhai/repos/husky/library",
+                        },
+                    },
+                    data: Local {
+                        path: AbsolutePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    },
                 },
                 crate_kind: Library,
             },
         },
-        EntityPath {
-            [show]: "crate::num",
+        ModulePath {
+            [display]: "crate::num",
             [crate]: CratePath {
                 [salsa id]: 0,
-                package_path: Local {
-                    path: "/home/xiyuzhai/repos/husky/library/core",
+                package_path: PackagePath {
+                    [salsa id]: 0,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: "/home/xiyuzhai/repos/husky/library",
+                        },
+                    },
+                    data: Local {
+                        path: AbsolutePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    },
                 },
                 crate_kind: Library,
             },
         },
-        EntityPath {
-            [show]: "crate::ops",
+        ModulePath {
+            [display]: "crate::ops",
             [crate]: CratePath {
                 [salsa id]: 0,
-                package_path: Local {
-                    path: "/home/xiyuzhai/repos/husky/library/core",
+                package_path: PackagePath {
+                    [salsa id]: 0,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: "/home/xiyuzhai/repos/husky/library",
+                        },
+                    },
+                    data: Local {
+                        path: AbsolutePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    },
                 },
                 crate_kind: Library,
             },
         },
-        EntityPath {
-            [show]: "crate::prelude",
+        ModulePath {
+            [display]: "crate::prelude",
             [crate]: CratePath {
                 [salsa id]: 0,
-                package_path: Local {
-                    path: "/home/xiyuzhai/repos/husky/library/core",
+                package_path: PackagePath {
+                    [salsa id]: 0,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: "/home/xiyuzhai/repos/husky/library",
+                        },
+                    },
+                    data: Local {
+                        path: AbsolutePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    },
                 },
                 crate_kind: Library,
             },

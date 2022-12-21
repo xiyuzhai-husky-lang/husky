@@ -111,7 +111,26 @@ Ok(
                         1..4,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 81,
+                            module: ModulePath(
+                                Id {
+                                    value: 25,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 179,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "norm",
                     ),
@@ -126,7 +145,26 @@ Ok(
                         5..8,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 82,
+                            module: ModulePath(
+                                Id {
+                                    value: 25,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 198,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "rel_norm",
                     ),
@@ -141,7 +179,26 @@ Ok(
                         9..12,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 83,
+                            module: ModulePath(
+                                Id {
+                                    value: 25,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 196,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "angle_change_norm",
                     ),
@@ -216,7 +273,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 80,
+                            module: ModulePath(
+                                Id {
+                                    value: 25,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 147,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "FermiMatchResult",
                     ),
@@ -239,7 +317,26 @@ Ok(
                         18..23,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 84,
+                            module: ModulePath(
+                                Id {
+                                    value: 25,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 148,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "fermi_match",
                     ),

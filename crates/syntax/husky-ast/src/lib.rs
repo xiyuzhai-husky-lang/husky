@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 mod db;
 mod debug;
 mod error;
@@ -14,8 +15,8 @@ pub use range::*;
 pub use specs::*;
 pub use use_expr::*;
 
-use husky_entity_card::EntityCard;
-use husky_entity_path::EntityPath;
+use husky_entity_kind::EntityKind;
+use husky_entity_path::{EntityPath, ModuleItemVariantPath};
 use husky_text::*;
 use husky_token::TokenGroupIdx;
 use husky_vfs::*;
@@ -63,10 +64,16 @@ pub enum Ast {
         token_group_idx: TokenGroupIdx,
         body: AstIdxRange,
         accessibility: Accessibility,
-        entity_card: EntityCard,
+        entity_kind: EntityKind,
+        entity_path: EntityPath,
         ident: Identifier,
         is_generic: bool,
         body_kind: DefnBodyKind,
+    },
+    ModuleItemVariant {
+        token_group_idx: TokenGroupIdx,
+        module_item_variant_path: ModuleItemVariantPath,
+        ident: Identifier,
     },
     Impl {
         token_group_idx: TokenGroupIdx,
@@ -86,7 +93,8 @@ pub enum Ast {
 pub enum DefnBodyKind {
     None,
     Block,
-    Cases,
+    EnumVariants,
+    MatchCases,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -102,8 +110,7 @@ pub type AstMap<V> = ArenaMap<Ast, V>;
 
 #[salsa::tracked(jar = AstJar, return_ref)]
 pub(crate) fn ast_sheet(db: &dyn AstDb, module_path: ModulePath) -> VfsResult<AstSheet> {
-    let token_sheet = db.token_sheet(module_path)?;
-    Ok(AstParser::new(token_sheet).parse_all())
+    Ok(AstParser::new(db, module_path)?.parse_all())
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -132,6 +139,10 @@ impl AstSheet {
 
     pub fn top_level_asts(&self) -> &AstIdxRange {
         &self.top_level_asts
+    }
+
+    pub fn top_level_asts_iter<'a>(&'a self) -> impl Iterator<Item = &'a Ast> + 'a {
+        self.ast_arena[&self.top_level_asts].iter()
     }
 
     pub fn top_level_asts_indexed_iter<'a>(
@@ -216,7 +227,8 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
                 token_group_idx,
                 body,
                 accessibility,
-                entity_card,
+                entity_kind,
+                entity_path,
                 ident,
                 is_generic,
                 body_kind,
@@ -225,10 +237,25 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
                 .field("token_group_idx", token_group_idx)
                 .field("body", body)
                 .field("accessibility", accessibility)
-                .field("entity_card", entity_card)
+                .field("entity_kind", entity_kind)
+                .field(
+                    "entity_path",
+                    &entity_path.debug_with(db, include_all_fields),
+                )
                 .field("ident", &ident.debug_with(db, include_all_fields))
                 .field("is_generic", is_generic)
                 .field("body_kind", body_kind)
+                .finish(),
+            Ast::ModuleItemVariant {
+                token_group_idx,
+                module_item_variant_path,
+                ident,
+            } => f
+                .debug_struct("ModuleItemVariant")
+                .field(
+                    "module_item_variant_path",
+                    &module_item_variant_path.debug_with(db, include_all_fields),
+                )
                 .finish(),
             Ast::Impl {
                 token_group_idx,

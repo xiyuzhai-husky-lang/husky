@@ -554,7 +554,26 @@ Ok(
                         0..1,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 48,
+                            module: ModulePath(
+                                Id {
+                                    value: 18,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 190,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "one_fermi_match",
                     ),
@@ -569,7 +588,26 @@ Ok(
                         50..53,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 49,
+                            module: ModulePath(
+                                Id {
+                                    value: 18,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 64,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "is_one",
                     ),
@@ -584,7 +622,26 @@ Ok(
                         53..56,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 50,
+                            module: ModulePath(
+                                Id {
+                                    value: 18,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 191,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "upmost",
                     ),
@@ -599,7 +656,26 @@ Ok(
                         56..59,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 51,
+                            module: ModulePath(
+                                Id {
+                                    value: 18,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 185,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "downmost",
                     ),
@@ -614,7 +690,26 @@ Ok(
                         59..63,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 52,
+                            module: ModulePath(
+                                Id {
+                                    value: 18,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 192,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "hat",
                     ),

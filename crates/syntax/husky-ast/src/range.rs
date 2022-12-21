@@ -75,6 +75,9 @@ impl<'a> AstRangeCalculator<'a> {
             }
             | Ast::Decor {
                 token_group_idx, ..
+            }
+            | Ast::ModuleItemVariant {
+                token_group_idx, ..
             } => self.token_sheet[*token_group_idx].text_range(),
             Ast::Stmt {
                 token_group_idx,

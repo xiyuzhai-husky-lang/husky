@@ -560,14 +560,6 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
-                        85,
-                    ),
-                    body: ArenaIdxRange(
-                        72..72,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
                         10,
                     ),
                     body: ArenaIdxRange(
@@ -582,7 +574,26 @@ Ok(
                         4..5,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 20,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 97,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "raw_contours",
                     ),
@@ -597,7 +608,26 @@ Ok(
                         5..12,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 21,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 99,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "eff_holes",
                     ),
@@ -612,7 +642,26 @@ Ok(
                         16..21,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 22,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 103,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "max_hole_ilen",
                     ),
@@ -627,7 +676,26 @@ Ok(
                         22..26,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 23,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 108,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "max_row_span",
                     ),
@@ -642,7 +710,26 @@ Ok(
                         27..31,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 24,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 112,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "row_span_sum",
                     ),
@@ -657,7 +744,26 @@ Ok(
                         39..50,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 25,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 113,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "distribution",
                     ),
@@ -672,7 +778,26 @@ Ok(
                         50..51,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 26,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 85,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "upper_mass",
                     ),
@@ -687,7 +812,26 @@ Ok(
                         51..52,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 27,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 86,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "lower_mass",
                     ),
@@ -702,7 +846,26 @@ Ok(
                         56..62,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 28,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 119,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "top_k_row_span_sum",
                     ),
@@ -717,7 +880,26 @@ Ok(
                         66..72,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 29,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 122,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "top_k_row_right_mass_sum",
                     ),
@@ -733,6 +915,12 @@ Ok(
                             [112:11, 112:12),
                         ),
                     ),
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        85,
+                    ),
+                    error: ExcessiveIndent,
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -1065,7 +1253,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 17,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 82,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "ConnectedComponentDistribution",
                     ),
@@ -1080,7 +1289,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 18,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 87,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "EffHoles",
                     ),
@@ -1095,7 +1325,26 @@ Ok(
                         0..4,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 19,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 90,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "hole_tmpl",
                     ),
@@ -1107,10 +1356,31 @@ Ok(
                         9,
                     ),
                     body: ArenaIdxRange(
-                        73..85,
+                        72..85,
                     ),
                     accessibility: Protected,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 30,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "ConnectedComponent",
                     ),
@@ -1125,7 +1395,26 @@ Ok(
                         87..91,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 31,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 124,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "horizontal_extend",
                     ),
@@ -1140,7 +1429,26 @@ Ok(
                         120..124,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 32,
+                            module: ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 130,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "find_connected_components",
                     ),

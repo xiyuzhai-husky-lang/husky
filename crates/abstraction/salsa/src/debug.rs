@@ -5,7 +5,7 @@ use std::{
     sync::Arc,
 };
 
-use vec_like::{VecEntryMap, VecMapEntry};
+use vec_like::{AsVecMapEntry, VecMap};
 
 pub trait DebugWithDb<Db: ?Sized> {
     fn debug<'me, 'db>(&'me self, db: &'me Db) -> DebugWith<'me, Db>
@@ -231,10 +231,10 @@ where
     }
 }
 
-impl<Db: ?Sized, K, V> DebugWithDb<Db> for VecEntryMap<K, V>
+impl<Db: ?Sized, K, V> DebugWithDb<Db> for VecMap<K, V>
 where
     K: PartialEq + Eq,
-    V: VecMapEntry<K> + MapEntryDebugWithDb<Db>,
+    V: AsVecMapEntry<K> + MapEntryDebugWithDb<Db>,
 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
         let elements = self

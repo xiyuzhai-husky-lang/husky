@@ -189,7 +189,26 @@ Ok(
                         15..20,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 128,
+                            module: ModulePath(
+                                Id {
+                                    value: 31,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 325,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "is_convex",
                     ),

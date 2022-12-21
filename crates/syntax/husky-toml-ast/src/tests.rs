@@ -9,15 +9,15 @@ use salsa::{Database, ParallelDatabase, Snapshot};
 
 #[salsa::db(WordJar, VfsJar, TomlTokenJar, TomlAstJar)]
 #[derive(Default)]
-struct MimicDB {
+struct DB {
     storage: salsa::Storage<Self>,
 }
 
-impl Database for MimicDB {}
+impl Database for DB {}
 
-impl ParallelDatabase for MimicDB {
+impl ParallelDatabase for DB {
     fn snapshot(&self) -> Snapshot<Self> {
-        Snapshot::new(MimicDB {
+        Snapshot::new(DB {
             storage: self.storage.snapshot(),
         })
     }
@@ -25,20 +25,5 @@ impl ParallelDatabase for MimicDB {
 
 #[test]
 fn manifest_ast_works() {
-    todo!("change it use vfs test utils");
-    let db = MimicDB::default();
-    let toolchain = db.lang_dev_toolchain();
-    let path_menu = db.path_menu(toolchain).as_ref().unwrap();
-    expect_file!["../tests/package_core_manifest_ast.txt"].assert_eq(&format!(
-        "{:#?}",
-        db.package_manifest_ast(path_menu.core_package())
-            .as_ref()
-            .unwrap()
-    ));
-    expect_file!["../tests/package_std_manifest_ast.txt"].assert_eq(&format!(
-        "{:#?}",
-        db.package_manifest_ast(path_menu.std_package())
-            .as_ref()
-            .unwrap()
-    ));
+    DB::expect_test_packages_debug("package_manifest", TomlAstDb::package_manifest_ast)
 }

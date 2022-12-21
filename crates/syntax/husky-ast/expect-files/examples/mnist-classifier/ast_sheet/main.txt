@@ -106,7 +106,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::connected_component",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "connected_component",
                     ),
@@ -121,7 +146,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::raw_contour",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "raw_contour",
                     ),
@@ -136,7 +186,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::geom2d",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "geom2d",
                     ),
@@ -151,7 +226,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::line_segment_sketch",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "line_segment_sketch",
                     ),
@@ -166,7 +266,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::fermi",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "fermi",
                     ),
@@ -181,7 +306,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::major",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "major",
                     ),
@@ -196,7 +346,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::zero",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "zero",
                     ),
@@ -211,7 +386,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::one",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "one",
                     ),
@@ -226,7 +426,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::two",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "two",
                     ),
@@ -241,7 +466,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::three",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "three",
                     ),
@@ -256,7 +506,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::four",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "four",
                     ),
@@ -271,7 +546,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::five",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "five",
                     ),
@@ -286,7 +586,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::six",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "six",
                     ),
@@ -301,7 +626,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::seven",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "seven",
                     ),
@@ -316,7 +666,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::eight",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "eight",
                     ),
@@ -331,7 +706,32 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Module,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::nine",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
                     ident: Identifier(
                         "nine",
                     ),

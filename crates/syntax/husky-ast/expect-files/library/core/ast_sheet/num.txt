@@ -10,7 +10,26 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 6,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "abs",
                     ),
@@ -25,7 +44,26 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 7,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 24,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "add",
                     ),
@@ -40,7 +78,26 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 6,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "abs",
                     ),
@@ -55,7 +112,26 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 7,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 24,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "add",
                     ),
@@ -70,7 +146,26 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 6,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "abs",
                     ),
@@ -85,7 +180,26 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 7,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 24,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "add",
                     ),
@@ -100,7 +214,26 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 6,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "abs",
                     ),
@@ -115,7 +248,26 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 7,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 24,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "add",
                     ),
@@ -135,7 +287,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Form,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 5,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "i8",
                     ),
@@ -171,7 +344,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Form,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 8,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 26,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "i16",
                     ),
@@ -207,7 +401,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Public,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Form,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 9,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 27,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "i32",
                     ),
@@ -243,7 +458,28 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Form,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 10,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 28,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "i64",
                     ),

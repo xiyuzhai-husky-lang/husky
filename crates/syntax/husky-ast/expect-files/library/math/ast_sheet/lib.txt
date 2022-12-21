@@ -10,7 +10,7 @@ Ok(
                         0..0,
                     ),
                     accessibility: PubCrate,
-                    entity_card: Module,
+                    entity_kind: Module,
                     ident: Identifier(
                         Word(
                             Id {
@@ -29,7 +29,7 @@ Ok(
                         0..0,
                     ),
                     accessibility: PubCrate,
-                    entity_card: Module,
+                    entity_kind: Module,
                     ident: Identifier(
                         Word(
                             Id {
@@ -48,7 +48,7 @@ Ok(
                         0..0,
                     ),
                     accessibility: PubCrate,
-                    entity_card: Module,
+                    entity_kind: Module,
                     ident: Identifier(
                         Word(
                             Id {
@@ -67,7 +67,7 @@ Ok(
                         0..0,
                     ),
                     accessibility: PubCrate,
-                    entity_card: Module,
+                    entity_kind: Module,
                     ident: Identifier(
                         Word(
                             Id {
@@ -86,7 +86,7 @@ Ok(
                         0..0,
                     ),
                     accessibility: PubCrate,
-                    entity_card: Module,
+                    entity_kind: Module,
                     ident: Identifier(
                         Word(
                             Id {

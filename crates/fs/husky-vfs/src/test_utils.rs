@@ -12,6 +12,14 @@ pub trait VfsTestSupport: VfsDb {
     where
         Self: Default;
 
+    fn expect_test_packages_debug<T, E>(
+        name: &str,
+        f: impl Fn(&Self, PackagePath) -> Result<&T, E>,
+    ) where
+        Self: Default,
+        T: std::fmt::Debug + ?Sized,
+        E: std::fmt::Debug;
+
     fn expect_test_crates_debug_with_db<T, E>(
         name: &str,
         f: impl Fn(&Self, CratePath) -> Result<&T, E>,
@@ -130,6 +138,18 @@ where
         }
     }
 
+    fn expect_test_packages_debug<T, E>(name: &str, f: impl Fn(&Self, PackagePath) -> Result<&T, E>)
+    where
+        Self: Default,
+        T: std::fmt::Debug + ?Sized,
+        E: std::fmt::Debug,
+    {
+        let db = Self::default();
+        for (base, out) in expect_test_base_outs() {
+            expect_test_packages(&db, name, &base, out, &f, |_db, r| format!("{:#?}", r));
+        }
+    }
+
     fn expect_test_crates_debug<T, E>(name: &str, f: impl Fn(&Self, CratePath) -> Result<&T, E>)
     where
         Self: Default,
@@ -221,6 +241,35 @@ where
             f(db, entity_path)
         }
     });
+}
+
+fn expect_test_packages<Db, T, E>(
+    db: &Db,
+    name: &str,
+    base: &Path,
+    out: PathBuf,
+    f: &impl Fn(&Db, PackagePath) -> Result<&T, E>,
+    p: impl Fn(&Db, Result<&T, E>) -> String,
+) where
+    Db: VfsDb,
+    T: ?Sized,
+{
+    let toolchain = db.lang_dev_toolchain();
+    std::fs::create_dir_all(&out).unwrap();
+    collect_package_relative_dirs(base)
+        .into_iter()
+        .for_each(|path| {
+            let package_path =
+                PackagePath::new_local(db, toolchain, &path.to_logical_path(base)).unwrap();
+            let resolver = TestPathResolver {
+                db,
+                name,
+                package_expects_dir: path.to_logical_path(&out),
+            };
+            let path = path.to_logical_path(&out);
+            std::fs::create_dir_all(path.parent().unwrap()).unwrap();
+            expect_test::expect_file![path].assert_eq(&p(&db, f(&db, package_path)));
+        });
 }
 
 fn expect_test_crates<Db, T, E>(

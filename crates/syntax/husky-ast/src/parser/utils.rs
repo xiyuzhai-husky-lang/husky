@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_kind::{ModuleItemKind, TypeKind};
 use husky_opn_syntax::Bracket;
 use husky_token::*;
 use std::iter::Peekable;
@@ -30,7 +31,7 @@ pub(super) trait AuxAstParser<'aux> {
         })
     }
 
-    fn parse_entity_card(&mut self) -> AstResult<EntityCard> {
+    fn parse_entity_kind(&mut self) -> AstResult<EntityKind> {
         Ok(
             match self
                 .token_iter_mut()
@@ -38,12 +39,24 @@ pub(super) trait AuxAstParser<'aux> {
                 .ok_or(AstError::ExpectEntityKeyword)?
                 .kind
             {
-                TokenKind::Decorator(_decor) => self.parse_entity_card()?,
+                TokenKind::Decorator(_decor) => self.parse_entity_kind()?,
                 TokenKind::Keyword(kw) => match kw {
-                    Keyword::Paradigm(_) | Keyword::Visual => EntityCard::Form,
-                    Keyword::Type(_ty_kw) => EntityCard::Type,
-                    Keyword::Trait => EntityCard::Trait,
-                    Keyword::Mod => EntityCard::Module,
+                    Keyword::Paradigm(_) | Keyword::Visual => {
+                        EntityKind::ModuleItem(ModuleItemKind::Form)
+                    }
+                    Keyword::Type(ty_kw) => {
+                        let ty_kind = match ty_kw {
+                            TypeKeyword::Type => TypeKind::Form,
+                            TypeKeyword::Struct => TypeKind::Struct,
+                            TypeKeyword::Enum => TypeKind::Enum,
+                            TypeKeyword::Record => TypeKind::Record,
+                            TypeKeyword::Structure => TypeKind::Structure,
+                            TypeKeyword::Inductive => TypeKind::Inductive,
+                        };
+                        EntityKind::ModuleItem(ModuleItemKind::Type(ty_kind))
+                    }
+                    Keyword::Trait => EntityKind::ModuleItem(ModuleItemKind::Trait),
+                    Keyword::Mod => EntityKind::Module,
                     Keyword::Impl | Keyword::End(_) => return Err(AstError::ExpectEntityKeyword),
                     Keyword::Config(_)
                     | Keyword::Stmt(_)

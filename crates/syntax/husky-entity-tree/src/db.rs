@@ -2,29 +2,21 @@ use crate::*;
 
 use husky_ast::AstDb;
 
-use husky_entity_card::EntityCard;
+use husky_entity_kind::EntityKind;
 use husky_entity_path::EntityPath;
 use husky_vfs::*;
 
 use salsa::DbWithJar;
 
 pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb {
-    fn entity_tree_sheet(&self, module_path: ModulePath) -> VfsResult<&EntityTreeSheet>;
-    fn entity_card(&self, entity_path: EntityPath) -> EntityTreeResult<EntityCard> {
-        match entity_path {
-            EntityPath::Module(_) => todo!(),
-            EntityPath::ModuleItem(_) => todo!(),
-            EntityPath::AssociatedItem(_) => todo!(),
-        }
-    }
-    fn module_item_entity_card(
+    fn module_item_entity_kind(
         &self,
         module_item_path: ModuleItemPath,
-    ) -> &EntityTreeResult<EntityCard>;
-    fn associated_item_entity_card(
+    ) -> &EntityTreeResult<EntityKind>;
+    fn associated_item_entity_kind(
         &self,
         associated_item_path: AssociatedItemPath,
-    ) -> &EntityTreeResult<EntityCard>;
+    ) -> &EntityTreeResult<EntityKind>;
     fn submodules(&self, module_path: ModulePath) -> VfsResult<&[ModulePath]>;
     fn all_modules_within_crate(&self, crate_path: CratePath) -> VfsResult<&[ModulePath]>;
 }
@@ -33,19 +25,16 @@ impl<T> EntityTreeDb for T
 where
     T: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb,
 {
-    fn entity_tree_sheet(&self, module_path: ModulePath) -> VfsResult<&EntityTreeSheet> {
-        Ok(entity_tree_sheet(self, module_path).as_ref()?)
-    }
-    fn module_item_entity_card(
+    fn module_item_entity_kind(
         &self,
         module_item_path: ModuleItemPath,
-    ) -> &EntityTreeResult<EntityCard> {
+    ) -> &EntityTreeResult<EntityKind> {
         todo!()
     }
-    fn associated_item_entity_card(
+    fn associated_item_entity_kind(
         &self,
         associated_item_path: AssociatedItemPath,
-    ) -> &EntityTreeResult<EntityCard> {
+    ) -> &EntityTreeResult<EntityKind> {
         todo!()
     }
 

@@ -132,7 +132,26 @@ Ok(
                         0..1,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 129,
+                            module: ModulePath(
+                                Id {
+                                    value: 32,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 176,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "displacement",
                     ),
@@ -147,7 +166,26 @@ Ok(
                         10..13,
                     ),
                     accessibility: Protected,
-                    entity_card: Form,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 130,
+                            module: ModulePath(
+                                Id {
+                                    value: 32,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 318,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "dist_to_point",
                     ),
@@ -169,7 +207,28 @@ Ok(
                         13..17,
                     ),
                     accessibility: Protected,
-                    entity_card: Type,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 131,
+                            module: ModulePath(
+                                Id {
+                                    value: 32,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 321,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ident: Identifier(
                         "LineSegment",
                     ),

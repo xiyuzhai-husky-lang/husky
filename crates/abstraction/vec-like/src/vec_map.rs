@@ -2,7 +2,7 @@ use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 
 use crate::*;
 
-pub trait VecMapEntry<K> {
+pub trait AsVecMapEntry<K> {
     fn key(&self) -> K
     where
         K: Copy;
@@ -22,7 +22,7 @@ where
     }
 }
 
-impl<K, T> VecMapEntry<K> for (K, T)
+impl<K, T> AsVecMapEntry<K> for (K, T)
 where
     K: PartialEq + Eq + std::fmt::Debug,
 {
@@ -38,9 +38,9 @@ where
     }
 }
 
-impl<K, T> VecMapEntry<K> for Arc<T>
+impl<K, T> AsVecMapEntry<K> for Arc<T>
 where
-    T: VecMapEntry<K>,
+    T: AsVecMapEntry<K>,
 {
     fn key(&self) -> K
     where
@@ -55,19 +55,19 @@ where
 }
 
 #[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
-pub struct VecEntryMap<K, V>
+pub struct VecMap<K, V>
 where
     K: PartialEq + Eq,
-    V: VecMapEntry<K>,
+    V: AsVecMapEntry<K>,
 {
     entries: Vec<V>,
     phantom: PhantomData<K>,
 }
 
-impl<K, V> IntoIterator for VecEntryMap<K, V>
+impl<K, V> IntoIterator for VecMap<K, V>
 where
     K: PartialEq + Eq + std::fmt::Debug,
-    V: VecMapEntry<K>,
+    V: AsVecMapEntry<K>,
 {
     type Item = V;
 
@@ -78,17 +78,17 @@ where
     }
 }
 
-impl<K, V> std::fmt::Debug for VecEntryMap<K, V>
+impl<K, V> std::fmt::Debug for VecMap<K, V>
 where
     K: PartialEq + Eq + std::fmt::Debug,
-    V: VecMapEntry<K> + std::fmt::Debug,
+    V: AsVecMapEntry<K> + std::fmt::Debug,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.entries.fmt(f)
     }
 }
 
-pub type VecPairMap<K, V> = VecEntryMap<K, (K, V)>;
+pub type VecPairMap<K, V> = VecMap<K, (K, V)>;
 
 #[derive(Debug)]
 pub struct EntryRepeatError<Entry> {
@@ -96,10 +96,10 @@ pub struct EntryRepeatError<Entry> {
     pub new: Entry,
 }
 
-impl<K, Entry> VecEntryMap<K, Entry>
+impl<K, Entry> VecMap<K, Entry>
 where
     K: PartialEq + Eq,
-    Entry: VecMapEntry<K>,
+    Entry: AsVecMapEntry<K>,
 {
     pub fn clear(&mut self) {
         self.entries.clear()
@@ -269,10 +269,10 @@ where
     }
 }
 
-impl<K, Entry> FromIterator<Entry> for VecEntryMap<K, Entry>
+impl<K, Entry> FromIterator<Entry> for VecMap<K, Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    Entry: VecMapEntry<K> + std::fmt::Debug,
+    Entry: AsVecMapEntry<K> + std::fmt::Debug,
 {
     fn from_iter<T: IntoIterator<Item = Entry>>(iter: T) -> Self {
         let mut map = Self::default();
@@ -283,10 +283,10 @@ where
     }
 }
 
-impl<K, V> Deref for VecEntryMap<K, V>
+impl<K, V> Deref for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: VecMapEntry<K>,
+    V: AsVecMapEntry<K>,
 {
     type Target = [V];
 
@@ -295,10 +295,10 @@ where
     }
 }
 
-impl<K, V> Default for VecEntryMap<K, V>
+impl<K, V> Default for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: VecMapEntry<K>,
+    V: AsVecMapEntry<K>,
 {
     fn default() -> Self {
         Self {
@@ -308,10 +308,10 @@ where
     }
 }
 
-impl<K, V> std::ops::Index<K> for VecEntryMap<K, V>
+impl<K, V> std::ops::Index<K> for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: VecMapEntry<K>,
+    V: AsVecMapEntry<K>,
 {
     type Output = V;
 
@@ -320,20 +320,20 @@ where
     }
 }
 
-impl<K, V> std::ops::IndexMut<K> for VecEntryMap<K, V>
+impl<K, V> std::ops::IndexMut<K> for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: VecMapEntry<K>,
+    V: AsVecMapEntry<K>,
 {
     fn index_mut(&mut self, index: K) -> &mut Self::Output {
         self.get_mut(index).unwrap()
     }
 }
 
-impl<K, V> HuskyDisplay for VecEntryMap<K, V>
+impl<K, V> HuskyDisplay for VecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: VecMapEntry<K> + HuskyDisplay,
+    V: AsVecMapEntry<K> + HuskyDisplay,
 {
     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         for entry in &self.entries {

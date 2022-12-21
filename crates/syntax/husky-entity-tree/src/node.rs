@@ -1,11 +1,11 @@
 use crate::*;
-use husky_entity_card::EntityCard;
+use husky_entity_kind::EntityKind;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct EntityNode {
     entity_path: EntityPath,
     accessibility: Accessibility,
-    card: EntityCard,
+    card: EntityKind,
 }
 
 impl std::ops::Deref for EntityTree {
@@ -20,7 +20,7 @@ impl EntityNode {
     pub(crate) fn new(
         entity_path: EntityPath,
         accessibility: Accessibility,
-        card: EntityCard,
+        card: EntityKind,
     ) -> Self {
         Self {
             entity_path,
@@ -37,7 +37,7 @@ impl EntityNode {
         self.accessibility
     }
 
-    pub(crate) fn card(&self) -> EntityCard {
+    pub(crate) fn card(&self) -> EntityKind {
         self.card
     }
 }
@@ -71,7 +71,7 @@ impl EntityNode {
 // }
 
 // #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-// pub(crate) fn entity_card(
+// pub(crate) fn entity_kind(
 //     db: &dyn EntityTreeDb,
 //     entity_path: EntityPath,
 // ) -> EntityTreeResult<EntityCard> {
@@ -95,7 +95,7 @@ impl EntityNode {
 //         EntityPathData::Module(_) => todo!(),
 //         EntityPathData::Associated { parent, ident: _ } => {
 //             todo!()
-//             // match entity_card(db, parent).as_ref()? {
+//             // match entity_kind(db, parent).as_ref()? {
 //             //     EntityCard::Module => Some(parent),
 //             //     _ => *parent_module(db, parent).as_ref()?,
 //             // }

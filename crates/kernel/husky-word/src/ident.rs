@@ -2,7 +2,7 @@ use crate::*;
 
 use salsa::DebugWithDb;
 use std::sync::Arc;
-use vec_like::{VecEntryMap, VecPairMap};
+use vec_like::{VecMap, VecPairMap};
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
 pub struct Identifier(Word);
@@ -44,8 +44,8 @@ impl Identifier {
     }
 }
 
-pub type IdentMap<T> = VecEntryMap<Identifier, T>;
-pub type IdentArcDict<T> = VecEntryMap<Identifier, Arc<T>>;
+pub type IdentMap<T> = VecMap<Identifier, T>;
+pub type IdentArcDict<T> = VecMap<Identifier, Arc<T>>;
 pub type IdentPairMap<T> = VecPairMap<Identifier, T>;
 #[test]
 fn test_is_valid_ident() {
