@@ -11,7 +11,7 @@ pub(super) enum AstParent {
     Impl,
     /// module level
     Module,
-    /// ```
+    /// ```python
     /// match token with
     /// | 0 => ...
     /// | 1 => ...

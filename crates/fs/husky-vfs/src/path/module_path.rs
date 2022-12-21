@@ -49,19 +49,67 @@ impl ModulePath {
             <VfsJar as salsa::storage::HasIngredientsFor<ModulePath>>::ingredient(jar);
         std::clone::Clone::clone(&ingredients.data(runtime, self).data)
     }
+
     pub fn new(db: &<VfsJar as salsa::jar::Jar<'_>>::DynDb, data: ModulePathData) -> Self {
         let (jar, runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(db);
         let ingredients =
             <VfsJar as salsa::storage::HasIngredientsFor<ModulePath>>::ingredient(jar);
         ingredients.intern(runtime, __ModulePathData { data })
     }
+
     pub fn crate_path(self, db: &dyn VfsDb) -> CratePath {
         match self.data(db) {
             ModulePathData::Root(crate_path) => crate_path,
             ModulePathData::Child { parent, ident } => parent.crate_path(db),
         }
     }
+
+    pub fn new_root(db: &dyn VfsDb, crate_path: CratePath) -> Self {
+        Self::new(db, ModulePathData::Root(crate_path))
+    }
+
+    pub fn new_child(db: &dyn VfsDb, parent: ModulePath, ident: Identifier) -> Self {
+        Self::new(db, ModulePathData::Child { parent, ident })
+    }
+
+    pub fn toolchain(self, db: &dyn VfsDb) -> Toolchain {
+        self.crate_path(db).toolchain(db)
+    }
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum ModulePathData {
+    Root(CratePath),
+    Child {
+        parent: ModulePath,
+        ident: Identifier,
+    },
+}
+
+impl ModulePathData {
+    fn display(self, db: &dyn VfsDb, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            ModulePathData::Root(crate_path) => f.write_str("crate"),
+            ModulePathData::Child { parent, ident } => {
+                parent.data(db).display(db, f)?;
+                f.write_str("::");
+                f.write_str(ident.data(db))
+            }
+        }
+    }
+}
+
+impl<Db: VfsDb> salsa::DebugWithDb<Db> for ModulePathData {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        self.fmt(f, db as &dyn VfsDb, include_all_fields)
+    }
+}
+
 impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for ModulePath
 where
     DB: ?Sized + salsa::DbWithJar<VfsJar>,
@@ -98,40 +146,6 @@ impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for ModulePath
     }
 }
 
-impl ModulePath {
-    pub fn new_root(db: &dyn VfsDb, crate_path: CratePath) -> Self {
-        Self::new(db, ModulePathData::Root(crate_path))
-    }
-
-    pub fn new_child(db: &dyn VfsDb, parent: ModulePath, ident: Identifier) -> Self {
-        Self::new(db, ModulePathData::Child { parent, ident })
-    }
-
-    pub fn toolchain(self, db: &dyn VfsDb) -> Toolchain {
-        todo!()
-    }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ModulePathData {
-    Root(CratePath),
-    Child {
-        parent: ModulePath,
-        ident: Identifier,
-    },
-}
-
-impl<Db: VfsDb> salsa::DebugWithDb<Db> for ModulePath {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        include_all_fields: bool,
-    ) -> std::fmt::Result {
-        self.fmt(f, db as &dyn VfsDb, include_all_fields)
-    }
-}
-
 impl salsa::DebugWithDb<dyn VfsDb + '_> for ModulePathData {
     fn fmt(
         &self,
@@ -145,20 +159,7 @@ impl salsa::DebugWithDb<dyn VfsDb + '_> for ModulePathData {
     }
 }
 
-impl ModulePathData {
-    fn display(self, db: &dyn VfsDb, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            ModulePathData::Root(crate_path) => f.write_str("crate"),
-            ModulePathData::Child { parent, ident } => {
-                parent.data(db).display(db, f)?;
-                f.write_str("::");
-                f.write_str(ident.data(db))
-            }
-        }
-    }
-}
-
-impl<Db: VfsDb> salsa::DebugWithDb<Db> for ModulePathData {
+impl<Db: VfsDb> salsa::DebugWithDb<Db> for ModulePath {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

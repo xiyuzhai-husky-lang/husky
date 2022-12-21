@@ -12,6 +12,23 @@ impl ApparentAncestry {
     }
 }
 
+impl<Db: VfsDb> salsa::DebugWithDb<Db> for ApparentAncestry {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        f.debug_struct("ApparentAncestry")
+            .field(
+                "crate_path",
+                &self.crate_path.debug_with(db, include_all_fields),
+            )
+            .field("modules", &self.modules.debug_with(db, include_all_fields))
+            .finish()
+    }
+}
+
 #[salsa::tracked(jar = VfsJar, return_ref)]
 pub(crate) fn apparent_ancestry(db: &dyn VfsDb, module_path: ModulePath) -> ApparentAncestry {
     match module_path.data(db) {
@@ -30,28 +47,135 @@ pub(crate) fn apparent_ancestry(db: &dyn VfsDb, module_path: ModulePath) -> Appa
 #[test]
 fn apparent_ancestry_works() {
     use crate::tests::*;
-    fn t(db: &DB, entity_path: ModulePath) -> Vec<String> {
-        todo!()
-        // apparent_ancestry(db, entity_path)
-        //     .modules
-        //     .iter()
-        //     .map(|path| path.show(db))
-        //     .collect()
+    use salsa::DebugWithDb;
+    fn t<'a>(db: &'a DB, entity_path: ModulePath) -> salsa::DebugWith<'a, DB> {
+        apparent_ancestry(db, entity_path).debug(db)
     }
 
     let db = DB::default();
     let toolchain = db.lang_dev_toolchain();
     let menu = db.path_menu(toolchain).unwrap();
     expect_test::expect![[r#"
-        [
-            "crate",
-        ]
+        ApparentAncestry {
+            crate_path: CratePath {
+                [salsa id]: 0,
+                package_path: PackagePath {
+                    [salsa id]: 0,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: "/home/xiyuzhai/repos/husky/library",
+                        },
+                    },
+                    data: Local {
+                        path: AbsolutePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    },
+                },
+                crate_kind: Library,
+            },
+            modules: [
+                ModulePath {
+                    [display]: "crate",
+                    [crate]: CratePath {
+                        [salsa id]: 0,
+                        package_path: PackagePath {
+                            [salsa id]: 0,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: "/home/xiyuzhai/repos/husky/library",
+                                },
+                            },
+                            data: Local {
+                                path: AbsolutePath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            },
+                        },
+                        crate_kind: Library,
+                    },
+                },
+            ],
+        }
     "#]]
     .assert_debug_eq(&t(&db, menu.core()));
     expect_test::expect![[r#"
-        [
-            "crate",
-        ]
+        ApparentAncestry {
+            crate_path: CratePath {
+                [salsa id]: 0,
+                package_path: PackagePath {
+                    [salsa id]: 0,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: "/home/xiyuzhai/repos/husky/library",
+                        },
+                    },
+                    data: Local {
+                        path: AbsolutePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    },
+                },
+                crate_kind: Library,
+            },
+            modules: [
+                ModulePath {
+                    [display]: "crate",
+                    [crate]: CratePath {
+                        [salsa id]: 0,
+                        package_path: PackagePath {
+                            [salsa id]: 0,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: "/home/xiyuzhai/repos/husky/library",
+                                },
+                            },
+                            data: Local {
+                                path: AbsolutePath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            },
+                        },
+                        crate_kind: Library,
+                    },
+                },
+                ModulePath {
+                    [display]: "crate::basic",
+                    [crate]: CratePath {
+                        [salsa id]: 0,
+                        package_path: PackagePath {
+                            [salsa id]: 0,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: "/home/xiyuzhai/repos/husky/library",
+                                },
+                            },
+                            data: Local {
+                                path: AbsolutePath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            },
+                        },
+                        crate_kind: Library,
+                    },
+                },
+            ],
+        }
     "#]]
     .assert_debug_eq(&t(&db, menu.core_basic()));
 }
