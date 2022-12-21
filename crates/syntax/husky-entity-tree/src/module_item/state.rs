@@ -19,7 +19,7 @@ pub(super) struct UseAll {
 
 #[derive(Debug)]
 pub(super) struct UnresolvedEntityUseExprs<'a> {
-    pub(super) sheet: &'a EntityUseExprSheet,
+    pub(super) sheet: &'a AstSheet,
     pub(super) exprs: Vec<UnresolvedUseExpr>,
 }
 
@@ -27,7 +27,7 @@ pub(super) struct UnresolvedEntityUseExprs<'a> {
 pub(super) struct UnresolvedUseExpr {
     pub(super) accessibility: Accessibility,
     pub(super) ident: Identifier,
-    pub(super) use_expr_idx: EntityUseExprIdx,
+    pub(super) use_expr_idx: UseExprIdx,
 }
 
 impl<'a> CollectorState<'a> {
@@ -37,7 +37,7 @@ impl<'a> CollectorState<'a> {
             module_item_maps: all_modules
                 .iter()
                 .map(|module| -> EntityTreeResult<(_, _)> {
-                    let entity_tree_sheet = db.entity_tree_sheet(*module).as_ref()?;
+                    let entity_tree_sheet = db.entity_tree_sheet(*module)?;
                     let module_defn_items: IdentMap<ModuleItem> = entity_tree_sheet
                         .top_level_entities()
                         .filter_map(|(tree_idx, accessibility, entity_card, entity_path)| {
@@ -61,25 +61,25 @@ impl<'a> CollectorState<'a> {
             unresolved_use_exprs: all_modules
                 .iter()
                 .map(|module| -> EntityTreeResult<(_, _)> {
-                    let sheet = module_use_exprs(db, *module).as_ref()?;
-                    let unresolved_use_exprs: Vec<UnresolvedUseExpr> = sheet
-                        .use_exprs()
-                        .iter()
-                        .map(
-                            |(accessibility, ident, use_expr_idx, _ast_idx)| UnresolvedUseExpr {
-                                accessibility: *accessibility,
-                                ident: *ident,
-                                use_expr_idx: *use_expr_idx,
-                            },
-                        )
-                        .collect();
-                    Ok((
-                        *module,
-                        UnresolvedEntityUseExprs {
-                            sheet,
-                            exprs: unresolved_use_exprs,
-                        },
-                    ))
+                    let sheet = db.ast_sheet(*module).as_ref()?;
+                    todo!()
+                    // let unresolved_use_exprs: Vec<UnresolvedUseExpr> = sheet
+                    //     .use_exprs()
+                    //     .map(
+                    //         |(accessibility, ident, use_expr_idx, _ast_idx)| UnresolvedUseExpr {
+                    //             accessibility: *accessibility,
+                    //             ident: *ident,
+                    //             use_expr_idx: *use_expr_idx,
+                    //         },
+                    //     )
+                    //     .collect();
+                    // Ok((
+                    //     *module,
+                    //     UnresolvedEntityUseExprs {
+                    //         sheet,
+                    //         exprs: unresolved_use_exprs,
+                    //     },
+                    // ))
                 })
                 .collect::<EntityTreeResult<VecEntryMap<_, _>>>()?,
             use_alls: vec![],

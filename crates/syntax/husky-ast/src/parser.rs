@@ -1,29 +1,31 @@
-mod aux;
 mod defn;
 mod uses;
+mod utils;
 
 use crate::*;
-
 use husky_token::{Keyword, SpecialToken, StmtKeyword, TokenGroupIter, TokenKind, TokenSheet};
+use utils::*;
 
 pub(crate) struct AstParser<'a> {
-    arena: AstArena,
     token_sheet: &'a TokenSheet,
     token_groups: TokenGroupIter<'a>,
+    ast_arena: AstArena,
+    use_expr_arena: UseExprArena,
 }
 
 impl<'a> AstParser<'a> {
     pub(crate) fn new(token_sheet: &'a TokenSheet) -> Self {
         Self {
-            arena: Default::default(),
             token_sheet,
             token_groups: token_sheet.token_group_iter(),
+            ast_arena: Default::default(),
+            use_expr_arena: Default::default(),
         }
     }
 
     pub(crate) fn parse_all(mut self) -> AstSheet {
         let top_level_asts = self.parse_asts(0);
-        AstSheet::new(self.arena, top_level_asts)
+        AstSheet::new(self.ast_arena, top_level_asts, self.use_expr_arena)
     }
 
     fn parse_asts(&mut self, indent: u32) -> AstIdxRange {
@@ -36,11 +38,11 @@ impl<'a> AstParser<'a> {
     }
 
     fn alloc_asts(&mut self, asts: Vec<Ast>) -> AstIdxRange {
-        self.arena.alloc_batch(asts)
+        self.ast_arena.alloc_batch(asts)
     }
 
     fn alloc_ast(&mut self, ast: Ast) -> AstIdx {
-        self.arena.alloc_one(ast)
+        self.ast_arena.alloc_one(ast)
     }
 
     fn parse_ast(&mut self, indent: u32) -> Option<Ast> {

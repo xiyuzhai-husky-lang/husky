@@ -25,7 +25,7 @@ impl<'a> AstParser<'a> {
                 },
             }
         };
-        let mut aux_parser = self.aux_parser(token_group_idx);
+        let mut aux_parser = self.token_sheet.token_group_token_iter(token_group_idx);
         Ok(Ast::Defn {
             // order matters!
             accessibility: aux_parser.parse_accessibility()?,

@@ -76,7 +76,7 @@ pub enum ModuleItem {
         ident: Identifier,
         accessibility: Accessibility,
         path: EntityPath,
-        use_expr_idx: EntityUseExprIdx,
+        use_expr_idx: UseExprIdx,
     },
 }
 

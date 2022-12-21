@@ -6,13 +6,15 @@ mod range;
 mod specs;
 #[cfg(test)]
 mod tests;
+mod use_expr;
 
 pub use crate::error::{AstError, AstErrorVariant, AstResult};
 pub use db::AstDb;
-use husky_entity_card::EntityCard;
 pub use range::*;
 pub use specs::*;
+pub use use_expr::*;
 
+use husky_entity_card::EntityCard;
 use husky_entity_path::EntityPath;
 use husky_text::*;
 use husky_token::TokenGroupIdx;
@@ -36,6 +38,7 @@ pub enum Ast {
     Use {
         token_group_idx: TokenGroupIdx,
         accessibility: Accessibility,
+        use_expr_idx: UseExprIdx,
     },
     Comment {
         token_group_idx: TokenGroupIdx,
@@ -105,20 +108,26 @@ pub(crate) fn ast_sheet(db: &dyn AstDb, module_path: ModulePath) -> VfsResult<As
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct AstSheet {
-    arena: AstArena,
+    ast_arena: AstArena,
     top_level_asts: AstIdxRange,
+    use_expr_arena: UseExprArena,
 }
 
 impl AstSheet {
-    pub(crate) fn new(arena: AstArena, top_level_asts: AstIdxRange) -> Self {
+    pub(crate) fn new(
+        ast_arena: AstArena,
+        top_level_asts: AstIdxRange,
+        use_expr_arena: UseExprArena,
+    ) -> Self {
         Self {
-            arena,
+            ast_arena,
+            use_expr_arena,
             top_level_asts,
         }
     }
 
     pub fn indexed_asts<'a>(&'a self) -> impl Iterator<Item = (AstIdx, &'a Ast)> + 'a {
-        self.arena.indexed_iter()
+        self.ast_arena.indexed_iter()
     }
 
     pub fn top_level_asts(&self) -> &AstIdxRange {
@@ -128,7 +137,7 @@ impl AstSheet {
     pub fn top_level_asts_indexed_iter<'a>(
         &'a self,
     ) -> impl Iterator<Item = (AstIdx, &'a Ast)> + 'a {
-        self.arena[&self.top_level_asts]
+        self.ast_arena[&self.top_level_asts]
             .iter()
             .enumerate()
             .map(|(i, ast)| (self.top_level_asts.start() + i, ast))
@@ -139,7 +148,7 @@ impl std::ops::Deref for AstSheet {
     type Target = AstArena;
 
     fn deref(&self) -> &Self::Target {
-        &self.arena
+        &self.ast_arena
     }
 }
 
@@ -162,10 +171,12 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for Ast {
             Ast::Use {
                 token_group_idx,
                 accessibility,
+                use_expr_idx,
             } => f
                 .debug_struct("Use")
                 .field("token_group_idx", token_group_idx)
                 .field("accessibility", accessibility)
+                .field("use_expr_idx", use_expr_idx)
                 .finish(),
             Ast::Comment { token_group_idx } => f
                 .debug_struct("Comment")
@@ -255,8 +266,12 @@ impl<Db: AstDb> salsa::DebugWithDb<Db> for AstSheet {
         include_all_fields: bool,
     ) -> std::fmt::Result {
         f.debug_struct("AstSheet")
-            .field("arena", &self.arena.debug_with(db, include_all_fields))
+            .field("arena", &self.ast_arena.debug_with(db, include_all_fields))
             .field("top_level_asts", &self.top_level_asts)
+            .field(
+                "use_expr_arena",
+                &self.use_expr_arena.debug_with(db, include_all_fields),
+            )
             .finish()
     }
 }

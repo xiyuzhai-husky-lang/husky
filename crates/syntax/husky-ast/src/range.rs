@@ -56,7 +56,7 @@ struct AstRangeCalculator<'a> {
 
 impl<'a> AstRangeCalculator<'a> {
     fn calc_all(mut self) -> Vec<TextRange> {
-        for ast in self.ast_sheet.arena.data() {
+        for ast in self.ast_sheet.ast_arena.data() {
             self.text_ranges.push(self.calc_ast_range(ast))
         }
         self.text_ranges

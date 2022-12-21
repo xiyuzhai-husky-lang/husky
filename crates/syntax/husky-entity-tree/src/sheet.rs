@@ -64,15 +64,16 @@ struct EntityTreeCollector<'a> {
 
 impl<'a> EntityTreeCollector<'a> {
     fn new(db: &'a dyn EntityTreeDb, module_path: ModulePath, ast_sheet: &'a AstSheet) -> Self {
-        let module_entity_path = EntityPath::new_module(db, module_path);
-        Self {
-            db,
-            module_path,
-            module_entity_path,
-            ast_sheet,
-            arena: Default::default(),
-            sporadic_entities: Default::default(),
-        }
+        todo!()
+        // let module_entity_path = EntityPath::new_module(db, module_path);
+        // Self {
+        //     db,
+        //     module_path,
+        //     module_entity_path,
+        //     ast_sheet,
+        //     arena: Default::default(),
+        //     sporadic_entities: Default::default(),
+        // }
     }
 
     fn build(mut self) -> VfsResult<EntityTreeSheet> {

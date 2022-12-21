@@ -12,17 +12,18 @@ pub(crate) fn submodules(
     db: &dyn EntityTreeDb,
     module_path: ModulePath,
 ) -> VfsResult<Vec<ModulePath>> {
-    let entity_tree_sheet = db.entity_tree_sheet(module_path).as_ref()?;
-    Ok(entity_tree_sheet
-        .top_level_entities()
-        .filter_map(|(_, _, card, path)| match card {
-            EntityCard::Module => match path.data(db) {
-                EntityPathData::Module(_) => todo!(),
-                EntityPathData::Associated { parent, ident } => todo!(),
-            },
-            _ => None,
-        })
-        .collect())
+    todo!()
+    // let entity_tree_sheet = db.entity_tree_sheet(module_path).as_ref()?;
+    // Ok(entity_tree_sheet
+    //     .top_level_entities()
+    //     .filter_map(|(_, _, card, path)| match card {
+    //         EntityCard::Module => match path.data(db) {
+    //             EntityPathData::Module(_) => todo!(),
+    //             EntityPathData::Associated { parent, ident } => todo!(),
+    //         },
+    //         _ => None,
+    //     })
+    //     .collect())
 }
 
 /// all modules, must be included in module tree
