@@ -36,7 +36,7 @@ impl PackagePath {
             db,
             toolchain,
             PackagePathData::Local {
-                path: AbsolutePath::new(path)?,
+                path: AbsolutePath::try_new(db, path)?,
             },
         ))
     }

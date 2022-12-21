@@ -15,8 +15,11 @@ pub enum VfsError {
     },
     #[error("not source file")]
     NotSourceFile(PathBuf),
-    #[error("{0}")]
-    AbsolutePath(#[from] AbsolutePathError),
+    #[error("fail to absolutize {path:?} due to IO `{error_message}")]
+    FailToAbsolutize {
+        path: PathBuf,
+        error_message: String,
+    },
     #[error("failed to resolve module path")]
     ModulePathResolveFailure,
 }
