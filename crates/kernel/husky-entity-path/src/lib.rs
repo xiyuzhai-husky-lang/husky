@@ -32,7 +32,15 @@ pub enum EntityPath {
     AssociatedItem(AssociatedItemPath),
 }
 
-impl 
+impl EntityPath {
+    pub fn ident(self, db: &dyn EntityPathDb) -> Identifier {
+        match self {
+            EntityPath::Module(_) => todo!(),
+            EntityPath::ModuleItem(_) => todo!(),
+            EntityPath::AssociatedItem(_) => todo!(),
+        }
+    }
+}
 // impl EntityPath {
 //     pub fn new_module(db: &dyn EntityPathDb, module_path: ModulePath) -> Self {
 //         EntityPath::new(db, EntityPathData::Module(module_path))

@@ -1,6 +1,5 @@
 #![feature(trait_upcasting)]
 mod db;
-mod entity_use;
 mod error;
 mod implementation;
 mod module_item;
@@ -12,11 +11,10 @@ mod tests;
 mod utils;
 
 pub use db::EntityTreeDb;
-pub use entity_use::*;
 pub use error::*;
 
 use error::EntityTreeError;
-use husky_ast::AstIdx;
+use husky_ast::*;
 use husky_entity_card::EntityCard;
 use husky_entity_path::*;
 use husky_package_path::*;
@@ -34,11 +32,6 @@ use tests::*;
 pub struct EntityTreeJar(
     entity_tree_sheet,
     submodules,
-    entity_node,
-    parent_module,
-    entity_card,
-    entity_accessibility,
-    module_use_exprs,
     module_items_map,
     all_modules_within_crate,
     crate_prelude,

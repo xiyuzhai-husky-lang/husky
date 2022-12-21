@@ -3,11 +3,11 @@ use super::*;
 #[derive(Debug, Clone, Copy)]
 pub(super) enum CollectorAction<'a> {
     ResolveUseExpr {
-        sheet: &'a EntityUseExprSheet,
+        sheet: &'a AstSheet,
         module: ModulePath,
         accessibility: Accessibility,
         ident: Identifier,
-        use_expr_idx: EntityUseExprIdx,
+        use_expr_idx: UseExprIdx,
     },
     UseAll(UseAll),
 }
