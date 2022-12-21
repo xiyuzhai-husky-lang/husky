@@ -457,42 +457,49 @@ Ok(
                         0,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 5,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 10,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 15,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 20,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 23,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 26,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
                     accessibility: Protected,
+                    use_expr_idx: 30,
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -604,5 +611,176 @@ Ok(
         top_level_asts: ArenaIdxRange(
             68..82,
         ),
+        use_expr_arena: Arena {
+            data: [
+                One {
+                    ident: Identifier(
+                        "MnistLabel",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "mnist",
+                    ),
+                    child: 0,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "cv",
+                    ),
+                    child: 1,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "datasets",
+                    ),
+                    child: 2,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "ml",
+                    ),
+                    child: 3,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "domains",
+                    ),
+                    child: 4,
+                },
+                One {
+                    ident: Identifier(
+                        "normalize_vmax_f32",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "normalize",
+                    ),
+                    child: 6,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "models",
+                    ),
+                    child: 7,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "ml",
+                    ),
+                    child: 8,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "domains",
+                    ),
+                    child: 9,
+                },
+                One {
+                    ident: Identifier(
+                        "boosting_with_vmax_normalized",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "boosting",
+                    ),
+                    child: 11,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "models",
+                    ),
+                    child: 12,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "ml",
+                    ),
+                    child: 13,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "domains",
+                    ),
+                    child: 14,
+                },
+                One {
+                    ident: Identifier(
+                        "narrow_down",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "narrow",
+                    ),
+                    child: 16,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "models",
+                    ),
+                    child: 17,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "ml",
+                    ),
+                    child: 18,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "domains",
+                    ),
+                    child: 19,
+                },
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        "major",
+                    ),
+                    child: 21,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "crate",
+                    ),
+                    child: 22,
+                },
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        "fermi",
+                    ),
+                    child: 24,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "crate",
+                    ),
+                    child: 25,
+                },
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        "concave_component",
+                    ),
+                    child: 27,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "line_segment_sketch",
+                    ),
+                    child: 28,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "crate",
+                    ),
+                    child: 29,
+                },
+            ],
+        },
     },
 )

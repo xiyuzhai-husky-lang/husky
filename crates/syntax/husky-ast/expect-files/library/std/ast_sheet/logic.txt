@@ -6,12 +6,30 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    accessibility: Public,
+                    accessibility: Protected,
+                    use_expr_idx: 2,
                 },
             ],
         },
         top_level_asts: ArenaIdxRange(
             0..1,
         ),
+        use_expr_arena: Arena {
+            data: [
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        "logic",
+                    ),
+                    child: 0,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "core",
+                    ),
+                    child: 1,
+                },
+            ],
+        },
     },
 )
