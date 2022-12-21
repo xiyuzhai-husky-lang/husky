@@ -4,8 +4,8 @@ use super::*;
 
 #[derive(Debug)]
 pub(super) struct CollectorState<'a> {
-    module_item_maps: VecPairMap<EntityPath, IdentMap<ModuleItem>>,
-    unresolved_use_exprs: VecPairMap<EntityPath, UnresolvedEntityUseExprs<'a>>,
+    module_item_maps: VecPairMap<ModulePath, IdentMap<ModuleItem>>,
+    unresolved_use_exprs: VecPairMap<ModulePath, UnresolvedEntityUseExprs<'a>>,
     use_alls: Vec<UseAll>,
     has_changed: bool,
 }
@@ -47,8 +47,8 @@ impl<'a> CollectorState<'a> {
                                 | EntityCard::Trait
                                 | EntityCard::Form => Some(ModuleItem::Defn {
                                     ident: match entity_path.data(db) {
-                                        EntityPathData::CrateRoot(_) => unreachable!(),
-                                        EntityPathData::Childpath { parent: _, ident } => ident,
+                                        EntityPathData::Module(_) => unreachable!(),
+                                        EntityPathData::Associated { parent: _, ident } => ident,
                                     },
                                     accessibility,
                                     tree_idx,
@@ -90,10 +90,10 @@ impl<'a> CollectorState<'a> {
         })
     }
 
-    pub(super) fn finish(self, db: &dyn EntityTreeDb) -> VecPairMap<EntityPath, ModuleItemMap> {
+    pub(super) fn finish(self, db: &dyn EntityTreeDb) -> VecPairMap<ModulePath, ModuleItemMap> {
         self.module_item_maps
             .into_iter()
-            .map(|(entity_path, map)| (entity_path, ModuleItemMap::new(db, map)))
+            .map(|(module_path, map)| (module_path, ModuleItemMap::new(db, map)))
             .collect()
     }
 
@@ -105,7 +105,7 @@ impl<'a> CollectorState<'a> {
         self.has_changed = false
     }
 
-    pub(super) fn unresolved_use_exprs(&self) -> &[(EntityPath, UnresolvedEntityUseExprs<'a>)] {
+    pub(super) fn unresolved_use_exprs(&self) -> &[(ModulePath, UnresolvedEntityUseExprs<'a>)] {
         &self.unresolved_use_exprs
     }
 
@@ -113,7 +113,7 @@ impl<'a> CollectorState<'a> {
         self.use_alls.as_ref()
     }
 
-    pub(super) fn module_item_maps(&self) -> &VecPairMap<EntityPath, IdentMap<ModuleItem>> {
+    pub(super) fn module_item_maps(&self) -> &VecPairMap<ModulePath, IdentMap<ModuleItem>> {
         &self.module_item_maps
     }
 }

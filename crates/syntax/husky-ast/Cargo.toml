@@ -27,15 +27,12 @@ husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
-husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 husky-entity-card = { path = "../../kernel/husky-entity-card" }
 # syntax
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
-# kernel
-husky-toolchain = { path = "../../kernel/husky-toolchain" }
 # syntax
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 # utils

@@ -8,9 +8,9 @@ pub struct AstRangeSheet {
 }
 
 #[salsa::tracked(jar = AstJar, return_ref)]
-pub(crate) fn ast_range_sheet(db: &dyn AstDb, module: EntityPath) -> VfsResult<AstRangeSheet> {
-    let token_sheet = db.token_sheet(module).as_ref()?;
-    let ast_sheet = db.ast_sheet(module).as_ref()?;
+pub(crate) fn ast_range_sheet(db: &dyn AstDb, module_path: ModulePath) -> VfsResult<AstRangeSheet> {
+    let token_sheet = db.token_sheet(module_path)?;
+    let ast_sheet = db.ast_sheet(module_path)?;
     Ok(AstRangeSheet {
         text_ranges: AstRangeCalculator {
             token_sheet,

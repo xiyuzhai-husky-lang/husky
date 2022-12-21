@@ -3,14 +3,11 @@ use husky_ast::AstJar;
 use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu};
 use husky_entity_tree::EntityTreeJar;
 use husky_expr::ExprIdx;
-use husky_package_path::PackagePathJar;
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDb, SymbolJar, SymbolKind};
 use husky_term::{
     Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
 };
 use husky_token::TokenJar;
-use husky_toolchain::*;
-use husky_toolchain_infer::ToolchainInferJar;
 use husky_vfs::*;
 use husky_word::WordDb;
 use husky_word::WordJar;
@@ -21,15 +18,12 @@ use upcast::Upcast;
 #[salsa::db(
     EntityTreeJar,
     EntityPathJar,
-    PackagePathJar,
-    ToolchainJar,
+    VfsJar,
     WordJar,
     TermJar,
     TermInferJar,
     TokenJar,
     AstJar,
-    VfsJar,
-    ToolchainInferJar,
     SymbolJar
 )]
 pub(crate) struct TermInferTestsDb {

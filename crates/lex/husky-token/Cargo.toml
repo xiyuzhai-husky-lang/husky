@@ -19,9 +19,6 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-text = { path = "../../lex/husky-text" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
-husky-toolchain = { path = "../../kernel/husky-toolchain" }
-husky-package-path = { path = "../../kernel/husky-package-path" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # syntax
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }

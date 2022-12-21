@@ -10,8 +10,9 @@ optional = "0.5.0"
 thiserror = "1.0.37"
 ordered-float = "3.0.0"
 salsa = { path = "../../abstraction/salsa" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
-husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # utils

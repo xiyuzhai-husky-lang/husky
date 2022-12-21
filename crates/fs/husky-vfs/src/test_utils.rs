@@ -1,7 +1,6 @@
 use crate::*;
-use husky_entity_path::*;
-use husky_package_path::{CrateKind, CratePath, PackagePath};
 use husky_path_utils::*;
+use salsa::DebugWithDb;
 use std::path::PathBuf;
 
 pub trait VfsTestSupport: VfsDb {
@@ -9,31 +8,39 @@ pub trait VfsTestSupport: VfsDb {
     where
         Self: Default;
 
-    fn test_probable_modules(f: impl Fn(&Self, EntityPath))
+    fn test_probable_modules(f: impl Fn(&Self, ModulePath))
     where
         Self: Default;
 
-    fn expect_test_crates_debug_with_db<R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
-    where
-        Self: Default,
-        R: salsa::DebugWithDb<Self>;
-
-    fn expect_test_crates_debug<R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
-    where
-        Self: Default,
-        R: std::fmt::Debug;
-
-    fn expect_test_probable_modules_debug_with_db<R>(
+    fn expect_test_crates_debug_with_db<T, E>(
         name: &str,
-        f: impl Fn(&Self, EntityPath) -> &R,
+        f: impl Fn(&Self, CratePath) -> Result<&T, E>,
     ) where
         Self: Default,
-        R: salsa::DebugWithDb<Self>;
+        T: salsa::DebugWithDb<Self> + ?Sized,
+        E: std::fmt::Debug;
 
-    fn expect_test_probable_modules_debug<R>(name: &str, f: impl Fn(&Self, EntityPath) -> &R)
+    fn expect_test_crates_debug<T, E>(name: &str, f: impl Fn(&Self, CratePath) -> Result<&T, E>)
     where
         Self: Default,
-        R: std::fmt::Debug;
+        T: std::fmt::Debug + ?Sized,
+        E: std::fmt::Debug;
+
+    fn expect_test_probable_modules_debug_with_db<T, E>(
+        name: &str,
+        f: impl Fn(&Self, ModulePath) -> Result<&T, E>,
+    ) where
+        Self: Default,
+        T: salsa::DebugWithDb<Self> + ?Sized,
+        E: std::fmt::Debug;
+
+    fn expect_test_probable_modules_debug<T, E>(
+        name: &str,
+        f: impl Fn(&Self, ModulePath) -> Result<&T, E>,
+    ) where
+        Self: Default,
+        T: std::fmt::Debug + ?Sized,
+        E: std::fmt::Debug;
 }
 
 struct TestPathResolver<'a> {
@@ -44,10 +51,10 @@ struct TestPathResolver<'a> {
 
 impl<'a> TestPathResolver<'a> {
     // return the folder containing submodules
-    fn decide_module_dir(&self, module: EntityPath) -> PathBuf {
-        match self.db.dt_entity_path(module) {
-            EntityPathData::CrateRoot(_) => self.package_expects_dir.join(self.name),
-            EntityPathData::Childpath { parent, ident } => {
+    fn decide_module_dir(&self, module: ModulePath) -> PathBuf {
+        match module.data(self.db) {
+            ModulePathData::Root(_) => self.package_expects_dir.join(self.name),
+            ModulePathData::Child { parent, ident } => {
                 self.decide_module_dir(parent).join(self.db.dt_ident(ident))
             }
         }
@@ -66,10 +73,10 @@ impl<'a> TestPathResolver<'a> {
         ))
     }
 
-    fn decide_module_expect_file_path(&self, module: EntityPath) -> PathBuf {
+    fn decide_module_expect_file_path(&self, module: ModulePath) -> PathBuf {
         let dir = self.decide_module_dir(module);
-        match self.db.dt_entity_path(module) {
-            EntityPathData::CrateRoot(crate_path) => dir.join(format!(
+        match module.data(self.db) {
+            ModulePathData::Root(crate_path) => dir.join(format!(
                 "{}.txt",
                 match crate_path.crate_kind(self.db) {
                     CrateKind::Library => "lib",
@@ -78,14 +85,14 @@ impl<'a> TestPathResolver<'a> {
                     CrateKind::StandaloneTest(_) => todo!(),
                 }
             )),
-            EntityPathData::Childpath { .. } => dir.with_extension("txt"),
+            ModulePathData::Child { .. } => dir.with_extension("txt"),
         }
     }
 }
 
-impl<T> VfsTestSupport for T
+impl<Db> VfsTestSupport for Db
 where
-    T: VfsDb,
+    Db: VfsDb,
 {
     fn test_crates(f: impl Fn(&Self, CratePath))
     where
@@ -97,7 +104,7 @@ where
         }
     }
 
-    fn test_probable_modules(f: impl Fn(&Self, EntityPath))
+    fn test_probable_modules(f: impl Fn(&Self, ModulePath))
     where
         Self: Default,
     {
@@ -107,10 +114,13 @@ where
         }
     }
 
-    fn expect_test_crates_debug_with_db<R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
-    where
+    fn expect_test_crates_debug_with_db<T, E>(
+        name: &str,
+        f: impl Fn(&Self, CratePath) -> Result<&T, E>,
+    ) where
         Self: Default,
-        R: salsa::DebugWithDb<Self>,
+        T: salsa::DebugWithDb<Self> + ?Sized,
+        E: std::fmt::Debug,
     {
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
@@ -120,10 +130,11 @@ where
         }
     }
 
-    fn expect_test_crates_debug<R>(name: &str, f: impl Fn(&Self, CratePath) -> &R)
+    fn expect_test_crates_debug<T, E>(name: &str, f: impl Fn(&Self, CratePath) -> Result<&T, E>)
     where
         Self: Default,
-        R: std::fmt::Debug,
+        T: std::fmt::Debug + ?Sized,
+        E: std::fmt::Debug,
     {
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
@@ -131,12 +142,13 @@ where
         }
     }
 
-    fn expect_test_probable_modules_debug_with_db<R>(
+    fn expect_test_probable_modules_debug_with_db<T, E>(
         name: &str,
-        f: impl Fn(&Self, EntityPath) -> &R,
+        f: impl Fn(&Self, ModulePath) -> Result<&T, E>,
     ) where
         Self: Default,
-        R: salsa::DebugWithDb<Self>,
+        T: salsa::DebugWithDb<Self> + ?Sized,
+        E: std::fmt::Debug,
     {
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
@@ -145,10 +157,14 @@ where
             });
         }
     }
-    fn expect_test_probable_modules_debug<R>(name: &str, f: impl Fn(&Self, EntityPath) -> &R)
-    where
+
+    fn expect_test_probable_modules_debug<T, E>(
+        name: &str,
+        f: impl Fn(&Self, ModulePath) -> Result<&T, E>,
+    ) where
         Self: Default,
-        R: std::fmt::Debug,
+        T: std::fmt::Debug + ?Sized,
+        E: std::fmt::Debug,
     {
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
@@ -193,7 +209,7 @@ where
     });
 }
 
-fn test_probable_modules<T>(db: &T, dir: &Path, f: &impl Fn(&T, EntityPath))
+fn test_probable_modules<T>(db: &T, dir: &Path, f: &impl Fn(&T, ModulePath))
 where
     T: VfsDb,
 {
@@ -205,15 +221,16 @@ where
     });
 }
 
-fn expect_test_crates<Db, R>(
+fn expect_test_crates<Db, T, E>(
     db: &Db,
     name: &str,
     base: &Path,
     out: PathBuf,
-    f: &impl Fn(&Db, CratePath) -> &R,
-    p: impl Fn(&Db, &R) -> String,
+    f: &impl Fn(&Db, CratePath) -> Result<&T, E>,
+    p: impl Fn(&Db, Result<&T, E>) -> String,
 ) where
     Db: VfsDb,
+    T: ?Sized,
 {
     std::fs::create_dir_all(&out).unwrap();
     collect_package_relative_dirs(base)
@@ -234,13 +251,13 @@ fn expect_test_crates<Db, R>(
         });
 }
 
-fn expect_test_probable_modules_debug_with_db<Db, R>(
+fn expect_test_probable_modules_debug_with_db<Db, T: ?Sized, E>(
     db: &Db,
     name: &str,
     base: &Path,
     out: PathBuf,
-    f: &impl Fn(&Db, EntityPath) -> &R,
-    p: impl Fn(&Db, &R) -> String,
+    f: &impl Fn(&Db, ModulePath) -> Result<&T, E>,
+    p: impl for<'a> Fn(&'a Db, Result<&'a T, E>) -> String,
 ) where
     Db: VfsDb,
 {

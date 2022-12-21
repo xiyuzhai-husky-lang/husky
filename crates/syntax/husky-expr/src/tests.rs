@@ -3,12 +3,9 @@ use husky_ast::AstJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_expect_test_utils::expect_test_husky_to_rust;
-use husky_package_path::PackagePathJar;
 use husky_symbol_syntax::{SymbolDb, SymbolJar};
 use husky_token::Tokenize;
 use husky_token::{TokenIter, TokenJar};
-use husky_toolchain::*;
-use husky_toolchain_infer::ToolchainInferJar;
 use husky_vfs::*;
 use husky_word::WordJar;
 use salsa::Database;
@@ -16,14 +13,11 @@ use salsa::Database;
 #[salsa::db(
     WordJar,
     VfsJar,
-    ToolchainJar,
-    PackagePathJar,
     EntityPathJar,
     TokenJar,
     AstJar,
     SymbolJar,
-    EntityTreeJar,
-    ToolchainInferJar
+    EntityTreeJar
 )]
 #[derive(Default)]
 struct MimicDB {

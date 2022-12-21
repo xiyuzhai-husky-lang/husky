@@ -11,8 +11,6 @@ thiserror = "1.0.37"
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
 idx-arena = { path = "../../abstraction/idx-arena" }
-# infer
-husky-toolchain-infer = { path = "../../infer/husky-toolchain-infer" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
@@ -39,6 +37,5 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
-husky-toolchain = { path = "../../kernel/husky-toolchain" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }

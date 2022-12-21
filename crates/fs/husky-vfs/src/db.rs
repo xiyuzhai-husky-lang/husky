@@ -1,23 +1,23 @@
 use crate::*;
-use husky_absolute_path::AbsolutePath;
-use husky_entity_path::{EntityPath, EntityPathData, EntityPathDb};
 use husky_fs_specs::FsSpecsError;
-use husky_package_path::{CrateKind, CratePath, PackagePath, PackagePathDb};
-use husky_path_utils::collect_package_dirs;
+use husky_path_utils::{collect_package_dirs, derive_library_path_from_cargo_manifest_dir};
 use husky_text::TextChange;
 
-pub trait VfsDb:
-    salsa::DbWithJar<VfsJar> + EntityPathDb + PackagePathDb + Send + VfsDbInner
-{
+pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
+    fn path_menu(&self, toolchain: Toolchain) -> VfsResult<&PathMenu>;
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
-    fn module_content(&self, entity_path: EntityPath) -> VfsResult<&str>;
+    fn module_content(&self, module_path: ModulePath) -> VfsResult<&str>;
     fn package_dir(&self, package_path: PackagePath) -> &VfsResult<AbsolutePath>;
     fn collect_local_packages(&self, dir: &Path) -> VfsResult<Vec<PackagePath>>;
     fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
-    fn collect_probable_modules(&self, package_path: PackagePath) -> VfsResult<Vec<EntityPath>>;
+    fn collect_probable_modules(&self, package_path: PackagePath) -> VfsResult<Vec<ModulePath>>;
     fn set_live_file(&mut self, path: &Path, text: String) -> VfsResult<()>;
     fn apply_live_file_changes(&mut self, path: &Path, changes: Vec<TextChange>) -> VfsResult<()>;
-    fn resolve_module_path(&self, path: &Path) -> VfsResult<EntityPath>;
+    fn resolve_module_path(&self, path: &Path) -> VfsResult<ModulePath>;
+    // toolchain
+    fn lang_dev_toolchain(&self) -> Toolchain;
+    fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path;
+    fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path;
 }
 
 // don't leak this outside the crate
@@ -46,7 +46,7 @@ pub trait VfsDbInner {
 
 impl<T> VfsDbInner for T
 where
-    T: salsa::DbWithJar<VfsJar> + EntityPathDb + PackagePathDb + Send + 'static,
+    T: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
 {
     fn file_from_absolute_path(&self, abs_path: &AbsolutePath) -> VfsResult<File> {
         Ok(
@@ -148,14 +148,18 @@ where
 
 impl<T> VfsDb for T
 where
-    T: salsa::DbWithJar<VfsJar> + EntityPathDb + PackagePathDb + Send + 'static,
+    T: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
 {
+    fn path_menu(&self, toolchain: Toolchain) -> VfsResult<&PathMenu> {
+        Ok(path_menu(self, toolchain).as_ref()?)
+    }
+
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str> {
         package_manifest_file(self, package_path)?.text(self)
     }
 
-    fn module_content(&self, entity_path: EntityPath) -> VfsResult<&str> {
-        let abs_path = module_absolute_path(self, entity_path).as_ref()?;
+    fn module_content(&self, module_path: ModulePath) -> VfsResult<&str> {
+        let abs_path = module_absolute_path(self, module_path).as_ref()?;
         self.file_from_absolute_path(abs_path)?.text(self)
     }
 
@@ -188,12 +192,12 @@ where
         Ok(crates)
     }
 
-    fn collect_probable_modules(&self, package: PackagePath) -> VfsResult<Vec<EntityPath>> {
+    fn collect_probable_modules(&self, package: PackagePath) -> VfsResult<Vec<ModulePath>> {
         fn collect_probable_modules(
             db: &dyn VfsDb,
-            parent: EntityPath,
+            parent: ModulePath,
             dir: &Path,
-            modules: &mut Vec<EntityPath>,
+            modules: &mut Vec<ModulePath>,
         ) -> VfsResult<()> {
             let read_dir =
                 std::fs::read_dir(dir).map_err(|e| VfsError::new_io_error(dir.to_owned(), e))?;
@@ -214,7 +218,7 @@ where
                     {
                         collect_probable_modules(
                             db,
-                            db.it_entity_path(EntityPathData::Childpath { parent, ident }),
+                            ModulePath::new_child(db, parent, ident),
                             &path,
                             modules,
                         )?
@@ -224,16 +228,14 @@ where
                     if let Some(file_stem) = path.file_stem().and_then(|s| s.to_str()) {
                         let push_flag = match file_stem {
                             "main" | "lib" => match parent.data(db) {
-                                EntityPathData::CrateRoot(_) => false,
-                                EntityPathData::Childpath { .. } => true,
+                                ModulePathData::Root(_) => false,
+                                ModulePathData::Child { .. } => true,
                             },
                             _ => true,
                         };
                         if push_flag {
                             if let Some(ident) = db.it_ident_borrowed(file_stem) {
-                                modules.push(
-                                    db.it_entity_path(EntityPathData::Childpath { parent, ident }),
-                                )
+                                modules.push(ModulePath::new_child(db, parent, ident))
                             }
                         }
                     }
@@ -245,7 +247,8 @@ where
         let mut modules = vec![];
         let package_dir = self.package_dir(package).as_ref()?;
         if package_dir.join("src/lib.hsy").exists() {
-            let root_module = EntityPath::new_crate_root(self, package, CrateKind::Library);
+            let root_module =
+                ModulePath::new_root(self, CratePath::new(self, package, CrateKind::Library));
             modules.push(root_module);
             collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)?;
             if package_dir.join("src/main.hsy").exists() {
@@ -255,7 +258,8 @@ where
                 todo!()
             }
         } else if package_dir.join("src/main.hsy").exists() {
-            let root_module = EntityPath::new_crate_root(self, package, CrateKind::Main);
+            let root_module =
+                ModulePath::new_root(self, CratePath::new(self, package, CrateKind::Library));
             modules.push(root_module);
             collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)?;
             if package_dir.join("src/bin").exists() {
@@ -276,8 +280,24 @@ where
         Ok(())
     }
 
-    fn resolve_module_path(&self, path: &Path) -> VfsResult<EntityPath> {
+    fn resolve_module_path(&self, path: &Path) -> VfsResult<ModulePath> {
         resolve_module_path(self, path)
+    }
+
+    // toolchain
+    fn lang_dev_toolchain(&self) -> Toolchain {
+        let library_path = derive_library_path_from_cargo_manifest_dir();
+        Toolchain::new(self, ToolchainData::Local { library_path })
+    }
+    fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path {
+        match toolchain.data(self) {
+            ToolchainData::Published(_) => todo!(),
+            ToolchainData::Local { library_path } => &library_path,
+        }
+    }
+
+    fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path {
+        published_toolchain_library_path(self, toolchain)
     }
 }
 

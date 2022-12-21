@@ -1,7 +1,4 @@
-use husky_absolute_path::AbsolutePathError;
 use husky_entity_path::EntityPathError;
-use husky_package_path::PackagePathError;
-use husky_toolchain_infer::ToolchainInferError;
 use husky_vfs::VfsError;
 use thiserror::Error;
 
@@ -18,7 +15,7 @@ pub enum EntityTreeError {
     #[error("derived {0}")]
     Vfs(#[from] VfsError),
     #[error("derived {0}")]
-    ToolchainInfer(#[from] ToolchainInferError),
+    EntityPath(#[from] EntityPathError),
 }
 
 impl From<&EntityTreeError> for EntityTreeError {
@@ -30,30 +27,6 @@ impl From<&EntityTreeError> for EntityTreeError {
 impl From<&VfsError> for EntityTreeError {
     fn from(e: &VfsError) -> Self {
         EntityTreeError::Vfs(e.clone())
-    }
-}
-
-impl From<&ToolchainInferError> for EntityTreeError {
-    fn from(e: &ToolchainInferError) -> Self {
-        EntityTreeError::ToolchainInfer(e.clone())
-    }
-}
-
-impl From<&EntityPathError> for EntityTreeError {
-    fn from(_value: &EntityPathError) -> Self {
-        todo!()
-    }
-}
-
-impl From<&PackagePathError> for EntityTreeError {
-    fn from(_value: &PackagePathError) -> Self {
-        todo!()
-    }
-}
-
-impl From<&AbsolutePathError> for EntityTreeError {
-    fn from(_value: &AbsolutePathError) -> Self {
-        todo!()
     }
 }
 

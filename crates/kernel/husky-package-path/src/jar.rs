@@ -1,4 +1,4 @@
 use crate::*;
 
-#[salsa::jar(db = PackagePathDb)]
-pub struct PackagePathJar(PackagePath, CratePath, package_path_menu);
+#[salsa::jar(db = VfsDb)]
+pub struct VfsJar(PackagePath, CratePath, package_path_menu);

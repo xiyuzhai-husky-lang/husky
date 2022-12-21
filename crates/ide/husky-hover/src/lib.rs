@@ -9,6 +9,7 @@ pub use db::*;
 pub use navigation::*;
 pub use runnable::*;
 
+use husky_vfs::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]

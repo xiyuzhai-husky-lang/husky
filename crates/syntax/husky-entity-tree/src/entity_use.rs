@@ -127,18 +127,21 @@ pub type EntityUseExprIdxRange = ArenaIdxRange<EntityUseExpr>;
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn module_use_exprs(
     db: &dyn EntityTreeDb,
-    module_path: EntityPath,
+    module_path: ModulePath,
 ) -> VfsResult<EntityUseExprSheet> {
-    let ast_sheet = db.ast_sheet(module_path).as_ref()?;
-    let token_sheet = db.token_sheet(module_path).as_ref()?;
+    let ast_sheet = db.ast_sheet(module_path)?;
+    let token_sheet = db.token_sheet(module_path)?;
     Ok(EntityUseExprCollector::new(db, ast_sheet, token_sheet).collect_all())
 }
 
 #[test]
 fn moule_use_exprs_works() {
-    DB::expect_test_probable_modules_debug_with_db("module_use_sheet", |db, module_path| {
-        module_use_exprs(db, module_path)
-    })
+    DB::expect_test_probable_modules_debug_with_db(
+        "module_use_sheet",
+        |db, module_path| -> VfsResult<&EntityUseExprSheet> {
+            Ok(module_use_exprs(db, module_path).as_ref()?)
+        },
+    )
 }
 
 pub struct EntityUseExprCollector<'a> {

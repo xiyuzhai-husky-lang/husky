@@ -4,31 +4,25 @@ use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_folding_range::FoldingRangeJar;
 use husky_layout::LayoutJar;
-use husky_package_path::PackagePathJar;
 use husky_rust_code_gen::RustTranspileJar;
 use husky_syntax_fmt::SyntaxFormatJar;
 use husky_term::TermJar;
 use husky_token::TokenJar;
-use husky_toolchain::*;
-use husky_toolchain_infer::ToolchainInferJar;
 use husky_vfs::*;
 use husky_word::WordJar;
 
 #[salsa::db(
     TokenJar,
-    PackagePathJar,
-    EntityTreeJar,
-    ToolchainJar,
+    VfsJar,
+    EntityTreeJar, 
     AstJar,
     WordJar,
     EntityPathJar,
-    TermJar,
-    VfsJar,
+    TermJar, 
     SyntaxFormatJar,
     DiagnosticsJar,
     RustTranspileJar,
     LayoutJar,
-    ToolchainInferJar,
     // ide
     FoldingRangeJar,
 )]

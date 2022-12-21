@@ -1,4 +1,4 @@
-use husky_absolute_path::AbsolutePath;
+use crate::*;
 use husky_documentation::Documentation;
 use husky_text::TextRange;
 

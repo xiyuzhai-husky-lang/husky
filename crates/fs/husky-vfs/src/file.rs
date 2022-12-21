@@ -1,9 +1,5 @@
-use husky_absolute_path::AbsolutePath;
-use husky_entity_path::EntityPath;
-use husky_package_path::PackagePath;
-use salsa::{input::InputIngredient, input_field::InputFieldIngredient, Durability};
-
 use crate::*;
+use salsa::{input::InputIngredient, input_field::InputFieldIngredient, Durability};
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
 pub struct File(salsa::Id);
@@ -211,7 +207,7 @@ pub(crate) fn package_manifest_file(db: &dyn VfsDb, package_path: PackagePath) -
 }
 
 #[salsa::tracked(jar = VfsJar )]
-pub(crate) fn module_file(db: &dyn VfsDb, entity_path: EntityPath) -> VfsResult<File> {
-    let abs_path = module_absolute_path(db, entity_path).as_ref()?;
+pub(crate) fn module_file(db: &dyn VfsDb, module_path: ModulePath) -> VfsResult<File> {
+    let abs_path = module_absolute_path(db, module_path).as_ref()?;
     db.file_from_absolute_path(abs_path)
 }

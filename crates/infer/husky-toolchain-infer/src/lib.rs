@@ -1,22 +1,22 @@
 #![feature(trait_upcasting)]
+#![allow(incomplete_features)]
 mod error;
 
 pub use error::*;
 
-use husky_package_path::{CratePath, PackagePathDb};
 use husky_path_utils::derive_library_path_from_cargo_manifest_dir;
-use husky_toolchain::{Toolchain, ToolchainData};
+use husky_vfs::*;
 
 use salsa::DbWithJar;
 
-pub trait ToolchainInferDb: DbWithJar<ToolchainInferJar> + PackagePathDb {
+pub trait ToolchainInferDb: DbWithJar<ToolchainInferJar> + VfsDb {
     fn crate_toolchain(&self, crate_path: CratePath) -> &ToolchainInferResult<Toolchain>;
 }
 
 // ad hoc
 impl<T> ToolchainInferDb for T
 where
-    T: DbWithJar<ToolchainInferJar> + PackagePathDb,
+    T: DbWithJar<ToolchainInferJar> + VfsDb,
 {
     fn crate_toolchain(&self, crate_path: CratePath) -> &ToolchainInferResult<Toolchain> {
         crate_toolchain(self, crate_path)

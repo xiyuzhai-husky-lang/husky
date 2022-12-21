@@ -34,7 +34,7 @@ use tests::*;
 
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
-    absolute_entity_path,
+    entity_absolute_path,
     entity_tree_sheet,
     submodules,
     entity_node,

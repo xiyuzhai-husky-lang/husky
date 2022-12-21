@@ -19,25 +19,16 @@ fn test_infer_ty_works() {
 
 use husky_entity_path::{EntityPath, EntityPathJar};
 use husky_expr::ExprIdx;
-use husky_package_path::PackagePathJar;
 use husky_symbol_syntax::Symbol;
 use husky_term::{Decl, Term, TermDb};
 
-use husky_toolchain::*;
-
+use husky_vfs::VfsJar;
 use husky_word::WordJar;
 use salsa::Database;
 use std::{collections::HashMap, sync::Arc};
 use upcast::Upcast;
 
-#[salsa::db(
-    TermJar,
-    TermPatternInferJar,
-    ToolchainJar,
-    PackagePathJar,
-    EntityPathJar,
-    WordJar
-)]
+#[salsa::db(TermJar, TermPatternInferJar, VfsJar, EntityPathJar, WordJar)]
 pub struct TermPatternInferFakeDb {
     storage: salsa::Storage<Self>,
     entity_tys: HashMap<EntityPath, Term>,

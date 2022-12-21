@@ -14,7 +14,7 @@ reserve = { path = "../../abstraction/reserve" }
 husky-term-infer = { path = "../../infer/husky-term-infer" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
-husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
+husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax

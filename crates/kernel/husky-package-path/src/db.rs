@@ -3,7 +3,7 @@ use husky_toolchain::ToolchainDb;
 use husky_word::WordDb;
 use salsa::DbWithJar;
 
-pub trait PackagePathDb: DbWithJar<PackagePathJar> + ToolchainDb + WordDb {
+pub trait VfsDb: DbWithJar<VfsJar> + ToolchainDb + WordDb {
     fn builtin_package_path(
         &self,
         toolchain: Toolchain,
@@ -14,9 +14,9 @@ pub trait PackagePathDb: DbWithJar<PackagePathJar> + ToolchainDb + WordDb {
     fn it_package_path(&self, data: PackagePathData) -> PackagePath;
 }
 
-impl<T> PackagePathDb for T
+impl<T> VfsDb for T
 where
-    T: DbWithJar<PackagePathJar> + ToolchainDb + WordDb,
+    T: DbWithJar<VfsJar> + ToolchainDb + WordDb,
 {
     fn builtin_package_path(
         &self,
@@ -47,7 +47,7 @@ where
     }
 }
 // pub(crate) fn builtin_package_path(
-//     db: &dyn PackagePathDb,
+//     db: &dyn VfsDb,
 //     toolchain: Toolchain,
 //     ident: Identifier,
 // ) -> Option<PackagePath> {

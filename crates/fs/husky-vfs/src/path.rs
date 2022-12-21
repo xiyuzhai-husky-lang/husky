@@ -1,6 +1,14 @@
-use husky_absolute_path::AbsolutePath;
-use husky_entity_path::{EntityPath, EntityPathData};
-use husky_package_path::{CrateKind, PackagePath, PackagePathData};
+mod crate_path;
+mod menu;
+mod module_path;
+mod package_path;
+mod relative_path;
+
+pub use crate_path::*;
+pub use module_path::*;
+pub use menu::*;
+pub use package_path::*;
+pub use relative_path::*;
 
 use crate::*;
 
@@ -13,7 +21,7 @@ pub(crate) fn package_manifest_path(
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
 pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<AbsolutePath> {
-    match db.package_path_data(package) {
+    match package.data(db) {
         PackagePathData::PublishedToolchain { toolchain, ident } => {
             let toolchain_library_path = db.published_toolchain_library_path(*toolchain);
             AbsolutePath::new(&toolchain_library_path.join(ident.data(db))).map_err(|e| e.into())
@@ -30,20 +38,20 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Abs
 #[salsa::tracked(jar = VfsJar, return_ref)]
 pub(crate) fn module_absolute_path(
     db: &dyn VfsDb,
-    entity_path: EntityPath,
+    module_path: ModulePath,
 ) -> VfsResult<AbsolutePath> {
-    match entity_path.data(db) {
-        EntityPathData::CrateRoot(crate_path) => AbsolutePath::new(
+    match module_path.data(db) {
+        ModulePathData::Root(crate_path) => AbsolutePath::new(
             &package_dir(db, crate_path.package_path(db))
                 .as_ref()?
                 .join(crate_path.relative_path(db).as_ref()),
         )
         .map_err(|e| e.into()),
-        EntityPathData::Childpath { parent, ident } => {
+        ModulePathData::Child { parent, ident } => {
             let parent_module_path = module_absolute_path(db, parent).as_ref()?;
-            let dir = match db.dt_entity_path(parent) {
-                EntityPathData::CrateRoot(_) => parent_module_path.parent().unwrap().to_owned(),
-                EntityPathData::Childpath {
+            let dir = match parent.data(db) {
+                ModulePathData::Root(_) => parent_module_path.parent().unwrap().to_owned(),
+                ModulePathData::Child {
                     parent: _,
                     ident: _,
                 } => parent_module_path.with_extension(""),
@@ -55,7 +63,7 @@ pub(crate) fn module_absolute_path(
 }
 
 // this shouldn't be tracked
-pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> VfsResult<EntityPath> {
+pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> VfsResult<ModulePath> {
     let path = path.as_ref();
     if path.extension().and_then(|s| s.to_str()) != Some("hsy") {
         todo!()
@@ -74,32 +82,32 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> Vfs
                 .exists()
         {
             match file_stem {
-                "lib" =>  EntityPath::new_crate_root(
+                "lib" =>  ModulePath::new_root(
                     db,
-                    PackagePath::new_local(db, parent.parent().ok_or(VfsError::ModulePathResolveFailure)?)?,
-                    CrateKind::Library,
+                    CratePath::new(db,   PackagePath::new_local(db, parent.parent().ok_or(VfsError::ModulePathResolveFailure)?)?,
+                    CrateKind::Library,)
                 ) ,
-                "main" => EntityPath::new_crate_root(
+                "main" => ModulePath::new_root(
                     db,
-                    db.it_package_path(PackagePathData::Local{path:AbsolutePath::new(
-                        parent.parent().ok_or(VfsError::ModulePathResolveFailure)?,
-                    )?}),  CrateKind::Main,
+                    CratePath::new(db, PackagePath::new_local(db, 
+                        parent.parent().ok_or(VfsError::ModulePathResolveFailure)?
+                    )?  ,  CrateKind::Main,)
                  ),
                 _ => {
                     if let lib_path = parent.join("lib.hsy") && lib_path.exists() {
-                        db.it_entity_path(EntityPathData::Childpath {
-                            parent: resolve_module_path(db, lib_path)?,
-                            ident: db
+                        ModulePath::new_child( db,
+                             resolve_module_path(db, lib_path)?,
+                              db
                                 .it_ident_borrowed(file_stem)
                                 .ok_or(VfsError::ModulePathResolveFailure)?,
-                        })
+                        )
                     } else if let main_path = parent.join("main.hsy") && main_path.exists() {
-                        db.it_entity_path(EntityPathData::Childpath {
-                            parent: resolve_module_path(db, main_path)?,
-                            ident: db
+                        ModulePath::new_child(db, 
+                            resolve_module_path(db, main_path)?,
+                            db
                                 .it_ident_borrowed(file_stem)
                                 .ok_or(VfsError::ModulePathResolveFailure)?,
-                        })
+                         )
                     } else {
                         todo!()
                     }
@@ -110,12 +118,12 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb, path: impl AsRef<Path>) -> Vfs
             if !parent_module_path.exists() {
                 todo!()
             }
-            db.it_entity_path(EntityPathData::Childpath {
-                parent: resolve_module_path(db, parent_module_path)?,
-                ident: db
+            ModulePath::new_child(db,
+                resolve_module_path(db, parent_module_path)?,
+                db
                     .it_ident_borrowed(file_stem)
                     .ok_or(VfsError::ModulePathResolveFailure)?,
-            })
+            )
         },
     )
 }

@@ -22,23 +22,17 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
 # utils
 husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 
 [dev-dependencies]
-# fs
-husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }
-# infer
-husky-toolchain-infer = { path = "../../infer/husky-toolchain-infer" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
-husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 # syntax
 husky-expr = { path = "../../syntax/husky-expr" }

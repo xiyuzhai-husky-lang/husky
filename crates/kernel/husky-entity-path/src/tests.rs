@@ -1,12 +1,8 @@
-pub(crate) use husky_toolchain::ToolchainDb;
-
 use crate::*;
-use husky_package_path::PackagePathJar;
-use husky_toolchain::*;
 use husky_word::WordJar;
 use salsa::DebugWithDb;
 
-#[salsa::db(WordJar, ToolchainJar, PackagePathJar, EntityPathJar)]
+#[salsa::db(WordJar, VfsJar, EntityPathJar)]
 #[derive(Default)]
 pub(crate) struct DB {
     storage: salsa::Storage<Self>,
@@ -18,7 +14,7 @@ impl salsa::Database for DB {}
 fn entity_path_debug_works() {
     let db = DB::default();
     let toolchain = db.lang_dev_toolchain();
-    let entity_path_menu = db.entity_path_menu(toolchain).as_ref().unwrap();
+    let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
     expect_test::expect![[r#"
         EntityPath {
             [show]: "crate::num::i32",

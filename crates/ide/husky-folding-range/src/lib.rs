@@ -8,18 +8,19 @@ pub use error::*;
 use calc::*;
 use husky_ast::AstDb;
 use husky_entity_path::EntityPath;
+use husky_vfs::*;
 use lsp_types::FoldingRange;
 
 pub trait FoldingRangeDb: salsa::DbWithJar<FoldingRangeJar> + AstDb {
-    fn folding_ranges(&self, module: EntityPath) -> &FoldingRangeResult<Vec<FoldingRange>>;
+    fn folding_ranges(&self, module: ModulePath) -> FoldingRangeResult<&[FoldingRange]>;
 }
 
 impl<T> FoldingRangeDb for T
 where
     T: salsa::DbWithJar<FoldingRangeJar> + AstDb,
 {
-    fn folding_ranges(&self, module: EntityPath) -> &FoldingRangeResult<Vec<FoldingRange>> {
-        folding_ranges(self, module)
+    fn folding_ranges(&self, module_path: ModulePath) -> FoldingRangeResult<&[FoldingRange]> {
+        Ok(folding_ranges(self, module_path).as_ref()?)
     }
 }
 
@@ -29,9 +30,9 @@ pub struct FoldingRangeJar(folding_ranges);
 #[salsa::tracked(jar = FoldingRangeJar, return_ref)]
 fn folding_ranges(
     db: &dyn FoldingRangeDb,
-    module: EntityPath,
+    module_path: ModulePath,
 ) -> FoldingRangeResult<Vec<FoldingRange>> {
-    let ast_sheet = db.ast_sheet(module).as_ref()?;
-    let ast_range_sheet = db.ast_range_sheet(module).as_ref()?;
+    let ast_sheet = db.ast_sheet(module_path)?;
+    let ast_range_sheet = db.ast_range_sheet(module_path)?;
     Ok(calc_folding_ranges(ast_sheet, ast_range_sheet))
 }

@@ -6,7 +6,7 @@ pub use db::*;
 pub use error::*;
 
 use dependency::*;
-
+use husky_vfs::*;
 use salsa::DbWithJar;
 
 #[salsa::jar(db = ManifestDb)]

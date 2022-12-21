@@ -15,5 +15,4 @@ once_cell = "1.16.0"
 salsa = { path = "../../abstraction/salsa" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
-husky-toolchain = { path = "../../kernel/husky-toolchain" }
-husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
+husky-vfs = { path = "../../fs/husky-vfs" }

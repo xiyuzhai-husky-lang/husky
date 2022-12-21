@@ -13,8 +13,7 @@ use husky_entity_card::EntityCard;
 pub use range::*;
 pub use specs::*;
 
-use husky_entity_path::{Accessibility, EntityPath};
-
+use husky_entity_path::EntityPath;
 use husky_text::*;
 use husky_token::TokenGroupIdx;
 use husky_vfs::*;
@@ -99,8 +98,8 @@ pub type AstIdxRange = ArenaIdxRange<Ast>;
 pub type AstMap<V> = ArenaMap<Ast, V>;
 
 #[salsa::tracked(jar = AstJar, return_ref)]
-pub(crate) fn ast_sheet(db: &dyn AstDb, entity_path: EntityPath) -> VfsResult<AstSheet> {
-    let token_sheet = db.token_sheet(entity_path).as_ref()?;
+pub(crate) fn ast_sheet(db: &dyn AstDb, module_path: ModulePath) -> VfsResult<AstSheet> {
+    let token_sheet = db.token_sheet(module_path)?;
     Ok(AstParser::new(token_sheet).parse_all())
 }
 

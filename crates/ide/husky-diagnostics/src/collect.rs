@@ -1,4 +1,3 @@
-use husky_absolute_path::AbsolutePath;
 use husky_term::Term;
 
 use crate::*;

@@ -1,5 +1,4 @@
 use crate::*;
-use husky_toolchain::Toolchain;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu2 {

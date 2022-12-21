@@ -47,25 +47,28 @@ impl std::ops::Deref for EntityTreeSheet {
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_sheet(
     db: &dyn EntityTreeDb,
-    module: EntityPath,
+    module_path: ModulePath,
 ) -> VfsResult<EntityTreeSheet> {
-    let ast_sheet = db.ast_sheet(module).as_ref()?;
-    EntityTreeCollector::new(db, module, ast_sheet).build()
+    let ast_sheet = db.ast_sheet(module_path)?;
+    EntityTreeCollector::new(db, module_path, ast_sheet).build()
 }
 
 struct EntityTreeCollector<'a> {
     db: &'a dyn EntityTreeDb,
-    module: EntityPath,
+    module_path: ModulePath,
+    module_entity_path: EntityPath,
     ast_sheet: &'a AstSheet,
     arena: EntityTreeArena,
     sporadic_entities: Vec<EntityTree>,
 }
 
 impl<'a> EntityTreeCollector<'a> {
-    fn new(db: &'a dyn EntityTreeDb, module: EntityPath, ast_sheet: &'a AstSheet) -> Self {
+    fn new(db: &'a dyn EntityTreeDb, module_path: ModulePath, ast_sheet: &'a AstSheet) -> Self {
+        let module_entity_path = EntityPath::new_module(db, module_path);
         Self {
             db,
-            module,
+            module_path,
+            module_entity_path,
             ast_sheet,
             arena: Default::default(),
             sporadic_entities: Default::default(),
@@ -74,7 +77,10 @@ impl<'a> EntityTreeCollector<'a> {
 
     fn build(mut self) -> VfsResult<EntityTreeSheet> {
         // order matters!
-        let top_level_nodes = self.process_body(Some(self.module), self.ast_sheet.top_level_asts());
+        let top_level_nodes = self.process_body(
+            Some(self.module_entity_path),
+            self.ast_sheet.top_level_asts(),
+        );
         Ok(EntityTreeSheet {
             top_level_entities_idx_range: self.arena.alloc_batch(top_level_nodes),
             isolate_entities_idx_range: self.arena.alloc_batch(self.sporadic_entities),
@@ -145,16 +151,17 @@ impl<'a> EntityTreeCollector<'a> {
                 is_generic: _,
                 body_kind: _,
             } => {
-                let entity_path = self.db.it_entity_path(match parent {
-                    Some(parent) => EntityPathData::Childpath {
-                        parent,
-                        ident: *ident,
-                    },
-                    None => {
-                        p!(entity_card, ident.data(self.db));
-                        todo!()
-                    }
-                });
+                let entity_path = todo!("be careful about modules");
+                //  self.db.it_entity_path(match parent {
+                //     Some(parent) => EntityPathData::Associated {
+                //         parent,
+                //         ident: *ident,
+                //     },
+                //     None => {
+                //         p!(entity_card, ident.data(self.db));
+                //         todo!()
+                //     }
+                // });
                 let subentities = self.process_body(
                     match entity_card {
                         EntityCard::Module | EntityCard::Type | EntityCard::Trait => {
@@ -199,7 +206,7 @@ impl<'a> EntityTreeCollector<'a> {
     }
 
     fn debug_ast(&self, ast: &Ast) {
-        let token_sheet = self.db.token_sheet(self.module).as_ref().unwrap();
+        let token_sheet = self.db.token_sheet(self.module_path).as_ref().unwrap();
         match ast {
             Ast::Err { .. } => todo!(),
             Ast::Use { .. } => todo!(),
@@ -209,7 +216,6 @@ impl<'a> EntityTreeCollector<'a> {
                 token_group_idx,
                 body: _,
             } => {
-                p!(self.module.show(self.db), &token_sheet[*token_group_idx]);
                 todo!()
             }
             Ast::IfElseStmts {

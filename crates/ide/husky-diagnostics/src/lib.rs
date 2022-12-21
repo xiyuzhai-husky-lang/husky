@@ -10,9 +10,9 @@ pub use kind::DiagnosticKind;
 pub use severity::DiagnosticSeverity;
 
 use collect::collect_module_diagnostics;
-
 use husky_dev_utils::DevSource;
 use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
+use husky_vfs::*;
 
 use husky_text::TextRange;
 use std::fmt::Write;

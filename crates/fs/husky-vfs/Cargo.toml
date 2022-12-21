@@ -5,6 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+url = "2.3.1"
 thiserror = "1.0.37"
 notify-debouncer-mini = "0.2.0"
 expect-test = "1.4.0"
@@ -12,24 +13,21 @@ salsa = { path = "../../abstraction/salsa" }
 crossbeam-channel = "0.5.6"
 dashmap = "5.4.0"
 eyre = "0.6.8"
+semver = "1.0.14"
 replace_with = "0.1.7"
 # fs
 husky-fs-specs = { path = "../../fs/husky-fs-specs" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 # kernel
-husky-absolute-path = { path = "../../kernel/husky-absolute-path" }
-husky-package-path = { path = "../../kernel/husky-package-path" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-toolchain = { path = "../../kernel/husky-toolchain" }
+husky-word = { path = "../../kernel/husky-word" }
+husky-platform = { path = "../../kernel/husky-platform" }
 # utils
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 tempfile = "3.3.0"
-husky-toolchain = { path = "../../kernel/husky-toolchain" }
-husky-word = { path = "../../kernel/husky-word" }
 
 [features]
 test_utils = []

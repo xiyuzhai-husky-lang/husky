@@ -3,7 +3,7 @@ use husky_word::WordJar;
 
 use crate::*;
 
-#[salsa::db(WordJar, ToolchainJar, PackagePathJar)]
+#[salsa::db(WordJar, ToolchainJar, VfsJar)]
 #[derive(Default)]
 pub(crate) struct DB {
     storage: salsa::Storage<Self>,

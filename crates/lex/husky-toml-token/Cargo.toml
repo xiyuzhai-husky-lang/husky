@@ -23,5 +23,4 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 expect-test = "1.4.0"
 salsa = { path = "../../abstraction/salsa" }
 # kernel
-husky-toolchain = { path = "../../kernel/husky-toolchain" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

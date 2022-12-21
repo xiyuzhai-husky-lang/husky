@@ -1,85 +1,38 @@
 use crate::*;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ApparentAncestry {
+#[derive(Debug, PartialEq, Eq)]
+pub struct EntityAncestry {
     crate_path: CratePath,
-    paths: Vec<EntityPath>,
+    modules: Vec<ModulePath>,
+    entities: Vec<EntityPath>,
 }
 
-impl ApparentAncestry {
+impl EntityAncestry {
     pub fn crate_path(&self) -> CratePath {
         self.crate_path
+    }
+
+    pub fn modules(&self) -> &[ModulePath] {
+        self.modules.as_ref()
+    }
+
+    pub fn entities(&self) -> &[EntityPath] {
+        self.entities.as_ref()
+    }
+}
+
+impl salsa::DebugWithDb<dyn EntityPathDb + '_> for EntityAncestry {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn EntityPathDb,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        todo!()
     }
 }
 
 #[salsa::tracked(jar = EntityPathJar, return_ref)]
-pub(crate) fn apparent_ancestry(
-    db: &dyn EntityPathDb,
-    entity_path: EntityPath,
-) -> ApparentAncestry {
-    match entity_path.data(db) {
-        EntityPathData::CrateRoot(crate_path) => ApparentAncestry {
-            crate_path,
-            paths: vec![entity_path],
-        },
-        EntityPathData::Childpath { parent, ident: _ } => {
-            let mut ancestry = apparent_ancestry(db, parent).clone();
-            ancestry.paths.push(entity_path);
-            ancestry
-        }
-    }
-}
-
-#[test]
-fn apparent_ancestry_works() {
-    use crate::tests::*;
-    fn t(db: &DB, entity_path: EntityPath) -> Vec<String> {
-        apparent_ancestry(db, entity_path)
-            .paths
-            .iter()
-            .map(|path| path.show(db))
-            .collect()
-    }
-
-    let db = DB::default();
-    let toolchain = db.lang_dev_toolchain();
-    let menu = db.entity_path_menu(toolchain).as_ref().unwrap();
-    expect_test::expect![[r#"
-        [
-            "crate",
-        ]
-    "#]]
-    .assert_debug_eq(&t(&db, menu.core()));
-    expect_test::expect![[r#"
-        [
-            "crate",
-            "crate::num",
-            "crate::num::i32",
-        ]
-    "#]]
-    .assert_debug_eq(&t(&db, menu.i32()));
-    expect_test::expect![[r#"
-        [
-            "crate",
-            "crate::num",
-            "crate::num::i64",
-        ]
-    "#]]
-    .assert_debug_eq(&t(&db, menu.i64()));
-    expect_test::expect![[r#"
-        [
-            "crate",
-            "crate::num",
-            "crate::num::b32",
-        ]
-    "#]]
-    .assert_debug_eq(&t(&db, menu.b32()));
-    expect_test::expect![[r#"
-        [
-            "crate",
-            "crate::num",
-            "crate::num::b64",
-        ]
-    "#]]
-    .assert_debug_eq(&t(&db, menu.b64()));
+pub(crate) fn entity_apparent_ancestry(db: &dyn EntityPathDb, path: EntityPath) -> EntityAncestry {
+    todo!()
 }

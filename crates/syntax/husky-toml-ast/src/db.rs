@@ -1,5 +1,4 @@
 use crate::*;
-use husky_package_path::PackagePath;
 use husky_toml_token::TomlTokenDb;
 use salsa::DbWithJar;
 

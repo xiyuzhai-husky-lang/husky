@@ -10,7 +10,7 @@ pub struct PackagePathMenu {
 }
 
 impl PackagePathMenu {
-    fn new(db: &dyn PackagePathDb, toolchain: Toolchain) -> AbsolutePathResult<Self> {
+    fn new(db: &dyn VfsDb, toolchain: Toolchain) -> AbsolutePathResult<Self> {
         let word_menu = db.word_menu();
         let f = |ident| match toolchain.data(db) {
             ToolchainData::Published(toolchain) => Ok(PackagePath::new(
@@ -47,9 +47,9 @@ impl PackagePathMenu {
     }
 }
 
-#[salsa::tracked(jar = PackagePathJar, return_ref)]
+#[salsa::tracked(jar = VfsJar, return_ref)]
 pub(crate) fn package_path_menu(
-    db: &dyn PackagePathDb,
+    db: &dyn VfsDb,
     toolchain: Toolchain,
 ) -> AbsolutePathResult<PackagePathMenu> {
     PackagePathMenu::new(db, toolchain)
