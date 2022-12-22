@@ -12,7 +12,9 @@ pub struct SymbolEntry {
     access_range: TextRange,
 }
 
-impl AsVecMapEntry<Identifier> for SymbolEntry {
+impl AsVecMapEntry for SymbolEntry {
+    type K = Identifier;
+
     fn key(&self) -> Identifier {
         self.symbol.ident
     }

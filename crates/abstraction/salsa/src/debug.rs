@@ -234,10 +234,10 @@ where
     }
 }
 
-impl<Db: ?Sized, K, V> DebugWithDb<Db> for VecMap<K, V>
+impl<Db: ?Sized, K, V> DebugWithDb<Db> for VecMap<V>
 where
     K: PartialEq + Eq,
-    V: AsVecMapEntry<K> + MapEntryDebugWithDb<Db>,
+    V: AsVecMapEntry<K = K> + MapEntryDebugWithDb<Db>,
 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
         let elements = self

@@ -6,8 +6,8 @@ use vec_like::{AsVecMapEntry, VecMap};
 
 pub(crate) struct EntitySymbolCollector<'a> {
     db: &'a dyn EntitySymbolDb,
-    presheets: VecMap<ModulePath, &'a EntitySymbolPresheet>,
-    crate_specific_prelude: VecMap<Identifier, EntitySymbol>,
+    presheets: VecMap<&'a EntitySymbolPresheet>,
+    crate_specific_prelude: VecMap<EntitySymbol>,
 }
 
 impl<'a> EntitySymbolCollector<'a> {
@@ -16,8 +16,12 @@ impl<'a> EntitySymbolCollector<'a> {
         let presheets = all_modules
             .into_iter()
             .map(|module_path| Ok(entity_tree_presheet(db, *module_path).as_ref()?))
-            .collect::<VfsResult<VecMap<ModulePath, &'a EntitySymbolPresheet>>>()?;
-        Ok(Self { db, presheets })
+            .collect::<VfsResult<VecMap<&'a EntitySymbolPresheet>>>()?;
+        Ok(Self {
+            db,
+            presheets,
+            crate_specific_prelude: todo!(),
+        })
     }
 
     pub(crate) fn collect_all(mut self) -> EntitySymbolBundle {

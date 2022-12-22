@@ -44,8 +44,8 @@ impl Identifier {
     }
 }
 
-pub type IdentMap<T> = VecMap<Identifier, T>;
-pub type IdentArcDict<T> = VecMap<Identifier, Arc<T>>;
+pub type IdentMap<T> = VecMap<T>;
+pub type IdentArcDict<T> = VecMap<Arc<T>>;
 pub type IdentPairMap<T> = VecPairMap<Identifier, T>;
 #[test]
 fn test_is_valid_ident() {

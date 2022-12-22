@@ -31,7 +31,7 @@ use sheet::*;
 use submodule::*;
 #[cfg(test)]
 use tests::*;
-use vec_like::VecMap;
+use vec_like::{AsVecMapEntry, VecMap};
 
 #[salsa::jar(db = EntitySymbolDb)]
 pub struct EntitySymbolJar(
@@ -44,7 +44,7 @@ pub struct EntitySymbolJar(
 );
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ModuleSymbol {
+pub enum EntitySymbol {
     Submodule {
         ident: Identifier,
     },
@@ -52,11 +52,30 @@ pub enum ModuleSymbol {
         ident: Identifier,
         ast_idx: AstIdx,
         path: ModuleItemPath,
-        variants: Option<VecMap<Identifier, ModuleItemVariant>>,
+        variants: Option<VecMap<ModuleItemVariant>>,
     },
 }
 
-impl salsa::DebugWithDb<dyn EntitySymbolDb + '_> for ModuleSymbol {
+impl AsVecMapEntry for EntitySymbol {
+    type K = Identifier;
+
+    fn key(&self) -> Self::K
+    where
+        Self::K: Copy,
+    {
+        match self {
+            EntitySymbol::Submodule { ident } | EntitySymbol::ModuleItem { ident, .. } => *ident,
+        }
+    }
+
+    fn key_ref(&self) -> &Self::K {
+        match self {
+            EntitySymbol::Submodule { ident } | EntitySymbol::ModuleItem { ident, .. } => ident,
+        }
+    }
+}
+
+impl salsa::DebugWithDb<dyn EntitySymbolDb + '_> for EntitySymbol {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -83,7 +102,7 @@ impl salsa::DebugWithDb<dyn EntitySymbolDb + '_> for ModuleSymbol {
         }
     }
 }
-impl<Db: EntitySymbolDb> salsa::DebugWithDb<Db> for ModuleSymbol {
+impl<Db: EntitySymbolDb> salsa::DebugWithDb<Db> for EntitySymbol {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

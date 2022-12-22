@@ -6,7 +6,7 @@ use crate::*;
 pub struct AppendOnlyVecMap<K, Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    Entry: AsVecMapEntry<K>,
+    Entry: AsVecMapEntry<K = K>,
 {
     entries: Vec<Entry>,
     phantom: PhantomData<K>,
@@ -17,7 +17,7 @@ pub type AppendOnlyVecPairMap<K, V> = AppendOnlyVecMap<K, (K, V)>;
 impl<K, V> std::fmt::Debug for AppendOnlyVecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: AsVecMapEntry<K> + std::fmt::Debug,
+    V: AsVecMapEntry<K = K> + std::fmt::Debug,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.entries.fmt(f)
@@ -27,7 +27,7 @@ where
 impl<K, Entry> AppendOnlyVecMap<K, Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    Entry: AsVecMapEntry<K>,
+    Entry: AsVecMapEntry<K = K>,
 {
     pub fn take_data(self) -> Vec<Entry> {
         self.entries
@@ -163,7 +163,7 @@ where
 impl<K, Entry> FromIterator<Entry> for AppendOnlyVecMap<K, Entry>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    Entry: AsVecMapEntry<K> + std::fmt::Debug,
+    Entry: AsVecMapEntry<K = K> + std::fmt::Debug,
 {
     fn from_iter<T: IntoIterator<Item = Entry>>(iter: T) -> Self {
         let mut map = Self::default();
@@ -177,7 +177,7 @@ where
 impl<K, V> Deref for AppendOnlyVecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: AsVecMapEntry<K>,
+    V: AsVecMapEntry<K = K>,
 {
     type Target = [V];
 
@@ -189,7 +189,7 @@ where
 impl<K, V> Default for AppendOnlyVecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: AsVecMapEntry<K>,
+    V: AsVecMapEntry<K = K>,
 {
     fn default() -> Self {
         Self {
@@ -202,7 +202,7 @@ where
 impl<K, V> std::ops::Index<K> for AppendOnlyVecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: AsVecMapEntry<K>,
+    V: AsVecMapEntry<K = K>,
 {
     type Output = V;
 
@@ -214,7 +214,7 @@ where
 impl<K, V> std::ops::IndexMut<K> for AppendOnlyVecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: AsVecMapEntry<K>,
+    V: AsVecMapEntry<K = K>,
 {
     fn index_mut(&mut self, index: K) -> &mut Self::Output {
         self.get_mut(index).unwrap()
@@ -224,7 +224,7 @@ where
 impl<K, V> HuskyDisplay for AppendOnlyVecMap<K, V>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: AsVecMapEntry<K> + HuskyDisplay,
+    V: AsVecMapEntry<K = K> + HuskyDisplay,
 {
     fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
         for entry in &self.entries {

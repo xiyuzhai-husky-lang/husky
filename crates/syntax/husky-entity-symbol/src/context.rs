@@ -11,7 +11,9 @@ pub struct ModuleItemVariant {
     ast_idx: AstIdx,
 }
 
-impl AsVecMapEntry<Identifier> for ModuleItemVariant {
+impl AsVecMapEntry for ModuleItemVariant {
+    type K = Identifier;
+
     fn key(&self) -> Identifier
     where
         Identifier: Copy,
@@ -44,21 +46,21 @@ impl<'a> EntitySymbolContext<'a> {
         Self { db, module_path }
     }
 
-    pub(crate) fn get(&self, ident: Identifier) -> Option<&ModuleSymbol> {
+    pub(crate) fn get(&self, ident: Identifier) -> Option<&EntitySymbol> {
         p!(ident.data(self.db));
         todo!()
     }
 }
 
 pub(crate) struct CratePrelude<'a> {
-    universal_prelude: &'a [ModuleSymbol],
-    crate_specific_prelude: &'a [ModuleSymbol],
+    universal_prelude: &'a [EntitySymbol],
+    crate_specific_prelude: &'a [EntitySymbol],
 }
 
 impl<'a> CratePrelude<'a> {
     pub(crate) fn new(
-        universal_prelude: &'a [ModuleSymbol],
-        crate_specific_prelude: &'a [ModuleSymbol],
+        universal_prelude: &'a [EntitySymbol],
+        crate_specific_prelude: &'a [EntitySymbol],
     ) -> Self {
         Self {
             universal_prelude,
