@@ -1,0 +1,81 @@
+Ok(
+    EntityTreePresheet {
+        module_path: ModulePath {
+            [display]: "crate",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: PackagePath {
+                    [salsa id]: 0,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: DiffPath {
+                                [salsa id]: 0,
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
+                        },
+                    },
+                    data: Local {
+                        path: DiffPath {
+                            [salsa id]: 1,
+                            data: DiffPathBuf(
+                                "../../../library/core",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Library,
+            },
+        },
+        module_items: [
+            Submodule {
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+            },
+            Submodule {
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 2,
+                        },
+                    ),
+                ),
+            },
+            Submodule {
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                ),
+            },
+            Submodule {
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                ),
+            },
+            Submodule {
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 5,
+                        },
+                    ),
+                ),
+            },
+        ],
+        entity_use_roots: [],
+    },
+)

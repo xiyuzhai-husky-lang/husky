@@ -25,5 +25,5 @@ impl ParallelDatabase for DB {
 
 #[test]
 fn manifest_ast_works() {
-    DB::expect_test_packages_debug("package_manifest", TomlAstDb::package_manifest_ast)
+    DB::expect_test_packages_debug_result("package_manifest", TomlAstDb::package_manifest_ast)
 }

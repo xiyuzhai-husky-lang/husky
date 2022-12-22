@@ -1,0 +1,142 @@
+Ok(
+    EntityTreePresheet {
+        module_path: ModulePath {
+            [display]: "crate::digits::nine",
+            [crate]: CratePath {
+                [salsa id]: 3,
+                package_path: PackagePath {
+                    [salsa id]: 3,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: DiffPath {
+                                [salsa id]: 0,
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
+                        },
+                    },
+                    data: Local {
+                        path: DiffPath {
+                            [salsa id]: 15,
+                            data: DiffPathBuf(
+                                "../../../examples/mnist-classifier",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+        module_items: [
+            ModuleItem {
+                ident: Identifier(
+                    "nine_match",
+                ),
+                ast_idx: 54,
+                path: ModuleItemPath(
+                    Id {
+                        value: 44,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "nine_match_refine",
+                ),
+                ast_idx: 55,
+                path: ModuleItemPath(
+                    Id {
+                        value: 45,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "is_nine",
+                ),
+                ast_idx: 56,
+                path: ModuleItemPath(
+                    Id {
+                        value: 46,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "downmost",
+                ),
+                ast_idx: 57,
+                path: ModuleItemPath(
+                    Id {
+                        value: 47,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "big_cc",
+                ),
+                ast_idx: 58,
+                path: ModuleItemPath(
+                    Id {
+                        value: 48,
+                    },
+                ),
+                variants: None,
+            },
+        ],
+        entity_use_roots: [
+            EntityUseExprRoot {
+                ast_idx: 45,
+                accessibility: Protected,
+                use_expr_idx: 5,
+            },
+            EntityUseExprRoot {
+                ast_idx: 46,
+                accessibility: Protected,
+                use_expr_idx: 10,
+            },
+            EntityUseExprRoot {
+                ast_idx: 47,
+                accessibility: Protected,
+                use_expr_idx: 15,
+            },
+            EntityUseExprRoot {
+                ast_idx: 48,
+                accessibility: Protected,
+                use_expr_idx: 20,
+            },
+            EntityUseExprRoot {
+                ast_idx: 49,
+                accessibility: Protected,
+                use_expr_idx: 23,
+            },
+            EntityUseExprRoot {
+                ast_idx: 50,
+                accessibility: Protected,
+                use_expr_idx: 26,
+            },
+            EntityUseExprRoot {
+                ast_idx: 51,
+                accessibility: Protected,
+                use_expr_idx: 30,
+            },
+            EntityUseExprRoot {
+                ast_idx: 52,
+                accessibility: Protected,
+                use_expr_idx: 33,
+            },
+            EntityUseExprRoot {
+                ast_idx: 53,
+                accessibility: Protected,
+                use_expr_idx: 36,
+            },
+        ],
+    },
+)

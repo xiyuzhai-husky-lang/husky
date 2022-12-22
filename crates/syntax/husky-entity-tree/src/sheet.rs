@@ -9,7 +9,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityTreeSheet {
     module_path: ModulePath,
-    module_items: Vec<ModuleItem>,
+    module_items: Vec<ModuleSymbol>,
 }
 
 impl AsVecMapEntry<ModulePath> for EntityTreeSheet {

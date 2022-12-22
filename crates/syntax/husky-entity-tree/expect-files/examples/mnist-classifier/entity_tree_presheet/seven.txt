@@ -1,0 +1,164 @@
+Ok(
+    EntityTreePresheet {
+        module_path: ModulePath {
+            [display]: "crate::seven",
+            [crate]: CratePath {
+                [salsa id]: 3,
+                package_path: PackagePath {
+                    [salsa id]: 3,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: DiffPath {
+                                [salsa id]: 0,
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
+                        },
+                    },
+                    data: Local {
+                        path: DiffPath {
+                            [salsa id]: 15,
+                            data: DiffPathBuf(
+                                "../../../examples/mnist-classifier",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+        module_items: [
+            ModuleItem {
+                ident: Identifier(
+                    "simple_seven_match",
+                ),
+                ast_idx: 50,
+                path: ModuleItemPath(
+                    Id {
+                        value: 172,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "simple_leftdown_pattern",
+                ),
+                ast_idx: 51,
+                path: ModuleItemPath(
+                    Id {
+                        value: 173,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "special_seven_match",
+                ),
+                ast_idx: 52,
+                path: ModuleItemPath(
+                    Id {
+                        value: 174,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "leftupcc_pattern",
+                ),
+                ast_idx: 53,
+                path: ModuleItemPath(
+                    Id {
+                        value: 175,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "leftdowncc_pattern",
+                ),
+                ast_idx: 54,
+                path: ModuleItemPath(
+                    Id {
+                        value: 176,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "is_seven",
+                ),
+                ast_idx: 55,
+                path: ModuleItemPath(
+                    Id {
+                        value: 177,
+                    },
+                ),
+                variants: None,
+            },
+        ],
+        entity_use_roots: [
+            EntityUseExprRoot {
+                ast_idx: 39,
+                accessibility: Protected,
+                use_expr_idx: 5,
+            },
+            EntityUseExprRoot {
+                ast_idx: 40,
+                accessibility: Protected,
+                use_expr_idx: 8,
+            },
+            EntityUseExprRoot {
+                ast_idx: 41,
+                accessibility: Protected,
+                use_expr_idx: 11,
+            },
+            EntityUseExprRoot {
+                ast_idx: 42,
+                accessibility: Protected,
+                use_expr_idx: 16,
+            },
+            EntityUseExprRoot {
+                ast_idx: 43,
+                accessibility: Protected,
+                use_expr_idx: 19,
+            },
+            EntityUseExprRoot {
+                ast_idx: 44,
+                accessibility: Protected,
+                use_expr_idx: 22,
+            },
+            EntityUseExprRoot {
+                ast_idx: 45,
+                accessibility: Protected,
+                use_expr_idx: 26,
+            },
+            EntityUseExprRoot {
+                ast_idx: 46,
+                accessibility: Protected,
+                use_expr_idx: 29,
+            },
+            EntityUseExprRoot {
+                ast_idx: 47,
+                accessibility: Protected,
+                use_expr_idx: 32,
+            },
+            EntityUseExprRoot {
+                ast_idx: 48,
+                accessibility: Protected,
+                use_expr_idx: 35,
+            },
+            EntityUseExprRoot {
+                ast_idx: 49,
+                accessibility: Protected,
+                use_expr_idx: 38,
+            },
+        ],
+    },
+)
