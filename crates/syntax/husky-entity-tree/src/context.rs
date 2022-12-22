@@ -35,7 +35,7 @@ impl ModuleItemVariant {
 pub(crate) struct EntitySymbolContext<'a> {
     db: &'a dyn EntityTreeDb,
     module_path: ModulePath,
-    nodes: &'a [EntityNode],
+    nodes: &'a [EntitySymbol],
     crate_prelude: CratePrelude<'a>,
 }
 
@@ -43,7 +43,7 @@ impl<'a> EntitySymbolContext<'a> {
     pub(crate) fn new(
         db: &'a dyn EntityTreeDb,
         module_path: ModulePath,
-        nodes: &'a [EntityNode],
+        nodes: &'a [EntitySymbol],
         crate_prelude: CratePrelude<'a>,
     ) -> Self {
         Self {
@@ -54,7 +54,7 @@ impl<'a> EntitySymbolContext<'a> {
         }
     }
 
-    pub(crate) fn get(&self, ident: Identifier) -> Option<&EntityNode> {
+    pub(crate) fn get(&self, ident: Identifier) -> Option<&EntitySymbol> {
         self.nodes
             .get_entry(ident)
             .or_else(|| self.crate_prelude.get(ident))
@@ -62,14 +62,14 @@ impl<'a> EntitySymbolContext<'a> {
 }
 
 pub(crate) struct CratePrelude<'a> {
-    universal_prelude: &'a [EntityNode],
-    crate_specific_prelude: &'a [EntityNode],
+    universal_prelude: &'a [EntitySymbol],
+    crate_specific_prelude: &'a [EntitySymbol],
 }
 
 impl<'a> CratePrelude<'a> {
     pub(crate) fn new(
-        universal_prelude: &'a [EntityNode],
-        crate_specific_prelude: &'a [EntityNode],
+        universal_prelude: &'a [EntitySymbol],
+        crate_specific_prelude: &'a [EntitySymbol],
     ) -> Self {
         Self {
             universal_prelude,
@@ -77,7 +77,7 @@ impl<'a> CratePrelude<'a> {
         }
     }
 
-    fn get(&self, ident: Identifier) -> Option<&'a EntityNode> {
+    fn get(&self, ident: Identifier) -> Option<&'a EntitySymbol> {
         self.universal_prelude
             .get_entry(ident)
             .or_else(|| self.crate_specific_prelude.get_entry(ident))

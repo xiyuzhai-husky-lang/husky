@@ -573,7 +573,7 @@ Ok(
                     body: ArenaIdxRange(
                         4..5,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -615,7 +615,7 @@ Ok(
                     body: ArenaIdxRange(
                         5..12,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -657,7 +657,7 @@ Ok(
                     body: ArenaIdxRange(
                         16..21,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -699,7 +699,7 @@ Ok(
                     body: ArenaIdxRange(
                         22..26,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -741,7 +741,7 @@ Ok(
                     body: ArenaIdxRange(
                         27..31,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -783,7 +783,7 @@ Ok(
                     body: ArenaIdxRange(
                         39..50,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -825,7 +825,7 @@ Ok(
                     body: ArenaIdxRange(
                         50..51,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -867,7 +867,7 @@ Ok(
                     body: ArenaIdxRange(
                         51..52,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -909,7 +909,7 @@ Ok(
                     body: ArenaIdxRange(
                         56..62,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -951,7 +951,7 @@ Ok(
                     body: ArenaIdxRange(
                         66..72,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -1318,7 +1318,7 @@ Ok(
                     ident: Identifier(
                         "cv",
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -1334,7 +1334,7 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -1350,7 +1350,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -1394,7 +1394,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -1438,7 +1438,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..4,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -1480,7 +1480,7 @@ Ok(
                     body: ArenaIdxRange(
                         72..85,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -1524,7 +1524,7 @@ Ok(
                     body: ArenaIdxRange(
                         87..91,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,
@@ -1566,7 +1566,7 @@ Ok(
                     body: ArenaIdxRange(
                         120..124,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 13,

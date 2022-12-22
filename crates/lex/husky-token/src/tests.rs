@@ -26,7 +26,7 @@ fn tokenize_works() {
 #[test]
 fn tokenize_library() {
     let db = MimicDB::default();
-    let toolchain = db.lang_dev_toolchain();
+    let toolchain = db.dev_toolchain();
     let path_menu = db.path_menu(toolchain).unwrap();
 
     macro_rules! t {

@@ -9,7 +9,7 @@ use husky_vfs::*;
 
 use salsa::DbWithJar;
 
-pub trait EntityTreeDb: DbWithJar<EntitySymbolJar> + AstDb + EntityPathDb + ManifestDb {
+pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb + ManifestDb {
     fn module_item_entity_kind(
         &self,
         module_item_path: ModuleItemPath,
@@ -24,7 +24,7 @@ pub trait EntityTreeDb: DbWithJar<EntitySymbolJar> + AstDb + EntityPathDb + Mani
 
 impl<T> EntityTreeDb for T
 where
-    T: DbWithJar<EntitySymbolJar> + AstDb + EntityPathDb + ManifestDb,
+    T: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb + ManifestDb,
 {
     fn module_item_entity_kind(
         &self,

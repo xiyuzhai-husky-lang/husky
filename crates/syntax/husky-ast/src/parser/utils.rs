@@ -29,7 +29,7 @@ pub(super) trait AuxAstParser<'aux> {
                 Decorator::Async => todo!(),
                 Decorator::Static => Accessibility::Public,
             },
-            _ => Accessibility::PubicUnder(self.module_path()),
+            _ => Accessibility::PublicUnder(self.module_path()),
         })
     }
 

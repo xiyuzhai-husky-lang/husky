@@ -85,9 +85,9 @@ Ok(
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 4,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 30,
@@ -103,7 +103,7 @@ Ok(
                     ),
                     use_expr_idx: 2,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
             ],
         ),

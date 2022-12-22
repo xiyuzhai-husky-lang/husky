@@ -60,7 +60,7 @@ fn module_ancestry_works() {
     }
 
     let db = DB::default();
-    let toolchain = db.lang_dev_toolchain();
+    let toolchain = db.dev_toolchain();
     let menu = db.path_menu(toolchain).unwrap();
     expect_test::expect![[r#"
         ApparentAncestry {

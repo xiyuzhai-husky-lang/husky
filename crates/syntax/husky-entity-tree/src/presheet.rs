@@ -1,4 +1,3 @@
-mod access;
 mod action;
 mod entity_use_tracker;
 mod use_all_tracker;
@@ -12,7 +11,7 @@ use husky_text::TextRange;
 use use_all_tracker::*;
 use vec_like::AsVecMapEntry;
 
-#[salsa::tracked(jar = EntitySymbolJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_presheet(
     db: &dyn EntityTreeDb,
     module_path: ModulePath,
@@ -30,9 +29,15 @@ fn entity_tree_presheet_works() {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct EntityTreePresheet {
     module_path: ModulePath,
-    nodes: VecMap<EntityNode>,
+    module_symbols: VecMap<EntitySymbol>,
     entity_use_trackers: EntityUseExprTrackers,
     use_all_trackers: UseAllTrackers,
+}
+
+impl Into<EntityTreeSheet> for EntityTreePresheet {
+    fn into(self) -> EntityTreeSheet {
+        EntityTreeSheet::new(self.module_path, self.module_symbols)
+    }
 }
 
 impl EntityTreePresheet {
@@ -40,8 +45,8 @@ impl EntityTreePresheet {
         self.module_path
     }
 
-    pub(crate) fn nodes(&self) -> &VecMap<EntityNode> {
-        &self.nodes
+    pub(crate) fn module_symbols(&self) -> &VecMap<EntitySymbol> {
+        &self.module_symbols
     }
 }
 
@@ -60,7 +65,7 @@ struct EntitySymbolPresheetBuilder<'a> {
     db: &'a dyn EntityTreeDb,
     ast_sheet: &'a AstSheet,
     module_path: ModulePath,
-    nodes: VecMap<EntityNode>,
+    nodes: VecMap<EntitySymbol>,
     entity_use_trackers: EntityUseExprTrackers,
 }
 
@@ -81,7 +86,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
         }
         EntityTreePresheet {
             module_path: self.module_path,
-            nodes: self.nodes,
+            module_symbols: self.nodes,
             entity_use_trackers: self.entity_use_trackers,
             use_all_trackers: Default::default(),
         }
@@ -94,14 +99,12 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                 accessibility,
                 ident,
                 use_expr_idx,
-            } => self
-                .entity_use_trackers
-                .push(EntityUseExprTracker::new_root(
-                    ast_idx,
-                    *accessibility,
-                    *ident,
-                    *use_expr_idx,
-                )),
+            } => self.entity_use_trackers.push(EntityUseTracker::new_root(
+                ast_idx,
+                *accessibility,
+                *ident,
+                *use_expr_idx,
+            )),
             Ast::Defn {
                 token_group_idx,
                 body,
@@ -115,7 +118,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                 if let Some(entity_path) = entity_path {
                     match entity_path {
                         EntityPath::Module(module_path) => {
-                            match self.nodes.insert_new(EntityNode::Module {
+                            match self.nodes.insert_new(EntitySymbol::Module {
                                 ident: *ident,
                                 accessibility: *accessibility,
                                 module_path: *module_path,
@@ -125,7 +128,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                             }
                         }
                         EntityPath::ModuleItem(module_item_path) => {
-                            match self.nodes.insert_new(EntityNode::ModuleItem {
+                            match self.nodes.insert_new(EntitySymbol::ModuleItem {
                                 ident: *ident,
                                 accessibility: *accessibility,
                                 ast_idx,
@@ -174,7 +177,7 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreePresheet {
             )
             .field(
                 "module_items",
-                &(&self.nodes).debug_with(db, include_all_fields),
+                &(&self.module_symbols).debug_with(db, include_all_fields),
             )
             .field("entity_use_roots", &self.entity_use_trackers)
             .finish()

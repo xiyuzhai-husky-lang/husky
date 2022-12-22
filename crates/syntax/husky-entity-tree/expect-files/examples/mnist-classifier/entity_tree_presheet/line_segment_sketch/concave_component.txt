@@ -761,9 +761,9 @@ Ok(
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 74,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 29,
@@ -779,11 +779,11 @@ Ok(
                     ),
                     use_expr_idx: 2,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 75,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 29,
@@ -799,11 +799,11 @@ Ok(
                     ),
                     use_expr_idx: 6,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 76,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 29,
@@ -819,11 +819,11 @@ Ok(
                     ),
                     use_expr_idx: 10,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 77,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 29,
@@ -839,7 +839,7 @@ Ok(
                     ),
                     use_expr_idx: 13,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
             ],
         ),

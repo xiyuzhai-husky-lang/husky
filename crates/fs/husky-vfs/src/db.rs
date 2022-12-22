@@ -23,7 +23,7 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
     fn apply_live_file_changes(&mut self, path: &Path, changes: Vec<TextChange>) -> VfsResult<()>;
     fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
     // toolchain
-    fn lang_dev_toolchain(&self) -> Toolchain;
+    fn dev_toolchain(&self) -> Toolchain;
     fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path;
     fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path;
 }
@@ -300,7 +300,7 @@ where
     }
 
     // toolchain
-    fn lang_dev_toolchain(&self) -> Toolchain {
+    fn dev_toolchain(&self) -> Toolchain {
         let library_path = derive_library_path_from_cargo_manifest_dir();
         Toolchain::new(
             self,

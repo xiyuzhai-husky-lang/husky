@@ -3,7 +3,7 @@ use crate::*;
 use husky_entity_path::EntityPath;
 use husky_vfs::*;
 
-#[salsa::tracked(jar = EntitySymbolJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn submodules(
     db: &dyn EntityTreeDb,
     module_path: ModulePath,
@@ -33,7 +33,7 @@ pub(crate) fn submodules(
 }
 
 /// all modules, must be included in module tree
-#[salsa::tracked(jar = EntitySymbolJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn all_modules_within_crate(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,

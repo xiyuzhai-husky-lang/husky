@@ -3,10 +3,10 @@ use husky_word::Identifier;
 use crate::*;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
-pub(crate) struct EntityUseExprTrackers(Vec<EntityUseExprTracker>);
+pub(crate) struct EntityUseExprTrackers(Vec<EntityUseTracker>);
 
 impl std::ops::Index<EntityUseExprTrackerIdx> for EntityUseExprTrackers {
-    type Output = EntityUseExprTracker;
+    type Output = EntityUseTracker;
 
     fn index(&self, index: EntityUseExprTrackerIdx) -> &Self::Output {
         &self.0[index.0]
@@ -22,13 +22,13 @@ impl std::ops::IndexMut<EntityUseExprTrackerIdx> for EntityUseExprTrackers {
 pub(crate) struct EntityUseExprTrackerIdx(usize);
 
 impl EntityUseExprTrackers {
-    pub(crate) fn push(&mut self, tracker: EntityUseExprTracker) {
+    pub(crate) fn push(&mut self, tracker: EntityUseTracker) {
         self.0.push(tracker)
     }
 
     pub(crate) fn indexed_iter(
         &self,
-    ) -> impl Iterator<Item = (EntityUseExprTrackerIdx, &EntityUseExprTracker)> {
+    ) -> impl Iterator<Item = (EntityUseExprTrackerIdx, &EntityUseTracker)> {
         self.0
             .iter()
             .enumerate()
@@ -37,16 +37,23 @@ impl EntityUseExprTrackers {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub(crate) struct EntityUseExprTracker {
+pub(crate) struct EntityUseTracker {
     ast_idx: AstIdx,
     accessibility: Accessibility,
     ident: Identifier,
     use_expr_idx: UseExprIdx,
     parent: Option<EntityPath>,
-    resolved: bool,
+    state: EntityUseState,
 }
 
-impl EntityUseExprTracker {
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum EntityUseState {
+    Unresolved,
+    Resolved,
+    Erroneous,
+}
+
+impl EntityUseTracker {
     pub fn new_root(
         ast_idx: AstIdx,
         accessibility: Accessibility,
@@ -59,7 +66,7 @@ impl EntityUseExprTracker {
             use_expr_idx,
             ident,
             parent: None,
-            resolved: false,
+            state: EntityUseState::Unresolved,
         }
     }
 
@@ -75,8 +82,8 @@ impl EntityUseExprTracker {
         self.use_expr_idx
     }
 
-    pub fn resolved(&self) -> bool {
-        self.resolved
+    pub fn state(&self) -> EntityUseState {
+        self.state
     }
 
     pub fn ident(&self) -> Identifier {
@@ -84,6 +91,10 @@ impl EntityUseExprTracker {
     }
 
     pub(crate) fn mark_as_resolved(&mut self) {
-        self.resolved = true
+        self.state = EntityUseState::Resolved
+    }
+
+    pub(crate) fn is_unresolved(&self) -> bool {
+        self.state == EntityUseState::Unresolved
     }
 }

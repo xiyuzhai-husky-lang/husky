@@ -7,7 +7,7 @@ pub(crate) fn subentities() -> Vec<EntityNode> {
     todo!()
 }
 
-#[salsa::tracked(jar = EntitySymbolJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn submodules(
     db: &dyn EntityTreeDb,
     module: EntityPath,

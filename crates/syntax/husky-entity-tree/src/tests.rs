@@ -13,7 +13,7 @@ use husky_word::WordJar;
     EntityPathJar,
     TokenJar,
     AstJar,
-    EntitySymbolJar,
+    EntityTreeJar,
     ManifestJar
 )]
 #[derive(Default)]
