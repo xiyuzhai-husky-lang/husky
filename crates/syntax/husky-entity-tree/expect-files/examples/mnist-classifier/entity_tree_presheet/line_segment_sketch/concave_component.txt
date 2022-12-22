@@ -200,25 +200,33 @@ Ok(
             },
         ],
         entity_use_roots: [
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 74,
                 accessibility: Protected,
                 use_expr_idx: 2,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 75,
                 accessibility: Protected,
                 use_expr_idx: 6,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 76,
                 accessibility: Protected,
                 use_expr_idx: 10,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 77,
                 accessibility: Protected,
                 use_expr_idx: 13,
+                parent: None,
+                resolved: false,
             },
         ],
     },

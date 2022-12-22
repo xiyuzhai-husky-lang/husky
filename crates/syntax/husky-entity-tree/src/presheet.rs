@@ -1,5 +1,13 @@
+mod action;
+mod entity_use;
+mod use_all;
+
+pub(crate) use action::*;
+
 use crate::*;
+use entity_use::*;
 use husky_text::TextRange;
+use use_all::UseAllTracker;
 use vec_like::AsVecMapEntry;
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
@@ -21,7 +29,8 @@ fn entity_tree_presheet_works() {
 pub(crate) struct EntityTreePresheet {
     module_path: ModulePath,
     module_items: Vec<ModuleSymbol>,
-    entity_use_roots: Vec<EntityUseExprRoot>,
+    entity_use_trackers: Vec<EntityUseExprTracker>,
+    use_all_trackers: Vec<UseAllTracker>,
 }
 
 impl AsVecMapEntry<ModulePath> for EntityTreePresheet {
@@ -42,7 +51,7 @@ struct EntityTreePresheetBuilder<'a> {
     ast_sheet: &'a AstSheet,
     module_path: ModulePath,
     module_symbols: Vec<ModuleSymbol>,
-    entity_uses: Vec<EntityUseExprRoot>,
+    entity_use_trackers: Vec<EntityUseExprTracker>,
 }
 
 impl<'a> EntityTreePresheetBuilder<'a> {
@@ -52,7 +61,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
             ast_sheet: db.ast_sheet(module_path)?,
             module_path,
             module_symbols: vec![],
-            entity_uses: vec![],
+            entity_use_trackers: vec![],
         })
     }
 
@@ -63,7 +72,8 @@ impl<'a> EntityTreePresheetBuilder<'a> {
         EntityTreePresheet {
             module_path: self.module_path,
             module_items: self.module_symbols,
-            entity_use_roots: self.entity_uses,
+            entity_use_trackers: self.entity_use_trackers,
+            use_all_trackers: vec![],
         }
     }
 
@@ -73,11 +83,13 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                 token_group_idx,
                 accessibility,
                 use_expr_idx,
-            } => self.entity_uses.push(EntityUseExprRoot::new(
-                ast_idx,
-                *accessibility,
-                *use_expr_idx,
-            )),
+            } => self
+                .entity_use_trackers
+                .push(EntityUseExprTracker::new_root(
+                    ast_idx,
+                    *accessibility,
+                    *use_expr_idx,
+                )),
             Ast::Defn {
                 token_group_idx,
                 body,
@@ -224,7 +236,7 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreePresheet {
                 "module_items",
                 &self.module_items.debug_with(db, include_all_fields),
             )
-            .field("entity_use_roots", &self.entity_use_roots)
+            .field("entity_use_roots", &self.entity_use_trackers)
             .finish()
     }
 }

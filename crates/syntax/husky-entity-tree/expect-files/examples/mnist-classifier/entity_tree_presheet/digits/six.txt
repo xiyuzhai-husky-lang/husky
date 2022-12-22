@@ -92,45 +92,61 @@ Ok(
             },
         ],
         entity_use_roots: [
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 51,
                 accessibility: Protected,
                 use_expr_idx: 3,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 52,
                 accessibility: Protected,
                 use_expr_idx: 8,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 53,
                 accessibility: Protected,
                 use_expr_idx: 13,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 54,
                 accessibility: Protected,
                 use_expr_idx: 18,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 55,
                 accessibility: Protected,
                 use_expr_idx: 21,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 56,
                 accessibility: Protected,
                 use_expr_idx: 24,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 57,
                 accessibility: Protected,
                 use_expr_idx: 28,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 58,
                 accessibility: Protected,
                 use_expr_idx: 31,
+                parent: None,
+                resolved: false,
             },
         ],
     },

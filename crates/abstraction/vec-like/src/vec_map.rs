@@ -9,6 +9,22 @@ pub trait AsVecMapEntry<K> {
     fn key_ref(&self) -> &K;
 }
 
+impl<K, T> AsVecMapEntry<K> for &T
+where
+    T: AsVecMapEntry<K>,
+{
+    fn key(&self) -> K
+    where
+        K: Copy,
+    {
+        <T as AsVecMapEntry<K>>::key(self)
+    }
+
+    fn key_ref(&self) -> &K {
+        <T as AsVecMapEntry<K>>::key_ref(self)
+    }
+}
+
 pub trait DefaultVecMapEntry<K> {
     fn default_from_key(key: K) -> Self;
 }

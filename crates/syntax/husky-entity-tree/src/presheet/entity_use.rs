@@ -1,18 +1,26 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct EntityUseExprRoot {
+pub struct EntityUseExprTracker {
     ast_idx: AstIdx,
     accessibility: Accessibility,
     use_expr_idx: UseExprIdx,
+    parent: Option<EntityPath>,
+    resolved: bool,
 }
 
-impl EntityUseExprRoot {
-    pub fn new(ast_idx: AstIdx, accessibility: Accessibility, use_expr_idx: UseExprIdx) -> Self {
+impl EntityUseExprTracker {
+    pub fn new_root(
+        ast_idx: AstIdx,
+        accessibility: Accessibility,
+        use_expr_idx: UseExprIdx,
+    ) -> Self {
         Self {
             ast_idx,
             accessibility,
             use_expr_idx,
+            parent: None,
+            resolved: false,
         }
     }
 
