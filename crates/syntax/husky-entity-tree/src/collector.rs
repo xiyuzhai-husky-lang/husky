@@ -7,7 +7,7 @@ use vec_like::{AsVecMapEntry, VecMap};
 pub(crate) struct EntityTreeCollector<'a> {
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
-    presheets: VecMap<EntitySymbolPresheet>,
+    presheets: VecMap<EntityTreePresheet>,
     core_prelude_module: ModulePath,
     universal_prelude: Option<&'a [EntityNode]>,
     crate_specific_prelude: &'a [EntityNode],
@@ -19,7 +19,7 @@ impl<'a> EntityTreeCollector<'a> {
         let presheets = all_modules
             .into_iter()
             .map(|module_path| entity_tree_presheet(db, *module_path).clone())
-            .collect::<VfsResult<VecMap<EntitySymbolPresheet>>>()?;
+            .collect::<VfsResult<VecMap<EntityTreePresheet>>>()?;
         let toolchain = crate_path.toolchain(db);
         let path_menu = db.path_menu(toolchain)?;
         let core_prelude_module = path_menu.core_prelude();
@@ -45,8 +45,16 @@ impl<'a> EntityTreeCollector<'a> {
             if actions.len() == 0 {
                 break;
             }
-            todo!()
+            for action in actions {
+                self.exec(action)
+            }
         }
         todo!()
+    }
+
+    fn exec(&mut self, action: PresheetAction) {
+        let module_path = action.module_path();
+        let presheet = &mut self.presheets[module_path];
+        presheet.exec(self.db, action)
     }
 }

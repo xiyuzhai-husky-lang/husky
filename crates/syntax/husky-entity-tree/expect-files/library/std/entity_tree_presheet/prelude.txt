@@ -1,5 +1,5 @@
 Ok(
-    EntitySymbolPresheet {
+    EntityTreePresheet {
         module_path: ModulePath {
             [display]: "crate::prelude",
             [crate]: CratePath {
@@ -30,6 +30,8 @@ Ok(
             },
         },
         module_items: [],
-        entity_use_roots: [],
+        entity_use_roots: EntityUseExprTrackers(
+            [],
+        ),
     },
 )

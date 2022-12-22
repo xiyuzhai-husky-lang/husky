@@ -65,7 +65,13 @@ Ok(
                     body: ArenaIdxRange(
                         1..2,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -81,7 +87,13 @@ Ok(
                     body: ArenaIdxRange(
                         2..3,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -97,7 +109,13 @@ Ok(
                     body: ArenaIdxRange(
                         3..4,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -113,7 +131,13 @@ Ok(
                     body: ArenaIdxRange(
                         4..5,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -400,7 +424,13 @@ Ok(
                     body: ArenaIdxRange(
                         10..11,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -416,7 +446,13 @@ Ok(
                     body: ArenaIdxRange(
                         11..12,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -432,7 +468,13 @@ Ok(
                     body: ArenaIdxRange(
                         12..13,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -448,7 +490,13 @@ Ok(
                     body: ArenaIdxRange(
                         13..14,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -464,7 +512,13 @@ Ok(
                     body: ArenaIdxRange(
                         14..15,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -480,7 +534,13 @@ Ok(
                     body: ArenaIdxRange(
                         23..25,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -501,7 +561,13 @@ Ok(
                     body: ArenaIdxRange(
                         25..30,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -517,7 +583,13 @@ Ok(
                     body: ArenaIdxRange(
                         39..45,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -589,7 +661,13 @@ Ok(
                     body: ArenaIdxRange(
                         54..59,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -605,7 +683,13 @@ Ok(
                     body: ArenaIdxRange(
                         59..61,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -637,7 +721,13 @@ Ok(
                     body: ArenaIdxRange(
                         63..64,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -653,7 +743,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -669,7 +765,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -685,7 +787,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -701,7 +809,13 @@ Ok(
                     body: ArenaIdxRange(
                         64..65,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -717,7 +831,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -765,7 +885,13 @@ Ok(
                     body: ArenaIdxRange(
                         71..72,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -781,7 +907,13 @@ Ok(
                     body: ArenaIdxRange(
                         72..73,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -797,7 +929,13 @@ Ok(
                     body: ArenaIdxRange(
                         73..74,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -813,7 +951,13 @@ Ok(
                     body: ArenaIdxRange(
                         74..75,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -829,7 +973,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Struct,
@@ -875,7 +1025,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Struct,
@@ -913,7 +1069,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Struct,
@@ -959,7 +1121,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Struct,
@@ -1005,7 +1173,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Struct,
@@ -1051,7 +1225,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Struct,

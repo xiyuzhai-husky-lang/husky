@@ -1,5 +1,5 @@
 Ok(
-    EntitySymbolPresheet {
+    EntityTreePresheet {
         module_path: ModulePath {
             [display]: "crate::num",
             [crate]: CratePath {
@@ -34,51 +34,123 @@ Ok(
                 ident: Identifier(
                     "i8",
                 ),
+                accessibility: Public,
                 ast_idx: 9,
-                path: ModuleItemPath(
-                    Id {
-                        value: 6,
-                    },
-                ),
-                variants: None,
+                path: ModuleItemPath {
+                    [salsa id]: 5,
+                    module: ModulePath(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 19,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "i16",
                 ),
+                accessibility: Public,
                 ast_idx: 13,
-                path: ModuleItemPath(
-                    Id {
-                        value: 7,
-                    },
-                ),
-                variants: None,
+                path: ModuleItemPath {
+                    [salsa id]: 6,
+                    module: ModulePath(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "i32",
                 ),
+                accessibility: Public,
                 ast_idx: 17,
-                path: ModuleItemPath(
-                    Id {
-                        value: 8,
-                    },
-                ),
-                variants: None,
+                path: ModuleItemPath {
+                    [salsa id]: 7,
+                    module: ModulePath(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 27,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "i64",
                 ),
-                ast_idx: 21,
-                path: ModuleItemPath(
-                    Id {
-                        value: 9,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::num",
+                        [crate]: CratePath {
+                            [salsa id]: 0,
+                            package_path: PackagePath {
+                                [salsa id]: 0,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 1,
+                                        data: DiffPathBuf(
+                                            "../../../library/core",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Library,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 21,
+                path: ModuleItemPath {
+                    [salsa id]: 8,
+                    module: ModulePath(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
-        entity_use_roots: [],
+        entity_use_roots: EntityUseExprTrackers(
+            [],
+        ),
     },
 )

@@ -16,6 +16,7 @@ impl<'a> AstParser<'a> {
     fn parse_defn_aux(&mut self, ctx: &Context, token_group_idx: TokenGroupIdx) -> AstResult<Ast> {
         let mut aux_parser = BasicAuxAstParser::new(
             ctx,
+            self.module_path,
             self.token_sheet.token_group_token_iter(token_group_idx),
         );
         let (accessibility, entity_kind, ident, is_generic) = parse_head(aux_parser)?;

@@ -1,5 +1,5 @@
 Ok(
-    EntitySymbolPresheet {
+    EntityTreePresheet {
         module_path: ModulePath {
             [display]: "crate::prelude",
             [crate]: CratePath {
@@ -30,35 +30,49 @@ Ok(
             },
         },
         module_items: [],
-        entity_use_roots: [
-            EntityUseExprTracker {
-                ast_idx: 0,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 33,
-                        },
+        entity_use_roots: EntityUseExprTrackers(
+            [
+                EntityUseExprTracker {
+                    ast_idx: 0,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 6,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 2,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 1,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 33,
-                        },
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 5,
-                parent: None,
-                resolved: false,
-            },
-        ],
+                    use_expr_idx: 2,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 1,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 6,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 5,
+                    parent: None,
+                    resolved: false,
+                },
+            ],
+        ),
     },
 )

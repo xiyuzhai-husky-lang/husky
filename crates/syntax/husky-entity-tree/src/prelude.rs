@@ -9,8 +9,10 @@ pub(crate) fn crate_specific_prelude(
     let package_dependencies = db.package_dependencies(package_path)?;
     let mut nodes: VecMap<EntityNode> = VecMap::default();
     let crate_word = db.word_menu().crate_word();
+    let crate_root = ModulePath::new_root(db, crate_path);
     nodes.insert(EntityNode::Module {
         ident: crate_word,
+        accessibility: Accessibility::PubicUnder(crate_root),
         module_path: ModulePath::new_root(db, crate_path),
     });
     nodes.extend(

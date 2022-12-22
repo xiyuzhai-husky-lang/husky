@@ -1,5 +1,5 @@
 Ok(
-    EntitySymbolPresheet {
+    EntityTreePresheet {
         module_path: ModulePath {
             [display]: "crate::basic",
             [crate]: CratePath {
@@ -34,39 +34,71 @@ Ok(
                 ident: Identifier(
                     "bool",
                 ),
+                accessibility: Public,
                 ast_idx: 0,
-                path: ModuleItemPath(
-                    Id {
-                        value: 1,
-                    },
-                ),
-                variants: None,
+                path: ModuleItemPath {
+                    [salsa id]: 0,
+                    module: ModulePath(
+                        Id {
+                            value: 2,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 6,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "Trait",
                 ),
+                accessibility: Public,
                 ast_idx: 1,
-                path: ModuleItemPath(
-                    Id {
-                        value: 2,
-                    },
-                ),
-                variants: None,
+                path: ModuleItemPath {
+                    [salsa id]: 1,
+                    module: ModulePath(
+                        Id {
+                            value: 2,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 7,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "Module",
                 ),
+                accessibility: Public,
                 ast_idx: 2,
-                path: ModuleItemPath(
-                    Id {
-                        value: 3,
-                    },
-                ),
-                variants: None,
+                path: ModuleItemPath {
+                    [salsa id]: 2,
+                    module: ModulePath(
+                        Id {
+                            value: 2,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 8,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
-        entity_use_roots: [],
+        entity_use_roots: EntityUseExprTrackers(
+            [],
+        ),
     },
 )

@@ -9,6 +9,16 @@ use super::*;
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
 pub struct ModulePath(salsa::Id);
 
+impl ModulePath {
+    pub fn starts_with(self, db: &dyn VfsDb, parent: ModulePath) -> bool {
+        self.module_ancestry(db).contains(parent)
+    }
+
+    pub fn module_ancestry(self, db: &dyn VfsDb) -> &ModuleAncestry {
+        module_ancestry(db, self)
+    }
+}
+
 #[doc = r" Internal struct used for interned item"]
 #[derive(Eq, PartialEq, Hash, Clone)]
 pub struct __ModulePathData {

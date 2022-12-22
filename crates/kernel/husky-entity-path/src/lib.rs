@@ -74,12 +74,12 @@ impl EntityPath {
 //         }
 //     }
 
-//     pub fn apparent_ancestry(self, db: &dyn EntityPathDb) -> &EntityAncestry {
-//         entity_apparent_ancestry(db, self)
+//     pub fn module_ancestry(self, db: &dyn EntityPathDb) -> &EntityAncestry {
+//         entity_module_ancestry(db, self)
 //     }
 
 //     pub fn apparent_crate_path(self, db: &dyn EntityPathDb) -> CratePath {
-//         self.apparent_ancestry(db).crate_path()
+//         self.module_ancestry(db).crate_path()
 //     }
 // }
 

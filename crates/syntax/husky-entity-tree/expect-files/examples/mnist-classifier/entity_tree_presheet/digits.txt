@@ -1,5 +1,5 @@
 Ok(
-    EntitySymbolPresheet {
+    EntityTreePresheet {
         module_path: ModulePath {
             [display]: "crate::digits",
             [crate]: CratePath {
@@ -32,75 +32,263 @@ Ok(
         module_items: [
             Submodule {
                 ident: Identifier(
-                    Word(
-                        Id {
-                            value: 48,
-                        },
-                    ),
+                    "zero",
                 ),
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::digits",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
+                    },
+                ),
+                module_path: ModulePath {
+                    [display]: "crate::digits::zero",
+                    [crate]: CratePath {
+                        [salsa id]: 3,
+                        package_path: PackagePath {
+                            [salsa id]: 3,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 15,
+                                    data: DiffPathBuf(
+                                        "../../../examples/mnist-classifier",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Main,
+                    },
+                },
             },
             Submodule {
                 ident: Identifier(
-                    Word(
-                        Id {
-                            value: 43,
-                        },
-                    ),
+                    "one",
                 ),
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::digits",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
+                    },
+                ),
+                module_path: ModulePath {
+                    [display]: "crate::digits::one",
+                    [crate]: CratePath {
+                        [salsa id]: 3,
+                        package_path: PackagePath {
+                            [salsa id]: 3,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 15,
+                                    data: DiffPathBuf(
+                                        "../../../examples/mnist-classifier",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Main,
+                    },
+                },
             },
             Submodule {
                 ident: Identifier(
-                    Word(
-                        Id {
-                            value: 45,
-                        },
-                    ),
+                    "six",
                 ),
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::digits",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
+                    },
+                ),
+                module_path: ModulePath {
+                    [display]: "crate::digits::six",
+                    [crate]: CratePath {
+                        [salsa id]: 3,
+                        package_path: PackagePath {
+                            [salsa id]: 3,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 15,
+                                    data: DiffPathBuf(
+                                        "../../../examples/mnist-classifier",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Main,
+                    },
+                },
             },
         ],
-        entity_use_roots: [
-            EntityUseExprTracker {
-                ast_idx: 3,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 43,
-                        },
+        entity_use_roots: EntityUseExprTrackers(
+            [
+                EntityUseExprTracker {
+                    ast_idx: 3,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 1,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 4,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 45,
-                        },
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 43,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 3,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 5,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 48,
-                        },
+                    use_expr_idx: 1,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 4,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 5,
-                parent: None,
-                resolved: false,
-            },
-        ],
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 45,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 3,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 5,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 48,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 5,
+                    parent: None,
+                    resolved: false,
+                },
+            ],
+        ),
     },
 )

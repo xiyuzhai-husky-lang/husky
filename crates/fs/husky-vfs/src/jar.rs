@@ -4,7 +4,7 @@ pub struct VfsJar(
     <PackagePath as salsa::storage::IngredientsFor>::Ingredients,
     <CratePath as salsa::storage::IngredientsFor>::Ingredients,
     <ModulePath as salsa::storage::IngredientsFor>::Ingredients,
-    <apparent_ancestry as salsa::storage::IngredientsFor>::Ingredients,
+    <module_ancestry as salsa::storage::IngredientsFor>::Ingredients,
     <path_menu as salsa::storage::IngredientsFor>::Ingredients,
     <DiffPath as salsa::storage::IngredientsFor>::Ingredients,
     <File as salsa::storage::IngredientsFor>::Ingredients,
@@ -52,13 +52,13 @@ impl salsa::storage::HasIngredientsFor<ModulePath> for VfsJar {
     }
 }
 
-impl salsa::storage::HasIngredientsFor<apparent_ancestry> for VfsJar {
-    fn ingredient(&self) -> &<apparent_ancestry as salsa::storage::IngredientsFor>::Ingredients {
+impl salsa::storage::HasIngredientsFor<module_ancestry> for VfsJar {
+    fn ingredient(&self) -> &<module_ancestry as salsa::storage::IngredientsFor>::Ingredients {
         &self.3
     }
     fn ingredient_mut(
         &mut self,
-    ) -> &mut <apparent_ancestry as salsa::storage::IngredientsFor>::Ingredients {
+    ) -> &mut <module_ancestry as salsa::storage::IngredientsFor>::Ingredients {
         &mut self.3
     }
 }
@@ -194,7 +194,7 @@ impl<'salsa_db> salsa::jar::Jar<'salsa_db> for VfsJar {
         let i0 = <PackagePath as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i1 = <CratePath as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i2 = <ModulePath as salsa::storage::IngredientsFor>::create_ingredients(routes);
-        let i3 = <apparent_ancestry as salsa::storage::IngredientsFor>::create_ingredients(routes);
+        let i3 = <module_ancestry as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i4 = <path_menu as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i5 = <DiffPath as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i6 = <File as salsa::storage::IngredientsFor>::create_ingredients(routes);

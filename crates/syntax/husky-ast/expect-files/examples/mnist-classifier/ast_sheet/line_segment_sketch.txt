@@ -49,7 +49,13 @@ Ok(
                     body: ArenaIdxRange(
                         2..3,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -193,7 +199,13 @@ Ok(
                     body: ArenaIdxRange(
                         7..8,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -209,7 +221,13 @@ Ok(
                     body: ArenaIdxRange(
                         13..20,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -1305,7 +1323,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -1353,7 +1377,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -1401,7 +1431,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -1449,7 +1485,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -1497,7 +1539,13 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 2,
                 },
                 Use {
@@ -1507,7 +1555,13 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 5,
                 },
                 Use {
@@ -1517,7 +1571,13 @@ Ok(
                     ident: Identifier(
                         "concave_component",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 7,
                 },
                 Use {
@@ -1527,7 +1587,13 @@ Ok(
                     ident: Identifier(
                         "convex_component",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 9,
                 },
                 Use {
@@ -1537,7 +1603,13 @@ Ok(
                     ident: Identifier(
                         "line_segment",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 11,
                 },
                 Defn {
@@ -1547,7 +1619,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Struct,
@@ -1593,7 +1671,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Struct,
@@ -1639,7 +1723,13 @@ Ok(
                     body: ArenaIdxRange(
                         26..32,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Form,
                     ),
@@ -1675,7 +1765,13 @@ Ok(
                     body: ArenaIdxRange(
                         32..38,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Form,
                     ),
@@ -1711,7 +1807,13 @@ Ok(
                     body: ArenaIdxRange(
                         60..72,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Form,
                     ),
@@ -1747,7 +1849,13 @@ Ok(
                     body: ArenaIdxRange(
                         105..116,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Form,
                     ),
@@ -1783,7 +1891,13 @@ Ok(
                     body: ArenaIdxRange(
                         150..160,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Form,
                     ),

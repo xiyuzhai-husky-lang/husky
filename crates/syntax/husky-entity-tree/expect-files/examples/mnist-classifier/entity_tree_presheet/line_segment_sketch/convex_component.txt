@@ -1,5 +1,5 @@
 Ok(
-    EntitySymbolPresheet {
+    EntityTreePresheet {
         module_path: ModulePath {
             [display]: "crate::line_segment_sketch::convex_component",
             [crate]: CratePath {
@@ -34,30 +34,78 @@ Ok(
                 ident: Identifier(
                     "ConvexCompoent",
                 ),
-                ast_idx: 5,
-                path: ModuleItemPath(
-                    Id {
-                        value: 103,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch::convex_component",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
-            },
-        ],
-        entity_use_roots: [
-            EntityUseExprTracker {
-                ast_idx: 4,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
+                ast_idx: 5,
+                path: ModuleItemPath {
+                    [salsa id]: 102,
+                    module: ModulePath(
                         Id {
-                            value: 33,
+                            value: 30,
                         },
                     ),
-                ),
-                use_expr_idx: 2,
-                parent: None,
-                resolved: false,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 328,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
+        entity_use_roots: EntityUseExprTrackers(
+            [
+                EntityUseExprTracker {
+                    ast_idx: 4,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 30,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 2,
+                    parent: None,
+                    resolved: false,
+                },
+            ],
+        ),
     },
 )

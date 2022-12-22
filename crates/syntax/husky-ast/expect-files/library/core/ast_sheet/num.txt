@@ -89,7 +89,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 4,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -319,7 +325,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 4,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Form,

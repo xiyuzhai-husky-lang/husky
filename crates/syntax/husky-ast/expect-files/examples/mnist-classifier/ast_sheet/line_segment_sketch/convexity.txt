@@ -167,7 +167,13 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 31,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 2,
                 },
                 Use {
@@ -177,7 +183,13 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 31,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 5,
                 },
                 Use {
@@ -187,7 +199,13 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 31,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 8,
                 },
                 Defn {
@@ -197,7 +215,13 @@ Ok(
                     body: ArenaIdxRange(
                         15..20,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 31,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Form,
                     ),

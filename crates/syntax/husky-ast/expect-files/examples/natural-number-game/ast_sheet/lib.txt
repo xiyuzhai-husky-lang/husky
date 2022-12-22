@@ -9,7 +9,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 43,
+                            },
+                        ),
+                    ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
                     ident: Identifier(
@@ -41,7 +47,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 43,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Inductive,
@@ -119,7 +131,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 43,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Structure,
@@ -157,7 +175,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 43,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Structure,

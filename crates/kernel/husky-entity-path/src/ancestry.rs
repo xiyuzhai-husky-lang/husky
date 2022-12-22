@@ -33,6 +33,6 @@ impl salsa::DebugWithDb<dyn EntityPathDb + '_> for EntityAncestry {
 }
 
 // #[salsa::tracked(jar = EntityPathJar, return_ref)]
-// pub(crate) fn entity_apparent_ancestry(db: &dyn EntityPathDb, path: EntityPath) -> EntityAncestry {
+// pub(crate) fn entity_module_ancestry(db: &dyn EntityPathDb, path: EntityPath) -> EntityAncestry {
 //     todo!()
 // }

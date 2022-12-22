@@ -1,5 +1,5 @@
 Ok(
-    EntitySymbolPresheet {
+    EntityTreePresheet {
         module_path: ModulePath {
             [display]: "crate::line_segment_sketch::line_segment",
             [crate]: CratePath {
@@ -34,54 +34,182 @@ Ok(
                 ident: Identifier(
                     "displacement",
                 ),
-                ast_idx: 15,
-                path: ModuleItemPath(
-                    Id {
-                        value: 106,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch::line_segment",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 15,
+                path: ModuleItemPath {
+                    [salsa id]: 105,
+                    module: ModulePath(
+                        Id {
+                            value: 32,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 176,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "dist_to_point",
                 ),
-                ast_idx: 16,
-                path: ModuleItemPath(
-                    Id {
-                        value: 107,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch::line_segment",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 16,
+                path: ModuleItemPath {
+                    [salsa id]: 106,
+                    module: ModulePath(
+                        Id {
+                            value: 32,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 318,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "LineSegment",
                 ),
-                ast_idx: 18,
-                path: ModuleItemPath(
-                    Id {
-                        value: 105,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch::line_segment",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
-            },
-        ],
-        entity_use_roots: [
-            EntityUseExprTracker {
-                ast_idx: 17,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
+                ast_idx: 18,
+                path: ModuleItemPath {
+                    [salsa id]: 104,
+                    module: ModulePath(
                         Id {
-                            value: 33,
+                            value: 32,
                         },
                     ),
-                ),
-                use_expr_idx: 2,
-                parent: None,
-                resolved: false,
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 321,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
+        entity_use_roots: EntityUseExprTrackers(
+            [
+                EntityUseExprTracker {
+                    ast_idx: 17,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 32,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 2,
+                    parent: None,
+                    resolved: false,
+                },
+            ],
+        ),
     },
 )

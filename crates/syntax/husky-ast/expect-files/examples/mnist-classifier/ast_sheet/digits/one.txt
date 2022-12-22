@@ -504,7 +504,13 @@ Ok(
                     ident: Identifier(
                         "cv",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 3,
                 },
                 Use {
@@ -514,7 +520,13 @@ Ok(
                     ident: Identifier(
                         "domains",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 8,
                 },
                 Use {
@@ -524,7 +536,13 @@ Ok(
                     ident: Identifier(
                         "domains",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 13,
                 },
                 Use {
@@ -534,7 +552,13 @@ Ok(
                     ident: Identifier(
                         "domains",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 18,
                 },
                 Use {
@@ -544,7 +568,13 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 21,
                 },
                 Use {
@@ -554,7 +584,13 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 24,
                 },
                 Use {
@@ -564,7 +600,13 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 28,
                 },
                 Defn {
@@ -574,7 +616,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Form,
                     ),
@@ -610,7 +658,13 @@ Ok(
                     body: ArenaIdxRange(
                         50..53,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Form,
                     ),
@@ -646,7 +700,13 @@ Ok(
                     body: ArenaIdxRange(
                         53..56,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Form,
                     ),
@@ -682,7 +742,13 @@ Ok(
                     body: ArenaIdxRange(
                         56..59,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Form,
                     ),
@@ -718,7 +784,13 @@ Ok(
                     body: ArenaIdxRange(
                         59..63,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Form,
                     ),
