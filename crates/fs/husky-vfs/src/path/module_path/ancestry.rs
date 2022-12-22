@@ -65,14 +65,10 @@ fn module_ancestry_works() {
     expect_test::expect![[r#"
         ModuleAncestry {
             crate_path: CratePath {
-                [salsa id]: 0,
                 package_path: PackagePath {
-                    [salsa id]: 0,
                     toolchain: Toolchain {
-                        [salsa id]: 0,
                         data: Local {
                             library_path: DiffPath {
-                                [salsa id]: 0,
                                 data: DiffPathBuf(
                                     "../../../library",
                                 ),
@@ -81,7 +77,6 @@ fn module_ancestry_works() {
                     },
                     data: Local {
                         path: DiffPath {
-                            [salsa id]: 1,
                             data: DiffPathBuf(
                                 "../../../library/core",
                             ),
@@ -99,14 +94,10 @@ fn module_ancestry_works() {
     expect_test::expect![[r#"
         ModuleAncestry {
             crate_path: CratePath {
-                [salsa id]: 0,
                 package_path: PackagePath {
-                    [salsa id]: 0,
                     toolchain: Toolchain {
-                        [salsa id]: 0,
                         data: Local {
                             library_path: DiffPath {
-                                [salsa id]: 0,
                                 data: DiffPathBuf(
                                     "../../../library",
                                 ),
@@ -115,7 +106,6 @@ fn module_ancestry_works() {
                     },
                     data: Local {
                         path: DiffPath {
-                            [salsa id]: 1,
                             data: DiffPathBuf(
                                 "../../../library/core",
                             ),

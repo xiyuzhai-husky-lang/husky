@@ -46,7 +46,7 @@ fn input() {
 
     // default debug only includes identity fields
     let actual = format!("{:?}", complex_struct.debug(&db));
-    let expected = expect!["ComplexStruct { [salsa id]: 0 }"];
+    let expected = expect!["ComplexStruct"];
     expected.assert_eq(&actual);
 
     // all fields
