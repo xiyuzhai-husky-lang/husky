@@ -6,6 +6,9 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
+                    ident: Identifier(
+                        "core",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 2,
                 },

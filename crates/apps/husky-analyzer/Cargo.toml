@@ -51,7 +51,7 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-entity-symbol = { path = "../../syntax/husky-entity-symbol" }
 husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
 husky-syntax-fmt = { path = "../../syntax/husky-syntax-fmt" }
 # utils

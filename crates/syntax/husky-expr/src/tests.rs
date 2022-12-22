@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::AstJar;
 use husky_entity_path::EntityPathJar;
-use husky_entity_tree::EntityTreeJar;
+use husky_entity_symbol::EntitySymbolJar;
 use husky_expect_test_utils::expect_test_husky_to_rust;
 use husky_symbol_syntax::{SymbolDb, SymbolJar};
 use husky_token::Tokenize;
@@ -17,7 +17,7 @@ use salsa::Database;
     TokenJar,
     AstJar,
     SymbolJar,
-    EntityTreeJar
+    EntitySymbolJar
 )]
 #[derive(Default)]
 struct MimicDB {

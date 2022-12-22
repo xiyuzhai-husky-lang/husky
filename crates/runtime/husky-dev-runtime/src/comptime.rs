@@ -34,7 +34,7 @@ impl ResolveStaticRootDefn for DevRuntime {
     }
 }
 
-impl EntityTreeDb for DevRuntime {}
+impl EntitySymbolDb for DevRuntime {}
 
 impl AstDb for DevRuntime {}
 
@@ -44,14 +44,14 @@ impl Upcast<dyn husky_entity_semantics::EntityDefnQueryGroup> for DevRuntime {
     }
 }
 
-impl Upcast<dyn husky_entity_tree::EntityTreeDb> for DevRuntime {
-    fn upcast(&self) -> &(dyn husky_entity_tree::EntityTreeDb + 'static) {
+impl Upcast<dyn husky_entity_symbol::EntitySymbolDb> for DevRuntime {
+    fn upcast(&self) -> &(dyn husky_entity_symbol::EntitySymbolDb + 'static) {
         self
     }
 }
 
-impl Upcast<dyn husky_entity_tree::EntityTreeDb> for DevRuntime {
-    fn upcast(&self) -> &(dyn husky_entity_tree::EntityTreeDb + 'static) {
+impl Upcast<dyn husky_entity_symbol::EntitySymbolDb> for DevRuntime {
+    fn upcast(&self) -> &(dyn husky_entity_symbol::EntitySymbolDb + 'static) {
         self
     }
 }

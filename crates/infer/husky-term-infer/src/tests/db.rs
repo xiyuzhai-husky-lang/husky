@@ -1,7 +1,7 @@
 use super::*;
 use husky_ast::AstJar;
 use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu};
-use husky_entity_tree::EntityTreeJar;
+use husky_entity_symbol::EntitySymbolJar;
 use husky_expr::ExprIdx;
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDb, SymbolJar, SymbolKind};
 use husky_term::{
@@ -16,7 +16,7 @@ use std::{collections::HashMap, sync::Arc};
 use upcast::Upcast;
 
 #[salsa::db(
-    EntityTreeJar,
+    EntitySymbolJar,
     EntityPathJar,
     VfsJar,
     WordJar,

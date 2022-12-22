@@ -6,7 +6,7 @@ mod synthesize;
 
 use crate::*;
 use husky_check_utils::should;
-use husky_entity_tree::EntityTreeDb;
+use husky_entity_symbol::EntitySymbolDb;
 use husky_symbol_syntax::SymbolContext;
 use husky_token::TokenIter;
 use husky_token::{Token, TokenKind};
@@ -15,7 +15,7 @@ use resolve::*;
 use stack::*;
 
 pub(crate) struct Automata<'a, 'b> {
-    db: &'a dyn EntityTreeDb,
+    db: &'a dyn EntitySymbolDb,
     token_iter: TokenIter<'a>,
     symbols: &'a mut SymbolContext<'b>,
     arena: &'a mut ExprArena,
@@ -28,7 +28,7 @@ impl<'a, 'b> Automata<'a, 'b> {
     }
 
     fn new(
-        db: &'a dyn EntityTreeDb,
+        db: &'a dyn EntitySymbolDb,
         token_iter: TokenIter<'a>,
         symbols: &'a mut SymbolContext<'b>,
         arena: &'a mut ExprArena,
@@ -57,7 +57,7 @@ impl<'a, 'b> Automata<'a, 'b> {
 }
 
 pub fn parse_expr(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySymbolDb,
     token_iter: TokenIter,
     symbols: &mut SymbolContext,
     arena: &mut ExprArena,

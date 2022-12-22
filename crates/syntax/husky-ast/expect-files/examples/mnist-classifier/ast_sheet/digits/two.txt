@@ -421,12 +421,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
+                    ident: Identifier(
+                        "domains",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 5,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
+                    ),
+                    ident: Identifier(
+                        "domains",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 10,
@@ -435,12 +441,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
+                    ident: Identifier(
+                        "domains",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 15,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
+                    ),
+                    ident: Identifier(
+                        "domains",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 20,
@@ -449,12 +461,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
+                    ident: Identifier(
+                        "crate",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 23,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
+                    ),
+                    ident: Identifier(
+                        "crate",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 26,
@@ -463,12 +481,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
+                    ident: Identifier(
+                        "crate",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 30,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         7,
+                    ),
+                    ident: Identifier(
+                        "crate",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 33,
@@ -477,12 +501,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
+                    ident: Identifier(
+                        "crate",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 36,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         9,
+                    ),
+                    ident: Identifier(
+                        "crate",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 39,
@@ -491,6 +521,9 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
+                    ident: Identifier(
+                        "crate",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 42,
                 },
@@ -498,12 +531,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
+                    ident: Identifier(
+                        "crate",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 45,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         12,
+                    ),
+                    ident: Identifier(
+                        "crate",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 48,

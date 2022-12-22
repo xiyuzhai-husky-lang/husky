@@ -144,6 +144,9 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
+                    ident: Identifier(
+                        "one",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 1,
                 },
@@ -151,12 +154,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
+                    ident: Identifier(
+                        "six",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 3,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
+                    ),
+                    ident: Identifier(
+                        "zero",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 5,
