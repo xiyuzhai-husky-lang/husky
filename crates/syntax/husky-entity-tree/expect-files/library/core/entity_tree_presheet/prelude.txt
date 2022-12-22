@@ -29,7 +29,7 @@ Ok(
                 crate_kind: Library,
             },
         },
-        module_items: [],
+        module_symbols: [],
         entity_use_roots: EntityUseExprTrackers(
             [
                 EntityUseTracker {

@@ -176,7 +176,7 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreePresheet {
                     .debug_with(db as &dyn VfsDb, include_all_fields),
             )
             .field(
-                "module_items",
+                "module_symbols",
                 &(&self.module_symbols).debug_with(db, include_all_fields),
             )
             .field("entity_use_roots", &self.entity_use_trackers)

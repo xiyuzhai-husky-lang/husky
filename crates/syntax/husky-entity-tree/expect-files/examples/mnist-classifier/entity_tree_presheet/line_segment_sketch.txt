@@ -29,8 +29,8 @@ Ok(
                 crate_kind: Main,
             },
         },
-        module_items: [
-            Submodule {
+        module_symbols: [
+            Module {
                 ident: Identifier(
                     "concave_component",
                 ),
@@ -95,7 +95,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "convex_component",
                 ),
@@ -160,7 +160,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "convexity",
                 ),
@@ -225,7 +225,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "line_segment",
                 ),

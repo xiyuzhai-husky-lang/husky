@@ -78,7 +78,7 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntitySymbol {
                 accessibility,
                 module_path,
             } => f
-                .debug_struct("Submodule")
+                .debug_struct("Module")
                 .field("ident", &ident.debug_with(db, include_all_fields))
                 .field(
                     "accessibility",
@@ -112,7 +112,7 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntitySymbol {
                 accessibility,
                 path,
             } => f
-                .debug_struct("ModuleItem")
+                .debug_struct("EntityUse")
                 .field(
                     "ident",
                     &ident.debug_with(db as &dyn WordDb, include_all_fields),
