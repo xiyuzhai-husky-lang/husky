@@ -22,7 +22,7 @@ husky-text = { path = "../../lex/husky-text" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-entity-symbol = { path = "../../syntax/husky-entity-symbol" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }

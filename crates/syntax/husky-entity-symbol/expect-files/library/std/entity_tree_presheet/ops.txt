@@ -1,0 +1,72 @@
+Ok(
+    EntitySymbolPresheet {
+        module_path: ModulePath {
+            [display]: "crate::ops",
+            [crate]: CratePath {
+                [salsa id]: 1,
+                package_path: PackagePath {
+                    [salsa id]: 1,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: DiffPath {
+                                [salsa id]: 0,
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
+                        },
+                    },
+                    data: Local {
+                        path: DiffPath {
+                            [salsa id]: 8,
+                            data: DiffPathBuf(
+                                "../../../library/std",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Library,
+            },
+        },
+        module_items: [
+            ModuleItem {
+                ident: Identifier(
+                    "Output",
+                ),
+                ast_idx: 0,
+                path: ModuleItemPath(
+                    Id {
+                        value: 15,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "add",
+                ),
+                ast_idx: 1,
+                path: ModuleItemPath(
+                    Id {
+                        value: 16,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "Add",
+                ),
+                ast_idx: 3,
+                path: ModuleItemPath(
+                    Id {
+                        value: 17,
+                    },
+                ),
+                variants: None,
+            },
+        ],
+        entity_use_roots: [],
+    },
+)

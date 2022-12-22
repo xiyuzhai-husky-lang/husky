@@ -1744,12 +1744,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
+                    ident: Identifier(
+                        "crate",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 2,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
+                    ),
+                    ident: Identifier(
+                        "crate",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 5,
@@ -1758,12 +1764,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
+                    ident: Identifier(
+                        "crate",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 8,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         3,
+                    ),
+                    ident: Identifier(
+                        "mnist",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 12,

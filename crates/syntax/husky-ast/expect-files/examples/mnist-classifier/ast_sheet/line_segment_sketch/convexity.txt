@@ -164,6 +164,9 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
+                    ident: Identifier(
+                        "crate",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 2,
                 },
@@ -171,12 +174,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
+                    ident: Identifier(
+                        "crate",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 5,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         2,
+                    ),
+                    ident: Identifier(
+                        "crate",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 8,

@@ -1576,12 +1576,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
+                    ident: Identifier(
+                        "crate",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 2,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         5,
+                    ),
+                    ident: Identifier(
+                        "crate",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 5,
@@ -1590,6 +1596,9 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
+                    ident: Identifier(
+                        "concave_component",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 7,
                 },
@@ -1597,12 +1606,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
+                    ident: Identifier(
+                        "convex_component",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 9,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         8,
+                    ),
+                    ident: Identifier(
+                        "line_segment",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 11,

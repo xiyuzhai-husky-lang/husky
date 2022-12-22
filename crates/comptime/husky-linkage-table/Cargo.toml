@@ -15,7 +15,7 @@ husky-vm = { path = "../../vm/husky-vm" }
 map-collect = { path = "../../abstraction/map-collect" }
 upcast = { path = "../../abstraction/upcast" }
 husky-term = { path = "../../kernel/husky-term" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-entity-symbol = { path = "../../syntax/husky-entity-symbol" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

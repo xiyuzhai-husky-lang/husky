@@ -23,6 +23,7 @@ impl<'a> AstParser<'a> {
         };
         Ast::Use {
             token_group_idx,
+            ident,
             accessibility,
             use_expr_idx: use_expr,
         }

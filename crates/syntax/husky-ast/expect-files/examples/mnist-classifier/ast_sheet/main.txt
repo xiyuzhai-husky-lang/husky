@@ -838,12 +838,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
+                    ident: Identifier(
+                        "mnist",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 1,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         19,
+                    ),
+                    ident: Identifier(
+                        "mnist",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 3,
@@ -852,12 +858,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         20,
                     ),
+                    ident: Identifier(
+                        "major",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 5,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         21,
+                    ),
+                    ident: Identifier(
+                        "zero",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 7,
@@ -866,12 +878,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
+                    ident: Identifier(
+                        "one",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 9,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         23,
+                    ),
+                    ident: Identifier(
+                        "two",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 11,
@@ -880,12 +898,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         24,
                     ),
+                    ident: Identifier(
+                        "three",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 13,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         25,
+                    ),
+                    ident: Identifier(
+                        "five",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 15,
@@ -894,12 +918,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
+                    ident: Identifier(
+                        "six",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 17,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         27,
+                    ),
+                    ident: Identifier(
+                        "seven",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 19,
@@ -908,12 +938,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         28,
                     ),
+                    ident: Identifier(
+                        "eight",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 21,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         29,
+                    ),
+                    ident: Identifier(
+                        "nine",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 23,
@@ -922,6 +958,9 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         30,
                     ),
+                    ident: Identifier(
+                        "raw_contour",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 25,
                 },
@@ -929,12 +968,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         31,
                     ),
+                    ident: Identifier(
+                        "line_segment_sketch",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 27,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         32,
+                    ),
+                    ident: Identifier(
+                        "domains",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 32,

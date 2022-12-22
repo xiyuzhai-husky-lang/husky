@@ -1,0 +1,63 @@
+Ok(
+    EntitySymbolPresheet {
+        module_path: ModulePath {
+            [display]: "crate",
+            [crate]: CratePath {
+                [salsa id]: 1,
+                package_path: PackagePath {
+                    [salsa id]: 1,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: DiffPath {
+                                [salsa id]: 0,
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
+                        },
+                    },
+                    data: Local {
+                        path: DiffPath {
+                            [salsa id]: 8,
+                            data: DiffPathBuf(
+                                "../../../library/std",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Library,
+            },
+        },
+        module_items: [
+            Submodule {
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 5,
+                        },
+                    ),
+                ),
+            },
+            Submodule {
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 2,
+                        },
+                    ),
+                ),
+            },
+            Submodule {
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                ),
+            },
+        ],
+        entity_use_roots: [],
+    },
+)

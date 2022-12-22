@@ -1235,12 +1235,18 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
+                    ident: Identifier(
+                        "cv",
+                    ),
                     accessibility: Protected,
                     use_expr_idx: 3,
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
                         1,
+                    ),
+                    ident: Identifier(
+                        "crate",
                     ),
                     accessibility: Protected,
                     use_expr_idx: 6,

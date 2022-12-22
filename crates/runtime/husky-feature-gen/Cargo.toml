@@ -27,7 +27,7 @@ husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-entity-symbol = { path = "../../syntax/husky-entity-symbol" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # syntax

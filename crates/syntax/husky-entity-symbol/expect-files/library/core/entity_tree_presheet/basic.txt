@@ -1,0 +1,72 @@
+Ok(
+    EntitySymbolPresheet {
+        module_path: ModulePath {
+            [display]: "crate::basic",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: PackagePath {
+                    [salsa id]: 0,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: DiffPath {
+                                [salsa id]: 0,
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
+                        },
+                    },
+                    data: Local {
+                        path: DiffPath {
+                            [salsa id]: 1,
+                            data: DiffPathBuf(
+                                "../../../library/core",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Library,
+            },
+        },
+        module_items: [
+            ModuleItem {
+                ident: Identifier(
+                    "bool",
+                ),
+                ast_idx: 0,
+                path: ModuleItemPath(
+                    Id {
+                        value: 1,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "Trait",
+                ),
+                ast_idx: 1,
+                path: ModuleItemPath(
+                    Id {
+                        value: 2,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "Module",
+                ),
+                ast_idx: 2,
+                path: ModuleItemPath(
+                    Id {
+                        value: 3,
+                    },
+                ),
+                variants: None,
+            },
+        ],
+        entity_use_roots: [],
+    },
+)
