@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: mnist_classifier::digits::two,
+        module_path: `mnist_classifier::digits::two`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "two_match",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::two,
+                    `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 67,
                 path: ModuleItemPath {
                     [salsa id]: 65,
-                    module: mnist_classifier::digits::two,
+                    module: `mnist_classifier::digits::two`,
                     ident: Identifier(
                         "two_match",
                     ),
@@ -23,12 +23,12 @@ Ok(
                     "left_cc_pattern",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::two,
+                    `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 68,
                 path: ModuleItemPath {
                     [salsa id]: 66,
-                    module: mnist_classifier::digits::two,
+                    module: `mnist_classifier::digits::two`,
                     ident: Identifier(
                         "left_cc_pattern",
                     ),
@@ -39,12 +39,12 @@ Ok(
                     "right_cc_pattern",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::two,
+                    `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 69,
                 path: ModuleItemPath {
                     [salsa id]: 67,
-                    module: mnist_classifier::digits::two,
+                    module: `mnist_classifier::digits::two`,
                     ident: Identifier(
                         "right_cc_pattern",
                     ),
@@ -55,12 +55,12 @@ Ok(
                     "down_cc_pattern",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::two,
+                    `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 70,
                 path: ModuleItemPath {
                     [salsa id]: 68,
-                    module: mnist_classifier::digits::two,
+                    module: `mnist_classifier::digits::two`,
                     ident: Identifier(
                         "down_cc_pattern",
                     ),
@@ -71,12 +71,12 @@ Ok(
                     "is_two",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::two,
+                    `mnist_classifier::digits::two`,
                 ),
                 ast_idx: 71,
                 path: ModuleItemPath {
                     [salsa id]: 69,
-                    module: mnist_classifier::digits::two,
+                    module: `mnist_classifier::digits::two`,
                     ident: Identifier(
                         "is_two",
                     ),

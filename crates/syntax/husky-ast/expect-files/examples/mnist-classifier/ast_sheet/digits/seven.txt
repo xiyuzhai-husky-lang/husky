@@ -508,7 +508,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 49,
-                                module: mnist_classifier::digits::seven,
+                                module: `mnist_classifier::digits::seven`,
                                 ident: Identifier(
                                     "simple_seven_match",
                                 ),
@@ -542,7 +542,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 50,
-                                module: mnist_classifier::digits::seven,
+                                module: `mnist_classifier::digits::seven`,
                                 ident: Identifier(
                                     "simple_leftdown_pattern",
                                 ),
@@ -576,7 +576,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 51,
-                                module: mnist_classifier::digits::seven,
+                                module: `mnist_classifier::digits::seven`,
                                 ident: Identifier(
                                     "special_seven_match",
                                 ),
@@ -610,7 +610,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 52,
-                                module: mnist_classifier::digits::seven,
+                                module: `mnist_classifier::digits::seven`,
                                 ident: Identifier(
                                     "leftupcc_pattern",
                                 ),
@@ -644,7 +644,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 53,
-                                module: mnist_classifier::digits::seven,
+                                module: `mnist_classifier::digits::seven`,
                                 ident: Identifier(
                                     "leftdowncc_pattern",
                                 ),
@@ -678,7 +678,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 54,
-                                module: mnist_classifier::digits::seven,
+                                module: `mnist_classifier::digits::seven`,
                                 ident: Identifier(
                                     "is_seven",
                                 ),

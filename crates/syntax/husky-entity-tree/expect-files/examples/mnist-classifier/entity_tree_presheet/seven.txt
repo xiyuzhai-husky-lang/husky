@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: mnist_classifier::seven,
+        module_path: `mnist_classifier::seven`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "simple_seven_match",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::seven,
+                    `mnist_classifier::seven`,
                 ),
                 ast_idx: 50,
                 path: ModuleItemPath {
                     [salsa id]: 137,
-                    module: mnist_classifier::seven,
+                    module: `mnist_classifier::seven`,
                     ident: Identifier(
                         "simple_seven_match",
                     ),
@@ -23,12 +23,12 @@ Ok(
                     "simple_leftdown_pattern",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::seven,
+                    `mnist_classifier::seven`,
                 ),
                 ast_idx: 51,
                 path: ModuleItemPath {
                     [salsa id]: 138,
-                    module: mnist_classifier::seven,
+                    module: `mnist_classifier::seven`,
                     ident: Identifier(
                         "simple_leftdown_pattern",
                     ),
@@ -39,12 +39,12 @@ Ok(
                     "special_seven_match",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::seven,
+                    `mnist_classifier::seven`,
                 ),
                 ast_idx: 52,
                 path: ModuleItemPath {
                     [salsa id]: 139,
-                    module: mnist_classifier::seven,
+                    module: `mnist_classifier::seven`,
                     ident: Identifier(
                         "special_seven_match",
                     ),
@@ -55,12 +55,12 @@ Ok(
                     "leftupcc_pattern",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::seven,
+                    `mnist_classifier::seven`,
                 ),
                 ast_idx: 53,
                 path: ModuleItemPath {
                     [salsa id]: 140,
-                    module: mnist_classifier::seven,
+                    module: `mnist_classifier::seven`,
                     ident: Identifier(
                         "leftupcc_pattern",
                     ),
@@ -71,12 +71,12 @@ Ok(
                     "leftdowncc_pattern",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::seven,
+                    `mnist_classifier::seven`,
                 ),
                 ast_idx: 54,
                 path: ModuleItemPath {
                     [salsa id]: 141,
-                    module: mnist_classifier::seven,
+                    module: `mnist_classifier::seven`,
                     ident: Identifier(
                         "leftdowncc_pattern",
                     ),
@@ -87,12 +87,12 @@ Ok(
                     "is_seven",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::seven,
+                    `mnist_classifier::seven`,
                 ),
                 ast_idx: 55,
                 path: ModuleItemPath {
                     [salsa id]: 142,
-                    module: mnist_classifier::seven,
+                    module: `mnist_classifier::seven`,
                     ident: Identifier(
                         "is_seven",
                     ),

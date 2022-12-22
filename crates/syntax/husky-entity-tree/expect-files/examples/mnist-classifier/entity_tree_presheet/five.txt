@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: mnist_classifier::five,
+        module_path: `mnist_classifier::five`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "five_match",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::five,
+                    `mnist_classifier::five`,
                 ),
                 ast_idx: 30,
                 path: ModuleItemPath {
                     [salsa id]: 78,
-                    module: mnist_classifier::five,
+                    module: `mnist_classifier::five`,
                     ident: Identifier(
                         "five_match",
                     ),
@@ -23,12 +23,12 @@ Ok(
                     "up_right_cc",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::five,
+                    `mnist_classifier::five`,
                 ),
                 ast_idx: 31,
                 path: ModuleItemPath {
                     [salsa id]: 79,
-                    module: mnist_classifier::five,
+                    module: `mnist_classifier::five`,
                     ident: Identifier(
                         "up_right_cc",
                     ),
@@ -39,12 +39,12 @@ Ok(
                     "down_left_cc",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::five,
+                    `mnist_classifier::five`,
                 ),
                 ast_idx: 32,
                 path: ModuleItemPath {
                     [salsa id]: 80,
-                    module: mnist_classifier::five,
+                    module: `mnist_classifier::five`,
                     ident: Identifier(
                         "down_left_cc",
                     ),
@@ -55,12 +55,12 @@ Ok(
                     "is_five",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::five,
+                    `mnist_classifier::five`,
                 ),
                 ast_idx: 33,
                 path: ModuleItemPath {
                     [salsa id]: 81,
-                    module: mnist_classifier::five,
+                    module: `mnist_classifier::five`,
                     ident: Identifier(
                         "is_five",
                     ),

@@ -1,33 +1,33 @@
 Ok(
     EntityTreePresheet {
-        module_path: mnist_classifier::digits,
+        module_path: `mnist_classifier::digits`,
         module_symbols: [
             Module {
                 ident: Identifier(
                     "zero",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits,
+                    `mnist_classifier::digits`,
                 ),
-                module_path: mnist_classifier::digits::zero,
+                module_path: `mnist_classifier::digits::zero`,
             },
             Module {
                 ident: Identifier(
                     "one",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits,
+                    `mnist_classifier::digits`,
                 ),
-                module_path: mnist_classifier::digits::one,
+                module_path: `mnist_classifier::digits::one`,
             },
             Module {
                 ident: Identifier(
                     "six",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits,
+                    `mnist_classifier::digits`,
                 ),
-                module_path: mnist_classifier::digits::six,
+                module_path: `mnist_classifier::digits::six`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

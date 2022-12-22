@@ -19,7 +19,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            std::prelude,
+                            `std::prelude`,
                         ),
                     ),
                     ident: Identifier(
@@ -45,7 +45,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            std::logic,
+                            `std::logic`,
                         ),
                     ),
                     ident: Identifier(
@@ -71,7 +71,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            std::ops,
+                            `std::ops`,
                         ),
                     ),
                     ident: Identifier(

@@ -401,7 +401,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 60,
-                                module: mnist_classifier::digits::three,
+                                module: `mnist_classifier::digits::three`,
                                 ident: Identifier(
                                     "three_fermi_match",
                                 ),
@@ -435,7 +435,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 61,
-                                module: mnist_classifier::digits::three,
+                                module: `mnist_classifier::digits::three`,
                                 ident: Identifier(
                                     "is_three",
                                 ),
@@ -469,7 +469,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 62,
-                                module: mnist_classifier::digits::three,
+                                module: `mnist_classifier::digits::three`,
                                 ident: Identifier(
                                     "uparc",
                                 ),
@@ -503,7 +503,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 63,
-                                module: mnist_classifier::digits::three,
+                                module: `mnist_classifier::digits::three`,
                                 ident: Identifier(
                                     "downarc",
                                 ),
@@ -537,7 +537,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 64,
-                                module: mnist_classifier::digits::three,
+                                module: `mnist_classifier::digits::three`,
                                 ident: Identifier(
                                     "back",
                                 ),

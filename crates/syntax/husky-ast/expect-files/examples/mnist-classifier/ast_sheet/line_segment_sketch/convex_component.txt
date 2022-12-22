@@ -73,7 +73,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 102,
-                                module: mnist_classifier::line_segment_sketch::convex_component,
+                                module: `mnist_classifier::line_segment_sketch::convex_component`,
                                 ident: Identifier(
                                     "ConvexCompoent",
                                 ),

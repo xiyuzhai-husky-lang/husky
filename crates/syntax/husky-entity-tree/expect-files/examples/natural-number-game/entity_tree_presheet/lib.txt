@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: natural_number_game,
+        module_path: `natural_number_game`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "Nat",
                 ),
                 accessibility: PubicUnder(
-                    natural_number_game,
+                    `natural_number_game`,
                 ),
                 ast_idx: 3,
                 path: ModuleItemPath {
                     [salsa id]: 148,
-                    module: natural_number_game,
+                    module: `natural_number_game`,
                     ident: Identifier(
                         "Nat",
                     ),
@@ -23,12 +23,12 @@ Ok(
                     "OddNat",
                 ),
                 accessibility: PubicUnder(
-                    natural_number_game,
+                    `natural_number_game`,
                 ),
                 ast_idx: 9,
                 path: ModuleItemPath {
                     [salsa id]: 149,
-                    module: natural_number_game,
+                    module: `natural_number_game`,
                     ident: Identifier(
                         "OddNat",
                     ),
@@ -39,12 +39,12 @@ Ok(
                     "EvenNat",
                 ),
                 accessibility: PubicUnder(
-                    natural_number_game,
+                    `natural_number_game`,
                 ),
                 ast_idx: 10,
                 path: ModuleItemPath {
                     [salsa id]: 150,
-                    module: natural_number_game,
+                    module: `natural_number_game`,
                     ident: Identifier(
                         "EvenNat",
                     ),

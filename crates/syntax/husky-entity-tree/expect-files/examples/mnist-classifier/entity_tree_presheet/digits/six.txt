@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: mnist_classifier::digits::six,
+        module_path: `mnist_classifier::digits::six`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "six_match",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::six,
+                    `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 59,
                 path: ModuleItemPath {
                     [salsa id]: 55,
-                    module: mnist_classifier::digits::six,
+                    module: `mnist_classifier::digits::six`,
                     ident: Identifier(
                         "six_match",
                     ),
@@ -23,12 +23,12 @@ Ok(
                     "six_match_refined1",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::six,
+                    `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 60,
                 path: ModuleItemPath {
                     [salsa id]: 56,
-                    module: mnist_classifier::digits::six,
+                    module: `mnist_classifier::digits::six`,
                     ident: Identifier(
                         "six_match_refined1",
                     ),
@@ -39,12 +39,12 @@ Ok(
                     "is_six",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::six,
+                    `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 61,
                 path: ModuleItemPath {
                     [salsa id]: 57,
-                    module: mnist_classifier::digits::six,
+                    module: `mnist_classifier::digits::six`,
                     ident: Identifier(
                         "is_six",
                     ),
@@ -55,12 +55,12 @@ Ok(
                     "upmost",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::six,
+                    `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 62,
                 path: ModuleItemPath {
                     [salsa id]: 58,
-                    module: mnist_classifier::digits::six,
+                    module: `mnist_classifier::digits::six`,
                     ident: Identifier(
                         "upmost",
                     ),
@@ -71,12 +71,12 @@ Ok(
                     "bottom1",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::six,
+                    `mnist_classifier::digits::six`,
                 ),
                 ast_idx: 63,
                 path: ModuleItemPath {
                     [salsa id]: 59,
-                    module: mnist_classifier::digits::six,
+                    module: `mnist_classifier::digits::six`,
                     ident: Identifier(
                         "bottom1",
                     ),

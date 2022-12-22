@@ -496,7 +496,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 121,
-                                module: mnist_classifier::nine,
+                                module: `mnist_classifier::nine`,
                                 ident: Identifier(
                                     "nine_match",
                                 ),
@@ -530,7 +530,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 122,
-                                module: mnist_classifier::nine,
+                                module: `mnist_classifier::nine`,
                                 ident: Identifier(
                                     "nine_match_refine",
                                 ),
@@ -564,7 +564,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 123,
-                                module: mnist_classifier::nine,
+                                module: `mnist_classifier::nine`,
                                 ident: Identifier(
                                     "is_nine",
                                 ),
@@ -598,7 +598,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 124,
-                                module: mnist_classifier::nine,
+                                module: `mnist_classifier::nine`,
                                 ident: Identifier(
                                     "downmost",
                                 ),
@@ -632,7 +632,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 125,
-                                module: mnist_classifier::nine,
+                                module: `mnist_classifier::nine`,
                                 ident: Identifier(
                                     "big_cc",
                                 ),

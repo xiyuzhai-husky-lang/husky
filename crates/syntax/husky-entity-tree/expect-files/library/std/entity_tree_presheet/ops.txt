@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: std::ops,
+        module_path: `std::ops`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "Output",
                 ),
                 accessibility: PubicUnder(
-                    std::ops,
+                    `std::ops`,
                 ),
                 ast_idx: 0,
                 path: ModuleItemPath {
                     [salsa id]: 12,
-                    module: std::ops,
+                    module: `std::ops`,
                     ident: Identifier(
                         "Output",
                     ),
@@ -23,12 +23,12 @@ Ok(
                     "Add",
                 ),
                 accessibility: PubicUnder(
-                    std::ops,
+                    `std::ops`,
                 ),
                 ast_idx: 3,
                 path: ModuleItemPath {
                     [salsa id]: 11,
-                    module: std::ops,
+                    module: `std::ops`,
                     ident: Identifier(
                         "Add",
                     ),

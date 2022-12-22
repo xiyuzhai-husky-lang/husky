@@ -1,9 +1,9 @@
 Ok(
     [
-        core::basic,
-        core::logic,
-        core::num,
-        core::ops,
-        core::prelude,
+        `core::basic`,
+        `core::logic`,
+        `core::num`,
+        `core::ops`,
+        `core::prelude`,
     ],
 )

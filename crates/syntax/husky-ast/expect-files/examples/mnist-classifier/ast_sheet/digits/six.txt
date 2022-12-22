@@ -547,7 +547,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 55,
-                                module: mnist_classifier::digits::six,
+                                module: `mnist_classifier::digits::six`,
                                 ident: Identifier(
                                     "six_match",
                                 ),
@@ -581,7 +581,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 56,
-                                module: mnist_classifier::digits::six,
+                                module: `mnist_classifier::digits::six`,
                                 ident: Identifier(
                                     "six_match_refined1",
                                 ),
@@ -615,7 +615,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 57,
-                                module: mnist_classifier::digits::six,
+                                module: `mnist_classifier::digits::six`,
                                 ident: Identifier(
                                     "is_six",
                                 ),
@@ -649,7 +649,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 58,
-                                module: mnist_classifier::digits::six,
+                                module: `mnist_classifier::digits::six`,
                                 ident: Identifier(
                                     "upmost",
                                 ),
@@ -683,7 +683,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 59,
-                                module: mnist_classifier::digits::six,
+                                module: `mnist_classifier::digits::six`,
                                 ident: Identifier(
                                     "bottom1",
                                 ),

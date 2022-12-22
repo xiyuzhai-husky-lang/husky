@@ -261,7 +261,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 76,
-                                module: mnist_classifier::fermi,
+                                module: `mnist_classifier::fermi`,
                                 ident: Identifier(
                                     "FermiMatchResult",
                                 ),
@@ -303,7 +303,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 77,
-                                module: mnist_classifier::fermi,
+                                module: `mnist_classifier::fermi`,
                                 ident: Identifier(
                                     "fermi_match",
                                 ),

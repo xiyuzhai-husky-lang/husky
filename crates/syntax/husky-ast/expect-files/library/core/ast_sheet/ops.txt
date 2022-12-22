@@ -25,7 +25,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 10,
-                                module: core::ops,
+                                module: `core::ops`,
                                 ident: Identifier(
                                     "Output",
                                 ),
@@ -59,7 +59,7 @@ Ok(
                                 [salsa id]: 0,
                                 parent_path: ModuleItemPath {
                                     [salsa id]: 9,
-                                    module: core::ops,
+                                    module: `core::ops`,
                                     ident: Identifier(
                                         "Add",
                                     ),
@@ -100,7 +100,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 9,
-                                module: core::ops,
+                                module: `core::ops`,
                                 ident: Identifier(
                                     "Add",
                                 ),

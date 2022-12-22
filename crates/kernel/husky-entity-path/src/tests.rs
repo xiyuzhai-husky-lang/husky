@@ -18,7 +18,7 @@ fn entity_path_debug_works() {
     expect_test::expect![[r#"
         ModuleItemPath {
             [salsa id]: 14,
-            module: core::num,
+            module: `core::num`,
             ident: Identifier(
                 "i32",
             ),

@@ -587,7 +587,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 17,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "raw_contours",
                                 ),
@@ -621,7 +621,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 18,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "eff_holes",
                                 ),
@@ -655,7 +655,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 19,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "max_hole_ilen",
                                 ),
@@ -689,7 +689,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 20,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "max_row_span",
                                 ),
@@ -723,7 +723,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 21,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "row_span_sum",
                                 ),
@@ -757,7 +757,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 22,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "distribution",
                                 ),
@@ -791,7 +791,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 23,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "upper_mass",
                                 ),
@@ -825,7 +825,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 24,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "lower_mass",
                                 ),
@@ -859,7 +859,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 25,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "top_k_row_span_sum",
                                 ),
@@ -893,7 +893,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 26,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "top_k_row_right_mass_sum",
                                 ),
@@ -1286,7 +1286,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 13,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "ConnectedComponentDistribution",
                                 ),
@@ -1322,7 +1322,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 14,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "EffHoles",
                                 ),
@@ -1356,7 +1356,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 15,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "hole_tmpl",
                                 ),
@@ -1392,7 +1392,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 16,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "ConnectedComponent",
                                 ),
@@ -1426,7 +1426,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 27,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "horizontal_extend",
                                 ),
@@ -1460,7 +1460,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 28,
-                                module: mnist_classifier::connected_component,
+                                module: `mnist_classifier::connected_component`,
                                 ident: Identifier(
                                     "find_connected_components",
                                 ),

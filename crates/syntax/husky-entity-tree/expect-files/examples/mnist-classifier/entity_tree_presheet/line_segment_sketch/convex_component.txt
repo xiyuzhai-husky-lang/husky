@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: mnist_classifier::line_segment_sketch::convex_component,
+        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "ConvexCompoent",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::line_segment_sketch::convex_component,
+                    `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 ast_idx: 5,
                 path: ModuleItemPath {
                     [salsa id]: 102,
-                    module: mnist_classifier::line_segment_sketch::convex_component,
+                    module: `mnist_classifier::line_segment_sketch::convex_component`,
                     ident: Identifier(
                         "ConvexCompoent",
                     ),

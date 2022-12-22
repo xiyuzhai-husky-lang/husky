@@ -19,7 +19,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 0,
-                                module: core::basic,
+                                module: `core::basic`,
                                 ident: Identifier(
                                     "bool",
                                 ),
@@ -49,7 +49,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 1,
-                                module: core::basic,
+                                module: `core::basic`,
                                 ident: Identifier(
                                     "Trait",
                                 ),
@@ -79,7 +79,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 2,
-                                module: core::basic,
+                                module: `core::basic`,
                                 ident: Identifier(
                                     "Module",
                                 ),

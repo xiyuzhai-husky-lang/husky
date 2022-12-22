@@ -110,7 +110,7 @@ fn module_item_path_debug_with_db_works() {
     expect_test::expect![[r#"
         ModuleItemPath {
             [salsa id]: 20,
-            module: core::num,
+            module: `core::num`,
             ident: Identifier(
                 "b32",
             ),

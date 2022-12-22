@@ -1,33 +1,33 @@
 Ok(
     EntityTreePresheet {
-        module_path: std,
+        module_path: `std`,
         module_symbols: [
             Module {
                 ident: Identifier(
                     "prelude",
                 ),
                 accessibility: PubicUnder(
-                    std,
+                    `std`,
                 ),
-                module_path: std::prelude,
+                module_path: `std::prelude`,
             },
             Module {
                 ident: Identifier(
                     "logic",
                 ),
                 accessibility: PubicUnder(
-                    std,
+                    `std`,
                 ),
-                module_path: std::logic,
+                module_path: `std::logic`,
             },
             Module {
                 ident: Identifier(
                     "ops",
                 ),
                 accessibility: PubicUnder(
-                    std,
+                    `std`,
                 ),
-                module_path: std::ops,
+                module_path: `std::ops`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

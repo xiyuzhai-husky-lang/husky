@@ -352,7 +352,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 73,
-                                module: mnist_classifier::eight,
+                                module: `mnist_classifier::eight`,
                                 ident: Identifier(
                                     "upper_mouth_match",
                                 ),
@@ -386,7 +386,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 74,
-                                module: mnist_classifier::eight,
+                                module: `mnist_classifier::eight`,
                                 ident: Identifier(
                                     "is_eight",
                                 ),
@@ -420,7 +420,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 75,
-                                module: mnist_classifier::eight,
+                                module: `mnist_classifier::eight`,
                                 ident: Identifier(
                                     "big_mouth",
                                 ),

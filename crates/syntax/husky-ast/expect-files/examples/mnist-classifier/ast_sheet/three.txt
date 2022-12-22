@@ -401,7 +401,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 143,
-                                module: mnist_classifier::three,
+                                module: `mnist_classifier::three`,
                                 ident: Identifier(
                                     "three_fermi_match",
                                 ),
@@ -435,7 +435,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 144,
-                                module: mnist_classifier::three,
+                                module: `mnist_classifier::three`,
                                 ident: Identifier(
                                     "is_three",
                                 ),
@@ -469,7 +469,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 145,
-                                module: mnist_classifier::three,
+                                module: `mnist_classifier::three`,
                                 ident: Identifier(
                                     "uparc",
                                 ),
@@ -503,7 +503,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 146,
-                                module: mnist_classifier::three,
+                                module: `mnist_classifier::three`,
                                 ident: Identifier(
                                     "downarc",
                                 ),
@@ -537,7 +537,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 147,
-                                module: mnist_classifier::three,
+                                module: `mnist_classifier::three`,
                                 ident: Identifier(
                                     "back",
                                 ),

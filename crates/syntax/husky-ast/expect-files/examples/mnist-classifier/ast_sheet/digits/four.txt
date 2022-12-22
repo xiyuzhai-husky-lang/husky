@@ -585,7 +585,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 32,
-                                module: mnist_classifier::digits::four,
+                                module: `mnist_classifier::digits::four`,
                                 ident: Identifier(
                                     "left_components",
                                 ),
@@ -619,7 +619,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 33,
-                                module: mnist_classifier::digits::four,
+                                module: `mnist_classifier::digits::four`,
                                 ident: Identifier(
                                     "left_coordinate_max",
                                 ),
@@ -653,7 +653,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 34,
-                                module: mnist_classifier::digits::four,
+                                module: `mnist_classifier::digits::four`,
                                 ident: Identifier(
                                     "components_max_downwards",
                                 ),
@@ -687,7 +687,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 35,
-                                module: mnist_classifier::digits::four,
+                                module: `mnist_classifier::digits::four`,
                                 ident: Identifier(
                                     "components_max_heights",
                                 ),
@@ -721,7 +721,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 36,
-                                module: mnist_classifier::digits::four,
+                                module: `mnist_classifier::digits::four`,
                                 ident: Identifier(
                                     "is_four",
                                 ),
@@ -755,7 +755,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 37,
-                                module: mnist_classifier::digits::four,
+                                module: `mnist_classifier::digits::four`,
                                 ident: Identifier(
                                     "displacement_downwards",
                                 ),
@@ -789,7 +789,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 38,
-                                module: mnist_classifier::digits::four,
+                                module: `mnist_classifier::digits::four`,
                                 ident: Identifier(
                                     "cc_box_heights",
                                 ),

@@ -158,7 +158,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 5,
-                                module: core::num,
+                                module: `core::num`,
                                 ident: Identifier(
                                     "i8",
                                 ),
@@ -209,7 +209,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 6,
-                                module: core::num,
+                                module: `core::num`,
                                 ident: Identifier(
                                     "i16",
                                 ),
@@ -260,7 +260,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 7,
-                                module: core::num,
+                                module: `core::num`,
                                 ident: Identifier(
                                     "i32",
                                 ),
@@ -317,7 +317,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 8,
-                                module: core::num,
+                                module: `core::num`,
                                 ident: Identifier(
                                     "i64",
                                 ),

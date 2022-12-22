@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: mnist_classifier::digits::eight,
+        module_path: `mnist_classifier::digits::eight`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "upper_mouth_match",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::eight,
+                    `mnist_classifier::digits::eight`,
                 ),
                 ast_idx: 32,
                 path: ModuleItemPath {
                     [salsa id]: 29,
-                    module: mnist_classifier::digits::eight,
+                    module: `mnist_classifier::digits::eight`,
                     ident: Identifier(
                         "upper_mouth_match",
                     ),
@@ -23,12 +23,12 @@ Ok(
                     "is_eight",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::eight,
+                    `mnist_classifier::digits::eight`,
                 ),
                 ast_idx: 33,
                 path: ModuleItemPath {
                     [salsa id]: 30,
-                    module: mnist_classifier::digits::eight,
+                    module: `mnist_classifier::digits::eight`,
                     ident: Identifier(
                         "is_eight",
                     ),
@@ -39,12 +39,12 @@ Ok(
                     "big_mouth",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::eight,
+                    `mnist_classifier::digits::eight`,
                 ),
                 ast_idx: 34,
                 path: ModuleItemPath {
                     [salsa id]: 31,
-                    module: mnist_classifier::digits::eight,
+                    module: `mnist_classifier::digits::eight`,
                     ident: Identifier(
                         "big_mouth",
                     ),

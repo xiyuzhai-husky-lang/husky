@@ -496,7 +496,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 39,
-                                module: mnist_classifier::digits::nine,
+                                module: `mnist_classifier::digits::nine`,
                                 ident: Identifier(
                                     "nine_match",
                                 ),
@@ -530,7 +530,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 40,
-                                module: mnist_classifier::digits::nine,
+                                module: `mnist_classifier::digits::nine`,
                                 ident: Identifier(
                                     "nine_match_refine",
                                 ),
@@ -564,7 +564,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 41,
-                                module: mnist_classifier::digits::nine,
+                                module: `mnist_classifier::digits::nine`,
                                 ident: Identifier(
                                     "is_nine",
                                 ),
@@ -598,7 +598,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 42,
-                                module: mnist_classifier::digits::nine,
+                                module: `mnist_classifier::digits::nine`,
                                 ident: Identifier(
                                     "downmost",
                                 ),
@@ -632,7 +632,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 43,
-                                module: mnist_classifier::digits::nine,
+                                module: `mnist_classifier::digits::nine`,
                                 ident: Identifier(
                                     "big_cc",
                                 ),

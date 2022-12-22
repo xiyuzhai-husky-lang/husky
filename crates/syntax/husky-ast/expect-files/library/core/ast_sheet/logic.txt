@@ -19,7 +19,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 3,
-                                module: core::logic,
+                                module: `core::logic`,
                                 ident: Identifier(
                                     "LogicAnd",
                                 ),
@@ -49,7 +49,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 4,
-                                module: core::logic,
+                                module: `core::logic`,
                                 ident: Identifier(
                                     "LogicOr",
                                 ),
