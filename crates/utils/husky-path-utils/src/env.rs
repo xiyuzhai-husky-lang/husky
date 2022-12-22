@@ -15,8 +15,8 @@ impl HuskyDevPathEnv {
             loop {
                 if dir.join("husky-toolchain.toml").exists() {
                     assert!(dir.join("husky-toolchain.toml").is_file());
-                    assert!(dir.join("corgi-config.toml").exists());
-                    assert!(dir.join("corgi-config.toml").is_file());
+                    assert!(dir.join(".corgi/config.toml").exists());
+                    assert!(dir.join(".corgi/config.toml").is_file());
                     assert!(dir.join("library").exists());
                     assert!(dir.join("library").is_dir());
                     assert!(dir.join("examples").exists());
