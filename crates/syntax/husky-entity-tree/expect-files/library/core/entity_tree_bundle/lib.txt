@@ -5,35 +5,35 @@ Ok(
                 module_path: `core`,
                 sheets: [
                     Module {
-                        ident: "basic",
+                        ident: `basic`,
                         accessibility: PubicUnder(
                             `core`,
                         ),
                         module_path: `core::basic`,
                     },
                     Module {
-                        ident: "logic",
+                        ident: `logic`,
                         accessibility: PubicUnder(
                             `core`,
                         ),
                         module_path: `core::logic`,
                     },
                     Module {
-                        ident: "num",
+                        ident: `num`,
                         accessibility: PubicUnder(
                             `core`,
                         ),
                         module_path: `core::num`,
                     },
                     Module {
-                        ident: "ops",
+                        ident: `ops`,
                         accessibility: PubicUnder(
                             `core`,
                         ),
                         module_path: `core::ops`,
                     },
                     Module {
-                        ident: "prelude",
+                        ident: `prelude`,
                         accessibility: PubicUnder(
                             `core`,
                         ),
@@ -45,19 +45,19 @@ Ok(
                 module_path: `core::basic`,
                 sheets: [
                     ModuleItem {
-                        ident: "bool",
+                        ident: `bool`,
                         accessibility: Public,
                         ast_idx: 0,
                         path: `core::basic::bool`,
                     },
                     ModuleItem {
-                        ident: "Trait",
+                        ident: `Trait`,
                         accessibility: Public,
                         ast_idx: 1,
                         path: `core::basic::Trait`,
                     },
                     ModuleItem {
-                        ident: "Module",
+                        ident: `Module`,
                         accessibility: Public,
                         ast_idx: 2,
                         path: `core::basic::Module`,
@@ -68,13 +68,13 @@ Ok(
                 module_path: `core::logic`,
                 sheets: [
                     ModuleItem {
-                        ident: "LogicAnd",
+                        ident: `LogicAnd`,
                         accessibility: Public,
                         ast_idx: 0,
                         path: `core::logic::LogicAnd`,
                     },
                     ModuleItem {
-                        ident: "LogicOr",
+                        ident: `LogicOr`,
                         accessibility: Public,
                         ast_idx: 1,
                         path: `core::logic::LogicOr`,
@@ -85,25 +85,25 @@ Ok(
                 module_path: `core::num`,
                 sheets: [
                     ModuleItem {
-                        ident: "i8",
+                        ident: `i8`,
                         accessibility: Public,
                         ast_idx: 9,
                         path: `core::num::i8`,
                     },
                     ModuleItem {
-                        ident: "i16",
+                        ident: `i16`,
                         accessibility: Public,
                         ast_idx: 13,
                         path: `core::num::i16`,
                     },
                     ModuleItem {
-                        ident: "i32",
+                        ident: `i32`,
                         accessibility: Public,
                         ast_idx: 17,
                         path: `core::num::i32`,
                     },
                     ModuleItem {
-                        ident: "i64",
+                        ident: `i64`,
                         accessibility: PubicUnder(
                             `core::num`,
                         ),
@@ -116,7 +116,7 @@ Ok(
                 module_path: `core::ops`,
                 sheets: [
                     ModuleItem {
-                        ident: "Output",
+                        ident: `Output`,
                         accessibility: PubicUnder(
                             `core::ops`,
                         ),
@@ -124,7 +124,7 @@ Ok(
                         path: `core::ops::Output`,
                     },
                     ModuleItem {
-                        ident: "Add",
+                        ident: `Add`,
                         accessibility: Public,
                         ast_idx: 3,
                         path: `core::ops::Add`,

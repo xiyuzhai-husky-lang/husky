@@ -5,7 +5,7 @@ Ok(
                 module_path: `natural_number_game`,
                 sheets: [
                     ModuleItem {
-                        ident: "Nat",
+                        ident: `Nat`,
                         accessibility: PubicUnder(
                             `natural_number_game`,
                         ),
@@ -13,7 +13,7 @@ Ok(
                         path: `natural_number_game::Nat`,
                     },
                     ModuleItem {
-                        ident: "OddNat",
+                        ident: `OddNat`,
                         accessibility: PubicUnder(
                             `natural_number_game`,
                         ),
@@ -21,7 +21,7 @@ Ok(
                         path: `natural_number_game::OddNat`,
                     },
                     ModuleItem {
-                        ident: "EvenNat",
+                        ident: `EvenNat`,
                         accessibility: PubicUnder(
                             `natural_number_game`,
                         ),

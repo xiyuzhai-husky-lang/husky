@@ -94,7 +94,7 @@ impl<'a> TestPathResolver<'a> {
         let dir = self.decide_module_dir(module);
         match module.data(self.db) {
             ModulePathData::Root(crate_path) => dir.join(format!(
-                "{}.txt",
+                "{}.{EXPECT_FILE_EXTENSION}",
                 match crate_path.crate_kind(self.db) {
                     CrateKind::Library => "lib",
                     CrateKind::Main => "main",
@@ -102,10 +102,12 @@ impl<'a> TestPathResolver<'a> {
                     CrateKind::StandaloneTest(_) => todo!(),
                 }
             )),
-            ModulePathData::Child { .. } => dir.with_extension("txt"),
+            ModulePathData::Child { .. } => dir.with_extension(EXPECT_FILE_EXTENSION),
         }
     }
 }
+
+const EXPECT_FILE_EXTENSION: &'static str = "md";
 
 impl<Db> VfsTestSupport for Db
 where
