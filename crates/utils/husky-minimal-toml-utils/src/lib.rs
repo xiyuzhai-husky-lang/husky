@@ -1,7 +1,7 @@
 use husky_print_utils::p;
 use thiserror::Error;
 
-#[derive(Debug, Error, PartialEq, Eq)]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum MinimalTomlError {
     #[error("expect word `name`")]
     ExpectWordName,

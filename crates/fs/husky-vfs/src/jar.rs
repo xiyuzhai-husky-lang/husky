@@ -16,6 +16,7 @@ pub struct VfsJar(
     <PublishedToolchain as salsa::storage::IngredientsFor>::Ingredients,
     <published_toolchain_library_path as salsa::storage::IngredientsFor>::Ingredients,
     <current_toolchain as salsa::storage::IngredientsFor>::Ingredients,
+    <package_ident as salsa::storage::IngredientsFor>::Ingredients,
     VfsCache,
 );
 
@@ -185,6 +186,17 @@ impl salsa::storage::HasIngredientsFor<current_toolchain> for VfsJar {
     }
 }
 
+impl salsa::storage::HasIngredientsFor<package_ident> for VfsJar {
+    fn ingredient(&self) -> &<package_ident as salsa::storage::IngredientsFor>::Ingredients {
+        &self.15
+    }
+    fn ingredient_mut(
+        &mut self,
+    ) -> &mut <package_ident as salsa::storage::IngredientsFor>::Ingredients {
+        &mut self.15
+    }
+}
+
 impl<'salsa_db> salsa::jar::Jar<'salsa_db> for VfsJar {
     type DynDb = dyn VfsDb + 'salsa_db;
     fn create_jar<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self
@@ -209,6 +221,7 @@ impl<'salsa_db> salsa::jar::Jar<'salsa_db> for VfsJar {
             <PublishedToolchain as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i13 =  <published_toolchain_library_path as salsa::storage::IngredientsFor> ::create_ingredients(routes);
         let i14 = <current_toolchain as salsa::storage::IngredientsFor>::create_ingredients(routes);
+        let i15 = <package_ident as salsa::storage::IngredientsFor>::create_ingredients(routes);
         Self(
             i0,
             i1,
@@ -225,6 +238,7 @@ impl<'salsa_db> salsa::jar::Jar<'salsa_db> for VfsJar {
             i12,
             i13,
             i14,
+            i15,
             Default::default(),
         )
     }
@@ -232,10 +246,10 @@ impl<'salsa_db> salsa::jar::Jar<'salsa_db> for VfsJar {
 
 impl VfsJar {
     pub(crate) fn cache(&self) -> &VfsCache {
-        &self.15
+        &self.16
     }
 
     pub(crate) fn set_watcher(&mut self, watcher: VfsWatcher) {
-        self.15.set_watcher(watcher)
+        self.16.set_watcher(watcher)
     }
 }

@@ -1,9 +1,27 @@
 use super::*;
 
+use husky_minimal_toml_utils::find_package_name_in_toml;
 use husky_word::Identifier;
 use salsa::DebugWithDb;
 use std::path::Path;
 use url::Url;
+
+#[salsa::tracked(jar = VfsJar)]
+pub(crate) fn package_ident(db: &dyn VfsDb, package_path: PackagePath) -> VfsResult<Identifier> {
+    let toml_content = db.package_manifest_content(package_path)?;
+    let name = find_package_name_in_toml(toml_content)?;
+    Identifier::from_owned(db, husky_word::dash_to_snake(name)).ok_or(VfsError::PackageIdent)
+}
+
+#[test]
+fn package_ident_works() {
+    let db = DB::default();
+    let toolchain = db.dev_toolchain();
+    let word_menu = db.word_menu();
+    let path_menu = db.path_menu(toolchain).unwrap();
+    assert_eq!(path_menu.core_package().ident(&db), Ok(word_menu.core()));
+    assert_eq!(path_menu.std_package().ident(&db), Ok(word_menu.std()));
+}
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
 pub enum PackagePathData {
@@ -52,6 +70,10 @@ impl PackagePath {
                 PackagePath::new_local(db, toolchain, &library_path.data(db).join(ident.data(db)))
             }
         }
+    }
+
+    pub fn ident(self, db: &dyn VfsDb) -> VfsResult<Identifier> {
+        package_ident(db, self)
     }
 }
 

@@ -23,7 +23,7 @@ impl Identifier {
         self.0
     }
 
-    pub(crate) fn from_owned(db: &dyn WordDb, data: String) -> Option<Self> {
+    pub fn from_owned(db: &dyn WordDb, data: String) -> Option<Self> {
         if is_valid_ident(&data) {
             Some(Self(db.it_word_owned(data)))
         } else {
