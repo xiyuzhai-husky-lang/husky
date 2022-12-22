@@ -240,6 +240,7 @@ pub fn clear_directory(path: &Path) -> Result<(), std::io::Error> {
         if entry_path.is_dir() {
             // If the entry is a directory, clear it recursively
             clear_directory(&entry_path)?;
+            std::fs::remove_dir(entry_path);
         } else {
             // If the entry is a file, delete it
             std::fs::remove_file(entry_path)?;
