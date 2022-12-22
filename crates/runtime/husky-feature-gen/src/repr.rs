@@ -11,7 +11,7 @@ pub enum FeatureRepr {
     Value {
         value: __Register<'static>,
         ty: Term,
-        file: AbsolutePath,
+        file: DiffPath,
         range: TextRange,
         feature: FeatureItd,
     },
@@ -20,7 +20,7 @@ pub enum FeatureRepr {
     FuncBody(Arc<FeatureFuncBody>),
     ProcBody(Arc<FeatureProcBody>),
     TargetInput {
-        main_file: AbsolutePath,
+        main_file: DiffPath,
         ty: Term,
         feature: FeatureItd,
     },
@@ -71,7 +71,7 @@ impl FeatureRepr {
         }
     }
 
-    pub fn file(&self) -> AbsolutePath {
+    pub fn file(&self) -> DiffPath {
         match self {
             FeatureRepr::Value { file, .. } => *file,
             FeatureRepr::LazyExpr(expr) => expr.expr.file,

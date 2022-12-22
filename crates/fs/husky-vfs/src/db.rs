@@ -7,7 +7,7 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
     fn path_menu(&self, toolchain: Toolchain) -> VfsResult<&PathMenu>;
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
     fn module_content(&self, module_path: ModulePath) -> VfsResult<&str>;
-    fn package_dir(&self, package_path: PackagePath) -> &VfsResult<AbsolutePath>;
+    fn package_dir(&self, package_path: PackagePath) -> &VfsResult<DiffPath>;
     fn collect_local_packages(
         &self,
         toolchain: Toolchain,
@@ -30,7 +30,7 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
 
 // don't leak this outside the crate
 pub trait VfsDbInner {
-    fn file_from_absolute_path(&self, path: AbsolutePath) -> VfsResult<File>;
+    fn file_from_absolute_path(&self, path: DiffPath) -> VfsResult<File>;
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
     fn vfs_cache(&self) -> &VfsCache;
@@ -45,7 +45,6 @@ pub trait VfsDbInner {
         self.vfs_jar().cache().huskyup_install_path()
     }
     fn is_inside_installed_corgi_or_huskyup(&self, path: &Path) -> VfsResult<bool> {
-        assert!(path.is_absolute());
         Ok(path.starts_with(self.corgi_install_path()?)
             || path.starts_with(self.huskyup_install_path()?))
     }
@@ -56,7 +55,7 @@ impl<T> VfsDbInner for T
 where
     T: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
 {
-    fn file_from_absolute_path(&self, abs_path: AbsolutePath) -> VfsResult<File> {
+    fn file_from_absolute_path(&self, abs_path: DiffPath) -> VfsResult<File> {
         Ok(
             match self
                 .vfs_jar()
@@ -111,7 +110,7 @@ where
         self.set_content(path, content)
     }
     fn set_content(&mut self, path: &Path, content: FileContent) -> VfsResult<()> {
-        let abs_path = AbsolutePath::try_new(self, path)?;
+        let abs_path = DiffPath::try_new(self, path)?;
         let file = match self
             .vfs_jar()
             .cache()
@@ -171,7 +170,7 @@ where
         self.file_from_absolute_path(abs_path)?.text(self)
     }
 
-    fn package_dir(&self, package: PackagePath) -> &VfsResult<AbsolutePath> {
+    fn package_dir(&self, package: PackagePath) -> &VfsResult<DiffPath> {
         package_dir(self, package)
     }
 
@@ -303,12 +302,17 @@ where
     // toolchain
     fn lang_dev_toolchain(&self) -> Toolchain {
         let library_path = derive_library_path_from_cargo_manifest_dir();
-        Toolchain::new(self, ToolchainData::Local { library_path })
+        Toolchain::new(
+            self,
+            ToolchainData::Local {
+                library_path: DiffPath::try_new(self, &library_path).unwrap(),
+            },
+        )
     }
     fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path {
         match toolchain.data(self) {
             ToolchainData::Published(_) => todo!(),
-            ToolchainData::Local { library_path } => &library_path,
+            ToolchainData::Local { library_path } => library_path.data(self),
         }
     }
 

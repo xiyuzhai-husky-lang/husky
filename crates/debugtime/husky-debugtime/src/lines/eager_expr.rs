@@ -142,7 +142,7 @@ impl<'a> TraceLineGenerator<'a> {
 
     fn eager_routine_call_tokens(
         &mut self,
-        file: AbsolutePath,
+        file: DiffPath,
         ranged_scope: Term,
         inputs: &[Arc<EagerExpr>],
         opt_associated_trace_id: Option<TraceId>,

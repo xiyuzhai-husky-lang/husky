@@ -18,7 +18,41 @@ pub struct Toolchain {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum ToolchainData {
     Published(PublishedToolchain),
-    Local { library_path: PathBuf },
+    Local { library_path: DiffPath },
+}
+
+impl salsa::DebugWithDb<dyn VfsDb + '_> for ToolchainData {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn VfsDb,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        match self {
+            Self::Published(published_toolchain) => f
+                .debug_tuple("Published")
+                .field(&published_toolchain.debug_with(db, include_all_fields))
+                .finish(),
+            Self::Local { library_path } => f
+                .debug_struct("Local")
+                .field(
+                    "library_path",
+                    &library_path.debug_with(db, include_all_fields),
+                )
+                .finish(),
+        }
+    }
+}
+
+impl<Db: VfsDb> salsa::DebugWithDb<Db> for ToolchainData {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        self.fmt(f, db as &dyn VfsDb, include_all_fields)
+    }
 }
 
 #[salsa::interned(jar =VfsJar)]

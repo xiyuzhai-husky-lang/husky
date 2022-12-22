@@ -18,7 +18,7 @@ impl VfsQueryGroupBase for DevRuntime {
         Some(&self.live_docs)
     }
 
-    fn watch(&self, path: AbsolutePath) {
+    fn watch(&self, path: DiffPath) {
         todo!()
     }
 }

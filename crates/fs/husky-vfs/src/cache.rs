@@ -5,6 +5,7 @@ pub struct VfsCache {
     files: DashMap<PathBuf, File>,
     corgi_install_path: FsSpecsResult<PathBuf>,
     huskyup_install_path: FsSpecsResult<PathBuf>,
+    base_path: VfsResult<PathBuf>,
     watcher: Option<VfsWatcher>,
 }
 
@@ -24,6 +25,10 @@ impl Default for VfsCache {
             files: Default::default(),
             corgi_install_path,
             huskyup_install_path,
+            base_path: match std::env::current_dir() {
+                Ok(dir) => std::path::absolute(dir).map_err(|e| todo!()),
+                Err(e) => todo!(),
+            },
             watcher: None,
         }
     }
@@ -49,5 +54,9 @@ impl VfsCache {
     pub(crate) fn set_watcher(&mut self, watcher: VfsWatcher) {
         assert!(self.watcher.is_none());
         self.watcher = Some(watcher)
+    }
+
+    pub fn base_path(&self) -> Result<&PathBuf, &VfsError> {
+        self.base_path.as_ref()
     }
 }

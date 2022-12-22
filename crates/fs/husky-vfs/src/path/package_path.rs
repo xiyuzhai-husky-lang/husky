@@ -16,7 +16,7 @@ pub enum PackagePathData {
         version: semver::Version,
     },
     Local {
-        path: AbsolutePath,
+        path: DiffPath,
     },
     Git {
         url: Url,
@@ -36,7 +36,7 @@ impl PackagePath {
             db,
             toolchain,
             PackagePathData::Local {
-                path: AbsolutePath::try_new(db, path)?,
+                path: DiffPath::try_new(db, path)?,
             },
         ))
     }
@@ -49,7 +49,7 @@ impl PackagePath {
         match toolchain.data(db) {
             ToolchainData::Published(_) => todo!(),
             ToolchainData::Local { library_path } => {
-                PackagePath::new_local(db, toolchain, &library_path.join(ident.data(db)))
+                PackagePath::new_local(db, toolchain, &library_path.data(db).join(ident.data(db)))
             }
         }
     }
@@ -60,20 +60,23 @@ impl DebugWithDb<dyn VfsDb + '_> for PackagePathData {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn VfsDb,
-        _include_all_fields: bool,
+        include_all_fields: bool,
     ) -> ::std::fmt::Result {
         match self {
             PackagePathData::PublishedToolchain { ident, toolchain } => f
                 .debug_struct("Builtin")
                 .field("ident", &ident.data(db))
-                .field("toolchain", &toolchain.debug(db))
+                .field("toolchain", &toolchain.debug_with(db, include_all_fields))
                 .finish(),
             PackagePathData::Global { ident, ref version } => f
                 .debug_struct("Glocal")
                 .field("ident", &ident.data(db))
                 .field("version", version)
                 .finish(),
-            PackagePathData::Local { path } => f.debug_struct("Local").field("path", path).finish(),
+            PackagePathData::Local { path } => f
+                .debug_struct("Local")
+                .field("path", &path.debug_with(db, include_all_fields))
+                .finish(),
             PackagePathData::Git { url } => f.debug_struct("Git").field("url", url).finish(),
         }
     }

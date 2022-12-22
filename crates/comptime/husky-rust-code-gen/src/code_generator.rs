@@ -17,7 +17,7 @@ use crate::*;
 pub(crate) struct RustCodeGenerator<'a> {
     db: &'a dyn RustTranspileDb,
     result: String,
-    target_entrance: AbsolutePath,
+    target_entrance: DiffPath,
     // entity_route_uses: LocalStack<Term>,
     // context: RustCodeGenContext,
 }
@@ -44,7 +44,7 @@ impl<'a> RustCodeGenerator<'a> {
 
     pub(crate) fn new_lib(
         _db: &'a dyn RustTranspileDb,
-        _target_entrance: AbsolutePath,
+        _target_entrance: DiffPath,
         _use_crate_all: bool,
     ) -> Self {
         // let mut symbols = LocalStack::new();

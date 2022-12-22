@@ -20,6 +20,8 @@ pub enum VfsError {
         path: PathBuf,
         error_message: String,
     },
+    #[error("fail to diff")]
+    FailToDiff,
     #[error("failed to resolve module path")]
     ModulePathResolveFailure,
 }

@@ -2,7 +2,7 @@ use crate::*;
 
 pub(crate) fn rust_init_rs_content(
     _db: &dyn RustTranspileDb,
-    _target_entrance: AbsolutePath,
+    _target_entrance: DiffPath,
 ) -> Arc<String> {
     todo!()
     // msg_once!("deal with submodules");

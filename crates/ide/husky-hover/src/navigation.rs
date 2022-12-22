@@ -9,7 +9,7 @@ use husky_text::TextRange;
 /// code, like a function or a struct, but this is not strictly required.
 #[derive(Clone, PartialEq, Eq, Hash)]
 pub struct NavigationTarget {
-    pub file: AbsolutePath,
+    pub file: DiffPath,
     /// Range which encompasses the whole element.
     ///
     /// Should include body, doc comments, attributes, etc.

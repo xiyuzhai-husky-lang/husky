@@ -6,7 +6,7 @@ pub struct VfsJar(
     <ModulePath as salsa::storage::IngredientsFor>::Ingredients,
     <apparent_ancestry as salsa::storage::IngredientsFor>::Ingredients,
     <path_menu as salsa::storage::IngredientsFor>::Ingredients,
-    <AbsolutePath as salsa::storage::IngredientsFor>::Ingredients,
+    <DiffPath as salsa::storage::IngredientsFor>::Ingredients,
     <File as salsa::storage::IngredientsFor>::Ingredients,
     <package_dir as salsa::storage::IngredientsFor>::Ingredients,
     <module_absolute_path as salsa::storage::IngredientsFor>::Ingredients,
@@ -74,13 +74,11 @@ impl salsa::storage::HasIngredientsFor<path_menu> for VfsJar {
     }
 }
 
-impl salsa::storage::HasIngredientsFor<AbsolutePath> for VfsJar {
-    fn ingredient(&self) -> &<AbsolutePath as salsa::storage::IngredientsFor>::Ingredients {
+impl salsa::storage::HasIngredientsFor<DiffPath> for VfsJar {
+    fn ingredient(&self) -> &<DiffPath as salsa::storage::IngredientsFor>::Ingredients {
         &self.5
     }
-    fn ingredient_mut(
-        &mut self,
-    ) -> &mut <AbsolutePath as salsa::storage::IngredientsFor>::Ingredients {
+    fn ingredient_mut(&mut self) -> &mut <DiffPath as salsa::storage::IngredientsFor>::Ingredients {
         &mut self.5
     }
 }
@@ -198,7 +196,7 @@ impl<'salsa_db> salsa::jar::Jar<'salsa_db> for VfsJar {
         let i2 = <ModulePath as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i3 = <apparent_ancestry as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i4 = <path_menu as salsa::storage::IngredientsFor>::create_ingredients(routes);
-        let i5 = <AbsolutePath as salsa::storage::IngredientsFor>::create_ingredients(routes);
+        let i5 = <DiffPath as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i6 = <File as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i7 = <package_dir as salsa::storage::IngredientsFor>::create_ingredients(routes);
         let i8 =

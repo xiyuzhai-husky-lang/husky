@@ -10,7 +10,12 @@ fn toolchain_debug_works() {
         Toolchain {
             [salsa id]: 0,
             data: Local {
-                library_path: "/home/xiyuzhai/repos/husky/library",
+                library_path: DiffPath {
+                    [salsa id]: 0,
+                    data: DiffPathBuf(
+                        "../../../library",
+                    ),
+                },
             },
         }
     "#]]

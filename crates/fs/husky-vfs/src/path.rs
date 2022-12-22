@@ -2,29 +2,29 @@ mod crate_path;
 mod menu;
 mod module_path;
 mod package_path;
-mod absolute_path;
+mod diff_path;
 
 pub use crate_path::*;
 pub use module_path::*;
 pub use menu::*;
 pub use package_path::*;
-pub use absolute_path::*;
+pub use diff_path::*;
 
 use crate::*;
 
 pub(crate) fn package_manifest_path(
     db: &dyn VfsDb,
     package: PackagePath,
-) -> VfsResult<AbsolutePath> {
-    AbsolutePath::try_new(db, &package_dir(db, package).as_ref()?.path(db).join("Corgi.toml"))
+) -> VfsResult<DiffPath> {
+    DiffPath::try_new(db, &package_dir(db, package).as_ref()?.path(db).join("Corgi.toml"))
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
-pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<AbsolutePath> {
+pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<DiffPath> {
     match package.data(db) {
         PackagePathData::PublishedToolchain { toolchain, ident } => {
             let toolchain_library_path = db.published_toolchain_library_path(*toolchain);
-            AbsolutePath::try_new(db, &toolchain_library_path.join(ident.data(db)))
+            DiffPath::try_new(db, &toolchain_library_path.join(ident.data(db)))
         }
         PackagePathData::Global {
             ident: _,
@@ -39,9 +39,9 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Abs
 pub(crate) fn module_absolute_path(
     db: &dyn VfsDb,
     module_path: ModulePath,
-) -> VfsResult<AbsolutePath> {
+) -> VfsResult<DiffPath> {
     match module_path.data(db) {
-        ModulePathData::Root(crate_path) => AbsolutePath::try_new(
+        ModulePathData::Root(crate_path) => DiffPath::try_new(
             db,
             &package_dir(db, crate_path.package_path(db))
                 .as_ref()?
@@ -58,7 +58,7 @@ pub(crate) fn module_absolute_path(
                     ident: _,
                 } => parent_module_path.path(db).with_extension(""),
             };
-            AbsolutePath::try_new(db, &dir.join(db.dt_ident(ident)).with_extension("hsy"))
+            DiffPath::try_new(db, &dir.join(db.dt_ident(ident)).with_extension("hsy"))
         }
     }
 }
