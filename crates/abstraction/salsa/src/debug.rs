@@ -173,7 +173,7 @@ where
 impl<Db: ?Sized, T, E> DebugWithDb<Db> for Result<T, E>
 where
     T: DebugWithDb<Db>,
-    E: std::fmt::Debug,
+    E: DebugWithDb<Db>,
 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
         match self {
@@ -181,7 +181,10 @@ where
                 .debug_tuple("Ok")
                 .field(&t.debug_with(db, include_all_fields))
                 .finish(),
-            Err(e) => f.debug_tuple("Err").field(&e).finish(),
+            Err(e) => f
+                .debug_tuple("Err")
+                .field(&e.debug_with(db, include_all_fields))
+                .finish(),
         }
     }
 }

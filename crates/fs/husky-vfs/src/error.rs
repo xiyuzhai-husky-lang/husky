@@ -53,3 +53,25 @@ impl VfsError {
         }
     }
 }
+
+impl salsa::DebugWithDb<dyn VfsDb + '_> for VfsError {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn VfsDb,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        <Self as std::fmt::Debug>::fmt(self, f)
+    }
+}
+
+impl<Db: VfsDb> salsa::DebugWithDb<Db> for VfsError {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        self.fmt(f, db as &dyn VfsDb, include_all_fields)
+    }
+}
