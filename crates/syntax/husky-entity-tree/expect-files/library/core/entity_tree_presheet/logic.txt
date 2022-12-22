@@ -1,0 +1,62 @@
+Ok(
+    EntityTreePresheet {
+        module_path: ModulePath {
+            [display]: "crate::logic",
+            [crate]: CratePath {
+                [salsa id]: 0,
+                package_path: PackagePath {
+                    [salsa id]: 0,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: DiffPath {
+                                [salsa id]: 0,
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
+                        },
+                    },
+                    data: Local {
+                        path: DiffPath {
+                            [salsa id]: 1,
+                            data: DiffPathBuf(
+                                "../../../library/core",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Library,
+            },
+        },
+        module_items: [
+            ModuleItem {
+                ident: Identifier(
+                    "LogicAnd",
+                ),
+                ast_idx: 0,
+                path: ModuleItemPath(
+                    Id {
+                        value: 4,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "LogicOr",
+                ),
+                ast_idx: 1,
+                path: ModuleItemPath(
+                    Id {
+                        value: 5,
+                    },
+                ),
+                variants: Some(
+                    [],
+                ),
+            },
+        ],
+        entity_use_roots: [],
+    },
+)
