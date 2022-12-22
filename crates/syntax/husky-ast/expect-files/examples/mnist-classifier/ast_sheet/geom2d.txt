@@ -1,0 +1,1540 @@
+Ok(
+    AstSheet {
+        arena: Arena {
+            data: [
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        3,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        7,
+                    ),
+                    body: ArenaIdxRange(
+                        2..2,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        9,
+                    ),
+                    body: ArenaIdxRange(
+                        3..3,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        11,
+                    ),
+                    body: ArenaIdxRange(
+                        4..4,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        2,
+                    ),
+                    body: ArenaIdxRange(
+                        0..1,
+                    ),
+                    accessibility: Public,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 90,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 281,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "from_i_shift28",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        4,
+                    ),
+                    body: ArenaIdxRange(
+                        1..2,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 91,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 282,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "vector",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        6,
+                    ),
+                    body: ArenaIdxRange(
+                        2..3,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 92,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 284,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "to",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        8,
+                    ),
+                    body: ArenaIdxRange(
+                        3..4,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 93,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 179,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "norm",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        10,
+                    ),
+                    body: ArenaIdxRange(
+                        4..5,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 94,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 243,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "dist",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        16,
+                    ),
+                    body: ArenaIdxRange(
+                        10..10,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        18,
+                    ),
+                    body: ArenaIdxRange(
+                        11..11,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        20,
+                    ),
+                    body: ArenaIdxRange(
+                        12..12,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        22,
+                    ),
+                    body: ArenaIdxRange(
+                        13..13,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        24,
+                    ),
+                    body: ArenaIdxRange(
+                        14..14,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        29,
+                    ),
+                    body: ArenaIdxRange(
+                        15..15,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        28,
+                    ),
+                    body: ArenaIdxRange(
+                        15..16,
+                    ),
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        31,
+                    ),
+                    error: ExcessiveIndent,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        30,
+                    ),
+                    body: ArenaIdxRange(
+                        17..18,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 16,
+                    elif_stmts: ArenaIdxRange(
+                        17..17,
+                    ),
+                    else_stmt: Some(
+                        18,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        27,
+                    ),
+                    body: ArenaIdxRange(
+                        19..20,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        33,
+                    ),
+                    body: ArenaIdxRange(
+                        21..21,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        32,
+                    ),
+                    body: ArenaIdxRange(
+                        21..22,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        26,
+                    ),
+                    body: ArenaIdxRange(
+                        15..15,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 20,
+                    elif_stmts: ArenaIdxRange(
+                        21..21,
+                    ),
+                    else_stmt: Some(
+                        22,
+                    ),
+                },
+                Comment {
+                    token_group_idx: TokenGroupIdx(
+                        36,
+                    ),
+                },
+                Comment {
+                    token_group_idx: TokenGroupIdx(
+                        37,
+                    ),
+                },
+                Comment {
+                    token_group_idx: TokenGroupIdx(
+                        38,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        39,
+                    ),
+                    body: ArenaIdxRange(
+                        25..25,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        40,
+                    ),
+                    body: ArenaIdxRange(
+                        25..25,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        49,
+                    ),
+                    body: ArenaIdxRange(
+                        30..30,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        48,
+                    ),
+                    body: ArenaIdxRange(
+                        30..31,
+                    ),
+                },
+                Err {
+                    token_group_idx: TokenGroupIdx(
+                        51,
+                    ),
+                    error: ExcessiveIndent,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        50,
+                    ),
+                    body: ArenaIdxRange(
+                        32..33,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 31,
+                    elif_stmts: ArenaIdxRange(
+                        32..32,
+                    ),
+                    else_stmt: Some(
+                        33,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        47,
+                    ),
+                    body: ArenaIdxRange(
+                        34..35,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        53,
+                    ),
+                    body: ArenaIdxRange(
+                        36..36,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        54,
+                    ),
+                    body: ArenaIdxRange(
+                        36..36,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        52,
+                    ),
+                    body: ArenaIdxRange(
+                        36..38,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        42,
+                    ),
+                    body: ArenaIdxRange(
+                        30..30,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        43,
+                    ),
+                    body: ArenaIdxRange(
+                        30..30,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        44,
+                    ),
+                    body: ArenaIdxRange(
+                        30..30,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        45,
+                    ),
+                    body: ArenaIdxRange(
+                        30..30,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        46,
+                    ),
+                    body: ArenaIdxRange(
+                        30..30,
+                    ),
+                },
+                IfElseStmts {
+                    if_stmt: 35,
+                    elif_stmts: ArenaIdxRange(
+                        36..36,
+                    ),
+                    else_stmt: Some(
+                        38,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        15,
+                    ),
+                    body: ArenaIdxRange(
+                        10..11,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 97,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 287,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "point",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        17,
+                    ),
+                    body: ArenaIdxRange(
+                        11..12,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 92,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 284,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "to",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        19,
+                    ),
+                    body: ArenaIdxRange(
+                        12..13,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 93,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 179,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "norm",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        21,
+                    ),
+                    body: ArenaIdxRange(
+                        13..14,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 98,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 288,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "dot",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        23,
+                    ),
+                    body: ArenaIdxRange(
+                        14..15,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 99,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 289,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "cross",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        25,
+                    ),
+                    body: ArenaIdxRange(
+                        23..25,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 100,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 215,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "angle",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Comment {
+                    token_group_idx: TokenGroupIdx(
+                        34,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        35,
+                    ),
+                    body: ArenaIdxRange(
+                        25..30,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 101,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 295,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "rotation_direction_to",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        41,
+                    ),
+                    body: ArenaIdxRange(
+                        39..45,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 102,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 296,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "angle_to",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        58,
+                    ),
+                    body: ArenaIdxRange(
+                        54..54,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        59,
+                    ),
+                    body: ArenaIdxRange(
+                        54..54,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        60,
+                    ),
+                    body: ArenaIdxRange(
+                        54..54,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        61,
+                    ),
+                    body: ArenaIdxRange(
+                        54..54,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        62,
+                    ),
+                    body: ArenaIdxRange(
+                        54..54,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        64,
+                    ),
+                    body: ArenaIdxRange(
+                        59..59,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        65,
+                    ),
+                    body: ArenaIdxRange(
+                        59..59,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        57,
+                    ),
+                    body: ArenaIdxRange(
+                        54..59,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 104,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 302,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "relative_range",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        63,
+                    ),
+                    body: ArenaIdxRange(
+                        59..61,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 105,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 233,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "relative_point",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        69,
+                    ),
+                    body: ArenaIdxRange(
+                        63..63,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        74,
+                    ),
+                    body: ArenaIdxRange(
+                        64..64,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        68,
+                    ),
+                    body: ArenaIdxRange(
+                        63..64,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 107,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 155,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "relative_bounding_box",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        70,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 105,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 233,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "relative_point",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        71,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 108,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 310,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "xmin",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        72,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 109,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 167,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "xmax",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        73,
+                    ),
+                    body: ArenaIdxRange(
+                        64..65,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 110,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 183,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "ymin",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        75,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 111,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 156,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "ymax",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        79,
+                    ),
+                    body: ArenaIdxRange(
+                        71..71,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        81,
+                    ),
+                    body: ArenaIdxRange(
+                        72..72,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        83,
+                    ),
+                    body: ArenaIdxRange(
+                        73..73,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        85,
+                    ),
+                    body: ArenaIdxRange(
+                        74..74,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        78,
+                    ),
+                    body: ArenaIdxRange(
+                        71..72,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 108,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 310,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "xmin",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        80,
+                    ),
+                    body: ArenaIdxRange(
+                        72..73,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 109,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 167,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "xmax",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        82,
+                    ),
+                    body: ArenaIdxRange(
+                        73..74,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 110,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 183,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "ymin",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        84,
+                    ),
+                    body: ArenaIdxRange(
+                        74..75,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Form,
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 111,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 156,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "ymax",
+                    ),
+                    is_generic: false,
+                    body_kind: Block,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        0,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 89,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 280,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "Point2d",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Impl {
+                    token_group_idx: TokenGroupIdx(
+                        1,
+                    ),
+                    body: ArenaIdxRange(
+                        5..10,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        12,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 95,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 286,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "RelativePoint2d",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        13,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 96,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 283,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "Vector2d",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Impl {
+                    token_group_idx: TokenGroupIdx(
+                        14,
+                    ),
+                    body: ArenaIdxRange(
+                        45..54,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        55,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 103,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 300,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "ClosedRange",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Impl {
+                    token_group_idx: TokenGroupIdx(
+                        56,
+                    ),
+                    body: ArenaIdxRange(
+                        61..63,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        66,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 106,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 306,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "BoundingBox",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Impl {
+                    token_group_idx: TokenGroupIdx(
+                        67,
+                    ),
+                    body: ArenaIdxRange(
+                        65..71,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        76,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: ModuleItem(
+                        Type(
+                            Struct,
+                        ),
+                    ),
+                    entity_path: ModuleItem(
+                        ModuleItemPath {
+                            [salsa id]: 112,
+                            module: ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 309,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ident: Identifier(
+                        "RelativeBoundingBox",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Impl {
+                    token_group_idx: TokenGroupIdx(
+                        77,
+                    ),
+                    body: ArenaIdxRange(
+                        75..79,
+                    ),
+                },
+            ],
+        },
+        top_level_asts: ArenaIdxRange(
+            79..90,
+        ),
+        use_expr_arena: Arena {
+            data: [],
+        },
+    },
+)
