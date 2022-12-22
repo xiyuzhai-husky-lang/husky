@@ -63,35 +63,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 148,
-                                module: ModulePath {
-                                    [display]: "crate",
-                                    [crate]: CratePath {
-                                        [salsa id]: 4,
-                                        package_path: PackagePath {
-                                            [salsa id]: 4,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 42,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/natural-number-game",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Library,
-                                    },
-                                },
+                                module: natural_number_game,
                                 ident: Identifier(
                                     "Nat",
                                 ),
@@ -167,35 +139,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 149,
-                                module: ModulePath {
-                                    [display]: "crate",
-                                    [crate]: CratePath {
-                                        [salsa id]: 4,
-                                        package_path: PackagePath {
-                                            [salsa id]: 4,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 42,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/natural-number-game",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Library,
-                                    },
-                                },
+                                module: natural_number_game,
                                 ident: Identifier(
                                     "OddNat",
                                 ),
@@ -231,35 +175,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 150,
-                                module: ModulePath {
-                                    [display]: "crate",
-                                    [crate]: CratePath {
-                                        [salsa id]: 4,
-                                        package_path: PackagePath {
-                                            [salsa id]: 4,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 42,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/natural-number-game",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Library,
-                                    },
-                                },
+                                module: natural_number_game,
                                 ident: Identifier(
                                     "EvenNat",
                                 ),

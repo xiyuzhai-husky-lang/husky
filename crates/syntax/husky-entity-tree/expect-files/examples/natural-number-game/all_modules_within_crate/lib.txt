@@ -1,33 +1,5 @@
 Ok(
     [
-        ModulePath {
-            [display]: "crate",
-            [crate]: CratePath {
-                [salsa id]: 4,
-                package_path: PackagePath {
-                    [salsa id]: 4,
-                    toolchain: Toolchain {
-                        [salsa id]: 0,
-                        data: Local {
-                            library_path: DiffPath {
-                                [salsa id]: 0,
-                                data: DiffPathBuf(
-                                    "../../../library",
-                                ),
-                            },
-                        },
-                    },
-                    data: Local {
-                        path: DiffPath {
-                            [salsa id]: 37,
-                            data: DiffPathBuf(
-                                "../../../examples/natural-number-game",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Library,
-            },
-        },
+        natural_number_game,
     ],
 )

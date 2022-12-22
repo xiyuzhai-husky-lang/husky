@@ -1,102 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: ModulePath {
-            [display]: "crate::ops",
-            [crate]: CratePath {
-                [salsa id]: 0,
-                package_path: PackagePath {
-                    [salsa id]: 0,
-                    toolchain: Toolchain {
-                        [salsa id]: 0,
-                        data: Local {
-                            library_path: DiffPath {
-                                [salsa id]: 0,
-                                data: DiffPathBuf(
-                                    "../../../library",
-                                ),
-                            },
-                        },
-                    },
-                    data: Local {
-                        path: DiffPath {
-                            [salsa id]: 1,
-                            data: DiffPathBuf(
-                                "../../../library/core",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Library,
-            },
-        },
+        module_path: core::ops,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "Output",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::ops",
-                        [crate]: CratePath {
-                            [salsa id]: 0,
-                            package_path: PackagePath {
-                                [salsa id]: 0,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 1,
-                                        data: DiffPathBuf(
-                                            "../../../library/core",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Library,
-                        },
-                    },
+                    core::ops,
                 ),
                 ast_idx: 0,
                 path: ModuleItemPath {
                     [salsa id]: 10,
-                    module: ModulePath {
-                        [display]: "crate::ops",
-                        [crate]: CratePath {
-                            [salsa id]: 0,
-                            package_path: PackagePath {
-                                [salsa id]: 0,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 1,
-                                        data: DiffPathBuf(
-                                            "../../../library/core",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Library,
-                        },
-                    },
+                    module: core::ops,
                     ident: Identifier(
                         "Output",
                     ),
@@ -110,35 +26,7 @@ Ok(
                 ast_idx: 3,
                 path: ModuleItemPath {
                     [salsa id]: 9,
-                    module: ModulePath {
-                        [display]: "crate::ops",
-                        [crate]: CratePath {
-                            [salsa id]: 0,
-                            package_path: PackagePath {
-                                [salsa id]: 0,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 1,
-                                        data: DiffPathBuf(
-                                            "../../../library/core",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Library,
-                        },
-                    },
+                    module: core::ops,
                     ident: Identifier(
                         "Add",
                     ),

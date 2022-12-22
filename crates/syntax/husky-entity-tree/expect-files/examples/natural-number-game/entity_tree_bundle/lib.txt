@@ -2,103 +2,19 @@ Ok(
     EntityTreeBundle {
         sheets: [
             EntityTreeSheet {
-                module_path: ModulePath {
-                    [display]: "crate",
-                    [crate]: CratePath {
-                        [salsa id]: 4,
-                        package_path: PackagePath {
-                            [salsa id]: 4,
-                            toolchain: Toolchain {
-                                [salsa id]: 0,
-                                data: Local {
-                                    library_path: DiffPath {
-                                        [salsa id]: 0,
-                                        data: DiffPathBuf(
-                                            "../../../library",
-                                        ),
-                                    },
-                                },
-                            },
-                            data: Local {
-                                path: DiffPath {
-                                    [salsa id]: 37,
-                                    data: DiffPathBuf(
-                                        "../../../examples/natural-number-game",
-                                    ),
-                                },
-                            },
-                        },
-                        crate_kind: Library,
-                    },
-                },
+                module_path: natural_number_game,
                 sheets: [
                     ModuleItem {
                         ident: Identifier(
                             "Nat",
                         ),
                         accessibility: PubicUnder(
-                            ModulePath {
-                                [display]: "crate",
-                                [crate]: CratePath {
-                                    [salsa id]: 4,
-                                    package_path: PackagePath {
-                                        [salsa id]: 4,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 37,
-                                                data: DiffPathBuf(
-                                                    "../../../examples/natural-number-game",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Library,
-                                },
-                            },
+                            natural_number_game,
                         ),
                         ast_idx: 3,
                         path: ModuleItemPath {
                             [salsa id]: 104,
-                            module: ModulePath {
-                                [display]: "crate",
-                                [crate]: CratePath {
-                                    [salsa id]: 4,
-                                    package_path: PackagePath {
-                                        [salsa id]: 4,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 37,
-                                                data: DiffPathBuf(
-                                                    "../../../examples/natural-number-game",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Library,
-                                },
-                            },
+                            module: natural_number_game,
                             ident: Identifier(
                                 "Nat",
                             ),
@@ -109,68 +25,12 @@ Ok(
                             "OddNat",
                         ),
                         accessibility: PubicUnder(
-                            ModulePath {
-                                [display]: "crate",
-                                [crate]: CratePath {
-                                    [salsa id]: 4,
-                                    package_path: PackagePath {
-                                        [salsa id]: 4,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 37,
-                                                data: DiffPathBuf(
-                                                    "../../../examples/natural-number-game",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Library,
-                                },
-                            },
+                            natural_number_game,
                         ),
                         ast_idx: 9,
                         path: ModuleItemPath {
                             [salsa id]: 105,
-                            module: ModulePath {
-                                [display]: "crate",
-                                [crate]: CratePath {
-                                    [salsa id]: 4,
-                                    package_path: PackagePath {
-                                        [salsa id]: 4,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 37,
-                                                data: DiffPathBuf(
-                                                    "../../../examples/natural-number-game",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Library,
-                                },
-                            },
+                            module: natural_number_game,
                             ident: Identifier(
                                 "OddNat",
                             ),
@@ -181,68 +41,12 @@ Ok(
                             "EvenNat",
                         ),
                         accessibility: PubicUnder(
-                            ModulePath {
-                                [display]: "crate",
-                                [crate]: CratePath {
-                                    [salsa id]: 4,
-                                    package_path: PackagePath {
-                                        [salsa id]: 4,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 37,
-                                                data: DiffPathBuf(
-                                                    "../../../examples/natural-number-game",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Library,
-                                },
-                            },
+                            natural_number_game,
                         ),
                         ast_idx: 10,
                         path: ModuleItemPath {
                             [salsa id]: 106,
-                            module: ModulePath {
-                                [display]: "crate",
-                                [crate]: CratePath {
-                                    [salsa id]: 4,
-                                    package_path: PackagePath {
-                                        [salsa id]: 4,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 37,
-                                                data: DiffPathBuf(
-                                                    "../../../examples/natural-number-game",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Library,
-                                },
-                            },
+                            module: natural_number_game,
                             ident: Identifier(
                                 "EvenNat",
                             ),

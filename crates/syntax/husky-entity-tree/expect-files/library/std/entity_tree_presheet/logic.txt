@@ -1,34 +1,6 @@
 Ok(
     EntityTreePresheet {
-        module_path: ModulePath {
-            [display]: "crate::logic",
-            [crate]: CratePath {
-                [salsa id]: 1,
-                package_path: PackagePath {
-                    [salsa id]: 1,
-                    toolchain: Toolchain {
-                        [salsa id]: 0,
-                        data: Local {
-                            library_path: DiffPath {
-                                [salsa id]: 0,
-                                data: DiffPathBuf(
-                                    "../../../library",
-                                ),
-                            },
-                        },
-                    },
-                    data: Local {
-                        path: DiffPath {
-                            [salsa id]: 8,
-                            data: DiffPathBuf(
-                                "../../../library/std",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Library,
-            },
-        },
+        module_path: std::logic,
         module_symbols: [],
         entity_use_roots: EntityUseExprTrackers(
             [
@@ -44,7 +16,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 21,
+                                value: 6,
                             },
                         ),
                     ),
