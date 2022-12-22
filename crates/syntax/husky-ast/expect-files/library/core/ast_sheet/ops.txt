@@ -15,22 +15,24 @@ Ok(
                             Form,
                         ),
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 11,
-                            module: ModulePath(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 10,
+                                module: ModulePath(
                                     Id {
-                                        value: 31,
+                                        value: 5,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 31,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "Output",
@@ -46,25 +48,35 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 12,
-                            module: ModulePath(
-                                Id {
-                                    value: 5,
+                    entity_kind: AssociatedItem,
+                    entity_path: Some(
+                        AssociatedItem(
+                            AssociatedItemPath {
+                                [salsa id]: 0,
+                                parent_path: ModuleItemPath {
+                                    [salsa id]: 9,
+                                    module: ModulePath(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 22,
+                                            },
+                                        ),
+                                    ),
                                 },
-                            ),
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 24,
-                                    },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 24,
+                                        },
+                                    ),
                                 ),
-                            ),
-                        },
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "add",
@@ -88,22 +100,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Trait,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 13,
-                            module: ModulePath(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 9,
+                                module: ModulePath(
                                     Id {
-                                        value: 22,
+                                        value: 5,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 22,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "Add",

@@ -15,22 +15,24 @@ Ok(
                             Structure,
                         ),
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 3,
-                            module: ModulePath(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 3,
+                                module: ModulePath(
                                     Id {
-                                        value: 9,
+                                        value: 3,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 9,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "LogicAnd",
@@ -51,22 +53,24 @@ Ok(
                             Inductive,
                         ),
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 4,
-                            module: ModulePath(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 4,
+                                module: ModulePath(
                                     Id {
-                                        value: 15,
+                                        value: 3,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "LogicOr",

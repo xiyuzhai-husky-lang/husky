@@ -271,22 +271,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 85,
-                            module: ModulePath(
-                                Id {
-                                    value: 26,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 78,
+                                module: ModulePath(
                                     Id {
-                                        value: 274,
+                                        value: 26,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 274,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "five_match",
@@ -305,22 +307,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 86,
-                            module: ModulePath(
-                                Id {
-                                    value: 26,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 79,
+                                module: ModulePath(
                                     Id {
-                                        value: 275,
+                                        value: 26,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 275,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "up_right_cc",
@@ -339,22 +343,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 87,
-                            module: ModulePath(
-                                Id {
-                                    value: 26,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 80,
+                                module: ModulePath(
                                     Id {
-                                        value: 276,
+                                        value: 26,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 276,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "down_left_cc",
@@ -373,22 +379,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 88,
-                            module: ModulePath(
-                                Id {
-                                    value: 26,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 81,
+                                module: ModulePath(
                                     Id {
-                                        value: 67,
+                                        value: 26,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 67,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "is_five",

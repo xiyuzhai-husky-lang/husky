@@ -1,0 +1,214 @@
+mod action;
+mod entity_use_tracker;
+mod use_all_tracker;
+
+pub(crate) use action::*;
+use husky_print_utils::p;
+
+use crate::*;
+use entity_use_tracker::*;
+use husky_text::TextRange;
+use use_all_tracker::UseAllTracker;
+use vec_like::AsVecMapEntry;
+
+#[salsa::tracked(jar = EntitySymbolJar, return_ref)]
+pub(crate) fn entity_tree_presheet(
+    db: &dyn EntityTreeDb,
+    module_path: ModulePath,
+) -> VfsResult<EntitySymbolPresheet> {
+    Ok(EntitySymbolPresheetBuilder::new(db, module_path)?.build())
+}
+
+#[test]
+fn entity_tree_presheet_works() {
+    DB::expect_test_probable_modules_debug_with_db("entity_tree_presheet", |db, module_path| {
+        entity_tree_presheet(db, module_path)
+    })
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub(crate) struct EntitySymbolPresheet {
+    module_path: ModulePath,
+    nodes: VecMap<EntityNode>,
+    entity_use_trackers: Vec<EntityUseExprTracker>,
+    use_all_trackers: Vec<UseAllTracker>,
+}
+
+impl EntitySymbolPresheet {
+    pub(crate) fn module_path(&self) -> ModulePath {
+        self.module_path
+    }
+
+    pub(crate) fn nodes(&self) -> &VecMap<EntityNode> {
+        &self.nodes
+    }
+}
+
+impl AsVecMapEntry for EntitySymbolPresheet {
+    type K = ModulePath;
+    fn key(&self) -> ModulePath {
+        self.module_path
+    }
+
+    fn key_ref(&self) -> &ModulePath {
+        &self.module_path
+    }
+}
+
+struct EntitySymbolPresheetBuilder<'a> {
+    db: &'a dyn EntityTreeDb,
+    ast_sheet: &'a AstSheet,
+    module_path: ModulePath,
+    nodes: VecMap<EntityNode>,
+    entity_use_trackers: Vec<EntityUseExprTracker>,
+}
+
+impl<'a> EntitySymbolPresheetBuilder<'a> {
+    fn new(db: &'a dyn EntityTreeDb, module_path: ModulePath) -> VfsResult<Self> {
+        Ok(Self {
+            db,
+            ast_sheet: db.ast_sheet(module_path)?,
+            module_path,
+            nodes: Default::default(),
+            entity_use_trackers: vec![],
+        })
+    }
+
+    fn build(mut self) -> EntitySymbolPresheet {
+        for (ast_idx, ast) in self.ast_sheet.indexed_asts() {
+            self.process(ast_idx, ast)
+        }
+        EntitySymbolPresheet {
+            module_path: self.module_path,
+            nodes: self.nodes,
+            entity_use_trackers: self.entity_use_trackers,
+            use_all_trackers: vec![],
+        }
+    }
+
+    fn process(&mut self, ast_idx: AstIdx, ast: &Ast) {
+        match ast {
+            Ast::Use {
+                token_group_idx,
+                accessibility,
+                ident,
+                use_expr_idx,
+            } => self
+                .entity_use_trackers
+                .push(EntityUseExprTracker::new_root(
+                    ast_idx,
+                    *accessibility,
+                    *ident,
+                    *use_expr_idx,
+                )),
+            Ast::Defn {
+                token_group_idx,
+                body,
+                accessibility,
+                entity_kind,
+                entity_path,
+                ident,
+                is_generic,
+                body_kind,
+            } => {
+                if let Some(entity_path) = entity_path {
+                    match entity_path {
+                        EntityPath::Module(module_path) => {
+                            match self.nodes.insert_new(EntityNode::Module {
+                                ident: *ident,
+                                module_path: *module_path,
+                            }) {
+                                Ok(_) => (),
+                                Err(_) => todo!(),
+                            }
+                        }
+                        EntityPath::ModuleItem(module_item_path) => {
+                            match self.nodes.insert_new(EntityNode::ModuleItem {
+                                ident: *ident,
+                                ast_idx,
+                                path: *module_item_path,
+                                variants: match body_kind {
+                                    DefnBodyKind::None | DefnBodyKind::Block => None,
+                                    DefnBodyKind::EnumVariants => Some(
+                                        body.into_iter()
+                                            .map(|variant_ast_idx| {
+                                                match self.ast_sheet[variant_ast_idx] {
+                                                    Ast::ModuleItemVariant {
+                                                        token_group_idx,
+                                                        module_item_variant_path,
+                                                        ident,
+                                                    } => ModuleItemVariant::new(
+                                                        ident,
+                                                        variant_ast_idx,
+                                                    ),
+                                                    _ => unreachable!(),
+                                                }
+                                            })
+                                            .collect(),
+                                    ),
+                                    DefnBodyKind::MatchCases => unreachable!(),
+                                },
+                            }) {
+                                Ok(_) => (),
+                                Err(_) => {
+                                    p!(self.nodes);
+                                    p!(ident.data(self.db));
+                                    todo!()
+                                }
+                            }
+                        }
+                        EntityPath::AssociatedItem(_) => (),
+                        EntityPath::EnumVariant(_) => (),
+                    }
+                }
+            }
+            Ast::Err { .. }
+            | Ast::Comment { .. }
+            | Ast::Decor { .. }
+            | Ast::Stmt { .. }
+            | Ast::IfElseStmts { .. }
+            | Ast::MatchStmts { .. }
+            | Ast::ModuleItemVariant { .. }
+            | Ast::Impl { .. }
+            | Ast::Main { .. }
+            | Ast::Config { .. } => (),
+        }
+    }
+}
+
+impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntitySymbolPresheet {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn EntityTreeDb,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        f.debug_struct("EntitySymbolPresheet")
+            .field(
+                "module_path",
+                &self
+                    .module_path
+                    .debug_with(db as &dyn VfsDb, include_all_fields),
+            )
+            .field(
+                "module_items",
+                &(&self.nodes).debug_with(db, include_all_fields),
+            )
+            .field("entity_use_roots", &self.entity_use_trackers)
+            .finish()
+    }
+}
+
+impl<Db> salsa::DebugWithDb<Db> for EntitySymbolPresheet
+where
+    Db: EntityTreeDb,
+{
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        self.fmt(f, db as &dyn EntityTreeDb, include_all_fields)
+    }
+}

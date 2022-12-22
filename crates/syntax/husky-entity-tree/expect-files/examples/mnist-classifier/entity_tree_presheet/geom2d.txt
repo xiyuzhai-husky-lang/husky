@@ -1,0 +1,108 @@
+Ok(
+    EntitySymbolPresheet {
+        module_path: ModulePath {
+            [display]: "crate::geom2d",
+            [crate]: CratePath {
+                [salsa id]: 3,
+                package_path: PackagePath {
+                    [salsa id]: 3,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: DiffPath {
+                                [salsa id]: 0,
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
+                        },
+                    },
+                    data: Local {
+                        path: DiffPath {
+                            [salsa id]: 15,
+                            data: DiffPathBuf(
+                                "../../../examples/mnist-classifier",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+        module_items: [
+            ModuleItem {
+                ident: Identifier(
+                    "Point2d",
+                ),
+                ast_idx: 79,
+                path: ModuleItemPath(
+                    Id {
+                        value: 83,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "RelativePoint2d",
+                ),
+                ast_idx: 81,
+                path: ModuleItemPath(
+                    Id {
+                        value: 84,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "Vector2d",
+                ),
+                ast_idx: 82,
+                path: ModuleItemPath(
+                    Id {
+                        value: 85,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "ClosedRange",
+                ),
+                ast_idx: 84,
+                path: ModuleItemPath(
+                    Id {
+                        value: 86,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "BoundingBox",
+                ),
+                ast_idx: 86,
+                path: ModuleItemPath(
+                    Id {
+                        value: 87,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "RelativeBoundingBox",
+                ),
+                ast_idx: 88,
+                path: ModuleItemPath(
+                    Id {
+                        value: 88,
+                    },
+                ),
+                variants: None,
+            },
+        ],
+        entity_use_roots: [],
+    },
+)

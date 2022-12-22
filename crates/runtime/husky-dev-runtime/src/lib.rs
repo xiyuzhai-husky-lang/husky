@@ -38,7 +38,7 @@
 //     // comptime
 //     husky_path::FileQueryStorage,
 //     husky_token_sheet::TokenQueryGroupStorage,
-//     husky_entity_symbol::ScopeQueryGroupStorage,
+//     husky_entity_tree::ScopeQueryGroupStorage,
 //     husky_text::TextQueryGroupStorage,
 //     husky_ast::AstQueryGroupStorage,
 //     husky_syntax_fmt::FormatQueryGroupStorage,

@@ -28,6 +28,8 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 
 [dev-dependencies]
+# infer
+husky-manifest = { path = "../../infer/husky-manifest" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }
@@ -37,6 +39,6 @@ husky-package-path = { path = "../../kernel/husky-package-path" }
 # syntax
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
-husky-entity-symbol = { path = "../../syntax/husky-entity-symbol" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

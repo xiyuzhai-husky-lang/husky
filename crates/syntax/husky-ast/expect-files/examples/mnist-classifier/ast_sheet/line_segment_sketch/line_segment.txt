@@ -135,22 +135,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 129,
-                            module: ModulePath(
-                                Id {
-                                    value: 32,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 105,
+                                module: ModulePath(
                                     Id {
-                                        value: 176,
+                                        value: 32,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 176,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "displacement",
@@ -169,22 +171,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 130,
-                            module: ModulePath(
-                                Id {
-                                    value: 32,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 106,
+                                module: ModulePath(
                                     Id {
-                                        value: 318,
+                                        value: 32,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 318,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "dist_to_point",
@@ -215,22 +219,24 @@ Ok(
                             Struct,
                         ),
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 131,
-                            module: ModulePath(
-                                Id {
-                                    value: 32,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 104,
+                                module: ModulePath(
                                     Id {
-                                        value: 321,
+                                        value: 32,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 321,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "LineSegment",

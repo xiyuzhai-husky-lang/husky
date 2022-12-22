@@ -196,22 +196,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 143,
-                            module: ModulePath(
-                                Id {
-                                    value: 33,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 114,
+                                module: ModulePath(
                                     Id {
-                                        value: 264,
+                                        value: 33,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 264,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "connected_components",
@@ -230,22 +232,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 144,
-                            module: ModulePath(
-                                Id {
-                                    value: 33,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 115,
+                                module: ModulePath(
                                     Id {
-                                        value: 143,
+                                        value: 33,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 143,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "major_connected_component",
@@ -264,22 +268,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 145,
-                            module: ModulePath(
-                                Id {
-                                    value: 33,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 116,
+                                module: ModulePath(
                                     Id {
-                                        value: 194,
+                                        value: 33,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "ignored_connected_components_row_span_sum_sum",
@@ -298,22 +304,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 146,
-                            module: ModulePath(
-                                Id {
-                                    value: 33,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 117,
+                                module: ModulePath(
                                     Id {
-                                        value: 378,
+                                        value: 33,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 378,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "major_raw_contours",
@@ -337,22 +345,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 147,
-                            module: ModulePath(
-                                Id {
-                                    value: 33,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 118,
+                                module: ModulePath(
                                     Id {
-                                        value: 379,
+                                        value: 33,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 379,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "major_raw_contour",
@@ -371,22 +381,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 148,
-                            module: ModulePath(
-                                Id {
-                                    value: 33,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 119,
+                                module: ModulePath(
                                     Id {
-                                        value: 231,
+                                        value: 33,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 231,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "major_line_segment_sketch",
@@ -405,22 +417,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 149,
-                            module: ModulePath(
-                                Id {
-                                    value: 33,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 120,
+                                module: ModulePath(
                                     Id {
-                                        value: 142,
+                                        value: 33,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 142,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "major_concave_components",

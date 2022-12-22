@@ -14,6 +14,7 @@ pub enum TypeKind {
 pub enum EntityKind {
     Module,
     ModuleItem(ModuleItemKind),
+    AssociatedItem,
     EnumVariant,
 }
 

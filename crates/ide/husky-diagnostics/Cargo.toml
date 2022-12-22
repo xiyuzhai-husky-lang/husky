@@ -19,7 +19,7 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-text = { path = "../../lex/husky-text" }
-husky-entity-symbol = { path = "../../syntax/husky-entity-symbol" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }

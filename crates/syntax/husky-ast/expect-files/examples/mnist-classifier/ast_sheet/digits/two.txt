@@ -558,22 +558,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 69,
-                            module: ModulePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 65,
+                                module: ModulePath(
                                     Id {
-                                        value: 245,
+                                        value: 22,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 245,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "two_match",
@@ -592,22 +594,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 70,
-                            module: ModulePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 66,
+                                module: ModulePath(
                                     Id {
-                                        value: 246,
+                                        value: 22,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 246,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "left_cc_pattern",
@@ -626,22 +630,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 71,
-                            module: ModulePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 67,
+                                module: ModulePath(
                                     Id {
-                                        value: 247,
+                                        value: 22,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 247,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "right_cc_pattern",
@@ -660,22 +666,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 72,
-                            module: ModulePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 68,
+                                module: ModulePath(
                                     Id {
-                                        value: 248,
+                                        value: 22,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 248,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "down_cc_pattern",
@@ -694,22 +702,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 73,
-                            module: ModulePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 69,
+                                module: ModulePath(
                                     Id {
-                                        value: 65,
+                                        value: 22,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 65,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "is_two",

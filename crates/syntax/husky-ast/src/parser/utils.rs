@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use husky_entity_kind::{ModuleItemKind, TypeKind};
 use husky_opn_syntax::Bracket;
 use husky_token::*;
@@ -6,6 +6,7 @@ use std::iter::Peekable;
 
 pub(super) trait AuxAstParser<'aux> {
     fn token_iter_mut(&mut self) -> &mut TokenIter<'aux>;
+    fn ast_parent(&self) -> AstParent;
 
     fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
         Ok(match self.token_iter_mut().peek().unwrap().kind {
@@ -41,9 +42,17 @@ pub(super) trait AuxAstParser<'aux> {
             {
                 TokenKind::Decorator(_decor) => self.parse_entity_kind()?,
                 TokenKind::Keyword(kw) => match kw {
-                    Keyword::Paradigm(_) | Keyword::Visual => {
-                        EntityKind::ModuleItem(ModuleItemKind::Form)
-                    }
+                    Keyword::Paradigm(_) | Keyword::Visual => match self.ast_parent() {
+                        AstParent::EnumLike => todo!(),
+                        AstParent::TraitOrNonEnumLikeType { .. } | AstParent::Impl => {
+                            EntityKind::AssociatedItem
+                        }
+                        AstParent::Form | AstParent::Module => {
+                            EntityKind::ModuleItem(ModuleItemKind::Form)
+                        }
+                        AstParent::MatchStmt => todo!(),
+                        AstParent::NoChild => todo!(),
+                    },
                     Keyword::Type(ty_kw) => {
                         let ty_kind = match ty_kw {
                             TypeKeyword::Type => TypeKind::Form,
@@ -91,8 +100,26 @@ pub(super) trait AuxAstParser<'aux> {
     }
 }
 
-impl<'a> AuxAstParser<'a> for TokenIter<'a> {
+impl<'a> AuxAstParser<'a> for BasicAuxAstParser<'a> {
     fn token_iter_mut(&mut self) -> &mut TokenIter<'a> {
-        self
+        &mut self.iter
+    }
+
+    fn ast_parent(&self) -> AstParent {
+        self.ast_parent
+    }
+}
+
+pub(crate) struct BasicAuxAstParser<'a> {
+    ast_parent: AstParent,
+    iter: TokenIter<'a>,
+}
+
+impl<'a> BasicAuxAstParser<'a> {
+    pub(super) fn new(ctx: &Context, iter: TokenIter<'a>) -> Self {
+        Self {
+            ast_parent: ctx.parent(),
+            iter,
+        }
     }
 }

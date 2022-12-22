@@ -1,8 +1,9 @@
 use super::*;
 use husky_ast::AstJar;
 use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu};
-use husky_entity_symbol::EntitySymbolJar;
+use husky_entity_tree::EntitySymbolJar;
 use husky_expr::ExprIdx;
+use husky_manifest::ManifestJar;
 use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDb, SymbolJar, SymbolKind};
 use husky_term::{
     Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
@@ -24,7 +25,8 @@ use upcast::Upcast;
     TermInferJar,
     TokenJar,
     AstJar,
-    SymbolJar
+    SymbolJar,
+    ManifestJar
 )]
 pub(crate) struct TermInferTestsDb {
     storage: salsa::Storage<Self>,

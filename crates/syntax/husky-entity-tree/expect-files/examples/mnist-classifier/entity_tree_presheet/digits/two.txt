@@ -1,0 +1,279 @@
+Ok(
+    EntitySymbolPresheet {
+        module_path: ModulePath {
+            [display]: "crate::digits::two",
+            [crate]: CratePath {
+                [salsa id]: 3,
+                package_path: PackagePath {
+                    [salsa id]: 3,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: DiffPath {
+                                [salsa id]: 0,
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
+                        },
+                    },
+                    data: Local {
+                        path: DiffPath {
+                            [salsa id]: 15,
+                            data: DiffPathBuf(
+                                "../../../examples/mnist-classifier",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+        module_items: [
+            ModuleItem {
+                ident: Identifier(
+                    "two_match",
+                ),
+                ast_idx: 67,
+                path: ModuleItemPath(
+                    Id {
+                        value: 66,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "left_cc_pattern",
+                ),
+                ast_idx: 68,
+                path: ModuleItemPath(
+                    Id {
+                        value: 67,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "right_cc_pattern",
+                ),
+                ast_idx: 69,
+                path: ModuleItemPath(
+                    Id {
+                        value: 68,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "down_cc_pattern",
+                ),
+                ast_idx: 70,
+                path: ModuleItemPath(
+                    Id {
+                        value: 69,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "is_two",
+                ),
+                ast_idx: 71,
+                path: ModuleItemPath(
+                    Id {
+                        value: 70,
+                    },
+                ),
+                variants: None,
+            },
+        ],
+        entity_use_roots: [
+            EntityUseExprTracker {
+                ast_idx: 54,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
+                use_expr_idx: 5,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 55,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
+                use_expr_idx: 10,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 56,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
+                use_expr_idx: 15,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 57,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
+                use_expr_idx: 20,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 58,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                use_expr_idx: 23,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 59,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                use_expr_idx: 26,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 60,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                use_expr_idx: 30,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 61,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                use_expr_idx: 33,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 62,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                use_expr_idx: 36,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 63,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                use_expr_idx: 39,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 64,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                use_expr_idx: 42,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 65,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                use_expr_idx: 45,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 66,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                use_expr_idx: 48,
+                parent: None,
+                resolved: false,
+            },
+        ],
+    },
+)

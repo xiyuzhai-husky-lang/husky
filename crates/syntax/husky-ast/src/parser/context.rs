@@ -1,3 +1,4 @@
+use husky_entity_path::ModuleItemPath;
 use husky_text::TextRange;
 
 use crate::INDENT_INCR;
@@ -7,7 +8,9 @@ pub(super) enum AstParent {
     /// inside function, method or inline block
     Form,
     EnumLike,
-    TraitOrNonEnumLikeType,
+    TraitOrNonEnumLikeType {
+        module_item_path: ModuleItemPath,
+    },
     Impl,
     /// module level
     Module,
@@ -18,6 +21,20 @@ pub(super) enum AstParent {
     /// ```
     MatchStmt,
     NoChild,
+}
+
+impl AstParent {
+    pub(super) fn module_item_path(self) -> Option<ModuleItemPath> {
+        match self {
+            AstParent::Form => todo!(),
+            AstParent::EnumLike => todo!(),
+            AstParent::TraitOrNonEnumLikeType { module_item_path } => Some(module_item_path),
+            AstParent::Impl => None,
+            AstParent::Module => todo!(),
+            AstParent::MatchStmt => todo!(),
+            AstParent::NoChild => todo!(),
+        }
+    }
 }
 
 pub(super) struct Context {
@@ -43,8 +60,8 @@ impl Context {
         Self { indent, parent }
     }
 
-    pub(super) fn parent(&self) -> &AstParent {
-        &self.parent
+    pub(super) fn parent(&self) -> AstParent {
+        self.parent
     }
 }
 

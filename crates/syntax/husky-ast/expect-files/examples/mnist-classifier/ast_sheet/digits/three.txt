@@ -349,22 +349,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 64,
-                            module: ModulePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 60,
+                                module: ModulePath(
                                     Id {
-                                        value: 235,
+                                        value: 21,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 235,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "three_fermi_match",
@@ -383,22 +385,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 65,
-                            module: ModulePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 61,
+                                module: ModulePath(
                                     Id {
-                                        value: 66,
+                                        value: 21,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 66,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "is_three",
@@ -417,22 +421,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 66,
-                            module: ModulePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 62,
+                                module: ModulePath(
                                     Id {
-                                        value: 237,
+                                        value: 21,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 237,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "uparc",
@@ -451,22 +457,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 67,
-                            module: ModulePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 63,
+                                module: ModulePath(
                                     Id {
-                                        value: 236,
+                                        value: 21,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 236,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "downarc",
@@ -485,22 +493,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 68,
-                            module: ModulePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 64,
+                                module: ModulePath(
                                     Id {
-                                        value: 238,
+                                        value: 21,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 238,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "back",

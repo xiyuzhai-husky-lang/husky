@@ -15,6 +15,7 @@ pub struct WordMenu {
     f64: Identifier,
     trai: Identifier,
     module: Identifier,
+    crate_word: Identifier,
 }
 
 impl WordMenu {
@@ -34,6 +35,7 @@ impl WordMenu {
             f64: db.it_ident_borrowed("f64").unwrap(),
             trai: db.it_ident_borrowed("Trait").unwrap(),
             module: db.it_ident_borrowed("Module").unwrap(),
+            crate_word: db.it_ident_borrowed("crate").unwrap(),
         }
     }
 
@@ -91,5 +93,9 @@ impl WordMenu {
 
     pub fn module(&self) -> Identifier {
         self.module
+    }
+
+    pub fn crate_word(&self) -> Identifier {
+        self.crate_word
     }
 }

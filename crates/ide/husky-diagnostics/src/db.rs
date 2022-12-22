@@ -1,12 +1,12 @@
 use husky_ast::AstDb;
-use husky_entity_symbol::EntitySymbolDb;
+use husky_entity_tree::EntityTreeDb;
 use husky_term::Term;
 use reserve::Reserve;
 use salsa::DbWithJar;
 
 use crate::*;
 
-pub trait DiagnosticsDb: DbWithJar<DiagnosticsJar> + EntitySymbolDb + AstDb {
+pub trait DiagnosticsDb: DbWithJar<DiagnosticsJar> + EntityTreeDb + AstDb {
     fn diagnostics_reserve(&self, module: Term) -> Arc<DiagnosticReserve>;
     fn print_diagnostics(&self) {
         todo!()
@@ -37,7 +37,7 @@ pub trait DiagnosticsDb: DbWithJar<DiagnosticsJar> + EntitySymbolDb + AstDb {
 
 impl<T> DiagnosticsDb for T
 where
-    T: DbWithJar<DiagnosticsJar> + EntitySymbolDb + AstDb,
+    T: DbWithJar<DiagnosticsJar> + EntityTreeDb + AstDb,
 {
     fn diagnostics_reserve(&self, _module: Term) -> Arc<DiagnosticReserve> {
         todo!()
