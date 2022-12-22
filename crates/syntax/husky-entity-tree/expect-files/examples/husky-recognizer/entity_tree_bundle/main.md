@@ -2,7 +2,9 @@ Ok(
     EntityTreeBundle {
         sheets: [
             EntityTreeSheet {
-                module_path: `???`,
+                module_path: `MinimalToml(
+                    ExpectWordName,
+                )`,
                 sheets: [],
             },
         ],

@@ -226,10 +226,10 @@ impl ModulePath {
         db: &<VfsJar as salsa::jar::Jar<'_>>::DynDb,
     ) -> ::std::fmt::Result {
         match self.data(db) {
-            ModulePathData::Root(crate_path) => f.write_str(match crate_path.package_ident(db) {
-                Ok(ident) => ident.data(db),
-                Err(_) => "???",
-            }),
+            ModulePathData::Root(crate_path) => match crate_path.package_ident(db) {
+                Ok(ident) => f.write_str(ident.data(db)),
+                Err(e) => e.fmt(f, db, true),
+            },
             ModulePathData::Child { parent, ident } => {
                 parent.show_aux(f, db)?;
                 f.write_str("::")?;

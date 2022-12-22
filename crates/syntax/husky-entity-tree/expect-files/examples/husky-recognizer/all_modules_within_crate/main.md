@@ -1,5 +1,7 @@
 Ok(
     [
-        `???`,
+        `MinimalToml(
+            ExpectWordName,
+        )`,
     ],
 )
