@@ -3,5 +3,12 @@ Ok(
         `mnist_classifier::digits::zero`,
         `mnist_classifier::digits::one`,
         `mnist_classifier::digits::six`,
+        `mnist_classifier::digits::three`,
+        `mnist_classifier::digits::four`,
+        `mnist_classifier::digits::five`,
+        `mnist_classifier::digits::six`,
+        `mnist_classifier::digits::seven`,
+        `mnist_classifier::digits::eight`,
+        `mnist_classifier::digits::nine`,
     ],
 )

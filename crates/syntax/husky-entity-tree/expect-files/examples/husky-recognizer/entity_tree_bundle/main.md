@@ -5,7 +5,7 @@ Ok(
                 module_path: `MinimalToml(
                     ExpectWordName,
                 )`,
-                sheets: [],
+                module_symbols: [],
             },
         ],
     },
