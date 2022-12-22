@@ -42,8 +42,8 @@ pub(crate) fn all_modules_within_crate(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
 ) -> VfsResult<Vec<ModulePath>> {
-    let mut all_modules = vec![];
     let root = ModulePath::new_root(db, crate_path);
+    let mut all_modules = vec![root];
     collect_all_modules(db, root, &mut all_modules);
     Ok(all_modules)
 }

@@ -1,3 +1,27 @@
 Ok(
-    [],
+    [
+        ModulePath {
+            [display]: "crate",
+            [crate]: CratePath {
+                [salsa id]: 2,
+                package_path: PackagePath {
+                    [salsa id]: 2,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: "/home/xiyuzhai/repos/husky/library",
+                        },
+                    },
+                    data: Local {
+                        path: AbsolutePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+    ],
 )
