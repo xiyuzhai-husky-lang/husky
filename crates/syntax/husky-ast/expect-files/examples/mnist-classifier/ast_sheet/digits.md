@@ -74,9 +74,177 @@ Ok(
                     is_generic: false,
                     body_kind: None,
                 },
-                Use {
+                Defn {
                     token_group_idx: TokenGroupIdx(
                         3,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::digits::three`,
+                        ),
+                    ),
+                    ident: `three`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        4,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::digits::four`,
+                        ),
+                    ),
+                    ident: `four`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::digits::five`,
+                        ),
+                    ),
+                    ident: `five`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        6,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::digits::six`,
+                        ),
+                    ),
+                    ident: `six`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        7,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                    ),
+                    ident: `seven`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        8,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::digits::eight`,
+                        ),
+                    ),
+                    ident: `eight`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        9,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::digits::nine`,
+                        ),
+                    ),
+                    ident: `nine`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        10,
                     ),
                     ident: `one`,
                     accessibility: PublicUnder(
@@ -90,7 +258,7 @@ Ok(
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
-                        4,
+                        11,
                     ),
                     ident: `six`,
                     accessibility: PublicUnder(
@@ -104,7 +272,7 @@ Ok(
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
-                        5,
+                        12,
                     ),
                     ident: `zero`,
                     accessibility: PublicUnder(
@@ -119,7 +287,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..6,
+            0..13,
         ),
         use_expr_arena: Arena {
             data: [

@@ -1,6 +1,13 @@
 mod zero
 mod one
 mod six
+mod three
+mod four
+mod five
+mod six
+mod seven
+mod eight
+mod nine
 
 use one::is_one
 use six::is_six

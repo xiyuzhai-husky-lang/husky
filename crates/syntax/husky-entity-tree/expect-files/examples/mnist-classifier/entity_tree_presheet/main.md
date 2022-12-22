@@ -44,81 +44,11 @@ Ok(
                 ),
                 module_path: `mnist_classifier::major`,
             },
-            Module {
-                ident: `zero`,
-                accessibility: PubicUnder(
-                    `mnist_classifier`,
-                ),
-                module_path: `mnist_classifier::zero`,
-            },
-            Module {
-                ident: `one`,
-                accessibility: PubicUnder(
-                    `mnist_classifier`,
-                ),
-                module_path: `mnist_classifier::one`,
-            },
-            Module {
-                ident: `two`,
-                accessibility: PubicUnder(
-                    `mnist_classifier`,
-                ),
-                module_path: `mnist_classifier::two`,
-            },
-            Module {
-                ident: `three`,
-                accessibility: PubicUnder(
-                    `mnist_classifier`,
-                ),
-                module_path: `mnist_classifier::three`,
-            },
-            Module {
-                ident: `four`,
-                accessibility: PubicUnder(
-                    `mnist_classifier`,
-                ),
-                module_path: `mnist_classifier::four`,
-            },
-            Module {
-                ident: `five`,
-                accessibility: PubicUnder(
-                    `mnist_classifier`,
-                ),
-                module_path: `mnist_classifier::five`,
-            },
-            Module {
-                ident: `six`,
-                accessibility: PubicUnder(
-                    `mnist_classifier`,
-                ),
-                module_path: `mnist_classifier::six`,
-            },
-            Module {
-                ident: `seven`,
-                accessibility: PubicUnder(
-                    `mnist_classifier`,
-                ),
-                module_path: `mnist_classifier::seven`,
-            },
-            Module {
-                ident: `eight`,
-                accessibility: PubicUnder(
-                    `mnist_classifier`,
-                ),
-                module_path: `mnist_classifier::eight`,
-            },
-            Module {
-                ident: `nine`,
-                accessibility: PubicUnder(
-                    `mnist_classifier`,
-                ),
-                module_path: `mnist_classifier::nine`,
-            },
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
                 EntityUseTracker {
-                    ast_idx: 28,
+                    ast_idx: 18,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -129,7 +59,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 59,
+                                value: 58,
                             },
                         ),
                     ),
@@ -138,7 +68,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 29,
+                    ast_idx: 19,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -149,7 +79,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 59,
+                                value: 58,
                             },
                         ),
                     ),
@@ -158,7 +88,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 30,
+                    ast_idx: 20,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -169,7 +99,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 57,
+                                value: 56,
                             },
                         ),
                     ),
@@ -178,7 +108,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 31,
+                    ast_idx: 21,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -198,7 +128,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 32,
+                    ast_idx: 22,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -218,7 +148,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 33,
+                    ast_idx: 23,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -238,7 +168,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 34,
+                    ast_idx: 24,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -258,7 +188,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 35,
+                    ast_idx: 25,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -269,7 +199,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 50,
+                                value: 66,
                             },
                         ),
                     ),
@@ -278,7 +208,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 36,
+                    ast_idx: 26,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -298,7 +228,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 37,
+                    ast_idx: 27,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -318,7 +248,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 38,
+                    ast_idx: 28,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -338,7 +268,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 39,
+                    ast_idx: 29,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -358,7 +288,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 40,
+                    ast_idx: 30,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -369,7 +299,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 58,
+                                value: 57,
                             },
                         ),
                     ),
@@ -378,7 +308,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 41,
+                    ast_idx: 31,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -389,7 +319,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 52,
+                                value: 51,
                             },
                         ),
                     ),
@@ -398,7 +328,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 42,
+                    ast_idx: 32,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {

@@ -8,16 +8,6 @@ mod line_segment_sketch
 mod fermi
 mod major
 
-mod zero
-mod one
-mod two
-mod three
-mod four
-mod five
-mod six
-mod seven
-mod eight
-mod nine
 
 use mnist::BinaryImage28
 use mnist::MnistLabel

@@ -3,7 +3,7 @@ Ok(
         sheets: [
             EntityTreeSheet {
                 module_path: `natural_number_game`,
-                sheets: [
+                module_symbols: [
                     ModuleItem {
                         ident: `Nat`,
                         accessibility: PubicUnder(

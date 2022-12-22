@@ -93,7 +93,7 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreeSheet {
                     .debug_with(db as &dyn VfsDb, include_all_fields),
             )
             .field(
-                "sheets",
+                "module_symbols",
                 &self.module_symbols.debug_with(db, include_all_fields),
             )
             .finish()

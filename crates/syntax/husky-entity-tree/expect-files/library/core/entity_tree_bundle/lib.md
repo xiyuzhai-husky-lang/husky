@@ -3,7 +3,7 @@ Ok(
         sheets: [
             EntityTreeSheet {
                 module_path: `core`,
-                sheets: [
+                module_symbols: [
                     Module {
                         ident: `basic`,
                         accessibility: PubicUnder(
@@ -43,7 +43,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::basic`,
-                sheets: [
+                module_symbols: [
                     ModuleItem {
                         ident: `bool`,
                         accessibility: Public,
@@ -66,7 +66,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::logic`,
-                sheets: [
+                module_symbols: [
                     ModuleItem {
                         ident: `LogicAnd`,
                         accessibility: Public,
@@ -83,7 +83,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::num`,
-                sheets: [
+                module_symbols: [
                     ModuleItem {
                         ident: `i8`,
                         accessibility: Public,
@@ -114,7 +114,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::ops`,
-                sheets: [
+                module_symbols: [
                     ModuleItem {
                         ident: `Output`,
                         accessibility: PubicUnder(
@@ -133,7 +133,7 @@ Ok(
             },
             EntityTreeSheet {
                 module_path: `core::prelude`,
-                sheets: [],
+                module_symbols: [],
             },
         ],
     },
