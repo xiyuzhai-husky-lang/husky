@@ -91,35 +91,7 @@ fn module_ancestry_works() {
                 crate_kind: Library,
             },
             modules: [
-                ModulePath {
-                    [display]: "crate",
-                    [crate]: CratePath {
-                        [salsa id]: 0,
-                        package_path: PackagePath {
-                            [salsa id]: 0,
-                            toolchain: Toolchain {
-                                [salsa id]: 0,
-                                data: Local {
-                                    library_path: DiffPath {
-                                        [salsa id]: 0,
-                                        data: DiffPathBuf(
-                                            "../../../library",
-                                        ),
-                                    },
-                                },
-                            },
-                            data: Local {
-                                path: DiffPath {
-                                    [salsa id]: 1,
-                                    data: DiffPathBuf(
-                                        "../../../library/core",
-                                    ),
-                                },
-                            },
-                        },
-                        crate_kind: Library,
-                    },
-                },
+                core,
             ],
         }
     "#]]
@@ -153,64 +125,8 @@ fn module_ancestry_works() {
                 crate_kind: Library,
             },
             modules: [
-                ModulePath {
-                    [display]: "crate",
-                    [crate]: CratePath {
-                        [salsa id]: 0,
-                        package_path: PackagePath {
-                            [salsa id]: 0,
-                            toolchain: Toolchain {
-                                [salsa id]: 0,
-                                data: Local {
-                                    library_path: DiffPath {
-                                        [salsa id]: 0,
-                                        data: DiffPathBuf(
-                                            "../../../library",
-                                        ),
-                                    },
-                                },
-                            },
-                            data: Local {
-                                path: DiffPath {
-                                    [salsa id]: 1,
-                                    data: DiffPathBuf(
-                                        "../../../library/core",
-                                    ),
-                                },
-                            },
-                        },
-                        crate_kind: Library,
-                    },
-                },
-                ModulePath {
-                    [display]: "crate::basic",
-                    [crate]: CratePath {
-                        [salsa id]: 0,
-                        package_path: PackagePath {
-                            [salsa id]: 0,
-                            toolchain: Toolchain {
-                                [salsa id]: 0,
-                                data: Local {
-                                    library_path: DiffPath {
-                                        [salsa id]: 0,
-                                        data: DiffPathBuf(
-                                            "../../../library",
-                                        ),
-                                    },
-                                },
-                            },
-                            data: Local {
-                                path: DiffPath {
-                                    [salsa id]: 1,
-                                    data: DiffPathBuf(
-                                        "../../../library/core",
-                                    ),
-                                },
-                            },
-                        },
-                        crate_kind: Library,
-                    },
-                },
+                core,
+                core::basic,
             ],
         }
     "#]]

@@ -145,35 +145,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 105,
-                                module: ModulePath {
-                                    [display]: "crate::line_segment_sketch::line_segment",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::line_segment_sketch::line_segment,
                                 ident: Identifier(
                                     "displacement",
                                 ),
@@ -207,35 +179,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 106,
-                                module: ModulePath {
-                                    [display]: "crate::line_segment_sketch::line_segment",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::line_segment_sketch::line_segment,
                                 ident: Identifier(
                                     "dist_to_point",
                                 ),
@@ -287,35 +231,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 104,
-                                module: ModulePath {
-                                    [display]: "crate::line_segment_sketch::line_segment",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::line_segment_sketch::line_segment,
                                 ident: Identifier(
                                     "LineSegment",
                                 ),

@@ -2,35 +2,7 @@ Ok(
     EntityTreeBundle {
         sheets: [
             EntityTreeSheet {
-                module_path: ModulePath {
-                    [display]: "crate",
-                    [crate]: CratePath {
-                        [salsa id]: 2,
-                        package_path: PackagePath {
-                            [salsa id]: 2,
-                            toolchain: Toolchain {
-                                [salsa id]: 0,
-                                data: Local {
-                                    library_path: DiffPath {
-                                        [salsa id]: 0,
-                                        data: DiffPathBuf(
-                                            "../../../library",
-                                        ),
-                                    },
-                                },
-                            },
-                            data: Local {
-                                path: DiffPath {
-                                    [salsa id]: 13,
-                                    data: DiffPathBuf(
-                                        "../../../examples/husky-recognizer",
-                                    ),
-                                },
-                            },
-                        },
-                        crate_kind: Main,
-                    },
-                },
+                module_path: ???,
                 sheets: [],
             },
         ],

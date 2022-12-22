@@ -230,35 +230,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 114,
-                                module: ModulePath {
-                                    [display]: "crate::major",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::major,
                                 ident: Identifier(
                                     "connected_components",
                                 ),
@@ -292,35 +264,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 115,
-                                module: ModulePath {
-                                    [display]: "crate::major",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::major,
                                 ident: Identifier(
                                     "major_connected_component",
                                 ),
@@ -354,35 +298,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 116,
-                                module: ModulePath {
-                                    [display]: "crate::major",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::major,
                                 ident: Identifier(
                                     "ignored_connected_components_row_span_sum_sum",
                                 ),
@@ -416,35 +332,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 117,
-                                module: ModulePath {
-                                    [display]: "crate::major",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::major,
                                 ident: Identifier(
                                     "major_raw_contours",
                                 ),
@@ -483,35 +371,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 118,
-                                module: ModulePath {
-                                    [display]: "crate::major",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::major,
                                 ident: Identifier(
                                     "major_raw_contour",
                                 ),
@@ -545,35 +405,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 119,
-                                module: ModulePath {
-                                    [display]: "crate::major",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::major,
                                 ident: Identifier(
                                     "major_line_segment_sketch",
                                 ),
@@ -607,35 +439,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 120,
-                                module: ModulePath {
-                                    [display]: "crate::major",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::major,
                                 ident: Identifier(
                                     "major_concave_components",
                                 ),

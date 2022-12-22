@@ -1,102 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: ModulePath {
-            [display]: "crate::line_segment_sketch::concave_component",
-            [crate]: CratePath {
-                [salsa id]: 3,
-                package_path: PackagePath {
-                    [salsa id]: 3,
-                    toolchain: Toolchain {
-                        [salsa id]: 0,
-                        data: Local {
-                            library_path: DiffPath {
-                                [salsa id]: 0,
-                                data: DiffPathBuf(
-                                    "../../../library",
-                                ),
-                            },
-                        },
-                    },
-                    data: Local {
-                        path: DiffPath {
-                            [salsa id]: 15,
-                            data: DiffPathBuf(
-                                "../../../examples/mnist-classifier",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Main,
-            },
-        },
+        module_path: mnist_classifier::line_segment_sketch::concave_component,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "norm",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 44,
                 path: ModuleItemPath {
                     [salsa id]: 89,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "norm",
                     ),
@@ -107,68 +23,12 @@ Ok(
                     "rel_norm",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 45,
                 path: ModuleItemPath {
                     [salsa id]: 90,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "rel_norm",
                     ),
@@ -179,68 +39,12 @@ Ok(
                     "hausdorff_norm",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 46,
                 path: ModuleItemPath {
                     [salsa id]: 91,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "hausdorff_norm",
                     ),
@@ -251,68 +55,12 @@ Ok(
                     "angle_change",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 47,
                 path: ModuleItemPath {
                     [salsa id]: 92,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "angle_change",
                     ),
@@ -323,68 +71,12 @@ Ok(
                     "bounding_box",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 48,
                 path: ModuleItemPath {
                     [salsa id]: 93,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "bounding_box",
                     ),
@@ -395,68 +87,12 @@ Ok(
                     "relative_bounding_box",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 49,
                 path: ModuleItemPath {
                     [salsa id]: 94,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "relative_bounding_box",
                     ),
@@ -467,68 +103,12 @@ Ok(
                     "line_segment",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 50,
                 path: ModuleItemPath {
                     [salsa id]: 95,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "line_segment",
                     ),
@@ -539,68 +119,12 @@ Ok(
                     "start",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 51,
                 path: ModuleItemPath {
                     [salsa id]: 96,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "start",
                     ),
@@ -611,68 +135,12 @@ Ok(
                     "end",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 52,
                 path: ModuleItemPath {
                     [salsa id]: 97,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "end",
                     ),
@@ -683,68 +151,12 @@ Ok(
                     "displacement",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 53,
                 path: ModuleItemPath {
                     [salsa id]: 98,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "displacement",
                     ),
@@ -755,68 +167,12 @@ Ok(
                     "start_tangent",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 54,
                 path: ModuleItemPath {
                     [salsa id]: 99,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "start_tangent",
                     ),
@@ -827,68 +183,12 @@ Ok(
                     "end_tangent",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 55,
                 path: ModuleItemPath {
                     [salsa id]: 100,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "end_tangent",
                     ),
@@ -899,68 +199,12 @@ Ok(
                     "ConcaveComponent",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 78,
                 path: ModuleItemPath {
                     [salsa id]: 88,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "ConcaveComponent",
                     ),
@@ -971,68 +215,12 @@ Ok(
                     "find_concave_components",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::concave_component,
                 ),
                 ast_idx: 79,
                 path: ModuleItemPath {
                     [salsa id]: 101,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::concave_component",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::concave_component,
                     ident: Identifier(
                         "find_concave_components",
                     ),

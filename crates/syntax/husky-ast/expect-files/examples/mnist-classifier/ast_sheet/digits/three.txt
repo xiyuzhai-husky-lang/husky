@@ -401,35 +401,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 60,
-                                module: ModulePath {
-                                    [display]: "crate::digits::three",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::digits::three,
                                 ident: Identifier(
                                     "three_fermi_match",
                                 ),
@@ -463,35 +435,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 61,
-                                module: ModulePath {
-                                    [display]: "crate::digits::three",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::digits::three,
                                 ident: Identifier(
                                     "is_three",
                                 ),
@@ -525,35 +469,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 62,
-                                module: ModulePath {
-                                    [display]: "crate::digits::three",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::digits::three,
                                 ident: Identifier(
                                     "uparc",
                                 ),
@@ -587,35 +503,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 63,
-                                module: ModulePath {
-                                    [display]: "crate::digits::three",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::digits::three,
                                 ident: Identifier(
                                     "downarc",
                                 ),
@@ -649,35 +537,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 64,
-                                module: ModulePath {
-                                    [display]: "crate::digits::three",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::digits::three,
                                 ident: Identifier(
                                     "back",
                                 ),

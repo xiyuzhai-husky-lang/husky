@@ -1,102 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: ModulePath {
-            [display]: "crate::line_segment_sketch::line_segment",
-            [crate]: CratePath {
-                [salsa id]: 3,
-                package_path: PackagePath {
-                    [salsa id]: 3,
-                    toolchain: Toolchain {
-                        [salsa id]: 0,
-                        data: Local {
-                            library_path: DiffPath {
-                                [salsa id]: 0,
-                                data: DiffPathBuf(
-                                    "../../../library",
-                                ),
-                            },
-                        },
-                    },
-                    data: Local {
-                        path: DiffPath {
-                            [salsa id]: 15,
-                            data: DiffPathBuf(
-                                "../../../examples/mnist-classifier",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Main,
-            },
-        },
+        module_path: mnist_classifier::line_segment_sketch::line_segment,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "displacement",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::line_segment",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::line_segment,
                 ),
                 ast_idx: 15,
                 path: ModuleItemPath {
                     [salsa id]: 105,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::line_segment",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::line_segment,
                     ident: Identifier(
                         "displacement",
                     ),
@@ -107,68 +23,12 @@ Ok(
                     "dist_to_point",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::line_segment",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::line_segment,
                 ),
                 ast_idx: 16,
                 path: ModuleItemPath {
                     [salsa id]: 106,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::line_segment",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::line_segment,
                     ident: Identifier(
                         "dist_to_point",
                     ),
@@ -179,68 +39,12 @@ Ok(
                     "LineSegment",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::line_segment_sketch::line_segment",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::line_segment_sketch::line_segment,
                 ),
                 ast_idx: 18,
                 path: ModuleItemPath {
                     [salsa id]: 104,
-                    module: ModulePath {
-                        [display]: "crate::line_segment_sketch::line_segment",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::line_segment_sketch::line_segment,
                     ident: Identifier(
                         "LineSegment",
                     ),

@@ -360,35 +360,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 70,
-                                module: ModulePath {
-                                    [display]: "crate::digits::zero",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::digits::zero,
                                 ident: Identifier(
                                     "open_one_match",
                                 ),
@@ -422,35 +394,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 71,
-                                module: ModulePath {
-                                    [display]: "crate::digits::zero",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::digits::zero,
                                 ident: Identifier(
                                     "almost_closed",
                                 ),
@@ -484,35 +428,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 72,
-                                module: ModulePath {
-                                    [display]: "crate::digits::zero",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::digits::zero,
                                 ident: Identifier(
                                     "is_zero",
                                 ),

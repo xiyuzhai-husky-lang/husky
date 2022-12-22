@@ -1333,35 +1333,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            ModulePath {
-                                [display]: "crate::line_segment_sketch::concave_component",
-                                [crate]: CratePath {
-                                    [salsa id]: 3,
-                                    package_path: PackagePath {
-                                        [salsa id]: 3,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 15,
-                                                data: DiffPathBuf(
-                                                    "../../../examples/mnist-classifier",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Main,
-                                },
-                            },
+                            mnist_classifier::line_segment_sketch::concave_component,
                         ),
                     ),
                     ident: Identifier(
@@ -1387,35 +1359,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            ModulePath {
-                                [display]: "crate::line_segment_sketch::convex_component",
-                                [crate]: CratePath {
-                                    [salsa id]: 3,
-                                    package_path: PackagePath {
-                                        [salsa id]: 3,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 15,
-                                                data: DiffPathBuf(
-                                                    "../../../examples/mnist-classifier",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Main,
-                                },
-                            },
+                            mnist_classifier::line_segment_sketch::convex_component,
                         ),
                     ),
                     ident: Identifier(
@@ -1441,35 +1385,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            ModulePath {
-                                [display]: "crate::line_segment_sketch::convexity",
-                                [crate]: CratePath {
-                                    [salsa id]: 3,
-                                    package_path: PackagePath {
-                                        [salsa id]: 3,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 15,
-                                                data: DiffPathBuf(
-                                                    "../../../examples/mnist-classifier",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Main,
-                                },
-                            },
+                            mnist_classifier::line_segment_sketch::convexity,
                         ),
                     ),
                     ident: Identifier(
@@ -1495,35 +1411,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            ModulePath {
-                                [display]: "crate::line_segment_sketch::line_segment",
-                                [crate]: CratePath {
-                                    [salsa id]: 3,
-                                    package_path: PackagePath {
-                                        [salsa id]: 3,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 15,
-                                                data: DiffPathBuf(
-                                                    "../../../examples/mnist-classifier",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Main,
-                                },
-                            },
+                            mnist_classifier::line_segment_sketch::line_segment,
                         ),
                     ),
                     ident: Identifier(
@@ -1635,35 +1523,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 107,
-                                module: ModulePath {
-                                    [display]: "crate::line_segment_sketch",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::line_segment_sketch,
                                 ident: Identifier(
                                     "LineSegmentStroke",
                                 ),
@@ -1707,35 +1567,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 108,
-                                module: ModulePath {
-                                    [display]: "crate::line_segment_sketch",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::line_segment_sketch,
                                 ident: Identifier(
                                     "LineSegmentSketch",
                                 ),
@@ -1777,35 +1609,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 109,
-                                module: ModulePath {
-                                    [display]: "crate::line_segment_sketch",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::line_segment_sketch,
                                 ident: Identifier(
                                     "go_right",
                                 ),
@@ -1839,35 +1643,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 110,
-                                module: ModulePath {
-                                    [display]: "crate::line_segment_sketch",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::line_segment_sketch,
                                 ident: Identifier(
                                     "go_left",
                                 ),
@@ -1901,35 +1677,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 111,
-                                module: ModulePath {
-                                    [display]: "crate::line_segment_sketch",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::line_segment_sketch,
                                 ident: Identifier(
                                     "extend_end",
                                 ),
@@ -1963,35 +1711,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 112,
-                                module: ModulePath {
-                                    [display]: "crate::line_segment_sketch",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::line_segment_sketch,
                                 ident: Identifier(
                                     "extend_start",
                                 ),
@@ -2025,35 +1745,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 113,
-                                module: ModulePath {
-                                    [display]: "crate::line_segment_sketch",
-                                    [crate]: CratePath {
-                                        [salsa id]: 3,
-                                        package_path: PackagePath {
-                                            [salsa id]: 3,
-                                            toolchain: Toolchain {
-                                                [salsa id]: 0,
-                                                data: Local {
-                                                    library_path: DiffPath {
-                                                        [salsa id]: 0,
-                                                        data: DiffPathBuf(
-                                                            "../../../library",
-                                                        ),
-                                                    },
-                                                },
-                                            },
-                                            data: Local {
-                                                path: DiffPath {
-                                                    [salsa id]: 15,
-                                                    data: DiffPathBuf(
-                                                        "../../../examples/mnist-classifier",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        crate_kind: Main,
-                                    },
-                                },
+                                module: mnist_classifier::line_segment_sketch,
                                 ident: Identifier(
                                     "find_line_segments",
                                 ),

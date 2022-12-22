@@ -19,35 +19,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            ModulePath {
-                                [display]: "crate::prelude",
-                                [crate]: CratePath {
-                                    [salsa id]: 1,
-                                    package_path: PackagePath {
-                                        [salsa id]: 1,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 8,
-                                                data: DiffPathBuf(
-                                                    "../../../library/std",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Library,
-                                },
-                            },
+                            std::prelude,
                         ),
                     ),
                     ident: Identifier(
@@ -73,35 +45,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            ModulePath {
-                                [display]: "crate::logic",
-                                [crate]: CratePath {
-                                    [salsa id]: 1,
-                                    package_path: PackagePath {
-                                        [salsa id]: 1,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 8,
-                                                data: DiffPathBuf(
-                                                    "../../../library/std",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Library,
-                                },
-                            },
+                            std::logic,
                         ),
                     ),
                     ident: Identifier(
@@ -127,35 +71,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            ModulePath {
-                                [display]: "crate::ops",
-                                [crate]: CratePath {
-                                    [salsa id]: 1,
-                                    package_path: PackagePath {
-                                        [salsa id]: 1,
-                                        toolchain: Toolchain {
-                                            [salsa id]: 0,
-                                            data: Local {
-                                                library_path: DiffPath {
-                                                    [salsa id]: 0,
-                                                    data: DiffPathBuf(
-                                                        "../../../library",
-                                                    ),
-                                                },
-                                            },
-                                        },
-                                        data: Local {
-                                            path: DiffPath {
-                                                [salsa id]: 8,
-                                                data: DiffPathBuf(
-                                                    "../../../library/std",
-                                                ),
-                                            },
-                                        },
-                                    },
-                                    crate_kind: Library,
-                                },
-                            },
+                            std::ops,
                         ),
                     ),
                     ident: Identifier(

@@ -1,229 +1,33 @@
 Ok(
     EntityTreePresheet {
-        module_path: ModulePath {
-            [display]: "crate::digits",
-            [crate]: CratePath {
-                [salsa id]: 3,
-                package_path: PackagePath {
-                    [salsa id]: 3,
-                    toolchain: Toolchain {
-                        [salsa id]: 0,
-                        data: Local {
-                            library_path: DiffPath {
-                                [salsa id]: 0,
-                                data: DiffPathBuf(
-                                    "../../../library",
-                                ),
-                            },
-                        },
-                    },
-                    data: Local {
-                        path: DiffPath {
-                            [salsa id]: 15,
-                            data: DiffPathBuf(
-                                "../../../examples/mnist-classifier",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Main,
-            },
-        },
+        module_path: mnist_classifier::digits,
         module_symbols: [
             Module {
                 ident: Identifier(
                     "zero",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::digits",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::digits,
                 ),
-                module_path: ModulePath {
-                    [display]: "crate::digits::zero",
-                    [crate]: CratePath {
-                        [salsa id]: 3,
-                        package_path: PackagePath {
-                            [salsa id]: 3,
-                            toolchain: Toolchain {
-                                [salsa id]: 0,
-                                data: Local {
-                                    library_path: DiffPath {
-                                        [salsa id]: 0,
-                                        data: DiffPathBuf(
-                                            "../../../library",
-                                        ),
-                                    },
-                                },
-                            },
-                            data: Local {
-                                path: DiffPath {
-                                    [salsa id]: 15,
-                                    data: DiffPathBuf(
-                                        "../../../examples/mnist-classifier",
-                                    ),
-                                },
-                            },
-                        },
-                        crate_kind: Main,
-                    },
-                },
+                module_path: mnist_classifier::digits::zero,
             },
             Module {
                 ident: Identifier(
                     "one",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::digits",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::digits,
                 ),
-                module_path: ModulePath {
-                    [display]: "crate::digits::one",
-                    [crate]: CratePath {
-                        [salsa id]: 3,
-                        package_path: PackagePath {
-                            [salsa id]: 3,
-                            toolchain: Toolchain {
-                                [salsa id]: 0,
-                                data: Local {
-                                    library_path: DiffPath {
-                                        [salsa id]: 0,
-                                        data: DiffPathBuf(
-                                            "../../../library",
-                                        ),
-                                    },
-                                },
-                            },
-                            data: Local {
-                                path: DiffPath {
-                                    [salsa id]: 15,
-                                    data: DiffPathBuf(
-                                        "../../../examples/mnist-classifier",
-                                    ),
-                                },
-                            },
-                        },
-                        crate_kind: Main,
-                    },
-                },
+                module_path: mnist_classifier::digits::one,
             },
             Module {
                 ident: Identifier(
                     "six",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::digits",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::digits,
                 ),
-                module_path: ModulePath {
-                    [display]: "crate::digits::six",
-                    [crate]: CratePath {
-                        [salsa id]: 3,
-                        package_path: PackagePath {
-                            [salsa id]: 3,
-                            toolchain: Toolchain {
-                                [salsa id]: 0,
-                                data: Local {
-                                    library_path: DiffPath {
-                                        [salsa id]: 0,
-                                        data: DiffPathBuf(
-                                            "../../../library",
-                                        ),
-                                    },
-                                },
-                            },
-                            data: Local {
-                                path: DiffPath {
-                                    [salsa id]: 15,
-                                    data: DiffPathBuf(
-                                        "../../../examples/mnist-classifier",
-                                    ),
-                                },
-                            },
-                        },
-                        crate_kind: Main,
-                    },
-                },
+                module_path: mnist_classifier::digits::six,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

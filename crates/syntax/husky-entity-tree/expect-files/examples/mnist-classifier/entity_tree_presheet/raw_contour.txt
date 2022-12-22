@@ -1,102 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: ModulePath {
-            [display]: "crate::raw_contour",
-            [crate]: CratePath {
-                [salsa id]: 3,
-                package_path: PackagePath {
-                    [salsa id]: 3,
-                    toolchain: Toolchain {
-                        [salsa id]: 0,
-                        data: Local {
-                            library_path: DiffPath {
-                                [salsa id]: 0,
-                                data: DiffPathBuf(
-                                    "../../../library",
-                                ),
-                            },
-                        },
-                    },
-                    data: Local {
-                        path: DiffPath {
-                            [salsa id]: 15,
-                            data: DiffPathBuf(
-                                "../../../examples/mnist-classifier",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Main,
-            },
-        },
+        module_path: mnist_classifier::raw_contour,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "RawContour",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::raw_contour,
                 ),
                 ast_idx: 217,
                 path: ModuleItemPath {
                     [salsa id]: 126,
-                    module: ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::raw_contour,
                     ident: Identifier(
                         "RawContour",
                     ),
@@ -107,68 +23,12 @@ Ok(
                     "Direction",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::raw_contour,
                 ),
                 ast_idx: 219,
                 path: ModuleItemPath {
                     [salsa id]: 127,
-                    module: ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::raw_contour,
                     ident: Identifier(
                         "Direction",
                     ),
@@ -179,68 +39,12 @@ Ok(
                     "get_pixel_pair",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::raw_contour,
                 ),
                 ast_idx: 224,
                 path: ModuleItemPath {
                     [salsa id]: 128,
-                    module: ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::raw_contour,
                     ident: Identifier(
                         "get_pixel_pair",
                     ),
@@ -251,68 +55,12 @@ Ok(
                     "get_pixel_to_the_left",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::raw_contour,
                 ),
                 ast_idx: 225,
                 path: ModuleItemPath {
                     [salsa id]: 129,
-                    module: ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::raw_contour,
                     ident: Identifier(
                         "get_pixel_to_the_left",
                     ),
@@ -323,68 +71,12 @@ Ok(
                     "get_pixel_to_the_right",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::raw_contour,
                 ),
                 ast_idx: 226,
                 path: ModuleItemPath {
                     [salsa id]: 130,
-                    module: ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::raw_contour,
                     ident: Identifier(
                         "get_pixel_to_the_right",
                     ),
@@ -395,68 +87,12 @@ Ok(
                     "get_inward_direction",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::raw_contour,
                 ),
                 ast_idx: 227,
                 path: ModuleItemPath {
                     [salsa id]: 131,
-                    module: ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::raw_contour,
                     ident: Identifier(
                         "get_inward_direction",
                     ),
@@ -467,68 +103,12 @@ Ok(
                     "get_angle_change",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::raw_contour,
                 ),
                 ast_idx: 228,
                 path: ModuleItemPath {
                     [salsa id]: 132,
-                    module: ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::raw_contour,
                     ident: Identifier(
                         "get_angle_change",
                     ),
@@ -539,68 +119,12 @@ Ok(
                     "get_outward_direction",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::raw_contour,
                 ),
                 ast_idx: 229,
                 path: ModuleItemPath {
                     [salsa id]: 133,
-                    module: ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::raw_contour,
                     ident: Identifier(
                         "get_outward_direction",
                     ),
@@ -611,68 +135,12 @@ Ok(
                     "StreakCache",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::raw_contour,
                 ),
                 ast_idx: 230,
                 path: ModuleItemPath {
                     [salsa id]: 134,
-                    module: ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::raw_contour,
                     ident: Identifier(
                         "StreakCache",
                     ),
@@ -683,68 +151,12 @@ Ok(
                     "get_concave_middle_point",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::raw_contour,
                 ),
                 ast_idx: 231,
                 path: ModuleItemPath {
                     [salsa id]: 135,
-                    module: ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::raw_contour,
                     ident: Identifier(
                         "get_concave_middle_point",
                     ),
@@ -755,68 +167,12 @@ Ok(
                     "find_raw_contours",
                 ),
                 accessibility: PubicUnder(
-                    ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    mnist_classifier::raw_contour,
                 ),
                 ast_idx: 232,
                 path: ModuleItemPath {
                     [salsa id]: 136,
-                    module: ModulePath {
-                        [display]: "crate::raw_contour",
-                        [crate]: CratePath {
-                            [salsa id]: 3,
-                            package_path: PackagePath {
-                                [salsa id]: 3,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 15,
-                                        data: DiffPathBuf(
-                                            "../../../examples/mnist-classifier",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Main,
-                        },
-                    },
+                    module: mnist_classifier::raw_contour,
                     ident: Identifier(
                         "find_raw_contours",
                     ),

@@ -3,6 +3,7 @@ mod ancestry;
 
 pub use accessibility::*;
 pub use ancestry::*;
+use salsa::DebugWithDb;
 use with_db::{PartialOrdWithDb, WithDb};
 
 use super::*;
@@ -184,25 +185,75 @@ impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for ModulePath
     ) -> ::std::fmt::Result {
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;
-        f.debug_struct("ModulePath")
-            .field(
-                "[display]",
-                &::salsa::debug::helper::SalsaDebug::<
-                    ModulePathData,
-                    <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-                >::salsa_debug(
-                    #[allow(clippy::needless_borrow)]
-                    &self.data(db),
-                    db,
-                    include_all_fields,
-                ),
-            )
-            .field(
-                "[crate]",
-                &self.crate_path(db).debug_with(db, include_all_fields),
-            )
-            .finish()
+        if include_all_fields {
+            f.debug_struct("ModulePath")
+                .field(
+                    "[display]",
+                    &::salsa::debug::helper::SalsaDebug::<
+                        ModulePathData,
+                        <VfsJar as salsa::jar::Jar<'_>>::DynDb,
+                    >::salsa_debug(
+                        #[allow(clippy::needless_borrow)]
+                        &self.data(db),
+                        db,
+                        include_all_fields,
+                    ),
+                )
+                .field(
+                    "[crate]",
+                    &self.crate_path(db).debug_with(db, include_all_fields),
+                )
+                .finish()
+        } else {
+            self.show(f, db)
+        }
     }
+}
+
+impl ModulePath {
+    fn show(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+        db: &<VfsJar as salsa::jar::Jar<'_>>::DynDb,
+    ) -> ::std::fmt::Result {
+        match self.data(db) {
+            ModulePathData::Root(crate_path) => f.write_str(match crate_path.package_ident(db) {
+                Ok(ident) => ident.data(db),
+                Err(_) => "???",
+            }),
+            ModulePathData::Child { parent, ident } => {
+                parent.show(f, db)?;
+                f.write_str("::")?;
+                f.write_str(ident.data(db))
+            }
+        }
+    }
+}
+
+#[test]
+fn module_path_debug_with_db_works() {
+    fn t(db: &DB, module_path: ModulePath, include_all_fields: bool, expect: &str) {
+        assert_eq!(
+            format!("{:?}", module_path.debug_with(db, include_all_fields)),
+            expect
+        )
+    }
+    let db = DB::default();
+    let path_menu = db.dev_path_menu().unwrap();
+    t(&db, path_menu.core_num(), false, "core::num");
+    t(&db, path_menu.core(), false, "core");
+    expect_test::expect![[r#"
+        core
+    "#]]
+    .assert_debug_eq(&path_menu.core().debug(&db));
+    expect_test::expect![[r#"
+        core::num
+    "#]]
+    .assert_debug_eq(&path_menu.core_num().debug(&db));
+    expect_test::expect![[r#"
+        std
+    "#]]
+    .assert_debug_eq(&path_menu.std().debug(&db));
 }
 
 impl salsa::DebugWithDb<dyn VfsDb + '_> for ModulePathData {

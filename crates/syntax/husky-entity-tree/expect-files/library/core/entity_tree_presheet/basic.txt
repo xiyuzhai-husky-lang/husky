@@ -1,34 +1,6 @@
 Ok(
     EntityTreePresheet {
-        module_path: ModulePath {
-            [display]: "crate::basic",
-            [crate]: CratePath {
-                [salsa id]: 0,
-                package_path: PackagePath {
-                    [salsa id]: 0,
-                    toolchain: Toolchain {
-                        [salsa id]: 0,
-                        data: Local {
-                            library_path: DiffPath {
-                                [salsa id]: 0,
-                                data: DiffPathBuf(
-                                    "../../../library",
-                                ),
-                            },
-                        },
-                    },
-                    data: Local {
-                        path: DiffPath {
-                            [salsa id]: 1,
-                            data: DiffPathBuf(
-                                "../../../library/core",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Library,
-            },
-        },
+        module_path: core::basic,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
@@ -38,35 +10,7 @@ Ok(
                 ast_idx: 0,
                 path: ModuleItemPath {
                     [salsa id]: 0,
-                    module: ModulePath {
-                        [display]: "crate::basic",
-                        [crate]: CratePath {
-                            [salsa id]: 0,
-                            package_path: PackagePath {
-                                [salsa id]: 0,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 1,
-                                        data: DiffPathBuf(
-                                            "../../../library/core",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Library,
-                        },
-                    },
+                    module: core::basic,
                     ident: Identifier(
                         "bool",
                     ),
@@ -80,35 +24,7 @@ Ok(
                 ast_idx: 1,
                 path: ModuleItemPath {
                     [salsa id]: 1,
-                    module: ModulePath {
-                        [display]: "crate::basic",
-                        [crate]: CratePath {
-                            [salsa id]: 0,
-                            package_path: PackagePath {
-                                [salsa id]: 0,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 1,
-                                        data: DiffPathBuf(
-                                            "../../../library/core",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Library,
-                        },
-                    },
+                    module: core::basic,
                     ident: Identifier(
                         "Trait",
                     ),
@@ -122,35 +38,7 @@ Ok(
                 ast_idx: 2,
                 path: ModuleItemPath {
                     [salsa id]: 2,
-                    module: ModulePath {
-                        [display]: "crate::basic",
-                        [crate]: CratePath {
-                            [salsa id]: 0,
-                            package_path: PackagePath {
-                                [salsa id]: 0,
-                                toolchain: Toolchain {
-                                    [salsa id]: 0,
-                                    data: Local {
-                                        library_path: DiffPath {
-                                            [salsa id]: 0,
-                                            data: DiffPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
-                                    },
-                                },
-                                data: Local {
-                                    path: DiffPath {
-                                        [salsa id]: 1,
-                                        data: DiffPathBuf(
-                                            "../../../library/core",
-                                        ),
-                                    },
-                                },
-                            },
-                            crate_kind: Library,
-                        },
-                    },
+                    module: core::basic,
                     ident: Identifier(
                         "Module",
                     ),

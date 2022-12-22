@@ -5,6 +5,10 @@ use husky_text::TextChange;
 
 pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
     fn path_menu(&self, toolchain: Toolchain) -> VfsResult<&PathMenu>;
+    fn dev_path_menu(&self) -> VfsResult<&PathMenu> {
+        let toolchain = self.dev_toolchain();
+        self.path_menu(toolchain)
+    }
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
     fn module_content(&self, module_path: ModulePath) -> VfsResult<&str>;
     fn package_dir(&self, package_path: PackagePath) -> &VfsResult<DiffPath>;
