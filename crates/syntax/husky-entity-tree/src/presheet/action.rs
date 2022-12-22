@@ -11,7 +11,7 @@ impl EntitySymbolPresheet {
         for entity_use_tracker in &self.entity_use_trackers {
             if !entity_use_tracker.resolved() {
                 let ident = entity_use_tracker.ident();
-                if let Some(_) = ctx.get(ident) {
+                if let Some(node) = ctx.get(ident) {
                     todo!()
                 }
             }
