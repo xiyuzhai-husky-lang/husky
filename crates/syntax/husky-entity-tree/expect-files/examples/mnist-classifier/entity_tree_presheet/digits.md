@@ -1,0 +1,92 @@
+Ok(
+    EntityTreePresheet {
+        module_path: `mnist_classifier::digits`,
+        module_symbols: [
+            Module {
+                ident: `zero`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits`,
+                ),
+                module_path: `mnist_classifier::digits::zero`,
+            },
+            Module {
+                ident: `one`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits`,
+                ),
+                module_path: `mnist_classifier::digits::one`,
+            },
+            Module {
+                ident: `six`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits`,
+                ),
+                module_path: `mnist_classifier::digits::six`,
+            },
+        ],
+        entity_use_roots: EntityUseExprTrackers(
+            [
+                EntityUseTracker {
+                    ast_idx: 3,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 43,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 1,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 4,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 45,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 3,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 5,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 48,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 5,
+                    parent: None,
+                    state: Unresolved,
+                },
+            ],
+        ),
+    },
+)

@@ -1,0 +1,195 @@
+Ok(
+    EntityTreePresheet {
+        module_path: `mnist_classifier::digits::zero`,
+        module_symbols: [
+            ModuleItem {
+                ident: `open_one_match`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits::zero`,
+                ),
+                ast_idx: 35,
+                path: `mnist_classifier::digits::zero::open_one_match`,
+            },
+            ModuleItem {
+                ident: `almost_closed`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits::zero`,
+                ),
+                ast_idx: 36,
+                path: `mnist_classifier::digits::zero::almost_closed`,
+            },
+            ModuleItem {
+                ident: `is_zero`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits::zero`,
+                ),
+                ast_idx: 37,
+                path: `mnist_classifier::digits::zero::is_zero`,
+            },
+        ],
+        entity_use_roots: EntityUseExprTrackers(
+            [
+                EntityUseTracker {
+                    ast_idx: 27,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 81,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 3,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 28,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 74,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 8,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 29,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 74,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 13,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 30,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 74,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 18,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 31,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 21,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 32,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 24,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 33,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 28,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 34,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 31,
+                    parent: None,
+                    state: Unresolved,
+                },
+            ],
+        ),
+    },
+)

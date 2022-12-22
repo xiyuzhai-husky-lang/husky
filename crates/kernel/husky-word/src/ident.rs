@@ -17,7 +17,7 @@ impl DebugWithDb<<WordJar as salsa::jar::Jar<'_>>::DynDb> for Identifier {
         if include_all_fields {
             f.debug_tuple("Identifier").field(&self.data(db)).finish()
         } else {
-            f.write_fmt(format_args!("{:?}", &self.data(db)))
+            f.write_fmt(format_args!("`{}`", &self.data(db)))
         }
     }
 }

@@ -35,7 +35,7 @@ fn ident_debug_works() {
     let db = DB::default();
     let haha = db.it_ident_borrowed("haha").unwrap();
     expect_test::expect![[r#"
-        "haha"
+        `haha`
     "#]]
     .assert_debug_eq(&haha.debug(&db));
 }

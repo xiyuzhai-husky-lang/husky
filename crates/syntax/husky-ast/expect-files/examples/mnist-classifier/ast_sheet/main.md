@@ -1,0 +1,828 @@
+Ok(
+    AstSheet {
+        arena: Arena {
+            data: [
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        1,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        34,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        35,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        36,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        37,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        38,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        39,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        40,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        41,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        42,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        43,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Config {
+                    token_group_idx: TokenGroupIdx(
+                        0,
+                    ),
+                    body: ArenaIdxRange(
+                        0..1,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        2,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::connected_component`,
+                        ),
+                    ),
+                    ident: `connected_component`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        3,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::raw_contour`,
+                        ),
+                    ),
+                    ident: `raw_contour`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        4,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::geom2d`,
+                        ),
+                    ),
+                    ident: `geom2d`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::line_segment_sketch`,
+                        ),
+                    ),
+                    ident: `line_segment_sketch`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        6,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::fermi`,
+                        ),
+                    ),
+                    ident: `fermi`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        7,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::major`,
+                        ),
+                    ),
+                    ident: `major`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        8,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::zero`,
+                        ),
+                    ),
+                    ident: `zero`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        9,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::one`,
+                        ),
+                    ),
+                    ident: `one`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        10,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::two`,
+                        ),
+                    ),
+                    ident: `two`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        11,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::three`,
+                        ),
+                    ),
+                    ident: `three`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        12,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::four`,
+                        ),
+                    ),
+                    ident: `four`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        13,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::five`,
+                        ),
+                    ),
+                    ident: `five`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        14,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::six`,
+                        ),
+                    ),
+                    ident: `six`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        15,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::seven`,
+                        ),
+                    ),
+                    ident: `seven`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        16,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::eight`,
+                        ),
+                    ),
+                    ident: `eight`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        17,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        Module(
+                            `mnist_classifier::nine`,
+                        ),
+                    ),
+                    ident: `nine`,
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        18,
+                    ),
+                    ident: `mnist`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 1,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        19,
+                    ),
+                    ident: `mnist`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 3,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        20,
+                    ),
+                    ident: `major`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 5,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        21,
+                    ),
+                    ident: `zero`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 7,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        22,
+                    ),
+                    ident: `one`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 9,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        23,
+                    ),
+                    ident: `two`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 11,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        24,
+                    ),
+                    ident: `three`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 13,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        25,
+                    ),
+                    ident: `five`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 15,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        26,
+                    ),
+                    ident: `six`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 17,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        27,
+                    ),
+                    ident: `seven`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 19,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        28,
+                    ),
+                    ident: `eight`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 21,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        29,
+                    ),
+                    ident: `nine`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 23,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        30,
+                    ),
+                    ident: `raw_contour`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 25,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        31,
+                    ),
+                    ident: `line_segment_sketch`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 27,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        32,
+                    ),
+                    ident: `domains`,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 32,
+                },
+                Main {
+                    token_group_idx: TokenGroupIdx(
+                        33,
+                    ),
+                    body: ArenaIdxRange(
+                        1..11,
+                    ),
+                },
+            ],
+        },
+        top_level_asts: ArenaIdxRange(
+            11..44,
+        ),
+        use_expr_arena: Arena {
+            data: [
+                One {
+                    ident: `BinaryImage28`,
+                },
+                ScopeResolution {
+                    parent: `mnist`,
+                    child: 0,
+                },
+                One {
+                    ident: `MnistLabel`,
+                },
+                ScopeResolution {
+                    parent: `mnist`,
+                    child: 2,
+                },
+                All,
+                ScopeResolution {
+                    parent: `major`,
+                    child: 4,
+                },
+                One {
+                    ident: `is_zero`,
+                },
+                ScopeResolution {
+                    parent: `zero`,
+                    child: 6,
+                },
+                One {
+                    ident: `is_one`,
+                },
+                ScopeResolution {
+                    parent: `one`,
+                    child: 8,
+                },
+                One {
+                    ident: `is_two`,
+                },
+                ScopeResolution {
+                    parent: `two`,
+                    child: 10,
+                },
+                One {
+                    ident: `is_three`,
+                },
+                ScopeResolution {
+                    parent: `three`,
+                    child: 12,
+                },
+                One {
+                    ident: `is_five`,
+                },
+                ScopeResolution {
+                    parent: `five`,
+                    child: 14,
+                },
+                One {
+                    ident: `is_six`,
+                },
+                ScopeResolution {
+                    parent: `six`,
+                    child: 16,
+                },
+                One {
+                    ident: `is_seven`,
+                },
+                ScopeResolution {
+                    parent: `seven`,
+                    child: 18,
+                },
+                One {
+                    ident: `is_eight`,
+                },
+                ScopeResolution {
+                    parent: `eight`,
+                    child: 20,
+                },
+                One {
+                    ident: `is_nine`,
+                },
+                ScopeResolution {
+                    parent: `nine`,
+                    child: 22,
+                },
+                One {
+                    ident: `find_raw_contours`,
+                },
+                ScopeResolution {
+                    parent: `raw_contour`,
+                    child: 24,
+                },
+                One {
+                    ident: `find_line_segments`,
+                },
+                ScopeResolution {
+                    parent: `line_segment_sketch`,
+                    child: 26,
+                },
+                One {
+                    ident: `naive_i32`,
+                },
+                ScopeResolution {
+                    parent: `naive`,
+                    child: 28,
+                },
+                ScopeResolution {
+                    parent: `models`,
+                    child: 29,
+                },
+                ScopeResolution {
+                    parent: `ml`,
+                    child: 30,
+                },
+                ScopeResolution {
+                    parent: `domains`,
+                    child: 31,
+                },
+            ],
+        },
+    },
+)
