@@ -83,6 +83,24 @@ where
     entries: Vec<V>,
 }
 
+pub trait VecMapGetEntry<V>
+where
+    V: AsVecMapEntry,
+    V::K: Copy,
+{
+    fn get_entry<'a>(&'a self, k: <V as AsVecMapEntry>::K) -> Option<&'a V>;
+}
+
+impl<V> VecMapGetEntry<V> for [V]
+where
+    V: AsVecMapEntry,
+    V::K: Copy + Eq,
+{
+    fn get_entry<'a>(&'a self, k: <V as AsVecMapEntry>::K) -> Option<&'a V> {
+        self.iter().find(|v| v.key() == k)
+    }
+}
+
 impl<K, V> IntoIterator for VecMap<V>
 where
     K: PartialEq + Eq + std::fmt::Debug,

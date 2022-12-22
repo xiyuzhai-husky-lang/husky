@@ -2,7 +2,7 @@ use super::*;
 
 pub(super) enum CollectorAction {}
 
-impl<'a> EntitySymbolCollector<'a> {
+impl<'a> EntityTreeCollector<'a> {
     pub(super) fn collect_possible_actions(&self) -> Vec<PresheetAction> {
         let mut actions = vec![];
         for presheet in self.presheets.iter() {
@@ -11,17 +11,15 @@ impl<'a> EntitySymbolCollector<'a> {
         actions
     }
 
-    fn context(&self, presheet: &EntitySymbolPresheet) -> EntitySymbolContext {
-        EntitySymbolContext::new(self.db, presheet.module_path(), self.crate_prelude())
+    fn context<'b>(&'b self, presheet: &'b EntitySymbolPresheet) -> EntitySymbolContext<'b> {
+        let module_path = presheet.module_path();
+        EntitySymbolContext::new(self.db, module_path, presheet.nodes(), self.crate_prelude())
     }
 
     fn crate_prelude<'b>(&'b self) -> CratePrelude<'b> {
-        let universal_prelude = match self.core_prelude_module {
-            Some(core_prelude_module) => self.presheets[core_prelude_module].nodes(),
-            None => {
-                todo!()
-            }
-        };
-        CratePrelude::new(todo!(), todo!())
+        let universal_prelude = self
+            .universal_prelude
+            .unwrap_or_else(|| self.presheets[self.core_prelude_module].nodes());
+        CratePrelude::new(universal_prelude, self.crate_specific_prelude)
     }
 }
