@@ -63,7 +63,7 @@ fn module_ancestry_works() {
     let toolchain = db.dev_toolchain();
     let menu = db.path_menu(toolchain).unwrap();
     expect_test::expect![[r#"
-        ApparentAncestry {
+        ModuleAncestry {
             crate_path: CratePath {
                 [salsa id]: 0,
                 package_path: PackagePath {
@@ -125,7 +125,7 @@ fn module_ancestry_works() {
     "#]]
     .assert_debug_eq(&t(&db, menu.core()));
     expect_test::expect![[r#"
-        ApparentAncestry {
+        ModuleAncestry {
             crate_path: CratePath {
                 [salsa id]: 0,
                 package_path: PackagePath {

@@ -1,0 +1,9 @@
+Err(
+    DerivedSelf(
+        Vfs(
+            FileNotExists(
+                "../../../examples/mnist-classifier/src/zero.hsy",
+            ),
+        ),
+    ),
+)

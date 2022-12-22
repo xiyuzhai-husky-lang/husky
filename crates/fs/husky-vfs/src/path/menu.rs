@@ -6,11 +6,13 @@ pub struct PathMenu {
     std_package: PackagePath,
     core_library: CratePath,
     std_library: CratePath,
+    /// core
     core: ModulePath,
     std: ModulePath,
     core_prelude: ModulePath,
     core_basic: ModulePath,
     core_ops: ModulePath,
+    /// core::num
     core_num: ModulePath,
 }
 
@@ -67,6 +69,7 @@ impl PathMenu {
         self.core_basic
     }
 
+    /// core::num
     pub fn core_num(&self) -> ModulePath {
         self.core_num
     }

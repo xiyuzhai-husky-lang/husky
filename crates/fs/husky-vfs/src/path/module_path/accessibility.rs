@@ -1,5 +1,7 @@
 use std::cmp::Ordering;
 
+use with_db::{PartialOrdWithDb, WithDb};
+
 use super::*;
 
 /// Accessibility is greater if it can be accessed from more places
@@ -10,20 +12,27 @@ pub enum Accessibility {
     Private,                 // only self
 }
 
-impl PartialOrd for Accessibility {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+impl PartialOrdWithDb<dyn VfsDb + '_> for Accessibility {
+    fn partial_cmp_with_db(&self, db: &dyn VfsDb, other: &Self) -> Option<Ordering> {
         match (self, other) {
             (Accessibility::Public, Accessibility::Public) => Some(Ordering::Equal),
-            (Accessibility::Public, Accessibility::PublicUnder(_) | Accessibility::Private) => {
-                Some(Ordering::Greater)
-            }
+            (Accessibility::Public, _) => Some(Ordering::Greater),
             (Accessibility::PublicUnder(_), Accessibility::Public) => Some(Ordering::Less),
-            (Accessibility::PublicUnder(_), Accessibility::PublicUnder(_)) => todo!(),
+            (
+                Accessibility::PublicUnder(module_path0),
+                Accessibility::PublicUnder(module_path1),
+            ) => module_path0.partial_cmp_with_db(db, module_path1),
             (Accessibility::PublicUnder(_), Accessibility::Private) => todo!(),
             (Accessibility::Private, Accessibility::Public) => todo!(),
             (Accessibility::Private, Accessibility::PublicUnder(_)) => todo!(),
-            (Accessibility::Private, Accessibility::Private) => todo!(),
+            (Accessibility::Private, Accessibility::Private) => Some(Ordering::Equal),
         }
+    }
+}
+
+impl<Db: VfsDb> PartialOrdWithDb<Db> for Accessibility {
+    fn partial_cmp_with_db(&self, db: &Db, other: &Self) -> Option<std::cmp::Ordering> {
+        self.partial_cmp_with_db(db as &dyn VfsDb, other)
     }
 }
 
@@ -34,10 +43,31 @@ fn accessibility_partial_ord_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain();
     let path_menu = db.path_menu(toolchain).unwrap();
-    assert!(Public > PublicUnder(path_menu.core_num()));
-    assert!(!(PublicUnder(path_menu.core_prelude()) > PublicUnder(path_menu.core_num())));
-    assert!(Public > Private);
-    assert!(Public >= Public);
+    assert!(Public.with_db(&db) > PublicUnder(path_menu.core_num()).with_db(&db));
+    assert!(
+        !(PublicUnder(path_menu.core_prelude()).with_db(&db)
+            > PublicUnder(path_menu.core_num()).with_db(&db))
+    );
+    assert!(Public.with_db(&db) > Private.with_db(&db));
+    assert!(Public.with_db(&db) >= Public.with_db(&db));
+    // equals
+    assert_eq!(Public.with_db(&db), Public.with_db(&db));
+    assert_eq!(Private.with_db(&db), Private.with_db(&db));
+    assert_eq!(
+        PublicUnder(path_menu.core_prelude()).with_db(&db),
+        PublicUnder(path_menu.core_prelude()).with_db(&db)
+    );
+    // not equals
+    assert_ne!(Public.with_db(&db), Private.with_db(&db));
+    assert_ne!(Private.with_db(&db), Public.with_db(&db));
+    assert_ne!(
+        Private.with_db(&db),
+        PublicUnder(path_menu.core_num()).with_db(&db)
+    );
+    assert_ne!(
+        PublicUnder(path_menu.core_prelude()).with_db(&db),
+        PublicUnder(path_menu.core_num()).with_db(&db)
+    );
 }
 
 impl Accessibility {

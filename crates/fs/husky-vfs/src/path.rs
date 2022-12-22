@@ -132,7 +132,7 @@ pub(crate) fn resolve_module_path(db: &dyn VfsDb,
 
 #[test]
 fn resolve_module_path_works() {
-    DB::test_probable_modules(|db, module_path| {
+    <DB as VfsTestSupport>::test_probable_modules(|db, module_path| {
         let abs_path = module_absolute_path(db, module_path).unwrap();
         let toolchain = module_path.toolchain(db);
         let entity_path_resolved = db.resolve_module_path(toolchain, abs_path.path(db)).unwrap();
