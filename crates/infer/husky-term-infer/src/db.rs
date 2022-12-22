@@ -12,7 +12,7 @@ pub trait TermInferDb:
 {
     fn entity_ty(&self, entity: EntityPath) -> Term;
 
-    fn term_sheet(&self, file: AbsolutePath) -> VfsResult<TermSheet>;
+    fn term_sheet(&self, file: DiffPath) -> VfsResult<TermSheet>;
 }
 
 impl<T> TermInferDb for T
@@ -23,7 +23,7 @@ where
         todo!()
     }
 
-    fn term_sheet(&self, file: AbsolutePath) -> VfsResult<TermSheet> {
+    fn term_sheet(&self, file: DiffPath) -> VfsResult<TermSheet> {
         todo!()
     }
 }
@@ -32,7 +32,7 @@ fn entity_ty(db: &dyn TermInferDb, entity: EntityPath) -> Term {
     db.infer_entity_ty(entity)
 }
 
-fn term_sheet(db: &dyn TermInferDb, file: AbsolutePath) -> VfsResult<TermSheet> {
+fn term_sheet(db: &dyn TermInferDb, file: DiffPath) -> VfsResult<TermSheet> {
     todo!()
 }
 

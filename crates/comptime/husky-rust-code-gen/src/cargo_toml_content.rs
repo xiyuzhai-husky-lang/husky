@@ -4,7 +4,7 @@ use crate::*;
 
 pub fn cargo_toml_content(
     _db: &dyn RustTranspileDb,
-    _target_entrance: AbsolutePath,
+    _target_entrance: DiffPath,
     _husky_dir: &Path,
 ) -> String {
     todo!()

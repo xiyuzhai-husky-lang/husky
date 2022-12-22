@@ -29,14 +29,14 @@
 //     pub variant: TraceVariant,
 //     pub raw_data: TraceData,
 //     pub range: TextRange,
-//     pub file: AbsolutePath,
+//     pub file: DiffPath,
 // }
 // #[derive(Debug)]
 // pub enum TraceVariant {
 //     Main(FeatureRepr),
 //     Module {
 //         entity_path: EntityPath,
-//         file: AbsolutePath,
+//         file: DiffPath,
 //         range: TextRange,
 //     },
 //     EntityFeature {

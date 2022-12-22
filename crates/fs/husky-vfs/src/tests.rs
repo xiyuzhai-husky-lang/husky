@@ -30,7 +30,7 @@ fn watcher_works() {
     let some_pkg_dir = tempdir.path().join("somepath");
     std::fs::create_dir(&some_pkg_dir).unwrap();
     let path = some_pkg_dir.join("Corgi.toml");
-    let abs_path: AbsolutePath = AbsolutePath::try_new(&db, &path).unwrap();
+    let abs_path: DiffPath = DiffPath::try_new(&db, &path).unwrap();
     let db = WatchedVfs::new(db);
 
     std::fs::write(&path, "Hello, world!").expect("can't write");

@@ -64,15 +64,21 @@ fn apparent_ancestry_works() {
                     toolchain: Toolchain {
                         [salsa id]: 0,
                         data: Local {
-                            library_path: "/home/xiyuzhai/repos/husky/library",
+                            library_path: DiffPath {
+                                [salsa id]: 0,
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
                         },
                     },
                     data: Local {
-                        path: AbsolutePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                        path: DiffPath {
+                            [salsa id]: 1,
+                            data: DiffPathBuf(
+                                "../../../library/core",
+                            ),
+                        },
                     },
                 },
                 crate_kind: Library,
@@ -87,15 +93,21 @@ fn apparent_ancestry_works() {
                             toolchain: Toolchain {
                                 [salsa id]: 0,
                                 data: Local {
-                                    library_path: "/home/xiyuzhai/repos/husky/library",
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
                                 },
                             },
                             data: Local {
-                                path: AbsolutePath(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                                path: DiffPath {
+                                    [salsa id]: 1,
+                                    data: DiffPathBuf(
+                                        "../../../library/core",
+                                    ),
+                                },
                             },
                         },
                         crate_kind: Library,
@@ -114,15 +126,21 @@ fn apparent_ancestry_works() {
                     toolchain: Toolchain {
                         [salsa id]: 0,
                         data: Local {
-                            library_path: "/home/xiyuzhai/repos/husky/library",
+                            library_path: DiffPath {
+                                [salsa id]: 0,
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
                         },
                     },
                     data: Local {
-                        path: AbsolutePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                        path: DiffPath {
+                            [salsa id]: 1,
+                            data: DiffPathBuf(
+                                "../../../library/core",
+                            ),
+                        },
                     },
                 },
                 crate_kind: Library,
@@ -137,15 +155,21 @@ fn apparent_ancestry_works() {
                             toolchain: Toolchain {
                                 [salsa id]: 0,
                                 data: Local {
-                                    library_path: "/home/xiyuzhai/repos/husky/library",
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
                                 },
                             },
                             data: Local {
-                                path: AbsolutePath(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                                path: DiffPath {
+                                    [salsa id]: 1,
+                                    data: DiffPathBuf(
+                                        "../../../library/core",
+                                    ),
+                                },
                             },
                         },
                         crate_kind: Library,
@@ -160,15 +184,21 @@ fn apparent_ancestry_works() {
                             toolchain: Toolchain {
                                 [salsa id]: 0,
                                 data: Local {
-                                    library_path: "/home/xiyuzhai/repos/husky/library",
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
                                 },
                             },
                             data: Local {
-                                path: AbsolutePath(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                                path: DiffPath {
+                                    [salsa id]: 1,
+                                    data: DiffPathBuf(
+                                        "../../../library/core",
+                                    ),
+                                },
                             },
                         },
                         crate_kind: Library,

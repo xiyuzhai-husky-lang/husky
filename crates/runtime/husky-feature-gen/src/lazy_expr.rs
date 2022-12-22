@@ -34,7 +34,7 @@ impl HasTextRange for FeatureLazyExpr {
 }
 
 impl HasSourceRange for FeatureLazyExpr {
-    fn source(&self) -> AbsolutePath {
+    fn source(&self) -> DiffPath {
         self.expr.file
     }
 }

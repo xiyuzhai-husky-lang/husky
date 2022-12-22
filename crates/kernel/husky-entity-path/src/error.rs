@@ -4,7 +4,7 @@ use thiserror::Error;
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum EntityPathError {
     // #[error("{0}")]
-    // AbsolutePath(#[from] AbsolutePathError),
+    // DiffPath(#[from] AbsolutePathError),
     #[error("{0}")]
     Vfs(#[from] VfsError),
 }

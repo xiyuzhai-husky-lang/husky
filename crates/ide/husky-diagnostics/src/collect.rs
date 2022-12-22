@@ -44,7 +44,7 @@ fn collect_entity_syntax_errors(
 
 fn collect_module_lex_errors(
     _db: &dyn DiagnosticsDb,
-    _file: AbsolutePath,
+    _file: DiffPath,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
@@ -54,7 +54,7 @@ fn collect_module_lex_errors(
 
 fn collect_module_ast_errors(
     _db: &dyn DiagnosticsDb,
-    _file: AbsolutePath,
+    _file: DiffPath,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
@@ -72,7 +72,7 @@ fn collect_module_ast_errors(
 
 fn collect_module_infer_ty_errors(
     _db: &dyn DiagnosticsDb,
-    _file: AbsolutePath,
+    _file: DiffPath,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
@@ -84,7 +84,7 @@ fn collect_module_infer_ty_errors(
 
 fn collect_module_infer_contract_errors(
     _db: &dyn DiagnosticsDb,
-    _file: AbsolutePath,
+    _file: DiffPath,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()
@@ -96,7 +96,7 @@ fn collect_module_infer_contract_errors(
 
 fn collect_module_infer_qualified_ty_errors(
     _db: &dyn DiagnosticsDb,
-    _file: AbsolutePath,
+    _file: DiffPath,
     _diagnostics: &mut Vec<Diagnostic>,
 ) {
     todo!()

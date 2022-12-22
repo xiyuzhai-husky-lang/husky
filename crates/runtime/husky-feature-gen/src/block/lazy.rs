@@ -8,7 +8,7 @@ use super::*;
 pub struct FeatureLazyBody {
     pub symbols: Vec<FeatureSymbol>,
     pub feature: FeatureItd,
-    pub file: AbsolutePath,
+    pub file: DiffPath,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     pub return_ty: Term,

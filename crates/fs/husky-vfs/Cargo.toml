@@ -5,6 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+pathdiff = "0.2.1"
 url = "2.3.1"
 thiserror = "1.0.37"
 notify-debouncer-mini = "0.2.0"

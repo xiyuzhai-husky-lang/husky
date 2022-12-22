@@ -15,7 +15,7 @@ pub struct FeatureLazyStmt {
     pub variant: FeatureLazyStmtVariant,
     pub opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
     pub opt_feature: Option<FeatureItd>,
-    pub file: AbsolutePath,
+    pub file: DiffPath,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     pub stmt: Arc<LazyStmt>,

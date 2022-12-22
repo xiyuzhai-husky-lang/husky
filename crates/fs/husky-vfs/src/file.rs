@@ -9,7 +9,7 @@ pub enum FileContent {
     NotExists,
     OnDisk(String),
     Live(String),
-    Directory(Vec<AbsolutePath>),
+    Directory(Vec<DiffPath>),
     Err(VfsError),
 }
 
@@ -33,7 +33,7 @@ impl FileContent {
 impl File {
     pub(crate) fn new(
         db: &<crate::VfsJar as salsa::jar::Jar<'_>>::DynDb,
-        path: AbsolutePath,
+        path: DiffPath,
         content: FileContent,
         durability: Durability,
     ) -> Self {
@@ -45,10 +45,7 @@ impl File {
         id
     }
 
-    pub(crate) fn path<'db>(
-        self,
-        __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-    ) -> AbsolutePath {
+    pub(crate) fn path<'db>(self, __db: &'db <VfsJar as salsa::jar::Jar<'_>>::DynDb) -> DiffPath {
         let (__jar, __runtime) = <_ as salsa::storage::HasJar<VfsJar>>::jar(__db);
         let __ingredients = <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(__jar);
         __ingredients.0.fetch(__runtime, self).clone()
@@ -77,7 +74,7 @@ impl File {
 impl salsa::storage::IngredientsFor for File {
     type Jar = VfsJar;
     type Ingredients = (
-        InputFieldIngredient<File, AbsolutePath>,
+        InputFieldIngredient<File, DiffPath>,
         InputFieldIngredient<File, FileContent>,
         InputIngredient<File>,
     );
@@ -165,18 +162,19 @@ impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for File {
         use ::salsa::debug::helper::Fallback;
         let mut debug_struct = &mut f.debug_struct("HuskyFile");
         debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
-        debug_struct = debug_struct.field(
-            "path",
-            &::salsa::debug::helper::SalsaDebug::<
-                AbsolutePath,
-                <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-            >::salsa_debug(
-                #[allow(clippy::needless_borrow)]
-                &self.path(_db),
-                _db,
-                _include_all_fields,
-            ),
-        );
+        debug_struct =
+            debug_struct.field(
+                "path",
+                &::salsa::debug::helper::SalsaDebug::<
+                    DiffPath,
+                    <VfsJar as salsa::jar::Jar<'_>>::DynDb,
+                >::salsa_debug(
+                    #[allow(clippy::needless_borrow)]
+                    &self.path(_db),
+                    _db,
+                    _include_all_fields,
+                ),
+            );
         if _include_all_fields {
             debug_struct = debug_struct.field(
                 "content",

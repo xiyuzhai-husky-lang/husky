@@ -155,7 +155,7 @@ A common pitfall is that one use `git branch stable` instead of `git checkout or
     //     &self,
     //     comptime: &AnalysisHost,
     //     husky_code_snapshot_path: &Path,
-    //     target_entrance: AbsolutePath,
+    //     target_entrance: DiffPath,
     // ) {
     //     todo!()
     //     // diff_write(

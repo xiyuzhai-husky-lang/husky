@@ -117,15 +117,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -157,15 +163,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -197,15 +209,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -237,15 +255,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -277,15 +301,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -317,15 +347,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -357,15 +393,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -397,15 +439,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -437,15 +485,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -477,15 +531,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -517,15 +577,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -557,15 +623,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -597,15 +669,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -637,15 +715,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -677,15 +761,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
@@ -717,15 +807,21 @@ Ok(
                                     toolchain: Toolchain {
                                         [salsa id]: 0,
                                         data: Local {
-                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
                                         },
                                     },
                                     data: Local {
-                                        path: AbsolutePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                        path: DiffPath {
+                                            [salsa id]: 15,
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
                                     },
                                 },
                                 crate_kind: Main,
