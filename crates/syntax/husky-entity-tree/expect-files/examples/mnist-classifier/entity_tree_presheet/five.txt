@@ -29,7 +29,7 @@ Ok(
                 crate_kind: Main,
             },
         },
-        module_items: [
+        module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "five_match",

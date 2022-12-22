@@ -29,8 +29,8 @@ Ok(
                 crate_kind: Library,
             },
         },
-        module_items: [
-            Submodule {
+        module_symbols: [
+            Module {
                 ident: Identifier(
                     "prelude",
                 ),
@@ -95,7 +95,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "logic",
                 ),
@@ -160,7 +160,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "ops",
                 ),

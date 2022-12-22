@@ -32,7 +32,7 @@ Ok(
                     },
                 },
                 sheets: [
-                    Submodule {
+                    Module {
                         ident: Identifier(
                             "basic",
                         ),
@@ -97,7 +97,7 @@ Ok(
                             },
                         },
                     },
-                    Submodule {
+                    Module {
                         ident: Identifier(
                             "logic",
                         ),
@@ -162,7 +162,7 @@ Ok(
                             },
                         },
                     },
-                    Submodule {
+                    Module {
                         ident: Identifier(
                             "num",
                         ),
@@ -227,7 +227,7 @@ Ok(
                             },
                         },
                     },
-                    Submodule {
+                    Module {
                         ident: Identifier(
                             "ops",
                         ),
@@ -292,7 +292,7 @@ Ok(
                             },
                         },
                     },
-                    Submodule {
+                    Module {
                         ident: Identifier(
                             "prelude",
                         ),

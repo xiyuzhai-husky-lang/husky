@@ -29,8 +29,8 @@ Ok(
                 crate_kind: Main,
             },
         },
-        module_items: [
-            Submodule {
+        module_symbols: [
+            Module {
                 ident: Identifier(
                     "connected_component",
                 ),
@@ -95,7 +95,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "raw_contour",
                 ),
@@ -160,7 +160,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "geom2d",
                 ),
@@ -225,7 +225,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "line_segment_sketch",
                 ),
@@ -290,7 +290,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "fermi",
                 ),
@@ -355,7 +355,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "major",
                 ),
@@ -420,7 +420,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "zero",
                 ),
@@ -485,7 +485,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "one",
                 ),
@@ -550,7 +550,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "two",
                 ),
@@ -615,7 +615,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "three",
                 ),
@@ -680,7 +680,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "four",
                 ),
@@ -745,7 +745,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "five",
                 ),
@@ -810,7 +810,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "six",
                 ),
@@ -875,7 +875,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "seven",
                 ),
@@ -940,7 +940,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "eight",
                 ),
@@ -1005,7 +1005,7 @@ Ok(
                     },
                 },
             },
-            Submodule {
+            Module {
                 ident: Identifier(
                     "nine",
                 ),
