@@ -316,7 +316,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 78,
                                 module: `mnist_classifier::five`,
                                 ident: "five_match",
                             },
@@ -346,7 +345,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 79,
                                 module: `mnist_classifier::five`,
                                 ident: "up_right_cc",
                             },
@@ -376,7 +374,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 80,
                                 module: `mnist_classifier::five`,
                                 ident: "down_left_cc",
                             },
@@ -406,7 +403,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 81,
                                 module: `mnist_classifier::five`,
                                 ident: "is_five",
                             },

@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 44,
                 path: ModuleItemPath {
-                    [salsa id]: 143,
                     module: `mnist_classifier::three`,
                     ident: "three_fermi_match",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 45,
                 path: ModuleItemPath {
-                    [salsa id]: 144,
                     module: `mnist_classifier::three`,
                     ident: "is_three",
                 },
@@ -33,7 +31,6 @@ Ok(
                 ),
                 ast_idx: 46,
                 path: ModuleItemPath {
-                    [salsa id]: 145,
                     module: `mnist_classifier::three`,
                     ident: "uparc",
                 },
@@ -45,7 +42,6 @@ Ok(
                 ),
                 ast_idx: 47,
                 path: ModuleItemPath {
-                    [salsa id]: 146,
                     module: `mnist_classifier::three`,
                     ident: "downarc",
                 },
@@ -57,7 +53,6 @@ Ok(
                 ),
                 ast_idx: 48,
                 path: ModuleItemPath {
-                    [salsa id]: 147,
                     module: `mnist_classifier::three`,
                     ident: "back",
                 },

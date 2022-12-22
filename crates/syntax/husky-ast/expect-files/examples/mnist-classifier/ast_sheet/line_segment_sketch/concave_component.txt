@@ -364,7 +364,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 89,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "norm",
                             },
@@ -394,7 +393,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 90,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "rel_norm",
                             },
@@ -424,7 +422,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 91,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "hausdorff_norm",
                             },
@@ -454,7 +451,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 92,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "angle_change",
                             },
@@ -484,7 +480,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 93,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "bounding_box",
                             },
@@ -514,7 +509,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 94,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "relative_bounding_box",
                             },
@@ -544,7 +538,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 95,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "line_segment",
                             },
@@ -574,7 +567,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 96,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "start",
                             },
@@ -604,7 +596,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 97,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "end",
                             },
@@ -634,7 +625,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 98,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "displacement",
                             },
@@ -664,7 +654,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 99,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "start_tangent",
                             },
@@ -694,7 +683,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 100,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "end_tangent",
                             },
@@ -925,7 +913,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 88,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "ConcaveComponent",
                             },
@@ -955,7 +942,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 101,
                                 module: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ident: "find_concave_components",
                             },

@@ -144,7 +144,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 105,
                                 module: `mnist_classifier::line_segment_sketch::line_segment`,
                                 ident: "displacement",
                             },
@@ -174,7 +173,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 106,
                                 module: `mnist_classifier::line_segment_sketch::line_segment`,
                                 ident: "dist_to_point",
                             },
@@ -220,7 +218,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 104,
                                 module: `mnist_classifier::line_segment_sketch::line_segment`,
                                 ident: "LineSegment",
                             },

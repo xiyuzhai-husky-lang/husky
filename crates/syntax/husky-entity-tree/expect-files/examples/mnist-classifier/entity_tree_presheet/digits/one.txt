@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 70,
                 path: ModuleItemPath {
-                    [salsa id]: 44,
                     module: `mnist_classifier::digits::one`,
                     ident: "one_fermi_match",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 71,
                 path: ModuleItemPath {
-                    [salsa id]: 45,
                     module: `mnist_classifier::digits::one`,
                     ident: "is_one",
                 },
@@ -33,7 +31,6 @@ Ok(
                 ),
                 ast_idx: 72,
                 path: ModuleItemPath {
-                    [salsa id]: 46,
                     module: `mnist_classifier::digits::one`,
                     ident: "upmost",
                 },
@@ -45,7 +42,6 @@ Ok(
                 ),
                 ast_idx: 73,
                 path: ModuleItemPath {
-                    [salsa id]: 47,
                     module: `mnist_classifier::digits::one`,
                     ident: "downmost",
                 },
@@ -57,7 +53,6 @@ Ok(
                 ),
                 ast_idx: 74,
                 path: ModuleItemPath {
-                    [salsa id]: 48,
                     module: `mnist_classifier::digits::one`,
                     ident: "hat",
                 },

@@ -938,7 +938,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 82,
                                 module: `mnist_classifier::geom2d`,
                                 ident: "Point2d",
                             },
@@ -978,7 +977,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 83,
                                 module: `mnist_classifier::geom2d`,
                                 ident: "RelativePoint2d",
                             },
@@ -1010,7 +1008,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 84,
                                 module: `mnist_classifier::geom2d`,
                                 ident: "Vector2d",
                             },
@@ -1050,7 +1047,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 85,
                                 module: `mnist_classifier::geom2d`,
                                 ident: "ClosedRange",
                             },
@@ -1090,7 +1086,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 86,
                                 module: `mnist_classifier::geom2d`,
                                 ident: "BoundingBox",
                             },
@@ -1130,7 +1125,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 87,
                                 module: `mnist_classifier::geom2d`,
                                 ident: "RelativeBoundingBox",
                             },

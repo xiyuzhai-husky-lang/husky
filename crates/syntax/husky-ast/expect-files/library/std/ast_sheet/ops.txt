@@ -24,7 +24,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 12,
                                 module: `std::ops`,
                                 ident: "Output",
                             },
@@ -53,7 +52,6 @@ Ok(
                         AssociatedItem(
                             AssociatedItemPath {
                                 parent_path: ModuleItemPath {
-                                    [salsa id]: 11,
                                     module: `std::ops`,
                                     ident: "Add",
                                 },
@@ -96,7 +94,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 11,
                                 module: `std::ops`,
                                 ident: "Add",
                             },

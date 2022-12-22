@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 0,
                 path: ModuleItemPath {
-                    [salsa id]: 10,
                     module: `core::ops`,
                     ident: "Output",
                 },
@@ -19,7 +18,6 @@ Ok(
                 accessibility: Public,
                 ast_idx: 3,
                 path: ModuleItemPath {
-                    [salsa id]: 9,
                     module: `core::ops`,
                     ident: "Add",
                 },

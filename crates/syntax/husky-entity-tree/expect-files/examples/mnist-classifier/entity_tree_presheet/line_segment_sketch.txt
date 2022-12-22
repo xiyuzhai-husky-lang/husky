@@ -37,7 +37,6 @@ Ok(
                 ),
                 ast_idx: 169,
                 path: ModuleItemPath {
-                    [salsa id]: 107,
                     module: `mnist_classifier::line_segment_sketch`,
                     ident: "LineSegmentStroke",
                 },
@@ -49,7 +48,6 @@ Ok(
                 ),
                 ast_idx: 171,
                 path: ModuleItemPath {
-                    [salsa id]: 108,
                     module: `mnist_classifier::line_segment_sketch`,
                     ident: "LineSegmentSketch",
                 },
@@ -61,7 +59,6 @@ Ok(
                 ),
                 ast_idx: 173,
                 path: ModuleItemPath {
-                    [salsa id]: 109,
                     module: `mnist_classifier::line_segment_sketch`,
                     ident: "go_right",
                 },
@@ -73,7 +70,6 @@ Ok(
                 ),
                 ast_idx: 174,
                 path: ModuleItemPath {
-                    [salsa id]: 110,
                     module: `mnist_classifier::line_segment_sketch`,
                     ident: "go_left",
                 },
@@ -85,7 +81,6 @@ Ok(
                 ),
                 ast_idx: 175,
                 path: ModuleItemPath {
-                    [salsa id]: 111,
                     module: `mnist_classifier::line_segment_sketch`,
                     ident: "extend_end",
                 },
@@ -97,7 +92,6 @@ Ok(
                 ),
                 ast_idx: 176,
                 path: ModuleItemPath {
-                    [salsa id]: 112,
                     module: `mnist_classifier::line_segment_sketch`,
                     ident: "extend_start",
                 },
@@ -109,7 +103,6 @@ Ok(
                 ),
                 ast_idx: 177,
                 path: ModuleItemPath {
-                    [salsa id]: 113,
                     module: `mnist_classifier::line_segment_sketch`,
                     ident: "find_line_segments",
                 },

@@ -7,7 +7,6 @@ Ok(
                 accessibility: Public,
                 ast_idx: 9,
                 path: ModuleItemPath {
-                    [salsa id]: 5,
                     module: `core::num`,
                     ident: "i8",
                 },
@@ -17,7 +16,6 @@ Ok(
                 accessibility: Public,
                 ast_idx: 13,
                 path: ModuleItemPath {
-                    [salsa id]: 6,
                     module: `core::num`,
                     ident: "i16",
                 },
@@ -27,7 +25,6 @@ Ok(
                 accessibility: Public,
                 ast_idx: 17,
                 path: ModuleItemPath {
-                    [salsa id]: 7,
                     module: `core::num`,
                     ident: "i32",
                 },
@@ -39,7 +36,6 @@ Ok(
                 ),
                 ast_idx: 21,
                 path: ModuleItemPath {
-                    [salsa id]: 8,
                     module: `core::num`,
                     ident: "i64",
                 },

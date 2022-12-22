@@ -477,7 +477,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 39,
                                 module: `mnist_classifier::digits::nine`,
                                 ident: "nine_match",
                             },
@@ -507,7 +506,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 40,
                                 module: `mnist_classifier::digits::nine`,
                                 ident: "nine_match_refine",
                             },
@@ -537,7 +535,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 41,
                                 module: `mnist_classifier::digits::nine`,
                                 ident: "is_nine",
                             },
@@ -567,7 +564,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 42,
                                 module: `mnist_classifier::digits::nine`,
                                 ident: "downmost",
                             },
@@ -597,7 +593,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 43,
                                 module: `mnist_classifier::digits::nine`,
                                 ident: "big_cc",
                             },

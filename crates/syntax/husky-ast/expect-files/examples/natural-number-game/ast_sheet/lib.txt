@@ -60,7 +60,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 148,
                                 module: `natural_number_game`,
                                 ident: "Nat",
                             },
@@ -132,7 +131,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 149,
                                 module: `natural_number_game`,
                                 ident: "OddNat",
                             },
@@ -164,7 +162,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 150,
                                 module: `natural_number_game`,
                                 ident: "EvenNat",
                             },

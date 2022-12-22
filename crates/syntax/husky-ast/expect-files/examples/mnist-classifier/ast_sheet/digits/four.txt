@@ -570,7 +570,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 32,
                                 module: `mnist_classifier::digits::four`,
                                 ident: "left_components",
                             },
@@ -600,7 +599,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 33,
                                 module: `mnist_classifier::digits::four`,
                                 ident: "left_coordinate_max",
                             },
@@ -630,7 +628,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 34,
                                 module: `mnist_classifier::digits::four`,
                                 ident: "components_max_downwards",
                             },
@@ -660,7 +657,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 35,
                                 module: `mnist_classifier::digits::four`,
                                 ident: "components_max_heights",
                             },
@@ -690,7 +686,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 36,
                                 module: `mnist_classifier::digits::four`,
                                 ident: "is_four",
                             },
@@ -720,7 +715,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 37,
                                 module: `mnist_classifier::digits::four`,
                                 ident: "displacement_downwards",
                             },
@@ -750,7 +744,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 38,
                                 module: `mnist_classifier::digits::four`,
                                 ident: "cc_box_heights",
                             },

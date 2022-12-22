@@ -79,7 +79,6 @@ impl ::salsa::DebugWithDb<<EntityPathJar as salsa::jar::Jar<'_>>::DynDb> for Mod
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;
         f.debug_struct("ModuleItemPath")
-            .field("[salsa id]", &self.0.as_u32())
             .field(
                 "module",
                 &self
@@ -109,7 +108,6 @@ fn module_item_path_debug_with_db_works() {
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
     expect_test::expect![[r#"
         ModuleItemPath {
-            [salsa id]: 20,
             module: `core::num`,
             ident: "b32",
         }

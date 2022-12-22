@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 35,
                 path: ModuleItemPath {
-                    [salsa id]: 70,
                     module: `mnist_classifier::digits::zero`,
                     ident: "open_one_match",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 36,
                 path: ModuleItemPath {
-                    [salsa id]: 71,
                     module: `mnist_classifier::digits::zero`,
                     ident: "almost_closed",
                 },
@@ -33,7 +31,6 @@ Ok(
                 ),
                 ast_idx: 37,
                 path: ModuleItemPath {
-                    [salsa id]: 72,
                     module: `mnist_classifier::digits::zero`,
                     ident: "is_zero",
                 },

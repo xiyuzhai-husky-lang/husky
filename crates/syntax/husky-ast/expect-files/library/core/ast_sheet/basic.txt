@@ -18,7 +18,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 0,
                                 module: `core::basic`,
                                 ident: "bool",
                             },
@@ -44,7 +43,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 1,
                                 module: `core::basic`,
                                 ident: "Trait",
                             },
@@ -70,7 +68,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 2,
                                 module: `core::basic`,
                                 ident: "Module",
                             },

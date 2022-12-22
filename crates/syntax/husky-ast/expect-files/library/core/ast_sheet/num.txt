@@ -141,7 +141,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 5,
                                 module: `core::num`,
                                 ident: "i8",
                             },
@@ -188,7 +187,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 6,
                                 module: `core::num`,
                                 ident: "i16",
                             },
@@ -235,7 +233,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 7,
                                 module: `core::num`,
                                 ident: "i32",
                             },
@@ -288,7 +285,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 8,
                                 module: `core::num`,
                                 ident: "i64",
                             },

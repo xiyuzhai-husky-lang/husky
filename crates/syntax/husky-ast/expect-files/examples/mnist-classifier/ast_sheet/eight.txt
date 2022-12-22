@@ -329,7 +329,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 73,
                                 module: `mnist_classifier::eight`,
                                 ident: "upper_mouth_match",
                             },
@@ -359,7 +358,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 74,
                                 module: `mnist_classifier::eight`,
                                 ident: "is_eight",
                             },
@@ -389,7 +387,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 75,
                                 module: `mnist_classifier::eight`,
                                 ident: "big_mouth",
                             },

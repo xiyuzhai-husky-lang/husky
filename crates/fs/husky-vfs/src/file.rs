@@ -161,7 +161,6 @@ impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for File {
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;
         let mut debug_struct = &mut f.debug_struct("HuskyFile");
-        debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
         debug_struct =
             debug_struct.field(
                 "path",

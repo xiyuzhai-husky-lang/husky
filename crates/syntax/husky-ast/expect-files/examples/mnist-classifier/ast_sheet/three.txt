@@ -386,7 +386,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 143,
                                 module: `mnist_classifier::three`,
                                 ident: "three_fermi_match",
                             },
@@ -416,7 +415,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 144,
                                 module: `mnist_classifier::three`,
                                 ident: "is_three",
                             },
@@ -446,7 +444,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 145,
                                 module: `mnist_classifier::three`,
                                 ident: "uparc",
                             },
@@ -476,7 +473,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 146,
                                 module: `mnist_classifier::three`,
                                 ident: "downarc",
                             },
@@ -506,7 +502,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 147,
                                 module: `mnist_classifier::three`,
                                 ident: "back",
                             },
