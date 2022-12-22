@@ -22,6 +22,8 @@ pub use module_item::*;
 use husky_vfs::*;
 use husky_word::Identifier;
 use salsa::DbWithJar;
+#[cfg(test)]
+use tests::*;
 
 #[salsa::jar(db = EntityPathDb)]
 pub struct EntityPathJar(

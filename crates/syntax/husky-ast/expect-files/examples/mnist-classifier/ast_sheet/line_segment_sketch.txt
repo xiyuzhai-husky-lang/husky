@@ -1635,17 +1635,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 107,
-                                module: ModulePath(
-                                    Id {
-                                        value: 28,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 312,
+                                module: ModulePath {
+                                    [display]: "crate::line_segment_sketch",
+                                    [crate]: CratePath {
+                                        [salsa id]: 3,
+                                        package_path: PackagePath {
+                                            [salsa id]: 3,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 15,
+                                                    data: DiffPathBuf(
+                                                        "../../../examples/mnist-classifier",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Main,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "LineSegmentStroke",
                                 ),
                             },
                         ),
@@ -1687,17 +1707,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 108,
-                                module: ModulePath(
-                                    Id {
-                                        value: 28,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 311,
+                                module: ModulePath {
+                                    [display]: "crate::line_segment_sketch",
+                                    [crate]: CratePath {
+                                        [salsa id]: 3,
+                                        package_path: PackagePath {
+                                            [salsa id]: 3,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 15,
+                                                    data: DiffPathBuf(
+                                                        "../../../examples/mnist-classifier",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Main,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "LineSegmentSketch",
                                 ),
                             },
                         ),
@@ -1737,17 +1777,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 109,
-                                module: ModulePath(
-                                    Id {
-                                        value: 28,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 346,
+                                module: ModulePath {
+                                    [display]: "crate::line_segment_sketch",
+                                    [crate]: CratePath {
+                                        [salsa id]: 3,
+                                        package_path: PackagePath {
+                                            [salsa id]: 3,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 15,
+                                                    data: DiffPathBuf(
+                                                        "../../../examples/mnist-classifier",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Main,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "go_right",
                                 ),
                             },
                         ),
@@ -1779,17 +1839,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 110,
-                                module: ModulePath(
-                                    Id {
-                                        value: 28,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 351,
+                                module: ModulePath {
+                                    [display]: "crate::line_segment_sketch",
+                                    [crate]: CratePath {
+                                        [salsa id]: 3,
+                                        package_path: PackagePath {
+                                            [salsa id]: 3,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 15,
+                                                    data: DiffPathBuf(
+                                                        "../../../examples/mnist-classifier",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Main,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "go_left",
                                 ),
                             },
                         ),
@@ -1821,17 +1901,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 111,
-                                module: ModulePath(
-                                    Id {
-                                        value: 28,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 352,
+                                module: ModulePath {
+                                    [display]: "crate::line_segment_sketch",
+                                    [crate]: CratePath {
+                                        [salsa id]: 3,
+                                        package_path: PackagePath {
+                                            [salsa id]: 3,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 15,
+                                                    data: DiffPathBuf(
+                                                        "../../../examples/mnist-classifier",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Main,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "extend_end",
                                 ),
                             },
                         ),
@@ -1863,17 +1963,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 112,
-                                module: ModulePath(
-                                    Id {
-                                        value: 28,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 360,
+                                module: ModulePath {
+                                    [display]: "crate::line_segment_sketch",
+                                    [crate]: CratePath {
+                                        [salsa id]: 3,
+                                        package_path: PackagePath {
+                                            [salsa id]: 3,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 15,
+                                                    data: DiffPathBuf(
+                                                        "../../../examples/mnist-classifier",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Main,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "extend_start",
                                 ),
                             },
                         ),
@@ -1905,17 +2025,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 113,
-                                module: ModulePath(
-                                    Id {
-                                        value: 28,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 73,
+                                module: ModulePath {
+                                    [display]: "crate::line_segment_sketch",
+                                    [crate]: CratePath {
+                                        [salsa id]: 3,
+                                        package_path: PackagePath {
+                                            [salsa id]: 3,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 15,
+                                                    data: DiffPathBuf(
+                                                        "../../../examples/mnist-classifier",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Main,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "find_line_segments",
                                 ),
                             },
                         ),

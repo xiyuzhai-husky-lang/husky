@@ -19,17 +19,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 0,
-                                module: ModulePath(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 6,
+                                module: ModulePath {
+                                    [display]: "crate::basic",
+                                    [crate]: CratePath {
+                                        [salsa id]: 0,
+                                        package_path: PackagePath {
+                                            [salsa id]: 0,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 1,
+                                                    data: DiffPathBuf(
+                                                        "../../../library/core",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Library,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "bool",
                                 ),
                             },
                         ),
@@ -57,17 +77,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 1,
-                                module: ModulePath(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 7,
+                                module: ModulePath {
+                                    [display]: "crate::basic",
+                                    [crate]: CratePath {
+                                        [salsa id]: 0,
+                                        package_path: PackagePath {
+                                            [salsa id]: 0,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 1,
+                                                    data: DiffPathBuf(
+                                                        "../../../library/core",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Library,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "Trait",
                                 ),
                             },
                         ),
@@ -95,17 +135,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 2,
-                                module: ModulePath(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 8,
+                                module: ModulePath {
+                                    [display]: "crate::basic",
+                                    [crate]: CratePath {
+                                        [salsa id]: 0,
+                                        package_path: PackagePath {
+                                            [salsa id]: 0,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 1,
+                                                    data: DiffPathBuf(
+                                                        "../../../library/core",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Library,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "Module",
                                 ),
                             },
                         ),

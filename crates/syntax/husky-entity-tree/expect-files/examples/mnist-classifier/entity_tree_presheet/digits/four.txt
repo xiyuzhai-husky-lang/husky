@@ -68,17 +68,37 @@ Ok(
                 ast_idx: 75,
                 path: ModuleItemPath {
                     [salsa id]: 32,
-                    module: ModulePath(
-                        Id {
-                            value: 16,
-                        },
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 165,
+                    module: ModulePath {
+                        [display]: "crate::digits::four",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
                             },
-                        ),
+                            crate_kind: Main,
+                        },
+                    },
+                    ident: Identifier(
+                        "left_components",
                     ),
                 },
             },
@@ -120,17 +140,37 @@ Ok(
                 ast_idx: 76,
                 path: ModuleItemPath {
                     [salsa id]: 33,
-                    module: ModulePath(
-                        Id {
-                            value: 16,
-                        },
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 166,
+                    module: ModulePath {
+                        [display]: "crate::digits::four",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
                             },
-                        ),
+                            crate_kind: Main,
+                        },
+                    },
+                    ident: Identifier(
+                        "left_coordinate_max",
                     ),
                 },
             },
@@ -172,17 +212,37 @@ Ok(
                 ast_idx: 77,
                 path: ModuleItemPath {
                     [salsa id]: 34,
-                    module: ModulePath(
-                        Id {
-                            value: 16,
-                        },
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 168,
+                    module: ModulePath {
+                        [display]: "crate::digits::four",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
                             },
-                        ),
+                            crate_kind: Main,
+                        },
+                    },
+                    ident: Identifier(
+                        "components_max_downwards",
                     ),
                 },
             },
@@ -224,17 +284,37 @@ Ok(
                 ast_idx: 78,
                 path: ModuleItemPath {
                     [salsa id]: 35,
-                    module: ModulePath(
-                        Id {
-                            value: 16,
-                        },
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 170,
+                    module: ModulePath {
+                        [display]: "crate::digits::four",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
                             },
-                        ),
+                            crate_kind: Main,
+                        },
+                    },
+                    ident: Identifier(
+                        "components_max_heights",
                     ),
                 },
             },
@@ -276,17 +356,37 @@ Ok(
                 ast_idx: 79,
                 path: ModuleItemPath {
                     [salsa id]: 36,
-                    module: ModulePath(
-                        Id {
-                            value: 16,
-                        },
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 172,
+                    module: ModulePath {
+                        [display]: "crate::digits::four",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
                             },
-                        ),
+                            crate_kind: Main,
+                        },
+                    },
+                    ident: Identifier(
+                        "is_four",
                     ),
                 },
             },
@@ -328,17 +428,37 @@ Ok(
                 ast_idx: 80,
                 path: ModuleItemPath {
                     [salsa id]: 37,
-                    module: ModulePath(
-                        Id {
-                            value: 16,
-                        },
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 169,
+                    module: ModulePath {
+                        [display]: "crate::digits::four",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
                             },
-                        ),
+                            crate_kind: Main,
+                        },
+                    },
+                    ident: Identifier(
+                        "displacement_downwards",
                     ),
                 },
             },
@@ -380,17 +500,37 @@ Ok(
                 ast_idx: 81,
                 path: ModuleItemPath {
                     [salsa id]: 38,
-                    module: ModulePath(
-                        Id {
-                            value: 16,
-                        },
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 171,
+                    module: ModulePath {
+                        [display]: "crate::digits::four",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
                             },
-                        ),
+                            crate_kind: Main,
+                        },
+                    },
+                    ident: Identifier(
+                        "cc_box_heights",
                     ),
                 },
             },

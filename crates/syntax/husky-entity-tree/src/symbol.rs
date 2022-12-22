@@ -105,7 +105,10 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntitySymbol {
                     &accessibility.debug_with(db as &dyn VfsDb, include_all_fields),
                 )
                 .field("ast_idx", ast_idx)
-                .field("path", &path.debug_with(db, include_all_fields))
+                .field(
+                    "path",
+                    &path.debug_with(db as &dyn EntityPathDb, include_all_fields),
+                )
                 .finish(),
             EntitySymbol::EntityUse {
                 ident,
