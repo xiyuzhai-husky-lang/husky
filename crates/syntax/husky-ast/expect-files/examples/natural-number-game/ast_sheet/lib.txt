@@ -10,26 +10,8 @@ Ok(
                         0..0,
                     ),
                     accessibility: Protected,
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 183,
-                            module: ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 24,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    entity_kind: AssociatedItem,
+                    entity_path: None,
                     ident: Identifier(
                         "add",
                     ),
@@ -65,22 +47,24 @@ Ok(
                             Inductive,
                         ),
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 182,
-                            module: ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 148,
+                                module: ModulePath(
                                     Id {
-                                        value: 429,
+                                        value: 43,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 429,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "Nat",
@@ -141,22 +125,24 @@ Ok(
                             Structure,
                         ),
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 184,
-                            module: ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 149,
+                                module: ModulePath(
                                     Id {
-                                        value: 433,
+                                        value: 43,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 433,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "OddNat",
@@ -177,22 +163,24 @@ Ok(
                             Structure,
                         ),
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 185,
-                            module: ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 150,
+                                module: ModulePath(
                                     Id {
-                                        value: 436,
+                                        value: 43,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 436,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "EvenNat",

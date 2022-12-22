@@ -22,7 +22,7 @@ husky-text = { path = "../../lex/husky-text" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-entity-symbol = { path = "../../syntax/husky-entity-symbol" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
@@ -34,6 +34,8 @@ husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
 salsa = { path = "../../abstraction/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
+# infer
+husky-manifest = { path = "../../infer/husky-manifest" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }

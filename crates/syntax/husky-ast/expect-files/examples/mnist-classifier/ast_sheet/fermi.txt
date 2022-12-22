@@ -111,26 +111,8 @@ Ok(
                         1..4,
                     ),
                     accessibility: Protected,
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 81,
-                            module: ModulePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 179,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    entity_kind: AssociatedItem,
+                    entity_path: None,
                     ident: Identifier(
                         "norm",
                     ),
@@ -145,26 +127,8 @@ Ok(
                         5..8,
                     ),
                     accessibility: Protected,
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 82,
-                            module: ModulePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 198,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    entity_kind: AssociatedItem,
+                    entity_path: None,
                     ident: Identifier(
                         "rel_norm",
                     ),
@@ -179,26 +143,8 @@ Ok(
                         9..12,
                     ),
                     accessibility: Protected,
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 83,
-                            module: ModulePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 196,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    entity_kind: AssociatedItem,
+                    entity_path: None,
                     ident: Identifier(
                         "angle_change_norm",
                     ),
@@ -281,22 +227,24 @@ Ok(
                             Struct,
                         ),
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 80,
-                            module: ModulePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 76,
+                                module: ModulePath(
                                     Id {
-                                        value: 147,
+                                        value: 25,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 147,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "FermiMatchResult",
@@ -323,22 +271,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 84,
-                            module: ModulePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 77,
+                                module: ModulePath(
                                     Id {
-                                        value: 148,
+                                        value: 25,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 148,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "fermi_match",

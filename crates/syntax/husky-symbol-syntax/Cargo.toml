@@ -18,4 +18,4 @@ husky-word = { path = "../../kernel/husky-word" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 # syntax
-husky-entity-symbol = { path = "../../syntax/husky-entity-symbol" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }

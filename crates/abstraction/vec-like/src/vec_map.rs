@@ -252,7 +252,20 @@ where
         self.entries.iter().position(|entry| entry.key() == key)
     }
 
-    pub fn extend(&mut self, other: Self) -> Result<(), EntryRepeatError<Entry>>
+    pub fn extend(
+        &mut self,
+        iter: impl Iterator<Item = Entry>,
+    ) -> Result<(), EntryRepeatError<Entry>>
+    where
+        K: Copy,
+    {
+        for v in iter {
+            self.insert_new(v)?
+        }
+        Ok(())
+    }
+
+    pub fn extend_from_other(&mut self, other: Self) -> Result<(), EntryRepeatError<Entry>>
     where
         K: Copy,
     {

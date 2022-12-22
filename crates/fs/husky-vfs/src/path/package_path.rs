@@ -7,9 +7,9 @@ use url::Url;
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
 pub enum PackagePathData {
-    PublishedToolchain {
+    Toolchain {
         ident: Identifier,
-        toolchain: PublishedToolchain,
+        toolchain: Toolchain,
     },
     Global {
         ident: Identifier,
@@ -63,7 +63,7 @@ impl DebugWithDb<dyn VfsDb + '_> for PackagePathData {
         include_all_fields: bool,
     ) -> ::std::fmt::Result {
         match self {
-            PackagePathData::PublishedToolchain { ident, toolchain } => f
+            PackagePathData::Toolchain { ident, toolchain } => f
                 .debug_struct("Builtin")
                 .field("ident", &ident.data(db))
                 .field("toolchain", &toolchain.debug_with(db, include_all_fields))

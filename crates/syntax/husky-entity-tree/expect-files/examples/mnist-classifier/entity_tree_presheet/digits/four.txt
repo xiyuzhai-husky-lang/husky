@@ -1,0 +1,219 @@
+Ok(
+    EntitySymbolPresheet {
+        module_path: ModulePath {
+            [display]: "crate::digits::four",
+            [crate]: CratePath {
+                [salsa id]: 3,
+                package_path: PackagePath {
+                    [salsa id]: 3,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: DiffPath {
+                                [salsa id]: 0,
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
+                        },
+                    },
+                    data: Local {
+                        path: DiffPath {
+                            [salsa id]: 15,
+                            data: DiffPathBuf(
+                                "../../../examples/mnist-classifier",
+                            ),
+                        },
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+        module_items: [
+            ModuleItem {
+                ident: Identifier(
+                    "left_components",
+                ),
+                ast_idx: 75,
+                path: ModuleItemPath(
+                    Id {
+                        value: 33,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "left_coordinate_max",
+                ),
+                ast_idx: 76,
+                path: ModuleItemPath(
+                    Id {
+                        value: 34,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "components_max_downwards",
+                ),
+                ast_idx: 77,
+                path: ModuleItemPath(
+                    Id {
+                        value: 35,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "components_max_heights",
+                ),
+                ast_idx: 78,
+                path: ModuleItemPath(
+                    Id {
+                        value: 36,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "is_four",
+                ),
+                ast_idx: 79,
+                path: ModuleItemPath(
+                    Id {
+                        value: 37,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "displacement_downwards",
+                ),
+                ast_idx: 80,
+                path: ModuleItemPath(
+                    Id {
+                        value: 38,
+                    },
+                ),
+                variants: None,
+            },
+            ModuleItem {
+                ident: Identifier(
+                    "cc_box_heights",
+                ),
+                ast_idx: 81,
+                path: ModuleItemPath(
+                    Id {
+                        value: 39,
+                    },
+                ),
+                variants: None,
+            },
+        ],
+        entity_use_roots: [
+            EntityUseExprTracker {
+                ast_idx: 68,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
+                use_expr_idx: 5,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 69,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
+                use_expr_idx: 10,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 70,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
+                use_expr_idx: 15,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 71,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 74,
+                        },
+                    ),
+                ),
+                use_expr_idx: 20,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 72,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                use_expr_idx: 23,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 73,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                use_expr_idx: 26,
+                parent: None,
+                resolved: false,
+            },
+            EntityUseExprTracker {
+                ast_idx: 74,
+                accessibility: Protected,
+                ident: Identifier(
+                    Word(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+                use_expr_idx: 30,
+                parent: None,
+                resolved: false,
+            },
+        ],
+    },
+)

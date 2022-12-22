@@ -4,10 +4,10 @@ use husky_token::TokenIter;
 use super::*;
 
 impl<'a> AstParser<'a> {
-    pub(super) fn parse_uses(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
+    pub(super) fn parse_uses(&mut self, token_group_idx: TokenGroupIdx, ctx: &Context) -> Ast {
         let token_iter = self.token_sheet.token_group_token_iter(token_group_idx);
         let (ident, mut aux_parser) =
-            EntityUseExprParser::new(token_iter, &mut self.use_expr_arena);
+            EntityUseExprParser::new(ctx, token_iter, &mut self.use_expr_arena);
         let accessibility = match aux_parser.parse_accessibility() {
             Ok(accessibility) => accessibility,
             Err(error) => {
@@ -32,6 +32,7 @@ impl<'a> AstParser<'a> {
 
 pub struct EntityUseExprParser<'b> {
     token_iter: TokenIter<'b>,
+    parent: AstParent,
     arena: &'b mut UseExprArena,
 }
 
@@ -39,10 +40,18 @@ impl<'aux> AuxAstParser<'aux> for EntityUseExprParser<'aux> {
     fn token_iter_mut(&mut self) -> &mut TokenIter<'aux> {
         &mut self.token_iter
     }
+
+    fn ast_parent(&self) -> AstParent {
+        self.parent
+    }
 }
 
 impl<'b> EntityUseExprParser<'b> {
-    fn new(mut token_iter: TokenIter<'b>, arena: &'b mut UseExprArena) -> (Identifier, Self) {
+    fn new(
+        ctx: &Context,
+        mut token_iter: TokenIter<'b>,
+        arena: &'b mut UseExprArena,
+    ) -> (Identifier, Self) {
         while let Some(token) = token_iter.next() {
             match token.kind {
                 TokenKind::Keyword(Keyword::Use) => break,
@@ -63,7 +72,14 @@ impl<'b> EntityUseExprParser<'b> {
             },
             None => todo!(),
         };
-        (ident, Self { token_iter, arena })
+        (
+            ident,
+            Self {
+                token_iter,
+                arena,
+                parent: ctx.parent(),
+            },
+        )
     }
 
     fn parse_step(&mut self) -> Option<UseExprIdx> {

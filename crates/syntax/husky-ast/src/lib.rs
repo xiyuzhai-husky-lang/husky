@@ -66,7 +66,8 @@ pub enum Ast {
         body: AstIdxRange,
         accessibility: Accessibility,
         entity_kind: EntityKind,
-        entity_path: EntityPath,
+        /// None only when this is under impl block
+        entity_path: Option<EntityPath>,
         ident: Identifier,
         is_generic: bool,
         body_kind: DefnBodyKind,

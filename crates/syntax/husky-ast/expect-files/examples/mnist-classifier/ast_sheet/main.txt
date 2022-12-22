@@ -107,36 +107,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::connected_component",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::connected_component",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "connected_component",
@@ -153,36 +155,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::raw_contour",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::raw_contour",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "raw_contour",
@@ -199,36 +203,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::geom2d",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::geom2d",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "geom2d",
@@ -245,36 +251,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::line_segment_sketch",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::line_segment_sketch",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "line_segment_sketch",
@@ -291,36 +299,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::fermi",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::fermi",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "fermi",
@@ -337,36 +347,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::major",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::major",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "major",
@@ -383,36 +395,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::zero",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::zero",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "zero",
@@ -429,36 +443,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::one",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::one",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "one",
@@ -475,36 +491,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::two",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::two",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "two",
@@ -521,36 +539,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::three",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::three",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "three",
@@ -567,36 +587,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::four",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::four",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "four",
@@ -613,36 +635,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::five",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::five",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "five",
@@ -659,36 +683,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::six",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::six",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "six",
@@ -705,36 +731,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::seven",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::seven",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "seven",
@@ -751,36 +779,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::eight",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::eight",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "eight",
@@ -797,36 +827,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::nine",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::nine",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "nine",

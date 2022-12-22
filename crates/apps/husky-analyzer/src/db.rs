@@ -1,9 +1,10 @@
 use husky_ast::AstJar;
 use husky_diagnostics::DiagnosticsJar;
 use husky_entity_path::EntityPathJar;
-use husky_entity_symbol::EntitySymbolJar;
+use husky_entity_tree::EntitySymbolJar;
 use husky_folding_range::FoldingRangeJar;
 use husky_layout::LayoutJar;
+use husky_manifest::ManifestJar;
 use husky_rust_code_gen::RustTranspileJar;
 use husky_syntax_fmt::SyntaxFormatJar;
 use husky_term::TermJar;
@@ -23,6 +24,7 @@ use husky_word::WordJar;
     DiagnosticsJar,
     RustTranspileJar,
     LayoutJar,
+    ManifestJar,
     // ide
     FoldingRangeJar,
 )]

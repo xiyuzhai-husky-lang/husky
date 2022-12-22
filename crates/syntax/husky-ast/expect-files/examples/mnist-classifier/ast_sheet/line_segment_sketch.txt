@@ -34,26 +34,8 @@ Ok(
                         0..2,
                     ),
                     accessibility: Public,
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 133,
-                            module: ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 343,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    entity_kind: AssociatedItem,
+                    entity_path: None,
                     ident: Identifier(
                         "new",
                     ),
@@ -68,26 +50,8 @@ Ok(
                         2..3,
                     ),
                     accessibility: Protected,
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 134,
-                            module: ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 176,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    entity_kind: AssociatedItem,
+                    entity_path: None,
                     ident: Identifier(
                         "displacement",
                     ),
@@ -230,26 +194,8 @@ Ok(
                         7..8,
                     ),
                     accessibility: Protected,
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 136,
-                            module: ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 270,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    entity_kind: AssociatedItem,
+                    entity_path: None,
                     ident: Identifier(
                         "concave_components",
                     ),
@@ -264,26 +210,8 @@ Ok(
                         13..20,
                     ),
                     accessibility: Protected,
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 137,
-                            module: ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 232,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    entity_kind: AssociatedItem,
+                    entity_path: None,
                     ident: Identifier(
                         "bounding_box",
                     ),
@@ -298,26 +226,8 @@ Ok(
                         20..21,
                     ),
                     accessibility: Public,
-                    entity_kind: ModuleItem(
-                        Form,
-                    ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 133,
-                            module: ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 343,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    entity_kind: AssociatedItem,
+                    entity_path: None,
                     ident: Identifier(
                         "new",
                     ),
@@ -1397,36 +1307,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::line_segment_sketch::concave_component",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::line_segment_sketch::concave_component",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "concave_component",
@@ -1443,36 +1355,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::line_segment_sketch::convex_component",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::line_segment_sketch::convex_component",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "convex_component",
@@ -1489,36 +1403,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::line_segment_sketch::convexity",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::line_segment_sketch::convexity",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "convexity",
@@ -1535,36 +1451,38 @@ Ok(
                     ),
                     accessibility: Protected,
                     entity_kind: Module,
-                    entity_path: Module(
-                        ModulePath {
-                            [display]: "crate::line_segment_sketch::line_segment",
-                            [crate]: CratePath {
-                                [salsa id]: 3,
-                                package_path: PackagePath {
+                    entity_path: Some(
+                        Module(
+                            ModulePath {
+                                [display]: "crate::line_segment_sketch::line_segment",
+                                [crate]: CratePath {
                                     [salsa id]: 3,
-                                    toolchain: Toolchain {
-                                        [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 3,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
                                         data: Local {
-                                            library_path: DiffPath {
-                                                [salsa id]: 0,
+                                            path: DiffPath {
+                                                [salsa id]: 15,
                                                 data: DiffPathBuf(
-                                                    "../../../library",
+                                                    "../../../examples/mnist-classifier",
                                                 ),
                                             },
                                         },
                                     },
-                                    data: Local {
-                                        path: DiffPath {
-                                            [salsa id]: 15,
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
+                                    crate_kind: Main,
                                 },
-                                crate_kind: Main,
                             },
-                        },
+                        ),
                     ),
                     ident: Identifier(
                         "line_segment",
@@ -1635,22 +1553,24 @@ Ok(
                             Struct,
                         ),
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 132,
-                            module: ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 107,
+                                module: ModulePath(
                                     Id {
-                                        value: 312,
+                                        value: 28,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 312,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "LineSegmentStroke",
@@ -1679,22 +1599,24 @@ Ok(
                             Struct,
                         ),
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 135,
-                            module: ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 108,
+                                module: ModulePath(
                                     Id {
-                                        value: 311,
+                                        value: 28,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 311,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "LineSegmentSketch",
@@ -1721,22 +1643,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 138,
-                            module: ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 109,
+                                module: ModulePath(
                                     Id {
-                                        value: 346,
+                                        value: 28,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 346,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "go_right",
@@ -1755,22 +1679,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 139,
-                            module: ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 110,
+                                module: ModulePath(
                                     Id {
-                                        value: 351,
+                                        value: 28,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 351,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "go_left",
@@ -1789,22 +1715,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 140,
-                            module: ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 111,
+                                module: ModulePath(
                                     Id {
-                                        value: 352,
+                                        value: 28,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 352,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "extend_end",
@@ -1823,22 +1751,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 141,
-                            module: ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 112,
+                                module: ModulePath(
                                     Id {
-                                        value: 360,
+                                        value: 28,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 360,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "extend_start",
@@ -1857,22 +1787,24 @@ Ok(
                     entity_kind: ModuleItem(
                         Form,
                     ),
-                    entity_path: ModuleItem(
-                        ModuleItemPath {
-                            [salsa id]: 142,
-                            module: ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                            ident: Identifier(
-                                Word(
+                    entity_path: Some(
+                        ModuleItem(
+                            ModuleItemPath {
+                                [salsa id]: 113,
+                                module: ModulePath(
                                     Id {
-                                        value: 73,
+                                        value: 28,
                                     },
                                 ),
-                            ),
-                        },
+                                ident: Identifier(
+                                    Word(
+                                        Id {
+                                            value: 73,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                     ),
                     ident: Identifier(
                         "find_line_segments",
