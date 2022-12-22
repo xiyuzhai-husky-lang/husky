@@ -26,7 +26,7 @@ pub trait VfsTestSupport: VfsDb {
     ) where
         Self: Default,
         T: salsa::DebugWithDb<Self> + ?Sized,
-        E: std::fmt::Debug;
+        E: salsa::DebugWithDb<Self>;
 
     fn expect_test_crates_debug<T, E>(name: &str, f: impl Fn(&Self, CratePath) -> Result<&T, E>)
     where
@@ -40,7 +40,7 @@ pub trait VfsTestSupport: VfsDb {
     ) where
         Self: Default,
         T: salsa::DebugWithDb<Self> + ?Sized,
-        E: std::fmt::Debug;
+        E: salsa::DebugWithDb<Self>;
 
     fn expect_test_probable_modules_debug<T, E>(
         name: &str,
@@ -128,12 +128,12 @@ where
     ) where
         Self: Default,
         T: salsa::DebugWithDb<Self> + ?Sized,
-        E: std::fmt::Debug,
+        E: salsa::DebugWithDb<Self>,
     {
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
             expect_test_crates(&db, name, &base, out, &f, |db, r| {
-                format!("{:#?}", r.debug(db))
+                format!("{:#?}", &r.debug(db))
             });
         }
     }
@@ -168,7 +168,7 @@ where
     ) where
         Self: Default,
         T: salsa::DebugWithDb<Self> + ?Sized,
-        E: std::fmt::Debug,
+        E: salsa::DebugWithDb<Self>,
     {
         let db = Self::default();
         for (base, out) in expect_test_base_outs() {
