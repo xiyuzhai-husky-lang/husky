@@ -149,9 +149,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -165,9 +163,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -181,9 +177,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -197,9 +191,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -231,15 +223,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 114,
                                 module: `mnist_classifier::major`,
-                                ident: Identifier(
-                                    "connected_components",
-                                ),
+                                ident: "connected_components",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "connected_components",
-                    ),
+                    ident: "connected_components",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -265,15 +253,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 115,
                                 module: `mnist_classifier::major`,
-                                ident: Identifier(
-                                    "major_connected_component",
-                                ),
+                                ident: "major_connected_component",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "major_connected_component",
-                    ),
+                    ident: "major_connected_component",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -299,15 +283,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 116,
                                 module: `mnist_classifier::major`,
-                                ident: Identifier(
-                                    "ignored_connected_components_row_span_sum_sum",
-                                ),
+                                ident: "ignored_connected_components_row_span_sum_sum",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "ignored_connected_components_row_span_sum_sum",
-                    ),
+                    ident: "ignored_connected_components_row_span_sum_sum",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -333,15 +313,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 117,
                                 module: `mnist_classifier::major`,
-                                ident: Identifier(
-                                    "major_raw_contours",
-                                ),
+                                ident: "major_raw_contours",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "major_raw_contours",
-                    ),
+                    ident: "major_raw_contours",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -372,15 +348,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 118,
                                 module: `mnist_classifier::major`,
-                                ident: Identifier(
-                                    "major_raw_contour",
-                                ),
+                                ident: "major_raw_contour",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "major_raw_contour",
-                    ),
+                    ident: "major_raw_contour",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -406,15 +378,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 119,
                                 module: `mnist_classifier::major`,
-                                ident: Identifier(
-                                    "major_line_segment_sketch",
-                                ),
+                                ident: "major_line_segment_sketch",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "major_line_segment_sketch",
-                    ),
+                    ident: "major_line_segment_sketch",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -440,15 +408,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 120,
                                 module: `mnist_classifier::major`,
-                                ident: Identifier(
-                                    "major_concave_components",
-                                ),
+                                ident: "major_concave_components",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "major_concave_components",
-                    ),
+                    ident: "major_concave_components",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -461,60 +425,42 @@ Ok(
             data: [
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "connected_component",
-                    ),
+                    parent: "connected_component",
                     child: 0,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 1,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "raw_contour",
-                    ),
+                    parent: "raw_contour",
                     child: 3,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 4,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "line_segment_sketch",
-                    ),
+                    parent: "line_segment_sketch",
                     child: 6,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 7,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "concave_component",
-                    ),
+                    parent: "concave_component",
                     child: 9,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "line_segment_sketch",
-                    ),
+                    parent: "line_segment_sketch",
                     child: 10,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 11,
                 },
             ],

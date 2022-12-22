@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::fermi`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "FermiMatchResult",
-                ),
+                ident: "FermiMatchResult",
                 accessibility: PubicUnder(
                     `mnist_classifier::fermi`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 76,
                     module: `mnist_classifier::fermi`,
-                    ident: Identifier(
-                        "FermiMatchResult",
-                    ),
+                    ident: "FermiMatchResult",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "fermi_match",
-                ),
+                ident: "fermi_match",
                 accessibility: PubicUnder(
                     `mnist_classifier::fermi`,
                 ),
@@ -29,9 +23,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 77,
                     module: `mnist_classifier::fermi`,
-                    ident: Identifier(
-                        "fermi_match",
-                    ),
+                    ident: "fermi_match",
                 },
             },
         ],

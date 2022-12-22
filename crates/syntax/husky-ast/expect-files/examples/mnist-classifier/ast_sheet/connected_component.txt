@@ -588,15 +588,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 17,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "raw_contours",
-                                ),
+                                ident: "raw_contours",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "raw_contours",
-                    ),
+                    ident: "raw_contours",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -622,15 +618,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 18,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "eff_holes",
-                                ),
+                                ident: "eff_holes",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "eff_holes",
-                    ),
+                    ident: "eff_holes",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -656,15 +648,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 19,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "max_hole_ilen",
-                                ),
+                                ident: "max_hole_ilen",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "max_hole_ilen",
-                    ),
+                    ident: "max_hole_ilen",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -690,15 +678,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 20,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "max_row_span",
-                                ),
+                                ident: "max_row_span",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "max_row_span",
-                    ),
+                    ident: "max_row_span",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -724,15 +708,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 21,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "row_span_sum",
-                                ),
+                                ident: "row_span_sum",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "row_span_sum",
-                    ),
+                    ident: "row_span_sum",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -758,15 +738,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 22,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "distribution",
-                                ),
+                                ident: "distribution",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "distribution",
-                    ),
+                    ident: "distribution",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -792,15 +768,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 23,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "upper_mass",
-                                ),
+                                ident: "upper_mass",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "upper_mass",
-                    ),
+                    ident: "upper_mass",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -826,15 +798,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 24,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "lower_mass",
-                                ),
+                                ident: "lower_mass",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "lower_mass",
-                    ),
+                    ident: "lower_mass",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -860,15 +828,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 25,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "top_k_row_span_sum",
-                                ),
+                                ident: "top_k_row_span_sum",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "top_k_row_span_sum",
-                    ),
+                    ident: "top_k_row_span_sum",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -894,15 +858,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 26,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "top_k_row_right_mass_sum",
-                                ),
+                                ident: "top_k_row_right_mass_sum",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "top_k_row_right_mass_sum",
-                    ),
+                    ident: "top_k_row_right_mass_sum",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1235,9 +1195,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: Identifier(
-                        "cv",
-                    ),
+                    ident: "cv",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -1251,9 +1209,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -1287,15 +1243,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 13,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "ConnectedComponentDistribution",
-                                ),
+                                ident: "ConnectedComponentDistribution",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "ConnectedComponentDistribution",
-                    ),
+                    ident: "ConnectedComponentDistribution",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -1323,15 +1275,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 14,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "EffHoles",
-                                ),
+                                ident: "EffHoles",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "EffHoles",
-                    ),
+                    ident: "EffHoles",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -1357,15 +1305,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 15,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "hole_tmpl",
-                                ),
+                                ident: "hole_tmpl",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "hole_tmpl",
-                    ),
+                    ident: "hole_tmpl",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1393,15 +1337,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 16,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "ConnectedComponent",
-                                ),
+                                ident: "ConnectedComponent",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "ConnectedComponent",
-                    ),
+                    ident: "ConnectedComponent",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1427,15 +1367,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 27,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "horizontal_extend",
-                                ),
+                                ident: "horizontal_extend",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "horizontal_extend",
-                    ),
+                    ident: "horizontal_extend",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1461,15 +1397,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 28,
                                 module: `mnist_classifier::connected_component`,
-                                ident: Identifier(
-                                    "find_connected_components",
-                                ),
+                                ident: "find_connected_components",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "find_connected_components",
-                    ),
+                    ident: "find_connected_components",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1481,39 +1413,27 @@ Ok(
         use_expr_arena: Arena {
             data: [
                 One {
-                    ident: Identifier(
-                        "BinaryImage28",
-                    ),
+                    ident: "BinaryImage28",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "mnist",
-                    ),
+                    parent: "mnist",
                     child: 0,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "datasets",
-                    ),
+                    parent: "datasets",
                     child: 1,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "cv",
-                    ),
+                    parent: "cv",
                     child: 2,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "raw_contour",
-                    ),
+                    parent: "raw_contour",
                     child: 4,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 5,
                 },
             ],

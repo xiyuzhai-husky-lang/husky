@@ -3,27 +3,21 @@ Ok(
         module_path: `mnist_classifier::digits`,
         module_symbols: [
             Module {
-                ident: Identifier(
-                    "zero",
-                ),
+                ident: "zero",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits`,
                 ),
                 module_path: `mnist_classifier::digits::zero`,
             },
             Module {
-                ident: Identifier(
-                    "one",
-                ),
+                ident: "one",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits`,
                 ),
                 module_path: `mnist_classifier::digits::one`,
             },
             Module {
-                ident: Identifier(
-                    "six",
-                ),
+                ident: "six",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits`,
                 ),

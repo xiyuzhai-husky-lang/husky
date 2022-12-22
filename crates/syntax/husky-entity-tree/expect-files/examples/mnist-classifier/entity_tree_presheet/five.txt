@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::five`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "five_match",
-                ),
+                ident: "five_match",
                 accessibility: PubicUnder(
                     `mnist_classifier::five`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 78,
                     module: `mnist_classifier::five`,
-                    ident: Identifier(
-                        "five_match",
-                    ),
+                    ident: "five_match",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "up_right_cc",
-                ),
+                ident: "up_right_cc",
                 accessibility: PubicUnder(
                     `mnist_classifier::five`,
                 ),
@@ -29,15 +23,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 79,
                     module: `mnist_classifier::five`,
-                    ident: Identifier(
-                        "up_right_cc",
-                    ),
+                    ident: "up_right_cc",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "down_left_cc",
-                ),
+                ident: "down_left_cc",
                 accessibility: PubicUnder(
                     `mnist_classifier::five`,
                 ),
@@ -45,15 +35,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 80,
                     module: `mnist_classifier::five`,
-                    ident: Identifier(
-                        "down_left_cc",
-                    ),
+                    ident: "down_left_cc",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "is_five",
-                ),
+                ident: "is_five",
                 accessibility: PubicUnder(
                     `mnist_classifier::five`,
                 ),
@@ -61,9 +47,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 81,
                     module: `mnist_classifier::five`,
-                    ident: Identifier(
-                        "is_five",
-                    ),
+                    ident: "is_five",
                 },
             },
         ],

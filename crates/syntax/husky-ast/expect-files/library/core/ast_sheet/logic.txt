@@ -20,15 +20,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 3,
                                 module: `core::logic`,
-                                ident: Identifier(
-                                    "LogicAnd",
-                                ),
+                                ident: "LogicAnd",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "LogicAnd",
-                    ),
+                    ident: "LogicAnd",
                     is_generic: true,
                     body_kind: None,
                 },
@@ -50,15 +46,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 4,
                                 module: `core::logic`,
-                                ident: Identifier(
-                                    "LogicOr",
-                                ),
+                                ident: "LogicOr",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "LogicOr",
-                    ),
+                    ident: "LogicOr",
                     is_generic: true,
                     body_kind: EnumVariants,
                 },

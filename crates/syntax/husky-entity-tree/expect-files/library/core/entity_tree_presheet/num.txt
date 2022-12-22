@@ -3,51 +3,37 @@ Ok(
         module_path: `core::num`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "i8",
-                ),
+                ident: "i8",
                 accessibility: Public,
                 ast_idx: 9,
                 path: ModuleItemPath {
                     [salsa id]: 5,
                     module: `core::num`,
-                    ident: Identifier(
-                        "i8",
-                    ),
+                    ident: "i8",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "i16",
-                ),
+                ident: "i16",
                 accessibility: Public,
                 ast_idx: 13,
                 path: ModuleItemPath {
                     [salsa id]: 6,
                     module: `core::num`,
-                    ident: Identifier(
-                        "i16",
-                    ),
+                    ident: "i16",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "i32",
-                ),
+                ident: "i32",
                 accessibility: Public,
                 ast_idx: 17,
                 path: ModuleItemPath {
                     [salsa id]: 7,
                     module: `core::num`,
-                    ident: Identifier(
-                        "i32",
-                    ),
+                    ident: "i32",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "i64",
-                ),
+                ident: "i64",
                 accessibility: PubicUnder(
                     `core::num`,
                 ),
@@ -55,9 +41,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 8,
                     module: `core::num`,
-                    ident: Identifier(
-                        "i64",
-                    ),
+                    ident: "i64",
                 },
             },
         ],

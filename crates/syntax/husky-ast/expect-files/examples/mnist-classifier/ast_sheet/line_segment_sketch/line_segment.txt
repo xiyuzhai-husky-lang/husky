@@ -146,15 +146,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 105,
                                 module: `mnist_classifier::line_segment_sketch::line_segment`,
-                                ident: Identifier(
-                                    "displacement",
-                                ),
+                                ident: "displacement",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "displacement",
-                    ),
+                    ident: "displacement",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -180,15 +176,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 106,
                                 module: `mnist_classifier::line_segment_sketch::line_segment`,
-                                ident: Identifier(
-                                    "dist_to_point",
-                                ),
+                                ident: "dist_to_point",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "dist_to_point",
-                    ),
+                    ident: "dist_to_point",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -196,9 +188,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -232,15 +222,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 104,
                                 module: `mnist_classifier::line_segment_sketch::line_segment`,
-                                ident: Identifier(
-                                    "LineSegment",
-                                ),
+                                ident: "LineSegment",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "LineSegment",
-                    ),
+                    ident: "LineSegment",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -253,15 +239,11 @@ Ok(
             data: [
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "geom2d",
-                    ),
+                    parent: "geom2d",
                     child: 0,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 1,
                 },
             ],

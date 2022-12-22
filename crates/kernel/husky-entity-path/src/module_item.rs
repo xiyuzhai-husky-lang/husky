@@ -111,9 +111,7 @@ fn module_item_path_debug_with_db_works() {
         ModuleItemPath {
             [salsa id]: 20,
             module: `core::num`,
-            ident: Identifier(
-                "b32",
-            ),
+            ident: "b32",
         }
     "#]]
     .assert_debug_eq(&entity_path_menu.b32().debug(&db));

@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::digits::six`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "six_match",
-                ),
+                ident: "six_match",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::six`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 55,
                     module: `mnist_classifier::digits::six`,
-                    ident: Identifier(
-                        "six_match",
-                    ),
+                    ident: "six_match",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "six_match_refined1",
-                ),
+                ident: "six_match_refined1",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::six`,
                 ),
@@ -29,15 +23,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 56,
                     module: `mnist_classifier::digits::six`,
-                    ident: Identifier(
-                        "six_match_refined1",
-                    ),
+                    ident: "six_match_refined1",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "is_six",
-                ),
+                ident: "is_six",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::six`,
                 ),
@@ -45,15 +35,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 57,
                     module: `mnist_classifier::digits::six`,
-                    ident: Identifier(
-                        "is_six",
-                    ),
+                    ident: "is_six",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "upmost",
-                ),
+                ident: "upmost",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::six`,
                 ),
@@ -61,15 +47,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 58,
                     module: `mnist_classifier::digits::six`,
-                    ident: Identifier(
-                        "upmost",
-                    ),
+                    ident: "upmost",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "bottom1",
-                ),
+                ident: "bottom1",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::six`,
                 ),
@@ -77,9 +59,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 59,
                     module: `mnist_classifier::digits::six`,
-                    ident: Identifier(
-                        "bottom1",
-                    ),
+                    ident: "bottom1",
                 },
             },
         ],

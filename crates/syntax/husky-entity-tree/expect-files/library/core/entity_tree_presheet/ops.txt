@@ -3,9 +3,7 @@ Ok(
         module_path: `core::ops`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "Output",
-                ),
+                ident: "Output",
                 accessibility: PubicUnder(
                     `core::ops`,
                 ),
@@ -13,23 +11,17 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 10,
                     module: `core::ops`,
-                    ident: Identifier(
-                        "Output",
-                    ),
+                    ident: "Output",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "Add",
-                ),
+                ident: "Add",
                 accessibility: Public,
                 ast_idx: 3,
                 path: ModuleItemPath {
                     [salsa id]: 9,
                     module: `core::ops`,
-                    ident: Identifier(
-                        "Add",
-                    ),
+                    ident: "Add",
                 },
             },
         ],

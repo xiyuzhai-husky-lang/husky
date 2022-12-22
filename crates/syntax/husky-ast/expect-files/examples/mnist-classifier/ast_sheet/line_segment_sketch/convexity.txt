@@ -164,9 +164,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -180,9 +178,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -196,9 +192,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -230,15 +224,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 103,
                                 module: `mnist_classifier::line_segment_sketch::convexity`,
-                                ident: Identifier(
-                                    "is_convex",
-                                ),
+                                ident: "is_convex",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "is_convex",
-                    ),
+                    ident: "is_convex",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -251,41 +241,29 @@ Ok(
             data: [
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "line_segment_sketch",
-                    ),
+                    parent: "line_segment_sketch",
                     child: 0,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 1,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "raw_contour",
-                    ),
+                    parent: "raw_contour",
                     child: 3,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 4,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "geom2d",
-                    ),
+                    parent: "geom2d",
                     child: 6,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 7,
                 },
             ],

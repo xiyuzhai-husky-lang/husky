@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::line_segment_sketch::convexity`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "is_convex",
-                ),
+                ident: "is_convex",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::convexity`,
                 ),
@@ -13,9 +11,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 103,
                     module: `mnist_classifier::line_segment_sketch::convexity`,
-                    ident: Identifier(
-                        "is_convex",
-                    ),
+                    ident: "is_convex",
                 },
             },
         ],

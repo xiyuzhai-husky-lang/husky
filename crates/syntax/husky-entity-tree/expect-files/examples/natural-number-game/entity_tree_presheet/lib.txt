@@ -3,9 +3,7 @@ Ok(
         module_path: `natural_number_game`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "Nat",
-                ),
+                ident: "Nat",
                 accessibility: PubicUnder(
                     `natural_number_game`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 148,
                     module: `natural_number_game`,
-                    ident: Identifier(
-                        "Nat",
-                    ),
+                    ident: "Nat",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "OddNat",
-                ),
+                ident: "OddNat",
                 accessibility: PubicUnder(
                     `natural_number_game`,
                 ),
@@ -29,15 +23,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 149,
                     module: `natural_number_game`,
-                    ident: Identifier(
-                        "OddNat",
-                    ),
+                    ident: "OddNat",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "EvenNat",
-                ),
+                ident: "EvenNat",
                 accessibility: PubicUnder(
                     `natural_number_game`,
                 ),
@@ -45,9 +35,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 150,
                     module: `natural_number_game`,
-                    ident: Identifier(
-                        "EvenNat",
-                    ),
+                    ident: "EvenNat",
                 },
             },
         ],

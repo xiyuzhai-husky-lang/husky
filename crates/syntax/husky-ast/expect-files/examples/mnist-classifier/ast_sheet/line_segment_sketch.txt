@@ -36,9 +36,7 @@ Ok(
                     accessibility: Public,
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "new",
-                    ),
+                    ident: "new",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -58,9 +56,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "displacement",
-                    ),
+                    ident: "displacement",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -208,9 +204,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "concave_components",
-                    ),
+                    ident: "concave_components",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -230,9 +224,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "bounding_box",
-                    ),
+                    ident: "bounding_box",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -246,9 +238,7 @@ Ok(
                     accessibility: Public,
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "new",
-                    ),
+                    ident: "new",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1336,9 +1326,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                     ),
-                    ident: Identifier(
-                        "concave_component",
-                    ),
+                    ident: "concave_component",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -1362,9 +1350,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                     ),
-                    ident: Identifier(
-                        "convex_component",
-                    ),
+                    ident: "convex_component",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -1388,9 +1374,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                     ),
-                    ident: Identifier(
-                        "convexity",
-                    ),
+                    ident: "convexity",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -1414,9 +1398,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::line_segment`,
                         ),
                     ),
-                    ident: Identifier(
-                        "line_segment",
-                    ),
+                    ident: "line_segment",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -1424,9 +1406,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -1440,9 +1420,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -1456,9 +1434,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    ident: Identifier(
-                        "concave_component",
-                    ),
+                    ident: "concave_component",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -1472,9 +1448,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
-                    ident: Identifier(
-                        "convex_component",
-                    ),
+                    ident: "convex_component",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -1488,9 +1462,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
-                    ident: Identifier(
-                        "line_segment",
-                    ),
+                    ident: "line_segment",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -1524,15 +1496,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 107,
                                 module: `mnist_classifier::line_segment_sketch`,
-                                ident: Identifier(
-                                    "LineSegmentStroke",
-                                ),
+                                ident: "LineSegmentStroke",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "LineSegmentStroke",
-                    ),
+                    ident: "LineSegmentStroke",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -1568,15 +1536,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 108,
                                 module: `mnist_classifier::line_segment_sketch`,
-                                ident: Identifier(
-                                    "LineSegmentSketch",
-                                ),
+                                ident: "LineSegmentSketch",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "LineSegmentSketch",
-                    ),
+                    ident: "LineSegmentSketch",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -1610,15 +1574,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 109,
                                 module: `mnist_classifier::line_segment_sketch`,
-                                ident: Identifier(
-                                    "go_right",
-                                ),
+                                ident: "go_right",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "go_right",
-                    ),
+                    ident: "go_right",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1644,15 +1604,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 110,
                                 module: `mnist_classifier::line_segment_sketch`,
-                                ident: Identifier(
-                                    "go_left",
-                                ),
+                                ident: "go_left",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "go_left",
-                    ),
+                    ident: "go_left",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1678,15 +1634,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 111,
                                 module: `mnist_classifier::line_segment_sketch`,
-                                ident: Identifier(
-                                    "extend_end",
-                                ),
+                                ident: "extend_end",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "extend_end",
-                    ),
+                    ident: "extend_end",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1712,15 +1664,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 112,
                                 module: `mnist_classifier::line_segment_sketch`,
-                                ident: Identifier(
-                                    "extend_start",
-                                ),
+                                ident: "extend_start",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "extend_start",
-                    ),
+                    ident: "extend_start",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1746,15 +1694,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 113,
                                 module: `mnist_classifier::line_segment_sketch`,
-                                ident: Identifier(
-                                    "find_line_segments",
-                                ),
+                                ident: "find_line_segments",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "find_line_segments",
-                    ),
+                    ident: "find_line_segments",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1767,53 +1711,37 @@ Ok(
             data: [
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "geom2d",
-                    ),
+                    parent: "geom2d",
                     child: 0,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 1,
                 },
                 One {
-                    ident: Identifier(
-                        "RawContour",
-                    ),
+                    ident: "RawContour",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "raw_contour",
-                    ),
+                    parent: "raw_contour",
                     child: 3,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 4,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "concave_component",
-                    ),
+                    parent: "concave_component",
                     child: 6,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "convex_component",
-                    ),
+                    parent: "convex_component",
                     child: 8,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "line_segment",
-                    ),
+                    parent: "line_segment",
                     child: 10,
                 },
             ],

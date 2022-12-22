@@ -6,9 +6,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: Identifier(
-                        "core",
-                    ),
+                    ident: "core",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -27,15 +25,11 @@ Ok(
             data: [
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "logic",
-                    ),
+                    parent: "logic",
                     child: 0,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "core",
-                    ),
+                    parent: "core",
                     child: 1,
                 },
             ],

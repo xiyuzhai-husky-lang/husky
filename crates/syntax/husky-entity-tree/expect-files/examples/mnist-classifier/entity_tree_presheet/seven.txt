@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::seven`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "simple_seven_match",
-                ),
+                ident: "simple_seven_match",
                 accessibility: PubicUnder(
                     `mnist_classifier::seven`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 137,
                     module: `mnist_classifier::seven`,
-                    ident: Identifier(
-                        "simple_seven_match",
-                    ),
+                    ident: "simple_seven_match",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "simple_leftdown_pattern",
-                ),
+                ident: "simple_leftdown_pattern",
                 accessibility: PubicUnder(
                     `mnist_classifier::seven`,
                 ),
@@ -29,15 +23,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 138,
                     module: `mnist_classifier::seven`,
-                    ident: Identifier(
-                        "simple_leftdown_pattern",
-                    ),
+                    ident: "simple_leftdown_pattern",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "special_seven_match",
-                ),
+                ident: "special_seven_match",
                 accessibility: PubicUnder(
                     `mnist_classifier::seven`,
                 ),
@@ -45,15 +35,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 139,
                     module: `mnist_classifier::seven`,
-                    ident: Identifier(
-                        "special_seven_match",
-                    ),
+                    ident: "special_seven_match",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "leftupcc_pattern",
-                ),
+                ident: "leftupcc_pattern",
                 accessibility: PubicUnder(
                     `mnist_classifier::seven`,
                 ),
@@ -61,15 +47,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 140,
                     module: `mnist_classifier::seven`,
-                    ident: Identifier(
-                        "leftupcc_pattern",
-                    ),
+                    ident: "leftupcc_pattern",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "leftdowncc_pattern",
-                ),
+                ident: "leftdowncc_pattern",
                 accessibility: PubicUnder(
                     `mnist_classifier::seven`,
                 ),
@@ -77,15 +59,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 141,
                     module: `mnist_classifier::seven`,
-                    ident: Identifier(
-                        "leftdowncc_pattern",
-                    ),
+                    ident: "leftdowncc_pattern",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "is_seven",
-                ),
+                ident: "is_seven",
                 accessibility: PubicUnder(
                     `mnist_classifier::seven`,
                 ),
@@ -93,9 +71,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 142,
                     module: `mnist_classifier::seven`,
-                    ident: Identifier(
-                        "is_seven",
-                    ),
+                    ident: "is_seven",
                 },
             },
         ],

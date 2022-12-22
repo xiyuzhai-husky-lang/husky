@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "norm",
-                ),
+                ident: "norm",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 89,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "norm",
-                    ),
+                    ident: "norm",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "rel_norm",
-                ),
+                ident: "rel_norm",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -29,15 +23,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 90,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "rel_norm",
-                    ),
+                    ident: "rel_norm",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "hausdorff_norm",
-                ),
+                ident: "hausdorff_norm",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -45,15 +35,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 91,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "hausdorff_norm",
-                    ),
+                    ident: "hausdorff_norm",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "angle_change",
-                ),
+                ident: "angle_change",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -61,15 +47,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 92,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "angle_change",
-                    ),
+                    ident: "angle_change",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "bounding_box",
-                ),
+                ident: "bounding_box",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -77,15 +59,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 93,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "bounding_box",
-                    ),
+                    ident: "bounding_box",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "relative_bounding_box",
-                ),
+                ident: "relative_bounding_box",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -93,15 +71,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 94,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "relative_bounding_box",
-                    ),
+                    ident: "relative_bounding_box",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "line_segment",
-                ),
+                ident: "line_segment",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -109,15 +83,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 95,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "line_segment",
-                    ),
+                    ident: "line_segment",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "start",
-                ),
+                ident: "start",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -125,15 +95,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 96,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "start",
-                    ),
+                    ident: "start",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "end",
-                ),
+                ident: "end",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -141,15 +107,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 97,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "end",
-                    ),
+                    ident: "end",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "displacement",
-                ),
+                ident: "displacement",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -157,15 +119,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 98,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "displacement",
-                    ),
+                    ident: "displacement",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "start_tangent",
-                ),
+                ident: "start_tangent",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -173,15 +131,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 99,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "start_tangent",
-                    ),
+                    ident: "start_tangent",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "end_tangent",
-                ),
+                ident: "end_tangent",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -189,15 +143,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 100,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "end_tangent",
-                    ),
+                    ident: "end_tangent",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "ConcaveComponent",
-                ),
+                ident: "ConcaveComponent",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -205,15 +155,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 88,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "ConcaveComponent",
-                    ),
+                    ident: "ConcaveComponent",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "find_concave_components",
-                ),
+                ident: "find_concave_components",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
@@ -221,9 +167,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 101,
                     module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: Identifier(
-                        "find_concave_components",
-                    ),
+                    ident: "find_concave_components",
                 },
             },
         ],

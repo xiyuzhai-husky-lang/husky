@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::digits::four`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "left_components",
-                ),
+                ident: "left_components",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::four`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 32,
                     module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        "left_components",
-                    ),
+                    ident: "left_components",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "left_coordinate_max",
-                ),
+                ident: "left_coordinate_max",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::four`,
                 ),
@@ -29,15 +23,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 33,
                     module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        "left_coordinate_max",
-                    ),
+                    ident: "left_coordinate_max",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "components_max_downwards",
-                ),
+                ident: "components_max_downwards",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::four`,
                 ),
@@ -45,15 +35,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 34,
                     module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        "components_max_downwards",
-                    ),
+                    ident: "components_max_downwards",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "components_max_heights",
-                ),
+                ident: "components_max_heights",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::four`,
                 ),
@@ -61,15 +47,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 35,
                     module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        "components_max_heights",
-                    ),
+                    ident: "components_max_heights",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "is_four",
-                ),
+                ident: "is_four",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::four`,
                 ),
@@ -77,15 +59,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 36,
                     module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        "is_four",
-                    ),
+                    ident: "is_four",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "displacement_downwards",
-                ),
+                ident: "displacement_downwards",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::four`,
                 ),
@@ -93,15 +71,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 37,
                     module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        "displacement_downwards",
-                    ),
+                    ident: "displacement_downwards",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "cc_box_heights",
-                ),
+                ident: "cc_box_heights",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::four`,
                 ),
@@ -109,9 +83,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 38,
                     module: `mnist_classifier::digits::four`,
-                    ident: Identifier(
-                        "cc_box_heights",
-                    ),
+                    ident: "cc_box_heights",
                 },
             },
         ],

@@ -26,15 +26,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 12,
                                 module: `std::ops`,
-                                ident: Identifier(
-                                    "Output",
-                                ),
+                                ident: "Output",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "Output",
-                    ),
+                    ident: "Output",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -60,9 +56,7 @@ Ok(
                                 parent_path: ModuleItemPath {
                                     [salsa id]: 11,
                                     module: `std::ops`,
-                                    ident: Identifier(
-                                        "Add",
-                                    ),
+                                    ident: "Add",
                                 },
                                 ident: Identifier(
                                     Word(
@@ -74,9 +68,7 @@ Ok(
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "add",
-                    ),
+                    ident: "add",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -107,15 +99,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 11,
                                 module: `std::ops`,
-                                ident: Identifier(
-                                    "Add",
-                                ),
+                                ident: "Add",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "Add",
-                    ),
+                    ident: "Add",
                     is_generic: true,
                     body_kind: Block,
                 },

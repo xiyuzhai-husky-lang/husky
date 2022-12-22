@@ -38,9 +38,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -74,15 +72,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 102,
                                 module: `mnist_classifier::line_segment_sketch::convex_component`,
-                                ident: Identifier(
-                                    "ConvexCompoent",
-                                ),
+                                ident: "ConvexCompoent",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "ConvexCompoent",
-                    ),
+                    ident: "ConvexCompoent",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -95,15 +89,11 @@ Ok(
             data: [
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "line_segment_sketch",
-                    ),
+                    parent: "line_segment_sketch",
                     child: 0,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 1,
                 },
             ],
