@@ -79,11 +79,11 @@ impl<'a> TestPathResolver<'a> {
 
     fn decide_crate_expect_file_path(&self, crate_path: CratePath) -> PathBuf {
         self.package_expects_dir.join(format!(
-            "{}/{}",
+            "{}/{}.{EXPECT_FILE_EXTENSION}",
             self.name,
             match crate_path.crate_kind(self.db) {
-                CrateKind::Library => "lib.txt",
-                CrateKind::Main => "main.txt",
+                CrateKind::Library => format!("lib"),
+                CrateKind::Main => format!("main"),
                 CrateKind::Binary(_) => todo!(),
                 CrateKind::StandaloneTest(_) => todo!(),
             }
