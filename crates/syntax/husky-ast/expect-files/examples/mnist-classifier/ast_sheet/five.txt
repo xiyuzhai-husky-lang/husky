@@ -335,17 +335,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 78,
-                                module: ModulePath(
-                                    Id {
-                                        value: 26,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 274,
+                                module: ModulePath {
+                                    [display]: "crate::five",
+                                    [crate]: CratePath {
+                                        [salsa id]: 3,
+                                        package_path: PackagePath {
+                                            [salsa id]: 3,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 15,
+                                                    data: DiffPathBuf(
+                                                        "../../../examples/mnist-classifier",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Main,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "five_match",
                                 ),
                             },
                         ),
@@ -377,17 +397,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 79,
-                                module: ModulePath(
-                                    Id {
-                                        value: 26,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 275,
+                                module: ModulePath {
+                                    [display]: "crate::five",
+                                    [crate]: CratePath {
+                                        [salsa id]: 3,
+                                        package_path: PackagePath {
+                                            [salsa id]: 3,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 15,
+                                                    data: DiffPathBuf(
+                                                        "../../../examples/mnist-classifier",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Main,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "up_right_cc",
                                 ),
                             },
                         ),
@@ -419,17 +459,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 80,
-                                module: ModulePath(
-                                    Id {
-                                        value: 26,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 276,
+                                module: ModulePath {
+                                    [display]: "crate::five",
+                                    [crate]: CratePath {
+                                        [salsa id]: 3,
+                                        package_path: PackagePath {
+                                            [salsa id]: 3,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 15,
+                                                    data: DiffPathBuf(
+                                                        "../../../examples/mnist-classifier",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Main,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "down_left_cc",
                                 ),
                             },
                         ),
@@ -461,17 +521,37 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 81,
-                                module: ModulePath(
-                                    Id {
-                                        value: 26,
-                                    },
-                                ),
-                                ident: Identifier(
-                                    Word(
-                                        Id {
-                                            value: 67,
+                                module: ModulePath {
+                                    [display]: "crate::five",
+                                    [crate]: CratePath {
+                                        [salsa id]: 3,
+                                        package_path: PackagePath {
+                                            [salsa id]: 3,
+                                            toolchain: Toolchain {
+                                                [salsa id]: 0,
+                                                data: Local {
+                                                    library_path: DiffPath {
+                                                        [salsa id]: 0,
+                                                        data: DiffPathBuf(
+                                                            "../../../library",
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            data: Local {
+                                                path: DiffPath {
+                                                    [salsa id]: 15,
+                                                    data: DiffPathBuf(
+                                                        "../../../examples/mnist-classifier",
+                                                    ),
+                                                },
+                                            },
                                         },
-                                    ),
+                                        crate_kind: Main,
+                                    },
+                                },
+                                ident: Identifier(
+                                    "is_five",
                                 ),
                             },
                         ),
