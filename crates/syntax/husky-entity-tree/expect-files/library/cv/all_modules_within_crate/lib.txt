@@ -1,9 +1,0 @@
-Ok(
-    [
-        EntityPath(
-            Id {
-                value: 20,
-            },
-        ),
-    ],
-)

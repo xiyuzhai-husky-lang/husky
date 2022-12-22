@@ -48,21 +48,45 @@ pub fn collect_package_dirs_deprecated(dir: &Path) -> Vec<PathBuf> {
     }
 }
 
-pub fn collect_package_dirs(dir: &Path) -> Vec<PathBuf> {
+pub fn collect_rust_package_dirs(dir: impl AsRef<Path>) -> Vec<PathBuf> {
+    let dir = dir.as_ref();
     should_satisfy!(&dir, |dir: &Path| dir.is_dir());
     let mut pack_paths = vec![];
-    collect_package_dirs_aux(dir, &mut pack_paths);
+    collect_rust_package_dirs_aux(dir, &mut pack_paths);
     pack_paths.sort();
     pack_paths
 }
 
-fn collect_package_dirs_aux(dir: &Path, pack_paths: &mut Vec<PathBuf>) {
+fn collect_rust_package_dirs_aux(dir: impl AsRef<Path>, pack_paths: &mut Vec<PathBuf>) {
+    let dir = dir.as_ref();
+    let manifest_path = dir.join("Cargo.toml");
+    for entry in std::fs::read_dir(&dir).unwrap() {
+        let entry = entry.unwrap();
+        let subpath = entry.path();
+        if subpath.is_dir() {
+            collect_rust_package_dirs_aux(&subpath, pack_paths)
+        }
+    }
+    if manifest_path.exists() {
+        pack_paths.push(dir.to_owned())
+    }
+}
+
+pub fn collect_husky_package_dirs(dir: &Path) -> Vec<PathBuf> {
+    should_satisfy!(&dir, |dir: &Path| dir.is_dir());
+    let mut pack_paths = vec![];
+    collect_husky_package_dirs_aux(dir, &mut pack_paths);
+    pack_paths.sort();
+    pack_paths
+}
+
+fn collect_husky_package_dirs_aux(dir: &Path, pack_paths: &mut Vec<PathBuf>) {
     let manifest_path = dir.join("Corgi.toml");
     for entry in std::fs::read_dir(&dir).unwrap() {
         let entry = entry.unwrap();
         let subpath = entry.path();
         if subpath.is_dir() {
-            collect_package_dirs_aux(&subpath, pack_paths)
+            collect_husky_package_dirs_aux(&subpath, pack_paths)
         }
     }
     if manifest_path.exists() {
@@ -138,7 +162,7 @@ fn collect_package_dirs_works() {
                 .into_iter()
                 .map(|rpath| rpath.to_logical_path(dir))
                 .collect::<Vec<_>>(),
-            collect_package_dirs(dir)
+            collect_husky_package_dirs(dir)
         )
     }
     let cargo_manifest_dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
@@ -203,4 +227,24 @@ pub fn derive_examples_dir_from_cargo_manifest_dir() -> PathBuf {
             todo!()
         }
     }
+}
+
+pub fn clear_directory(path: &Path) -> Result<(), std::io::Error> {
+    // Get an iterator over the entries in the directory
+    let entries = std::fs::read_dir(path)?;
+
+    // Iterate over the entries and delete them
+    for entry in entries {
+        let entry = entry?;
+        let entry_path = entry.path();
+        if entry_path.is_dir() {
+            // If the entry is a directory, clear it recursively
+            clear_directory(&entry_path)?;
+        } else {
+            // If the entry is a file, delete it
+            std::fs::remove_file(entry_path)?;
+        }
+    }
+
+    Ok(())
 }

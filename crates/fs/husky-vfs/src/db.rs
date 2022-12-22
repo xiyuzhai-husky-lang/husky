@@ -1,6 +1,6 @@
 use crate::*;
 use husky_fs_specs::FsSpecsError;
-use husky_path_utils::{collect_package_dirs, derive_library_path_from_cargo_manifest_dir};
+use husky_path_utils::{collect_husky_package_dirs, derive_library_path_from_cargo_manifest_dir};
 use husky_text::TextChange;
 
 pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
@@ -180,7 +180,7 @@ where
         toolchain: Toolchain,
         dir: &Path,
     ) -> VfsResult<Vec<PackagePath>> {
-        collect_package_dirs(dir)
+        collect_husky_package_dirs(dir)
             .into_iter()
             .map(|path| PackagePath::new_local(self, toolchain, &path).map_err(|e| e.into()))
             .collect()

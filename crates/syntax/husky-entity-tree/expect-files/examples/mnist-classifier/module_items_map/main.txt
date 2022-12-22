@@ -1,7 +1,0 @@
-Err(
-    Vfs(
-        FileNotExists(
-            "/home/xiyuzhai/repos/husky/examples/mnist-classifier/src/zero.hsy",
-        ),
-    ),
-)
