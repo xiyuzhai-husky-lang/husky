@@ -51,13 +51,19 @@ pub struct EntitySymbolJar(
 pub enum EntityNode {
     Module {
         ident: Identifier,
+        accessibility: Accessibility,
         module_path: ModulePath,
     },
     ModuleItem {
         ident: Identifier,
+        accessibility: Accessibility,
         ast_idx: AstIdx,
         path: ModuleItemPath,
-        variants: Option<VecMap<ModuleItemVariant>>,
+    },
+    EntityUse {
+        ident: Identifier,
+        accessibility: Accessibility,
+        path: EntityPath,
     },
 }
 
@@ -69,13 +75,17 @@ impl AsVecMapEntry for EntityNode {
         Self::K: Copy,
     {
         match self {
-            EntityNode::Module { ident, .. } | EntityNode::ModuleItem { ident, .. } => *ident,
+            EntityNode::Module { ident, .. }
+            | EntityNode::ModuleItem { ident, .. }
+            | EntityNode::EntityUse { ident, .. } => *ident,
         }
     }
 
     fn key_ref(&self) -> &Self::K {
         match self {
-            EntityNode::Module { ident, .. } | EntityNode::ModuleItem { ident, .. } => ident,
+            EntityNode::Module { ident, .. }
+            | EntityNode::ModuleItem { ident, .. }
+            | EntityNode::EntityUse { ident, .. } => ident,
         }
     }
 }
@@ -88,23 +98,58 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityNode {
         include_all_fields: bool,
     ) -> std::fmt::Result {
         match self {
-            Self::Module { ident, module_path } => {
-                f.debug_struct("Submodule").field("ident", ident).finish()
-            }
-            Self::ModuleItem {
+            EntityNode::Module {
                 ident,
+                accessibility,
+                module_path,
+            } => f
+                .debug_struct("Submodule")
+                .field("ident", &ident.debug_with(db, include_all_fields))
+                .field(
+                    "accessibility",
+                    &accessibility.debug_with(db as &dyn VfsDb, include_all_fields),
+                )
+                .field(
+                    "module_path",
+                    &module_path.debug_with(db as &dyn VfsDb, include_all_fields),
+                )
+                .finish(),
+            EntityNode::ModuleItem {
+                ident,
+                accessibility,
                 ast_idx,
                 path,
-                variants,
             } => f
                 .debug_struct("ModuleItem")
                 .field(
                     "ident",
                     &ident.debug_with(db as &dyn WordDb, include_all_fields),
                 )
+                .field(
+                    "accessibility",
+                    &accessibility.debug_with(db as &dyn VfsDb, include_all_fields),
+                )
                 .field("ast_idx", ast_idx)
-                .field("path", path)
-                .field("variants", variants)
+                .field("path", &path.debug_with(db, include_all_fields))
+                .finish(),
+            EntityNode::EntityUse {
+                ident,
+                accessibility,
+                path,
+            } => f
+                .debug_struct("ModuleItem")
+                .field(
+                    "ident",
+                    &ident.debug_with(db as &dyn WordDb, include_all_fields),
+                )
+                .field(
+                    "accessibility",
+                    &accessibility.debug_with(db as &dyn VfsDb, include_all_fields),
+                )
+                .field(
+                    "path",
+                    &path.debug_with(db as &dyn EntityPathDb, include_all_fields),
+                )
                 .finish(),
         }
     }

@@ -1,5 +1,5 @@
 Ok(
-    EntitySymbolPresheet {
+    EntityTreePresheet {
         module_path: ModulePath {
             [display]: "crate::logic",
             [crate]: CratePath {
@@ -34,29 +34,49 @@ Ok(
                 ident: Identifier(
                     "LogicAnd",
                 ),
+                accessibility: Public,
                 ast_idx: 0,
-                path: ModuleItemPath(
-                    Id {
-                        value: 4,
-                    },
-                ),
-                variants: None,
+                path: ModuleItemPath {
+                    [salsa id]: 3,
+                    module: ModulePath(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 9,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "LogicOr",
                 ),
+                accessibility: Public,
                 ast_idx: 1,
-                path: ModuleItemPath(
-                    Id {
-                        value: 5,
-                    },
-                ),
-                variants: Some(
-                    [],
-                ),
+                path: ModuleItemPath {
+                    [salsa id]: 4,
+                    module: ModulePath(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 15,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
-        entity_use_roots: [],
+        entity_use_roots: EntityUseExprTrackers(
+            [],
+        ),
     },
 )

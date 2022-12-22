@@ -1,5 +1,5 @@
 Ok(
-    EntitySymbolPresheet {
+    EntityTreePresheet {
         module_path: ModulePath {
             [display]: "crate::line_segment_sketch",
             [crate]: CratePath {
@@ -32,196 +32,732 @@ Ok(
         module_items: [
             Submodule {
                 ident: Identifier(
-                    Word(
-                        Id {
-                            value: 53,
-                        },
-                    ),
+                    "concave_component",
                 ),
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
+                    },
+                ),
+                module_path: ModulePath {
+                    [display]: "crate::line_segment_sketch::concave_component",
+                    [crate]: CratePath {
+                        [salsa id]: 3,
+                        package_path: PackagePath {
+                            [salsa id]: 3,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 15,
+                                    data: DiffPathBuf(
+                                        "../../../examples/mnist-classifier",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Main,
+                    },
+                },
             },
             Submodule {
                 ident: Identifier(
-                    Word(
-                        Id {
-                            value: 54,
-                        },
-                    ),
+                    "convex_component",
                 ),
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
+                    },
+                ),
+                module_path: ModulePath {
+                    [display]: "crate::line_segment_sketch::convex_component",
+                    [crate]: CratePath {
+                        [salsa id]: 3,
+                        package_path: PackagePath {
+                            [salsa id]: 3,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 15,
+                                    data: DiffPathBuf(
+                                        "../../../examples/mnist-classifier",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Main,
+                    },
+                },
             },
             Submodule {
                 ident: Identifier(
-                    Word(
-                        Id {
-                            value: 55,
-                        },
-                    ),
+                    "convexity",
                 ),
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
+                    },
+                ),
+                module_path: ModulePath {
+                    [display]: "crate::line_segment_sketch::convexity",
+                    [crate]: CratePath {
+                        [salsa id]: 3,
+                        package_path: PackagePath {
+                            [salsa id]: 3,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 15,
+                                    data: DiffPathBuf(
+                                        "../../../examples/mnist-classifier",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Main,
+                    },
+                },
             },
             Submodule {
                 ident: Identifier(
-                    Word(
-                        Id {
-                            value: 56,
-                        },
-                    ),
+                    "line_segment",
                 ),
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
+                    },
+                ),
+                module_path: ModulePath {
+                    [display]: "crate::line_segment_sketch::line_segment",
+                    [crate]: CratePath {
+                        [salsa id]: 3,
+                        package_path: PackagePath {
+                            [salsa id]: 3,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 15,
+                                    data: DiffPathBuf(
+                                        "../../../examples/mnist-classifier",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Main,
+                    },
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "LineSegmentStroke",
                 ),
-                ast_idx: 169,
-                path: ModuleItemPath(
-                    Id {
-                        value: 108,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 169,
+                path: ModuleItemPath {
+                    [salsa id]: 107,
+                    module: ModulePath(
+                        Id {
+                            value: 28,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 312,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "LineSegmentSketch",
                 ),
-                ast_idx: 171,
-                path: ModuleItemPath(
-                    Id {
-                        value: 109,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 171,
+                path: ModuleItemPath {
+                    [salsa id]: 108,
+                    module: ModulePath(
+                        Id {
+                            value: 28,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 311,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "go_right",
                 ),
-                ast_idx: 173,
-                path: ModuleItemPath(
-                    Id {
-                        value: 110,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 173,
+                path: ModuleItemPath {
+                    [salsa id]: 109,
+                    module: ModulePath(
+                        Id {
+                            value: 28,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 346,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "go_left",
                 ),
-                ast_idx: 174,
-                path: ModuleItemPath(
-                    Id {
-                        value: 111,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 174,
+                path: ModuleItemPath {
+                    [salsa id]: 110,
+                    module: ModulePath(
+                        Id {
+                            value: 28,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 351,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "extend_end",
                 ),
-                ast_idx: 175,
-                path: ModuleItemPath(
-                    Id {
-                        value: 112,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 175,
+                path: ModuleItemPath {
+                    [salsa id]: 111,
+                    module: ModulePath(
+                        Id {
+                            value: 28,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 352,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "extend_start",
                 ),
-                ast_idx: 176,
-                path: ModuleItemPath(
-                    Id {
-                        value: 113,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 176,
+                path: ModuleItemPath {
+                    [salsa id]: 112,
+                    module: ModulePath(
+                        Id {
+                            value: 28,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 360,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "find_line_segments",
                 ),
-                ast_idx: 177,
-                path: ModuleItemPath(
-                    Id {
-                        value: 114,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::line_segment_sketch",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 177,
+                path: ModuleItemPath {
+                    [salsa id]: 113,
+                    module: ModulePath(
+                        Id {
+                            value: 28,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 73,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
-        entity_use_roots: [
-            EntityUseExprTracker {
-                ast_idx: 164,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 33,
-                        },
+        entity_use_roots: EntityUseExprTrackers(
+            [
+                EntityUseExprTracker {
+                    ast_idx: 164,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 2,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 165,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 33,
-                        },
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 5,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 166,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 53,
-                        },
+                    use_expr_idx: 2,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 165,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 7,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 167,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 54,
-                        },
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 9,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 168,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 56,
-                        },
+                    use_expr_idx: 5,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 166,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 11,
-                parent: None,
-                resolved: false,
-            },
-        ],
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 53,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 7,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 167,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 54,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 9,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 168,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 28,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 56,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 11,
+                    parent: None,
+                    resolved: false,
+                },
+            ],
+        ),
     },
 )

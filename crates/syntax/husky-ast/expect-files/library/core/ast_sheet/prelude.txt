@@ -9,7 +9,13 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 6,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 2,
                 },
                 Use {
@@ -19,7 +25,13 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 6,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 5,
                 },
             ],

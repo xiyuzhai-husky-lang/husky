@@ -9,7 +9,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 7,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -57,7 +63,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 7,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -105,7 +117,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 7,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(

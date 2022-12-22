@@ -41,7 +41,13 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 30,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 2,
                 },
                 Defn {
@@ -51,7 +57,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..4,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 30,
+                            },
+                        ),
+                    ),
                     entity_kind: ModuleItem(
                         Type(
                             Struct,

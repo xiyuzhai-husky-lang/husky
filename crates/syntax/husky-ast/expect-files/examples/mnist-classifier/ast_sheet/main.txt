@@ -105,7 +105,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -153,7 +159,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -201,7 +213,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -249,7 +267,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -297,7 +321,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -345,7 +375,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -393,7 +429,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -441,7 +483,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -489,7 +537,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -537,7 +591,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -585,7 +645,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -633,7 +699,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -681,7 +753,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -729,7 +807,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -777,7 +861,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -825,7 +915,13 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
@@ -873,7 +969,13 @@ Ok(
                     ident: Identifier(
                         "mnist",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 1,
                 },
                 Use {
@@ -883,7 +985,13 @@ Ok(
                     ident: Identifier(
                         "mnist",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 3,
                 },
                 Use {
@@ -893,7 +1001,13 @@ Ok(
                     ident: Identifier(
                         "major",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 5,
                 },
                 Use {
@@ -903,7 +1017,13 @@ Ok(
                     ident: Identifier(
                         "zero",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 7,
                 },
                 Use {
@@ -913,7 +1033,13 @@ Ok(
                     ident: Identifier(
                         "one",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 9,
                 },
                 Use {
@@ -923,7 +1049,13 @@ Ok(
                     ident: Identifier(
                         "two",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 11,
                 },
                 Use {
@@ -933,7 +1065,13 @@ Ok(
                     ident: Identifier(
                         "three",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 13,
                 },
                 Use {
@@ -943,7 +1081,13 @@ Ok(
                     ident: Identifier(
                         "five",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 15,
                 },
                 Use {
@@ -953,7 +1097,13 @@ Ok(
                     ident: Identifier(
                         "six",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 17,
                 },
                 Use {
@@ -963,7 +1113,13 @@ Ok(
                     ident: Identifier(
                         "seven",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 19,
                 },
                 Use {
@@ -973,7 +1129,13 @@ Ok(
                     ident: Identifier(
                         "eight",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 21,
                 },
                 Use {
@@ -983,7 +1145,13 @@ Ok(
                     ident: Identifier(
                         "nine",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 23,
                 },
                 Use {
@@ -993,7 +1161,13 @@ Ok(
                     ident: Identifier(
                         "raw_contour",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 25,
                 },
                 Use {
@@ -1003,7 +1177,13 @@ Ok(
                     ident: Identifier(
                         "line_segment_sketch",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 27,
                 },
                 Use {
@@ -1013,7 +1193,13 @@ Ok(
                     ident: Identifier(
                         "domains",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 32,
                 },
                 Main {

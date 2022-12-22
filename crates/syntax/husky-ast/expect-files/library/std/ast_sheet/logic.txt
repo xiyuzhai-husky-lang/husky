@@ -9,7 +9,13 @@ Ok(
                     ident: Identifier(
                         "core",
                     ),
-                    accessibility: Protected,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 8,
+                            },
+                        ),
+                    ),
                     use_expr_idx: 2,
                 },
             ],

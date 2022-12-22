@@ -1,5 +1,5 @@
 Ok(
-    EntitySymbolPresheet {
+    EntityTreePresheet {
         module_path: ModulePath {
             [display]: "crate::five",
             [crate]: CratePath {
@@ -34,178 +34,394 @@ Ok(
                 ident: Identifier(
                     "five_match",
                 ),
-                ast_idx: 30,
-                path: ModuleItemPath(
-                    Id {
-                        value: 79,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::five",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 30,
+                path: ModuleItemPath {
+                    [salsa id]: 78,
+                    module: ModulePath(
+                        Id {
+                            value: 26,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 274,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "up_right_cc",
                 ),
-                ast_idx: 31,
-                path: ModuleItemPath(
-                    Id {
-                        value: 80,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::five",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 31,
+                path: ModuleItemPath {
+                    [salsa id]: 79,
+                    module: ModulePath(
+                        Id {
+                            value: 26,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 275,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "down_left_cc",
                 ),
-                ast_idx: 32,
-                path: ModuleItemPath(
-                    Id {
-                        value: 81,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::five",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 32,
+                path: ModuleItemPath {
+                    [salsa id]: 80,
+                    module: ModulePath(
+                        Id {
+                            value: 26,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 276,
+                            },
+                        ),
+                    ),
+                },
             },
             ModuleItem {
                 ident: Identifier(
                     "is_five",
                 ),
-                ast_idx: 33,
-                path: ModuleItemPath(
-                    Id {
-                        value: 82,
+                accessibility: PubicUnder(
+                    ModulePath {
+                        [display]: "crate::five",
+                        [crate]: CratePath {
+                            [salsa id]: 3,
+                            package_path: PackagePath {
+                                [salsa id]: 3,
+                                toolchain: Toolchain {
+                                    [salsa id]: 0,
+                                    data: Local {
+                                        library_path: DiffPath {
+                                            [salsa id]: 0,
+                                            data: DiffPathBuf(
+                                                "../../../library",
+                                            ),
+                                        },
+                                    },
+                                },
+                                data: Local {
+                                    path: DiffPath {
+                                        [salsa id]: 15,
+                                        data: DiffPathBuf(
+                                            "../../../examples/mnist-classifier",
+                                        ),
+                                    },
+                                },
+                            },
+                            crate_kind: Main,
+                        },
                     },
                 ),
-                variants: None,
+                ast_idx: 33,
+                path: ModuleItemPath {
+                    [salsa id]: 81,
+                    module: ModulePath(
+                        Id {
+                            value: 26,
+                        },
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 67,
+                            },
+                        ),
+                    ),
+                },
             },
         ],
-        entity_use_roots: [
-            EntityUseExprTracker {
-                ast_idx: 21,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 74,
-                        },
+        entity_use_roots: EntityUseExprTrackers(
+            [
+                EntityUseExprTracker {
+                    ast_idx: 21,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 5,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 22,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 74,
-                        },
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 74,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 10,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 23,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 74,
-                        },
+                    use_expr_idx: 5,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 22,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 15,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 24,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 74,
-                        },
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 74,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 20,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 25,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 33,
-                        },
+                    use_expr_idx: 10,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 23,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 23,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 26,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 33,
-                        },
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 74,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 26,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 27,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 33,
-                        },
+                    use_expr_idx: 15,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 24,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 30,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 28,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 33,
-                        },
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 74,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 33,
-                parent: None,
-                resolved: false,
-            },
-            EntityUseExprTracker {
-                ast_idx: 29,
-                accessibility: Protected,
-                ident: Identifier(
-                    Word(
-                        Id {
-                            value: 33,
-                        },
+                    use_expr_idx: 20,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 25,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
                     ),
-                ),
-                use_expr_idx: 36,
-                parent: None,
-                resolved: false,
-            },
-        ],
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 23,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 26,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 26,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 27,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 30,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 28,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 33,
+                    parent: None,
+                    resolved: false,
+                },
+                EntityUseExprTracker {
+                    ast_idx: 29,
+                    accessibility: PubicUnder(
+                        ModulePath(
+                            Id {
+                                value: 26,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 33,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 36,
+                    parent: None,
+                    resolved: false,
+                },
+            ],
+        ),
     },
 )

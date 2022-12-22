@@ -7,7 +7,7 @@ impl<'a> AstParser<'a> {
     pub(super) fn parse_uses(&mut self, token_group_idx: TokenGroupIdx, ctx: &Context) -> Ast {
         let token_iter = self.token_sheet.token_group_token_iter(token_group_idx);
         let (ident, mut aux_parser) =
-            EntityUseExprParser::new(ctx, token_iter, &mut self.use_expr_arena);
+            EntityUseExprParser::new(ctx, token_iter, self.module_path, &mut self.use_expr_arena);
         let accessibility = match aux_parser.parse_accessibility() {
             Ok(accessibility) => accessibility,
             Err(error) => {
@@ -33,6 +33,7 @@ impl<'a> AstParser<'a> {
 pub struct EntityUseExprParser<'b> {
     token_iter: TokenIter<'b>,
     parent: AstParent,
+    module_path: ModulePath,
     arena: &'b mut UseExprArena,
 }
 
@@ -44,12 +45,17 @@ impl<'aux> AuxAstParser<'aux> for EntityUseExprParser<'aux> {
     fn ast_parent(&self) -> AstParent {
         self.parent
     }
+
+    fn module_path(&self) -> ModulePath {
+        self.module_path
+    }
 }
 
 impl<'b> EntityUseExprParser<'b> {
     fn new(
         ctx: &Context,
         mut token_iter: TokenIter<'b>,
+        module_path: ModulePath,
         arena: &'b mut UseExprArena,
     ) -> (Identifier, Self) {
         while let Some(token) = token_iter.next() {
@@ -77,6 +83,7 @@ impl<'b> EntityUseExprParser<'b> {
             Self {
                 token_iter,
                 arena,
+                module_path,
                 parent: ctx.parent(),
             },
         )

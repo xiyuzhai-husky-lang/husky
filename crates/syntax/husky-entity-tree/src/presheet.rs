@@ -1,3 +1,4 @@
+mod access;
 mod action;
 mod entity_use_tracker;
 mod use_all_tracker;
@@ -8,14 +9,14 @@ use husky_print_utils::p;
 use crate::*;
 use entity_use_tracker::*;
 use husky_text::TextRange;
-use use_all_tracker::UseAllTracker;
+use use_all_tracker::*;
 use vec_like::AsVecMapEntry;
 
 #[salsa::tracked(jar = EntitySymbolJar, return_ref)]
 pub(crate) fn entity_tree_presheet(
     db: &dyn EntityTreeDb,
     module_path: ModulePath,
-) -> VfsResult<EntitySymbolPresheet> {
+) -> VfsResult<EntityTreePresheet> {
     Ok(EntitySymbolPresheetBuilder::new(db, module_path)?.build())
 }
 
@@ -27,14 +28,14 @@ fn entity_tree_presheet_works() {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub(crate) struct EntitySymbolPresheet {
+pub(crate) struct EntityTreePresheet {
     module_path: ModulePath,
     nodes: VecMap<EntityNode>,
-    entity_use_trackers: Vec<EntityUseExprTracker>,
-    use_all_trackers: Vec<UseAllTracker>,
+    entity_use_trackers: EntityUseExprTrackers,
+    use_all_trackers: UseAllTrackers,
 }
 
-impl EntitySymbolPresheet {
+impl EntityTreePresheet {
     pub(crate) fn module_path(&self) -> ModulePath {
         self.module_path
     }
@@ -44,7 +45,7 @@ impl EntitySymbolPresheet {
     }
 }
 
-impl AsVecMapEntry for EntitySymbolPresheet {
+impl AsVecMapEntry for EntityTreePresheet {
     type K = ModulePath;
     fn key(&self) -> ModulePath {
         self.module_path
@@ -60,7 +61,7 @@ struct EntitySymbolPresheetBuilder<'a> {
     ast_sheet: &'a AstSheet,
     module_path: ModulePath,
     nodes: VecMap<EntityNode>,
-    entity_use_trackers: Vec<EntityUseExprTracker>,
+    entity_use_trackers: EntityUseExprTrackers,
 }
 
 impl<'a> EntitySymbolPresheetBuilder<'a> {
@@ -70,19 +71,19 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
             ast_sheet: db.ast_sheet(module_path)?,
             module_path,
             nodes: Default::default(),
-            entity_use_trackers: vec![],
+            entity_use_trackers: Default::default(),
         })
     }
 
-    fn build(mut self) -> EntitySymbolPresheet {
+    fn build(mut self) -> EntityTreePresheet {
         for (ast_idx, ast) in self.ast_sheet.indexed_asts() {
             self.process(ast_idx, ast)
         }
-        EntitySymbolPresheet {
+        EntityTreePresheet {
             module_path: self.module_path,
             nodes: self.nodes,
             entity_use_trackers: self.entity_use_trackers,
-            use_all_trackers: vec![],
+            use_all_trackers: Default::default(),
         }
     }
 
@@ -116,6 +117,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                         EntityPath::Module(module_path) => {
                             match self.nodes.insert_new(EntityNode::Module {
                                 ident: *ident,
+                                accessibility: *accessibility,
                                 module_path: *module_path,
                             }) {
                                 Ok(_) => (),
@@ -125,29 +127,9 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                         EntityPath::ModuleItem(module_item_path) => {
                             match self.nodes.insert_new(EntityNode::ModuleItem {
                                 ident: *ident,
+                                accessibility: *accessibility,
                                 ast_idx,
                                 path: *module_item_path,
-                                variants: match body_kind {
-                                    DefnBodyKind::None | DefnBodyKind::Block => None,
-                                    DefnBodyKind::EnumVariants => Some(
-                                        body.into_iter()
-                                            .map(|variant_ast_idx| {
-                                                match self.ast_sheet[variant_ast_idx] {
-                                                    Ast::ModuleItemVariant {
-                                                        token_group_idx,
-                                                        module_item_variant_path,
-                                                        ident,
-                                                    } => ModuleItemVariant::new(
-                                                        ident,
-                                                        variant_ast_idx,
-                                                    ),
-                                                    _ => unreachable!(),
-                                                }
-                                            })
-                                            .collect(),
-                                    ),
-                                    DefnBodyKind::MatchCases => unreachable!(),
-                                },
                             }) {
                                 Ok(_) => (),
                                 Err(_) => {
@@ -176,14 +158,14 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
     }
 }
 
-impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntitySymbolPresheet {
+impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreePresheet {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn EntityTreeDb,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        f.debug_struct("EntitySymbolPresheet")
+        f.debug_struct("EntityTreePresheet")
             .field(
                 "module_path",
                 &self
@@ -199,7 +181,7 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntitySymbolPresheet {
     }
 }
 
-impl<Db> salsa::DebugWithDb<Db> for EntitySymbolPresheet
+impl<Db> salsa::DebugWithDb<Db> for EntityTreePresheet
 where
     Db: EntityTreeDb,
 {

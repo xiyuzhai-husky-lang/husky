@@ -7,6 +7,7 @@ use std::iter::Peekable;
 pub(super) trait AuxAstParser<'aux> {
     fn token_iter_mut(&mut self) -> &mut TokenIter<'aux>;
     fn ast_parent(&self) -> AstParent;
+    fn module_path(&self) -> ModulePath;
 
     fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
         Ok(match self.token_iter_mut().peek().unwrap().kind {
@@ -28,7 +29,7 @@ pub(super) trait AuxAstParser<'aux> {
                 Decorator::Async => todo!(),
                 Decorator::Static => Accessibility::Public,
             },
-            _ => Accessibility::Protected,
+            _ => Accessibility::PubicUnder(self.module_path()),
         })
     }
 
@@ -108,17 +109,23 @@ impl<'a> AuxAstParser<'a> for BasicAuxAstParser<'a> {
     fn ast_parent(&self) -> AstParent {
         self.ast_parent
     }
+
+    fn module_path(&self) -> ModulePath {
+        self.module_path
+    }
 }
 
 pub(crate) struct BasicAuxAstParser<'a> {
     ast_parent: AstParent,
+    module_path: ModulePath,
     iter: TokenIter<'a>,
 }
 
 impl<'a> BasicAuxAstParser<'a> {
-    pub(super) fn new(ctx: &Context, iter: TokenIter<'a>) -> Self {
+    pub(super) fn new(ctx: &Context, module_path: ModulePath, iter: TokenIter<'a>) -> Self {
         Self {
             ast_parent: ctx.parent(),
+            module_path,
             iter,
         }
     }
