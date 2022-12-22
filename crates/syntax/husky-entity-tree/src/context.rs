@@ -3,7 +3,7 @@ use crate::*;
 use husky_print_utils::p;
 use husky_word::{IdentMap, Identifier, WordDb};
 use salsa::DebugWithDb;
-use vec_like::{AsVecMapEntry, VecMap, VecPairMap};
+use vec_like::{AsVecMapEntry, VecMap, VecMapGetEntry, VecPairMap};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ModuleItemVariant {
@@ -35,20 +35,29 @@ impl ModuleItemVariant {
 pub(crate) struct EntitySymbolContext<'a> {
     db: &'a dyn EntityTreeDb,
     module_path: ModulePath,
+    nodes: &'a [EntityNode],
+    crate_prelude: CratePrelude<'a>,
 }
 
 impl<'a> EntitySymbolContext<'a> {
     pub(crate) fn new(
         db: &'a dyn EntityTreeDb,
         module_path: ModulePath,
+        nodes: &'a [EntityNode],
         crate_prelude: CratePrelude<'a>,
     ) -> Self {
-        Self { db, module_path }
+        Self {
+            db,
+            module_path,
+            nodes,
+            crate_prelude,
+        }
     }
 
     pub(crate) fn get(&self, ident: Identifier) -> Option<&EntityNode> {
-        p!(ident.data(self.db));
-        todo!()
+        self.nodes
+            .get_entry(ident)
+            .or_else(|| self.crate_prelude.get(ident))
     }
 }
 
@@ -66,5 +75,11 @@ impl<'a> CratePrelude<'a> {
             universal_prelude,
             crate_specific_prelude,
         }
+    }
+
+    fn get(&self, ident: Identifier) -> Option<&'a EntityNode> {
+        self.universal_prelude
+            .get_entry(ident)
+            .or_else(|| self.crate_specific_prelude.get_entry(ident))
     }
 }

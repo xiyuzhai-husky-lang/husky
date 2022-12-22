@@ -42,7 +42,7 @@ pub struct EntitySymbolJar(
     entity_tree_bundle,
     submodules,
     all_modules_within_crate,
-    EntitySymbolSheet,
+    EntityTreeSheet,
     EntitySymbolBundle,
     crate_specific_prelude,
 );

@@ -7,12 +7,13 @@ use vec_like::AsVecMapEntry;
 use crate::*;
 
 #[salsa::tracked(jar = EntitySymbolJar)]
-pub struct EntitySymbolSheet {
-    module_path: ModulePath,
-    module_items: Vec<EntityNode>,
+pub struct EntityTreeSheet {
+    pub module_path: ModulePath,
+    #[return_ref]
+    pub module_items: VecMap<EntityNode>,
 }
 
-impl EntitySymbolSheet {
+impl EntityTreeSheet {
     // pub(crate) fn get(&self, entity_path: EntityPath) -> Option<&EntitySymbol> {
     //     self.arena
     //         .data()
@@ -35,4 +36,11 @@ impl EntitySymbolSheet {
     //             )
     //         })
     // }
+}
+
+pub(crate) fn entity_tree_sheet(
+    db: &dyn EntityTreeDb,
+    module_path: ModulePath,
+) -> EntityTreeResult<EntityTreeSheet> {
+    todo!()
 }

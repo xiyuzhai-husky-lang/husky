@@ -6,7 +6,7 @@ pub(crate) fn entity_tree_bundle(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
 ) -> EntityTreeResult<EntitySymbolBundle> {
-    Ok(EntitySymbolCollector::new(db, crate_path)?.collect_all())
+    Ok(EntityTreeCollector::new(db, crate_path)?.collect_all())
 }
 
 #[test]
@@ -21,7 +21,7 @@ fn entity_tree_bundle_works() {
 
 #[salsa::tracked(jar = EntitySymbolJar)]
 pub struct EntitySymbolBundle {
-    sheets: VecPairMap<ModulePath, EntitySymbolSheet>,
+    sheets: VecPairMap<ModulePath, EntityTreeSheet>,
 }
 
 impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntitySymbolBundle {
