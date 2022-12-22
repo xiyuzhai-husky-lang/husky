@@ -28,6 +28,7 @@ husky-platform = { path = "../../kernel/husky-platform" }
 # utils
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-minimal-toml-utils = { path = "../../utils/husky-minimal-toml-utils" }
 
 [dev-dependencies]
 tempfile = "3.3.0"

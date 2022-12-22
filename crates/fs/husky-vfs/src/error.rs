@@ -1,5 +1,6 @@
 use crate::*;
 use husky_fs_specs::FsSpecsError;
+use husky_minimal_toml_utils::MinimalTomlError;
 use std::path::PathBuf;
 
 use thiserror::Error;
@@ -24,6 +25,10 @@ pub enum VfsError {
     FailToDiff,
     #[error("failed to resolve module path")]
     ModulePathResolveFailure,
+    #[error("minimal toml error")]
+    MinimalToml(#[from] MinimalTomlError),
+    #[error("package ident")]
+    PackageIdent,
 }
 
 impl From<&VfsError> for VfsError {
