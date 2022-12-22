@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::geom2d`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "Point2d",
-                ),
+                ident: "Point2d",
                 accessibility: PubicUnder(
                     `mnist_classifier::geom2d`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 82,
                     module: `mnist_classifier::geom2d`,
-                    ident: Identifier(
-                        "Point2d",
-                    ),
+                    ident: "Point2d",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "RelativePoint2d",
-                ),
+                ident: "RelativePoint2d",
                 accessibility: PubicUnder(
                     `mnist_classifier::geom2d`,
                 ),
@@ -29,15 +23,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 83,
                     module: `mnist_classifier::geom2d`,
-                    ident: Identifier(
-                        "RelativePoint2d",
-                    ),
+                    ident: "RelativePoint2d",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "Vector2d",
-                ),
+                ident: "Vector2d",
                 accessibility: PubicUnder(
                     `mnist_classifier::geom2d`,
                 ),
@@ -45,15 +35,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 84,
                     module: `mnist_classifier::geom2d`,
-                    ident: Identifier(
-                        "Vector2d",
-                    ),
+                    ident: "Vector2d",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "ClosedRange",
-                ),
+                ident: "ClosedRange",
                 accessibility: PubicUnder(
                     `mnist_classifier::geom2d`,
                 ),
@@ -61,15 +47,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 85,
                     module: `mnist_classifier::geom2d`,
-                    ident: Identifier(
-                        "ClosedRange",
-                    ),
+                    ident: "ClosedRange",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "BoundingBox",
-                ),
+                ident: "BoundingBox",
                 accessibility: PubicUnder(
                     `mnist_classifier::geom2d`,
                 ),
@@ -77,15 +59,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 86,
                     module: `mnist_classifier::geom2d`,
-                    ident: Identifier(
-                        "BoundingBox",
-                    ),
+                    ident: "BoundingBox",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "RelativeBoundingBox",
-                ),
+                ident: "RelativeBoundingBox",
                 accessibility: PubicUnder(
                     `mnist_classifier::geom2d`,
                 ),
@@ -93,9 +71,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 87,
                     module: `mnist_classifier::geom2d`,
-                    ident: Identifier(
-                        "RelativeBoundingBox",
-                    ),
+                    ident: "RelativeBoundingBox",
                 },
             },
         ],

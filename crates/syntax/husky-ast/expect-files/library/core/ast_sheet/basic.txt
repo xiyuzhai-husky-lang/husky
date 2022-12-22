@@ -20,15 +20,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 0,
                                 module: `core::basic`,
-                                ident: Identifier(
-                                    "bool",
-                                ),
+                                ident: "bool",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "bool",
-                    ),
+                    ident: "bool",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -50,15 +46,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 1,
                                 module: `core::basic`,
-                                ident: Identifier(
-                                    "Trait",
-                                ),
+                                ident: "Trait",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "Trait",
-                    ),
+                    ident: "Trait",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -80,15 +72,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 2,
                                 module: `core::basic`,
-                                ident: Identifier(
-                                    "Module",
-                                ),
+                                ident: "Module",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "Module",
-                    ),
+                    ident: "Module",
                     is_generic: false,
                     body_kind: None,
                 },

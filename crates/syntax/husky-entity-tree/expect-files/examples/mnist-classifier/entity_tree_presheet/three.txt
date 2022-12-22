@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::three`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "three_fermi_match",
-                ),
+                ident: "three_fermi_match",
                 accessibility: PubicUnder(
                     `mnist_classifier::three`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 143,
                     module: `mnist_classifier::three`,
-                    ident: Identifier(
-                        "three_fermi_match",
-                    ),
+                    ident: "three_fermi_match",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "is_three",
-                ),
+                ident: "is_three",
                 accessibility: PubicUnder(
                     `mnist_classifier::three`,
                 ),
@@ -29,15 +23,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 144,
                     module: `mnist_classifier::three`,
-                    ident: Identifier(
-                        "is_three",
-                    ),
+                    ident: "is_three",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "uparc",
-                ),
+                ident: "uparc",
                 accessibility: PubicUnder(
                     `mnist_classifier::three`,
                 ),
@@ -45,15 +35,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 145,
                     module: `mnist_classifier::three`,
-                    ident: Identifier(
-                        "uparc",
-                    ),
+                    ident: "uparc",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "downarc",
-                ),
+                ident: "downarc",
                 accessibility: PubicUnder(
                     `mnist_classifier::three`,
                 ),
@@ -61,15 +47,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 146,
                     module: `mnist_classifier::three`,
-                    ident: Identifier(
-                        "downarc",
-                    ),
+                    ident: "downarc",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "back",
-                ),
+                ident: "back",
                 accessibility: PubicUnder(
                     `mnist_classifier::three`,
                 ),
@@ -77,9 +59,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 147,
                     module: `mnist_classifier::three`,
-                    ident: Identifier(
-                        "back",
-                    ),
+                    ident: "back",
                 },
             },
         ],

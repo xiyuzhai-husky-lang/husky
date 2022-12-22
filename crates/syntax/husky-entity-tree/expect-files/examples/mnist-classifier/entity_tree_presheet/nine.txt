@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::nine`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "nine_match",
-                ),
+                ident: "nine_match",
                 accessibility: PubicUnder(
                     `mnist_classifier::nine`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 121,
                     module: `mnist_classifier::nine`,
-                    ident: Identifier(
-                        "nine_match",
-                    ),
+                    ident: "nine_match",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "nine_match_refine",
-                ),
+                ident: "nine_match_refine",
                 accessibility: PubicUnder(
                     `mnist_classifier::nine`,
                 ),
@@ -29,15 +23,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 122,
                     module: `mnist_classifier::nine`,
-                    ident: Identifier(
-                        "nine_match_refine",
-                    ),
+                    ident: "nine_match_refine",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "is_nine",
-                ),
+                ident: "is_nine",
                 accessibility: PubicUnder(
                     `mnist_classifier::nine`,
                 ),
@@ -45,15 +35,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 123,
                     module: `mnist_classifier::nine`,
-                    ident: Identifier(
-                        "is_nine",
-                    ),
+                    ident: "is_nine",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "downmost",
-                ),
+                ident: "downmost",
                 accessibility: PubicUnder(
                     `mnist_classifier::nine`,
                 ),
@@ -61,15 +47,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 124,
                     module: `mnist_classifier::nine`,
-                    ident: Identifier(
-                        "downmost",
-                    ),
+                    ident: "downmost",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "big_cc",
-                ),
+                ident: "big_cc",
                 accessibility: PubicUnder(
                     `mnist_classifier::nine`,
                 ),
@@ -77,9 +59,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 125,
                     module: `mnist_classifier::nine`,
-                    ident: Identifier(
-                        "big_cc",
-                    ),
+                    ident: "big_cc",
                 },
             },
         ],

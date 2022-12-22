@@ -3,45 +3,35 @@ Ok(
         module_path: `core`,
         module_symbols: [
             Module {
-                ident: Identifier(
-                    "basic",
-                ),
+                ident: "basic",
                 accessibility: PubicUnder(
                     `core`,
                 ),
                 module_path: `core::basic`,
             },
             Module {
-                ident: Identifier(
-                    "logic",
-                ),
+                ident: "logic",
                 accessibility: PubicUnder(
                     `core`,
                 ),
                 module_path: `core::logic`,
             },
             Module {
-                ident: Identifier(
-                    "num",
-                ),
+                ident: "num",
                 accessibility: PubicUnder(
                     `core`,
                 ),
                 module_path: `core::num`,
             },
             Module {
-                ident: Identifier(
-                    "ops",
-                ),
+                ident: "ops",
                 accessibility: PubicUnder(
                     `core`,
                 ),
                 module_path: `core::ops`,
             },
             Module {
-                ident: Identifier(
-                    "prelude",
-                ),
+                ident: "prelude",
                 accessibility: PubicUnder(
                     `core`,
                 ),

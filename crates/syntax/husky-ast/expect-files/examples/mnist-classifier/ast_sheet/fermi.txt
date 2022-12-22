@@ -119,9 +119,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "norm",
-                    ),
+                    ident: "norm",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -141,9 +139,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "rel_norm",
-                    ),
+                    ident: "rel_norm",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -163,9 +159,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "angle_change_norm",
-                    ),
+                    ident: "angle_change_norm",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -226,9 +220,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -262,15 +254,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 76,
                                 module: `mnist_classifier::fermi`,
-                                ident: Identifier(
-                                    "FermiMatchResult",
-                                ),
+                                ident: "FermiMatchResult",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "FermiMatchResult",
-                    ),
+                    ident: "FermiMatchResult",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -304,15 +292,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 77,
                                 module: `mnist_classifier::fermi`,
-                                ident: Identifier(
-                                    "fermi_match",
-                                ),
+                                ident: "fermi_match",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "fermi_match",
-                    ),
+                    ident: "fermi_match",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -325,9 +309,7 @@ Ok(
             data: [
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 0,
                 },
             ],

@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::line_segment_sketch::convex_component`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "ConvexCompoent",
-                ),
+                ident: "ConvexCompoent",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
@@ -13,9 +11,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 102,
                     module: `mnist_classifier::line_segment_sketch::convex_component`,
-                    ident: Identifier(
-                        "ConvexCompoent",
-                    ),
+                    ident: "ConvexCompoent",
                 },
             },
         ],

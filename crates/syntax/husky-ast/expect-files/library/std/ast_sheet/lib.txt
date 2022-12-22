@@ -22,9 +22,7 @@ Ok(
                             `std::prelude`,
                         ),
                     ),
-                    ident: Identifier(
-                        "prelude",
-                    ),
+                    ident: "prelude",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -48,9 +46,7 @@ Ok(
                             `std::logic`,
                         ),
                     ),
-                    ident: Identifier(
-                        "logic",
-                    ),
+                    ident: "logic",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -74,9 +70,7 @@ Ok(
                             `std::ops`,
                         ),
                     ),
-                    ident: Identifier(
-                        "ops",
-                    ),
+                    ident: "ops",
                     is_generic: false,
                     body_kind: None,
                 },

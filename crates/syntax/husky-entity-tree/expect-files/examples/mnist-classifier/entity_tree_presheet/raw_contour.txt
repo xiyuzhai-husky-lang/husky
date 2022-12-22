@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::raw_contour`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "RawContour",
-                ),
+                ident: "RawContour",
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 126,
                     module: `mnist_classifier::raw_contour`,
-                    ident: Identifier(
-                        "RawContour",
-                    ),
+                    ident: "RawContour",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "Direction",
-                ),
+                ident: "Direction",
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
@@ -29,15 +23,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 127,
                     module: `mnist_classifier::raw_contour`,
-                    ident: Identifier(
-                        "Direction",
-                    ),
+                    ident: "Direction",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "get_pixel_pair",
-                ),
+                ident: "get_pixel_pair",
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
@@ -45,15 +35,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 128,
                     module: `mnist_classifier::raw_contour`,
-                    ident: Identifier(
-                        "get_pixel_pair",
-                    ),
+                    ident: "get_pixel_pair",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "get_pixel_to_the_left",
-                ),
+                ident: "get_pixel_to_the_left",
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
@@ -61,15 +47,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 129,
                     module: `mnist_classifier::raw_contour`,
-                    ident: Identifier(
-                        "get_pixel_to_the_left",
-                    ),
+                    ident: "get_pixel_to_the_left",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "get_pixel_to_the_right",
-                ),
+                ident: "get_pixel_to_the_right",
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
@@ -77,15 +59,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 130,
                     module: `mnist_classifier::raw_contour`,
-                    ident: Identifier(
-                        "get_pixel_to_the_right",
-                    ),
+                    ident: "get_pixel_to_the_right",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "get_inward_direction",
-                ),
+                ident: "get_inward_direction",
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
@@ -93,15 +71,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 131,
                     module: `mnist_classifier::raw_contour`,
-                    ident: Identifier(
-                        "get_inward_direction",
-                    ),
+                    ident: "get_inward_direction",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "get_angle_change",
-                ),
+                ident: "get_angle_change",
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
@@ -109,15 +83,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 132,
                     module: `mnist_classifier::raw_contour`,
-                    ident: Identifier(
-                        "get_angle_change",
-                    ),
+                    ident: "get_angle_change",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "get_outward_direction",
-                ),
+                ident: "get_outward_direction",
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
@@ -125,15 +95,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 133,
                     module: `mnist_classifier::raw_contour`,
-                    ident: Identifier(
-                        "get_outward_direction",
-                    ),
+                    ident: "get_outward_direction",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "StreakCache",
-                ),
+                ident: "StreakCache",
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
@@ -141,15 +107,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 134,
                     module: `mnist_classifier::raw_contour`,
-                    ident: Identifier(
-                        "StreakCache",
-                    ),
+                    ident: "StreakCache",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "get_concave_middle_point",
-                ),
+                ident: "get_concave_middle_point",
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
@@ -157,15 +119,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 135,
                     module: `mnist_classifier::raw_contour`,
-                    ident: Identifier(
-                        "get_concave_middle_point",
-                    ),
+                    ident: "get_concave_middle_point",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "find_raw_contours",
-                ),
+                ident: "find_raw_contours",
                 accessibility: PubicUnder(
                     `mnist_classifier::raw_contour`,
                 ),
@@ -173,9 +131,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 136,
                     module: `mnist_classifier::raw_contour`,
-                    ident: Identifier(
-                        "find_raw_contours",
-                    ),
+                    ident: "find_raw_contours",
                 },
             },
         ],

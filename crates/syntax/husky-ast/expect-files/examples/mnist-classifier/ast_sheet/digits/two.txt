@@ -421,9 +421,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: Identifier(
-                        "domains",
-                    ),
+                    ident: "domains",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -437,9 +435,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    ident: Identifier(
-                        "domains",
-                    ),
+                    ident: "domains",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -453,9 +449,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    ident: Identifier(
-                        "domains",
-                    ),
+                    ident: "domains",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -469,9 +463,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    ident: Identifier(
-                        "domains",
-                    ),
+                    ident: "domains",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -485,9 +477,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -501,9 +491,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -517,9 +505,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -533,9 +519,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -549,9 +533,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -565,9 +547,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -581,9 +561,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -597,9 +575,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -613,9 +589,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -647,15 +621,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 65,
                                 module: `mnist_classifier::digits::two`,
-                                ident: Identifier(
-                                    "two_match",
-                                ),
+                                ident: "two_match",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "two_match",
-                    ),
+                    ident: "two_match",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -681,15 +651,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 66,
                                 module: `mnist_classifier::digits::two`,
-                                ident: Identifier(
-                                    "left_cc_pattern",
-                                ),
+                                ident: "left_cc_pattern",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "left_cc_pattern",
-                    ),
+                    ident: "left_cc_pattern",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -715,15 +681,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 67,
                                 module: `mnist_classifier::digits::two`,
-                                ident: Identifier(
-                                    "right_cc_pattern",
-                                ),
+                                ident: "right_cc_pattern",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "right_cc_pattern",
-                    ),
+                    ident: "right_cc_pattern",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -749,15 +711,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 68,
                                 module: `mnist_classifier::digits::two`,
-                                ident: Identifier(
-                                    "down_cc_pattern",
-                                ),
+                                ident: "down_cc_pattern",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "down_cc_pattern",
-                    ),
+                    ident: "down_cc_pattern",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -783,15 +741,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 69,
                                 module: `mnist_classifier::digits::two`,
-                                ident: Identifier(
-                                    "is_two",
-                                ),
+                                ident: "is_two",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "is_two",
-                    ),
+                    ident: "is_two",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -803,272 +757,180 @@ Ok(
         use_expr_arena: Arena {
             data: [
                 One {
-                    ident: Identifier(
-                        "MnistLabel",
-                    ),
+                    ident: "MnistLabel",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "mnist",
-                    ),
+                    parent: "mnist",
                     child: 0,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "cv",
-                    ),
+                    parent: "cv",
                     child: 1,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "datasets",
-                    ),
+                    parent: "datasets",
                     child: 2,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "ml",
-                    ),
+                    parent: "ml",
                     child: 3,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "domains",
-                    ),
+                    parent: "domains",
                     child: 4,
                 },
                 One {
-                    ident: Identifier(
-                        "normalize_vmax_f32",
-                    ),
+                    ident: "normalize_vmax_f32",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "normalize",
-                    ),
+                    parent: "normalize",
                     child: 6,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "models",
-                    ),
+                    parent: "models",
                     child: 7,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "ml",
-                    ),
+                    parent: "ml",
                     child: 8,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "domains",
-                    ),
+                    parent: "domains",
                     child: 9,
                 },
                 One {
-                    ident: Identifier(
-                        "boosting_with_vmax_normalized",
-                    ),
+                    ident: "boosting_with_vmax_normalized",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "boosting",
-                    ),
+                    parent: "boosting",
                     child: 11,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "models",
-                    ),
+                    parent: "models",
                     child: 12,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "ml",
-                    ),
+                    parent: "ml",
                     child: 13,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "domains",
-                    ),
+                    parent: "domains",
                     child: 14,
                 },
                 One {
-                    ident: Identifier(
-                        "narrow_down",
-                    ),
+                    ident: "narrow_down",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "narrow",
-                    ),
+                    parent: "narrow",
                     child: 16,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "models",
-                    ),
+                    parent: "models",
                     child: 17,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "ml",
-                    ),
+                    parent: "ml",
                     child: 18,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "domains",
-                    ),
+                    parent: "domains",
                     child: 19,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "major",
-                    ),
+                    parent: "major",
                     child: 21,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 22,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "fermi",
-                    ),
+                    parent: "fermi",
                     child: 24,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 25,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "concave_component",
-                    ),
+                    parent: "concave_component",
                     child: 27,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "line_segment_sketch",
-                    ),
+                    parent: "line_segment_sketch",
                     child: 28,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 29,
                 },
                 One {
-                    ident: Identifier(
-                        "is_zero",
-                    ),
+                    ident: "is_zero",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "zero",
-                    ),
+                    parent: "zero",
                     child: 31,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 32,
                 },
                 One {
-                    ident: Identifier(
-                        "is_one",
-                    ),
+                    ident: "is_one",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "one",
-                    ),
+                    parent: "one",
                     child: 34,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 35,
                 },
                 One {
-                    ident: Identifier(
-                        "is_three",
-                    ),
+                    ident: "is_three",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "three",
-                    ),
+                    parent: "three",
                     child: 37,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 38,
                 },
                 One {
-                    ident: Identifier(
-                        "is_seven",
-                    ),
+                    ident: "is_seven",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "seven",
-                    ),
+                    parent: "seven",
                     child: 40,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 41,
                 },
                 One {
-                    ident: Identifier(
-                        "is_nine",
-                    ),
+                    ident: "is_nine",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "nine",
-                    ),
+                    parent: "nine",
                     child: 43,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 44,
                 },
                 One {
-                    ident: Identifier(
-                        "is_six",
-                    ),
+                    ident: "is_six",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "six",
-                    ),
+                    parent: "six",
                     child: 46,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 47,
                 },
             ],

@@ -22,9 +22,7 @@ Ok(
                             `mnist_classifier::digits::zero`,
                         ),
                     ),
-                    ident: Identifier(
-                        "zero",
-                    ),
+                    ident: "zero",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -48,9 +46,7 @@ Ok(
                             `mnist_classifier::digits::one`,
                         ),
                     ),
-                    ident: Identifier(
-                        "one",
-                    ),
+                    ident: "one",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -74,9 +70,7 @@ Ok(
                             `mnist_classifier::digits::six`,
                         ),
                     ),
-                    ident: Identifier(
-                        "six",
-                    ),
+                    ident: "six",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -84,9 +78,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    ident: Identifier(
-                        "one",
-                    ),
+                    ident: "one",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -100,9 +92,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    ident: Identifier(
-                        "six",
-                    ),
+                    ident: "six",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -116,9 +106,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    ident: Identifier(
-                        "zero",
-                    ),
+                    ident: "zero",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -136,36 +124,24 @@ Ok(
         use_expr_arena: Arena {
             data: [
                 One {
-                    ident: Identifier(
-                        "is_one",
-                    ),
+                    ident: "is_one",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "one",
-                    ),
+                    parent: "one",
                     child: 0,
                 },
                 One {
-                    ident: Identifier(
-                        "is_six",
-                    ),
+                    ident: "is_six",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "six",
-                    ),
+                    parent: "six",
                     child: 2,
                 },
                 One {
-                    ident: Identifier(
-                        "is_zero",
-                    ),
+                    ident: "is_zero",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "zero",
-                    ),
+                    parent: "zero",
                     child: 4,
                 },
             ],

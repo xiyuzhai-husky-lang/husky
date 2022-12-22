@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::digits::zero`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "open_one_match",
-                ),
+                ident: "open_one_match",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::zero`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 70,
                     module: `mnist_classifier::digits::zero`,
-                    ident: Identifier(
-                        "open_one_match",
-                    ),
+                    ident: "open_one_match",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "almost_closed",
-                ),
+                ident: "almost_closed",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::zero`,
                 ),
@@ -29,15 +23,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 71,
                     module: `mnist_classifier::digits::zero`,
-                    ident: Identifier(
-                        "almost_closed",
-                    ),
+                    ident: "almost_closed",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "is_zero",
-                ),
+                ident: "is_zero",
                 accessibility: PubicUnder(
                     `mnist_classifier::digits::zero`,
                 ),
@@ -45,9 +35,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 72,
                     module: `mnist_classifier::digits::zero`,
-                    ident: Identifier(
-                        "is_zero",
-                    ),
+                    ident: "is_zero",
                 },
             },
         ],

@@ -234,9 +234,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "line_segment_sketch",
-                    ),
+                    ident: "line_segment_sketch",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -256,9 +254,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "bounding_box",
-                    ),
+                    ident: "bounding_box",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -278,9 +274,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "relative_bounding_box",
-                    ),
+                    ident: "relative_bounding_box",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -300,9 +294,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "contour_len",
-                    ),
+                    ident: "contour_len",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -322,9 +314,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "displacement",
-                    ),
+                    ident: "displacement",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1684,9 +1674,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -1700,9 +1688,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -1716,9 +1702,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    ident: Identifier(
-                        "crate",
-                    ),
+                    ident: "crate",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -1732,9 +1716,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    ident: Identifier(
-                        "mnist",
-                    ),
+                    ident: "mnist",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -1768,15 +1750,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 126,
                                 module: `mnist_classifier::raw_contour`,
-                                ident: Identifier(
-                                    "RawContour",
-                                ),
+                                ident: "RawContour",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "RawContour",
-                    ),
+                    ident: "RawContour",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -1812,15 +1790,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 127,
                                 module: `mnist_classifier::raw_contour`,
-                                ident: Identifier(
-                                    "Direction",
-                                ),
+                                ident: "Direction",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "Direction",
-                    ),
+                    ident: "Direction",
                     is_generic: false,
                     body_kind: EnumVariants,
                 },
@@ -1878,15 +1852,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 128,
                                 module: `mnist_classifier::raw_contour`,
-                                ident: Identifier(
-                                    "get_pixel_pair",
-                                ),
+                                ident: "get_pixel_pair",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "get_pixel_pair",
-                    ),
+                    ident: "get_pixel_pair",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1912,15 +1882,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 129,
                                 module: `mnist_classifier::raw_contour`,
-                                ident: Identifier(
-                                    "get_pixel_to_the_left",
-                                ),
+                                ident: "get_pixel_to_the_left",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "get_pixel_to_the_left",
-                    ),
+                    ident: "get_pixel_to_the_left",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1946,15 +1912,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 130,
                                 module: `mnist_classifier::raw_contour`,
-                                ident: Identifier(
-                                    "get_pixel_to_the_right",
-                                ),
+                                ident: "get_pixel_to_the_right",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "get_pixel_to_the_right",
-                    ),
+                    ident: "get_pixel_to_the_right",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -1980,15 +1942,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 131,
                                 module: `mnist_classifier::raw_contour`,
-                                ident: Identifier(
-                                    "get_inward_direction",
-                                ),
+                                ident: "get_inward_direction",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "get_inward_direction",
-                    ),
+                    ident: "get_inward_direction",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -2014,15 +1972,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 132,
                                 module: `mnist_classifier::raw_contour`,
-                                ident: Identifier(
-                                    "get_angle_change",
-                                ),
+                                ident: "get_angle_change",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "get_angle_change",
-                    ),
+                    ident: "get_angle_change",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -2048,15 +2002,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 133,
                                 module: `mnist_classifier::raw_contour`,
-                                ident: Identifier(
-                                    "get_outward_direction",
-                                ),
+                                ident: "get_outward_direction",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "get_outward_direction",
-                    ),
+                    ident: "get_outward_direction",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -2084,15 +2034,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 134,
                                 module: `mnist_classifier::raw_contour`,
-                                ident: Identifier(
-                                    "StreakCache",
-                                ),
+                                ident: "StreakCache",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "StreakCache",
-                    ),
+                    ident: "StreakCache",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -2118,15 +2064,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 135,
                                 module: `mnist_classifier::raw_contour`,
-                                ident: Identifier(
-                                    "get_concave_middle_point",
-                                ),
+                                ident: "get_concave_middle_point",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "get_concave_middle_point",
-                    ),
+                    ident: "get_concave_middle_point",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -2152,15 +2094,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 136,
                                 module: `mnist_classifier::raw_contour`,
-                                ident: Identifier(
-                                    "find_raw_contours",
-                                ),
+                                ident: "find_raw_contours",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "find_raw_contours",
-                    ),
+                    ident: "find_raw_contours",
                     is_generic: false,
                     body_kind: Block,
                 },
@@ -2173,52 +2111,36 @@ Ok(
             data: [
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "geom2d",
-                    ),
+                    parent: "geom2d",
                     child: 0,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 1,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "connected_component",
-                    ),
+                    parent: "connected_component",
                     child: 3,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 4,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "line_segment_sketch",
-                    ),
+                    parent: "line_segment_sketch",
                     child: 6,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "crate",
-                    ),
+                    parent: "crate",
                     child: 7,
                 },
                 One {
-                    ident: Identifier(
-                        "BinaryImage28",
-                    ),
+                    ident: "BinaryImage28",
                 },
                 One {
-                    ident: Identifier(
-                        "BinaryGrid28",
-                    ),
+                    ident: "BinaryGrid28",
                 },
                 Multiple {
                     exprs: ArenaIdxRange(
@@ -2226,9 +2148,7 @@ Ok(
                     ),
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "mnist",
-                    ),
+                    parent: "mnist",
                     child: 11,
                 },
             ],

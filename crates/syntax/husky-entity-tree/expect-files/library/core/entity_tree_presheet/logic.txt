@@ -3,31 +3,23 @@ Ok(
         module_path: `core::logic`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "LogicAnd",
-                ),
+                ident: "LogicAnd",
                 accessibility: Public,
                 ast_idx: 0,
                 path: ModuleItemPath {
                     [salsa id]: 3,
                     module: `core::logic`,
-                    ident: Identifier(
-                        "LogicAnd",
-                    ),
+                    ident: "LogicAnd",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "LogicOr",
-                ),
+                ident: "LogicOr",
                 accessibility: Public,
                 ast_idx: 1,
                 path: ModuleItemPath {
                     [salsa id]: 4,
                     module: `core::logic`,
-                    ident: Identifier(
-                        "LogicOr",
-                    ),
+                    ident: "LogicOr",
                 },
             },
         ],

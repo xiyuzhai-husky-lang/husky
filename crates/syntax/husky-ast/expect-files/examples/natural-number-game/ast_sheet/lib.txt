@@ -18,9 +18,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "add",
-                    ),
+                    ident: "add",
                     is_generic: false,
                     body_kind: EnumVariants,
                 },
@@ -64,15 +62,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 148,
                                 module: `natural_number_game`,
-                                ident: Identifier(
-                                    "Nat",
-                                ),
+                                ident: "Nat",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "Nat",
-                    ),
+                    ident: "Nat",
                     is_generic: false,
                     body_kind: EnumVariants,
                 },
@@ -140,15 +134,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 149,
                                 module: `natural_number_game`,
-                                ident: Identifier(
-                                    "OddNat",
-                                ),
+                                ident: "OddNat",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "OddNat",
-                    ),
+                    ident: "OddNat",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -176,15 +166,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 150,
                                 module: `natural_number_game`,
-                                ident: Identifier(
-                                    "EvenNat",
-                                ),
+                                ident: "EvenNat",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "EvenNat",
-                    ),
+                    ident: "EvenNat",
                     is_generic: false,
                     body_kind: None,
                 },

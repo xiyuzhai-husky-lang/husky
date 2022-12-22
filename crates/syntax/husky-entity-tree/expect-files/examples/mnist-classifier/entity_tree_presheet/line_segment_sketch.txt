@@ -3,45 +3,35 @@ Ok(
         module_path: `mnist_classifier::line_segment_sketch`,
         module_symbols: [
             Module {
-                ident: Identifier(
-                    "concave_component",
-                ),
+                ident: "concave_component",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 module_path: `mnist_classifier::line_segment_sketch::concave_component`,
             },
             Module {
-                ident: Identifier(
-                    "convex_component",
-                ),
+                ident: "convex_component",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 module_path: `mnist_classifier::line_segment_sketch::convex_component`,
             },
             Module {
-                ident: Identifier(
-                    "convexity",
-                ),
+                ident: "convexity",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 module_path: `mnist_classifier::line_segment_sketch::convexity`,
             },
             Module {
-                ident: Identifier(
-                    "line_segment",
-                ),
+                ident: "line_segment",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 module_path: `mnist_classifier::line_segment_sketch::line_segment`,
             },
             ModuleItem {
-                ident: Identifier(
-                    "LineSegmentStroke",
-                ),
+                ident: "LineSegmentStroke",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -49,15 +39,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 107,
                     module: `mnist_classifier::line_segment_sketch`,
-                    ident: Identifier(
-                        "LineSegmentStroke",
-                    ),
+                    ident: "LineSegmentStroke",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "LineSegmentSketch",
-                ),
+                ident: "LineSegmentSketch",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -65,15 +51,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 108,
                     module: `mnist_classifier::line_segment_sketch`,
-                    ident: Identifier(
-                        "LineSegmentSketch",
-                    ),
+                    ident: "LineSegmentSketch",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "go_right",
-                ),
+                ident: "go_right",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -81,15 +63,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 109,
                     module: `mnist_classifier::line_segment_sketch`,
-                    ident: Identifier(
-                        "go_right",
-                    ),
+                    ident: "go_right",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "go_left",
-                ),
+                ident: "go_left",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -97,15 +75,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 110,
                     module: `mnist_classifier::line_segment_sketch`,
-                    ident: Identifier(
-                        "go_left",
-                    ),
+                    ident: "go_left",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "extend_end",
-                ),
+                ident: "extend_end",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -113,15 +87,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 111,
                     module: `mnist_classifier::line_segment_sketch`,
-                    ident: Identifier(
-                        "extend_end",
-                    ),
+                    ident: "extend_end",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "extend_start",
-                ),
+                ident: "extend_start",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -129,15 +99,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 112,
                     module: `mnist_classifier::line_segment_sketch`,
-                    ident: Identifier(
-                        "extend_start",
-                    ),
+                    ident: "extend_start",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "find_line_segments",
-                ),
+                ident: "find_line_segments",
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -145,9 +111,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 113,
                     module: `mnist_classifier::line_segment_sketch`,
-                    ident: Identifier(
-                        "find_line_segments",
-                    ),
+                    ident: "find_line_segments",
                 },
             },
         ],

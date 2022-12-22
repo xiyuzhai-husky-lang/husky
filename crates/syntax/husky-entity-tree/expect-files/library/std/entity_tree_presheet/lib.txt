@@ -3,27 +3,21 @@ Ok(
         module_path: `std`,
         module_symbols: [
             Module {
-                ident: Identifier(
-                    "prelude",
-                ),
+                ident: "prelude",
                 accessibility: PubicUnder(
                     `std`,
                 ),
                 module_path: `std::prelude`,
             },
             Module {
-                ident: Identifier(
-                    "logic",
-                ),
+                ident: "logic",
                 accessibility: PubicUnder(
                     `std`,
                 ),
                 module_path: `std::logic`,
             },
             Module {
-                ident: Identifier(
-                    "ops",
-                ),
+                ident: "ops",
                 accessibility: PubicUnder(
                     `std`,
                 ),

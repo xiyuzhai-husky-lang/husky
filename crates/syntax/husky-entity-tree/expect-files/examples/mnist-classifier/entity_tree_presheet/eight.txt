@@ -3,9 +3,7 @@ Ok(
         module_path: `mnist_classifier::eight`,
         module_symbols: [
             ModuleItem {
-                ident: Identifier(
-                    "upper_mouth_match",
-                ),
+                ident: "upper_mouth_match",
                 accessibility: PubicUnder(
                     `mnist_classifier::eight`,
                 ),
@@ -13,15 +11,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 73,
                     module: `mnist_classifier::eight`,
-                    ident: Identifier(
-                        "upper_mouth_match",
-                    ),
+                    ident: "upper_mouth_match",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "is_eight",
-                ),
+                ident: "is_eight",
                 accessibility: PubicUnder(
                     `mnist_classifier::eight`,
                 ),
@@ -29,15 +23,11 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 74,
                     module: `mnist_classifier::eight`,
-                    ident: Identifier(
-                        "is_eight",
-                    ),
+                    ident: "is_eight",
                 },
             },
             ModuleItem {
-                ident: Identifier(
-                    "big_mouth",
-                ),
+                ident: "big_mouth",
                 accessibility: PubicUnder(
                     `mnist_classifier::eight`,
                 ),
@@ -45,9 +35,7 @@ Ok(
                 path: ModuleItemPath {
                     [salsa id]: 75,
                     module: `mnist_classifier::eight`,
-                    ident: Identifier(
-                        "big_mouth",
-                    ),
+                    ident: "big_mouth",
                 },
             },
         ],

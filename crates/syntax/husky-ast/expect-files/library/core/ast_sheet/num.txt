@@ -12,9 +12,7 @@ Ok(
                     accessibility: Public,
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "abs",
-                    ),
+                    ident: "abs",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -28,9 +26,7 @@ Ok(
                     accessibility: Public,
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "add",
-                    ),
+                    ident: "add",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -44,9 +40,7 @@ Ok(
                     accessibility: Public,
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "abs",
-                    ),
+                    ident: "abs",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -60,9 +54,7 @@ Ok(
                     accessibility: Public,
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "add",
-                    ),
+                    ident: "add",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -76,9 +68,7 @@ Ok(
                     accessibility: Public,
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "abs",
-                    ),
+                    ident: "abs",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -98,9 +88,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "add",
-                    ),
+                    ident: "add",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -114,9 +102,7 @@ Ok(
                     accessibility: Public,
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "abs",
-                    ),
+                    ident: "abs",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -130,9 +116,7 @@ Ok(
                     accessibility: Public,
                     entity_kind: AssociatedItem,
                     entity_path: None,
-                    ident: Identifier(
-                        "add",
-                    ),
+                    ident: "add",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -159,15 +143,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 5,
                                 module: `core::num`,
-                                ident: Identifier(
-                                    "i8",
-                                ),
+                                ident: "i8",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "i8",
-                    ),
+                    ident: "i8",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -210,15 +190,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 6,
                                 module: `core::num`,
-                                ident: Identifier(
-                                    "i16",
-                                ),
+                                ident: "i16",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "i16",
-                    ),
+                    ident: "i16",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -261,15 +237,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 7,
                                 module: `core::num`,
-                                ident: Identifier(
-                                    "i32",
-                                ),
+                                ident: "i32",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "i32",
-                    ),
+                    ident: "i32",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -318,15 +290,11 @@ Ok(
                             ModuleItemPath {
                                 [salsa id]: 8,
                                 module: `core::num`,
-                                ident: Identifier(
-                                    "i64",
-                                ),
+                                ident: "i64",
                             },
                         ),
                     ),
-                    ident: Identifier(
-                        "i64",
-                    ),
+                    ident: "i64",
                     is_generic: false,
                     body_kind: None,
                 },

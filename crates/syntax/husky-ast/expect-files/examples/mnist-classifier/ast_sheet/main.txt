@@ -118,9 +118,7 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                     ),
-                    ident: Identifier(
-                        "connected_component",
-                    ),
+                    ident: "connected_component",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -144,9 +142,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                     ),
-                    ident: Identifier(
-                        "raw_contour",
-                    ),
+                    ident: "raw_contour",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -170,9 +166,7 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                     ),
-                    ident: Identifier(
-                        "geom2d",
-                    ),
+                    ident: "geom2d",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -196,9 +190,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     ),
-                    ident: Identifier(
-                        "line_segment_sketch",
-                    ),
+                    ident: "line_segment_sketch",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -222,9 +214,7 @@ Ok(
                             `mnist_classifier::fermi`,
                         ),
                     ),
-                    ident: Identifier(
-                        "fermi",
-                    ),
+                    ident: "fermi",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -248,9 +238,7 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                     ),
-                    ident: Identifier(
-                        "major",
-                    ),
+                    ident: "major",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -274,9 +262,7 @@ Ok(
                             `mnist_classifier::zero`,
                         ),
                     ),
-                    ident: Identifier(
-                        "zero",
-                    ),
+                    ident: "zero",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -300,9 +286,7 @@ Ok(
                             `mnist_classifier::one`,
                         ),
                     ),
-                    ident: Identifier(
-                        "one",
-                    ),
+                    ident: "one",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -326,9 +310,7 @@ Ok(
                             `mnist_classifier::two`,
                         ),
                     ),
-                    ident: Identifier(
-                        "two",
-                    ),
+                    ident: "two",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -352,9 +334,7 @@ Ok(
                             `mnist_classifier::three`,
                         ),
                     ),
-                    ident: Identifier(
-                        "three",
-                    ),
+                    ident: "three",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -378,9 +358,7 @@ Ok(
                             `mnist_classifier::four`,
                         ),
                     ),
-                    ident: Identifier(
-                        "four",
-                    ),
+                    ident: "four",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -404,9 +382,7 @@ Ok(
                             `mnist_classifier::five`,
                         ),
                     ),
-                    ident: Identifier(
-                        "five",
-                    ),
+                    ident: "five",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -430,9 +406,7 @@ Ok(
                             `mnist_classifier::six`,
                         ),
                     ),
-                    ident: Identifier(
-                        "six",
-                    ),
+                    ident: "six",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -456,9 +430,7 @@ Ok(
                             `mnist_classifier::seven`,
                         ),
                     ),
-                    ident: Identifier(
-                        "seven",
-                    ),
+                    ident: "seven",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -482,9 +454,7 @@ Ok(
                             `mnist_classifier::eight`,
                         ),
                     ),
-                    ident: Identifier(
-                        "eight",
-                    ),
+                    ident: "eight",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -508,9 +478,7 @@ Ok(
                             `mnist_classifier::nine`,
                         ),
                     ),
-                    ident: Identifier(
-                        "nine",
-                    ),
+                    ident: "nine",
                     is_generic: false,
                     body_kind: None,
                 },
@@ -518,9 +486,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
-                    ident: Identifier(
-                        "mnist",
-                    ),
+                    ident: "mnist",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -534,9 +500,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
-                    ident: Identifier(
-                        "mnist",
-                    ),
+                    ident: "mnist",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -550,9 +514,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         20,
                     ),
-                    ident: Identifier(
-                        "major",
-                    ),
+                    ident: "major",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -566,9 +528,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         21,
                     ),
-                    ident: Identifier(
-                        "zero",
-                    ),
+                    ident: "zero",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -582,9 +542,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
-                    ident: Identifier(
-                        "one",
-                    ),
+                    ident: "one",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -598,9 +556,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         23,
                     ),
-                    ident: Identifier(
-                        "two",
-                    ),
+                    ident: "two",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -614,9 +570,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         24,
                     ),
-                    ident: Identifier(
-                        "three",
-                    ),
+                    ident: "three",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -630,9 +584,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         25,
                     ),
-                    ident: Identifier(
-                        "five",
-                    ),
+                    ident: "five",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -646,9 +598,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
-                    ident: Identifier(
-                        "six",
-                    ),
+                    ident: "six",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -662,9 +612,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         27,
                     ),
-                    ident: Identifier(
-                        "seven",
-                    ),
+                    ident: "seven",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -678,9 +626,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         28,
                     ),
-                    ident: Identifier(
-                        "eight",
-                    ),
+                    ident: "eight",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -694,9 +640,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         29,
                     ),
-                    ident: Identifier(
-                        "nine",
-                    ),
+                    ident: "nine",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -710,9 +654,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         30,
                     ),
-                    ident: Identifier(
-                        "raw_contour",
-                    ),
+                    ident: "raw_contour",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -726,9 +668,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         31,
                     ),
-                    ident: Identifier(
-                        "line_segment_sketch",
-                    ),
+                    ident: "line_segment_sketch",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -742,9 +682,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         32,
                     ),
-                    ident: Identifier(
-                        "domains",
-                    ),
+                    ident: "domains",
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -770,182 +708,118 @@ Ok(
         use_expr_arena: Arena {
             data: [
                 One {
-                    ident: Identifier(
-                        "BinaryImage28",
-                    ),
+                    ident: "BinaryImage28",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "mnist",
-                    ),
+                    parent: "mnist",
                     child: 0,
                 },
                 One {
-                    ident: Identifier(
-                        "MnistLabel",
-                    ),
+                    ident: "MnistLabel",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "mnist",
-                    ),
+                    parent: "mnist",
                     child: 2,
                 },
                 All,
                 ScopeResolution {
-                    parent: Identifier(
-                        "major",
-                    ),
+                    parent: "major",
                     child: 4,
                 },
                 One {
-                    ident: Identifier(
-                        "is_zero",
-                    ),
+                    ident: "is_zero",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "zero",
-                    ),
+                    parent: "zero",
                     child: 6,
                 },
                 One {
-                    ident: Identifier(
-                        "is_one",
-                    ),
+                    ident: "is_one",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "one",
-                    ),
+                    parent: "one",
                     child: 8,
                 },
                 One {
-                    ident: Identifier(
-                        "is_two",
-                    ),
+                    ident: "is_two",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "two",
-                    ),
+                    parent: "two",
                     child: 10,
                 },
                 One {
-                    ident: Identifier(
-                        "is_three",
-                    ),
+                    ident: "is_three",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "three",
-                    ),
+                    parent: "three",
                     child: 12,
                 },
                 One {
-                    ident: Identifier(
-                        "is_five",
-                    ),
+                    ident: "is_five",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "five",
-                    ),
+                    parent: "five",
                     child: 14,
                 },
                 One {
-                    ident: Identifier(
-                        "is_six",
-                    ),
+                    ident: "is_six",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "six",
-                    ),
+                    parent: "six",
                     child: 16,
                 },
                 One {
-                    ident: Identifier(
-                        "is_seven",
-                    ),
+                    ident: "is_seven",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "seven",
-                    ),
+                    parent: "seven",
                     child: 18,
                 },
                 One {
-                    ident: Identifier(
-                        "is_eight",
-                    ),
+                    ident: "is_eight",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "eight",
-                    ),
+                    parent: "eight",
                     child: 20,
                 },
                 One {
-                    ident: Identifier(
-                        "is_nine",
-                    ),
+                    ident: "is_nine",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "nine",
-                    ),
+                    parent: "nine",
                     child: 22,
                 },
                 One {
-                    ident: Identifier(
-                        "find_raw_contours",
-                    ),
+                    ident: "find_raw_contours",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "raw_contour",
-                    ),
+                    parent: "raw_contour",
                     child: 24,
                 },
                 One {
-                    ident: Identifier(
-                        "find_line_segments",
-                    ),
+                    ident: "find_line_segments",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "line_segment_sketch",
-                    ),
+                    parent: "line_segment_sketch",
                     child: 26,
                 },
                 One {
-                    ident: Identifier(
-                        "naive_i32",
-                    ),
+                    ident: "naive_i32",
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "naive",
-                    ),
+                    parent: "naive",
                     child: 28,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "models",
-                    ),
+                    parent: "models",
                     child: 29,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "ml",
-                    ),
+                    parent: "ml",
                     child: 30,
                 },
                 ScopeResolution {
-                    parent: Identifier(
-                        "domains",
-                    ),
+                    parent: "domains",
                     child: 31,
                 },
             ],

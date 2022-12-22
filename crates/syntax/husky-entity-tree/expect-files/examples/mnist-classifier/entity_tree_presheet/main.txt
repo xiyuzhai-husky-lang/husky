@@ -3,144 +3,112 @@ Ok(
         module_path: `mnist_classifier`,
         module_symbols: [
             Module {
-                ident: Identifier(
-                    "connected_component",
-                ),
+                ident: "connected_component",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::connected_component`,
             },
             Module {
-                ident: Identifier(
-                    "raw_contour",
-                ),
+                ident: "raw_contour",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::raw_contour`,
             },
             Module {
-                ident: Identifier(
-                    "geom2d",
-                ),
+                ident: "geom2d",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::geom2d`,
             },
             Module {
-                ident: Identifier(
-                    "line_segment_sketch",
-                ),
+                ident: "line_segment_sketch",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::line_segment_sketch`,
             },
             Module {
-                ident: Identifier(
-                    "fermi",
-                ),
+                ident: "fermi",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::fermi`,
             },
             Module {
-                ident: Identifier(
-                    "major",
-                ),
+                ident: "major",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::major`,
             },
             Module {
-                ident: Identifier(
-                    "zero",
-                ),
+                ident: "zero",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::zero`,
             },
             Module {
-                ident: Identifier(
-                    "one",
-                ),
+                ident: "one",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::one`,
             },
             Module {
-                ident: Identifier(
-                    "two",
-                ),
+                ident: "two",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::two`,
             },
             Module {
-                ident: Identifier(
-                    "three",
-                ),
+                ident: "three",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::three`,
             },
             Module {
-                ident: Identifier(
-                    "four",
-                ),
+                ident: "four",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::four`,
             },
             Module {
-                ident: Identifier(
-                    "five",
-                ),
+                ident: "five",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::five`,
             },
             Module {
-                ident: Identifier(
-                    "six",
-                ),
+                ident: "six",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::six`,
             },
             Module {
-                ident: Identifier(
-                    "seven",
-                ),
+                ident: "seven",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::seven`,
             },
             Module {
-                ident: Identifier(
-                    "eight",
-                ),
+                ident: "eight",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
                 module_path: `mnist_classifier::eight`,
             },
             Module {
-                ident: Identifier(
-                    "nine",
-                ),
+                ident: "nine",
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
