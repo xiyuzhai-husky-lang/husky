@@ -1,51 +1,51 @@
 Ok(
     EntityTreePresheet {
-        module_path: core,
+        module_path: `core`,
         module_symbols: [
             Module {
                 ident: Identifier(
                     "basic",
                 ),
                 accessibility: PubicUnder(
-                    core,
+                    `core`,
                 ),
-                module_path: core::basic,
+                module_path: `core::basic`,
             },
             Module {
                 ident: Identifier(
                     "logic",
                 ),
                 accessibility: PubicUnder(
-                    core,
+                    `core`,
                 ),
-                module_path: core::logic,
+                module_path: `core::logic`,
             },
             Module {
                 ident: Identifier(
                     "num",
                 ),
                 accessibility: PubicUnder(
-                    core,
+                    `core`,
                 ),
-                module_path: core::num,
+                module_path: `core::num`,
             },
             Module {
                 ident: Identifier(
                     "ops",
                 ),
                 accessibility: PubicUnder(
-                    core,
+                    `core`,
                 ),
-                module_path: core::ops,
+                module_path: `core::ops`,
             },
             Module {
                 ident: Identifier(
                     "prelude",
                 ),
                 accessibility: PubicUnder(
-                    core,
+                    `core`,
                 ),
-                module_path: core::prelude,
+                module_path: `core::prelude`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

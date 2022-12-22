@@ -646,7 +646,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 65,
-                                module: mnist_classifier::digits::two,
+                                module: `mnist_classifier::digits::two`,
                                 ident: Identifier(
                                     "two_match",
                                 ),
@@ -680,7 +680,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 66,
-                                module: mnist_classifier::digits::two,
+                                module: `mnist_classifier::digits::two`,
                                 ident: Identifier(
                                     "left_cc_pattern",
                                 ),
@@ -714,7 +714,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 67,
-                                module: mnist_classifier::digits::two,
+                                module: `mnist_classifier::digits::two`,
                                 ident: Identifier(
                                     "right_cc_pattern",
                                 ),
@@ -748,7 +748,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 68,
-                                module: mnist_classifier::digits::two,
+                                module: `mnist_classifier::digits::two`,
                                 ident: Identifier(
                                     "down_cc_pattern",
                                 ),
@@ -782,7 +782,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 69,
-                                module: mnist_classifier::digits::two,
+                                module: `mnist_classifier::digits::two`,
                                 ident: Identifier(
                                     "is_two",
                                 ),

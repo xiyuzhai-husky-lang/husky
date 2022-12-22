@@ -230,7 +230,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 114,
-                                module: mnist_classifier::major,
+                                module: `mnist_classifier::major`,
                                 ident: Identifier(
                                     "connected_components",
                                 ),
@@ -264,7 +264,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 115,
-                                module: mnist_classifier::major,
+                                module: `mnist_classifier::major`,
                                 ident: Identifier(
                                     "major_connected_component",
                                 ),
@@ -298,7 +298,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 116,
-                                module: mnist_classifier::major,
+                                module: `mnist_classifier::major`,
                                 ident: Identifier(
                                     "ignored_connected_components_row_span_sum_sum",
                                 ),
@@ -332,7 +332,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 117,
-                                module: mnist_classifier::major,
+                                module: `mnist_classifier::major`,
                                 ident: Identifier(
                                     "major_raw_contours",
                                 ),
@@ -371,7 +371,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 118,
-                                module: mnist_classifier::major,
+                                module: `mnist_classifier::major`,
                                 ident: Identifier(
                                     "major_raw_contour",
                                 ),
@@ -405,7 +405,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 119,
-                                module: mnist_classifier::major,
+                                module: `mnist_classifier::major`,
                                 ident: Identifier(
                                     "major_line_segment_sketch",
                                 ),
@@ -439,7 +439,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 120,
-                                module: mnist_classifier::major,
+                                module: `mnist_classifier::major`,
                                 ident: Identifier(
                                     "major_concave_components",
                                 ),

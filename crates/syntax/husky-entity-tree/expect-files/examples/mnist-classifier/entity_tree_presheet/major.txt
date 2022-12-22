@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: mnist_classifier::major,
+        module_path: `mnist_classifier::major`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "connected_components",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::major,
+                    `mnist_classifier::major`,
                 ),
                 ast_idx: 22,
                 path: ModuleItemPath {
                     [salsa id]: 114,
-                    module: mnist_classifier::major,
+                    module: `mnist_classifier::major`,
                     ident: Identifier(
                         "connected_components",
                     ),
@@ -23,12 +23,12 @@ Ok(
                     "major_connected_component",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::major,
+                    `mnist_classifier::major`,
                 ),
                 ast_idx: 23,
                 path: ModuleItemPath {
                     [salsa id]: 115,
-                    module: mnist_classifier::major,
+                    module: `mnist_classifier::major`,
                     ident: Identifier(
                         "major_connected_component",
                     ),
@@ -39,12 +39,12 @@ Ok(
                     "ignored_connected_components_row_span_sum_sum",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::major,
+                    `mnist_classifier::major`,
                 ),
                 ast_idx: 24,
                 path: ModuleItemPath {
                     [salsa id]: 116,
-                    module: mnist_classifier::major,
+                    module: `mnist_classifier::major`,
                     ident: Identifier(
                         "ignored_connected_components_row_span_sum_sum",
                     ),
@@ -55,12 +55,12 @@ Ok(
                     "major_raw_contours",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::major,
+                    `mnist_classifier::major`,
                 ),
                 ast_idx: 25,
                 path: ModuleItemPath {
                     [salsa id]: 117,
-                    module: mnist_classifier::major,
+                    module: `mnist_classifier::major`,
                     ident: Identifier(
                         "major_raw_contours",
                     ),
@@ -71,12 +71,12 @@ Ok(
                     "major_raw_contour",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::major,
+                    `mnist_classifier::major`,
                 ),
                 ast_idx: 27,
                 path: ModuleItemPath {
                     [salsa id]: 118,
-                    module: mnist_classifier::major,
+                    module: `mnist_classifier::major`,
                     ident: Identifier(
                         "major_raw_contour",
                     ),
@@ -87,12 +87,12 @@ Ok(
                     "major_line_segment_sketch",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::major,
+                    `mnist_classifier::major`,
                 ),
                 ast_idx: 28,
                 path: ModuleItemPath {
                     [salsa id]: 119,
-                    module: mnist_classifier::major,
+                    module: `mnist_classifier::major`,
                     ident: Identifier(
                         "major_line_segment_sketch",
                     ),
@@ -103,12 +103,12 @@ Ok(
                     "major_concave_components",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::major,
+                    `mnist_classifier::major`,
                 ),
                 ast_idx: 29,
                 path: ModuleItemPath {
                     [salsa id]: 120,
-                    module: mnist_classifier::major,
+                    module: `mnist_classifier::major`,
                     ident: Identifier(
                         "major_concave_components",
                     ),

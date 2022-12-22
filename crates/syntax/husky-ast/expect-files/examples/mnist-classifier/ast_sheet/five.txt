@@ -335,7 +335,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 78,
-                                module: mnist_classifier::five,
+                                module: `mnist_classifier::five`,
                                 ident: Identifier(
                                     "five_match",
                                 ),
@@ -369,7 +369,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 79,
-                                module: mnist_classifier::five,
+                                module: `mnist_classifier::five`,
                                 ident: Identifier(
                                     "up_right_cc",
                                 ),
@@ -403,7 +403,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 80,
-                                module: mnist_classifier::five,
+                                module: `mnist_classifier::five`,
                                 ident: Identifier(
                                     "down_left_cc",
                                 ),
@@ -437,7 +437,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 81,
-                                module: mnist_classifier::five,
+                                module: `mnist_classifier::five`,
                                 ident: Identifier(
                                     "is_five",
                                 ),

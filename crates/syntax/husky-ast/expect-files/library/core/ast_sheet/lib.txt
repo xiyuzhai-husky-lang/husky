@@ -19,7 +19,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            core::basic,
+                            `core::basic`,
                         ),
                     ),
                     ident: Identifier(
@@ -45,7 +45,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            core::logic,
+                            `core::logic`,
                         ),
                     ),
                     ident: Identifier(
@@ -71,7 +71,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            core::num,
+                            `core::num`,
                         ),
                     ),
                     ident: Identifier(
@@ -97,7 +97,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            core::ops,
+                            `core::ops`,
                         ),
                     ),
                     ident: Identifier(
@@ -123,7 +123,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            core::prelude,
+                            `core::prelude`,
                         ),
                     ),
                     ident: Identifier(

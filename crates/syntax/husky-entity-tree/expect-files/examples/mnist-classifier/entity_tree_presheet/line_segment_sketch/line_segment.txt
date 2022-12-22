@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: mnist_classifier::line_segment_sketch::line_segment,
+        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "displacement",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::line_segment_sketch::line_segment,
+                    `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 ast_idx: 15,
                 path: ModuleItemPath {
                     [salsa id]: 105,
-                    module: mnist_classifier::line_segment_sketch::line_segment,
+                    module: `mnist_classifier::line_segment_sketch::line_segment`,
                     ident: Identifier(
                         "displacement",
                     ),
@@ -23,12 +23,12 @@ Ok(
                     "dist_to_point",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::line_segment_sketch::line_segment,
+                    `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 ast_idx: 16,
                 path: ModuleItemPath {
                     [salsa id]: 106,
-                    module: mnist_classifier::line_segment_sketch::line_segment,
+                    module: `mnist_classifier::line_segment_sketch::line_segment`,
                     ident: Identifier(
                         "dist_to_point",
                     ),
@@ -39,12 +39,12 @@ Ok(
                     "LineSegment",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::line_segment_sketch::line_segment,
+                    `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 ast_idx: 18,
                 path: ModuleItemPath {
                     [salsa id]: 104,
-                    module: mnist_classifier::line_segment_sketch::line_segment,
+                    module: `mnist_classifier::line_segment_sketch::line_segment`,
                     ident: Identifier(
                         "LineSegment",
                     ),

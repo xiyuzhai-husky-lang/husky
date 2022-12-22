@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: mnist_classifier::digits::zero,
+        module_path: `mnist_classifier::digits::zero`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "open_one_match",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::zero,
+                    `mnist_classifier::digits::zero`,
                 ),
                 ast_idx: 35,
                 path: ModuleItemPath {
                     [salsa id]: 70,
-                    module: mnist_classifier::digits::zero,
+                    module: `mnist_classifier::digits::zero`,
                     ident: Identifier(
                         "open_one_match",
                     ),
@@ -23,12 +23,12 @@ Ok(
                     "almost_closed",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::zero,
+                    `mnist_classifier::digits::zero`,
                 ),
                 ast_idx: 36,
                 path: ModuleItemPath {
                     [salsa id]: 71,
-                    module: mnist_classifier::digits::zero,
+                    module: `mnist_classifier::digits::zero`,
                     ident: Identifier(
                         "almost_closed",
                     ),
@@ -39,12 +39,12 @@ Ok(
                     "is_zero",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::zero,
+                    `mnist_classifier::digits::zero`,
                 ),
                 ast_idx: 37,
                 path: ModuleItemPath {
                     [salsa id]: 72,
-                    module: mnist_classifier::digits::zero,
+                    module: `mnist_classifier::digits::zero`,
                     ident: Identifier(
                         "is_zero",
                     ),

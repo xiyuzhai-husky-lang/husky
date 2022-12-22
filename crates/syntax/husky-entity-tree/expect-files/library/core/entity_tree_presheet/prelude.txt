@@ -1,6 +1,6 @@
 Ok(
     EntityTreePresheet {
-        module_path: core::prelude,
+        module_path: `core::prelude`,
         module_symbols: [],
         entity_use_roots: EntityUseExprTrackers(
             [

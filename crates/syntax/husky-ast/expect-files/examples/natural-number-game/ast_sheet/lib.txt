@@ -63,7 +63,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 148,
-                                module: natural_number_game,
+                                module: `natural_number_game`,
                                 ident: Identifier(
                                     "Nat",
                                 ),
@@ -139,7 +139,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 149,
-                                module: natural_number_game,
+                                module: `natural_number_game`,
                                 ident: Identifier(
                                     "OddNat",
                                 ),
@@ -175,7 +175,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 150,
-                                module: natural_number_game,
+                                module: `natural_number_game`,
                                 ident: Identifier(
                                     "EvenNat",
                                 ),

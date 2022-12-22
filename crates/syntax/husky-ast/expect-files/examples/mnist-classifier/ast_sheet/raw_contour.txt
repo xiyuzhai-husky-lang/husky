@@ -1767,7 +1767,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 126,
-                                module: mnist_classifier::raw_contour,
+                                module: `mnist_classifier::raw_contour`,
                                 ident: Identifier(
                                     "RawContour",
                                 ),
@@ -1811,7 +1811,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 127,
-                                module: mnist_classifier::raw_contour,
+                                module: `mnist_classifier::raw_contour`,
                                 ident: Identifier(
                                     "Direction",
                                 ),
@@ -1877,7 +1877,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 128,
-                                module: mnist_classifier::raw_contour,
+                                module: `mnist_classifier::raw_contour`,
                                 ident: Identifier(
                                     "get_pixel_pair",
                                 ),
@@ -1911,7 +1911,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 129,
-                                module: mnist_classifier::raw_contour,
+                                module: `mnist_classifier::raw_contour`,
                                 ident: Identifier(
                                     "get_pixel_to_the_left",
                                 ),
@@ -1945,7 +1945,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 130,
-                                module: mnist_classifier::raw_contour,
+                                module: `mnist_classifier::raw_contour`,
                                 ident: Identifier(
                                     "get_pixel_to_the_right",
                                 ),
@@ -1979,7 +1979,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 131,
-                                module: mnist_classifier::raw_contour,
+                                module: `mnist_classifier::raw_contour`,
                                 ident: Identifier(
                                     "get_inward_direction",
                                 ),
@@ -2013,7 +2013,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 132,
-                                module: mnist_classifier::raw_contour,
+                                module: `mnist_classifier::raw_contour`,
                                 ident: Identifier(
                                     "get_angle_change",
                                 ),
@@ -2047,7 +2047,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 133,
-                                module: mnist_classifier::raw_contour,
+                                module: `mnist_classifier::raw_contour`,
                                 ident: Identifier(
                                     "get_outward_direction",
                                 ),
@@ -2083,7 +2083,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 134,
-                                module: mnist_classifier::raw_contour,
+                                module: `mnist_classifier::raw_contour`,
                                 ident: Identifier(
                                     "StreakCache",
                                 ),
@@ -2117,7 +2117,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 135,
-                                module: mnist_classifier::raw_contour,
+                                module: `mnist_classifier::raw_contour`,
                                 ident: Identifier(
                                     "get_concave_middle_point",
                                 ),
@@ -2151,7 +2151,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 136,
-                                module: mnist_classifier::raw_contour,
+                                module: `mnist_classifier::raw_contour`,
                                 ident: Identifier(
                                     "find_raw_contours",
                                 ),

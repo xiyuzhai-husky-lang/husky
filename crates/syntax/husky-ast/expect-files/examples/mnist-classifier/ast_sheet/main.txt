@@ -115,7 +115,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::connected_component,
+                            `mnist_classifier::connected_component`,
                         ),
                     ),
                     ident: Identifier(
@@ -141,7 +141,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::raw_contour,
+                            `mnist_classifier::raw_contour`,
                         ),
                     ),
                     ident: Identifier(
@@ -167,7 +167,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::geom2d,
+                            `mnist_classifier::geom2d`,
                         ),
                     ),
                     ident: Identifier(
@@ -193,7 +193,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::line_segment_sketch,
+                            `mnist_classifier::line_segment_sketch`,
                         ),
                     ),
                     ident: Identifier(
@@ -219,7 +219,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::fermi,
+                            `mnist_classifier::fermi`,
                         ),
                     ),
                     ident: Identifier(
@@ -245,7 +245,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::major,
+                            `mnist_classifier::major`,
                         ),
                     ),
                     ident: Identifier(
@@ -271,7 +271,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::zero,
+                            `mnist_classifier::zero`,
                         ),
                     ),
                     ident: Identifier(
@@ -297,7 +297,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::one,
+                            `mnist_classifier::one`,
                         ),
                     ),
                     ident: Identifier(
@@ -323,7 +323,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::two,
+                            `mnist_classifier::two`,
                         ),
                     ),
                     ident: Identifier(
@@ -349,7 +349,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::three,
+                            `mnist_classifier::three`,
                         ),
                     ),
                     ident: Identifier(
@@ -375,7 +375,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::four,
+                            `mnist_classifier::four`,
                         ),
                     ),
                     ident: Identifier(
@@ -401,7 +401,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::five,
+                            `mnist_classifier::five`,
                         ),
                     ),
                     ident: Identifier(
@@ -427,7 +427,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::six,
+                            `mnist_classifier::six`,
                         ),
                     ),
                     ident: Identifier(
@@ -453,7 +453,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::seven,
+                            `mnist_classifier::seven`,
                         ),
                     ),
                     ident: Identifier(
@@ -479,7 +479,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::eight,
+                            `mnist_classifier::eight`,
                         ),
                     ),
                     ident: Identifier(
@@ -505,7 +505,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::nine,
+                            `mnist_classifier::nine`,
                         ),
                     ),
                     ident: Identifier(

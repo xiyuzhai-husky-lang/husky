@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: mnist_classifier::nine,
+        module_path: `mnist_classifier::nine`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "nine_match",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::nine,
+                    `mnist_classifier::nine`,
                 ),
                 ast_idx: 54,
                 path: ModuleItemPath {
                     [salsa id]: 121,
-                    module: mnist_classifier::nine,
+                    module: `mnist_classifier::nine`,
                     ident: Identifier(
                         "nine_match",
                     ),
@@ -23,12 +23,12 @@ Ok(
                     "nine_match_refine",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::nine,
+                    `mnist_classifier::nine`,
                 ),
                 ast_idx: 55,
                 path: ModuleItemPath {
                     [salsa id]: 122,
-                    module: mnist_classifier::nine,
+                    module: `mnist_classifier::nine`,
                     ident: Identifier(
                         "nine_match_refine",
                     ),
@@ -39,12 +39,12 @@ Ok(
                     "is_nine",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::nine,
+                    `mnist_classifier::nine`,
                 ),
                 ast_idx: 56,
                 path: ModuleItemPath {
                     [salsa id]: 123,
-                    module: mnist_classifier::nine,
+                    module: `mnist_classifier::nine`,
                     ident: Identifier(
                         "is_nine",
                     ),
@@ -55,12 +55,12 @@ Ok(
                     "downmost",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::nine,
+                    `mnist_classifier::nine`,
                 ),
                 ast_idx: 57,
                 path: ModuleItemPath {
                     [salsa id]: 124,
-                    module: mnist_classifier::nine,
+                    module: `mnist_classifier::nine`,
                     ident: Identifier(
                         "downmost",
                     ),
@@ -71,12 +71,12 @@ Ok(
                     "big_cc",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::nine,
+                    `mnist_classifier::nine`,
                 ),
                 ast_idx: 58,
                 path: ModuleItemPath {
                     [salsa id]: 125,
-                    module: mnist_classifier::nine,
+                    module: `mnist_classifier::nine`,
                     ident: Identifier(
                         "big_cc",
                     ),

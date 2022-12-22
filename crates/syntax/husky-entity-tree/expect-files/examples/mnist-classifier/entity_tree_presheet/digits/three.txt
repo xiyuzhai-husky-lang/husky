@@ -1,18 +1,18 @@
 Ok(
     EntityTreePresheet {
-        module_path: mnist_classifier::digits::three,
+        module_path: `mnist_classifier::digits::three`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
                     "three_fermi_match",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::three,
+                    `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 44,
                 path: ModuleItemPath {
                     [salsa id]: 60,
-                    module: mnist_classifier::digits::three,
+                    module: `mnist_classifier::digits::three`,
                     ident: Identifier(
                         "three_fermi_match",
                     ),
@@ -23,12 +23,12 @@ Ok(
                     "is_three",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::three,
+                    `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 45,
                 path: ModuleItemPath {
                     [salsa id]: 61,
-                    module: mnist_classifier::digits::three,
+                    module: `mnist_classifier::digits::three`,
                     ident: Identifier(
                         "is_three",
                     ),
@@ -39,12 +39,12 @@ Ok(
                     "uparc",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::three,
+                    `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 46,
                 path: ModuleItemPath {
                     [salsa id]: 62,
-                    module: mnist_classifier::digits::three,
+                    module: `mnist_classifier::digits::three`,
                     ident: Identifier(
                         "uparc",
                     ),
@@ -55,12 +55,12 @@ Ok(
                     "downarc",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::three,
+                    `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 47,
                 path: ModuleItemPath {
                     [salsa id]: 63,
-                    module: mnist_classifier::digits::three,
+                    module: `mnist_classifier::digits::three`,
                     ident: Identifier(
                         "downarc",
                     ),
@@ -71,12 +71,12 @@ Ok(
                     "back",
                 ),
                 accessibility: PubicUnder(
-                    mnist_classifier::digits::three,
+                    `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 48,
                 path: ModuleItemPath {
                     [salsa id]: 64,
-                    module: mnist_classifier::digits::three,
+                    module: `mnist_classifier::digits::three`,
                     ident: Identifier(
                         "back",
                     ),

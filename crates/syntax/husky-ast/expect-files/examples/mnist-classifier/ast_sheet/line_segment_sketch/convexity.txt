@@ -229,7 +229,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 103,
-                                module: mnist_classifier::line_segment_sketch::convexity,
+                                module: `mnist_classifier::line_segment_sketch::convexity`,
                                 ident: Identifier(
                                     "is_convex",
                                 ),

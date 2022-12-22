@@ -630,7 +630,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 44,
-                                module: mnist_classifier::digits::one,
+                                module: `mnist_classifier::digits::one`,
                                 ident: Identifier(
                                     "one_fermi_match",
                                 ),
@@ -664,7 +664,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 45,
-                                module: mnist_classifier::digits::one,
+                                module: `mnist_classifier::digits::one`,
                                 ident: Identifier(
                                     "is_one",
                                 ),
@@ -698,7 +698,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 46,
-                                module: mnist_classifier::digits::one,
+                                module: `mnist_classifier::digits::one`,
                                 ident: Identifier(
                                     "upmost",
                                 ),
@@ -732,7 +732,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 47,
-                                module: mnist_classifier::digits::one,
+                                module: `mnist_classifier::digits::one`,
                                 ident: Identifier(
                                     "downmost",
                                 ),
@@ -766,7 +766,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 48,
-                                module: mnist_classifier::digits::one,
+                                module: `mnist_classifier::digits::one`,
                                 ident: Identifier(
                                     "hat",
                                 ),

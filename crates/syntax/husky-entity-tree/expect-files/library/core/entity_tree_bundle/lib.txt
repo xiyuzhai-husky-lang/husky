@@ -2,57 +2,57 @@ Ok(
     EntityTreeBundle {
         sheets: [
             EntityTreeSheet {
-                module_path: core,
+                module_path: `core`,
                 sheets: [
                     Module {
                         ident: Identifier(
                             "basic",
                         ),
                         accessibility: PubicUnder(
-                            core,
+                            `core`,
                         ),
-                        module_path: core::basic,
+                        module_path: `core::basic`,
                     },
                     Module {
                         ident: Identifier(
                             "logic",
                         ),
                         accessibility: PubicUnder(
-                            core,
+                            `core`,
                         ),
-                        module_path: core::logic,
+                        module_path: `core::logic`,
                     },
                     Module {
                         ident: Identifier(
                             "num",
                         ),
                         accessibility: PubicUnder(
-                            core,
+                            `core`,
                         ),
-                        module_path: core::num,
+                        module_path: `core::num`,
                     },
                     Module {
                         ident: Identifier(
                             "ops",
                         ),
                         accessibility: PubicUnder(
-                            core,
+                            `core`,
                         ),
-                        module_path: core::ops,
+                        module_path: `core::ops`,
                     },
                     Module {
                         ident: Identifier(
                             "prelude",
                         ),
                         accessibility: PubicUnder(
-                            core,
+                            `core`,
                         ),
-                        module_path: core::prelude,
+                        module_path: `core::prelude`,
                     },
                 ],
             },
             EntityTreeSheet {
-                module_path: core::basic,
+                module_path: `core::basic`,
                 sheets: [
                     ModuleItem {
                         ident: Identifier(
@@ -62,7 +62,7 @@ Ok(
                         ast_idx: 0,
                         path: ModuleItemPath {
                             [salsa id]: 0,
-                            module: core::basic,
+                            module: `core::basic`,
                             ident: Identifier(
                                 "bool",
                             ),
@@ -76,7 +76,7 @@ Ok(
                         ast_idx: 1,
                         path: ModuleItemPath {
                             [salsa id]: 1,
-                            module: core::basic,
+                            module: `core::basic`,
                             ident: Identifier(
                                 "Trait",
                             ),
@@ -90,7 +90,7 @@ Ok(
                         ast_idx: 2,
                         path: ModuleItemPath {
                             [salsa id]: 2,
-                            module: core::basic,
+                            module: `core::basic`,
                             ident: Identifier(
                                 "Module",
                             ),
@@ -99,7 +99,7 @@ Ok(
                 ],
             },
             EntityTreeSheet {
-                module_path: core::logic,
+                module_path: `core::logic`,
                 sheets: [
                     ModuleItem {
                         ident: Identifier(
@@ -109,7 +109,7 @@ Ok(
                         ast_idx: 0,
                         path: ModuleItemPath {
                             [salsa id]: 3,
-                            module: core::logic,
+                            module: `core::logic`,
                             ident: Identifier(
                                 "LogicAnd",
                             ),
@@ -123,7 +123,7 @@ Ok(
                         ast_idx: 1,
                         path: ModuleItemPath {
                             [salsa id]: 4,
-                            module: core::logic,
+                            module: `core::logic`,
                             ident: Identifier(
                                 "LogicOr",
                             ),
@@ -132,7 +132,7 @@ Ok(
                 ],
             },
             EntityTreeSheet {
-                module_path: core::num,
+                module_path: `core::num`,
                 sheets: [
                     ModuleItem {
                         ident: Identifier(
@@ -142,7 +142,7 @@ Ok(
                         ast_idx: 9,
                         path: ModuleItemPath {
                             [salsa id]: 5,
-                            module: core::num,
+                            module: `core::num`,
                             ident: Identifier(
                                 "i8",
                             ),
@@ -156,7 +156,7 @@ Ok(
                         ast_idx: 13,
                         path: ModuleItemPath {
                             [salsa id]: 6,
-                            module: core::num,
+                            module: `core::num`,
                             ident: Identifier(
                                 "i16",
                             ),
@@ -170,7 +170,7 @@ Ok(
                         ast_idx: 17,
                         path: ModuleItemPath {
                             [salsa id]: 7,
-                            module: core::num,
+                            module: `core::num`,
                             ident: Identifier(
                                 "i32",
                             ),
@@ -181,12 +181,12 @@ Ok(
                             "i64",
                         ),
                         accessibility: PubicUnder(
-                            core::num,
+                            `core::num`,
                         ),
                         ast_idx: 21,
                         path: ModuleItemPath {
                             [salsa id]: 8,
-                            module: core::num,
+                            module: `core::num`,
                             ident: Identifier(
                                 "i64",
                             ),
@@ -195,19 +195,19 @@ Ok(
                 ],
             },
             EntityTreeSheet {
-                module_path: core::ops,
+                module_path: `core::ops`,
                 sheets: [
                     ModuleItem {
                         ident: Identifier(
                             "Output",
                         ),
                         accessibility: PubicUnder(
-                            core::ops,
+                            `core::ops`,
                         ),
                         ast_idx: 0,
                         path: ModuleItemPath {
                             [salsa id]: 10,
-                            module: core::ops,
+                            module: `core::ops`,
                             ident: Identifier(
                                 "Output",
                             ),
@@ -221,7 +221,7 @@ Ok(
                         ast_idx: 3,
                         path: ModuleItemPath {
                             [salsa id]: 9,
-                            module: core::ops,
+                            module: `core::ops`,
                             ident: Identifier(
                                 "Add",
                             ),
@@ -230,7 +230,7 @@ Ok(
                 ],
             },
             EntityTreeSheet {
-                module_path: core::prelude,
+                module_path: `core::prelude`,
                 sheets: [],
             },
         ],

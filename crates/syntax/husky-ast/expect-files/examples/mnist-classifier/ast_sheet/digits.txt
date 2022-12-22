@@ -19,7 +19,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::digits::zero,
+                            `mnist_classifier::digits::zero`,
                         ),
                     ),
                     ident: Identifier(
@@ -45,7 +45,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::digits::one,
+                            `mnist_classifier::digits::one`,
                         ),
                     ),
                     ident: Identifier(
@@ -71,7 +71,7 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         Module(
-                            mnist_classifier::digits::six,
+                            `mnist_classifier::digits::six`,
                         ),
                     ),
                     ident: Identifier(

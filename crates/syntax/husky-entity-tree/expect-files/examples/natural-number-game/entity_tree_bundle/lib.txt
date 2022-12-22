@@ -2,19 +2,19 @@ Ok(
     EntityTreeBundle {
         sheets: [
             EntityTreeSheet {
-                module_path: natural_number_game,
+                module_path: `natural_number_game`,
                 sheets: [
                     ModuleItem {
                         ident: Identifier(
                             "Nat",
                         ),
                         accessibility: PubicUnder(
-                            natural_number_game,
+                            `natural_number_game`,
                         ),
                         ast_idx: 3,
                         path: ModuleItemPath {
                             [salsa id]: 104,
-                            module: natural_number_game,
+                            module: `natural_number_game`,
                             ident: Identifier(
                                 "Nat",
                             ),
@@ -25,12 +25,12 @@ Ok(
                             "OddNat",
                         ),
                         accessibility: PubicUnder(
-                            natural_number_game,
+                            `natural_number_game`,
                         ),
                         ast_idx: 9,
                         path: ModuleItemPath {
                             [salsa id]: 105,
-                            module: natural_number_game,
+                            module: `natural_number_game`,
                             ident: Identifier(
                                 "OddNat",
                             ),
@@ -41,12 +41,12 @@ Ok(
                             "EvenNat",
                         ),
                         accessibility: PubicUnder(
-                            natural_number_game,
+                            `natural_number_game`,
                         ),
                         ast_idx: 10,
                         path: ModuleItemPath {
                             [salsa id]: 106,
-                            module: natural_number_game,
+                            module: `natural_number_game`,
                             ident: Identifier(
                                 "EvenNat",
                             ),

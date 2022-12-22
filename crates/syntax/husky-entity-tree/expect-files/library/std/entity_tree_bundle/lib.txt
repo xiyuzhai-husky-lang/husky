@@ -2,59 +2,59 @@ Ok(
     EntityTreeBundle {
         sheets: [
             EntityTreeSheet {
-                module_path: std,
+                module_path: `std`,
                 sheets: [
                     Module {
                         ident: Identifier(
                             "prelude",
                         ),
                         accessibility: PubicUnder(
-                            std,
+                            `std`,
                         ),
-                        module_path: std::prelude,
+                        module_path: `std::prelude`,
                     },
                     Module {
                         ident: Identifier(
                             "logic",
                         ),
                         accessibility: PubicUnder(
-                            std,
+                            `std`,
                         ),
-                        module_path: std::logic,
+                        module_path: `std::logic`,
                     },
                     Module {
                         ident: Identifier(
                             "ops",
                         ),
                         accessibility: PubicUnder(
-                            std,
+                            `std`,
                         ),
-                        module_path: std::ops,
+                        module_path: `std::ops`,
                     },
                 ],
             },
             EntityTreeSheet {
-                module_path: std::prelude,
+                module_path: `std::prelude`,
                 sheets: [],
             },
             EntityTreeSheet {
-                module_path: std::logic,
+                module_path: `std::logic`,
                 sheets: [],
             },
             EntityTreeSheet {
-                module_path: std::ops,
+                module_path: `std::ops`,
                 sheets: [
                     ModuleItem {
                         ident: Identifier(
                             "Output",
                         ),
                         accessibility: PubicUnder(
-                            std::ops,
+                            `std::ops`,
                         ),
                         ast_idx: 0,
                         path: ModuleItemPath {
                             [salsa id]: 12,
-                            module: std::ops,
+                            module: `std::ops`,
                             ident: Identifier(
                                 "Output",
                             ),
@@ -65,12 +65,12 @@ Ok(
                             "Add",
                         ),
                         accessibility: PubicUnder(
-                            std::ops,
+                            `std::ops`,
                         ),
                         ast_idx: 3,
                         path: ModuleItemPath {
                             [salsa id]: 11,
-                            module: std::ops,
+                            module: `std::ops`,
                             ident: Identifier(
                                 "Add",
                             ),

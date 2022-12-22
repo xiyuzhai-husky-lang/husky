@@ -1,6 +1,6 @@
 Ok(
     EntityTreePresheet {
-        module_path: core::logic,
+        module_path: `core::logic`,
         module_symbols: [
             ModuleItem {
                 ident: Identifier(
@@ -10,7 +10,7 @@ Ok(
                 ast_idx: 0,
                 path: ModuleItemPath {
                     [salsa id]: 3,
-                    module: core::logic,
+                    module: `core::logic`,
                     ident: Identifier(
                         "LogicAnd",
                     ),
@@ -24,7 +24,7 @@ Ok(
                 ast_idx: 1,
                 path: ModuleItemPath {
                     [salsa id]: 4,
-                    module: core::logic,
+                    module: `core::logic`,
                     ident: Identifier(
                         "LogicOr",
                     ),

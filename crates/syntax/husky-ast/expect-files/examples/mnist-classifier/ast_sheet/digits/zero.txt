@@ -360,7 +360,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 70,
-                                module: mnist_classifier::digits::zero,
+                                module: `mnist_classifier::digits::zero`,
                                 ident: Identifier(
                                     "open_one_match",
                                 ),
@@ -394,7 +394,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 71,
-                                module: mnist_classifier::digits::zero,
+                                module: `mnist_classifier::digits::zero`,
                                 ident: Identifier(
                                     "almost_closed",
                                 ),
@@ -428,7 +428,7 @@ Ok(
                         ModuleItem(
                             ModuleItemPath {
                                 [salsa id]: 72,
-                                module: mnist_classifier::digits::zero,
+                                module: `mnist_classifier::digits::zero`,
                                 ident: Identifier(
                                     "is_zero",
                                 ),

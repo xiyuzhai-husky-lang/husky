@@ -1,7 +1,7 @@
 Ok(
     [
-        std::prelude,
-        std::logic,
-        std::ops,
+        `std::prelude`,
+        `std::logic`,
+        `std::ops`,
     ],
 )
