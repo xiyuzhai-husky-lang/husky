@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 75,
                 path: ModuleItemPath {
-                    [salsa id]: 32,
                     module: `mnist_classifier::digits::four`,
                     ident: "left_components",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 76,
                 path: ModuleItemPath {
-                    [salsa id]: 33,
                     module: `mnist_classifier::digits::four`,
                     ident: "left_coordinate_max",
                 },
@@ -33,7 +31,6 @@ Ok(
                 ),
                 ast_idx: 77,
                 path: ModuleItemPath {
-                    [salsa id]: 34,
                     module: `mnist_classifier::digits::four`,
                     ident: "components_max_downwards",
                 },
@@ -45,7 +42,6 @@ Ok(
                 ),
                 ast_idx: 78,
                 path: ModuleItemPath {
-                    [salsa id]: 35,
                     module: `mnist_classifier::digits::four`,
                     ident: "components_max_heights",
                 },
@@ -57,7 +53,6 @@ Ok(
                 ),
                 ast_idx: 79,
                 path: ModuleItemPath {
-                    [salsa id]: 36,
                     module: `mnist_classifier::digits::four`,
                     ident: "is_four",
                 },
@@ -69,7 +64,6 @@ Ok(
                 ),
                 ast_idx: 80,
                 path: ModuleItemPath {
-                    [salsa id]: 37,
                     module: `mnist_classifier::digits::four`,
                     ident: "displacement_downwards",
                 },
@@ -81,7 +75,6 @@ Ok(
                 ),
                 ast_idx: 81,
                 path: ModuleItemPath {
-                    [salsa id]: 38,
                     module: `mnist_classifier::digits::four`,
                     ident: "cc_box_heights",
                 },

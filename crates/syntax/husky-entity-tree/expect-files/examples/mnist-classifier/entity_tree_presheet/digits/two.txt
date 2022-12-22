@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 67,
                 path: ModuleItemPath {
-                    [salsa id]: 65,
                     module: `mnist_classifier::digits::two`,
                     ident: "two_match",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 68,
                 path: ModuleItemPath {
-                    [salsa id]: 66,
                     module: `mnist_classifier::digits::two`,
                     ident: "left_cc_pattern",
                 },
@@ -33,7 +31,6 @@ Ok(
                 ),
                 ast_idx: 69,
                 path: ModuleItemPath {
-                    [salsa id]: 67,
                     module: `mnist_classifier::digits::two`,
                     ident: "right_cc_pattern",
                 },
@@ -45,7 +42,6 @@ Ok(
                 ),
                 ast_idx: 70,
                 path: ModuleItemPath {
-                    [salsa id]: 68,
                     module: `mnist_classifier::digits::two`,
                     ident: "down_cc_pattern",
                 },
@@ -57,7 +53,6 @@ Ok(
                 ),
                 ast_idx: 71,
                 path: ModuleItemPath {
-                    [salsa id]: 69,
                     module: `mnist_classifier::digits::two`,
                     ident: "is_two",
                 },

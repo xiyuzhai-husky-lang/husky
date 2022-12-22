@@ -252,7 +252,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 76,
                                 module: `mnist_classifier::fermi`,
                                 ident: "FermiMatchResult",
                             },
@@ -290,7 +289,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 77,
                                 module: `mnist_classifier::fermi`,
                                 ident: "fermi_match",
                             },

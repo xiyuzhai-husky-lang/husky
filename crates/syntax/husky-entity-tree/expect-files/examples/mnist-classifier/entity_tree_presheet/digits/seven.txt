@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 50,
                 path: ModuleItemPath {
-                    [salsa id]: 49,
                     module: `mnist_classifier::digits::seven`,
                     ident: "simple_seven_match",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 51,
                 path: ModuleItemPath {
-                    [salsa id]: 50,
                     module: `mnist_classifier::digits::seven`,
                     ident: "simple_leftdown_pattern",
                 },
@@ -33,7 +31,6 @@ Ok(
                 ),
                 ast_idx: 52,
                 path: ModuleItemPath {
-                    [salsa id]: 51,
                     module: `mnist_classifier::digits::seven`,
                     ident: "special_seven_match",
                 },
@@ -45,7 +42,6 @@ Ok(
                 ),
                 ast_idx: 53,
                 path: ModuleItemPath {
-                    [salsa id]: 52,
                     module: `mnist_classifier::digits::seven`,
                     ident: "leftupcc_pattern",
                 },
@@ -57,7 +53,6 @@ Ok(
                 ),
                 ast_idx: 54,
                 path: ModuleItemPath {
-                    [salsa id]: 53,
                     module: `mnist_classifier::digits::seven`,
                     ident: "leftdowncc_pattern",
                 },
@@ -69,7 +64,6 @@ Ok(
                 ),
                 ast_idx: 55,
                 path: ModuleItemPath {
-                    [salsa id]: 54,
                     module: `mnist_classifier::digits::seven`,
                     ident: "is_seven",
                 },

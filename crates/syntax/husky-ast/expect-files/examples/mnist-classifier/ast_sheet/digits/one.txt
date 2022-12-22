@@ -615,7 +615,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 44,
                                 module: `mnist_classifier::digits::one`,
                                 ident: "one_fermi_match",
                             },
@@ -645,7 +644,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 45,
                                 module: `mnist_classifier::digits::one`,
                                 ident: "is_one",
                             },
@@ -675,7 +673,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 46,
                                 module: `mnist_classifier::digits::one`,
                                 ident: "upmost",
                             },
@@ -705,7 +702,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 47,
                                 module: `mnist_classifier::digits::one`,
                                 ident: "downmost",
                             },
@@ -735,7 +731,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 48,
                                 module: `mnist_classifier::digits::one`,
                                 ident: "hat",
                             },

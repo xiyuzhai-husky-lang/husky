@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 24,
                 path: ModuleItemPath {
-                    [salsa id]: 76,
                     module: `mnist_classifier::fermi`,
                     ident: "FermiMatchResult",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 26,
                 path: ModuleItemPath {
-                    [salsa id]: 77,
                     module: `mnist_classifier::fermi`,
                     ident: "fermi_match",
                 },

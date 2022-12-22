@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 79,
                 path: ModuleItemPath {
-                    [salsa id]: 82,
                     module: `mnist_classifier::geom2d`,
                     ident: "Point2d",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 81,
                 path: ModuleItemPath {
-                    [salsa id]: 83,
                     module: `mnist_classifier::geom2d`,
                     ident: "RelativePoint2d",
                 },
@@ -33,7 +31,6 @@ Ok(
                 ),
                 ast_idx: 82,
                 path: ModuleItemPath {
-                    [salsa id]: 84,
                     module: `mnist_classifier::geom2d`,
                     ident: "Vector2d",
                 },
@@ -45,7 +42,6 @@ Ok(
                 ),
                 ast_idx: 84,
                 path: ModuleItemPath {
-                    [salsa id]: 85,
                     module: `mnist_classifier::geom2d`,
                     ident: "ClosedRange",
                 },
@@ -57,7 +53,6 @@ Ok(
                 ),
                 ast_idx: 86,
                 path: ModuleItemPath {
-                    [salsa id]: 86,
                     module: `mnist_classifier::geom2d`,
                     ident: "BoundingBox",
                 },
@@ -69,7 +64,6 @@ Ok(
                 ),
                 ast_idx: 88,
                 path: ModuleItemPath {
-                    [salsa id]: 87,
                     module: `mnist_classifier::geom2d`,
                     ident: "RelativeBoundingBox",
                 },

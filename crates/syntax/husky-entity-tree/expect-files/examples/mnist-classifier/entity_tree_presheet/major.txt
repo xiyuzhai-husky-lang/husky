@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 22,
                 path: ModuleItemPath {
-                    [salsa id]: 114,
                     module: `mnist_classifier::major`,
                     ident: "connected_components",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 23,
                 path: ModuleItemPath {
-                    [salsa id]: 115,
                     module: `mnist_classifier::major`,
                     ident: "major_connected_component",
                 },
@@ -33,7 +31,6 @@ Ok(
                 ),
                 ast_idx: 24,
                 path: ModuleItemPath {
-                    [salsa id]: 116,
                     module: `mnist_classifier::major`,
                     ident: "ignored_connected_components_row_span_sum_sum",
                 },
@@ -45,7 +42,6 @@ Ok(
                 ),
                 ast_idx: 25,
                 path: ModuleItemPath {
-                    [salsa id]: 117,
                     module: `mnist_classifier::major`,
                     ident: "major_raw_contours",
                 },
@@ -57,7 +53,6 @@ Ok(
                 ),
                 ast_idx: 27,
                 path: ModuleItemPath {
-                    [salsa id]: 118,
                     module: `mnist_classifier::major`,
                     ident: "major_raw_contour",
                 },
@@ -69,7 +64,6 @@ Ok(
                 ),
                 ast_idx: 28,
                 path: ModuleItemPath {
-                    [salsa id]: 119,
                     module: `mnist_classifier::major`,
                     ident: "major_line_segment_sketch",
                 },
@@ -81,7 +75,6 @@ Ok(
                 ),
                 ast_idx: 29,
                 path: ModuleItemPath {
-                    [salsa id]: 120,
                     module: `mnist_classifier::major`,
                     ident: "major_concave_components",
                 },

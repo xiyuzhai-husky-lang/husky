@@ -17,7 +17,6 @@ fn entity_path_debug_works() {
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
     expect_test::expect![[r#"
         ModuleItemPath {
-            [salsa id]: 14,
             module: `core::num`,
             ident: "i32",
         }

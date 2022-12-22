@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 59,
                 path: ModuleItemPath {
-                    [salsa id]: 55,
                     module: `mnist_classifier::digits::six`,
                     ident: "six_match",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 60,
                 path: ModuleItemPath {
-                    [salsa id]: 56,
                     module: `mnist_classifier::digits::six`,
                     ident: "six_match_refined1",
                 },
@@ -33,7 +31,6 @@ Ok(
                 ),
                 ast_idx: 61,
                 path: ModuleItemPath {
-                    [salsa id]: 57,
                     module: `mnist_classifier::digits::six`,
                     ident: "is_six",
                 },
@@ -45,7 +42,6 @@ Ok(
                 ),
                 ast_idx: 62,
                 path: ModuleItemPath {
-                    [salsa id]: 58,
                     module: `mnist_classifier::digits::six`,
                     ident: "upmost",
                 },
@@ -57,7 +53,6 @@ Ok(
                 ),
                 ast_idx: 63,
                 path: ModuleItemPath {
-                    [salsa id]: 59,
                     module: `mnist_classifier::digits::six`,
                     ident: "bottom1",
                 },

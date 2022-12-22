@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 15,
                 path: ModuleItemPath {
-                    [salsa id]: 105,
                     module: `mnist_classifier::line_segment_sketch::line_segment`,
                     ident: "displacement",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 16,
                 path: ModuleItemPath {
-                    [salsa id]: 106,
                     module: `mnist_classifier::line_segment_sketch::line_segment`,
                     ident: "dist_to_point",
                 },
@@ -33,7 +31,6 @@ Ok(
                 ),
                 ast_idx: 18,
                 path: ModuleItemPath {
-                    [salsa id]: 104,
                     module: `mnist_classifier::line_segment_sketch::line_segment`,
                     ident: "LineSegment",
                 },

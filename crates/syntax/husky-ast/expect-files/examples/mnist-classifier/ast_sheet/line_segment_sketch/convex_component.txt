@@ -70,7 +70,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 102,
                                 module: `mnist_classifier::line_segment_sketch::convex_component`,
                                 ident: "ConvexCompoent",
                             },

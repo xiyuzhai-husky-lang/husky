@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 32,
                 path: ModuleItemPath {
-                    [salsa id]: 73,
                     module: `mnist_classifier::eight`,
                     ident: "upper_mouth_match",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 33,
                 path: ModuleItemPath {
-                    [salsa id]: 74,
                     module: `mnist_classifier::eight`,
                     ident: "is_eight",
                 },
@@ -33,7 +31,6 @@ Ok(
                 ),
                 ast_idx: 34,
                 path: ModuleItemPath {
-                    [salsa id]: 75,
                     module: `mnist_classifier::eight`,
                     ident: "big_mouth",
                 },

@@ -1494,7 +1494,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 107,
                                 module: `mnist_classifier::line_segment_sketch`,
                                 ident: "LineSegmentStroke",
                             },
@@ -1534,7 +1533,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 108,
                                 module: `mnist_classifier::line_segment_sketch`,
                                 ident: "LineSegmentSketch",
                             },
@@ -1572,7 +1570,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 109,
                                 module: `mnist_classifier::line_segment_sketch`,
                                 ident: "go_right",
                             },
@@ -1602,7 +1599,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 110,
                                 module: `mnist_classifier::line_segment_sketch`,
                                 ident: "go_left",
                             },
@@ -1632,7 +1628,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 111,
                                 module: `mnist_classifier::line_segment_sketch`,
                                 ident: "extend_end",
                             },
@@ -1662,7 +1657,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 112,
                                 module: `mnist_classifier::line_segment_sketch`,
                                 ident: "extend_start",
                             },
@@ -1692,7 +1686,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 113,
                                 module: `mnist_classifier::line_segment_sketch`,
                                 ident: "find_line_segments",
                             },

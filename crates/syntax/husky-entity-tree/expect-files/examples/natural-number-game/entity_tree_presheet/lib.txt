@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 3,
                 path: ModuleItemPath {
-                    [salsa id]: 148,
                     module: `natural_number_game`,
                     ident: "Nat",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 9,
                 path: ModuleItemPath {
-                    [salsa id]: 149,
                     module: `natural_number_game`,
                     ident: "OddNat",
                 },
@@ -33,7 +31,6 @@ Ok(
                 ),
                 ast_idx: 10,
                 path: ModuleItemPath {
-                    [salsa id]: 150,
                     module: `natural_number_game`,
                     ident: "EvenNat",
                 },

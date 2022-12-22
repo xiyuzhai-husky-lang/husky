@@ -530,7 +530,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 55,
                                 module: `mnist_classifier::digits::six`,
                                 ident: "six_match",
                             },
@@ -560,7 +559,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 56,
                                 module: `mnist_classifier::digits::six`,
                                 ident: "six_match_refined1",
                             },
@@ -590,7 +588,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 57,
                                 module: `mnist_classifier::digits::six`,
                                 ident: "is_six",
                             },
@@ -620,7 +617,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 58,
                                 module: `mnist_classifier::digits::six`,
                                 ident: "upmost",
                             },
@@ -650,7 +646,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 59,
                                 module: `mnist_classifier::digits::six`,
                                 ident: "bottom1",
                             },

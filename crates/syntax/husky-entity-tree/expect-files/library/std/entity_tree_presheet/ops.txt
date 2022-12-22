@@ -9,7 +9,6 @@ Ok(
                 ),
                 ast_idx: 0,
                 path: ModuleItemPath {
-                    [salsa id]: 12,
                     module: `std::ops`,
                     ident: "Output",
                 },
@@ -21,7 +20,6 @@ Ok(
                 ),
                 ast_idx: 3,
                 path: ModuleItemPath {
-                    [salsa id]: 11,
                     module: `std::ops`,
                     ident: "Add",
                 },

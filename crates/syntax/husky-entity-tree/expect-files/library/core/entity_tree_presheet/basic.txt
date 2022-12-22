@@ -7,7 +7,6 @@ Ok(
                 accessibility: Public,
                 ast_idx: 0,
                 path: ModuleItemPath {
-                    [salsa id]: 0,
                     module: `core::basic`,
                     ident: "bool",
                 },
@@ -17,7 +16,6 @@ Ok(
                 accessibility: Public,
                 ast_idx: 1,
                 path: ModuleItemPath {
-                    [salsa id]: 1,
                     module: `core::basic`,
                     ident: "Trait",
                 },
@@ -27,7 +25,6 @@ Ok(
                 accessibility: Public,
                 ast_idx: 2,
                 path: ModuleItemPath {
-                    [salsa id]: 2,
                     module: `core::basic`,
                     ident: "Module",
                 },

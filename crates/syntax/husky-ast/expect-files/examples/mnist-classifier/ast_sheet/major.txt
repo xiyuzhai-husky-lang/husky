@@ -221,7 +221,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 114,
                                 module: `mnist_classifier::major`,
                                 ident: "connected_components",
                             },
@@ -251,7 +250,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 115,
                                 module: `mnist_classifier::major`,
                                 ident: "major_connected_component",
                             },
@@ -281,7 +279,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 116,
                                 module: `mnist_classifier::major`,
                                 ident: "ignored_connected_components_row_span_sum_sum",
                             },
@@ -311,7 +308,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 117,
                                 module: `mnist_classifier::major`,
                                 ident: "major_raw_contours",
                             },
@@ -346,7 +342,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 118,
                                 module: `mnist_classifier::major`,
                                 ident: "major_raw_contour",
                             },
@@ -376,7 +371,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 119,
                                 module: `mnist_classifier::major`,
                                 ident: "major_line_segment_sketch",
                             },
@@ -406,7 +400,6 @@ Ok(
                     entity_path: Some(
                         ModuleItem(
                             ModuleItemPath {
-                                [salsa id]: 120,
                                 module: `mnist_classifier::major`,
                                 ident: "major_concave_components",
                             },

@@ -49,7 +49,6 @@ Ok(
                         accessibility: Public,
                         ast_idx: 0,
                         path: ModuleItemPath {
-                            [salsa id]: 0,
                             module: `core::basic`,
                             ident: "bool",
                         },
@@ -59,7 +58,6 @@ Ok(
                         accessibility: Public,
                         ast_idx: 1,
                         path: ModuleItemPath {
-                            [salsa id]: 1,
                             module: `core::basic`,
                             ident: "Trait",
                         },
@@ -69,7 +67,6 @@ Ok(
                         accessibility: Public,
                         ast_idx: 2,
                         path: ModuleItemPath {
-                            [salsa id]: 2,
                             module: `core::basic`,
                             ident: "Module",
                         },
@@ -84,7 +81,6 @@ Ok(
                         accessibility: Public,
                         ast_idx: 0,
                         path: ModuleItemPath {
-                            [salsa id]: 3,
                             module: `core::logic`,
                             ident: "LogicAnd",
                         },
@@ -94,7 +90,6 @@ Ok(
                         accessibility: Public,
                         ast_idx: 1,
                         path: ModuleItemPath {
-                            [salsa id]: 4,
                             module: `core::logic`,
                             ident: "LogicOr",
                         },
@@ -109,7 +104,6 @@ Ok(
                         accessibility: Public,
                         ast_idx: 9,
                         path: ModuleItemPath {
-                            [salsa id]: 5,
                             module: `core::num`,
                             ident: "i8",
                         },
@@ -119,7 +113,6 @@ Ok(
                         accessibility: Public,
                         ast_idx: 13,
                         path: ModuleItemPath {
-                            [salsa id]: 6,
                             module: `core::num`,
                             ident: "i16",
                         },
@@ -129,7 +122,6 @@ Ok(
                         accessibility: Public,
                         ast_idx: 17,
                         path: ModuleItemPath {
-                            [salsa id]: 7,
                             module: `core::num`,
                             ident: "i32",
                         },
@@ -141,7 +133,6 @@ Ok(
                         ),
                         ast_idx: 21,
                         path: ModuleItemPath {
-                            [salsa id]: 8,
                             module: `core::num`,
                             ident: "i64",
                         },
@@ -158,7 +149,6 @@ Ok(
                         ),
                         ast_idx: 0,
                         path: ModuleItemPath {
-                            [salsa id]: 10,
                             module: `core::ops`,
                             ident: "Output",
                         },
@@ -168,7 +158,6 @@ Ok(
                         accessibility: Public,
                         ast_idx: 3,
                         path: ModuleItemPath {
-                            [salsa id]: 9,
                             module: `core::ops`,
                             ident: "Add",
                         },
