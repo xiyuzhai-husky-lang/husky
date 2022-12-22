@@ -33,6 +33,12 @@ pub(crate) struct EntitySymbolPresheet {
     use_all_trackers: Vec<UseAllTracker>,
 }
 
+impl EntitySymbolPresheet {
+    pub(crate) fn module_path(&self) -> ModulePath {
+        self.module_path
+    }
+}
+
 impl AsVecMapEntry<ModulePath> for EntitySymbolPresheet {
     fn key(&self) -> ModulePath
     where

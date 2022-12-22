@@ -5,7 +5,7 @@ pub(crate) enum PresheetAction {}
 impl EntitySymbolPresheet {
     pub(crate) fn collect_possible_actions(
         &self,
-        ctx: &ModuleSymbolContext,
+        ctx: EntitySymbolContext,
         actions: &mut Vec<PresheetAction>,
     ) {
         for entity_use_tracker in &self.entity_use_trackers {
