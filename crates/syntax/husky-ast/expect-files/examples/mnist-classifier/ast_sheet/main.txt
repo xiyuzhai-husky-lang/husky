@@ -1,0 +1,1043 @@
+Ok(
+    AstSheet {
+        arena: Arena {
+            data: [
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        1,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        34,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        35,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        36,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        37,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        38,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        39,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        40,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        41,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        42,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        43,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Config {
+                    token_group_idx: TokenGroupIdx(
+                        0,
+                    ),
+                    body: ArenaIdxRange(
+                        0..1,
+                    ),
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        2,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::connected_component",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "connected_component",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        3,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::raw_contour",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "raw_contour",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        4,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::geom2d",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "geom2d",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::line_segment_sketch",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "line_segment_sketch",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        6,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::fermi",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "fermi",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        7,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::major",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "major",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        8,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::zero",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "zero",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        9,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::one",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "one",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        10,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::two",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "two",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        11,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::three",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "three",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        12,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::four",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "four",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        13,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::five",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "five",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        14,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::six",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "six",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        15,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::seven",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "seven",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        16,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::eight",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "eight",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Defn {
+                    token_group_idx: TokenGroupIdx(
+                        17,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Protected,
+                    entity_kind: Module,
+                    entity_path: Module(
+                        ModulePath {
+                            [display]: "crate::nine",
+                            [crate]: CratePath {
+                                [salsa id]: 3,
+                                package_path: PackagePath {
+                                    [salsa id]: 3,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: "/home/xiyuzhai/repos/husky/library",
+                                        },
+                                    },
+                                    data: Local {
+                                        path: AbsolutePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    },
+                                },
+                                crate_kind: Main,
+                            },
+                        },
+                    ),
+                    ident: Identifier(
+                        "nine",
+                    ),
+                    is_generic: false,
+                    body_kind: None,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        18,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 1,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        19,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 3,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        20,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 5,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        21,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 7,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        22,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 9,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        23,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 11,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        24,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 13,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        25,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 15,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        26,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 17,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        27,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 19,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        28,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 21,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        29,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 23,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        30,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 25,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        31,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 27,
+                },
+                Use {
+                    token_group_idx: TokenGroupIdx(
+                        32,
+                    ),
+                    accessibility: Protected,
+                    use_expr_idx: 32,
+                },
+                Main {
+                    token_group_idx: TokenGroupIdx(
+                        33,
+                    ),
+                    body: ArenaIdxRange(
+                        1..11,
+                    ),
+                },
+            ],
+        },
+        top_level_asts: ArenaIdxRange(
+            11..44,
+        ),
+        use_expr_arena: Arena {
+            data: [
+                One {
+                    ident: Identifier(
+                        "BinaryImage28",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "mnist",
+                    ),
+                    child: 0,
+                },
+                One {
+                    ident: Identifier(
+                        "MnistLabel",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "mnist",
+                    ),
+                    child: 2,
+                },
+                All,
+                ScopeResolution {
+                    parent: Identifier(
+                        "major",
+                    ),
+                    child: 4,
+                },
+                One {
+                    ident: Identifier(
+                        "is_zero",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "zero",
+                    ),
+                    child: 6,
+                },
+                One {
+                    ident: Identifier(
+                        "is_one",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "one",
+                    ),
+                    child: 8,
+                },
+                One {
+                    ident: Identifier(
+                        "is_two",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "two",
+                    ),
+                    child: 10,
+                },
+                One {
+                    ident: Identifier(
+                        "is_three",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "three",
+                    ),
+                    child: 12,
+                },
+                One {
+                    ident: Identifier(
+                        "is_five",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "five",
+                    ),
+                    child: 14,
+                },
+                One {
+                    ident: Identifier(
+                        "is_six",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "six",
+                    ),
+                    child: 16,
+                },
+                One {
+                    ident: Identifier(
+                        "is_seven",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "seven",
+                    ),
+                    child: 18,
+                },
+                One {
+                    ident: Identifier(
+                        "is_eight",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "eight",
+                    ),
+                    child: 20,
+                },
+                One {
+                    ident: Identifier(
+                        "is_nine",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "nine",
+                    ),
+                    child: 22,
+                },
+                One {
+                    ident: Identifier(
+                        "find_raw_contours",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "raw_contour",
+                    ),
+                    child: 24,
+                },
+                One {
+                    ident: Identifier(
+                        "find_line_segments",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "line_segment_sketch",
+                    ),
+                    child: 26,
+                },
+                One {
+                    ident: Identifier(
+                        "naive_i32",
+                    ),
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "naive",
+                    ),
+                    child: 28,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "models",
+                    ),
+                    child: 29,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "ml",
+                    ),
+                    child: 30,
+                },
+                ScopeResolution {
+                    parent: Identifier(
+                        "domains",
+                    ),
+                    child: 31,
+                },
+            ],
+        },
+    },
+)

@@ -1,0 +1,96 @@
+Ok(
+    [
+        ModulePath {
+            [display]: "crate::line_segment_sketch::concave_component",
+            [crate]: CratePath {
+                [salsa id]: 3,
+                package_path: PackagePath {
+                    [salsa id]: 3,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: "/home/xiyuzhai/repos/husky/library",
+                        },
+                    },
+                    data: Local {
+                        path: AbsolutePath(
+                            Id {
+                                value: 15,
+                            },
+                        ),
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+        ModulePath {
+            [display]: "crate::line_segment_sketch::convex_component",
+            [crate]: CratePath {
+                [salsa id]: 3,
+                package_path: PackagePath {
+                    [salsa id]: 3,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: "/home/xiyuzhai/repos/husky/library",
+                        },
+                    },
+                    data: Local {
+                        path: AbsolutePath(
+                            Id {
+                                value: 15,
+                            },
+                        ),
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+        ModulePath {
+            [display]: "crate::line_segment_sketch::convexity",
+            [crate]: CratePath {
+                [salsa id]: 3,
+                package_path: PackagePath {
+                    [salsa id]: 3,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: "/home/xiyuzhai/repos/husky/library",
+                        },
+                    },
+                    data: Local {
+                        path: AbsolutePath(
+                            Id {
+                                value: 15,
+                            },
+                        ),
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+        ModulePath {
+            [display]: "crate::line_segment_sketch::line_segment",
+            [crate]: CratePath {
+                [salsa id]: 3,
+                package_path: PackagePath {
+                    [salsa id]: 3,
+                    toolchain: Toolchain {
+                        [salsa id]: 0,
+                        data: Local {
+                            library_path: "/home/xiyuzhai/repos/husky/library",
+                        },
+                    },
+                    data: Local {
+                        path: AbsolutePath(
+                            Id {
+                                value: 15,
+                            },
+                        ),
+                    },
+                },
+                crate_kind: Main,
+            },
+        },
+    ],
+)
