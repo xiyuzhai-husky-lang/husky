@@ -275,7 +275,7 @@ Ok(
                     ident: Identifier(
                         "domains",
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -291,7 +291,7 @@ Ok(
                     ident: Identifier(
                         "domains",
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -307,7 +307,7 @@ Ok(
                     ident: Identifier(
                         "domains",
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -323,7 +323,7 @@ Ok(
                     ident: Identifier(
                         "domains",
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -339,7 +339,7 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -355,7 +355,7 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -371,7 +371,7 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -387,7 +387,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..10,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -429,7 +429,7 @@ Ok(
                     body: ArenaIdxRange(
                         10..28,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -471,7 +471,7 @@ Ok(
                     body: ArenaIdxRange(
                         28..31,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -513,7 +513,7 @@ Ok(
                     body: ArenaIdxRange(
                         31..34,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -555,7 +555,7 @@ Ok(
                     body: ArenaIdxRange(
                         34..37,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,

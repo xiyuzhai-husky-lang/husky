@@ -9,7 +9,7 @@ Ok(
                     ident: Identifier(
                         "core",
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 8,

@@ -204,7 +204,7 @@ fn bad_comment() {
 #[test]
 fn builtin_library_toml_token_sheets() {
     let db = MimicDB::default();
-    let toolchain = db.lang_dev_toolchain();
+    let toolchain = db.dev_toolchain();
     let path_menu = db.path_menu(toolchain).unwrap();
     expect_file!["../tests/package_core_toml_token_sheets.txt"].assert_eq(&format!(
         "{:#?}",

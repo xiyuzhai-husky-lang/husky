@@ -5,7 +5,7 @@ use crate::*;
 #[test]
 fn toolchain_debug_works() {
     let db = DB::default();
-    let toolchain = db.lang_dev_toolchain();
+    let toolchain = db.dev_toolchain();
     expect_test::expect![[r#"
         Toolchain {
             [salsa id]: 0,

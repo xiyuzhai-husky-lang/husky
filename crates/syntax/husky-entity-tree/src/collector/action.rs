@@ -13,13 +13,18 @@ impl<'a> EntityTreeCollector<'a> {
 
     fn context<'b>(&'b self, presheet: &'b EntityTreePresheet) -> EntitySymbolContext<'b> {
         let module_path = presheet.module_path();
-        EntitySymbolContext::new(self.db, module_path, presheet.nodes(), self.crate_prelude())
+        EntitySymbolContext::new(
+            self.db,
+            module_path,
+            presheet.module_symbols(),
+            self.crate_prelude(),
+        )
     }
 
     fn crate_prelude<'b>(&'b self) -> CratePrelude<'b> {
         let universal_prelude = self
             .universal_prelude
-            .unwrap_or_else(|| self.presheets[self.core_prelude_module].nodes());
+            .unwrap_or_else(|| self.presheets[self.core_prelude_module].module_symbols());
         CratePrelude::new(universal_prelude, self.crate_specific_prelude)
     }
 }

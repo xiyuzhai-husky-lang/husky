@@ -293,9 +293,9 @@ Ok(
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 37,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -311,11 +311,11 @@ Ok(
                     ),
                     use_expr_idx: 5,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 38,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -331,11 +331,11 @@ Ok(
                     ),
                     use_expr_idx: 10,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 39,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -351,11 +351,11 @@ Ok(
                     ),
                     use_expr_idx: 15,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 40,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -371,11 +371,11 @@ Ok(
                     ),
                     use_expr_idx: 20,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 41,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -391,11 +391,11 @@ Ok(
                     ),
                     use_expr_idx: 23,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 42,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -411,11 +411,11 @@ Ok(
                     ),
                     use_expr_idx: 26,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 43,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 37,
@@ -431,7 +431,7 @@ Ok(
                     ),
                     use_expr_idx: 30,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
             ],
         ),

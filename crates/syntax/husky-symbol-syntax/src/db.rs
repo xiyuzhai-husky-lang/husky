@@ -28,7 +28,7 @@ where
     }
 
     fn collect_preludes(&self) -> Vec<Symbol> {
-        let toolchain = self.lang_dev_toolchain();
+        let toolchain = self.dev_toolchain();
         let Ok(entity_path_menu) = self.entity_path_menu(toolchain) else {todo!()};
         let Ok(path_menu) = self.path_menu(toolchain) else {todo!()};
         let preludes: Vec<Symbol> = vec![

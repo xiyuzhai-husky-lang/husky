@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::AstJar;
 use husky_entity_path::EntityPathJar;
-use husky_entity_tree::EntitySymbolJar;
+use husky_entity_tree::EntityTreeJar;
 use husky_expect_test_utils::expect_test_husky_to_rust;
 use husky_manifest::ManifestJar;
 use husky_symbol_syntax::{SymbolDb, SymbolJar};
@@ -18,7 +18,7 @@ use salsa::Database;
     TokenJar,
     AstJar,
     SymbolJar,
-    EntitySymbolJar,
+    EntityTreeJar,
     ManifestJar
 )]
 #[derive(Default)]

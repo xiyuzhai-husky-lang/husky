@@ -259,7 +259,7 @@ fn test_crates<T>(db: &T, dir: &Path, f: &impl Fn(&T, CratePath))
 where
     T: VfsDb,
 {
-    let toolchain = db.lang_dev_toolchain();
+    let toolchain = db.dev_toolchain();
     collect_husky_package_dirs(dir)
         .into_iter()
         .for_each(|path| {
@@ -274,7 +274,7 @@ fn test_probable_modules<T>(db: &T, dir: &Path, f: &impl Fn(&T, ModulePath))
 where
     T: VfsDb,
 {
-    let toolchain = db.lang_dev_toolchain();
+    let toolchain = db.dev_toolchain();
     collect_husky_package_dirs(dir)
         .into_iter()
         .for_each(|path| {
@@ -296,7 +296,7 @@ fn expect_test_packages<Db, T, E>(
     Db: VfsDb,
     T: ?Sized,
 {
-    let toolchain = db.lang_dev_toolchain();
+    let toolchain = db.dev_toolchain();
     std::fs::create_dir_all(&out).unwrap();
     collect_package_relative_dirs(base)
         .into_iter()
@@ -325,7 +325,7 @@ fn expect_test_crates<Db, T, E>(
     Db: VfsDb,
     T: ?Sized,
 {
-    let toolchain = db.lang_dev_toolchain();
+    let toolchain = db.dev_toolchain();
     std::fs::create_dir_all(&out).unwrap();
     collect_package_relative_dirs(base)
         .into_iter()
@@ -357,7 +357,7 @@ fn expect_test_probable_modules_debug_with_db<Db, R: ?Sized>(
     Db: VfsDb,
 {
     std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
-    let toolchain = db.lang_dev_toolchain();
+    let toolchain = db.dev_toolchain();
     collect_package_relative_dirs(base)
         .into_iter()
         .for_each(|path| {
@@ -387,7 +387,7 @@ fn expect_test_probable_modules_debug_result_with_db<Db, T: ?Sized, E>(
     Db: VfsDb,
 {
     std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
-    let toolchain = db.lang_dev_toolchain();
+    let toolchain = db.dev_toolchain();
     collect_package_relative_dirs(base)
         .into_iter()
         .for_each(|path| {

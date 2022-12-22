@@ -1,0 +1,830 @@
+Ok(
+    EntityTreeBundle {
+        sheets: [
+            EntityTreeSheet {
+                module_path: ModulePath {
+                    [display]: "crate",
+                    [crate]: CratePath {
+                        [salsa id]: 0,
+                        package_path: PackagePath {
+                            [salsa id]: 0,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 1,
+                                    data: DiffPathBuf(
+                                        "../../../library/core",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Library,
+                    },
+                },
+                sheets: [
+                    Submodule {
+                        ident: Identifier(
+                            "basic",
+                        ),
+                        accessibility: PubicUnder(
+                            ModulePath {
+                                [display]: "crate",
+                                [crate]: CratePath {
+                                    [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 0,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                        data: Local {
+                                            path: DiffPath {
+                                                [salsa id]: 1,
+                                                data: DiffPathBuf(
+                                                    "../../../library/core",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    crate_kind: Library,
+                                },
+                            },
+                        ),
+                        module_path: ModulePath {
+                            [display]: "crate::basic",
+                            [crate]: CratePath {
+                                [salsa id]: 0,
+                                package_path: PackagePath {
+                                    [salsa id]: 0,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    data: Local {
+                                        path: DiffPath {
+                                            [salsa id]: 1,
+                                            data: DiffPathBuf(
+                                                "../../../library/core",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Library,
+                            },
+                        },
+                    },
+                    Submodule {
+                        ident: Identifier(
+                            "logic",
+                        ),
+                        accessibility: PubicUnder(
+                            ModulePath {
+                                [display]: "crate",
+                                [crate]: CratePath {
+                                    [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 0,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                        data: Local {
+                                            path: DiffPath {
+                                                [salsa id]: 1,
+                                                data: DiffPathBuf(
+                                                    "../../../library/core",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    crate_kind: Library,
+                                },
+                            },
+                        ),
+                        module_path: ModulePath {
+                            [display]: "crate::logic",
+                            [crate]: CratePath {
+                                [salsa id]: 0,
+                                package_path: PackagePath {
+                                    [salsa id]: 0,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    data: Local {
+                                        path: DiffPath {
+                                            [salsa id]: 1,
+                                            data: DiffPathBuf(
+                                                "../../../library/core",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Library,
+                            },
+                        },
+                    },
+                    Submodule {
+                        ident: Identifier(
+                            "num",
+                        ),
+                        accessibility: PubicUnder(
+                            ModulePath {
+                                [display]: "crate",
+                                [crate]: CratePath {
+                                    [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 0,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                        data: Local {
+                                            path: DiffPath {
+                                                [salsa id]: 1,
+                                                data: DiffPathBuf(
+                                                    "../../../library/core",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    crate_kind: Library,
+                                },
+                            },
+                        ),
+                        module_path: ModulePath {
+                            [display]: "crate::num",
+                            [crate]: CratePath {
+                                [salsa id]: 0,
+                                package_path: PackagePath {
+                                    [salsa id]: 0,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    data: Local {
+                                        path: DiffPath {
+                                            [salsa id]: 1,
+                                            data: DiffPathBuf(
+                                                "../../../library/core",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Library,
+                            },
+                        },
+                    },
+                    Submodule {
+                        ident: Identifier(
+                            "ops",
+                        ),
+                        accessibility: PubicUnder(
+                            ModulePath {
+                                [display]: "crate",
+                                [crate]: CratePath {
+                                    [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 0,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                        data: Local {
+                                            path: DiffPath {
+                                                [salsa id]: 1,
+                                                data: DiffPathBuf(
+                                                    "../../../library/core",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    crate_kind: Library,
+                                },
+                            },
+                        ),
+                        module_path: ModulePath {
+                            [display]: "crate::ops",
+                            [crate]: CratePath {
+                                [salsa id]: 0,
+                                package_path: PackagePath {
+                                    [salsa id]: 0,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    data: Local {
+                                        path: DiffPath {
+                                            [salsa id]: 1,
+                                            data: DiffPathBuf(
+                                                "../../../library/core",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Library,
+                            },
+                        },
+                    },
+                    Submodule {
+                        ident: Identifier(
+                            "prelude",
+                        ),
+                        accessibility: PubicUnder(
+                            ModulePath {
+                                [display]: "crate",
+                                [crate]: CratePath {
+                                    [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 0,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                        data: Local {
+                                            path: DiffPath {
+                                                [salsa id]: 1,
+                                                data: DiffPathBuf(
+                                                    "../../../library/core",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    crate_kind: Library,
+                                },
+                            },
+                        ),
+                        module_path: ModulePath {
+                            [display]: "crate::prelude",
+                            [crate]: CratePath {
+                                [salsa id]: 0,
+                                package_path: PackagePath {
+                                    [salsa id]: 0,
+                                    toolchain: Toolchain {
+                                        [salsa id]: 0,
+                                        data: Local {
+                                            library_path: DiffPath {
+                                                [salsa id]: 0,
+                                                data: DiffPathBuf(
+                                                    "../../../library",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    data: Local {
+                                        path: DiffPath {
+                                            [salsa id]: 1,
+                                            data: DiffPathBuf(
+                                                "../../../library/core",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Library,
+                            },
+                        },
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: ModulePath {
+                    [display]: "crate::basic",
+                    [crate]: CratePath {
+                        [salsa id]: 0,
+                        package_path: PackagePath {
+                            [salsa id]: 0,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 1,
+                                    data: DiffPathBuf(
+                                        "../../../library/core",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Library,
+                    },
+                },
+                sheets: [
+                    ModuleItem {
+                        ident: Identifier(
+                            "bool",
+                        ),
+                        accessibility: Public,
+                        ast_idx: 0,
+                        path: ModuleItemPath {
+                            [salsa id]: 0,
+                            module: ModulePath(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                    ModuleItem {
+                        ident: Identifier(
+                            "Trait",
+                        ),
+                        accessibility: Public,
+                        ast_idx: 1,
+                        path: ModuleItemPath {
+                            [salsa id]: 1,
+                            module: ModulePath(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 7,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                    ModuleItem {
+                        ident: Identifier(
+                            "Module",
+                        ),
+                        accessibility: Public,
+                        ast_idx: 2,
+                        path: ModuleItemPath {
+                            [salsa id]: 2,
+                            module: ModulePath(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: ModulePath {
+                    [display]: "crate::logic",
+                    [crate]: CratePath {
+                        [salsa id]: 0,
+                        package_path: PackagePath {
+                            [salsa id]: 0,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 1,
+                                    data: DiffPathBuf(
+                                        "../../../library/core",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Library,
+                    },
+                },
+                sheets: [
+                    ModuleItem {
+                        ident: Identifier(
+                            "LogicAnd",
+                        ),
+                        accessibility: Public,
+                        ast_idx: 0,
+                        path: ModuleItemPath {
+                            [salsa id]: 3,
+                            module: ModulePath(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                    ModuleItem {
+                        ident: Identifier(
+                            "LogicOr",
+                        ),
+                        accessibility: Public,
+                        ast_idx: 1,
+                        path: ModuleItemPath {
+                            [salsa id]: 4,
+                            module: ModulePath(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: ModulePath {
+                    [display]: "crate::num",
+                    [crate]: CratePath {
+                        [salsa id]: 0,
+                        package_path: PackagePath {
+                            [salsa id]: 0,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 1,
+                                    data: DiffPathBuf(
+                                        "../../../library/core",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Library,
+                    },
+                },
+                sheets: [
+                    ModuleItem {
+                        ident: Identifier(
+                            "i8",
+                        ),
+                        accessibility: Public,
+                        ast_idx: 9,
+                        path: ModuleItemPath {
+                            [salsa id]: 5,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                    ModuleItem {
+                        ident: Identifier(
+                            "i16",
+                        ),
+                        accessibility: Public,
+                        ast_idx: 13,
+                        path: ModuleItemPath {
+                            [salsa id]: 6,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 26,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                    ModuleItem {
+                        ident: Identifier(
+                            "i32",
+                        ),
+                        accessibility: Public,
+                        ast_idx: 17,
+                        path: ModuleItemPath {
+                            [salsa id]: 7,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 27,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                    ModuleItem {
+                        ident: Identifier(
+                            "i64",
+                        ),
+                        accessibility: PubicUnder(
+                            ModulePath {
+                                [display]: "crate::num",
+                                [crate]: CratePath {
+                                    [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 0,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                        data: Local {
+                                            path: DiffPath {
+                                                [salsa id]: 1,
+                                                data: DiffPathBuf(
+                                                    "../../../library/core",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    crate_kind: Library,
+                                },
+                            },
+                        ),
+                        ast_idx: 21,
+                        path: ModuleItemPath {
+                            [salsa id]: 8,
+                            module: ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 28,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: ModulePath {
+                    [display]: "crate::ops",
+                    [crate]: CratePath {
+                        [salsa id]: 0,
+                        package_path: PackagePath {
+                            [salsa id]: 0,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 1,
+                                    data: DiffPathBuf(
+                                        "../../../library/core",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Library,
+                    },
+                },
+                sheets: [
+                    ModuleItem {
+                        ident: Identifier(
+                            "Output",
+                        ),
+                        accessibility: PubicUnder(
+                            ModulePath {
+                                [display]: "crate::ops",
+                                [crate]: CratePath {
+                                    [salsa id]: 0,
+                                    package_path: PackagePath {
+                                        [salsa id]: 0,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                        data: Local {
+                                            path: DiffPath {
+                                                [salsa id]: 1,
+                                                data: DiffPathBuf(
+                                                    "../../../library/core",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    crate_kind: Library,
+                                },
+                            },
+                        ),
+                        ast_idx: 0,
+                        path: ModuleItemPath {
+                            [salsa id]: 10,
+                            module: ModulePath(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 31,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                    ModuleItem {
+                        ident: Identifier(
+                            "Add",
+                        ),
+                        accessibility: Public,
+                        ast_idx: 3,
+                        path: ModuleItemPath {
+                            [salsa id]: 9,
+                            module: ModulePath(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 22,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                ],
+            },
+            EntityTreeSheet {
+                module_path: ModulePath {
+                    [display]: "crate::prelude",
+                    [crate]: CratePath {
+                        [salsa id]: 0,
+                        package_path: PackagePath {
+                            [salsa id]: 0,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 1,
+                                    data: DiffPathBuf(
+                                        "../../../library/core",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Library,
+                    },
+                },
+                sheets: [],
+            },
+        ],
+    },
+)

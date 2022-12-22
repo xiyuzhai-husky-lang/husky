@@ -41,7 +41,7 @@ Ok(
                     ident: Identifier(
                         "crate",
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 30,
@@ -57,7 +57,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..4,
                     ),
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 30,

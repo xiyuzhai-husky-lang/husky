@@ -9,8 +9,8 @@ pub(crate) struct EntityTreeCollector<'a> {
     crate_path: CratePath,
     presheets: VecMap<EntityTreePresheet>,
     core_prelude_module: ModulePath,
-    universal_prelude: Option<&'a [EntityNode]>,
-    crate_specific_prelude: &'a [EntityNode],
+    universal_prelude: Option<&'a [EntitySymbol]>,
+    crate_specific_prelude: &'a [EntitySymbol],
 }
 
 impl<'a> EntityTreeCollector<'a> {
@@ -23,12 +23,12 @@ impl<'a> EntityTreeCollector<'a> {
         let toolchain = crate_path.toolchain(db);
         let path_menu = db.path_menu(toolchain)?;
         let core_prelude_module = path_menu.core_prelude();
-        let universal_prelude: Option<&'a [EntityNode]> = if crate_path != path_menu.core_library()
-        {
-            Some(entity_tree_sheet(db, core_prelude_module)?.module_items(db))
-        } else {
-            None
-        };
+        let universal_prelude: Option<&'a [EntitySymbol]> =
+            if crate_path != path_menu.core_library() {
+                Some(entity_tree_sheet(db, core_prelude_module)?.module_symbols())
+            } else {
+                None
+            };
         Ok(Self {
             db,
             crate_path,
@@ -39,7 +39,7 @@ impl<'a> EntityTreeCollector<'a> {
         })
     }
 
-    pub(crate) fn collect_all(mut self) -> EntitySymbolBundle {
+    pub(crate) fn collect_all(mut self) -> EntityTreeBundle {
         loop {
             let actions = self.collect_possible_actions();
             if actions.len() == 0 {
@@ -49,7 +49,12 @@ impl<'a> EntityTreeCollector<'a> {
                 self.exec(action)
             }
         }
-        todo!()
+        EntityTreeBundle::new(
+            self.presheets
+                .into_iter()
+                .map(|presheet| presheet.into())
+                .collect(),
+        )
     }
 
     fn exec(&mut self, action: PresheetAction) {

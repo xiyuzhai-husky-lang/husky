@@ -1,7 +1,7 @@
 use husky_ast::AstJar;
 use husky_diagnostics::DiagnosticsJar;
 use husky_entity_path::EntityPathJar;
-use husky_entity_tree::EntitySymbolJar;
+use husky_entity_tree::EntityTreeJar;
 use husky_folding_range::FoldingRangeJar;
 use husky_layout::LayoutJar;
 use husky_manifest::ManifestJar;
@@ -15,7 +15,7 @@ use husky_word::WordJar;
 #[salsa::db(
     TokenJar,
     VfsJar,
-    EntitySymbolJar, 
+    EntityTreeJar, 
     AstJar,
     WordJar,
     EntityPathJar,

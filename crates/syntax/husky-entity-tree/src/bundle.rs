@@ -1,11 +1,11 @@
 use crate::*;
 use vec_like::{VecMap, VecPairMap};
 
-#[salsa::tracked(jar = EntitySymbolJar, return_ref)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_bundle(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> EntityTreeResult<EntitySymbolBundle> {
+) -> EntityTreeResult<EntityTreeBundle> {
     Ok(EntityTreeCollector::new(db, crate_path)?.collect_all())
 }
 
@@ -19,18 +19,45 @@ fn entity_tree_bundle_works() {
     )
 }
 
-#[salsa::tracked(jar = EntitySymbolJar)]
-pub struct EntitySymbolBundle {
-    sheets: VecPairMap<ModulePath, EntityTreeSheet>,
+#[derive(Debug, PartialEq, Eq)]
+pub struct EntityTreeBundle {
+    sheets: VecMap<EntityTreeSheet>,
 }
 
-impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntitySymbolBundle {
+impl EntityTreeBundle {
+    pub fn new(sheets: VecMap<EntityTreeSheet>) -> Self {
+        Self { sheets }
+    }
+
+    pub fn sheets(&self) -> &[EntityTreeSheet] {
+        &self.sheets
+    }
+
+    pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntityTreeSheet> {
+        self.sheets.get_entry(module_path)
+    }
+}
+
+impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntityTreeBundle {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn EntityTreeDb,
+        include_all_fields: bool,
+    ) -> std::fmt::Result {
+        f.debug_struct("EntityTreeBundle")
+            .field("sheets", &self.sheets.debug_with(db, include_all_fields))
+            .finish()
+    }
+}
+
+impl<Db: EntityTreeDb> salsa::DebugWithDb<Db> for EntityTreeBundle {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         include_all_fields: bool,
     ) -> std::fmt::Result {
-        todo!()
+        self.fmt(f, db as &dyn EntityTreeDb, include_all_fields)
     }
 }

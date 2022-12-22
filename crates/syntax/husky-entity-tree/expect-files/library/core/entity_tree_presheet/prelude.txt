@@ -32,9 +32,9 @@ Ok(
         module_items: [],
         entity_use_roots: EntityUseExprTrackers(
             [
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 0,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 6,
@@ -50,11 +50,11 @@ Ok(
                     ),
                     use_expr_idx: 2,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
-                EntityUseExprTracker {
+                EntityUseTracker {
                     ast_idx: 1,
-                    accessibility: PubicUnder(
+                    accessibility: PublicUnder(
                         ModulePath(
                             Id {
                                 value: 6,
@@ -70,7 +70,7 @@ Ok(
                     ),
                     use_expr_idx: 5,
                     parent: None,
-                    resolved: false,
+                    state: Unresolved,
                 },
             ],
         ),
