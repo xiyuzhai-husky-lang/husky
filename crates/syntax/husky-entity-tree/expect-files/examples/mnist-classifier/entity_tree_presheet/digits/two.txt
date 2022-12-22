@@ -92,70 +92,96 @@ Ok(
             },
         ],
         entity_use_roots: [
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 54,
                 accessibility: Protected,
                 use_expr_idx: 5,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 55,
                 accessibility: Protected,
                 use_expr_idx: 10,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 56,
                 accessibility: Protected,
                 use_expr_idx: 15,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 57,
                 accessibility: Protected,
                 use_expr_idx: 20,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 58,
                 accessibility: Protected,
                 use_expr_idx: 23,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 59,
                 accessibility: Protected,
                 use_expr_idx: 26,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 60,
                 accessibility: Protected,
                 use_expr_idx: 30,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 61,
                 accessibility: Protected,
                 use_expr_idx: 33,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 62,
                 accessibility: Protected,
                 use_expr_idx: 36,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 63,
                 accessibility: Protected,
                 use_expr_idx: 39,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 64,
                 accessibility: Protected,
                 use_expr_idx: 42,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 65,
                 accessibility: Protected,
                 use_expr_idx: 45,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 66,
                 accessibility: Protected,
                 use_expr_idx: 48,
+                parent: None,
+                resolved: false,
             },
         ],
     },

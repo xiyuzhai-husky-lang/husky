@@ -212,30 +212,40 @@ Ok(
             },
         ],
         entity_use_roots: [
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 164,
                 accessibility: Protected,
                 use_expr_idx: 2,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 165,
                 accessibility: Protected,
                 use_expr_idx: 5,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 166,
                 accessibility: Protected,
                 use_expr_idx: 7,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 167,
                 accessibility: Protected,
                 use_expr_idx: 9,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 168,
                 accessibility: Protected,
                 use_expr_idx: 11,
+                parent: None,
+                resolved: false,
             },
         ],
     },

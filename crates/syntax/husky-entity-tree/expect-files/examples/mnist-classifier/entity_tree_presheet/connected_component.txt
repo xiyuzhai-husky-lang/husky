@@ -224,15 +224,19 @@ Ok(
             },
         ],
         entity_use_roots: [
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 124,
                 accessibility: Protected,
                 use_expr_idx: 3,
+                parent: None,
+                resolved: false,
             },
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 125,
                 accessibility: Protected,
                 use_expr_idx: 6,
+                parent: None,
+                resolved: false,
             },
         ],
     },

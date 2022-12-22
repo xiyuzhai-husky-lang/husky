@@ -31,10 +31,12 @@ Ok(
         },
         module_items: [],
         entity_use_roots: [
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 0,
                 accessibility: Protected,
                 use_expr_idx: 2,
+                parent: None,
+                resolved: false,
             },
         ],
     },

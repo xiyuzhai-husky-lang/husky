@@ -2,7 +2,6 @@
 mod bundle;
 mod collector;
 mod db;
-mod entity_use;
 mod error;
 mod implementation;
 mod module_symbol;
@@ -19,7 +18,6 @@ pub use db::EntityTreeDb;
 pub use error::*;
 
 use collector::*;
-use entity_use::*;
 use error::EntityTreeError;
 use husky_ast::*;
 use husky_entity_kind::EntityKind;

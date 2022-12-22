@@ -92,10 +92,12 @@ Ok(
             },
         ],
         entity_use_roots: [
-            EntityUseExprRoot {
+            EntityUseExprTracker {
                 ast_idx: 23,
                 accessibility: Protected,
                 use_expr_idx: 1,
+                parent: None,
+                resolved: false,
             },
         ],
     },
