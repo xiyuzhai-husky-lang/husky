@@ -28,7 +28,7 @@ fn entity_tree_presheet_works() {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct EntitySymbolPresheet {
     module_path: ModulePath,
-    module_items: Vec<ModuleSymbol>,
+    module_items: Vec<EntitySymbol>,
     entity_use_trackers: Vec<EntityUseExprTracker>,
     use_all_trackers: Vec<UseAllTracker>,
 }
@@ -39,11 +39,9 @@ impl EntitySymbolPresheet {
     }
 }
 
-impl AsVecMapEntry<ModulePath> for EntitySymbolPresheet {
-    fn key(&self) -> ModulePath
-    where
-        ModulePath: Copy,
-    {
+impl AsVecMapEntry for EntitySymbolPresheet {
+    type K = ModulePath;
+    fn key(&self) -> ModulePath {
         self.module_path
     }
 
@@ -56,7 +54,7 @@ struct EntitySymbolPresheetBuilder<'a> {
     db: &'a dyn EntitySymbolDb,
     ast_sheet: &'a AstSheet,
     module_path: ModulePath,
-    module_symbols: Vec<ModuleSymbol>,
+    module_symbols: Vec<EntitySymbol>,
     entity_use_trackers: Vec<EntityUseExprTracker>,
 }
 
@@ -110,9 +108,9 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
             } => match entity_path {
                 EntityPath::Module(_) => self
                     .module_symbols
-                    .push(ModuleSymbol::Submodule { ident: *ident }),
+                    .push(EntitySymbol::Submodule { ident: *ident }),
                 EntityPath::ModuleItem(module_item_path) => {
-                    self.module_symbols.push(ModuleSymbol::ModuleItem {
+                    self.module_symbols.push(EntitySymbol::ModuleItem {
                         ident: *ident,
                         ast_idx,
                         path: *module_item_path,

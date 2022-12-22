@@ -9,7 +9,7 @@ use crate::*;
 #[salsa::tracked(jar = EntitySymbolJar)]
 pub struct EntitySymbolSheet {
     module_path: ModulePath,
-    module_items: Vec<ModuleSymbol>,
+    module_items: Vec<EntitySymbol>,
 }
 
 impl EntitySymbolSheet {
