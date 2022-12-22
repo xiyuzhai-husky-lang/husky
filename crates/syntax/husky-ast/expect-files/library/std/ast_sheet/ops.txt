@@ -52,7 +52,6 @@ Ok(
                     entity_path: Some(
                         AssociatedItem(
                             AssociatedItemPath {
-                                [salsa id]: 1,
                                 parent_path: ModuleItemPath {
                                     [salsa id]: 11,
                                     module: `std::ops`,

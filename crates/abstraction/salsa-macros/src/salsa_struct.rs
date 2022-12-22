@@ -346,7 +346,9 @@ impl<A: AllowedOptions> SalsaStruct<A> {
                     #[allow(unused_imports)]
                     use ::salsa::debug::helper::Fallback;
                     let mut debug_struct = &mut f.debug_struct(#ident_string);
-                    debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
+                    if _include_all_fields {
+                        debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
+                    }
                     #fields
                     debug_struct.finish()
                 }
