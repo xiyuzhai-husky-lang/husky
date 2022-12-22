@@ -17,10 +17,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `core::logic`,
-                                ident: "LogicAnd",
-                            },
+                            `core::logic::LogicAnd`,
                         ),
                     ),
                     ident: "LogicAnd",
@@ -42,10 +39,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `core::logic`,
-                                ident: "LogicOr",
-                            },
+                            `core::logic::LogicOr`,
                         ),
                     ),
                     ident: "LogicOr",

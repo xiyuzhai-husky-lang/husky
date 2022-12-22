@@ -221,10 +221,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::line_segment_sketch::convexity`,
-                                ident: "is_convex",
-                            },
+                            `mnist_classifier::line_segment_sketch::convexity::is_convex`,
                         ),
                     ),
                     ident: "is_convex",

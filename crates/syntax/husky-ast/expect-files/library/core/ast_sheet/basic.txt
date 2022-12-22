@@ -17,10 +17,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `core::basic`,
-                                ident: "bool",
-                            },
+                            `core::basic::bool`,
                         ),
                     ),
                     ident: "bool",
@@ -42,10 +39,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `core::basic`,
-                                ident: "Trait",
-                            },
+                            `core::basic::Trait`,
                         ),
                     ),
                     ident: "Trait",
@@ -67,10 +61,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `core::basic`,
-                                ident: "Module",
-                            },
+                            `core::basic::Module`,
                         ),
                     ),
                     ident: "Module",

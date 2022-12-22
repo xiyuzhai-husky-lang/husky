@@ -36,10 +36,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 169,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch`,
-                    ident: "LineSegmentStroke",
-                },
+                path: `mnist_classifier::line_segment_sketch::LineSegmentStroke`,
             },
             ModuleItem {
                 ident: "LineSegmentSketch",
@@ -47,10 +44,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 171,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch`,
-                    ident: "LineSegmentSketch",
-                },
+                path: `mnist_classifier::line_segment_sketch::LineSegmentSketch`,
             },
             ModuleItem {
                 ident: "go_right",
@@ -58,10 +52,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 173,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch`,
-                    ident: "go_right",
-                },
+                path: `mnist_classifier::line_segment_sketch::go_right`,
             },
             ModuleItem {
                 ident: "go_left",
@@ -69,10 +60,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 174,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch`,
-                    ident: "go_left",
-                },
+                path: `mnist_classifier::line_segment_sketch::go_left`,
             },
             ModuleItem {
                 ident: "extend_end",
@@ -80,10 +68,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 175,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch`,
-                    ident: "extend_end",
-                },
+                path: `mnist_classifier::line_segment_sketch::extend_end`,
             },
             ModuleItem {
                 ident: "extend_start",
@@ -91,10 +76,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 176,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch`,
-                    ident: "extend_start",
-                },
+                path: `mnist_classifier::line_segment_sketch::extend_start`,
             },
             ModuleItem {
                 ident: "find_line_segments",
@@ -102,10 +84,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 ast_idx: 177,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch`,
-                    ident: "find_line_segments",
-                },
+                path: `mnist_classifier::line_segment_sketch::find_line_segments`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

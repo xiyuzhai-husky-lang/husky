@@ -44,10 +44,7 @@ Ok(
                             `std::ops`,
                         ),
                         ast_idx: 0,
-                        path: ModuleItemPath {
-                            module: `std::ops`,
-                            ident: "Output",
-                        },
+                        path: `std::ops::Output`,
                     },
                     ModuleItem {
                         ident: "Add",
@@ -55,10 +52,7 @@ Ok(
                             `std::ops`,
                         ),
                         ast_idx: 3,
-                        path: ModuleItemPath {
-                            module: `std::ops`,
-                            ident: "Add",
-                        },
+                        path: `std::ops::Add`,
                     },
                 ],
             },

@@ -8,10 +8,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 70,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::one`,
-                    ident: "one_fermi_match",
-                },
+                path: `mnist_classifier::digits::one::one_fermi_match`,
             },
             ModuleItem {
                 ident: "is_one",
@@ -19,10 +16,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 71,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::one`,
-                    ident: "is_one",
-                },
+                path: `mnist_classifier::digits::one::is_one`,
             },
             ModuleItem {
                 ident: "upmost",
@@ -30,10 +24,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 72,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::one`,
-                    ident: "upmost",
-                },
+                path: `mnist_classifier::digits::one::upmost`,
             },
             ModuleItem {
                 ident: "downmost",
@@ -41,10 +32,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 73,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::one`,
-                    ident: "downmost",
-                },
+                path: `mnist_classifier::digits::one::downmost`,
             },
             ModuleItem {
                 ident: "hat",
@@ -52,10 +40,7 @@ Ok(
                     `mnist_classifier::digits::one`,
                 ),
                 ast_idx: 74,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::one`,
-                    ident: "hat",
-                },
+                path: `mnist_classifier::digits::one::hat`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

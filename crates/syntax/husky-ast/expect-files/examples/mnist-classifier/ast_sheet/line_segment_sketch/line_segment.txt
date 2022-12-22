@@ -143,10 +143,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::line_segment_sketch::line_segment`,
-                                ident: "displacement",
-                            },
+                            `mnist_classifier::line_segment_sketch::line_segment::displacement`,
                         ),
                     ),
                     ident: "displacement",
@@ -172,10 +169,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::line_segment_sketch::line_segment`,
-                                ident: "dist_to_point",
-                            },
+                            `mnist_classifier::line_segment_sketch::line_segment::dist_to_point`,
                         ),
                     ),
                     ident: "dist_to_point",
@@ -217,10 +211,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::line_segment_sketch::line_segment`,
-                                ident: "LineSegment",
-                            },
+                            `mnist_classifier::line_segment_sketch::line_segment::LineSegment`,
                         ),
                     ),
                     ident: "LineSegment",

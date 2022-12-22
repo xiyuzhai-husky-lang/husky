@@ -6,28 +6,19 @@ Ok(
                 ident: "bool",
                 accessibility: Public,
                 ast_idx: 0,
-                path: ModuleItemPath {
-                    module: `core::basic`,
-                    ident: "bool",
-                },
+                path: `core::basic::bool`,
             },
             ModuleItem {
                 ident: "Trait",
                 accessibility: Public,
                 ast_idx: 1,
-                path: ModuleItemPath {
-                    module: `core::basic`,
-                    ident: "Trait",
-                },
+                path: `core::basic::Trait`,
             },
             ModuleItem {
                 ident: "Module",
                 accessibility: Public,
                 ast_idx: 2,
-                path: ModuleItemPath {
-                    module: `core::basic`,
-                    ident: "Module",
-                },
+                path: `core::basic::Module`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -569,10 +569,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::four`,
-                                ident: "left_components",
-                            },
+                            `mnist_classifier::digits::four::left_components`,
                         ),
                     ),
                     ident: "left_components",
@@ -598,10 +595,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::four`,
-                                ident: "left_coordinate_max",
-                            },
+                            `mnist_classifier::digits::four::left_coordinate_max`,
                         ),
                     ),
                     ident: "left_coordinate_max",
@@ -627,10 +621,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::four`,
-                                ident: "components_max_downwards",
-                            },
+                            `mnist_classifier::digits::four::components_max_downwards`,
                         ),
                     ),
                     ident: "components_max_downwards",
@@ -656,10 +647,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::four`,
-                                ident: "components_max_heights",
-                            },
+                            `mnist_classifier::digits::four::components_max_heights`,
                         ),
                     ),
                     ident: "components_max_heights",
@@ -685,10 +673,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::four`,
-                                ident: "is_four",
-                            },
+                            `mnist_classifier::digits::four::is_four`,
                         ),
                     ),
                     ident: "is_four",
@@ -714,10 +699,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::four`,
-                                ident: "displacement_downwards",
-                            },
+                            `mnist_classifier::digits::four::displacement_downwards`,
                         ),
                     ),
                     ident: "displacement_downwards",
@@ -743,10 +725,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::four`,
-                                ident: "cc_box_heights",
-                            },
+                            `mnist_classifier::digits::four::cc_box_heights`,
                         ),
                     ),
                     ident: "cc_box_heights",

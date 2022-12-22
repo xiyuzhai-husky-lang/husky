@@ -8,10 +8,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 50,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::seven`,
-                    ident: "simple_seven_match",
-                },
+                path: `mnist_classifier::digits::seven::simple_seven_match`,
             },
             ModuleItem {
                 ident: "simple_leftdown_pattern",
@@ -19,10 +16,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 51,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::seven`,
-                    ident: "simple_leftdown_pattern",
-                },
+                path: `mnist_classifier::digits::seven::simple_leftdown_pattern`,
             },
             ModuleItem {
                 ident: "special_seven_match",
@@ -30,10 +24,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 52,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::seven`,
-                    ident: "special_seven_match",
-                },
+                path: `mnist_classifier::digits::seven::special_seven_match`,
             },
             ModuleItem {
                 ident: "leftupcc_pattern",
@@ -41,10 +32,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 53,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::seven`,
-                    ident: "leftupcc_pattern",
-                },
+                path: `mnist_classifier::digits::seven::leftupcc_pattern`,
             },
             ModuleItem {
                 ident: "leftdowncc_pattern",
@@ -52,10 +40,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 54,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::seven`,
-                    ident: "leftdowncc_pattern",
-                },
+                path: `mnist_classifier::digits::seven::leftdowncc_pattern`,
             },
             ModuleItem {
                 ident: "is_seven",
@@ -63,10 +48,7 @@ Ok(
                     `mnist_classifier::digits::seven`,
                 ),
                 ast_idx: 55,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::seven`,
-                    ident: "is_seven",
-                },
+                path: `mnist_classifier::digits::seven::is_seven`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -8,10 +8,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 73,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "raw_contours",
-                },
+                path: `mnist_classifier::connected_component::raw_contours`,
             },
             ModuleItem {
                 ident: "eff_holes",
@@ -19,10 +16,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 74,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "eff_holes",
-                },
+                path: `mnist_classifier::connected_component::eff_holes`,
             },
             ModuleItem {
                 ident: "max_hole_ilen",
@@ -30,10 +24,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 75,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "max_hole_ilen",
-                },
+                path: `mnist_classifier::connected_component::max_hole_ilen`,
             },
             ModuleItem {
                 ident: "max_row_span",
@@ -41,10 +32,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 76,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "max_row_span",
-                },
+                path: `mnist_classifier::connected_component::max_row_span`,
             },
             ModuleItem {
                 ident: "row_span_sum",
@@ -52,10 +40,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 77,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "row_span_sum",
-                },
+                path: `mnist_classifier::connected_component::row_span_sum`,
             },
             ModuleItem {
                 ident: "distribution",
@@ -63,10 +48,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 78,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "distribution",
-                },
+                path: `mnist_classifier::connected_component::distribution`,
             },
             ModuleItem {
                 ident: "upper_mass",
@@ -74,10 +56,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 79,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "upper_mass",
-                },
+                path: `mnist_classifier::connected_component::upper_mass`,
             },
             ModuleItem {
                 ident: "lower_mass",
@@ -85,10 +64,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 80,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "lower_mass",
-                },
+                path: `mnist_classifier::connected_component::lower_mass`,
             },
             ModuleItem {
                 ident: "top_k_row_span_sum",
@@ -96,10 +72,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 81,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "top_k_row_span_sum",
-                },
+                path: `mnist_classifier::connected_component::top_k_row_span_sum`,
             },
             ModuleItem {
                 ident: "top_k_row_right_mass_sum",
@@ -107,10 +80,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 82,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "top_k_row_right_mass_sum",
-                },
+                path: `mnist_classifier::connected_component::top_k_row_right_mass_sum`,
             },
             ModuleItem {
                 ident: "ConnectedComponentDistribution",
@@ -118,10 +88,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 126,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "ConnectedComponentDistribution",
-                },
+                path: `mnist_classifier::connected_component::ConnectedComponentDistribution`,
             },
             ModuleItem {
                 ident: "EffHoles",
@@ -129,10 +96,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 127,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "EffHoles",
-                },
+                path: `mnist_classifier::connected_component::EffHoles`,
             },
             ModuleItem {
                 ident: "hole_tmpl",
@@ -140,10 +104,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 128,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "hole_tmpl",
-                },
+                path: `mnist_classifier::connected_component::hole_tmpl`,
             },
             ModuleItem {
                 ident: "ConnectedComponent",
@@ -151,10 +112,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 129,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "ConnectedComponent",
-                },
+                path: `mnist_classifier::connected_component::ConnectedComponent`,
             },
             ModuleItem {
                 ident: "horizontal_extend",
@@ -162,10 +120,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 130,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "horizontal_extend",
-                },
+                path: `mnist_classifier::connected_component::horizontal_extend`,
             },
             ModuleItem {
                 ident: "find_connected_components",
@@ -173,10 +128,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 ast_idx: 131,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::connected_component`,
-                    ident: "find_connected_components",
-                },
+                path: `mnist_classifier::connected_component::find_connected_components`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

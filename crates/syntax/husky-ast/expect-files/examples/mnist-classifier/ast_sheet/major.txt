@@ -220,10 +220,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::major`,
-                                ident: "connected_components",
-                            },
+                            `mnist_classifier::major::connected_components`,
                         ),
                     ),
                     ident: "connected_components",
@@ -249,10 +246,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::major`,
-                                ident: "major_connected_component",
-                            },
+                            `mnist_classifier::major::major_connected_component`,
                         ),
                     ),
                     ident: "major_connected_component",
@@ -278,10 +272,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::major`,
-                                ident: "ignored_connected_components_row_span_sum_sum",
-                            },
+                            `mnist_classifier::major::ignored_connected_components_row_span_sum_sum`,
                         ),
                     ),
                     ident: "ignored_connected_components_row_span_sum_sum",
@@ -307,10 +298,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::major`,
-                                ident: "major_raw_contours",
-                            },
+                            `mnist_classifier::major::major_raw_contours`,
                         ),
                     ),
                     ident: "major_raw_contours",
@@ -341,10 +329,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::major`,
-                                ident: "major_raw_contour",
-                            },
+                            `mnist_classifier::major::major_raw_contour`,
                         ),
                     ),
                     ident: "major_raw_contour",
@@ -370,10 +355,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::major`,
-                                ident: "major_line_segment_sketch",
-                            },
+                            `mnist_classifier::major::major_line_segment_sketch`,
                         ),
                     ),
                     ident: "major_line_segment_sketch",
@@ -399,10 +381,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::major`,
-                                ident: "major_concave_components",
-                            },
+                            `mnist_classifier::major::major_concave_components`,
                         ),
                     ),
                     ident: "major_concave_components",

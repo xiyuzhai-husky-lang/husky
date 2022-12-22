@@ -315,10 +315,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::five`,
-                                ident: "five_match",
-                            },
+                            `mnist_classifier::five::five_match`,
                         ),
                     ),
                     ident: "five_match",
@@ -344,10 +341,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::five`,
-                                ident: "up_right_cc",
-                            },
+                            `mnist_classifier::five::up_right_cc`,
                         ),
                     ),
                     ident: "up_right_cc",
@@ -373,10 +367,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::five`,
-                                ident: "down_left_cc",
-                            },
+                            `mnist_classifier::five::down_left_cc`,
                         ),
                     ),
                     ident: "down_left_cc",
@@ -402,10 +393,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::five`,
-                                ident: "is_five",
-                            },
+                            `mnist_classifier::five::is_five`,
                         ),
                     ),
                     ident: "is_five",

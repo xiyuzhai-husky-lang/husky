@@ -76,17 +76,23 @@ impl ::salsa::DebugWithDb<<EntityPathJar as salsa::jar::Jar<'_>>::DynDb> for Mod
         db: &<EntityPathJar as salsa::jar::Jar<'_>>::DynDb,
         include_all_fields: bool,
     ) -> ::std::fmt::Result {
-        #[allow(unused_imports)]
-        use ::salsa::debug::helper::Fallback;
-        f.debug_struct("ModuleItemPath")
-            .field(
-                "module",
-                &self
-                    .module(db)
-                    .debug_with(db as &dyn VfsDb, include_all_fields),
-            )
-            .field("ident", &self.ident(db).debug_with(db, include_all_fields))
-            .finish()
+        if include_all_fields {
+            f.debug_struct("ModuleItemPath")
+                .field(
+                    "module",
+                    &self
+                        .module(db)
+                        .debug_with(db as &dyn VfsDb, include_all_fields),
+                )
+                .field("ident", &self.ident(db).debug_with(db, include_all_fields))
+                .finish()
+        } else {
+            f.write_str("`")?;
+            self.module(db).show_aux(f, db)?;
+            f.write_str("::")?;
+            f.write_str(self.ident(db).data(db))?;
+            f.write_str("`")
+        }
     }
 }
 
@@ -107,10 +113,7 @@ fn module_item_path_debug_with_db_works() {
     let toolchain = db.dev_toolchain();
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
     expect_test::expect![[r#"
-        ModuleItemPath {
-            module: `core::num`,
-            ident: "b32",
-        }
+        `core::num::b32`
     "#]]
     .assert_debug_eq(&entity_path_menu.b32().debug(&db));
 }

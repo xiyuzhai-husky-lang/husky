@@ -8,10 +8,7 @@ Ok(
                     `mnist_classifier::digits::eight`,
                 ),
                 ast_idx: 32,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::eight`,
-                    ident: "upper_mouth_match",
-                },
+                path: `mnist_classifier::digits::eight::upper_mouth_match`,
             },
             ModuleItem {
                 ident: "is_eight",
@@ -19,10 +16,7 @@ Ok(
                     `mnist_classifier::digits::eight`,
                 ),
                 ast_idx: 33,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::eight`,
-                    ident: "is_eight",
-                },
+                path: `mnist_classifier::digits::eight::is_eight`,
             },
             ModuleItem {
                 ident: "big_mouth",
@@ -30,10 +24,7 @@ Ok(
                     `mnist_classifier::digits::eight`,
                 ),
                 ast_idx: 34,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::eight`,
-                    ident: "big_mouth",
-                },
+                path: `mnist_classifier::digits::eight::big_mouth`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

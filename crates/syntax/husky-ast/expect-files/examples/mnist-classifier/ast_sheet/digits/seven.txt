@@ -484,10 +484,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::seven`,
-                                ident: "simple_seven_match",
-                            },
+                            `mnist_classifier::digits::seven::simple_seven_match`,
                         ),
                     ),
                     ident: "simple_seven_match",
@@ -513,10 +510,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::seven`,
-                                ident: "simple_leftdown_pattern",
-                            },
+                            `mnist_classifier::digits::seven::simple_leftdown_pattern`,
                         ),
                     ),
                     ident: "simple_leftdown_pattern",
@@ -542,10 +536,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::seven`,
-                                ident: "special_seven_match",
-                            },
+                            `mnist_classifier::digits::seven::special_seven_match`,
                         ),
                     ),
                     ident: "special_seven_match",
@@ -571,10 +562,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::seven`,
-                                ident: "leftupcc_pattern",
-                            },
+                            `mnist_classifier::digits::seven::leftupcc_pattern`,
                         ),
                     ),
                     ident: "leftupcc_pattern",
@@ -600,10 +588,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::seven`,
-                                ident: "leftdowncc_pattern",
-                            },
+                            `mnist_classifier::digits::seven::leftdowncc_pattern`,
                         ),
                     ),
                     ident: "leftdowncc_pattern",
@@ -629,10 +614,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::seven`,
-                                ident: "is_seven",
-                            },
+                            `mnist_classifier::digits::seven::is_seven`,
                         ),
                     ),
                     ident: "is_seven",

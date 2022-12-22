@@ -23,10 +23,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `core::ops`,
-                                ident: "Output",
-                            },
+                            `core::ops::Output`,
                         ),
                     ),
                     ident: "Output",
@@ -51,10 +48,7 @@ Ok(
                     entity_path: Some(
                         AssociatedItem(
                             AssociatedItemPath {
-                                parent_path: ModuleItemPath {
-                                    module: `core::ops`,
-                                    ident: "Add",
-                                },
+                                parent_path: `core::ops::Add`,
                                 ident: Identifier(
                                     Word(
                                         Id {
@@ -87,10 +81,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `core::ops`,
-                                ident: "Add",
-                            },
+                            `core::ops::Add`,
                         ),
                     ),
                     ident: "Add",

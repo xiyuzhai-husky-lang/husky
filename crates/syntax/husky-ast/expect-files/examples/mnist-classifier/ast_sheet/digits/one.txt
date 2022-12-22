@@ -614,10 +614,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::one`,
-                                ident: "one_fermi_match",
-                            },
+                            `mnist_classifier::digits::one::one_fermi_match`,
                         ),
                     ),
                     ident: "one_fermi_match",
@@ -643,10 +640,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::one`,
-                                ident: "is_one",
-                            },
+                            `mnist_classifier::digits::one::is_one`,
                         ),
                     ),
                     ident: "is_one",
@@ -672,10 +666,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::one`,
-                                ident: "upmost",
-                            },
+                            `mnist_classifier::digits::one::upmost`,
                         ),
                     ),
                     ident: "upmost",
@@ -701,10 +692,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::one`,
-                                ident: "downmost",
-                            },
+                            `mnist_classifier::digits::one::downmost`,
                         ),
                     ),
                     ident: "downmost",
@@ -730,10 +718,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::one`,
-                                ident: "hat",
-                            },
+                            `mnist_classifier::digits::one::hat`,
                         ),
                     ),
                     ident: "hat",

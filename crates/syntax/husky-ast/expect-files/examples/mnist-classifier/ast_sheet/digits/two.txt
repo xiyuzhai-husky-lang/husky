@@ -618,10 +618,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::two`,
-                                ident: "two_match",
-                            },
+                            `mnist_classifier::digits::two::two_match`,
                         ),
                     ),
                     ident: "two_match",
@@ -647,10 +644,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::two`,
-                                ident: "left_cc_pattern",
-                            },
+                            `mnist_classifier::digits::two::left_cc_pattern`,
                         ),
                     ),
                     ident: "left_cc_pattern",
@@ -676,10 +670,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::two`,
-                                ident: "right_cc_pattern",
-                            },
+                            `mnist_classifier::digits::two::right_cc_pattern`,
                         ),
                     ),
                     ident: "right_cc_pattern",
@@ -705,10 +696,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::two`,
-                                ident: "down_cc_pattern",
-                            },
+                            `mnist_classifier::digits::two::down_cc_pattern`,
                         ),
                     ),
                     ident: "down_cc_pattern",
@@ -734,10 +722,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::two`,
-                                ident: "is_two",
-                            },
+                            `mnist_classifier::digits::two::is_two`,
                         ),
                     ),
                     ident: "is_two",

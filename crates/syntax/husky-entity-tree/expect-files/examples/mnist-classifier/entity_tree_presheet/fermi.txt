@@ -8,10 +8,7 @@ Ok(
                     `mnist_classifier::fermi`,
                 ),
                 ast_idx: 24,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::fermi`,
-                    ident: "FermiMatchResult",
-                },
+                path: `mnist_classifier::fermi::FermiMatchResult`,
             },
             ModuleItem {
                 ident: "fermi_match",
@@ -19,10 +16,7 @@ Ok(
                     `mnist_classifier::fermi`,
                 ),
                 ast_idx: 26,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::fermi`,
-                    ident: "fermi_match",
-                },
+                path: `mnist_classifier::fermi::fermi_match`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -385,10 +385,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::three`,
-                                ident: "three_fermi_match",
-                            },
+                            `mnist_classifier::three::three_fermi_match`,
                         ),
                     ),
                     ident: "three_fermi_match",
@@ -414,10 +411,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::three`,
-                                ident: "is_three",
-                            },
+                            `mnist_classifier::three::is_three`,
                         ),
                     ),
                     ident: "is_three",
@@ -443,10 +437,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::three`,
-                                ident: "uparc",
-                            },
+                            `mnist_classifier::three::uparc`,
                         ),
                     ),
                     ident: "uparc",
@@ -472,10 +463,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::three`,
-                                ident: "downarc",
-                            },
+                            `mnist_classifier::three::downarc`,
                         ),
                     ),
                     ident: "downarc",
@@ -501,10 +489,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::three`,
-                                ident: "back",
-                            },
+                            `mnist_classifier::three::back`,
                         ),
                     ),
                     ident: "back",

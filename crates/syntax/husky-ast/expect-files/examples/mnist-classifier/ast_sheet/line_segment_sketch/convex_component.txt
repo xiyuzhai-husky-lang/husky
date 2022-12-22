@@ -69,10 +69,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::line_segment_sketch::convex_component`,
-                                ident: "ConvexCompoent",
-                            },
+                            `mnist_classifier::line_segment_sketch::convex_component::ConvexCompoent`,
                         ),
                     ),
                     ident: "ConvexCompoent",

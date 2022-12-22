@@ -8,10 +8,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 ast_idx: 15,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::line_segment`,
-                    ident: "displacement",
-                },
+                path: `mnist_classifier::line_segment_sketch::line_segment::displacement`,
             },
             ModuleItem {
                 ident: "dist_to_point",
@@ -19,10 +16,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 ast_idx: 16,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::line_segment`,
-                    ident: "dist_to_point",
-                },
+                path: `mnist_classifier::line_segment_sketch::line_segment::dist_to_point`,
             },
             ModuleItem {
                 ident: "LineSegment",
@@ -30,10 +24,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::line_segment`,
                 ),
                 ast_idx: 18,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::line_segment`,
-                    ident: "LineSegment",
-                },
+                path: `mnist_classifier::line_segment_sketch::line_segment::LineSegment`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
