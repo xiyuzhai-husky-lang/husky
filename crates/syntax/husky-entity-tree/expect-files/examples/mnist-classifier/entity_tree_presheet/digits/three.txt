@@ -8,10 +8,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 44,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::three`,
-                    ident: "three_fermi_match",
-                },
+                path: `mnist_classifier::digits::three::three_fermi_match`,
             },
             ModuleItem {
                 ident: "is_three",
@@ -19,10 +16,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 45,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::three`,
-                    ident: "is_three",
-                },
+                path: `mnist_classifier::digits::three::is_three`,
             },
             ModuleItem {
                 ident: "uparc",
@@ -30,10 +24,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 46,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::three`,
-                    ident: "uparc",
-                },
+                path: `mnist_classifier::digits::three::uparc`,
             },
             ModuleItem {
                 ident: "downarc",
@@ -41,10 +32,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 47,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::three`,
-                    ident: "downarc",
-                },
+                path: `mnist_classifier::digits::three::downarc`,
             },
             ModuleItem {
                 ident: "back",
@@ -52,10 +40,7 @@ Ok(
                     `mnist_classifier::digits::three`,
                 ),
                 ast_idx: 48,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::digits::three`,
-                    ident: "back",
-                },
+                path: `mnist_classifier::digits::three::back`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

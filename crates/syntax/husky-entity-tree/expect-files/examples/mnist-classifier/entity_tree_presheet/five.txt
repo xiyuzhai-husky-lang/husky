@@ -8,10 +8,7 @@ Ok(
                     `mnist_classifier::five`,
                 ),
                 ast_idx: 30,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::five`,
-                    ident: "five_match",
-                },
+                path: `mnist_classifier::five::five_match`,
             },
             ModuleItem {
                 ident: "up_right_cc",
@@ -19,10 +16,7 @@ Ok(
                     `mnist_classifier::five`,
                 ),
                 ast_idx: 31,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::five`,
-                    ident: "up_right_cc",
-                },
+                path: `mnist_classifier::five::up_right_cc`,
             },
             ModuleItem {
                 ident: "down_left_cc",
@@ -30,10 +24,7 @@ Ok(
                     `mnist_classifier::five`,
                 ),
                 ast_idx: 32,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::five`,
-                    ident: "down_left_cc",
-                },
+                path: `mnist_classifier::five::down_left_cc`,
             },
             ModuleItem {
                 ident: "is_five",
@@ -41,10 +32,7 @@ Ok(
                     `mnist_classifier::five`,
                 ),
                 ast_idx: 33,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::five`,
-                    ident: "is_five",
-                },
+                path: `mnist_classifier::five::is_five`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

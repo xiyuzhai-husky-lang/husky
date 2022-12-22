@@ -585,10 +585,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "raw_contours",
-                            },
+                            `mnist_classifier::connected_component::raw_contours`,
                         ),
                     ),
                     ident: "raw_contours",
@@ -614,10 +611,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "eff_holes",
-                            },
+                            `mnist_classifier::connected_component::eff_holes`,
                         ),
                     ),
                     ident: "eff_holes",
@@ -643,10 +637,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "max_hole_ilen",
-                            },
+                            `mnist_classifier::connected_component::max_hole_ilen`,
                         ),
                     ),
                     ident: "max_hole_ilen",
@@ -672,10 +663,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "max_row_span",
-                            },
+                            `mnist_classifier::connected_component::max_row_span`,
                         ),
                     ),
                     ident: "max_row_span",
@@ -701,10 +689,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "row_span_sum",
-                            },
+                            `mnist_classifier::connected_component::row_span_sum`,
                         ),
                     ),
                     ident: "row_span_sum",
@@ -730,10 +715,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "distribution",
-                            },
+                            `mnist_classifier::connected_component::distribution`,
                         ),
                     ),
                     ident: "distribution",
@@ -759,10 +741,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "upper_mass",
-                            },
+                            `mnist_classifier::connected_component::upper_mass`,
                         ),
                     ),
                     ident: "upper_mass",
@@ -788,10 +767,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "lower_mass",
-                            },
+                            `mnist_classifier::connected_component::lower_mass`,
                         ),
                     ),
                     ident: "lower_mass",
@@ -817,10 +793,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "top_k_row_span_sum",
-                            },
+                            `mnist_classifier::connected_component::top_k_row_span_sum`,
                         ),
                     ),
                     ident: "top_k_row_span_sum",
@@ -846,10 +819,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "top_k_row_right_mass_sum",
-                            },
+                            `mnist_classifier::connected_component::top_k_row_right_mass_sum`,
                         ),
                     ),
                     ident: "top_k_row_right_mass_sum",
@@ -1230,10 +1200,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "ConnectedComponentDistribution",
-                            },
+                            `mnist_classifier::connected_component::ConnectedComponentDistribution`,
                         ),
                     ),
                     ident: "ConnectedComponentDistribution",
@@ -1261,10 +1228,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "EffHoles",
-                            },
+                            `mnist_classifier::connected_component::EffHoles`,
                         ),
                     ),
                     ident: "EffHoles",
@@ -1290,10 +1254,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "hole_tmpl",
-                            },
+                            `mnist_classifier::connected_component::hole_tmpl`,
                         ),
                     ),
                     ident: "hole_tmpl",
@@ -1321,10 +1282,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "ConnectedComponent",
-                            },
+                            `mnist_classifier::connected_component::ConnectedComponent`,
                         ),
                     ),
                     ident: "ConnectedComponent",
@@ -1350,10 +1308,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "horizontal_extend",
-                            },
+                            `mnist_classifier::connected_component::horizontal_extend`,
                         ),
                     ),
                     ident: "horizontal_extend",
@@ -1379,10 +1334,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::connected_component`,
-                                ident: "find_connected_components",
-                            },
+                            `mnist_classifier::connected_component::find_connected_components`,
                         ),
                     ),
                     ident: "find_connected_components",

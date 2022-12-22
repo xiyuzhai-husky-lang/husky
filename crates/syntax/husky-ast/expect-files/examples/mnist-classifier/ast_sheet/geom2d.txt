@@ -937,10 +937,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::geom2d`,
-                                ident: "Point2d",
-                            },
+                            `mnist_classifier::geom2d::Point2d`,
                         ),
                     ),
                     ident: "Point2d",
@@ -976,10 +973,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::geom2d`,
-                                ident: "RelativePoint2d",
-                            },
+                            `mnist_classifier::geom2d::RelativePoint2d`,
                         ),
                     ),
                     ident: "RelativePoint2d",
@@ -1007,10 +1001,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::geom2d`,
-                                ident: "Vector2d",
-                            },
+                            `mnist_classifier::geom2d::Vector2d`,
                         ),
                     ),
                     ident: "Vector2d",
@@ -1046,10 +1037,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::geom2d`,
-                                ident: "ClosedRange",
-                            },
+                            `mnist_classifier::geom2d::ClosedRange`,
                         ),
                     ),
                     ident: "ClosedRange",
@@ -1085,10 +1073,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::geom2d`,
-                                ident: "BoundingBox",
-                            },
+                            `mnist_classifier::geom2d::BoundingBox`,
                         ),
                     ),
                     ident: "BoundingBox",
@@ -1124,10 +1109,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::geom2d`,
-                                ident: "RelativeBoundingBox",
-                            },
+                            `mnist_classifier::geom2d::RelativeBoundingBox`,
                         ),
                     ),
                     ident: "RelativeBoundingBox",

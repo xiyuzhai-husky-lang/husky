@@ -140,10 +140,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `core::num`,
-                                ident: "i8",
-                            },
+                            `core::num::i8`,
                         ),
                     ),
                     ident: "i8",
@@ -186,10 +183,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `core::num`,
-                                ident: "i16",
-                            },
+                            `core::num::i16`,
                         ),
                     ),
                     ident: "i16",
@@ -232,10 +226,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `core::num`,
-                                ident: "i32",
-                            },
+                            `core::num::i32`,
                         ),
                     ),
                     ident: "i32",
@@ -284,10 +275,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `core::num`,
-                                ident: "i64",
-                            },
+                            `core::num::i64`,
                         ),
                     ),
                     ident: "i64",

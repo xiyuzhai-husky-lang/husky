@@ -328,10 +328,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::eight`,
-                                ident: "upper_mouth_match",
-                            },
+                            `mnist_classifier::eight::upper_mouth_match`,
                         ),
                     ),
                     ident: "upper_mouth_match",
@@ -357,10 +354,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::eight`,
-                                ident: "is_eight",
-                            },
+                            `mnist_classifier::eight::is_eight`,
                         ),
                     ),
                     ident: "is_eight",
@@ -386,10 +380,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::eight`,
-                                ident: "big_mouth",
-                            },
+                            `mnist_classifier::eight::big_mouth`,
                         ),
                     ),
                     ident: "big_mouth",

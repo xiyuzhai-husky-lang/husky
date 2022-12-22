@@ -59,10 +59,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `natural_number_game`,
-                                ident: "Nat",
-                            },
+                            `natural_number_game::Nat`,
                         ),
                     ),
                     ident: "Nat",
@@ -130,10 +127,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `natural_number_game`,
-                                ident: "OddNat",
-                            },
+                            `natural_number_game::OddNat`,
                         ),
                     ),
                     ident: "OddNat",
@@ -161,10 +155,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `natural_number_game`,
-                                ident: "EvenNat",
-                            },
+                            `natural_number_game::EvenNat`,
                         ),
                     ),
                     ident: "EvenNat",

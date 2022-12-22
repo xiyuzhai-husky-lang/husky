@@ -8,10 +8,7 @@ Ok(
                     `mnist_classifier::nine`,
                 ),
                 ast_idx: 54,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::nine`,
-                    ident: "nine_match",
-                },
+                path: `mnist_classifier::nine::nine_match`,
             },
             ModuleItem {
                 ident: "nine_match_refine",
@@ -19,10 +16,7 @@ Ok(
                     `mnist_classifier::nine`,
                 ),
                 ast_idx: 55,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::nine`,
-                    ident: "nine_match_refine",
-                },
+                path: `mnist_classifier::nine::nine_match_refine`,
             },
             ModuleItem {
                 ident: "is_nine",
@@ -30,10 +24,7 @@ Ok(
                     `mnist_classifier::nine`,
                 ),
                 ast_idx: 56,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::nine`,
-                    ident: "is_nine",
-                },
+                path: `mnist_classifier::nine::is_nine`,
             },
             ModuleItem {
                 ident: "downmost",
@@ -41,10 +32,7 @@ Ok(
                     `mnist_classifier::nine`,
                 ),
                 ast_idx: 57,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::nine`,
-                    ident: "downmost",
-                },
+                path: `mnist_classifier::nine::downmost`,
             },
             ModuleItem {
                 ident: "big_cc",
@@ -52,10 +40,7 @@ Ok(
                     `mnist_classifier::nine`,
                 ),
                 ast_idx: 58,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::nine`,
-                    ident: "big_cc",
-                },
+                path: `mnist_classifier::nine::big_cc`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -8,10 +8,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 44,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "norm",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::norm`,
             },
             ModuleItem {
                 ident: "rel_norm",
@@ -19,10 +16,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 45,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "rel_norm",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::rel_norm`,
             },
             ModuleItem {
                 ident: "hausdorff_norm",
@@ -30,10 +24,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 46,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "hausdorff_norm",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::hausdorff_norm`,
             },
             ModuleItem {
                 ident: "angle_change",
@@ -41,10 +32,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 47,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "angle_change",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::angle_change`,
             },
             ModuleItem {
                 ident: "bounding_box",
@@ -52,10 +40,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 48,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "bounding_box",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::bounding_box`,
             },
             ModuleItem {
                 ident: "relative_bounding_box",
@@ -63,10 +48,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 49,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "relative_bounding_box",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::relative_bounding_box`,
             },
             ModuleItem {
                 ident: "line_segment",
@@ -74,10 +56,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 50,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "line_segment",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::line_segment`,
             },
             ModuleItem {
                 ident: "start",
@@ -85,10 +64,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 51,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "start",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::start`,
             },
             ModuleItem {
                 ident: "end",
@@ -96,10 +72,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 52,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "end",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::end`,
             },
             ModuleItem {
                 ident: "displacement",
@@ -107,10 +80,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 53,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "displacement",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::displacement`,
             },
             ModuleItem {
                 ident: "start_tangent",
@@ -118,10 +88,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 54,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "start_tangent",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::start_tangent`,
             },
             ModuleItem {
                 ident: "end_tangent",
@@ -129,10 +96,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 55,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "end_tangent",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::end_tangent`,
             },
             ModuleItem {
                 ident: "ConcaveComponent",
@@ -140,10 +104,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 78,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "ConcaveComponent",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`,
             },
             ModuleItem {
                 ident: "find_concave_components",
@@ -151,10 +112,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch::concave_component`,
                 ),
                 ast_idx: 79,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ident: "find_concave_components",
-                },
+                path: `mnist_classifier::line_segment_sketch::concave_component::find_concave_components`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

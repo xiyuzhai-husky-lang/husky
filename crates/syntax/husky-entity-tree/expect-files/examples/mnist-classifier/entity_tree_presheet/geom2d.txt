@@ -8,10 +8,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 79,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::geom2d`,
-                    ident: "Point2d",
-                },
+                path: `mnist_classifier::geom2d::Point2d`,
             },
             ModuleItem {
                 ident: "RelativePoint2d",
@@ -19,10 +16,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 81,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::geom2d`,
-                    ident: "RelativePoint2d",
-                },
+                path: `mnist_classifier::geom2d::RelativePoint2d`,
             },
             ModuleItem {
                 ident: "Vector2d",
@@ -30,10 +24,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 82,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::geom2d`,
-                    ident: "Vector2d",
-                },
+                path: `mnist_classifier::geom2d::Vector2d`,
             },
             ModuleItem {
                 ident: "ClosedRange",
@@ -41,10 +32,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 84,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::geom2d`,
-                    ident: "ClosedRange",
-                },
+                path: `mnist_classifier::geom2d::ClosedRange`,
             },
             ModuleItem {
                 ident: "BoundingBox",
@@ -52,10 +40,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 86,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::geom2d`,
-                    ident: "BoundingBox",
-                },
+                path: `mnist_classifier::geom2d::BoundingBox`,
             },
             ModuleItem {
                 ident: "RelativeBoundingBox",
@@ -63,10 +48,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 ast_idx: 88,
-                path: ModuleItemPath {
-                    module: `mnist_classifier::geom2d`,
-                    ident: "RelativeBoundingBox",
-                },
+                path: `mnist_classifier::geom2d::RelativeBoundingBox`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

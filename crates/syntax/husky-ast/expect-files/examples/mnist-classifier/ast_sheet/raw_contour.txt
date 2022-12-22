@@ -1747,10 +1747,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::raw_contour`,
-                                ident: "RawContour",
-                            },
+                            `mnist_classifier::raw_contour::RawContour`,
                         ),
                     ),
                     ident: "RawContour",
@@ -1786,10 +1783,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::raw_contour`,
-                                ident: "Direction",
-                            },
+                            `mnist_classifier::raw_contour::Direction`,
                         ),
                     ),
                     ident: "Direction",
@@ -1847,10 +1841,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::raw_contour`,
-                                ident: "get_pixel_pair",
-                            },
+                            `mnist_classifier::raw_contour::get_pixel_pair`,
                         ),
                     ),
                     ident: "get_pixel_pair",
@@ -1876,10 +1867,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::raw_contour`,
-                                ident: "get_pixel_to_the_left",
-                            },
+                            `mnist_classifier::raw_contour::get_pixel_to_the_left`,
                         ),
                     ),
                     ident: "get_pixel_to_the_left",
@@ -1905,10 +1893,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::raw_contour`,
-                                ident: "get_pixel_to_the_right",
-                            },
+                            `mnist_classifier::raw_contour::get_pixel_to_the_right`,
                         ),
                     ),
                     ident: "get_pixel_to_the_right",
@@ -1934,10 +1919,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::raw_contour`,
-                                ident: "get_inward_direction",
-                            },
+                            `mnist_classifier::raw_contour::get_inward_direction`,
                         ),
                     ),
                     ident: "get_inward_direction",
@@ -1963,10 +1945,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::raw_contour`,
-                                ident: "get_angle_change",
-                            },
+                            `mnist_classifier::raw_contour::get_angle_change`,
                         ),
                     ),
                     ident: "get_angle_change",
@@ -1992,10 +1971,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::raw_contour`,
-                                ident: "get_outward_direction",
-                            },
+                            `mnist_classifier::raw_contour::get_outward_direction`,
                         ),
                     ),
                     ident: "get_outward_direction",
@@ -2023,10 +1999,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::raw_contour`,
-                                ident: "StreakCache",
-                            },
+                            `mnist_classifier::raw_contour::StreakCache`,
                         ),
                     ),
                     ident: "StreakCache",
@@ -2052,10 +2025,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::raw_contour`,
-                                ident: "get_concave_middle_point",
-                            },
+                            `mnist_classifier::raw_contour::get_concave_middle_point`,
                         ),
                     ),
                     ident: "get_concave_middle_point",
@@ -2081,10 +2051,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::raw_contour`,
-                                ident: "find_raw_contours",
-                            },
+                            `mnist_classifier::raw_contour::find_raw_contours`,
                         ),
                     ),
                     ident: "find_raw_contours",

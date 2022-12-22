@@ -211,7 +211,7 @@ impl ::salsa::DebugWithDb<<VfsJar as salsa::jar::Jar<'_>>::DynDb> for ModulePath
 }
 
 impl ModulePath {
-    fn show(
+    pub fn show(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
         db: &<VfsJar as salsa::jar::Jar<'_>>::DynDb,
@@ -220,7 +220,7 @@ impl ModulePath {
         self.show_aux(f, db)?;
         f.write_str("`")
     }
-    fn show_aux(
+    pub fn show_aux(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
         db: &<VfsJar as salsa::jar::Jar<'_>>::DynDb,

@@ -251,10 +251,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::fermi`,
-                                ident: "FermiMatchResult",
-                            },
+                            `mnist_classifier::fermi::FermiMatchResult`,
                         ),
                     ),
                     ident: "FermiMatchResult",
@@ -288,10 +285,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::fermi`,
-                                ident: "fermi_match",
-                            },
+                            `mnist_classifier::fermi::fermi_match`,
                         ),
                     ),
                     ident: "fermi_match",

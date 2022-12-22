@@ -8,19 +8,13 @@ Ok(
                     `core::ops`,
                 ),
                 ast_idx: 0,
-                path: ModuleItemPath {
-                    module: `core::ops`,
-                    ident: "Output",
-                },
+                path: `core::ops::Output`,
             },
             ModuleItem {
                 ident: "Add",
                 accessibility: Public,
                 ast_idx: 3,
-                path: ModuleItemPath {
-                    module: `core::ops`,
-                    ident: "Add",
-                },
+                path: `core::ops::Add`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

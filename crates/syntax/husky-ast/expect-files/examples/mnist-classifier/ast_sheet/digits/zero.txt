@@ -342,10 +342,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::zero`,
-                                ident: "open_one_match",
-                            },
+                            `mnist_classifier::digits::zero::open_one_match`,
                         ),
                     ),
                     ident: "open_one_match",
@@ -371,10 +368,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::zero`,
-                                ident: "almost_closed",
-                            },
+                            `mnist_classifier::digits::zero::almost_closed`,
                         ),
                     ),
                     ident: "almost_closed",
@@ -400,10 +394,7 @@ Ok(
                     ),
                     entity_path: Some(
                         ModuleItem(
-                            ModuleItemPath {
-                                module: `mnist_classifier::digits::zero`,
-                                ident: "is_zero",
-                            },
+                            `mnist_classifier::digits::zero::is_zero`,
                         ),
                     ),
                     ident: "is_zero",

@@ -8,10 +8,7 @@ Ok(
                     `natural_number_game`,
                 ),
                 ast_idx: 3,
-                path: ModuleItemPath {
-                    module: `natural_number_game`,
-                    ident: "Nat",
-                },
+                path: `natural_number_game::Nat`,
             },
             ModuleItem {
                 ident: "OddNat",
@@ -19,10 +16,7 @@ Ok(
                     `natural_number_game`,
                 ),
                 ast_idx: 9,
-                path: ModuleItemPath {
-                    module: `natural_number_game`,
-                    ident: "OddNat",
-                },
+                path: `natural_number_game::OddNat`,
             },
             ModuleItem {
                 ident: "EvenNat",
@@ -30,10 +24,7 @@ Ok(
                     `natural_number_game`,
                 ),
                 ast_idx: 10,
-                path: ModuleItemPath {
-                    module: `natural_number_game`,
-                    ident: "EvenNat",
-                },
+                path: `natural_number_game::EvenNat`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(

@@ -6,28 +6,19 @@ Ok(
                 ident: "i8",
                 accessibility: Public,
                 ast_idx: 9,
-                path: ModuleItemPath {
-                    module: `core::num`,
-                    ident: "i8",
-                },
+                path: `core::num::i8`,
             },
             ModuleItem {
                 ident: "i16",
                 accessibility: Public,
                 ast_idx: 13,
-                path: ModuleItemPath {
-                    module: `core::num`,
-                    ident: "i16",
-                },
+                path: `core::num::i16`,
             },
             ModuleItem {
                 ident: "i32",
                 accessibility: Public,
                 ast_idx: 17,
-                path: ModuleItemPath {
-                    module: `core::num`,
-                    ident: "i32",
-                },
+                path: `core::num::i32`,
             },
             ModuleItem {
                 ident: "i64",
@@ -35,10 +26,7 @@ Ok(
                     `core::num`,
                 ),
                 ast_idx: 21,
-                path: ModuleItemPath {
-                    module: `core::num`,
-                    ident: "i64",
-                },
+                path: `core::num::i64`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
