@@ -3,10 +3,12 @@ mod ancestry;
 
 pub use accessibility::*;
 pub use ancestry::*;
+use with_db::{PartialOrdWithDb, WithDb};
 
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
+/// one module path is large if it contains more files
+#[derive(Copy, Clone, PartialEq, Eq, Hash, Debug)]
 pub struct ModulePath(salsa::Id);
 
 impl ModulePath {
@@ -17,6 +19,53 @@ impl ModulePath {
     pub fn module_ancestry(self, db: &dyn VfsDb) -> &ModuleAncestry {
         module_ancestry(db, self)
     }
+}
+
+impl PartialOrdWithDb<dyn VfsDb + '_> for ModulePath {
+    fn partial_cmp_with_db(&self, db: &dyn VfsDb, other: &Self) -> Option<std::cmp::Ordering> {
+        if self == other {
+            return Some(std::cmp::Ordering::Equal);
+        }
+        if self.starts_with(db, *other) {
+            return Some(std::cmp::Ordering::Less);
+        }
+        if other.starts_with(db, *self) {
+            return Some(std::cmp::Ordering::Greater);
+        }
+        None
+    }
+}
+
+impl<Db: VfsDb> PartialOrdWithDb<Db> for ModulePath {
+    fn partial_cmp_with_db(&self, db: &Db, other: &Self) -> Option<std::cmp::Ordering> {
+        self.partial_cmp_with_db(db as &dyn VfsDb, other)
+    }
+}
+
+#[test]
+fn module_path_partial_ord_works() {
+    let db = DB::default();
+    let toolchain = db.dev_toolchain();
+    let path_menu = db.path_menu(toolchain).unwrap();
+
+    assert!(path_menu.core().with_db(&db) > (path_menu.core_num()).with_db(&db));
+    assert!(!(path_menu.core().with_db(&db) == (path_menu.core_num()).with_db(&db)));
+    assert!(!(path_menu.core().with_db(&db) < (path_menu.core_num()).with_db(&db)));
+    assert!(!(path_menu.core().with_db(&db) <= (path_menu.core_num()).with_db(&db)));
+    assert!(path_menu.core().with_db(&db) >= (path_menu.core_num()).with_db(&db));
+    assert!(path_menu.core().with_db(&db) != (path_menu.core_num()).with_db(&db));
+
+    assert!(!(path_menu.core_prelude().with_db(&db) > path_menu.core_num().with_db(&db)));
+    assert!(!(path_menu.core_prelude().with_db(&db) == path_menu.core_num().with_db(&db)));
+    assert!(!(path_menu.core_prelude().with_db(&db) < path_menu.core_num().with_db(&db)));
+    assert!(!(path_menu.core_prelude().with_db(&db) <= path_menu.core_num().with_db(&db)));
+    assert!(!(path_menu.core_prelude().with_db(&db) >= path_menu.core_num().with_db(&db)));
+    assert!(path_menu.core_prelude().with_db(&db) != path_menu.core_num().with_db(&db));
+
+    assert_ne!(
+        path_menu.std().with_db(&db),
+        path_menu.core_ops().with_db(&db),
+    )
 }
 
 #[doc = r" Internal struct used for interned item"]

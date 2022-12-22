@@ -16,6 +16,8 @@ dashmap = "5.4.0"
 eyre = "0.6.8"
 semver = "1.0.14"
 replace_with = "0.1.7"
+# abstraction
+with-db = { path = "../../abstraction/with-db" }
 # fs
 husky-fs-specs = { path = "../../fs/husky-fs-specs" }
 # lex
@@ -31,4 +33,5 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 tempfile = "3.3.0"
 
 [features]
+default = ["test_utils"]
 test_utils = []

@@ -1,0 +1,195 @@
+Ok(
+    EntityTreeBundle {
+        sheets: [
+            EntityTreeSheet {
+                module_path: ModulePath {
+                    [display]: "crate",
+                    [crate]: CratePath {
+                        [salsa id]: 4,
+                        package_path: PackagePath {
+                            [salsa id]: 4,
+                            toolchain: Toolchain {
+                                [salsa id]: 0,
+                                data: Local {
+                                    library_path: DiffPath {
+                                        [salsa id]: 0,
+                                        data: DiffPathBuf(
+                                            "../../../library",
+                                        ),
+                                    },
+                                },
+                            },
+                            data: Local {
+                                path: DiffPath {
+                                    [salsa id]: 37,
+                                    data: DiffPathBuf(
+                                        "../../../examples/natural-number-game",
+                                    ),
+                                },
+                            },
+                        },
+                        crate_kind: Library,
+                    },
+                },
+                sheets: [
+                    ModuleItem {
+                        ident: Identifier(
+                            "Nat",
+                        ),
+                        accessibility: PubicUnder(
+                            ModulePath {
+                                [display]: "crate",
+                                [crate]: CratePath {
+                                    [salsa id]: 4,
+                                    package_path: PackagePath {
+                                        [salsa id]: 4,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                        data: Local {
+                                            path: DiffPath {
+                                                [salsa id]: 37,
+                                                data: DiffPathBuf(
+                                                    "../../../examples/natural-number-game",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    crate_kind: Library,
+                                },
+                            },
+                        ),
+                        ast_idx: 3,
+                        path: ModuleItemPath {
+                            [salsa id]: 104,
+                            module: ModulePath(
+                                Id {
+                                    value: 33,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 374,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                    ModuleItem {
+                        ident: Identifier(
+                            "OddNat",
+                        ),
+                        accessibility: PubicUnder(
+                            ModulePath {
+                                [display]: "crate",
+                                [crate]: CratePath {
+                                    [salsa id]: 4,
+                                    package_path: PackagePath {
+                                        [salsa id]: 4,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                        data: Local {
+                                            path: DiffPath {
+                                                [salsa id]: 37,
+                                                data: DiffPathBuf(
+                                                    "../../../examples/natural-number-game",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    crate_kind: Library,
+                                },
+                            },
+                        ),
+                        ast_idx: 9,
+                        path: ModuleItemPath {
+                            [salsa id]: 105,
+                            module: ModulePath(
+                                Id {
+                                    value: 33,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 379,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                    ModuleItem {
+                        ident: Identifier(
+                            "EvenNat",
+                        ),
+                        accessibility: PubicUnder(
+                            ModulePath {
+                                [display]: "crate",
+                                [crate]: CratePath {
+                                    [salsa id]: 4,
+                                    package_path: PackagePath {
+                                        [salsa id]: 4,
+                                        toolchain: Toolchain {
+                                            [salsa id]: 0,
+                                            data: Local {
+                                                library_path: DiffPath {
+                                                    [salsa id]: 0,
+                                                    data: DiffPathBuf(
+                                                        "../../../library",
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                        data: Local {
+                                            path: DiffPath {
+                                                [salsa id]: 37,
+                                                data: DiffPathBuf(
+                                                    "../../../examples/natural-number-game",
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    crate_kind: Library,
+                                },
+                            },
+                        ),
+                        ast_idx: 10,
+                        path: ModuleItemPath {
+                            [salsa id]: 106,
+                            module: ModulePath(
+                                Id {
+                                    value: 33,
+                                },
+                            ),
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 382,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+)
