@@ -1,4 +1,3 @@
-use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 
@@ -9,23 +8,6 @@ pub struct TextLine(pub u32);
 impl TextLine {
     pub fn to_next_line(&self) -> Self {
         Self(self.0 + 1)
-    }
-}
-
-impl HuskyDisplay for TextLine {
-    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
-        if config.colored {
-            write!(
-                result,
-                "{}row {: <4}{}",
-                husky_print_utils::YELLOW,
-                self.0 + 1,
-                husky_print_utils::RESET
-            )
-            .unwrap();
-        } else {
-            write!(result, "row {: <4}", self.0 + 1,).unwrap();
-        }
     }
 }
 

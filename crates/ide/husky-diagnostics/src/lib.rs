@@ -11,7 +11,6 @@ pub use severity::DiagnosticSeverity;
 
 use collect::collect_module_diagnostics;
 use husky_dev_utils::DevSource;
-use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use husky_vfs::*;
 
 use husky_text::TextRange;
@@ -27,12 +26,6 @@ pub struct Diagnostic {
     range: TextRange,
     message: String,
     dev_src: DevSource,
-}
-
-impl HuskyDisplay for Diagnostic {
-    fn write_inherent(&self, _config: HuskyDisplayConfig, result: &mut String) {
-        write!(result, "{:?}\t{}", self.range, self.message).unwrap()
-    }
 }
 
 // impl From<&AstError> for Diagnostic {

@@ -1,5 +1,4 @@
 use husky_check_utils::should;
-use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use std::marker::PhantomData;
 
 use crate::*;
@@ -16,27 +15,6 @@ where
 {
     fn eq(&self, other: &Self) -> bool {
         self.data == other.data
-    }
-}
-
-pub trait ArenaKeyQuery<T> {
-    fn write_key(&self, config: HuskyDisplayConfig, raw_idx: ArenaIdx<T>, result: &mut String);
-
-    fn write_map_inherently<V: HuskyDisplay>(
-        &self,
-        map: &ArenaMap<T, V>,
-        config: HuskyDisplayConfig,
-        result: &mut String,
-    ) {
-        for (raw_idx, v) in map.iter() {
-            for _ in 0..config.indent {
-                result.push(' ')
-            }
-            self.write_key(config, raw_idx, result);
-            result.push_str("   ");
-            v.write_inherent(config.indented(), result);
-            result.push_str("\n");
-        }
     }
 }
 

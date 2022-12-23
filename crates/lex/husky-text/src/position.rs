@@ -4,8 +4,6 @@ mod line;
 pub use column::*;
 pub use line::*;
 
-use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
-
 use serde::{Deserialize, Serialize};
 use std::{
     fmt::Write,
@@ -42,32 +40,6 @@ impl From<lsp_types::Position> for TextPosition {
         Self {
             line: pos.line.into(),
             col: pos.character.into(),
-        }
-    }
-}
-
-// #[cfg(feature = "lsp_support")]
-// impl FilePosition {
-//     pub fn from_proto(db: &dyn InternHuskyPath, doc_pos: &TextDocumentPositionParams) -> Self {
-//         let file = db.it_url(&doc_pos.text_document.uri).expect("todo");
-//         let pos: TextPosition = doc_pos.position.into();
-//         Self { file, pos }
-//     }
-// }
-
-impl HuskyDisplay for TextPosition {
-    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
-        if config.colored {
-            write!(
-                result,
-                "{}pos {: <4?}{}",
-                husky_print_utils::YELLOW,
-                self,
-                husky_print_utils::RESET
-            )
-            .unwrap();
-        } else {
-            write!(result, "pos {: <4?}", self,).unwrap();
         }
     }
 }

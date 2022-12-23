@@ -9,7 +9,6 @@ mod lsp_ext;
 pub mod printer;
 mod server;
 mod server_capabilities;
-pub mod tester;
 pub mod utils;
 
 pub use crate::event_loop::event_loop;

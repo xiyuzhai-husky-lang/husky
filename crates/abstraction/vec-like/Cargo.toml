@@ -12,6 +12,5 @@ doctest = false
 thiserror = "1.0.37"
 serde = { version = "1.0.106", features = ["derive"] }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
-husky-display-utils = { path = "../../utils/husky-display-utils" }
 # stdx = { path = "../../stdx" }
 # common = { path = "../../common" }

@@ -1,5 +1,3 @@
-use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
-
 use crate::*;
 
 #[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
@@ -209,19 +207,5 @@ where
 {
     fn index_mut(&mut self, index: K) -> &mut Self::Output {
         self.get_mut(index).unwrap()
-    }
-}
-
-impl<K, V> HuskyDisplay for AppendOnlyVecMap<K, V>
-where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: AsVecMapEntry<K = K> + HuskyDisplay,
-{
-    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
-        for entry in &self.entries {
-            result.push_str("    ");
-            entry.write_inherent(config.indented(), result);
-            result.push('\n')
-        }
     }
 }

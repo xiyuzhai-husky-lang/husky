@@ -1,4 +1,3 @@
-use husky_display_utils::{HuskyDisplay, HuskyDisplayConfig};
 use serde::{Deserialize, Serialize};
 use std::fmt::Write;
 
@@ -11,23 +10,6 @@ use std::fmt::Write;
     Debug, PartialEq, Default, Eq, PartialOrd, Ord, Clone, Copy, Hash, Serialize, Deserialize,
 )]
 pub struct TextColumn(pub u32);
-
-impl HuskyDisplay for TextColumn {
-    fn write_inherent(&self, config: HuskyDisplayConfig, result: &mut String) {
-        if config.colored {
-            write!(
-                result,
-                "{}col {: <4}{}",
-                husky_print_utils::YELLOW,
-                self.0 + 1,
-                husky_print_utils::RESET
-            )
-            .unwrap();
-        } else {
-            write!(result, "col {: <4}", self.0 + 1,).unwrap();
-        }
-    }
-}
 
 impl const From<u32> for TextColumn {
     fn from(raw: u32) -> Self {
