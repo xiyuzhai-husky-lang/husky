@@ -22,7 +22,7 @@ pub fn diff_write(path: &Path, content: &str, verbose: bool) {
         if verbose {
             use husky_print_utils::*;
             println!(
-                "{RED}overwrite{RESET} path `{}`",
+                "{GREEN}updating{RESET} path `{}`",
                 path.as_os_str().to_str().unwrap()
             );
         }

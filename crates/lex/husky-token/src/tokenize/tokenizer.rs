@@ -91,6 +91,7 @@ impl<'token> Tokenizer<'token> {
                 range: token.range,
                 kind: TokenKind::Comment,
             }),
+            RawTokenVariant::IncompleteStringLiteral => todo!(),
         }
     }
 

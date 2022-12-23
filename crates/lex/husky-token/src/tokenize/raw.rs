@@ -27,6 +27,7 @@ pub(crate) enum RawTokenVariant {
     NewLine,
     Special(AmbiguousSpecial),
     Comment,
+    IncompleteStringLiteral,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -427,7 +428,20 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
         while let Some(c) = self.char_iter.next() {
             match c {
                 '"' => break,
-                '\\' => todo!(),
+                '\\' => {
+                    if let Some(c) = self.char_iter.next() {
+                        match c {
+                            '"' => s.push('"'),
+                            '\\' => s.push('\\'),
+                            'n' => s.push('\n'),
+                            'r' => s.push('\r'),
+                            't' => s.push('\t'),
+                            c => todo!("expected char {c}"),
+                        }
+                    } else {
+                        return RawTokenVariant::IncompleteStringLiteral;
+                    }
+                }
                 '\n' => todo!(),
                 c => s.push(c),
             }
