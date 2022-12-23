@@ -1,5 +1,5 @@
 [package]
-name = "husky-expect-test-utils"
+name = "husky-expect-test-snippets-utils"
 version = "0.1.0"
 edition = "2021"
 
