@@ -3,7 +3,6 @@ mod bind_into;
 
 pub use bind_from::*;
 pub use bind_into::*;
-use husky_display_utils::HuskyDisplay;
 use husky_word::Identifier;
 
 use crate::*;
@@ -97,16 +96,6 @@ impl std::fmt::Display for TextRange {
 impl std::fmt::Debug for TextRange {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("[{}, {})", self.start, self.end))
-    }
-}
-
-impl HuskyDisplay for TextRange {
-    fn write_inherent(&self, config: husky_display_utils::HuskyDisplayConfig, result: &mut String) {
-        if config.colored {
-            write!(result, "{GREEN}{}{RESET}", self).unwrap()
-        } else {
-            write!(result, "{}", self).unwrap()
-        }
     }
 }
 

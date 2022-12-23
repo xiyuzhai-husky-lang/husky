@@ -15,7 +15,6 @@ husky-word = { path = "../../kernel/husky-word" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-display-utils = { path = "../../utils/husky-display-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 
 [features]

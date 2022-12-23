@@ -34,7 +34,6 @@ husky-manifest = { path = "../../infer/husky-manifest" }
 husky-vm = { path = "../../vm/husky-vm" }
 # utils
 husky-test-utils = { path = "../../utils/husky-test-utils" }
-husky-display-utils = { path = "../../utils/husky-display-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }

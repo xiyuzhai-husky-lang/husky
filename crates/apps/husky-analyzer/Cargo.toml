@@ -7,14 +7,6 @@ edition = "2021"
 name = "husky-analyzer-server"
 path = "src/bin/server.rs"
 
-[[bin]]
-name = "husky-analyzer-tester"
-path = "src/bin/tester.rs"
-
-[[bin]]
-name = "husky-analyzer-printer"
-path = "src/bin/printer.rs"
-
 [package.metadata.cargo-udeps.ignore]
 normal = ["winapi"]
 
@@ -61,6 +53,5 @@ error-utils = { path = "../../utils/husky-error-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
-husky-display-utils = { path = "../../utils/husky-display-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 winapi = "0.3.9"

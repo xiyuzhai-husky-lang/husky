@@ -14,4 +14,3 @@ salsa = { path = "../../abstraction/salsa" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-display-utils = { path = "../../utils/husky-display-utils" }
