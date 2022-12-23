@@ -1,5 +1,0 @@
-[125:41, 125:43)	Infer Error: expect `std::slice::CyclicSlice<mnist_classifier__51::geom2d::Point2d>` but get `&mnist_classifier__51::raw_contour::RawContour` instead
-[125:29, 125:40)	Infer Error: expect at most 1 arguments, but get 3 arguments
-[133:41, 133:57)	Infer Error: Unrecognized identifier `get_line_segment`
-[137:22, 137:38)	Infer Error: Unrecognized identifier `get_line_segment`
-[159:34, 159:50)	Infer Error: Unrecognized identifier `get_line_segment`

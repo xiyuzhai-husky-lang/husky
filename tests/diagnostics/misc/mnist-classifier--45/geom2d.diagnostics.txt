@@ -1,2 +1,0 @@
-[17:5, 17:63)	Ast Error: old context is `Method`
-[18:16, 18:17)	Ast Error: expect `:` but get "(" instead

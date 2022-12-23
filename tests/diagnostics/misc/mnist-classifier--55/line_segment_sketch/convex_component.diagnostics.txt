@@ -1,1 +1,0 @@
-[1:1, 1:1)	Entity Route Error: Query Error: "No entity route with ident: \"convex_component\" among [LineSegment,LineSegmentSketch,go_right,go_left,extend_end,extend_start,find_line_segments,]"

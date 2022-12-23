@@ -1,3 +1,0 @@
-[21:40, 21:59)	Lex Error: Inappropriate
-[23:5, 23:6)	Infer Error: expect `?cv::datasets::mnist::MnistLabel` but get `i32` instead
-[21:27, 22:40)	Infer Error: mutation not allowed in lazy functional context

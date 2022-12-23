@@ -1,6 +1,0 @@
-[3:26, 3:27)	Lex Error: expect indentated lines after `:`
-[5:28, 5:29)	Lex Error: expect indentated lines after `:`
-[1:1, 1:9)	Ast Error: expect more tokens
-[3:26, 3:27)	Ast Error: expect `->` or `(`
-[5:1, 5:29)	Ast Error: expect at least 5 tokens after keyword, but got 4 tokens instead
-[9:14, 9:18)	Ast Error: expect expr but got nothing

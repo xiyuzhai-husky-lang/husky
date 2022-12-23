@@ -1,4 +1,0 @@
-[125:42, 125:44)	Ast Error: route `mnist_classifier__50::line_segment_sketch::LineSegment` has no subroute named `ne`
-[133:41, 133:57)	Infer Error: Unrecognized identifier `get_line_segment`
-[137:22, 137:38)	Infer Error: Unrecognized identifier `get_line_segment`
-[159:34, 159:50)	Infer Error: Unrecognized identifier `get_line_segment`

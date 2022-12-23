@@ -1,3 +1,0 @@
-[121:28, 121:41)	Ast Error: expect ranged_ty
-[54:61, 54:67)	Infer Error: no method named `bitmod` for type `i32`, available members are `[Identifier("min"), Identifier("max"), Identifier("sgn"), Identifier("abs")]`
-[113:17, 113:21)	Infer Error: no method named `ilen` for type `mnist_classifier__27::raw_contour::RawContour`, available members are `[Identifier("points"), Identifier("clone")]`

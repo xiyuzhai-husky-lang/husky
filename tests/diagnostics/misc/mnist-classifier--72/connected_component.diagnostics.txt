@@ -1,1 +1,0 @@
-[34:14, 34:15)	Ast Error: convexity not compatible for `Binary(Pure(Less))`, self.convexity() = `Concave`, last_atom = None

@@ -1,3 +1,0 @@
-[53:5, 53:6)	Infer Error: expect `?cv::datasets::mnist::MnistLabel` but get `[]cv::datasets::mnist::BinaryImage28` instead
-[11:9, 11:10)	Infer Error: can't bind this to a temp mut ref
-[11:9, 11:10)	Infer Error: can't bind this to a temp mut ref

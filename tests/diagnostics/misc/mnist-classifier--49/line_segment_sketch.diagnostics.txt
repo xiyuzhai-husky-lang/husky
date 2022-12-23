@@ -1,4 +1,0 @@
-[123:46, 123:48)	Infer Error: expect eval ref
-[136:39, 136:41)	Infer Error: expect eval ref
-[123:46, 123:48)	Infer Error: expect eval ref
-[136:39, 136:41)	Infer Error: expect eval ref

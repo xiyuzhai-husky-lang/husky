@@ -32,6 +32,26 @@ pub fn path_has_extension(path: &Path, extension: &str) -> bool {
     path.extension().map(|s| s.to_string_lossy()) == Some(extension.into())
 }
 
+pub fn collect_paths(dir: &Path) -> Vec<PathBuf> {
+    let mut paths: Vec<PathBuf> = vec![];
+    collect_dirs_aux(dir, &mut paths);
+    paths
+}
+
+pub fn collect_dirs_aux(dir: &Path, paths: &mut Vec<PathBuf>) {
+    if let Ok(read_dir) = std::fs::read_dir(dir) {
+        for entry in read_dir {
+            if let Ok(entry) = entry {
+                let path = entry.path();
+                if path.is_dir() && path.exists() {
+                    collect_dirs_aux(&path, paths)
+                }
+                paths.push(path)
+            }
+        }
+    }
+}
+
 pub fn collect_package_dirs_deprecated(dir: &Path) -> Vec<PathBuf> {
     should_satisfy!(dir, |dir: &Path| dir.is_dir());
     let main_path = dir.join("main.hsy");

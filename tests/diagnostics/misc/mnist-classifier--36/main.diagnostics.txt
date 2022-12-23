@@ -1,2 +1,0 @@
-[16:5, 16:27)	Ast Error: expect index expr inside `[]`
-[17:5, 17:32)	Infer Error: expect `?cv::datasets::mnist::MnistLabel` but get `i32` instead

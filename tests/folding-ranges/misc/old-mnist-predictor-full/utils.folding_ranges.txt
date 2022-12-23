@@ -1,2 +1,0 @@
-FoldingRange { start_line: 0, start_character: Some(0), end_line: 0, end_character: Some(29), kind: None }
-FoldingRange { start_line: 1, start_character: Some(0), end_line: 32, end_character: Some(1), kind: None }

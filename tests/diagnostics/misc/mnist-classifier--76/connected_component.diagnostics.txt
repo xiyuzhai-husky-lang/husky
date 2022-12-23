@@ -1,3 +1,0 @@
-[40:16, 40:22)	Ast Error: expect variable
-[41:21, 41:22)	Infer Error: Unrecognized identifier `i`
-[43:16, 43:46)	Infer Error: expect at least 2 arguments, but get 0 arguments

@@ -1,1 +1,0 @@
-[23:37, 23:56)	Infer Error: a value of type `&mnist_classifier__58::line_segment_sketch::LineSegmentSketch` can not be called

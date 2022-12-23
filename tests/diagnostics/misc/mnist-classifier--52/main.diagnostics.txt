@@ -1,2 +1,0 @@
-[7:26, 7:46)	Ast Error: route `mnist_classifier__52::connected_component` has no subroute named `connected_components`
-[18:28, 18:53)	Infer Error: Unrecognized identifier `find_connected_components`

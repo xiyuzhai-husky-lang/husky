@@ -1,4 +1,0 @@
-[2:5, 2:14)	Ast Error: expect <keyword> or <identifier> or <decorator> at the beginning of each struct item
-[110:55, 110:62)	Ast Error: expect ranged_ty
-[116:28, 116:41)	Ast Error: expect ranged_ty
-[52:33, 52:39)	Infer Error: no method named `to_i32` for type `mnist_classifier__19::raw_contour::Direction`, available members are `[]`

@@ -1,4 +1,0 @@
-[6:1, 6:5)	Entity Route Error: Defn Error: "invalid single token for entity defn head"([6:1, 6:5))
-[4:5, 4:8)	Entity Route Error: Defn Error: "invalid single token for entity defn head"([4:5, 4:8))
-[4:5, 4:8)	Ast Error: expect at least 4 tokens after keyword, but got 1 tokens instead
-[6:1, 6:5)	Ast Error: expect more tokens

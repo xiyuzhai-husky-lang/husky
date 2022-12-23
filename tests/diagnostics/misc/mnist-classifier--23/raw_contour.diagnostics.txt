@@ -1,5 +1,0 @@
-[2:13, 2:14)	Ast Error: expect type
-[110:55, 110:62)	Ast Error: expect ranged_ty
-[116:29, 116:30)	Ast Error: unrecognized char `\`
-[120:28, 120:41)	Ast Error: expect ranged_ty
-[52:33, 52:39)	Infer Error: no method named `to_i32` for type `mnist_classifier__23::raw_contour::Direction`, available members are `[]`

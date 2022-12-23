@@ -1,3 +1,0 @@
-[53:7, 53:9)	Infer Error: no field `le` in type `Vec`
-[11:9, 11:10)	Infer Error: can't bind this to a temp mut ref
-[11:9, 11:10)	Infer Error: can't bind this to a temp mut ref

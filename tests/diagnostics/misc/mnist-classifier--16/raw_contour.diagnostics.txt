@@ -1,4 +1,0 @@
-[49:33, 49:39)	Infer Error: no method named `to_i32` for type `mnist_classifier__16::raw_contour::Direction`, available members are `[]`
-[72:21, 72:26)	Infer Error: Unrecognized identifier `panic`
-[86:29, 86:34)	Infer Error: Unrecognized identifier `panic`
-[108:21, 108:26)	Infer Error: Unrecognized identifier `panic`

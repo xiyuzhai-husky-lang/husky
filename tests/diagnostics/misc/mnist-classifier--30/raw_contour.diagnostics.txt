@@ -1,2 +1,0 @@
-[55:61, 55:67)	Infer Error: no method named `bitmod` for type `i32`, available members are `[Identifier("min"), Identifier("max"), Identifier("sgn"), Identifier("abs")]`
-[124:31, 124:43)	Infer Error: Unrecognized identifier `BinaryGrid28`

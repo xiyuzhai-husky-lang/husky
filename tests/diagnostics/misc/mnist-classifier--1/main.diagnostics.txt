@@ -1,6 +1,0 @@
-[11:9, 11:14)	Infer Error: obsolete discard because the output is of type `void`
-[30:63, 30:66)	Infer Error: Unrecognized identifier `img`
-[38:63, 38:66)	Infer Error: Unrecognized identifier `img`
-[53:5, 53:6)	Infer Error: expect `?cv::datasets::mnist::MnistLabel` but get `i32` instead
-[11:9, 11:10)	Infer Error: can't bind this to a temp mut ref
-[11:9, 11:10)	Infer Error: can't bind this to a temp mut ref

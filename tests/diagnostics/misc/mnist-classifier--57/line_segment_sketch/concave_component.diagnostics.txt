@@ -1,4 +1,0 @@
-[23:39, 23:58)	Ast Error: unexpected identifier here
-[16:66, 16:79)	Infer Error: Unrecognized identifier `line_segments`
-[20:45, 20:47)	Infer Error: Unrecognized identifier `ct`
-[20:49, 20:62)	Infer Error: Unrecognized identifier `line_segments`
