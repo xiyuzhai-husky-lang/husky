@@ -4,7 +4,7 @@ use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
 use husky_entity_kind::FieldKind;
 
 use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
-use husky_primitive_literal_syntax::RawLiteralData;
+use husky_primitive_literal_syntax::LiteralToken;
 
 use husky_word::RootBuiltinIdentifier;
 
@@ -531,43 +531,43 @@ impl<'a> RustCodeGenerator<'a> {
     //     }
     // }
 
-    fn gen_primitive_literal(&mut self, v: RawLiteralData) {
+    fn gen_primitive_literal(&mut self, v: LiteralToken) {
         match v {
-            RawLiteralData::Integer(i) => {
+            LiteralToken::Integer(i) => {
                 self.result.push_str(&i.to_string());
             }
-            RawLiteralData::I32(i) => {
+            LiteralToken::I32(i) => {
                 self.result.push_str(&i.to_string());
                 self.write("i32")
             }
-            RawLiteralData::I64(i) => {
+            LiteralToken::I64(i) => {
                 self.result.push_str(&i.to_string());
                 self.write("i64")
             }
-            RawLiteralData::Float(f) => {
+            LiteralToken::Float(f) => {
                 self.result.push_str(&f.to_string());
                 msg_once!("ad hoc");
                 self.write("f32")
             }
-            RawLiteralData::F32(f) => {
+            LiteralToken::F32(f) => {
                 self.result.push_str(&f.to_string());
                 self.write("f32")
             }
-            RawLiteralData::F64(f) => {
+            LiteralToken::F64(f) => {
                 self.result.push_str(&f.to_string());
                 self.write("f64")
             }
-            RawLiteralData::Bits(b) => self.result.push_str(&b.to_string()),
-            RawLiteralData::B32(b) => {
+            LiteralToken::Bits(b) => self.result.push_str(&b.to_string()),
+            LiteralToken::B32(b) => {
                 self.result.push_str(&b.to_string());
                 self.write("u32")
             }
-            RawLiteralData::B64(b) => {
+            LiteralToken::B64(b) => {
                 self.result.push_str(&b.to_string());
                 self.write("u64")
             }
-            RawLiteralData::Bool(b) => self.result.push_str(&b.to_string()),
-            RawLiteralData::Unit => self.result.push_str("()"),
+            LiteralToken::Bool(b) => self.result.push_str(&b.to_string()),
+            LiteralToken::Unit => self.result.push_str("()"),
         }
     }
 

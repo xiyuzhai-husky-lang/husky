@@ -1,6 +1,6 @@
 import Specs.concepts
 
-inductive RawLiteralData 
+inductive LiteralToken 
    | Void
   --  | Integer(value : i64)
   --  | I32(value : i32)
@@ -14,11 +14,11 @@ inductive RawLiteralData
    | Bool(value : Bool)
 
 
--- def RawLiteralData.decEq : DecidableEq RawLiteralData :=
-deriving instance DecidableEq for RawLiteralData
+-- def LiteralToken.decEq : DecidableEq LiteralToken :=
+deriving instance DecidableEq for LiteralToken
 
-def RawLiteralData.decEq2 : DecidableEq RawLiteralData := fun (a b) => decEq a b
+def LiteralToken.decEq2 : DecidableEq LiteralToken := fun (a b) => decEq a b
 
-namespace RawLiteralData
-  def huskyCode : RawLiteralData -> String := sorry
-end RawLiteralData
+namespace LiteralToken
+  def huskyCode : LiteralToken -> String := sorry
+end LiteralToken

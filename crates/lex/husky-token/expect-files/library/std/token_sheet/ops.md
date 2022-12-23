@@ -21,7 +21,7 @@ Ok(
                     Identifier(
                         Word(
                             Id {
-                                value: 34,
+                                value: 33,
                             },
                         ),
                     ),
@@ -38,67 +38,13 @@ Ok(
                 ),
             },
             Token {
-                range: [1:13, 1:14),
-                kind: Unrecognized(
-                    '"',
-                ),
-            },
-            Token {
-                range: [1:14, 1:17),
-                kind: Identifier(
-                    Identifier(
-                        Word(
-                            Id {
-                                value: 29,
-                            },
-                        ),
+                range: [1:13, 1:28),
+                kind: Literal(
+                    String(
+                        StringLiteral {
+                            data: "std::ops::Add",
+                        },
                     ),
-                ),
-            },
-            Token {
-                range: [1:17, 1:19),
-                kind: Special(
-                    BinaryOpr(
-                        ScopeResolution,
-                    ),
-                ),
-            },
-            Token {
-                range: [1:19, 1:22),
-                kind: Identifier(
-                    Identifier(
-                        Word(
-                            Id {
-                                value: 4,
-                            },
-                        ),
-                    ),
-                ),
-            },
-            Token {
-                range: [1:22, 1:24),
-                kind: Special(
-                    BinaryOpr(
-                        ScopeResolution,
-                    ),
-                ),
-            },
-            Token {
-                range: [1:24, 1:27),
-                kind: Identifier(
-                    Identifier(
-                        Word(
-                            Id {
-                                value: 22,
-                            },
-                        ),
-                    ),
-                ),
-            },
-            Token {
-                range: [1:27, 1:28),
-                kind: Unrecognized(
-                    '"',
                 ),
             },
             Token {
@@ -139,7 +85,7 @@ Ok(
                     Identifier(
                         Word(
                             Id {
-                                value: 30,
+                                value: 29,
                             },
                         ),
                     ),
@@ -171,7 +117,7 @@ Ok(
                     Identifier(
                         Word(
                             Id {
-                                value: 31,
+                                value: 30,
                             },
                         ),
                     ),
@@ -235,7 +181,7 @@ Ok(
                     Identifier(
                         Word(
                             Id {
-                                value: 30,
+                                value: 29,
                             },
                         ),
                     ),
@@ -263,7 +209,7 @@ Ok(
                     Identifier(
                         Word(
                             Id {
-                                value: 32,
+                                value: 31,
                             },
                         ),
                     ),
@@ -283,7 +229,7 @@ Ok(
                     Identifier(
                         Word(
                             Id {
-                                value: 31,
+                                value: 30,
                             },
                         ),
                     ),
@@ -298,9 +244,9 @@ Ok(
         ],
         group_starts: [
             0,
+            6,
             12,
-            18,
-            21,
+            15,
         ],
     },
 )

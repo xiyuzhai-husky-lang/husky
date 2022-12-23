@@ -23,7 +23,7 @@ inductive HuskyAtomVariant
         (opt_field_ty: Option Term)
         (field_liason: MemberModifier)
     | Unrecognized (ident : Identifier)
-    | PrimitiveLiteral(data : RawLiteralData)
+    | PrimitiveLiteral(data : LiteralToken)
     | Binary(opr : BinaryOpr)
     | Prefix(opr : PrefixOpr)
     | Suffix(opr : RawSuffixOpr)

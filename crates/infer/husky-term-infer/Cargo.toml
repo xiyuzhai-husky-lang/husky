@@ -12,9 +12,10 @@ salsa = { path = "../../abstraction/salsa" }
 upcast = { path = "../../abstraction/upcast" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-expr = { path = "../../syntax/husky-expr" }
-husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-ast = { path = "../../syntax/husky-ast" }

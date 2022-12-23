@@ -1,18 +1,16 @@
-use husky_entity_path::EntityPath;
-use husky_primitive_literal_syntax::RawLiteralData;
+use crate::*;
 use husky_text::{HasTextRange, TextRange};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct RawPattern {
     pub range: TextRange,
-    pub variant: RawPatternVariant,
+    pub variant: PatternToken,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum RawPatternVariant {
-    PrimitiveLiteral(RawLiteralData),
+pub enum PatternToken {
+    PrimitiveLiteral(LiteralToken),
     OneOf { subpatterns: Vec<RawPattern> },
-    EnumLiteral(EntityPath),
     Some,
     None,
 }
@@ -24,16 +22,9 @@ impl HasTextRange for RawPattern {
 }
 
 impl RawPattern {
-    pub fn primitive_literal(value: RawLiteralData, range: TextRange) -> Self {
+    pub fn primitive_literal(value: LiteralToken, range: TextRange) -> Self {
         Self {
-            variant: RawPatternVariant::PrimitiveLiteral(value),
-            range,
-        }
-    }
-
-    pub fn enum_literal(value: EntityPath, range: TextRange) -> Self {
-        Self {
-            variant: RawPatternVariant::EnumLiteral(value),
+            variant: PatternToken::PrimitiveLiteral(value),
             range,
         }
     }
@@ -41,20 +32,20 @@ impl RawPattern {
     pub fn or(self, new_pattern: RawPattern) -> Self {
         let range = self.text_range_to(&new_pattern);
         let patterns = match self.variant {
-            RawPatternVariant::PrimitiveLiteral(_) | RawPatternVariant::EnumLiteral(_) => {
+            PatternToken::PrimitiveLiteral(_) => {
                 vec![self, new_pattern]
             }
-            RawPatternVariant::OneOf {
+            PatternToken::OneOf {
                 subpatterns: mut patterns,
             } => {
                 patterns.push(new_pattern);
                 patterns
             }
-            RawPatternVariant::Some => todo!(),
-            RawPatternVariant::None => todo!(),
+            PatternToken::Some => todo!(),
+            PatternToken::None => todo!(),
         };
         RawPattern {
-            variant: RawPatternVariant::OneOf {
+            variant: PatternToken::OneOf {
                 subpatterns: patterns,
             },
             range,

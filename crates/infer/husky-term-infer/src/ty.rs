@@ -1,6 +1,5 @@
 use crate::*;
 use husky_expr::{AtomExpr, ExprIdx, ExprRange};
-use husky_primitive_literal_syntax::RawLiteralData;
 use husky_print_utils::p;
 use husky_symbol_syntax::SymbolKind;
 use husky_term::Term;
@@ -46,20 +45,21 @@ impl<'a> InferContext<'a> {
         todo!()
     }
 
-    fn infer_literal(&self, literal: &RawLiteralData) -> Term {
+    fn infer_literal(&self, literal: &LiteralToken) -> Term {
         let term_menu = self.term_menu();
         match literal {
-            RawLiteralData::Unit => todo!(),
-            RawLiteralData::Integer(_) => term_menu.i32(),
-            RawLiteralData::I32(_) => todo!(),
-            RawLiteralData::I64(_) => todo!(),
-            RawLiteralData::Float(_) => todo!(),
-            RawLiteralData::F32(_) => todo!(),
-            RawLiteralData::F64(_) => todo!(),
-            RawLiteralData::Bits(_) => todo!(),
-            RawLiteralData::B32(_) => todo!(),
-            RawLiteralData::B64(_) => todo!(),
-            RawLiteralData::Bool(_) => todo!(),
+            LiteralToken::Unit => todo!(),
+            LiteralToken::Integer(_) => term_menu.i32(),
+            LiteralToken::I32(_) => todo!(),
+            LiteralToken::I64(_) => todo!(),
+            LiteralToken::Float(_) => todo!(),
+            LiteralToken::F32(_) => todo!(),
+            LiteralToken::F64(_) => todo!(),
+            LiteralToken::Bits(_) => todo!(),
+            LiteralToken::B32(_) => todo!(),
+            LiteralToken::B64(_) => todo!(),
+            LiteralToken::Bool(_) => todo!(),
+            LiteralToken::String(_) => todo!(),
         }
     }
 }

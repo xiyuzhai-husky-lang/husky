@@ -14,11 +14,10 @@ pub use sheet::*;
 use context::*;
 use husky_expr::*;
 use husky_opn_syntax::*;
-use husky_primitive_literal_syntax::RawLiteralData;
-
 use husky_symbol_syntax::SymbolKind;
 use husky_term::*;
 use husky_term_pattern::*;
+use husky_token::*;
 use husky_word::*;
 
 #[salsa::jar(db = TermPatternInferDb)]

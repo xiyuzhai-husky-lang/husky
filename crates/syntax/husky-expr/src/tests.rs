@@ -5,7 +5,6 @@ use husky_entity_tree::EntityTreeJar;
 use husky_expect_test_snippets_utils::expect_test_snippets;
 use husky_manifest::ManifestJar;
 use husky_symbol_syntax::{SymbolDb, SymbolJar};
-use husky_token::Tokenize;
 use husky_token::{TokenIter, TokenJar};
 use husky_vfs::*;
 use husky_word::WordJar;
