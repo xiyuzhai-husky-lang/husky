@@ -7,6 +7,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
+                ast_idx: 160,
                 module_path: `mnist_classifier::line_segment_sketch::concave_component`,
             },
             Module {
@@ -14,6 +15,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
+                ast_idx: 161,
                 module_path: `mnist_classifier::line_segment_sketch::convex_component`,
             },
             Module {
@@ -21,6 +23,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
+                ast_idx: 162,
                 module_path: `mnist_classifier::line_segment_sketch::convexity`,
             },
             Module {
@@ -28,6 +31,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::line_segment_sketch`,
                 ),
+                ast_idx: 163,
                 module_path: `mnist_classifier::line_segment_sketch::line_segment`,
             },
             ModuleItem {
@@ -94,7 +98,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 28,
+                                value: 26,
                             },
                         ),
                     ),
@@ -114,7 +118,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 28,
+                                value: 26,
                             },
                         ),
                     ),
@@ -134,14 +138,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 28,
+                                value: 26,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 53,
+                                value: 52,
                             },
                         ),
                     ),
@@ -154,14 +158,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 28,
+                                value: 26,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 54,
+                                value: 53,
                             },
                         ),
                     ),
@@ -174,14 +178,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 28,
+                                value: 26,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 56,
+                                value: 55,
                             },
                         ),
                     ),

@@ -1,7 +1,7 @@
 use husky_text::TextRange;
 use thiserror::Error;
 
-use crate::AstDb;
+use crate::{AstDb, AstIdx};
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum AstError {

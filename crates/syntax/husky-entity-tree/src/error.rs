@@ -1,3 +1,4 @@
+use husky_ast::AstIdx;
 use husky_entity_path::EntityPathError;
 use husky_manifest::ManifestError;
 use husky_vfs::VfsError;
@@ -21,6 +22,8 @@ pub enum EntityTreeError {
     EntityPath(#[from] EntityPathError),
     #[error("derived {0}")]
     Manifest(#[from] ManifestError),
+    #[error("entity symbol already defined, old = {old}, new = {new}")]
+    EntitySymbolAlreadyDefined { old: AstIdx, new: AstIdx },
 }
 
 impl From<&EntityTreeError> for EntityTreeError {

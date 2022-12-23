@@ -9,10 +9,8 @@ pub(crate) fn crate_specific_prelude(
     let package_dependencies = db.package_dependencies(package_path)?;
     let mut nodes: VecMap<EntitySymbol> = VecMap::default();
     let crate_word = db.word_menu().crate_word();
-    let crate_root = ModulePath::new_root(db, crate_path);
-    nodes.insert(EntitySymbol::Module {
+    nodes.insert(EntitySymbol::CrateRoot {
         ident: crate_word,
-        accessibility: Accessibility::PublicUnder(crate_root),
         module_path: ModulePath::new_root(db, crate_path),
     });
     nodes.extend(

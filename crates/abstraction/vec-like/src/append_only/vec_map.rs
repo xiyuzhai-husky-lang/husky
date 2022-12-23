@@ -39,23 +39,11 @@ where
         &mut self.entries
     }
 
-    pub fn from_vec(mut data: Vec<Entry>) -> Result<Self, EntryRepeatError<Entry>> {
+    pub fn from_vec(mut data: Vec<Entry>) -> Result<Self, FromVecEntryRepeatError> {
         for i in 0..data.len() {
             for j in (i + 1)..data.len() {
                 if data[i].key() == data[j].key() {
-                    let new = loop {
-                        let entry = data.pop().unwrap();
-                        if data.len() == j {
-                            break entry;
-                        }
-                    };
-                    let old = loop {
-                        let entry = data.pop().unwrap();
-                        if data.len() == i {
-                            break entry;
-                        }
-                    };
-                    return Err(EntryRepeatError { old, new });
+                    return Err(FromVecEntryRepeatError { i, j });
                 }
             }
         }
@@ -95,15 +83,18 @@ where
         self.entries.iter_mut().find(|entry| entry.key() == key)
     }
 
-    pub fn insert_new(&mut self, new: Entry) -> Result<(), EntryRepeatError<Entry>> {
+    pub fn insert_new(&mut self, new: Entry) -> Result<(), InsertEntryRepeatError<Entry>> {
         if self.has(new.key()) {
-            let old = loop {
-                let entry = self.entries.pop().unwrap();
-                if entry.key() == new.key() {
-                    break entry;
-                }
-            };
-            Err(EntryRepeatError { old, new })
+            let new_key = new.key();
+            Err(InsertEntryRepeatError {
+                old: self
+                    .entries
+                    .iter()
+                    .position(|entry| entry.key() == new_key)
+                    .unwrap()
+                    .into(),
+                new,
+            })
         } else {
             self.entries.push(new);
             Ok(())
@@ -132,7 +123,7 @@ where
         self.entries.iter().position(|entry| entry.key() == key)
     }
 
-    pub fn extend(&mut self, other: Self) -> Result<(), EntryRepeatError<Entry>> {
+    pub fn extend(&mut self, other: Self) -> Result<(), InsertEntryRepeatError<Entry>> {
         for v in other.entries {
             self.insert_new(v)?
         }

@@ -9,7 +9,7 @@ use crate::*;
 use entity_use_tracker::*;
 use husky_text::TextRange;
 use use_all_tracker::*;
-use vec_like::AsVecMapEntry;
+use vec_like::{AsVecMapEntry, InsertEntryRepeatError};
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_presheet(
@@ -32,6 +32,7 @@ pub(crate) struct EntityTreePresheet {
     module_symbols: VecMap<EntitySymbol>,
     entity_use_trackers: EntityUseExprTrackers,
     use_all_trackers: UseAllTrackers,
+    errors: Vec<EntityTreeError>,
 }
 
 impl Into<EntityTreeSheet> for EntityTreePresheet {
@@ -67,6 +68,7 @@ struct EntitySymbolPresheetBuilder<'a> {
     module_path: ModulePath,
     nodes: VecMap<EntitySymbol>,
     entity_use_trackers: EntityUseExprTrackers,
+    errors: Vec<EntityTreeError>,
 }
 
 impl<'a> EntitySymbolPresheetBuilder<'a> {
@@ -77,6 +79,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
             module_path,
             nodes: Default::default(),
             entity_use_trackers: Default::default(),
+            errors: vec![],
         })
     }
 
@@ -89,6 +92,7 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
             module_symbols: self.nodes,
             entity_use_trackers: self.entity_use_trackers,
             use_all_trackers: Default::default(),
+            errors: self.errors,
         }
     }
 
@@ -118,13 +122,21 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                 if let Some(entity_path) = entity_path {
                     match entity_path {
                         EntityPath::Module(module_path) => {
-                            match self.nodes.insert_new(EntitySymbol::Module {
+                            match self.nodes.insert_new(EntitySymbol::Submodule {
                                 ident: *ident,
                                 accessibility: *accessibility,
                                 module_path: *module_path,
+                                ast_idx,
                             }) {
                                 Ok(_) => (),
-                                Err(_) => todo!(),
+                                Err(e) => {
+                                    let old_node = &self.nodes.data()[e.old];
+                                    self.errors
+                                        .push(EntityTreeError::EntitySymbolAlreadyDefined {
+                                            old: old_node.ast_idx().unwrap(),
+                                            new: ast_idx,
+                                        })
+                                }
                             }
                         }
                         EntityPath::ModuleItem(module_item_path) => {

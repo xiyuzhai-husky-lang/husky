@@ -7,6 +7,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::digits`,
                 ),
+                ast_idx: 0,
                 module_path: `mnist_classifier::digits::zero`,
             },
             Module {
@@ -14,6 +15,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::digits`,
                 ),
+                ast_idx: 1,
                 module_path: `mnist_classifier::digits::one`,
             },
             Module {
@@ -21,13 +23,62 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier::digits`,
                 ),
+                ast_idx: 2,
                 module_path: `mnist_classifier::digits::six`,
+            },
+            Module {
+                ident: `three`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits`,
+                ),
+                ast_idx: 3,
+                module_path: `mnist_classifier::digits::three`,
+            },
+            Module {
+                ident: `four`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits`,
+                ),
+                ast_idx: 4,
+                module_path: `mnist_classifier::digits::four`,
+            },
+            Module {
+                ident: `five`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits`,
+                ),
+                ast_idx: 5,
+                module_path: `mnist_classifier::digits::five`,
+            },
+            Module {
+                ident: `seven`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits`,
+                ),
+                ast_idx: 7,
+                module_path: `mnist_classifier::digits::seven`,
+            },
+            Module {
+                ident: `eight`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits`,
+                ),
+                ast_idx: 8,
+                module_path: `mnist_classifier::digits::eight`,
+            },
+            Module {
+                ident: `nine`,
+                accessibility: PubicUnder(
+                    `mnist_classifier::digits`,
+                ),
+                ast_idx: 9,
+                module_path: `mnist_classifier::digits::nine`,
             },
         ],
         entity_use_roots: EntityUseExprTrackers(
             [
                 EntityUseTracker {
-                    ast_idx: 3,
+                    ast_idx: 10,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -47,7 +98,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 4,
+                    ast_idx: 11,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -67,7 +118,7 @@ Ok(
                     state: Unresolved,
                 },
                 EntityUseTracker {
-                    ast_idx: 5,
+                    ast_idx: 12,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -83,6 +134,146 @@ Ok(
                         ),
                     ),
                     use_expr_idx: 5,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 13,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 47,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 7,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 14,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 46,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 9,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 15,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 269,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 11,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 16,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 45,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 13,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 17,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 44,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 15,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 18,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 40,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 17,
+                    parent: None,
+                    state: Unresolved,
+                },
+                EntityUseTracker {
+                    ast_idx: 19,
+                    accessibility: PublicUnder(
+                        ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    ),
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 42,
+                            },
+                        ),
+                    ),
+                    use_expr_idx: 19,
                     parent: None,
                     state: Unresolved,
                 },
