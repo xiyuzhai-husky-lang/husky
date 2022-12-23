@@ -1,16 +1,20 @@
 mod atom;
-mod automata;
+mod db;
 mod error;
 mod opn;
+mod parser;
 mod precedence;
+mod sheet;
 mod stmt;
 #[cfg(test)]
 mod tests;
 mod variable;
 
 pub use atom::*;
-pub use automata::*;
+pub use db::*;
 pub use error::*;
+pub use parser::*;
+pub use sheet::*;
 pub use variable::*;
 
 use husky_entity_path::EntityPath;
@@ -18,14 +22,16 @@ use husky_opn_syntax::*;
 use husky_symbol_syntax::SymbolKind;
 use husky_text::*;
 use husky_token::*;
+use husky_vfs::{ModulePath, VfsResult};
 use husky_word::*;
 use precedence::*;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct Expr {
-    pub variant: ExprVariant,
-    pub range: TextRange,
-    base_scope_result: BaseScopeResult,
+#[salsa::jar(db = ExprDb)]
+pub struct ExprJar(expr_sheet);
+
+#[salsa::tracked(jar = ExprJar, return_ref)]
+fn expr_sheet(db: &dyn ExprDb, module_path: ModulePath) -> VfsResult<ExprSheet> {
+    todo!()
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -35,14 +41,8 @@ pub enum BaseScopeResult {
     Uncertain,
 }
 
-impl HasTextRange for Expr {
-    fn text_range(&self) -> TextRange {
-        self.range
-    }
-}
-
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ExprVariant {
+pub enum Expr {
     Atom(AtomExpr),
     Opn {
         opn_variant: RawOpnVariant,
@@ -50,32 +50,32 @@ pub enum ExprVariant {
     },
 }
 
-impl ExprVariant {
-    fn base_scope_result(&self, arena: &ExprArena) -> BaseScopeResult {
-        todo!()
-        // match self {
-        //     ExprVariant::Atom(ref atom) => match atom {
-        //         AtomExpr::Literal(_) => BaseScopeResult::None,
-        //         AtomExpr::Symbol(symbol) => match symbol.kind {
-        //             SymbolKind::ModulePath(path) => BaseScopeResult::Some(path),
-        //             _ => BaseScopeResult::None,
-        //         },
-        //         AtomExpr::Unrecognized(_) | AtomExpr::Uncertain(_) => BaseScopeResult::Uncertain,
-        //     },
-        //     ExprVariant::Opn { opn_variant, opds } => match opn_variant {
-        //         RawOpnVariant::Binary(BinaryOpr::ScopeResolution) => {
-        //             arena[opds.start() + 1].base_scope_result()
-        //         }
-        //         RawOpnVariant::Binary(BinaryOpr::As) => todo!(),
-        //         _ => BaseScopeResult::None,
-        //     },
-        // }
-    }
-}
+// impl Expr {
+//     fn base_scope_result(&self, arena: &ExprArena) -> BaseScopeResult {
+//         todo!()
+//         // match self {
+//         //     ExprVariant::Atom(ref atom) => match atom {
+//         //         AtomExpr::Literal(_) => BaseScopeResult::None,
+//         //         AtomExpr::Symbol(symbol) => match symbol.kind {
+//         //             SymbolKind::ModulePath(path) => BaseScopeResult::Some(path),
+//         //             _ => BaseScopeResult::None,
+//         //         },
+//         //         AtomExpr::Unrecognized(_) | AtomExpr::Uncertain(_) => BaseScopeResult::Uncertain,
+//         //     },
+//         //     ExprVariant::Opn { opn_variant, opds } => match opn_variant {
+//         //         RawOpnVariant::Binary(BinaryOpr::ScopeResolution) => {
+//         //             arena[opds.start() + 1].base_scope_result()
+//         //         }
+//         //         RawOpnVariant::Binary(BinaryOpr::As) => todo!(),
+//         //         _ => BaseScopeResult::None,
+//         //     },
+//         // }
+//     }
+// }
 
-impl From<AtomExpr> for ExprVariant {
+impl From<AtomExpr> for Expr {
     fn from(atom: AtomExpr) -> Self {
-        ExprVariant::Atom(atom)
+        Expr::Atom(atom)
     }
 }
 
@@ -86,16 +86,16 @@ pub type ExprIdx = ArenaIdx<Expr>;
 pub type ExprRange = ArenaIdxRange<Expr>;
 pub type ExprMap<V> = ArenaMap<Expr, V>;
 
-impl Expr {
-    fn new(variant: ExprVariant, range: TextRange, arena: &ExprArena) -> Self {
-        Self {
-            base_scope_result: variant.base_scope_result(arena),
-            variant,
-            range,
-        }
-    }
+// impl Expr {
+//     fn new(variant: Expr, range: TextRange, arena: &ExprArena) -> Self {
+//         Self {
+//             base_scope_result: variant.base_scope_result(arena),
+//             variant,
+//             range,
+//         }
+//     }
 
-    pub fn base_scope_result(&self) -> BaseScopeResult {
-        self.base_scope_result
-    }
-}
+//     pub fn base_scope_result(&self) -> BaseScopeResult {
+//         self.base_scope_result
+//     }
+// }

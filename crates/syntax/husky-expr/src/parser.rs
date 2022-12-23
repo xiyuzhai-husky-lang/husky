@@ -14,7 +14,7 @@ use opr::*;
 use resolve::*;
 use stack::*;
 
-pub(crate) struct Automata<'a, 'b> {
+pub(crate) struct ExprParser<'a, 'b> {
     db: &'a dyn EntityTreeDb,
     token_iter: TokenIter<'a>,
     symbols: &'a mut SymbolContext<'b>,
@@ -22,7 +22,7 @@ pub(crate) struct Automata<'a, 'b> {
     stack: AutomataStack,
 }
 
-impl<'a, 'b> Automata<'a, 'b> {
+impl<'a, 'b> ExprParser<'a, 'b> {
     pub(crate) fn tokens(&self) -> &TokenIter<'a> {
         &self.token_iter
     }
@@ -62,5 +62,5 @@ pub fn parse_expr(
     symbols: &mut SymbolContext,
     arena: &mut ExprArena,
 ) -> ExprIdx {
-    Automata::new(db, token_iter, symbols, arena).parse_all()
+    ExprParser::new(db, token_iter, symbols, arena).parse_all()
 }

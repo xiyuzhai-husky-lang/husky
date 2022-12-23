@@ -4,7 +4,7 @@ use husky_symbol_syntax::Symbol;
 use husky_term::Term;
 use husky_token::SpecialToken;
 
-impl<'a, 'b> Automata<'a, 'b> {
+impl<'a, 'b> ExprParser<'a, 'b> {
     pub(crate) fn resolve_token(&self, token: &Token) -> ResolvedToken {
         ResolvedToken {
             kind: self.resolve_token_kind(token),
@@ -54,29 +54,30 @@ impl<'a, 'b> Automata<'a, 'b> {
     }
 
     fn resolve_ident(&self, ident: Identifier) -> ResolvedTokenKind {
-        if let Some(opr) = self.stack.top_opr() {
-            match opr.variant {
-                OnStackOprVariant::Binary(BinaryOpr::ScopeResolution) => {
-                    if let Some(previous_expr) = self.stack.top_expr() {
-                        match previous_expr.base_scope_result() {
-                            BaseScopeResult::None => todo!(),
-                            BaseScopeResult::Some(_) => todo!(),
-                            BaseScopeResult::Uncertain => {
-                                todo!()
-                                // return ResolvedTokenKind::Atom(AtomExpr::Uncertain(ident))
-                            }
-                        }
-                    } else {
-                        todo!()
-                    }
-                }
-                _ => (),
-            }
-        }
-        match self.symbols.resolve_ident(ident) {
-            Some(symbol) => symbol.into(),
-            None => ResolvedTokenKind::Atom(AtomExpr::Unrecognized(ident)),
-        }
+        todo!()
+        // if let Some(opr) = self.stack.top_opr() {
+        //     match opr.variant {
+        //         OnStackOprVariant::Binary(BinaryOpr::ScopeResolution) => {
+        //             if let Some(previous_expr) = self.stack.top_expr() {
+        //                 match previous_expr.base_scope_result() {
+        //                     BaseScopeResult::None => todo!(),
+        //                     BaseScopeResult::Some(_) => todo!(),
+        //                     BaseScopeResult::Uncertain => {
+        //                         todo!()
+        //                         // return ResolvedTokenKind::Atom(AtomExpr::Uncertain(ident))
+        //                     }
+        //                 }
+        //             } else {
+        //                 todo!()
+        //             }
+        //         }
+        //         _ => (),
+        //     }
+        // }
+        // match self.symbols.resolve_ident(ident) {
+        //     Some(symbol) => symbol.into(),
+        //     None => ResolvedTokenKind::Atom(AtomExpr::Unrecognized(ident)),
+        // }
     }
 
     fn resolve_previous_entity(&self) -> Option<Term> {
@@ -84,26 +85,27 @@ impl<'a, 'b> Automata<'a, 'b> {
     }
 
     fn resolve_entity(&self, expr: &Expr) -> Term {
-        match expr.variant {
-            ExprVariant::Atom(ref atom) => match atom {
-                AtomExpr::Literal(_) => todo!(),
-                AtomExpr::Symbol(_) => todo!(),
-                AtomExpr::Uncertain(_) => todo!(),
-                AtomExpr::Unrecognized(_) => todo!(),
-            },
-            ExprVariant::Opn {
-                ref opn_variant,
-                ref opds,
-            } => match opn_variant {
-                RawOpnVariant::Binary(_) => todo!(),
-                RawOpnVariant::Prefix(_) => todo!(),
-                RawOpnVariant::Suffix(_) => todo!(),
-                RawOpnVariant::List(_) => todo!(),
-                RawOpnVariant::Field(_) => todo!(),
-                RawOpnVariant::CurlBracketed => self.resolve_entity(&self.arena[opds.start()]),
-                RawOpnVariant::Abstraction => todo!(),
-            },
-        }
+        todo!()
+        // match expr.variant {
+        //     Expr::Atom(ref atom) => match atom {
+        //         AtomExpr::Literal(_) => todo!(),
+        //         AtomExpr::Symbol(_) => todo!(),
+        //         AtomExpr::Uncertain(_) => todo!(),
+        //         AtomExpr::Unrecognized(_) => todo!(),
+        //     },
+        //     Expr::Opn {
+        //         ref opn_variant,
+        //         ref opds,
+        //     } => match opn_variant {
+        //         RawOpnVariant::Binary(_) => todo!(),
+        //         RawOpnVariant::Prefix(_) => todo!(),
+        //         RawOpnVariant::Suffix(_) => todo!(),
+        //         RawOpnVariant::List(_) => todo!(),
+        //         RawOpnVariant::Field(_) => todo!(),
+        //         RawOpnVariant::CurlBracketed => self.resolve_entity(&self.arena[opds.start()]),
+        //         RawOpnVariant::Abstraction => todo!(),
+        //     },
+        // }
     }
 }
 
@@ -125,13 +127,14 @@ impl ResolvedToken {
     }
 
     pub(super) fn to_expr(self, arena: &ExprArena) -> Expr {
-        let variant = match self.kind {
-            ResolvedTokenKind::Atom(variant) => variant.into(),
-            ResolvedTokenKind::BinaryOpr(_) => todo!(),
-            ResolvedTokenKind::Prefix(_) => todo!(),
-            ResolvedTokenKind::Suffix(_) => todo!(),
-        };
-        Expr::new(variant, self.range, arena)
+        todo!()
+        // let variant = match self.kind {
+        //     ResolvedTokenKind::Atom(variant) => variant.into(),
+        //     ResolvedTokenKind::BinaryOpr(_) => todo!(),
+        //     ResolvedTokenKind::Prefix(_) => todo!(),
+        //     ResolvedTokenKind::Suffix(_) => todo!(),
+        // };
+        // Expr::new(variant, self.range, arena)
     }
 }
 

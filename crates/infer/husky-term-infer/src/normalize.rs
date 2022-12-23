@@ -26,8 +26,8 @@ pub struct TraitEntity(Term);
 impl<'a> InferContext<'a> {
     pub(crate) fn normalized_expr(&self) -> NormalizedExpr<'a> {
         match self.expr().variant {
-            ExprVariant::Atom(ref atom) => NormalizedExpr::Atom(atom),
-            ExprVariant::Opn {
+            Expr::Atom(ref atom) => NormalizedExpr::Atom(atom),
+            Expr::Opn {
                 ref opn_variant,
                 ref opds,
             } => match opn_variant {

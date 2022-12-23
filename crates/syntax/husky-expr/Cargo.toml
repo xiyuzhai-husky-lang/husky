@@ -10,7 +10,10 @@ thiserror = "1.0.37"
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
+salsa = { path = "../../abstraction/salsa" }
 idx-arena = { path = "../../abstraction/idx-arena" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
@@ -22,20 +25,15 @@ husky-text = { path = "../../lex/husky-text" }
 husky-symbol-syntax = { path = "../../syntax/husky-symbol-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-ast = { path = "../../syntax/husky-ast" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
 
 [dev-dependencies]
-# abstraction
-salsa = { path = "../../abstraction/salsa" }
-# fs
-husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
-# syntax
-husky-ast = { path = "../../syntax/husky-ast" }
