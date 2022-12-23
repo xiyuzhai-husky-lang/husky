@@ -10,7 +10,9 @@ fn main() {
     assert!(PathBuf::from("husky-toolchain.toml").exists());
     assert!(PathBuf::from(".corgi/config.toml").exists());
     // clean_expect_files();
-    clean_tests()
+    // clean_tests()
+    remove_folder_in_tests("snapshot")
+    // restructure()
 }
 
 fn clean_expect_files() {
@@ -24,11 +26,21 @@ fn clean_expect_files() {
     }
 }
 
-fn clean_tests() {
+fn remove_folder_in_tests(dirname: &str) {
     let collect_paths = collect_paths(&PathBuf::from("tests"));
     for path in collect_paths {
-        if path.extension().and_then(|s| s.to_str()) == Some("txt") {
-            std::fs::remove_file(path).unwrap()
+        if path.file_name().and_then(|s| s.to_str()) == Some(dirname) {
+            std::fs::remove_dir_all(path).unwrap()
+        }
+    }
+}
+
+fn restructure() {
+    let collect_paths = collect_paths(&PathBuf::from("tests"));
+    for path in collect_paths {
+        if path.join("main.hsy").exists() {
+            p!(path);
+            todo!()
         }
         // if path.file_name().and_then(|s| s.to_str()) == Some("__rust_gen__") {
         //     let new_path = path.with_file_name("rust");
