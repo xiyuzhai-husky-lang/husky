@@ -58,14 +58,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 64,
+                                value: 92,
                             },
                         ),
                     ),
@@ -78,7 +78,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
@@ -98,7 +98,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
@@ -118,14 +118,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 64,
+                                value: 92,
                             },
                         ),
                     ),
@@ -138,7 +138,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
@@ -158,7 +158,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
@@ -178,7 +178,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
@@ -198,7 +198,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
@@ -218,7 +218,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
@@ -238,7 +238,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
@@ -258,7 +258,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),

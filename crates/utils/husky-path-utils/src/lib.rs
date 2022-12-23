@@ -168,6 +168,7 @@ fn collect_package_relative_dirs_works() {
         .unwrap();
     expect_test::expect![[r#"
         [
+            "./algorithms/quick-sort",
             "./husky-recognizer",
             "./mnist-classifier",
             "./natural-number-game",

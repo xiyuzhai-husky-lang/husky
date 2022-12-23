@@ -138,14 +138,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 13,
+                                value: 14,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 80,
+                                value: 108,
                             },
                         ),
                     ),
@@ -158,7 +158,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 13,
+                                value: 14,
                             },
                         ),
                     ),
