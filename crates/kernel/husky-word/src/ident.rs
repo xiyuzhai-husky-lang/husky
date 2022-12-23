@@ -35,7 +35,7 @@ impl Identifier {
         }
     }
 
-    pub(crate) fn from_borrowed(db: &dyn WordDb, data: &str) -> Option<Self> {
+    pub fn from_borrowed(db: &dyn WordDb, data: &str) -> Option<Self> {
         if is_valid_ident(data) {
             Some(Self(db.it_word_borrowed(data)))
         } else {

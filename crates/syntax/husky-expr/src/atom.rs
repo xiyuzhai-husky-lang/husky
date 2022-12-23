@@ -1,17 +1,16 @@
-use husky_symbol_syntax::Symbol;
-
 use crate::*;
+use husky_symbol_syntax::Symbol;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AtomExpr {
-    Literal(RawLiteralData),
+    Literal(LiteralToken),
     Symbol(Symbol),
     Uncertain(Identifier),
     Unrecognized(Identifier),
 }
 
-impl From<RawLiteralData> for AtomExpr {
-    fn from(value: RawLiteralData) -> Self {
+impl From<LiteralToken> for AtomExpr {
+    fn from(value: LiteralToken) -> Self {
         AtomExpr::Literal(value)
     }
 }

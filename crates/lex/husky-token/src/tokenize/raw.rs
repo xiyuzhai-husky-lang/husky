@@ -1,6 +1,5 @@
 use super::*;
 use husky_opn_syntax::*;
-use husky_primitive_literal_syntax::RawLiteralData;
 use husky_text::{TextCharIter, TextRange};
 use husky_word::WordDb;
 use std::str::FromStr;
@@ -19,18 +18,18 @@ impl RawToken {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) enum RawTokenVariant {
     Certain(TokenKind),
-    Literal(RawLiteralData),
-    IllFormedLiteral(RawLiteralData),
+    Literal(LiteralToken),
+    IllFormedLiteral(LiteralToken),
     SubOrMinus,
     NewLine,
     Special(AmbiguousSpecial),
     Comment,
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum AmbiguousSpecial {
     For,
 }
@@ -41,61 +40,61 @@ impl From<TokenKind> for RawTokenVariant {
     }
 }
 
-impl const From<SpecialToken> for RawTokenVariant {
+impl From<SpecialToken> for RawTokenVariant {
     fn from(value: SpecialToken) -> Self {
         RawTokenVariant::Certain(value.into())
     }
 }
 
-impl const From<Keyword> for RawTokenVariant {
+impl From<Keyword> for RawTokenVariant {
     fn from(kw: Keyword) -> Self {
         RawTokenVariant::Certain(kw.into())
     }
 }
 
-impl const From<StmtKeyword> for RawTokenVariant {
+impl From<StmtKeyword> for RawTokenVariant {
     fn from(kw: StmtKeyword) -> Self {
         RawTokenVariant::Certain(kw.into())
     }
 }
 
-impl const From<TypeKeyword> for RawTokenVariant {
+impl From<TypeKeyword> for RawTokenVariant {
     fn from(kw: TypeKeyword) -> Self {
         RawTokenVariant::Certain(kw.into())
     }
 }
 
-impl const From<LiasonKeyword> for RawTokenVariant {
+impl From<LiasonKeyword> for RawTokenVariant {
     fn from(kw: LiasonKeyword) -> Self {
         RawTokenVariant::Certain(kw.into())
     }
 }
 
-impl const From<ConfigKeyword> for RawTokenVariant {
+impl From<ConfigKeyword> for RawTokenVariant {
     fn from(kw: ConfigKeyword) -> Self {
         RawTokenVariant::Certain(kw.into())
     }
 }
 
-impl const From<Decorator> for RawTokenVariant {
+impl From<Decorator> for RawTokenVariant {
     fn from(kw: Decorator) -> Self {
         RawTokenVariant::Certain(kw.into())
     }
 }
 
-impl const From<WordOpr> for RawTokenVariant {
+impl From<WordOpr> for RawTokenVariant {
     fn from(kw: WordOpr) -> Self {
         RawTokenVariant::Certain(kw.into())
     }
 }
 
-impl const Into<RawTokenVariant> for FormKeyword {
+impl Into<RawTokenVariant> for FormKeyword {
     fn into(self) -> RawTokenVariant {
         RawTokenVariant::Certain(self.into())
     }
 }
 
-impl const From<Token> for RawToken {
+impl From<Token> for RawToken {
     fn from(value: Token) -> Self {
         Self {
             range: value.range,
@@ -105,13 +104,13 @@ impl const From<Token> for RawToken {
 }
 
 pub(crate) struct RawTokenIter<'a, 'b> {
-    db: &'a dyn WordDb,
+    db: &'a dyn TokenDb,
     buffer: String,
     char_iter: TextCharIter<'b>,
 }
 
 impl<'a, 'b> RawTokenIter<'a, 'b> {
-    pub fn new(db: &'a dyn WordDb, char_iter: TextCharIter<'b>) -> Self {
+    pub fn new(db: &'a dyn TokenDb, char_iter: TextCharIter<'b>) -> Self {
         let mut buffer = String::new();
         buffer.reserve_exact(100);
         Self {
@@ -156,7 +155,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     _ => (),
                 }
                 let _len = self.buffer.len();
-                RawTokenVariant::Literal(RawLiteralData::Float(self.take_buffer::<f64>().into()))
+                RawTokenVariant::Literal(LiteralToken::Float(self.take_buffer::<f64>().into()))
                     .into()
             }
             'b' => {
@@ -166,7 +165,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     '3' => {
                         self.ignore_char();
                         if self.peek_char() != '2' {
-                            RawTokenVariant::IllFormedLiteral(RawLiteralData::Bits(
+                            RawTokenVariant::IllFormedLiteral(LiteralToken::Bits(
                                 self.take_buffer::<u64>().into(),
                             ))
                         } else {
@@ -175,7 +174,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                             if is_word_char(self.peek_char()) {
                                 todo!()
                             } else {
-                                RawTokenVariant::Literal(RawLiteralData::B32(
+                                RawTokenVariant::Literal(LiteralToken::B32(
                                     self.take_buffer::<u32>().into(),
                                 ))
                             }
@@ -184,7 +183,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     '6' => {
                         self.ignore_char();
                         if self.peek_char() != '4' {
-                            RawTokenVariant::IllFormedLiteral(RawLiteralData::Bits(
+                            RawTokenVariant::IllFormedLiteral(LiteralToken::Bits(
                                 self.take_buffer::<u64>().into(),
                             ))
                         } else {
@@ -193,13 +192,13 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                             if is_word_char(self.peek_char()) {
                                 todo!()
                             } else {
-                                RawTokenVariant::Literal(RawLiteralData::B64(
+                                RawTokenVariant::Literal(LiteralToken::B64(
                                     self.take_buffer::<u64>().into(),
                                 ))
                             }
                         }
                     }
-                    _ => RawTokenVariant::IllFormedLiteral(RawLiteralData::B64(
+                    _ => RawTokenVariant::IllFormedLiteral(LiteralToken::B64(
                         self.take_buffer::<u64>(),
                     )),
                 }
@@ -211,7 +210,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     '3' => {
                         self.ignore_char();
                         if self.peek_char() != '2' {
-                            RawTokenVariant::IllFormedLiteral(RawLiteralData::Integer(
+                            RawTokenVariant::IllFormedLiteral(LiteralToken::Integer(
                                 self.take_buffer::<i32>().into(),
                             ))
                         } else {
@@ -220,7 +219,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                             if is_word_char(self.peek_char()) {
                                 todo!()
                             } else {
-                                RawTokenVariant::Literal(RawLiteralData::I32(
+                                RawTokenVariant::Literal(LiteralToken::I32(
                                     self.take_buffer::<i32>().into(),
                                 ))
                             }
@@ -229,7 +228,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                     '6' => {
                         self.ignore_char();
                         if self.peek_char() != '4' {
-                            RawTokenVariant::IllFormedLiteral(RawLiteralData::Integer(
+                            RawTokenVariant::IllFormedLiteral(LiteralToken::Integer(
                                 self.take_buffer::<i64>().into(),
                             ))
                         } else {
@@ -238,13 +237,13 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                             if is_word_char(self.peek_char()) {
                                 todo!()
                             } else {
-                                RawTokenVariant::Literal(RawLiteralData::I64(
+                                RawTokenVariant::Literal(LiteralToken::I64(
                                     self.take_buffer::<i64>().into(),
                                 ))
                             }
                         }
                     }
-                    _ => RawTokenVariant::IllFormedLiteral(RawLiteralData::I64(
+                    _ => RawTokenVariant::IllFormedLiteral(LiteralToken::I64(
                         self.take_buffer::<i64>(),
                     )),
                 }
@@ -257,13 +256,13 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                         self.ignore_char();
                         token_len += 1;
                     }
-                    RawTokenVariant::IllFormedLiteral(RawLiteralData::B64(
+                    RawTokenVariant::IllFormedLiteral(LiteralToken::B64(
                         self.take_buffer::<u64>().into(),
                     ))
                 } else {
                     // integer
                     let _len = self.buffer.len();
-                    RawTokenVariant::Literal(RawLiteralData::Integer(
+                    RawTokenVariant::Literal(LiteralToken::Integer(
                         self.take_buffer::<i32>().into(),
                     ))
                 }
@@ -277,7 +276,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
     }
 
     fn new_word(&self, word: String) -> RawTokenVariant {
-        if let Some(token_kind) = new_reserved_word(&word) {
+        if let Some(token_kind) = new_reserved_word(self.db, &word) {
             // ad hoc
             token_kind
         } else {
@@ -423,10 +422,25 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
         )
     }
 
+    fn next_string_literal(&mut self) -> RawTokenVariant {
+        let mut s = String::new();
+        while let Some(c) = self.char_iter.next() {
+            match c {
+                '"' => break,
+                '\\' => todo!(),
+                '\n' => todo!(),
+                c => s.push(c),
+            }
+        }
+        RawTokenVariant::Literal(LiteralToken::String(StringLiteral::new(s)))
+    }
+
     fn next_token_variant(&mut self) -> Option<RawTokenVariant> {
         let c = self.char_iter.next()?;
         if c == '\n' {
             Some(RawTokenVariant::NewLine)
+        } else if c == '"' {
+            Some(self.next_string_literal())
         } else if c == ' ' {
             unreachable!()
         } else if c.is_alphabetic() || c == '_' {

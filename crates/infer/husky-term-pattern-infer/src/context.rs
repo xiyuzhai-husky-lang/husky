@@ -125,13 +125,13 @@ impl<'a> TermPatternInferContext<'a> {
 
     fn infer_literal(
         &self,
-        literal: &RawLiteralData,
+        literal: &LiteralToken,
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
         let _term_menu = self.term_menu();
         match literal {
-            RawLiteralData::Unit => todo!(),
-            RawLiteralData::Integer(_) => {
+            LiteralToken::Unit => todo!(),
+            LiteralToken::Integer(_) => {
                 let term = sheet.it_unresolved(UnresolvedTerm::IntegerLiteral(self.expr_idx()));
                 let ty = sheet.it_unresolved(UnresolvedTerm::IntegerType(term));
                 ExprTermPatternInferRawResults {
@@ -142,21 +142,21 @@ impl<'a> TermPatternInferContext<'a> {
                     ty: Ok(ty.into()),
                 }
             }
-            RawLiteralData::I32(_i) => ExprTermPatternInferRawResults {
+            LiteralToken::I32(_i) => ExprTermPatternInferRawResults {
                 const_expr: Ok(Some(ConstExprPattern {
                     term: TermPatternItd::Resolved(todo!()),
                     opt_substitution_ctx: None,
                 })),
                 ty: Ok(self.term_menu.i32().into()),
             },
-            RawLiteralData::I64(_i) => ExprTermPatternInferRawResults {
+            LiteralToken::I64(_i) => ExprTermPatternInferRawResults {
                 const_expr: Ok(Some(ConstExprPattern {
                     term: TermPatternItd::Resolved(todo!()),
                     opt_substitution_ctx: None,
                 })),
                 ty: Ok(self.term_menu.i32().into()),
             },
-            RawLiteralData::Float(_) => {
+            LiteralToken::Float(_) => {
                 let term = sheet.it_unresolved(UnresolvedTerm::FloatLiteral(self.expr_idx()));
                 let ty = sheet.it_unresolved(UnresolvedTerm::FloatType(term));
                 ExprTermPatternInferRawResults {
@@ -167,12 +167,13 @@ impl<'a> TermPatternInferContext<'a> {
                     ty: Ok(ty.into()),
                 }
             }
-            RawLiteralData::F32(_) => todo!(),
-            RawLiteralData::F64(_) => todo!(),
-            RawLiteralData::Bits(_) => todo!(),
-            RawLiteralData::B32(_) => todo!(),
-            RawLiteralData::B64(_) => todo!(),
-            RawLiteralData::Bool(_) => todo!(),
+            LiteralToken::F32(_) => todo!(),
+            LiteralToken::F64(_) => todo!(),
+            LiteralToken::Bits(_) => todo!(),
+            LiteralToken::B32(_) => todo!(),
+            LiteralToken::B64(_) => todo!(),
+            LiteralToken::Bool(_) => todo!(),
+            LiteralToken::String(_) => todo!(),
         }
     }
 

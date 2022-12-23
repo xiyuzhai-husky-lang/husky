@@ -17,9 +17,9 @@ pub enum TokenKind {
     Identifier(Identifier),
     Special(SpecialToken),
     WordOpr(WordOpr),
-    Literal(RawLiteralData),
+    Literal(LiteralToken),
     Unrecognized(char),
-    IllFormedLiteral(RawLiteralData),
+    IllFormedLiteral(LiteralToken),
     Comment,
 }
 

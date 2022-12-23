@@ -49,7 +49,7 @@ enum DesIoError {
     NotValidFile(PathBuf),
     #[error("io error: {e} for path {path:?}")]
     IO { e: std::io::Error, path: PathBuf },
-    #[error("serde json")]
+    #[error("serde json error {0}")]
     SerdeJson(#[from] serde_json::error::Error),
 }
 

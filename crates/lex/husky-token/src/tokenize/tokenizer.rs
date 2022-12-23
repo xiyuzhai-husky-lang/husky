@@ -4,7 +4,7 @@ use husky_opn_syntax::*;
 use husky_text::TextLine;
 
 pub(crate) struct Tokenizer<'lex> {
-    db: &'lex dyn WordDb,
+    db: &'lex dyn TokenDb,
     tokens: Vec<Token>,
     errors: Vec<TokenError>,
     line: TextLine,
@@ -17,7 +17,7 @@ enum TokenizerAction {
 }
 
 impl<'token> Tokenizer<'token> {
-    pub fn new(db: &'token dyn WordDb) -> Self {
+    pub fn new(db: &'token dyn TokenDb) -> Self {
         Self {
             db,
             tokens: vec![],

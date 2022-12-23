@@ -36,67 +36,13 @@ Ok(
                 ),
             },
             Token {
-                range: [1:8, 1:9),
-                kind: Unrecognized(
-                    '"',
-                ),
-            },
-            Token {
-                range: [1:9, 1:12),
-                kind: Identifier(
-                    Identifier(
-                        Word(
-                            Id {
-                                value: 29,
-                            },
-                        ),
+                range: [1:8, 1:23),
+                kind: Literal(
+                    String(
+                        StringLiteral {
+                            data: "std::ops::Add",
+                        },
                     ),
-                ),
-            },
-            Token {
-                range: [1:12, 1:14),
-                kind: Special(
-                    BinaryOpr(
-                        ScopeResolution,
-                    ),
-                ),
-            },
-            Token {
-                range: [1:14, 1:17),
-                kind: Identifier(
-                    Identifier(
-                        Word(
-                            Id {
-                                value: 4,
-                            },
-                        ),
-                    ),
-                ),
-            },
-            Token {
-                range: [1:17, 1:19),
-                kind: Special(
-                    BinaryOpr(
-                        ScopeResolution,
-                    ),
-                ),
-            },
-            Token {
-                range: [1:19, 1:22),
-                kind: Identifier(
-                    Identifier(
-                        Word(
-                            Id {
-                                value: 22,
-                            },
-                        ),
-                    ),
-                ),
-            },
-            Token {
-                range: [1:22, 1:23),
-                kind: Unrecognized(
-                    '"',
                 ),
             },
             Token {
@@ -151,7 +97,7 @@ Ok(
                     Identifier(
                         Word(
                             Id {
-                                value: 30,
+                                value: 29,
                             },
                         ),
                     ),
@@ -183,7 +129,7 @@ Ok(
                     Identifier(
                         Word(
                             Id {
-                                value: 31,
+                                value: 30,
                             },
                         ),
                     ),
@@ -241,7 +187,7 @@ Ok(
                     Identifier(
                         Word(
                             Id {
-                                value: 30,
+                                value: 29,
                             },
                         ),
                     ),
@@ -269,7 +215,7 @@ Ok(
                     Identifier(
                         Word(
                             Id {
-                                value: 32,
+                                value: 31,
                             },
                         ),
                     ),
@@ -289,7 +235,7 @@ Ok(
                     Identifier(
                         Word(
                             Id {
-                                value: 31,
+                                value: 30,
                             },
                         ),
                     ),
@@ -298,9 +244,9 @@ Ok(
         ],
         group_starts: [
             0,
-            13,
-            20,
-            22,
+            7,
+            14,
+            16,
         ],
     },
 )

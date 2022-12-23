@@ -20,9 +20,9 @@ impl const Into<Keyword> for LiasonKeyword {
 //     Identifier(Identifier),
 //     Special(SpecialToken),
 //     WordOpr(WordOpr),
-//     Literal(RawLiteralData),
+//     Literal(LiteralToken),
 //     Unrecognized(char),
-//     IllFormedLiteral(RawLiteralData),
+//     IllFormedLiteral(LiteralToken),
 // }
 
 impl const Into<TokenKind> for LiasonKeyword {

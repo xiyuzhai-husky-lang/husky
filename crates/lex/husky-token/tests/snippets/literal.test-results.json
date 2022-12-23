@@ -1,0 +1,6 @@
+[
+  {
+    "input": "\"haha\"",
+    "output": "[\n    Token {\n        range: [1:1, 1:7),\n        kind: Literal(\n            String(\n                StringLiteral {\n                    data: \"haha\",\n                },\n            ),\n        ),\n    },\n]"
+  }
+]

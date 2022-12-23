@@ -1,5 +1,5 @@
 import Specs.syntax.Word
-import Specs.syntax.RawLiteralData
+import Specs.syntax.LiteralToken
 import Specs.syntax.Token.SpecialToken -- mod SpecialToken; use SpecialToken
 
 inductive TokenKind
@@ -9,9 +9,9 @@ inductive TokenKind
   | Special : SpecialToken -> TokenKind
   | WordOpr : WordOpr -> TokenKind
   | WordPattern : WordPattern-> TokenKind
-  | PrimitiveLiteral : RawLiteralData -> TokenKind
+  | PrimitiveLiteral : LiteralToken -> TokenKind
   | Unrecognized : Char -> TokenKind
-  | IllFormedLiteral : RawLiteralData -> TokenKind
+  | IllFormedLiteral : LiteralToken -> TokenKind
   deriving DecidableEq
 
 namespace TokenKind
