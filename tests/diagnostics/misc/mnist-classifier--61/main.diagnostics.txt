@@ -1,1 +1,0 @@
-[16:40, 16:52)	Infer Error: no field `raw_contours` in type `Module`

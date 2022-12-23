@@ -1,1 +1,0 @@
-[17:5, 17:32)	Infer Error: expect `?cv::datasets::mnist::MnistLabel` but get `i32` instead

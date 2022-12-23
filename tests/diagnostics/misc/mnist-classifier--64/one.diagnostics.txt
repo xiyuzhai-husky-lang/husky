@@ -1,1 +1,0 @@
-[11:13, 11:51)	Infer Error: expect `bool` but get `[]mnist_classifier__64::raw_contour::RawContour` instead

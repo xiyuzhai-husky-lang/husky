@@ -1,1 +1,0 @@
-[6:7, 6:8)	Ast Error: expect `:` but get "=" instead

@@ -1,2 +1,0 @@
-[4:1, 4:4)	Ast Error: expect route after keyword `use`
-[22:9, 22:34)	Infer Error: Unrecognized identifier `find_connected_components`

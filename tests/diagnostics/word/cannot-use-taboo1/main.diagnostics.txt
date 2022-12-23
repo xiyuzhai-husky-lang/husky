@@ -1,5 +1,0 @@
-[3:6, 3:11)	Entity Route Error: Defn Error: "contextual identifiers are reserved"([3:6, 3:11))
-[6:6, 6:9)	Entity Route Error: Defn Error: "builtin identifiers are reserved"([6:6, 6:9))
-[3:6, 3:11)	Ast Error: expect custom_ident
-[6:6, 6:9)	Ast Error: expect `<custom_identifier>`
-[7:5, 7:9)	Ast Error: expect keyword at the beginning of module item

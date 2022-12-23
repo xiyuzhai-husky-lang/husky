@@ -1,2 +1,0 @@
-[1:5, 1:6)	Lex Error: expect indentated lines after `:`
-[1:1, 1:5)	Infer Error: dataset config not found in main, so input type can't be inferred

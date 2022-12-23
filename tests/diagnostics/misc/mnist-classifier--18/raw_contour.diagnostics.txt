@@ -1,8 +1,0 @@
-[115:40, 115:50)	Ast Error: expect ranged_ty
-[121:28, 121:41)	Ast Error: expect ranged_ty
-[122:20, 122:30)	Ast Error: unexpected identifier here
-[49:33, 49:39)	Infer Error: no method named `to_i32` for type `mnist_classifier__18::raw_contour::Direction`, available members are `[]`
-[72:21, 72:26)	Infer Error: Unrecognized identifier `panic`
-[86:29, 86:34)	Infer Error: Unrecognized identifier `panic`
-[100:29, 100:34)	Infer Error: Unrecognized identifier `panic`
-[108:21, 108:26)	Infer Error: Unrecognized identifier `panic`

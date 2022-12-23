@@ -1,4 +1,0 @@
-[121:28, 121:41)	Ast Error: expect ranged_ty
-[54:51, 54:57)	Infer Error: no method named `to_i32` for type `mnist_classifier__26::raw_contour::Direction`, available members are `[]`
-[115:10, 115:22)	Infer Error: can't index by `i32` into type `mnist_classifier__26::raw_contour::RawContour`,
-it doesn't satisfy trait `std::ops::Index<i32>`

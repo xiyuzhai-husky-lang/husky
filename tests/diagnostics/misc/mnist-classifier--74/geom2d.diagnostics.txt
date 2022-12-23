@@ -1,3 +1,0 @@
-[78:13, 78:21)	Infer Error: expect use of "+, -, *, /, **" on same types
-[80:13, 80:19)	Infer Error: Unrecognized identifier `xrange`
-[81:13, 81:19)	Infer Error: Unrecognized identifier `yrange`

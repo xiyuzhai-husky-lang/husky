@@ -1,6 +1,0 @@
-[131:17, 131:42)	Infer Error: field can't be mutated
-[132:17, 132:51)	Infer Error: field can't be mutated
-[147:21, 147:29)	Infer Error: field can't be mutated
-[148:21, 148:38)	Infer Error: field can't be mutated
-[159:9, 159:37)	Infer Error: field can't be mutated
-[160:9, 160:46)	Infer Error: field can't be mutated

@@ -1,2 +1,0 @@
-[58:32, 58:36)	Ast Error: expect ranged_ty
-[124:31, 124:43)	Infer Error: Unrecognized identifier `BinaryGrid28`

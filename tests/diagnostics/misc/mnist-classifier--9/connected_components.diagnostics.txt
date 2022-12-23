@@ -1,4 +1,0 @@
-[2:1, 2:4)	Ast Error: expect route after keyword `use`
-[12:23, 12:40)	Infer Error: Unrecognized identifier `horizontal_extend`
-[19:45, 19:62)	Infer Error: Unrecognized identifier `horizontal_extend`
-[27:45, 27:62)	Infer Error: Unrecognized identifier `horizontal_extend`

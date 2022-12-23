@@ -1,5 +1,0 @@
-[38:41, 38:42)	Ast Error: can't match ket `)`
-[73:63, 73:68)	Ast Error: expect ranged_ty
-[45:14, 45:15)	Infer Error: Unrecognized identifier `v`
-[54:12, 54:22)	Infer Error: expect use of "!=" on same types
-[56:20, 56:39)	Infer Error: expect use of "<, <=, >, >=" on same types

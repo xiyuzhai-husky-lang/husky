@@ -1,2 +1,0 @@
-[1:15, 1:16)	Lex Error: expect indentated lines after `:`
-[2:1, 2:3)	Ast Error: expect keyword at the beginning of module item

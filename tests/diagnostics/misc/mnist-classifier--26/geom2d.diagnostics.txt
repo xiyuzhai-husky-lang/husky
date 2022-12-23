@@ -1,1 +1,0 @@
-[72:63, 72:68)	Ast Error: expect ranged_ty

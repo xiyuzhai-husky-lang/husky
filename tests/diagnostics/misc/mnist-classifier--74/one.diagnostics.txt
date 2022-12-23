@@ -1,5 +1,0 @@
-[15:9, 15:48)	Infer Error: expect `i32` but get `f32` instead
-[21:13, 21:51)	Infer Error: expect `i32` but get `f32` instead
-[31:13, 31:33)	Infer Error: expect `i32` but get `f32` instead
-[38:17, 38:48)	Infer Error: expect `i32` but get `f32` instead
-[45:17, 45:48)	Infer Error: expect `i32` but get `f32` instead

@@ -1,6 +1,0 @@
-[163:47, 163:56)	Ast Error: route `mnist_classifier__29::geom2d::Point2d` has no subroute named `from_ij28`
-[167:52, 167:61)	Ast Error: route `mnist_classifier__29::geom2d::Point2d` has no subroute named `from_ij28`
-[171:52, 171:61)	Ast Error: route `mnist_classifier__29::geom2d::Point2d` has no subroute named `from_ij28`
-[55:61, 55:67)	Infer Error: no method named `bitmod` for type `i32`, available members are `[Identifier("min"), Identifier("max"), Identifier("sgn"), Identifier("abs")]`
-[124:31, 124:43)	Infer Error: Unrecognized identifier `BinaryGrid28`
-[175:38, 175:53)	Infer Error: Unrecognized identifier `Point2dFromIJ28`

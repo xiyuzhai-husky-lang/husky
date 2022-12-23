@@ -1,6 +1,0 @@
-[26:5, 26:19)	Infer Error: expect same type for assignment
-[38:5, 38:6)	Infer Error: expect `void` but get `i32` instead
-[26:5, 26:6)	Infer Error: can't bind this to a temp mut ref
-[31:5, 31:6)	Infer Error: can't bind this to a temp mut ref
-[26:5, 26:6)	Infer Error: can't bind this to a temp mut ref
-[31:5, 31:6)	Infer Error: can't bind this to a temp mut ref
