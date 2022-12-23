@@ -34,3 +34,30 @@ fn test() {
              "#
     )
 }
+
+use rand::{thread_rng, Rng};
+
+// chatgpt only get half of it correct, has to use random_string, sad
+pub fn rand_string(seed: u64, max_length: usize, pieces: &[&str]) -> String {
+    let mut rng = thread_rng();
+    // Generate a random length between 1 and max_length (inclusive)
+    let length = rng.gen_range(1..(max_length + 1));
+    generate(seed, length, pieces)
+}
+
+pub fn generate(seed: u64, length: usize, pieces: &[&str]) -> String {
+    fastrand::seed(seed);
+    if pieces.is_empty() {
+        panic!("Provided charset is empty! It should contain at least one character");
+    }
+
+    let mut result = String::with_capacity(length);
+
+    unsafe {
+        for _ in 0..length {
+            result += pieces[fastrand::usize(0..pieces.len())];
+        }
+    }
+
+    result
+}

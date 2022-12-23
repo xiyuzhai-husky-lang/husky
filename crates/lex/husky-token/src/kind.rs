@@ -12,7 +12,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TokenKind {
-    Decorator(Decorator),
+    Attr(AttrKeyword),
     Keyword(Keyword),
     Identifier(Identifier),
     Special(SpecialToken),

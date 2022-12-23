@@ -11,8 +11,8 @@ pub(super) trait AuxAstParser<'aux> {
 
     fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
         Ok(match self.token_iter_mut().peek().unwrap().kind {
-            TokenKind::Decorator(decor) => match decor {
-                Decorator::Pub => {
+            TokenKind::Attr(decor) => match decor {
+                AttrKeyword::Pub => {
                     self.token_iter_mut().next();
                     match self
                         .token_iter_mut()
@@ -24,10 +24,10 @@ pub(super) trait AuxAstParser<'aux> {
                         _ => Accessibility::Public,
                     }
                 }
-                Decorator::Protected => todo!(),
-                Decorator::Private => todo!(),
-                Decorator::Async => todo!(),
-                Decorator::Static => Accessibility::Public,
+                AttrKeyword::Protected => todo!(),
+                AttrKeyword::Private => todo!(),
+                AttrKeyword::Async => todo!(),
+                AttrKeyword::Static => Accessibility::Public,
             },
             _ => Accessibility::PublicUnder(self.module_path()),
         })
@@ -41,7 +41,7 @@ pub(super) trait AuxAstParser<'aux> {
                 .ok_or(AstError::ExpectEntityKeyword)?
                 .kind
             {
-                TokenKind::Decorator(_decor) => self.parse_entity_kind()?,
+                TokenKind::Attr(_decor) => self.parse_entity_kind()?,
                 TokenKind::Keyword(kw) => match kw {
                     Keyword::Paradigm(_) | Keyword::Visual => match self.ast_parent() {
                         AstParent::EnumLike => todo!(),

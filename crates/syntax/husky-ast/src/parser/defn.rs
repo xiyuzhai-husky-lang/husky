@@ -116,7 +116,7 @@ impl<'a> AstParser<'a> {
     fn parse_enum_variant(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         let ident = match self.token_sheet[token_group_idx].get(1) {
             Some(token) => match token.kind {
-                TokenKind::Decorator(_) => todo!(),
+                TokenKind::Attr(_) => todo!(),
                 TokenKind::Keyword(_) => todo!(),
                 TokenKind::Identifier(_) => todo!(),
                 TokenKind::Special(_) => todo!(),

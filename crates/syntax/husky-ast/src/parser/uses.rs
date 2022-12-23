@@ -66,7 +66,7 @@ impl<'b> EntityUseExprParser<'b> {
         }
         let ident = match token_iter.peek() {
             Some(token) => match token.kind {
-                TokenKind::Decorator(_) => todo!(),
+                TokenKind::Attr(_) => todo!(),
                 TokenKind::Keyword(_) => todo!(),
                 TokenKind::Identifier(ident) => ident,
                 TokenKind::Special(_) => todo!(),

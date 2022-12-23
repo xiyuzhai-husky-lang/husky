@@ -59,17 +59,6 @@ impl Token {
         }
     }
 
-    pub fn ranged_custom_ident(&self) -> Option<RangedIdentifier> {
-        todo!()
-        // match self.kind {
-        //     TokenKind::Identifier(Identifier::Custom(ident)) => Some(RangedIdentifier {
-        //         ident,
-        //         range: self.range,
-        //     }),
-        //     _ => todo!(),
-        // }
-    }
-
     pub fn identify(&self) -> Option<Identifier> {
         match self.kind {
             TokenKind::Identifier(ident) => Some(ident),

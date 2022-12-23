@@ -135,7 +135,7 @@ Ok(
             },
             Token {
                 range: [7:5, 7:11),
-                kind: Decorator(
+                kind: Attr(
                     Static,
                 ),
             },

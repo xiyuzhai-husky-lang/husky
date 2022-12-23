@@ -63,7 +63,7 @@ impl<'a> AstParser<'a> {
             });
         }
         Some(match token_group.first().kind {
-            TokenKind::Decorator(_) => self.parse_defn_or_use(token_group_idx, context),
+            TokenKind::Attr(_) => self.parse_defn_or_use(token_group_idx, context),
             TokenKind::Keyword(kw) => match kw {
                 Keyword::Stmt(kw) => match kw {
                     StmtKeyword::If => self.parse_if_else_stmts(token_group_idx, &context),
@@ -193,7 +193,7 @@ impl<'a> AstParser<'a> {
     fn parse_defn_or_use(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         for token in &self.token_sheet[token_group_idx] {
             match token.kind {
-                TokenKind::Decorator(_) | TokenKind::Comment => (),
+                TokenKind::Attr(_) | TokenKind::Comment => (),
                 TokenKind::Keyword(Keyword::Use) => {
                     return self.parse_uses(token_group_idx, context)
                 }

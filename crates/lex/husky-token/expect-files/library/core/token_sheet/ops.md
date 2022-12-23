@@ -63,7 +63,7 @@ Ok(
             },
             Token {
                 range: [2:1, 2:4),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
