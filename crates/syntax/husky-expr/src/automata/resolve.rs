@@ -49,6 +49,7 @@ impl<'a, 'b> Automata<'a, 'b> {
             TokenKind::Unrecognized(_) => todo!(),
             TokenKind::IllFormedLiteral(_) => todo!(),
             TokenKind::Comment => todo!(),
+            TokenKind::Err(_) => todo!(),
         }
     }
 

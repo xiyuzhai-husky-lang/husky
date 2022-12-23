@@ -21,6 +21,7 @@ pub enum TokenKind {
     Unrecognized(char),
     IllFormedLiteral(LiteralToken),
     Comment,
+    Err(TokenError),
 }
 
 impl std::hash::Hash for TokenKind {

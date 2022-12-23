@@ -27,7 +27,7 @@ pub(crate) enum RawTokenVariant {
     NewLine,
     Special(AmbiguousSpecial),
     Comment,
-    IncompleteStringLiteral,
+    Err(TokenError),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -423,7 +423,7 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
         )
     }
 
-    fn next_string_literal(&mut self) -> RawTokenVariant {
+    fn next_string_literal(&mut self) -> TokenResult<RawTokenVariant> {
         let mut s = String::new();
         while let Some(c) = self.char_iter.next() {
             match c {
@@ -436,17 +436,19 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
                             'n' => s.push('\n'),
                             'r' => s.push('\r'),
                             't' => s.push('\t'),
-                            c => todo!("expected char {c}"),
+                            c => return Err(TokenError::UnexpectedCharAfterBackslash),
                         }
                     } else {
-                        return RawTokenVariant::IncompleteStringLiteral;
+                        return Err(TokenError::IncompleteStringLiteral);
                     }
                 }
                 '\n' => todo!(),
                 c => s.push(c),
             }
         }
-        RawTokenVariant::Literal(LiteralToken::String(StringLiteral::new(s)))
+        Ok(RawTokenVariant::Literal(LiteralToken::String(
+            StringLiteral::new(s),
+        )))
     }
 
     fn next_token_variant(&mut self) -> Option<RawTokenVariant> {
@@ -454,7 +456,18 @@ impl<'token_line, 'lex: 'token_line> RawTokenIter<'token_line, 'lex> {
         if c == '\n' {
             Some(RawTokenVariant::NewLine)
         } else if c == '"' {
-            Some(self.next_string_literal())
+            match self.next_string_literal() {
+                Ok(v) => Some(v),
+                Err(e) => {
+                    // skip this line
+                    while let Some(c) = self.char_iter.next() {
+                        if c == '\n' {
+                            break;
+                        }
+                    }
+                    Some(RawTokenVariant::Err(e))
+                }
+            }
         } else if c == ' ' {
             unreachable!()
         } else if c.is_alphabetic() || c == '_' {
