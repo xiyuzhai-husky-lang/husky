@@ -24,7 +24,7 @@ husky-primitive-literal-syntax = { path = "../../syntax/husky-primitive-literal-
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 # utils
 husky-test-utils = { path = "../../utils/husky-test-utils" }
-husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
+husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }

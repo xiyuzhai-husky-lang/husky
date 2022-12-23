@@ -23,7 +23,7 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # utils
-husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
+husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 

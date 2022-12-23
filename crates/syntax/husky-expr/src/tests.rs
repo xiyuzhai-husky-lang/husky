@@ -2,7 +2,7 @@ use crate::*;
 use husky_ast::AstJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
-use husky_expect_test_utils::expect_test_husky_to_rust;
+use husky_expect_test_snippets_utils::expect_test_snippets;
 use husky_manifest::ManifestJar;
 use husky_symbol_syntax::{SymbolDb, SymbolJar};
 use husky_token::Tokenize;

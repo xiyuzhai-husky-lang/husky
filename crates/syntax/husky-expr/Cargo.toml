@@ -27,7 +27,7 @@ husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-test-utils = { path = "../../utils/husky-test-utils" }
-husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
+husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
 
 [dev-dependencies]
 # abstraction

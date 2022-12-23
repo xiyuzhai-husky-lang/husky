@@ -36,4 +36,4 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 # utils
-husky-expect-test-utils = { path = "../../utils/husky-expect-test-utils" }
+husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }

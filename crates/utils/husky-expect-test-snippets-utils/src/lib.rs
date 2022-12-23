@@ -19,7 +19,7 @@ use std::{
     process::exit,
 };
 
-pub fn expect_test_husky_to_rust(
+pub fn expect_test_snippets(
     relative_test_dir: &str,
     f: &(impl Fn(&str) -> String + UnwindSafe + RefUnwindSafe),
 ) {
