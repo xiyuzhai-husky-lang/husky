@@ -52,7 +52,6 @@ husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
-husky-test-utils = { path = "../../utils/husky-test-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-io-utils = { path = "../../utils/husky-io-utils" }
 # vm
