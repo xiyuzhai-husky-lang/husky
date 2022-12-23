@@ -1,22 +1,15 @@
 [package]
-name = "husky-semantic-token"
+name = "husky-token-infer"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-lsp-types = "0.93"
-# abstraction
 salsa = { path = "../../abstraction/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
-husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
-# infer
-husky-token-infer = { path = "../../infer/husky-token-infer" }
-# kernel
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 
 [dev-dependencies]
 # kernel
