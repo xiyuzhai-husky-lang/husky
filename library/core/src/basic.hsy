@@ -1,5 +1,5 @@
-pub type bool;
+pub type bool {...}
 
-pub structure Trait;
+pub structure Trait {...}
 
-pub structure Module;
+pub structure Module {...}

@@ -13,7 +13,7 @@ impl salsa::Database for DB {}
 #[test]
 fn entity_path_debug_works() {
     let db = DB::default();
-    let toolchain = db.dev_toolchain();
+    let toolchain = db.dev_toolchain().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
     expect_test::expect![[r#"
         `core::num::i32`

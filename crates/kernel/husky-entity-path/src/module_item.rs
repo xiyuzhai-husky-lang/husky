@@ -110,7 +110,7 @@ impl<Db: EntityPathDb> salsa::DebugWithDb<Db> for ModuleItemPath {
 #[test]
 fn module_item_path_debug_with_db_works() {
     let db = DB::default();
-    let toolchain = db.dev_toolchain();
+    let toolchain = db.dev_toolchain().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
     expect_test::expect![[r#"
         `core::num::b32`

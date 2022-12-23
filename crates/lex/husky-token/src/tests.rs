@@ -26,8 +26,8 @@ fn tokenize_works() {
 #[test]
 fn tokenize_library() {
     let db = MimicDB::default();
-    let toolchain = db.dev_toolchain();
-    let path_menu = db.path_menu(toolchain).unwrap();
+    let toolchain = db.dev_toolchain().unwrap();
+    let path_menu = db.dev_path_menu().unwrap();
 
     macro_rules! t {
         ($($module:ident),*) => {

@@ -21,7 +21,7 @@ impl<'a> EntityTreeCollector<'a> {
             .map(|module_path| entity_tree_presheet(db, *module_path).clone())
             .collect::<VfsResult<VecMap<EntityTreePresheet>>>()?;
         let toolchain = crate_path.toolchain(db);
-        let path_menu = db.path_menu(toolchain)?;
+        let path_menu = db.dev_path_menu()?;
         let core_prelude_module = path_menu.core_prelude();
         let universal_prelude: Option<&'a [EntitySymbol]> =
             if crate_path != path_menu.core_library() {

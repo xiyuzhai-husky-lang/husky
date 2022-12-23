@@ -16,9 +16,9 @@ pub(crate) fn package_ident(db: &dyn VfsDb, package_path: PackagePath) -> VfsRes
 #[test]
 fn package_ident_works() {
     let db = DB::default();
-    let toolchain = db.dev_toolchain();
+    let toolchain = db.dev_toolchain().unwrap();
     let word_menu = db.word_menu();
-    let path_menu = db.path_menu(toolchain).unwrap();
+    let path_menu = db.dev_path_menu().unwrap();
     assert_eq!(path_menu.core_package().ident(&db), Ok(word_menu.core()));
     assert_eq!(path_menu.std_package().ident(&db), Ok(word_menu.std()));
 }

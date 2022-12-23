@@ -50,8 +50,8 @@ fn test_absolute_path_debug() {
 }
 
 impl DiffPath {
-    pub fn try_new(db: &dyn VfsDb, path: &Path) -> VfsResult<Self> {
-        Ok(Self::new(db, DiffPathBuf::try_new(db, path)?))
+    pub fn try_new(db: &dyn VfsDb, path: impl AsRef<Path>) -> VfsResult<Self> {
+        Ok(Self::new(db, DiffPathBuf::try_new(db, path.as_ref())?))
     }
 }
 

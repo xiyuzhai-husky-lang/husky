@@ -83,7 +83,13 @@ pub(crate) fn published_toolchain_library_path(
 }
 
 #[salsa::tracked(jar = VfsJar)]
-pub(crate) fn current_toolchain(db: &dyn VfsDb) -> Toolchain {
+pub(crate) fn current_toolchain(db: &dyn VfsDb) -> VfsResult<Toolchain> {
     // ad hoc
-    db.dev_toolchain()
+    Ok(Toolchain::new(
+        db,
+        ToolchainData::Local {
+            library_path: DiffPath::try_new(db, "/home/xiyuzhai/repos/husky/library")
+                .expect("ad hoc; this only works on my computer"),
+        },
+    ))
 }

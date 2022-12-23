@@ -5,7 +5,7 @@ use crate::*;
 #[test]
 fn toolchain_debug_works() {
     let db = DB::default();
-    let toolchain = db.dev_toolchain();
+    let toolchain = db.dev_toolchain().unwrap();
     expect_test::expect![[r#"
         Toolchain {
             data: Local {

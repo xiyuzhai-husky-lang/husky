@@ -46,8 +46,7 @@ impl<Db: VfsDb> PartialOrdWithDb<Db> for ModulePath {
 #[test]
 fn module_path_partial_ord_works() {
     let db = DB::default();
-    let toolchain = db.dev_toolchain();
-    let path_menu = db.path_menu(toolchain).unwrap();
+    let path_menu = db.dev_path_menu().unwrap();
 
     assert!(path_menu.core().with_db(&db) > (path_menu.core_num()).with_db(&db));
     assert!(!(path_menu.core().with_db(&db) == (path_menu.core_num()).with_db(&db)));
