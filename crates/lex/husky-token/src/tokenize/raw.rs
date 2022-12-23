@@ -77,8 +77,8 @@ impl From<ConfigKeyword> for RawTokenVariant {
     }
 }
 
-impl From<Decorator> for RawTokenVariant {
-    fn from(kw: Decorator) -> Self {
+impl From<AttrKeyword> for RawTokenVariant {
+    fn from(kw: AttrKeyword) -> Self {
         RawTokenVariant::Certain(kw.into())
     }
 }

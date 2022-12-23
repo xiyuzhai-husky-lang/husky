@@ -32,3 +32,6 @@ husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [lib]
+
+[dev-dependencies]
+husky-adversarial-utils = { path = "../../utils/husky-adversarial-utils" }

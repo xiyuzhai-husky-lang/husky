@@ -32,21 +32,29 @@ pub fn path_has_extension(path: &Path, extension: &str) -> bool {
     path.extension().map(|s| s.to_string_lossy()) == Some(extension.into())
 }
 
-pub fn collect_paths(dir: &Path) -> Vec<PathBuf> {
+pub fn find_paths(dir: &Path) -> Vec<PathBuf> {
     let mut paths: Vec<PathBuf> = vec![];
-    collect_dirs_aux(dir, &mut paths);
+    find_paths_aux(dir, &mut paths, &|path| true);
     paths
 }
 
-pub fn collect_dirs_aux(dir: &Path, paths: &mut Vec<PathBuf>) {
+pub fn find_regular_files(dir: &Path) -> Vec<PathBuf> {
+    let mut paths: Vec<PathBuf> = vec![];
+    find_paths_aux(dir, &mut paths, &|path| path.exists() && path.is_file());
+    paths
+}
+
+pub fn find_paths_aux(dir: &Path, paths: &mut Vec<PathBuf>, predicate: &impl Fn(&Path) -> bool) {
     if let Ok(read_dir) = std::fs::read_dir(dir) {
         for entry in read_dir {
             if let Ok(entry) = entry {
                 let path = entry.path();
                 if path.is_dir() && path.exists() {
-                    collect_dirs_aux(&path, paths)
+                    find_paths_aux(&path, paths, predicate)
                 }
-                paths.push(path)
+                if predicate(&path) {
+                    paths.push(path)
+                }
             }
         }
     }

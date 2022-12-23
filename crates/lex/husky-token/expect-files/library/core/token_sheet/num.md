@@ -65,7 +65,7 @@ Ok(
             },
             Token {
                 range: [2:1, 2:4),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
@@ -121,7 +121,7 @@ Ok(
             },
             Token {
                 range: [5:5, 5:8),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
@@ -301,7 +301,7 @@ Ok(
             },
             Token {
                 range: [8:5, 8:8),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
@@ -461,7 +461,7 @@ Ok(
             },
             Token {
                 range: [11:1, 11:4),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
@@ -517,7 +517,7 @@ Ok(
             },
             Token {
                 range: [14:5, 14:8),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
@@ -697,7 +697,7 @@ Ok(
             },
             Token {
                 range: [17:5, 17:8),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
@@ -857,7 +857,7 @@ Ok(
             },
             Token {
                 range: [20:1, 20:4),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
@@ -913,7 +913,7 @@ Ok(
             },
             Token {
                 range: [23:5, 23:8),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
@@ -1297,7 +1297,7 @@ Ok(
             },
             Token {
                 range: [32:5, 32:8),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
@@ -1477,7 +1477,7 @@ Ok(
             },
             Token {
                 range: [35:5, 35:8),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },

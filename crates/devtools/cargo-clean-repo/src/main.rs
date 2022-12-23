@@ -1,4 +1,4 @@
-use husky_path_utils::{clear_directory, collect_paths, collect_rust_package_dirs, Path};
+use husky_path_utils::{clear_directory, collect_rust_package_dirs, find_paths, Path};
 use husky_print_utils::p;
 use std::path::PathBuf;
 
@@ -27,7 +27,7 @@ fn clean_expect_files() {
 }
 
 fn remove_folder_in_tests(ends_with: &str) {
-    let collect_paths = collect_paths(&PathBuf::from("tests"));
+    let collect_paths = find_paths(&PathBuf::from("tests"));
     for path in collect_paths {
         if path.ends_with(ends_with) {
             std::fs::remove_dir_all(path).unwrap()
@@ -43,7 +43,7 @@ name = "{package_name}""#
         )
     }
 
-    let collect_paths = collect_paths(&PathBuf::from("tests"));
+    let collect_paths = find_paths(&PathBuf::from("tests"));
     for path in collect_paths {
         if path.join("main.hsy").exists() {
             let package_name = path.file_name().unwrap().to_str().unwrap().to_owned();

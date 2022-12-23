@@ -1,6 +1,6 @@
 use const_format::formatcp;
 use husky_control_flow_utils::require;
-use husky_path_utils::{Path, PathBuf};
+use husky_path_utils::{find_paths, find_regular_files, Path, PathBuf};
 
 const TEST_INPUTS: &'static str = "test-inputs";
 const TEST_RESULTS: &'static str = "test-results";
@@ -17,13 +17,10 @@ pub(crate) fn collect_test_path_stems(relative_folder_path: &str) -> Vec<PathBuf
         panic!("expect {tests_dir:?} is directory")
     }
     let mut test_paths: Vec<PathBuf> = vec![];
-    for entry in std::fs::read_dir(tests_dir).unwrap() {
-        let entry = entry.unwrap();
-        let subpath = entry.path();
-        if is_test_input(&subpath) {
-            test_paths.push(subpath.with_extension("").with_extension(""))
-        } else if subpath.is_dir() {
-            todo!()
+    let paths = find_regular_files(&tests_dir);
+    for path in paths {
+        if is_test_input(&path) {
+            test_paths.push(path.with_extension("").with_extension(""))
         }
     }
     test_paths

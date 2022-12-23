@@ -36,3 +36,6 @@ install-devtools:
 
 organise: install-devtools
 	cargo organise
+
+adversarial:
+	ADVERSARIAL=100 cargo test

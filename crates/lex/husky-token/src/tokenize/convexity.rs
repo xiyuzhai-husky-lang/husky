@@ -27,7 +27,7 @@ impl Convexity {
 impl Token {
     pub fn left_convexity(self) -> Option<Convexity> {
         match self.kind {
-            TokenKind::Decorator(_) => todo!(),
+            TokenKind::Attr(_) => todo!(),
             TokenKind::Keyword(_) => todo!(),
             TokenKind::Identifier(_) => Some(Convexity::Convex),
             TokenKind::Special(_) => todo!(),
@@ -41,7 +41,7 @@ impl Token {
 
     pub fn right_convexity(&self) -> Convexity {
         match self.kind {
-            TokenKind::Decorator(_) => todo!(),
+            TokenKind::Attr(_) => todo!(),
             TokenKind::Keyword(_) => Convexity::Concave,
             TokenKind::Identifier(_) => Convexity::Convex,
             TokenKind::Special(special) => match special {

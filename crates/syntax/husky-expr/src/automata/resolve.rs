@@ -14,7 +14,7 @@ impl<'a, 'b> Automata<'a, 'b> {
 
     fn resolve_token_kind(&self, token: &Token) -> ResolvedTokenKind {
         match token.kind {
-            TokenKind::Decorator(_) => todo!(),
+            TokenKind::Attr(_) => todo!(),
             TokenKind::Keyword(_keyword) => todo!(),
             TokenKind::Identifier(ident) => self.resolve_ident(ident),
             TokenKind::Special(special) => match special {

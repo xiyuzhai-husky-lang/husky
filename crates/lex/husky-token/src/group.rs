@@ -112,7 +112,7 @@ pub(crate) fn produce_group_starts(tokens: &[Token]) -> Vec<usize> {
                         TokenKind::Keyword(Keyword::End(_))
                         | TokenKind::Special(SpecialToken::Colon) => Break,
                         _ => match line_start_token.kind {
-                            TokenKind::Decorator(_) => Break,
+                            TokenKind::Attr(_) => Break,
                             TokenKind::Keyword(kw) => match kw {
                                 Keyword::Liason(_) | Keyword::End(_) => Continue,
                                 _ => Break,

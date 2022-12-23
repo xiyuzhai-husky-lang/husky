@@ -2,7 +2,7 @@ use crate::*;
 use std::ops::Deref;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum Decorator {
+pub enum AttrKeyword {
     Pub,
     Protected,
     Private,
@@ -10,13 +10,13 @@ pub enum Decorator {
     Static,
 }
 
-impl std::fmt::Display for Decorator {
+impl std::fmt::Display for AttrKeyword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         self.as_str().fmt(f)
     }
 }
 
-impl Deref for Decorator {
+impl Deref for AttrKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
@@ -24,20 +24,20 @@ impl Deref for Decorator {
     }
 }
 
-impl Decorator {
+impl AttrKeyword {
     pub const fn as_str(self) -> &'static str {
         match self {
-            Decorator::Pub => "pub",
-            Decorator::Protected => "protected",
-            Decorator::Private => "private",
-            Decorator::Async => "async",
-            Decorator::Static => "static",
+            AttrKeyword::Pub => "pub",
+            AttrKeyword::Protected => "protected",
+            AttrKeyword::Private => "private",
+            AttrKeyword::Async => "async",
+            AttrKeyword::Static => "static",
         }
     }
 }
 
-impl const Into<TokenKind> for Decorator {
+impl const Into<TokenKind> for AttrKeyword {
     fn into(self) -> TokenKind {
-        TokenKind::Decorator(self)
+        TokenKind::Attr(self)
     }
 }

@@ -3,7 +3,7 @@ Ok(
         tokens: [
             Token {
                 range: [1:1, 1:4),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
@@ -63,7 +63,7 @@ Ok(
             },
             Token {
                 range: [3:1, 3:4),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
@@ -123,7 +123,7 @@ Ok(
             },
             Token {
                 range: [5:1, 5:4),
-                kind: Decorator(
+                kind: Attr(
                     Pub,
                 ),
             },
