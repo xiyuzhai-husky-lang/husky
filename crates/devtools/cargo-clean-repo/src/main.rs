@@ -11,8 +11,7 @@ fn main() {
     assert!(PathBuf::from(".corgi/config.toml").exists());
     // clean_expect_files();
     // clean_tests()
-    remove_folder_in_tests("snapshot")
-    // restructure()
+    restructure()
 }
 
 fn clean_expect_files() {
@@ -36,15 +35,38 @@ fn remove_folder_in_tests(dirname: &str) {
 }
 
 fn restructure() {
+    fn corgi_toml(package_name: &str) -> String {
+        format!(
+            r#"[package]
+name = "{package_name}""#
+        )
+    }
+
     let collect_paths = collect_paths(&PathBuf::from("tests"));
     for path in collect_paths {
         if path.join("main.hsy").exists() {
-            p!(path);
-            todo!()
+            let package_name = path.file_name().unwrap().to_str().unwrap().to_owned();
+            if package_name == "src" {
+                continue;
+            }
+            let mut jobs = vec![];
+            for entry in std::fs::read_dir(path.clone()).unwrap() {
+                let subpath = entry.unwrap().path();
+                if !subpath.ends_with("rust") && !subpath.ends_with("src") {
+                    let newpath = subpath
+                        .parent()
+                        .unwrap()
+                        .join("src")
+                        .join(subpath.file_name().unwrap());
+                    jobs.push((subpath, newpath))
+                }
+            }
+            std::fs::create_dir_all(path.join("src")).unwrap();
+            for (subpath, newpath) in jobs {
+                p!(subpath, newpath);
+                std::fs::rename(subpath, newpath).unwrap()
+            }
+            std::fs::write(path.join("Corgi.toml"), corgi_toml(&package_name)).unwrap()
         }
-        // if path.file_name().and_then(|s| s.to_str()) == Some("__rust_gen__") {
-        //     let new_path = path.with_file_name("rust");
-        //     std::fs::rename(path, new_path).unwrap()
-        // }
     }
 }
