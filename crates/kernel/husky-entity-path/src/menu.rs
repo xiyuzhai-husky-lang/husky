@@ -56,7 +56,7 @@ pub struct EntityPathMenu {
 impl EntityPathMenu {
     pub(crate) fn new(db: &dyn EntityPathDb, toolchain: Toolchain) -> EntityPathResult<Self> {
         let word_menu = db.word_menu();
-        let path_menu = db.path_menu(toolchain)?;
+        let path_menu = db.dev_path_menu()?;
         let core_ops = path_menu.core_ops();
         let core_num = path_menu.core_num();
         let core_ops_add = ModuleItemPath::new(db, core_ops, db.it_ident_borrowed("Add").unwrap());

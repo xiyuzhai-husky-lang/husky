@@ -129,7 +129,7 @@ pub(crate) fn handle_folding_range(
     params: FoldingRangeParams,
 ) -> Result<Option<Vec<FoldingRange>>> {
     let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
-    let module = snapshot.resolve_module_path(todo!(), &path)?;
+    let module = snapshot.resolve_module_path(snapshot.current_toolchain()?, &path)?;
     match snapshot.folding_ranges(module) {
         Ok(folding_ranges) => Ok(Some(folding_ranges.to_vec())),
         Err(e) => Err(Box::new(e.clone())),

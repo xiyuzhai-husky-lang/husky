@@ -41,8 +41,7 @@ fn accessibility_partial_ord_works() {
     use Accessibility::*;
 
     let db = DB::default();
-    let toolchain = db.dev_toolchain();
-    let path_menu = db.path_menu(toolchain).unwrap();
+    let path_menu = db.dev_path_menu().unwrap();
     assert!(Public.with_db(&db) > PublicUnder(path_menu.core_num()).with_db(&db));
     assert!(
         !(PublicUnder(path_menu.core_prelude()).with_db(&db)

@@ -60,8 +60,7 @@ fn module_ancestry_works() {
     }
 
     let db = DB::default();
-    let toolchain = db.dev_toolchain();
-    let menu = db.path_menu(toolchain).unwrap();
+    let menu = db.dev_path_menu().unwrap();
     expect_test::expect![[r#"
         ModuleAncestry {
             crate_path: CratePath {

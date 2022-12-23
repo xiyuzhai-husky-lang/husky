@@ -1,8 +1,10 @@
 mod env;
+mod error;
 mod module_tree;
 mod rel;
 
 pub use env::*;
+pub use error::*;
 pub use module_tree::*;
 pub use rel::*;
 pub use std::path::{Path, PathBuf};
@@ -197,10 +199,10 @@ pub fn cargo_manifest_dir() -> Result<PathBuf, std::env::VarError> {
     std::env::var("CARGO_MANIFEST_DIR").map(|s| s.into())
 }
 
-pub fn derive_library_path_from_cargo_manifest_dir() -> PathBuf {
+pub fn derive_library_path_from_cargo_manifest_dir() -> PathUtilsResult<PathBuf> {
     let cargo_manifest_dir = std::env::var("CARGO_MANIFEST_DIR").unwrap();
     let mut library_parent_dir: &Path = cargo_manifest_dir.as_ref();
-    loop {
+    Ok(loop {
         let library_dir = library_parent_dir.join("library");
         if library_dir.exists() {
             break library_dir;
@@ -210,7 +212,7 @@ pub fn derive_library_path_from_cargo_manifest_dir() -> PathBuf {
         } else {
             todo!()
         }
-    }
+    })
 }
 
 pub fn derive_examples_dir_from_cargo_manifest_dir() -> PathBuf {
