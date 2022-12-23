@@ -25,4 +25,3 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-test-utils = { path = "../../utils/husky-test-utils" }

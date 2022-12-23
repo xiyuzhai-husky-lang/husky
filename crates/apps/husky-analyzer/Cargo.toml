@@ -52,6 +52,5 @@ husky-syntax-fmt = { path = "../../syntax/husky-syntax-fmt" }
 error-utils = { path = "../../utils/husky-error-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
-husky-test-utils = { path = "../../utils/husky-test-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 winapi = "0.3.9"

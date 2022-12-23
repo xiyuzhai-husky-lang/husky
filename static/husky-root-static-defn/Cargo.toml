@@ -13,7 +13,6 @@ xrng = { path = "../../utils/husky-rng-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-test-utils = { path = "../../utils/husky-test-utils" }
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
