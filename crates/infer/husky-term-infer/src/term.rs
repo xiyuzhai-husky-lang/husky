@@ -3,7 +3,7 @@ mod error;
 pub use error::*;
 
 use crate::*;
-use husky_expr::{AtomExpr, ExprIdx, ExprVariant};
+use husky_expr::{AtomExpr, Expr, ExprIdx};
 use husky_symbol_syntax::SymbolKind;
 use husky_term::Term;
 use wild_utils::arb_ref;
@@ -29,7 +29,7 @@ impl<'a> InferContext<'a> {
     fn infer_term(&mut self) -> TermInferResult<Term> {
         let expr = self.expr();
         match expr.variant {
-            ExprVariant::Atom(ref atom) => match atom {
+            Expr::Atom(ref atom) => match atom {
                 AtomExpr::Literal(_) => todo!(),
                 AtomExpr::Symbol(symbol) => match symbol.kind {
                     SymbolKind::ModulePath(path) => todo!(),
@@ -46,7 +46,7 @@ impl<'a> InferContext<'a> {
                 .into()),
                 AtomExpr::Uncertain(_) => todo!(),
             },
-            ExprVariant::Opn {
+            Expr::Opn {
                 ref opn_variant,
                 ref opds,
             } => todo!(),

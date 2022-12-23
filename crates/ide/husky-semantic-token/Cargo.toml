@@ -17,7 +17,15 @@ husky-token = { path = "../../lex/husky-token" }
 husky-token-infer = { path = "../../infer/husky-token-infer" }
 # kernel
 husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
+# syntax
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 
 [dev-dependencies]
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+# syntax
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-expr = { path = "../../syntax/husky-expr" }
+# infer
+husky-manifest = { path = "../../infer/husky-manifest" }

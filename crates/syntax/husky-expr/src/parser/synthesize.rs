@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a, 'b> Automata<'a, 'b> {
+impl<'a, 'b> ExprParser<'a, 'b> {
     pub(super) fn synthesize_all_above(&mut self, threshold: Precedence) -> ExprSyntaxResult<()> {
         while let Some(stack_opr) = self.stack.top_opr() {
             if stack_opr.precedence() >= threshold {
@@ -58,20 +58,23 @@ impl<'a, 'b> Automata<'a, 'b> {
     }
 
     fn synthesize_binary(&mut self, binary: BinaryOpr) {
-        use husky_text::HasTextRange;
-        let _len = self.stack.number_of_exprs();
-        let range = self.stack.topk_exprs(2).text_range();
-        self.synthesize_opn(binary.into(), 2, range)
+        todo!()
+        // use husky_text::HasTextRange;
+        // let _len = self.stack.number_of_exprs();
+        // let range = self.stack.topk_exprs(2).text_range();
+        // self.synthesize_opn(binary.into(), 2, range)
     }
 
     fn synthesize_prefix(&mut self, prefix: PrefixOpr, start: TextPosition) {
-        let range = (start..self.stack.top_expr().unwrap().range.end).into();
-        self.synthesize_opn(prefix.into(), 1, range)
+        todo!()
+        // let range = (start..self.stack.top_expr().unwrap().range.end).into();
+        // self.synthesize_opn(prefix.into(), 1, range)
     }
 
     pub(super) fn synthesize_suffix(&mut self, suffix: RawSuffixOpr, end: TextPosition) {
-        let range = (self.stack.top_expr().unwrap().text_start()..end).into();
-        self.synthesize_opn(suffix.into(), 1, range)
+        // let range = (self.stack.top_expr().unwrap().text_start()..end).into();
+        // self.synthesize_opn(suffix.into(), 1, range)
+        todo!()
     }
 
     fn synthesize_field_access(&mut self, _field_ident: RangedIdentifier, _end: TextPosition) {
@@ -86,15 +89,16 @@ impl<'a, 'b> Automata<'a, 'b> {
     }
 
     fn synthesize_opn(&mut self, opn_variant: RawOpnVariant, n_opds: usize, range: TextRange) {
-        let _len = self.stack.number_of_exprs();
-        let opds = self
-            .arena
-            .alloc_batch(self.stack.drain_exprs(n_opds).into());
-        self.stack.push_expr(Expr::new(
-            ExprVariant::Opn { opn_variant, opds },
-            range,
-            self.arena,
-        ));
+        todo!()
+        // let _len = self.stack.number_of_exprs();
+        // let opds = self
+        //     .arena
+        //     .alloc_batch(self.stack.drain_exprs(n_opds).into());
+        // self.stack.push_expr(Expr::new(
+        //     Expr::Opn { opn_variant, opds },
+        //     range,
+        //     self.arena,
+        // ));
     }
 
     fn synthesize_lambda(
