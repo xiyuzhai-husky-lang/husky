@@ -9,9 +9,10 @@ fn main() {
     assert!(PathBuf::from("rust-toolchain").exists());
     assert!(PathBuf::from("husky-toolchain.toml").exists());
     assert!(PathBuf::from(".corgi/config.toml").exists());
+    remove_folder_in_tests("try/try");
     // clean_expect_files();
     // clean_tests()
-    restructure()
+    // restructure()
 }
 
 fn clean_expect_files() {
@@ -25,10 +26,10 @@ fn clean_expect_files() {
     }
 }
 
-fn remove_folder_in_tests(dirname: &str) {
+fn remove_folder_in_tests(ends_with: &str) {
     let collect_paths = collect_paths(&PathBuf::from("tests"));
     for path in collect_paths {
-        if path.file_name().and_then(|s| s.to_str()) == Some(dirname) {
+        if path.ends_with(ends_with) {
             std::fs::remove_dir_all(path).unwrap()
         }
     }
