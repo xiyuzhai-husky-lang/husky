@@ -58,14 +58,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 12,
+                                value: 13,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 58,
+                                value: 86,
                             },
                         ),
                     ),
@@ -78,14 +78,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 12,
+                                value: 13,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 58,
+                                value: 86,
                             },
                         ),
                     ),
@@ -98,14 +98,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 12,
+                                value: 13,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 56,
+                                value: 84,
                             },
                         ),
                     ),
@@ -118,14 +118,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 12,
+                                value: 13,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 39,
+                                value: 67,
                             },
                         ),
                     ),
@@ -138,14 +138,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 12,
+                                value: 13,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 57,
+                                value: 85,
                             },
                         ),
                     ),
@@ -158,14 +158,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 12,
+                                value: 13,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 51,
+                                value: 79,
                             },
                         ),
                     ),
@@ -178,14 +178,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 12,
+                                value: 13,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 64,
+                                value: 92,
                             },
                         ),
                     ),

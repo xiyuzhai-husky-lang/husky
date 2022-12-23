@@ -98,7 +98,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 26,
+                                value: 27,
                             },
                         ),
                     ),
@@ -118,7 +118,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 26,
+                                value: 27,
                             },
                         ),
                     ),
@@ -138,14 +138,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 26,
+                                value: 27,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 52,
+                                value: 80,
                             },
                         ),
                     ),
@@ -158,14 +158,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 26,
+                                value: 27,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 53,
+                                value: 81,
                             },
                         ),
                     ),
@@ -178,14 +178,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 26,
+                                value: 27,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 55,
+                                value: 83,
                             },
                         ),
                     ),

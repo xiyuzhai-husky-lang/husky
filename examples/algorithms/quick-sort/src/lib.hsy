@@ -1,0 +1,40 @@
+pub proc quick_sort<T: Ord>(mut arr: [T]):
+    let len = arr.len()
+    quick_sort_aux(arr, 0, (len - 1) as isize)
+
+proc quick_sort_aux<T: Ord>(mut arr: [T], low: isize, high: isize):
+    if low < high:
+        let p = partition(arr, low, high)
+        quick_sort_aux(arr, low, p - 1)
+        quick_sort_aux(arr, p + 1, high)
+
+proc partition<T: Ord>(mut arr: [T], low: isize, high: isize) -> isize:
+    let pivot = high as usize
+    let mut store_index = low - 1
+    let mut last_index = high
+
+    while true:
+        store_index += 1
+        while arr[store_index as usize] < arr[pivot]:
+            store_index += 1
+        last_index -= 1
+        while last_index >= 0 && arr[last_index as usize] > arr[pivot]:
+            last_index -= 1
+        if store_index >= last_index:
+            break
+        else:
+            arr.swap(store_index as usize, last_index as usize)
+    arr.swap(store_index as usize, pivot as usize)
+    store_index
+
+@test
+proc quick_sort_works_for_integers:
+    let mut v = [4, 65, 2, -31, 0, 99, 2, 83, 782, 1]
+    quick_sort(v)
+    assert v == [-31, 0, 1, 2, 2, 4, 65, 83, 99, 782]
+
+@test
+proc quick_sort_works_for_strs:
+    let mut strs = ["beach", "hotel", "airplane", "car", "house", "art"]
+    quick_sort(strs)
+    assert strs == ["airplane", "art", "beach", "car", "hotel", "house"]

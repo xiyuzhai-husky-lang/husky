@@ -50,14 +50,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 18,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 64,
+                                value: 92,
                             },
                         ),
                     ),
@@ -70,14 +70,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 18,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 64,
+                                value: 92,
                             },
                         ),
                     ),
@@ -90,14 +90,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 18,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 64,
+                                value: 92,
                             },
                         ),
                     ),
@@ -110,14 +110,14 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 18,
                             },
                         ),
                     ),
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 64,
+                                value: 92,
                             },
                         ),
                     ),
@@ -130,7 +130,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 18,
                             },
                         ),
                     ),
@@ -150,7 +150,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 18,
                             },
                         ),
                     ),
@@ -170,7 +170,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 18,
                             },
                         ),
                     ),
@@ -190,7 +190,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 18,
                             },
                         ),
                     ),
@@ -210,7 +210,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 17,
+                                value: 18,
                             },
                         ),
                     ),
