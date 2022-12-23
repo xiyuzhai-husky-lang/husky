@@ -9,6 +9,7 @@ Ok(
                         accessibility: PubicUnder(
                             `core`,
                         ),
+                        ast_idx: 0,
                         module_path: `core::basic`,
                     },
                     Module {
@@ -16,6 +17,7 @@ Ok(
                         accessibility: PubicUnder(
                             `core`,
                         ),
+                        ast_idx: 1,
                         module_path: `core::logic`,
                     },
                     Module {
@@ -23,6 +25,7 @@ Ok(
                         accessibility: PubicUnder(
                             `core`,
                         ),
+                        ast_idx: 2,
                         module_path: `core::num`,
                     },
                     Module {
@@ -30,6 +33,7 @@ Ok(
                         accessibility: PubicUnder(
                             `core`,
                         ),
+                        ast_idx: 3,
                         module_path: `core::ops`,
                     },
                     Module {
@@ -37,6 +41,7 @@ Ok(
                         accessibility: PubicUnder(
                             `core`,
                         ),
+                        ast_idx: 4,
                         module_path: `core::prelude`,
                     },
                 ],

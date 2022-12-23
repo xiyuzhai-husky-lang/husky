@@ -5,7 +5,7 @@ use std::{
     sync::Arc,
 };
 
-use vec_like::{AsVecMapEntry, VecMap};
+use vec_like::{AsVecMapEntry, InsertEntryRepeatError, VecMap};
 
 pub trait DebugWithDb<Db: ?Sized> {
     fn debug<'me, 'db>(&'me self, db: &'me Db) -> DebugWith<'me, Db>
@@ -216,6 +216,18 @@ where
             .iter()
             .map(|v| v.debug_with(db, include_all_fields));
         f.debug_list().entries(elements).finish()
+    }
+}
+
+impl<Db: ?Sized, Entry> DebugWithDb<Db> for InsertEntryRepeatError<Entry>
+where
+    Entry: DebugWithDb<Db>,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, include_all_fields: bool) -> fmt::Result {
+        f.debug_struct("EntryRepeatError::Insert")
+            .field("old", &self.old)
+            .field("new", &self.new.debug_with(db, include_all_fields))
+            .finish()
     }
 }
 

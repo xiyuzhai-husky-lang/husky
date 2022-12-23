@@ -34,7 +34,7 @@ Ok(
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
-                                value: 32,
+                                value: 30,
                             },
                         ),
                     ),

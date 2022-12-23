@@ -12,3 +12,10 @@ mod nine
 use one::is_one
 use six::is_six
 use zero::is_zero
+use two::is_two
+use three::is_three
+use five::is_five
+use six::is_six
+use seven::is_seven
+use eight::is_eight
+use nine::is_nine

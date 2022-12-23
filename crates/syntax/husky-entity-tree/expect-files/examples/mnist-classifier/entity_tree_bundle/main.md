@@ -9,6 +9,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier`,
                         ),
+                        ast_idx: 12,
                         module_path: `mnist_classifier::connected_component`,
                     },
                     Module {
@@ -16,6 +17,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier`,
                         ),
+                        ast_idx: 13,
                         module_path: `mnist_classifier::raw_contour`,
                     },
                     Module {
@@ -23,6 +25,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier`,
                         ),
+                        ast_idx: 14,
                         module_path: `mnist_classifier::geom2d`,
                     },
                     Module {
@@ -30,6 +33,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier`,
                         ),
+                        ast_idx: 15,
                         module_path: `mnist_classifier::line_segment_sketch`,
                     },
                     Module {
@@ -37,6 +41,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier`,
                         ),
+                        ast_idx: 16,
                         module_path: `mnist_classifier::fermi`,
                     },
                     Module {
@@ -44,6 +49,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier`,
                         ),
+                        ast_idx: 17,
                         module_path: `mnist_classifier::major`,
                     },
                 ],
@@ -335,6 +341,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
+                        ast_idx: 160,
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                     },
                     Module {
@@ -342,6 +349,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
+                        ast_idx: 161,
                         module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                     },
                     Module {
@@ -349,6 +357,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
+                        ast_idx: 162,
                         module_path: `mnist_classifier::line_segment_sketch::convexity`,
                     },
                     Module {
@@ -356,6 +365,7 @@ Ok(
                         accessibility: PubicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
+                        ast_idx: 163,
                         module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                     },
                     ModuleItem {

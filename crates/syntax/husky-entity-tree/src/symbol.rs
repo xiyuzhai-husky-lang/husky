@@ -2,30 +2,47 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum EntitySymbol {
-    Module {
+    CrateRoot {
+        ident: Identifier,
+        module_path: ModulePath,
+    },
+    Submodule {
         ident: Identifier,
         accessibility: Accessibility,
         module_path: ModulePath,
+        ast_idx: AstIdx,
     },
     ModuleItem {
         ident: Identifier,
         accessibility: Accessibility,
-        ast_idx: AstIdx,
         path: ModuleItemPath,
+        ast_idx: AstIdx,
     },
     EntityUse {
         ident: Identifier,
         accessibility: Accessibility,
         path: EntityPath,
+        ast_idx: AstIdx,
+        use_expr_idx: UseExprIdx,
     },
 }
 
 impl EntitySymbol {
     pub(crate) fn accessility(&self) -> Accessibility {
         match self {
-            EntitySymbol::Module { accessibility, .. }
+            EntitySymbol::CrateRoot { module_path, .. } => Accessibility::PublicUnder(*module_path),
+            EntitySymbol::Submodule { accessibility, .. }
             | EntitySymbol::ModuleItem { accessibility, .. }
             | EntitySymbol::EntityUse { accessibility, .. } => *accessibility,
+        }
+    }
+
+    pub(crate) fn ast_idx(&self) -> Option<AstIdx> {
+        match self {
+            EntitySymbol::CrateRoot { .. } => None,
+            EntitySymbol::Submodule { ast_idx, .. }
+            | EntitySymbol::ModuleItem { ast_idx, .. }
+            | EntitySymbol::EntityUse { ast_idx, .. } => Some(*ast_idx),
         }
     }
 
@@ -50,7 +67,8 @@ impl AsVecMapEntry for EntitySymbol {
         Self::K: Copy,
     {
         match self {
-            EntitySymbol::Module { ident, .. }
+            EntitySymbol::CrateRoot { ident, .. }
+            | EntitySymbol::Submodule { ident, .. }
             | EntitySymbol::ModuleItem { ident, .. }
             | EntitySymbol::EntityUse { ident, .. } => *ident,
         }
@@ -58,7 +76,8 @@ impl AsVecMapEntry for EntitySymbol {
 
     fn key_ref(&self) -> &Self::K {
         match self {
-            EntitySymbol::Module { ident, .. }
+            EntitySymbol::CrateRoot { ident, .. }
+            | EntitySymbol::Submodule { ident, .. }
             | EntitySymbol::ModuleItem { ident, .. }
             | EntitySymbol::EntityUse { ident, .. } => ident,
         }
@@ -73,9 +92,18 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntitySymbol {
         include_all_fields: bool,
     ) -> std::fmt::Result {
         match self {
-            EntitySymbol::Module {
+            EntitySymbol::CrateRoot { ident, module_path } => f
+                .debug_struct("CrateRoot")
+                .field("ident", &ident.debug_with(db, include_all_fields))
+                .field(
+                    "module_path",
+                    &module_path.debug_with(db as &dyn VfsDb, include_all_fields),
+                )
+                .finish(),
+            EntitySymbol::Submodule {
                 ident,
                 accessibility,
+                ast_idx,
                 module_path,
             } => f
                 .debug_struct("Module")
@@ -84,6 +112,7 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntitySymbol {
                     "accessibility",
                     &accessibility.debug_with(db as &dyn VfsDb, include_all_fields),
                 )
+                .field("ast_idx", ast_idx)
                 .field(
                     "module_path",
                     &module_path.debug_with(db as &dyn VfsDb, include_all_fields),
@@ -113,6 +142,8 @@ impl salsa::DebugWithDb<dyn EntityTreeDb + '_> for EntitySymbol {
             EntitySymbol::EntityUse {
                 ident,
                 accessibility,
+                ast_idx,
+                use_expr_idx,
                 path,
             } => f
                 .debug_struct("EntityUse")

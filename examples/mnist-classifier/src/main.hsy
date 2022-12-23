@@ -12,15 +12,7 @@ mod major
 use mnist::BinaryImage28
 use mnist::MnistLabel
 use major::*
-use zero::is_zero
-use one::is_one
-use two::is_two
-use three::is_three
-use five::is_five
-use six::is_six
-use seven::is_seven
-use eight::is_eight
-use nine::is_nine
+use digits::*
 
 
 use raw_contour::find_raw_contours

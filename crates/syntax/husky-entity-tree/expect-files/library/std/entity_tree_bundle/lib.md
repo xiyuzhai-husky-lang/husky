@@ -9,6 +9,7 @@ Ok(
                         accessibility: PubicUnder(
                             `std`,
                         ),
+                        ast_idx: 0,
                         module_path: `std::prelude`,
                     },
                     Module {
@@ -16,6 +17,7 @@ Ok(
                         accessibility: PubicUnder(
                             `std`,
                         ),
+                        ast_idx: 1,
                         module_path: `std::logic`,
                     },
                     Module {
@@ -23,6 +25,7 @@ Ok(
                         accessibility: PubicUnder(
                             `std`,
                         ),
+                        ast_idx: 2,
                         module_path: `std::ops`,
                     },
                 ],

@@ -142,7 +142,7 @@ impl<'b> EntityUseExprParser<'b> {
                     TokenKind::Special(SpecialToken::Ket(Bracket::Curl)) => break,
                     _ => todo!(),
                 },
-                None => todo!(),
+                None => exprs.push(todo!()),
             }
         }
         UseExpr::Multiple {

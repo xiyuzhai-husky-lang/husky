@@ -7,6 +7,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
+                ast_idx: 12,
                 module_path: `mnist_classifier::connected_component`,
             },
             Module {
@@ -14,6 +15,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
+                ast_idx: 13,
                 module_path: `mnist_classifier::raw_contour`,
             },
             Module {
@@ -21,6 +23,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
+                ast_idx: 14,
                 module_path: `mnist_classifier::geom2d`,
             },
             Module {
@@ -28,6 +31,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
+                ast_idx: 15,
                 module_path: `mnist_classifier::line_segment_sketch`,
             },
             Module {
@@ -35,6 +39,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
+                ast_idx: 16,
                 module_path: `mnist_classifier::fermi`,
             },
             Module {
@@ -42,6 +47,7 @@ Ok(
                 accessibility: PubicUnder(
                     `mnist_classifier`,
                 ),
+                ast_idx: 17,
                 module_path: `mnist_classifier::major`,
             },
         ],
@@ -119,7 +125,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 48,
+                                value: 39,
                             },
                         ),
                     ),
@@ -139,7 +145,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 43,
+                                value: 57,
                             },
                         ),
                     ),
@@ -159,7 +165,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 47,
+                                value: 51,
                             },
                         ),
                     ),
@@ -179,171 +185,11 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 46,
+                                value: 64,
                             },
                         ),
                     ),
-                    use_expr_idx: 13,
-                    parent: None,
-                    state: Unresolved,
-                },
-                EntityUseTracker {
-                    ast_idx: 25,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 66,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 15,
-                    parent: None,
-                    state: Unresolved,
-                },
-                EntityUseTracker {
-                    ast_idx: 26,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 45,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 17,
-                    parent: None,
-                    state: Unresolved,
-                },
-                EntityUseTracker {
-                    ast_idx: 27,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 44,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 19,
-                    parent: None,
-                    state: Unresolved,
-                },
-                EntityUseTracker {
-                    ast_idx: 28,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 40,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 21,
-                    parent: None,
-                    state: Unresolved,
-                },
-                EntityUseTracker {
-                    ast_idx: 29,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 42,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 23,
-                    parent: None,
-                    state: Unresolved,
-                },
-                EntityUseTracker {
-                    ast_idx: 30,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 57,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 25,
-                    parent: None,
-                    state: Unresolved,
-                },
-                EntityUseTracker {
-                    ast_idx: 31,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 51,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 27,
-                    parent: None,
-                    state: Unresolved,
-                },
-                EntityUseTracker {
-                    ast_idx: 32,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 74,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 32,
+                    use_expr_idx: 16,
                     parent: None,
                     state: Unresolved,
                 },

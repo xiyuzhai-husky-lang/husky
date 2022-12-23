@@ -12,6 +12,70 @@ Ok(
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
+                        16,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        17,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        18,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        19,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        20,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        21,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        22,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
+                        23,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Stmt {
+                    token_group_idx: TokenGroupIdx(
                         24,
                     ),
                     body: ArenaIdxRange(
@@ -21,70 +85,6 @@ Ok(
                 Stmt {
                     token_group_idx: TokenGroupIdx(
                         25,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        26,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        27,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        28,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        29,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        30,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        31,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        32,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
-                    ),
-                },
-                Stmt {
-                    token_group_idx: TokenGroupIdx(
-                        33,
                     ),
                     body: ArenaIdxRange(
                         1..1,
@@ -288,7 +288,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         11,
                     ),
-                    ident: `zero`,
+                    ident: `digits`,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -302,7 +302,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
-                    ident: `one`,
+                    ident: `raw_contour`,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -316,7 +316,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
-                    ident: `two`,
+                    ident: `line_segment_sketch`,
                     accessibility: PublicUnder(
                         ModulePath(
                             Id {
@@ -330,118 +330,6 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
-                    ident: `three`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 13,
-                },
-                Use {
-                    token_group_idx: TokenGroupIdx(
-                        15,
-                    ),
-                    ident: `five`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 15,
-                },
-                Use {
-                    token_group_idx: TokenGroupIdx(
-                        16,
-                    ),
-                    ident: `six`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 17,
-                },
-                Use {
-                    token_group_idx: TokenGroupIdx(
-                        17,
-                    ),
-                    ident: `seven`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 19,
-                },
-                Use {
-                    token_group_idx: TokenGroupIdx(
-                        18,
-                    ),
-                    ident: `eight`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 21,
-                },
-                Use {
-                    token_group_idx: TokenGroupIdx(
-                        19,
-                    ),
-                    ident: `nine`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 23,
-                },
-                Use {
-                    token_group_idx: TokenGroupIdx(
-                        20,
-                    ),
-                    ident: `raw_contour`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 25,
-                },
-                Use {
-                    token_group_idx: TokenGroupIdx(
-                        21,
-                    ),
-                    ident: `line_segment_sketch`,
-                    accessibility: PublicUnder(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
-                    use_expr_idx: 27,
-                },
-                Use {
-                    token_group_idx: TokenGroupIdx(
-                        22,
-                    ),
                     ident: `domains`,
                     accessibility: PublicUnder(
                         ModulePath(
@@ -450,11 +338,11 @@ Ok(
                             },
                         ),
                     ),
-                    use_expr_idx: 32,
+                    use_expr_idx: 16,
                 },
                 Main {
                     token_group_idx: TokenGroupIdx(
-                        23,
+                        15,
                     ),
                     body: ArenaIdxRange(
                         1..11,
@@ -463,7 +351,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            11..34,
+            11..26,
         ),
         use_expr_arena: Arena {
             data: [
@@ -486,101 +374,43 @@ Ok(
                     parent: `major`,
                     child: 4,
                 },
-                One {
-                    ident: `is_zero`,
-                },
+                All,
                 ScopeResolution {
-                    parent: `zero`,
+                    parent: `digits`,
                     child: 6,
-                },
-                One {
-                    ident: `is_one`,
-                },
-                ScopeResolution {
-                    parent: `one`,
-                    child: 8,
-                },
-                One {
-                    ident: `is_two`,
-                },
-                ScopeResolution {
-                    parent: `two`,
-                    child: 10,
-                },
-                One {
-                    ident: `is_three`,
-                },
-                ScopeResolution {
-                    parent: `three`,
-                    child: 12,
-                },
-                One {
-                    ident: `is_five`,
-                },
-                ScopeResolution {
-                    parent: `five`,
-                    child: 14,
-                },
-                One {
-                    ident: `is_six`,
-                },
-                ScopeResolution {
-                    parent: `six`,
-                    child: 16,
-                },
-                One {
-                    ident: `is_seven`,
-                },
-                ScopeResolution {
-                    parent: `seven`,
-                    child: 18,
-                },
-                One {
-                    ident: `is_eight`,
-                },
-                ScopeResolution {
-                    parent: `eight`,
-                    child: 20,
-                },
-                One {
-                    ident: `is_nine`,
-                },
-                ScopeResolution {
-                    parent: `nine`,
-                    child: 22,
                 },
                 One {
                     ident: `find_raw_contours`,
                 },
                 ScopeResolution {
                     parent: `raw_contour`,
-                    child: 24,
+                    child: 8,
                 },
                 One {
                     ident: `find_line_segments`,
                 },
                 ScopeResolution {
                     parent: `line_segment_sketch`,
-                    child: 26,
+                    child: 10,
                 },
                 One {
                     ident: `naive_i32`,
                 },
                 ScopeResolution {
                     parent: `naive`,
-                    child: 28,
+                    child: 12,
                 },
                 ScopeResolution {
                     parent: `models`,
-                    child: 29,
+                    child: 13,
                 },
                 ScopeResolution {
                     parent: `ml`,
-                    child: 30,
+                    child: 14,
                 },
                 ScopeResolution {
                     parent: `domains`,
-                    child: 31,
+                    child: 15,
                 },
             ],
         },

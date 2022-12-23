@@ -48,18 +48,20 @@ where
         self.entries.iter().find(|entry| *entry == key).is_some()
     }
 
-    pub fn insert_new(&mut self, new: K) -> Result<(), EntryRepeatError<K>>
+    pub fn insert_new(&mut self, new: K) -> Result<(), InsertEntryRepeatError<K>>
     where
         K: Copy,
     {
         if self.has(new) {
-            let old = loop {
-                let entry = self.entries.pop().unwrap();
-                if entry == new {
-                    break entry;
-                }
-            };
-            Err(EntryRepeatError { old, new })
+            Err(InsertEntryRepeatError {
+                old: self
+                    .entries
+                    .iter()
+                    .position(|entry| *entry == new)
+                    .unwrap()
+                    .into(),
+                new,
+            })
         } else {
             self.entries.push(new);
             Ok(())
