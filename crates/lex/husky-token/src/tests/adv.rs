@@ -22,15 +22,20 @@ fn catch_unwind_tokenize_snippet_debug(
 }
 
 fn search_for_adversarials(name: &str, snippet_gen: impl Fn(Seed) -> String, n: Seed) {
+    use indicatif::ProgressBar;
+
+    let bar = ProgressBar::new(n);
     for i in 0..n {
+        bar.inc(1);
         let snippet = snippet_gen(i);
         match catch_unwind_tokenize_snippet_debug(&snippet) {
             Ok(_) => (),
             Err(_) => {
                 let cargo_manifest_dir: PathBuf =
                     std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
-                let path =
-                    cargo_manifest_dir.join(format!("tests/adv-snippets/{name}.test-inputs.json"));
+                let path = cargo_manifest_dir.join(format!(
+                    "tests/snippets/adversarials/{name}.test-inputs.json"
+                ));
                 p!(path);
                 let mut snippets: Vec<String> =
                     match serde_json::from_str(&std::fs::read_to_string(&path).unwrap()) {
@@ -43,6 +48,7 @@ fn search_for_adversarials(name: &str, snippet_gen: impl Fn(Seed) -> String, n: 
             }
         }
     }
+    bar.finish();
 }
 
 fn escapes_gen(seed: Seed) -> String {

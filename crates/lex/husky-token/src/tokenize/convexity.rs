@@ -36,6 +36,7 @@ impl Token {
             TokenKind::Unrecognized(_) => None,
             TokenKind::IllFormedLiteral(_) => Some(Convexity::Convex),
             TokenKind::Comment => todo!(),
+            TokenKind::Err(_) => unreachable!(),
         }
     }
 
@@ -74,6 +75,7 @@ impl Token {
             TokenKind::Unrecognized(_) => Convexity::Any,
             TokenKind::IllFormedLiteral(_) => Convexity::Convex,
             TokenKind::Comment => todo!(),
+            TokenKind::Err(_) => unreachable!(),
         }
     }
 }

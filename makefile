@@ -38,4 +38,5 @@ organise: install-devtools
 	cargo organise
 
 adversarial:
-	ADVERSARIAL=100 cargo test
+	# cargo test
+	ADVERSARIAL=100000 cargo test

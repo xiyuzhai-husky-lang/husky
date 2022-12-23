@@ -75,6 +75,7 @@ impl<'b> EntityUseExprParser<'b> {
                 TokenKind::Unrecognized(_) => todo!(),
                 TokenKind::IllFormedLiteral(_) => todo!(),
                 TokenKind::Comment => todo!(),
+                TokenKind::Err(_) => todo!(),
             },
             None => todo!(),
         };
