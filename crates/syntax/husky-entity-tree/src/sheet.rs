@@ -10,6 +10,7 @@ use crate::*;
 pub struct EntityTreeSheet {
     module_path: ModulePath,
     module_symbols: VecMap<EntitySymbol>,
+    associated_items: VecMap<AssociatedItem>,
 }
 
 impl vec_like::AsVecMapEntry for EntityTreeSheet {
@@ -28,10 +29,15 @@ impl vec_like::AsVecMapEntry for EntityTreeSheet {
 }
 
 impl EntityTreeSheet {
-    pub fn new(module_path: ModulePath, module_symbols: VecMap<EntitySymbol>) -> Self {
+    pub fn new(
+        module_path: ModulePath,
+        module_symbols: VecMap<EntitySymbol>,
+        associated_items: VecMap<AssociatedItem>,
+    ) -> Self {
         Self {
             module_path,
             module_symbols,
+            associated_items,
         }
     }
 
@@ -63,6 +69,10 @@ impl EntityTreeSheet {
 
     pub fn module_path(&self) -> ModulePath {
         self.module_path
+    }
+
+    pub fn associated_items(&self) -> &VecMap<AssociatedItem> {
+        &self.associated_items
     }
 }
 

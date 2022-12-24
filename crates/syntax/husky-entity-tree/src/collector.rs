@@ -49,12 +49,17 @@ impl<'a> EntityTreeCollector<'a> {
                 self.exec(action)
             }
         }
+        self.collect_associated_items();
         EntityTreeBundle::new(
             self.presheets
                 .into_iter()
                 .map(|presheet| presheet.into())
                 .collect(),
         )
+    }
+
+    fn collect_associated_items(&mut self) {
+        // todo: collect associated_items
     }
 
     fn exec(&mut self, action: PresheetAction) {

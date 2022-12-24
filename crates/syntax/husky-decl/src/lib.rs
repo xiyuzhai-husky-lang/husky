@@ -1,17 +1,36 @@
 mod collector;
 mod db;
+mod decl_data;
 mod sheet;
 #[cfg(test)]
 mod tests;
 
 pub use db::*;
+pub use decl_data::*;
 pub use sheet::*;
 
 use collector::*;
 use husky_vfs::{ModulePath, VfsResult};
 
 #[salsa::jar(db = DeclDb)]
-pub struct DeclJar(Decl, decl_sheet);
+pub struct DeclJar(
+    // type
+    TypeAliasDecl,
+    EnumTypeDecl,
+    InductiveTypeDecl,
+    StructTypeDecl,
+    StructureTypeDecl,
+    // form
+    Decl,
+    decl_sheet,
+    ConstantDecl,
+    FeatureDecl,
+    FunctionDecl,
+    MethodDecl,
+    MorphismDecl,
+    // trait
+    TraitDecl,
+);
 
 #[salsa::tracked(jar = DeclJar)]
 pub struct Decl {
@@ -23,6 +42,3 @@ pub struct Decl {
 fn decl_sheet(db: &dyn DeclDb, module_path: ModulePath) -> VfsResult<DeclSheet> {
     Ok(DeclCollector::new(db, module_path)?.collect_all())
 }
-
-#[derive(Debug, PartialEq, Eq)]
-pub enum DeclData {}

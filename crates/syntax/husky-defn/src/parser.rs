@@ -14,9 +14,7 @@ impl<'a> DefnParser<'a> {
         db: &'a dyn DefnDb,
         token_sheet: &'a TokenSheet,
         ast_sheet: &'a AstSheet,
-        decl_sheet: &'a DeclSheet,
-        ast_idx: AstIdx,
-        ast: &Ast,
+        decl: Decl,
     ) -> Option<Self> {
         let decl = todo!();
         Some(Self {

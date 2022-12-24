@@ -1,6 +1,7 @@
 use crate::*;
 use husky_ast::AstSheet;
 use husky_token::TokenSheet;
+use vec_like::VecPairMap;
 
 pub(crate) struct DefnCollector<'a> {
     db: &'a dyn DefnDb,
@@ -20,18 +21,10 @@ impl<'a> DefnCollector<'a> {
     }
 
     pub(crate) fn collect_all(mut self) -> DefnSheet {
-        for (ast_idx, ast) in self.ast_sheet.indexed_asts() {
-            if let Some(_) = DefnParser::new(
-                self.db,
-                self.token_sheet,
-                self.ast_sheet,
-                self.decl_sheet,
-                ast_idx,
-                ast,
-            ) {
-                todo!()
-            }
+        let mut defns: VecPairMap<EntityPath, Defn> = Default::default();
+        for decl in self.decl_sheet.decls().iter() {
+            todo!()
         }
-        todo!()
+        DefnSheet::new(defns)
     }
 }

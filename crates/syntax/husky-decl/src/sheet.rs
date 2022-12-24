@@ -6,3 +6,13 @@ use vec_like::VecPairMap;
 pub struct DeclSheet {
     decls: VecPairMap<EntityPath, Decl>,
 }
+
+impl DeclSheet {
+    pub fn new(decls: VecPairMap<EntityPath, Decl>) -> Self {
+        Self { decls }
+    }
+
+    pub fn decls(&self) -> &VecPairMap<EntityPath, Decl> {
+        &self.decls
+    }
+}
