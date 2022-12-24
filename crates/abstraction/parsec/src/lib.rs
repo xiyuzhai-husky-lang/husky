@@ -6,20 +6,28 @@ mod tests;
 
 pub use rollback::*;
 
-pub trait ParseInto: Clone + Sized {
+pub trait HasParseState {
+    type State;
+    fn save_state(&self) -> Self::State;
+    fn rollback(&mut self, state: Self::State);
+}
+
+pub trait ParseInto: HasParseState {
     /// returns an optional and the rest of the stream,
     ///
     /// guarantees that stream state is not changed if result is Ok(None)
-    fn parse_into<P: ParseFrom<Self>>(self) -> Result<(Option<P::Output>, Self), P::Error>;
+    fn parse_into<P: ParseFrom<Self>>(self) -> Result<(Option<P::Output>, Self), P::Error>
+    where
+        Self: Sized;
 }
 
 impl<T> ParseInto for T
 where
-    T: Clone + Sized,
+    T: HasParseState,
 {
     fn parse_into<P: ParseFrom<Self>>(mut self) -> Result<(Option<P::Output>, Self), P::Error> {
-        let p = P::parse_from_with_rollback(&mut self)?;
-        Ok((p, self))
+        let optional = P::parse_from_with_rollback(&mut self)?;
+        Ok((optional, self))
     }
 }
 

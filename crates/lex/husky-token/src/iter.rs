@@ -6,7 +6,7 @@ use husky_text::{TextPosition, TextRange};
 pub struct TokenIter<'a> {
     base: usize,
     tokens: &'a [Token],
-    next: usize,
+    next_relative: usize,
 }
 
 impl<'a> TokenIter<'a> {
@@ -14,7 +14,7 @@ impl<'a> TokenIter<'a> {
         TokenIter {
             base,
             tokens,
-            next: 0,
+            next_relative: 0,
         }
     }
 }
@@ -26,7 +26,7 @@ impl TokenSheet {
         TokenIter {
             base: self.group_start(token_group_idx),
             tokens,
-            next: 0,
+            next_relative: 0,
         }
     }
 }
@@ -37,23 +37,23 @@ pub struct TokenStreamState {
 
 impl<'a> TokenIter<'a> {
     pub fn is_empty(&self) -> bool {
-        self.next >= self.tokens.len()
+        self.next_relative >= self.tokens.len()
     }
 
     pub fn text_start(&self) -> TextPosition {
-        if self.next < self.tokens.len() {
-            self.tokens[self.next].range.start
+        if self.next_relative < self.tokens.len() {
+            self.tokens[self.next_relative].range.start
         } else {
             self.tokens.last().unwrap().range.end
         }
     }
 
     fn text_end(&self) -> TextPosition {
-        self.tokens[self.next - 1].range.end
+        self.tokens[self.next_relative - 1].range.end
     }
 
     pub fn token_position(&self) -> usize {
-        self.next
+        self.next_relative
     }
 
     pub fn text_range(&self, text_start: TextPosition) -> TextRange {
@@ -61,17 +61,19 @@ impl<'a> TokenIter<'a> {
     }
 
     pub fn save_state(&self) -> TokenStreamState {
-        TokenStreamState { next: self.next }
+        TokenStreamState {
+            next: self.next_relative,
+        }
     }
 
     pub fn rollback(&mut self, state: TokenStreamState) {
-        self.next = state.next;
+        self.next_relative = state.next;
     }
 
     pub fn next(&mut self) -> Option<&'a Token> {
-        if self.next < self.tokens.len() {
-            let next = self.next;
-            self.next += 1;
+        if self.next_relative < self.tokens.len() {
+            let next = self.next_relative;
+            self.next_relative += 1;
             Some(&self.tokens[next])
         } else {
             None
@@ -79,9 +81,9 @@ impl<'a> TokenIter<'a> {
     }
 
     pub fn next_indexed(&mut self) -> Option<(TokenIdx, &'a Token)> {
-        if self.next < self.tokens.len() {
-            let next = self.next;
-            self.next += 1;
+        if self.next_relative < self.tokens.len() {
+            let next = self.next_relative;
+            self.next_relative += 1;
             Some((TokenIdx(self.base + next), &self.tokens[next]))
         } else {
             None
@@ -89,21 +91,21 @@ impl<'a> TokenIter<'a> {
     }
 
     pub fn step_back(&mut self) {
-        assert!(self.next > 0);
-        self.next -= 1
+        assert!(self.next_relative > 0);
+        self.next_relative -= 1
     }
 
     pub fn peek(&self) -> Option<&'a Token> {
-        if self.next < self.tokens.len() {
-            Some(&self.tokens[self.next])
+        if self.next_relative < self.tokens.len() {
+            Some(&self.tokens[self.next_relative])
         } else {
             None
         }
     }
 
     pub fn next_range(&self) -> TextRange {
-        if self.next < self.tokens.len() {
-            self.tokens[self.next].range
+        if self.next_relative < self.tokens.len() {
+            self.tokens[self.next_relative].range
         } else {
             let last_token_range = self.tokens.last().unwrap().range;
             (last_token_range.end..(last_token_range.end.to_right(4))).into()
@@ -111,8 +113,8 @@ impl<'a> TokenIter<'a> {
     }
 
     pub fn peek_next_bra(&mut self) -> Option<Bracket> {
-        if self.next < self.tokens.len() {
-            match self.tokens[self.next].kind {
+        if self.next_relative < self.tokens.len() {
+            match self.tokens[self.next_relative].kind {
                 TokenKind::Special(special) => special.opt_bra(),
                 _ => None,
             }
@@ -144,5 +146,18 @@ fn next_indexed_works() {
     let mut token_iter = token_sheet.token_group_token_iter(token_group_idx);
     while let Some((token_idx, token)) = token_iter.next_indexed() {
         assert_eq!(&token_sheet[token_idx], token)
+    }
+}
+
+impl<'a> parsec::HasParseState for TokenIter<'a> {
+    // next_relative
+    type State = usize;
+
+    fn save_state(&self) -> Self::State {
+        self.next_relative
+    }
+
+    fn rollback(&mut self, state: Self::State) {
+        self.next_relative = state
     }
 }
