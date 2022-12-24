@@ -17,11 +17,11 @@ where
     fn parse_from_with_rollback<'a>(
         stream: &mut Stream,
     ) -> Result<Option<Self::Output>, Self::Error> {
-        let clone = stream.clone();
+        let state = stream.save_state();
         let result = Self::parse_from(stream);
         match result {
             // rollback for no pattern
-            Ok(None) => *stream = clone,
+            Ok(None) => stream.rollback(state),
             _ => (),
         }
         result
