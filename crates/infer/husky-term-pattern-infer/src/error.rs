@@ -120,6 +120,7 @@ impl<'a> TermPatternInferContext<'a> {
     }
 
     pub(crate) fn range(&self) -> TextRange {
-        self.expr().range
+        todo!()
+        // self.expr().range
     }
 }

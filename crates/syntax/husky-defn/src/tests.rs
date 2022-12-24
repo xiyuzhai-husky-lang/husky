@@ -2,9 +2,7 @@ use crate::*;
 use husky_ast::AstJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
-use husky_expect_test_snippets_utils::expect_test_snippets;
 use husky_manifest::ManifestJar;
-use husky_symbol_syntax::{SymbolDb, SymbolJar};
 use husky_token::{TokenIter, TokenJar};
 use husky_vfs::*;
 use husky_word::WordJar;
@@ -16,16 +14,15 @@ use salsa::Database;
     EntityPathJar,
     TokenJar,
     AstJar,
-    SymbolJar,
     EntityTreeJar,
     ManifestJar
 )]
 #[derive(Default)]
-struct MimicDB {
+struct DB {
     storage: salsa::Storage<Self>,
 }
 
-impl Database for MimicDB {}
+impl Database for DB {}
 
 // #[test]
 // fn parse_exprs_works() {
