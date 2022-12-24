@@ -16,8 +16,23 @@ Ok(
                         ),
                     ),
                     entity_path: Some(
-                        ModuleItem(
-                            `core::basic::bool`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module: ModulePath(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `bool`,
@@ -41,8 +56,23 @@ Ok(
                         ),
                     ),
                     entity_path: Some(
-                        ModuleItem(
-                            `core::basic::Trait`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module: ModulePath(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 8,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `Trait`,
@@ -66,8 +96,23 @@ Ok(
                         ),
                     ),
                     entity_path: Some(
-                        ModuleItem(
-                            `core::basic::Module`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module: ModulePath(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `Module`,

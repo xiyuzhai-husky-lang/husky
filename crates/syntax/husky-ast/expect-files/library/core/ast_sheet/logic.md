@@ -16,8 +16,23 @@ Ok(
                         ),
                     ),
                     entity_path: Some(
-                        ModuleItem(
-                            `core::logic::LogicAnd`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module: ModulePath(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 10,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `LogicAnd`,
@@ -41,8 +56,23 @@ Ok(
                         ),
                     ),
                     entity_path: Some(
-                        ModuleItem(
-                            `core::logic::LogicOr`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module: ModulePath(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `LogicOr`,

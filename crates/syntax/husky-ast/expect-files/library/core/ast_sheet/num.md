@@ -163,8 +163,23 @@ Ok(
                         ),
                     ),
                     entity_path: Some(
-                        ModuleItem(
-                            `core::num::i8`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module: ModulePath(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 20,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `i8`,
@@ -209,8 +224,23 @@ Ok(
                         ),
                     ),
                     entity_path: Some(
-                        ModuleItem(
-                            `core::num::i16`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module: ModulePath(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 26,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `i16`,
@@ -255,8 +285,23 @@ Ok(
                         ),
                     ),
                     entity_path: Some(
-                        ModuleItem(
-                            `core::num::i32`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module: ModulePath(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 27,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `i32`,
@@ -307,8 +352,23 @@ Ok(
                         ),
                     ),
                     entity_path: Some(
-                        ModuleItem(
-                            `core::num::i64`,
+                         ModuleItem(
+                            Connected(
+                                ConnectedModuleItemPath {
+                                    module: ModulePath(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                    ident: Identifier(
+                                        Word(
+                                            Id {
+                                                value: 28,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                         ),
                     ),
                     ident: `i64`,
