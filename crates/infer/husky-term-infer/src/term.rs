@@ -28,7 +28,7 @@ impl<'a> InferContext<'a> {
 
     fn infer_term(&mut self) -> TermInferResult<Term> {
         let expr = self.expr();
-        match expr.variant {
+        match expr {
             Expr::Atom(ref atom) => match atom {
                 AtomExpr::Literal(_) => todo!(),
                 AtomExpr::Symbol(symbol) => match symbol.kind {

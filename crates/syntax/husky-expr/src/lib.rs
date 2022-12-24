@@ -1,20 +1,14 @@
 mod atom;
-mod db;
 mod error;
 mod opn;
 mod parser;
 mod precedence;
-mod sheet;
 mod stmt;
-#[cfg(test)]
-mod tests;
 mod variable;
 
 pub use atom::*;
-pub use db::*;
 pub use error::*;
 pub use parser::*;
-pub use sheet::*;
 pub use variable::*;
 
 use husky_entity_path::EntityPath;
@@ -25,14 +19,6 @@ use husky_token::*;
 use husky_vfs::{ModulePath, VfsResult};
 use husky_word::*;
 use precedence::*;
-
-#[salsa::jar(db = ExprDb)]
-pub struct ExprJar(expr_sheet);
-
-#[salsa::tracked(jar = ExprJar, return_ref)]
-fn expr_sheet(db: &dyn ExprDb, module_path: ModulePath) -> VfsResult<ExprSheet> {
-    todo!()
-}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BaseScopeResult {

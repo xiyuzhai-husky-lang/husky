@@ -1,26 +1,26 @@
 [package]
-name = "husky-token-infer"
+name = "husky-decl"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+# abstraction
 salsa = { path = "../../abstraction/salsa" }
+vec-like = { path = "../../abstraction/vec-like" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
+# kernel
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
-husky-expr = { path = "../../syntax/husky-expr" }
-husky-decl = { path = "../../syntax/husky-decl" }
-husky-defn = { path = "../../syntax/husky-defn" }
+husky-ast = { path = "../../syntax/husky-ast" }
 
 [dev-dependencies]
-# kernel
-husky-word = { path = "../../kernel/husky-word" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-# syntax
-husky-ast = { path = "../../syntax/husky-ast" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
+husky-word = { path = "../../kernel/husky-word" }
+# syntax
+husky-expr = { path = "../../syntax/husky-expr" }

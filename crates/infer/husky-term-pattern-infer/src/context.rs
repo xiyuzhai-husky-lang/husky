@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_path::EntityPath;
-use husky_expr::{Expr, Expr, ExprArena, ExprIdx};
+use husky_expr::{Expr, ExprArena, ExprIdx};
 use husky_term::{Term, TermContext, TermMenu};
 use husky_term_pattern::TermPatternItd;
 use husky_word::WordDb;
@@ -41,7 +41,7 @@ impl<'a> TermPatternInferContext<'a> {
         &self,
         sheet: &mut TermPatternInferSheet,
     ) -> ExprTermPatternInferRawResults {
-        match self.expr().variant {
+        match self.expr() {
             Expr::Atom(ref atom) => self.infer_atom(atom, sheet),
             Expr::Opn {
                 ref opn_variant,
@@ -187,7 +187,7 @@ impl<'a> TermPatternInferContext<'a> {
     }
 
     fn subexprs(&self) -> Option<ExprRange> {
-        match self.expr().variant {
+        match self.expr() {
             Expr::Atom(_) => None,
             Expr::Opn { ref opds, .. } => Some(opds.clone()),
         }

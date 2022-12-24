@@ -1,7 +1,8 @@
 use crate::*;
 use husky_ast::AstJar;
+use husky_decl::DeclJar;
+use husky_defn::DefnJar;
 use husky_entity_path::EntityPathJar;
-use husky_expr::ExprJar;
 use husky_manifest::ManifestJar;
 use husky_word::WordJar;
 
@@ -14,7 +15,8 @@ use husky_word::WordJar;
     ManifestJar,
     AstJar,
     EntityTreeJar,
-    ExprJar
+    DeclJar,
+    DefnJar
 )]
 #[derive(Default)]
 pub(crate) struct DB {
