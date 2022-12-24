@@ -1,6 +1,7 @@
-use husky_entity_path::{AssociatedItemPath, ModuleItemPath, ModuleItemVariantPath};
+use husky_entity_path::*;
 use husky_entity_taxonomy::{ModuleItemKind, TypeKind};
 use husky_print_utils::p;
+use salsa::DebugWithDb;
 
 use super::*;
 
@@ -32,7 +33,21 @@ impl<'a> AstParser<'a> {
                 AstParent::NoChild,
             ),
             EntityKind::ModuleItem(module_item_kind) => {
-                let module_item_path = ModuleItemPath::new(self.db, self.module_path, ident);
+                let module_item_path = match ctx.parent() {
+                    AstParent::Form => todo!(),
+                    AstParent::EnumLike => todo!(),
+                    AstParent::TraitOrNonEnumLikeType { module_item_path } => {
+                        p!(module_item_path.debug(self.db as &dyn EntityPathDb));
+                        todo!()
+                    }
+                    AstParent::Impl => todo!(),
+                    AstParent::Module => {
+                        ConnectedModuleItemPath::new(self.db, self.module_path, ident).into()
+                    }
+                    AstParent::MatchStmt => todo!(),
+                    AstParent::NoChild => todo!(),
+                };
+                // ConnectedModuleItemPath::new(self.db, self.module_path, ident);
                 let entity_path = Some(EntityPath::ModuleItem(module_item_path));
                 (
                     entity_path,

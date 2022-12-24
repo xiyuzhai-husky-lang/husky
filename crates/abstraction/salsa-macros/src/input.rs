@@ -47,6 +47,8 @@ impl crate::options::AllowedOptions for InputStruct {
     const LRU: bool = false;
 
     const CONSTRUCTOR_NAME: bool = true;
+
+    const DERIVE_DEBUG_WITH_DB: bool = true;
 }
 
 impl InputStruct {

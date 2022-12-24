@@ -5,6 +5,7 @@ mod associated_item;
 mod db;
 mod enum_variant;
 mod error;
+mod generic_parameter;
 mod menu;
 mod module_item;
 #[cfg(test)]
@@ -16,6 +17,7 @@ pub use associated_item::*;
 pub use db::*;
 pub use enum_variant::*;
 pub use error::*;
+pub use generic_parameter::*;
 pub use menu::*;
 pub use module_item::*;
 
@@ -27,7 +29,9 @@ use tests::*;
 
 #[salsa::jar(db = EntityPathDb)]
 pub struct EntityPathJar(
-    ModuleItemPath,
+    ConnectedModuleItemPath,
+    DisconnectedModuleItemPath,
+    GenericParameterPath,
     AssociatedItemPath,
     ModuleItemVariantPath,
     entity_path_menu,
@@ -37,17 +41,26 @@ pub struct EntityPathJar(
 pub enum EntityPath {
     Module(ModulePath),
     ModuleItem(ModuleItemPath),
+    GenericParameter(GenericParameterPath),
     AssociatedItem(AssociatedItemPath),
     EnumVariant(ModuleItemVariantPath),
 }
 
+impl From<ModuleItemPath> for EntityPath {
+    fn from(v: ModuleItemPath) -> Self {
+        Self::ModuleItem(v)
+    }
+}
+
 impl EntityPath {
     pub fn ident(self, db: &dyn EntityPathDb) -> Identifier {
+        // Xiao Ma
         match self {
             EntityPath::Module(_) => todo!(),
             EntityPath::ModuleItem(_) => todo!(),
             EntityPath::AssociatedItem(_) => todo!(),
             EntityPath::EnumVariant(_) => todo!(),
+            EntityPath::GenericParameter(_) => todo!(),
         }
     }
 }
@@ -98,8 +111,12 @@ impl salsa::DebugWithDb<dyn EntityPathDb + '_> for EntityPath {
                 .field(&module_path.debug_with(db as &dyn VfsDb, include_all_fields))
                 .finish(),
             EntityPath::ModuleItem(module_item_path) => f
-                .debug_tuple("ModuleItem")
+                .debug_tuple(" ModuleItem")
                 .field(&module_item_path.debug_with(db, include_all_fields))
+                .finish(),
+            EntityPath::GenericParameter(generic_parameter_path) => f
+                .debug_tuple("LocalModuleItem")
+                .field(&generic_parameter_path.debug_with(db, include_all_fields))
                 .finish(),
             EntityPath::AssociatedItem(associated_item_path) => f
                 .debug_tuple("AssociatedItem")
@@ -139,9 +156,9 @@ impl From<AssociatedItemPath> for EntityPath {
     }
 }
 
-impl From<ModuleItemPath> for EntityPath {
-    fn from(v: ModuleItemPath) -> Self {
-        Self::ModuleItem(v)
+impl From<ConnectedModuleItemPath> for EntityPath {
+    fn from(v: ConnectedModuleItemPath) -> Self {
+        Self::ModuleItem(v.into())
     }
 }
 

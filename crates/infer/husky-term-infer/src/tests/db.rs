@@ -4,7 +4,7 @@ use husky_entity_path::{EntityPath, EntityPathDb, EntityPathJar, EntityPathMenu}
 use husky_entity_tree::EntityTreeJar;
 use husky_expr::ExprIdx;
 use husky_manifest::ManifestJar;
-use husky_symbol_syntax::{Symbol, SymbolContext, SymbolDb, SymbolJar, SymbolKind};
+use husky_symbol::{Symbol, SymbolContext};
 use husky_term::{
     Decl, Term, TermDb, TermError, TermJar, TermMenu, TermResult, TermResultArc, TyDecl,
 };
@@ -25,7 +25,6 @@ use upcast::Upcast;
     TermInferJar,
     TokenJar,
     AstJar,
-    SymbolJar,
     ManifestJar
 )]
 pub(crate) struct TermInferTestsDb {

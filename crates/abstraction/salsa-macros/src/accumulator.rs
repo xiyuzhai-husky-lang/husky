@@ -38,6 +38,8 @@ impl crate::options::AllowedOptions for Accumulator {
     const LRU: bool = false;
 
     const CONSTRUCTOR_NAME: bool = false;
+
+    const DERIVE_DEBUG_WITH_DB: bool = false;
 }
 
 fn accumulator_contents(

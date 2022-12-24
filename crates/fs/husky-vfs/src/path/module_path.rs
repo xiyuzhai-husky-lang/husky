@@ -1,7 +1,5 @@
-mod accessibility;
 mod ancestry;
 
-pub use accessibility::*;
 pub use ancestry::*;
 use salsa::DebugWithDb;
 use with_db::{PartialOrdWithDb, WithDb};

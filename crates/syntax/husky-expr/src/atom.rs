@@ -1,5 +1,5 @@
 use crate::*;
-use husky_symbol_syntax::Symbol;
+use husky_symbol::Symbol;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AtomExpr {

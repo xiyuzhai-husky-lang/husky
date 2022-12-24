@@ -1,5 +1,5 @@
 [package]
-name = "husky-symbol-syntax"
+name = "husky-symbol"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 once_cell = "1.16.0"
 # abstraction
+idx-arena = { path = "../../abstraction/idx-arena" }
 vec-like = { path = "../../abstraction/vec-like" }
 local-stack = { path = "../../abstraction/local-stack" }
 salsa = { path = "../../abstraction/salsa" }

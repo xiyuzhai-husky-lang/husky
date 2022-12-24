@@ -11,6 +11,7 @@ mod use_expr;
 
 pub use crate::error::{AstError, AstErrorVariant, AstResult};
 pub use db::AstDb;
+use husky_accessibility::Accessibility;
 pub use range::*;
 pub use specs::*;
 pub use use_expr::*;

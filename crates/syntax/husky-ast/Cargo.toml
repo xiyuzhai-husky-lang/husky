@@ -30,6 +30,7 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # syntax
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-accessibility = { path = "../../syntax/husky-accessibility" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

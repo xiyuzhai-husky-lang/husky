@@ -134,10 +134,7 @@ impl<'a> TokenIter<'a> {
 fn next_indexed_works() {
     let db = DB::default();
     let tokens = db.tokenize("What does a rusty can of spray-on rust remover smell like?\n Irony.");
-    let token_sheet = TokenSheet {
-        tokens,
-        group_starts: vec![0],
-    };
+    let token_sheet = TokenSheet::new(tokens);
     let (token_group_idx, _) = token_sheet.token_group_iter().next().unwrap();
     let mut token_iter = token_sheet.token_group_token_iter(token_group_idx, None);
     while let Some((token_idx, token)) = token_iter.next_indexed() {

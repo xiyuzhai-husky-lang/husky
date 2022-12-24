@@ -14,9 +14,7 @@ pub(crate) fn submodules(
         .filter_map(|ast| match ast {
             Ast::Defn { entity_path, .. } => match (*entity_path)? {
                 EntityPath::Module(module_path) => Some(module_path),
-                EntityPath::ModuleItem(_)
-                | EntityPath::AssociatedItem(_)
-                | EntityPath::EnumVariant(_) => None,
+                _ => None,
             },
             _ => None,
         })

@@ -3,8 +3,10 @@ use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::{EntityKind, ModuleItemKind, TypeKind};
 use husky_entity_tree::{EntitySymbol, EntityTreeSheet};
+use husky_expr::{parse_expr, ExprArena};
 use husky_print_utils::p;
-use husky_token::{TokenIdentifier, TokenIterState, TokenSheet};
+use husky_symbol::SymbolContext;
+use husky_token::{TokenGroupIdx, TokenIdentifier, TokenIterState, TokenSheet};
 use parsec::ParseFrom;
 use vec_like::VecPairMap;
 
@@ -92,15 +94,20 @@ impl<'a> DeclCollector<'a> {
 
     fn parse_form_decl(
         &self,
-        token_group_idx: husky_token::TokenGroupIdx,
+        token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
         saved_stream_state: TokenIterState,
     ) -> DeclResult<Decl> {
         let mut token_iter = self
             .token_sheet
             .token_group_token_iter(token_group_idx, Some(saved_stream_state));
-        let a = TokenIdentifier::parse_from(&mut token_iter)?;
+        let mut expr_arena = ExprArena::default();
+        let a = parse_expr(self.ctx(), &mut token_iter, &mut expr_arena);
         p!(a);
         todo!()
+    }
+
+    fn ctx<'b>(&'b self) -> SymbolContext<'b> {
+        SymbolContext::new(self.db, todo!(), todo!())
     }
 }

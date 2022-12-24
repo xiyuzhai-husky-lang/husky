@@ -25,14 +25,14 @@ pub struct NavigationTarget {
     /// Clients should place the cursor on this range when navigating to this target.
     pub focus_range: Option<TextRange>,
     pub name: String,
-    pub kind: Option<SymbolKind>,
+    pub kind: Option<Symbol>,
     pub container_name: Option<String>,
     pub description: Option<String>,
     pub docs: Option<Documentation>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
-pub enum SymbolKind {
+pub enum Symbol {
     Attribute,
     BuiltinAttr,
     Const,
