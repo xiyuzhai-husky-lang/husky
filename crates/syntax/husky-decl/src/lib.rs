@@ -1,12 +1,14 @@
 mod collector;
 mod db;
 mod decl;
+mod error;
 mod sheet;
 #[cfg(test)]
 mod tests;
 
 pub use db::*;
 pub use decl::*;
+pub use error::*;
 pub use sheet::*;
 
 use collector::*;

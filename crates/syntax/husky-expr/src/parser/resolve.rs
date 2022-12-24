@@ -46,8 +46,6 @@ impl<'a, 'b> ExprParser<'a, 'b> {
             },
             TokenKind::WordOpr(_) => todo!(),
             TokenKind::Literal(ref literal) => ResolvedTokenKind::Atom(literal.clone().into()),
-            TokenKind::Unrecognized(_) => todo!(),
-            TokenKind::IllFormedLiteral(_) => todo!(),
             TokenKind::Comment => todo!(),
             TokenKind::Err(_) => todo!(),
         }

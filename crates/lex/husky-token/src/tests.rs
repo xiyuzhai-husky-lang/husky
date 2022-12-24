@@ -10,7 +10,7 @@ use salsa::{Database, Storage};
 
 #[salsa::db(WordJar, VfsJar, TokenJar)]
 #[derive(Default)]
-struct DB {
+pub(crate) struct DB {
     storage: Storage<Self>,
 }
 

@@ -1,27 +1,28 @@
 use crate::*;
 
-pub trait ParseFromWithRollback<Input>: ParseFrom<Input>
+pub trait ParseFromWithRollback<Stream>: ParseFrom<Stream>
 where
-    Input: ParseInput + ?Sized,
+    Stream: ParseInto + ?Sized,
 {
     fn parse_from_with_rollback<'a>(
-        stream: &mut Input::Stream<'a>,
-    ) -> Result<Option<Self>, Self::Error>;
+        stream: &mut Stream,
+    ) -> Result<Option<Self::Output>, Self::Error>;
 }
 
-impl<Input, P> ParseFromWithRollback<Input> for P
+impl<Stream, P> ParseFromWithRollback<Stream> for P
 where
-    Input: ParseInput + ?Sized,
-    P: ParseFrom<Input>,
+    Stream: ParseInto + ?Sized,
+    P: ParseFrom<Stream>,
 {
     fn parse_from_with_rollback<'a>(
-        stream: &mut <Input as ParseInput>::Stream<'a>,
-    ) -> Result<Option<Self>, Self::Error> {
+        stream: &mut Stream,
+    ) -> Result<Option<Self::Output>, Self::Error> {
         let clone = stream.clone();
         let result = Self::parse_from(stream);
         match result {
-            Ok(Some(_)) => (),
-            _ => *stream = clone,
+            // rollback for no pattern
+            Ok(None) => *stream = clone,
+            _ => (),
         }
         result
     }

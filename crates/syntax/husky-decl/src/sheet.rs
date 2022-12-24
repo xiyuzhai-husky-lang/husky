@@ -4,15 +4,15 @@ use vec_like::VecPairMap;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct DeclSheet {
-    decls: VecPairMap<EntityPath, Decl>,
+    decls: VecPairMap<EntityPath, DeclResult<Decl>>,
 }
 
 impl DeclSheet {
-    pub fn new(decls: VecPairMap<EntityPath, Decl>) -> Self {
+    pub fn new(decls: VecPairMap<EntityPath, DeclResult<Decl>>) -> Self {
         Self { decls }
     }
 
-    pub fn decls(&self) -> &VecPairMap<EntityPath, Decl> {
+    pub fn decls(&self) -> &VecPairMap<EntityPath, DeclResult<Decl>> {
         &self.decls
     }
 }

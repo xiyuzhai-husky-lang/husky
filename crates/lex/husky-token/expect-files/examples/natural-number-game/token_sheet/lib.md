@@ -459,8 +459,10 @@ Ok(
             },
             Token {
                 range: [10:16, 10:17),
-                kind: Unrecognized(
-                    '∀',
+                kind: Err(
+                    UnrecognizedChar(
+                        '∀',
+                    ),
                 ),
             },
             Token {
@@ -489,8 +491,10 @@ Ok(
             },
             Token {
                 range: [10:22, 10:23),
-                kind: Unrecognized(
-                    '∊',
+                kind: Err(
+                    UnrecognizedChar(
+                        '∊',
+                    ),
                 ),
             },
             Token {
@@ -595,8 +599,10 @@ Ok(
             },
             Token {
                 range: [10:46, 10:47),
-                kind: Unrecognized(
-                    '→',
+                kind: Err(
+                    UnrecognizedChar(
+                        '→',
+                    ),
                 ),
             },
             Token {
@@ -879,8 +885,10 @@ Ok(
             },
             Token {
                 range: [15:13, 15:14),
-                kind: Unrecognized(
-                    '∃',
+                kind: Err(
+                    UnrecognizedChar(
+                        '∃',
+                    ),
                 ),
             },
             Token {
@@ -897,8 +905,10 @@ Ok(
             },
             Token {
                 range: [15:17, 15:18),
-                kind: Unrecognized(
-                    '∊',
+                kind: Err(
+                    UnrecognizedChar(
+                        '∊',
+                    ),
                 ),
             },
             Token {
@@ -1145,8 +1155,10 @@ Ok(
             },
             Token {
                 range: [20:13, 20:14),
-                kind: Unrecognized(
-                    '∃',
+                kind: Err(
+                    UnrecognizedChar(
+                        '∃',
+                    ),
                 ),
             },
             Token {
@@ -1163,8 +1175,10 @@ Ok(
             },
             Token {
                 range: [20:17, 20:18),
-                kind: Unrecognized(
-                    '∊',
+                kind: Err(
+                    UnrecognizedChar(
+                        '∊',
+                    ),
                 ),
             },
             Token {

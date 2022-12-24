@@ -1,41 +1,34 @@
 mod chain;
 mod rollback;
+mod separated_list;
 #[cfg(test)]
 mod tests;
 
 pub use rollback::*;
 
-pub trait ParseInput {
-    type Stream<'a>: Clone
-    where
-        Self: 'a;
+pub trait ParseInto: Clone + Sized {
+    /// returns an optional and the rest of the stream,
+    ///
+    /// guarantees that stream state is not changed if result is Ok(None)
+    fn parse_into<P: ParseFrom<Self>>(self) -> Result<(Option<P::Output>, Self), P::Error>;
+}
 
-    fn stream<'a>(&'a self) -> Self::Stream<'a>;
-
-    fn parse<'a, P: ParseFrom<Self>>(&'a self) -> (Result<Option<P>, P::Error>, Self::Stream<'a>) {
-        let mut stream = self.stream();
-        let p = P::parse_from(&mut stream);
-        todo!()
+impl<T> ParseInto for T
+where
+    T: Clone + Sized,
+{
+    fn parse_into<P: ParseFrom<Self>>(mut self) -> Result<(Option<P::Output>, Self), P::Error> {
+        let p = P::parse_from_with_rollback(&mut self)?;
+        Ok((p, self))
     }
 }
 
-pub trait ParseFrom<Input>: Sized
+pub trait ParseFrom<Stream>: Sized
 where
-    Input: ParseInput + ?Sized,
+    Stream: ParseInto + ?Sized,
 {
+    type Output;
     type Error;
-    fn parse_from<'a>(stream: &mut Input::Stream<'a>) -> Result<Option<Self>, Self::Error>;
+    /// no guarantee on stream state other than Ok(Some(_))
+    fn parse_from<'a>(stream: &mut Stream) -> Result<Option<Self::Output>, Self::Error>;
 }
-
-// impl<Input, A, B> ParseFrom<Input> for (A, B)
-// where
-//     Input: ParseInput + ?Sized,
-//     A: ParseFrom<Input>,
-//     B: ParseFrom<Input>,
-// {
-//     fn parse_from<'a>(
-//         stream: &mut <Input as ParseInput>::Stream<'a>,
-//     ) -> (Self, <Input as ParseInput>::Stream<'a>) {
-//         todo!()
-//     }
-// }

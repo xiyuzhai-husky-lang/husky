@@ -1,3 +1,4 @@
+use crate::*;
 use husky_dev_utils::DevSource;
 use husky_text::TextRange;
 use thiserror::Error;
@@ -8,6 +9,10 @@ pub enum TokenError {
     IncompleteStringLiteral,
     #[error("unexpect char after backslash")]
     UnexpectedCharAfterBackslash,
+    #[error("unrecognized char")]
+    UnrecognizedChar(char),
+    #[error("ill-formed literal")]
+    IllFormedLiteral(LiteralToken),
 }
 
 pub type TokenResult<T> = Result<T, TokenError>;

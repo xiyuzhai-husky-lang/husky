@@ -112,9 +112,7 @@ impl<'a> AstParser<'a> {
             TokenKind::Special(_)
             | TokenKind::Identifier(_)
             | TokenKind::WordOpr(_)
-            | TokenKind::Literal(_)
-            | TokenKind::Unrecognized(_)
-            | TokenKind::IllFormedLiteral(_) => self.parse_stmt(token_group_idx, &context),
+            | TokenKind::Literal(_) => self.parse_stmt(token_group_idx, &context),
             TokenKind::Comment => Ast::Comment { token_group_idx },
             TokenKind::Err(_) => todo!(),
         })
@@ -202,9 +200,7 @@ impl<'a> AstParser<'a> {
                 TokenKind::Identifier(_)
                 | TokenKind::Special(_)
                 | TokenKind::WordOpr(_)
-                | TokenKind::Literal(_)
-                | TokenKind::Unrecognized(_)
-                | TokenKind::IllFormedLiteral(_) => {
+                | TokenKind::Literal(_) => {
                     return Ast::Err {
                         token_group_idx,
                         error: AstError::ExpectDecoratorOrEntityKeyword,
