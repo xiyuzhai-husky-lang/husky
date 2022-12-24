@@ -75,6 +75,9 @@ Ok(
                     ident: `ConvexCompoent`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
             ],
         },

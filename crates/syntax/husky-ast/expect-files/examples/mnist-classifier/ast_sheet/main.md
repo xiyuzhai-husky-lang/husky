@@ -121,6 +121,9 @@ Ok(
                     ident: `connected_component`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -145,6 +148,9 @@ Ok(
                     ident: `raw_contour`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -169,6 +175,9 @@ Ok(
                     ident: `geom2d`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -193,6 +202,9 @@ Ok(
                     ident: `line_segment_sketch`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -217,6 +229,9 @@ Ok(
                     ident: `fermi`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -241,6 +256,9 @@ Ok(
                     ident: `major`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(

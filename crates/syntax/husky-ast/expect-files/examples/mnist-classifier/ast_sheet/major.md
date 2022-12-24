@@ -226,6 +226,9 @@ Ok(
                     ident: `connected_components`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -252,6 +255,9 @@ Ok(
                     ident: `major_connected_component`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -278,6 +284,9 @@ Ok(
                     ident: `ignored_connected_components_row_span_sum_sum`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -304,6 +313,9 @@ Ok(
                     ident: `major_raw_contours`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Comment {
                     token_group_idx: TokenGroupIdx(
@@ -335,6 +347,9 @@ Ok(
                     ident: `major_raw_contour`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -361,6 +376,9 @@ Ok(
                     ident: `major_line_segment_sketch`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -387,6 +405,9 @@ Ok(
                     ident: `major_concave_components`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
             ],
         },

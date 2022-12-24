@@ -21,6 +21,9 @@ Ok(
                     ident: `add`,
                     is_generic: false,
                     body_kind: EnumVariants,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -65,6 +68,9 @@ Ok(
                     ident: `Nat`,
                     is_generic: false,
                     body_kind: EnumVariants,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -133,6 +139,9 @@ Ok(
                     ident: `OddNat`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -161,6 +170,9 @@ Ok(
                     ident: `EvenNat`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
             ],
         },

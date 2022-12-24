@@ -122,6 +122,9 @@ Ok(
                     ident: `norm`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -142,6 +145,9 @@ Ok(
                     ident: `rel_norm`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -162,6 +168,9 @@ Ok(
                     ident: `angle_change_norm`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -257,6 +266,9 @@ Ok(
                     ident: `FermiMatchResult`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -291,6 +303,9 @@ Ok(
                     ident: `fermi_match`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
             ],
         },

@@ -535,6 +535,9 @@ Ok(
                     ident: `six_match`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -561,6 +564,9 @@ Ok(
                     ident: `six_match_refined1`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -587,6 +593,9 @@ Ok(
                     ident: `is_six`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -613,6 +622,9 @@ Ok(
                     ident: `upmost`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -639,6 +651,9 @@ Ok(
                     ident: `bottom1`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
             ],
         },

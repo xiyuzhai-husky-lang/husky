@@ -482,6 +482,9 @@ Ok(
                     ident: `nine_match`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -508,6 +511,9 @@ Ok(
                     ident: `nine_match_refine`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -534,6 +540,9 @@ Ok(
                     ident: `is_nine`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -560,6 +569,9 @@ Ok(
                     ident: `downmost`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -586,6 +598,9 @@ Ok(
                     ident: `big_cc`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
             ],
         },

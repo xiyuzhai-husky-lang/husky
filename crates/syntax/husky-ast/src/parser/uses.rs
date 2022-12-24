@@ -5,7 +5,9 @@ use super::*;
 
 impl<'a> AstParser<'a> {
     pub(super) fn parse_uses(&mut self, token_group_idx: TokenGroupIdx, ctx: &Context) -> Ast {
-        let token_iter = self.token_sheet.token_group_token_iter(token_group_idx);
+        let token_iter = self
+            .token_sheet
+            .token_group_token_iter(token_group_idx, None);
         let (ident, mut aux_parser) =
             EntityUseExprParser::new(ctx, token_iter, self.module_path, &mut self.use_expr_arena);
         let accessibility = match aux_parser.parse_accessibility() {
@@ -37,7 +39,7 @@ pub struct EntityUseExprParser<'b> {
     arena: &'b mut UseExprArena,
 }
 
-impl<'aux> AuxAstParser<'aux> for EntityUseExprParser<'aux> {
+impl<'aux> ParseTokenInto<'aux> for EntityUseExprParser<'aux> {
     fn token_iter_mut(&mut self) -> &mut TokenIter<'aux> {
         &mut self.token_iter
     }
@@ -48,6 +50,10 @@ impl<'aux> AuxAstParser<'aux> for EntityUseExprParser<'aux> {
 
     fn module_path(&self) -> ModulePath {
         self.module_path
+    }
+
+    fn token_iter(&self) -> &TokenIter<'aux> {
+        &self.token_iter
     }
 }
 

@@ -39,6 +39,9 @@ Ok(
                     ident: `new`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -59,6 +62,9 @@ Ok(
                     ident: `displacement`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(
@@ -207,6 +213,9 @@ Ok(
                     ident: `concave_components`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -227,6 +236,9 @@ Ok(
                     ident: `bounding_box`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -241,6 +253,9 @@ Ok(
                     ident: `new`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(
@@ -1329,6 +1344,9 @@ Ok(
                     ident: `concave_component`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1353,6 +1371,9 @@ Ok(
                     ident: `convex_component`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1377,6 +1398,9 @@ Ok(
                     ident: `convexity`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1401,6 +1425,9 @@ Ok(
                     ident: `line_segment`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Use {
                     token_group_idx: TokenGroupIdx(
@@ -1499,6 +1526,9 @@ Ok(
                     ident: `LineSegmentStroke`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -1535,6 +1565,9 @@ Ok(
                     ident: `LineSegmentSketch`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -1569,6 +1602,9 @@ Ok(
                     ident: `go_right`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1595,6 +1631,9 @@ Ok(
                     ident: `go_left`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1621,6 +1660,9 @@ Ok(
                     ident: `extend_end`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1647,6 +1689,9 @@ Ok(
                     ident: `extend_start`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1673,6 +1718,9 @@ Ok(
                     ident: `find_line_segments`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
             ],
         },

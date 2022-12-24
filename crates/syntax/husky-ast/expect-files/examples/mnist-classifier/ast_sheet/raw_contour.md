@@ -237,6 +237,9 @@ Ok(
                     ident: `line_segment_sketch`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -257,6 +260,9 @@ Ok(
                     ident: `bounding_box`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -277,6 +283,9 @@ Ok(
                     ident: `relative_bounding_box`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -297,6 +306,9 @@ Ok(
                     ident: `contour_len`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -317,6 +329,9 @@ Ok(
                     ident: `displacement`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Err {
                     token_group_idx: TokenGroupIdx(
@@ -1753,6 +1768,9 @@ Ok(
                     ident: `RawContour`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -1789,6 +1807,9 @@ Ok(
                     ident: `Direction`,
                     is_generic: false,
                     body_kind: EnumVariants,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -1847,6 +1868,9 @@ Ok(
                     ident: `get_pixel_pair`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1873,6 +1897,9 @@ Ok(
                     ident: `get_pixel_to_the_left`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1899,6 +1926,9 @@ Ok(
                     ident: `get_pixel_to_the_right`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1925,6 +1955,9 @@ Ok(
                     ident: `get_inward_direction`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1951,6 +1984,9 @@ Ok(
                     ident: `get_angle_change`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1977,6 +2013,9 @@ Ok(
                     ident: `get_outward_direction`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -2005,6 +2044,9 @@ Ok(
                     ident: `StreakCache`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -2031,6 +2073,9 @@ Ok(
                     ident: `get_concave_middle_point`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -2057,6 +2102,9 @@ Ok(
                     ident: `find_raw_contours`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
             ],
         },

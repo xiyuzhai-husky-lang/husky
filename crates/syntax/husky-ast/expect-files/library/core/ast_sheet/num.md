@@ -15,6 +15,9 @@ Ok(
                     ident: `abs`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -29,6 +32,9 @@ Ok(
                     ident: `add`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -43,6 +49,9 @@ Ok(
                     ident: `abs`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -57,6 +66,9 @@ Ok(
                     ident: `add`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -71,6 +83,9 @@ Ok(
                     ident: `abs`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -91,6 +106,9 @@ Ok(
                     ident: `add`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -105,6 +123,9 @@ Ok(
                     ident: `abs`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -119,6 +140,9 @@ Ok(
                     ident: `add`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Decor {
                     token_group_idx: TokenGroupIdx(
@@ -146,6 +170,9 @@ Ok(
                     ident: `i8`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -189,6 +216,9 @@ Ok(
                     ident: `i16`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -232,6 +262,9 @@ Ok(
                     ident: `i32`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(
@@ -281,6 +314,9 @@ Ok(
                     ident: `i64`,
                     is_generic: false,
                     body_kind: None,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Impl {
                     token_group_idx: TokenGroupIdx(

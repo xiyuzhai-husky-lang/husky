@@ -261,6 +261,9 @@ Ok(
                     ident: `quick_sort`,
                     is_generic: true,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 3,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -287,6 +290,9 @@ Ok(
                     ident: `quick_sort_aux`,
                     is_generic: true,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Defn {
                     token_group_idx: TokenGroupIdx(
@@ -313,6 +319,9 @@ Ok(
                     ident: `partition`,
                     is_generic: true,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -347,6 +356,9 @@ Ok(
                     ident: `quick_sort_works_for_integers`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
                 Stmt {
                     token_group_idx: TokenGroupIdx(
@@ -381,6 +393,9 @@ Ok(
                     ident: `quick_sort_works_for_strs`,
                     is_generic: false,
                     body_kind: Block,
+                    saved_stream_state: TokenIterState {
+                        next_relative: 2,
+                    },
                 },
             ],
         },

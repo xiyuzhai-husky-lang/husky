@@ -8,7 +8,7 @@ mod idx;
 mod iter;
 mod kind;
 mod literal;
-mod pattern;
+mod parse_utils;
 #[cfg(test)]
 mod tests;
 mod tokenize;
@@ -22,7 +22,7 @@ pub use idx::*;
 pub use iter::*;
 pub use kind::*;
 pub use literal::*;
-pub use pattern::*;
+pub use parse_utils::*;
 
 use husky_text::{HasTextRange, RangedIdentifier, TextRange};
 use husky_word::Identifier;
