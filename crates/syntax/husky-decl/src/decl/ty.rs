@@ -22,7 +22,7 @@ pub enum TypeDecl {
 }
 
 impl TypeDecl {
-    fn module_item_path(self, db: &dyn DeclDb) -> ModuleItemPath {
+    fn module_item_path(self, db: &dyn DeclDb) -> ConnectedModuleItemPath {
         match self {
             TypeDecl::Enum(decl) => decl.module_item_path(db),
             TypeDecl::Inductive(decl) => decl.module_item_path(db),

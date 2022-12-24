@@ -1,4 +1,4 @@
-use husky_entity_path::ModuleItemPath;
+use husky_entity_path::*;
 use husky_text::TextRange;
 
 use crate::INDENT_INCR;

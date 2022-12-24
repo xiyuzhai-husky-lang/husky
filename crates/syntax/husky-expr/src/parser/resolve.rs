@@ -1,10 +1,10 @@
 use super::*;
 
-use husky_symbol_syntax::Symbol;
+use husky_symbol::Symbol;
 use husky_term::Term;
 use husky_token::SpecialToken;
 
-impl<'a, 'b> ExprParser<'a, 'b> {
+impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(crate) fn resolve_token(&self, token: &Token) -> ResolvedToken {
         ResolvedToken {
             kind: self.resolve_token_kind(token),

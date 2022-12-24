@@ -1,0 +1,18 @@
+[package]
+name = "husky-accessibility"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+salsa = { path = "../../abstraction/salsa" }
+# abstraction
+with-db = { path = "../../abstraction/with-db" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
+
+[dev-dependencies]
+# kernel
+husky-word = { path = "../../kernel/husky-word" }

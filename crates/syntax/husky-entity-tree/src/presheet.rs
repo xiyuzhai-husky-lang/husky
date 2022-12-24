@@ -130,13 +130,17 @@ impl<'a> EntitySymbolPresheetBuilder<'a> {
                             module_path: *module_path,
                             ast_idx,
                         },
-                        EntityPath::ModuleItem(module_item_path) => EntitySymbol::ModuleItem {
-                            ident: *ident,
-                            accessibility: *accessibility,
-                            ast_idx,
-                            path: *module_item_path,
+                        EntityPath::ModuleItem(module_item_path) => match module_item_path {
+                            ModuleItemPath::Connected(_) => EntitySymbol::ModuleItem {
+                                ident: *ident,
+                                accessibility: *accessibility,
+                                ast_idx,
+                                path: *module_item_path,
+                            },
+                            ModuleItemPath::Disconnected(_) => todo!(),
                         },
                         EntityPath::AssociatedItem(_) | EntityPath::EnumVariant(_) => return,
+                        EntityPath::GenericParameter(_) => todo!(),
                     };
                     match self.nodes.insert_new(new_node) {
                         Ok(_) => (),

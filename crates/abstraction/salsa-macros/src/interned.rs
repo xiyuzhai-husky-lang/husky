@@ -51,6 +51,8 @@ impl crate::options::AllowedOptions for InternedStruct {
     const LRU: bool = false;
 
     const CONSTRUCTOR_NAME: bool = true;
+
+    const DERIVE_DEBUG_WITH_DB: bool = true;
 }
 
 impl InternedStruct {

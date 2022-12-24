@@ -3,28 +3,28 @@
 #![feature(const_convert)]
 mod db;
 mod error;
-mod group;
-mod idx;
 mod iter;
 mod kind;
 mod literal;
 mod parse_utils;
+mod sheet;
 #[cfg(test)]
 mod tests;
+mod token_accessibility;
 mod tokenize;
 mod utils;
 
 pub use db::*;
 pub use error::*;
-pub use group::*;
-use husky_vfs::{ModulePath, VfsResult};
-pub use idx::*;
 pub use iter::*;
 pub use kind::*;
 pub use literal::*;
 pub use parse_utils::*;
+pub use sheet::*;
+pub use token_accessibility::*;
 
 use husky_text::{HasTextRange, RangedIdentifier, TextRange};
+use husky_vfs::{ModulePath, VfsResult};
 use husky_word::Identifier;
 #[cfg(test)]
 use tests::*;
@@ -33,30 +33,10 @@ use tokenize::*;
 #[salsa::jar(db = TokenDb)]
 pub struct TokenJar(token_sheet, reserved_words);
 
-#[salsa::tracked(jar = TokenJar, return_ref)]
-fn token_sheet(db: &dyn TokenDb, module_path: ModulePath) -> VfsResult<TokenSheet> {
-    Ok(TokenSheet::new(tokenize::tokenize(
-        db,
-        db.module_content(module_path)?,
-    )))
-}
-
 #[derive(Debug, PartialEq, Eq)]
 pub struct Token {
     pub range: TextRange,
     pub kind: TokenKind,
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct TokenSheet {
-    tokens: Vec<Token>,
-    group_starts: Vec<usize>,
-}
-
-impl TokenSheet {
-    pub fn len(&self) -> usize {
-        self.tokens.len()
-    }
 }
 
 impl Token {

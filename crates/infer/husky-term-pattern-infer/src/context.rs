@@ -57,20 +57,24 @@ impl<'a> TermPatternInferContext<'a> {
     ) -> ExprTermPatternInferRawResults {
         match atom {
             AtomExpr::Literal(literal) => self.infer_literal(literal, sheet),
-            AtomExpr::Symbol(symbol) => match symbol.kind {
-                SymbolKind::ModulePath(_) => todo!(),
-                SymbolKind::LocalVariable { init_range } => ExprTermPatternInferRawResults {
-                    const_expr: Ok(None),
-                    ty: self.var_ty_result(sheet, symbol.ident, init_range),
-                },
-                SymbolKind::FrameVariable { .. } => ExprTermPatternInferRawResults {
-                    const_expr: Ok(None),
-                    ty: Ok(self.term_menu().i32().into()),
-                },
-                SymbolKind::ThisValue => todo!(),
-                SymbolKind::ThisMethod => todo!(),
-                SymbolKind::ThisField => todo!(),
+            AtomExpr::Symbol(symbol) => match symbol {
+                Symbol::Entity(_) => todo!(),
+                Symbol::Variable(_) => todo!(),
+                Symbol::Lifetime(_) => todo!(),
+                Symbol::Label(_) => todo!(),
             },
+            // Symbol::ModulePath(_) => todo!(),
+            // Symbol::LocalVariable { init_range } => ExprTermPatternInferRawResults {
+            //     const_expr: Ok(None),
+            //     ty: self.var_ty_result(sheet, symbol.ident, init_range),
+            // },
+            // Symbol::FrameVariable { .. } => ExprTermPatternInferRawResults {
+            //     const_expr: Ok(None),
+            //     ty: Ok(self.term_menu().i32().into()),
+            // },
+            // Symbol::ThisValue => todo!(),
+            // Symbol::ThisMethod => todo!(),
+            // Symbol::ThisField => todo!(),
             AtomExpr::Unrecognized(ident) => {
                 let error = self.error_original(OriginalTermPatternInferError::IdentUnrecognized {
                     ident: self.db.dt_ident(*ident).to_owned(),

@@ -28,6 +28,7 @@ husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-accessibility = { path = "../../syntax/husky-accessibility" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
 # vm

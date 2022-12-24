@@ -7,36 +7,33 @@ mod synthesize;
 use crate::*;
 use husky_check_utils::should;
 use husky_entity_tree::EntityTreeDb;
-use husky_symbol_syntax::SymbolContext;
+use husky_symbol::SymbolContext;
 use husky_token::TokenIter;
 use husky_token::{Token, TokenKind};
 use opr::*;
 use resolve::*;
 use stack::*;
 
-pub(crate) struct ExprParser<'a, 'b> {
-    db: &'a dyn EntityTreeDb,
-    token_iter: TokenIter<'a>,
-    symbols: &'a mut SymbolContext<'b>,
+pub(crate) struct ExprParser<'a, 'b, 'c> {
+    ctx: SymbolContext<'c>,
+    token_iter: &'a mut TokenIter<'b>,
     arena: &'a mut ExprArena,
     stack: AutomataStack,
 }
 
-impl<'a, 'b> ExprParser<'a, 'b> {
+impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(crate) fn tokens(&self) -> &TokenIter<'a> {
         &self.token_iter
     }
 
     fn new(
-        db: &'a dyn EntityTreeDb,
-        token_iter: TokenIter<'a>,
-        symbols: &'a mut SymbolContext<'b>,
+        ctx: SymbolContext<'c>,
+        token_iter: &'a mut TokenIter<'b>,
         arena: &'a mut ExprArena,
     ) -> Self {
         Self {
-            db,
+            ctx,
             token_iter,
-            symbols,
             arena,
             stack: Default::default(),
         }
@@ -56,11 +53,10 @@ impl<'a, 'b> ExprParser<'a, 'b> {
     }
 }
 
-pub fn parse_expr(
-    db: &dyn EntityTreeDb,
-    token_iter: TokenIter,
-    symbols: &mut SymbolContext,
+pub fn parse_expr<'a>(
+    ctx: SymbolContext,
+    token_iter: &mut TokenIter<'a>,
     arena: &mut ExprArena,
 ) -> ExprIdx {
-    ExprParser::new(db, token_iter, symbols, arena).parse_all()
+    ExprParser::new(ctx, token_iter, arena).parse_all()
 }

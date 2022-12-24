@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 mod atom;
 mod error;
 mod opn;
@@ -13,7 +14,6 @@ pub use variable::*;
 
 use husky_entity_path::EntityPath;
 use husky_opn_syntax::*;
-use husky_symbol_syntax::SymbolKind;
 use husky_text::*;
 use husky_token::*;
 use husky_vfs::{ModulePath, VfsResult};
@@ -42,8 +42,8 @@ pub enum Expr {
 //         // match self {
 //         //     ExprVariant::Atom(ref atom) => match atom {
 //         //         AtomExpr::Literal(_) => BaseScopeResult::None,
-//         //         AtomExpr::Symbol(symbol) => match symbol.kind {
-//         //             SymbolKind::ModulePath(path) => BaseScopeResult::Some(path),
+//         //         AtomExpr::Symbol(symbol) => match symbol  {
+//         //             Symbol::ModulePath(path) => BaseScopeResult::Some(path),
 //         //             _ => BaseScopeResult::None,
 //         //         },
 //         //         AtomExpr::Unrecognized(_) | AtomExpr::Uncertain(_) => BaseScopeResult::Uncertain,

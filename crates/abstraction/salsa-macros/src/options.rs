@@ -95,6 +95,7 @@ pub(crate) trait AllowedOptions {
     const RECOVERY_FN: bool;
     const LRU: bool;
     const CONSTRUCTOR_NAME: bool;
+    const DERIVE_DEBUG_WITH_DB: bool;
 }
 
 type Equals = syn::Token![=];
@@ -246,6 +247,23 @@ impl<A: AllowedOptions> syn::parse::Parse for Options<A> {
                 }
             } else if ident == "constructor" {
                 if A::CONSTRUCTOR_NAME {
+                    let _eq = Equals::parse(input)?;
+                    let ident = syn::Ident::parse(input)?;
+                    if let Some(old) = std::mem::replace(&mut options.constructor_name, Some(ident))
+                    {
+                        return Err(syn::Error::new(
+                            old.span(),
+                            "option `constructor` provided twice",
+                        ));
+                    }
+                } else {
+                    return Err(syn::Error::new(
+                        ident.span(),
+                        "`constructor` option not allowed here",
+                    ));
+                }
+            } else if ident == "no_derive_debug" {
+                if A::DERIVE_DEBUG_WITH_DB {
                     let _eq = Equals::parse(input)?;
                     let ident = syn::Ident::parse(input)?;
                     if let Some(old) = std::mem::replace(&mut options.constructor_name, Some(ident))

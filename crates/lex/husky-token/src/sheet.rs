@@ -1,5 +1,56 @@
 use crate::*;
 
+#[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
+pub struct TokenIdx(pub(crate) usize);
+
+impl std::ops::Index<TokenIdx> for TokenSheet {
+    type Output = Token;
+
+    fn index(&self, index: TokenIdx) -> &Self::Output {
+        &self.tokens[index.0]
+    }
+}
+
+#[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
+pub struct TokenIdxRange {
+    start: TokenIdx,
+    end: TokenIdx,
+}
+
+impl TokenIdxRange {
+    pub(crate) fn new(start: TokenIdx, end: TokenIdx) -> Self {
+        Self { start, end }
+    }
+
+    pub fn start(&self) -> TokenIdx {
+        self.start
+    }
+
+    pub fn end(&self) -> TokenIdx {
+        self.end
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct TokenSheet {
+    tokens: Vec<Token>,
+    group_starts: Vec<usize>,
+}
+
+impl TokenSheet {
+    pub fn len(&self) -> usize {
+        self.tokens.len()
+    }
+}
+
+#[salsa::tracked(jar = TokenJar, return_ref)]
+pub(crate) fn token_sheet(db: &dyn TokenDb, module_path: ModulePath) -> VfsResult<TokenSheet> {
+    Ok(TokenSheet::new(tokenize::tokenize(
+        db,
+        db.module_content(module_path)?,
+    )))
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TokenGroupIdx(usize);
 
@@ -156,15 +207,15 @@ fn produce_line_starts(tokens: &[Token]) -> Vec<usize> {
 }
 
 impl TokenSheet {
-    pub fn token_group_iter<'a>(&'a self) -> TokenGroupIter<'a> {
-        TokenGroupIter::new(&self.tokens, &self.group_starts)
-    }
-
-    pub fn new(tokens: Vec<Token>) -> TokenSheet {
+    pub(crate) fn new(tokens: Vec<Token>) -> TokenSheet {
         TokenSheet {
             group_starts: produce_group_starts(&tokens),
             tokens,
         }
+    }
+
+    pub fn token_group_iter<'a>(&'a self) -> TokenGroupIter<'a> {
+        TokenGroupIter::new(&self.tokens, &self.group_starts)
     }
 
     pub fn group_start(&self, token_group_idx: TokenGroupIdx) -> usize {

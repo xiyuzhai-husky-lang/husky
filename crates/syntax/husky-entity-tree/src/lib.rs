@@ -26,6 +26,7 @@ pub use symbol::*;
 use collector::*;
 use context::*;
 use error::EntityTreeError;
+use husky_accessibility::*;
 use husky_ast::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::EntityKind;

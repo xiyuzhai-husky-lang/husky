@@ -1,4 +1,5 @@
 use crate::*;
+use husky_token::TokenAccessibility;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum EntitySymbol {

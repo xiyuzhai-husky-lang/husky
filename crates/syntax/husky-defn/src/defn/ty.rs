@@ -22,7 +22,7 @@ pub enum TypeDefn {
 }
 
 impl TypeDefn {
-    pub fn module_item_path(self, db: &dyn DefnDb) -> ModuleItemPath {
+    pub fn module_item_path(self, db: &dyn DefnDb) -> ConnectedModuleItemPath {
         match self {
             TypeDefn::Enum(defn) => defn.module_item_path(db),
             TypeDefn::Inductive(defn) => defn.module_item_path(db),

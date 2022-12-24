@@ -44,7 +44,7 @@ impl AutomataStack {
     }
 }
 
-impl<'a, 'b> ExprParser<'a, 'b> {
+impl<'a, 'b, 'c> ExprParser<'a, 'b, 'c> {
     pub(super) fn expr(&self, idx: usize) -> &Expr {
         &self.stack.exprs[idx]
     }

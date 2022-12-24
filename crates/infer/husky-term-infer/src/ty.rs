@@ -1,7 +1,7 @@
 use crate::*;
 use husky_expr::{AtomExpr, ExprIdx, ExprRange};
 use husky_print_utils::p;
-use husky_symbol_syntax::SymbolKind;
+use husky_symbol::Symbol;
 use husky_term::Term;
 
 impl<'a> InferContext<'a> {
@@ -19,13 +19,11 @@ impl<'a> InferContext<'a> {
     fn infer_atom(&self, atom: &AtomExpr) -> TermInferResult<Term> {
         match atom {
             AtomExpr::Literal(literal) => Ok(self.infer_literal(literal)),
-            AtomExpr::Symbol(symbol) => match symbol.kind {
-                SymbolKind::ModulePath(_) => todo!(),
-                SymbolKind::LocalVariable { init_range } => todo!(),
-                SymbolKind::FrameVariable { init_range } => todo!(),
-                SymbolKind::ThisValue => todo!(),
-                SymbolKind::ThisMethod => todo!(),
-                SymbolKind::ThisField => todo!(),
+            AtomExpr::Symbol(symbol) => match symbol {
+                Symbol::Entity(_) => todo!(),
+                Symbol::Variable(_) => todo!(),
+                Symbol::Lifetime(_) => todo!(),
+                Symbol::Label(_) => todo!(),
             },
             AtomExpr::Unrecognized(_) => Err(TermInferError::IdentUnrecognized),
             AtomExpr::Uncertain(_) => todo!(),

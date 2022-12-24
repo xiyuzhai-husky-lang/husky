@@ -4,7 +4,7 @@ pub use error::*;
 
 use crate::*;
 use husky_expr::{AtomExpr, Expr, ExprIdx};
-use husky_symbol_syntax::SymbolKind;
+use husky_symbol::Symbol;
 use husky_term::Term;
 use wild_utils::arb_ref;
 
@@ -31,14 +31,11 @@ impl<'a> InferContext<'a> {
         match expr {
             Expr::Atom(ref atom) => match atom {
                 AtomExpr::Literal(_) => todo!(),
-                AtomExpr::Symbol(symbol) => match symbol.kind {
-                    SymbolKind::ModulePath(path) => todo!(),
-                    // self.entity_path_term(path),
-                    SymbolKind::LocalVariable { init_range } => todo!(),
-                    SymbolKind::FrameVariable { init_range } => todo!(),
-                    SymbolKind::ThisValue => todo!(),
-                    SymbolKind::ThisMethod => todo!(),
-                    SymbolKind::ThisField => todo!(),
+                AtomExpr::Symbol(symbol) => match symbol {
+                    Symbol::Entity(_) => todo!(),
+                    Symbol::Variable(_) => todo!(),
+                    Symbol::Lifetime(_) => todo!(),
+                    Symbol::Label(_) => todo!(),
                 },
                 AtomExpr::Unrecognized(ident) => Err(DerivedTermInferError::InferTermUnrecogized {
                     ident: self.db.dt_ident(*ident).to_owned(),

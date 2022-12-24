@@ -19,7 +19,7 @@ fn test_infer_ty_works() {
 
 use husky_entity_path::{EntityPath, EntityPathJar};
 use husky_expr::ExprIdx;
-use husky_symbol_syntax::Symbol;
+use husky_symbol::Symbol;
 use husky_term::{Decl, Term, TermDb};
 
 use husky_vfs::VfsJar;
