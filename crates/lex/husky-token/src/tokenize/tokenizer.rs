@@ -78,13 +78,6 @@ impl<'token> Tokenizer<'token> {
                     TokenizerAction::Push(token)
                 }
             },
-            RawTokenVariant::IllFormedLiteral(l) => {
-                let token = Token {
-                    range: token.range,
-                    kind: TokenKind::IllFormedLiteral(l),
-                };
-                TokenizerAction::Push(token)
-            }
             RawTokenVariant::NewLine => TokenizerAction::NewLine,
             RawTokenVariant::Special(_) => todo!(),
             RawTokenVariant::Comment => TokenizerAction::Push(Token {

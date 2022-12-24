@@ -122,8 +122,6 @@ impl<'a> AstParser<'a> {
                 TokenKind::Special(_) => todo!(),
                 TokenKind::WordOpr(_) => todo!(),
                 TokenKind::Literal(_) => todo!(),
-                TokenKind::Unrecognized(_) => todo!(),
-                TokenKind::IllFormedLiteral(_) => todo!(),
                 TokenKind::Comment => todo!(),
                 TokenKind::Err(_) => todo!(),
             },

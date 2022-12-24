@@ -33,8 +33,6 @@ impl Token {
             TokenKind::Special(_) => todo!(),
             TokenKind::WordOpr(_) => todo!(),
             TokenKind::Literal(_) => Some(Convexity::Convex),
-            TokenKind::Unrecognized(_) => None,
-            TokenKind::IllFormedLiteral(_) => Some(Convexity::Convex),
             TokenKind::Comment => todo!(),
             TokenKind::Err(_) => unreachable!(),
         }
@@ -72,8 +70,6 @@ impl Token {
             },
             TokenKind::WordOpr(_) => todo!(),
             TokenKind::Literal(_) => Convexity::Convex,
-            TokenKind::Unrecognized(_) => Convexity::Any,
-            TokenKind::IllFormedLiteral(_) => Convexity::Convex,
             TokenKind::Comment => todo!(),
             TokenKind::Err(_) => unreachable!(),
         }

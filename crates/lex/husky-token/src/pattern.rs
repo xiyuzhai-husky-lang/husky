@@ -1,54 +1,46 @@
 use crate::*;
-use husky_text::{HasTextRange, TextRange};
+use std::convert::Infallible;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct RawPattern {
-    pub range: TextRange,
-    pub variant: PatternToken,
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct TokenIdentifier {
+    ident: Identifier,
+    token_idx: TokenIdx,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub enum PatternToken {
-    PrimitiveLiteral(LiteralToken),
-    OneOf { subpatterns: Vec<RawPattern> },
-    Some,
-    None,
-}
+impl TokenIdentifier {
+    pub fn new(ident: Identifier, token_idx: TokenIdx) -> Self {
+        Self { ident, token_idx }
+    }
 
-impl HasTextRange for RawPattern {
-    fn text_range(&self) -> TextRange {
-        self.range
+    pub fn ident(&self) -> Identifier {
+        self.ident
+    }
+
+    pub fn token_idx(&self) -> &TokenIdx {
+        &self.token_idx
     }
 }
 
-impl RawPattern {
-    pub fn primitive_literal(value: LiteralToken, range: TextRange) -> Self {
-        Self {
-            variant: PatternToken::PrimitiveLiteral(value),
-            range,
-        }
-    }
+impl<'a> parsec::ParseFrom<TokenIter<'a>> for TokenIdentifier {
+    type Output = Self;
 
-    pub fn or(self, new_pattern: RawPattern) -> Self {
-        let range = self.text_range_to(&new_pattern);
-        let patterns = match self.variant {
-            PatternToken::PrimitiveLiteral(_) => {
-                vec![self, new_pattern]
+    type Error = TokenError;
+
+    fn parse_from(token_iter: &mut TokenIter<'a>) -> Result<Option<Self::Output>, Self::Error> {
+        while let Some((token_idx, token)) = token_iter.next_indexed() {
+            match token.kind {
+                TokenKind::Identifier(ident) => {
+                    return Ok(Some(TokenIdentifier { ident, token_idx }))
+                }
+                TokenKind::Comment => todo!(),
+                TokenKind::Err(ref e) => return Err(e.clone()),
+                TokenKind::Special(_)
+                | TokenKind::WordOpr(_)
+                | TokenKind::Literal(_)
+                | TokenKind::Attr(_)
+                | TokenKind::Keyword(_) => return Ok(None),
             }
-            PatternToken::OneOf {
-                subpatterns: mut patterns,
-            } => {
-                patterns.push(new_pattern);
-                patterns
-            }
-            PatternToken::Some => todo!(),
-            PatternToken::None => todo!(),
-        };
-        RawPattern {
-            variant: PatternToken::OneOf {
-                subpatterns: patterns,
-            },
-            range,
         }
+        Ok(None)
     }
 }

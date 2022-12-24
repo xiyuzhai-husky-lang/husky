@@ -1,5 +1,4 @@
 use crate::*;
-
 use husky_opn_syntax::Bracket;
 use husky_text::{TextPosition, TextRange};
 
@@ -79,6 +78,16 @@ impl<'a> TokenIter<'a> {
         }
     }
 
+    pub fn next_indexed(&mut self) -> Option<(TokenIdx, &'a Token)> {
+        if self.next < self.tokens.len() {
+            let next = self.next;
+            self.next += 1;
+            Some((TokenIdx(self.base + next), &self.tokens[next]))
+        } else {
+            None
+        }
+    }
+
     pub fn step_back(&mut self) {
         assert!(self.next > 0);
         self.next -= 1
@@ -120,5 +129,20 @@ impl<'a> TokenIter<'a> {
             },
             None => false,
         }
+    }
+}
+
+#[test]
+fn next_indexed_works() {
+    let db = DB::default();
+    let tokens = db.tokenize("What does a rusty can of spray-on rust remover smell like?\n Irony.");
+    let token_sheet = TokenSheet {
+        tokens,
+        group_starts: vec![0],
+    };
+    let (token_group_idx, _) = token_sheet.token_group_iter().next().unwrap();
+    let mut token_iter = token_sheet.token_group_token_iter(token_group_idx);
+    while let Some((token_idx, token)) = token_iter.next_indexed() {
+        assert_eq!(&token_sheet[token_idx], token)
     }
 }

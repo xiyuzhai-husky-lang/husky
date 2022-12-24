@@ -26,6 +26,8 @@ pub use pattern::*;
 
 use husky_text::{HasTextRange, RangedIdentifier, TextRange};
 use husky_word::Identifier;
+#[cfg(test)]
+use tests::*;
 use tokenize::*;
 
 #[salsa::jar(db = TokenDb)]

@@ -3,7 +3,9 @@ use husky_ast::{Ast, AstIdx, AstIdxRange, AstSheet};
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::{EntityKind, ModuleItemKind, TypeKind};
 use husky_entity_tree::{EntitySymbol, EntityTreeSheet};
-use husky_token::TokenSheet;
+use husky_print_utils::p;
+use husky_token::{TokenIdentifier, TokenSheet};
+use parsec::ParseFrom;
 use vec_like::VecPairMap;
 
 pub(crate) struct DeclCollector<'a> {
@@ -24,7 +26,7 @@ impl<'a> DeclCollector<'a> {
     }
 
     pub(crate) fn collect_all(mut self) -> DeclSheet {
-        let mut decls: VecPairMap<EntityPath, Decl> = Default::default();
+        let mut decls: VecPairMap<EntityPath, DeclResult<Decl>> = Default::default();
         for entity_symbol in self.entity_tree_sheet.module_symbols().iter() {
             match entity_symbol {
                 EntitySymbol::CrateRoot { .. } => unreachable!(),
@@ -43,7 +45,7 @@ impl<'a> DeclCollector<'a> {
         DeclSheet::new(decls)
     }
 
-    fn parse_decl(&mut self, ast_idx: AstIdx) -> Decl {
+    fn parse_decl(&mut self, ast_idx: AstIdx) -> DeclResult<Decl> {
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
                 token_group_idx,
@@ -89,7 +91,10 @@ impl<'a> DeclCollector<'a> {
         &self,
         token_group_idx: husky_token::TokenGroupIdx,
         body: &AstIdxRange,
-    ) -> Decl {
+    ) -> DeclResult<Decl> {
+        let mut token_iter = self.token_sheet.token_group_token_iter(token_group_idx);
+        let a = TokenIdentifier::parse_from(&mut token_iter)?;
+        p!(a);
         todo!()
     }
 }

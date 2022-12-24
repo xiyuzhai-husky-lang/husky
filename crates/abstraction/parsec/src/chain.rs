@@ -1,12 +1,12 @@
 use crate::*;
 
-pub fn parse_seq2_from<'a, Input, A, B, Error>(
-    stream: &mut Input::Stream<'a>,
-) -> Result<Option<(A, B)>, Error>
+pub fn parse_seq2_from<'a, Stream, A, B, Error>(
+    stream: &mut Stream,
+) -> Result<Option<(A::Output, B::Output)>, Error>
 where
-    Input: ParseInput,
-    A: ParseFrom<Input>,
-    B: ParseFrom<Input>,
+    Stream: ParseInto,
+    A: ParseFrom<Stream>,
+    B: ParseFrom<Stream>,
     Error: From<A::Error> + From<B::Error>,
 {
     let a = match A::parse_from(stream)? {
@@ -20,14 +20,14 @@ where
     Ok(Some((a, b)))
 }
 
-pub fn parse_seq3_from<'a, Input, A, B, C, Error>(
-    stream: &mut Input::Stream<'a>,
-) -> Result<Option<(A, B, C)>, Error>
+pub fn parse_seq3_from<'a, Stream, A, B, C, Error>(
+    stream: &mut Stream,
+) -> Result<Option<(A::Output, B::Output, C::Output)>, Error>
 where
-    Input: ParseInput,
-    A: ParseFrom<Input>,
-    B: ParseFrom<Input>,
-    C: ParseFrom<Input>,
+    Stream: ParseInto,
+    A: ParseFrom<Stream>,
+    B: ParseFrom<Stream>,
+    C: ParseFrom<Stream>,
     Error: From<A::Error> + From<B::Error> + From<C::Error>,
 {
     let a = match A::parse_from(stream)? {
