@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 mod collector;
 mod db;
 mod defn;

@@ -27,12 +27,12 @@ pub enum FormDefn {
 impl FormDefn {
     pub fn entity_path(self, db: &dyn DefnDb) -> EntityPath {
         match self {
-            FormDefn::Function(decl) => decl.entity_path(db),
-            FormDefn::Method(decl) => decl.entity_path(db),
-            FormDefn::Feature(decl) => decl.entity_path(db),
-            FormDefn::Morphism(decl) => decl.entity_path(db),
-            FormDefn::Const(decl) => decl.entity_path(db),
-            FormDefn::TypeAlias(decl) => decl.entity_path(db),
+            FormDefn::Function(defn) => defn.entity_path(db),
+            FormDefn::Method(defn) => defn.entity_path(db),
+            FormDefn::Feature(defn) => defn.entity_path(db),
+            FormDefn::Morphism(defn) => defn.entity_path(db),
+            FormDefn::Const(defn) => defn.entity_path(db),
+            FormDefn::TypeAlias(defn) => defn.entity_path(db),
         }
     }
 }
